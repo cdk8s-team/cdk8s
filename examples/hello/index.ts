@@ -1,5 +1,5 @@
 import { App, Construct } from '@aws-cdk/core';
-import { Stack, KubService, KubDeployment } from '../lib';
+import { Stack, KubService, KubDeployment } from '../../lib';
 
 export class HelloKube extends Stack {
   constructor(scope: Construct, id: string) {
@@ -36,5 +36,5 @@ export class HelloKube extends Stack {
 }
 
 const app = new App({ outdir: 'cdk.out' });
-new HelloKube(app, 'hellowwwww');
+new HelloKube(app, 'hello-example');
 app.synth();
