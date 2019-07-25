@@ -155,6 +155,9 @@ kubernetes                  ClusterIP      172.20.0.1     <none>                
 
 And then, hit it with your browser!
 
+You can find this example under [`examples/hello`](./examples/hello). Use the
+`apply.sh` script to synthesize and apply to your cluster.
+
 ## License
 
 Apache-2.0

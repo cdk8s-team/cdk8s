@@ -1,3 +1,4 @@
+cdk.out
 *.d.ts
 *.js
 lib/.generated
