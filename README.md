@@ -134,10 +134,10 @@ rich object-oriented experience (since it is based purely on the backend API),
 there is a good chance that we will be able to offer a richer API on top of
 these that will offer a much better experience for developers.
 
+### App
+
 OK, now that we have our stack defined, let's go back to our application's entry
 point (under `bin/`) and replace the code with:
-
-### App
 
 ```ts
 import { App, Stack } from '@aws-cdk/core';
@@ -155,7 +155,7 @@ app.synth();
 Okay, we are ready to synthesize our first stack. Back to your terminal:
 
 ```console
-$ node bin/hellowwwww-k8scdk.js
+$ node bin/hello-k8scdk.js
 ```
 
 This should create a new directory `cdk.out` with a file `hello.k8s.yaml`
@@ -182,13 +182,7 @@ And then, hit it with your browser!
 
 You can find this example under [`examples/hello`](./examples/hello).
 
-Use the `apply.sh` script to synthesize and apply to your cluster:
-
-```bash
-#!/bin/bash
-node hello-k8s.js
-kubectl apply -f cdk.out/hellowwwww.k8s.yaml
-```
+Use the `apply.sh` script to synthesize and apply to your cluster. 
 
 ### Constructs
 
@@ -201,8 +195,9 @@ programmatically defined Helm Charts. The nice thing about constructs being
 "programmatically defined" is that we can leverage the full power of object-oriented
 programming. For example:
 
-* We can to express the abstraction's API using strong-typed data types,
-* We can include methods, create polymorphic programming models through interfaces and base classes
+* We can to express the abstraction's API using strong-typed data types
+* We can express rich interactions with methods and properties
+* We can create polymorphic programming models through interfaces and base classes
 * Share them through regular package managers
 * Test them using our familiar testing tools and techniques
 * Version them
@@ -300,7 +295,7 @@ export class WebService extends Construct {
 }
 ```
 
-But now, we have a new abstraction that we can use:
+So now we have a new abstraction that we can use:
 
 ```ts
 import { App, Construct } from '@aws-cdk/core';
