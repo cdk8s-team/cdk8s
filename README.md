@@ -1,5 +1,7 @@
 # Kubernetes Cloud Development Kit
 
+![Stability: Experimental](https://img.shields.io/badge/stability-Experimental-important.svg?style=for-the-badge)
+
 > Programmatically define Kubernetes applications using familiar programming
 > languages.
 
@@ -39,6 +41,19 @@ Let's walk through a simple "Hello, World!" example. We will use the AWS CDK CLI
 to initialize a new project and synthesize our Kubernetes CDK stacks, but we
 will apply them using `kubectl` to our cluster.
 
+### (temporary) Build k8scdk Locally
+
+Since this module is still not published, you will need to first build it locally and link against the local version.
+
+```console
+$ git clone git@github.com:eladb/k8scdk
+$ cdk k8scdk
+$ npm i 
+$ npm run build
+$ npm link .
+```
+
+
 ### New Project
 
 Create a new CDK project (we'll use TypeScript):
@@ -48,10 +63,10 @@ $ mkdir hello-k8scdk
 $ cdk init -l typescript
 ```
 
-Install the `k8scdk` module:
+Install the `k8scdk` module from the local link:
 
 ```console
-$ npm i k8scdk
+$ npm link k8scdk
 ```
 
 ### Stacks
@@ -305,6 +320,30 @@ const app = new App({ outdir: 'cdk.out' });
 new MyStack(app, 'web-service-example');
 app.synth();
 ```
+
+## TODO
+
+This is very preliminary work. There is a lot more to do:
+
+Non-exhaustive, unordered, list:
+
+- [ ] Generate Jsii-compatible interfaces from api spec
+- [ ] Generate L1 construct classes for entire surface
+- [ ] References and dependnecies between resources and stacks. Is this something that people need in k8s? Who will deployment work then?
+- [ ] Support helm charts
+- [ ] Consider if we really need L2s here
+- [ ] AWS CDK interoperability: “kubectl apply” in CFN custom resource
+- [ ] Real world pure example and example that uses AWS resources
+- [ ] synth/deploy CLI (apply.sh)
+- [ ] Resource removal
+- [ ] Is `Stack` a good name?
+- [ ] k8scdk or cdkk8s?
+- [ ] Build in jsii
+- [ ] Docker/ECR asset support with AWS CDK
+- [ ] Setup CI
+- [ ] Contribution Guide
+- [ ] awslint-thing if we do L2
+
 
 ## License
 
