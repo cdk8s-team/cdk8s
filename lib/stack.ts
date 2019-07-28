@@ -5,8 +5,17 @@ import { KubResource } from './resource';
 const YAML = require('yaml');
 
 export class Stack extends Construct {
+
+  /**
+   * The name of the stack's YAML file as emitted into the cloud assembly
+   * directory during synthesis.
+   */
+  public readonly assemblyFileName: string;
+
   constructor(scope: Construct, id: string) {
     super(scope, id);
+
+    this.assemblyFileName = `${this.node.uniqueId}.k8s.yaml`;
   }
 
   protected synthesize(session: ISynthesisSession) {
@@ -17,6 +26,6 @@ export class Stack extends Construct {
     }
 
     const doc = resources.map(r => YAML.stringify(r)).join('---\n');
-    fs.writeFileSync(path.join(session.assembly.outdir, `${this.node.uniqueId}.k8s.yaml`), doc);
+    fs.writeFileSync(path.join(session.assembly.outdir, this.assemblyFileName), doc);
   }
 }

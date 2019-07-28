@@ -1,0 +1,29 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+     - image: eladb/superchain
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: npm install
+      - run:
+          name: build
+          command: npm run build
+      - run:
+          name: test
+          command: npm test
+      # - run:
+      #     name: package
+      #     command: npm run package
+      # - run:
+      #     name: publish to npm
+      #     command: |
+      #       echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      #       npm publish dist/js/*
+      # - run:
+      #     name: publish to pypi
+      #     command: |
+      #       python3 -m pip install --user --upgrade twine
+      #       python3 -m twine upload dist/python/*

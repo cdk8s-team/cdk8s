@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`empty stack 1`] = `
+Array [
+  null,
+]
+`;
+
+exports[`output includes all synthesized resources 1`] = `
+Array [
+  Object {
+    "apiVersion": "v1",
+    "kind": "Resource1",
+    "metadata": Object {
+      "name": "testresource156b797a3",
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Resource2",
+    "metadata": Object {
+      "name": "testresource2fa260d39",
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Resource3",
+    "metadata": Object {
+      "name": "testresource3e1820168",
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Resource1",
+    "metadata": Object {
+      "name": "testscoperesource17339213a",
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Resource2",
+    "metadata": Object {
+      "name": "testscoperesource2ea6a0cff",
+    },
+  },
+]
+`;
