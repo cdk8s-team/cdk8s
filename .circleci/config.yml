@@ -2,7 +2,7 @@ version: 2.0
 jobs:
   build:
     docker:
-     - image: eladb/superchain
+     - image: romainmuller/superchain
     steps:
       - checkout
       - run:
