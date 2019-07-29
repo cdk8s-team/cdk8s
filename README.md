@@ -340,7 +340,7 @@ Non-exhaustive, unordered, list:
 - [ ] Setup CI
 - [ ] Contribution Guide
 - [ ] awslint-thing if we do L2
-
+- [ ] Support resources that depend on things like Tiller, istio
 
 ## License
 
