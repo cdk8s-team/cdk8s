@@ -41,10 +41,16 @@ export class KubResource extends Construct {
    */
   public readonly name: string;
 
+  public readonly apiVersion: string;
+  public readonly kind: string;
+
   private readonly metadata: ObjectmetaMetaV1;
 
   constructor(scope: Construct, id: string, private readonly props: KubResourceProps) {
     super(scope, id);
+
+    this.kind = props.kind;
+    this.apiVersion = props.apiVersion;
 
     this.metadata = props.metadata || {};
     this.metadata.name = this.metadata.name || this.node.uniqueId.toLowerCase();

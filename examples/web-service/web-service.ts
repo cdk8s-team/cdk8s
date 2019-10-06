@@ -38,27 +38,31 @@ export class WebService extends Construct {
     const label = { app: this.node.uniqueId };
 
     new KubService(this, 'service', {
-      type: 'LoadBalancer',
-      ports: [ { port, targetPort: containerPort } ],
-      selector: label
+      spec: {
+        type: 'LoadBalancer',
+        ports: [ { port, targetPort: containerPort } ],
+        selector: label
+      }
     });
 
     new KubDeployment(this, 'deployment', {
-      replicas: 1,
-      selector: {
-        matchLabels: label
-      },
-      template: {
-        metadata: { labels: label },
-        spec: {
-          containers: [
-            {
-              name: 'web',
-              image: options.image,
-              ports: [ { containerPort } ]
-            }
-          ]
-        }
+      spec: {
+        replicas: 1,
+        selector: {
+          matchLabels: label
+        },
+        template: {
+          metadata: { labels: label },
+          spec: {
+            containers: [
+              {
+                name: 'web',
+                image: options.image,
+                ports: [ { containerPort } ]
+              }
+            ]
+          }
+        }  
       }
     });
   }
