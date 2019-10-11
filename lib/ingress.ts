@@ -1,15 +1,15 @@
-import { KubResource } from './resource';
+import { ApiObject } from './api-object';
 import { Construct } from '@aws-cdk/core';
-import { IngressExtensionsV1Beta1 } from './.generated/ingress-extensions-v1beta1';
+import { IngressspecExtensionsV1Beta1 } from './.generated/ingressspec-extensions-v1beta1';
 import { ObjectmetaMetaV1 } from './.generated/objectmeta-meta-v1';
 
-export interface KubIngressOptions {
-  readonly spec: IngressExtensionsV1Beta1;
+export interface IngressObjectOptions {
+  readonly spec: IngressspecExtensionsV1Beta1;
   readonly metadata: ObjectmetaMetaV1;
 }
 
-export class KubIngress extends KubResource {
-  constructor(scope: Construct, id: string, options: KubIngressOptions) {
+export class IngressObject extends ApiObject {
+  constructor(scope: Construct, id: string, options: IngressObjectOptions) {
     super(scope, id, {
       apiVersion: 'extensions/v1beta1',
       kind: 'Ingress',

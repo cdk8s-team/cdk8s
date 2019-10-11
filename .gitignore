@@ -1,3 +1,5 @@
+.vscode/
+
 cdk.out
 *.d.ts
 *.js

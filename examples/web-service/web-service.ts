@@ -1,29 +1,24 @@
 import { Construct } from '@aws-cdk/core';
-import { KubService, KubDeployment } from '../../lib';
+import { ServiceObject, DeploymentObject } from '../../lib';
 
 export interface WebServiceOptions {
-  /**
-   * The Docker image to use for this service.
-   */
-  readonly image: string;
+  /** The Docker image to use for this service. */
+  readonly image: string; // docker image to use for this service
 
   /**
    * Number of replicas.
-   *
    * @default 1
    */
   readonly replicas?: number;
 
   /**
    * External port.
-   *
    * @default 80
    */
   readonly port?: number;
 
   /**
    * Internal port.
-   *
    * @default 8080
    */
   readonly containerPort?: number;
@@ -37,7 +32,7 @@ export class WebService extends Construct {
     const containerPort = options.containerPort || 8080;
     const label = { app: this.node.uniqueId };
 
-    new KubService(this, 'service', {
+    new ServiceObject(this, 'service', {
       spec: {
         type: 'LoadBalancer',
         ports: [ { port, targetPort: containerPort } ],
@@ -45,7 +40,7 @@ export class WebService extends Construct {
       }
     });
 
-    new KubDeployment(this, 'deployment', {
+    new DeploymentObject(this, 'deployment', {
       spec: {
         replicas: 1,
         selector: {

@@ -1,9 +1,9 @@
 import { Construct } from '@aws-cdk/core';
 import { ObjectmetaMetaV1 } from './.generated/objectmeta-meta-v1';
 
-export interface KubResourceProps {
+export interface ApiObjectProps {
   /**
-   * The resource API spec.
+   * The API object spec.
    */
   readonly spec?: any;
 
@@ -23,7 +23,7 @@ export interface KubResourceProps {
   readonly apiVersion: string;
 
   /**
-   s* Object metadata.
+   * Object metadata.
    *
    * If `name` is not specified, an app-unique name will be allocated by the
    * framework based on the path of the construct within thes construct tree.
@@ -31,12 +31,12 @@ export interface KubResourceProps {
   readonly metadata?: ObjectmetaMetaV1;
 }
 
-export class KubResource extends Construct {
+export class ApiObject extends Construct {
 
   /**
-   * The app-unique name of the resource.
+   * The app-unique name of the object.
    *
-   * The name is allocated based on the path of the resource construct within the
+   * The name is allocated based on the path of the object construct within the
    * construct tree.
    */
   public readonly name: string;
@@ -46,7 +46,7 @@ export class KubResource extends Construct {
 
   private readonly metadata: ObjectmetaMetaV1;
 
-  constructor(scope: Construct, id: string, private readonly props: KubResourceProps) {
+  constructor(scope: Construct, id: string, private readonly props: ApiObjectProps) {
     super(scope, id);
 
     this.kind = props.kind;
@@ -57,7 +57,7 @@ export class KubResource extends Construct {
   }
 
   /**
-   * Renders the resource to Kubernetes config.
+   * Renders the object to Kubernetes config.
    */
   public render(): any {
     return removeEmpty({

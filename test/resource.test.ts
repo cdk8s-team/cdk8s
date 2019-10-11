@@ -1,12 +1,12 @@
-import { KubResource, Stack } from '../lib';
+import { ApiObject, Chart } from '../lib';
 import { App, Construct } from '@aws-cdk/core';
 import { synth } from './util';
 
 test('minimal configuration', () => {
   const app = new App();
-  const stack = new Stack(app, 'test');
+  const stack = new Chart(app, 'test');
 
-  new KubResource(stack, 'MyResource', {
+  new ApiObject(stack, 'MyResource', {
     apiVersion: 'v1',
     kind: 'MyResource'
   });
@@ -17,8 +17,8 @@ test('minimal configuration', () => {
 test('synthesized resource name is based on path', () => {
   // GIVEN
   const app = new App();
-  const stack = new Stack(app, 'test');
-  new KubResource(stack, 'MyResource', {
+  const stack = new Chart(app, 'test');
+  new ApiObject(stack, 'MyResource', {
     apiVersion: 'v1',
     kind: 'MyResource'
   });
@@ -26,7 +26,7 @@ test('synthesized resource name is based on path', () => {
   // WHEN
   // now create another resource with the same namespace but within a sub-scope
   const scope = new Construct(stack, 'Scope');
-  new KubResource(scope, 'MyResource', {
+  new ApiObject(scope, 'MyResource', {
     apiVersion: 'v1',
     kind: 'MyResource'
   });
@@ -38,10 +38,10 @@ test('synthesized resource name is based on path', () => {
 test('if name is explicitly specified it will be respected', () => {
   // GIVEN
   const app = new App();
-  const stack = new Stack(app, 'test');
+  const stack = new Chart(app, 'test');
 
   // WHEN
-  new KubResource(stack, 'MyResource', {
+  new ApiObject(stack, 'MyResource', {
     kind: 'MyResource',
     apiVersion: 'v1',
     metadata: {
@@ -56,10 +56,10 @@ test('if name is explicitly specified it will be respected', () => {
 test('"spec" is synthesized as-is', () => {
   // GIVEN
   const app = new App();
-  const stack = new Stack(app, 'test');
+  const stack = new Chart(app, 'test');
 
   // WHEN
-  new KubResource(stack, 'resource', {
+  new ApiObject(stack, 'resource', {
     kind: 'ResourceType',
     apiVersion: 'v1',
     spec: {
@@ -77,10 +77,10 @@ test('"spec" is synthesized as-is', () => {
 test('"data" can be used to specify resource data', () => {
   // GIVEN
   const app = new App();
-  const stack = new Stack(app, 'test');
+  const stack = new Chart(app, 'test');
 
   // WHEN
-  new KubResource(stack, 'resource', {
+  new ApiObject(stack, 'resource', {
     kind: 'ResourceType',
     apiVersion: 'v1',
     data: {

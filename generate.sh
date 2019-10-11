@@ -22,4 +22,4 @@ gen objectmeta-meta-v1
 gen servicespec-v1
 gen configmap-v1
 gen horizontalpodautoscaler-autoscaling-v2beta1
-gen ingress-extensions-v1beta1
+gen ingressspec-extensions-v1beta1

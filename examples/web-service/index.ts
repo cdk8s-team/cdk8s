@@ -1,8 +1,8 @@
 import { App, Construct } from '@aws-cdk/core';
-import { Stack } from '../../lib';
+import { Chart } from '../../lib';
 import { WebService } from './web-service';
 
-class MyStack extends Stack {
+class MyChart extends Chart {
   constructor(scope: Construct, ns: string) {
     super(scope, ns);
 
@@ -19,5 +19,5 @@ class MyStack extends Stack {
 }
 
 const app = new App({ outdir: 'cdk.out' });
-new MyStack(app, 'web-service-example');
+new MyChart(app, 'web-service-example');
 app.synth();

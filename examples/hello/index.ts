@@ -1,13 +1,13 @@
 import { App, Construct } from '@aws-cdk/core';
-import { Stack, KubService, KubDeployment } from '../../lib';
+import { Chart, ServiceObject, DeploymentObject } from '../../lib';
 
-export class HelloKube extends Stack {
+export class HelloKube extends Chart {
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
     const label = { app: 'hello-k8s' };
 
-    new KubService(this, 'service', {
+    new ServiceObject(this, 'service', {
       spec: {
         type: 'LoadBalancer',
         ports: [ { port: 80, targetPort: 8080 } ],
@@ -15,7 +15,7 @@ export class HelloKube extends Stack {
       }
     });
 
-    new KubDeployment(this, 'deployment', {
+    new DeploymentObject(this, 'deployment', {
       spec: {
         replicas: 1,
         selector: {
@@ -35,7 +35,6 @@ export class HelloKube extends Stack {
         }
       }
     });
-
   }
 }
 

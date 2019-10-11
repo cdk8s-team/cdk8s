@@ -1,13 +1,13 @@
 import { Construct } from '@aws-cdk/core';
-import { KubHorizontalPodAutoscaler } from '../../lib/horizontal-pod-autoscaler';
-import { Service } from './service';
+import { HorizontalPodAutoscalerObject } from '../../../lib/horizontal-pod-autoscaler';
 
-export interface AutoscalerOptions {
-  /**
-   * The service to auto-scale.
-   */
-  readonly service: Service;
+export interface ScaleTarget {
+  readonly apiVersion: string;
+  readonly kind: string;
+  readonly name: string;
+}
 
+export interface AutoscalingOptions {
   /**
    * target CPU usage per pod
    */
@@ -34,13 +34,24 @@ export interface AutoscalerOptions {
   readonly minReplicas?: number;
 }
 
+export interface AutoscalerOptions extends AutoscalingOptions {
+  /**
+   * The scaling target.
+   */
+  readonly target: ScaleTarget;
+}
+
 export class Autoscaler extends Construct {
   constructor(scope: Construct, id: string, options: AutoscalerOptions) {
     super(scope, id);
 
-    new KubHorizontalPodAutoscaler(this, 'Default', {
+    new HorizontalPodAutoscalerObject(this, 'Default', {
       spec: {
-        scaleTargetRef: options.service.scaleTargetRef,
+        scaleTargetRef: {
+          apiVersion: options.target.apiVersion,
+          kind: options.target.kind,
+          name: options.target.name
+        },
         minReplicas: options.minReplicas || 2,
         maxReplicas: options.maxReplicas || 10,
         metrics: [

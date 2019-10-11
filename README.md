@@ -324,6 +324,7 @@ This is very preliminary work. There is a lot more to do:
 
 Non-exhaustive, unordered, list:
 
+- [ ] [Constructs as Operators](docs/construct-operator.md)
 - [ ] Generate Jsii-compatible interfaces from api spec
 - [ ] Generate L1 construct classes for entire surface
 - [ ] References and dependnecies between resources and stacks. Is this something that people need in k8s? Who will deployment work then?
