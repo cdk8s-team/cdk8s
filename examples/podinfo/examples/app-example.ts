@@ -7,22 +7,23 @@ class MyChart extends Chart {
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
-    const dep = new Deployment(this, 'Deployment', {
-      autoScaling: false
+    const podinfo = new PodinfoContainer({
+      message: 'this is my podinfo message!',
+      faultError: true
+    });
+
+    const deployment = new Deployment(this, 'Deployment', {
+      containers: [ podinfo ],
+      autoScalingOptions: {
+        minReplicas: 2,
+        maxReplicas: 100,
+        cpu: 80
+      }
     });
 
     new Service(this, 'Service', {
-      selector: dep.podSelector,
-      ingress: true
-    });
-
-    dep.addContainer(new PodinfoContainer({
-      message: 'Hello, podinfo!',
-    }));
-
-    new Service(this, 'Service', {
-      selector: dep.podSelector,
-      ingress: true,
+      selector: deployment,
+      ingress: true 
     });
   }
 }

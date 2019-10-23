@@ -2,8 +2,7 @@ import { Construct, ISynthesisSession } from '@aws-cdk/core';
 import fs = require('fs');
 import path = require('path');
 import { ApiObject } from './api-object';
-const yaml = require('js-yaml');
-
+import YAML = require('yaml');
 
 export class Chart extends Construct {
 
@@ -22,11 +21,19 @@ export class Chart extends Construct {
   protected synthesize(session: ISynthesisSession) {
     const resources = new Array<any>();
 
-    for (const resource of this.node.findAll().filter(x => x instanceof ApiObject)) {
-      resources.push((resource as ApiObject).render());
+    for (const resource of this.node.findAll()) {
+      if (resource instanceof ApiObject) {
+        resources.push(resource.render());
+      }
     }
 
-    const doc = resources.map(r => yaml.dump(r, { skipInvalid: true })).join('---\n');
+    const doc = resources.map(r => toYaml(r)).join('---\n');
     fs.writeFileSync(path.join(session.assembly.outdir, this.assemblyFileName), doc);
   }
+}
+
+function toYaml(o: any) {
+  // lose anchors which are based on reference equality
+  const x = JSON.parse(JSON.stringify(o));
+  return YAML.stringify(x);
 }

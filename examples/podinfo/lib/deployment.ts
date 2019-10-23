@@ -2,6 +2,7 @@ import { Construct } from '@aws-cdk/core';
 import { DeploymentObject as DeploymentObject, ApiObject } from '../../../lib';
 import { Autoscaler, AutoscalingOptions } from './autoscaler';
 import { Container, ContainerSpec } from './container';
+import { ISelector } from './service';
 
 export interface DeploymentOptions {
   /**
@@ -26,12 +27,12 @@ export interface DeploymentOptions {
   /**
    * Indicates whether to enable pod autoscaling.
    * 
-   * @default true
+   * @default - false unless `autoScalingOptions` is set
    */
   readonly autoScaling?: boolean;
 
   /**
-   * Options for autoscaling. Can only be specified if `autoScaling` is enabled.
+   * Options for autoscaling. If this is used without speci
    * @default - see default autoscaler options
    */
   readonly autoScalingOptions?: AutoscalingOptions;
@@ -50,9 +51,14 @@ export interface DeploymentOptions {
    * Labels to add to the deployment and to all pods in the deployment.
    */
   readonly labels?: { [key: string]: any };
+
+  /**
+   * Containers to add to this deployment. You can add additional containers through `addContaienr`.
+   */
+  readonly containers?: Container[];
 }
 
-export class Deployment extends Construct {
+export class Deployment extends Construct implements ISelector {
   private readonly containers = new Array<ContainerSpec>();
   private readonly volumes = new Array<{ name: string, emptyDir: {} }>();
   private readonly annotations: { [key: string]: any } = { };
@@ -60,15 +66,15 @@ export class Deployment extends Construct {
   /**
    * A list of labels that can be used to select the pods in this deployment.
    */
-  public readonly podSelector: { [key: string]: any };
+  public readonly selector: { [key: string]: any };
 
   constructor(scope: Construct, ns: string, options: DeploymentOptions = { }) {
     super(scope, ns);
 
-    const autoScaling = options.autoScaling === undefined ? true : options.autoScaling;
+    let autoScaling = options.autoScaling === undefined ? false : options.autoScaling;
 
     if (!autoScaling && options.autoScalingOptions) {
-      throw new Error(`can't specify "autoScalingOptions" when auto-scaling is disabled`);
+      autoScaling = true;
     }
 
     if (autoScaling && options.replicaCount !== undefined) {
@@ -76,13 +82,9 @@ export class Deployment extends Construct {
     }
 
     //
-    // parse options
-
-
-    //
     // labels
 
-    this.podSelector = { 
+    this.selector = { 
       deploymentId: this.node.uniqueId,
       ...options.labels
     };
@@ -101,11 +103,11 @@ export class Deployment extends Construct {
           rollingUpdate: { maxUnavailable: 1 }
         },
         selector: {
-          matchLabels: this.podSelector
+          matchLabels: this.selector
         },
         template: {
           metadata: {
-            labels: this.podSelector,
+            labels: this.selector,
             annotations: this.annotations
           },
           spec: {
@@ -125,6 +127,12 @@ export class Deployment extends Construct {
         target: deployment,
         ...options.autoScalingOptions
       });
+    }
+
+    if (options.containers) {
+      for (const c of options.containers) {
+        this.addContainer(c);
+      }
     }
   }
 

@@ -1,5 +1,6 @@
 import { Construct } from '@aws-cdk/core';
 import { ObjectmetaMetaV1 } from './.generated/objectmeta-meta-v1';
+import { removeEmpty } from './util';
 
 export interface ApiObjectProps {
   /**
@@ -70,14 +71,3 @@ export class ApiObject extends Construct {
   }
 }
 
-function removeEmpty(obj: any) {
-  Object.entries(obj).forEach(([ key, value ]) => {
-    if (!Array.isArray(obj) && typeof value === 'object') {
-      removeEmpty(value);
-    }
-    else if (value == null) {
-      delete obj[key];
-    }
-  });
-  return obj;
-};

@@ -2,6 +2,10 @@ import { Construct } from "@aws-cdk/core";
 import { ServiceObject as ServiceApiObject } from '../../../lib';
 import { Ingress, IngressOptions } from "./ingress";
 
+export interface ISelector {
+  readonly selector: { [key: string]: string };
+}
+
 export interface ServiceOptions {
   readonly labels?: { [key: string]: string };
 
@@ -31,11 +35,12 @@ export interface ServiceOptions {
    * selector. If empty or not present, the service is assumed to have an
    * external process managing its endpoints, which Kubernetes will not modify.
    */
-  readonly selector: { [key: string]: string };
+  readonly selector: ISelector;
 
   /**
-   * Enables ingress
-   * 
+   * Adds an ingress controller that routes traffic to this service. Use
+   * `ingressOptions ` to specify additional ingress options.
+   *
    * @default false
    */
   readonly ingress?: boolean;
@@ -81,7 +86,7 @@ export class Service extends Construct {
       },
       spec: {
         type: serviceType,
-        selector: options.selector,
+        selector: options.selector.selector,
         ports: this.ports
       }
     });
