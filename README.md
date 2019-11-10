@@ -1,9 +1,8 @@
-# Kubernetes Cloud Development Kit
+# kubesynth
 
 [![CircleCI](https://circleci.com/gh/eladb/k8scdk.svg?style=svg&circle-token=c337eb1f8466bbe8e5451aae5a7fcdc5b8d4ca1a)](https://circleci.com/gh/eladb/k8scdk)
 
-> Programmatically define Kubernetes applications using familiar programming
-> languages.
+> Programmatically define Kubernetes manifests using familiar programming languages.
 
 ![Stability: Experimental](https://img.shields.io/badge/stability-Experimental-important.svg?style=for-the-badge)
 
