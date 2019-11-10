@@ -1,6 +1,6 @@
 # kubesynth
 
-[![CircleCI](https://circleci.com/gh/eladb/k8scdk.svg?style=svg&circle-token=c337eb1f8466bbe8e5451aae5a7fcdc5b8d4ca1a)](https://circleci.com/gh/eladb/k8scdk)
+[![CircleCI](https://circleci.com/gh/eladb/kubesynth.svg?style=svg&circle-token=c337eb1f8466bbe8e5451aae5a7fcdc5b8d4ca1a)](https://circleci.com/gh/eladb/kubesynth)
 
 > Programmatically define Kubernetes manifests using familiar programming languages.
 
