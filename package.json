@@ -1,7 +1,7 @@
 {
-  "name": "k8scdk",
+  "name": "kubesynth",
   "version": "0.1.0",
-  "description": "Kubernetes Cloud Development Kit (CDK)",
+  "description": "Programmatically define Kubernetes manifests using familiar programming languages",
   "scripts": {
     "build": "./generate.sh && tsc",
     "watch": "tsc -w",

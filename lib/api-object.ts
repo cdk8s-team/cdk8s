@@ -55,6 +55,7 @@ export class ApiObject extends Construct {
 
     this.metadata = props.metadata || {};
     this.metadata.name = this.metadata.name || this.node.uniqueId.toLowerCase();
+    this.name = this.metadata.name;
   }
 
   /**
