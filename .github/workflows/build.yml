@@ -17,3 +17,11 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
+      - name: Package
+        run: yarn package
+      - name: Publish
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" > ~/.npmrc
+          npm publish
+
+          
