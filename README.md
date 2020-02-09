@@ -1,38 +1,42 @@
-# kubesynth
+# cdk8s
 
-[![CircleCI](https://circleci.com/gh/eladb/kubesynth.svg?style=svg&circle-token=c337eb1f8466bbe8e5451aae5a7fcdc5b8d4ca1a)](https://circleci.com/gh/eladb/kubesynth)
+> Cloud Development Kit for Kubernetes
 
-> Programmatically define Kubernetes manifests using familiar programming languages.
+![Stability:
+Experimental](https://img.shields.io/badge/stability-Experimental-important.svg?style=for-the-badge)
 
-![Stability: Experimental](https://img.shields.io/badge/stability-Experimental-important.svg?style=for-the-badge)
+**cdk8s** is a software development framework for defining Kubernetes
+applications using rich object-oriented APIs. It allows developers to leverage
+the full power of software in order to define abstract components called
+"constructs" which compose Kubernetes resources or other constructs into
+higher-level abstractions.
 
-**kubesynth** is a software development framework for defining k8s applications using rich object-oriented APIs. It
-allows developers to leverage the full power of software in order to define
-abstract components called "constructs" which compose k8s resources or other
-constructs into higher-level abstractions.
+- [Getting Started](#getting-started)
+- [Getting Help](#getting-help)
+- [Contributions](#contributions)
+- [Roadmap](#roadmap)
+- [License](#license)
 
-**kubesynth** is based on the same design and technologies that are used to
-for the [AWS Cloud Development Kit](https://aws.amazon.com/cdk), and can interoperate 
-with AWS CDK constructs to define cloud-native applications that include both Kubernetes 
-resources and AWS resources as first class citizens.
-
-## Approach
-
-kubesynth apps are programs written in one of the supported programming
-languages. They are structured as a tree of ["constructs"](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html).
+cdk8s apps are programs written in one of the supported programming languages.
+They are structured as a tree of
+[constructs](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html).
 
 The root of the tree is an `App` construct. Within an app, users define any
-number of charts (classes that extend the `Chart` class). Each chart is synthesized into a separate Kubernetes manifest file.
+number of charts (classes that extend the `Chart` class). Each chart is
+synthesized into a separate Kubernetes manifest file. Charts are, in turn,
+composed of any number of constructs, and eventually from resources, which
+represent any Kubernetes resource, such as `Pod`, `Service`, `Deployment`,
+`ReplicaSet`, etc.
 
-Charts are, in turn, composed of any number of constructs, and eventually from
-resources, which represent any Kubernetes resource, such as `Pod`, `Service`,
-`Deployment`, `ReplicaSet`, etc.
-
-kubesynth apps only _define_ Kubernetes applications, they don't actually apply them
-to the cluster. When an app is executed, it *synthesizes* all the charts defined
-within the app into the `dist` directory, and then those charts can be
+cdk8s apps only ***define*** Kubernetes applications, they don't actually apply
+them to the cluster. When an app is executed, it *synthesizes* all the charts
+defined within the app into the `dist` directory, and then those charts can be
 applied to any Kubernetes cluster using `kubectl apply -f dist/chart.k8s.yaml`.
 
+> **cdk8s** is based on the design concepts and technologies behind the [AWS
+Cloud Development Kit](https://aws.amazon.com/cdk), and can interoperate with
+AWS CDK constructs to define cloud-native applications that include both
+Kubernetes resources and other CDK constructs as first class citizens.
 
 ## Getting Started
 
@@ -43,13 +47,14 @@ Let's walk through a simple "Hello, World!" example in TypeScript.
  - [Node.js 12.x](https://nodejs.org/en/)
  - [yarn](https://yarnpkg.com/lang/en/)
 
-### (temporary) Build kubesynth Locally
+### (temporary) Build cdk8s Locally
 
-Since this module is still not published, you will need to first build it locally and link against the local version.
+Since this module is still not published, you will need to first build it
+locally and link against the local version.
 
 ```console
-$ git clone git@github.com:eladb/kubesynth
-$ cdk kubesynth
+$ git clone git@github.com:awslabs/cdk8s
+$ cdk cdk8s
 $ yarn install
 $ yarn build
 $ yarn link
@@ -57,11 +62,11 @@ $ yarn link
 
 ### New Project
 
-Create a new kubesynth project (we'll use TypeScript):
+Create a new cdk8s project (we'll use TypeScript):
 
 ```console
-$ mkdir hello-kubesynth
-$ cd hello-kubesynth
+$ mkdir hello-cdk8s
+$ cd hello-cdk8s
 $ yarn init -y
 ```
 
@@ -72,20 +77,21 @@ $ yarn add -D typescript @types/node
 $ curl -o tsconfig.json https://gist.githubusercontent.com/eladb/85502ca35543eda6c0d728358f3d3568/raw
 ```
 
-Install the `constructs`:
+Install the `constructs` module:
 
 ```console
 $ yarn add @aws-cdk/core
 ```
 
-> We temporary depend on @aws-cdk/core for the `Construct` base class, but we intent to extract this class into a separate module called `constructs`.
+> We temporary depend on `@aws-cdk/core` for the `Construct` base class, but we
+> intent to extract this class into a separate module called `constructs`.
 
 
-Install the `kubesynth` module from the local link:
+Install the `cdk8s` module from the local link:
 
 
 ```console
-$ yarn link kubesynth
+$ yarn link cdk8s
 ```
 
 Add a bunch of npm scripts for "build", "watch" and "synth":
@@ -96,14 +102,17 @@ $ npx npm-add-script -k watch -v "tsc -w"
 $ npx npm-add-script -k synth -v "node ./main.js"
 ```
 
-### Charts
+### Concepts
 
-kubesynth synthesizes a Kubernetes manifest for each `Chart` in the app. Let's create our first chart.
+**Charts**
+
+cdk8s synthesizes a Kubernetes manifest for each `Chart` in the app. Let's
+create our first chart.
 
 Create a file `lib/hello-chart.ts` with the following contents:
 
 ```ts
-import { Chart } from 'kubesynth';
+import { Chart } from 'cdk8s';
 import { App, Construct } from '@aws-cdk/core';
 
 export class HelloKube extends Chart {
@@ -114,16 +123,21 @@ export class HelloKube extends Chart {
 }
 ```
 
-### Resources
+**Resources**
 
-Now, inside your chart, define the service and deployment resources. Import the `ServiceObject` and `DeploymentObject` constructs
-from `kubesynth`. They represent the [Service](https://kubernetes.io/docs/concepts/services-networking/service) and [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment) Kubernetes API objects.
+Now, inside your chart, define the service and deployment resources. Import the
+`ServiceObject` and `DeploymentObject` constructs from `cdk8s`. They represent
+the [Service](https://kubernetes.io/docs/concepts/services-networking/service)
+and
+[Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
+Kubernetes API objects.
 
 ```ts
-import { Chart, DeploymentObject, ServiceObject } from 'kubesynth';
+import { Chart, DeploymentObject, ServiceObject } from 'cdk8s';
 ```
 
-The following example is identical to defining the YAML described in https://github.com/paulbouwer/hello-kubernetes:
+The following example is identical to defining the YAML described in
+https://github.com/paulbouwer/hello-kubernetes:
 
 ```ts
 const label = { app: 'hello-k8s' };
@@ -158,9 +172,10 @@ new DeploymentObject(this, 'deployment', {
 });
 ```
 
-### App
+**App**
 
-OK, now that we have our chart defined, let's create an `index.ts` at the root of the repo:
+OK, now that we have our chart defined, let's create an `index.ts` at the root
+of the repo:
 
 ```ts
 import { App } from '@aws-cdk/core';
@@ -173,7 +188,7 @@ new HelloKube(app, 'hellowwwww');
 app.synth();
 ```
 
-### Build
+### Synthesize
 
 Compile your typescript code:
 
@@ -181,17 +196,16 @@ Compile your typescript code:
 $ yarn build
 ```
 
-### Synthesize
-
-Now, we are ready to synthesize our Kubernetes manifests for our app. To do that, we simply need
-to execute our program. The script `synthesize` that we added earlier will do that for us:
+Now, we are ready to synthesize our Kubernetes manifests for our app. To do
+that, we simply need to execute our program. The script `synthesize` that we
+added earlier will do that for us:
 
 ```console
 $ yarn synth
 ```
 
-This should create a new directory `dist` with a file `hello.k8s.yaml`
-that contains the synthesized list of resources.
+This should create a new directory `dist` with a file `hello.k8s.yaml` that
+contains the synthesized list of resources.
 
 ### Deploy
 
@@ -218,26 +232,30 @@ You can find this example under [`examples/hello`](./examples/hello).
 
 Use the `apply.sh` script to synthesize and apply to your cluster. 
 
-### Constructs
+### Custom Constructs
 
-Constructs are the basic building block of kubesynth. They are the instrument that enables composition and creation of higher-level
-abstractions through normal object-oriented classes.
+Constructs are the basic building block of cdk8s. They are the instrument that
+enables composition and creation of higher-level abstractions through normal
+object-oriented classes.
 
 If you come from the Kubernetes world, you can think of constructs as
 programmatically defined Helm Charts. The nice thing about constructs being
-"programmatically defined" is that we can leverage the full power of object-oriented
-programming. For example:
+"programmatically defined" is that we can leverage the full power of
+object-oriented programming. For example:
 
 * We can to express the abstraction's API using strong-typed data types
 * We can express rich interactions with methods and properties
-* We can create polymorphic programming models through interfaces and base classes
+* We can create polymorphic programming models through interfaces and base
+  classes
 * Share them through regular package managers
 * Test them using our familiar testing tools and techniques
 * Version them
-* ...and all that stuff that we've been doing with software in the past 20 years.
+* ...and all that stuff that we've been doing with software in the past 20
+  years.
 
-So let's create our first Kubernetes construct. We'll call it `WebService` and it will basically
-be a generalization of the hello world program. It's actually quite useful.
+So let's create our first Kubernetes construct. We'll call it `WebService` and
+it will basically be a generalization of the hello world program. It's actually
+quite useful.
 
 For example, this one line will add a hello world service to our chart:
 
@@ -262,7 +280,7 @@ The implementation of `WebService` is trivial:
 
 ```ts
 import { Construct } from '@aws-cdk/core';
-import { ServiceObject, DeploymentObject } from 'kubesynth';
+import { ServiceObject, DeploymentObject } from 'cdk8s';
 
 export interface WebServiceOptions {
   /**
@@ -336,7 +354,7 @@ So now we have a new abstraction that we can use:
 
 ```ts
 import { App, Construct } from '@aws-cdk/core';
-import { Chart } from 'kubesynth';
+import { Chart } from 'cdk8s';
 import { WebService } from './web-service';
 
 class MyChart extends Chart {
@@ -353,30 +371,28 @@ new MyChart(app, 'web-service-example');
 app.synth();
 ```
 
-## TODO
+## Getting Help
 
-This is very preliminary work. There is a lot more to do:
+Interacting with the community and the development team is a great way to
+contribute to the project. Please consider the following venues (in order):
 
-Non-exhaustive, unordered, list:
+* Stack Overflow: [cdk8s](https://stackoverflow.com/questions/ask?tags=cdk8s)
+* Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
+* Gitter: *TBD*
+* Slack: *TBD*
 
-- [ ] [Constructs as Operators](docs/construct-operator.md)
-- [ ] Generate Jsii-compatible interfaces from api spec
-- [ ] Generate L1 construct classes for entire surface
-- [ ] References and dependnecies between resources and charts. Is this something that people need in k8s? Who will deployment work then?
-- [ ] Support helm charts
-- [ ] Consider if we really need L2s here
-- [ ] AWS CDK interoperability: “kubectl apply” in CFN custom resource
-- [ ] Real world pure example and example that uses AWS resources
-- [ ] synth/deploy CLI (apply.sh)
-- [ ] Resource removal
-- [ ] Is `Stack` a good name?
-- [ ] k8scdk or cdkk8s?
-- [ ] Build in jsii
-- [ ] Docker/ECR asset support with AWS CDK
-- [ ] Setup CI
-- [ ] Contribution Guide
-- [ ] awslint-thing if we do L2
-- [ ] Support resources that depend on things like Tiller, istio
+## Contributions
+
+The cdk8s project adheres to the [CNCF Code of
+Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
+
+We welcome community contributions and pull requests. See our [contribution
+guide](./CONTRIBUTING.md) for information on how to report issues, set up a
+development environment and submit code.
+
+## Roadmap
+
+See our [roadmap](./ROADMAP.md) for details about our plans for the project.
 
 ## License
 
