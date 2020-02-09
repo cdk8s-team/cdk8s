@@ -5,15 +5,15 @@ GitHub pull requests. This document outlines some of the conventions on commit
 message formatting, contact points for developers, and other resources to help
 get contributions into cdk8s.
 
-We follows the [CNCF Community Code of
-Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
-
-You can contribute to cdk8s in many ways. All contributions of all shapes and
-sizes are welcome and celebrated:
+You can contribute to cdk8s in many ways. Contributions of all shapes and sizes are 
+welcome and celebrated:
 
 - [Reporting Issues](#reporting-issues)
 - [Code Contributions](#code-contributions)
 - [RFCs](#rfcs)
+
+We follows the [CNCF Community Code of
+Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
 
 ## Reporting Issues
 
