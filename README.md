@@ -1,9 +1,11 @@
 # cdk8s
 
+![Build](https://github.com/awslabs/cdk8s/workflows/CI/badge.svg) 
+![Stability:Experimental](https://img.shields.io/badge/stability-experimental-orange)
+
 > Cloud Development Kit for Kubernetes
 
-![Stability:
-Experimental](https://img.shields.io/badge/stability-Experimental-important.svg?style=for-the-badge)
+
 
 **cdk8s** is a software development framework for defining Kubernetes
 applications using rich object-oriented APIs. It allows developers to leverage
