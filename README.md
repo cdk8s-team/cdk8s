@@ -1,6 +1,6 @@
 # cdk8s
 
-![Build](https://github.com/awslabs/cdk8s/workflows/CI/badge.svg) 
+![Build](https://github.com/awslabs/cdk8s/workflows/Build/badge.svg)
 ![Stability:Experimental](https://img.shields.io/badge/stability-experimental-orange)
 
 > Cloud Development Kit for Kubernetes
