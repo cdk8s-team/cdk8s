@@ -1,4 +1,4 @@
-name: CI
+name: Build
 on: [push]
 jobs:
   build:
@@ -6,15 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install
-        uses: borales/actions-yarn@v2.0.0
+
+      - uses: borales/actions-yarn@v2.0.0
+        name: Install
         with:
           cmd: install
-      - name: Build
-        uses: borales/actions-yarn@v2.0.0
+
+      - uses: borales/actions-yarn@v2.0.0
+        name: Build
         with:
           cmd: build
-      - name: Test
+
       - uses: borales/actions-yarn@v2.0.0
+        name: Test
         with:
           cmd: test
