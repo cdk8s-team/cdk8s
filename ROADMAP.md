@@ -7,7 +7,7 @@ Non-exhaustive, unordered, list:
 - [ ] [Constructs as Operators](docs/construct-operator.md)
 - [ ] Generate Jsii-compatible interfaces from api spec
 - [ ] Generate L1 construct classes for entire surface
-- [ ] References and dependnecies between resources and charts. Is this
+- [ ] References and dependencies between resources and charts. Is this
   something that people need in k8s? Who will deployment work then?
 - [ ] Support helm charts
 - [ ] Consider if we really need L2s here

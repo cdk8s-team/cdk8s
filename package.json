@@ -1,7 +1,7 @@
 {
-  "name": "kubesynth",
+  "name": "cdk8s",
   "version": "0.1.0",
-  "description": "Programmatically define Kubernetes manifests using familiar programming languages",
+  "description": "Cloud Development Kit for Kubernetes",
   "scripts": {
     "build": "./generate.sh && tsc",
     "watch": "tsc -w",
@@ -14,15 +14,15 @@
     "outdir": "dist",
     "targets": {
       "java": {
-        "package": "com.github.eladb.k8scdk",
+        "package": "com.github.eladb.cdk8s",
         "maven": {
           "groupId": "com.github.eladb",
-          "artifactId": "k8scdk"
+          "artifactId": "cdk8s"
         }
       },
       "python": {
-        "distName": "k8scdk",
-        "module": "k8scdk"
+        "distName": "cdk8s",
+        "module": "cdk8s"
       }
     }
   },
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eladb/k8scdk"
+    "url": "https://github.com/awslabs/cdk8s"
   },
   "license": "Apache-2.0",
   "devDependencies": {
@@ -60,6 +60,7 @@
     "yaml": "^1.7.2"
   },
   "peerDependencies": {
-    "@aws-cdk/core": "^1.23.0"
+    "@aws-cdk/core": "^1.23.0",
+    "@aws-cdk/cx-api": "^1.23.0"
   }
 }
