@@ -5,19 +5,15 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-
-      - uses: borales/actions-yarn@v2.0.0
-        name: Install
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          cmd: install
-
-      - uses: borales/actions-yarn@v2.0.0
-        name: Build
-        with:
-          cmd: build
-
-      - uses: borales/actions-yarn@v2.0.0
-        name: Test
-        with:
-          cmd: test
+          node-version: 12.x
+      - name: Setup yarn
+        run: npm install -g yarn
+      - name: Install
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Test
+        run: yarn test
