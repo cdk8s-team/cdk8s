@@ -1,5 +1,6 @@
 import { Construct } from '@aws-cdk/core';
-import { ServiceObject, DeploymentObject } from '../../lib';
+import { Service, IntOrString } from '../.././.gen/service-v1';
+import { Deployment } from '../../.gen/apps-deployment-v1';
 
 export interface WebServiceOptions {
   /** The Docker image to use for this service. */
@@ -32,15 +33,15 @@ export class WebService extends Construct {
     const containerPort = options.containerPort || 8080;
     const label = { app: this.node.uniqueId };
 
-    new ServiceObject(this, 'service', {
+    new Service(this, 'service', {
       spec: {
         type: 'LoadBalancer',
-        ports: [ { port, targetPort: containerPort } ],
+        ports: [ { port, targetPort: IntOrString.fromNumber(containerPort) } ],
         selector: label
       }
     });
 
-    new DeploymentObject(this, 'deployment', {
+    new Deployment(this, 'deployment', {
       spec: {
         replicas: 1,
         selector: {

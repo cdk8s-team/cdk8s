@@ -1,5 +1,5 @@
 import { Construct } from '@aws-cdk/core';
-import { IngressObject as IngressApiObject } from '../../../lib/ingress';
+import { Ingress as IngressApiObject, IngressRule, IntOrString } from '../../../.gen/extensions-ingress-v1beta1';
 
 export interface IngressTls {
   readonly hosts?: string[];
@@ -48,12 +48,15 @@ export class Ingress extends Construct {
     const hosts = options.hosts || [];
     const ingressPath = options.path || '/*';
 
-    const defaultRule = {
+    const defaultRule: IngressRule = {
       http: {
         paths: [
           {
             path: ingressPath,
-            backend: options.backend
+            backend: {
+              serviceName: options.backend.serviceName,
+              servicePort: IntOrString.fromString(options.backend.servicePort)
+            }
           }
         ]
       }
