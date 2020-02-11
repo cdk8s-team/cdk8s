@@ -7,3 +7,6 @@ scriptdir=$(cd $(dirname $0) && pwd)
 #====================================
 
 ${scriptdir}/release-npm.sh dist/js
+${scriptdir}/release-github.sh
+
+

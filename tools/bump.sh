@@ -8,6 +8,3 @@ fi
 
 version=$(node -p "require('${version_file}').version")
 npx lerna version ${version} --yes --exact --force-publish=* --no-git-tag-version --no-push
-git add .
-npx standard-version --release-as ${version} --commit-all --dry-run
-
