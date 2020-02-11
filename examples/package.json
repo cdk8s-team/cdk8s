@@ -1,0 +1,17 @@
+{
+  "name": "examples",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "private": true,
+  "dependencies": {
+    "@aws-cdk/core": "^1.23.0",
+    "@aws-cdk/cx-api": "^1.23.0",
+    "@awslabs/cdk8s": "0.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "typescript": "^3.7.5"
+  }
+}

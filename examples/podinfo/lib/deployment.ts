@@ -1,6 +1,6 @@
 import { Construct } from '@aws-cdk/core';
-import { ApiObject } from '../../../lib';
-import { Deployment as DeploymentObject, IntOrString, Affinity, Container } from '../../../.gen/apps-deployment-v1';
+import { ApiObject } from '@awslabs/cdk8s';
+import { Deployment as DeploymentObject, IntOrString, Affinity, Container } from '../../.gen/apps-deployment-v1';
 import { Autoscaler, AutoscalingOptions } from './autoscaler';
 import { ISelector } from './service';
 
