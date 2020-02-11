@@ -2,11 +2,10 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "prerelease": "tools/bump-prerelease.sh",
     "build": "lerna run build",
     "test": "lerna run test",
     "package": "lerna run package && tools/collect-dist.sh",
-    "publish": "tools/publish.sh"
+    "release": "tools/release.sh"
   },
   "workspaces": [ 
     "packages/*",
