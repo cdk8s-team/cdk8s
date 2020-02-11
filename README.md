@@ -47,18 +47,27 @@ Let's walk through a simple "Hello, World!" example in TypeScript.
  - [Node.js 12.x](https://nodejs.org/en/)
  - [yarn](https://yarnpkg.com/lang/en/)
 
-### (temporary) Build cdk8s Locally
+### GitHub Packages
 
-Since this module is still not published, you will need to first build it
-locally and link against the local version.
+Since cdk8s is currently released to GitHub Packages (and not to [npmjs]) you
+will need to [authenticate to GitHub Packages]:
 
-```console
-$ git clone git@github.com:awslabs/cdk8s
-$ cdk cdk8s
-$ yarn install
-$ yarn build
-$ yarn link
+Create a [Personal Access Token] that has the `read:packages` scope and write
+this line to `~/.npmrc` (replace `TOKEN` with your token):
+
+```shell
+$ echo "//npm.pkg.github.com/:_authToken=TOKEN" > ~/.npmrc
 ```
+
+Configure yarn to use GitHub Packages for the `@awslabs` scope:
+
+```shell
+$ yarn config set "@awslabs:registry" "https://npm.pkg.github.com"
+```
+
+[npmjs]: https://www.npmjs.com
+[Personal Access Token]: https://github.com/settings/tokens/new
+[authenticate to GitHub Packages]: https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages
 
 ### New Project
 
@@ -67,7 +76,7 @@ Create a new cdk8s project (we'll use TypeScript):
 ```console
 $ mkdir hello-cdk8s
 $ cd hello-cdk8s
-$ yarn init -y
+$ yarn init -yp
 ```
 
 Install and configure typescript:
@@ -77,29 +86,37 @@ $ yarn add -D typescript @types/node
 $ curl -o tsconfig.json https://gist.githubusercontent.com/eladb/85502ca35543eda6c0d728358f3d3568/raw
 ```
 
-Install the `constructs` module:
+Install CDK modules:
 
 ```console
-$ yarn add @aws-cdk/core
+$ yarn add @aws-cdk/core @aws-cdk/cx-api @awslabs/cdk8s
 ```
 
-> We temporary depend on `@aws-cdk/core` for the `Construct` base class, but we
-> intent to extract this class into a separate module called `constructs`.
+> NOTE: We temporary depend on `@aws-cdk/core` for the `Construct` base class,
+> but we intent to extract this class into a separate module.
 
-
-Install the `cdk8s` module from the local link:
-
+Install the cdk8s CLI as a development dependency:
 
 ```console
-$ yarn link cdk8s
+$ yarn add -D @awslabs/cdk8s-cli
 ```
 
-Add a bunch of npm scripts for "build", "watch" and "synth":
+Add a bunch of scripts for `yarn build`, `yarn watch` and `yarn synth`:
 
 ```console
-$ npx npm-add-script -k build -v tsc
+$ npx npm-add-script -k build -v "tsc"
 $ npx npm-add-script -k watch -v "tsc -w"
 $ npx npm-add-script -k synth -v "node ./main.js"
+```
+
+### Watch
+
+Since TypeScript is a compiled language, we will need to compile `.ts` files to
+`.js` in order to execute our CDK app. You can do that continuously in the
+background like this:
+
+```shell
+$ yarn watch
 ```
 
 ### Concepts
@@ -107,23 +124,78 @@ $ npx npm-add-script -k synth -v "node ./main.js"
 **Charts**
 
 cdk8s synthesizes a Kubernetes manifest for each `Chart` in the app. Let's
-create our first chart.
+create our first, empty, chart called `HelloChart`:
 
-Create a file `lib/hello-chart.ts` with the following contents:
+`charts/hello.ts`
 
 ```ts
-import { Chart } from 'cdk8s';
-import { App, Construct } from '@aws-cdk/core';
+import { Chart } from '@awslabs/cdk8s';
+import { Construct } from '@aws-cdk/core';
 
-export class HelloKube extends Chart {
-  constructor(scope: Construct, id: string) {
-    super(scope, id);
+export class HelloChart extends Chart {
+  constructor(scope: Construct, ns: string) {
+    super(scope, ns);
+
 
   }
 }
 ```
 
-**Resources**
+**Apps**
+
+CDK apps are structured as a tree of "constructs". We will learn more about
+constructs soon. But first, let's define the root of the tree, which is always
+the `App` construct.
+
+We will define this in the entrypoint of our app:
+
+`main.ts`
+
+```ts
+import { App } from '@aws-cdk/core';
+import { HelloChart } from './charts/hello';
+
+const app = new App({ outdir: 'dist' });
+
+new HelloChart(app, 'hello');
+
+app.synth();
+```
+
+If we run `yarn synth` right now, you will see that a `dist` directory is
+created with an empty `hello.k8s.yaml` file
+
+ > *Make sure `yarn watch` still runs in the background, or run `yarn build`
+instead*
+
+```shell
+$ yarn synth
+$ cat dist/hello.k8s.yaml
+
+```
+
+**Constructs for API Objects**
+
+OK, now let's define some Kubernetes API objects inside our chart.
+
+cdk8s comes with a CLI that can automatically generate well-typed constructs for
+all Kubernetes API objects. Let's import these constructs into our project:
+
+```shell
+$ npx cdk8s import
+```
+
+This command will create a new directory called `.gen` in your project directory
+with a `.ts` file for each Kubernetes API object. These files include constructs
+that represent all Kubernetes objects.
+
+Let's use these newly generated objects to define a simple Kubernetes application:
+
+`charts/hello.ts`
+
+```ts
+
+```
 
 Now, inside your chart, define the service and deployment resources. Import the
 `ServiceObject` and `DeploymentObject` constructs from `cdk8s`. They represent
@@ -140,97 +212,68 @@ The following example is identical to defining the YAML described in
 https://github.com/paulbouwer/hello-kubernetes:
 
 ```ts
-const label = { app: 'hello-k8s' };
+import { Chart } from '@awslabs/cdk8s';
+import { Construct } from '@aws-cdk/core';
 
-new ServiceObject(this, 'service', {
-  spec: {
-    type: 'LoadBalancer',
-    ports: [ { port: 80, targetPort: 8080 } ],
-    selector: label
-  }
-});
+// import generated constructs
+import { Service, IntOrString } from '../.gen/service-v1';
+import { Deployment } from '../.gen/apps-deployment-v1';
 
-new DeploymentObject(this, 'deployment', {
-  spec: {
-    replicas: 2,
-    selector: {
-      matchLabels: label
-    },
-    template: {
-      metadata: { labels: label },
+export class HelloChart extends Chart {
+  constructor(scope: Construct, ns: string) {
+    super(scope, ns);
+
+    const label = { app: 'hello-k8s' };
+
+    new Service(this, 'service', {
       spec: {
-        containers: [
-          {
-            name: 'hello-kubernetes',
-            image: 'paulbouwer/hello-kubernetes:1.5',
-            ports: [ { containerPort: 8080 } ]
-          }
-        ]
+        type: 'LoadBalancer',
+        ports: [ { port: 80, targetPort: IntOrString.fromNumber(8080) } ],
+        selector: label
       }
-    }
+    });
+
+    new Deployment(this, 'deployment', {
+      spec: {
+        replicas: 2,
+        selector: {
+          matchLabels: label
+        },
+        template: {
+          metadata: { labels: label },
+          spec: {
+            containers: [
+              {
+                name: 'hello-kubernetes',
+                image: 'paulbouwer/hello-kubernetes:1.5',
+                ports: [ { containerPort: 8080 } ]
+              }
+            ]
+          }
+        }
+      }
+    });
   }
-});
+}
 ```
 
-**App**
+Now if we execute `yarn synth` and print the contents of `hello.k8s.yaml`, we will get the following output:
 
-OK, now that we have our chart defined, let's create an `index.ts` at the root
-of the repo:
-
-```ts
-import { App } from '@aws-cdk/core';
-import { HelloKube } from './lib/hello-chart';
-
-const app = new App({ outdir: 'dist' });
-
-new HelloKube(app, 'hellowwwww');
-
-app.synth();
-```
-
-### Synthesize
-
-Compile your typescript code:
-
-```console
-$ yarn build
-```
-
-Now, we are ready to synthesize our Kubernetes manifests for our app. To do
-that, we simply need to execute our program. The script `synthesize` that we
-added earlier will do that for us:
-
-```console
+```shell
 $ yarn synth
-```
+$ cat dist/hello.k8s.yaml
 
-This should create a new directory `dist` with a file `hello.k8s.yaml` that
-contains the synthesized list of resources.
+```
 
 ### Deploy
 
 Now, all that remains is for you to apply this to your cluster:
 
 ```console
-$ kubectl apply -f dist/hellowwwww.k8s.yaml
-service "hellowwwwwservice00939e38" created
-deployment.apps "hellowwwwwdeploymentb485c4d9" created
+$ kubectl apply -f dist/hello.k8s.yaml
+...
+
 ```
-
-You can find the service endpoint using:
-
-```console
-$ kubectl get service -o wide
-NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP                                                               PORT(S)        AGE       SELECTOR
-hellowwwwwservice00939e38   LoadBalancer   172.20.23.55   a35b958eaaf1d11e9a26a0644f9d485a-1519168962.us-west-2.elb.amazonaws.com   80:30851/TCP   3m        app=hellowwwww
-kubernetes                  ClusterIP      172.20.0.1     <none>                                                                    443/TCP        1h        <none>
-```
-
-And then, hit it with your browser!
-
-You can find this example under [`examples/hello`](./examples/hello).
-
-Use the `apply.sh` script to synthesize and apply to your cluster. 
 
 ### Custom Constructs
 
