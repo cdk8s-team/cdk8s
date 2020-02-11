@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
-bump=${1:-patch}
-npx lerna version "${bump}" --yes --exact --force-publish=* --no-git-tag-version --no-push
+version=$(node -p "require('./version.json').version")
+npx lerna version ${version} --yes --exact --force-publish=* --no-git-tag-version --no-push
 git add .
-npx standard-version --commit-all
+npx standard-version --release-as ${version} --commit-all
+
