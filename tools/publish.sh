@@ -7,4 +7,5 @@ cd dist/js
 for tarball in $(ls *.tgz); do
   echo "publishing ${tarball}"
   npm publish --tag pre ${tarball}
-fi
+done
+
