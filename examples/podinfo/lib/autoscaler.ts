@@ -1,5 +1,5 @@
 import { Construct } from '@aws-cdk/core';
-import { HorizontalPodAutoscalerObject } from '../../../lib/horizontal-pod-autoscaler';
+import { HorizontalPodAutoscalerObject } from '@awslabs/cdk8s';
 
 export interface ScaleTarget {
   readonly apiVersion: string;

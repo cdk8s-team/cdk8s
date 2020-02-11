@@ -1,5 +1,5 @@
 import { App, Construct } from '@aws-cdk/core';
-import { Chart, ServiceObject, DeploymentObject } from '../../lib';
+import { Chart, ServiceObject, DeploymentObject } from '@awslabs/cdk8s';
 
 export class HelloKube extends Chart {
   constructor(scope: Construct, id: string) {
