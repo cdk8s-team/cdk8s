@@ -1,27 +1,17 @@
 import { Construct } from '@aws-cdk/core';
-import { ObjectmetaMetaV1 } from './.generated/objectmeta-meta-v1';
 import { removeEmpty } from './util';
 
-export interface ApiObjectProps {
-  /**
-   * The API object spec.
-   */
-  readonly spec?: any;
+export interface ApiObjectMetadata {
+  readonly name?: string;
+  readonly [key: string]: any;
+}
 
-  /**
+
+export interface ApiObjectOptions {
+/**
    * Data associated with the resource.
    */
   readonly data?: any;
-
-  /**
-   * Resource kind.
-   */
-  readonly kind: string;
-
-  /**
-   * API version.
-   */
-  readonly apiVersion: string;
 
   /**
    * Object metadata.
@@ -29,7 +19,22 @@ export interface ApiObjectProps {
    * If `name` is not specified, an app-unique name will be allocated by the
    * framework based on the path of the construct within thes construct tree.
    */
-  readonly metadata?: ObjectmetaMetaV1;
+  readonly metadata?: ApiObjectMetadata;  
+
+  /**
+   * API version.
+   */
+  readonly apiVersion: string;
+
+  /**
+   * Resource kind.
+   */
+  readonly kind: string;
+
+  /**
+   * Additional attributes for this API object.
+   */
+  readonly [key: string]: any;
 }
 
 export class ApiObject extends Construct {
@@ -42,20 +47,25 @@ export class ApiObject extends Construct {
    */
   public readonly name: string;
 
+  /**
+   * The object's API version.
+   */
   public readonly apiVersion: string;
+
+  /**
+   * The object kind.
+   */
   public readonly kind: string;
 
-  private readonly metadata: ObjectmetaMetaV1;
+  constructor(scope: Construct, ns: string, private readonly options: ApiObjectOptions) {
+    super(scope, ns);
+    this.kind = options.kind;
+    this.apiVersion = options.apiVersion;
+    this.name = options.metadata?.name ?? this.generateName();
+  }
 
-  constructor(scope: Construct, id: string, private readonly props: ApiObjectProps) {
-    super(scope, id);
-
-    this.kind = props.kind;
-    this.apiVersion = props.apiVersion;
-
-    this.metadata = props.metadata || {};
-    this.metadata.name = this.metadata.name || this.node.uniqueId.toLowerCase();
-    this.name = this.metadata.name;
+  protected generateName() {
+    return this.node.uniqueId.toLocaleLowerCase();
   }
 
   /**
@@ -63,11 +73,11 @@ export class ApiObject extends Construct {
    */
   public render(): any {
     return removeEmpty({
-      apiVersion: this.props.apiVersion,
-      kind: this.props.kind,
-      metadata: this.metadata,
-      data: this.props.data,
-      spec: this.props.spec
+      ...this.options,
+      metadata: {
+        ...this.options.metadata,
+        name: this.name
+      }
     });
   }
 }

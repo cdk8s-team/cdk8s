@@ -2,15 +2,17 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "prerelease": "tools/bump-prerelease.sh",
     "build": "lerna run build",
     "test": "lerna run test",
-    "package": "lerna run package"
+    "package": "lerna run package && tools/collect-dist.sh",
+    "publish": "tools/publish.sh"
   },
   "workspaces": [ 
     "packages/*",
     "examples"
   ],
   "devDependencies": {
-    "lerna": "^3.16.4"
+    "lerna": "^3.20.2"
   }
 }

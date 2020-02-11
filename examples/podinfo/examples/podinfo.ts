@@ -1,5 +1,5 @@
 import { Deployment, ImagePullPolicy } from "../lib";
-import { Container } from "../lib/container";
+import { Container } from '../../.gen/pod-v1';
 
 export interface PodinfoOptions {
   /**
@@ -65,20 +65,17 @@ export interface PodinfoOptions {
   readonly grpcServiceName?: string;
 }
 
-export class PodinfoContainer extends Container {
-  constructor(private readonly options: PodinfoOptions = { }) {
-    super();
+export class PodinfoContainer {
+  public constructor(private readonly options: PodinfoOptions) {
+
   }
 
-  public bind(deployment: Deployment) {
+  public get container(): Container {
     const options = this.options;
     const imageRepository = options.imageRepository || 'stefanprodan/podinfo';
     const imageTag = options.imageTag || '3.0.0';
     const httpPort = options.httpPort || 9898;
     const imagePullPolicy = options.imagePullPolicy || ImagePullPolicy.IF_NOT_PRESENT;
-
-    deployment.addAnnotation('prometheus.io/scrape', 'true');
-    deployment.addAnnotation('prometheus.io/port', httpPort);
 
     return {
       name: options.name || 'podinfo',
@@ -114,31 +111,37 @@ export class PodinfoContainer extends Container {
     };
   }
 
+  public attach(deployment: Deployment) {
+    deployment.addAnnotation('prometheus.io/scrape', 'true');
+    deployment.addAnnotation('prometheus.io/port', this.options.httpPort);
+  }
+
   private renderCommand(httpPort: number) {
+    const options = this.options;
     const command = new Array<string>();
     command.push('./podinfo');
     command.push(`--port=${httpPort}`);
 
-    if (this.options.metricsPort) {
-      command.push(`--port-metrics=${this.options.metricsPort}`);
+    if (options.metricsPort) {
+      command.push(`--port-metrics=${options.metricsPort}`);
     }
 
-    if (this.options.grpcPort) {
-      command.push(`--grpc-port=${this.options.grpcPort}`);
+    if (options.grpcPort) {
+      command.push(`--grpc-port=${options.grpcPort}`);
     }
 
-    if (this.options.grpcServiceName) {
-      command.push(`--grpc-service-name=${this.options.grpcServiceName}`);
+    if (options.grpcServiceName) {
+      command.push(`--grpc-service-name=${options.grpcServiceName}`);
     }
 
-    command.push(`--level=${this.options.logLevel || 'info'}`);
+    command.push(`--level=${options.logLevel || 'info'}`);
 
-    if (this.options.faultDelay) {
-      command.push(`--random-delay=${this.options.faultDelay}`);
+    if (options.faultDelay) {
+      command.push(`--random-delay=${options.faultDelay}`);
     }
 
-    if (this.options.faultError) {
-      command.push(`--random-error=${this.options.faultError}`);
+    if (options.faultError) {
+      command.push(`--random-error=${options.faultError}`);
     }
 
     return command;

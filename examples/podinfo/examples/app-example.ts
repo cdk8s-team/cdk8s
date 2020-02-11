@@ -13,13 +13,15 @@ class MyChart extends Chart {
     });
 
     const deployment = new Deployment(this, 'Deployment', {
-      containers: [ podinfo ],
+      containers: [ podinfo.container ],
       autoScalingOptions: {
         minReplicas: 2,
         maxReplicas: 100,
         cpu: 80
       }
     });
+
+    podinfo.attach(deployment);
 
     new Service(this, 'Service', {
       selector: deployment,

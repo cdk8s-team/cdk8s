@@ -1,0 +1,30 @@
+{
+  "name": "@awslabs/cdk8s-cli",
+  "version": "0.0.0",
+  "description": "CDK for Kubernetes CLI",
+  "bin": {
+    "cdk8s": "bin/cdk8s"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "echo ok",
+    "package": "./package.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/awslabs/cdk8s.git"
+  },
+  "author": {
+    "name": "Amazon Web Services",
+    "url": "https://aws.amazon.com"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "codemaker": "^0.22.0",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "@types/json-schema": "^7.0.4"
+  }
+}

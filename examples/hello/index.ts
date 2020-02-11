@@ -1,5 +1,7 @@
 import { App, Construct } from '@aws-cdk/core';
-import { Chart, ServiceObject, DeploymentObject } from '@awslabs/cdk8s';
+import { Chart } from '@awslabs/cdk8s';
+import { Deployment } from '../.gen/apps-deployment-v1'
+import { Service, IntOrString } from '../.gen/service-v1';
 
 export class HelloKube extends Chart {
   constructor(scope: Construct, id: string) {
@@ -7,15 +9,15 @@ export class HelloKube extends Chart {
 
     const label = { app: 'hello-k8s' };
 
-    new ServiceObject(this, 'service', {
+    new Service(this, 'service', {
       spec: {
         type: 'LoadBalancer',
-        ports: [ { port: 80, targetPort: 8080 } ],
+        ports: [ { port: 80, targetPort: IntOrString.fromNumber(8080) } ],
         selector: label
       }
     });
 
-    new DeploymentObject(this, 'deployment', {
+    new Deployment(this, 'deployment', {
       spec: {
         replicas: 1,
         selector: {

@@ -1,14 +1,14 @@
 import { Construct } from '@aws-cdk/core';
-import { DeploymentObject as DeploymentObject, ApiObject } from '@awslabs/cdk8s';
+import { ApiObject } from '@awslabs/cdk8s';
+import { Deployment as DeploymentObject, IntOrString, Affinity, Container } from '../../.gen/apps-deployment-v1';
 import { Autoscaler, AutoscalingOptions } from './autoscaler';
-import { Container, ContainerSpec } from './container';
 import { ISelector } from './service';
 
 export interface DeploymentOptions {
   /**
    * node/pod affinities
    */
-  readonly affinity?: string;
+  readonly affinity?: Affinity;
 
   /**
    * Node labels for pod assignment
@@ -59,7 +59,7 @@ export interface DeploymentOptions {
 }
 
 export class Deployment extends Construct implements ISelector {
-  private readonly containers = new Array<ContainerSpec>();
+  private readonly containers = new Array<Container>();
   private readonly volumes = new Array<{ name: string, emptyDir: {} }>();
   private readonly annotations: { [key: string]: any } = { };
 
@@ -100,7 +100,7 @@ export class Deployment extends Construct implements ISelector {
         replicas: !autoScaling ? options.replicaCount : undefined,
         strategy: {
           type: 'RollingUpdate',
-          rollingUpdate: { maxUnavailable: 1 }
+          rollingUpdate: { maxUnavailable: IntOrString.fromNumber(1) }
         },
         selector: {
           matchLabels: this.selector
@@ -114,10 +114,10 @@ export class Deployment extends Construct implements ISelector {
             terminationGracePeriodSeconds: 30,
             serviceAccountName: this.getCreateServiceAccount(options.serviceAccount, options.labels),
             containers: this.containers,
+            nodeSelector: options.nodeSelector,
+            affinity: options.affinity,
+            volumes: this.volumes
           },
-          nodeSelector: options.nodeSelector,
-          affinity: options.affinity,
-          volumes: this.volumes
         }
       }
     });
@@ -137,10 +137,9 @@ export class Deployment extends Construct implements ISelector {
   }
 
   public addContainer(container: Container) {
-    const spec = container.bind(this);
-    this.containers.push(spec);
+    this.containers.push(container);
 
-    for (const mount of spec.volumeMounts || []) {
+    for (const mount of container.volumeMounts || []) {
       this.volumes.push({
         name: mount.name,
         emptyDir: {}

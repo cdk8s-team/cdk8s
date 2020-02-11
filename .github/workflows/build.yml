@@ -2,26 +2,31 @@ name: Build
 on: [push]
 jobs:
   build:
-    name: Test
+    name: Build
     runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: Setup
-        run: npm install -g yarn
       - name: Install
         run: yarn install
-      - name: Build
-        run: yarn build
-      - name: Test
-        run: yarn test
+
+      # bumps the repo version to a pre-release version based on the current commit
+      - name: Bump Prerelease
+        run: yarn prerelease
+
+      # compile, test and package
+      - name: Build and Test
+        run: |
+          yarn build
+          yarn test
+
       - name: Package
         run: yarn package
-      # - name: Publish
-      #   run: |
-      #     echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" > ~/.npmrc
-      #     npm publish
-
-          
+      
+      - name: Archive
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist

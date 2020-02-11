@@ -6,33 +6,37 @@
   },
   "description": "Cloud Development Kit for Kubernetes",
   "scripts": {
-    "build": "./generate.sh && tsc",
-    "watch": "tsc -w",
-    "package": "./package.sh",
+    "build": "jsii",
+    "watch": "jsii -w",
+    "package": "jsii-pacmak",
     "test": "jest"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "jsii": {
     "outdir": "dist",
+    "versionFormat": "short",
     "targets": {
       "java": {
-        "package": "com.github.eladb.cdk8s",
+        "package": "org.cdk8s",
         "maven": {
-          "groupId": "com.github.eladb",
+          "groupId": "org.cdk8s",
           "artifactId": "cdk8s"
         }
       },
       "python": {
         "distName": "cdk8s",
         "module": "cdk8s"
+      },
+      "dotnet": {
+        "namespace": "Org.Cdk8s",
+        "packageId": "Org.Cdk8s"
       }
     }
   },
   "author": {
-    "email": "elad.benisrael@gmail.com",
-    "name": "Elad Ben-Israel",
-    "url": "https://github.com/eladb"
+    "name": "Amazon Web Services",
+    "url": "https://aws.amazon.com"
   },
   "repository": {
     "type": "git",
@@ -44,12 +48,15 @@
     "@types/node": "13.7.0",
     "@types/yaml": "^1.2.0",
     "jest": "^25.1.0",
-    "jsii": "^0.22.0",
-    "jsii-pacmak": "^0.22.0",
+    "jsii": "^0.21.0",
+    "jsii-pacmak": "^0.21.0",
     "json-schema-to-typescript": "^8.0.1",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "@aws-cdk/core": "^1.23.0",
+    "@aws-cdk/cx-api": "^1.23.0"
   },
   "jest": {
+    "collectCoverage": true,
     "moduleFileExtensions": [
       "js"
     ]
@@ -63,5 +70,6 @@
   "peerDependencies": {
     "@aws-cdk/core": "^1.23.0",
     "@aws-cdk/cx-api": "^1.23.0"
-  }
+  },
+  "stability": "experimental"
 }

@@ -1,5 +1,5 @@
 import { Construct } from "@aws-cdk/core";
-import { ServiceObject as ServiceApiObject } from '@awslabs/cdk8s';
+import { Service as ServiceApiObject, ServicePort, IntOrString } from '../../.gen/service-v1';
 import { Ingress, IngressOptions } from "./ingress";
 
 export interface ISelector {
@@ -87,7 +87,15 @@ export class Service extends Construct {
       spec: {
         type: serviceType,
         selector: options.selector.selector,
-        ports: this.ports
+        ports: this.ports.map(port => {
+          return {
+            port: port.port,
+            name: port.name,
+            nodePort: port.nodePort,
+            protocol: port.protocol,
+            targetPort: IntOrString.fromString(port.targetPort)
+          } as ServicePort
+        })
       }
     });
 

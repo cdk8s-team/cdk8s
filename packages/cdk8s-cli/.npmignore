@@ -1,0 +1,9 @@
+*.ts
+
+!*.d.ts
+!*.js
+
+test
+
+dist
+coverage

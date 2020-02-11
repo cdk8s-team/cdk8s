@@ -2,7 +2,7 @@
   "name": "examples",
   "version": "0.0.0",
   "scripts": {
-    "build": "tsc"
+    "build": "cdk8s import && tsc"
   },
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@types/node": "^13.7.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "@awslabs/cdk8s-cli": "0.0.0"
   }
 }
