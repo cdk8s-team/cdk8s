@@ -13,3 +13,10 @@ jobs:
       - run: yarn build
       - run: yarn test
       - run: yarn package
+
+      # publish to package managers only if this is a new version
+      - run: yarn release
+        env:
+          NPM_REGISTRY: npm.pkg.github.com
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

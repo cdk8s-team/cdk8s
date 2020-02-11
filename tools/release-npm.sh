@@ -1,36 +1,44 @@
 #!/bin/bash
 set -eu
+set -x
 
-[ -z "${1:-}" ] && {
-    echo "Usage: $(basename $0) DIR"
-    exit 1
+dir="${1:-}"
+
+[ -z "${dir:-}" ] && {
+  echo "Usage: $(basename $0) DIR"
+  exit 1
 }
 
-[ -z "${NPM_TOKEN:-}" ] && {
-    echo "NPM_TOKEN is required"
-    exit 1
-}
+# if NPM_TOKEN is specified, we rewrite ~/.npmrc to use it along with NPM_REGISTRY
+# otherwise we just use the current configuration.
+if [ -n "${NPM_TOKEN:-}" ]; then
+  NPM_REGISTRY=${NPM_REGISTRY:-"registry.npmjs.org"}
+  echo "//${NPM_REGISTRY}/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+fi
 
 log=$(mktemp -d)/npmlog.txt
 
-NPM_REGISTRY=${NPM_REGISTRY:-"registry.npmjs.org"}
+for file in ${dir}/**.tgz; do
+  npm publish ${file} 2>&1 | tee ${log}
+  exit_code="${PIPESTATUS[0]}"
 
-echo "//${NPM_REGISTRY}/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-npm publish $1/* 2>&1 | tee $log
-exit_code="${PIPESTATUS[0]}"
+  if [ ${exit_code} -ne 0 ]; then
 
-echo
-echo "==============================================================="
+    # error returned from npmjs
+    if cat ${log} | grep -q "You cannot publish over the previously published versions"; then
+      echo "SKIPPING: already published"
+      continue
+    fi
 
-if [ ${exit_code} -ne 0 ]; then
+    # error returned from github packages
+    if cat ${log} | grep -q "Cannot publish over existing version"; then
+      echo "SKIPPING: already published"
+      continue
+    fi
 
-  if cat $log | grep -q "You cannot publish over the previously published versions"; then
-    echo "SKIPPING: already published"
-    exit 0
+    echo "ERROR"
+    exit 1
   fi
-
-  echo "ERROR"
-  exit 1
-fi
+done
 
 echo "SUCCESS"
