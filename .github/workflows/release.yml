@@ -1,0 +1,24 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+    
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
+      - run: yarn package
+
+      # publish to package managers only if this is a new version
+      - run: yarn release
+        env:
+          NPM_REGISTRY: npm.pkg.github.com
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
