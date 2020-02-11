@@ -396,4 +396,4 @@ See our [roadmap](./ROADMAP.md) for details about our plans for the project.
 
 ## License
 
-Apache-2.0
+This project is distributed under the [Apache License, Version 2.0](./LICENSE).

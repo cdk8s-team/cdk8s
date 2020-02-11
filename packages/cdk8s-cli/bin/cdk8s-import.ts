@@ -12,7 +12,6 @@ async function main() {
     .usage('$0')
     .option('api', { type: 'string', default: DEFAULT_API_VERSION, desc: 'Kubernetes API version' })
     .option('output', { alias: 'o', type: 'string', desc: 'output directory', default: '.gen' })
-    .option('language', { alias: 'l', type: 'string', desc: 'output language', default: 'typescript' })
     .version()
     .strict()
     .argv;
