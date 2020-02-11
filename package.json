@@ -7,11 +7,12 @@
     "package": "lerna run package && tools/collect-dist.sh",
     "release": "tools/release.sh"
   },
-  "workspaces": [ 
+  "workspaces": [
     "packages/*",
     "examples"
   ],
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "lerna": "^3.20.2",
+    "standard-version": "^7.1.0"
   }
 }
