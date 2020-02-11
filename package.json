@@ -1,7 +1,9 @@
 {
   "name": "root",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
+    "bump": "tools/bump.sh",
     "build": "lerna run build",
     "test": "lerna run test",
     "package": "lerna run package && tools/collect-dist.sh",
