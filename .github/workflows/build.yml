@@ -11,6 +11,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install
         run: yarn install
+
+      # bumps the repo version to a pre-release version based on the current commit
+      - name: Bump Prerelease
+        run: tools/bump-prerelease.sh
+
       - name: Build
         run: yarn build
       - name: Test
