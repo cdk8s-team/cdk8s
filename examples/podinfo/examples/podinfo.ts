@@ -1,5 +1,5 @@
 import { Deployment, ImagePullPolicy } from "../lib";
-import { Container } from '../../../.gen/pod-v1';
+import { Container } from '../../.gen/pod-v1';
 
 export interface PodinfoOptions {
   /**

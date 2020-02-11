@@ -4,7 +4,7 @@
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
-    "package": "lerna run package"
+    "package": "lerna run package && tools/collect-dist.sh"
   },
   "workspaces": [ 
     "packages/*",

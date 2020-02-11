@@ -2,7 +2,7 @@ import * as https from 'https';
 import * as yargs from 'yargs';
 import { promises } from 'fs';
 import { JSONSchema4 } from 'json-schema';
-import { importResource, findApiObjectDefinitions } from './import-object';
+import { importResource, findApiObjectDefinitions } from '../lib/import-object';
 import { CodeMaker } from 'codemaker';
 
 const DEFAULT_API_VERSION = '1.14.0';
