@@ -9,23 +9,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install
-        run: yarn install
 
-      # bumps the repo version to a pre-release version based on the current commit
-      - name: Bump Prerelease
-        run: yarn prerelease
-
-      # compile, test and package
-      - name: Build and Test
-        run: |
-          yarn build
-          yarn test
-
-      - name: Package
-        run: yarn package
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
+      - run: yarn package
       
-      - name: Archive
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v1
         with:
           name: dist
