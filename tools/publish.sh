@@ -4,4 +4,7 @@ set -euo pipefail
 # publish npm
 echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > ~/.npmrc
 cd dist/js
-npm publish *.tgz
+for tarball in $(ls *.tgz); do
+  echo "publishing ${tarball}"
+  npm publish --tag pre ${tarball}
+fi
