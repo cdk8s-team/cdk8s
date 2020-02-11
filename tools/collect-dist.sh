@@ -12,3 +12,5 @@ for dir in $(lerna ls -p); do
   echo "collecting from ${src}"
   rsync -aL ${src}/ dist/
 done
+
+find dist/
