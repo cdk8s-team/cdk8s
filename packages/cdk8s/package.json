@@ -1,6 +1,6 @@
 {
   "name": "@awslabs/cdk8s",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },

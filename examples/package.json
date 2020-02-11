@@ -1,6 +1,6 @@
 {
   "name": "examples",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "scripts": {
     "build": "cdk8s import && tsc"
   },
@@ -8,10 +8,10 @@
   "dependencies": {
     "@aws-cdk/core": "^1.23.0",
     "@aws-cdk/cx-api": "^1.23.0",
-    "@awslabs/cdk8s": "0.0.1"
+    "@awslabs/cdk8s": "0.0.0"
   },
   "devDependencies": {
-    "@awslabs/cdk8s-cli": "0.0.1",
+    "@awslabs/cdk8s-cli": "0.0.0",
     "@types/node": "^13.7.0",
     "typescript": "^3.7.5"
   }
