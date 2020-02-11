@@ -14,17 +14,20 @@ jobs:
 
       # bumps the repo version to a pre-release version based on the current commit
       - name: Bump Prerelease
-        run: tools/bump-prerelease.sh
+        run: yarn prerelease
 
+      # compile, test and package
       - name: Build
         run: yarn build
+
       - name: Test
         run: yarn test
+
       - name: Package
         run: yarn package
-      # - name: Publish
-      #   run: |
-      #     echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" > ~/.npmrc
-      #     npm publish
-
-          
+      
+      # publish preprelease
+      - name: Publish
+        run: yarn run publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
