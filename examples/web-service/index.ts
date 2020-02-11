@@ -1,5 +1,5 @@
 import { App, Construct } from '@aws-cdk/core';
-import { Chart } from '../../lib';
+import { Chart } from '@awslabs/cdk8s';
 import { WebService } from './web-service';
 
 class MyChart extends Chart {

@@ -9,7 +9,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Setup yarn
+      - name: Setup
         run: npm install -g yarn
       - name: Install
         run: yarn install
@@ -19,9 +19,9 @@ jobs:
         run: yarn test
       - name: Package
         run: yarn package
-      - name: Publish
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" > ~/.npmrc
-          npm publish
+      # - name: Publish
+      #   run: |
+      #     echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" > ~/.npmrc
+      #     npm publish
 
           

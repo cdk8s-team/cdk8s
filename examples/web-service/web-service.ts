@@ -1,5 +1,5 @@
 import { Construct } from '@aws-cdk/core';
-import { ServiceObject, DeploymentObject } from '../../lib';
+import { ServiceObject, DeploymentObject } from '@awslabs/cdk8s';
 
 export interface WebServiceOptions {
   /** The Docker image to use for this service. */
