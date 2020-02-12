@@ -1,6 +1,5 @@
 #!/bin/bash
 set -eu
-set -x
 
 dir="${1:-}"
 
