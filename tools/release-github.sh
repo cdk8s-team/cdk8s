@@ -2,6 +2,9 @@
 # create a github release
 set -euo pipefail
 
+# check out all package.json files (they should contain bumps)
+git checkout -- "**/*/package.json"
+
 if ! git diff --exit-code; then
   echo "error: cannot prepare release since there are unstaged changes in the repo"
   exit 1
