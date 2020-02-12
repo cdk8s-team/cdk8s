@@ -2,7 +2,7 @@
 set -euo pipefail
 version_file="${1:-}"
 if [ -z "${version_file}" ]; then
-  echo "usage: $0 ./version.json"
+  echo "usage: $0 ./package.json"
   exit 1
 fi
 

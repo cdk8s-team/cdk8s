@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - run: yarn bump ./version.json
+      - run: yarn bump ./package.json
       - run: yarn build
       - run: yarn test
       - run: yarn package
