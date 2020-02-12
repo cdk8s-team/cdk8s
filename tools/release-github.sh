@@ -16,4 +16,4 @@ if curl --silent --fail -H "Authorization: token ${GITHUB_TOKEN}" https://api.gi
 fi
 
 echo "creating github release..."
-npx standard-version --skip.commit --skip.tag --release-as ${version}
+npx standard-version --release-as ${version}
