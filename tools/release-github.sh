@@ -2,14 +2,6 @@
 # create a github release
 set -euo pipefail
 
-# check out all package.json files (they should contain bumps)
-git checkout -- "**/*/package.json"
-
-if ! git diff --exit-code; then
-  echo "error: cannot prepare release since there are unstaged changes in the repo"
-  exit 1
-fi
-
 root=$(cd $(dirname $0)/.. && pwd)
 cd ${root}
 
@@ -53,8 +45,8 @@ curl --request POST \
   --data @/tmp/req.json \
   https://api.github.com/repos/${repo}/releases
 
-git add package.json
-git add CHANGELOG.md
+git add ./package.json
+git add ./CHANGELOG.md
 git commit -m 'chore(release): ${version}'
 git tag v${version}
 
