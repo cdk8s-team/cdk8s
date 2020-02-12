@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+"spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: hello-k8s
+kind: Service
+apiVersion: v1
+metadata:
+  name: helloservice55622b70
+---
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-k8s
+  template:
+    metadata:
+      labels:
+        app: hello-k8s
+    spec:
+      containers:
+        - name: hello-kubernetes
+          image: paulbouwer/hello-kubernetes:1.5
+          ports:
+            - containerPort: 8080
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hellodeployment8f520003
+"
+`;

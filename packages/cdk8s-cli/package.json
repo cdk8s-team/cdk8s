@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "echo ok",
+    "test": "jest",
     "package": "./package.sh"
   },
   "repository": {
@@ -22,12 +22,28 @@
     "name": "Amazon Web Services",
     "url": "https://aws.amazon.com"
   },
+  "jest": {
+    "collectCoverage": true,
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
   "license": "Apache-2.0",
   "dependencies": {
     "codemaker": "^0.22.0",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
-    "@types/json-schema": "^7.0.4"
+    "@aws-cdk/core": "^1.23.0",
+    "@aws-cdk/cx-api": "^1.23.0",
+    "@awslabs/cdk8s": "0.0.0",
+    "@types/jest": "^25.1.2",
+    "@types/json-schema": "^7.0.4",
+    "jest": "^25.1.0",
+    "jsii": "^0.22.0"
+  },
+  "peerDependencies": {
+    "codemaker": "^0.22.0",
+    "yargs": "^15.1.0"
   }
 }

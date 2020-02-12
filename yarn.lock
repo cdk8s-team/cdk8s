@@ -427,6 +427,13 @@
   dependencies:
     jsonschema "^1.2.5"
 
+"@jsii/spec@^0.22.0":
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-0.22.0.tgz#e8b8166692ce2de4ff969078403ce18b2a5341fd"
+  integrity sha512-c7jHvb0mdqbMpIDXULxzV2k8eizu+3uA9ffzMrXUJNATS7iQTwHfgIjlg3DIUxBfGPQPZPfQ/NFj62MaRj14Dg==
+  dependencies:
+    jsonschema "^1.2.5"
+
 "@lerna/add@3.20.0":
   version "3.20.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.20.0.tgz#bea7edf36fc93fb72ec34cb9ba854c48d4abf309"
@@ -4509,6 +4516,24 @@ jsii@^0.21.0:
     typescript "~3.7.5"
     yargs "^15.1.0"
 
+jsii@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-0.22.0.tgz#d0ad0c857d98874b607f2669d9c4d23d573e346b"
+  integrity sha512-pUoef6QmibfaaZSaEu4iu96ply1W/DMzNP2Xid8lFDps6Z1bI7WzWoMber11Mqm2uyWB2h8s27AOU5rBZ7nXgw==
+  dependencies:
+    "@jsii/spec" "^0.22.0"
+    case "^1.6.2"
+    colors "^1.4.0"
+    deep-equal "^2.0.1"
+    fs-extra "^8.1.0"
+    log4js "^6.1.1"
+    semver "^7.1.2"
+    semver-intersect "^1.4.0"
+    sort-json "^2.0.0"
+    spdx-license-list "^6.1.0"
+    typescript "~3.7.5"
+    yargs "^15.1.0"
+
 json-parse-better-errors@^1.0.0, json-parse-better-errors@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
@@ -4765,7 +4790,7 @@ lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.15, lodash@^4.2.
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
-log4js@^6.1.0:
+log4js@^6.1.0, log4js@^6.1.1:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/log4js/-/log4js-6.1.2.tgz#04688e1f4b8080c127b7dccb0db1c759cbb25dc4"
   integrity sha512-knS4Y30pC1e0n7rfx3VxcLOdBCsEo0o6/C7PVTGxdVK+5b1TYOSGQPn9FDcrhkoQBV29qwmA2mtkznPAQKnxQg==

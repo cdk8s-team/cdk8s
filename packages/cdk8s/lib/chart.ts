@@ -10,12 +10,12 @@ export class Chart extends Construct {
    * The name of the stack's YAML file as emitted into the cloud assembly
    * directory during synthesis.
    */
-  public readonly assemblyFileName: string;
+  public readonly manifestFile: string;
 
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
-    this.assemblyFileName = `${this.node.uniqueId}.k8s.yaml`;
+    this.manifestFile = `${this.node.uniqueId}.k8s.yaml`;
   }
 
   protected synthesize(session: ISynthesisSession) {
@@ -28,7 +28,7 @@ export class Chart extends Construct {
     }
 
     const doc = resources.map(r => toYaml(r)).join('---\n');
-    fs.writeFileSync(path.join(session.assembly.outdir, this.assemblyFileName), doc);
+    fs.writeFileSync(path.join(session.assembly.outdir, this.manifestFile), doc);
   }
 }
 

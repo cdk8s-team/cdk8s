@@ -1,6 +1,5 @@
-import { ApiObject, Chart } from '../lib';
+import { ApiObject, Chart, Testing } from '../lib';
 import { App, Construct } from '@aws-cdk/core';
-import { synth } from './util';
 
 test('minimal configuration', () => {
   const app = new App();
@@ -11,7 +10,7 @@ test('minimal configuration', () => {
     kind: 'MyResource'
   });
 
-  expect(synth(stack)).toMatchSnapshot();
+  expect(Testing.synth(stack)).toMatchSnapshot();
 });
 
 test('synthesized resource name is based on path', () => {
@@ -32,7 +31,7 @@ test('synthesized resource name is based on path', () => {
   });
 
   // THEN
-  expect(synth(stack)).toMatchSnapshot();
+  expect(Testing.synth(stack)).toMatchSnapshot();
 });
 
 test('if name is explicitly specified it will be respected', () => {
@@ -50,7 +49,7 @@ test('if name is explicitly specified it will be respected', () => {
   });
 
   // THEN
-  expect(synth(stack)).toMatchSnapshot();
+  expect(Testing.synth(stack)).toMatchSnapshot();
 });
 
 test('"spec" is synthesized as-is', () => {
@@ -71,7 +70,7 @@ test('"spec" is synthesized as-is', () => {
   });
 
   // THEN
-  expect(synth(stack)).toMatchSnapshot();
+  expect(Testing.synth(stack)).toMatchSnapshot();
 });
 
 test('"data" can be used to specify resource data', () => {
@@ -89,5 +88,5 @@ test('"data" can be used to specify resource data', () => {
   });
 
   // THEN
-  expect(synth(stack)).toMatchSnapshot();
+  expect(Testing.synth(stack)).toMatchSnapshot();
 });

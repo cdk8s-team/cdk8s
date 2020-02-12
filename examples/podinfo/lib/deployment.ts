@@ -140,6 +140,10 @@ export class Deployment extends Construct implements ISelector {
     this.containers.push(container);
 
     for (const mount of container.volumeMounts || []) {
+      if (!mount.name) {
+        throw new Error(`mounts must have a name`);
+      }
+      
       this.volumes.push({
         name: mount.name,
         emptyDir: {}
