@@ -24,22 +24,6 @@ export type TestType = string;
 "
 `;
 
-exports[`oneOf 1`] = `
-"export class TestType {
-    public static fromString(value: string): TestType {
-        return new TestType(value);
-    }
-    public static fromNumber(value: number): TestType {
-        return new TestType(value);
-    }
-    private constructor(value: any) {
-        Object.defineProperty(this, 'resolve', { value });
-    }
-}
-
-"
-`;
-
 exports[`unions include primitives 1`] = `
 "export class TestType {
     public static fromString(value: string): TestType {
