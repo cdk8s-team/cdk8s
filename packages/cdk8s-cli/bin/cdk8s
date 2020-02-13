@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-scriptdir="$(cd $(dirname $0) && cd $(dirname $(readlink $0)) && pwd)"
+scriptdir="$(cd $(dirname $0) && cd $(dirname $(readlink $0 || echo ".")) && pwd)"
 subcommand=${1:-}
 subcommands=$(cd ${scriptdir} && ls -1F cdk8s-*  | grep "*$" | sed -e 's/^cdk8s-//g' | sed -e 's/*$//g' | xargs)
 

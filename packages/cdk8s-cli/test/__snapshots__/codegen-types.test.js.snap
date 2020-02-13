@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`documentation "*/" is is escaped 1`] = `
+"/**
+ * hello _/world
+ */
+export type TestType = string;
+
+"
+`;
+
+exports[`documentation does not render if not defined 1`] = `
+"export type TestType = boolean;
+
+"
+`;
+
+exports[`documentation renders based on description 1`] = `
+"/**
+ * hello, description
+ */
+export type TestType = string;
+
+"
+`;
+
+exports[`unions include primitives 1`] = `
+"export class TestType {
+    public static fromString(value: string): TestType {
+        return new TestType(value);
+    }
+    public static fromNumber(value: number): TestType {
+        return new TestType(value);
+    }
+    private constructor(value: any) {
+        Object.defineProperty(this, 'resolve', { value });
+    }
+}
+
+"
+`;

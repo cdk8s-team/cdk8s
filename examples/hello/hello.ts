@@ -1,7 +1,7 @@
-import { App, Construct } from '@aws-cdk/core';
 import { Chart } from '@awslabs/cdk8s';
 import { Deployment } from '../.gen/apps-deployment-v1'
 import { Service, IntOrString } from '../.gen/service-v1';
+import { Construct } from '@aws-cdk/core';
 
 export class HelloKube extends Chart {
   constructor(scope: Construct, id: string) {
@@ -39,7 +39,3 @@ export class HelloKube extends Chart {
     });
   }
 }
-
-const app = new App({ outdir: 'cdk.out' });
-new HelloKube(app, 'hello-example');
-app.synth();

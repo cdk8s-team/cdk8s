@@ -1,9 +1,5 @@
-import * as https from 'https';
 import * as yargs from 'yargs';
-import { promises } from 'fs';
-import { JSONSchema4 } from 'json-schema';
-import { importResource, findApiObjectDefinitions } from '../lib/import-object';
-import { CodeMaker } from 'codemaker';
+import { generateAllApiObjects } from '../lib/import';
 
 const DEFAULT_API_VERSION = '1.14.0';
 
@@ -16,40 +12,12 @@ async function main() {
     .strict()
     .argv;
 
-  const code = new CodeMaker();
-  code.indentation = 2;
-
-  const schema = await downloadSchema(argv.api);
-  const topLevelObjects = findApiObjectDefinitions(schema);
-
-  for (const o of topLevelObjects) {
-    importResource(code, schema, o);
-  }
-
-  await promises.mkdir(argv.output, { recursive: true });
-  await code.save(argv.output);
+  await generateAllApiObjects(argv.output, {
+    apiVersion: argv.api
+  });
 }
 
 main().catch(e => {
   console.error(e);
   process.exit(1);
 });
-
-async function downloadSchema(apiVersion: string) {
-  const output = await httpsGet(`https://kubernetesjsonschema.dev/v${apiVersion}/_definitions.json`);
-  return JSON.parse(output) as JSONSchema4;
-}
-
-async function httpsGet(url: string): Promise<string> {
-  return new Promise((ok, ko) => {
-    const req = https.get(url, res => {
-      const data = new Array<Buffer>();
-      res.on('data', chunk => data.push(chunk));
-      res.once('end', () => ok(Buffer.concat(data).toString('utf-8')));
-      res.once('error', ko);
-    });
-
-    req.once('error', ko);
-    req.end();
-  });
-}
