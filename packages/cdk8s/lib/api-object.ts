@@ -1,5 +1,6 @@
 import { Construct } from '@aws-cdk/core';
 import { removeEmpty } from './util';
+import { renderObjectName } from './names';
 
 export interface ApiObjectMetadata {
   readonly name?: string;
@@ -64,8 +65,15 @@ export class ApiObject extends Construct {
     this.name = options.metadata?.name ?? this.generateName();
   }
 
+  /**
+   * Generates a name for this object based on the construct path. 
+   *
+   * Kubernetes resources can have names up to 253 characters long. The
+   * characters allowed in names are: digits (0-9), lower case letters (a-z), -,
+   * and ..
+   */
   protected generateName() {
-    return this.node.uniqueId.toLocaleLowerCase();
+    return renderObjectName(this.node.path);
   }
 
   /**

@@ -5,7 +5,7 @@ test('minimal configuration', () => {
   const app = new App();
   const stack = new Chart(app, 'test');
 
-  new ApiObject(stack, 'MyResource', {
+  new ApiObject(stack, 'my-resource', {
     apiVersion: 'v1',
     kind: 'MyResource'
   });
@@ -17,15 +17,15 @@ test('synthesized resource name is based on path', () => {
   // GIVEN
   const app = new App();
   const stack = new Chart(app, 'test');
-  new ApiObject(stack, 'MyResource', {
+  new ApiObject(stack, 'my-resource', {
     apiVersion: 'v1',
     kind: 'MyResource'
   });
 
   // WHEN
   // now create another resource with the same namespace but within a sub-scope
-  const scope = new Construct(stack, 'Scope');
-  new ApiObject(scope, 'MyResource', {
+  const scope = new Construct(stack, 'scope');
+  new ApiObject(scope, 'my-resource', {
     apiVersion: 'v1',
     kind: 'MyResource'
   });
@@ -40,7 +40,7 @@ test('if name is explicitly specified it will be respected', () => {
   const stack = new Chart(app, 'test');
 
   // WHEN
-  new ApiObject(stack, 'MyResource', {
+  new ApiObject(stack, 'my-resource', {
     kind: 'MyResource',
     apiVersion: 'v1',
     metadata: {

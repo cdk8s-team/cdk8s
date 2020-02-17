@@ -6,7 +6,7 @@ Array [
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": Object {
-      "name": "helloservice55622b70",
+      "name": "hello.service.9878228b",
     },
     "spec": Object {
       "ports": Array [
@@ -24,7 +24,7 @@ Array [
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": Object {
-      "name": "hellodeployment8f520003",
+      "name": "hello.deployment.c51e9e6b",
     },
     "spec": Object {
       "replicas": 1,
