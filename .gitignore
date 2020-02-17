@@ -1,11 +1,12 @@
 dist/
 .gen
 .vscode/
+.idea
 
 cdk.out
-*.d.ts
-*.js
 lib/.generated
+/bazel-out
+/.bazelrc.user
 
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node

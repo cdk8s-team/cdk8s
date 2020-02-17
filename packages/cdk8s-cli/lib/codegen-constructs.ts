@@ -1,6 +1,6 @@
-import { JSONSchema4 } from "json-schema";
+import { JSONSchema4 } from 'json-schema';
 import { CodeMaker } from 'codemaker';
-import { TypeGenerator } from "./codegen-types";
+import { TypeGenerator } from './codegen-types';
 
 export interface GroupVersionKind {
   readonly group: string;

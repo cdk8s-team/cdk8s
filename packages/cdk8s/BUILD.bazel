@@ -1,0 +1,88 @@
+package(default_visibility = ["//visibility:public"])
+
+load("//:packages.bzl", "CDK_PACKAGE_VERSION")
+load("//tools:defaults.bzl", "pkg_npm", "jest_test", "ts_library")
+load("//tools:jsii/jsii_library.bzl", "jsii_library")
+load("//tools:jsii_package.bzl", "jsii_package")
+load("//tools:package-json/package_json.bzl", "package_json")
+
+# Note, we could easily make this into a macro
+JSII_TARGETS = str({
+   "java": {
+       "package": "org.cdk8s",
+       "maven": {
+           "groupId": "org.cdk8s",
+           "artifactId": "cdk8s"
+       }
+   },
+   "python": {
+       "distName": "cdk8s",
+       "module": "cdk8s"
+   },
+   "dotnet": {
+       "namespace": "Org.Cdk8s",
+       "packageId": "Org.Cdk8s"
+   }
+})
+
+package_json(
+    name = "package_json",
+    package_name = "@awslabs/cdk8s",
+    desc = "Cloud Development Kit for Kubernetes",
+    experimental = True,
+    bundled_deps = ["yaml"],
+    deps = {
+        "yaml": "^1.7.2"
+    },
+    peer_deps = {
+        "@aws-cdk/core": CDK_PACKAGE_VERSION,
+        "@aws-cdk/cx-api": CDK_PACKAGE_VERSION,
+    },
+    jsii_targets = JSII_TARGETS
+)
+
+jsii_library(
+    name = "lib",
+    srcs = glob(["**/*.ts"], exclude = ["test/**"]),
+    package_json = ":package_json",
+    deps = [
+        "@npm//@aws-cdk/core",
+        "@npm//@types/node",
+        "@npm//@types/yaml",
+    ]
+)
+
+ts_library(
+    name = "tests",
+    srcs = glob(["test/**/*.ts"]) + [":lib"],
+    deps = [
+        "@npm//@types/jest",
+        "@npm//@types/yaml",
+        "@npm//@aws-cdk/core",
+        "@npm//yaml",
+    ],
+)
+
+#jest_test(
+#    name = "test",
+#    srcs = [":js_src", ":jest_snapshots"],
+#    deps = [
+#        "@npm//@aws-cdk/core",
+#        "@npm//tslib",
+#        "@npm//yaml",
+#    ]
+#)
+
+#jsii_package(
+#    name = "dist",
+#    srcs = ["README.md", "package.json"],
+#    deps = [":lib"]
+#)
+
+# Creates the @awslabs/cdk8s package published to npm.
+#pkg_npm(
+#    name = "npm_package",
+#    srcs = ["README.md", "package.json"],
+#    tags = ["release-package"],
+#    deps = [":compiled_output"],
+#)

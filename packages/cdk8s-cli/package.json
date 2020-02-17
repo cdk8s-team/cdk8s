@@ -1,18 +1,12 @@
 {
   "name": "@awslabs/cdk8s-cli",
-  "version": "0.0.0",
+  "version": "0.0.0-PLACEHOLDER",
   "description": "CDK for Kubernetes CLI",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "bin": {
     "cdk8s": "bin/cdk8s"
-  },
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "package": "./package.sh"
   },
   "repository": {
     "type": "git",

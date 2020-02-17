@@ -1,5 +1,5 @@
-import { JSONSchema4 } from "json-schema";
-import { CodeMaker } from "codemaker";
+import { JSONSchema4 } from 'json-schema';
+import { CodeMaker } from 'codemaker';
 
 export class TypeGenerator {
   private readonly emitLater: { [name: string]: (code: CodeMaker) => void } = { };

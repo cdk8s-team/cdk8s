@@ -1,0 +1,16 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+nodejs_binary(
+    name = "copier",
+    data = [
+        "copy-with-replace.js",
+        "@npm//isbinaryfile",
+    ],
+    entry_point = ":copy-with-replace.js",
+    install_source_map_support = False,
+    visibility = ["//visibility:public"],
+)
+
+exports_files(["jest.config.js", "package-json/package.json"])

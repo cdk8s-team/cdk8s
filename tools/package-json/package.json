@@ -1,0 +1,28 @@
+{
+  "name": "PACKAGE_NAME",
+  "description": "PACKAGE_DESC",
+  "version": "0.0.0-PLACEHOLDER",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": "Amazon Web Services",
+    "url": "https://aws.amazon.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/awslabs/cdk8s.git"
+  },
+  "dependencies": "PACKAGE_DEPS",
+  "peerDependencies": "PACKAGE_PEER_DEPS",
+  "bundledDependencies": "PACKAGE_BUNDLED_DEPS",
+  "license": "Apache-2.0",
+  "jsii": {
+    "outdir": "dist",
+    "versionFormat": "short",
+    "targets": "JSII_TARGETS"
+  },
+  "stability": "PACKAGE_STABILITY"
+}
