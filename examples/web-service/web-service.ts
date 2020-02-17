@@ -3,7 +3,7 @@ import { Deployment, Service, IntOrString } from './imports/k8s';
 
 export interface WebServiceOptions {
   /** The Docker image to use for this service. */
-  readonly image: string; // docker image to use for this service
+  readonly image: string;
 
   /**
    * Number of replicas.

@@ -1,7 +1,8 @@
-import * as yargs from 'yargs';
-import { shell } from '../../lib/util';
 import * as fs from 'fs-extra';
+import { join } from 'path';
+import * as yargs from 'yargs';
 import { readConfigSync } from '../../lib/config';
+import { shell } from '../../lib/util';
 
 const config = readConfigSync();
 
@@ -16,7 +17,12 @@ class Command implements yargs.CommandModule {
 
   public async handler(argv: any) {
     const command = argv.app;
-    const outdir = argv.output;
+
+    // BUILD_WORKSPACE_DIRECTORY environment variable is only available during Bazel
+    // run executions. This workspace directory allows us to generate files directly
+    // in the source file tree rather than via a symlink.
+    const outdir = process.env['BUILD_WORKSPACE_DIRECTORY'] ?
+      join(process.env['BUILD_WORKSPACE_DIRECTORY'], argv.output) : argv.output;
 
     await fs.remove(outdir);
 

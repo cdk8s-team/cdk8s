@@ -16,7 +16,8 @@ jobs:
         run: |
           pip3 install pipenv
           yarn install
-      - run: tools/align-version.sh "-pre.${{ github.sha }}"
+      - run: yarn bazelrc:ci
+      - run: yarn bazelrc
       - run: yarn build
       - run: yarn test
       - run: yarn package

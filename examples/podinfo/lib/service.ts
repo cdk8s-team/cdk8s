@@ -1,7 +1,8 @@
-import { Construct } from "constructs";
+import { Construct } from 'constructs';
 import { Service as ServiceApiObject, ServicePort, IntOrString } from '../imports/k8s';
-import { Ingress, IngressOptions } from "./ingress";
+import { Ingress, IngressOptions } from './ingress';
 
+// eslint-disable-next-line @typescript-eslint/interface-name-prefix
 export interface ISelector {
   readonly selector: { [key: string]: string };
 }

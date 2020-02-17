@@ -1,10 +1,10 @@
-import { TypeGenerator } from "../../lib/import/type-generator";
+import { CodeMaker } from 'codemaker';
 import { promises as fs } from 'fs';
+import { JSONSchema4 } from 'json-schema';
 import * as path from 'path';
-import { CodeMaker } from "codemaker";
-import { JSONSchema4 } from "json-schema";
-import { jsiiCompile } from "../../lib/import/jsii";
-import { withTempDir } from "../../lib/util";
+import { TypeGenerator } from '../../lib/import/type-generator';
+import { jsiiCompile } from '../../lib/import/jsii';
+import { withTempDir } from '../../lib/util';
 
 jest.setTimeout(60_000); // 1min
 

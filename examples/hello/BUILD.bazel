@@ -1,0 +1,65 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+load("//tools:cdk8s.bzl", "cdk8s_import", "cdk8s_synth")
+load("//tools:defaults.bzl", "jest_test", "ts_library")
+
+cdk8s_import(
+    name = "gen",
+    path = "examples/hello/imports",
+    language = "typescript",
+)
+
+ts_library(
+    name = "lib",
+    srcs = glob(
+        ["**/*.ts"],
+        exclude = ["**/*.test.ts"],
+    ),
+    deps = [
+        "//packages/cdk8s:lib",
+        "@npm//@aws-cdk/core",
+    ],
+)
+
+filegroup(
+    name = "sources",
+    srcs = [":lib"],
+    output_group = "es5_sources",
+)
+
+cdk8s_synth(
+    name = "synth",
+    path = "dist",
+    data = [":sources"],
+    app = "node ../../index.js"
+)
+
+ts_library(
+    name = "tests",
+    srcs = glob(["**/*.test.ts"]),
+    deps = [
+        ":lib",
+        "//packages/cdk8s:lib",
+        "@npm//@types/jest"
+    ],
+)
+
+filegroup(
+    name = "test_sources",
+    srcs = [":tests"],
+    output_group = "es5_sources",
+)
+
+jest_test(
+    name = "test",
+    srcs = glob(["**/*.snap"]) + [
+        ":test_sources",
+        ":sources",
+        "snapshotResolver.js",
+    ],
+    deps = [
+        "//packages/cdk8s:lib",
+        "@npm//yaml",
+    ],
+)

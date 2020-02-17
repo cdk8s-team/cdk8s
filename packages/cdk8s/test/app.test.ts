@@ -1,7 +1,5 @@
 import { Testing, Chart, App } from '../lib';
 import * as fs from 'fs';
-import * as os from 'os';
-import * as path from 'path';
 
 test('empty app emits no files', () => {
   // GIVEN
@@ -33,7 +31,13 @@ test('app with two charts', () => {
 test('default output directory is "dist"', () => {
   // GIVEN
   const prev = process.cwd();
-  const workdir = fs.mkdtempSync(path.join(os.tmpdir()));
+  // @see https://docs.bazel.build/versions/master/test-encyclopedia.html
+  const workdir = process.env['TEST_TMPDIR'];
+
+  // Don't run this test when we're updating snapshots bc TMPDIR is unavailable
+  if (!workdir) {
+    return;
+  }
 
   try {
     console.log(workdir);

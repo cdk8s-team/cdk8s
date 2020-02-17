@@ -13,6 +13,10 @@ jobs:
         run: |
           pip3 install pipenv
           yarn install
+      - name: setup Bazel configuration
+        run: |
+          yarn bazelrc:ci
+          yarn bazelrc
       - name: compile
         run: |
           tools/align-version.sh
@@ -23,4 +27,3 @@ jobs:
         run: yarn package
       - name: integration tests
         run: test/run-against-dist test/test-all.sh
-

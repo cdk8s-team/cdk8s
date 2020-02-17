@@ -1,6 +1,6 @@
-import fs = require('fs');
-import path = require('path');
-import os = require('os');
+import {mkdtempSync} from 'fs';
+import {join} from 'path';
+import {tmpdir} from 'os';
 import { App, Chart } from '../lib';
 
 /**
@@ -12,7 +12,7 @@ export class Testing {
    * - Output directory is a temp dir.
    */
   public static app() {
-    const outdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s.outdir.'));
+    const outdir = mkdtempSync(join(tmpdir(), 'cdk8s.outdir.'));
     return new App({ outdir });
   }
 

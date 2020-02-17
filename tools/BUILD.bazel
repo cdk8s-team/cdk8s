@@ -1,0 +1,19 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+nodejs_binary(
+    name = "packager",
+    data = [
+        "packager.js",
+        "@npm//isbinaryfile",
+    ],
+    entry_point = ":packager.js",
+    install_source_map_support = False,
+    visibility = ["//visibility:public"],
+)
+
+exports_files([
+    "jest.config.js",
+    "package-json/package.json",
+])

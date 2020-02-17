@@ -1,3 +1,4 @@
+import {join} from 'path';
 import * as yargs from 'yargs';
 import { readConfigSync } from '../../lib/config';
 import { importDispatch } from '../../lib/import/dispatch';
@@ -26,8 +27,17 @@ class Command implements yargs.CommandModule {
   public async handler(argv: any) {
     const sources = Array.isArray(argv.source) ? argv.source : [ argv.source ];
 
+    let outdir = argv.output;
+
+    // BUILD_WORKSPACE_DIRECTORY environment variable is only available during Bazel
+    // run executions. This workspace directory allows us to generate files directly
+    // in the source file tree rather than via a symlink.
+    if (process.env['BUILD_WORKSPACE_DIRECTORY']) {
+      outdir = join(process.env['BUILD_WORKSPACE_DIRECTORY'], outdir);
+    }
+
     await importDispatch(sources, argv, {
-      outdir: argv.output,
+      outdir,
       targetLanguage: argv.language,
     });
   }

@@ -2,15 +2,15 @@
 # create a github release
 set -euo pipefail
 
-root=$(cd $(dirname $0)/.. && pwd)
-cd ${root}
+root=$(cd "$(dirname "$0")"/.. && pwd)
+cd "${root}"
 
 repo="awslabs/cdk8s"
 version="$(node -p "require('./package.json').version")"
 
 # skip if we already have a github release for this version
 echo "checking if we already have a release for ${version}"
-if curl --silent --fail -H "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${repo}/releases/tags/v${version}; then
+if curl --silent --fail -H "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${repo}/releases/tags/v"${version}"; then
   echo "release already exists"
   exit 0
 fi

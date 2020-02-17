@@ -1,0 +1,116 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_nodejs//:index.bzl", "copy_to_bin")
+load("//tools:defaults.bzl", "jest_test", "pkg_npm", "ts_library")
+load("//tools:package-json/package_json.bzl", "package_json")
+
+package_json(
+    name = "package_json",
+    package_name = "cdk8s-cli",
+    bin = {
+        "cdk8s": "bin/cdk8s.js",
+    },
+    desc = "CDK for Kubernetes CLI",
+    experimental = True,
+    peer_deps = {
+        "codemaker": "^0.22.0",
+        "yargs": "^15.1.0",
+    },
+    deps = {
+        "codemaker": "^0.22.0",
+        "sscaff": "^1.2.0",
+        "yargs": "^15.1.0",
+    },
+)
+
+ts_library(
+    name = "cdk8s_cli",
+    srcs = glob(
+        [
+            "lib/**/*.ts",
+            "bin/**/*.ts",
+        ],
+        exclude = ["test/**"],
+    ),
+    deps = [
+        "//packages/cdk8s:lib",
+        "@npm//@aws-cdk/core",
+        "@npm//@types/fs-extra",
+        "@npm//@types/json-schema",
+        "@npm//@types/yargs",
+        "@npm//@types/yaml",
+        "@npm//codemaker",
+        "@npm//sscaff",
+    ],
+)
+
+ts_library(
+    name = "tests",
+    testonly = True,
+    srcs = glob(["test/**/*.ts"]),
+    deps = [
+        ":cdk8s_cli",
+        "@npm//@types/fs-extra",
+        "@npm//@types/json-schema",
+        "@npm//codemaker",
+    ],
+)
+
+filegroup(
+    name = "test_sources",
+    testonly = True,
+    srcs = [":tests"],
+    output_group = "es5_sources",
+)
+
+filegroup(
+    name = "lib_sources",
+    testonly = True,
+    srcs = [":cdk8s_cli"],
+    output_group = "es5_sources",
+)
+
+jest_test(
+    name = "test",
+    srcs = glob(["**/*.snap"]) + [
+        ":test_sources",
+        "snapshotResolver.js"
+    ],
+    deps = [
+        ":cdk8s_cli",
+        "//packages/cdk8s:lib",
+        "@npm//@aws-cdk/core",
+        "@npm//codemaker",
+        "@npm//jsii",
+        "@npm//tslib",
+    ],
+    tags = ["manual"]
+)
+
+filegroup(
+    name = "templates",
+    srcs = glob(["templates/**/*"]),
+)
+
+copy_to_bin(
+    name = "copy_templates",
+    srcs = [":templates"],
+)
+
+# Creates the @awslabs/cdk8s-cli package published to npm.
+pkg_npm(
+    name = "pkg",
+    srcs = [
+        "bin/cdk8s",
+        "README.md",
+        ":templates",
+    ],
+    tags = ["release"],
+    deps = [
+        ":cdk8s_cli",
+        ":package.json",
+    ],
+)
+
+# Exported to be referenced as entry_point of the nodejs_binary
+exports_files(["bin/cdk8s"])

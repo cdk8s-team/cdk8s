@@ -3,27 +3,57 @@
   "version": "0.16.0",
   "private": true,
   "scripts": {
+    "bazel": "bazelisk",
+    "bazelrc:ci": "cp ./.github/.bazelrc /etc/bazel.bazelrc",
+    "bazelrc": "tools/generate-bazelrc.sh",
+    "bazel:buildifier": "find . -type f \\( -name \"*.bzl\" -or -name WORKSPACE -or -name BUILD -or -name BUILD.bazel \\) ! -path \"*/node_modules/*\" | xargs buildifier -v --warnings=attr-cfg,attr-license,attr-non-empty,attr-output-default,attr-single-file,constant-glob,ctx-args,depset-iteration,depset-union,dict-concatenation,duplicated-name,filetype,git-repository,http-archive,integer-division,load,load-on-top,native-build,native-package,output-group,package-name,package-on-top,redefined-variable,repository-name,same-origin-load,string-iteration,unused-variable,unsorted-dict-items,out-of-order-load",
+    "bazel:format-lint": "yarn -s bazel:buildifier --lint=warn --mode=check",
+    "format:bazel": "yarn -s bazel:buildifier --lint=fix --mode=fix",
+    "format": "yarn -s format:bazel",
+    "lint": "yarn -s eslint && yarn -s bazel:format-lint",
     "bump": "tools/bump.sh",
-    "build": "lerna run build",
-    "test": "lerna run test",
-    "package": "lerna run package && tools/collect-dist.sh",
-    "release-github": "tools/release-github.sh"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "examples/*"
-    ],
-    "nohoist": [
-      "cdk8s/yaml",
-      "cdk8s/yaml/**",
-      "cdk8s/json-stable-stringify",
-      "cdk8s/json-stable-stringify/**"
-    ]
+    "build": "yarn -s bazel build ...",
+    "//": "below can be made into a prebuild step",
+    "build:examples": "bazel run examples:gen",
+    "test": "yarn -s bazel test ...",
+    "package": "tools/collect-dist.sh",
+    "postinstall": "patch-package",
+    "release": "tools/release.sh",
+    "eslint": "eslint . --ext .ts"
   },
   "devDependencies": {
+    "@bazel/bazelisk": "^1.3.0",
+    "@bazel/buildifier": "^0.29.0",
+    "@bazel/ibazel": "^0.11.1",
+    "@bazel/jasmine": "^1.3.0",
+    "@bazel/typescript": "^1.3.0",
+    "@types/fs-extra": "^8.1.0",
+    "@types/jest": "^25.1.2",
+    "@types/json-schema": "^7.0.4",
+    "@types/node": "13.7.0",
+    "@types/yaml": "^1.2.0",
+    "@types/yargs": "^15.0.4",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
     "changelog-parser": "^2.8.0",
-    "lerna": "^3.20.2",
-    "standard-version": "^7.1.0"
+    "codemaker": "^0.22.0",
+    "constructs": "^1.1.2",
+    "eslint": "^6.8.0",
+    "fs-extra": "^8.1.0",
+    "isbinaryfile": "^4.0.4",
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "jsii": "^0.22.0",
+    "jsii-release": "^0.1.5",
+    "jsii-pacmak": "^0.22.0",
+    "json-schema-to-typescript": "^8.0.1",
+    "json-schema": "^0.2.5",
+    "patch-package": "^6.2.1",
+    "sscaff": "^1.2.0",
+    "standard-version": "^7.1.0",
+    "ts-node": "^3.0.4",
+    "typescript": "~3.7.4",
+    "yaml": "^1.7.2",
+    "yargs": "^15.1.0"
   }
 }

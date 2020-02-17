@@ -1,7 +1,7 @@
-import { Construct } from "constructs";
-import { App, Chart } from "cdk8s";
-import { Deployment, Service } from "../lib";
-import { PodinfoContainer } from "./podinfo";
+import { Construct } from 'constructs';
+import { App, Chart } from 'cdk8s';
+import { Deployment, Service } from '../lib';
+import { PodinfoContainer } from './podinfo';
 
 class MyChart extends Chart {
   constructor(scope: Construct, id: string) {

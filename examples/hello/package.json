@@ -5,11 +5,6 @@
   "types": "index.d.ts",
   "license": "Apache-2.0",
   "private": true,
-  "jest": {
-    "moduleFileExtensions": [
-      "js"
-    ]
-  },
   "scripts": {
     "gen": "cdk8s import k8s --language typescript",
     "build": "yarn gen && tsc",

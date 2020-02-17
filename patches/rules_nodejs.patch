@@ -1,0 +1,110 @@
+diff --git internal/node/node.bzl internal/node/node.bzl
+index 5c4d6c8c4..94cf5a7b6 100644
+--- internal/node/node.bzl
++++ internal/node/node.bzl
+@@ -78,7 +78,7 @@ def _compute_node_modules_root(ctx):
+         ] if f])
+     return node_modules_root
+
+-def _write_require_patch_script(ctx):
++def _write_require_patch_script(ctx, node_modules_root):
+     # Generates the JavaScript snippet of module roots mappings, with each entry
+     # in the form:
+     #   {module_name: /^mod_name\b/, module_root: 'path/to/mod_name'}
+@@ -174,11 +174,14 @@ def _nodejs_binary_impl(ctx):
+             sources_depsets.append(d.files)
+     sources = depset(transitive = sources_depsets)
+
+-    _write_require_patch_script(ctx)
++    node_modules_root = _compute_node_modules_root(ctx)
++
++    _write_require_patch_script(ctx, node_modules_root)
+     _write_loader_script(ctx)
+
+     env_vars = "export BAZEL_TARGET=%s\n" % ctx.label
+     env_vars += "export BAZEL_WORKSPACE=%s\n" % ctx.workspace_name
++    env_vars += "export NODE_MODULES_ROOT=%s\n" % node_modules_root
+     for k in ctx.attr.configuration_env_vars + ctx.attr.default_env_vars:
+         # Check ctx.var first & if env var not in there then check
+         # ctx.configuration.default_shell_env. The former will contain values from --define=FOO=BAR
+diff --git internal/node/node_patches.js internal/node/node_patches.js
+index d7273adcd..e815cb235 100644
+--- internal/node/node_patches.js
++++ internal/node/node_patches.js
+@@ -501,7 +501,15 @@ exports.escapeFunction = (root) => {
+         return false;
+     }
+     function isOutPath(str) {
+-        return !root || (!str.startsWith(root + path.sep) && str !== root);
++        return !root || (!str.startsWith(root + path.sep) && str !== root) ||
++            // don't allow symlink to escape to duplicate node_modules tree
++            (process.env.NODE_MODULES_ROOT &&
++                str.startsWith(root + path.sep + process.env.NODE_MODULES_ROOT + path.sep)) ||
++            // also cover the external legacy runfiles case for the above (incase
++            // --noexternal_legacy_runfiles not set)
++            (process.env.NODE_MODULES_ROOT && process.env.TEST_WORKSPACE &&
++                str.startsWith(root + process.env.TEST_WORKSPACE + path.sep + 'external' + path.sep +
++                    process.env.NODE_MODULES_ROOT + path.sep));
+     }
+     return { isEscape, isOutPath };
+ };
+diff --git internal/node/node.bzl internal/node/node.bzl
+index 94cf5a7b6..f29eeaf5a 100644
+--- internal/node/node.bzl
++++ internal/node/node.bzl
+@@ -181,7 +181,10 @@ def _nodejs_binary_impl(ctx):
+
+     env_vars = "export BAZEL_TARGET=%s\n" % ctx.label
+     env_vars += "export BAZEL_WORKSPACE=%s\n" % ctx.workspace_name
+-    env_vars += "export NODE_MODULES_ROOT=%s\n" % node_modules_root
++    env_vars += """if [[ -z "${NODE_MODULES_ROOT:-}" ]]; then
++  export NODE_MODULES_ROOT=%s
++fi
++""" % node_modules_root
+     for k in ctx.attr.configuration_env_vars + ctx.attr.default_env_vars:
+         # Check ctx.var first & if env var not in there then check
+         # ctx.configuration.default_shell_env. The former will contain values from --define=FOO=BAR
+diff --git internal/providers/node_runtime_deps_info.bzl internal/providers/node_runtime_deps_info.bzl
+index 67068fa48..0a34ab75a 100644
+--- internal/providers/node_runtime_deps_info.bzl
++++ internal/providers/node_runtime_deps_info.bzl
+@@ -15,6 +15,7 @@
+ """Custom provider that mimics the Runfiles, but doesn't incur the expense of creating the runfiles symlink tree"""
+
+ load("//internal/linker:link_node_modules.bzl", "add_arg", "write_node_modules_manifest")
++load("//internal/providers:npm_package_info.bzl", "NpmPackageInfo")
+
+ NodeRuntimeDepsInfo = provider(
+     doc = """Stores runtime dependencies of a nodejs_binary or nodejs_test
+@@ -38,6 +39,23 @@ do the same.
+     },
+ )
+
++def _compute_node_modules_root(ctx):
++    """Computes the node_modules root (if any) from data & deps targets."""
++    node_modules_root = ""
++    deps = []
++    if hasattr(ctx.attr, "data"):
++        deps += ctx.attr.data
++    if hasattr(ctx.attr, "deps"):
++        deps += ctx.attr.deps
++    for d in deps:
++        if NpmPackageInfo in d:
++            possible_root = "/".join([d[NpmPackageInfo].workspace, "node_modules"])
++            if not node_modules_root:
++                node_modules_root = possible_root
++            elif node_modules_root != possible_root:
++                fail("All npm dependencies need to come from a single workspace. Found '%s' and '%s'." % (node_modules_root, possible_root))
++    return node_modules_root
++
+ def run_node(ctx, inputs, arguments, executable, **kwargs):
+     """Helper to replace ctx.actions.run
+     This calls node programs with a node_modules directory in place"""
+@@ -77,6 +95,7 @@ def run_node(ctx, inputs, arguments, executable, **kwargs):
+                 env[var] = ctx.var[var]
+             elif var in ctx.configuration.default_shell_env.keys():
+                 env[var] = ctx.configuration.default_shell_env[var]
++    env["NODE_MODULES_ROOT"] = _compute_node_modules_root(ctx)
+
+     ctx.actions.run(
+         inputs = inputs + extra_inputs,
