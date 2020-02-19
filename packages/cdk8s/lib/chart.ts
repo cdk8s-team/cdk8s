@@ -12,8 +12,8 @@ export class Chart extends Construct {
    */
   public readonly manifestFile: string;
 
-  constructor(scope: Construct, id: string) {
-    super(scope, id);
+  constructor(scope: Construct, ns: string) {
+    super(scope, ns);
 
     this.manifestFile = `${this.node.uniqueId}.k8s.yaml`;
   }

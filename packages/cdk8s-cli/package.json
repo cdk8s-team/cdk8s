@@ -34,8 +34,8 @@
     "yargs": "^15.1.0"
   },
   "devDependencies": {
-    "@aws-cdk/core": "^1.23.0",
-    "@aws-cdk/cx-api": "^1.23.0",
+    "@aws-cdk/core": "^1.24.0",
+    "@aws-cdk/cx-api": "^1.24.0",
     "@awslabs/cdk8s": "0.0.0",
     "@types/jest": "^25.1.2",
     "@types/json-schema": "^7.0.4",
