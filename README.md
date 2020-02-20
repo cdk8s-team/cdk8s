@@ -136,7 +136,7 @@ export class HelloChart extends Chart {
   constructor(scope: Construct, ns: string) {
     super(scope, ns);
 
-
+    // this is where we will define k8s resources soon...
   }
 }
 ```
@@ -189,27 +189,11 @@ This command will create a new directory called `.gen` in your project directory
 with a `.ts` file for each Kubernetes API object. These files include constructs
 that represent all Kubernetes objects.
 
-Let's use these newly generated objects to define a simple Kubernetes application:
+Let's use these newly generated constructs in `charts/hello.ts` to define a simple Kubernetes application
+that contains [Service](https://kubernetes.io/docs/concepts/services-networking/service)
+and a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment) resources:
 
-`charts/hello.ts`
-
-```ts
-
-```
-
-Now, inside your chart, define the service and deployment resources. Import the
-`ServiceObject` and `DeploymentObject` constructs from `cdk8s`. They represent
-the [Service](https://kubernetes.io/docs/concepts/services-networking/service)
-and
-[Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
-Kubernetes API objects.
-
-```ts
-import { Chart, DeploymentObject, ServiceObject } from 'cdk8s';
-```
-
-The following example is identical to defining the YAML described in
-https://github.com/paulbouwer/hello-kubernetes:
+> The following example is identical to defining the YAML described in https://github.com/paulbouwer/hello-kubernetes:
 
 ```ts
 import { Chart } from '@awslabs/cdk8s';
@@ -262,7 +246,7 @@ Now if we execute `yarn synth` and print the contents of `hello.k8s.yaml`, we wi
 ```shell
 $ yarn synth
 $ cat dist/hello.k8s.yaml
-
+# now we are talking...
 ```
 
 ### Deploy
@@ -275,7 +259,9 @@ $ kubectl apply -f dist/hello.k8s.yaml
 
 ```
 
-### Custom Constructs
+### Creating Custom Constructs
+
+> TODO: this section needs a rewrite
 
 Constructs are the basic building block of cdk8s. They are the instrument that
 enables composition and creation of higher-level abstractions through normal
@@ -318,12 +304,12 @@ new WebService(this, 'hello-k8s', {
 });
 ```
 
-The implementation of `WebService` is trivial:
-
+To implement `WebService`, create a file `lib/web-service.ts` (the convention is to use `lib` for reusable components):
 
 ```ts
 import { Construct } from '@aws-cdk/core';
-import { ServiceObject, DeploymentObject } from 'cdk8s';
+import { Service, IntOrString } from '../.gen/service-v1';
+import { Deployment } from '../.gen/apps-deployment-v1';
 
 export interface WebServiceOptions {
   /**
@@ -361,15 +347,15 @@ export class WebService extends Construct {
     const containerPort = options.containerPort || 8080;
     const label = { app: this.node.uniqueId };
 
-    new ServiceObject(this, 'service', {
+    new Service(this, 'service', {
       spec: {
         type: 'LoadBalancer',
-        ports: [ { port, targetPort: containerPort } ],
+        ports: [ { port, targetPort: IntOrString.fromNumber(containerPort) } ],
         selector: label
       }
     });
 
-    new DeploymentObject(this, 'deployment', {
+    new Deployment(this, 'deployment', {
       spec: {
         replicas: 1,
         selector: {
@@ -393,14 +379,14 @@ export class WebService extends Construct {
 }
 ```
 
-So now we have a new abstraction that we can use:
+Now, let's edit `charts/hello.ts`:
 
 ```ts
-import { App, Construct } from '@aws-cdk/core';
-import { Chart } from 'cdk8s';
-import { WebService } from './web-service';
+import { Chart } from '@awslabs/cdk8s';
+import { Construct } from '@aws-cdk/core';
+import { WebService } from '../lib/web-service';
 
-class MyChart extends Chart {
+export class HelloChart extends Chart {
   constructor(scope: Construct, ns: string) {
     super(scope, ns);
 
@@ -408,11 +394,9 @@ class MyChart extends Chart {
     new WebService(this, 'ghost', { image: 'ghost', containerPort: 2368 });
   }
 }
-
-const app = new App({ outdir: 'dist' });
-new MyChart(app, 'web-service-example');
-app.synth();
 ```
+
+As you can see, we now add define `WebService` constructs inside our chart: one that runs the `paulbouwer/hello-kubernetes` image and one with an installation of [ghost](https://hub.docker.com/_/ghost/)
 
 ## Getting Help
 
