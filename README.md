@@ -12,6 +12,7 @@ the full power of software in order to define abstract components called
 higher-level abstractions.
 
 - [Getting Started](#getting-started)
+- [Examples](#examples)
 - [Getting Help](#getting-help)
 - [Contributions](#contributions)
 - [Roadmap](#roadmap)
