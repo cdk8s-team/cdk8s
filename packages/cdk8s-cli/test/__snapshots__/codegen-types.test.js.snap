@@ -33,7 +33,7 @@ exports[`unions include primitives 1`] = `
         return new TestType(value);
     }
     private constructor(value: any) {
-        Object.defineProperty(this, 'resolve', { value });
+        Object.defineProperty(this, 'resolve', { value: () => value });
     }
 }
 

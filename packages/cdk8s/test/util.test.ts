@@ -1,4 +1,4 @@
-import { removeEmpty } from "../lib/util";
+import { removeEmpty } from "../lib/_util";
 
 test('removeEmpty', () => {
 

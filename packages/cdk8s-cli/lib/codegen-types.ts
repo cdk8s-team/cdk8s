@@ -64,7 +64,7 @@ export class TypeGenerator {
     }
 
     code.openBlock(`private constructor(value: any)`);
-    code.line(`Object.defineProperty(this, 'resolve', { value });`);
+    code.line(`Object.defineProperty(this, 'resolve', { value: () => value });`);
     code.closeBlock();
 
     code.closeBlock();

@@ -1,5 +1,4 @@
 import { Construct } from '@aws-cdk/core';
-import { removeEmpty } from './util';
 import { renderObjectName } from './names';
 
 export interface ApiObjectMetadata {
@@ -9,7 +8,7 @@ export interface ApiObjectMetadata {
 
 
 export interface ApiObjectOptions {
-/**
+  /**
    * Data associated with the resource.
    */
   readonly data?: any;
@@ -78,15 +77,16 @@ export class ApiObject extends Construct {
 
   /**
    * Renders the object to Kubernetes config.
+   * @internal
    */
-  public render(): any {
-    return removeEmpty({
+  public _render(): any {
+    return {
       ...this.options,
       metadata: {
         ...this.options.metadata,
         name: this.name
       }
-    });
+    };
   }
 }
 
