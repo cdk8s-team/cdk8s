@@ -1,5 +1,5 @@
 import { Chart, ApiObject, Testing } from '../lib';
-import { App, Construct } from '@aws-cdk/core';
+import { App, Construct, Lazy } from '@aws-cdk/core';
 
 test('empty stack', () => {
   // GIVEN
@@ -30,3 +30,29 @@ test('output includes all synthesized resources', () => {
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();
 });
+
+
+test('tokens are resolved during synth', () => {
+  // GIVEN
+  const app = new App();
+  const chart = new Chart(app, 'test');
+
+  // WHEN
+  new ApiObject(chart, 'resource1', {
+    kind: 'Resource1',
+    apiVersion: 'v1',
+    spec: {
+      foo: Lazy.numberValue({ produce: () => 123 }),
+      implicitToken: createImplictToken({ foo: 'bar' })
+    }
+  });
+
+  // THEN
+  expect(Testing.synth(chart)).toMatchSnapshot();
+});
+
+function createImplictToken(value: any) {
+  const implicit = {};
+  Object.defineProperty(implicit, 'resolve', { value: () => value });
+  return implicit;
+}

@@ -45,3 +45,21 @@ Array [
   },
 ]
 `;
+
+exports[`tokens are resolved during synth 1`] = `
+Array [
+  Object {
+    "apiVersion": "v1",
+    "kind": "Resource1",
+    "metadata": Object {
+      "name": "test.resource1.2b59e3b8",
+    },
+    "spec": Object {
+      "foo": 123,
+      "implicitToken": Object {
+        "foo": "bar",
+      },
+    },
+  },
+]
+`;

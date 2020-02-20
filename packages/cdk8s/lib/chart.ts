@@ -3,6 +3,8 @@ import fs = require('fs');
 import path = require('path');
 import { ApiObject } from './api-object';
 import YAML = require('yaml');
+import { resolve } from './_tokens';
+import { removeEmpty } from './_util';
 
 export class Chart extends Construct {
 
@@ -22,11 +24,15 @@ export class Chart extends Construct {
     const resources = new Array<any>();
 
     for (const resource of this.node.findAll()) {
-      if (resource instanceof ApiObject) {
-        resources.push(resource.render());
+      if (!(resource instanceof ApiObject)) {
+        continue;
       }
+
+      const manifest = removeEmpty(resolve(this, resource._render()));
+      resources.push(manifest);
     }
 
+    // convert each resource to yaml and separate with a '---' line
     const doc = resources.map(r => toYaml(r)).join('---\n');
     fs.writeFileSync(path.join(session.assembly.outdir, this.manifestFile), doc);
   }

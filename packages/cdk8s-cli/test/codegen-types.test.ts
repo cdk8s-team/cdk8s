@@ -5,6 +5,8 @@ import { CodeMaker } from "codemaker";
 import { jsiiCompile, createWorkdir } from "./util";
 import { JSONSchema4 } from "json-schema";
 
+jest.setTimeout(60_000); // 1min
+
 describe('unions', () => {
 
   which('include primitives', {
@@ -33,7 +35,7 @@ describe('documentation', () => {
     type: 'string'
   });
   
-})
+});
 
 function which(name: string, schema: JSONSchema4) {
   test(name, async () => {
