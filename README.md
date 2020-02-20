@@ -261,8 +261,6 @@ $ kubectl apply -f dist/hello.k8s.yaml
 
 ### Creating Custom Constructs
 
-> TODO: this section needs a rewrite
-
 Constructs are the basic building block of cdk8s. They are the instrument that
 enables composition and creation of higher-level abstractions through normal
 object-oriented classes.
@@ -397,6 +395,10 @@ export class HelloChart extends Chart {
 ```
 
 As you can see, we now add define `WebService` constructs inside our chart: one that runs the `paulbouwer/hello-kubernetes` image and one with an installation of [ghost](https://hub.docker.com/_/ghost/)
+
+## Examples
+
+- [Podinfo](./examples/podinfo) - an example of high-level APIs for Kubernetes objects.
 
 ## Getting Help
 
