@@ -398,7 +398,7 @@ As you can see, we now add define `WebService` constructs inside our chart: one 
 
 ## Examples
 
-- [Podinfo](./examples/podinfo) - an example of high-level APIs for Kubernetes objects.
+- [Podinfo](./examples/podinfo/examples/app-example.ts) - an example of high-level APIs for Kubernetes objects.
 
 ## Getting Help
 
