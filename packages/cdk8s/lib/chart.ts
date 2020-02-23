@@ -9,6 +9,23 @@ import { removeEmpty } from './_util';
 export class Chart extends Construct {
 
   /**
+   * Finds the chart in which a node is defined.
+   * @param node a construct node
+   */
+  public static of(node: Construct): Chart {
+    if (node instanceof Chart) {
+      return node;
+    }
+
+    const parent = node.node.scope as Construct;
+    if (!parent) {
+      throw new Error(`cannot find a parent chart (directly or indirectly)`);
+    }
+
+    return Chart.of(parent);
+  }
+
+  /**
    * The name of the stack's YAML file as emitted into the cloud assembly
    * directory during synthesis.
    */

@@ -51,6 +51,34 @@ test('tokens are resolved during synth', () => {
   expect(Testing.synth(chart)).toMatchSnapshot();
 });
 
+test('Chart.of(node) returns the first chart in which a node is defined', () => {
+  // GIVEN
+  const app = new App();
+  
+  // WHEN
+  const chart = new Chart(app, 'MyFirst');
+  const direct = new Construct(chart, 'Direct');
+  const indirect = new Construct(direct, 'Indirect');
+
+  const childChart = new Chart(indirect, 'ChildChart');
+  const childChild = new Construct(childChart, 'ChildChild');
+
+  expect(Chart.of(chart)).toEqual(chart);
+  expect(Chart.of(direct)).toEqual(chart);
+  expect(Chart.of(indirect)).toEqual(chart);
+  expect(Chart.of(childChart)).toEqual(childChart);
+  expect(Chart.of(childChild)).toEqual(childChart);
+});
+
+test('Chart.of(node) fails when there is no chart in the tree', () => {
+  // GIVEN
+  const app = new App();
+  const child = new Construct(app, 'MyConstruct');
+
+  // WHEN
+  expect(() => Chart.of(child)).toThrow(/cannot find a parent chart \(directly or indirectly\)/);
+});
+
 function createImplictToken(value: any) {
   const implicit = {};
   Object.defineProperty(implicit, 'resolve', { value: () => value });
