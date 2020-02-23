@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - release
     
 jobs:
   release:
@@ -13,18 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - run: yarn bump ./package.json
+      - run: tools/align-version.sh
       - run: yarn build
       - run: yarn test
       - run: yarn package
 
-      # publish to package managers only if this is a new version
-      
-      - name: git config
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
+      # publish to package managers only if this is a new version      
       - run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

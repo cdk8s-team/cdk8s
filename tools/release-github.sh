@@ -44,10 +44,3 @@ curl --request POST \
   --header "Content-Type: application/json" \
   --data @/tmp/req.json \
   https://api.github.com/repos/${repo}/releases
-
-git add ./package.json
-git add ./CHANGELOG.md
-git commit -m 'chore(release): ${version}'
-git tag v${version}
-
-# ready to push

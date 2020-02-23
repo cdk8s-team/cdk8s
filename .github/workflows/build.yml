@@ -1,6 +1,6 @@
 name: Build
-on: pull_request
-    
+on: [ push ]
+
 jobs:
   build:
     runs-on: ubuntu-latest

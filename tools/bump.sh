@@ -1,10 +1,9 @@
 #!/bin/bash
 set -euo pipefail
-version_file="${1:-}"
-if [ -z "${version_file}" ]; then
-  echo "usage: $0 ./package.json"
-  exit 1
-fi
+repo_root=$(cd $(dirname $0)/.. && pwd)
+cd ${repo_root}
 
-version=$(node -p "require('${version_file}').version")
-npx lerna version ${version} --yes --exact --force-publish=* --no-git-tag-version --no-push
+version="${1:-minor}"
+
+yarn install
+npx standard-version --release-as ${version} --skip.tag --bumpFiles package.json
