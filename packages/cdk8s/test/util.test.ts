@@ -13,7 +13,7 @@ test('removeEmpty', () => {
   expect(removeEmpty({ xoo: 123, foo: [ 1, 2, { foo: 123, bar: undefined, zoo: [] }, 3 ] })).toStrictEqual({ xoo: 123, foo: [ 1, 2, { foo: 123 }, 3 ] });
   expect(removeEmpty([ 1, 2, 3, [ ], { }, 4 ])).toStrictEqual([ 1, 2, 3, [ ], { }, 4 ]); // special case
 
-  expect(() => removeEmpty(new Dummy())).toThrow(/can\'t render non-simple object of type \'Dummy\'/);
+  expect(() => removeEmpty(new Dummy())).toThrow(/can't render non-simple object of type 'Dummy'/);
 });
 
 class Dummy { }

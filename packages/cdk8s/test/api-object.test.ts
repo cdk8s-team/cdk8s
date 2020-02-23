@@ -93,17 +93,17 @@ test('"data" can be used to specify resource data', () => {
 
 test('object naming logic can be overridden at the chart level', () => {
   class MyChart extends Chart {
-    public generateObjectName(_: ApiObject) {
-      return 'fixed!'
+    generateObjectName() {
+      return 'fixed!';
     }
   }
 
   // GIVEN
   const app = new App();
-  const chart = new MyChart(app, 'MyChart');
+  const chart = new MyChart(app, 'my-chart');
 
   // WHEN
-  const object = new ApiObject(chart, 'MyObject', {
+  const object = new ApiObject(chart, 'my-object', {
     apiVersion: 'v1',
     kind: 'MyKind'
   });

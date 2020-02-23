@@ -31,11 +31,11 @@ export function removeEmpty(obj: any): any {
   const newObj: { [key: string]: any } = { };
 
   for (const [key, value] of Object.entries(obj)) {
-    const newValue = removeEmpty(value);;
+    const newValue = removeEmpty(value);
     if (newValue != null) {
       newObj[key] = newValue;
     }
   }
 
   return newObj;
-};
+}

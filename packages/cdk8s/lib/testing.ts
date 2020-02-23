@@ -18,5 +18,7 @@ export class Testing {
     return YAML.parseAllDocuments(fs.readFileSync(filePath, 'utf-8')).map((doc: any) => doc.toJSON());
   }
 
-  private constructor() { }
+  private constructor() {
+    return;
+  }
 }

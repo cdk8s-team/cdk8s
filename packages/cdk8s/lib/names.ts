@@ -1,7 +1,7 @@
 import * as crypto from 'crypto';
 
 const MAX_LEN = 253;
-const VALIDATE = /^[0-9a-z\-\.]+$/;
+const VALIDATE = /^[0-9a-z\-.]+$/;
 const HASH_LEN = 8;
 
 /**
