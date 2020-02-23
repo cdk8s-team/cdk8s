@@ -6,10 +6,8 @@
 ![Stability:Experimental](https://img.shields.io/badge/stability-experimental-orange)
 
 **cdk8s** is a software development framework for defining Kubernetes
-applications using rich object-oriented APIs. It allows developers to leverage
-the full power of software in order to define abstract components called
-"constructs" which compose Kubernetes resources or other constructs into
-higher-level abstractions.
+applications and reusable abstractions using familiar programming languages and
+rich object-oriented APIs.
 
 - [Getting Started](#getting-started)
 - [Examples](#examples)
@@ -18,7 +16,7 @@ higher-level abstractions.
 - [Roadmap](#roadmap)
 - [License](#license)
 
-cdk8s apps are programs written in one of the supported programming languages.
+**cdk8s** apps are programs written in one of the supported programming languages.
 They are structured as a tree of
 [constructs](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html).
 

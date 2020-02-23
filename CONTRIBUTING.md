@@ -5,7 +5,7 @@ GitHub pull requests. This document outlines some of the conventions on commit
 message formatting, contact points for developers, and other resources to help
 get contributions into cdk8s.
 
-You can contribute to cdk8s in many ways. Contributions of all shapes and sizes are 
+You can contribute to **cdk8s** in many ways. Contributions of all shapes and sizes are 
 welcome and celebrated:
 
 - [Reporting Issues](#reporting-issues)
