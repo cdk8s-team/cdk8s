@@ -90,3 +90,29 @@ test('"data" can be used to specify resource data', () => {
   // THEN
   expect(Testing.synth(stack)).toMatchSnapshot();
 });
+
+test('object naming logic can be overridden at the chart level', () => {
+  class MyChart extends Chart {
+    public generateObjectName(_: ApiObject) {
+      return 'fixed!'
+    }
+  }
+
+  // GIVEN
+  const app = new App();
+  const chart = new MyChart(app, 'MyChart');
+
+  // WHEN
+  const object = new ApiObject(chart, 'MyObject', {
+    apiVersion: 'v1',
+    kind: 'MyKind'
+  });
+
+  // THEN
+  expect(object.name).toEqual('fixed!');
+  expect(Testing.synth(chart)).toStrictEqual([{
+    "apiVersion": "v1",
+    "kind": "MyKind",
+    "metadata": { "name": "fixed!" }
+  }]);
+});

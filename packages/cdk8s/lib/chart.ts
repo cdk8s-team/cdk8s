@@ -1,10 +1,11 @@
 import { Construct, ISynthesisSession } from '@aws-cdk/core';
-import fs = require('fs');
-import path = require('path');
+import * as fs from 'fs';
+import * as path from 'path';
 import { ApiObject } from './api-object';
-import YAML = require('yaml');
+import * as YAML from 'yaml';
 import { resolve } from './_tokens';
 import { removeEmpty } from './_util';
+import { renderObjectName } from './names';
 
 export class Chart extends Construct {
 
@@ -35,6 +36,10 @@ export class Chart extends Construct {
     super(scope, ns);
 
     this.manifestFile = `${this.node.uniqueId}.k8s.yaml`;
+  }
+
+  public generateObjectName(apiObject: ApiObject) {
+    return renderObjectName(apiObject.node.path);
   }
 
   protected synthesize(session: ISynthesisSession) {
