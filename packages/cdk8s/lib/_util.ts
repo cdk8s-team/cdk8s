@@ -6,10 +6,6 @@ export function removeEmpty(obj: any): any {
   if (typeof(obj) !== 'object') {
     return obj;
   }
-
-  if (Object.keys(obj).length === 0) {
-    return undefined;
-  }
   
   if (Array.isArray(obj)) {
     if (obj.length === 0) {
@@ -18,14 +14,18 @@ export function removeEmpty(obj: any): any {
 
     return obj.map(x => {
       // do not remove "{}" and "[]" if they are array elements.
-      if (x != null && typeof(x) === 'object' && Object.keys(x).length === 0) { return x; }
       if (Array.isArray(x) && x.length === 0) { return x; }
+      if (x != null && typeof(x) === 'object' && Object.keys(x).length === 0) { return x; }
       return removeEmpty(x)
     });
   }
 
   if (obj.constructor.name !== 'Object') {
-    throw new Error(`can't render non-simple objects: ${obj.constructor.name}`);
+    throw new Error(`can't render non-simple object of type '${obj.constructor.name}'`);
+  }
+
+  if (Object.keys(obj).length === 0) {
+    return undefined;
   }
 
   const newObj: { [key: string]: any } = { };
