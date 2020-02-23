@@ -6,7 +6,7 @@ scriptdir=$(cd $(dirname $0) && pwd)
 # release to github npm repository
 #====================================
 
-${scriptdir}/release-npm.sh dist/js
+npx jsii-release-npm dist/js
 ${scriptdir}/release-github.sh
 
 

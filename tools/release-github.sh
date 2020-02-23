@@ -15,16 +15,8 @@ if curl --silent --fail -H "Authorization: token ${GITHUB_TOKEN}" https://api.gi
   exit 0
 fi
 
-if cat CHANGELOG.md | grep "## ${version}"; then
-  echo "version already exists in changelog"
-  exit 0
-fi
-
-echo "creating changelog..."
-npx standard-version --skip.bump --skip.commit --skip.tag --release-as ${version}
-
-# extract changelog entry
-git diff CHANGELOG.md | grep "^+[^+]" | sed -e "s/^+//" > /tmp/changelog.txt
+entry="/tmp/changelog.txt"
+tools/extract-changelog > ${entry}
 
 # prepare request body
 node <<HERE
@@ -32,7 +24,7 @@ const fs = require('fs');
 const req = {
   "tag_name": "v${version}",
   "name": "v${version}",
-  "body": fs.readFileSync('/tmp/changelog.txt', 'utf-8')
+  "body": fs.readFileSync('${entry}', 'utf-8')
 };
 
 fs.writeFileSync('/tmp/req.json', JSON.stringify(req, undefined, 2));

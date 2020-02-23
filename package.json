@@ -14,6 +14,8 @@
     "examples"
   ],
   "devDependencies": {
+    "changelog-parser": "^2.8.0",
+    "jsii-release": "^0.1.2",
     "lerna": "^3.20.2",
     "standard-version": "^7.1.0"
   }
