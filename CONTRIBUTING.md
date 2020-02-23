@@ -11,6 +11,7 @@ welcome and celebrated:
 - [Reporting Issues](#reporting-issues)
 - [Code Contributions](#code-contributions)
 - [RFCs](#rfcs)
+- [For Maintainers](#for-maintainers)
 
 We follows the [CNCF Community Code of
 Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
@@ -145,6 +146,31 @@ To create an RFC follow this process:
    indicate `rfc: <nnnn> <same as issue title>`.
 4. The RFC will be reviewed as a pull request and once merged it means it is
    ready for implementation.
+
+## For Maintainers
+
+This section includes information that is relevant for the maintainers of the project.
+
+### Release Protocol
+
+To release a new version of cdk8s following these steps:
+
+```shell
+$ yarn bump
+$ git checkout -b release
+$ git push origin release
+```
+
+This will trigger the [release workflow](./.github/workflows/release.yml) which will release to all package managers and will also create a GitHub release with a tag.
+
+Once the release is over, you should merge `release` back to `master` either via a PR or via a push:
+
+```shell
+$ git fetch origin
+$ git checkout master
+$ git merge origin/release
+$ git push origin master
+```
 
 ---
 
