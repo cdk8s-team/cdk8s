@@ -1,4 +1,4 @@
-import { Deployment, ImagePullPolicy } from "../lib";
+import { Deployment, ImagePullPolicy, IContainer } from "../lib";
 import { Container } from '../../.gen/pod-v1';
 
 export interface PodinfoOptions {
@@ -54,7 +54,6 @@ export interface PodinfoOptions {
    */
   readonly faultError?: boolean;
 
-
   /**
    * container HTTP port
    * @default 9898
@@ -65,12 +64,12 @@ export interface PodinfoOptions {
   readonly grpcServiceName?: string;
 }
 
-export class PodinfoContainer {
+export class PodinfoContainer implements IContainer {
   public constructor(private readonly options: PodinfoOptions) {
 
   }
 
-  public get container(): Container {
+  public get spec(): Container {
     const options = this.options;
     const imageRepository = options.imageRepository || 'stefanprodan/podinfo';
     const imageTag = options.imageTag || '3.0.0';
@@ -111,7 +110,7 @@ export class PodinfoContainer {
     };
   }
 
-  public attach(deployment: Deployment) {
+  public bind(deployment: Deployment) {
     deployment.addAnnotation('prometheus.io/scrape', 'true');
     deployment.addAnnotation('prometheus.io/port', this.options.httpPort);
   }

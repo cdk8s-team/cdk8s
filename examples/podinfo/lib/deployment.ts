@@ -55,7 +55,12 @@ export interface DeploymentOptions {
   /**
    * Containers to add to this deployment. You can add additional containers through `addContaienr`.
    */
-  readonly containers?: Container[];
+  readonly containers?: IContainer[];
+}
+
+export interface IContainer {
+  readonly spec: Container;
+  bind(deployment: Deployment): void;
 }
 
 export class Deployment extends Construct implements ISelector {
@@ -136,10 +141,10 @@ export class Deployment extends Construct implements ISelector {
     }
   }
 
-  public addContainer(container: Container) {
-    this.containers.push(container);
+  public addContainer(container: IContainer) {
+    this.containers.push(container.spec);
 
-    for (const mount of container.volumeMounts || []) {
+    for (const mount of container.spec.volumeMounts || []) {
       if (!mount.name) {
         throw new Error(`mounts must have a name`);
       }
@@ -149,6 +154,8 @@ export class Deployment extends Construct implements ISelector {
         emptyDir: {}
       });
     }
+
+    container.bind(this);
   }
 
   public addAnnotation(key: string, value: any) {

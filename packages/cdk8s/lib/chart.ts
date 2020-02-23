@@ -34,10 +34,17 @@ export class Chart extends Construct {
 
   constructor(scope: Construct, ns: string) {
     super(scope, ns);
-
     this.manifestFile = `${this.node.uniqueId}.k8s.yaml`;
   }
 
+  /**
+   * Generates a name for an object given it's construct node path.
+   *
+   * You can override this method if you wish to customize object names at the
+   * chart level.
+   *
+   * @param apiObject The API object to generate a name for.
+   */
   public generateObjectName(apiObject: ApiObject) {
     return renderObjectName(apiObject.node.path);
   }
