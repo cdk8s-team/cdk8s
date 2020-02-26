@@ -1,0 +1,22 @@
+#!/bin/bash
+# creates new cdk8s projects
+set -euo pipefail
+scriptdir="$(cd $(dirname $0) && pwd)"
+templates="${scriptdir}/../templates"
+
+# verify that cookiecutter can be found
+if ! which cookiecutter > /dev/null; then 
+  echo "cookiecutter not installed"
+  echo "See https://cookiecutter.readthedocs.io/en/1.7.0/installation.html"
+  exit 1
+fi
+
+template="${1:-}"
+if [ -z "${template}" ]; then
+  echo "usage: cdk8s init TEMPLATE"
+  echo "available templates: $(ls ${templates})"
+  exit 1
+fi
+
+echo "creating a new project from template: ${template}"
+cookiecutter ${templates}/${template}

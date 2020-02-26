@@ -5,8 +5,8 @@ subcommand=${1:-}
 subcommands=$(cd ${scriptdir} && ls -1F cdk8s-*  | grep "*$" | sed -e 's/^cdk8s-//g' | sed -e 's/*$//g' | xargs)
 
 if [ -z "${subcommand}" ]; then
-  echo "Usage: cdk8s SUBCOMMAND"
-  echo "Available subcommands: ${subcommands}"
+  echo "usage: cdk8s SUBCOMMAND"
+  echo "available subcommands: ${subcommands}"
   exit 1
 fi
 
@@ -17,4 +17,5 @@ if [ ! -x "${prog}" ]; then
   exit 1
 fi
 
-exec ${prog}
+shift
+exec ${prog} $@

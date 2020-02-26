@@ -10,14 +10,23 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs.
 
 - [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Private GitHub Packages](#private-github-packages)
+  - [Install the CLI](#install-the-cli)
+  - [New Project](#new-project)
+  - [Watch](#watch)
+  - [Apps & Charts](#apps--charts)
+  - [Defining Kubernetes Objects](#defining-kubernetes-objects)
+  - [Deploy](#deploy)
+  - [Creating Custom Constructs](#creating-custom-constructs)
 - [Examples](#examples)
 - [Getting Help](#getting-help)
 - [Contributions](#contributions)
 - [Roadmap](#roadmap)
 - [License](#license)
 
-**cdk8s** apps are programs written in one of the supported programming languages.
-They are structured as a tree of
+**cdk8s** apps are programs written in one of the supported programming
+languages. They are structured as a tree of
 [constructs](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html).
 
 The root of the tree is an `App` construct. Within an app, users define any
@@ -45,8 +54,10 @@ Let's walk through a simple "Hello, World!" example in TypeScript.
 
  - [Node.js 12.x](https://nodejs.org/en/)
  - [yarn](https://yarnpkg.com/lang/en/)
+ - [cookiecutter](https://cookiecutter.readthedocs.io/en/1.7.0/installation.html)
+   - needed to create new projects from templates
 
-### GitHub Packages
+### Private GitHub Packages
 
 Since cdk8s is currently released to GitHub Packages (and not to [npmjs]) you
 will need to [authenticate to GitHub Packages]:
@@ -64,49 +75,39 @@ Configure yarn to use GitHub Packages for the `@awslabs` scope:
 $ yarn config set "@awslabs:registry" "https://npm.pkg.github.com"
 ```
 
-[npmjs]: https://www.npmjs.com
-[Personal Access Token]: https://github.com/settings/tokens/new
-[authenticate to GitHub Packages]: https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages
+[npmjs]: https://www.npmjs.com [Personal Access Token]:
+https://github.com/settings/tokens/new [authenticate to GitHub Packages]:
+https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages
+
+### Install the CLI
+
+cdk8s has a cute little CLI that has a few useful commands. Let's start by
+installing the cdk8s CLI globally:
+
+```shell
+$ yarn global add @awslabs/cdk8s-cli
+```
 
 ### New Project
+
+Now, we'll use the `cdk8s init` command to create a new TypeScript cdk8s app.
 
 Create a new cdk8s project (we'll use TypeScript):
 
 ```console
-$ mkdir hello-cdk8s
-$ cd hello-cdk8s
-$ yarn init -yp
+$ cdk8s init typescript-app
+creating a new project from template: typescript-app
+name [hello]: 
 ```
 
-Install and configure typescript:
+Choose a name for your project (or use the default) and press ENTER.
 
-```console
-$ yarn add -D typescript @types/node
-$ curl -o tsconfig.json https://gist.githubusercontent.com/eladb/85502ca35543eda6c0d728358f3d3568/raw
-```
+This will perform the following:
 
-Install CDK modules:
-
-```console
-$ yarn add @aws-cdk/core @aws-cdk/cx-api @awslabs/cdk8s
-```
-
-> NOTE: We temporary depend on `@aws-cdk/core` for the `Construct` base class,
-> but we intent to extract this class into a separate module.
-
-Install the cdk8s CLI as a development dependency:
-
-```console
-$ yarn add -D @awslabs/cdk8s-cli
-```
-
-Add a bunch of scripts for `yarn build`, `yarn watch` and `yarn synth`:
-
-```console
-$ npx npm-add-script -k build -v "tsc"
-$ npx npm-add-script -k watch -v "tsc -w"
-$ npx npm-add-script -k synth -v "node ./main.js"
-```
+1. Create a new project directory
+2. Install cdk8s as a dependency
+3. Generate constructs for all k8s object
+4. Compile the TypeScript to JavaScript
 
 ### Watch
 
@@ -118,93 +119,75 @@ background like this:
 $ yarn watch
 ```
 
-### Concepts
+### Apps & Charts
 
-**Charts**
-
-cdk8s synthesizes a Kubernetes manifest for each `Chart` in the app. Let's
-create our first, empty, chart called `HelloChart`:
-
-`charts/hello.ts`
+At this point, if you open `main.ts` you will see something like this:
 
 ```ts
+import { App, Construct } from '@aws-cdk/core';
 import { Chart } from '@awslabs/cdk8s';
-import { Construct } from '@aws-cdk/core';
 
-export class HelloChart extends Chart {
-  constructor(scope: Construct, ns: string) {
-    super(scope, ns);
+class MyChart extends Chart {
+  constructor(scope: Construct, name: string) {
+    super(scope, name);
 
-    // this is where we will define k8s resources soon...
+    // define constructs here
   }
 }
-```
-
-**Apps**
-
-CDK apps are structured as a tree of "constructs". We will learn more about
-constructs soon. But first, let's define the root of the tree, which is always
-the `App` construct.
-
-We will define this in the entrypoint of our app:
-
-`main.ts`
-
-```ts
-import { App } from '@aws-cdk/core';
-import { HelloChart } from './charts/hello';
 
 const app = new App({ outdir: 'dist' });
-
-new HelloChart(app, 'hello');
-
+new MyChart(app, 'hello');
 app.synth();
 ```
 
-If we run `yarn synth` right now, you will see that a `dist` directory is
-created with an empty `hello.k8s.yaml` file
+Apps are structured as a tree of **constructs**, which are composable units of
+abstraction. We will learn more about constructs soon.
 
- > *Make sure `yarn watch` still runs in the background, or run `yarn build`
-instead*
+This initial code created by `cdk8s init` defines an app with a single, empty,
+chart. 
+
+When you run `yarn synth`, a Kubernetes manifest YAML will be synthesized for
+each `Chart` in your app and will write it to the `dist` directory.
+
+You can try:
 
 ```shell
 $ yarn synth
 $ cat dist/hello.k8s.yaml
-
+<EMPTY>
 ```
 
-**Constructs for API Objects**
+### Defining Kubernetes Objects
 
 OK, now let's define some Kubernetes API objects inside our chart.
 
-cdk8s comes with a CLI that can automatically generate well-typed constructs for
-all Kubernetes API objects. Let's import these constructs into our project:
+Similarly to charts and apps, Kubernetes API objects are also represented in
+cdk8s as **construct**. Since different Kubernetes versions have different APIs,
+the constructs for Kubernetes objects are not included in the cdk8s library but
+actually generated on-demand using `cdk8s import`. Your generated project
+already includes a pre-build instruction to generate these constructs, and you
+should be able to find them under the `.gen` directory.
 
-```shell
-$ npx cdk8s import
-```
+Let's use these generated constructs in `main.ts` to define a simple Kubernetes
+application that contains
+[Service](https://kubernetes.io/docs/concepts/services-networking/service) and a
+[Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
+resources:
 
-This command will create a new directory called `.gen` in your project directory
-with a `.ts` file for each Kubernetes API object. These files include constructs
-that represent all Kubernetes objects.
-
-Let's use these newly generated constructs in `charts/hello.ts` to define a simple Kubernetes application
-that contains [Service](https://kubernetes.io/docs/concepts/services-networking/service)
-and a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment) resources:
-
-> The following example is identical to defining the YAML described in https://github.com/paulbouwer/hello-kubernetes:
+> The following example is identical to defining the YAML described in
+> https://github.com/paulbouwer/hello-kubernetes:
 
 ```ts
+import { App, Construct } from '@aws-cdk/core';
 import { Chart } from '@awslabs/cdk8s';
-import { Construct } from '@aws-cdk/core';
 
 // import generated constructs
-import { Service, IntOrString } from '../.gen/service-v1';
-import { Deployment } from '../.gen/apps-deployment-v1';
+import { Service, IntOrString } from './.gen/service-v1';
+import { Deployment } from './.gen/apps-deployment-v1';
 
-export class HelloChart extends Chart {
-  constructor(scope: Construct, ns: string) {
-    super(scope, ns);
+class MyChart extends Chart {
+  constructor(scope: Construct, name: string) {
+    super(scope, name);
 
     const label = { app: 'hello-k8s' };
 
@@ -238,14 +221,46 @@ export class HelloChart extends Chart {
     });
   }
 }
+
+const app = new App({ outdir: 'dist' });
+new MyChart(app, 'hello');
+app.synth();
 ```
 
-Now if we execute `yarn synth` and print the contents of `hello.k8s.yaml`, we will get the following output:
+Now, if we execute `yarn synth`, this will be contents of `hello.k8s.yaml`:
 
-```shell
-$ yarn synth
-$ cat dist/hello.k8s.yaml
-# now we are talking...
+```yaml
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: hello-k8s
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello.service.9878228b
+---
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-k8s
+  template:
+    metadata:
+      labels:
+        app: hello-k8s
+    spec:
+      containers:
+        - name: hello-kubernetes
+          image: paulbouwer/hello-kubernetes:1.5
+          ports:
+            - containerPort: 8080
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hello.deployment.c51e9e6b
 ```
 
 ### Deploy
@@ -301,7 +316,8 @@ new WebService(this, 'hello-k8s', {
 });
 ```
 
-To implement `WebService`, create a file `lib/web-service.ts` (the convention is to use `lib` for reusable components):
+To implement `WebService`, create a file `lib/web-service.ts` (the convention is
+to use `lib` for reusable components):
 
 ```ts
 import { Construct } from '@aws-cdk/core';
@@ -376,14 +392,14 @@ export class WebService extends Construct {
 }
 ```
 
-Now, let's edit `charts/hello.ts`:
+Now, let's edit `main.ts`:
 
 ```ts
 import { Chart } from '@awslabs/cdk8s';
 import { Construct } from '@aws-cdk/core';
 import { WebService } from '../lib/web-service';
 
-export class HelloChart extends Chart {
+export class MyChart extends Chart {
   constructor(scope: Construct, ns: string) {
     super(scope, ns);
 
@@ -393,11 +409,14 @@ export class HelloChart extends Chart {
 }
 ```
 
-As you can see, we now add define `WebService` constructs inside our chart: one that runs the `paulbouwer/hello-kubernetes` image and one with an installation of [ghost](https://hub.docker.com/_/ghost/)
+As you can see, we now add define `WebService` constructs inside our chart: one
+that runs the `paulbouwer/hello-kubernetes` image and one with an installation
+of [ghost](https://hub.docker.com/_/ghost/)
 
 ## Examples
 
-- [Podinfo](./examples/podinfo/examples/app-example.ts) - an example of high-level APIs for Kubernetes objects.
+- [Podinfo](./examples/podinfo/examples/app-example.ts) - an example of
+  high-level APIs for Kubernetes objects.
 
 ## Getting Help
 
