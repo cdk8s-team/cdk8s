@@ -10,15 +10,6 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs.
 
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Private GitHub Packages](#private-github-packages)
-  - [Install the CLI](#install-the-cli)
-  - [New Project](#new-project)
-  - [Watch](#watch)
-  - [Apps & Charts](#apps--charts)
-  - [Defining Kubernetes Objects](#defining-kubernetes-objects)
-  - [Deploy](#deploy)
-  - [Creating Custom Constructs](#creating-custom-constructs)
 - [Examples](#examples)
 - [Getting Help](#getting-help)
 - [Contributions](#contributions)
@@ -52,10 +43,8 @@ Let's walk through a simple "Hello, World!" example in TypeScript.
 
 ### Prerequisites
 
- - [Node.js 12.x](https://nodejs.org/en/)
- - [yarn](https://yarnpkg.com/lang/en/)
- - [cookiecutter](https://cookiecutter.readthedocs.io/en/1.7.0/installation.html)
-   - needed to create new projects from templates
+ - [Node.js 12.x](https://nodejs.org/en/) and [yarn 1.x](https://yarnpkg.com/lang/en/)
+ - [cookiecutter](https://cookiecutter.readthedocs.io/en/1.7.0/installation.html) (currently needed to create new projects from templates)
 
 ### Private GitHub Packages
 
@@ -90,9 +79,7 @@ $ yarn global add @awslabs/cdk8s-cli
 
 ### New Project
 
-Now, we'll use the `cdk8s init` command to create a new TypeScript cdk8s app.
-
-Create a new cdk8s project (we'll use TypeScript):
+Now, we'll use the `cdk8s init` command to create a new TypeScript cdk8s app:
 
 ```console
 $ cdk8s init typescript-app
@@ -100,9 +87,8 @@ creating a new project from template: typescript-app
 name [hello]: 
 ```
 
-Choose a name for your project (or use the default) and press ENTER.
-
-This will perform the following:
+Choose a name for your project (or use the default) and press ENTER. This will
+perform the following:
 
 1. Create a new project directory
 2. Install cdk8s as a dependency
@@ -157,25 +143,25 @@ $ cat dist/hello.k8s.yaml
 <EMPTY>
 ```
 
-### Defining Kubernetes Objects
+### Kubernetes Objects
 
 OK, now let's define some Kubernetes API objects inside our chart.
 
 Similarly to charts and apps, Kubernetes API objects are also represented in
-cdk8s as **construct**. Since different Kubernetes versions have different APIs,
-the constructs for Kubernetes objects are not included in the cdk8s library but
-actually generated on-demand using `cdk8s import`. Your generated project
-already includes a pre-build instruction to generate these constructs, and you
-should be able to find them under the `.gen` directory.
+cdk8s as **constructs**. These constructs can be found under the `.gen`
+directory of your project.
 
-Let's use these generated constructs in `main.ts` to define a simple Kubernetes
-application that contains
+> Since different Kubernetes versions have different APIs, the constructs for
+Kubernetes objects are not included in the cdk8s library but actually generated
+on-demand using `cdk8s import`. Your new project already generates objects for
+Kubernetes 1.14, and you should be able to find them under the `.gen` directory.
+
+Let's use these constructs to define a simple Kubernetes application that
+contains
 [Service](https://kubernetes.io/docs/concepts/services-networking/service) and a
 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
-resources:
-
-> The following example is identical to defining the YAML described in
-> https://github.com/paulbouwer/hello-kubernetes:
+resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
+[hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) project.
 
 ```ts
 import { App, Construct } from '@aws-cdk/core';
@@ -273,7 +259,7 @@ $ kubectl apply -f dist/hello.k8s.yaml
 
 ```
 
-### Creating Custom Constructs
+### Custom Constructs
 
 Constructs are the basic building block of cdk8s. They are the instrument that
 enables composition and creation of higher-level abstractions through normal
