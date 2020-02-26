@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/awslabs/cdk8s/compare/v0.5.0...v0.6.0) (2020-02-26)
+
+
+### Bug Fixes
+
+* cli does not work when used from a symlink ([73350fe](https://github.com/awslabs/cdk8s/commit/73350fed5e8bb8dee15f344df93131bab5d88e76))
+* cli does not work when used from a symlink ([#11](https://github.com/awslabs/cdk8s/issues/11)) ([4bd3a37](https://github.com/awslabs/cdk8s/commit/4bd3a37625c4e13c68eb1561ed5fe7ebcb8c5a33))
+
 ## [0.5.0](https://github.com/awslabs/cdk8s/compare/v0.4.0...v0.5.0) (2020-02-26)
 
 
