@@ -2,8 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.4.1](https://github.com/awslabs/cdk8s/compare/v0.4.0...v0.4.1) (2020-02-26)
+## [0.6.0](https://github.com/awslabs/cdk8s/compare/v0.5.0...v0.6.0) (2020-02-26)
 
+### Bug Fixes
+
+* cli does not work when used from a symlink ([#11](https://github.com/awslabs/cdk8s/issues/11)) ([4bd3a37](https://github.com/awslabs/cdk8s/commit/4bd3a37625c4e13c68eb1561ed5fe7ebcb8c5a33))
+
+## [0.5.0](https://github.com/awslabs/cdk8s/compare/v0.4.0...v0.5.0) (2020-02-26)
 
 ### Features
 
@@ -12,13 +17,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.4.0](https://github.com/awslabs/cdk8s/compare/v0.3.0...v0.4.0) (2020-02-23)
 
-
 ### Features
 
 * **podinfo:** allow containers to bind to deployment ([45237c0](https://github.com/awslabs/cdk8s/commit/45237c0aa630a7c0992abee9303dc86b73aba4f5))
 
 ## [0.3.0](https://github.com/awslabs/cdk8s/compare/v0.2.1...v0.3.0) (2020-02-23)
-
 
 ### Features
 

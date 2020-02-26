@@ -3,7 +3,7 @@ set -euo pipefail
 repo_root=$(cd $(dirname $0)/.. && pwd)
 cd ${repo_root}
 
-# pre 1.0.0 we default to "patch" which implies "minor" (i.e. no breaking changes)
+# default to minor releases
 version="${1:-minor}"
 
 yarn install
