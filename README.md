@@ -64,9 +64,9 @@ Configure yarn to use GitHub Packages for the `@awslabs` scope:
 $ yarn config set "@awslabs:registry" "https://npm.pkg.github.com"
 ```
 
-[npmjs]: https://www.npmjs.com [Personal Access Token]:
-https://github.com/settings/tokens/new [authenticate to GitHub Packages]:
-https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages
+[npmjs]: https://www.npmjs.com 
+[Personal Access Token]: https://github.com/settings/tokens/new 
+[authenticate to GitHub Packages]: https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages
 
 ### Install the CLI
 
