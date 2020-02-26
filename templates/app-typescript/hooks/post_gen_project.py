@@ -1,6 +1,10 @@
 import os
 
-os.system('yarn install')
+# this will ensure we always install the latest versions
+os.system('yarn add @aws-cdk/core @aws-cdk/cx-api @awslabs/cdk8s')
+os.system('yarn add -D @awslabs/cdk8s-cli @types/node')
+
+# build to make sure all is good
 os.system('yarn build')
 
 print()
