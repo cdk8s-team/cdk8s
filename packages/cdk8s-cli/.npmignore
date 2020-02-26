@@ -7,3 +7,6 @@ test
 
 dist
 coverage
+
+# include .ts files from templates
+!templates/**/*.ts
