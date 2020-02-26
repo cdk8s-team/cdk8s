@@ -153,7 +153,7 @@ directory of your project.
 
 > Since different Kubernetes versions have different APIs, the constructs for
 Kubernetes objects are not included in the cdk8s library but actually generated
-on-demand using `cdk8s import`. Your new project already generates objects for
+on-demand using `cdk8s generate`. Your new project already generates objects for
 Kubernetes 1.14, and you should be able to find them under the `.gen` directory.
 
 Let's use these constructs to define a simple Kubernetes application that
