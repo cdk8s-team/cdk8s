@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/awslabs/cdk8s/compare/v0.6.0...v0.7.0) (2020-02-26)
+
+
+### Bug Fixes
+
+* **cli:** typescript-app does not include main.ts ([43b435a](https://github.com/awslabs/cdk8s/commit/43b435a535f6d99f0ac0a3e570ebe95386c584ae))
+
 ## [0.6.0](https://github.com/awslabs/cdk8s/compare/v0.5.0...v0.6.0) (2020-02-26)
 
 ### Bug Fixes
