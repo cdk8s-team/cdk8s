@@ -10,5 +10,5 @@ class MyChart extends Chart {
 }
 
 const app = new App({ outdir: 'dist' });
-new MyChart(app, '{{ cookiecutter.name }}');
+new MyChart(app, '{{ $base }}');
 app.synth();
