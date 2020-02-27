@@ -1,9 +1,9 @@
 import { Chart, ApiObject, Testing } from '../lib';
-import { App, Construct, Lazy } from '@aws-cdk/core';
+import { Construct, Lazy } from '@aws-cdk/core';
 
 test('empty stack', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
 
   // WHEN
   const chart = new Chart(app, 'empty');
@@ -14,7 +14,7 @@ test('empty stack', () => {
 
 test('output includes all synthesized resources', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const chart = new Chart(app, 'test');
 
   // WHEN
@@ -34,7 +34,7 @@ test('output includes all synthesized resources', () => {
 
 test('tokens are resolved during synth', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const chart = new Chart(app, 'test');
 
   // WHEN
@@ -53,7 +53,7 @@ test('tokens are resolved during synth', () => {
 
 test('Chart.of(node) returns the first chart in which a node is defined', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   
   // WHEN
   const chart = new Chart(app, 'MyFirst');
@@ -72,7 +72,7 @@ test('Chart.of(node) returns the first chart in which a node is defined', () => 
 
 test('Chart.of(node) fails when there is no chart in the tree', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const child = new Construct(app, 'MyConstruct');
 
   // WHEN

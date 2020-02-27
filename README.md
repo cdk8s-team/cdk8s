@@ -10,6 +10,7 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs.
 
 - [Getting Started](#getting-started)
+- [API Reference](#api-reference)
 - [Examples](#examples)
 - [Getting Help](#getting-help)
 - [Contributions](#contributions)
@@ -110,8 +111,8 @@ $ yarn watch
 At this point, if you open `main.ts` you will see something like this:
 
 ```ts
-import { App, Construct } from '@aws-cdk/core';
-import { Chart } from '@awslabs/cdk8s';
+import { Construct } from '@aws-cdk/core';
+import { Chart, App } from '@awslabs/cdk8s';
 
 class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
@@ -121,7 +122,7 @@ class MyChart extends Chart {
   }
 }
 
-const app = new App({ outdir: 'dist' });
+const app = new App();
 new MyChart(app, 'hello');
 app.synth();
 ```
@@ -164,8 +165,8 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 [hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) project.
 
 ```ts
-import { App, Construct } from '@aws-cdk/core';
-import { Chart } from '@awslabs/cdk8s';
+import { Construct } from '@aws-cdk/core';
+import { App, Chart } from '@awslabs/cdk8s';
 
 // import generated constructs
 import { Service, IntOrString } from './.gen/service-v1';
@@ -208,7 +209,7 @@ class MyChart extends Chart {
   }
 }
 
-const app = new App({ outdir: 'dist' });
+const app = new App();
 new MyChart(app, 'hello');
 app.synth();
 ```
@@ -398,6 +399,18 @@ export class MyChart extends Chart {
 As you can see, we now add define `WebService` constructs inside our chart: one
 that runs the `paulbouwer/hello-kubernetes` image and one with an installation
 of [ghost](https://hub.docker.com/_/ghost/)
+
+
+
+## API Reference
+
+### Testing
+
+cdk8s bundles a set of test utilities under the `Testing` class:
+
+* `Testing.app()` returns an `App` object bound to a temporary output directory.
+* `Testing.synth(chart)` returns the Kubernetes manifest synthesized from a
+  chart.
 
 ## Examples
 
