@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/awslabs/cdk8s/compare/v0.7.0...v0.8.0) (2020-02-27)
+
+
+### Features
+
+* **cli:** remove the cookiecutter prerequisite ([#13](https://github.com/awslabs/cdk8s/issues/13)) ([10ab259](https://github.com/awslabs/cdk8s/commit/10ab2591828b790a6bbcdb306d302d5f8a30d30e))
+
 ## [0.7.0](https://github.com/awslabs/cdk8s/compare/v0.6.0...v0.7.0) (2020-02-26)
 
 
