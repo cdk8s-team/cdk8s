@@ -1,8 +1,8 @@
 import { ApiObject, Chart, Testing } from '../lib';
-import { App, Construct } from '@aws-cdk/core';
+import { Construct } from '@aws-cdk/core';
 
 test('minimal configuration', () => {
-  const app = new App();
+  const app = Testing.app();
   const stack = new Chart(app, 'test');
 
   new ApiObject(stack, 'my-resource', {
@@ -15,7 +15,7 @@ test('minimal configuration', () => {
 
 test('synthesized resource name is based on path', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const stack = new Chart(app, 'test');
   new ApiObject(stack, 'my-resource', {
     apiVersion: 'v1',
@@ -36,7 +36,7 @@ test('synthesized resource name is based on path', () => {
 
 test('if name is explicitly specified it will be respected', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const stack = new Chart(app, 'test');
 
   // WHEN
@@ -54,7 +54,7 @@ test('if name is explicitly specified it will be respected', () => {
 
 test('"spec" is synthesized as-is', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const stack = new Chart(app, 'test');
 
   // WHEN
@@ -75,7 +75,7 @@ test('"spec" is synthesized as-is', () => {
 
 test('"data" can be used to specify resource data', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const stack = new Chart(app, 'test');
 
   // WHEN
@@ -99,7 +99,7 @@ test('object naming logic can be overridden at the chart level', () => {
   }
 
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const chart = new MyChart(app, 'my-chart');
 
   // WHEN

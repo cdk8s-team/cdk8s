@@ -1,5 +1,5 @@
-import { App, Construct } from '@aws-cdk/core';
-import { Chart } from '@awslabs/cdk8s';
+import { Construct } from '@aws-cdk/core';
+import { App, Chart } from '@awslabs/cdk8s';
 import { WebService } from './web-service';
 
 class MyChart extends Chart {
@@ -18,6 +18,6 @@ class MyChart extends Chart {
   }
 }
 
-const app = new App({ outdir: 'cdk.out' });
+const app = new App();
 new MyChart(app, 'web-service-example');
 app.synth();

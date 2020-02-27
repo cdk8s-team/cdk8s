@@ -1,9 +1,10 @@
-import { App, Lazy } from "@aws-cdk/core";
+import { Lazy } from "@aws-cdk/core";
 import { resolve } from "../lib/_tokens";
+import { Testing } from '../lib';
 
 test('lazy', () => {
   // GIVEN
-  const app = new App();
+  const app = Testing.app();
   const hello = {
     number: Lazy.numberValue({ produce: () => 1234 }),
     string: Lazy.stringValue({ produce: () => 'hello' }),

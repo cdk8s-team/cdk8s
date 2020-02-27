@@ -1,7 +1,7 @@
 import fs = require('fs');
 import path = require('path');
-import { Chart } from '../lib';
-import { App } from '@aws-cdk/core';
+import os = require('os');
+import { App, Chart } from '../lib';
 import * as YAML from 'yaml';
 
 /**
@@ -9,12 +9,22 @@ import * as YAML from 'yaml';
  */
 export class Testing {
   /**
+   * Returns an app for testing with the following properties:
+   * - Output directory is a temp dir.
+   */
+  public static app() {
+    const outdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s.outdir.'));
+    return new App({ outdir });
+  }
+
+  /**
    * Returns the Kubernetes manifest synthesized from this chart.
    */
   public static synth(chart: Chart) {
     const app = chart.node.root as App;
-    const assembly = app.synth();
-    const filePath = path.join(assembly.directory, chart.manifestFile);
+    app.synth();
+    
+    const filePath = path.join(app.outdir, chart.manifestFile);
     return YAML.parseAllDocuments(fs.readFileSync(filePath, 'utf-8')).map((doc: any) => doc.toJSON());
   }
 
