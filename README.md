@@ -43,9 +43,9 @@ Let's walk through a simple "Hello, World!" example in TypeScript.
 
 ### Prerequisites
 
- - [Node.js 12.x](https://nodejs.org/en/) and [yarn 1.x](https://yarnpkg.com/lang/en/)
- - [cookiecutter](https://cookiecutter.readthedocs.io/en/1.7.0/installation.html) (currently needed to create new projects from templates)
-
+ - [Node.js 12.x](https://nodejs.org/en/)
+ - [yarn 1.x](https://yarnpkg.com/lang/en/)
+ 
 ### Private GitHub Packages
 
 Since cdk8s is currently released to GitHub Packages (and not to [npmjs]) you
@@ -82,13 +82,13 @@ $ yarn global add @awslabs/cdk8s-cli
 Now, we'll use the `cdk8s init` command to create a new TypeScript cdk8s app:
 
 ```console
+$ mkdir hello-cdk8s
+$ cd hello-cdk8s
 $ cdk8s init typescript-app
 creating a new project from template: typescript-app
-name [hello]: 
 ```
 
-Choose a name for your project (or use the default) and press ENTER. This will
-perform the following:
+This will perform the following:
 
 1. Create a new project directory
 2. Install cdk8s as a dependency

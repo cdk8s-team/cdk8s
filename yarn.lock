@@ -6858,6 +6858,11 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
+sscaff@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/sscaff/-/sscaff-1.2.0.tgz#d015f199ac53c2df66c4b6135b29bd01f7885445"
+  integrity sha512-Xyf2tWLnO0Z297FKag0e8IXFIpnYRWZ3FBn4dN2qlMRsOcpf0P54FPhvdcb1Es0Fm4hbhYYXa23jR+VPGPQhSg==
+
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
