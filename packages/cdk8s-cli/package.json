@@ -31,6 +31,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "codemaker": "^0.22.0",
+    "sscaff": "^1.2.0",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
