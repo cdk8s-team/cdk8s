@@ -2,7 +2,7 @@
 
 > Cloud Development Kit for Kubernetes
 
-![Build](https://github.com/awslabs/cdk8s/workflows/Build/badge.svg)
+![Release](https://github.com/awslabs/cdk8s/workflows/Release/badge.svg)
 ![Stability:Experimental](https://img.shields.io/badge/stability-experimental-orange)
 
 **cdk8s** is a software development framework for defining Kubernetes
