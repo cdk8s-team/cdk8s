@@ -12,35 +12,35 @@ Array [
     "apiVersion": "v1",
     "kind": "Resource1",
     "metadata": Object {
-      "name": "test.resource1.2b59e3b8",
+      "name": "test-resource1-2b59e3b8",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Resource2",
     "metadata": Object {
-      "name": "test.resource2.22077398",
+      "name": "test-resource2-22077398",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Resource3",
     "metadata": Object {
-      "name": "test.resource3.365bba40",
+      "name": "test-resource3-365bba40",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Resource1",
     "metadata": Object {
-      "name": "test.scope.resource1.3d54e80a",
+      "name": "test-scope-resource1-3d54e80a",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Resource2",
     "metadata": Object {
-      "name": "test.scope.resource2.e1b938d2",
+      "name": "test-scope-resource2-e1b938d2",
     },
   },
 ]
@@ -52,7 +52,7 @@ Array [
     "apiVersion": "v1",
     "kind": "Resource1",
     "metadata": Object {
-      "name": "test.resource1.2b59e3b8",
+      "name": "test-resource1-2b59e3b8",
     },
     "spec": Object {
       "foo": 123,
