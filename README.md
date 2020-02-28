@@ -384,7 +384,7 @@ Now, let's edit `main.ts`:
 ```ts
 import { Chart } from '@awslabs/cdk8s';
 import { Construct } from '@aws-cdk/core';
-import { WebService } from '../lib/web-service';
+import { WebService } from './lib/web-service';
 
 export class MyChart extends Chart {
   constructor(scope: Construct, ns: string) {
