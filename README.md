@@ -366,7 +366,7 @@ export class WebService extends Construct {
           spec: {
             containers: [
               {
-                name: this.node.uniqueId,
+                name: 'web',
                 image: options.image,
                 ports: [ { containerPort } ]
               }
@@ -398,9 +398,7 @@ export class MyChart extends Chart {
 
 As you can see, we now add define `WebService` constructs inside our chart: one
 that runs the `paulbouwer/hello-kubernetes` image and one with an installation
-of [ghost](https://hub.docker.com/_/ghost/)
-
-
+of [ghost](https://hub.docker.com/_/ghost/).
 
 ## API Reference
 

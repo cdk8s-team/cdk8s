@@ -5,7 +5,7 @@ import { ApiObject } from './api-object';
 import * as YAML from 'yaml';
 import { resolve } from './_tokens';
 import { removeEmpty } from './_util';
-import { renderObjectName } from './names';
+import { Names } from './names';
 
 export class Chart extends Construct {
 
@@ -38,7 +38,19 @@ export class Chart extends Construct {
   }
 
   /**
-   * Generates a name for an object given it's construct node path.
+   * Generates a app-unique name for an object given it's construct node path.
+   *
+   * Different resource types may have different constraints on names
+   * (`metadata.name`). The previous version of the name generator was
+   * compatible with DNS_SUBDOMAIN but not with DNS_LABEL.
+   *
+   * For example, `Deployment` names must comply with DNS_SUBDOMAIN while
+   * `Service` names must comply with DNS_LABEL.
+   *
+   * Since there is no formal specification for this, the default name
+   * generation scheme for kubernetes objects in cdk8s was changed to DNS_LABEL,
+   * since it’s the common denominator for all kubernetes resources
+   * (supposedly).
    *
    * You can override this method if you wish to customize object names at the
    * chart level.
@@ -46,7 +58,7 @@ export class Chart extends Construct {
    * @param apiObject The API object to generate a name for.
    */
   public generateObjectName(apiObject: ApiObject) {
-    return renderObjectName(apiObject.node.path);
+    return Names.toDnsLabel(apiObject.node.path);
   }
 
   protected synthesize(session: ISynthesisSession) {
