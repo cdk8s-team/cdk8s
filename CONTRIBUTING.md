@@ -5,7 +5,7 @@ GitHub pull requests. This document outlines some of the conventions on commit
 message formatting, contact points for developers, and other resources to help
 get contributions into cdk8s.
 
-You can contribute to **cdk8s** in many ways. Contributions of all shapes and sizes are 
+You can contribute to **cdk8s** in many ways. Contributions of all shapes and sizes are
 welcome and celebrated:
 
 - [Reporting Issues](#reporting-issues)
@@ -27,7 +27,7 @@ An issue can either be a **bug report** or a **suggestion**. If you wish to ask
 a question or seek guidance, please consider one of the other [support
 channels](#getting-help).
 
-[new-issue]: https://github.com/awslabs/cdk8s/issues/new
+[new-issue]: ./issues/new/choose
 
 ### Bug reports
 
@@ -50,6 +50,8 @@ reports that are:
 We might ask for further information to locate a bug. A duplicated bug report
 will be closed.
 
+Submit a bug report [here](new-issue).
+
 ### Suggestions
 
 We also accept suggestions for new features or missing capabilities as GitHub
@@ -61,6 +63,8 @@ we need to understand the motivation before we dive into a solution.
 If you wish to suggest a major change to the project, please consider to submit
 an [RFC](#rfcs) instead of a simple issue. An RFC also starts with a GitHub
 issue.
+
+Submit a suggestion [here](new-issue)
 
 ## Code Contributions
 
@@ -135,7 +139,7 @@ users. It is an open forum for suggestions, questions, and feedback.
 To create an RFC follow this process:
 
 1. Create an [issue][new-issue] which will be the tracking issue for this RFC.
-   - Title should represent the title of the RFC. 
+   - Title should represent the title of the RFC.
    - Description should provide the motivation for the RFC.
 2. Create a markdown file based off of
    [rfc/0000-template.md](rfc/0000-template.md) under the
