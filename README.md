@@ -78,6 +78,12 @@ installing the cdk8s CLI globally:
 $ yarn global add @awslabs/cdk8s-cli
 ```
 
+To update the CLI to the latest version, run:
+
+```shell
+$ yarn global upgrade -L @awslabs/cdk8s-cli
+```
+
 ### New Project
 
 Now, we'll use the `cdk8s init` command to create a new TypeScript cdk8s app:
@@ -87,6 +93,7 @@ $ mkdir hello-cdk8s
 $ cd hello-cdk8s
 $ cdk8s init typescript-app
 creating a new project from template: typescript-app
+...
 ```
 
 This will perform the following:
@@ -95,6 +102,12 @@ This will perform the following:
 2. Install cdk8s as a dependency
 3. Generate constructs for all k8s object
 4. Compile the TypeScript to JavaScript
+
+If you wish to upgrade to the latest version of all your dependencies, run:
+
+```console
+$ yarn upgrade -L
+```
 
 ### Watch
 
@@ -256,11 +269,9 @@ Now, all that remains is for you to apply this to your cluster:
 
 ```console
 $ kubectl apply -f dist/hello.k8s.yaml
-...
-
 ```
 
-### Custom Constructs
+### Constructs
 
 Constructs are the basic building block of cdk8s. They are the instrument that
 enables composition and creation of higher-level abstractions through normal
@@ -399,16 +410,6 @@ export class MyChart extends Chart {
 As you can see, we now add define `WebService` constructs inside our chart: one
 that runs the `paulbouwer/hello-kubernetes` image and one with an installation
 of [ghost](https://hub.docker.com/_/ghost/).
-
-## API Reference
-
-### Testing
-
-cdk8s bundles a set of test utilities under the `Testing` class:
-
-* `Testing.app()` returns an `App` object bound to a temporary output directory.
-* `Testing.synth(chart)` returns the Kubernetes manifest synthesized from a
-  chart.
 
 ## Examples
 
