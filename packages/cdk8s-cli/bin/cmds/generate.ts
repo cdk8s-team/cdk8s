@@ -3,13 +3,18 @@ import { generateAllApiObjects } from '../../lib/import';
 
 const DEFAULT_API_VERSION = '1.14.0';
 
-export const command = 'generate';
-export const describe = 'Generates typed constructs for Kubernetes API objects';
-export const aliases = [ 'gen', 'import' ];
-export const builder: yargs.CommandBuilder = args => args
-  .option('api', { type: 'string', default: DEFAULT_API_VERSION, desc: 'Kubernetes API version' })
-  .option('output', { alias: 'o', type: 'string', desc: 'output directory', default: '.gen' });
-  
-export const handler = async (argv: any) => {
-  await generateAllApiObjects(argv.output, { apiVersion: argv.api });
-};
+class Command implements yargs.CommandModule {
+  public readonly command = 'generate';
+  public readonly describe = 'Generates typed constructs for Kubernetes API objects';
+  public readonly aliases = [ 'gen', 'import' ];
+
+  public readonly builder = (args: yargs.Argv) => args
+    .option('api', { type: 'string', desc: 'Kubernetes API version', default: DEFAULT_API_VERSION })
+    .option('output', { type: 'string' as 'string', desc: 'output directory', default: '.gen', alias: 'o' });
+
+  public async handler(argv: any) {
+    await generateAllApiObjects(argv.output, { apiVersion: argv.api });
+  }
+}
+
+module.exports = new Command();
