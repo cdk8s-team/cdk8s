@@ -10,6 +10,11 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs. cdk8s generates Kubernetes YAML and
 is built to work with any Kubernetes cluster running anywhere.
 
+This is an early-stage, experimental project built with ❤️ by AWS. We encourage you to [try it out](#getting-started), [leave feedback](#getting-help), and [jump in to help](#contributions)!
+
+### Readme Contents
+
+- [Overview](#the-basics)
 - [Getting Started](#getting-started)
 - [API Reference](#api-reference)
 - [Examples](#examples)
@@ -18,7 +23,7 @@ is built to work with any Kubernetes cluster running anywhere.
 - [Roadmap](#roadmap)
 - [License](#license)
 
-### Overview & architecture
+### The Basics of a Cloud Development Kit (CDK)
 
 **cdk8s** apps are programs written in one of the supported programming
 languages. They are structured as a tree of
@@ -376,7 +381,7 @@ export class WebService extends Construct {
           spec: {
             containers: [
               {
-                name: 'web',
+                name: this.node.id,
                 image: options.image,
                 ports: [ { containerPort } ]
               }

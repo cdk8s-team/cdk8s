@@ -52,13 +52,13 @@ export class WebService extends Construct {
           spec: {
             containers: [
               {
-                name: 'web',
+                name: this.node.id,
                 image: options.image,
                 ports: [ { containerPort } ]
               }
             ]
           }
-        }  
+        }
       }
     });
   }
