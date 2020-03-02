@@ -14,16 +14,18 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
 
 ### Readme Contents
 
-- [Overview](#the-basics)
+- [Overview](#the-basics-of-the-cloud-development-kit-cdk)
 - [Getting Started](#getting-started)
-- [API Reference](#api-reference)
+  - [Prerequisites](#prerequisites)
+  - ["Hello World!"](#new-project)
+  - [Constructs](#constructs)
 - [Examples](#examples)
-- [Getting Help](#getting-help)
-- [Contributions](#contributions)
+- [Issues & Getting Help](#getting-help)
+- [Contributing](#contributions)
 - [Roadmap](#roadmap)
 - [License](#license)
 
-### The Basics of a Cloud Development Kit (CDK)
+### The Basics of the Cloud Development Kit (CDK)
 
 **cdk8s** apps are programs written in one of the supported programming
 languages. They are structured as a tree of
@@ -417,6 +419,8 @@ of [ghost](https://hub.docker.com/_/ghost/).
 
 ## Examples
 
+- [Hello!](./examples/hello/hello.ts) - a basic Kubernetes deployment
+- [Web Service](./examples/web-service) - an example of using constructs to template a web service
 - [Podinfo](./examples/podinfo/examples/app-example.ts) - an example of
   high-level APIs for Kubernetes objects.
 
@@ -425,7 +429,9 @@ of [ghost](https://hub.docker.com/_/ghost/).
 Interacting with the community and the development team is a great way to
 contribute to the project. Please consider the following venues (in order):
 
+* Search [open issues](./issues)
 * Stack Overflow: [cdk8s](https://stackoverflow.com/questions/ask?tags=cdk8s)
+* File a [new issue](./issues/new/choose)
 * Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
 * Slack: [cdk8s.slack.com](https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU)
 
@@ -435,7 +441,7 @@ The cdk8s project adheres to the [CNCF Code of
 Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
 
 We welcome community contributions and pull requests. See our [contribution
-guide](./CONTRIBUTING.md) for information on how to report issues, set up a
+guide](./CONTRIBUTING.md) for more information on how to report issues, set up a
 development environment and submit code.
 
 ## Roadmap
