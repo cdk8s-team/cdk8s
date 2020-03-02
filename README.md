@@ -12,7 +12,7 @@ is built to work with any Kubernetes cluster running anywhere.
 
 This is an early-stage, experimental project built with ❤️ by AWS. We encourage you to [try it out](#getting-started), [leave feedback](#getting-help), and [jump in to help](#contributions)!
 
-### Readme Contents
+### Contents
 
 - [Overview](#the-basics-of-the-cloud-development-kit-cdk)
 - [Getting Started](#getting-started)
@@ -20,7 +20,7 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
   - [Create a new project](#new-project)
   - [Building constructs](#constructs)
 - [Examples](#examples)
-- [Issues & Getting Help](#getting-help)
+- [Help & Feedback](#getting-help)
 - [Contributing](#contributions)
 - [Roadmap](#roadmap)
 - [License](#license)
