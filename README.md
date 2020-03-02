@@ -7,7 +7,8 @@
 
 **cdk8s** is a software development framework for defining Kubernetes
 applications and reusable abstractions using familiar programming languages and
-rich object-oriented APIs.
+rich object-oriented APIs. cdk8s generates Kubernetes YAML and
+is built to work with any Kubernetes cluster running anywhere.
 
 - [Getting Started](#getting-started)
 - [API Reference](#api-reference)
@@ -16,6 +17,8 @@ rich object-oriented APIs.
 - [Contributions](#contributions)
 - [Roadmap](#roadmap)
 - [License](#license)
+
+### Overview & architecture
 
 **cdk8s** apps are programs written in one of the supported programming
 languages. They are structured as a tree of
@@ -44,10 +47,12 @@ Let's walk through a simple "Hello, World!" example in TypeScript.
 
 ### Prerequisites
 
+Make sure you have node.js and yarn installed:
+
  - [Node.js 12.x](https://nodejs.org/en/)
  - [yarn 1.x](https://yarnpkg.com/lang/en/)
- 
-### Private GitHub Packages
+
+#### Private GitHub Packages
 
 Since cdk8s is currently released to GitHub Packages (and not to [npmjs]) you
 will need to [authenticate to GitHub Packages]:
@@ -65,23 +70,17 @@ Configure yarn to use GitHub Packages for the `@awslabs` scope:
 $ yarn config set "@awslabs:registry" "https://npm.pkg.github.com"
 ```
 
-[npmjs]: https://www.npmjs.com 
-[Personal Access Token]: https://github.com/settings/tokens/new 
+[npmjs]: https://www.npmjs.com
+[Personal Access Token]: https://github.com/settings/tokens/new
 [authenticate to GitHub Packages]: https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages
 
-### Install the CLI
+#### Install the CLI
 
 cdk8s has a cute little CLI that has a few useful commands. Let's start by
 installing the cdk8s CLI globally:
 
 ```shell
 $ yarn global add @awslabs/cdk8s-cli
-```
-
-To update the CLI to the latest version, run:
-
-```shell
-$ yarn global upgrade -L @awslabs/cdk8s-cli
 ```
 
 ### New Project
@@ -144,7 +143,7 @@ Apps are structured as a tree of **constructs**, which are composable units of
 abstraction. We will learn more about constructs soon.
 
 This initial code created by `cdk8s init` defines an app with a single, empty,
-chart. 
+chart.
 
 When you run `yarn synth`, a Kubernetes manifest YAML will be synthesized for
 each `Chart` in your app and will write it to the `dist` directory.
@@ -265,7 +264,7 @@ metadata:
 
 ### Deploy
 
-Now, all that remains is for you to apply this to your cluster:
+Now, create the resources in your cluster:
 
 ```console
 $ kubectl apply -f dist/hello.k8s.yaml
@@ -279,22 +278,22 @@ object-oriented classes.
 
 If you come from the Kubernetes world, you can think of constructs as
 programmatically defined Helm Charts. The nice thing about constructs being
-"programmatically defined" is that we can leverage the full power of
+"programmatically defined" is that we can use them to leverage the full power of
 object-oriented programming. For example:
 
-* We can to express the abstraction's API using strong-typed data types
-* We can express rich interactions with methods and properties
-* We can create polymorphic programming models through interfaces and base
+* You can express the abstraction's API using strong-typed data types
+* You can express rich interactions with methods and properties
+* You can create polymorphic programming models through interfaces and base
   classes
 * Share them through regular package managers
 * Test them using our familiar testing tools and techniques
 * Version them
-* ...and all that stuff that we've been doing with software in the past 20
+* ...and do all that stuff that we've been doing with software in the past 20
   years.
 
 So let's create our first Kubernetes construct. We'll call it `WebService` and
-it will basically be a generalization of the hello world program. It's actually
-quite useful.
+it will basically be a generalization of the **hello world** program. It's
+actually quite useful.
 
 For example, this one line will add a hello world service to our chart:
 
@@ -423,8 +422,7 @@ contribute to the project. Please consider the following venues (in order):
 
 * Stack Overflow: [cdk8s](https://stackoverflow.com/questions/ask?tags=cdk8s)
 * Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
-* Gitter: *TBD*
-* Slack: *TBD*
+* Slack: [cdk8s.slack.com](https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU)
 
 ## Contributions
 
@@ -437,7 +435,7 @@ development environment and submit code.
 
 ## Roadmap
 
-See our [roadmap](./ROADMAP.md) for details about our plans for the project.
+See our [roadmap](./projects/1) for details about our plans for the project.
 
 ## License
 
