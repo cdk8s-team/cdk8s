@@ -39,7 +39,8 @@
   "homepage": "https://github.com/awslabs/cdk8s",
   "repository": {
     "type": "git",
-    "url": "git://github.com/awslabs/cdk8s.git"
+    "url": "https://github.com/awslabs/cdk8s.git",
+    "directory": "packages/cdk8s"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
