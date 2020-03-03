@@ -39,9 +39,5 @@
     "@types/json-schema": "^7.0.4",
     "jest": "^25.1.0",
     "jsii": "^0.22.0"
-  },
-  "peerDependencies": {
-    "codemaker": "^0.22.0",
-    "yargs": "^15.1.0"
   }
 }
