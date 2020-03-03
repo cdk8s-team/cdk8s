@@ -43,7 +43,7 @@ Array [
         "spec": Object {
           "containers": Array [
             Object {
-              "image": "paulbouwer/hello-kubernetes:1.5",
+              "image": "paulbouwer/hello-kubernetes:1.7",
               "name": "hello-kubernetes",
               "ports": Array [
                 Object {

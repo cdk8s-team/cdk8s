@@ -6,9 +6,14 @@
 #
 set -euo pipefail
 
+# install and build
+yarn gen
+yarn install -L
+yarn build
+
 # synth
-rm -fr cdk.out
+rm -rf dist
 node index.js
 
 # deploy
-kubectl apply -f cdk.out/*.k8s.yaml
+kubectl apply -f dist/*.k8s.yaml
