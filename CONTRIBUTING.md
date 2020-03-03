@@ -155,26 +155,30 @@ To create an RFC follow this process:
 
 This section includes information that is relevant for the maintainers of the project.
 
+### Version
+
+The current version of the project is mastered in the root `package.json` file. All other 
+package.json files (and lerna.json) files use `0.0.0`. This allows bumping a new version without
+needing to modify multiple files and avoid merge conflicts in post-release rebases.
+
 ### Release Protocol
 
 To release a new version of cdk8s following these steps:
 
 ```shell
 $ yarn bump
-$ git checkout -b release
-$ git push origin release
+```
+
+This will create a new CHANGELOG entry (from conventional commits), bump the version in 
+`package.json` and create a bump commit.
+
+Now, push to `master` (in the future we will release from a release branch, but in the meantime we release directly from master):
+
+```shell
+$ git push origin master
 ```
 
 This will trigger the [release workflow](./.github/workflows/release.yml) which will release to all package managers and will also create a GitHub release with a tag.
-
-Once the release is over, you should merge `release` back to `master` either via a PR or via a push:
-
-```shell
-$ git fetch origin
-$ git checkout master
-$ git merge origin/release
-$ git push origin master
-```
 
 ---
 
