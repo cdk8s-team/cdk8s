@@ -36,6 +36,7 @@
     "name": "Amazon Web Services",
     "url": "https://aws.amazon.com"
   },
+  "homepage": "https://github.com/awslabs/cdk8s",
   "repository": {
     "type": "git",
     "url": "git://github.com/awslabs/cdk8s.git"
