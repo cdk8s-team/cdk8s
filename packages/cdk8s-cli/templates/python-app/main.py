@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from aws_cdk.core import Construct
 from cdk8s import App, Chart
 
