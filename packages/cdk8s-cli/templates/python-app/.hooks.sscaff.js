@@ -15,9 +15,10 @@ exports.post = () => {
   chmodSync('synth.sh', '700');
 
   console.log();
-  console.log("==================================================================================")
-  console.log(" Your cdk8s Python project was created successfully.")
-  console.log()
-  console.log(" Useful commands:")
-  console.log(" - ./synth.sh: synthesizes a k8s manifest in 'dist/' (ready for 'kubectl apply -f')")
+  console.log("==================================================================================");
+  console.log(" Your cdk8s Python project was created successfully.");
+  console.log();
+  console.log(" Useful commands:");
+  console.log(" - pipenv install: creates a virtual environment and installs deps");
+  console.log(" - pipenv run python main.py: synthesizes a k8s manifest in 'dist/' (ready for 'kubectl apply -f')");
 };
