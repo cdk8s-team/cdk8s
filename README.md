@@ -2,8 +2,13 @@
 
 > Cloud Development Kit for Kubernetes
 
-![Release](https://github.com/awslabs/cdk8s/workflows/Release/badge.svg)
 ![Stability:Experimental](https://img.shields.io/badge/stability-experimental-orange)
+![Release](https://github.com/awslabs/cdk8s/workflows/Release/badge.svg)
+[![npm version](https://badge.fury.io/js/cdk8s.svg)](https://badge.fury.io/js/cdk8s)
+[![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
+[![NuGet version](https://badge.fury.io/nu/Org.Cdk8s.svg)](https://badge.fury.io/nu/Org.Cdk8s)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s)
+
 
 **cdk8s** is a software development framework for defining Kubernetes
 applications and reusable abstractions using familiar programming languages and
