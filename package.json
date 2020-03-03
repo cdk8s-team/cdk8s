@@ -15,8 +15,8 @@
       "examples"
     ],
     "nohoist": [
-      "yaml",
-      "yaml/**"
+      "cdk8s/yaml",
+      "cdk8s/yaml/**"
     ]
   },
   "devDependencies": {
