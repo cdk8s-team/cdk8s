@@ -77,8 +77,8 @@ $ yarn global add cdk8s-cli
 Now, we'll use the `cdk8s init` command to create a new TypeScript cdk8s app:
 
 ```console
-$ mkdir hello-cdk8s
-$ cd hello-cdk8s
+$ mkdir hello
+$ cd hello
 $ cdk8s init typescript-app
 creating a new project from template: typescript-app
 ...
