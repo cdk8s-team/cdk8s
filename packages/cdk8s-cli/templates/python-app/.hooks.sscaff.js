@@ -12,7 +12,6 @@ exports.pre = () => {
 
 exports.post = () => {
   execSync('pipenv install', { stdio: 'inherit' });
-  chmodSync('synth.sh', '700');
 
   console.log();
   console.log("==================================================================================");
