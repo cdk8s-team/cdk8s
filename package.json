@@ -9,10 +9,16 @@
     "package": "lerna run package && tools/collect-dist.sh",
     "release": "tools/release.sh"
   },
-  "workspaces": [
-    "packages/*",
-    "examples"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "examples"
+    ],
+    "nohoist": [
+      "yaml",
+      "yaml/**"
+    ]
+  },
   "devDependencies": {
     "changelog-parser": "^2.8.0",
     "jsii-release": "^0.1.4",
