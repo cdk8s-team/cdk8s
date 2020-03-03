@@ -21,3 +21,4 @@ exports.post = () => {
   console.log(" - pipenv install: creates a virtual environment and installs deps");
   console.log(" - pipenv run python main.py: synthesizes a k8s manifest in 'dist/' (ready for 'kubectl apply -f')");
 };
+
