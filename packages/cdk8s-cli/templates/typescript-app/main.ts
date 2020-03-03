@@ -1,5 +1,5 @@
 import { Construct } from '@aws-cdk/core';
-import { App, Chart } from '@awslabs/cdk8s';
+import { App, Chart } from 'cdk8s';
 
 class MyChart extends Chart {
   constructor(scope: Construct, name: string) {

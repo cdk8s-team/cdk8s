@@ -1,4 +1,4 @@
-import { Chart } from '@awslabs/cdk8s';
+import { Chart } from 'cdk8s';
 import { Deployment } from '../.gen/apps-deployment-v1'
 import { Service, IntOrString } from '../.gen/service-v1';
 import { Construct } from '@aws-cdk/core';

@@ -1,5 +1,5 @@
 import { Construct } from "@aws-cdk/core";
-import { App, Chart } from "@awslabs/cdk8s";
+import { App, Chart } from "cdk8s";
 import { Deployment, Service } from "../lib";
 import { PodinfoContainer } from "./podinfo";
 

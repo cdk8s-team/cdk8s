@@ -14,18 +14,22 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
 
 ### Contents
 
-- [Overview](#the-basics-of-the-cloud-development-kit-cdk)
+- [Overview](#overview)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Create a new project](#new-project)
-  - [Building constructs](#constructs)
+  - [New Project](#new-project)
+  - [Watch](#watch)
+  - [Apps & Charts](#apps--charts)
+  - [Kubernetes Objects](#kubernetes-objects)
+  - [Deploy](#deploy)
+  - [Constructs](#constructs)
 - [Examples](#examples)
-- [Help & Feedback](#getting-help)
-- [Contributing](#contributions)
+- [Help & Feedback](#help--feedback)
+- [Contributing](#contributing)
 - [Roadmap](#roadmap)
 - [License](#license)
 
-### The Basics of the Cloud Development Kit (CDK)
+## Overview
 
 **cdk8s** apps are programs written in one of the supported programming
 languages. They are structured as a tree of
@@ -59,35 +63,13 @@ Make sure you have node.js and yarn installed:
  - [Node.js 12.x](https://nodejs.org/en/)
  - [yarn 1.x](https://yarnpkg.com/lang/en/)
 
-#### Private GitHub Packages
-
-Since cdk8s is currently released to GitHub Packages (and not to [npmjs]) you
-will need to [authenticate to GitHub Packages]:
-
-Create a [Personal Access Token] that has the `read:packages` scope and write
-this line to `~/.npmrc` (replace `TOKEN` with your token):
-
-```shell
-$ echo "//npm.pkg.github.com/:_authToken=TOKEN" > ~/.npmrc
-```
-
-Configure yarn to use GitHub Packages for the `@awslabs` scope:
-
-```shell
-$ yarn config set "@awslabs:registry" "https://npm.pkg.github.com"
-```
-
-[npmjs]: https://www.npmjs.com
-[Personal Access Token]: https://github.com/settings/tokens/new
-[authenticate to GitHub Packages]: https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages
-
 #### Install the CLI
 
 cdk8s has a cute little CLI that has a few useful commands. Let's start by
 installing the cdk8s CLI globally:
 
 ```shell
-$ yarn global add @awslabs/cdk8s-cli
+$ yarn global add cdk8s-cli
 ```
 
 ### New Project
@@ -131,7 +113,7 @@ At this point, if you open `main.ts` you will see something like this:
 
 ```ts
 import { Construct } from '@aws-cdk/core';
-import { Chart, App } from '@awslabs/cdk8s';
+import { Chart, App } from 'cdk8s';
 
 class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
@@ -185,7 +167,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
 ```ts
 import { Construct } from '@aws-cdk/core';
-import { App, Chart } from '@awslabs/cdk8s';
+import { App, Chart } from 'cdk8s';
 
 // import generated constructs
 import { Service, IntOrString } from './.gen/service-v1';
@@ -399,7 +381,7 @@ export class WebService extends Construct {
 Now, let's edit `main.ts`:
 
 ```ts
-import { Chart } from '@awslabs/cdk8s';
+import { Chart } from 'cdk8s';
 import { Construct } from '@aws-cdk/core';
 import { WebService } from './lib/web-service';
 
@@ -424,7 +406,7 @@ of [ghost](https://hub.docker.com/_/ghost/).
 - [Podinfo](./examples/podinfo/examples/app-example.ts) - an example of
   high-level APIs for Kubernetes objects.
 
-## Getting Help
+## Help & Feedback
 
 Interacting with the community and the development team is a great way to
 contribute to the project. Please consider the following venues (in order):
@@ -435,7 +417,7 @@ contribute to the project. Please consider the following venues (in order):
 * Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
 * Slack: [cdk8s.slack.com](https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU)
 
-## Contributions
+## Contributing
 
 The cdk8s project adheres to the [CNCF Code of
 Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).

@@ -2,8 +2,8 @@ const { execSync } = require('child_process');
 
 exports.post = () => {
   // this will ensure we always install the latest versions
-  execSync('yarn add @aws-cdk/core @aws-cdk/cx-api @awslabs/cdk8s', { stdio: 'inherit' });
-  execSync('yarn add -D @awslabs/cdk8s-cli @types/node', { stdio: 'inherit' });
+  execSync('yarn add @aws-cdk/core @aws-cdk/cx-api cdk8s', { stdio: 'inherit' });
+  execSync('yarn add -D cdk8s-cli @types/node', { stdio: 'inherit' });
 
   // build to make sure all is good
   execSync('yarn build', { stdio: 'inherit' });

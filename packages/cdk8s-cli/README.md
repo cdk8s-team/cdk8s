@@ -13,7 +13,7 @@ higher-level abstractions.
 Install globally via `npm`:
 
 ```shell
-npm install -g @awslabs/cdk8s-cli
+npm install -g cdk8s-cli
 ```
 
 ## Generating classes for Kubernetes API objects
