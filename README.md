@@ -41,7 +41,7 @@ represent any Kubernetes resource, such as `Pod`, `Service`, `Deployment`,
 cdk8s apps only ***define*** Kubernetes applications, they don't actually apply
 them to the cluster. When an app is executed, it *synthesizes* all the charts
 defined within the app into the `dist` directory, and then those charts can be
-applied to any Kubernetes cluster using `kubectl apply -f dist/chart.k8s.yaml`.
+applied to any Kubernetes cluster using `kubectl apply -f dist/chart.k8s.yaml` or a GitOps tool like [Flux](https://fluxcd.io/).
 
 > **cdk8s** is based on the design concepts and technologies behind the [AWS
 Cloud Development Kit](https://aws.amazon.com/cdk), and can interoperate with
