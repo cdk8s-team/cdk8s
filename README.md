@@ -7,8 +7,8 @@
 
 **cdk8s** is a software development framework for defining Kubernetes
 applications and reusable abstractions using familiar programming languages and
-rich object-oriented APIs. cdk8s generates Kubernetes YAML and
-is built to work with any Kubernetes cluster running anywhere.
+rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use
+cdk8s to define applications for any Kubernetes cluster running anywhere.
 
 This is an early-stage, experimental project built with ❤️ by AWS. We encourage you to [try it out](#getting-started), [leave feedback](#getting-help), and [jump in to help](#contributions)!
 
