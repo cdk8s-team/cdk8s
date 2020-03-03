@@ -13,7 +13,7 @@ export async function jsiiCompile(workdir: string) {
   const modules = [ 
     '@aws-cdk/core', 
     '@aws-cdk/cx-api', 
-    '@awslabs/cdk8s',
+    'cdk8s',
     '@types/node'
   ];
 

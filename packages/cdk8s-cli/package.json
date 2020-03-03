@@ -1,10 +1,7 @@
 {
-  "name": "@awslabs/cdk8s-cli",
+  "name": "cdk8s-cli",
   "version": "0.0.0",
   "description": "CDK for Kubernetes CLI",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "bin": {
     "cdk8s": "bin/cdk8s"
   },
@@ -37,7 +34,7 @@
   "devDependencies": {
     "@aws-cdk/core": "^1.24.0",
     "@aws-cdk/cx-api": "^1.24.0",
-    "@awslabs/cdk8s": "0.0.0",
+    "cdk8s": "0.0.0",
     "@types/jest": "^25.1.2",
     "@types/json-schema": "^7.0.4",
     "jest": "^25.1.0",

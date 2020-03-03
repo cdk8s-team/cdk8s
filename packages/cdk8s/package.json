@@ -1,9 +1,6 @@
 {
-  "name": "@awslabs/cdk8s",
+  "name": "cdk8s",
   "version": "0.0.0",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "description": "Cloud Development Kit for Kubernetes",
   "scripts": {
     "build": "jsii",

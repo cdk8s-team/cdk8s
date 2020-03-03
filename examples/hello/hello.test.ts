@@ -1,5 +1,5 @@
 import { HelloKube } from './hello';
-import { Testing } from '@awslabs/cdk8s';
+import { Testing } from 'cdk8s';
 
 test('snapshot', () => {
   const app = Testing.app();
