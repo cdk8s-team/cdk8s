@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "lint": "eslint . --ext .ts",    
+    "test": "jest && yarn lint",
     "package": "./package.sh"
   },
   "repository": {
@@ -32,11 +33,33 @@
     "sscaff": "^1.2.0",
     "yargs": "^15.1.0"
   },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [ "@typescript-eslint" ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/no-use-before-define": 0
+    },
+    "ignorePatterns": [
+      "node_modules",
+      "dist",
+      "coverage"
+    ]
+  },  
   "devDependencies": {
     "@aws-cdk/core": "^1.24.0",
     "@aws-cdk/cx-api": "^1.24.0",
     "cdk8s": "0.0.0",
     "@types/jest": "^25.1.2",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",    
     "@types/json-schema": "^7.0.4",
     "jest": "^25.1.0",
     "jsii": "^0.22.0"

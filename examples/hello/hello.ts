@@ -1,6 +1,5 @@
 import { Chart } from 'cdk8s';
-import { Deployment } from '../.gen/apps-deployment-v1'
-import { Service, IntOrString } from '../.gen/service-v1';
+import { Deployment, Service, IntOrString } from '../.gen';
 import { Construct } from '@aws-cdk/core';
 
 export class HelloKube extends Chart {

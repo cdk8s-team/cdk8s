@@ -1,5 +1,8 @@
 import { JSONSchema4 } from "json-schema";
 import { CodeMaker } from "codemaker";
+import { isApiObject } from "./types";
+
+const PRIMITIVE_TYPES = [ 'string', 'number', 'integer', 'boolean' ];
 
 export class TypeGenerator {
   private readonly emitLater: { [name: string]: (code: CodeMaker) => void } = { };
@@ -9,21 +12,26 @@ export class TypeGenerator {
   
   }
 
-  public addType(typeName: string, def: JSONSchema4) {
+  public addDataType(typeName: string, def: JSONSchema4, fqn: string) {
     if (this.emitted.has(typeName)) {
       return;
     }
 
+    // skip api objects (they are emitted as constructs and not as data types)
+    if (isApiObject(def)) {
+      return;
+    }
+
     this.emitLater[typeName] = code => {
-      this.emitDescription(code, def.description);
+      this.emitDescription(code, fqn, def.description);
   
-      if (def.oneOf) {
-        this.emitUnion(code, typeName, def);
+      if (isUnion(def)) {
+        this.emitUnion(code, typeName, def, fqn);
         return;
       }
     
-      if (def.properties) {
-        this.emitStruct(code, typeName, def);
+      if (isStruct(def)) {
+        this.emitStruct(code, typeName, def, fqn);
         return;
       }
     
@@ -42,25 +50,21 @@ export class TypeGenerator {
     }    
   }
 
-  private emitUnion(code: CodeMaker, typeName: string, def: JSONSchema4) {
+  private emitUnion(code: CodeMaker, typeName: string, def: JSONSchema4, fqn: string) {
+    this.emitDescription(code, fqn);
+
     code.openBlock(`export class ${typeName}`);
 
     for (const option of def.oneOf || []) {
-      switch (option.type) {
-        case 'string':
-        case 'number':
-        case 'boolean':
-        case 'integer':
-          const type = option.type === 'integer' ? 'number' : option.type;
-          const methodName = 'from' + type[0].toUpperCase() + type.substr(1);
-          code.openBlock(`public static ${methodName}(value: ${type}): ${typeName}`);
-          code.line(`return new ${typeName}(value);`);
-          code.closeBlock();
-          break;
-          
-        default:
-          throw new Error(`unexpected union type ${option.type}`);
+      if (typeof(option.type) !== 'string' || !PRIMITIVE_TYPES.includes(option.type)) {
+        throw new Error(`unexpected union type ${JSON.stringify(option.type)}`);
       }
+
+      const type = option.type === 'integer' ? 'number' : option.type;
+      const methodName = 'from' + type[0].toUpperCase() + type.substr(1);
+      code.openBlock(`public static ${methodName}(value: ${type}): ${typeName}`);
+      code.line(`return new ${typeName}(value);`);
+      code.closeBlock();
     }
 
     code.openBlock(`private constructor(value: any)`);
@@ -70,44 +74,43 @@ export class TypeGenerator {
     code.closeBlock();
   }
 
-
-  private emitStruct(code: CodeMaker, typeName: string, def: JSONSchema4) {
-    const self = this;
-
+  private emitStruct(code: CodeMaker, typeName: string, structDef: JSONSchema4, fqn: string) {
     code.openBlock(`export interface ${typeName}`);
 
-    for (const [ propName, propSpec ] of Object.entries(def.properties || {})) {
-      emitProperty(propName, propSpec);
+    for (const [ propName, propSpec ] of Object.entries(structDef.properties || {})) {
+      this.emitProperty(code, propName, propSpec, fqn, structDef);
     }
   
     code.closeBlock();
-
-    function emitProperty(name: string, def: JSONSchema4) {
-      self.emitDescription(code, def.description);
-      const propertyType = self.typeForProperty(def);
-      const required = (Array.isArray(def.required) && def.required.includes(name));
-      const optional = required ? '' : '?';
-  
-      code.line(`readonly ${name}${optional}: ${propertyType};`);
-      code.line();
-    }  
   }
 
-  private emitDescription(code: CodeMaker, description?: string) {
-    if (!description) {
-      return;
-    }
-  
-    description = description.replace(/\*\//g, '_/');
+  private emitProperty(code: CodeMaker, name: string, propDef: JSONSchema4, fqn: string, structDef: JSONSchema4) {
+    this.emitDescription(code, `${fqn}#${name}`, propDef.description);
+    const propertyType = this.typeForProperty(propDef);
+    const required = this.isPropertyRequired(name, structDef, propDef);
+    const optional = required ? '' : '?';
 
-    const extractDefault = /Defaults?\W+(to|is)\W+(.+)/g.exec(description);
-    const def = extractDefault && extractDefault[2];
-  
+    code.line(`readonly ${name}${optional}: ${propertyType};`);
+    code.line();
+  }
+
+  private emitDescription(code: CodeMaker, fqn: string, description?: string) {
     code.line('/**');
-    code.line(` * ${description}`);
-    if (def) {
-      code.line(` * @default ${def}`)    
+
+    if (description) {
+      description = description.replace(/\*\//g, '_/');
+
+      const extractDefault = /Defaults?\W+(to|is)\W+(.+)/g.exec(description);
+      const def = extractDefault && extractDefault[2];
+    
+      code.line(` * ${description}`);
+      if (def) {
+        code.line(` * @default ${def}`)    
+      }
     }
+
+    code.line(` *`);
+    code.line(` * @type ${fqn}`);
     code.line(' */')
   }
 
@@ -159,14 +162,15 @@ export class TypeGenerator {
   }
 
   private typeForRef(def: JSONSchema4): string {
-    if (!def.$ref) {
+    const prefix = '#/definitions/';
+    if (!def.$ref || !def.$ref.startsWith(prefix)) {
       throw new Error(`invalid $ref`);
     }
 
-    const comps = def.$ref.split('.');
+    const comps = def.$ref.substring(prefix.length).split('.');
     const typeName = comps[comps.length - 1];
     const schema = this.resolveReference(def);
-    this.addType(typeName, schema);
+    this.addDataType(typeName, schema, def.$ref);
     return typeName;
   }
 
@@ -196,6 +200,58 @@ export class TypeGenerator {
     }
 
     return found;
-  }  
+  }
+
+  // private readonly hasRequired: { [fqn: string]: boolean } = { };
+
+  private isPropertyRequired(property: string, structDef: JSONSchema4, propDef: JSONSchema4) {
+    // if the property name explicitly appears in "required", then it's required.
+    if (Array.isArray(structDef.required) && structDef.required.includes(property)) {
+      return true;
+    }
+
+    propDef;
+
+    return false;
+
+    // // if the property is not a reference, then we are done: it's not required and that is it.
+    // if (!propDef.$ref) {
+    //   return false;
+    // }
+
+    // return this.structHasRequiredProperties(propDef.$ref);
+  }
+
+  // private structHasRequiredProperties(fqn: string): boolean {
+  //   // check cache to avoid cycles
+  //   if (fqn in this.hasRequired) {
+  //     return this.hasRequired[fqn];
+  //   }
+
+  //   // ok, property is a ref to another type, let's find the schema for it.
+  //   const structDefinition = this.resolveReference({ $ref: fqn });
+
+  //   this.hasRequired[fqn] = false;
+
+  //   // if it's not a struct, we are done.
+  //   if (isStruct(structDefinition)) {
+  //     for (const [ name, def ] of Object.entries(structDefinition.properties || {})) {
+  //       if (this.isPropertyRequired(name, structDefinition, def)) {
+  //         this.hasRequired[fqn] = true;
+  //         break; // no need to continue
+  //       }
+  //     }
+  //   }
+
+  //   // store in cache
+  //   return this.hasRequired[fqn];
+  // }
 }
 
+function isStruct(def: JSONSchema4): boolean {
+  return !!def.properties;
+}
+
+function isUnion(def: JSONSchema4): boolean {
+  return !!def.oneOf;
+}

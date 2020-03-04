@@ -42,6 +42,8 @@ export async function jsiiCompile(workdir: string) {
   await fs.writeFile(path.join(workdir, 'package.json'), JSON.stringify(pkg, undefined, 2));
 
   return new Promise((ok, ko) => {
+    // console.log(`invoking ${compiler} in ${workdir}`);
+    // return ok();
     const child = spawn(compiler, { cwd: workdir, stdio: 'inherit' });
     child.once('error', ko);
     child.once('exit', code => {

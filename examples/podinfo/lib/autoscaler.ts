@@ -1,6 +1,6 @@
 import { Construct } from '@aws-cdk/core';
-import { HorizontalPodAutoscaler, MetricSpec } from '../../.gen/autoscaling-horizontalpodautoscaler-v2beta2';
-import { Quantity } from '../../.gen/apps-deployment-v1';
+import { HorizontalPodAutoscaler, MetricSpec } from '../../.gen';
+import { Quantity } from '../../.gen';
 
 export interface ScaleTarget {
   readonly apiVersion: string;
