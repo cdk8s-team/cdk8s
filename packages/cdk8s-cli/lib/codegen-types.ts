@@ -1,29 +1,51 @@
 import { JSONSchema4 } from "json-schema";
 import { CodeMaker } from "codemaker";
+import { isApiObject } from "./types";
+
+const PRIMITIVE_TYPES = [ 'string', 'number', 'integer', 'boolean' ];
+const DEFINITIONS_PREFIX = '#/definitions/';
+
+export interface TypeGeneratorOptions {
+  exclude?: string[];
+}
 
 export class TypeGenerator {
   private readonly emitLater: { [name: string]: (code: CodeMaker) => void } = { };
   private readonly emitted = new Set<string>();
+  private readonly exclude: string[];
 
-  constructor(private readonly schema: JSONSchema4 = { }) {
-  
+  constructor(private readonly schema: JSONSchema4 = { }, options: TypeGeneratorOptions = { }) {
+    this.exclude = options.exclude || [];
   }
 
-  public addType(typeName: string, def: JSONSchema4) {
+  public addDataType(typeName: string, def: JSONSchema4, fqn: string) {
+    if (fqn.startsWith(DEFINITIONS_PREFIX)) {
+      fqn = fqn.substring(DEFINITIONS_PREFIX.length);
+    }
+
+    if (this.isExcluded(fqn)) {
+      throw new Error(`Type ${fqn} cannot be added since it matches one of the exclusion patterns`);
+    }
+
     if (this.emitted.has(typeName)) {
       return;
     }
 
+    // skip api objects (they are emitted as constructs and not as data types)
+    if (isApiObject(def)) {
+      return;
+    }
+
     this.emitLater[typeName] = code => {
-      this.emitDescription(code, def.description);
+      this.emitDescription(code, fqn, def.description);
   
-      if (def.oneOf) {
-        this.emitUnion(code, typeName, def);
+      if (isUnion(def)) {
+        this.emitUnion(code, typeName, def, fqn);
         return;
       }
     
-      if (def.properties) {
-        this.emitStruct(code, typeName, def);
+      if (isStruct(def)) {
+        this.emitStruct(code, typeName, def, fqn);
         return;
       }
     
@@ -42,25 +64,21 @@ export class TypeGenerator {
     }    
   }
 
-  private emitUnion(code: CodeMaker, typeName: string, def: JSONSchema4) {
+  private emitUnion(code: CodeMaker, typeName: string, def: JSONSchema4, fqn: string) {
+    this.emitDescription(code, fqn);
+
     code.openBlock(`export class ${typeName}`);
 
     for (const option of def.oneOf || []) {
-      switch (option.type) {
-        case 'string':
-        case 'number':
-        case 'boolean':
-        case 'integer':
-          const type = option.type === 'integer' ? 'number' : option.type;
-          const methodName = 'from' + type[0].toUpperCase() + type.substr(1);
-          code.openBlock(`public static ${methodName}(value: ${type}): ${typeName}`);
-          code.line(`return new ${typeName}(value);`);
-          code.closeBlock();
-          break;
-          
-        default:
-          throw new Error(`unexpected union type ${option.type}`);
+      if (typeof(option.type) !== 'string' || !PRIMITIVE_TYPES.includes(option.type)) {
+        throw new Error(`unexpected union type ${JSON.stringify(option.type)}`);
       }
+
+      const type = option.type === 'integer' ? 'number' : option.type;
+      const methodName = 'from' + type[0].toUpperCase() + type.substr(1);
+      code.openBlock(`public static ${methodName}(value: ${type}): ${typeName}`);
+      code.line(`return new ${typeName}(value);`);
+      code.closeBlock();
     }
 
     code.openBlock(`private constructor(value: any)`);
@@ -70,44 +88,63 @@ export class TypeGenerator {
     code.closeBlock();
   }
 
-
-  private emitStruct(code: CodeMaker, typeName: string, def: JSONSchema4) {
-    const self = this;
-
+  private emitStruct(code: CodeMaker, typeName: string, structDef: JSONSchema4, fqn: string) {
     code.openBlock(`export interface ${typeName}`);
 
-    for (const [ propName, propSpec ] of Object.entries(def.properties || {})) {
-      emitProperty(propName, propSpec);
+    for (const [ propName, propSpec ] of Object.entries(structDef.properties || {})) {
+      this.emitProperty(code, propName, propSpec, fqn, structDef);
     }
   
     code.closeBlock();
-
-    function emitProperty(name: string, def: JSONSchema4) {
-      self.emitDescription(code, def.description);
-      const propertyType = self.typeForProperty(def);
-      const required = (Array.isArray(def.required) && def.required.includes(name));
-      const optional = required ? '' : '?';
-  
-      code.line(`readonly ${name}${optional}: ${propertyType};`);
-      code.line();
-    }  
   }
 
-  private emitDescription(code: CodeMaker, description?: string) {
-    if (!description) {
-      return;
-    }
-  
-    description = description.replace(/\*\//g, '_/');
+  private emitProperty(code: CodeMaker, name: string, propDef: JSONSchema4, fqn: string, structDef: JSONSchema4) {
+    const originalName = name;
 
-    const extractDefault = /Defaults?\W+(to|is)\W+(.+)/g.exec(description);
-    const def = extractDefault && extractDefault[2];
-  
-    code.line('/**');
-    code.line(` * ${description}`);
-    if (def) {
-      code.line(` * @default ${def}`)    
+    // if name is not camelCase, convert it to camel case, but this is likely to
+    // produce invalid output during synthesis, so add some annotation to the docs.
+    if (name[0] === name[0].toUpperCase()) {
+      name = code.toCamelCase(name);
     }
+
+    // if the name starts with '$' (like $ref or $schema), we remove the "$"
+    // and it's the same deal - will produce invalid output
+    if (name.startsWith('$')) {
+      name = name.substring(1);
+    }
+
+    this.emitDescription(code, `${fqn}#${originalName}`, propDef.description);
+    const propertyType = this.typeForProperty(propDef);
+    const required = this.isPropertyRequired(name, structDef);
+    const optional = required ? '' : '?';
+
+    code.line(`readonly ${name}${optional}: ${propertyType};`);
+    code.line();
+  }
+
+  private emitDescription(code: CodeMaker, fqn: string, description?: string, annotations: { [type: string]: string } = { }) {
+    code.line('/**');
+
+    if (description) {
+      description = description.replace(/\*\//g, '_/');
+
+      const extractDefault = /Defaults?\W+(to|is)\W+(.+)/g.exec(description);
+      const def = extractDefault && extractDefault[2];
+    
+      code.line(` * ${description}`);
+      if (def) {
+        annotations['default'] = def;
+      }
+
+      code.line(' *');
+    }
+
+    annotations['schema'] = fqn;
+
+    for (const [ type, value ] of Object.entries(annotations)) {
+      code.line(` * @${type} ${value}`);
+    }
+
     code.line(' */')
   }
 
@@ -159,14 +196,19 @@ export class TypeGenerator {
   }
 
   private typeForRef(def: JSONSchema4): string {
-    if (!def.$ref) {
+    const prefix = '#/definitions/';
+    if (!def.$ref || !def.$ref.startsWith(prefix)) {
       throw new Error(`invalid $ref`);
     }
 
-    const comps = def.$ref.split('.');
+    if (this.isExcluded(def.$ref)) {
+      return 'any';
+    }
+
+    const comps = def.$ref.substring(prefix.length).split('.');
     const typeName = comps[comps.length - 1];
     const schema = this.resolveReference(def);
-    this.addType(typeName, schema);
+    this.addDataType(typeName, schema, def.$ref);
     return typeName;
   }
 
@@ -180,8 +222,7 @@ export class TypeGenerator {
 
   private resolveReference(def: JSONSchema4): JSONSchema4 {
     const ref = def.$ref;
-    const localPrefix = '#/definitions/';
-    if (!ref || !ref.startsWith(localPrefix)) {
+    if (!ref || !ref.startsWith(DEFINITIONS_PREFIX)) {
       throw new Error(`expecting a local reference`);
     }
 
@@ -189,13 +230,35 @@ export class TypeGenerator {
       throw new Error(`schema does not have "definitions"`);
     }
 
-    const lookup = ref.substr(localPrefix.length);
+    const lookup = ref.substr(DEFINITIONS_PREFIX.length);
     const found = this.schema.definitions[lookup];
     if (!found) {
       throw new Error(`cannot resolve local reference ${ref}`);
     }
 
     return found;
-  }  
+  }
+
+  private isPropertyRequired(property: string, structDef: JSONSchema4) {
+    return Array.isArray(structDef.required) && structDef.required.includes(property);
+  }
+
+  private isExcluded(fqn: string) {
+    for (const pattern of this.exclude) {
+      const re = new RegExp(pattern);
+      if (re.test(fqn)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 
+function isStruct(def: JSONSchema4): boolean {
+  return !!def.properties;
+}
+
+function isUnion(def: JSONSchema4): boolean {
+  return !!def.oneOf;
+}
