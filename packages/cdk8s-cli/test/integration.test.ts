@@ -1,7 +1,7 @@
 import { generateAllApiObjects, Language } from "../lib/import";
-import { withTempDir } from "./util";
 import { jsiiCompile } from "../lib/jsii";
 import { promises as fs } from 'fs';
+import { withTempDir } from "../lib/util";
 
 jest.setTimeout(60_000);
 
