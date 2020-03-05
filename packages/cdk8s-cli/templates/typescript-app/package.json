@@ -11,6 +11,6 @@
     "test": "echo ok",
     "build": "yarn run import && yarn compile && yarn test",
     "watch": "tsc -w",
-    "synth": "node ./main.js"
+    "synth": "cdk8s synth --app 'node main.js'"
   }
 }

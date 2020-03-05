@@ -6,7 +6,7 @@ export interface AppOptions {
   /**
    * The directory to output Kubernetes manifests.
    * 
-   * @default "dist"
+   * @default - CDK8S_OUTDIR if defined, otherwise "dist"
    */
   readonly outdir?: string;
 }
@@ -26,7 +26,7 @@ export class App extends Construct {
    */
   constructor(options: AppOptions = { }) {
     super(undefined as any, '');
-    this.outdir = options.outdir ?? 'dist';
+    this.outdir = options.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
   }
 
   /**
