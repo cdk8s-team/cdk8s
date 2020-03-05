@@ -2,7 +2,7 @@
   "name": "examples",
   "version": "0.0.0",
   "scripts": {
-    "import": "cdk8s import k8s --include io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler",
+    "import": "cdk8s import k8s -l typescript --include io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler",
     "compile": "tsc",
     "test": "jest",
     "build": "yarn run import && yarn compile && yarn test",

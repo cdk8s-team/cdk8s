@@ -3,6 +3,7 @@ import { generateAllApiObjects, DEFAULT_API_VERSION } from '../../lib/import';
 
 const K8S_SPEC = 'k8s';
 const DEFAULT_OUTDIR = 'imports';
+const LANGUAGES = [ 'typescript', 'python' ];
 
 class Command implements yargs.CommandModule {
   public readonly command = 'import SPEC';
@@ -17,7 +18,8 @@ class Command implements yargs.CommandModule {
 
     .option('output', { type: 'string', desc: 'Output directory', default: DEFAULT_OUTDIR, alias: 'o' })
     .option('include', { type: 'array', desc: 'Types to select instead of the default which is latest stable version' })
-    .option('exclude', { type: 'array', desc: 'Do not import types that match these regular expressions. They will be represented as the "any" type' });
+    .option('exclude', { type: 'array', desc: 'Do not import types that match these regular expressions. They will be represented as the "any" type' })
+    .option('language', { demand: true, type: 'string', desc: 'Output programming language', alias: 'l', choices: LANGUAGES });
 
   public async handler(argv: any) {
     const spec = argv.spec;
@@ -32,10 +34,9 @@ class Command implements yargs.CommandModule {
     await generateAllApiObjects(argv.output, {
       apiVersion,
       include: argv.include,
-      exclude: argv.exclude
+      exclude: argv.exclude,
+      language: argv.language
     });
-
-    console.log(`${argv.output}/k8s.ts`);
   }
 }
 

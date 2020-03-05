@@ -1,5 +1,8 @@
 const { execSync } = require('child_process');
 const { chmodSync } = require('fs');
+const { readFileSync } = require('fs');
+
+const cli = require.resolve('../../bin/cdk8s');
 
 exports.pre = () => {
   try {
@@ -14,12 +17,9 @@ exports.post = () => {
   execSync('pipenv install', { stdio: 'inherit' });
   chmodSync('main.py', '700');
 
-  console.log();
-  console.log("==================================================================================");
-  console.log(" Your cdk8s Python project was created successfully.");
-  console.log();
-  console.log(" Useful commands:");
-  console.log(" - pipenv install: creates a virtual environment and installs deps");
-  console.log(" - pipenv run ./main.py: synthesizes a k8s manifest in 'dist/' (ready for 'kubectl apply -f')");
+  execSync(`${cli} import k8s -l python`);
+  execSync(`pipenv run ./main.py`);
+
+  console.log(readFileSync('./help', 'utf-8'));
 };
 

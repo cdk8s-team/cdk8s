@@ -2,8 +2,9 @@ import { TypeGenerator } from "../lib/codegen-types";
 import { promises as fs } from 'fs';
 import * as path from 'path';
 import { CodeMaker } from "codemaker";
-import { jsiiCompile, createWorkdir } from "./util";
 import { JSONSchema4 } from "json-schema";
+import { jsiiCompile } from "../lib/jsii";
+import { withTempDir } from "../lib/util";
 
 jest.setTimeout(60_000); // 1min
 
@@ -158,25 +159,27 @@ function which(name: string, schema: JSONSchema4, definitions?: JSONSchema4) {
   test(name, async () => {
     const gen = new TypeGenerator(definitions);
     gen.addDataType('TestType', schema, 'fqn.of.TestType');
-    expect(await generate(gen)).toMatchSnapshot();
+
+    await withTempDir('test', async () => {
+      expect(await generate(gen)).toMatchSnapshot();
+    });
   });
 }
 
 async function generate(gen: TypeGenerator) {
   const code = new CodeMaker();
 
-  const workdir = await createWorkdir();
   const entrypoint = 'index.ts';
 
   code.openFile(entrypoint);
   gen.generate(code);
   code.closeFile(entrypoint)
-  await code.save(workdir);
+  await code.save('.');
 
-  const source = await fs.readFile(path.join(workdir, entrypoint), 'utf-8');
+  const source = await fs.readFile(path.join('.', entrypoint), 'utf-8');
 
   try {
-    await jsiiCompile(workdir);
+    await jsiiCompile('.');
   } catch (e) {
     console.error(source);
     throw e;
