@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "lint": "eslint . --ext .ts",    
+    "lint": "eslint . --ext .ts",
     "test": "jest && yarn lint",
     "package": "./package.sh"
   },
@@ -35,7 +35,9 @@
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
-    "plugins": [ "@typescript-eslint" ],
+    "plugins": [
+      "@typescript-eslint"
+    ],
     "extends": [
       "eslint:recommended",
       "plugin:@typescript-eslint/eslint-recommended",
@@ -51,16 +53,18 @@
       "dist",
       "coverage"
     ]
-  },  
+  },
   "devDependencies": {
     "@aws-cdk/core": "^1.24.0",
     "@aws-cdk/cx-api": "^1.24.0",
-    "cdk8s": "0.0.0",
+    "@types/fs-extra": "^8.1.0",
     "@types/jest": "^25.1.2",
+    "@types/json-schema": "^7.0.4",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
-    "eslint": "^6.8.0",    
-    "@types/json-schema": "^7.0.4",
+    "cdk8s": "0.0.0",
+    "eslint": "^6.8.0",
+    "fs-extra": "^8.1.0",
     "jest": "^25.1.0",
     "jsii": "^0.22.0"
   }
