@@ -1,0 +1,25 @@
+name: Release @next
+on:
+  push:
+    branches:
+      - master
+    
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn install
+      - run: tools/align-version.sh "+${{ github.sha }}"
+      - run: yarn build
+      - run: yarn test
+      - run: yarn package
+
+      # publish to package managers only if this is a new version      
+      - run: npx jsii-release-npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_DIST_TAG: next
