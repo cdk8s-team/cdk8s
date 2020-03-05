@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra';
-import { spawn, SpawnOptions } from 'child_process';
 import * as path from 'path';
 import * as os from 'os';
+import { shell } from '../lib/util';
 
 /**
  * Compiles the source files in `workdir` with jsii.
@@ -60,16 +60,6 @@ export async function createWorkdir() {
   return await fs.mkdtemp(path.join(os.tmpdir(), 'generator.tests'));  
 }
 
-export async function shell(command: string, args: string[] = [], options: SpawnOptions = { }) {
-  return new Promise((ok, ko) => {
-    const child = spawn(command, args, { stdio: 'inherit', ...options });
-    child.once('error', ko);
-    child.once('exit', code => {
-      if (code === 0) { return ok(); }
-      else return ko(new Error(`non-zero exit code ${code}`));
-    });
-  });
-}
 
 export async function withTempDir(dirname: string, closure: () => Promise<void>) {
   const prevdir = process.cwd();

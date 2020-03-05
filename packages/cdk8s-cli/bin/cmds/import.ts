@@ -6,18 +6,18 @@ const DEFAULT_OUTDIR = 'imports';
 
 class Command implements yargs.CommandModule {
   public readonly command = 'import SPEC';
-  public readonly describe = 'Imports API objects to your app by generating constructs';
+  public readonly describe = 'Imports API objects to your app by generating constructs.';
   public readonly aliases = [ 'gen', 'import', 'generate' ];
 
   public readonly builder = (args: yargs.Argv) => args
     .positional('SPEC', {  desc: `The API spec to import (only "k8s" is currently supported)` })
     .demand('SPEC')
-    .example(`cdk8s import k8s`, `imports Kubenretes API objects to imports/k8s.ts`)
+    .example(`cdk8s import k8s`, `Imports Kubenretes API objects to imports/k8s.ts`)
     .example(`cdk8s import k8s@1.13.0`, `imports a specific version of the Kubenretes API`)
 
-    .option('output', { type: 'string', desc: 'output directory', default: DEFAULT_OUTDIR, alias: 'o' })
-    .option('include', { type: 'array', desc: 'types to select instead of the default which is latest stable version' })
-    .option('exclude', { type: 'array', desc: 'do not import types that match these regular expressions. They will be represented as the "any" type' });
+    .option('output', { type: 'string', desc: 'Output directory', default: DEFAULT_OUTDIR, alias: 'o' })
+    .option('include', { type: 'array', desc: 'Types to select instead of the default which is latest stable version' })
+    .option('exclude', { type: 'array', desc: 'Do not import types that match these regular expressions. They will be represented as the "any" type' });
 
   public async handler(argv: any) {
     const spec = argv.spec;
@@ -35,9 +35,8 @@ class Command implements yargs.CommandModule {
       exclude: argv.exclude
     });
 
-    console.error(`k8s@${apiVersion} imported to ${argv.output}/k8s.ts`);
+    console.log(`${argv.output}/k8s.ts`);
   }
 }
-
 
 module.exports = new Command();

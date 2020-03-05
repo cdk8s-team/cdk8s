@@ -1,6 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
-import { withTempDir, shell } from './util';
+import { withTempDir } from './util';
+import { shell } from '../lib/util';
 
 jest.setTimeout(30_000);
 
