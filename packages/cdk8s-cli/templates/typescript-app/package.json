@@ -11,6 +11,8 @@
     "test": "echo ok",
     "synth": "cdk8s synth --app 'node main.js'",
     "build": "yarn run import && yarn compile && yarn test && yarn synth",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "upgrade": "yarn upgrade -L cdk8s cdk8s-cli",
+    "upgrade:next": "yarn upgrade -L cdk8s@next cdk8s-cli@next"
   }
 }
