@@ -1,5 +1,5 @@
 import { Deployment, ImagePullPolicy, IContainer } from "../lib";
-import { Container } from '../../imports/k8s';
+import { Container } from '../.gen/apps-deployment-v1'
 
 export interface PodinfoOptions {
   /**

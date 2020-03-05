@@ -12,7 +12,7 @@ class MyChart extends Chart {
       faultError: true
     });
 
-    const deployment = new Deployment(this, 'Deployment', {
+    const deployment = new Deployment(this, 'deployment', {
       containers: [ podinfo ],
       autoScalingOptions: {
         minReplicas: 2,
@@ -21,7 +21,7 @@ class MyChart extends Chart {
       }
     });
 
-    new Service(this, 'Service', {
+    new Service(this, 'service', {
       selector: deployment,
       ingress: true 
     });

@@ -1,5 +1,5 @@
 import { Construct } from "@aws-cdk/core";
-import { Service as ServiceApiObject, ServicePort, IntOrString } from '../../imports/k8s';
+import { Service as ServiceApiObject, ServicePort, IntOrString } from '../.gen/service-v1';
 import { Ingress, IngressOptions } from "./ingress";
 
 export interface ISelector {
@@ -80,7 +80,7 @@ export class Service extends Construct {
 
     // service
 
-    const service = new ServiceApiObject(this, 'Service', {
+    const service = new ServiceApiObject(this, 'service', {
       metadata: {
         labels: options.labels
       },
