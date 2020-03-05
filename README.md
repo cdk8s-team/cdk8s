@@ -25,7 +25,7 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
   - [New Project](#new-project)
   - [Watch](#watch)
   - [Apps & Charts](#apps--charts)
-  - [Kubernetes Objects](#kubernetes-objects)
+  - [Importing the Kubernetes API](#importing-the-kubernetes-api)
   - [Deploy](#deploy)
   - [Constructs](#constructs)
 - [Examples](#examples)
@@ -93,14 +93,8 @@ This will perform the following:
 
 1. Create a new project directory
 2. Install cdk8s as a dependency
-3. Generate constructs for all k8s object
+3. Import all Kubernetes API objects
 4. Compile the TypeScript to JavaScript
-
-If you wish to upgrade to the latest version of all your dependencies, run:
-
-```console
-$ yarn upgrade -L
-```
 
 ### Watch
 
@@ -150,18 +144,16 @@ $ cat dist/hello.k8s.yaml
 <EMPTY>
 ```
 
-### Kubernetes Objects
+### Importing the Kubernetes API
 
 OK, now let's define some Kubernetes API objects inside our chart.
 
-Similarly to charts and apps, Kubernetes API objects are also represented in
-cdk8s as **constructs**. These constructs can be found under the `.gen`
-directory of your project.
+Similarly to charts and apps, Kubernetes API Objects are also represented in
+cdk8s as **constructs**. These constructs are "imported" to your project using
+the command `cdk8s import k8s` and can then found under the `imports/k8s.ts`
+file in your project directory.
 
-> Since different Kubernetes versions have different APIs, the constructs for
-Kubernetes objects are not included in the cdk8s library but actually generated
-on-demand using `cdk8s generate`. Your new project already generates objects for
-Kubernetes 1.14, and you should be able to find them under the `.gen` directory.
+> `cdk8s import k8s` is always called by `yarn build`.
 
 Let's use these constructs to define a simple Kubernetes application that
 contains
@@ -174,9 +166,8 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 import { Construct } from '@aws-cdk/core';
 import { App, Chart } from 'cdk8s';
 
-// import generated constructs
-import { Service, IntOrString } from './.gen/service-v1';
-import { Deployment } from './.gen/apps-deployment-v1';
+// imported constructs
+import { Deployment, Service, IntOrString } from './imports/k8s';
 
 class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
