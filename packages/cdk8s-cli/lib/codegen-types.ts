@@ -1,6 +1,6 @@
-import { JSONSchema4 } from "json-schema";
-import { CodeMaker } from "codemaker";
-import { isApiObject } from "./types";
+import { JSONSchema4 } from 'json-schema';
+import { CodeMaker } from 'codemaker';
+import { isApiObject } from './types';
 
 const PRIMITIVE_TYPES = [ 'string', 'number', 'integer', 'boolean' ];
 const DEFINITIONS_PREFIX = '#/definitions/';

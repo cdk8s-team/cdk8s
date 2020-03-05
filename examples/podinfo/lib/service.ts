@@ -1,6 +1,6 @@
-import { Construct } from "@aws-cdk/core";
+import { Construct } from '@aws-cdk/core';
 import { Service as ServiceApiObject, ServicePort, IntOrString } from '../../imports/k8s';
-import { Ingress, IngressOptions } from "./ingress";
+import { Ingress, IngressOptions } from './ingress';
 
 export interface ISelector {
   readonly selector: { [key: string]: string };

@@ -1,6 +1,6 @@
 import * as yargs from 'yargs';
-import { shell, rmfr, exists } from '../../lib/util';
-import { promises as fs } from 'fs';
+import { shell, rmfr } from '../../lib/util';
+import { existsSync, readdirSync } from 'fs';
 
 class Command implements yargs.CommandModule {
   public readonly command = 'synth';
@@ -15,20 +15,20 @@ class Command implements yargs.CommandModule {
     const command = argv.app;
     const outdir = argv.output;
 
-    await rmfr(outdir);
+    rmfr(outdir);
 
     await shell(command, [], { 
       shell: true,
       env: { CDK8S_OUTDIR: outdir }
     });
 
-    if (!await exists(outdir)) {
+    if (!existsSync(outdir)) {
       console.error(`ERROR: synthesis failed, app expected to create "${outdir}"`);
       process.exit(1);
     }
 
     let found = false;
-    for (const file of await fs.readdir(outdir)) {
+    for (const file of readdirSync(outdir)) {
       if (file.endsWith('.k8s.yaml')) {
         console.log(`${outdir}/${file}`);
         found = true;

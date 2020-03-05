@@ -1,8 +1,8 @@
-import { JSONSchema4 } from "json-schema";
+import { JSONSchema4 } from 'json-schema'
 import { CodeMaker } from 'codemaker';
-import { TypeGenerator } from "./codegen-types";
-import { ApiObjectDefinition, parseApiTypeName, tryGetObjectName, getObjectName, X_GROUP_VERSION_KIND } from "./types";
-import { compareApiVersions } from "./version-selection";
+import { TypeGenerator } from './codegen-types';
+import { ApiObjectDefinition, parseApiTypeName, tryGetObjectName, getObjectName, X_GROUP_VERSION_KIND } from './types';
+import { compareApiVersions } from './version-selection';
 
 /**
  * Generates a construct for an API object defined by `def`.
@@ -41,7 +41,7 @@ export function emitConstructForApiObject(code: CodeMaker, typeGenerator: TypeGe
     code.line('/**');
     code.line(` * ${def?.description}`);
     code.line(` *`);
-    code.line(` * @schema ${apidef.fullname}`)
+    code.line(` * @schema ${apidef.fullname}`);
     code.line(` */`);
     code.openBlock(`export class ${objectName.kind} extends ApiObject`);
 

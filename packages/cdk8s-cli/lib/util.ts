@@ -1,6 +1,5 @@
 import { spawn, SpawnOptions } from 'child_process';
-import { promises as fs } from 'fs';
-import { exists as _exists } from 'fs';
+import { existsSync, readdirSync, rmdirSync, statSync, unlinkSync } from 'fs';
 import * as path from 'path';
 
 export async function shell(program: string, args: string[] = [], options: SpawnOptions = { }) {
@@ -14,23 +13,19 @@ export async function shell(program: string, args: string[] = [], options: Spawn
   });
 }
 
-export async function rmfr(filePath: string) {
-  if (!await exists(filePath)) {
+export function rmfr(filePath: string) {
+  if (!existsSync(filePath)) {
     return;
   }
 
   // if this is a directory, empty it first
-  if ((await fs.stat(filePath)).isDirectory()) {
-    const files = await fs.readdir(filePath);
+  if ((statSync(filePath)).isDirectory()) {
+    const files = readdirSync(filePath);
     for (const file of files) {
-      await rmfr(path.join(filePath, file));
+      rmfr(path.join(filePath, file));
     }
-    fs.rmdir(filePath);
+    rmdirSync(filePath);
   } else {
-    await fs.unlink(filePath);
+    unlinkSync(filePath);
   }
-}
-
-export async function exists(filePath: string): Promise<boolean> {
-  return new Promise(ok => _exists(filePath, ok));
 }

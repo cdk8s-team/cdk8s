@@ -1,9 +1,10 @@
 import * as https from 'https';
-import { promises } from 'fs';
-import { emitConstructForApiObject, findApiObjectDefinitions, selectApiObjects } from '../lib/codegen-constructs';
+import { mkdirSync } from 'fs';
+import { emitConstructForApiObject, findApiObjectDefinitions, selectApiObjects } from './codegen-constructs';
 import { CodeMaker } from 'codemaker';
 import { JSONSchema4 } from 'json-schema';
 import { TypeGenerator } from './codegen-types';
+import { ApiObjectDefinition } from './types';
 
 export const DEFAULT_API_VERSION = '1.14.0';
 
@@ -45,16 +46,14 @@ export async function generateAllApiObjects(outdir: string, options: Options) {
   code.line();
 
   const typeGenerator = new TypeGenerator(schema, { exclude: options.exclude });
+  const emit = (topLevelObject: ApiObjectDefinition) => emitConstructForApiObject(code, typeGenerator, topLevelObject);
 
-  for (const o of topLevelObjects) {
-    emitConstructForApiObject(code, typeGenerator, o);
-  }
-
+  topLevelObjects.forEach(emit);
   typeGenerator.generate(code);
 
   code.closeFile('k8s.ts');
 
-  await promises.mkdir(outdir, { recursive: true });
+  mkdirSync(outdir, { recursive: true });
   await code.save(outdir);  
 }
 

@@ -1,4 +1,4 @@
-import { JSONSchema4 } from "json-schema";
+import { JSONSchema4 } from 'json-schema';
 
 /**
  * 
