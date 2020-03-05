@@ -35,7 +35,7 @@ function installDeps(deps, isDev) {
 }
 
 function installLocalDep(depWithVer) {
-  const dep = depWithVer.split('@')[0];
+  const dep = depWithVer.split('@^')[0];
 
   const pkgfile = require.resolve(`${dep}/package.json`);
   const target = path.dirname(pkgfile);
