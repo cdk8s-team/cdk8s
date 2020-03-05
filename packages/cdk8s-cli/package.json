@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "CDK for Kubernetes CLI",
   "bin": {
-    "cdk8s": "bin/cdk8s"
+    "cdk8s": "bin/cdk8s.js"
   },
   "scripts": {
     "build": "tsc",
