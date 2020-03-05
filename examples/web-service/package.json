@@ -1,0 +1,32 @@
+{
+  "name": "web-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
+  "scripts": {
+    "gen": "cdk8s import",
+    "build": "yarn gen && tsc",
+    "watch": "tsc -w",
+    "synth": "node ./index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "^1.26.0",
+    "@aws-cdk/cx-api": "^1.26.0",
+    "cdk8s": "^0.12.0"
+  },
+  "devDependencies": {
+    "cdk8s-cli": "^0.12.0",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.1",
+    "jest": "^25.1.0",
+    "typescript": "^3.7.5"
+  }
+}
