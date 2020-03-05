@@ -14,8 +14,7 @@
     "gen": "cdk8s import",
     "build": "yarn gen && tsc",
     "watch": "tsc -w",
-    "synth": "node ./examples/app-example.js",
-    "test": "jest"
+    "synth": "node ./examples/app-example.js"
   },
   "dependencies": {
     "@aws-cdk/core": "^1.26.0",
@@ -26,7 +25,6 @@
     "cdk8s-cli": "^0.12.0",
     "@types/jest": "^25.1.2",
     "@types/node": "^13.7.1",
-    "jest": "^25.1.0",
     "typescript": "^3.7.5"
   }
 }
