@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - run: tools/align-version.sh ".pre-${{ github.sha }}"
+      - run: tools/align-version.sh "-pre.${{ github.sha }}"
       - run: yarn build
       - run: yarn test
       - run: yarn package
