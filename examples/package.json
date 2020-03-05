@@ -2,10 +2,11 @@
   "name": "examples",
   "version": "0.0.0",
   "scripts": {
-    "gen": "cdk8s gen --include io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler",
-    "build": "yarn gen && tsc",
-    "watch": "tsc -w",
-    "test": "jest"
+    "import": "cdk8s import k8s --include io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler",
+    "compile": "tsc",
+    "test": "jest",
+    "build": "yarn run import && yarn compile && yarn test",
+    "watch": "tsc -w"
   },
   "private": true,
   "jest": {

@@ -10,27 +10,47 @@ higher-level abstractions.
 
 ## Installation
 
-Install globally via `npm`:
+Install globally via `yarn` (or `npm`):
 
 ```shell
-npm install -g cdk8s-cli
+yarn global add cdk8s-cli
 ```
 
-## Generating classes for Kubernetes API objects
+## init - Create new projects
+
+This command creates new cdk8s projects from built in templates:
+
+```shell
+$ cdk9s init TEMPLATE
+```
+
+The following example will create a new TypeScript app project:
+
+```shell
+$ mkdir my-fun-little-project
+$ cd my-fun-little-project
+$ cdk8s init typescript-app
+```
+
+## import - Import API objects as constructs
 
 To generate constructs for all Kubernetes API objects of a certain version, use
 the `import` subcommand:
 
 ```shell
-$ cdk8s import [--api VERSION] [--output OUTDIR]
+$ cdk8s import SPEC
 ```
 
-* `VERSION` is the Kubernetes API version (default is 1.14.0)
-* `OUTDIR` is the output directory where source files are generated (default is
-  `.gen`)
+Currently, the only supported spec is `"k8s"` which represents the core
+Kubernetes API. The import command will create a file under `imports/k8s.ts`
+with constructs for each API object in the spec.
 
-This command will create a `.gen` directory with constructs for all API objects
-of the specified version.
+The following example will import the latest version of the Kubernetes API
+objects:
+
+```shell
+$ cdk8s import k8s
+```
 
 ## License
 

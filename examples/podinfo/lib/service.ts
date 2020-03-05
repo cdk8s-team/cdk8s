@@ -1,5 +1,5 @@
 import { Construct } from "@aws-cdk/core";
-import { Service as ServiceApiObject, ServicePort, IntOrString } from '../../.gen';
+import { Service as ServiceApiObject, ServicePort, IntOrString } from '../../imports/k8s';
 import { Ingress, IngressOptions } from "./ingress";
 
 export interface ISelector {

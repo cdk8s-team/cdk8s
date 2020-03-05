@@ -6,8 +6,10 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "gen": "cdk8s generate",
-    "build": "yarn gen && tsc",
+    "import": "cdk8s import k8s",
+    "compile": "tsc",
+    "test": "echo ok",
+    "build": "yarn run import && yarn compile && yarn test",
     "watch": "tsc -w",
     "synth": "node ./main.js"
   }

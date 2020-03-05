@@ -1,5 +1,7 @@
 *.d.ts
 *.js
 node_modules
-.gen
 dist/
+
+# imports should not be committed
+imports/

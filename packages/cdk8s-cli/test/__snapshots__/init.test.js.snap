@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`typescript-app 1`] = `
+"spec:
+  containers:
+    - name: hello-kubernetes
+      image: paulbouwer/hello-kubernetes:1.7
+      ports:
+        - containerPort: 8080
+kind: Pod
+apiVersion: v1
+metadata:
+  name: heythere-mypod-66ae4712
+"
+`;
