@@ -9,8 +9,8 @@
     "import": "cdk8s import k8s",
     "compile": "tsc",
     "test": "echo ok",
-    "build": "yarn run import && yarn compile && yarn test",
-    "watch": "tsc -w",
-    "synth": "cdk8s synth --app 'node main.js'"
+    "synth": "cdk8s synth --app 'node main.js'",
+    "build": "yarn run import && yarn compile && yarn test && yarn synth",
+    "watch": "tsc -w"
   }
 }

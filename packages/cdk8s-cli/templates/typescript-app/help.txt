@@ -8,10 +8,10 @@
  - yarn compile     compile typescript code to javascript
  - yarn watch       watch for changes and compile typescript in the background
  - yarn test        run a very rigorous test suite (tbd)
-
- - yarn build       do it all: import + compile + test
  - yarn synth       synthesize k8s manifests from charts to dist/ (ready for 'kubectl apply -f')
- 
- - yarn upgrade -L  update dependencies (incl cdk8s) to their latest version
+ - yarn build       all together now: import + compile + test + synth
+
+ - kubectl apply -f dist/*.k8s.yaml  apply synthesized manifests to your cluster
+ - yarn upgrade -L                   update all dependencies (incl cdk8s) to their latest version
 
 ========================================================================================================
