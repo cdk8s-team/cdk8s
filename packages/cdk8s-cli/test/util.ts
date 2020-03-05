@@ -10,6 +10,8 @@ export async function jsiiCompile(workdir: string) {
   console.log(`compiling ${workdir}`);
   
   const compiler = require.resolve('jsii/bin/jsii');
+  const args = [ '--silence-warnings', 'reserved-word' ];
+
   const modules = [ 
     '@aws-cdk/core', 
     '@aws-cdk/cx-api', 
@@ -28,6 +30,14 @@ export async function jsiiCompile(workdir: string) {
       url: 'http://repo',
       type: 'git'
     },
+    dependencies: {
+      "@aws-cdk/core": "*",
+      "cdk8s": "*",
+    },
+    peerDependencies: {
+      "@aws-cdk/core": "*",
+      "cdk8s": "*",
+    },
     jsii: {
       outdir: 'dist'
     }
@@ -42,9 +52,7 @@ export async function jsiiCompile(workdir: string) {
   await fs.writeFile(path.join(workdir, 'package.json'), JSON.stringify(pkg, undefined, 2));
 
   return new Promise((ok, ko) => {
-    // console.log(`invoking ${compiler} in ${workdir}`);
-    // return ok();
-    const child = spawn(compiler, { cwd: workdir, stdio: 'inherit' });
+    const child = spawn(compiler, args, { cwd: workdir, stdio: 'inherit' });
     child.once('error', ko);
     child.once('exit', code => {
       if (code === 0) { return ok(); }

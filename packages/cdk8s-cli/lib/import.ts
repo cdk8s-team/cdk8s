@@ -20,6 +20,13 @@ export interface Options {
    * @default - selects the latest stable version from each API object
    */
   readonly include?: string[];
+
+  /**
+   * Do not import these types. Instead, represent them as "any".
+   * 
+   * @default - include all types that derive from the root types.
+   */
+  readonly exclude?: string[];
 }
 
 export async function generateAllApiObjects(outdir: string, options: Options) {
@@ -37,7 +44,7 @@ export async function generateAllApiObjects(outdir: string, options: Options) {
   code.line(`import { Construct } from '@aws-cdk/core';`);
   code.line();
 
-  const typeGenerator = new TypeGenerator(schema);
+  const typeGenerator = new TypeGenerator(schema, { exclude: options.exclude });
 
   for (const o of topLevelObjects) {
     emitConstructForApiObject(code, typeGenerator, o);

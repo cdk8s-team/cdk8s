@@ -41,7 +41,7 @@ export function emitConstructForApiObject(code: CodeMaker, typeGenerator: TypeGe
     code.line('/**');
     code.line(` * ${def?.description}`);
     code.line(` *`);
-    code.line(` * @type ${apidef.fullname}`)
+    code.line(` * @schema ${apidef.fullname}`)
     code.line(` */`);
     code.openBlock(`export class ${objectName.kind} extends ApiObject`);
 
@@ -51,9 +51,17 @@ export function emitConstructForApiObject(code: CodeMaker, typeGenerator: TypeGe
   }
 
   function emitInitializer() {
+
+    code.line(`/**`);
+    code.line(` * Defines a "${apidef.fullname}" API object`);
+    code.line(` * @param scope the scope in which to define this object`);
+    code.line(` * @param name a scope-local name for the object`);
+    code.line(` * @param options configuration options`);
+    code.line(` */`);
+
     const hasRequired = optionsStructSchema.required && Array.isArray(optionsStructSchema.required) && optionsStructSchema.required.length > 0;
     const defaultOptions = hasRequired ? '' : ' = {}';
-    code.openBlock(`public constructor(scope: Construct, ns: string, options: ${optionsStructName}${defaultOptions})`);
+    code.openBlock(`public constructor(scope: Construct, name: string, options: ${optionsStructName}${defaultOptions})`);
     emitInitializerSuper();
 
     code.closeBlock();
@@ -61,7 +69,7 @@ export function emitConstructForApiObject(code: CodeMaker, typeGenerator: TypeGe
 
   function emitInitializerSuper() {
     const groupPrefix = objectName.group ? `${objectName.group}/` : '';
-    code.open(`super(scope, ns, {`);
+    code.open(`super(scope, name, {`);
     code.line(`...options,`);
     code.line(`kind: '${objectName.kind}',`);
     code.line(`apiVersion: '${groupPrefix}${objectName.version}',`);
