@@ -1,14 +1,11 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
-import * as os from 'os';
-import { shell } from '../lib/util';
+import { shell } from './util';
 
 /**
  * Compiles the source files in `workdir` with jsii.
  */
 export async function jsiiCompile(workdir: string) {
-  console.log(`compiling ${workdir}`);
-  
   const compiler = require.resolve('jsii/bin/jsii');
   const args = [ '--silence-warnings', 'reserved-word' ];
 
@@ -21,15 +18,21 @@ export async function jsiiCompile(workdir: string) {
 
   const pkg = {
     name: 'dummy',
-    version: '0.0.0.0',
+    version: '0.0.0',
     author: "dummy@dummy.com",
-    main: "index.js",
-    types: "index.d.ts",
+    main: "k8s.js",
+    types: "k8s.d.ts",
     license: 'Apache-2.0',
-    repository: {
-      url: 'http://repo',
-      type: 'git'
-    },
+    repository: { url: 'http://repo', type: 'git' },
+    jsii: {
+      outdir: "dist",
+      targets: {
+        python: {
+          distName: "k8s",
+          module: "k8s"
+        }
+      }
+    },    
     dependencies: {
       "@aws-cdk/core": "*",
       "cdk8s": "*",
@@ -37,9 +40,6 @@ export async function jsiiCompile(workdir: string) {
     peerDependencies: {
       "@aws-cdk/core": "*",
       "cdk8s": "*",
-    },
-    jsii: {
-      outdir: 'dist'
     }
   };
 
@@ -54,23 +54,4 @@ export async function jsiiCompile(workdir: string) {
   await shell(compiler, args, { 
     cwd: workdir 
   });
-}
-
-export async function createWorkdir() {
-  return await fs.mkdtemp(path.join(os.tmpdir(), 'generator.tests'));  
-}
-
-
-export async function withTempDir(dirname: string, closure: () => Promise<void>) {
-  const prevdir = process.cwd();
-  const parent = await fs.mkdtemp(path.join(os.tmpdir(), 'cdk8s-init-test.'));
-  const workdir = path.join(parent, dirname);
-  await fs.mkdirp(workdir);
-  try {
-    process.chdir(workdir);
-    await closure();
-  } finally {
-    process.chdir(prevdir);
-    await fs.remove(parent);
-  }
 }

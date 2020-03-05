@@ -1,0 +1,16 @@
+========================================================================================================
+
+ Your cdk8s python project is ready!
+
+   cat help         print this message
+ 
+  import k8s api objects and store them under "imports/k8s.ts":
+   cdk8s import k8s -l python         
+
+  synthesize k8s manifests from charts to dist/ (ready for 'kubectl apply -f'):  
+   pipenv run ./main.py
+
+ deploy:
+   kubectl apply -f dist/*.k8s.yaml
+
+========================================================================================================

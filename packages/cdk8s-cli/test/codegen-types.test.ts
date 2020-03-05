@@ -2,8 +2,9 @@ import { TypeGenerator } from "../lib/codegen-types";
 import { promises as fs } from 'fs';
 import * as path from 'path';
 import { CodeMaker } from "codemaker";
-import { jsiiCompile, createWorkdir } from "./util";
+import { createWorkdir } from "./util";
 import { JSONSchema4 } from "json-schema";
+import { jsiiCompile } from "../lib/jsii";
 
 jest.setTimeout(60_000); // 1min
 

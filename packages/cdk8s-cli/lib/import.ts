@@ -1,13 +1,31 @@
 import * as https from 'https';
+import * as fs from 'fs-extra';
+import * as path from 'path';
 import { promises } from 'fs';
 import { emitConstructForApiObject, findApiObjectDefinitions, selectApiObjects } from '../lib/codegen-constructs';
 import { CodeMaker } from 'codemaker';
 import { JSONSchema4 } from 'json-schema';
 import { TypeGenerator } from './codegen-types';
+import { withTempDir, shell } from './util';
+import { jsiiCompile } from './jsii';
 
 export const DEFAULT_API_VERSION = '1.14.0';
 
+export enum Language {
+  TYPESCRIPT = 'typescript',
+  PYTHON = 'python',
+  DOTNET = 'dotnet',
+  JAVA = 'java',
+}
+
+export const LANGUAGES = [ Language.TYPESCRIPT, Language.PYTHON ];
+
 export interface Options {
+  /**
+   * Output programming language.
+   */
+  readonly language: Language;
+
   /**
    * The API version to generate.
    */
@@ -30,6 +48,48 @@ export interface Options {
 }
 
 export async function generateAllApiObjects(outdir: string, options: Options) {
+  outdir = path.resolve(outdir);
+
+  if (options.language === Language.TYPESCRIPT) {
+    await generateApiObjectsTypeScript(outdir, options);
+    console.log(`${outdir}/k8s.ts`);
+    return;
+  }
+
+  // this is not typescript, so we generate in a staging directory and harvest the code
+  await withTempDir('k8s', async () => {
+    await generateApiObjectsTypeScript('.', options);
+    await jsiiCompile('.');
+
+    const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
+    await shell(`${pacmak} --target ${options.language} --code-only`);
+
+    console.error(process.cwd());
+    await harvestCode(options.language, outdir);
+  });
+}
+
+async function harvestCode(language: Language, outdir: string) {
+  switch (language) {
+    case Language.TYPESCRIPT:
+      throw new Error('no op for typescript');
+
+    case Language.PYTHON:
+      await harvestPython();
+      break;
+
+    default:
+      throw new Error(`unsupported language ${language} (yet)`);
+  }
+
+  async function harvestPython() {
+    const target = path.join(outdir, 'k8s');
+    await fs.move('dist/python/src/k8s', target);
+    console.error(target);
+  }
+}
+
+async function generateApiObjectsTypeScript(outdir: string, options: Options) {
   const code = new CodeMaker();
   code.indentation = 2;
 

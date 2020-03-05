@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "import": "cdk8s import k8s",
+    "import": "cdk8s import k8s -l typescript",
     "compile": "tsc",
     "test": "echo ok",
     "synth": "cdk8s synth --app 'node main.js'",
