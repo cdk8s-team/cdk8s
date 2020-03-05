@@ -2,13 +2,7 @@
 
 This example application deploys [hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) using cdk8s.
 
-You can apply this example into your own cluster with one quick command:
-
-```console
-$ ../apply.sh
-```
-
-Or you can follow these step by step commands:
+You can apply this example into your own cluster with these step by step commands:
 
 #### Build
 

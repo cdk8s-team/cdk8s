@@ -303,8 +303,7 @@ to use `lib` for reusable components):
 
 ```ts
 import { Construct } from '@aws-cdk/core';
-import { Service, IntOrString } from '../.gen/service-v1';
-import { Deployment } from '../.gen/apps-deployment-v1';
+import { Deployment, Service, IntOrString } from './imports/k8s';
 
 export interface WebServiceOptions {
   /**

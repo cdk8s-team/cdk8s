@@ -12,8 +12,8 @@
     ]
   },
   "scripts": {
-    "gen": "cdk8s generate",
-    "build": "cdk8s import && tsc",
+    "gen": "cdk8s import",
+    "build": "yarn gen && tsc",
     "watch": "tsc -w",
     "synth": "node ./index.js",
     "test": "jest"
