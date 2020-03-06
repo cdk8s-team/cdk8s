@@ -62,9 +62,7 @@ export async function generateAllApiObjects(outdir: string, options: Options) {
     await jsiiCompile('.');
 
     const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
-    await shell(`${pacmak} --target ${options.language} --code-only`);
-
-    console.error(process.cwd());
+    await shell(pacmak, [ '--target', options.language, '--code-only' ]);
     await harvestCode(options.language, outdir);
   });
 }
@@ -84,7 +82,7 @@ async function harvestCode(language: Language, outdir: string) {
 
   async function harvestPython() {
     const target = path.join(outdir, 'k8s');
-    await fs.move('dist/python/src/k8s', target);
+    await fs.move('dist/python/src/k8s', target, { overwrite: true });
     console.error(target);
   }
 }
