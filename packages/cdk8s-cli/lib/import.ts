@@ -48,25 +48,24 @@ export interface Options {
 }
 
 export async function importKubernetesApi(outdir: string, options: Options) {
-  const relout = outdir;
   outdir = path.resolve(outdir);
   
-
   if (options.language === Language.TYPESCRIPT) {
     await generateTypeScript(outdir, options);
   } else {
     // this is not typescript, so we generate in a staging directory and harvest the code
     await withTempDir('k8s', async () => {
       await generateTypeScript('.', options);
-      await jsiiCompile('.');
+      await jsiiCompile('.', {
+        main: 'k8s',
+        name: 'k8s',
+      });
 
       const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
       await shell(pacmak, [ '--target', options.language, '--code-only' ]);
       await harvestCode(options.language, outdir);
     });
   }
-
-  console.error(`Constructs for Kubernetes API v${options.apiVersion} imported to "${relout}/k8s".`);
 }
 
 async function harvestCode(language: Language, outdir: string) {

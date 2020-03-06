@@ -6,12 +6,12 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "import": "cdk8s import k8s -l typescript",
+    "import": "cdk8s import",
+    "synth": "cdk8s synth",
     "compile": "tsc",
-    "test": "echo ok",
-    "synth": "cdk8s synth --app 'node main.js'",
-    "build": "yarn run import && yarn compile && yarn test && yarn synth",
     "watch": "tsc -w",
+    "test": "echo ok",
+    "build": "yarn compile && yarn test && yarn synth",
     "upgrade": "yarn upgrade -L cdk8s cdk8s-cli",
     "upgrade:next": "yarn upgrade -L cdk8s@next cdk8s-cli@next"
   }

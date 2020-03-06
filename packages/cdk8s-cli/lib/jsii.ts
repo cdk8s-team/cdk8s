@@ -2,12 +2,37 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { shell } from './util';
 
+export interface JsiiCompileOptions {
+  /**
+   * Name of the module.
+   * @default "dummy"
+   */
+  readonly name?: string;
+
+  /**
+   * Name of the main module file without suffix.
+   * @default "index"
+   */
+  readonly main?: string;
+
+  /**
+   * Whether to print stdout.
+   * @default false
+   */
+  readonly stdout?: boolean;
+}
+
 /**
  * Compiles the source files in `workdir` with jsii.
  */
-export async function jsiiCompile(workdir: string, stdout = false) {
+export async function jsiiCompile(workdir: string, options: JsiiCompileOptions = { }) {
+  const stdout = options.stdout ?? false;
+  const name = options.name ?? 'dummy';
   const compiler = require.resolve('jsii/bin/jsii');
   const args = [ '--silence-warnings', 'reserved-word' ];
+
+  const main = options.main ?? 'index';
+
 
   const modules = [ 
     '@aws-cdk/core', 
@@ -17,19 +42,19 @@ export async function jsiiCompile(workdir: string, stdout = false) {
   ];
 
   const pkg = {
-    name: 'dummy',
+    name,
     version: '0.0.0',
     author: "dummy@dummy.com",
-    main: "k8s.js",
-    types: "k8s.d.ts",
+    main: `${main}.js`,
+    types: `${main}.d.ts`,
     license: 'Apache-2.0',
     repository: { url: 'http://repo', type: 'git' },
     jsii: {
       outdir: "dist",
       targets: {
         python: {
-          distName: "k8s",
-          module: "k8s"
+          distName: main,
+          module: main
         }
       }
     },    

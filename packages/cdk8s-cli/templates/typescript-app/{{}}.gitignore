@@ -2,6 +2,3 @@
 *.js
 node_modules
 dist/
-
-# imports should not be committed
-imports/

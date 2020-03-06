@@ -2,20 +2,22 @@
 
  Your cdk8s typescript project is ready!
 
-   cat help         print this message
+   cat help         Print this message
  
-   yarn run import  import k8s api objects and store them under imports/k8s.ts
-   yarn compile     compile typescript code to javascript
-   yarn watch       watch for changes and compile typescript in the background
-   yarn test        run a very rigorous test suite (tbd)
-   yarn synth       synthesize k8s manifests from charts to dist/ (ready for 'kubectl apply -f')
-   yarn build       all together now: import + compile + test + synth
+  Compile:
+   yarn compile     Compile typescript code to javascript (or "yarn watch")
+   yarn watch       Watch for changes and compile typescript in the background
+   yarn build       Compile + synth
 
- deploy:
+  Synthesize:
+   yarn synth       Synthesize k8s manifests from charts to dist/ (ready for 'kubectl apply -f')
+
+ Deploy:
    kubectl apply -f dist/*.k8s.yaml
 
- upgrades:
-   yarn run upgrade       upgrade cdk8s modules to latest version
-   yarn run upgrade:next  upgrade cdk8s modules to latest "@next" version (last commit)
+ Upgrades:
+   yarn run import        Import/update k8s apis (you should check-in this directory)
+   yarn run upgrade       Upgrade cdk8s modules to latest version
+   yarn run upgrade:next  Upgrade cdk8s modules to latest "@next" version (last commit)
 
 ========================================================================================================
