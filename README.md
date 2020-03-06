@@ -195,7 +195,7 @@ class MyChart extends Chart {
             containers: [
               {
                 name: 'hello-kubernetes',
-                image: 'paulbouwer/hello-kubernetes:1.5',
+                image: 'paulbouwer/hello-kubernetes:1.7',
                 ports: [ { containerPort: 8080 } ]
               }
             ]
@@ -238,7 +238,7 @@ spec:
     spec:
       containers:
         - name: hello-kubernetes
-          image: paulbouwer/hello-kubernetes:1.5
+          image: paulbouwer/hello-kubernetes:1.7
           ports:
             - containerPort: 8080
 kind: Deployment
@@ -284,7 +284,7 @@ For example, this one line will add a hello world service to our chart:
 
 ```ts
 new WebService(this, 'hello-k8s', {
-  image: 'paulbouwer/hello-kubernetes:1.5'
+  image: 'paulbouwer/hello-kubernetes:1.7'
 });
 ```
 
@@ -292,7 +292,7 @@ It can also be customized through an API:
 
 ```ts
 new WebService(this, 'hello-k8s', {
-  image: 'paulbouwer/hello-kubernetes:1.5',
+  image: 'paulbouwer/hello-kubernetes:1.7',
   containerPort: 8080,
   replicas: 10
 });
@@ -303,8 +303,7 @@ to use `lib` for reusable components):
 
 ```ts
 import { Construct } from '@aws-cdk/core';
-import { Service, IntOrString } from '../.gen/service-v1';
-import { Deployment } from '../.gen/apps-deployment-v1';
+import { Deployment, Service, IntOrString } from './imports/k8s';
 
 export interface WebServiceOptions {
   /**
@@ -385,7 +384,7 @@ export class MyChart extends Chart {
   constructor(scope: Construct, ns: string) {
     super(scope, ns);
 
-    new WebService(this, 'hello', { image: 'paulbouwer/hello-kubernetes:1.5', replicas: 2 });
+    new WebService(this, 'hello', { image: 'paulbouwer/hello-kubernetes:1.7', replicas: 2 });
     new WebService(this, 'ghost', { image: 'ghost', containerPort: 2368 });
   }
 }

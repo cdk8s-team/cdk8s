@@ -7,7 +7,7 @@ class MyChart extends Chart {
     super(scope, ns);
 
     new WebService(this, 'hello', {
-      image: 'paulbouwer/hello-kubernetes:1.5',
+      image: 'paulbouwer/hello-kubernetes:1.7',
       replicas: 2
     });
 

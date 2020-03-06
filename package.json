@@ -12,7 +12,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "examples"
+      "examples/*"
     ],
     "nohoist": [
       "cdk8s/yaml",

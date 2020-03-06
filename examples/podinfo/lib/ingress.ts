@@ -1,5 +1,5 @@
 import { Construct } from '@aws-cdk/core';
-import { Ingress as IngressApiObject, IngressRule, IntOrString } from '../../imports/k8s';
+import { Ingress as IngressApiObject, IngressRule, IntOrString } from '../imports/k8s';
 
 export interface IngressTls {
   readonly hosts?: string[];
@@ -62,7 +62,7 @@ export class Ingress extends Construct {
       }
     };
 
-    new IngressApiObject(this, 'Default', {
+    new IngressApiObject(this, 'default', {
       metadata: {
         annotations: options.annotations
       },
