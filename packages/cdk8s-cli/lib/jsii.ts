@@ -5,7 +5,7 @@ import { shell } from './util';
 /**
  * Compiles the source files in `workdir` with jsii.
  */
-export async function jsiiCompile(workdir: string) {
+export async function jsiiCompile(workdir: string, stdout = false) {
   const compiler = require.resolve('jsii/bin/jsii');
   const args = [ '--silence-warnings', 'reserved-word' ];
 
@@ -13,7 +13,7 @@ export async function jsiiCompile(workdir: string) {
     '@aws-cdk/core', 
     '@aws-cdk/cx-api', 
     'cdk8s',
-    '@types/node'
+    '@types/node',
   ];
 
   const pkg = {
@@ -52,6 +52,7 @@ export async function jsiiCompile(workdir: string) {
   await fs.writeFile(path.join(workdir, 'package.json'), JSON.stringify(pkg, undefined, 2));
 
   await shell(compiler, args, { 
-    cwd: workdir 
+    cwd: workdir,
+    stdio: [ 'inherit', stdout ? 'inherit' : 'ignore', 'inherit' ]
   });
 }

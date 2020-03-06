@@ -37,7 +37,8 @@
     "jsii": "^1.0.0",
     "jsii-pacmak": "^1.0.0",
     "sscaff": "^1.2.0",
-    "yargs": "^15.1.0"
+    "yargs": "^15.1.0",
+    "@types/node": "13.7.0"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",

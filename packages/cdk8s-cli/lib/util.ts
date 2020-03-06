@@ -24,6 +24,6 @@ export async function withTempDir(dirname: string, closure: () => Promise<void>)
     await closure();
   } finally {
     process.chdir(prevdir);
-    // await fs.remove(parent);
+    await fs.remove(parent);
   }
 }
