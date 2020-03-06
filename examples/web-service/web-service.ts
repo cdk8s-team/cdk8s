@@ -1,5 +1,5 @@
 import { Construct } from '@aws-cdk/core';
-import { Service, IntOrString, Deployment } from '.././imports/k8s';
+import { Deployment, Service, IntOrString } from './imports/k8s';
 
 export interface WebServiceOptions {
   /** The Docker image to use for this service. */

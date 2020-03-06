@@ -1,5 +1,5 @@
 import { Construct } from '@aws-cdk/core';
-import { Quantity, HorizontalPodAutoscaler, MetricSpec } from '../../imports/k8s';
+import { HorizontalPodAutoscaler, MetricSpec, Quantity } from '../imports/k8s';
 
 export interface ScaleTarget {
   readonly apiVersion: string;
@@ -88,7 +88,7 @@ export class Autoscaler extends Construct {
       });
     }
 
-    new HorizontalPodAutoscaler(this, 'Default', {
+    new HorizontalPodAutoscaler(this, 'default', {
       spec: {
         scaleTargetRef: {
           apiVersion: options.target.apiVersion,
