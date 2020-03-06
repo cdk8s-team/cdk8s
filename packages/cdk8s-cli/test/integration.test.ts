@@ -13,7 +13,7 @@ test('generate and compile 1.14.0', async () => {
       apiVersion: '1.14.0' 
     });
     
-    await jsiiCompile(workdir, true);
+    await jsiiCompile(workdir, { stdout: true});
   
     const manifest = JSON.parse(await fs.readFile('.jsii', 'utf-8'));
     expect(manifest).toMatchSnapshot();

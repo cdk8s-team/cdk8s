@@ -5,16 +5,17 @@ const path = require('path');
 const version = require('../../package.json').version;
 
 exports.pre = () => {
-  if (process.env.CLI_TEST) {
-    console.error(`CLI_TEST=1`);
+  if (process.env.CDK8S_CLI_TEST) {
+    console.error(`CDK8S_CLI_TEST=1`);
   }
 };
 
 exports.post = () => {
   installDeps([ '@aws-cdk/core', '@aws-cdk/cx-api', `cdk8s@^${version}` ]);
-  installDeps([ `cdk8s-cli@^${version}`, '@types/node' ], true);
+  installDeps([ `cdk8s-cli@^${version}`, '@types/node', 'typescript' ], true);
 
-  // build to make sure all is good
+  // import k8s objects
+  execSync('yarn run import', { stdio: 'inherit' });
   execSync('yarn build', { stdio: 'inherit' });
 
   console.log(readFileSync('./help', 'utf-8'));
@@ -23,7 +24,7 @@ exports.post = () => {
 function installDeps(deps, isDev) {
   // if we are in a CLI test, install the dependency from the local repo instead
   // of from the public registry.
-  if (process.env.CLI_TEST) {
+  if (process.env.CDK8S_CLI_TEST) {
     for (const dep of deps) {
       installLocalDep(dep);
     }

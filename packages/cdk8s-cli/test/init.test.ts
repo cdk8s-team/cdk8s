@@ -5,7 +5,7 @@ import { shell, withTempDir } from '../lib/util';
 jest.setTimeout(30_000);
 
 const cli = path.join(__dirname, '..', 'bin', 'cdk8s');
-const env = { ...process.env, CLI_TEST: '1' };
+const env = { ...process.env, CDK8S_CLI_TEST: '1' };
 
 test('typescript-app', async () => {
   await withTempDir('heythere', async () => {
