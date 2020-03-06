@@ -15,7 +15,7 @@ class Command implements yargs.CommandModule {
 
   public async handler(argv: any) {
     if (fs.readdirSync('.').length > 0) {
-      console.error(`cannot initialize a project in a non-empty directory`);
+      console.error(`Cannot initialize a project in a non-empty directory`);
       process.exit(1);
     }
   

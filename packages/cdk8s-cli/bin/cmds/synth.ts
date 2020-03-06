@@ -1,6 +1,9 @@
 import * as yargs from 'yargs';
 import { shell } from '../../lib/util';
 import * as fs from 'fs-extra';
+import { readConfigSync } from '../../lib/config';
+
+const config = readConfigSync();
 
 class Command implements yargs.CommandModule {
   public readonly command = 'synth';
@@ -8,8 +11,8 @@ class Command implements yargs.CommandModule {
   public readonly aliases = [ 'synthesize' ];
 
   public readonly builder = (args: yargs.Argv) => args
-    .option('app', { required: true, desc: 'Command to use in order to execute cdk8s app', alias: 'a' })
-    .option('output', { default: 'dist', desc: 'Output directory', alias: 'o' });
+    .option('app', { default: config.app, required: true, desc: 'Command to use in order to execute cdk8s app', alias: 'a' })
+    .option('output', { default: config.output, required: true, desc: 'Output directory', alias: 'o' });
 
   public async handler(argv: any) {
     const command = argv.app;
