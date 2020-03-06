@@ -29,7 +29,7 @@ export interface Options {
   /**
    * The API version to generate.
    */
-  readonly apiVersion?: string;
+  readonly apiVersion: string;
 
   /**
    * FQNs of API object types to select instead of selecting the latest stable
@@ -47,26 +47,26 @@ export interface Options {
   readonly exclude?: string[];
 }
 
-export async function generateAllApiObjects(outdir: string, options: Options) {
+export async function importKubernetesApi(outdir: string, options: Options) {
+  const relout = outdir;
   outdir = path.resolve(outdir);
+  
 
   if (options.language === Language.TYPESCRIPT) {
-    await generateApiObjectsTypeScript(outdir, options);
-    console.log(`${outdir}/k8s.ts`);
-    return;
+    await generateTypeScript(outdir, options);
+  } else {
+    // this is not typescript, so we generate in a staging directory and harvest the code
+    await withTempDir('k8s', async () => {
+      await generateTypeScript('.', options);
+      await jsiiCompile('.');
+
+      const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
+      await shell(pacmak, [ '--target', options.language, '--code-only' ]);
+      await harvestCode(options.language, outdir);
+    });
   }
 
-  // this is not typescript, so we generate in a staging directory and harvest the code
-  await withTempDir('k8s', async () => {
-    await generateApiObjectsTypeScript('.', options);
-    await jsiiCompile('.');
-
-    const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
-    await shell(`${pacmak} --target ${options.language} --code-only`);
-
-    console.error(process.cwd());
-    await harvestCode(options.language, outdir);
-  });
+  console.error(`Constructs for Kubernetes API v${options.apiVersion} imported to "${relout}/k8s".`);
 }
 
 async function harvestCode(language: Language, outdir: string) {
@@ -84,16 +84,15 @@ async function harvestCode(language: Language, outdir: string) {
 
   async function harvestPython() {
     const target = path.join(outdir, 'k8s');
-    await fs.move('dist/python/src/k8s', target);
-    console.error(target);
+    await fs.move('dist/python/src/k8s', target, { overwrite: true });
   }
 }
 
-async function generateApiObjectsTypeScript(outdir: string, options: Options) {
+async function generateTypeScript(outdir: string, options: Options) {
   const code = new CodeMaker();
   code.indentation = 2;
 
-  const schema = await downloadSchema(options.apiVersion ?? DEFAULT_API_VERSION);
+  const schema = await downloadSchema(options.apiVersion);
   const map = findApiObjectDefinitions(schema);
 
   const topLevelObjects = selectApiObjects(map, { include: options.include });

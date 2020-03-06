@@ -179,7 +179,7 @@ async function generate(gen: TypeGenerator) {
   const source = await fs.readFile(path.join('.', entrypoint), 'utf-8');
 
   try {
-    await jsiiCompile('.');
+    await jsiiCompile('.', true);
   } catch (e) {
     console.error(source);
     throw e;

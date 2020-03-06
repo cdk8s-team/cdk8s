@@ -31,12 +31,14 @@
   "dependencies": {
     "@aws-cdk/core": "^1.24.0",
     "@aws-cdk/cx-api": "^1.24.0",
-    "fs-extra": "^8.1.0",
+    "@types/node": "13.7.0",
     "cdk8s": "0.0.0",
     "codemaker": "^0.22.0",
+    "fs-extra": "^8.1.0",
     "jsii": "^1.0.0",
     "jsii-pacmak": "^1.0.0",
     "sscaff": "^1.2.0",
+    "yaml": "^1.7.2",
     "yargs": "^15.1.0"
   },
   "eslintConfig": {

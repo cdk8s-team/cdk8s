@@ -1,7 +1,13 @@
 import * as yargs from 'yargs';
 
-yargs
+const args = yargs
   .commandDir('cmds')
-  .demandCommand()
+  .recommendCommands()
+  .wrap(yargs.terminalWidth())
+  .showHelpOnFail(false)
   .help()
   .argv;
+
+if (args._.length === 0) {
+  yargs.showHelp();
+}
