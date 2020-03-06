@@ -1,8 +1,7 @@
 import { Construct } from '@aws-cdk/core';
 import { App, Chart } from 'cdk8s';
 
-import { Deployment } from './.gen/apps-deployment-v1'
-import { Service, IntOrString } from './.gen/service-v1';
+import { Deployment, Service, IntOrString  } from './imports/k8s';
 
 export class HelloKube extends Chart {
   constructor(scope: Construct, id: string) {

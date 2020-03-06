@@ -1,6 +1,5 @@
 import { Construct } from '@aws-cdk/core';
-import { IntOrString } from  '../.gen/service-v1';
-import { Ingress as IngressApiObject, IngressRule } from '../.gen/extensions-ingress-v1beta1';
+import { Ingress as IngressApiObject, IngressRule, IntOrString } from '../imports/k8s';
 
 export interface IngressTls {
   readonly hosts?: string[];

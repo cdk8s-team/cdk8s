@@ -11,7 +11,7 @@
     ]
   },
   "scripts": {
-    "gen": "cdk8s import",
+    "gen": "cdk8s import k8s --language typescript",
     "build": "yarn gen && tsc",
     "watch": "tsc -w",
     "synth": "node ./index.js"
@@ -19,12 +19,12 @@
   "dependencies": {
     "@aws-cdk/core": "^1.26.0",
     "@aws-cdk/cx-api": "^1.26.0",
-    "cdk8s": "^0.12.0"
+    "cdk8s": "^0.12.0-pre.3b93d6465c2748693ce220c307c1b94b1cdaa11f"
   },
   "devDependencies": {
-    "cdk8s-cli": "^0.12.0",
     "@types/jest": "^25.1.2",
     "@types/node": "^13.7.1",
+    "cdk8s-cli": "^0.12.0",
     "typescript": "^3.7.5"
   }
 }
