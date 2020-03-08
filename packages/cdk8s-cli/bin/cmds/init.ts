@@ -5,6 +5,7 @@ import { sscaff } from 'sscaff';
 
 const templatesDir = path.join(__dirname, '..', '..', 'templates');
 const availableTemplates = fs.readdirSync(templatesDir).filter(x => !x.startsWith('.'));
+const version: string = require('../../package.json').version;
 
 class Command implements yargs.CommandModule {
   public readonly command = 'init TYPE';
@@ -22,7 +23,16 @@ class Command implements yargs.CommandModule {
   
     console.error(`Initializing a project from the ${argv.type} template`);
     const templatePath = path.join(templatesDir, argv.type);
-    await sscaff(templatePath, '.');
+
+    // determine if we want a specific pinned version or a version range we take
+    // a pinned version if version includes a hyphen which means it is a
+    // pre-release (e.g. "0.12.0-pre.e6834d3"). otherwise, we require a caret
+    // version.
+    const ver = version.includes('-') ? version : `^${version}`;
+
+    await sscaff(templatePath, '.', {
+      version: ver
+    });
   }
 }
 
