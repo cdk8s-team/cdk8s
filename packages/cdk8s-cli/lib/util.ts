@@ -9,7 +9,7 @@ export async function shell(program: string, args: string[] = [], options: Spawn
     child.once('error', ko);
     child.once('exit', code => {
       if (code === 0) { return ok(); }
-      else return ko(new Error(`non-zero exit code ${code}`));
+      else { return ko(new Error(`non-zero exit code ${code}`)); }
     });
   });
 }
