@@ -1,6 +1,6 @@
 {
   "name": "podinfo",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "app-example.js",
   "types": "app-example.d.ts",
   "license": "Apache-2.0",
@@ -17,14 +17,14 @@
     "synth": "node ./examples/app-example.js"
   },
   "dependencies": {
-    "@aws-cdk/core": "^1.26.0",
-    "@aws-cdk/cx-api": "^1.26.0",
-    "cdk8s": "^0.12.0-pre.3b93d6465c2748693ce220c307c1b94b1cdaa11f"
+    "@aws-cdk/core": "^1.27.0",
+    "@aws-cdk/cx-api": "^1.27.0",
+    "cdk8s": "0.0.0"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",
     "@types/node": "^13.7.1",
-    "cdk8s-cli": "^0.12.0",
+    "cdk8s-cli": "0.0.0",
     "typescript": "^3.7.5"
   }
 }

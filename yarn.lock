@@ -2004,13 +2004,6 @@ cdk8s-cli@^0.12.0:
     sscaff "^1.2.0"
     yargs "^15.1.0"
 
-cdk8s@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-0.12.0.tgz#4cea9a01cd3be6112e953cd4f8609b94f68bc070"
-  integrity sha512-srL/qIFfFUoSiJ4+eTejRS7KXxgIDvW4M3E4PO4BsB9xROzMnDIM88CkYIciYfBXOptkwc3qlHJOpmMjXojn2w==
-  dependencies:
-    yaml "^1.7.2"
-
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.1.0, chalk@^2.3.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
