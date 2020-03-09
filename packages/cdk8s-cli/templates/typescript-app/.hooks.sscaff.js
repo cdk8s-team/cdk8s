@@ -22,3 +22,4 @@ function installDeps(deps, isDev) {
   const devDep = isDev ? '-D' : '';
   execSync(`npm install ${devDep} ${deps.join(' ')}`, { stdio: 'inherit' });
 }
+
