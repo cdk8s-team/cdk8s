@@ -12,6 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
       - uses: dschep/install-pipenv-action@v1
       - name: installing dependencies
         run: yarn install
