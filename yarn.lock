@@ -2,28 +2,14 @@
 # yarn lockfile v1
 
 
-"@aws-cdk/core@^1.24.0":
-  version "1.24.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.24.0.tgz#30f77353b64f4036028bae0f591787f45aba9385"
-  integrity sha512-MM+gqBxWhmrGGYHkabteTgRZW4vKnDVPGbwFIoKoZX9nMp2IxJ3zEAf0sOFxeYUArmvYVmhDz+8S4yHM6S/7Xg==
-  dependencies:
-    "@aws-cdk/cx-api" "1.24.0"
-
-"@aws-cdk/core@^1.26.0":
+"@aws-cdk/core@^1.27.0":
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.27.0.tgz#736a43953421b98244bad55e906b87ac34fe6a97"
   integrity sha512-RejU46I1ozZELsSrb2MMa7hmtBjGv5sppC7PYwTgAYVJTqMpPAQEYAriiW2yJDaKZr9FN/l3wTGyJID4VZSfcQ==
   dependencies:
     "@aws-cdk/cx-api" "1.27.0"
 
-"@aws-cdk/cx-api@1.24.0", "@aws-cdk/cx-api@^1.24.0":
-  version "1.24.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cx-api/-/cx-api-1.24.0.tgz#c6db5dec8e894bd5dc8f49eb4072d51388facfbf"
-  integrity sha512-+vuGyi7yiGIKjMsvb5iz9B9Ni2YdnqHTcEeQ+pLnFsoVCxR4kxqfdNlZ+ZXA7EPIlc57buDu7NFgGoWwdCegug==
-  dependencies:
-    semver "^7.1.2"
-
-"@aws-cdk/cx-api@1.27.0", "@aws-cdk/cx-api@^1.26.0":
+"@aws-cdk/cx-api@1.27.0", "@aws-cdk/cx-api@^1.27.0":
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cx-api/-/cx-api-1.27.0.tgz#715068271a1bb60d0b3b015f54373e228458a9b8"
   integrity sha512-CqWnXm/lCzRfUsXWh1/umN6G+akop++zMzCZrjsOa9LXdd8YJinibsYTUINJVVO7Dd0I8HtLNj+NaRiWAywadg==
@@ -1994,15 +1980,6 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
-
-cdk8s-cli@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-0.12.0.tgz#ba689836be2297fa1375466821afeff3e772a10c"
-  integrity sha512-5pvnXumJzKR9Q8WPKp5OD3t1efidZpYNM4ZUWKWO0y8PuKN6CNxmQt/y55ev9DBUrF7UnGH1HC52yzHcvb45JQ==
-  dependencies:
-    codemaker "^0.22.0"
-    sscaff "^1.2.0"
-    yargs "^15.1.0"
 
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.1.0, chalk@^2.3.1, chalk@^2.4.2:
   version "2.4.2"
