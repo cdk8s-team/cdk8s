@@ -12,11 +12,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: yarn install
+      - name: installing dependencies
+        run: |
+          pip3 install pipenv
+          yarn install
       - run: tools/align-version.sh "-pre.${{ github.sha }}"
       - run: yarn build
       - run: yarn test
       - run: yarn package
+      - name: integration tests
+        run: test/run-against-dist test/test-all.sh
 
       # publish to package managers only if this is a new version      
       - run: npx jsii-release-npm

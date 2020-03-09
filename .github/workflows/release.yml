@@ -12,11 +12,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: yarn install
-      - run: tools/align-version.sh
-      - run: yarn build
-      - run: yarn test
-      - run: yarn package
+      - uses: actions/setup-python@v1
+      - uses: dschep/install-pipenv-action@v1
+      - name: installing dependencies
+        run: |
+          pip3 install pipenv
+          yarn install
+      - name: compile
+        run: |
+          tools/align-version.sh
+          yarn build
+      - name: unit tests
+        run: yarn test
+      - name: create bundle
+        run: yarn package
+      - name: integration tests
+        run: test/run-against-dist test/test-all.sh
 
       # publish to package managers only if this is a new version      
       - run: yarn release
