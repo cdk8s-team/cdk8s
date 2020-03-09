@@ -63,7 +63,7 @@ async function determineDeps(dist?: string): Promise<Deps> {
   return {
     'npm_cdk8s': `cdk8s@${ver}`,
     'npm_cdk8s_cli': `cdk8s-cli@${ver}`,
-    'pypi_cdk8s': `cdk8s${version}` // no support for pre-release
+    'pypi_cdk8s': `cdk8s~=${version}` // no support for pre-release
   };
 }
 
