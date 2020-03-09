@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/awslabs/cdk8s/compare/v0.12.0...v0.13.0) (2020-03-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cli:** `cdk8s gen` is now `cdk8s import k8s` and output goes to `imports/k8s.ts` instead of `.gen/index.ts`.
+* **cli:** `cdk8s import` now generates a single file with all types, which means you will have to modify TypeScript code to `import { Deployment, Pod, ... } from './imports/k8s'` instead of importing multiple files.
+
+### Features
+
+* **cli:** "cdk8s gen" is now "cdk8s import k8s" ([#43](https://github.com/awslabs/cdk8s/issues/43)) ([fb9e0b5](https://github.com/awslabs/cdk8s/commit/fb9e0b5396a019bd979cc6ad0f646d76c5b85bc6)), closes [#31](https://github.com/awslabs/cdk8s/issues/31) [#40](https://github.com/awslabs/cdk8s/issues/40)
+* **cli:** cdk8s synth ([#44](https://github.com/awslabs/cdk8s/issues/44)) ([d457ea9](https://github.com/awslabs/cdk8s/commit/d457ea9184e45c5d94b93ac17e3deecdd0b8c657)), closes [#41](https://github.com/awslabs/cdk8s/issues/41)
+* **cli:** cdk8s.yaml ([#52](https://github.com/awslabs/cdk8s/issues/52)) ([e6834d3](https://github.com/awslabs/cdk8s/commit/e6834d3ae03810d1402c34a123adb8a1376808b7)), closes [#42](https://github.com/awslabs/cdk8s/issues/42)
+* **cli:** import only one class for every api object ([#39](https://github.com/awslabs/cdk8s/issues/39)) ([2db4cfb](https://github.com/awslabs/cdk8s/commit/2db4cfbb20e7b6d8b09e8b8c9e6d096f0ea9fefe))
+* **cli:** python project template ([9be957f](https://github.com/awslabs/cdk8s/commit/9be957f4a34f8ad94afd77541a29dfdf423cb608))
+* **cli:** python project template ([#36](https://github.com/awslabs/cdk8s/issues/36)) ([30f3bb7](https://github.com/awslabs/cdk8s/commit/30f3bb7d787f0d1b16b90c8ddafc4dcc451c4e4b))
+* **cli:** python support for "import" ([#47](https://github.com/awslabs/cdk8s/issues/47)) ([3b93d64](https://github.com/awslabs/cdk8s/commit/3b93d6465c2748693ce220c307c1b94b1cdaa11f))
+* **cli:** typescript - yarn run upgrade & upgrade:next ([735e840](https://github.com/awslabs/cdk8s/commit/735e840f0ef440e715d34923aed184e58a9f243c))
+* **cli:** typescript project - "yarn build" now includes "synth" ([7b15e3a](https://github.com/awslabs/cdk8s/commit/7b15e3a4f47e4d17b417012a82b335690be8cc52))
+* **docs:** getting started in python ([#60](https://github.com/awslabs/cdk8s/issues/60)) ([27d3bac](https://github.com/awslabs/cdk8s/commit/27d3bac4579ea8cdf0b6c692e05ab0ac47e17590))
+* **examples:** updates to hello-world example and directory reorganization ([#33](https://github.com/awslabs/cdk8s/issues/33)) ([1c8f694](https://github.com/awslabs/cdk8s/commit/1c8f694b51fac662477175c2e8f12b38b810d2bf))
+
+
+### Bug Fixes
+
+* **cli:** new typescript apps cannot be created with [@next](https://github.com/next) versions ([#55](https://github.com/awslabs/cdk8s/issues/55)) ([119d95c](https://github.com/awslabs/cdk8s/commit/119d95c78c3620be9adcd1cb5402e6f0ee901293))
+
 ## [0.12.0](https://github.com/awslabs/cdk8s/compare/v0.10.0...v0.12.0) (2020-03-03)
 
 
