@@ -9,7 +9,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: yarn install
-      - run: yarn build
-      - run: yarn test
-      - run: yarn package
+      - name: installing dependencies
+        run: yarn install
+      - name: compile
+        run: |
+          tools/align-version.sh
+          yarn build
+      - name: unit tests
+        run: yarn test
+      - name: create bundle
+        run: yarn package
+      - name: integration tests
+        run: test/run-against-dist test/test-all.sh
+

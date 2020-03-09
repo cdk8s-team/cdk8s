@@ -1,0 +1,10 @@
+spec:
+  containers:
+    - name: hello-kubernetes
+      image: paulbouwer/hello-kubernetes:1.7
+      ports:
+        - containerPort: 8080
+kind: Pod
+apiVersion: v1
+metadata:
+  name: test-pod-84164e5f
