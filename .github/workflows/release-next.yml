@@ -12,9 +12,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v1
-      - uses: dschep/install-pipenv-action@v1
-      - run: yarn install
+      - name: installing dependencies
+        run: |
+          pip3 install pipenv
+          yarn install
       - run: tools/align-version.sh "-pre.${{ github.sha }}"
       - run: yarn build
       - run: yarn test

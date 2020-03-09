@@ -15,7 +15,9 @@ jobs:
       - uses: actions/setup-python@v1
       - uses: dschep/install-pipenv-action@v1
       - name: installing dependencies
-        run: yarn install
+        run: |
+          pip3 install pipenv
+          yarn install
       - name: compile
         run: |
           tools/align-version.sh
