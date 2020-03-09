@@ -1,5 +1,5 @@
 import * as yargs from 'yargs';
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import * as path from 'path';
 import { sscaff } from 'sscaff';
 
@@ -13,6 +13,7 @@ class Command implements yargs.CommandModule {
   public readonly builder = (args: yargs.Argv) => args
     .positional('TYPE', { demandOption: true, desc: 'Project type' })
     .showHelpOnFail(true)
+    .option('dist DIR', { type: 'string', desc: 'Install dependencies from a "dist" directory (for development)' })
     .choices('TYPE', availableTemplates);
 
   public async handler(argv: any) {
@@ -24,16 +25,51 @@ class Command implements yargs.CommandModule {
     console.error(`Initializing a project from the ${argv.type} template`);
     const templatePath = path.join(templatesDir, argv.type);
 
-    // determine if we want a specific pinned version or a version range we take
-    // a pinned version if version includes a hyphen which means it is a
-    // pre-release (e.g. "0.12.0-pre.e6834d3"). otherwise, we require a caret
-    // version.
-    const ver = version.includes('-') ? version : `^${version}`;
-
+    const deps = await determineDeps(argv.dist);
     await sscaff(templatePath, '.', {
-      version: ver
+      ...deps
     });
   }
+}
+
+async function determineDeps(dist?: string): Promise<Deps> {
+  if (dist) {
+    const ret = {
+      'npm_cdk8s': path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
+      'npm_cdk8s_cli': path.resolve(dist, 'js', `cdk8s-cli-${version}.tgz`),
+      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version}-py3-none-any.whl`),
+    };
+
+    for (const file of Object.values(ret)) {
+      if (!(await fs.pathExists(file))) {
+        throw new Error(`unable to find ${file} under the "dist" directory (${dist})`);
+      }
+    }
+
+    return ret;
+  }
+  
+  if (version === '0.0.0') {
+    throw new Error(`cannot use version 0.0.0, use --dist or CDK8S_DIST to install from a "dist" directory`);
+  }
+
+  // determine if we want a specific pinned version or a version range we take
+  // a pinned version if version includes a hyphen which means it is a
+  // pre-release (e.g. "0.12.0-pre.e6834d3"). otherwise, we require a caret
+  // version.
+  const ver = version.includes('-') ? version : `^${version}`;
+
+  return {
+    'npm_cdk8s': `cdk8s@${ver}`,
+    'npm_cdk8s_cli': `cdk8s-cli@${ver}`,
+    'pypi_cdk8s': `cdk8s${version}` // no support for pre-release
+  };
+}
+
+interface Deps {
+  npm_cdk8s: string;
+  npm_cdk8s_cli: string;
+  pypi_cdk8s: string;
 }
 
 module.exports = new Command();

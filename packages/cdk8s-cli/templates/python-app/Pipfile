@@ -5,7 +5,6 @@ verify_ssl = true
 
 [packages]
 aws-cdk-core = "*"
-cdk8s = "*"
 
 [requires]
 python_version = "3.7"

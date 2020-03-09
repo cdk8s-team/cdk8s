@@ -11,8 +11,8 @@
     "compile": "tsc",
     "watch": "tsc -w",
     "test": "echo ok",
-    "build": "yarn compile && yarn test && yarn synth",
-    "upgrade": "yarn upgrade -L cdk8s cdk8s-cli",
-    "upgrade:next": "yarn upgrade -L cdk8s@next cdk8s-cli@next"
+    "build": "npm run compile && npm run test && npm run synth",
+    "upgrade": "npm i cdk8s@latest cdk8s-cli@latest",
+    "upgrade:next": "npm i cdk8s@next cdk8s-cli@next"
   }
 }

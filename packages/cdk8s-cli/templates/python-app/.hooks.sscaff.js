@@ -13,8 +13,14 @@ exports.pre = () => {
   }
 };
 
-exports.post = () => {
+exports.post = options => {
+  const pypi_cdk8s = options.pypi_cdk8s;
+  if (!pypi_cdk8s) {
+    throw new Error(`missing context "pypi_cdk8s"`);
+  }
+
   execSync('pipenv install', { stdio: 'inherit' });
+  execSync(`pipenv install ${pypi_cdk8s}`, { stdio: 'inherit' });
   chmodSync('main.py', '700');
 
   execSync(`${cli} import k8s -l python`);
