@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.1](https://github.com/awslabs/cdk8s/compare/v0.13.0...v0.13.1) (2020-03-09)
+
+
+### Bug Fixes
+
+* **cli:** init could not find a version that matches cdk8s0-13-0 ([e1267f6](https://github.com/awslabs/cdk8s/commit/e1267f608d8981578971564b1228be80e0e117e0))
+
 ## [0.13.0](https://github.com/awslabs/cdk8s/compare/v0.12.0...v0.13.0) (2020-03-09)
 
 This release adds **Python support** for cdk8s and includes;
