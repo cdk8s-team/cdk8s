@@ -5,6 +5,7 @@ load("@npm_bazel_typescript//:index.bzl", _ts_library = "ts_library")
 load("//:packages.bzl", "VERSION_PLACEHOLDER_REPLACEMENTS")
 load("//tools:jest.bzl", _jest_test = "jest_test")
 
+
 def ts_library(tsconfig = None, deps = [], testonly = False, **kwargs):
     # Add tslib because we use import helpers for all public packages.
     local_deps = ["@npm//tslib", "@npm//@types/node"] + deps
@@ -19,6 +20,7 @@ def ts_library(tsconfig = None, deps = [], testonly = False, **kwargs):
         tsconfig = tsconfig,
         testonly = testonly,
         deps = local_deps,
+        runtime = "nodejs",
         **kwargs
     )
 

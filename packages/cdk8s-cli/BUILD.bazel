@@ -9,7 +9,7 @@ package_json(
     name = "package_json",
     package_name = "cdk8s-cli",
     bin = {
-        "cdk8s": "bin/cdk8s.js",
+        "cdk8s": "bin/cdk8s",
     },
     desc = "CDK for Kubernetes CLI",
     experimental = True,
@@ -30,6 +30,7 @@ package_json(
 
 ts_library(
     name = "cdk8s_cli",
+    module_name = "cdk8s-cli",
     srcs = glob(
         [
             "lib/**/*.ts",
