@@ -5,7 +5,7 @@ load("//tools:cdk8s.bzl", "cdk8s_import", "cdk8s_synth")
 load("//tools:defaults.bzl", "jest_test", "ts_library")
 
 cdk8s_import(
-    name = "gen",
+    name = "import",
     path = "examples/hello/imports",
     language = "typescript",
 )
@@ -56,10 +56,11 @@ jest_test(
     srcs = glob(["**/*.snap"]) + [
         ":test_sources",
         ":sources",
-        "snapshotResolver.js",
     ],
     deps = [
         "//packages/cdk8s:lib",
         "@npm//yaml",
     ],
+    jest_config = "jest.config.js",
+    snapshot_resolver = "snapshotResolver.js"
 )

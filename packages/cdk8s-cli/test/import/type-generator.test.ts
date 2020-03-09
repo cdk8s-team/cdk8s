@@ -173,7 +173,7 @@ async function generate(gen: TypeGenerator) {
 
   code.openFile(entrypoint);
   gen.generate(code);
-  code.closeFile(entrypoint)
+  code.closeFile(entrypoint);
   await code.save('.');
 
   const source = await fs.readFile(path.join('.', entrypoint), 'utf-8');

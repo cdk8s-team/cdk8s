@@ -2,4 +2,6 @@ package(default_visibility = ["//visibility:public"])
 
 exports_files([
     "LICENSE",
+    "jest.config.js",
+    "snapshotResolver.js",
 ])

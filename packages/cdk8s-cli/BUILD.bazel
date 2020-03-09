@@ -1,5 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
+load("//:packages.bzl", "CDK_PACKAGE_VERSION", "JSII_PACKAGE_VERSION")
 load("@build_bazel_rules_nodejs//:index.bzl", "copy_to_bin")
 load("//tools:defaults.bzl", "jest_test", "pkg_npm", "ts_library")
 load("//tools:package-json/package_json.bzl", "package_json")
@@ -12,13 +13,17 @@ package_json(
     },
     desc = "CDK for Kubernetes CLI",
     experimental = True,
-    peer_deps = {
-        "codemaker": "^0.22.0",
-        "yargs": "^15.1.0",
-    },
     deps = {
+        "@aws-cdk/core": CDK_PACKAGE_VERSION,
+        "@aws-cdk/cx-api": CDK_PACKAGE_VERSION,
+        "@types/node": "13.7.0",
+        "cdk8s": "0.0.0-PLACEHOLDER",
         "codemaker": "^0.22.0",
+        "fs-extra": "^8.1.0",
+        "jsii": JSII_PACKAGE_VERSION,
+        "jsii-pacmak": JSII_PACKAGE_VERSION,
         "sscaff": "^1.2.0",
+        "yaml": "^1.7.2",
         "yargs": "^15.1.0",
     },
 )
@@ -74,7 +79,6 @@ jest_test(
     name = "test",
     srcs = glob(["**/*.snap"]) + [
         ":test_sources",
-        "snapshotResolver.js"
     ],
     deps = [
         ":cdk8s_cli",

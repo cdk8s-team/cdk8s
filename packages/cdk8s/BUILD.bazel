@@ -80,7 +80,6 @@ jest_test(
     name = "test",
     srcs = glob(["**/*.snap"]) + [
         ":test_sources",
-        "snapshotResolver.js",
     ],
     deps = [
         ":lib",

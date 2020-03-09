@@ -5,6 +5,7 @@ workspace(
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+# Needed for copy_bash command used by jsii_library
 http_archive(
     name = "bazel_skylib",
     sha256 = "97e70364e9249702246c0e9444bccdc4b847bed1eb03c5a3ece4f83dfe6abc44",
@@ -53,7 +54,7 @@ yarn_install(
     yarn_lock = "//:yarn.lock",
 )
 
-# Install all bazel dependencies of the @ngdeps npm packages
+# Install all bazel dependencies of the @cdk8s npm packages
 load("@npm//:install_bazel_dependencies.bzl", "install_bazel_dependencies")
 
 install_bazel_dependencies()

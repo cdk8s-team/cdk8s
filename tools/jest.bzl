@@ -2,7 +2,7 @@
 
 load("@npm//jest-cli:index.bzl", _jest = "jest", _jest_test = "jest_test")
 
-def jest_test(name, srcs = [], deps = [], jest_config = ":jest.config.js", **kwargs):
+def jest_test(name, srcs = [], deps = [], jest_config = "//:jest.config.js", snapshot_resolver = "//:snapshotResolver.js", **kwargs):
     args = [
         "--no-cache",
         "--no-watchman",
@@ -13,14 +13,14 @@ def jest_test(name, srcs = [], deps = [], jest_config = ":jest.config.js", **kwa
 
     _jest(
         name = name + ".update",
-        data = [jest_config] + srcs + deps,
+        data = [jest_config, snapshot_resolver] + srcs + deps,
         args = ["--config", "$(rootpath %s)" % jest_config, "--updateSnapshot", "--verbose"],
         **kwargs
     )
 
     _jest_test(
         name = name,
-        data = [jest_config] + srcs + deps,
+        data = [jest_config, snapshot_resolver] + srcs + deps,
         args = args,
         **kwargs
     )

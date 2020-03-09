@@ -1,5 +1,5 @@
 # Bazel configuration that will be copied to /etc/bazel.bazelrc.
-# This allows us adding specific configuration flags for builds within GitHub Action.
+# This allows us adding specific configuration flags for builds within GitHub Actions.
 # See more: https://docs.bazel.build/versions/master/guide.html#where-are-the-bazelrc-files
 
 # Print all enabled Bazel flags in CI mode. This makes it easier to debug and reproduce
