@@ -61,6 +61,4 @@ jest_test(
         "//packages/cdk8s:lib",
         "@npm//yaml",
     ],
-    jest_config = "jest.config.js",
-    snapshot_resolver = "snapshotResolver.js"
 )

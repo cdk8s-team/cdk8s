@@ -1,4 +1,4 @@
-import { HelloKube } from './index';
+import { HelloKube } from '../index';
 import { Testing } from 'cdk8s';
 
 test('snapshot', () => {
