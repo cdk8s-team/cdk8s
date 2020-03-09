@@ -37,7 +37,7 @@ async function determineDeps(dist?: string): Promise<Deps> {
     const ret = {
       'npm_cdk8s': path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
       'npm_cdk8s_cli': path.resolve(dist, 'js', `cdk8s-cli-${version}.tgz`),
-      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version}-py3-none-any.whl`),
+      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '-')}-py3-none-any.whl`),
     };
 
     for (const file of Object.values(ret)) {

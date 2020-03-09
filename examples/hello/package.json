@@ -18,8 +18,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@aws-cdk/core": "^1.26.0",
-    "@aws-cdk/cx-api": "^1.26.0",
+    "@aws-cdk/core": "^1.27.0",
+    "@aws-cdk/cx-api": "^1.27.0",
     "cdk8s": "0.0.0"
   },
   "devDependencies": {
