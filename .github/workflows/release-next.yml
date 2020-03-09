@@ -12,6 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: dschep/install-pipenv-action@v1
       - run: yarn install
       - run: tools/align-version.sh "-pre.${{ github.sha }}"
       - run: yarn build
