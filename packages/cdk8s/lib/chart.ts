@@ -3,8 +3,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { ApiObject } from './api-object';
 import * as YAML from 'yaml';
-import { resolve } from './_tokens';
-import { removeEmpty } from './_util';
 import { Names } from './names';
 
 export class Chart extends Construct {
@@ -61,26 +59,20 @@ export class Chart extends Construct {
     return Names.toDnsLabel(apiObject.node.path);
   }
 
+  /**
+   * Renders this chart to a set of Kubernetes JSON resources.
+   * @returns array of resource manifests
+   */
+  public toJson(): any[] {
+    return this.node.findAll().filter(x => x instanceof ApiObject).map(x => (x as ApiObject).toJson());
+  }
+
+  /**
+   * Called by the app to synthesize the chart as a YAML file in the output directory/
+   */
   protected synthesize(session: ISynthesisSession) {
-    const resources = new Array<any>();
-
-    for (const resource of this.node.findAll()) {
-      if (!(resource instanceof ApiObject)) {
-        continue;
-      }
-
-      const manifest = removeEmpty(resolve(this, resource._render()));
-      resources.push(manifest);
-    }
-
     // convert each resource to yaml and separate with a '---' line
-    const doc = resources.map(r => toYaml(r)).join('---\n');
+    const doc = this.toJson().map(r => YAML.stringify(r)).join('---\n');
     fs.writeFileSync(path.join(session.assembly.outdir, this.manifestFile), doc);
   }
-}
-
-function toYaml(o: any) {
-  // lose anchors which are based on reference equality
-  const x = JSON.parse(JSON.stringify(o));
-  return YAML.stringify(x);
 }
