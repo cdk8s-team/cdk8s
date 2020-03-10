@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/awslabs/cdk8s/compare/v0.13.1...v0.14.0) (2020-03-10)
+
+
+### Features
+
+* allow arbitrary construct names ([#64](https://github.com/awslabs/cdk8s/issues/64)) ([1309960](https://github.com/awslabs/cdk8s/commit/1309960e62d13b00dc964f6c88e15d74390e09a2)), closes [#48](https://github.com/awslabs/cdk8s/issues/48)
+* chart.toJson() and apiObject.toJson() ([#63](https://github.com/awslabs/cdk8s/issues/63)) ([80e8402](https://github.com/awslabs/cdk8s/commit/80e8402790c4112e64bda2dd9a42fa897ee4ab8b)), closes [#48](https://github.com/awslabs/cdk8s/issues/48)
+
 ## [0.13.1](https://github.com/awslabs/cdk8s/compare/v0.13.0...v0.13.1) (2020-03-09)
 
 
