@@ -2,18 +2,17 @@ import { Names } from "../lib/names";
 
 const toDnsName = Names.toDnsLabel;
 
-test('allowed characters', () => {
-  const expected = /is not a valid object name/;
-  expect(() => toDnsName(' ')).toThrow(expected);
-  expect(() => toDnsName('')).toThrow(expected);
-  expect(() => toDnsName('Hello')).toThrow(expected);
-  expect(() => toDnsName('hey*')).toThrow(expected);
-  expect(() => toDnsName('not allowed')).toThrow(expected);
+test('normalize to dns_name', () => {
+  expect(toDnsName(' ')).toEqual('36a9e7f1');
+  expect(toDnsName('')).toEqual('e3b0c442');
+  expect(toDnsName('Hello')).toEqual('hello-185f8db3');
+  expect(toDnsName('hey*')).toEqual('hey-96c05e6c');
+  expect(toDnsName('not allowed')).toEqual('notallowed-a26075ed');
 });
 
 test('maximum length for a single term', () => {
-  expect(() => toDnsName('1234567890a', 10)).toThrow(/Maximum allowed length is 10/);
-  expect(() => toDnsName('a'.repeat(64))).toThrow(/Maximum allowed length is 63/);
+  expect(toDnsName('1234567890abcdef', 15)).toEqual('123456-8e9916c5');
+  expect(toDnsName('x' + 'a'.repeat(64))).toEqual('xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-f69f4ba1');
 });
 
 test('single term is not decorated with a hash', () => {
