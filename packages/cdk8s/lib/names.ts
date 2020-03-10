@@ -39,23 +39,15 @@ export class Names {
       throw new Error(`minimum max length for object names is ${HASH_LEN} (required for hash)`);
     }
 
-    const components = path.split('/');
+    let components = path.split('/');
 
-    // verify components only use allowed chars.
-    for (const comp of components) {
-      if (!VALIDATE.test(comp)) {
-        throw new Error(`"${comp}" is not a valid object name. The characters allowed in names are: digits (0-9), lower case letters (a-z), -, and .`);
-      }
-
-      if (comp.length > maxLen) {
-        throw new Error(`Object name "${comp}" is too long. Maximum allowed length is ${maxLen}`);
-      }
-    }
-
-    // special case: if we only have one component in our path, we don't decorate it
-    if (components.length === 1) {
+    // special case: if we only have one component in our path and it adheres to DNS_NAME, we don't decorate it
+    if (components.length === 1 && VALIDATE.test(components[0]) && components[0].length <= maxLen) {
       return components[0];
     }
+
+    // okay, now we need to normalize all components to adhere to DNS_NAME and append the hash of the full path.
+    components = components.map(c => normalizeToDnsName(c, maxLen));
 
     components.push(calcHash(path, HASH_LEN));
 
@@ -73,6 +65,13 @@ export class Names {
   private constructor() {
     return;
   }
+}
+
+function normalizeToDnsName(c: string, maxLen: number) {
+  return c
+    .toLocaleLowerCase()        // lower case
+    .replace(/[^0-9a-z-]/g, '') // remove non-allowed characters
+    .substr(0, maxLen)          // trim to maxLength
 }
 
 function calcHash(path: string, maxLen: number) {
