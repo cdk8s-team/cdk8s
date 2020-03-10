@@ -79,6 +79,20 @@ test('Chart.of(node) fails when there is no chart in the tree', () => {
   expect(() => Chart.of(child)).toThrow(/cannot find a parent chart \(directly or indirectly\)/);
 });
 
+test('synthesizeManifest() can be used to synthesize a specific chart', () => {
+  // GIVEN
+  const app = Testing.app();
+  const chart = new Chart(app, 'chart');
+  new ApiObject(chart, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+  new ApiObject(chart, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+
+  // WHEN
+  const manifest = chart.toJson();
+
+  // THEN
+  expect(manifest).toMatchSnapshot();
+});
+
 function createImplictToken(value: any) {
   const implicit = {};
   Object.defineProperty(implicit, 'resolve', { value: () => value });

@@ -1,5 +1,7 @@
 import { Construct } from '@aws-cdk/core';
 import { Chart } from './chart';
+import { removeEmpty } from './_util';
+import { resolve } from './_tokens';
 
 /**
  * Metadata associated with this object.
@@ -106,17 +108,20 @@ export class ApiObject extends Construct {
   }
 
   /**
-   * Renders the object to Kubernetes config.
-   * @internal
+   * Renders the object to Kubernetes JSON.
    */
-  public _render(): any {
-    return {
+  public toJson(): any {
+    const data = {
       ...this.options,
       metadata: {
         ...this.options.metadata,
         name: this.name
       }
     };
+
+    // convert to "pure data" so, for example, when we convert to yaml these
+    // references are not converted to anchors.
+    return JSON.parse(JSON.stringify(removeEmpty(resolve(this, data))));
   }
 }
 

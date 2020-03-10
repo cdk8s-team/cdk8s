@@ -2,7 +2,6 @@ import fs = require('fs');
 import path = require('path');
 import os = require('os');
 import { App, Chart } from '../lib';
-import * as YAML from 'yaml';
 
 /**
  * Testing utilities for cdk8s applications.
@@ -21,11 +20,7 @@ export class Testing {
    * Returns the Kubernetes manifest synthesized from this chart.
    */
   public static synth(chart: Chart) {
-    const app = chart.node.root as App;
-    app.synth();
-    
-    const filePath = path.join(app.outdir, chart.manifestFile);
-    return YAML.parseAllDocuments(fs.readFileSync(filePath, 'utf-8')).map((doc: any) => doc.toJSON());
+    return chart.toJson();
   }
 
   /* istanbul ignore next */
