@@ -92,13 +92,18 @@ jest_test(
 jsii_package(
     name = "pkg",
     srcs = ["README.md"],
-    package_json = ":package_json",
+    configuration_env_vars = [
+        "JAVA_HOME",
+        "PATH",
+        "M2_HOME",
+        "M2",
+    ],
     out_dir = "dist",
+    package_json = ":package_json",
+    tags = ["release"],
     deps = [
         ":lib",
         "@npm//@aws-cdk/core",
         "@npm//yaml",
     ],
-    configuration_env_vars = ["JAVA_HOME", "PATH", "M2_HOME", "M2"],
-    tags = ["release"]
 )

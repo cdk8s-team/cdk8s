@@ -6,8 +6,8 @@ load("//tools:defaults.bzl", "jest_test", "ts_library")
 cdk8s_import(
     name = "gen",
     include = "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler",
+    language = "typescript",
     path = "examples/podinfo/imports",
-    language = "typescript"
 )
 
 ts_library(
@@ -24,9 +24,9 @@ ts_library(
 
 cdk8s_synth(
     name = "synth",
-    path = "dist",
+    app = "TODO",
     data = [":lib"],
-    app = "TODO"
+    path = "dist",
 )
 
 ts_library(
@@ -58,7 +58,7 @@ jest_test(
         ":test_sources",
         ":sources",
     ],
+    tags = ["manual"],
     deps = [
     ],
-    tags = ["manual"]
 )

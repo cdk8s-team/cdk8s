@@ -6,8 +6,8 @@ load("//tools:defaults.bzl", "jest_test", "ts_library")
 
 cdk8s_import(
     name = "import",
-    path = "examples/hello/imports",
     language = "typescript",
+    path = "examples/hello/imports",
 )
 
 ts_library(
@@ -30,9 +30,9 @@ filegroup(
 
 cdk8s_synth(
     name = "synth",
-    path = "dist",
+    app = "node ../../index.js",
     data = [":sources"],
-    app = "node ../../index.js"
+    path = "dist",
 )
 
 ts_library(
@@ -41,7 +41,7 @@ ts_library(
     deps = [
         ":lib",
         "//packages/cdk8s:lib",
-        "@npm//@types/jest"
+        "@npm//@types/jest",
     ],
 )
 

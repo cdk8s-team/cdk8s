@@ -30,7 +30,6 @@ package_json(
 
 ts_library(
     name = "cdk8s_cli",
-    module_name = "cdk8s-cli",
     srcs = glob(
         [
             "lib/**/*.ts",
@@ -38,13 +37,14 @@ ts_library(
         ],
         exclude = ["test/**"],
     ),
+    module_name = "cdk8s-cli",
     deps = [
         "//packages/cdk8s:lib",
         "@npm//@aws-cdk/core",
         "@npm//@types/fs-extra",
         "@npm//@types/json-schema",
-        "@npm//@types/yargs",
         "@npm//@types/yaml",
+        "@npm//@types/yargs",
         "@npm//codemaker",
         "@npm//sscaff",
     ],
@@ -52,11 +52,11 @@ ts_library(
 
 ts_library(
     name = "tests",
-    testonly = True,
     srcs = glob(["test/**/*.ts"]),
     deps = [
         ":cdk8s_cli",
         "@npm//@types/fs-extra",
+        "@npm//@types/jest",
         "@npm//@types/json-schema",
         "@npm//codemaker",
     ],
@@ -64,7 +64,6 @@ ts_library(
 
 filegroup(
     name = "test_sources",
-    testonly = True,
     srcs = [":tests"],
     output_group = "es5_sources",
 )
@@ -89,7 +88,6 @@ jest_test(
         "@npm//jsii",
         "@npm//tslib",
     ],
-    tags = ["manual"]
 )
 
 filegroup(
@@ -106,8 +104,8 @@ copy_to_bin(
 pkg_npm(
     name = "pkg",
     srcs = [
-        "bin/cdk8s",
         "README.md",
+        "bin/cdk8s",
         ":templates",
     ],
     tags = ["release"],

@@ -11,10 +11,12 @@ def jest_test(name, srcs = [], deps = [], jest_config = "//:jest.config.js", sna
     ]
     args.extend(["--config", "$(rootpath %s)" % jest_config])
 
+    update_args = args + ["--updateSnapshot"]
+
     _jest(
         name = name + ".update",
         data = [jest_config, snapshot_resolver] + srcs + deps,
-        args = ["--config", "$(rootpath %s)" % jest_config, "--updateSnapshot", "--verbose"],
+        args = update_args,
         **kwargs
     )
 
