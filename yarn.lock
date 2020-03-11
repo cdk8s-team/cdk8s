@@ -2,20 +2,6 @@
 # yarn lockfile v1
 
 
-"@aws-cdk/core@^1.27.0":
-  version "1.27.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.27.0.tgz#736a43953421b98244bad55e906b87ac34fe6a97"
-  integrity sha512-RejU46I1ozZELsSrb2MMa7hmtBjGv5sppC7PYwTgAYVJTqMpPAQEYAriiW2yJDaKZr9FN/l3wTGyJID4VZSfcQ==
-  dependencies:
-    "@aws-cdk/cx-api" "1.27.0"
-
-"@aws-cdk/cx-api@1.27.0", "@aws-cdk/cx-api@^1.27.0":
-  version "1.27.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cx-api/-/cx-api-1.27.0.tgz#715068271a1bb60d0b3b015f54373e228458a9b8"
-  integrity sha512-CqWnXm/lCzRfUsXWh1/umN6G+akop++zMzCZrjsOa9LXdd8YJinibsYTUINJVVO7Dd0I8HtLNj+NaRiWAywadg==
-  dependencies:
-    semver "^7.1.3"
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
@@ -2249,6 +2235,11 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
+
+constructs@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-1.0.0.tgz#08e6a6eba0418cd71afa60b2a72b393bd1efbc9d"
+  integrity sha512-2/iToRI/QYijRnwe6Y+HS9pSr6ZnFBM2ONcEsyO4vDrfDIUdUmhOn+CT2/O24swipEOXT8vQDDCqTCy9eWv1kA==
 
 conventional-changelog-angular@^5.0.3, conventional-changelog-angular@^5.0.6:
   version "5.0.6"

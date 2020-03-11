@@ -1,4 +1,4 @@
-import { Construct, ConstructNode } from '@aws-cdk/core';
+import { Construct, ConstructNode } from 'constructs';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -33,7 +33,7 @@ export class App extends Construct {
    * Synthesizes all manifests to the output directory
    */
   public synth(): void {
-    ConstructNode.synth(this.node, {
+    ConstructNode.synthesizeNode(ConstructNode.of(this), {
       outdir: this.outdir
     });
 

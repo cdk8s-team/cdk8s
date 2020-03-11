@@ -1,4 +1,4 @@
-import { Construct, ISynthesisSession } from '@aws-cdk/core';
+import { Construct, ISynthesisSession, ConstructNode } from 'constructs';
 import * as fs from 'fs';
 import * as path from 'path';
 import { ApiObject } from './api-object';
@@ -9,14 +9,14 @@ export class Chart extends Construct {
 
   /**
    * Finds the chart in which a node is defined.
-   * @param node a construct node
+   * @param c a construct node
    */
-  public static of(node: Construct): Chart {
-    if (node instanceof Chart) {
-      return node;
+  public static of(c: Construct): Chart {
+    if (c instanceof Chart) {
+      return c;
     }
 
-    const parent = node.node.scope as Construct;
+    const parent = ConstructNode.of(c).scope as Construct;
     if (!parent) {
       throw new Error(`cannot find a parent chart (directly or indirectly)`);
     }
@@ -32,7 +32,7 @@ export class Chart extends Construct {
 
   constructor(scope: Construct, ns: string) {
     super(scope, ns);
-    this.manifestFile = `${this.node.uniqueId}.k8s.yaml`;
+    this.manifestFile = `${ConstructNode.of(this).uniqueId}.k8s.yaml`;
   }
 
   /**
@@ -56,7 +56,7 @@ export class Chart extends Construct {
    * @param apiObject The API object to generate a name for.
    */
   public generateObjectName(apiObject: ApiObject) {
-    return Names.toDnsLabel(apiObject.node.path);
+    return Names.toDnsLabel(ConstructNode.of(apiObject).path);
   }
 
   /**
@@ -64,7 +64,7 @@ export class Chart extends Construct {
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-    return this.node.findAll().filter(x => x instanceof ApiObject).map(x => (x as ApiObject).toJson());
+    return ConstructNode.of(this).findAll().filter(x => x instanceof ApiObject).map(x => (x as ApiObject).toJson());
   }
 
   /**

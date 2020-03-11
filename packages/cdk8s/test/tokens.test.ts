@@ -1,4 +1,4 @@
-import { Lazy } from "@aws-cdk/core";
+import { Lazy } from "constructs";
 import { resolve } from "../lib/_tokens";
 import { Testing } from '../lib';
 

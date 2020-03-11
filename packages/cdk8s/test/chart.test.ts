@@ -1,5 +1,5 @@
 import { Chart, ApiObject, Testing } from '../lib';
-import { Construct, Lazy } from '@aws-cdk/core';
+import { Construct, Lazy } from 'constructs';
 
 test('empty stack', () => {
   // GIVEN

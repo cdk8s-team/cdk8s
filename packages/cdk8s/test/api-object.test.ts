@@ -1,5 +1,5 @@
 import { ApiObject, Chart, Testing } from '../lib';
-import { Construct } from '@aws-cdk/core';
+import { Construct } from 'constructs';
 
 test('minimal configuration', () => {
   const app = Testing.app();

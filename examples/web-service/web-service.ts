@@ -1,4 +1,4 @@
-import { Construct } from '@aws-cdk/core';
+import { Construct, ConstructNode } from 'constructs';
 import { Deployment, Service, IntOrString } from './imports/k8s';
 
 export interface WebServiceOptions {
@@ -30,7 +30,7 @@ export class WebService extends Construct {
 
     const port = options.port || 80;
     const containerPort = options.containerPort || 8080;
-    const label = { app: this.node.uniqueId };
+    const label = { app: ConstructNode.of(this).uniqueId };
 
     new Service(this, 'service', {
       spec: {
@@ -51,7 +51,7 @@ export class WebService extends Construct {
           spec: {
             containers: [
               {
-                name: this.node.id,
+                name: 'web',
                 image: options.image,
                 ports: [ { containerPort } ]
               }

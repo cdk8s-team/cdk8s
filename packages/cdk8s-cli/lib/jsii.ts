@@ -35,8 +35,7 @@ export async function jsiiCompile(workdir: string, options: JsiiCompileOptions =
 
 
   const modules = [ 
-    '@aws-cdk/core', 
-    '@aws-cdk/cx-api', 
+    'constructs', 
     'cdk8s',
     '@types/node',
   ];
@@ -59,11 +58,11 @@ export async function jsiiCompile(workdir: string, options: JsiiCompileOptions =
       }
     },    
     dependencies: {
-      "@aws-cdk/core": "*",
+      "constructs": "*",
       "cdk8s": "*",
     },
     peerDependencies: {
-      "@aws-cdk/core": "*",
+      "constructs": "*",
       "cdk8s": "*",
     }
   };
