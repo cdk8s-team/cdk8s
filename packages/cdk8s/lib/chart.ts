@@ -64,15 +64,18 @@ export class Chart extends Construct {
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-    return ConstructNode.of(this).findAll().filter(x => x instanceof ApiObject).map(x => (x as ApiObject).toJson());
+    return ConstructNode.of(this)
+      .findAll()
+      .filter(x => x instanceof ApiObject)
+      .map(x => (x as ApiObject).toJson());
   }
 
   /**
    * Called by the app to synthesize the chart as a YAML file in the output directory/
    */
-  protected synthesize(session: ISynthesisSession) {
+  protected synthesizeConstruct(session: ISynthesisSession) {
     // convert each resource to yaml and separate with a '---' line
     const doc = this.toJson().map(r => YAML.stringify(r)).join('---\n');
-    fs.writeFileSync(path.join(session.assembly.outdir, this.manifestFile), doc);
+    fs.writeFileSync(path.join(session.outdir, this.manifestFile), doc);
   }
 }

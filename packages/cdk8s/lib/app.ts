@@ -1,6 +1,5 @@
 import { Construct, ConstructNode } from 'constructs';
-import * as fs from 'fs';
-import * as path from 'path';
+import fs = require('fs');
 
 export interface AppOptions {
   /**
@@ -33,18 +32,11 @@ export class App extends Construct {
    * Synthesizes all manifests to the output directory
    */
   public synth(): void {
+    if (!fs.existsSync(this.outdir)) {
+      fs.mkdirSync(this.outdir);
+    }
     ConstructNode.synthesizeNode(ConstructNode.of(this), {
       outdir: this.outdir
     });
-
-    // remove manifest.json and cdk.out
-    rm(path.join(this.outdir, 'manifest.json'));
-    rm(path.join(this.outdir, 'cdk.out'));
-  }
-}
-
-function rm(filePath: string) {
-  if (fs.existsSync(filePath)) {
-    fs.unlinkSync(filePath);
   }
 }

@@ -13,8 +13,8 @@ test('lazy', () => {
 
   // THEN
   expect(hello).toStrictEqual({
-    number: -1.8881545897087518e+289,
-    string: '${Token[TOKEN.10]}',
+    number: -1.8881545897087498e+289,
+    string: '${Token[TOKEN.1]}',
     implicit: { }
   });
 
