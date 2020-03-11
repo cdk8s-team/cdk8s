@@ -4,4 +4,5 @@ module.exports = {
     "js"
   ],
   "snapshotResolver": "./snapshotResolver.js",
+  "testEnvironment": "node",
 };

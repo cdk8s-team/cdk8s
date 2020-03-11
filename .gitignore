@@ -2,6 +2,7 @@ dist/
 .gen
 .vscode/
 .idea
+.DS_Store
 
 cdk.out
 lib/.generated

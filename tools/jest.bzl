@@ -17,6 +17,8 @@ def jest_test(name, srcs = [], deps = [], jest_config = "//:jest.config.js", sna
         name = name + ".update",
         data = [jest_config, snapshot_resolver] + srcs + deps,
         args = update_args,
+        templated_args = ["--nobazel_patch_module_resolver"],
+        testonly = True,
         **kwargs
     )
 

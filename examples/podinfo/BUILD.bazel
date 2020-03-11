@@ -10,8 +10,16 @@ cdk8s_import(
     path = "examples/podinfo/imports",
 )
 
+cdk8s_synth(
+    name = "synth",
+    app = "TODO",
+    data = [":lib"],
+    path = "dist",
+)
+
 ts_library(
     name = "lib",
+    module_name = "podinfo",
     srcs = glob(
         ["**/*.ts"],
         exclude = ["**/*.test.ts"],
@@ -20,13 +28,6 @@ ts_library(
         "//packages/cdk8s:lib",
         "@npm//@aws-cdk/core",
     ],
-)
-
-cdk8s_synth(
-    name = "synth",
-    app = "TODO",
-    data = [":lib"],
-    path = "dist",
 )
 
 ts_library(
@@ -38,26 +39,10 @@ ts_library(
     ],
 )
 
-filegroup(
-    name = "test_sources",
-    testonly = True,
-    srcs = [":tests"],
-    output_group = "es5_sources",
-)
-
-filegroup(
-    name = "sources",
-    testonly = True,
-    srcs = [":lib"],
-    output_group = "es5_sources",
-)
-
 jest_test(
     name = "test",
-    srcs = glob(["**/*.snap"]) + [
-        ":test_sources",
-        ":sources",
-    ],
+    srcs = glob(["**/*.snap"]),
+    lib = ":tests",
     tags = ["manual"],
     deps = [
     ],

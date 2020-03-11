@@ -30,11 +30,12 @@ def cdk8s_synth(name, app, path, data = [], **kwargs):
         data = data + [
             "//packages/cdk8s:lib",
             "//packages/cdk8s-cli:cdk8s_cli",
+            "//packages/cdk8s-cli:package.json",
             "//packages/cdk8s-cli:copy_templates",
             "@npm//yargs",
             "@npm//yaml",
         ],
         entry_point = "//packages/cdk8s-cli:bin/cdk8s",
-        templated_args = ["synth", "--app=\"%s\"" % app, "-o", path],
+        templated_args = ["synth", "--app=\"%s\"" % app, "-o", path, "--nobazel_patch_module_resolver"],
         **kwargs
     )

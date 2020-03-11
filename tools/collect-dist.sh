@@ -61,7 +61,7 @@ function buildTargetPackages() {
     # Skip any that don't have an "npm_package" target
     dest_dir="${base_dir}/${dest_path}"
     if [[ -d ${src_dir} ]]; then
-      yarn -s bazel run packages/"${pkg}":pkg.pack
+      yarn -s bazel run packages/"${pkg}":pkg.pack --config=release
       mkdir -p "${dest_dir}"/js
       mv "${base_dir}"/"${pkg}"*.tgz "${dest_dir}"/js/
     fi

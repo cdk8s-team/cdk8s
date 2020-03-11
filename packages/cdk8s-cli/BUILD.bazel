@@ -2,12 +2,13 @@ package(default_visibility = ["//visibility:public"])
 
 load("//:packages.bzl", "CDK_PACKAGE_VERSION", "JSII_PACKAGE_VERSION")
 load("@build_bazel_rules_nodejs//:index.bzl", "copy_to_bin")
-load("//tools:defaults.bzl", "jest_test", "pkg_npm", "ts_library")
-load("//tools:package-json/package_json.bzl", "package_json")
+load("//tools:defaults.bzl", "jest_test", "package_json", "pkg_npm", "ts_library")
+
+MODULE_NAME = "cdk8s-cli"
 
 package_json(
     name = "package_json",
-    package_name = "cdk8s-cli",
+    package_name = MODULE_NAME,
     bin = {
         "cdk8s": "bin/cdk8s",
     },
@@ -37,7 +38,7 @@ ts_library(
         ],
         exclude = ["test/**"],
     ),
-    module_name = "cdk8s-cli",
+    module_name = MODULE_NAME,
     deps = [
         "//packages/cdk8s:lib",
         "@npm//@aws-cdk/core",
@@ -52,34 +53,20 @@ ts_library(
 
 ts_library(
     name = "tests",
+    testonly = True,
     srcs = glob(["test/**/*.ts"]),
     deps = [
         ":cdk8s_cli",
         "@npm//@types/fs-extra",
-        "@npm//@types/jest",
         "@npm//@types/json-schema",
         "@npm//codemaker",
     ],
 )
 
-filegroup(
-    name = "test_sources",
-    srcs = [":tests"],
-    output_group = "es5_sources",
-)
-
-filegroup(
-    name = "lib_sources",
-    testonly = True,
-    srcs = [":cdk8s_cli"],
-    output_group = "es5_sources",
-)
-
 jest_test(
     name = "test",
-    srcs = glob(["**/*.snap"]) + [
-        ":test_sources",
-    ],
+    srcs = glob(["**/*.snap"]),
+    lib = ":tests",
     deps = [
         ":cdk8s_cli",
         "//packages/cdk8s:lib",

@@ -2,8 +2,8 @@
   "name": "PACKAGE_NAME",
   "description": "PACKAGE_DESC",
   "version": "0.0.0-PLACEHOLDER",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "PACKAGE_MAIN",
+  "types": "PACKAGE_TYPES",
   "bin": "PACKAGE_BIN",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

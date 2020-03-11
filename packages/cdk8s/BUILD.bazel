@@ -1,10 +1,7 @@
 package(default_visibility = ["//visibility:public"])
 
 load("//:packages.bzl", "CDK_PACKAGE_VERSION")
-load("//tools:defaults.bzl", "jest_test", "ts_library")
-load("//tools:jsii_library.bzl", "jsii_library")
-load("//tools:jsii_package.bzl", "jsii_package")
-load("//tools:package-json/package_json.bzl", "package_json")
+load("//tools:defaults.bzl", "jest_test", "jsii_library", "jsii_package", "package_json", "ts_library")
 
 MODULE_NAME = "cdk8s"
 
@@ -60,27 +57,20 @@ jsii_library(
 
 ts_library(
     name = "tests",
+    testonly = True,
     srcs = glob(["test/**/*.ts"]),
     deps = [
         ":lib",
         "@npm//@aws-cdk/core",
-        "@npm//@types/jest",
         "@npm//@types/yaml",
         "@npm//yaml",
     ],
 )
 
-filegroup(
-    name = "test_sources",
-    srcs = [":tests"],
-    output_group = "es5_sources",
-)
-
 jest_test(
     name = "test",
-    srcs = glob(["**/*.snap"]) + [
-        ":test_sources",
-    ],
+    srcs = glob(["**/*.snap"]),
+    lib = ":tests",
     deps = [
         ":lib",
         "@npm//@aws-cdk/core",
@@ -91,19 +81,18 @@ jest_test(
 
 jsii_package(
     name = "pkg",
-    srcs = ["README.md"],
-    configuration_env_vars = [
-        "JAVA_HOME",
-        "PATH",
-        "M2_HOME",
-        "M2",
-    ],
-    out_dir = "dist",
+    # Note: we include @npm//yaml here because it's a bundledDependency and
+    #       NPM needs it visibly in the pkg directory in order to bundle it
+    #       correctly. Also note we don't bundle YAML's dependency on
+    #       @babel/runtime, because we don't touch code it uses. This may
+    #       change, in which case you just need to add the dependency here.
+    #       (It will fail integration tests before it reaches users when that
+    #       happens).
+    srcs = ["README.md", "@npm//yaml"],
     package_json = ":package_json",
     tags = ["release"],
     deps = [
         ":lib",
         "@npm//@aws-cdk/core",
-        "@npm//yaml",
     ],
 )
