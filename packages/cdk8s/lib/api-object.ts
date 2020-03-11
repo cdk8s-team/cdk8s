@@ -2,6 +2,7 @@ import { Construct } from '@aws-cdk/core';
 import { Chart } from './chart';
 import { removeEmpty } from './_util';
 import { resolve } from './_tokens';
+import * as stringify from 'json-stable-stringify';
 
 /**
  * Metadata associated with this object.
@@ -121,7 +122,7 @@ export class ApiObject extends Construct {
 
     // convert to "pure data" so, for example, when we convert to yaml these
     // references are not converted to anchors.
-    return JSON.parse(JSON.stringify(removeEmpty(resolve(this, data))));
+    return JSON.parse(stringify(removeEmpty(resolve(this, data))));
   }
 }
 
