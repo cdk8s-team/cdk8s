@@ -88,7 +88,10 @@ jsii_package(
     #       change, in which case you just need to add the dependency here.
     #       (It will fail integration tests before it reaches users when that
     #       happens).
-    srcs = ["README.md", "@npm//yaml"],
+    srcs = [
+        "README.md",
+        "@npm//yaml",
+    ],
     package_json = ":package_json",
     tags = ["release"],
     deps = [

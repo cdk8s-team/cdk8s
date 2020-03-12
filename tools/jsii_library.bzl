@@ -57,7 +57,6 @@ def _jsii_library_impl(ctx):
 
     args = ctx.actions.args()
     args.add(ctx.bin_dir.path + "/" + ctx.label.package)  # TODO: Windows
-    args.add("--v=1000")
     package_json = ctx.file.package_json
     inputs = _inputs(ctx, ctx.file.package_json)
     jsii = ctx.actions.declare_file(".jsii")

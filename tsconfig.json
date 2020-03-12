@@ -2,24 +2,31 @@
 // IDEs and TSLint. For IDEs it ensures that `experimentalDecorator` warnings are not showing up.
 {
   "compilerOptions": {
+    "alwaysStrict": true,
+    "charset": "utf8",
+    "declaration": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "outDir": "./dist/packages/all",
     "experimentalDecorators": true,
     // Bazel either uses "umd" or "esnext". We replicate this here for IDE support.
     // https://github.com/bazelbuild/rules_typescript/blob/master/internal/common/tsconfig.bzl#L199
     "module": "esnext",
     "moduleResolution": "node",
+    "noEmitOnError": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": false,
-    "strictNullChecks": true,
     "noImplicitReturns": true,
-    "strictFunctionTypes": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "skipLibCheck": true,
-    "strictBindCallApply": true,
-    "target": "es2015",
-    "lib": ["es5", "es2015"],
+    "strict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "stripInternal": true,
+    "target": "es2018",
+    "lib": ["es2018"],
     "types": ["jest", "node"],
     "baseUrl": ".",
     "paths": {
@@ -35,5 +42,10 @@
     // IDEs should not type-check the different node_modules directories of the different packages.
     // This would cause the IDEs to be slower and also linters would check the node_modules.
     "node_modules/"
-  ]
+  ],
+  "bazelOptions": {
+    // Note: We can remove this once we fully switched away from Gulp. Currently we still set
+    // some options here just in favor of the standard tsconfig's which extending this one.
+    "suppressTsconfigOverrideWarnings": true
+  }
 }

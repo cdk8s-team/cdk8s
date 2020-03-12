@@ -85,7 +85,6 @@ def run_jsii(ctx, package_dir, outdir, deps_sources):
     args = ctx.actions.args()
     args.add(package_dir.path)
     args.add("-o", outdir.path)
-    args.add("--v=2")
 
     for target in ctx.attr.targets:
         args.add("-t=%s" % target)

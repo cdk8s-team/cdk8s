@@ -1,52 +1,8 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
-load("//tools:cdk8s.bzl", "cdk8s_import", "cdk8s_synth")
-load("//tools:defaults.bzl", "jest_test", "ts_library")
+load("//tools:defaults.bzl", "cdk8s_example")
 
-cdk8s_import(
-    name = "import",
-    language = "typescript",
-    path = "examples/hello/imports",
-)
-
-cdk8s_synth(
-    name = "synth",
-    app = "node ../../index.js",
-    data = [":lib"],
-    path = "dist",
-)
-
-ts_library(
-    name = "lib",
-    module_name = "hello",
-    srcs = glob(
-        ["**/*.ts"],
-        exclude = ["**/*.test.ts"],
-    ),
-    deps = [
-        "//packages/cdk8s:lib",
-        "@npm//@aws-cdk/core",
-    ],
-)
-
-ts_library(
-    name = "tests",
-    testonly = True,
-    srcs = glob(["**/*.test.ts"]),
-    deps = [
-        "//packages/cdk8s:lib",
-        ":lib",
-    ],
-)
-
-jest_test(
-    name = "test",
-    srcs = glob(["**/*.snap"]),
-    lib = ":tests",
-    deps = [
-        ":lib",
-        "//packages/cdk8s:lib",
-        "@npm//yaml",
-    ],
+cdk8s_example(
+    name = "hello",
+    entry = "index.js",
 )

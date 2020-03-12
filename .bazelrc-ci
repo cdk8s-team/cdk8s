@@ -8,5 +8,5 @@ common --announce_rc
 
 # Workaround https://github.com/bazelbuild/bazel/issues/3645. Bazel doesn't calculate the
 # memory ceiling correctly when running under Docker.
-build --local_ram_resources=14336
-build --local_cpu_resources=8
+build --local_ram_resources=6145
+build --local_cpu_resources=2

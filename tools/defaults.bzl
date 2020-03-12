@@ -3,6 +3,7 @@
 load("@build_bazel_rules_nodejs//:index.bzl", _pkg_npm = "pkg_npm")
 load("@npm_bazel_typescript//:index.bzl", _ts_library = "ts_library")
 load("//:packages.bzl", "VERSION_PLACEHOLDER_REPLACEMENTS")
+load("//tools:cdk8s.bzl", _cdk8s_import = "cdk8s_import", _cdk8s_synth = "cdk8s_synth")
 load("//tools:jest.bzl", _jest_test = "jest_test")
 load("//tools:jsii_library.bzl", _jsii_library = "jsii_library")
 load("//tools:jsii_package.bzl", _jsii_package = "jsii_package")
@@ -89,3 +90,53 @@ def jest_test(srcs = [], lib = None, **kwargs):
 
 def package_json(**kwargs):
     _package_json(**kwargs)
+
+def cdk8s_example(name, entry, include = None, language = "typescript", disable_tests = False):
+    _cdk8s_import(
+        name = "imports",
+        language = "typescript",
+        include = include,
+    )
+
+    if language == "typescript":
+        ts_library(
+            name = "lib",
+            module_name = name,
+            srcs = native.glob(
+                ["**/*.ts"],
+                exclude = ["**/*.test.ts"],
+            ),
+            deps = [
+                "//packages/cdk8s:lib",
+                "@npm//@aws-cdk/core",
+            ],
+        )
+
+        _cdk8s_synth(
+            name = "synth",
+            app = "node ${BAZEL_TARGET:2:${#BAZEL_TARGET}-8}/%s" % entry,
+            data = [":lib"],
+            path = "dist",
+        )
+
+        if not disable_tests:
+            ts_library(
+                name = "tests",
+                testonly = True,
+                srcs = native.glob(["**/*.test.ts"]),
+                deps = [
+                    "//packages/cdk8s:lib",
+                    ":lib",
+                ],
+            )
+
+            jest_test(
+                name = "test",
+                srcs = native.glob(["**/*.snap"]),
+                lib = ":tests",
+                deps = [
+                    ":lib",
+                    "//packages/cdk8s:lib",
+                    "@npm//yaml",
+                ],
+            )

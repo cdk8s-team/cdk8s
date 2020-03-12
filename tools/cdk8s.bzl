@@ -1,9 +1,11 @@
 load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
+ENTRY_POINT = "//packages/cdk8s-cli:bin/cdk8s"
+
 # Implementation of cdk8s that performs the import action
 # NOTE: could be made more general, or can be copied into other
 #       rules to make other separate CLI action rules
-def cdk8s_import(name, path, language, include = None, **kwargs):
+def cdk8s_import(name, language, include = None, **kwargs):
     data = [
         "//packages/cdk8s-cli:cdk8s_cli",
         "//packages/cdk8s-cli:copy_templates",
@@ -11,7 +13,8 @@ def cdk8s_import(name, path, language, include = None, **kwargs):
         "@npm//yaml",
     ]
 
-    args = ["import", "k8s", "-o", path, "--language", language]
+    # Someone please fix this :(
+    args = ["import", "k8s", "-o", "$(echo \"${BAZEL_TARGET#//}\" | sed 's/:/\//g')", "--language", language]
 
     if include:
         args.extend(["--include", include])
@@ -19,7 +22,7 @@ def cdk8s_import(name, path, language, include = None, **kwargs):
     nodejs_binary(
         name = name,
         data = data,
-        entry_point = "//packages/cdk8s-cli:bin/cdk8s",
+        entry_point = ENTRY_POINT,
         templated_args = args,
         **kwargs
     )
@@ -35,7 +38,8 @@ def cdk8s_synth(name, app, path, data = [], **kwargs):
             "@npm//yargs",
             "@npm//yaml",
         ],
-        entry_point = "//packages/cdk8s-cli:bin/cdk8s",
-        templated_args = ["synth", "--app=\"%s\"" % app, "-o", path, "--nobazel_patch_module_resolver"],
+        entry_point = ENTRY_POINT,
+        # 3 here is to account for the leading // and the :
+        templated_args = ["synth", "--app=\"%s\"" % app, "-o", "${BAZEL_TARGET:2:${#BAZEL_TARGET}-%s}/%s" % (str(len(name) + 3), path), "--nobazel_patch_module_resolver"],
         **kwargs
     )
