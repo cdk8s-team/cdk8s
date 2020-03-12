@@ -4732,7 +4732,7 @@ jsii-rosetta@^0.22.0:
     xmldom "^0.2.1"
     yargs "^15.1.0"
 
-jsii@0.22.0:
+jsii@^0.22.0:
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/jsii/-/jsii-0.22.0.tgz#d0ad0c857d98874b607f2669d9c4d23d573e346b"
   integrity sha512-pUoef6QmibfaaZSaEu4iu96ply1W/DMzNP2Xid8lFDps6Z1bI7WzWoMber11Mqm2uyWB2h8s27AOU5rBZ7nXgw==
