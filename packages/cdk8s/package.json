@@ -63,7 +63,7 @@
   },  
   "license": "Apache-2.0",
   "devDependencies": {
-    "constructs": "^1.1.0",
+    "constructs": "^1.1.1",
     "@types/jest": "^25.1.2",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/node": "13.7.1",
@@ -92,7 +92,7 @@
     "json-stable-stringify": "^1.0.1"
   },
   "peerDependencies": {
-    "constructs": "^1.1.0"
+    "constructs": "^1.1.1"
   },
   "stability": "experimental"
 }
