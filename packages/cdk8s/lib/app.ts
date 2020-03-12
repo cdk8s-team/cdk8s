@@ -1,4 +1,4 @@
-import { Construct, ConstructNode } from 'constructs';
+import { Construct, Node } from 'constructs';
 import fs = require('fs');
 
 export interface AppOptions {
@@ -35,7 +35,8 @@ export class App extends Construct {
     if (!fs.existsSync(this.outdir)) {
       fs.mkdirSync(this.outdir);
     }
-    ConstructNode.synthesizeNode(ConstructNode.of(this), {
+
+    Node.of(this).synthesize({
       outdir: this.outdir
     });
   }

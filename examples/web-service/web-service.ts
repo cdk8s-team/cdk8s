@@ -1,4 +1,4 @@
-import { Construct, ConstructNode } from 'constructs';
+import { Construct, Node } from 'constructs';
 import { Deployment, Service, IntOrString } from './imports/k8s';
 
 export interface WebServiceOptions {
@@ -30,7 +30,7 @@ export class WebService extends Construct {
 
     const port = options.port || 80;
     const containerPort = options.containerPort || 8080;
-    const label = { app: ConstructNode.of(this).uniqueId };
+    const label = { app: Node.of(this).uniqueId };
 
     new Service(this, 'service', {
       spec: {

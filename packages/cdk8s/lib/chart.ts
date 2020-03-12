@@ -1,4 +1,4 @@
-import { Construct, ISynthesisSession, ConstructNode } from 'constructs';
+import { Construct, ISynthesisSession, Node } from 'constructs';
 import * as fs from 'fs';
 import * as path from 'path';
 import { ApiObject } from './api-object';
@@ -16,7 +16,7 @@ export class Chart extends Construct {
       return c;
     }
 
-    const parent = ConstructNode.of(c).scope as Construct;
+    const parent = Node.of(c).scope as Construct;
     if (!parent) {
       throw new Error(`cannot find a parent chart (directly or indirectly)`);
     }
@@ -32,7 +32,7 @@ export class Chart extends Construct {
 
   constructor(scope: Construct, ns: string) {
     super(scope, ns);
-    this.manifestFile = `${ConstructNode.of(this).uniqueId}.k8s.yaml`;
+    this.manifestFile = `${Node.of(this).uniqueId}.k8s.yaml`;
   }
 
   /**
@@ -56,7 +56,7 @@ export class Chart extends Construct {
    * @param apiObject The API object to generate a name for.
    */
   public generateObjectName(apiObject: ApiObject) {
-    return Names.toDnsLabel(ConstructNode.of(apiObject).path);
+    return Names.toDnsLabel(Node.of(apiObject).path);
   }
 
   /**
@@ -64,7 +64,7 @@ export class Chart extends Construct {
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-    return ConstructNode.of(this)
+    return Node.of(this)
       .findAll()
       .filter(x => x instanceof ApiObject)
       .map(x => (x as ApiObject).toJson());
@@ -73,7 +73,7 @@ export class Chart extends Construct {
   /**
    * Called by the app to synthesize the chart as a YAML file in the output directory/
    */
-  protected synthesizeConstruct(session: ISynthesisSession) {
+  protected onSynthesize(session: ISynthesisSession) {
     // convert each resource to yaml and separate with a '---' line
     const doc = this.toJson().map(r => YAML.stringify(r)).join('---\n');
     fs.writeFileSync(path.join(session.outdir, this.manifestFile), doc);

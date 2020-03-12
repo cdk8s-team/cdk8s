@@ -52,9 +52,9 @@ Object {
     },
   },
   "description": "dummy",
-  "fingerprint": "elAVgR8oreJshystq06BZFvtbQtEyIzpFc0pQuhfBqk=",
+  "fingerprint": "Q33oI6HoRsPB9b/Hu8UaD8VZu09C9b6rqQ93vvoqwdM=",
   "homepage": "http://repo",
-  "jsiiVersion": "1.0.0 (build eb2db9d)",
+  "jsiiVersion": "0.22.0 (build 14afdde)",
   "license": "Apache-2.0",
   "name": "dummy",
   "repository": Object {
