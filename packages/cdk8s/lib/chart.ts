@@ -5,6 +5,17 @@ import { ApiObject } from './api-object';
 import * as YAML from 'yaml';
 import { Names } from './names';
 
+export interface ChartOptions {
+  /**
+   * The default namespace for all objects defined in this chart (directly or
+   * indirectly). This namespace will only apply to objects that don't have a
+   * `namespace` explicitly defined for them.
+   *
+   * @default - no namespace is synthesized (usually this implies "default")
+   */
+  readonly namespace?: string;
+}
+
 export class Chart extends Construct {
 
   /**
@@ -30,9 +41,15 @@ export class Chart extends Construct {
    */
   public readonly manifestFile: string;
 
-  constructor(scope: Construct, ns: string) {
+  /**
+   * The default namespace for all objects in this chart.
+   */
+  public readonly namespace?: string;
+
+  constructor(scope: Construct, ns: string, options: ChartOptions = { }) {
     super(scope, ns);
     this.manifestFile = `${Node.of(this).uniqueId}.k8s.yaml`;
+    this.namespace = options.namespace;
   }
 
   /**
