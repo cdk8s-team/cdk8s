@@ -17,7 +17,7 @@
     "synth": "node ./index.js"
   },
   "dependencies": {
-    "constructs": "^1.0.0",
+    "constructs": "^1.1.0",
     "cdk8s": "0.0.0"
   },
   "devDependencies": {

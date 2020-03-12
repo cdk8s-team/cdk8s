@@ -2220,11 +2220,6 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-1.0.0.tgz#08e6a6eba0418cd71afa60b2a72b393bd1efbc9d"
-  integrity sha512-2/iToRI/QYijRnwe6Y+HS9pSr6ZnFBM2ONcEsyO4vDrfDIUdUmhOn+CT2/O24swipEOXT8vQDDCqTCy9eWv1kA==
-
 constructs@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-1.1.0.tgz#7f4c6cdeba9a53c6e708acf8a777244a3c627b02"
