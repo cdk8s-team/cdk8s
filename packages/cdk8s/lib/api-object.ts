@@ -114,8 +114,9 @@ export class ApiObject extends Construct {
     const data = {
       ...this.options,
       metadata: {
+        namespace: Chart.of(this).namespace,
         ...this.options.metadata,
-        name: this.name
+        name: this.name,
       }
     };
 

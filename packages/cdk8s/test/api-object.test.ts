@@ -116,3 +116,32 @@ test('object naming logic can be overridden at the chart level', () => {
     "metadata": { "name": "fixed!" }
   }]);
 });
+
+test('default namespace can be defined at the chart level', () => {
+  // GIVEN
+  const app = Testing.app();
+  const chart = new Chart(app, 'chart', { namespace: 'ns1' });
+  const group1 = new Construct(chart, 'group1');
+
+  // WHEN
+  new ApiObject(group1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+  new ApiObject(group1, 'obj2', { apiVersion: 'v2', kind: 'Kind2', metadata: { namespace: 'foobar' } });
+
+  // THEN
+  expect(Testing.synth(chart)).toStrictEqual([{ 
+    "apiVersion": "v1", 
+    "kind": 
+    "Kind1", 
+    "metadata": { 
+      "name": "chart-group1-obj1-b4b7a9d0", 
+      "namespace": "ns1" 
+    } 
+  }, { 
+    "apiVersion": "v2", 
+    "kind": "Kind2", 
+    "metadata": { 
+      "name": "chart-group1-obj2-3cdc9d22", 
+      "namespace": "foobar" 
+    } 
+  }]);
+});
