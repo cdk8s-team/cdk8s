@@ -1,4 +1,4 @@
-import { Construct } from '@aws-cdk/core';
+import { Construct } from 'constructs';
 import { HorizontalPodAutoscaler, MetricSpec, Quantity } from '../imports/k8s';
 
 export interface ScaleTarget {

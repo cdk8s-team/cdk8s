@@ -29,11 +29,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-cdk/core": "^1.27.0",
-    "@aws-cdk/cx-api": "^1.27.0",
     "@types/node": "13.7.0",
     "cdk8s": "0.0.0",
     "codemaker": "^0.22.0",
+    "constructs": "^1.1.2",
     "fs-extra": "^8.1.0",
     "jsii": "^0.22.0",
     "jsii-pacmak": "^0.22.0",

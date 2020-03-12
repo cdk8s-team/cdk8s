@@ -1,6 +1,5 @@
-import { Construct, ConstructNode } from '@aws-cdk/core';
-import * as fs from 'fs';
-import * as path from 'path';
+import { Construct, Node } from 'constructs';
+import fs = require('fs');
 
 export interface AppOptions {
   /**
@@ -33,18 +32,12 @@ export class App extends Construct {
    * Synthesizes all manifests to the output directory
    */
   public synth(): void {
-    ConstructNode.synth(this.node, {
+    if (!fs.existsSync(this.outdir)) {
+      fs.mkdirSync(this.outdir);
+    }
+
+    Node.of(this).synthesize({
       outdir: this.outdir
     });
-
-    // remove manifest.json and cdk.out
-    rm(path.join(this.outdir, 'manifest.json'));
-    rm(path.join(this.outdir, 'cdk.out'));
-  }
-}
-
-function rm(filePath: string) {
-  if (fs.existsSync(filePath)) {
-    fs.unlinkSync(filePath);
   }
 }

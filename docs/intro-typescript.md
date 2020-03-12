@@ -282,7 +282,7 @@ export class WebService extends Construct {
 
     const port = options.port || 80;
     const containerPort = options.containerPort || 8080;
-    const label = { app: this.node.uniqueId };
+    const label = { app: Node.of(this).uniqueId };
 
     new Service(this, 'service', {
       spec: {

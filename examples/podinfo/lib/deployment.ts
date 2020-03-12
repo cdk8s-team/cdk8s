@@ -1,4 +1,4 @@
-import { Construct } from '@aws-cdk/core';
+import { Construct, Node } from 'constructs';
 import { ApiObject } from 'cdk8s';
 import { Deployment as DeploymentObject, Affinity, Container, IntOrString } from '../imports/k8s';
 import { Autoscaler, AutoscalingOptions } from './autoscaler';
@@ -90,7 +90,7 @@ export class Deployment extends Construct implements ISelector {
     // labels
 
     this.selector = { 
-      deploymentId: this.node.uniqueId,
+      deploymentId: Node.of(this).uniqueId,
       ...options.labels
     };
 

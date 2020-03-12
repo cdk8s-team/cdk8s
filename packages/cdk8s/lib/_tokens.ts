@@ -1,4 +1,4 @@
-import { Tokenization, DefaultTokenResolver, StringConcat, Construct } from "@aws-cdk/core";
+import { Tokenization, DefaultTokenResolver, StringConcat, Construct } from "constructs";
 
 const TOKEN_RESOLVER = new DefaultTokenResolver(new StringConcat());
 

@@ -17,9 +17,8 @@
     "synth": "node ./index.js"
   },
   "dependencies": {
-    "@aws-cdk/core": "^1.27.0",
-    "@aws-cdk/cx-api": "^1.27.0",
-    "cdk8s": "0.0.0"
+    "cdk8s": "0.0.0",
+    "constructs": "^1.1.2"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",

@@ -1,4 +1,4 @@
-import { Construct } from '@aws-cdk/core';
+import { Construct } from 'constructs';
 import { Ingress as IngressApiObject, IngressRule, IntOrString } from '../imports/k8s';
 
 export interface IngressTls {
