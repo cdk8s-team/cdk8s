@@ -13,6 +13,27 @@ test('minimal configuration', () => {
   expect(Testing.synth(stack)).toMatchSnapshot();
 });
 
+test('printed yaml is alphabetical', () => {
+  const app = Testing.app();
+  const stack = new Chart(app, 'test');
+
+  // Object keys in random order
+  new ApiObject(stack, 'my-resource', {
+    kind: 'MyResource',
+    apiVersion: 'v1',
+    spec: {
+      secondProperty: {
+        innerThirdProperty: '!',
+        beforeThirdProperty: 'world'
+      },
+      firstProperty: 'hello'
+    }
+  });
+
+  // Should match alphabetically-ordered snapshot
+  expect(Testing.synth(stack)).toMatchSnapshot();
+});
+
 test('synthesized resource name is based on path', () => {
   // GIVEN
   const app = Testing.app();

@@ -66,6 +66,7 @@
     "@aws-cdk/core": "^1.27.0",
     "@aws-cdk/cx-api": "^1.27.0",
     "@types/jest": "^25.1.2",
+    "@types/json-stable-stringify": "^1.0.32",
     "@types/node": "13.7.1",
     "@types/yaml": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
@@ -84,10 +85,12 @@
     ]
   },
   "bundledDependencies": [
-    "yaml"
+    "yaml",
+    "json-stable-stringify"
   ],
   "dependencies": {
-    "yaml": "^1.7.2"
+    "yaml": "^1.7.2",
+    "json-stable-stringify": "^1.0.1"
   },
   "peerDependencies": {
     "@aws-cdk/core": "^1.27.0",
