@@ -15,13 +15,6 @@
     "outdir": "dist",
     "versionFormat": "short",
     "targets": {
-      "java": {
-        "package": "org.cdk8s",
-        "maven": {
-          "groupId": "org.cdk8s",
-          "artifactId": "cdk8s"
-        }
-      },
       "python": {
         "distName": "cdk8s",
         "module": "cdk8s"
