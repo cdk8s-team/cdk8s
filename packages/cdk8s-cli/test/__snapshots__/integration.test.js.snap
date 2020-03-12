@@ -9,60 +9,10 @@ Object {
     ],
   },
   "dependencies": Object {
-    "@aws-cdk/core": "*",
     "cdk8s": "*",
+    "constructs": "*",
   },
   "dependencyClosure": Object {
-    "@aws-cdk/core": Object {
-      "targets": Object {
-        "dotnet": Object {
-          "assemblyOriginatorKeyFile": "../../key.snk",
-          "iconUrl": "https://raw.githubusercontent.com/aws/aws-cdk/master/logo/default-256-dark.png",
-          "namespace": "Amazon.CDK",
-          "packageId": "Amazon.CDK",
-          "signAssembly": true,
-        },
-        "java": Object {
-          "maven": Object {
-            "artifactId": "core",
-            "groupId": "software.amazon.awscdk",
-          },
-          "package": "software.amazon.awscdk.core",
-        },
-        "js": Object {
-          "npm": "@aws-cdk/core",
-        },
-        "python": Object {
-          "distName": "aws-cdk.core",
-          "module": "aws_cdk.core",
-        },
-      },
-    },
-    "@aws-cdk/cx-api": Object {
-      "targets": Object {
-        "dotnet": Object {
-          "assemblyOriginatorKeyFile": "../../key.snk",
-          "iconUrl": "https://raw.githubusercontent.com/aws/aws-cdk/master/logo/default-256-dark.png",
-          "namespace": "Amazon.CDK.CXAPI",
-          "packageId": "Amazon.CDK.CXAPI",
-          "signAssembly": true,
-        },
-        "java": Object {
-          "maven": Object {
-            "artifactId": "cdk-cx-api",
-            "groupId": "software.amazon.awscdk",
-          },
-          "package": "software.amazon.awscdk.cxapi",
-        },
-        "js": Object {
-          "npm": "@aws-cdk/cx-api",
-        },
-        "python": Object {
-          "distName": "aws-cdk.cx-api",
-          "module": "aws_cdk.cx_api",
-        },
-      },
-    },
     "cdk8s": Object {
       "targets": Object {
         "dotnet": Object {
@@ -85,9 +35,24 @@ Object {
         },
       },
     },
+    "constructs": Object {
+      "targets": Object {
+        "dotnet": Object {
+          "namespace": "Constructs",
+          "packageId": "Constructs",
+        },
+        "js": Object {
+          "npm": "constructs",
+        },
+        "python": Object {
+          "distName": "constructs",
+          "module": "constructs",
+        },
+      },
+    },
   },
   "description": "dummy",
-  "fingerprint": "HD4O8JPi7/yzcp+ASh//v9CjPwF8WUUjrfUevSbCO9A=",
+  "fingerprint": "elAVgR8oreJshystq06BZFvtbQtEyIzpFc0pQuhfBqk=",
   "homepage": "http://repo",
   "jsiiVersion": "1.0.0 (build eb2db9d)",
   "license": "Apache-2.0",
