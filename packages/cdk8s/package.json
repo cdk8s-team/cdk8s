@@ -44,7 +44,9 @@
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
-    "plugins": [ "@typescript-eslint" ],
+    "plugins": [
+      "@typescript-eslint"
+    ],
     "extends": [
       "eslint:recommended",
       "plugin:@typescript-eslint/eslint-recommended",
@@ -60,16 +62,16 @@
       "dist",
       "coverage"
     ]
-  },  
+  },
   "license": "Apache-2.0",
   "devDependencies": {
-    "constructs": "^1.1.1",
     "@types/jest": "^25.1.2",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/node": "13.7.1",
     "@types/yaml": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
+    "constructs": "1.1.2",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "jsii": "^0.22.0",
@@ -88,11 +90,11 @@
     "json-stable-stringify"
   ],
   "dependencies": {
-    "yaml": "^1.7.2",
-    "json-stable-stringify": "^1.0.1"
+    "json-stable-stringify": "^1.0.1",
+    "yaml": "^1.7.2"
   },
   "peerDependencies": {
-    "constructs": "^1.1.1"
+    "constructs": "^1.1.2"
   },
   "stability": "experimental"
 }
