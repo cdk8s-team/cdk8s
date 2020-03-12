@@ -2220,10 +2220,10 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-1.1.0.tgz#7f4c6cdeba9a53c6e708acf8a777244a3c627b02"
-  integrity sha512-7zB9YuUJhTrnrpG6AC006wPrLKAG4mwQzb9t6f/f0+wlhfyMBoojrTgumlp6Y7EgykgSPt2ljnW4lh+PJa5ulA==
+constructs@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/constructs/-/constructs-1.1.1.tgz#1f6f287c07e286f485dc6cad53e2b7da65054d1e"
+  integrity sha512-VeiOqn8fB0rU5zybEdBsJSpqInvxt7TY+2AGopTiZxPLzWVBQ2Qn+o5SfVo7+HjQY4Ih6c4F0mDRX2wVFfnH6A==
 
 conventional-changelog-angular@^5.0.3, conventional-changelog-angular@^5.0.6:
   version "5.0.6"
