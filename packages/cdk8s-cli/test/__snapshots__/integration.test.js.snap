@@ -41,6 +41,13 @@ Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
         },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs",
+            "groupId": "software.constructs",
+          },
+          "package": "software.constructs",
+        },
         "js": Object {
           "npm": "constructs",
         },
@@ -52,7 +59,7 @@ Object {
     },
   },
   "description": "dummy",
-  "fingerprint": "Q33oI6HoRsPB9b/Hu8UaD8VZu09C9b6rqQ93vvoqwdM=",
+  "fingerprint": "02qDFQuQxqgtGjmgucEax930KzBBkKO6ZRnrWzbVjHo=",
   "homepage": "http://repo",
   "jsiiVersion": "0.22.0 (build 14afdde)",
   "license": "Apache-2.0",
