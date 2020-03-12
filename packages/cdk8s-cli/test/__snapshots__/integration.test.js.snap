@@ -87,9 +87,9 @@ Object {
     },
   },
   "description": "dummy",
-  "fingerprint": "HD4O8JPi7/yzcp+ASh//v9CjPwF8WUUjrfUevSbCO9A=",
+  "fingerprint": "x9MKEvQhXUWZn4wUbWuapgOUz/7jFDJHiOKmDGti2Wg=",
   "homepage": "http://repo",
-  "jsiiVersion": "1.0.0 (build eb2db9d)",
+  "jsiiVersion": "0.22.0 (build 14afdde)",
   "license": "Apache-2.0",
   "name": "dummy",
   "repository": Object {
