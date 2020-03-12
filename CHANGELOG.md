@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/awslabs/cdk8s/compare/v0.14.0...v0.15.0) (2020-03-12)
+
+
+### Features
+
+* default chart namespaces ([#68](https://github.com/awslabs/cdk8s/issues/68)) ([36b9ff1](https://github.com/awslabs/cdk8s/commit/36b9ff1b32699da894eae085c809c2399ac9b837))
+* peer-depend on "constructs" instead of "@aws-cdk/core" ([#66](https://github.com/awslabs/cdk8s/issues/66)) ([c336c95](https://github.com/awslabs/cdk8s/commit/c336c95f4e4355f94abe66d2839ccbb26d4f15b8))
+* sort keys of ApiObject manifests ([#67](https://github.com/awslabs/cdk8s/issues/67)) ([1fe89bd](https://github.com/awslabs/cdk8s/commit/1fe89bd7355d48c99c35be7d4429b1095529dc7f)), closes [#17](https://github.com/awslabs/cdk8s/issues/17)
+
 ## [0.14.0](https://github.com/awslabs/cdk8s/compare/v0.13.1...v0.14.0) (2020-03-10)
 
 
