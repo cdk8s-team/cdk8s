@@ -3,14 +3,14 @@
 # See more: https://docs.bazel.build/versions/master/guide.html#where-are-the-bazelrc-files
 
 # Print all enabled Bazel flags in CI mode. This makes it easier to debug and reproduce
-# Bazel issues that show up on CircleCI.
+# Bazel issues that show up on GitHub Actions.
 common --announce_rc
 
-# Save downloaded repositories in a location that can be cached by CircleCI. This helps us
+# Save downloaded repositories in a location that can be cached by GitHub Actions. This helps us
 # speeding up the analysis time significantly with Bazel managed node dependencies on the CI.
 build --repository_cache=$HOME/bazel_repository_cache
 
 # Workaround https://github.com/bazelbuild/bazel/issues/3645. Bazel doesn't calculate the
 # memory ceiling correctly when running under Docker.
-build --local_ram_resources=6145
+build --local_ram_resources=7168
 build --local_cpu_resources=2

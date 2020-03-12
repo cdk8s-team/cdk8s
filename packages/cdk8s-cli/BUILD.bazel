@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("//:packages.bzl", "CDK_PACKAGE_VERSION", "JSII_PACKAGE_VERSION")
+load("//:packages.bzl", "CONSTRUCTS_PACKAGE_VERSION", "JSII_PACKAGE_VERSION")
 load("@build_bazel_rules_nodejs//:index.bzl", "copy_to_bin")
 load("//tools:defaults.bzl", "jest_test", "package_json", "pkg_npm", "ts_library")
 
@@ -15,11 +15,10 @@ package_json(
     desc = "CDK for Kubernetes CLI",
     experimental = True,
     deps = {
-        "@aws-cdk/core": CDK_PACKAGE_VERSION,
-        "@aws-cdk/cx-api": CDK_PACKAGE_VERSION,
         "@types/node": "13.7.0",
         "cdk8s": "0.0.0-PLACEHOLDER",
         "codemaker": "^0.22.0",
+        "constructs": CONSTRUCTS_PACKAGE_VERSION,
         "fs-extra": "^8.1.0",
         "jsii": JSII_PACKAGE_VERSION,
         "jsii-pacmak": JSII_PACKAGE_VERSION,
@@ -41,12 +40,12 @@ ts_library(
     module_name = MODULE_NAME,
     deps = [
         "//packages/cdk8s:lib",
-        "@npm//@aws-cdk/core",
         "@npm//@types/fs-extra",
         "@npm//@types/json-schema",
         "@npm//@types/yaml",
         "@npm//@types/yargs",
         "@npm//codemaker",
+        "@npm//constructs",
         "@npm//sscaff",
     ],
 )
@@ -59,6 +58,7 @@ ts_library(
         ":cdk8s_cli",
         "@npm//@types/fs-extra",
         "@npm//@types/json-schema",
+        "@npm//@types/yaml",
         "@npm//codemaker",
     ],
 )
@@ -70,10 +70,9 @@ jest_test(
     deps = [
         ":cdk8s_cli",
         "//packages/cdk8s:lib",
-        "@npm//@aws-cdk/core",
         "@npm//codemaker",
+        "@npm//constructs",
         "@npm//jsii",
-        "@npm//tslib",
     ],
 )
 

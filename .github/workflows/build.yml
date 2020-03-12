@@ -14,7 +14,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
       - name: Cache Bazel
         uses: actions/cache@v1
@@ -46,3 +46,7 @@ jobs:
         run: yarn package
       - name: integration tests
         run: yarn integration
+      - uses: actions/upload-artifact@v1
+        with:
+          name: Bundles
+          path: dist

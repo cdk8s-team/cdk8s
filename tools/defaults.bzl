@@ -108,7 +108,7 @@ def cdk8s_example(name, entry, include = None, language = "typescript", disable_
             ),
             deps = [
                 "//packages/cdk8s:lib",
-                "@npm//@aws-cdk/core",
+                "@npm//constructs",
             ],
         )
 

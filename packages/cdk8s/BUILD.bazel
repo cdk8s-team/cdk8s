@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("//:packages.bzl", "CDK_PACKAGE_VERSION")
+load("//:packages.bzl", "CONSTRUCTS_PACKAGE_VERSION")
 load("//tools:defaults.bzl", "jest_test", "jsii_library", "jsii_package", "package_json", "ts_library")
 
 MODULE_NAME = "cdk8s"
@@ -32,8 +32,7 @@ package_json(
     experimental = True,
     jsii_targets = JSII_TARGETS,
     peer_deps = {
-        "@aws-cdk/core": CDK_PACKAGE_VERSION,
-        "@aws-cdk/cx-api": CDK_PACKAGE_VERSION,
+        "constructs": CONSTRUCTS_PACKAGE_VERSION,
     },
     deps = {
         "yaml": "^1.7.2",
@@ -49,9 +48,10 @@ jsii_library(
     module_name = MODULE_NAME,
     package_json = ":package_json",
     deps = [
-        "@npm//@aws-cdk/core",
+        "@npm//@types/json-stable-stringify",
         "@npm//@types/node",
         "@npm//@types/yaml",
+        "@npm//constructs",
     ],
 )
 
@@ -61,8 +61,8 @@ ts_library(
     srcs = glob(["test/**/*.ts"]),
     deps = [
         ":lib",
-        "@npm//@aws-cdk/core",
         "@npm//@types/yaml",
+        "@npm//constructs",
         "@npm//yaml",
     ],
 )
@@ -73,7 +73,7 @@ jest_test(
     lib = ":tests",
     deps = [
         ":lib",
-        "@npm//@aws-cdk/core",
+        "@npm//constructs",
         "@npm//tslib",
         "@npm//yaml",
     ],
@@ -93,9 +93,9 @@ jsii_package(
         "@npm//yaml",
     ],
     package_json = ":package_json",
-    tags = ["release"],
+    tags = ["release", "manual"],
     deps = [
         ":lib",
-        "@npm//@aws-cdk/core",
+        "@npm//constructs",
     ],
 )
