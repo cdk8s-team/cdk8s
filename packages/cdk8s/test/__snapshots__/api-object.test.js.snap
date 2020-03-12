@@ -57,6 +57,25 @@ Array [
 ]
 `;
 
+exports[`printed yaml is alphabetical 1`] = `
+Array [
+  Object {
+    "apiVersion": "v1",
+    "kind": "MyResource",
+    "metadata": Object {
+      "name": "test-my-resource-2998ce93",
+    },
+    "spec": Object {
+      "firstProperty": "hello",
+      "secondProperty": Object {
+        "beforeThirdProperty": "world",
+        "innerThirdProperty": "!",
+      },
+    },
+  },
+]
+`;
+
 exports[`synthesized resource name is based on path 1`] = `
 Array [
   Object {
