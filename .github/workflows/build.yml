@@ -9,6 +9,27 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Cache Bazel
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-bazelisk
+        with:
+          path: ~/.cache/bazelisk
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/.bazelversion') }}
+      - name: Cache Bazel Artifacts
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-bazel-artifacts
+        with:
+          path: ~/bazel_repository_cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
       - name: installing dependencies
         run: |
           pip3 install pipenv

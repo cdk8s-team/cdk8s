@@ -6,6 +6,10 @@
 # Bazel issues that show up on CircleCI.
 common --announce_rc
 
+# Save downloaded repositories in a location that can be cached by CircleCI. This helps us
+# speeding up the analysis time significantly with Bazel managed node dependencies on the CI.
+build --repository_cache=$HOME/bazel_repository_cache
+
 # Workaround https://github.com/bazelbuild/bazel/issues/3645. Bazel doesn't calculate the
 # memory ceiling correctly when running under Docker.
 build --local_ram_resources=6145
