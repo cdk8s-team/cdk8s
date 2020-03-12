@@ -76,7 +76,6 @@
     "jsii": "^0.22.0",
     "jsii-pacmak": "^0.22.0",
     "json-schema-to-typescript": "^8.0.1",
-    "json-stable-stringify": "^1.0.1",
     "typescript": "^3.7.5"
   },
   "jest": {
@@ -86,10 +85,12 @@
     ]
   },
   "bundledDependencies": [
-    "yaml"
+    "yaml",
+    "json-stable-stringify"
   ],
   "dependencies": {
-    "yaml": "^1.7.2"
+    "yaml": "^1.7.2",
+    "json-stable-stringify": "^1.0.1"
   },
   "peerDependencies": {
     "@aws-cdk/core": "^1.27.0",
