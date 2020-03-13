@@ -51,7 +51,7 @@ $ npm run watch
 At this point, if you open `main.ts` you will see something like this:
 
 ```ts
-import { Construct } from '@aws-cdk/core';
+import { Construct } from 'constructs';
 import { Chart, App } from 'cdk8s';
 
 class MyChart extends Chart {
@@ -106,7 +106,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 [hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) project.
 
 ```ts
-import { Construct } from '@aws-cdk/core';
+import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
 
 // imported constructs
@@ -245,7 +245,7 @@ To implement `WebService`, create a file `lib/web-service.ts` (the convention is
 to use `lib` for reusable components):
 
 ```ts
-import { Construct } from '@aws-cdk/core';
+import { Construct, Node } from 'constructs';
 import { Deployment, Service, IntOrString } from './imports/k8s';
 
 export interface WebServiceOptions {
@@ -320,7 +320,7 @@ Now, let's edit `main.ts` and use our new construct:
 
 ```ts
 import { Chart } from 'cdk8s';
-import { Construct } from '@aws-cdk/core';
+import { Construct } from 'constructs';
 import { WebService } from './lib/web-service';
 
 export class MyChart extends Chart {
