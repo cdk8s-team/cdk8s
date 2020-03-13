@@ -39,7 +39,7 @@ At this point, if you open `main.py` you will see something like this:
 
 ```python
 #!/usr/bin/env python
-from aws_cdk.core import Construct
+from constructs import Construct
 from cdk8s import App, Chart
 
 class MyChart(Chart):
@@ -97,7 +97,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
 ```python
 #!/usr/bin/env python
-from aws_cdk.core import Construct
+from constructs import Construct
 from cdk8s import App, Chart
 
 from imports import k8s
@@ -222,7 +222,7 @@ WebService(self, 'hello-k8s',
 To implement `WebService`, create a file `webservice.py` with the following content:
 
 ```python
-from aws_cdk.core import Construct
+from constructs import Construct, Node
 
 import typing
 from imports import k8s
@@ -236,7 +236,7 @@ class WebService(Construct):
                  container_port: typing.Optional[int] = 8080):
         super().__init__(scope, ns)
 
-        label = {'app': self.node.unique_id}
+        label = {'app': Node.of(self).unique_id}
 
         k8s.Service(self, 'service',
                     spec=k8s.ServiceSpec(
@@ -262,7 +262,7 @@ Now, let's edit `main.py` and use our new construct:
 
 ```python
 #!/usr/bin/env python
-from aws_cdk.core import Construct
+from constructs import Construct
 from cdk8s import App, Chart
 
 from webservice import WebService
