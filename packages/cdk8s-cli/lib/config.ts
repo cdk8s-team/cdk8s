@@ -1,6 +1,6 @@
-import { Language } from "./import";
 import * as yaml from 'yaml';
 import * as fs from 'fs-extra';
+import { Language } from './import/base';
 
 const CONFIG_FILE = 'cdk8s.yaml';
 

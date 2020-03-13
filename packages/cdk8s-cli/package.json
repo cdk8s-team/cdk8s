@@ -10,7 +10,8 @@
     "watch": "tsc -w",
     "lint": "eslint . --ext .ts",
     "test": "jest && yarn lint",
-    "package": "./package.sh"
+    "package": "./package.sh",
+    "integ": "./test/run-against-dist ./test/test-all.sh"
   },
   "repository": {
     "type": "git",

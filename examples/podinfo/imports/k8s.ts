@@ -2,7 +2,6 @@
 import { ApiObject } from 'cdk8s';
 import { Construct } from 'constructs';
 
-
 /**
  * MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
  *
@@ -23,7 +22,6 @@ export class MutatingWebhookConfiguration extends ApiObject {
     });
   }
 }
-
 
 /**
  * MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
@@ -46,7 +44,6 @@ export class MutatingWebhookConfigurationList extends ApiObject {
   }
 }
 
-
 /**
  * ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
  *
@@ -67,7 +64,6 @@ export class ValidatingWebhookConfiguration extends ApiObject {
     });
   }
 }
-
 
 /**
  * ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
@@ -90,7 +86,6 @@ export class ValidatingWebhookConfigurationList extends ApiObject {
   }
 }
 
-
 /**
  * ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
  *
@@ -111,7 +106,6 @@ export class ControllerRevision extends ApiObject {
     });
   }
 }
-
 
 /**
  * ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -134,7 +128,6 @@ export class ControllerRevisionList extends ApiObject {
   }
 }
 
-
 /**
  * DaemonSet represents the configuration of a daemon set.
  *
@@ -155,7 +148,6 @@ export class DaemonSet extends ApiObject {
     });
   }
 }
-
 
 /**
  * DaemonSetList is a collection of daemon sets.
@@ -178,7 +170,6 @@ export class DaemonSetList extends ApiObject {
   }
 }
 
-
 /**
  * Deployment enables declarative updates for Pods and ReplicaSets.
  *
@@ -199,7 +190,6 @@ export class Deployment extends ApiObject {
     });
   }
 }
-
 
 /**
  * DeploymentList is a list of Deployments.
@@ -222,7 +212,6 @@ export class DeploymentList extends ApiObject {
   }
 }
 
-
 /**
  * ReplicaSet ensures that a specified number of pod replicas are running at any given time.
  *
@@ -244,7 +233,6 @@ export class ReplicaSet extends ApiObject {
   }
 }
 
-
 /**
  * ReplicaSetList is a collection of ReplicaSets.
  *
@@ -265,7 +253,6 @@ export class ReplicaSetList extends ApiObject {
     });
   }
 }
-
 
 /**
  * StatefulSet represents a set of pods with consistent identities. Identities are defined as:
@@ -291,7 +278,6 @@ export class StatefulSet extends ApiObject {
   }
 }
 
-
 /**
  * StatefulSetList is a collection of StatefulSets.
  *
@@ -312,7 +298,6 @@ export class StatefulSetList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Scale represents a scaling request for a resource.
@@ -335,7 +320,6 @@ export class Scale extends ApiObject {
   }
 }
 
-
 /**
  * AuditSink represents a cluster level audit sink
  *
@@ -356,7 +340,6 @@ export class AuditSink extends ApiObject {
     });
   }
 }
-
 
 /**
  * AuditSinkList is a list of AuditSink items.
@@ -379,7 +362,6 @@ export class AuditSinkList extends ApiObject {
   }
 }
 
-
 /**
  * TokenReview attempts to authenticate a token to a known user. Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
  *
@@ -400,7 +382,6 @@ export class TokenReview extends ApiObject {
     });
   }
 }
-
 
 /**
  * LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace. Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.
@@ -423,7 +404,6 @@ export class LocalSubjectAccessReview extends ApiObject {
   }
 }
 
-
 /**
  * SelfSubjectAccessReview checks whether or the current user can perform an action.  Not filling in a spec.namespace means "in all namespaces".  Self is a special case, because users should always be able to check whether they can perform an action
  *
@@ -444,7 +424,6 @@ export class SelfSubjectAccessReview extends ApiObject {
     });
   }
 }
-
 
 /**
  * SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace. The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
@@ -467,7 +446,6 @@ export class SelfSubjectRulesReview extends ApiObject {
   }
 }
 
-
 /**
  * SubjectAccessReview checks whether or not a user or group can perform an action.
  *
@@ -488,7 +466,6 @@ export class SubjectAccessReview extends ApiObject {
     });
   }
 }
-
 
 /**
  * HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
@@ -511,7 +488,6 @@ export class HorizontalPodAutoscaler extends ApiObject {
   }
 }
 
-
 /**
  * list of horizontal pod autoscaler objects.
  *
@@ -532,7 +508,6 @@ export class HorizontalPodAutoscalerList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Job represents the configuration of a single job.
@@ -555,7 +530,6 @@ export class Job extends ApiObject {
   }
 }
 
-
 /**
  * JobList is a collection of jobs.
  *
@@ -576,7 +550,6 @@ export class JobList extends ApiObject {
     });
   }
 }
-
 
 /**
  * CronJob represents the configuration of a single cron job.
@@ -599,7 +572,6 @@ export class CronJob extends ApiObject {
   }
 }
 
-
 /**
  * CronJobList is a collection of cron jobs.
  *
@@ -620,7 +592,6 @@ export class CronJobList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Describes a certificate signing request
@@ -643,7 +614,6 @@ export class CertificateSigningRequest extends ApiObject {
   }
 }
 
-
 /**
  * undefined
  *
@@ -664,7 +634,6 @@ export class CertificateSigningRequestList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Lease defines a lease concept.
@@ -687,7 +656,6 @@ export class Lease extends ApiObject {
   }
 }
 
-
 /**
  * LeaseList is a list of Lease objects.
  *
@@ -708,7 +676,6 @@ export class LeaseList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Binding ties one object to another; for example, a pod is bound to a node by a scheduler. Deprecated in 1.7, please use the bindings subresource of pods instead.
@@ -731,7 +698,6 @@ export class Binding extends ApiObject {
   }
 }
 
-
 /**
  * ComponentStatus (and ComponentStatusList) holds the cluster validation info.
  *
@@ -752,7 +718,6 @@ export class ComponentStatus extends ApiObject {
     });
   }
 }
-
 
 /**
  * Status of all the conditions for the component as a list of ComponentStatus objects.
@@ -775,7 +740,6 @@ export class ComponentStatusList extends ApiObject {
   }
 }
 
-
 /**
  * ConfigMap holds configuration data for pods to consume.
  *
@@ -797,7 +761,6 @@ export class ConfigMap extends ApiObject {
   }
 }
 
-
 /**
  * ConfigMapList is a resource containing a list of ConfigMap objects.
  *
@@ -818,7 +781,6 @@ export class ConfigMapList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Endpoints is a collection of endpoints that implement the actual service. Example:
@@ -852,7 +814,6 @@ export class Endpoints extends ApiObject {
   }
 }
 
-
 /**
  * EndpointsList is a list of endpoints.
  *
@@ -873,7 +834,6 @@ export class EndpointsList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Event is a report of an event somewhere in the cluster.
@@ -896,7 +856,6 @@ export class Event extends ApiObject {
   }
 }
 
-
 /**
  * EventList is a list of events.
  *
@@ -917,7 +876,6 @@ export class EventList extends ApiObject {
     });
   }
 }
-
 
 /**
  * LimitRange sets resource usage limits for each kind of resource in a Namespace.
@@ -940,7 +898,6 @@ export class LimitRange extends ApiObject {
   }
 }
 
-
 /**
  * LimitRangeList is a list of LimitRange items.
  *
@@ -961,7 +918,6 @@ export class LimitRangeList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Namespace provides a scope for Names. Use of multiple namespaces is optional.
@@ -984,7 +940,6 @@ export class Namespace extends ApiObject {
   }
 }
 
-
 /**
  * NamespaceList is a list of Namespaces.
  *
@@ -1005,7 +960,6 @@ export class NamespaceList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Node is a worker node in Kubernetes. Each node will have a unique identifier in the cache (i.e. in etcd).
@@ -1028,7 +982,6 @@ export class Node extends ApiObject {
   }
 }
 
-
 /**
  * NodeList is the whole list of all Nodes which have been registered with master.
  *
@@ -1049,7 +1002,6 @@ export class NodeList extends ApiObject {
     });
   }
 }
-
 
 /**
  * PersistentVolume (PV) is a storage resource provisioned by an administrator. It is analogous to a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
@@ -1072,7 +1024,6 @@ export class PersistentVolume extends ApiObject {
   }
 }
 
-
 /**
  * PersistentVolumeClaim is a user's request for and claim to a persistent volume
  *
@@ -1093,7 +1044,6 @@ export class PersistentVolumeClaim extends ApiObject {
     });
   }
 }
-
 
 /**
  * PersistentVolumeClaimList is a list of PersistentVolumeClaim items.
@@ -1116,7 +1066,6 @@ export class PersistentVolumeClaimList extends ApiObject {
   }
 }
 
-
 /**
  * PersistentVolumeList is a list of PersistentVolume items.
  *
@@ -1137,7 +1086,6 @@ export class PersistentVolumeList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Pod is a collection of containers that can run on a host. This resource is created by clients and scheduled onto hosts.
@@ -1160,7 +1108,6 @@ export class Pod extends ApiObject {
   }
 }
 
-
 /**
  * PodList is a list of Pods.
  *
@@ -1181,7 +1128,6 @@ export class PodList extends ApiObject {
     });
   }
 }
-
 
 /**
  * PodTemplate describes a template for creating copies of a predefined pod.
@@ -1204,7 +1150,6 @@ export class PodTemplate extends ApiObject {
   }
 }
 
-
 /**
  * PodTemplateList is a list of PodTemplates.
  *
@@ -1225,7 +1170,6 @@ export class PodTemplateList extends ApiObject {
     });
   }
 }
-
 
 /**
  * ReplicationController represents the configuration of a replication controller.
@@ -1248,7 +1192,6 @@ export class ReplicationController extends ApiObject {
   }
 }
 
-
 /**
  * ReplicationControllerList is a collection of replication controllers.
  *
@@ -1269,7 +1212,6 @@ export class ReplicationControllerList extends ApiObject {
     });
   }
 }
-
 
 /**
  * ResourceQuota sets aggregate quota restrictions enforced per namespace
@@ -1292,7 +1234,6 @@ export class ResourceQuota extends ApiObject {
   }
 }
 
-
 /**
  * ResourceQuotaList is a list of ResourceQuota items.
  *
@@ -1313,7 +1254,6 @@ export class ResourceQuotaList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Secret holds secret data of a certain type. The total bytes of the values in the Data field must be less than MaxSecretSize bytes.
@@ -1336,7 +1276,6 @@ export class Secret extends ApiObject {
   }
 }
 
-
 /**
  * SecretList is a list of Secret.
  *
@@ -1357,7 +1296,6 @@ export class SecretList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
@@ -1380,7 +1318,6 @@ export class Service extends ApiObject {
   }
 }
 
-
 /**
  * ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets
  *
@@ -1401,7 +1338,6 @@ export class ServiceAccount extends ApiObject {
     });
   }
 }
-
 
 /**
  * ServiceAccountList is a list of ServiceAccount objects
@@ -1424,7 +1360,6 @@ export class ServiceAccountList extends ApiObject {
   }
 }
 
-
 /**
  * ServiceList holds a list of services.
  *
@@ -1445,7 +1380,6 @@ export class ServiceList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend. An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
@@ -1468,7 +1402,6 @@ export class Ingress extends ApiObject {
   }
 }
 
-
 /**
  * IngressList is a collection of Ingress.
  *
@@ -1489,7 +1422,6 @@ export class IngressList extends ApiObject {
     });
   }
 }
-
 
 /**
  * NetworkPolicy describes what network traffic is allowed for a set of Pods
@@ -1512,7 +1444,6 @@ export class NetworkPolicy extends ApiObject {
   }
 }
 
-
 /**
  * NetworkPolicyList is a list of NetworkPolicy objects.
  *
@@ -1533,7 +1464,6 @@ export class NetworkPolicyList extends ApiObject {
     });
   }
 }
-
 
 /**
  * PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
@@ -1556,7 +1486,6 @@ export class PodSecurityPolicy extends ApiObject {
   }
 }
 
-
 /**
  * PodSecurityPolicyList is a list of PodSecurityPolicy objects.
  *
@@ -1577,7 +1506,6 @@ export class PodSecurityPolicyList extends ApiObject {
     });
   }
 }
-
 
 /**
  * RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
@@ -1600,7 +1528,6 @@ export class RuntimeClass extends ApiObject {
   }
 }
 
-
 /**
  * RuntimeClassList is a list of RuntimeClass objects.
  *
@@ -1621,7 +1548,6 @@ export class RuntimeClassList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/<pod name>/evictions.
@@ -1644,7 +1570,6 @@ export class Eviction extends ApiObject {
   }
 }
 
-
 /**
  * PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods
  *
@@ -1665,7 +1590,6 @@ export class PodDisruptionBudget extends ApiObject {
     });
   }
 }
-
 
 /**
  * PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
@@ -1688,7 +1612,6 @@ export class PodDisruptionBudgetList extends ApiObject {
   }
 }
 
-
 /**
  * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
  *
@@ -1709,7 +1632,6 @@ export class ClusterRole extends ApiObject {
     });
   }
 }
-
 
 /**
  * ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject.
@@ -1732,7 +1654,6 @@ export class ClusterRoleBinding extends ApiObject {
   }
 }
 
-
 /**
  * ClusterRoleBindingList is a collection of ClusterRoleBindings
  *
@@ -1753,7 +1674,6 @@ export class ClusterRoleBindingList extends ApiObject {
     });
   }
 }
-
 
 /**
  * ClusterRoleList is a collection of ClusterRoles
@@ -1776,7 +1696,6 @@ export class ClusterRoleList extends ApiObject {
   }
 }
 
-
 /**
  * Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
  *
@@ -1797,7 +1716,6 @@ export class Role extends ApiObject {
     });
   }
 }
-
 
 /**
  * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.
@@ -1820,7 +1738,6 @@ export class RoleBinding extends ApiObject {
   }
 }
 
-
 /**
  * RoleBindingList is a collection of RoleBindings
  *
@@ -1841,7 +1758,6 @@ export class RoleBindingList extends ApiObject {
     });
   }
 }
-
 
 /**
  * RoleList is a collection of Roles
@@ -1864,7 +1780,6 @@ export class RoleList extends ApiObject {
   }
 }
 
-
 /**
  * PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
  *
@@ -1885,7 +1800,6 @@ export class PriorityClass extends ApiObject {
     });
   }
 }
-
 
 /**
  * PriorityClassList is a collection of priority classes.
@@ -1908,7 +1822,6 @@ export class PriorityClassList extends ApiObject {
   }
 }
 
-
 /**
  * PodPreset is a policy resource that defines additional runtime requirements for a Pod.
  *
@@ -1930,7 +1843,6 @@ export class PodPreset extends ApiObject {
   }
 }
 
-
 /**
  * PodPresetList is a list of PodPreset objects.
  *
@@ -1951,7 +1863,6 @@ export class PodPresetList extends ApiObject {
     });
   }
 }
-
 
 /**
  * StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
@@ -1976,7 +1887,6 @@ export class StorageClass extends ApiObject {
   }
 }
 
-
 /**
  * StorageClassList is a collection of storage classes.
  *
@@ -1997,7 +1907,6 @@ export class StorageClassList extends ApiObject {
     });
   }
 }
-
 
 /**
  * VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
@@ -2022,7 +1931,6 @@ export class VolumeAttachment extends ApiObject {
   }
 }
 
-
 /**
  * VolumeAttachmentList is a collection of VolumeAttachment objects.
  *
@@ -2043,7 +1951,6 @@ export class VolumeAttachmentList extends ApiObject {
     });
   }
 }
-
 
 /**
  * CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster. CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
@@ -2066,7 +1973,6 @@ export class CSIDriver extends ApiObject {
   }
 }
 
-
 /**
  * CSIDriverList is a collection of CSIDriver objects.
  *
@@ -2087,7 +1993,6 @@ export class CSIDriverList extends ApiObject {
     });
   }
 }
-
 
 /**
  * CSINode holds information about all CSI drivers installed on a node. CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
@@ -2110,7 +2015,6 @@ export class CSINode extends ApiObject {
   }
 }
 
-
 /**
  * CSINodeList is a collection of CSINode objects.
  *
@@ -2131,7 +2035,6 @@ export class CSINodeList extends ApiObject {
     });
   }
 }
-
 
 /**
  * CustomResourceDefinition represents a resource that should be exposed on the API server.  Its name MUST be in the format <.spec.name>.<.spec.group>.
@@ -2154,7 +2057,6 @@ export class CustomResourceDefinition extends ApiObject {
   }
 }
 
-
 /**
  * CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
  *
@@ -2175,7 +2077,6 @@ export class CustomResourceDefinitionList extends ApiObject {
     });
   }
 }
-
 
 /**
  * Status is a return value for calls that don't return other objects.
@@ -2198,7 +2099,6 @@ export class Status extends ApiObject {
   }
 }
 
-
 /**
  * APIService represents a server for a particular GroupVersion. Name must be "version.group".
  *
@@ -2219,7 +2119,6 @@ export class APIService extends ApiObject {
     });
   }
 }
-
 
 /**
  * APIServiceList is a list of APIService objects.
@@ -2260,7 +2159,7 @@ export interface MutatingWebhookConfigurationOptions {
    *
    * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration#webhooks
    */
-  readonly webhooks?: Webhook[];
+  readonly webhooks?: MutatingWebhook[];
 
 }
 
@@ -2304,7 +2203,7 @@ export interface ValidatingWebhookConfigurationOptions {
    *
    * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration#webhooks
    */
-  readonly webhooks?: Webhook[];
+  readonly webhooks?: ValidatingWebhook[];
 
 }
 
@@ -3125,14 +3024,14 @@ export interface EventOptions {
    *
    * @schema io.k8s.api.core.v1.Event#eventTime
    */
-  readonly eventTime?: MicroTime;
+  readonly eventTime?: Date;
 
   /**
    * The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)
    *
    * @schema io.k8s.api.core.v1.Event#firstTimestamp
    */
-  readonly firstTimestamp?: Time;
+  readonly firstTimestamp?: Date;
 
   /**
    * The object that this event is about.
@@ -3146,7 +3045,7 @@ export interface EventOptions {
    *
    * @schema io.k8s.api.core.v1.Event#lastTimestamp
    */
-  readonly lastTimestamp?: Time;
+  readonly lastTimestamp?: Date;
 
   /**
    * A human-readable description of the status of this operation.
@@ -4252,6 +4151,14 @@ export interface PriorityClassOptions {
   readonly metadata?: ObjectMeta;
 
   /**
+   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+   *
+   * @default PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+   * @schema io.k8s.api.scheduling.v1.PriorityClass#preemptionPolicy
+   */
+  readonly preemptionPolicy?: string;
+
+  /**
    * The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
    *
    * @schema io.k8s.api.scheduling.v1.PriorityClass#value
@@ -4693,7 +4600,7 @@ Populated by the system. Read-only. Null for lists. More info: https://git.k8s.i
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#creationTimestamp
    */
-  readonly creationTimestamp?: Time;
+  readonly creationTimestamp?: Date;
 
   /**
    * Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
@@ -4709,7 +4616,7 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#deletionTimestamp
    */
-  readonly deletionTimestamp?: Time;
+  readonly deletionTimestamp?: Date;
 
   /**
    * Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed.
@@ -4814,23 +4721,23 @@ Populated by the system. Read-only. More info: http://kubernetes.io/docs/user-gu
 }
 
 /**
- * Webhook describes an admission webhook and the resources and operations it applies to.
+ * MutatingWebhook describes an admission webhook and the resources and operations it applies to.
  *
- * @schema io.k8s.api.admissionregistration.v1beta1.Webhook
+ * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook
  */
-export interface Webhook {
+export interface MutatingWebhook {
   /**
    * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to `['v1beta1']`.
    *
    * @default v1beta1']`.
-   * @schema io.k8s.api.admissionregistration.v1beta1.Webhook#admissionReviewVersions
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#admissionReviewVersions
    */
   readonly admissionReviewVersions?: string[];
 
   /**
    * ClientConfig defines how to communicate with the hook. Required
    *
-   * @schema io.k8s.api.admissionregistration.v1beta1.Webhook#clientConfig
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#clientConfig
    */
   readonly clientConfig: WebhookClientConfig;
 
@@ -4838,14 +4745,28 @@ export interface Webhook {
    * FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Ignore.
    *
    * @default Ignore.
-   * @schema io.k8s.api.admissionregistration.v1beta1.Webhook#failurePolicy
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#failurePolicy
    */
   readonly failurePolicy?: string;
 
   /**
+   * matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent".
+
+- Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+
+- Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+
+Defaults to "Exact"
+   *
+   * @default Exact"
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#matchPolicy
+   */
+  readonly matchPolicy?: string;
+
+  /**
    * The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
    *
-   * @schema io.k8s.api.admissionregistration.v1beta1.Webhook#name
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#name
    */
   readonly name: string;
 
@@ -4883,14 +4804,36 @@ See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ fo
 Default to the empty LabelSelector, which matches everything.
    *
    * @default the empty LabelSelector, which matches everything.
-   * @schema io.k8s.api.admissionregistration.v1beta1.Webhook#namespaceSelector
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#namespaceSelector
    */
   readonly namespaceSelector?: LabelSelector;
 
   /**
+   * ObjectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.
+   *
+   * @default the empty LabelSelector, which matches everything.
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#objectSelector
+   */
+  readonly objectSelector?: LabelSelector;
+
+  /**
+   * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation. Allowed values are "Never" and "IfNeeded".
+
+Never: the webhook will not be called more than once in a single admission evaluation.
+
+IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation if the object being admitted is modified by other admission plugins after the initial webhook call. Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted. Note: * the number of additional invocations is not guaranteed to be exactly one. * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again. * webhooks that use this option may be reordered to minimize the number of additional invocations. * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+
+Defaults to "Never".
+   *
+   * @default Never".
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#reinvocationPolicy
+   */
+  readonly reinvocationPolicy?: string;
+
+  /**
    * Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
    *
-   * @schema io.k8s.api.admissionregistration.v1beta1.Webhook#rules
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#rules
    */
   readonly rules?: RuleWithOperations[];
 
@@ -4898,7 +4841,7 @@ Default to the empty LabelSelector, which matches everything.
    * SideEffects states whether this webhookk has side effects. Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.
    *
    * @default Unknown.
-   * @schema io.k8s.api.admissionregistration.v1beta1.Webhook#sideEffects
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#sideEffects
    */
   readonly sideEffects?: string;
 
@@ -4906,7 +4849,7 @@ Default to the empty LabelSelector, which matches everything.
    * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.
    *
    * @default 30 seconds.
-   * @schema io.k8s.api.admissionregistration.v1beta1.Webhook#timeoutSeconds
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#timeoutSeconds
    */
   readonly timeoutSeconds?: number;
 
@@ -4926,6 +4869,15 @@ export interface ListMeta {
   readonly continue?: string;
 
   /**
+   * remainingItemCount is the number of subsequent items in the list which are not included in this list response. If the list request contained label or field selectors, then the number of remaining items is unknown and the field will be left unset and omitted during serialization. If the list is complete (either because it is not chunking or because this is the last chunk), then there are no more remaining items and this field will be left unset and omitted during serialization. Servers older than v1.15 do not set this field. The intended use of the remainingItemCount is *estimating* the size of a collection. Clients should not rely on the remainingItemCount to be set or to be exact.
+
+This field is alpha and can be changed or removed without notice.
+   *
+   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta#remainingItemCount
+   */
+  readonly remainingItemCount?: number;
+
+  /**
    * String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta#resourceVersion
@@ -4938,6 +4890,127 @@ export interface ListMeta {
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta#selfLink
    */
   readonly selfLink?: string;
+
+}
+
+/**
+ * ValidatingWebhook describes an admission webhook and the resources and operations it applies to.
+ *
+ * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook
+ */
+export interface ValidatingWebhook {
+  /**
+   * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to `['v1beta1']`.
+   *
+   * @default v1beta1']`.
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#admissionReviewVersions
+   */
+  readonly admissionReviewVersions?: string[];
+
+  /**
+   * ClientConfig defines how to communicate with the hook. Required
+   *
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#clientConfig
+   */
+  readonly clientConfig: WebhookClientConfig;
+
+  /**
+   * FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Ignore.
+   *
+   * @default Ignore.
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#failurePolicy
+   */
+  readonly failurePolicy?: string;
+
+  /**
+   * matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent".
+
+- Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+
+- Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+
+Defaults to "Exact"
+   *
+   * @default Exact"
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#matchPolicy
+   */
+  readonly matchPolicy?: string;
+
+  /**
+   * The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
+   *
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#name
+   */
+  readonly name: string;
+
+  /**
+   * NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.
+
+For example, to run the webhook on any objects whose namespace is not associated with "runlevel" of "0" or "1";  you will set the selector as follows: "namespaceSelector": {
+  "matchExpressions": [
+    {
+      "key": "runlevel",
+      "operator": "NotIn",
+      "values": [
+        "0",
+        "1"
+      ]
+    }
+  ]
+}
+
+If instead you want to only run the webhook on any objects whose namespace is associated with the "environment" of "prod" or "staging"; you will set the selector as follows: "namespaceSelector": {
+  "matchExpressions": [
+    {
+      "key": "environment",
+      "operator": "In",
+      "values": [
+        "prod",
+        "staging"
+      ]
+    }
+  ]
+}
+
+See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors.
+
+Default to the empty LabelSelector, which matches everything.
+   *
+   * @default the empty LabelSelector, which matches everything.
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#namespaceSelector
+   */
+  readonly namespaceSelector?: LabelSelector;
+
+  /**
+   * ObjectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.
+   *
+   * @default the empty LabelSelector, which matches everything.
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#objectSelector
+   */
+  readonly objectSelector?: LabelSelector;
+
+  /**
+   * Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+   *
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#rules
+   */
+  readonly rules?: RuleWithOperations[];
+
+  /**
+   * SideEffects states whether this webhookk has side effects. Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.
+   *
+   * @default Unknown.
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#sideEffects
+   */
+  readonly sideEffects?: string;
+
+  /**
+   * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.
+   *
+   * @default 30 seconds.
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#timeoutSeconds
+   */
+  readonly timeoutSeconds?: number;
 
 }
 
@@ -5565,7 +5638,7 @@ export interface LeaseSpec {
    *
    * @schema io.k8s.api.coordination.v1.LeaseSpec#acquireTime
    */
-  readonly acquireTime?: MicroTime;
+  readonly acquireTime?: Date;
 
   /**
    * holderIdentity contains the identity of the holder of a current lease.
@@ -5593,7 +5666,7 @@ export interface LeaseSpec {
    *
    * @schema io.k8s.api.coordination.v1.LeaseSpec#renewTime
    */
-  readonly renewTime?: MicroTime;
+  readonly renewTime?: Date;
 
 }
 
@@ -5727,20 +5800,6 @@ export interface EndpointSubset {
 }
 
 /**
- * MicroTime is version of Time with microsecond level precision.
- *
- * @schema io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime
- */
-export type MicroTime = Date;
-
-/**
- * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
- *
- * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Time
- */
-export type Time = Date;
-
-/**
  * EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
  *
  * @schema io.k8s.api.core.v1.EventSeries
@@ -5758,10 +5817,10 @@ export interface EventSeries {
    *
    * @schema io.k8s.api.core.v1.EventSeries#lastObservedTime
    */
-  readonly lastObservedTime?: MicroTime;
+  readonly lastObservedTime?: Date;
 
   /**
-   * State of this Series: Ongoing or Finished
+   * State of this Series: Ongoing or Finished Deprecated. Planned removal for 1.18
    *
    * @schema io.k8s.api.core.v1.EventSeries#state
    */
@@ -5987,7 +6046,7 @@ export interface PersistentVolumeSpec {
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#iscsi
    */
-  readonly iscsi?: ISCSIPersistentVolumeSource;
+  readonly iscsi?: IscsiPersistentVolumeSource;
 
   /**
    * Local represents directly-attached storage with node affinity
@@ -6270,6 +6329,14 @@ export interface PodSpec {
   readonly nodeSelector?: { [key: string]: string };
 
   /**
+   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+   *
+   * @default PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+   * @schema io.k8s.api.core.v1.PodSpec#preemptionPolicy
+   */
+  readonly preemptionPolicy?: string;
+
+  /**
    * The priority value. Various system components use this field to find the priority of the pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority.
    *
    * @schema io.k8s.api.core.v1.PodSpec#priority
@@ -6299,7 +6366,7 @@ export interface PodSpec {
   readonly restartPolicy?: string;
 
   /**
-   * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the "legacy" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md This is an alpha feature and may change in the future.
+   * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the "legacy" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md This is a beta feature as of Kubernetes v1.14.
    *
    * @schema io.k8s.api.core.v1.PodSpec#runtimeClassName
    */
@@ -6657,7 +6724,7 @@ export interface PodSecurityPolicySpec {
   readonly allowPrivilegeEscalation?: boolean;
 
   /**
-   * AllowedCSIDrivers is a whitelist of inline CSI drivers that must be explicitly set to be embedded within a pod spec. An empty value means no CSI drivers can run inline within a pod spec.
+   * AllowedCSIDrivers is a whitelist of inline CSI drivers that must be explicitly set to be embedded within a pod spec. An empty value indicates that any CSI driver can be used for inline ephemeral volumes. This is an alpha field, and is only honored if the API server enables the CSIInlineVolume feature gate.
    *
    * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedCSIDrivers
    */
@@ -6792,6 +6859,13 @@ Examples: e.g. "foo/*" forbids "foo/bar", "foo/baz", etc. e.g. "foo.*" forbids "
    * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#runAsUser
    */
   readonly runAsUser: RunAsUserStrategyOptions;
+
+  /**
+   * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod. If this field is omitted, the pod's runtimeClassName field is unrestricted. Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+   *
+   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#runtimeClass
+   */
+  readonly runtimeClass?: RuntimeClassStrategyOptions;
 
   /**
    * seLinux is the strategy that will dictate the allowable labels that may be set.
@@ -7188,6 +7262,14 @@ export interface CustomResourceDefinitionSpec {
   readonly names: CustomResourceDefinitionNames;
 
   /**
+   * preserveUnknownFields disables pruning of object fields which are not specified in the OpenAPI schema. apiVersion, kind, metadata and known fields inside metadata are always preserved. Defaults to true in v1beta and will default to false in v1.
+   *
+   * @default true in v1beta and will default to false in v1.
+   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#preserveUnknownFields
+   */
+  readonly preserveUnknownFields?: boolean;
+
+  /**
    * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
    *
    * @default namespaced
@@ -7372,7 +7454,7 @@ export interface ManagedFieldsEntry {
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#fields
    */
-  readonly fields?: Fields;
+  readonly fields?: any;
 
   /**
    * Manager is an identifier of the workflow managing these fields.
@@ -7393,7 +7475,7 @@ export interface ManagedFieldsEntry {
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#time
    */
-  readonly time?: Time;
+  readonly time?: Date;
 
 }
 
@@ -7465,8 +7547,6 @@ export interface WebhookClientConfig {
    * `service` is a reference to the service for this webhook. Either `service` or `url` must be specified.
 
 If the webhook is running within the cluster, then you should use `service`.
-
-Port 443 will be used if it is open, otherwise it is an error.
    *
    * @schema io.k8s.api.admissionregistration.v1beta1.WebhookClientConfig#service
    */
@@ -7651,6 +7731,28 @@ export interface Policy {
    * @schema io.k8s.api.auditregistration.v1alpha1.Policy#stages
    */
   readonly stages?: string[];
+
+}
+
+/**
+ * Webhook holds the configuration of the webhook
+ *
+ * @schema io.k8s.api.auditregistration.v1alpha1.Webhook
+ */
+export interface Webhook {
+  /**
+   * ClientConfig holds the connection parameters for the webhook required
+   *
+   * @schema io.k8s.api.auditregistration.v1alpha1.Webhook#clientConfig
+   */
+  readonly clientConfig: WebhookClientConfig;
+
+  /**
+   * Throttle holds the options for throttling the webhook
+   *
+   * @schema io.k8s.api.auditregistration.v1alpha1.Webhook#throttle
+   */
+  readonly throttle?: WebhookThrottleConfig;
 
 }
 
@@ -7983,7 +8085,7 @@ export interface Taint {
    *
    * @schema io.k8s.api.core.v1.Taint#timeAdded
    */
-  readonly timeAdded?: Time;
+  readonly timeAdded?: Date;
 
   /**
    * Required. The taint value corresponding to the taint key.
@@ -8123,9 +8225,6 @@ export interface AzureFilePersistentVolumeSource {
 /**
  * @schema io.k8s.apimachinery.pkg.api.resource.Quantity
  */
-/**
- * @schema io.k8s.apimachinery.pkg.api.resource.Quantity
- */
 export class Quantity {
   public static fromString(value: string): Quantity {
     return new Quantity(value);
@@ -8232,6 +8331,13 @@ export interface CinderPersistentVolumeSource {
  * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource
  */
 export interface CSIPersistentVolumeSource {
+  /**
+   * ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+   *
+   * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerExpandSecretRef
+   */
+  readonly controllerExpandSecretRef?: SecretReference;
+
   /**
    * ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
    *
@@ -8505,7 +8611,7 @@ export interface HostPathVolumeSource {
  *
  * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource
  */
-export interface ISCSIPersistentVolumeSource {
+export interface IscsiPersistentVolumeSource {
   /**
    * whether support iSCSI Discovery CHAP authentication
    *
@@ -9356,6 +9462,13 @@ If unset, the Kubelet will not modify the ownership and permissions of any volum
    */
   readonly sysctls?: Sysctl[];
 
+  /**
+   * Windows security options.
+   *
+   * @schema io.k8s.api.core.v1.PodSecurityContext#windowsOptions
+   */
+  readonly windowsOptions?: WindowsSecurityContextOptions;
+
 }
 
 /**
@@ -9525,7 +9638,7 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#iscsi
    */
-  readonly iscsi?: ISCSIVolumeSource;
+  readonly iscsi?: IscsiVolumeSource;
 
   /**
    * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -9867,7 +9980,7 @@ export interface FSGroupStrategyOptions {
    *
    * @schema io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#ranges
    */
-  readonly ranges?: IDRange[];
+  readonly ranges?: IdRange[];
 
   /**
    * rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
@@ -9911,7 +10024,7 @@ export interface RunAsGroupStrategyOptions {
    *
    * @schema io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions#ranges
    */
-  readonly ranges?: IDRange[];
+  readonly ranges?: IdRange[];
 
   /**
    * rule is the strategy that will dictate the allowable RunAsGroup values that may be set.
@@ -9933,7 +10046,7 @@ export interface RunAsUserStrategyOptions {
    *
    * @schema io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions#ranges
    */
-  readonly ranges?: IDRange[];
+  readonly ranges?: IdRange[];
 
   /**
    * rule is the strategy that will dictate the allowable RunAsUser values that may be set.
@@ -9941,6 +10054,28 @@ export interface RunAsUserStrategyOptions {
    * @schema io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions#rule
    */
   readonly rule: string;
+
+}
+
+/**
+ * RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.
+ *
+ * @schema io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions
+ */
+export interface RuntimeClassStrategyOptions {
+  /**
+   * allowedRuntimeClassNames is a whitelist of RuntimeClass names that may be specified on a pod. A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the list. An empty list requires the RuntimeClassName field to be unset.
+   *
+   * @schema io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions#allowedRuntimeClassNames
+   */
+  readonly allowedRuntimeClassNames: string[];
+
+  /**
+   * defaultRuntimeClassName is the default RuntimeClassName to set on the pod. The default MUST be allowed by the allowedRuntimeClassNames list. A value of nil does not mutate the Pod.
+   *
+   * @schema io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions#defaultRuntimeClassName
+   */
+  readonly defaultRuntimeClassName?: string;
 
 }
 
@@ -9977,7 +10112,7 @@ export interface SupplementalGroupsStrategyOptions {
    *
    * @schema io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions#ranges
    */
-  readonly ranges?: IDRange[];
+  readonly ranges?: IdRange[];
 
   /**
    * rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
@@ -10010,9 +10145,6 @@ export interface Preconditions {
 
 }
 
-/**
- * @schema io.k8s.apimachinery.pkg.util.intstr.IntOrString
- */
 /**
  * @schema io.k8s.apimachinery.pkg.util.intstr.IntOrString
  */
@@ -10131,9 +10263,9 @@ export interface VolumeMount {
   readonly subPath?: string;
 
   /**
-   * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive. This field is alpha in 1.14.
+   * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive. This field is beta in 1.15.
    *
-   * @default volume's root). SubPathExpr and SubPath are mutually exclusive. This field is alpha in 1.14.
+   * @default volume's root). SubPathExpr and SubPath are mutually exclusive. This field is beta in 1.15.
    * @schema io.k8s.api.core.v1.VolumeMount#subPathExpr
    */
   readonly subPathExpr?: string;
@@ -10168,6 +10300,13 @@ export interface TopologySelectorLabelRequirement {
  * @schema io.k8s.api.storage.v1.VolumeAttachmentSource
  */
 export interface VolumeAttachmentSource {
+  /**
+   * inlineVolumeSpec contains all the information necessary to attach a persistent volume defined by a pod's inline VolumeSource. This field is populated only for the CSIMigration feature. It contains translated fields from a pod's inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the CSIMigration feature.
+   *
+   * @schema io.k8s.api.storage.v1.VolumeAttachmentSource#inlineVolumeSpec
+   */
+  readonly inlineVolumeSpec?: PersistentVolumeSpec;
+
   /**
    * Name of the persistent volume to attach.
    *
@@ -10271,7 +10410,8 @@ export interface CustomResourceConversion {
   readonly conversionReviewVersions?: string[];
 
   /**
-   * `strategy` specifies the conversion strategy. Allowed values are: - `None`: The converter only change the apiVersion and would not touch any other field in the CR. - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+   * `strategy` specifies the conversion strategy. Allowed values are: - `None`: The converter only change the apiVersion and would not touch any other field in the CR. - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+  is needed for this option. This requires spec.preserveUnknownFields to be false.
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion#strategy
    */
@@ -10356,7 +10496,7 @@ export interface CustomResourceSubresources {
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources#status
    */
-  readonly status?: CustomResourceSubresourceStatus;
+  readonly status?: any;
 
 }
 
@@ -10486,6 +10626,14 @@ export interface ServiceReference {
    */
   readonly path?: string;
 
+  /**
+   * If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
+   *
+   * @default 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
+   * @schema io.k8s.api.admissionregistration.v1beta1.ServiceReference#port
+   */
+  readonly port?: number;
+
 }
 
 /**
@@ -10502,13 +10650,6 @@ export interface Initializer {
   readonly name: string;
 
 }
-
-/**
- * Fields stores a set of fields in a data structure like a Trie. To understand how this is used, see: https://github.com/kubernetes-sigs/structured-merge-diff
- *
- * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Fields
- */
-export type Fields = "unknown [object Object]";
 
 /**
  * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
@@ -10590,6 +10731,28 @@ export interface RollingUpdateStatefulSetStrategy {
    * @schema io.k8s.api.apps.v1.RollingUpdateStatefulSetStrategy#partition
    */
   readonly partition?: number;
+
+}
+
+/**
+ * WebhookThrottleConfig holds the configuration for throttling events
+ *
+ * @schema io.k8s.api.auditregistration.v1alpha1.WebhookThrottleConfig
+ */
+export interface WebhookThrottleConfig {
+  /**
+   * ThrottleBurst is the maximum number of events sent at the same moment default 15 QPS
+   *
+   * @schema io.k8s.api.auditregistration.v1alpha1.WebhookThrottleConfig#burst
+   */
+  readonly burst?: number;
+
+  /**
+   * ThrottleQPS maximum number of batches per second default 10 QPS
+   *
+   * @schema io.k8s.api.auditregistration.v1alpha1.WebhookThrottleConfig#qps
+   */
+  readonly qps?: number;
 
 }
 
@@ -11039,6 +11202,13 @@ export interface SecurityContext {
    */
   readonly seLinuxOptions?: SELinuxOptions;
 
+  /**
+   * Windows security options.
+   *
+   * @schema io.k8s.api.core.v1.SecurityContext#windowsOptions
+   */
+  readonly windowsOptions?: WindowsSecurityContextOptions;
+
 }
 
 /**
@@ -11138,6 +11308,28 @@ export interface Sysctl {
    * @schema io.k8s.api.core.v1.Sysctl#value
    */
   readonly value: string;
+
+}
+
+/**
+ * WindowsSecurityContextOptions contain Windows-specific options and credentials.
+ *
+ * @schema io.k8s.api.core.v1.WindowsSecurityContextOptions
+ */
+export interface WindowsSecurityContextOptions {
+  /**
+   * GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
+   *
+   * @schema io.k8s.api.core.v1.WindowsSecurityContextOptions#gmsaCredentialSpec
+   */
+  readonly gmsaCredentialSpec?: string;
+
+  /**
+   * GMSACredentialSpecName is the name of the GMSA credential spec to use. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
+   *
+   * @schema io.k8s.api.core.v1.WindowsSecurityContextOptions#gmsaCredentialSpecName
+   */
+  readonly gmsaCredentialSpecName?: string;
 
 }
 
@@ -11290,7 +11482,7 @@ export interface ConfigMapVolumeSource {
   readonly name?: string;
 
   /**
-   * Specify whether the ConfigMap or it's keys must be defined
+   * Specify whether the ConfigMap or its keys must be defined
    *
    * @schema io.k8s.api.core.v1.ConfigMapVolumeSource#optional
    */
@@ -11497,7 +11689,7 @@ export interface GlusterfsVolumeSource {
  *
  * @schema io.k8s.api.core.v1.ISCSIVolumeSource
  */
-export interface ISCSIVolumeSource {
+export interface IscsiVolumeSource {
   /**
    * whether support iSCSI Discovery CHAP authentication
    *
@@ -11797,7 +11989,7 @@ export interface SecretVolumeSource {
   readonly items?: KeyToPath[];
 
   /**
-   * Specify whether the Secret or it's keys must be defined
+   * Specify whether the Secret or its keys must be defined
    *
    * @schema io.k8s.api.core.v1.SecretVolumeSource#optional
    */
@@ -11948,7 +12140,7 @@ export interface NetworkPolicyPeer {
    *
    * @schema io.k8s.api.networking.v1.NetworkPolicyPeer#ipBlock
    */
-  readonly ipBlock?: IPBlock;
+  readonly ipBlock?: IpBlock;
 
   /**
    * Selects Namespaces using cluster-scoped labels. This field follows standard label selector semantics; if present but empty, it selects all namespaces.
@@ -11975,7 +12167,7 @@ If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects 
  *
  * @schema io.k8s.api.policy.v1beta1.IDRange
  */
-export interface IDRange {
+export interface IdRange {
   /**
    * max is the end of the range, inclusive.
    *
@@ -12083,7 +12275,7 @@ export interface SecretEnvSource {
  */
 export interface CustomResourceSubresourceScale {
   /**
-   * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector. Only JSON paths without the array notation are allowed. Must be a JSON Path under .status. Must be set to work with HPA. If there is no value under the given path in the CustomResource, the status label selector value in the /scale subresource will default to the empty string.
+   * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector. Only JSON paths without the array notation are allowed. Must be a JSON Path under .status or .spec. Must be set to work with HPA. The field pointed by this JSON path must be a string field (not a complex selector struct) which contains a serialized label selector in string form. More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource If there is no value under the given path in the CustomResource, the status label selector value in the /scale subresource will default to the empty string.
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale#labelSelectorPath
    */
@@ -12106,13 +12298,6 @@ export interface CustomResourceSubresourceScale {
 }
 
 /**
- * CustomResourceSubresourceStatus defines how to serve the status subresource for CustomResources. Status is represented by the `.status` JSON path inside of a CustomResource. When set, * exposes a /status subresource for the custom resource * PUT requests to the /status subresource take a custom resource object, and ignore changes to anything except the status stanza * PUT/POST/PATCH requests to the custom resource ignore changes to the status stanza
- *
- * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus
- */
-export type CustomResourceSubresourceStatus = "unknown [object Object]";
-
-/**
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
  *
  * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps
@@ -12131,12 +12316,12 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#additionalItems
    */
-  readonly additionalItems?: JSONSchemaPropsOrBool;
+  readonly additionalItems?: string;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#additionalProperties
    */
-  readonly additionalProperties?: JSONSchemaPropsOrBool;
+  readonly additionalProperties?: string;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#allOf
@@ -12149,9 +12334,11 @@ export interface JSONSchemaProps {
   readonly anyOf?: JSONSchemaProps[];
 
   /**
+   * default is a default value for undefined object fields. Defaulting is an alpha feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
+   *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#default
    */
-  readonly default?: JSON;
+  readonly default?: string;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#definitions
@@ -12161,7 +12348,7 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#dependencies
    */
-  readonly dependencies?: { [key: string]: JSONSchemaPropsOrStringArray };
+  readonly dependencies?: { [key: string]: string };
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#description
@@ -12171,12 +12358,12 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#enum
    */
-  readonly enum?: JSON[];
+  readonly enum?: string[];
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#example
    */
-  readonly example?: JSON;
+  readonly example?: string;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#exclusiveMaximum
@@ -12206,7 +12393,7 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#items
    */
-  readonly items?: JSONSchemaPropsOrArray;
+  readonly items?: string;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maxItems
@@ -12718,7 +12905,7 @@ export interface HTTPIngressPath {
  *
  * @schema io.k8s.api.networking.v1.IPBlock
  */
-export interface IPBlock {
+export interface IpBlock {
   /**
    * CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24"
    *
@@ -12756,7 +12943,7 @@ export interface ConfigMapKeySelector {
   readonly name?: string;
 
   /**
-   * Specify whether the ConfigMap or it's key must be defined
+   * Specify whether the ConfigMap or its key must be defined
    *
    * @schema io.k8s.api.core.v1.ConfigMapKeySelector#optional
    */
@@ -12836,35 +13023,13 @@ export interface SecretKeySelector {
   readonly name?: string;
 
   /**
-   * Specify whether the Secret or it's key must be defined
+   * Specify whether the Secret or its key must be defined
    *
    * @schema io.k8s.api.core.v1.SecretKeySelector#optional
    */
   readonly optional?: boolean;
 
 }
-
-/**
- * JSONSchemaPropsOrBool represents JSONSchemaProps or a boolean value. Defaults to true for the boolean property.
- *
- * @default true for the boolean property.
- * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrBool
- */
-export type JSONSchemaPropsOrBool = string;
-
-/**
- * JSON represents any valid JSON value. These types are supported: bool, int64, float64, string, []interface{}, map[string]interface{} and nil.
- *
- * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSON
- */
-export type JSON = string;
-
-/**
- * JSONSchemaPropsOrStringArray represents a JSONSchemaProps or a string array.
- *
- * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrStringArray
- */
-export type JSONSchemaPropsOrStringArray = string;
 
 /**
  * ExternalDocumentation allows referencing an external resource for extended documentation.
@@ -12883,13 +13048,6 @@ export interface ExternalDocumentation {
   readonly url?: string;
 
 }
-
-/**
- * JSONSchemaPropsOrArray represents a value that can either be a JSONSchemaProps or an array of JSONSchemaProps. Mainly here for serialization purposes.
- *
- * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaPropsOrArray
- */
-export type JSONSchemaPropsOrArray = string;
 
 /**
  * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
@@ -12965,7 +13123,7 @@ export interface ConfigMapProjection {
   readonly name?: string;
 
   /**
-   * Specify whether the ConfigMap or it's keys must be defined
+   * Specify whether the ConfigMap or its keys must be defined
    *
    * @schema io.k8s.api.core.v1.ConfigMapProjection#optional
    */

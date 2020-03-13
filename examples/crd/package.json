@@ -1,0 +1,31 @@
+{
+  "name": "crd",
+  "version": "0.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
+  "scripts": {
+    "import": "cdk8s import",
+    "build": "yarn run import && tsc",
+    "watch": "tsc -w",
+    "synth": "cdk8s synth",
+    "test": "jest"
+  },
+  "dependencies": {
+    "cdk8s": "0.0.0",
+    "constructs": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.1",
+    "cdk8s-cli": "0.0.0",
+    "jest": "^25.1.0",
+    "typescript": "^3.7.5"
+  }
+}
