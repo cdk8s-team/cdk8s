@@ -31,7 +31,7 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
 
 **cdk8s** apps are programs written in one of the supported programming
 languages. They are structured as a tree of
-[constructs](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html).
+[constructs](https://github.com/aws/constructs).
 
 The root of the tree is an `App` construct. Within an app, users define any
 number of charts (classes that extend the `Chart` class). Each chart is

@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-aws-cdk-core = "*"
+constructs = "*"
 
 [requires]
 python_version = "3.7"
