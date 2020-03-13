@@ -1,3 +1,4 @@
+import * as https from 'https';
 import { spawn, SpawnOptions } from 'child_process';
 import * as fs from 'fs-extra';
 import * as os from 'os';
@@ -27,3 +28,21 @@ export async function withTempDir(dirname: string, closure: () => Promise<void>)
     await fs.remove(parent);
   }
 }
+
+export async function httpsGet(url: string): Promise<string> {
+  return new Promise((ok, ko) => {
+    const req = https.get(url, res => {
+      if (res.statusCode !== 200) {
+        throw new Error(`${res.statusMessage}: ${url}`);
+      }
+      const data = new Array<Buffer>();
+      res.on('data', chunk => data.push(chunk));
+      res.once('end', () => ok(Buffer.concat(data).toString('utf-8')));
+      res.once('error', ko);
+    });
+
+    req.once('error', ko);
+    req.end();
+  });
+}
+
