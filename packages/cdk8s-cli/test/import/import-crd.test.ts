@@ -22,4 +22,4 @@ test('fails if manifest is not a CRD', async () => {
     apiVersion: 'apiextensions.k8s.io/v1beta1',
     kind: 'CustomResourceDefinition',
   })).toThrow('manifest does not have a "spec" attribute');
-})
+});

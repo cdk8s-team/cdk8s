@@ -137,6 +137,7 @@ def cdk8s_example(name, entry, include = None, language = "typescript", disable_
                 deps = [
                     ":lib",
                     "//packages/cdk8s:lib",
+                    "@npm//json-stable-stringify",
                     "@npm//yaml",
                 ],
             )

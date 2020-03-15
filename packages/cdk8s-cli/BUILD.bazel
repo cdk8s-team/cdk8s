@@ -65,7 +65,7 @@ ts_library(
 
 jest_test(
     name = "test",
-    srcs = glob(["**/*.snap"]),
+    srcs = glob(["**/*.snap", "**/*.yaml"]),
     lib = ":tests",
     deps = [
         ":cdk8s_cli",
@@ -73,6 +73,8 @@ jest_test(
         "@npm//codemaker",
         "@npm//constructs",
         "@npm//jsii",
+        "@npm//json-stable-stringify",
+        "@npm//yaml",
     ],
 )
 

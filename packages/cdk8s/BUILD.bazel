@@ -27,7 +27,7 @@ JSII_TARGETS = str({
 package_json(
     name = "package_json",
     package_name = MODULE_NAME,
-    bundled_deps = ["yaml"],
+    bundled_deps = ["json-stable-stringify", "yaml"],
     desc = "Cloud Development Kit for Kubernetes",
     experimental = True,
     jsii_targets = JSII_TARGETS,
@@ -35,6 +35,7 @@ package_json(
         "constructs": CONSTRUCTS_PACKAGE_VERSION,
     },
     deps = {
+        "json-stable-stringify": "^1.0.1",
         "yaml": "^1.7.2",
     },
 )
@@ -74,6 +75,7 @@ jest_test(
     deps = [
         ":lib",
         "@npm//constructs",
+        "@npm//json-stable-stringify",
         "@npm//tslib",
         "@npm//yaml",
     ],
@@ -90,6 +92,7 @@ jsii_package(
     #       happens).
     srcs = [
         "README.md",
+        "@npm//json-stable-stringify",
         "@npm//yaml",
     ],
     package_json = ":package_json",

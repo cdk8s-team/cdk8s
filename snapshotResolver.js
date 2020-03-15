@@ -11,16 +11,20 @@
 //       is populated at runtime
 const {basename, dirname, join} = require('path');
 const bazelDir = process.env['BUILD_WORKSPACE_DIRECTORY'] || process.cwd();
-const bazelRoot = process.env['BAZEL_PATCH_ROOT'] || '';
-const binDir = 'bin';
-const pathEnd = dirname(bazelRoot.slice(bazelRoot.lastIndexOf(binDir) + binDir.length));
+const bazelTarget = process.env['BAZEL_TARGET'] || '';
+const pathEnd = bazelTarget.slice(2, bazelTarget.indexOf(':'));
+
+// bazelDir + pathEnd + lastPart of actual path
+
+const pathStart = (path) =>
+    join(bazelDir, pathEnd, dirname(path).slice(path.lastIndexOf(pathEnd) + pathEnd.length));
 
 module.exports = {
     resolveSnapshotPath: (testPath, snapshotExtension) =>
-        join(bazelDir, pathEnd, 'test', '__snapshots__', basename(testPath) + snapshotExtension),
+        join(pathStart(testPath), '__snapshots__', basename(testPath) + snapshotExtension),
 
     resolveTestPath: (snapshotFilePath, snapshotExtension) =>
-        join(bazelDir, pathEnd, 'test', basename(snapshotFilePath).slice(0, -snapshotExtension.length)),
+        join(pathStart(dirname(snapshotFilePath)), basename(snapshotFilePath).slice(0, -snapshotExtension.length)),
 
     testPathForConsistencyCheck: join(bazelDir, pathEnd, 'test', 'a.test.ts'),
 };
