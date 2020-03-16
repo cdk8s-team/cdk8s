@@ -12,7 +12,7 @@
     "release-npm": "jsii-release-npm",
     "release-nuget": "jsii-release-nuget",
     "release-pypi": "jsii-release-pypi",
-    "release": "concurrently \"yarn:release-*\""
+    "release": "echo 'You must specify a package manager to release this on. Try \"yarn release-npm\"'"
   },
   "workspaces": {
     "packages": [
