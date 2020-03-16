@@ -7,7 +7,12 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "package": "lerna run package && tools/collect-dist.sh",
-    "release": "tools/release.sh"
+    "release-github": "tools/release-github.sh",
+    "release-maven": "jsii-release-maven",
+    "release-npm": "jsii-release-npm",
+    "release-nuget": "jsii-release-nuget",
+    "release-pypi": "jsii-release-pypi",
+    "release": "concurrently \"yarn:release-*\""
   },
   "workspaces": {
     "packages": [
@@ -23,6 +28,7 @@
   },
   "devDependencies": {
     "changelog-parser": "^2.8.0",
+    "concurrently": "^5.1.0",
     "jsii-release": "^0.1.5",
     "lerna": "^3.20.2",
     "standard-version": "^7.1.0"
