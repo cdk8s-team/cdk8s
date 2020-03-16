@@ -47,8 +47,9 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: dist
+          path: dist/java
       - name: Release
-        run: npx jsii-release-maven
+        run: npx jsii-release
         env:
           MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           MAVEN_GPG_PRIVATE_KEY_PASSPHRASE: ${{ secrets.MAVEN_GPG_PRIVATE_KEY_PASSPHRASE }}
@@ -67,8 +68,9 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: dist
+          path: dist/js
       - name: Release
-        run: npx jsii-release-npm
+        run: npx jsii-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -83,8 +85,9 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: dist
+          path: dist/dotnet
       - name: Release
-        run: npx jsii-release-nuget
+        run: npx jsii-release
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
 
@@ -99,8 +102,9 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: dist
+          path: dist/python
       - name: Release
-        run: npx jsii-release-pypi
+        run: npx jsii-release
         env:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
