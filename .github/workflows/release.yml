@@ -31,6 +31,10 @@ jobs:
         with:
           name: dist
           path: dist
+      - name: Release to github
+        run: yarn release-github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   release_maven:
     name: Release to Maven
@@ -44,7 +48,7 @@ jobs:
         with:
           name: dist
       - name: Release
-        run: yarn release-maven
+        run: npx jsii-release-maven
         env:
           MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           MAVEN_GPG_PRIVATE_KEY_PASSPHRASE: ${{ secrets.MAVEN_GPG_PRIVATE_KEY_PASSPHRASE }}
@@ -64,7 +68,7 @@ jobs:
         with:
           name: dist
       - name: Release
-        run: yarn release-npm
+        run: npx jsii-release-npm
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -80,7 +84,7 @@ jobs:
         with:
           name: dist
       - name: Release
-        run: yarn release-nuget
+        run: npx jsii-release-nuget
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
 
@@ -96,17 +100,7 @@ jobs:
         with:
           name: dist
       - name: Release
-        run: yarn release-pypi
+        run: npx jsii-release-pypi
         env:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
-
-  release_github:
-    name: Release to Github
-    needs: build_artifact
-    runs-on: ubuntu-latest
-    steps:   
-      - name: Release
-        run: yarn release-github
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
