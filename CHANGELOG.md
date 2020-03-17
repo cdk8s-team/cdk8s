@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/awslabs/cdk8s/compare/v0.15.1...v0.16.0) (2020-03-17)
+
+
+### Features
+
+* **cli:** cdk8s import crd.yaml ([#70](https://github.com/awslabs/cdk8s/issues/70)) ([5d1c278](https://github.com/awslabs/cdk8s/commit/5d1c278f391f2561c8999efcd2015f2de9e26b72)), closes [#27](https://github.com/awslabs/cdk8s/issues/27)
+
 ## [0.15.1](https://github.com/awslabs/cdk8s/compare/v0.15.0...v0.15.1) (2020-03-13)
 
 
