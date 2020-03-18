@@ -59,7 +59,7 @@ Choose your weapon:
 
 ## Examples
 
-- [Hello!](./examples/hell) - a basic Kubernetes deployment
+- [Hello!](./examples/hello) - a basic Kubernetes deployment
 - [Web Service](./examples/web-service) - an example of using constructs to template a web service
 - [Podinfo](./examples/podinfo/examples/app-example.ts) - an example of
   high-level APIs for Kubernetes objects.
