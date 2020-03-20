@@ -20,8 +20,7 @@ jobs:
       - run: yarn build
       - run: yarn test
       - run: yarn package
-      - name: integration tests
-        run: test/run-against-dist test/test-all.sh
+      - run: yarn integ
 
       # publish to package managers only if this is a new version      
       - run: npx jsii-release-npm
