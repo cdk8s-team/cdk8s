@@ -19,33 +19,39 @@ export interface ImportOptions {
 }
 
 export abstract class ImportBase {
-  public abstract get moduleName(): string;
-  protected abstract async generateTypeScript(code: CodeMaker): Promise<void>;
+  public abstract get moduleName(): string[];
+  protected abstract async generateTypeScript(code: CodeMaker, moduleName?: string): Promise<void>;
 
   public async import(options: ImportOptions) {
     const code = new CodeMaker();
-    const fileName = `${this.moduleName}.ts`;
-    code.openFile(fileName);
-    code.indentation = 2;
-    await this.generateTypeScript(code);
-    code.closeFile(fileName);
 
     const outdir = path.resolve(options.outdir);
-    await fs.mkdirp(outdir);
+    const isTypescript = options.targetLanguage === Language.TYPESCRIPT
 
-    if (options.targetLanguage === Language.TYPESCRIPT) {
-      await code.save(outdir);
-      return;
-    } 
+    for (const name of this.moduleName) {
+      const fileName = `${name}.ts`;
+      code.openFile(fileName);
+      code.indentation = 2;
+      await this.generateTypeScript(code, name);
+      code.closeFile(fileName);
+  
+      await fs.mkdirp(outdir);
+  
+      if (isTypescript) {
+        await code.save(outdir);
+      } 
+    }
+
+    if (isTypescript) return
 
     // this is not typescript, so we generate in a staging directory and harvest the code
     await withTempDir('importer', async () => {
       await code.save('.');
-      await jsiiCompile('.', {
-        main: this.moduleName,
-        name: this.moduleName,
-      });
 
+      await this.moduleName.forEach(name => jsiiCompile('.', {
+        main: name,
+        name,
+      }))
       const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
       await shell(pacmak, [ '--target', options.targetLanguage, '--code-only' ]);
       await this.harvestCode(options, outdir);
@@ -68,8 +74,10 @@ export abstract class ImportBase {
   }
 
   private async harvestPython(targetdir: string) {
-    const target = path.join(targetdir, this.moduleName);
-    await fs.move(`dist/python/src/${this.moduleName}`, target, { overwrite: true });
+    this.moduleName.forEach(name => async () => {
+      const target = path.join(targetdir, name);
+      await fs.move(`dist/python/src/${name}`, target, { overwrite: true });
+    });
   }
 }
 
