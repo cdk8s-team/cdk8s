@@ -71,11 +71,11 @@
     "@types/yaml": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
-    "constructs": "1.1.2",
+    "constructs": "2.0.0",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
-    "jsii": "^0.22.0",
-    "jsii-pacmak": "^0.22.0",
+    "jsii": "^1.1.0",
+    "jsii-pacmak": "^1.1.0",
     "json-schema-to-typescript": "^8.0.1",
     "typescript": "^3.7.5"
   },
@@ -94,7 +94,7 @@
     "yaml": "^1.7.2"
   },
   "peerDependencies": {
-    "constructs": "^1.1.2"
+    "constructs": "^2.0.0"
   },
   "stability": "experimental"
 }

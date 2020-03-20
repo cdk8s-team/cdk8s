@@ -25,7 +25,7 @@ jobs:
       - name: create bundle
         run: yarn package
       - name: integration tests
-        run: test/run-against-dist test/test-all.sh
+        run: yarn integ
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:

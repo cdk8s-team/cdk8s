@@ -5,7 +5,9 @@ import { sscaff } from 'sscaff';
 
 const templatesDir = path.join(__dirname, '..', '..', 'templates');
 const availableTemplates = fs.readdirSync(templatesDir).filter(x => !x.startsWith('.'));
-const version: string = require('../../package.json').version;
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const pkg = require('../../package.json');
 
 class Command implements yargs.CommandModule {
   public readonly command = 'init TYPE';
@@ -13,7 +15,8 @@ class Command implements yargs.CommandModule {
   public readonly builder = (args: yargs.Argv) => args
     .positional('TYPE', { demandOption: true, desc: 'Project type' })
     .showHelpOnFail(true)
-    .option('dist DIR', { type: 'string', desc: 'Install dependencies from a "dist" directory (for development)' })
+    .option('dist', { type: 'string', desc: 'Install dependencies from a "dist" directory (for development)' })
+    .option('cdk8s-version', { type: 'string', desc: 'The cdk8s version to use when creating the new project', default: pkg.version })
     .choices('TYPE', availableTemplates);
 
   public async handler(argv: any) {
@@ -25,7 +28,7 @@ class Command implements yargs.CommandModule {
     console.error(`Initializing a project from the ${argv.type} template`);
     const templatePath = path.join(templatesDir, argv.type);
 
-    const deps = await determineDeps(argv.dist);
+    const deps: any = await determineDeps(argv.cdk8SVersion, argv.dist);
 
     await sscaff(templatePath, '.', {
       ...deps
@@ -33,12 +36,12 @@ class Command implements yargs.CommandModule {
   }
 }
 
-async function determineDeps(dist?: string): Promise<Deps> {
+async function determineDeps(version: string, dist?: string): Promise<Deps> {
   if (dist) {
     const ret = {
       'npm_cdk8s': path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
       'npm_cdk8s_cli': path.resolve(dist, 'js', `cdk8s-cli-${version}.tgz`),
-      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`),
+      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`)
     };
 
     for (const file of Object.values(ret)) {
@@ -51,7 +54,7 @@ async function determineDeps(dist?: string): Promise<Deps> {
   }
   
   if (version === '0.0.0') {
-    throw new Error(`cannot use version 0.0.0, use --dist or CDK8S_DIST to install from a "dist" directory`);
+    throw new Error(`cannot use version 0.0.0, use --cdk8s-version, --dist or CDK8S_DIST to install from a "dist" directory`);
   }
 
   // determine if we want a specific pinned version or a version range we take
@@ -63,7 +66,7 @@ async function determineDeps(dist?: string): Promise<Deps> {
   return {
     'npm_cdk8s': `cdk8s@${ver}`,
     'npm_cdk8s_cli': `cdk8s-cli@${ver}`,
-    'pypi_cdk8s': `cdk8s~=${version}` // no support for pre-release
+    'pypi_cdk8s': `cdk8s~=${version}`, // no support for pre-release
   };
 }
 
