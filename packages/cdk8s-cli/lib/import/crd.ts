@@ -6,7 +6,7 @@ import * as yaml from 'yaml';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
-interface CustomResourceDefinitionManifest {
+interface CustomResourceApiObject {
   apiVersion?: string;
   kind?: string;
   metadata?: {
@@ -85,9 +85,7 @@ export class ImportCustomResourceDefinition extends ImportBase {
     return this.kind.toLocaleLowerCase();
   }
 
-  protected async generateTypeScript(code: CodeMaker) {
-
-
+  public async generateTypeScript(code: CodeMaker) {
     const types = new TypeGenerator();
   
     types.emitConstruct({
@@ -103,6 +101,44 @@ export class ImportCustomResourceDefinition extends ImportBase {
     code.line(`import { Construct } from 'constructs';`);
     code.line();
     types.generate(code);
+  }
+}
+
+export class ImportCustomResourceDefinition extends ImportBase {
+  public static async match(source: string): Promise<undefined | CustomResourceApiObject[]> {
+    let manifest;
+    if (source.startsWith('https://')) {
+      manifest = await httpsGet(source);
+    } else if (path.extname(source) === '.yaml' || path.extname(source) === '.yml' || path.extname(source) === '.json') {
+      if (!(await fs.pathExists(source))) {
+        throw new Error(`can't find file ${source}`);
+      }
+
+      manifest = await fs.readFile(source, 'utf-8');
+    }
+
+  
+    if (!manifest) {
+      return undefined;
+    }
+
+    return yaml.parseAllDocuments(manifest).map((doc: yaml.ast.Document) => doc.toJSON());
+  }
+
+  private readonly CRDs: CustomResourceDefinition[] = [];
+  
+  constructor(manifest: CustomResourceApiObject[]) {
+    super();
+
+    this.CRDs = manifest?.map(obj => new CustomResourceDefinition(obj));
+  }
+
+  public get moduleName() {
+    return this.CRDs.map(crd => crd.moduleName);
+  }
+
+  protected async generateTypeScript(code: CodeMaker, moduleName: string) {
+    this.CRDs.filter(crd => moduleName === crd.moduleName).map(crd => crd.generateTypeScript(code));
   }
 }
 
