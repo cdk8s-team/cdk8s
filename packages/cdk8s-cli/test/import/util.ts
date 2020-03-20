@@ -19,10 +19,12 @@ export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
 
       const moduleName = importer.moduleName;
 
-      await jsiiCompile(workdir, { 
-        stdout: true,
-        name: moduleName,
-        main: moduleName
+      moduleName.forEach(async (name) => {
+        await jsiiCompile(workdir, { 
+          stdout: true,
+          name,
+          main: name,
+        });
       });
     
       const manifest = JSON.parse(await fs.readFile('.jsii', 'utf-8'));
