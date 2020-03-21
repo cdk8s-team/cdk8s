@@ -112,7 +112,7 @@ export class ImportCustomResourceDefinition extends ImportBase {
     this.CRDs = manifest?.map(obj => new CustomResourceDefinition(obj));
   }
 
-  public get moduleName() {
+  public get moduleNames() {
     return this.CRDs.map(crd => crd.moduleName);
   }
 

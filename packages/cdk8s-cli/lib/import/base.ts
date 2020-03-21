@@ -19,7 +19,7 @@ export interface ImportOptions {
 }
 
 export abstract class ImportBase {
-  public abstract get moduleName(): string[];
+  public abstract get moduleNames(): string[];
   protected abstract async generateTypeScript(code: CodeMaker, moduleName?: string): Promise<void>;
 
   public async import(options: ImportOptions) {
@@ -29,7 +29,7 @@ export abstract class ImportBase {
     await fs.mkdirp(outdir);
     const isTypescript = options.targetLanguage === Language.TYPESCRIPT
 
-    for (const name of this.moduleName) {
+    for (const name of this.moduleNames) {
       const fileName = `${name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
@@ -47,7 +47,7 @@ export abstract class ImportBase {
     await withTempDir('importer', async () => {
       await code.save('.');
 
-      await this.moduleName.forEach(name => jsiiCompile('.', {
+      await this.moduleNames.forEach(name => jsiiCompile('.', {
         main: name,
         name,
       }))
@@ -73,7 +73,7 @@ export abstract class ImportBase {
   }
 
   private async harvestPython(targetdir: string) {
-    this.moduleName.forEach(name => async () => {
+    this.moduleNames.forEach(name => async () => {
       const target = path.join(targetdir, name);
       await fs.move(`dist/python/src/${name}`, target, { overwrite: true });
     });

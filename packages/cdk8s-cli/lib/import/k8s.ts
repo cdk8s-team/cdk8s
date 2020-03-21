@@ -47,7 +47,7 @@ export class ImportKubernetesApi extends ImportBase {
     super()
   }
 
-  public get moduleName() {
+  public get moduleNames() {
     return ['k8s'];
   }
 

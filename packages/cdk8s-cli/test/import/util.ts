@@ -17,7 +17,7 @@ export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
         targetLanguage: Language.TYPESCRIPT,
       });
 
-      for (const name of importer.moduleName) {
+      for (const name of importer.moduleNames) {
         await jsiiCompile(workdir, { 
           stdout: true,
           name,
