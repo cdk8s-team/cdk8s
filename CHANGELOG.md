@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/awslabs/cdk8s/compare/v0.16.0...v0.17.0) (2020-03-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* please upgrade your dependency requirement for "constructs" to ^2.0.0
+
+### Bug Fixes
+
+* **gh_actions:** fix release-next script to use correct npx publishing ([27c7f9d](https://github.com/awslabs/cdk8s/commit/27c7f9dfa4b787f147e10746beee71ca378e3c2b))
+* **readme:** hello example link is broken [#74](https://github.com/awslabs/cdk8s/issues/74) ([0b858cf](https://github.com/awslabs/cdk8s/commit/0b858cfd8d1306be67394cb733984b8b49dfcc06))
+
+
+* upgrade jsii & constructs ([#80](https://github.com/awslabs/cdk8s/issues/80)) ([f917e0a](https://github.com/awslabs/cdk8s/commit/f917e0a29490eb0369d4583a7303f1fded7f6693))
+
 ## [0.16.0](https://github.com/awslabs/cdk8s/compare/v0.15.1...v0.16.0) (2020-03-17)
 
 
