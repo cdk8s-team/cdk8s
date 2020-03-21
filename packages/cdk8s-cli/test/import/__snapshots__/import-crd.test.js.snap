@@ -59,9 +59,9 @@ Object {
     },
   },
   "description": "jenkins",
-  "fingerprint": "/T8z5Q9e8TZL1FOlrfOvh/VJZ5R4fTkx6T19fbw1E5M=",
+  "fingerprint": "wvCqW07ix3SnOotRut5fw9VneFCG6rF5/u+OV4qcYfg=",
   "homepage": "http://repo",
-  "jsiiVersion": "0.22.0 (build 14afdde)",
+  "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
   "name": "jenkins",
   "repository": Object {
@@ -12827,9 +12827,9 @@ Object {
     },
   },
   "description": "othercrontab",
-  "fingerprint": "X+gabv7vT4xYZPBWk6+RlqmpjuX6/5fIIEi72aQ0w9o=",
+  "fingerprint": "YGs+v2Cvzxti/5e8tY6Z/wfjYLs0CNb+UYBJN0r/sZ4=",
   "homepage": "http://repo",
-  "jsiiVersion": "0.22.0 (build 14afdde)",
+  "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
   "name": "othercrontab",
   "repository": Object {
