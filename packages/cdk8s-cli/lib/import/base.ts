@@ -26,6 +26,7 @@ export abstract class ImportBase {
     const code = new CodeMaker();
 
     const outdir = path.resolve(options.outdir);
+    await fs.mkdirp(outdir);
     const isTypescript = options.targetLanguage === Language.TYPESCRIPT
 
     for (const name of this.moduleName) {
@@ -34,9 +35,7 @@ export abstract class ImportBase {
       code.indentation = 2;
       await this.generateTypeScript(code, name);
       code.closeFile(fileName);
-  
-      await fs.mkdirp(outdir);
-  
+    
       if (isTypescript) {
         await code.save(outdir);
       } 

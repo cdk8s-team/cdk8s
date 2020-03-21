@@ -7,7 +7,6 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "package": "lerna run package && tools/collect-dist.sh",
-    "integ": "test/run-against-dist test/test-all.sh",
     "release-github": "tools/release-github.sh"
   },
   "workspaces": {

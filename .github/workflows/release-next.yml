@@ -23,7 +23,7 @@ jobs:
       - run: yarn integ
 
       # publish to package managers only if this is a new version      
-      - run: npx jsii-release-npm
+      - run: npx -p jsii-release jsii-release-npm
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_DIST_TAG: next
