@@ -6,7 +6,7 @@ import * as yaml from 'yaml';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
-interface CustomResourceApiObject {
+export interface CustomResourceApiObject {
   apiVersion?: string;
   kind?: string;
   metadata?: {
@@ -26,7 +26,7 @@ export class CustomResourceDefinition {
   private readonly schema: any;
   private readonly group: string;
   private readonly version: string;
-  private readonly kind: string;
+  readonly kind: string;
   private readonly fqn: string;
 
   constructor(manifest: CustomResourceApiObject) {
@@ -96,28 +96,29 @@ export class ImportCustomResourceDefinition extends ImportBase {
       manifest = await fs.readFile(source, 'utf-8');
     }
 
-  
     if (!manifest) {
       return undefined;
     }
 
-    return yaml.parseAllDocuments(manifest).map((doc: yaml.ast.Document) => doc.toJSON());
+    return yaml.parseAllDocuments(manifest)
+               .map((doc: yaml.ast.Document) => doc.toJSON())
+               .filter((doc) => (doc as CustomResourceApiObject).kind === 'CustomResourceDefinition');
   }
 
-  private readonly CRDs: CustomResourceDefinition[] = [];
+  private readonly customResourceDefinitions: CustomResourceDefinition[] = [];
   
   constructor(manifest: CustomResourceApiObject[]) {
     super();
 
-    this.CRDs = manifest?.map(obj => new CustomResourceDefinition(obj));
+    this.customResourceDefinitions = manifest?.map(obj => new CustomResourceDefinition(obj));
   }
 
   public get moduleNames() {
-    return this.CRDs.map(crd => crd.moduleName);
+    return this.customResourceDefinitions.map(crd => crd.moduleName);
   }
 
   protected async generateTypeScript(code: CodeMaker, moduleName: string) {
-    this.CRDs.filter(crd => moduleName === crd.moduleName).map(crd => crd.generateTypeScript(code));
+    this.customResourceDefinitions.filter(crd => moduleName === crd.moduleName).map(crd => crd.generateTypeScript(code));
   }
 }
 

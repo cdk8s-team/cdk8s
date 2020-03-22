@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as yaml from 'yaml';
 import * as fs from 'fs';
-import { ImportCustomResourceDefinition } from '../../lib/import/crd';
+import { CustomResourceApiObject, ImportCustomResourceDefinition } from '../../lib/import/crd';
 import { expectImportMatchSnapshot } from './util';
 
 const jenkinsCrd = yaml.parseAllDocuments(fs.readFileSync(path.join(__dirname, 'fixtures', 'jenkins_crd.yaml'), 'utf-8'))
@@ -9,11 +9,16 @@ const jenkinsCrd = yaml.parseAllDocuments(fs.readFileSync(path.join(__dirname, '
 
 expectImportMatchSnapshot('jenkins', () => new ImportCustomResourceDefinition(jenkinsCrd));
 
-
 const multiObjectCRD = yaml.parseAllDocuments(fs.readFileSync(path.join(__dirname, 'fixtures', 'multi_object_crd.yaml'), 'utf-8'))
                            .map((doc: yaml.ast.Document) => doc.toJSON());
 
 expectImportMatchSnapshot('multiObject', () => new ImportCustomResourceDefinition(multiObjectCRD));
+
+const mixedCRD = yaml.parseAllDocuments(fs.readFileSync(path.join(__dirname, 'fixtures', 'mixed_crd.yaml'), 'utf-8'))
+                           .map((doc: yaml.ast.Document) => doc.toJSON()).filter((crd) => (crd as CustomResourceApiObject).kind === 'CustomResourceDefinition');
+
+expectImportMatchSnapshot('mixedCRD', () => new ImportCustomResourceDefinition(mixedCRD));
+
 
 test('fails if manifest is not a CRD', async () => {
   expect(() => new ImportCustomResourceDefinition([{ 

@@ -35,35 +35,37 @@ export abstract class ImportBase {
       code.indentation = 2;
       await this.generateTypeScript(code, name);
       code.closeFile(fileName);
-    
+
       if (isTypescript) {
         await code.save(outdir);
-      } 
+      }
     }
 
-    if (isTypescript) return
+    if (isTypescript) return;
 
-    // this is not typescript, so we generate in a staging directory and harvest the code
-    await withTempDir('importer', async () => {
-      await code.save('.');
+    for (const name of this.moduleNames) {
+      // this is not typescript, so we generate in a staging directory and harvest the code
+      await withTempDir('importer', async () => {
+        await code.save('.');
+        await jsiiCompile('.', {
+          main: name,
+          name,
+        });
 
-      await this.moduleNames.forEach(name => jsiiCompile('.', {
-        main: name,
-        name,
-      }))
-      const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
-      await shell(pacmak, [ '--target', options.targetLanguage, '--code-only' ]);
-      await this.harvestCode(options, outdir);
-    });
+        const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
+        await shell(pacmak, [ '--target', options.targetLanguage, '--code-only' ]);
+        await this.harvestCode(options, outdir, name);
+      });
+    }
   }
 
-  private async harvestCode(options: ImportOptions, targetdir: string) {
+  private async harvestCode(options: ImportOptions, targetdir: string, moduleName: string) {
     switch (options.targetLanguage) {
       case Language.TYPESCRIPT:
         throw new Error('no op for typescript');
   
       case Language.PYTHON:
-        await this.harvestPython(targetdir);
+        await this.harvestPython(targetdir, moduleName);
         break;
   
       default:
@@ -72,11 +74,9 @@ export abstract class ImportBase {
   
   }
 
-  private async harvestPython(targetdir: string) {
-    this.moduleNames.forEach(name => async () => {
-      const target = path.join(targetdir, name);
-      await fs.move(`dist/python/src/${name}`, target, { overwrite: true });
-    });
+  private async harvestPython(targetdir: string, moduleName: string) {
+    const target = path.join(targetdir, moduleName);
+    await fs.move(`dist/python/src/${moduleName}`, target, { overwrite: true });
   }
 }
 
