@@ -12767,3 +12767,491 @@ If unset, the Kubelet will not modify the ownership and permissions of any volum
   "version": "0.0.0",
 }
 `;
+
+exports[`mixedCRD 1`] = `
+Object {
+  "author": Object {
+    "name": "dummy@dummy.com",
+    "roles": Array [
+      "author",
+    ],
+  },
+  "dependencies": Object {
+    "cdk8s": "*",
+    "constructs": "*",
+  },
+  "dependencyClosure": Object {
+    "cdk8s": Object {
+      "targets": Object {
+        "dotnet": Object {
+          "namespace": "Org.Cdk8s",
+          "packageId": "Org.Cdk8s",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "cdk8s",
+            "groupId": "org.cdk8s",
+          },
+          "package": "org.cdk8s",
+        },
+        "js": Object {
+          "npm": "cdk8s",
+        },
+        "python": Object {
+          "distName": "cdk8s",
+          "module": "cdk8s",
+        },
+      },
+    },
+    "constructs": Object {
+      "targets": Object {
+        "dotnet": Object {
+          "namespace": "Constructs",
+          "packageId": "Constructs",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs",
+            "groupId": "software.constructs",
+          },
+          "package": "software.constructs",
+        },
+        "js": Object {
+          "npm": "constructs",
+        },
+        "python": Object {
+          "distName": "constructs",
+          "module": "constructs",
+        },
+      },
+    },
+  },
+  "description": "crontab",
+  "fingerprint": "H5UeGZ9P3Ob8LuS6Iol+GONtDAZmkFRUJJeet8zaUTA=",
+  "homepage": "http://repo",
+  "jsiiVersion": "1.1.0 (build df55f5e)",
+  "license": "Apache-2.0",
+  "name": "crontab",
+  "repository": Object {
+    "type": "git",
+    "url": "http://repo",
+  },
+  "schema": "jsii/0.10.0",
+  "targets": Object {
+    "js": Object {
+      "npm": "crontab",
+    },
+    "python": Object {
+      "distName": "crontab",
+      "module": "crontab",
+    },
+  },
+  "types": Object {
+    "crontab.CronTab": Object {
+      "assembly": "crontab",
+      "base": "cdk8s.ApiObject",
+      "docs": Object {
+        "custom": Object {
+          "schema": "CronTab",
+        },
+        "summary": "undefined.",
+      },
+      "fqn": "crontab.CronTab",
+      "initializer": Object {
+        "docs": Object {
+          "summary": "Defines a \\"CronTab\\" API object.",
+        },
+        "parameters": Array [
+          Object {
+            "docs": Object {
+              "summary": "the scope in which to define this object.",
+            },
+            "name": "scope",
+            "type": Object {
+              "fqn": "constructs.Construct",
+            },
+          },
+          Object {
+            "docs": Object {
+              "summary": "a scope-local name for the object.",
+            },
+            "name": "name",
+            "type": Object {
+              "primitive": "string",
+            },
+          },
+          Object {
+            "docs": Object {
+              "summary": "configuration options.",
+            },
+            "name": "options",
+            "optional": true,
+            "type": Object {
+              "fqn": "crontab.CronTabOptions",
+            },
+          },
+        ],
+      },
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "crontab.ts",
+        "line": 10,
+      },
+      "name": "CronTab",
+    },
+    "crontab.CronTabOptions": Object {
+      "assembly": "crontab",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "CronTab",
+        },
+      },
+      "fqn": "crontab.CronTabOptions",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "crontab.ts",
+        "line": 29,
+      },
+      "name": "CronTabOptions",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "CronTab#spec",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "crontab.ts",
+            "line": 33,
+          },
+          "name": "spec",
+          "optional": true,
+          "type": Object {
+            "fqn": "crontab.CronTabSpec",
+          },
+        },
+      ],
+    },
+    "crontab.CronTabSpec": Object {
+      "assembly": "crontab",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "CronTabSpec",
+        },
+      },
+      "fqn": "crontab.CronTabSpec",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "crontab.ts",
+        "line": 40,
+      },
+      "name": "CronTabSpec",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "CronTabSpec#cronSpec",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "crontab.ts",
+            "line": 44,
+          },
+          "name": "cronSpec",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "CronTabSpec#image",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "crontab.ts",
+            "line": 49,
+          },
+          "name": "image",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "CronTabSpec#replicas",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "crontab.ts",
+            "line": 54,
+          },
+          "name": "replicas",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+      ],
+    },
+  },
+  "version": "0.0.0",
+}
+`;
+
+exports[`multiObject 1`] = `
+Object {
+  "author": Object {
+    "name": "dummy@dummy.com",
+    "roles": Array [
+      "author",
+    ],
+  },
+  "dependencies": Object {
+    "cdk8s": "*",
+    "constructs": "*",
+  },
+  "dependencyClosure": Object {
+    "cdk8s": Object {
+      "targets": Object {
+        "dotnet": Object {
+          "namespace": "Org.Cdk8s",
+          "packageId": "Org.Cdk8s",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "cdk8s",
+            "groupId": "org.cdk8s",
+          },
+          "package": "org.cdk8s",
+        },
+        "js": Object {
+          "npm": "cdk8s",
+        },
+        "python": Object {
+          "distName": "cdk8s",
+          "module": "cdk8s",
+        },
+      },
+    },
+    "constructs": Object {
+      "targets": Object {
+        "dotnet": Object {
+          "namespace": "Constructs",
+          "packageId": "Constructs",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs",
+            "groupId": "software.constructs",
+          },
+          "package": "software.constructs",
+        },
+        "js": Object {
+          "npm": "constructs",
+        },
+        "python": Object {
+          "distName": "constructs",
+          "module": "constructs",
+        },
+      },
+    },
+  },
+  "description": "othercrontab",
+  "fingerprint": "YGs+v2Cvzxti/5e8tY6Z/wfjYLs0CNb+UYBJN0r/sZ4=",
+  "homepage": "http://repo",
+  "jsiiVersion": "1.1.0 (build df55f5e)",
+  "license": "Apache-2.0",
+  "name": "othercrontab",
+  "repository": Object {
+    "type": "git",
+    "url": "http://repo",
+  },
+  "schema": "jsii/0.10.0",
+  "targets": Object {
+    "js": Object {
+      "npm": "othercrontab",
+    },
+    "python": Object {
+      "distName": "othercrontab",
+      "module": "othercrontab",
+    },
+  },
+  "types": Object {
+    "othercrontab.OtherCronTab": Object {
+      "assembly": "othercrontab",
+      "base": "cdk8s.ApiObject",
+      "docs": Object {
+        "custom": Object {
+          "schema": "OtherCronTab",
+        },
+        "summary": "undefined.",
+      },
+      "fqn": "othercrontab.OtherCronTab",
+      "initializer": Object {
+        "docs": Object {
+          "summary": "Defines a \\"OtherCronTab\\" API object.",
+        },
+        "parameters": Array [
+          Object {
+            "docs": Object {
+              "summary": "the scope in which to define this object.",
+            },
+            "name": "scope",
+            "type": Object {
+              "fqn": "constructs.Construct",
+            },
+          },
+          Object {
+            "docs": Object {
+              "summary": "a scope-local name for the object.",
+            },
+            "name": "name",
+            "type": Object {
+              "primitive": "string",
+            },
+          },
+          Object {
+            "docs": Object {
+              "summary": "configuration options.",
+            },
+            "name": "options",
+            "optional": true,
+            "type": Object {
+              "fqn": "othercrontab.OtherCronTabOptions",
+            },
+          },
+        ],
+      },
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "othercrontab.ts",
+        "line": 10,
+      },
+      "name": "OtherCronTab",
+    },
+    "othercrontab.OtherCronTabOptions": Object {
+      "assembly": "othercrontab",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "OtherCronTab",
+        },
+      },
+      "fqn": "othercrontab.OtherCronTabOptions",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "othercrontab.ts",
+        "line": 29,
+      },
+      "name": "OtherCronTabOptions",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "OtherCronTab#spec",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "othercrontab.ts",
+            "line": 33,
+          },
+          "name": "spec",
+          "optional": true,
+          "type": Object {
+            "fqn": "othercrontab.OtherCronTabSpec",
+          },
+        },
+      ],
+    },
+    "othercrontab.OtherCronTabSpec": Object {
+      "assembly": "othercrontab",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "OtherCronTabSpec",
+        },
+      },
+      "fqn": "othercrontab.OtherCronTabSpec",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "othercrontab.ts",
+        "line": 40,
+      },
+      "name": "OtherCronTabSpec",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "OtherCronTabSpec#cronSpec",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "othercrontab.ts",
+            "line": 44,
+          },
+          "name": "cronSpec",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "OtherCronTabSpec#image",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "othercrontab.ts",
+            "line": 49,
+          },
+          "name": "image",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "OtherCronTabSpec#replicas",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "othercrontab.ts",
+            "line": 54,
+          },
+          "name": "replicas",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+      ],
+    },
+  },
+  "version": "0.0.0",
+}
+`;

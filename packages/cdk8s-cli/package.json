@@ -9,7 +9,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "eslint . --ext .ts",
-    "test": "jest && yarn lint",
+    "test": "yarn lint && jest",
     "package": "./package.sh",
     "integ": "./test/run-against-dist ./test/test-all.sh"
   },
