@@ -8,7 +8,8 @@
     "test": "lerna run test",
     "package": "lerna run package && tools/collect-dist.sh",
     "integ": "test/run-against-dist test/test-all.sh",
-    "release-github": "tools/release-github.sh"
+    "release-github": "tools/release-github.sh",
+    "release-homebrew": "tools/release-homebrew.sh"
   },
   "workspaces": {
     "packages": [
