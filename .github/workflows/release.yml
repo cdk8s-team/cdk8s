@@ -104,3 +104,15 @@ jobs:
         env:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+
+  release_homebrew:
+    name: Release to Homebrew
+    needs: release_npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mislav/bump-homebrew-formula-action@v1
+        with:
+          # A PR will be sent to github.com/Homebrew/homebrew-core to update this formula:
+          formula-name: cdk8s
+        env:
+          COMMITTER_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
