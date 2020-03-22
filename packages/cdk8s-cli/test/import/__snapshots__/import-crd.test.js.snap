@@ -12768,8 +12768,6 @@ If unset, the Kubelet will not modify the ownership and permissions of any volum
 }
 `;
 
-<<<<<<< HEAD
-=======
 exports[`mixedCRD 1`] = `
 Object {
   "author": Object {
@@ -13014,7 +13012,6 @@ Object {
 }
 `;
 
->>>>>>> debugging
 exports[`multiObject 1`] = `
 Object {
   "author": Object {
