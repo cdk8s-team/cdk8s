@@ -26,7 +26,7 @@ export class CustomResourceDefinition {
   private readonly schema: any;
   private readonly group: string;
   private readonly version: string;
-  readonly kind: string;
+  private readonly kind: string;
   private readonly fqn: string;
 
   constructor(manifest: CustomResourceApiObject) {
