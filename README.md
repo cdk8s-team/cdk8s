@@ -8,6 +8,7 @@
 [![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
 [![NuGet version](https://badge.fury.io/nu/Org.Cdk8s.svg)](https://badge.fury.io/nu/Org.Cdk8s)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s)
+[![homebrew](https://img.shields.io/homebrew/v/cdk8s?color=brightgreen)](https://formulae.brew.sh/formula/cdk8s#default)
 
 
 **cdk8s** is a software development framework for defining Kubernetes

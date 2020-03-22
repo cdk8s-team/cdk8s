@@ -2,17 +2,13 @@
 
 Let's walk through a simple "Hello, World!" example in Python.
 
-## Prerequisites
-
- - [Node.js 12.x](https://nodejs.org/en/) (the cdk8s CLI required Node.js)
- 
 ## Install the CLI
 
 cdk8s has a cute little CLI that has a few useful commands. Let's start by
 installing the cdk8s CLI globally:
 
 ```shell
-$ npm install -g cdk8s-cli
+$ brew install cdk8s
 ```
 
 ## New Project

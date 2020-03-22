@@ -4,7 +4,7 @@ Let's walk through a simple "Hello, World!" example in TypeScript.
 
 ## Prerequisites
 
- - [Node.js 12.x](https://nodejs.org/en/)
+ - [Node.js >10.x](https://nodejs.org/en/)
  - Your favorite editor/IDE
  - [yarn](https://yarnpkg.com/) (optional)
 
