@@ -19,46 +19,53 @@ export interface ImportOptions {
 }
 
 export abstract class ImportBase {
-  public abstract get moduleName(): string;
-  protected abstract async generateTypeScript(code: CodeMaker): Promise<void>;
+  public abstract get moduleNames(): string[];
+  protected abstract async generateTypeScript(code: CodeMaker, moduleName?: string): Promise<void>;
 
   public async import(options: ImportOptions) {
     const code = new CodeMaker();
-    const fileName = `${this.moduleName}.ts`;
-    code.openFile(fileName);
-    code.indentation = 2;
-    await this.generateTypeScript(code);
-    code.closeFile(fileName);
 
     const outdir = path.resolve(options.outdir);
     await fs.mkdirp(outdir);
+    const isTypescript = options.targetLanguage === Language.TYPESCRIPT
 
-    if (options.targetLanguage === Language.TYPESCRIPT) {
-      await code.save(outdir);
-      return;
-    } 
+    for (const name of this.moduleNames) {
+      const fileName = `${name}.ts`;
+      code.openFile(fileName);
+      code.indentation = 2;
+      await this.generateTypeScript(code, name);
+      code.closeFile(fileName);
 
-    // this is not typescript, so we generate in a staging directory and harvest the code
-    await withTempDir('importer', async () => {
-      await code.save('.');
-      await jsiiCompile('.', {
-        main: this.moduleName,
-        name: this.moduleName,
+      if (isTypescript) {
+        await code.save(outdir);
+      }
+    }
+
+    if (isTypescript) return;
+
+    for (const name of this.moduleNames) {
+      // this is not typescript, so we generate in a staging directory and harvest the code
+      await withTempDir('importer', async () => {
+        await code.save('.');
+        await jsiiCompile('.', {
+          main: name,
+          name,
+        });
+
+        const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
+        await shell(pacmak, [ '--target', options.targetLanguage, '--code-only' ]);
+        await this.harvestCode(options, outdir, name);
       });
-
-      const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
-      await shell(pacmak, [ '--target', options.targetLanguage, '--code-only' ]);
-      await this.harvestCode(options, outdir);
-    });
+    }
   }
 
-  private async harvestCode(options: ImportOptions, targetdir: string) {
+  private async harvestCode(options: ImportOptions, targetdir: string, moduleName: string) {
     switch (options.targetLanguage) {
       case Language.TYPESCRIPT:
         throw new Error('no op for typescript');
   
       case Language.PYTHON:
-        await this.harvestPython(targetdir);
+        await this.harvestPython(targetdir, moduleName);
         break;
   
       default:
@@ -67,9 +74,9 @@ export abstract class ImportBase {
   
   }
 
-  private async harvestPython(targetdir: string) {
-    const target = path.join(targetdir, this.moduleName);
-    await fs.move(`dist/python/src/${this.moduleName}`, target, { overwrite: true });
+  private async harvestPython(targetdir: string, moduleName: string) {
+    const target = path.join(targetdir, moduleName);
+    await fs.move(`dist/python/src/${moduleName}`, target, { overwrite: true });
   }
 }
 

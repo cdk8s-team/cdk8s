@@ -47,8 +47,8 @@ export class ImportKubernetesApi extends ImportBase {
     super()
   }
 
-  public get moduleName() {
-    return 'k8s';
+  public get moduleNames() {
+    return ['k8s'];
   }
 
   protected async generateTypeScript(code: CodeMaker) {

@@ -17,13 +17,13 @@ export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
         targetLanguage: Language.TYPESCRIPT,
       });
 
-      const moduleName = importer.moduleName;
-
-      await jsiiCompile(workdir, { 
-        stdout: true,
-        name: moduleName,
-        main: moduleName
-      });
+      for (const moduleName of importer.moduleNames) {
+        await jsiiCompile(workdir, { 
+          stdout: true,
+          name: moduleName,
+          main: moduleName
+        });
+      }
     
       const manifest = JSON.parse(await fs.readFile('.jsii', 'utf-8'));
       expect(manifest).toMatchSnapshot();

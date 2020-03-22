@@ -6,7 +6,7 @@ import * as yaml from 'yaml';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
-interface CustomResourceDefinitionManifest {
+export interface CustomResourceApiObject {
   apiVersion?: string;
   kind?: string;
   metadata?: {
@@ -22,35 +22,14 @@ interface CustomResourceDefinitionManifest {
   };
 }
 
-export class ImportCustomResourceDefinition extends ImportBase {
-  public static async match(source: string): Promise<undefined | CustomResourceDefinitionManifest> {
-    let manifest;
-    if (source.startsWith('https://')) {
-      manifest = yaml.parse(await httpsGet(source));
-    } else if (path.extname(source) === '.yaml' || path.extname(source) === '.yml' || path.extname(source) === '.json') {
-      if (!(await fs.pathExists(source))) {
-        throw new Error(`can't find file ${source}`);
-      }
-
-      manifest = yaml.parse(await fs.readFile(source, 'utf-8'));
-    }
-
-    if (!manifest) {
-      return undefined;
-    }
-
-    return manifest;
-  }
-
+export class CustomResourceDefinition {
   private readonly schema: any;
   private readonly group: string;
   private readonly version: string;
   private readonly kind: string;
   private readonly fqn: string;
-  
-  constructor(manifest: CustomResourceDefinitionManifest) {
-    super();
 
+  constructor(manifest: CustomResourceApiObject) {
     assert(manifest.apiVersion === 'apiextensions.k8s.io/v1beta1', '"apiVersion" must be "apiextensions.k8s.io/v1beta1"');
     assert(manifest.kind === 'CustomResourceDefinition', '"kind" must be "CustomResourceDefinition"');
 
@@ -85,9 +64,7 @@ export class ImportCustomResourceDefinition extends ImportBase {
     return this.kind.toLocaleLowerCase();
   }
 
-  protected async generateTypeScript(code: CodeMaker) {
-
-
+  public async generateTypeScript(code: CodeMaker) {
     const types = new TypeGenerator();
   
     types.emitConstruct({
@@ -103,6 +80,45 @@ export class ImportCustomResourceDefinition extends ImportBase {
     code.line(`import { Construct } from 'constructs';`);
     code.line();
     types.generate(code);
+  }
+}
+
+export class ImportCustomResourceDefinition extends ImportBase {
+  public static async match(source: string): Promise<undefined | CustomResourceApiObject[]> {
+    let manifest;
+    if (source.startsWith('https://')) {
+      manifest = await httpsGet(source);
+    } else if (path.extname(source) === '.yaml' || path.extname(source) === '.yml' || path.extname(source) === '.json') {
+      if (!(await fs.pathExists(source))) {
+        throw new Error(`can't find file ${source}`);
+      }
+
+      manifest = await fs.readFile(source, 'utf-8');
+    }
+
+    if (!manifest) {
+      return undefined;
+    }
+
+    return yaml.parseAllDocuments(manifest)
+               .map((doc: yaml.ast.Document) => doc.toJSON())
+               .filter((doc) => (doc as CustomResourceApiObject).kind === 'CustomResourceDefinition');
+  }
+
+  private readonly customResourceDefinitions: CustomResourceDefinition[] = [];
+  
+  constructor(manifest: CustomResourceApiObject[]) {
+    super();
+
+    this.customResourceDefinitions = manifest?.map(obj => new CustomResourceDefinition(obj));
+  }
+
+  public get moduleNames() {
+    return this.customResourceDefinitions.map(crd => crd.moduleName);
+  }
+
+  protected async generateTypeScript(code: CodeMaker, moduleName: string) {
+    this.customResourceDefinitions.filter(crd => moduleName === crd.moduleName).map(crd => crd.generateTypeScript(code));
   }
 }
 
