@@ -115,4 +115,4 @@ jobs:
           # A PR will be sent to github.com/Homebrew/homebrew-core to update this formula:
           formula-name: cdk8s
         env:
-          COMMITTER_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
+          COMMITTER_TOKEN: ${{ secrets.HOMEBREW_COMMITTER_TOKEN }}
