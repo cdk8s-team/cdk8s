@@ -107,6 +107,8 @@ jobs:
 
   release_homebrew:
     name: Release to Homebrew
+    # The branch or tag ref that triggered the workflow run.
+    if: startsWith(github.ref, "v")
     needs: release_npm
     runs-on: ubuntu-latest
     steps:
