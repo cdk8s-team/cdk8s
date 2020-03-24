@@ -5,10 +5,14 @@ Let's walk through a simple "Hello, World!" example in Python.
 ## Install the CLI
 
 cdk8s has a cute little CLI that has a few useful commands. Let's start by
-installing the cdk8s CLI globally:
+installing the cdk8s CLI globally. We have two options for this:
 
 ```shell
 $ brew install cdk8s
+```
+
+```shell
+$ npm install -g cdk8s-cli
 ```
 
 ## New Project
