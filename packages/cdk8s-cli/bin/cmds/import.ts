@@ -14,7 +14,7 @@ class Command implements yargs.CommandModule {
 
   public readonly builder = (args: yargs.Argv) => args
     .positional('SOURCE', { default: config.imports, desc: `The API source to import (supported sources: k8s, crd.yaml, https://domain/crd.yaml)`, array: true })
-    .example(`cdk8s import k8s`, `Imports Kubenretes API objects to imports/k8s.ts`)
+    .example(`cdk8s import k8s`, `Imports Kubernetes API objects to imports/k8s.ts`)
     .example(`cdk8s import k8s@1.13.0`, `imports a specific version of the Kubenretes API`)
     .example(`cdk8s import jenkins.io_jenkins_crd.yaml`, 'imports constructs for the Jenkins custom resource definition from a file')
 
@@ -24,7 +24,11 @@ class Command implements yargs.CommandModule {
     .option('language', { default: config.language, demand: true, type: 'string', desc: 'Output programming language', alias: 'l', choices: LANGUAGES });
 
   public async handler(argv: any) {
-    const sources = Array.isArray(argv.source) ? argv.source : [ argv.source ];
+    let sources = Array.isArray(argv.source) ? argv.source : [ argv.source ];
+
+    sources = sources.map((source: string) => { 
+      return typeof(source) === 'string' ? { file: source } : source;
+    });
 
     await importDispatch(sources, argv, {
       outdir: argv.output,

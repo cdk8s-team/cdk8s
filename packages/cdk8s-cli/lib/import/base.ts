@@ -3,6 +3,7 @@ import * as path from 'path';
 import { CodeMaker } from 'codemaker';
 import { withTempDir, shell } from '../util';
 import { jsiiCompile } from './jsii';
+import { Cdk8sImport } from '../config';
 
 export enum Language {
   TYPESCRIPT = 'typescript',
@@ -22,7 +23,7 @@ export abstract class ImportBase {
   public abstract get moduleNames(): string[];
   protected abstract async generateTypeScript(code: CodeMaker, moduleName?: string): Promise<void>;
 
-  public async import(options: ImportOptions) {
+  public async import(options: ImportOptions, source?: Cdk8sImport) {
     const code = new CodeMaker();
 
     const outdir = path.resolve(options.outdir);
@@ -30,7 +31,7 @@ export abstract class ImportBase {
     const isTypescript = options.targetLanguage === Language.TYPESCRIPT
 
     for (const name of this.moduleNames) {
-      const fileName = `${name}.ts`;
+      const fileName = source?.moduleName ? `${source.moduleName}-${name}.ts` : `${name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
       await this.generateTypeScript(code, name);

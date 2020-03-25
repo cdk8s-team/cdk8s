@@ -5,6 +5,7 @@ import { httpsGet } from '../util';
 import * as yaml from 'yaml';
 import * as fs from 'fs-extra';
 import * as path from 'path';
+import { Cdk8sImport } from '../config';
 
 export interface CustomResourceApiObject {
   apiVersion?: string;
@@ -84,16 +85,17 @@ export class CustomResourceDefinition {
 }
 
 export class ImportCustomResourceDefinition extends ImportBase {
-  public static async match(source: string): Promise<undefined | CustomResourceApiObject[]> {
+  public static async match(source: Cdk8sImport): Promise<undefined | CustomResourceApiObject[]> {
+    const { file } = source;
     let manifest;
-    if (source.startsWith('https://')) {
-      manifest = await httpsGet(source);
-    } else if (path.extname(source) === '.yaml' || path.extname(source) === '.yml' || path.extname(source) === '.json') {
-      if (!(await fs.pathExists(source))) {
+    if (file.startsWith('https://')) {
+      manifest = await httpsGet(file);
+    } else if (path.extname(file) === '.yaml' || path.extname(file) === '.yml' || path.extname(file) === '.json') {
+      if (!(await fs.pathExists(file))) {
         throw new Error(`can't find file ${source}`);
       }
 
-      manifest = await fs.readFile(source, 'utf-8');
+      manifest = await fs.readFile(file, 'utf-8');
     }
 
     if (!manifest) {

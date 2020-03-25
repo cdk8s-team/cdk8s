@@ -4,11 +4,16 @@ import { Language } from './import/base';
 
 const CONFIG_FILE = 'cdk8s.yaml';
 
+export interface Cdk8sImport {
+  moduleName?: string;
+  file: string;
+}
+
 export interface Config {
   readonly app?: string;
   readonly language?: Language;
   readonly output?: string;
-  readonly imports?: string[];
+  readonly imports?: (string|Cdk8sImport)[];
 }
 
 const DEFAULTS: Config = {
