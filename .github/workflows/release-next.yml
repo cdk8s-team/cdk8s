@@ -6,6 +6,7 @@ on:
     
 jobs:
   release:
+    if: github.repository == 'awslabs/cdk8s'
     runs-on: ubuntu-latest
     container:
       image: jsii/superchain
