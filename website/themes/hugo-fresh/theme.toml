@@ -1,0 +1,12 @@
+name = "Hugo Fresh"
+license = "MIT"
+licenselink = "https://github.com/StefMa/hugo-fresh/blob/master/LICENSE.md"
+description = "A Hugo adaptation of the Fresh theme from CSS Ninja"
+homepage = "https://github.com/StefMa/hugo-fresh"
+tags = ["responsive", "one page", "light", "onepage", "company", "clean", "landing page"]
+features = []
+min_version = "0.45"
+
+[author]
+  name = "Stefan M."
+  homepage = "https://github.com/StefMa"

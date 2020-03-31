@@ -1,0 +1,57 @@
+{{- $footer      := .Site.Params.footer }}
+{{- $logo        := index $footer "logo" }}
+{{- $quickLinks  := index $footer "quicklinks" }}
+{{- $socialMedia := index $footer "socialmedia" }}
+{{- $bulmaLogo   := index $footer "bulmalogo" }}
+{{- $socialMediaTitle    := index $footer "socialmediatitle" }}
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          <img src="{{ printf "/images/logos/%s" $logo | relURL }}">
+        </div>
+      </div>
+      {{- range $quickLinks }}
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>{{ .title }}</h3>
+            </div>
+            <ul class="link-list">
+              {{- range .links }}
+              <li>
+                <a href="{{ .link }}">
+                  {{ .text }}
+                </a>
+              </li>
+              {{- end }}
+            </ul>
+          </div>
+        </div>
+      {{- end }}
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3>{{ $socialMediaTitle }}</h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                {{- range $socialMedia }}
+                <a class="level-item" href="{{ .link }}">
+                  <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+                </a>
+                {{- end }}
+              </div>
+            </nav>
+
+            {{- if $bulmaLogo }}
+            <a href="https://bulma.io" target="_blank">
+              <img src="{{ "/images/logos/made-with-bulma.png" | relURL }}" alt="Made with Bulma" width="128" height="24">
+            </a>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
