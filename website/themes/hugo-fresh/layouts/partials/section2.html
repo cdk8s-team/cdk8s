@@ -7,7 +7,7 @@
     <div class="columns">
       <div class="column is-centered-tablet-portrait">
         <h1 class="title section-title">{{ $title }}</h1>
-        <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+        <h3 class="subtitle is-5 is-muted">{{ $subtitle | markdownify }}</h3>
         <div class="divider"></div>
       </div>
       <div class="column is-7 mt-60">

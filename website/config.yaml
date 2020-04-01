@@ -1,4 +1,4 @@
-baseURL: http://cdk8s.io/
+baseURL: https://cdk8s.io/
 languageCode: en-us
 title: CDK for Kubernetes
 theme: hugo-fresh
@@ -10,13 +10,13 @@ disableKinds:
 markup:
   goldmark:
     renderer:
-      unsafe: false # Allows you to write raw html in your md files
+      unsafe: true # Allows you to write raw html in your md files
 
 params:
   # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
   openGraph: true
   # Used as meta data; describe your site to make Google Bots happy 
-  description: Define Kubernetes native apps and abstractions using object-oriented programming
+  description: Define Kubernetes native apps and abstractions using familiar programming languages
   navbarlogo:
   # Logo (from static/images/logos/___)
     image: logos/fresh.svg
@@ -28,155 +28,163 @@ params:
     # Main hero title
     title: Cloud Development Kit for Kubernetes
     # Hero subtitle (optional)
-    subtitle: Define Kubernetes native apps and abstractions using object-oriented programming
+    subtitle: Define Kubernetes native apps and abstractions using familiar programming languages
     # Button text
-    buttontext: Get started
-    # Where the main hero button links to
-    buttonlink: "#"
+    button1text: Python
+    button1link: "/getting-started/python"
+    button2text: TypeScript
+    button2link: "/getting-started/typescript"
     # Hero image (from static/images/___)
     image: illustrations/worker.svg
     # Footer logos (from static/images/logos/clients/___.svg)
     clientlogos:
-    - systek
-    - tribe
-    - kromo
-    - infinite
-    - gutwork
+    - eks
+    - gke
+    - aks
+    - ibm
+
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbar:
-  - title: Features
-    url: /
-  - title: Dropdown
+  - title: GitHub
+    url: https://github.com/awslabs/cdk8s
+  - title: Getting Started
     sublinks:
-    - title: Dropdown item
-      url: /
-    - title: Dropdown item
-      url: /
-    - title: Dropdown item
-      url: /
-  - title: Log in
-    url: /
-  - title: Sign up
-    url: /
-    button: true
+    - title: Python
+      url: "/getting-started/python"
+    - title: TypeScript
+      url: "/getting-started/typescript"
+
   section1:
-    title: Great power comes
-    subtitle: with great responsibility
+    title: No more YAML Engineering!
+    # subtitle: |
+    #   *The Cloud Development Kit for Kubernetes (cdk8s)* is a software
+    #   development framework for defining Kubernetes applications and reusable
+    #   abstractions using familiar programming languages and rich object-oriented
+    #   APIs. cdk8s generates pure Kubernetes YAML - you can use it to define
+    #   applications for any Kubernetes cluster running anywhere.
     tiles:
-    - title: Configure Kubernetes quickly
+
+    - title: Harness the power of code
       icon: laptop-globe
       text: |
-        cdk8s lets you quickly and accurately define your Kubernetes
-        applications using the programming languages you already know. cdk8s
-        automatically inserts Kubernetes YAML boilerplate and ensures perfect
-        formatting. You don’t need to copy and paste YAML to get complete
-        application manifests that are ready to run.
-      url: /
-      buttonText: Free trial
+        Define manifests using object-oriented programming languages
 
-    - title: Simplify application workflows
+      #   cdk8s lets you quickly and accurately define your Kubernetes
+      #   applications using the programming languages you already know. cdk8s
+      #   automatically inserts Kubernetes YAML boilerplate and ensures perfect
+      #   formatting. You don’t need to copy and paste YAML to get complete
+      #   application manifests that are ready to run.
+
+    - title: Familiar workflows and tools
       icon: doc-sync
       text: |
-        With cdk8s you can use the same language to write code and configure
-        your application on Kubernetes. cdk8s significantly reduces the amount
-        of code you need to write to define your application. Using cdk8s you
-        can easily understand, modify, and share your application’s
-        configuration through the same tools you already use for your
-        application code.
-      url: /
-      buttonText: Free trial
+        Use the same tools and workflows you know and love
+
+      #   With cdk8s you can use the same language to write code and configure
+      #   your application on Kubernetes. cdk8s significantly reduces the amount
+      #   of code you need to write to define your application. Using cdk8s you
+      #   can easily understand, modify, and share your application’s
+      #   configuration through the same tools you already use for your
+      #   application code.
 
     - title: Define best practices
       icon: mobile-feed
       text: |
-        cdk8s makes it easy to define complex apps and build custom templates.
-        Create custom classes for common applications or specify certain
-        settings that need to be present in every deployment. You can use cdk8s
-        to compose complete Kubernetes applications or to create and share
-        libraries of constructs that can be used to compose applications by
-        others in your team or around the world.
-      url: /
-      buttonText: Free trial
+        Compose and share reusable components
+        through code libraries
+      # text: |
+      #   cdk8s makes it easy to define complex apps and build custom templates.
+      #   Create custom classes for common applications or specify certain
+      #   settings that need to be present in every deployment. You can use cdk8s
+      #   to compose complete Kubernetes applications or to create and share
+      #   libraries of constructs that can be used to compose applications by
+      #   others in your team or around the world.
 
-
-
-  # Features
   section2:
+    title: What is cdk8s?
+    subtitle: |
+      **cdk8s** is an open-source software development framework for defining
+      Kubernetes applications and reusable abstractions using familiar
+      programming languages and rich object-oriented APIs. cdk8s synthesizes
+      pure Kubernetes YAML so you can use it with any Kubernetes cluster running
+      anywhere.
 
-    title: You're here because you want the best
-    subtitle: And we know it
     features:
-    # Icon (from /images/illustrations/icons/___.svg)
+
     - title: Works with Kubernetes everywhere
       icon: mouse-globe
       text: |
-        You can use cdk8s to define applications for any Kubernetes cluster
+        You can use *cdk8s* to define applications for any Kubernetes cluster
         running anywhere, including any cloud or on-premises. cdk8s runs locally
         in your development environment and produces standard Kubernetes YAML
         that can be applied to any cluster.
+      url: /
+      buttonText: Free trial
 
     - title: Supports any API version and custom resources
       icon: laptop-cloud
       text: |
         You can import any Kubernetes API version and custom resource
-        definitions to use with cdk8s. This makes it easy to use cdk8s to easily
+        definitions to use with *cdk8s*. This makes it easy to use cdk8s to easily
         write entire Kubernetes applications and keep them up to date as
         applications change.
+      url: /
+      buttonText: Get started
 
     - title: Language support
-      icon: laptop-cloud
+      icon: plug-cloud
       text: |
-        Today, cdk8s lets you define applications using Typescript, JavaScript,
+        Today, *cdk8s* lets you define applications using Typescript, JavaScript,
         and Python. Support for more languages, including Go is coming soon.
-
-    - title: Helm support
-      icon: laptop-cloud
-      text: |
-        TBD
+      url: /
+      buttonText: Get started
 
     - title: Deploy through GitOps
-      icon: laptop-cloud
+      icon: plug-cloud
       text: |
-        cdk8s works great with a GitOps
-        (https://www.weave.works/technologies/gitops/) workflow, making it easy
+        *cdk8s* works great with a [GitOps](https://www.weave.works/technologies/gitops/) workflow, making it easy
         to see changes as you modify your configuration and between API
         versions. Simply use the cdk8s to synthesize new YAML configuration
         files and commit them to your git repo.
+      url: /
+      buttonText: Get started
 
     - title: Community-driven
-      icon: laptop-cloud
+      icon: plug-cloud
       text: |
-        We are building the cdk8s for any developer who uses Kubernetes to
+        We are building *cdk8s* for any developer who uses Kubernetes to
         define their applications.  We encourage contributions of any type, from
         fixing typos to building new features. Our goal is that cdk8s becomes an
-        official CNCF sandbox project that the entire community can use.      
+        official CNCF sandbox project that the entire community can use.
+      url: /
+      buttonText: Get started
+
 
   section3:
-    title: One platform
-    subtitle: To rule them all
+    # title: One platform
+    # subtitle: To rule them all
     image: illustrations/mockups/app-mockup.png
     buttonText: Get started
     buttonLink: "#"
 
-  section4:
-    title: Our Clients love us!
-    subtitle: Lorem ipsum sit dolor amet is a dummy text used by typography industry
-    clients:
-    - name: Irma Walters
-      quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: Accountant
-      img: 1
-    - name: John Bradley
-      quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: Financial Analyst
-      img: 2
-    - name: Gary Blackman
-      quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: HR Manager
-      img: 3
+  # section4:
+  #   title: Our Clients love us!
+  #   subtitle: Lorem ipsum sit dolor amet is a dummy text used by typography industry
+  #   clients:
+  #   - name: Irma Walters
+  #     quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+  #     job: Accountant
+  #     img: 1
+  #   - name: John Bradley
+  #     quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+  #     job: Financial Analyst
+  #     img: 2
+  #   - name: Gary Blackman
+  #     quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+  #     job: HR Manager
+  #     img: 3
 
-  # email us section
-  section5: true
+  # section5: true
 
   footer:
     # Logo (from /images/logos/___)
@@ -185,47 +193,35 @@ params:
     socialmediatitle: Follow Us
     # Social media links (GitHub, Twitter, etc.). All are optional.
     socialmedia:
-    - link: https://github.com/lucperkins/github-fresh
-      # Icons are from Font Awesome
+    - link: https://github.com/awslabs/cdk8s
       icon: github
-    - link: https://dribbble.com/#
-      icon: dribbble
-    - link: https://facebook.com/#
-      icon: facebook
-    - link: https://twitter.com/lucperkins
+    - link: https://github.com/awslabs/cdk8s
+      icon: slack
+    - link: https://github.com/awslabs/cdk8s
       icon: twitter
-    - link: https://bitbucket.org/#
-      icon: bitbucket
+
     bulmalogo: true
+
     quicklinks:
       column1:
-        title: "Product"
+        title: "More Resources"
         links:
-        - text: Discover features
-          link: /
-        - text: Why choose our product?
-          link: /
-        - text: Compare features
-          link: /
-        - text: Our roadmap
-          link: /
-        - text: AGB
-          link: /agb
+        - text: Examples
+          link: https://github.com/awslabs/cdk8s/tree/master/examples
+        - text: Roadmap
+          link: https://github.com/awslabs/cdk8s/projects/1
       column2:
         title: "Docs"
         links:
-        - text: Get started
-          link: /
-        - text: User guides
-          link: /
-        - text: Admin guide
-          link: /
-        - text: Developers
-          link: /
-      column3:
-        title: "Blog"
-        links:
-        - text: Latest news
-          link: /blog/first
-        - text: Tech articles
-          link: /blog/second
+        - text: Getting started (Python)
+          link: "/getting-started/python"
+        - text: Getting Started (TypeScript)
+          link: "/getting-started/typescript"
+
+      # column3:
+      #   title: "Blog"
+      #   links:
+      #   - text: Latest news
+      #     link: /blog/first
+      #   - text: Tech articles
+      #     link: /blog/second

@@ -24,9 +24,11 @@
             <div class="card-text">
                 <p>{{ .text }}</p>
             </div>
+            {{- with .buttonText }}
             <div class="card-action">
               <a href="{{ .url }}" class="button btn-align-md accent-btn raised">{{ .buttonText }}</a>
             </div>
+            {{- end }}
           </div>
         </div>
         {{- end }}

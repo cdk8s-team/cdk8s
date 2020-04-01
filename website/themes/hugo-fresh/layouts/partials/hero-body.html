@@ -1,8 +1,10 @@
 {{- $hero       := .Site.Params.hero }}
 {{- $title      := index $hero "title" }}
 {{- $subtitle   := index $hero "subtitle" }}
-{{- $buttonText := index $hero "buttontext" }}
-{{- $buttonLink := index $hero "buttonlink" }}
+{{- $button1Text := index $hero "button1text" }}
+{{- $button1Link := index $hero "button1link" }}
+{{- $button2Text := index $hero "button2text" }}
+{{- $button2Link := index $hero "button2link" }}
 {{- $image      := index $hero "image" }}
 <div class="hero-body">
   <div class="container">
@@ -17,8 +19,11 @@
         </h2>
         {{ end }}
         <p>
-          <a class="button cta rounded primary-btn raised" href="{{ $buttonLink }}">
-            {{ $buttonText }}
+          <a class="button cta rounded primary-btn raised" href="{{ $button1Link }}">
+            {{ $button1Text }}
+          </a>
+          <a class="button cta rounded primary-btn raised" href="{{ $button2Link }}">
+            {{ $button2Text }}
           </a>
         </p>
       </div>
