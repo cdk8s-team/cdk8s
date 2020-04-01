@@ -1,7 +1,6 @@
 baseURL: https://cdk8s.io/
 languageCode: en-us
 title: CDK for Kubernetes
-theme: hugo-fresh
 googleAnalytics: # Put in your tracking code without quotes like this: UA-XXXXXX...
 # Disables warnings
 disableKinds:
