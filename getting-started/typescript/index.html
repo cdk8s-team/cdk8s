@@ -1,0 +1,232 @@
+<!doctype html><html lang=en-us><head><meta property="og:title" content="Getting Started with CDK for Kubernetes (TypeScript)"><meta property="og:description" content="Let&rsquo;s walk through a simple &ldquo;Hello, World!&rdquo; example in TypeScript.
+Prerequisites  Node.js >= 10.x Your favorite editor/IDE yarn (optional)  Install the CLI cdk8s has a cute little CLI that has a few useful commands. Let&rsquo;s start by installing the cdk8s CLI globally:
+$ npm install -g cdk8s-cli New Project Now, we&rsquo;ll use the cdk8s init command to create a new TypeScript cdk8s app:
+$ mkdir hello $ cd hello $ cdk8s init typescript-app creating a new project from template: typescript-app ."><meta property="og:type" content="article"><meta property="og:url" content="https://cdk8s.io/getting-started/typescript/"><meta name=description content="Define Kubernetes native apps and abstractions using familiar programming languages"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta http-equiv=x-ua-compatible content="ie=edge"><title>CDK for Kubernetes</title><link rel=icon type=image/png href=/images/favicon.png><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel=stylesheet><link rel=stylesheet type=text/css href=/css/style.min.11c62925fdb13699ada9387b2312ed8aa64d54089155d49591c77445bd29f254.css integrity="sha256-EcYpJf2xNpmtqTh7IxLtiqZNVAiRVdSVkcd0Rb0p8lQ="><link rel=stylesheet type=text/css href=/css/icons.css></head><body><div id=preloader><div id=status></div></div><nav class="navbar is-fresh is-transparent no-shadow" role=navigation aria-label="main navigation"><div class=container><div class=navbar-brand><a class=navbar-item href=/><img src=/images/logo.svg></a>
+<a role=button class=navbar-burger aria-label=menu aria-expanded=false data-target=navbar-menu><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=navbar-menu class="navbar-menu is-static"><div class=navbar-end><div class="navbar-item has-dropdown is-hoverable"><a class=navbar-link>Resources</a><div class=navbar-dropdown><a href=https://github.com/awslabs/cdk8s/tree/master/examples class=navbar-item>Examples</a>
+<a href=https://github.com/awslabs/cdk8s/projects/1 class=navbar-item>Roadmap</a></div></div><div class="navbar-item has-dropdown is-hoverable"><a class=navbar-link>Getting Started</a><div class=navbar-dropdown><a href=/getting-started/python class=navbar-item>Python</a>
+<a href=/getting-started/typescript class=navbar-item>TypeScript</a></div></div><a href=https://github.com/awslabs/cdk8s class="navbar-item is-size-3"><span class=icon><i class="fa fa-github"></i></span></a></div></div></div></nav><nav id=navbar-clone class="navbar is-fresh is-transparent" role=navigation aria-label="main navigation"><div class=container><div class=navbar-brand><a class=navbar-item href=/><img src=/images/logo.svg></a>
+<a role=button class=navbar-burger aria-label=menu aria-expanded=false data-target=cloned-navbar-menu><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=cloned-navbar-menu class="navbar-menu is-fixed"><div class=navbar-end><div class="navbar-item has-dropdown is-hoverable"><a class=navbar-link>Resources</a><div class=navbar-dropdown><a href=https://github.com/awslabs/cdk8s/tree/master/examples class=navbar-item>Examples</a>
+<a href=https://github.com/awslabs/cdk8s/projects/1 class=navbar-item>Roadmap</a></div></div><div class="navbar-item has-dropdown is-hoverable"><a class=navbar-link>Getting Started</a><div class=navbar-dropdown><a href=/getting-started/python class=navbar-item>Python</a>
+<a href=/getting-started/typescript class=navbar-item>TypeScript</a></div></div><a href=https://github.com/awslabs/cdk8s class="navbar-item is-size-3"><span class=icon><i class="fa fa-github"></i></span></a></div></div></div></nav><section class="section is-medium"><div class=container><div class=columns><div class="column is-centered-tablet-portrait"><h1 class="title section-title">Getting Started with CDK for Kubernetes (TypeScript)</h1><h5 class="subtitle is-5 is-muted"></h5><div class=divider></div></div></div><div class=content><p>Let&rsquo;s walk through a simple &ldquo;Hello, World!&rdquo; example in TypeScript.</p><h2 id=prerequisites>Prerequisites</h2><ul><li><a href=https://nodejs.org/en/>Node.js >= 10.x</a></li><li>Your favorite editor/IDE</li><li><a href=https://yarnpkg.com/>yarn</a> (optional)</li></ul><h2 id=install-the-cli>Install the CLI</h2><p>cdk8s has a cute little CLI that has a few useful commands. Let&rsquo;s start by
+installing the cdk8s CLI globally:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ npm install -g cdk8s-cli
+</code></pre></div><h2 id=new-project>New Project</h2><p>Now, we&rsquo;ll use the <code>cdk8s init</code> command to create a new TypeScript cdk8s app:</p><pre><code class=language-console data-lang=console>$ mkdir hello
+$ cd hello
+$ cdk8s init typescript-app
+creating a new project from template: typescript-app
+...
+</code></pre><p>This will perform the following:</p><ol><li>Create a new project directory</li><li>Install cdk8s as a dependency</li><li>Import all Kubernetes API objects</li><li>Compile the TypeScript to JavaScript</li></ol><h2 id=watch>Watch</h2><p>Since TypeScript is a compiled language, we will need to compile <code>.ts</code> files to
+<code>.js</code> in order to execute our CDK app. You can do that continuously in the
+background like this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ npm run watch
+</code></pre></div><h2 id=apps--charts>Apps & Charts</h2><p>At this point, if you open <code>main.ts</code> you will see something like this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Construct</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;constructs&#39;</span>;
+<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Chart</span>, <span style=color:#a6e22e>App</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;cdk8s&#39;</span>;
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyChart</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>Chart</span> {
+  <span style=color:#66d9ef>constructor</span>(<span style=color:#a6e22e>scope</span>: <span style=color:#66d9ef>Construct</span>, <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>) {
+    <span style=color:#66d9ef>super</span>(<span style=color:#a6e22e>scope</span>, <span style=color:#a6e22e>name</span>);
+
+    <span style=color:#75715e>// define constructs here
+</span><span style=color:#75715e></span>  }
+}
+
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>app</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>App</span>();
+<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>MyChart</span>(<span style=color:#a6e22e>app</span>, <span style=color:#e6db74>&#39;hello&#39;</span>);
+<span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>synth</span>();
+</code></pre></div><p>Apps are structured as a tree of <strong>constructs</strong>, which are composable units of
+abstraction. We will learn more about constructs soon.</p><p>This initial code created by <code>cdk8s init</code> defines an app with a single, empty,
+chart.</p><p>When you run <code>npm run synth</code>, a Kubernetes manifest YAML will be synthesized for
+each <code>Chart</code> in your app and will write it to the <code>dist</code> directory.</p><p>You can try:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ npm run synth
+$ cat dist/hello.k8s.yaml
+&lt;EMPTY&gt;
+</code></pre></div><h2 id=importing-constructs-for-the-kubernetes-api>Importing Constructs for the Kubernetes API</h2><p>OK, now let&rsquo;s define some Kubernetes API objects inside our chart.</p><p>Similarly to <strong>charts</strong> and <strong>apps</strong>, Kubernetes API Objects are also
+represented in cdk8s as <strong>constructs</strong>. These constructs are &ldquo;imported&rdquo; to your
+project using the command <code>cdk8s import</code> and can then found under the
+<code>imports/k8s.ts</code> file in your project directory.</p><p>When <code>cdk8s init</code> created your project it already executed <code>cdk8s import</code> for
+you, so you should see an <code>imports/</code> directory already there. You can either
+commit this directory to source-control or generate it as part of your build
+process.</p><p>Now, let&rsquo;s use these constructs to define a simple Kubernetes application that
+contains
+<a href=https://kubernetes.io/docs/concepts/services-networking/service>Service</a> and a
+<a href=https://kubernetes.io/docs/concepts/workloads/controllers/deployment>Deployment</a>
+resources inspired by <a href=https://github.com/paulbouwer>paulbouwer</a>&lsquo;s
+<a href=https://github.com/paulbouwer/hello-kubernetes>hello-kubernetes</a> project.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Construct</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;constructs&#39;</span>;
+<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>App</span>, <span style=color:#a6e22e>Chart</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;cdk8s&#39;</span>;
+
+<span style=color:#75715e>// imported constructs
+</span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Deployment</span>, <span style=color:#a6e22e>Service</span>, <span style=color:#a6e22e>IntOrString</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;./imports/k8s&#39;</span>;
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyChart</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>Chart</span> {
+  <span style=color:#66d9ef>constructor</span>(<span style=color:#a6e22e>scope</span>: <span style=color:#66d9ef>Construct</span>, <span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>) {
+    <span style=color:#66d9ef>super</span>(<span style=color:#a6e22e>scope</span>, <span style=color:#a6e22e>name</span>);
+
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>label</span> <span style=color:#f92672>=</span> { <span style=color:#a6e22e>app</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;hello-k8s&#39;</span> };
+
+    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Service</span>(<span style=color:#66d9ef>this</span>, <span style=color:#e6db74>&#39;service&#39;</span>, {
+      <span style=color:#a6e22e>spec</span><span style=color:#f92672>:</span> {
+        <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;LoadBalancer&#39;</span>,
+        <span style=color:#a6e22e>ports</span><span style=color:#f92672>:</span> [ { <span style=color:#a6e22e>port</span>: <span style=color:#66d9ef>80</span>, <span style=color:#a6e22e>targetPort</span>: <span style=color:#66d9ef>IntOrString.fromNumber</span>(<span style=color:#ae81ff>8080</span>) } ],
+        <span style=color:#a6e22e>selector</span>: <span style=color:#66d9ef>label</span>
+      }
+    });
+
+    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Deployment</span>(<span style=color:#66d9ef>this</span>, <span style=color:#e6db74>&#39;deployment&#39;</span>, {
+      <span style=color:#a6e22e>spec</span><span style=color:#f92672>:</span> {
+        <span style=color:#a6e22e>replicas</span>: <span style=color:#66d9ef>2</span>,
+        <span style=color:#a6e22e>selector</span><span style=color:#f92672>:</span> {
+          <span style=color:#a6e22e>matchLabels</span>: <span style=color:#66d9ef>label</span>
+        },
+        <span style=color:#a6e22e>template</span><span style=color:#f92672>:</span> {
+          <span style=color:#a6e22e>metadata</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>labels</span>: <span style=color:#66d9ef>label</span> },
+          <span style=color:#a6e22e>spec</span><span style=color:#f92672>:</span> {
+            <span style=color:#a6e22e>containers</span><span style=color:#f92672>:</span> [
+              {
+                <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;hello-kubernetes&#39;</span>,
+                <span style=color:#a6e22e>image</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;paulbouwer/hello-kubernetes:1.7&#39;</span>,
+                <span style=color:#a6e22e>ports</span><span style=color:#f92672>:</span> [ { <span style=color:#a6e22e>containerPort</span>: <span style=color:#66d9ef>8080</span> } ]
+              }
+            ]
+          }
+        }
+      }
+    });
+  }
+}
+
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>app</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>App</span>();
+<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>MyChart</span>(<span style=color:#a6e22e>app</span>, <span style=color:#e6db74>&#39;hello&#39;</span>);
+<span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>synth</span>();
+</code></pre></div><p>Now, after we execute <code>npm run synth</code>, this will be contents of
+<code>hello.k8s.yaml</code>:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>type</span>: LoadBalancer
+  <span style=color:#66d9ef>ports</span>:
+    - <span style=color:#66d9ef>port</span>: <span style=color:#ae81ff>80</span>
+      <span style=color:#66d9ef>targetPort</span>: <span style=color:#ae81ff>8080</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>app</span>: hello-k8s
+<span style=color:#66d9ef>kind</span>: Service
+<span style=color:#66d9ef>apiVersion</span>: v1
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: hello.service.9878228b
+---
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>2</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: hello-k8s
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>labels</span>:
+        <span style=color:#66d9ef>app</span>: hello-k8s
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>containers</span>:
+        - <span style=color:#66d9ef>name</span>: hello-kubernetes
+          <span style=color:#66d9ef>image</span>: paulbouwer/hello-kubernetes:<span style=color:#ae81ff>1.7</span>
+          <span style=color:#66d9ef>ports</span>:
+            - <span style=color:#66d9ef>containerPort</span>: <span style=color:#ae81ff>8080</span>
+<span style=color:#66d9ef>kind</span>: Deployment
+<span style=color:#66d9ef>apiVersion</span>: apps/v1
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: hello.deployment.c51e9e6b
+</code></pre></div><p>The manifest synthesized by your app is ready to be applied to any Kubernetes
+cluster using standard tools like <code>kubectl apply</code>:</p><pre><code class=language-console data-lang=console>$ kubectl apply -f dist/hello.k8s.yaml
+</code></pre><h2 id=constructs>Constructs</h2><p>Constructs are the basic building block of <strong>cdk8s</strong>. They are the instrument that
+enables composition and creation of higher-level abstractions through normal
+object-oriented classes.</p><p>If you come from the Kubernetes world, you can think of constructs as
+programmatically defined Helm Charts. The nice thing about constructs being
+&ldquo;programmatically defined&rdquo; is that we can use them to leverage the full power of
+object-oriented programming. For example:</p><ul><li>You can express the abstraction&rsquo;s API using strong-typed data types</li><li>You can express rich interactions with methods and properties</li><li>You can create polymorphic programming models through interfaces and base
+classes</li><li>Share them through regular package managers</li><li>Test them using our familiar testing tools and techniques</li><li>Version them</li><li>&mldr;and do all that stuff that we&rsquo;ve been doing with software in the past 20
+years.</li></ul><p>So let&rsquo;s create our first Kubernetes construct. We&rsquo;ll call it <code>WebService</code> and
+it will basically be a generalization of the <strong>hello world</strong> program. It&rsquo;s
+actually quite useful.</p><p>For example, this one line will add a hello world service to our chart:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=color:#66d9ef>new</span> <span style=color:#a6e22e>WebService</span>(<span style=color:#66d9ef>this</span>, <span style=color:#e6db74>&#39;hello-k8s&#39;</span>, {
+  <span style=color:#a6e22e>image</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;paulbouwer/hello-kubernetes:1.7&#39;</span>
+});
+</code></pre></div><p>It can also be customized through an API:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=color:#66d9ef>new</span> <span style=color:#a6e22e>WebService</span>(<span style=color:#66d9ef>this</span>, <span style=color:#e6db74>&#39;hello-k8s&#39;</span>, {
+  <span style=color:#a6e22e>image</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;paulbouwer/hello-kubernetes:1.7&#39;</span>,
+  <span style=color:#a6e22e>containerPort</span>: <span style=color:#66d9ef>8080</span>,
+  <span style=color:#a6e22e>replicas</span>: <span style=color:#66d9ef>10</span>
+});
+</code></pre></div><p>To implement <code>WebService</code>, create a file <code>lib/web-service.ts</code> (the convention is
+to use <code>lib</code> for reusable components):</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Construct</span>, <span style=color:#a6e22e>Node</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;constructs&#39;</span>;
+<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Deployment</span>, <span style=color:#a6e22e>Service</span>, <span style=color:#a6e22e>IntOrString</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;./imports/k8s&#39;</span>;
+
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>WebServiceOptions</span> {
+  <span style=color:#75715e>/**
+</span><span style=color:#75715e>   * The Docker image to use for this service.
+</span><span style=color:#75715e>   */</span>
+  <span style=color:#a6e22e>readonly</span> <span style=color:#a6e22e>image</span>: <span style=color:#66d9ef>string</span>;
+
+  <span style=color:#75715e>/**
+</span><span style=color:#75715e>   * Number of replicas.
+</span><span style=color:#75715e>   *
+</span><span style=color:#75715e>   * @default 1
+</span><span style=color:#75715e>   */</span>
+  <span style=color:#a6e22e>readonly</span> <span style=color:#a6e22e>replicas?</span>: <span style=color:#66d9ef>number</span>;
+
+  <span style=color:#75715e>/**
+</span><span style=color:#75715e>   * External port.
+</span><span style=color:#75715e>   *
+</span><span style=color:#75715e>   * @default 80
+</span><span style=color:#75715e>   */</span>
+  <span style=color:#a6e22e>readonly</span> <span style=color:#a6e22e>port?</span>: <span style=color:#66d9ef>number</span>;
+
+  <span style=color:#75715e>/**
+</span><span style=color:#75715e>   * Internal port.
+</span><span style=color:#75715e>   *
+</span><span style=color:#75715e>   * @default 8080
+</span><span style=color:#75715e>   */</span>
+  <span style=color:#a6e22e>readonly</span> <span style=color:#a6e22e>containerPort?</span>: <span style=color:#66d9ef>number</span>;
+}
+
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>WebService</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>Construct</span> {
+  <span style=color:#66d9ef>constructor</span>(<span style=color:#a6e22e>scope</span>: <span style=color:#66d9ef>Construct</span>, <span style=color:#a6e22e>ns</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>options</span>: <span style=color:#66d9ef>WebServiceOptions</span>) {
+    <span style=color:#66d9ef>super</span>(<span style=color:#a6e22e>scope</span>, <span style=color:#a6e22e>ns</span>);
+
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>port</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>options</span>.<span style=color:#a6e22e>port</span> <span style=color:#f92672>||</span> <span style=color:#ae81ff>80</span>;
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>containerPort</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>options</span>.<span style=color:#a6e22e>containerPort</span> <span style=color:#f92672>||</span> <span style=color:#ae81ff>8080</span>;
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>label</span> <span style=color:#f92672>=</span> { <span style=color:#a6e22e>app</span>: <span style=color:#66d9ef>Node.of</span>(<span style=color:#66d9ef>this</span>).<span style=color:#a6e22e>uniqueId</span> };
+
+    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Service</span>(<span style=color:#66d9ef>this</span>, <span style=color:#e6db74>&#39;service&#39;</span>, {
+      <span style=color:#a6e22e>spec</span><span style=color:#f92672>:</span> {
+        <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;LoadBalancer&#39;</span>,
+        <span style=color:#a6e22e>ports</span><span style=color:#f92672>:</span> [ { <span style=color:#a6e22e>port</span>, <span style=color:#a6e22e>targetPort</span>: <span style=color:#66d9ef>IntOrString.fromNumber</span>(<span style=color:#a6e22e>containerPort</span>) } ],
+        <span style=color:#a6e22e>selector</span>: <span style=color:#66d9ef>label</span>
+      }
+    });
+
+    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Deployment</span>(<span style=color:#66d9ef>this</span>, <span style=color:#e6db74>&#39;deployment&#39;</span>, {
+      <span style=color:#a6e22e>spec</span><span style=color:#f92672>:</span> {
+        <span style=color:#a6e22e>replicas</span>: <span style=color:#66d9ef>1</span>,
+        <span style=color:#a6e22e>selector</span><span style=color:#f92672>:</span> {
+          <span style=color:#a6e22e>matchLabels</span>: <span style=color:#66d9ef>label</span>
+        },
+        <span style=color:#a6e22e>template</span><span style=color:#f92672>:</span> {
+          <span style=color:#a6e22e>metadata</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>labels</span>: <span style=color:#66d9ef>label</span> },
+          <span style=color:#a6e22e>spec</span><span style=color:#f92672>:</span> {
+            <span style=color:#a6e22e>containers</span><span style=color:#f92672>:</span> [
+              {
+                <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;app&#39;</span>,
+                <span style=color:#a6e22e>image</span>: <span style=color:#66d9ef>options.image</span>,
+                <span style=color:#a6e22e>ports</span><span style=color:#f92672>:</span> [ { <span style=color:#a6e22e>containerPort</span> } ]
+              }
+            ]
+          }
+        }
+      }
+    });
+  }
+}
+</code></pre></div><p>Now, let&rsquo;s edit <code>main.ts</code> and use our new construct:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Chart</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;cdk8s&#39;</span>;
+<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Construct</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;constructs&#39;</span>;
+<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>WebService</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;./lib/web-service&#39;</span>;
+
+<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyChart</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>Chart</span> {
+  <span style=color:#66d9ef>constructor</span>(<span style=color:#a6e22e>scope</span>: <span style=color:#66d9ef>Construct</span>, <span style=color:#a6e22e>ns</span>: <span style=color:#66d9ef>string</span>) {
+    <span style=color:#66d9ef>super</span>(<span style=color:#a6e22e>scope</span>, <span style=color:#a6e22e>ns</span>);
+
+    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>WebService</span>(<span style=color:#66d9ef>this</span>, <span style=color:#e6db74>&#39;hello&#39;</span>, { <span style=color:#a6e22e>image</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;paulbouwer/hello-kubernetes:1.7&#39;</span>, <span style=color:#a6e22e>replicas</span>: <span style=color:#66d9ef>2</span> });
+    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>WebService</span>(<span style=color:#66d9ef>this</span>, <span style=color:#e6db74>&#39;ghost&#39;</span>, { <span style=color:#a6e22e>image</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;ghost&#39;</span>, <span style=color:#a6e22e>containerPort</span>: <span style=color:#66d9ef>2368</span> });
+  }
+}
+</code></pre></div><p>As you can see, we now add define <code>WebService</code> constructs inside our chart: one
+that runs the <code>paulbouwer/hello-kubernetes</code> image and one with an installation
+of <a href=https://hub.docker.com/_/ghost/>ghost</a>.</p></div></div></section><div id=backtotop><a href=#></a></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://unpkg.com/feather-icons></script><script src=/js/fresh.js></script><script src=/js/jquery.panelslider.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js></script></body></html>
