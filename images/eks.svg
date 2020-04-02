@@ -83,5 +83,6 @@
             </g>
         </g>
         <rect id="Rectangle-Copy" fill="#FFFFFF" style="mix-blend-mode: color;" x="0" y="0" width="200" height="200"></rect>
+        <rect id="Lighten" fill="#FFFFFF" style="mix-blend-mode: lighten;" opacity="0.698962984" x="0" y="0" width="200" height="200"></rect>
     </g>
 </svg>
