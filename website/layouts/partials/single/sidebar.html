@@ -1,0 +1,20 @@
+{{- $logo     := .Params.sidebarlogo }}
+<div class="sidebar">
+  <div class="sidebar-header">
+    <img src="{{ printf "/images/logos/%s.svg" $logo | relURL }}">
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      {{ range where .Site.RegularPages "Section" (strings.TrimSuffix "/" .File.Dir) }}
+      <li>
+        <a href="{{ .Permalink }}">
+          {{ .Title }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

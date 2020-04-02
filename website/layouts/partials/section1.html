@@ -1,0 +1,50 @@
+{{- $section1 := .Site.Params.section1 }}
+{{- $title    := index $section1 "title" }}
+{{- $subtitle := index $section1 "subtitle" }}
+{{- $tiles    := index $section1 "tiles" }}
+<section class="section section-feature-grey is-medium">
+  <div class="container">
+
+
+    <div class="content-wrapper">
+      <div class="columns">
+        {{- range $tiles }}
+        <div class="column is-one-third">
+          <div class="feature-card is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
+            <div class="card-title">
+              <h4>{{ .title }}</h4>
+            </div>
+            <div class="card-icon">
+                <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
+            </div>
+            <div class="card-text">
+                <p>{{ .text }}</p>
+            </div>
+            {{- with .buttonText }}
+            <div class="card-action">
+              <a href="{{ .url }}" class="button btn-align-md accent-btn raised">{{ .buttonText }}</a>
+            </div>
+            {{- end }}
+          </div>
+        </div>
+        {{- end }}
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1 class="title">{{ $title }}</h1>
+
+      <h2 class="subtitle content is-muted">
+        {{ $subtitle | markdownify }}  
+      </h2>
+
+      <p class="is-spaced">
+        <iframe src="https://ghbtns.com/github-btn.html?user=awslabs&repo=cdk8s&type=star&count=true&size=large" frameborder="0" scrolling="0" width="140px" height="40px"></iframe>
+        <iframe src="https://ghbtns.com/github-btn.html?user=awslabs&repo=cdk8s&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="140px" height="40px"></iframe>
+      </p>
+
+    </div>
+
+  </div>
+</section>

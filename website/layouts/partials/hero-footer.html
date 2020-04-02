@@ -1,0 +1,25 @@
+{{- $hero        := .Site.Params.hero }}
+{{- $clientLogos := index $hero "clientlogos" }}
+<div class="hero-foot mb-20">
+  <section class="section">
+    <div class="container has-text-centered">
+      <h2 class="subtitle is-5 is-muted">
+        Works with Kubernetes everywhere!
+      </h2>
+      <div class="tabs is-centered">
+        <ul>
+          {{- range $clientLogos }}
+          <li>
+            <a>
+              <img class="partner-logo" src="{{ printf "/images/%s.svg" . | relURL }}">
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+
+    </div>
+  
+  </section>
+
+</div>

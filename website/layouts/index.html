@@ -1,0 +1,37 @@
+{{ define "main" }}
+    {{ if .Site.Params.hero }}
+    {{ partial "hero.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section1 }}
+    {{ partial "section1.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section2 }}
+    {{ partial "section2.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section3 }}
+    {{ partial "section3.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section4 }}
+    {{ partial "section4.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section5 }}
+    {{ partial "section5.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.footer }}
+    {{ partial "footer.html" . }}
+    {{ end }}
+
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+    {{ if .Site.Params.sidebar }}
+    {{ partial "sidebar.html" . }}
+    {{ end }}
+    
+{{ end }}

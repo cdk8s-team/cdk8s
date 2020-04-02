@@ -1,0 +1,71 @@
+{{- $footer      := .Site.Params.footer }}
+{{- $logo        := index $footer "logo" }}
+{{- $quickLinks  := index $footer "quicklinks" }}
+{{- $socialMedia := index $footer "socialmedia" }}
+{{- $bulmaLogo   := index $footer "bulmalogo" }}
+{{- $socialMediaTitle    := index $footer "socialmediatitle" }}
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          <img src="{{ printf "/images/%s" $logo | relURL }}">
+        </div>
+      </div>
+      {{- range $quickLinks }}
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>{{ .title }}</h3>
+            </div>
+            <ul class="link-list">
+              {{- range .links }}
+              <li>
+                <a href="{{ .link }}">
+                  {{ .text }}
+                </a>
+              </li>
+              {{- end }}
+            </ul>
+          </div>
+        </div>
+      {{- end }}
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3>{{ $socialMediaTitle }}</h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                {{- range $socialMedia }}
+                <a class="level-item is-size-4" href="{{ .link }}">
+                  <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+                </a>
+                {{- end }}
+              </div>
+            </nav>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="section is-size-6">
+    <div class="has-text-centered container">
+      Made with ❤️ by Amazon Web Services and distributed under the <a
+      href="https://github.com/awslabs/cdk8s/blob/master/LICENSE">the Apache 2.0
+      License</a>
+      <br/>
+
+      Contributors and maintainers are governed by the <a
+      href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md">CNCF
+      Code of Conduct</a>
+
+      <br/>
+      <br/>
+
+      <span class="has-text-white has-text-weight-semibold	">
+        &copy; cdk8s Project Authors. All Rights Reserved.
+      </span>
+    </div>
+  </section>
+</footer>
