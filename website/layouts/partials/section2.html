@@ -12,8 +12,8 @@
       </div>
       <div class="column is-7 mt-60">
         {{- range $features }}
-        <article class="media icon-box">
-          <figure class="media-left">
+        <article class="media icon-box revealOnScroll">
+          <figure class="media-right">
             <p class="image">
               <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
             </p>
@@ -22,7 +22,6 @@
             <div class="content">
               <p>
                 <span class="icon-box-title">{{ .title }}</span>
-
                 <span class="icon-box-text">{{ .text | markdownify }}</span>
               </p>
             </div>

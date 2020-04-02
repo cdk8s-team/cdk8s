@@ -9,7 +9,7 @@
     <div class="navbar-brand">
       {{- if $navbarLogo}}
       <a class="navbar-item" href="{{ $navbarLogo.link }}">
-        <img src="{{ printf "/images/%s" $navbarLogo.image | relURL }}" alt="" width="112" height="28">
+        <img src="{{ printf "/images/%s" $navbarLogo.image | relURL }}">
       </a>
       {{- end}}
 
@@ -78,6 +78,10 @@
         </a>
         {{- end }}
         {{- end }}
+        <a href="https://github.com/awslabs/cdk8s" class="navbar-item is-size-3 ">
+          <span class="icon"><i class="fa fa-github"></i></span>
+        </a>
+
       </div>
     </div>
 </div>

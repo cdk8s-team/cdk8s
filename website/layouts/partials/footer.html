@@ -9,7 +9,7 @@
     <div class="columns">
       <div class="column">
         <div class="footer-logo">
-          <img src="{{ printf "/images/logos/%s" $logo | relURL }}">
+          <img src="{{ printf "/images/%s" $logo | relURL }}">
         </div>
       </div>
       {{- range $quickLinks }}
@@ -37,23 +37,20 @@
             <nav class="level is-mobile">
               <div class="level-left">
                 {{- range $socialMedia }}
-                <a class="level-item" href="{{ .link }}">
+                <a class="level-item is-size-4" href="{{ .link }}">
                   <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
                 </a>
                 {{- end }}
               </div>
             </nav>
 
-            {{- if $bulmaLogo }}
-            <a href="https://bulma.io" target="_blank">
-              <img src="{{ "/images/logos/made-with-bulma.png" | relURL }}" alt="Made with Bulma" width="128" height="24">
-            </a>
-            {{- end }}
           </div>
         </div>
       </div>
     </div>
-    <div class="content has-text-centered">
+  </div>
+  <section class="section is-size-6">
+    <div class="has-text-centered container">
       Made with ❤️ by Amazon Web Services and distributed under the <a
       href="https://github.com/awslabs/cdk8s/blob/master/LICENSE">the Apache 2.0
       License</a>
@@ -66,10 +63,9 @@
       <br/>
       <br/>
 
-      <span class="has-text-weight-bold">
-        Copyright &copy; cdk8s Project Authors
+      <span class="has-text-white has-text-weight-semibold	">
+        &copy; cdk8s Project Authors. All Rights Reserved.
       </span>
-
     </div>
-  </div>
+  </section>
 </footer>

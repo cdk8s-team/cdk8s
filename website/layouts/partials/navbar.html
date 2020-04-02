@@ -9,7 +9,7 @@
     <div class="navbar-brand">
       {{- if $navbarLogo}}
       <a class="navbar-item" href="{{ $navbarLogo.link }}">
-        <img src="{{ printf "/images/%s" $navbarLogo.image | relURL }}" alt="" width="112" height="28">
+        <img src="{{ printf "/images/%s" $navbarLogo.image | relURL }}">
       </a>
       {{- end}}
 
@@ -52,32 +52,35 @@
 
         <div class="navbar-end">
           {{- range $navbar }}
-          {{- if .sublinks }}
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              {{ .title }}
-            </a>
-
-            <div class="navbar-dropdown">
-              {{- range .sublinks }}
-              <a href="{{ .url }}" class="navbar-item">
+            {{- if .sublinks }}
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
                 {{ .title }}
               </a>
-              {{- end }}
+
+              <div class="navbar-dropdown">
+                {{- range .sublinks }}
+                <a href="{{ .url }}" class="navbar-item">
+                  {{ .title }}
+                </a>
+                {{- end }}
+              </div>
             </div>
-          </div>
-          {{- else if .button }}
-          <a href="{{ .url }}" class="navbar-item">
-            <span class="button signup-button rounded secondary-btn raised">
+            {{- else if .button }}
+            <a href="{{ .url }}" class="navbar-item">
+              <span class="button signup-button rounded secondary-btn raised">
+                {{ .title }}
+              </span>
+            </a>
+            {{- else }}
+            <a href="{{ .url }}" class="navbar-item is-secondary">
               {{ .title }}
-            </span>
-          </a>
-          {{- else }}
-          <a href="{{ .url }}" class="navbar-item is-secondary">
-            {{ .title }}
-          </a>
+            </a>
+            {{- end }}
           {{- end }}
-          {{- end }}
+          <a href="https://github.com/awslabs/cdk8s" class="navbar-item is-size-3 ">
+            <span class="icon"><i class="fa fa-github"></i></span>
+          </a>
         </div>
       </div>
   </div>

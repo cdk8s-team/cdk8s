@@ -13,17 +13,12 @@
         <h1 class="title is-1 is-bold is-spaced">
           {{ $title }}
         </h1>
-        {{ with $subtitle }}
         <h2 class="subtitle is-5 is-muted">
-          {{ . }}
+          {{ $subtitle }}
         </h2>
-        {{ end }}
         <p>
-          <a class="button cta rounded primary-btn raised" href="{{ $button1Link }}">
-            {{ $button1Text }}
-          </a>
-          <a class="button cta rounded primary-btn raised" href="{{ $button2Link }}">
-            {{ $button2Text }}
+          <a class="button cta rounded primary-btn raised" href="/getting-started">
+            Get Started with cdk8s
           </a>
         </p>
       </div>

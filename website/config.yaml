@@ -16,24 +16,22 @@ params:
   openGraph: true
   # Used as meta data; describe your site to make Google Bots happy 
   description: Define Kubernetes native apps and abstractions using familiar programming languages
+
+
   navbarlogo:
   # Logo (from static/images/logos/___)
-    image: logos/fresh.svg
+    image: logo.svg
     link: /
   font:
     name: "Open Sans"
-    sizes: [400,600]
+    sizes: [300,400]
   hero:
     # Main hero title
     title: Cloud Development Kit for Kubernetes
     # Hero subtitle (optional)
-    subtitle: Define Kubernetes native apps and abstractions using familiar programming languages
-    # Button text
-    button1text: Python
-    button1link: "/getting-started/python"
-    button2text: TypeScript
-    button2link: "/getting-started/typescript"
-    # Hero image (from static/images/___)
+    subtitle: |
+      Define Kubernetes native apps and abstractions using familiar programming
+      languages
     image: illustrations/worker.svg
     # Footer logos (from static/images/logos/clients/___.svg)
     clientlogos:
@@ -44,8 +42,13 @@ params:
 
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbar:
-  - title: GitHub
-    url: https://github.com/awslabs/cdk8s
+  - title: Resources
+    sublinks:
+    - title: Examples
+      url: https://github.com/awslabs/cdk8s/tree/master/examples
+    - title: Roadmap
+      url: https://github.com/awslabs/cdk8s/projects/1
+
   - title: Getting Started
     sublinks:
     - title: Python
@@ -54,13 +57,14 @@ params:
       url: "/getting-started/typescript"
 
   section1:
-    title: No more YAML Engineering!
-    # subtitle: |
-    #   *The Cloud Development Kit for Kubernetes (cdk8s)* is a software
-    #   development framework for defining Kubernetes applications and reusable
-    #   abstractions using familiar programming languages and rich object-oriented
-    #   APIs. cdk8s generates pure Kubernetes YAML - you can use it to define
-    #   applications for any Kubernetes cluster running anywhere.
+    title: What is CDK for Kubernetes?
+    subtitle: |
+      The Cloud Development Kit for Kubernetes (cdk8s) is a software development
+      framework for defining Kubernetes applications and reusable abstractions
+      using familiar programming languages and rich object-oriented APIs. cdk8s
+      generates pure Kubernetes YAML - you can use it to define applications for
+      any Kubernetes cluster running anywhere.
+
     tiles:
 
     - title: Harness the power of code
@@ -68,46 +72,19 @@ params:
       text: |
         Define manifests using object-oriented programming languages
 
-      #   cdk8s lets you quickly and accurately define your Kubernetes
-      #   applications using the programming languages you already know. cdk8s
-      #   automatically inserts Kubernetes YAML boilerplate and ensures perfect
-      #   formatting. You don’t need to copy and paste YAML to get complete
-      #   application manifests that are ready to run.
-
     - title: Familiar workflows and tools
       icon: doc-sync
       text: |
         Use the same tools and workflows you know and love
-
-      #   With cdk8s you can use the same language to write code and configure
-      #   your application on Kubernetes. cdk8s significantly reduces the amount
-      #   of code you need to write to define your application. Using cdk8s you
-      #   can easily understand, modify, and share your application’s
-      #   configuration through the same tools you already use for your
-      #   application code.
 
     - title: Define best practices
       icon: mobile-feed
       text: |
         Compose and share reusable components
         through code libraries
-      # text: |
-      #   cdk8s makes it easy to define complex apps and build custom templates.
-      #   Create custom classes for common applications or specify certain
-      #   settings that need to be present in every deployment. You can use cdk8s
-      #   to compose complete Kubernetes applications or to create and share
-      #   libraries of constructs that can be used to compose applications by
-      #   others in your team or around the world.
 
   section2:
-    title: What is cdk8s?
-    subtitle: |
-      **cdk8s** is an open-source software development framework for defining
-      Kubernetes applications and reusable abstractions using familiar
-      programming languages and rich object-oriented APIs. cdk8s synthesizes
-      pure Kubernetes YAML so you can use it with any Kubernetes cluster running
-      anywhere.
-
+    title: Features
     features:
 
     - title: Works with Kubernetes everywhere
@@ -187,14 +164,14 @@ params:
 
   footer:
     # Logo (from /images/logos/___)
-    logo: fresh-white-alt.svg
+    logo: footer-logo.svg
     # Social Media Title
     socialmediatitle: Follow Us
     # Social media links (GitHub, Twitter, etc.). All are optional.
     socialmedia:
     - link: https://github.com/awslabs/cdk8s
       icon: github
-    - link: https://github.com/awslabs/cdk8s
+    - link: https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU
       icon: slack
     - link: https://github.com/awslabs/cdk8s
       icon: twitter
@@ -216,11 +193,3 @@ params:
           link: "/getting-started/python"
         - text: Getting Started (TypeScript)
           link: "/getting-started/typescript"
-
-      # column3:
-      #   title: "Blog"
-      #   links:
-      #   - text: Latest news
-      #     link: /blog/first
-      #   - text: Tech articles
-      #     link: /blog/second

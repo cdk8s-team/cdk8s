@@ -4,6 +4,7 @@ Section Styles
 
 //Sections
 .section {
+    font-family: 'Open Sans', sans-serif;
     &.section-light-grey {
         background-color: $light-grey;
     }
@@ -24,6 +25,8 @@ Section Styles
         &.is-muted {
             color: $muted-grey;
         }
+
+        font-weight: 300;
     }
 }
 

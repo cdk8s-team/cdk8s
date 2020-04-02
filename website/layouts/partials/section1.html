@@ -4,11 +4,7 @@
 {{- $tiles    := index $section1 "tiles" }}
 <section class="section section-feature-grey is-medium">
   <div class="container">
-    <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2">{{ $title }}</h2>
-      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
-      <div class="divider is-centered"></div>
-    </div>
+
 
     <div class="content-wrapper">
       <div class="columns">
@@ -34,5 +30,21 @@
         {{- end }}
       </div>
     </div>
+
+    <div class="container">
+
+      <h1 class="title">{{ $title }}</h1>
+
+      <h2 class="subtitle content is-muted">
+        {{ $subtitle | markdownify }}  
+      </h2>
+
+      <p class="is-spaced">
+        <iframe src="https://ghbtns.com/github-btn.html?user=awslabs&repo=cdk8s&type=star&count=true&size=large" frameborder="0" scrolling="0" width="140px" height="40px"></iframe>
+        <iframe src="https://ghbtns.com/github-btn.html?user=awslabs&repo=cdk8s&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="140px" height="40px"></iframe>
+      </p>
+
+    </div>
+
   </div>
 </section>
