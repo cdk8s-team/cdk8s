@@ -27,7 +27,7 @@ params:
     sizes: [300,400]
   hero:
     # Main hero title
-    title: Cloud Development Kit for Kubernetes
+    title: CDK for Kubernetes
     # Hero subtitle (optional)
     subtitle: |
       Define Kubernetes native apps and abstractions using familiar programming
@@ -59,7 +59,7 @@ params:
   section1:
     title: What is CDK for Kubernetes?
     subtitle: |
-      The Cloud Development Kit for Kubernetes (cdk8s) is a software development
+      **Cloud Development Kit for Kubernetes** (cdk8s) is a software development
       framework for defining Kubernetes applications and reusable abstractions
       using familiar programming languages and rich object-oriented APIs. cdk8s
       generates pure Kubernetes YAML - you can use it to define applications for
@@ -136,12 +136,12 @@ params:
       buttonText: Get started
 
 
-  section3:
-    # title: One platform
-    # subtitle: To rule them all
-    image: illustrations/mockups/app-mockup.png
-    buttonText: Get started
-    buttonLink: "#"
+  # section3:
+  #   # title: One platform
+  #   # subtitle: To rule them all
+  #   image: illustrations/mockups/app-mockup.png
+  #   buttonText: Get started
+  #   buttonLink: "#"
 
   # section4:
   #   title: Our Clients love us!
