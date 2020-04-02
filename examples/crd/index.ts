@@ -21,6 +21,9 @@ export class HelloKube extends Chart {
         ],
         jenkinsAPISettings: {
           authorizationStrategy: 'foo'
+        },
+        master: {
+          disableCSRFProtection: false
         }
       }
     });
