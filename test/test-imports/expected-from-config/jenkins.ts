@@ -82,7 +82,7 @@ export interface JenkinsSpec {
    *
    * @schema JenkinsSpec#master
    */
-  readonly master?: JenkinsSpecMaster;
+  readonly master: JenkinsSpecMaster;
 
   /**
    * Notifications defines list of a services which are used to inform about Jenkins status Can be used to integrate chat services like Slack, Microsoft Teams or Mailgun

@@ -3,5 +3,4 @@ language: typescript
 imports:
   - k8s@1.17.0
   - https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/master/deploy/crds/jenkins.io_jenkins_crd.yaml
-  - moduleName: mattermost
-    file: mattermost_crd.yaml
+  - mattermost=mattermost_crd.yaml

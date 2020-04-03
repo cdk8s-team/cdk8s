@@ -1,5 +1,5 @@
 import * as yargs from 'yargs';
-import { readConfigSync } from '../../lib/config';
+import { readConfigSync, Cdk8sImport } from '../../lib/config';
 import { importDispatch } from '../../lib/import/dispatch';
 
 const config = readConfigSync();
@@ -26,14 +26,40 @@ class Command implements yargs.CommandModule {
   public async handler(argv: any) {
     let sources = Array.isArray(argv.source) ? argv.source : [ argv.source ];
 
-    sources = sources.map((source: string) => { 
-      return typeof(source) === 'string' ? { file: source } : source;
-    });
+    sources = sources.map((source: string) => transformImports(source));
 
     await importDispatch(sources, argv, {
       outdir: argv.output,
       targetLanguage: argv.language,
     });
+  }
+}
+
+function transformImports(file: string): Cdk8sImport {
+  const splitImport = file.split('=');
+
+  // crd.yaml
+  // url.com/crd.yaml
+  if (splitImport.length === 1) {
+    return {
+      file
+    }
+  }
+
+  // crd=crd.yaml
+  // crd=url.com/crd.yaml
+  if (splitImport.length === 2) {
+    return {
+      moduleName: splitImport[0],
+      file: splitImport[1]
+    }
+  }
+
+  // We'll assume that no one hosts remote files with query params,
+  // like this: url.com/crds?crd=mycrd.yaml
+  console.error('If you reach here, please open an issue with cdk8s.');
+  return {
+    file
   }
 }
 
