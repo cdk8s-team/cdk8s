@@ -12,6 +12,9 @@ Array [
       "jenkinsAPISettings": Object {
         "authorizationStrategy": "foo",
       },
+      "master": Object {
+        "disableCSRFProtection": false,
+      },
       "seedJobs": Array [
         Object {
           "description": "Jenkins Operator repository",

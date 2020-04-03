@@ -31,6 +31,7 @@ export class WebService extends Construct {
     const port = options.port || 80;
     const containerPort = options.containerPort || 8080;
     const label = { app: Node.of(this).uniqueId };
+    const replicas = options.replicas ?? 1;
 
     new Service(this, 'service', {
       spec: {
@@ -42,7 +43,7 @@ export class WebService extends Construct {
 
     new Deployment(this, 'deployment', {
       spec: {
-        replicas: 1,
+        replicas,
         selector: {
           matchLabels: label
         },

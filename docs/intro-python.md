@@ -13,7 +13,7 @@ Install with [Homebrew](https://brew.sh):
 $ brew install cdk8s
 ```
 
-Install with npm (required [Node.js](https://nodejs.org)):
+Install with npm (requires [Node.js](https://nodejs.org)):
 
 ```shell
 $ npm install -g cdk8s-cli
