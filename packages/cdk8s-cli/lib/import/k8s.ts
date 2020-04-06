@@ -4,7 +4,7 @@ import { TypeGenerator } from './type-generator';
 import { ImportBase } from './base';
 import { ApiObjectName, parseApiTypeName, compareApiVersions } from './k8s-util';
 import { httpsGet } from '../util';
-import { Cdk8sImport } from '../config';
+import { ImportSpec } from '../config';
 
 const DEFAULT_API_VERSION = '1.15.0';
 
@@ -32,8 +32,8 @@ export interface ImportKubernetesApiOptions {
 
 export class ImportKubernetesApi extends ImportBase {
 
-  public static async match(source: Cdk8sImport, argv: any): Promise<ImportKubernetesApiOptions | undefined> {
-    const { file } = source;
+  public static async match(source: ImportSpec, argv: any): Promise<ImportKubernetesApiOptions | undefined> {
+    const { source: file } = source;
     if (file !== 'k8s' && !file.startsWith('k8s@')) {
       return undefined;
     }
