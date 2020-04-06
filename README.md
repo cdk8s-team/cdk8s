@@ -85,6 +85,8 @@ We welcome community contributions and pull requests. See our [contribution
 guide](./CONTRIBUTING.md) for more information on how to report issues, set up a
 development environment and submit code.
 
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/awslabs/cdk8s) 
+
 ## Roadmap
 
 See our [roadmap](https://github.com/awslabs/cdk8s/projects/1) for details about our plans for the project.
