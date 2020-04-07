@@ -13,7 +13,7 @@ export interface Config {
   readonly app?: string;
   readonly language?: Language;
   readonly output?: string;
-  readonly imports?: (string|ImportSpec)[];
+  readonly imports?: string[];
 }
 
 const DEFAULTS: Config = {
