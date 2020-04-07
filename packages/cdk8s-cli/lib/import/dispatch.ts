@@ -11,7 +11,10 @@ export async function importDispatch(imports: ImportSpec[], argv: any, options: 
       throw new Error(`unable to determine import type for "${importSpec}"`);
     }
 
-    await importer.import(options, importSpec);
+    await importer.import({
+      moduleNamePrefix: importSpec.moduleNamePrefix,
+      ...options
+    });
   }
 }
 

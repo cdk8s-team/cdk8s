@@ -13,7 +13,7 @@ class Command implements yargs.CommandModule {
   public readonly aliases = [ 'gen', 'import', 'generate' ];
 
   public readonly builder = (args: yargs.Argv) => args
-    .positional('SOURCE', { default: config.imports, desc: `The API source to import (supported sources: k8s, crd.yaml, https://domain/crd.yaml)`, array: true })
+    .positional('SPEC', { default: config.imports, desc: `import spec with the syntax [NAME=]SOURCE where NAME is an optional module name and supported SOURCEs are: k8s, crd.yaml, https://domain/crd.yaml)`, array: true })
     .example(`cdk8s import --k8s=k8s`, `Imports Kubernetes API objects to imports/k8s.ts`)
     .example(`cdk8s import k8s@1.13.0`, `Imports a specific version of the Kubernetes API`)
     .example(`cdk8s import jenkins.io_jenkins_crd.yaml`, 'Imports constructs for the Jenkins custom resource definition from a file')
@@ -25,11 +25,11 @@ class Command implements yargs.CommandModule {
     .option('language', { default: config.language, demand: true, type: 'string', desc: 'Output programming language', alias: 'l', choices: LANGUAGES });
 
   public async handler(argv: any) {
-    let sources = Array.isArray(argv.source) ? argv.source : [ argv.source ];
+    let specs = Array.isArray(argv.spec) ? argv.spec : [ argv.spec ];
 
-    sources = sources.filter((source: string) => source != null).map((source: string) => parseImports(source));
+    specs = specs.filter((spec: string) => spec != null).map((spec: string) => parseImports(spec));
 
-    await importDispatch(sources, argv, {
+    await importDispatch(specs, argv, {
       outdir: argv.output,
       targetLanguage: argv.language,
     });
@@ -56,12 +56,7 @@ function parseImports(spec: string): ImportSpec {
     }
   }
 
-  // We'll assume that no one hosts remote files with query params,
-  // like this: url.com/crds?crd=mycrd.yaml
-  console.error('If you reach here, please open an issue with cdk8s.');
-  return {
-    source: spec
-  }
+  throw new Error(`Unable to parse import specification. Syntax is [NAME:=]SOURCE`);
 }
 
 module.exports = new Command();

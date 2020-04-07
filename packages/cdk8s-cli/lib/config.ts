@@ -5,8 +5,8 @@ import { Language } from './import/base';
 const CONFIG_FILE = 'cdk8s.yaml';
 
 export interface ImportSpec {
-  moduleNamePrefix?: string;
-  source: string;
+  readonly moduleNamePrefix?: string;
+  readonly source: string;
 }
 
 export interface Config {
