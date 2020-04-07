@@ -18,4 +18,10 @@ cdk8s import mattermost_crd.yaml --language typescript
 
 diff imports ${scriptdir}/expected-from-cli
 
+rm -rf ./imports
+
+cdk8s import mattermost:=mattermost_crd.yaml --language typescript
+
+diff imports ${scriptdir}/expected-named-from-cli
+
 echo "PASS"

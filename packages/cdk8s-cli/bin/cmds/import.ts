@@ -14,9 +14,10 @@ class Command implements yargs.CommandModule {
 
   public readonly builder = (args: yargs.Argv) => args
     .positional('SOURCE', { default: config.imports, desc: `The API source to import (supported sources: k8s, crd.yaml, https://domain/crd.yaml)`, array: true })
-    .example(`cdk8s import k8s`, `Imports Kubernetes API objects to imports/k8s.ts`)
-    .example(`cdk8s import k8s@1.13.0`, `imports a specific version of the Kubenretes API`)
-    .example(`cdk8s import jenkins.io_jenkins_crd.yaml`, 'imports constructs for the Jenkins custom resource definition from a file')
+    .example(`cdk8s import --k8s=k8s`, `Imports Kubernetes API objects to imports/k8s.ts`)
+    .example(`cdk8s import k8s@1.13.0`, `Imports a specific version of the Kubernetes API`)
+    .example(`cdk8s import jenkins.io_jenkins_crd.yaml`, 'Imports constructs for the Jenkins custom resource definition from a file')
+    .example(`cdk8s import mattermost:=mattermost_crd.yaml`, 'Imports constructs for the mattermost cluster custom resource definition using a custom module name')
 
     .option('output', { default: DEFAULT_OUTDIR, type: 'string', desc: 'Output directory', alias: 'o' })
     .option('include', { type: 'array', desc: 'Types to select instead of the default which is latest stable version (only for "k8s")' })
@@ -26,7 +27,7 @@ class Command implements yargs.CommandModule {
   public async handler(argv: any) {
     let sources = Array.isArray(argv.source) ? argv.source : [ argv.source ];
 
-    sources = sources.map((source: string) => parseImports(source));
+    sources = sources.filter((source: string) => source != null).map((source: string) => parseImports(source));
 
     await importDispatch(sources, argv, {
       outdir: argv.output,
@@ -35,14 +36,14 @@ class Command implements yargs.CommandModule {
   }
 }
 
-function parseImports(file: string): ImportSpec {
-  const splitImport = file.split('=');
+function parseImports(spec: string): ImportSpec {
+  const splitImport = spec.split(':=');
 
   // crd.yaml
   // url.com/crd.yaml
   if (splitImport.length === 1) {
     return {
-      source: file
+      source: spec
     }
   }
 
@@ -59,7 +60,7 @@ function parseImports(file: string): ImportSpec {
   // like this: url.com/crds?crd=mycrd.yaml
   console.error('If you reach here, please open an issue with cdk8s.');
   return {
-    source: file
+    source: spec
   }
 }
 

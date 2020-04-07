@@ -3,6 +3,7 @@ import * as path from 'path';
 import { CodeMaker } from 'codemaker';
 import { withTempDir, shell } from '../util';
 import { jsiiCompile } from './jsii';
+import { ImportSpec } from '../config';
 
 export enum Language {
   TYPESCRIPT = 'typescript',
@@ -23,7 +24,7 @@ export abstract class ImportBase {
   public abstract get moduleNames(): string[];
   protected abstract async generateTypeScript(code: CodeMaker, moduleName?: string): Promise<void>;
 
-  public async import(options: ImportOptions) {
+  public async import(options: ImportOptions, importSpec?: ImportSpec) {
     const code = new CodeMaker();
 
     const outdir = path.resolve(options.outdir);
@@ -31,8 +32,7 @@ export abstract class ImportBase {
     const isTypescript = options.targetLanguage === Language.TYPESCRIPT
 
     for (const name of this.moduleNames) {
-      const fileName = options.moduleNamePrefix ? `${options.moduleNamePrefix}-${name}.ts` : `${name}.ts`;
-
+      const fileName = importSpec?.moduleNamePrefix ? `${importSpec.moduleNamePrefix}-${name}.ts` : `${name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
       await this.generateTypeScript(code, name);

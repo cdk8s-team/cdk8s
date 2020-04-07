@@ -32,14 +32,14 @@ export interface ImportKubernetesApiOptions {
 
 export class ImportKubernetesApi extends ImportBase {
 
-  public static async match(source: ImportSpec, argv: any): Promise<ImportKubernetesApiOptions | undefined> {
-    const { source: file } = source;
-    if (file !== 'k8s' && !file.startsWith('k8s@')) {
+  public static async match(importSpec: ImportSpec, argv: any): Promise<ImportKubernetesApiOptions | undefined> {
+    const { source } = importSpec;
+    if (source !== 'k8s' && !source.startsWith('k8s@')) {
       return undefined;
     }
 
     return {
-      apiVersion: file.split('@')[1] ?? DEFAULT_API_VERSION,
+      apiVersion: source.split('@')[1] ?? DEFAULT_API_VERSION,
       exclude: argv.exclude,
       include: argv.include
     };

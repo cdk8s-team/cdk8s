@@ -85,17 +85,17 @@ export class CustomResourceDefinition {
 }
 
 export class ImportCustomResourceDefinition extends ImportBase {
-  public static async match(source: ImportSpec): Promise<undefined | CustomResourceApiObject[]> {
-    const { source: file } = source;
+  public static async match(importSpec: ImportSpec): Promise<undefined | CustomResourceApiObject[]> {
+    const { source } = importSpec;
     let manifest;
-    if (file.startsWith('https://')) {
-      manifest = await httpsGet(file);
-    } else if (path.extname(file) === '.yaml' || path.extname(file) === '.yml' || path.extname(file) === '.json') {
-      if (!(await fs.pathExists(file))) {
+    if (source.startsWith('https://')) {
+      manifest = await httpsGet(source);
+    } else if (path.extname(source) === '.yaml' || path.extname(source) === '.yml' || path.extname(source) === '.json') {
+      if (!(await fs.pathExists(source))) {
         throw new Error(`can't find file ${source}`);
       }
 
-      manifest = await fs.readFile(file, 'utf-8');
+      manifest = await fs.readFile(source, 'utf-8');
     }
 
     if (!manifest) {

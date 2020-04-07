@@ -4,27 +4,24 @@ import { ImportCustomResourceDefinition } from './crd';
 import { ImportSpec } from '../config';
 
 export async function importDispatch(imports: ImportSpec[], argv: any, options: ImportOptions) {
-  for (const source of imports) {
-    const importer = await matchImporter(source, argv);
+  for (const importSpec of imports) {
+    const importer = await matchImporter(importSpec, argv);
 
     if (!importer) {
-      throw new Error(`unable to determine import type for "${source}"`);
+      throw new Error(`unable to determine import type for "${importSpec}"`);
     }
 
-    await importer.import({
-      ...options,
-      moduleNamePrefix: source.moduleNamePrefix
-    });
+    await importer.import(options, importSpec);
   }
 }
 
-async function matchImporter(source: ImportSpec, argv: any) {
-  const k8s = await ImportKubernetesApi.match(source, argv);
+async function matchImporter(importSpec: ImportSpec, argv: any) {
+  const k8s = await ImportKubernetesApi.match(importSpec, argv);
   if (k8s) {
     return new ImportKubernetesApi(k8s);
   }
 
-  const crd = await ImportCustomResourceDefinition.match(source);
+  const crd = await ImportCustomResourceDefinition.match(importSpec);
   if (crd) {
     return new ImportCustomResourceDefinition(crd);
   }
