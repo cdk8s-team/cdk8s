@@ -61,12 +61,13 @@ export abstract class ImportBase {
   }
 
   private async harvestCode(options: ImportOptions, targetdir: string, moduleName: string) {
+    const { moduleNamePrefix } = options
     switch (options.targetLanguage) {
       case Language.TYPESCRIPT:
         throw new Error('no op for typescript');
   
       case Language.PYTHON:
-        await this.harvestPython(targetdir, moduleName);
+        await this.harvestPython(targetdir, moduleName, moduleNamePrefix);
         break;
   
       default:
@@ -75,8 +76,8 @@ export abstract class ImportBase {
   
   }
 
-  private async harvestPython(targetdir: string, moduleName: string) {
-    const target = path.join(targetdir, moduleName);
+  private async harvestPython(targetdir: string, moduleName: string, moduleNamePrefix?: string) {
+    const target = path.join(targetdir, moduleNamePrefix ? moduleNamePrefix + "." + moduleName : moduleName);
     await fs.move(`dist/python/src/${moduleName}`, target, { overwrite: true });
   }
 }
