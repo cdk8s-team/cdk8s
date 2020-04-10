@@ -67,7 +67,10 @@ export abstract class ImportBase {
         throw new Error('no op for typescript');
   
       case Language.PYTHON:
-        await this.harvestPython(targetdir, moduleName, moduleNamePrefix);
+        if (moduleNamePrefix != null) {
+          throw new Error(`Name overriding of imports is not yet supported in python. Named import: ${moduleNamePrefix}`)
+        }
+        await this.harvestPython(targetdir, moduleName);
         break;
   
       default:
@@ -76,8 +79,8 @@ export abstract class ImportBase {
   
   }
 
-  private async harvestPython(targetdir: string, moduleName: string, moduleNamePrefix?: string) {
-    const target = path.join(targetdir, moduleNamePrefix ? `${moduleNamePrefix}.${moduleName}` : moduleName);
+  private async harvestPython(targetdir: string, moduleName: string) {
+    const target = path.join(targetdir, moduleName);
     await fs.move(`dist/python/src/${moduleName}`, target, { overwrite: true });
   }
 }

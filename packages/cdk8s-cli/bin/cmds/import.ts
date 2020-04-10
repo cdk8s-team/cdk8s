@@ -13,7 +13,7 @@ class Command implements yargs.CommandModule {
   public readonly aliases = [ 'gen', 'import', 'generate' ];
 
   public readonly builder = (args: yargs.Argv) => args
-    .positional('SPEC', { default: config.imports, desc: `import spec with the syntax [NAME:=]SPEC where NAME is an optional module name and supported SPEC are: k8s, crd.yaml, https://domain/crd.yaml)`, array: true })
+    .positional('SPEC', { default: config.imports, desc: `import spec with the syntax [NAME:=]SPEC where NAME is an optional module name and supported SPEC are: k8s, crd.yaml, https://domain/crd.yaml).\n Named imports are not yet supported in python.`, array: true })
     .example(`cdk8s import k8s`, `Imports Kubernetes API objects to imports/k8s.ts`)
     .example(`cdk8s import k8s@1.13.0`, `Imports a specific version of the Kubernetes API`)
     .example(`cdk8s import jenkins.io_jenkins_crd.yaml`, 'Imports constructs for the Jenkins custom resource definition from a file')

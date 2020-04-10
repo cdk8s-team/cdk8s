@@ -1,27 +1,14 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
 scriptdir=$(cd $(dirname $0) && pwd)
 
-cd $(mktemp -d)
-mkdir test && cd test
-
-cp ${scriptdir}/cdk8s.yaml  .
-cp ${scriptdir}/mattermost_crd.yaml .
-
-cdk8s import --language typescript
-
-diff imports ${scriptdir}/expected-from-config
-
-rm -rf ./imports
-
-cdk8s import mattermost_crd.yaml --language typescript
-
-diff imports ${scriptdir}/expected-from-cli
-
-rm -rf ./imports
-
-cdk8s import mattermost:=mattermost_crd.yaml --language typescript
-
-diff imports ${scriptdir}/expected-named-from-cli
-
-echo "PASS"
+cd ${scriptdir}
+  
+for dir in *; do
+  [ ! -d $dir ] && continue
+  
+  echo "--------------------------------------------------------------------"
+  echo $dir
+  echo "--------------------------------------------------------------------"
+  $dir/test.sh
+done
