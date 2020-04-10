@@ -56,7 +56,7 @@ function parseImports(spec: string): ImportSpec {
     }
   }
 
-  throw new Error(`Unable to parse import specification. Syntax is [NAME:=]SOURCE`);
+  throw new Error(`Unable to parse import specification. Syntax is [NAME:=]SPEC`);
 }
 
 module.exports = new Command();
