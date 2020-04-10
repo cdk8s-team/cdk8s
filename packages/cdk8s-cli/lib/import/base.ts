@@ -68,7 +68,9 @@ export abstract class ImportBase {
   
       case Language.PYTHON:
         if (moduleNamePrefix != null) {
-          throw new Error(`Name overriding of imports is not yet supported in python. Named import: ${moduleNamePrefix}`)
+          // logging error instead of throwing, so it doesn't interrupt other imports
+          console.error(`Name overriding of imports is not yet supported in python. Named import: ${moduleNamePrefix}`);
+          break;
         }
         await this.harvestPython(targetdir, moduleName);
         break;
