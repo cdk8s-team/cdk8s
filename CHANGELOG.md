@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.18.0](https://github.com/awslabs/cdk8s/compare/v0.17.0...v0.18.0) (2020-04-10)
+
+
+### Features
+
+* cdk8s website ([#89](https://github.com/awslabs/cdk8s/issues/89)) ([430d9b7](https://github.com/awslabs/cdk8s/commit/430d9b7e6b99dd54e6fe611fb22e1dcafb18cc13))
+* **cli:** ignore hidden files in "cdk8s init" ([#99](https://github.com/awslabs/cdk8s/issues/99)) ([5681e14](https://github.com/awslabs/cdk8s/commit/5681e148ce7621562d27ca32843183337554943c))
+
+
+### Bug Fixes
+
+* **crd:** fix multi-resource importing of CRDs ([#78](https://github.com/awslabs/cdk8s/issues/78)) ([fd8f753](https://github.com/awslabs/cdk8s/commit/fd8f75359b37a6f76368d498f00d8dc615650423))
+* **examples:** "replicas" option is not respected in the web-service example ([#87](https://github.com/awslabs/cdk8s/issues/87)) ([97ca582](https://github.com/awslabs/cdk8s/commit/97ca582b8a2fb0f1925518b0040acec9f32dd969))
+* **gha:** prevent gha from running on forks ([26eb407](https://github.com/awslabs/cdk8s/commit/26eb4076f1a786894f4d0efa7fa5883b6a444603))
+
 ## [0.17.0](https://github.com/awslabs/cdk8s/compare/v0.16.0...v0.17.0) (2020-03-21)
 
 
