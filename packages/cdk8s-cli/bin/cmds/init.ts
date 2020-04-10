@@ -20,7 +20,7 @@ class Command implements yargs.CommandModule {
     .choices('TYPE', availableTemplates);
 
   public async handler(argv: any) {
-    if (fs.readdirSync('.').length > 0) {
+    if (fs.readdirSync('.').filter(f => !f.startsWith('.')).length > 0) {
       console.error(`Cannot initialize a project in a non-empty directory`);
       process.exit(1);
     }
