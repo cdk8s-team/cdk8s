@@ -77,8 +77,7 @@ export abstract class ImportBase {
   }
 
   private async harvestPython(targetdir: string, moduleName: string, moduleNamePrefix?: string) {
-    const target = path.join(targetdir, moduleNamePrefix ? moduleNamePrefix + "." + moduleName : moduleName);
+    const target = path.join(targetdir, moduleNamePrefix ? `${moduleNamePrefix}.${moduleName}` : moduleName);
     await fs.move(`dist/python/src/${moduleName}`, target, { overwrite: true });
   }
 }
-
