@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cdk8s import --language python",
     "synth": "cdk8s synth",
-    "test": "Echo 'no test for python yet.'"
+    "test": "echo 'no test for python yet.'"
   },
   "dependencies": {
     "cdk8s": "0.0.0",
