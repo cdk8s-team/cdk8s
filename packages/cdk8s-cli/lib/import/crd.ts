@@ -5,6 +5,7 @@ import { httpsGet } from '../util';
 import * as yaml from 'yaml';
 import * as fs from 'fs-extra';
 import * as path from 'path';
+import { ImportSpec } from '../config';
 
 export interface CustomResourceApiObject {
   apiVersion?: string;
@@ -84,7 +85,8 @@ export class CustomResourceDefinition {
 }
 
 export class ImportCustomResourceDefinition extends ImportBase {
-  public static async match(source: string): Promise<undefined | CustomResourceApiObject[]> {
+  public static async match(importSpec: ImportSpec): Promise<undefined | CustomResourceApiObject[]> {
+    const { source } = importSpec;
     let manifest;
     if (source.startsWith('https://')) {
       manifest = await httpsGet(source);

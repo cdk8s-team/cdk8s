@@ -14,6 +14,7 @@ export enum Language {
 export const LANGUAGES = [ Language.TYPESCRIPT, Language.PYTHON ];
 
 export interface ImportOptions {
+  readonly moduleNamePrefix?: string;
   readonly targetLanguage: Language;
   readonly outdir: string;
 }
@@ -30,7 +31,7 @@ export abstract class ImportBase {
     const isTypescript = options.targetLanguage === Language.TYPESCRIPT
 
     for (const name of this.moduleNames) {
-      const fileName = `${name}.ts`;
+      const fileName = options?.moduleNamePrefix ? `${options.moduleNamePrefix}-${name}.ts` : `${name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
       await this.generateTypeScript(code, name);
@@ -60,11 +61,17 @@ export abstract class ImportBase {
   }
 
   private async harvestCode(options: ImportOptions, targetdir: string, moduleName: string) {
+    const { moduleNamePrefix } = options
     switch (options.targetLanguage) {
       case Language.TYPESCRIPT:
         throw new Error('no op for typescript');
   
       case Language.PYTHON:
+        if (moduleNamePrefix != null) {
+          // logging error instead of throwing, so it doesn't interrupt other imports
+          console.error(`Name overriding of imports is not yet supported in python. Named import: ${moduleNamePrefix}`);
+          break;
+        }
         await this.harvestPython(targetdir, moduleName);
         break;
   
@@ -79,4 +86,3 @@ export abstract class ImportBase {
     await fs.move(`dist/python/src/${moduleName}`, target, { overwrite: true });
   }
 }
-
