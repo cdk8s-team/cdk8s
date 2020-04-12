@@ -1,0 +1,25 @@
+name: Homebrew (test)
+on:
+  - push
+    
+jobs:
+  release_homebrew:
+    name: Release to Homebrew
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # extract version number from package.json
+      - name: version
+        id: get_version
+        run: |
+          version=$(node -p "require('./package.json').version")
+          echo "::set-output name=version::${version}"
+
+      # A PR will be sent to github.com/Homebrew/homebrew-core to update this formula:
+      - uses: mislav/bump-homebrew-formula-action@v1
+        with:
+          formula-name: cdk8s
+          download-url: https://registry.npmjs.org/cdk8s-cli/-/cdk8s-cli-${{ steps.get_version.outputs.version }}.tgz
+        env:
+          COMMITTER_TOKEN: ${{ secrets.HOMEBREW_COMMITTER_TOKEN }}
