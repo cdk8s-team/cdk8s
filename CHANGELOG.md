@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0](https://github.com/awslabs/cdk8s/compare/v0.18.0...v0.19.0) (2020-04-12)
+
+
+### Bug Fixes
+
+* **cli-import:** unable to import a CRD from an insecure server ([#102](https://github.com/awslabs/cdk8s/issues/102)) ([4dde096](https://github.com/awslabs/cdk8s/commit/4dde096419aadc1173835388d52f927e502f469a)), closes [#94](https://github.com/awslabs/cdk8s/issues/94)
+* **homebrew:** homebrew release trigger is broken ([5ecb143](https://github.com/awslabs/cdk8s/commit/5ecb1434a8e4b2622cf3e001929a72c511ab89fa))
+
+### Features
+
+* **cli-import:** allow overriding module name in imports ([#84](https://github.com/awslabs/cdk8s/issues/84)) ([63daf78](https://github.com/awslabs/cdk8s/commit/63daf781d80690476b875785f7bb7beea2d5e029))
+
 ## [0.18.0](https://github.com/awslabs/cdk8s/compare/v0.17.0...v0.18.0) (2020-04-10)
 
 
