@@ -126,5 +126,6 @@ jobs:
         with:
           formula-name: cdk8s
           download-url: https://registry.npmjs.org/cdk8s-cli/-/cdk8s-cli-${{ steps.get_version.outputs.version }}.tgz
+          commit-message: cdk8s ${{ steps.get_version.outputs.version }}
         env:
           COMMITTER_TOKEN: ${{ secrets.HOMEBREW_COMMITTER_TOKEN }}
