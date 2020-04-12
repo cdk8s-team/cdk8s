@@ -1,3 +1,4 @@
+import * as http from 'http';
 import * as https from 'https';
 import { spawn, SpawnOptions } from 'child_process';
 import * as fs from 'fs-extra';
@@ -29,9 +30,9 @@ export async function withTempDir(dirname: string, closure: () => Promise<void>)
   }
 }
 
-export async function httpsGet(url: string): Promise<string> {
+async function get(url: string, protocol: typeof http | typeof https = https): Promise<string> {
   return new Promise((ok, ko) => {
-    const req = https.get(url, res => {
+    const req = protocol.get(url, res => {
       if (res.statusCode !== 200) {
         throw new Error(`${res.statusMessage}: ${url}`);
       }
@@ -46,3 +47,10 @@ export async function httpsGet(url: string): Promise<string> {
   });
 }
 
+export async function httpGet(url: string): Promise<string> {
+  return get(url, http)
+}
+
+export async function httpsGet(url: string): Promise<string> {
+  return get(url)
+}
