@@ -1,7 +1,7 @@
 import { TypeGenerator } from './type-generator';
 import { ImportBase } from './base';
 import { CodeMaker } from 'codemaker';
-import { httpsGet } from '../util';
+import { httpGet, httpsGet } from '../util';
 import * as yaml from 'yaml';
 import * as fs from 'fs-extra';
 import * as path from 'path';
@@ -38,18 +38,18 @@ export class CustomResourceDefinition {
     if (!spec) {
       throw new Error(`manifest does not have a "spec" attribute`)
     }
-  
+
     const version = (spec.versions ?? [])[0];
     if (!version) {
       throw new Error(`unable to determine CRD version`);
     }
-  
+
     if (!manifest.metadata?.name) {
       throw new Error(`"metadata.name" is required`);
     }
-  
+
     const schema = version.schema?.openAPIV3Schema ?? spec.validation?.openAPIV3Schema;
-  
+
     if (!schema) {
       throw new Error(`unable to determine schema for custom resource`);
     }
@@ -67,7 +67,7 @@ export class CustomResourceDefinition {
 
   public async generateTypeScript(code: CodeMaker) {
     const types = new TypeGenerator();
-  
+
     types.emitConstruct({
       group: this.group,
       version: this.version,
@@ -90,6 +90,8 @@ export class ImportCustomResourceDefinition extends ImportBase {
     let manifest;
     if (source.startsWith('https://')) {
       manifest = await httpsGet(source);
+    } else if (source.startsWith('http://')) {
+        manifest = await httpGet(source)
     } else if (path.extname(source) === '.yaml' || path.extname(source) === '.yml' || path.extname(source) === '.json') {
       if (!(await fs.pathExists(source))) {
         throw new Error(`can't find file ${source}`);
@@ -108,7 +110,7 @@ export class ImportCustomResourceDefinition extends ImportBase {
   }
 
   private readonly customResourceDefinitions: CustomResourceDefinition[] = [];
-  
+
   constructor(manifest: CustomResourceApiObject[]) {
     super();
 
