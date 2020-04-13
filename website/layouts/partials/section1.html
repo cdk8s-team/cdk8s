@@ -9,11 +9,9 @@
 <section class="section section-feature-grey">
   <div class="content-wrapper container">
 
-    <!-- <h1 class="title">{{ $title }}</h1> -->
-
     <p>
       <h2 class="subtitle content is-muted is-4">
-        {{ $subtitle | markdownify }}  
+        {{ $subtitle | markdownify }}
       </h2>
     </p>
 
@@ -21,12 +19,11 @@
       <iframe src="https://ghbtns.com/github-btn.html?user=awslabs&repo=cdk8s&type=star&count=true&size=large" frameborder="0" scrolling="0" width="140px" height="40px"></iframe>
       <iframe src="https://ghbtns.com/github-btn.html?user=awslabs&repo=cdk8s&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="140px" height="40px"></iframe>
     </p>
-    <div class="hero-foot mb-20">
-
+<!--    <div class="hero-foot mb-20">
       <div class="container has-text-centered hero">
-        <h2 class="subtitle is-5 is-muted">
+        <h3 class="subtitle is-5 is-muted">
           Works with Kubernetes everywhere!
-        </h2>
+        </h3>
         <div class="tabs is-centered">
           <ul>
             {{- range $clientLogos }}
@@ -40,15 +37,15 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 </section>
 <section class="section section-feature-white">
   <div class="container">
-
-
-
+        <h1 class="title section-title">{{ $title }}</h1>
+        <div class="divider"></div>
     <div class="content-wrapper">
+
       <div class="columns">
         {{- range $tiles }}
         <div class="column is-one-third">
