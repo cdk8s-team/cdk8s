@@ -90,7 +90,7 @@ params:
     - title: Works with Kubernetes everywhere
       icon: mouse-globe
       text: |
-        You can use *cdk8s* to define applications for any Kubernetes cluster
+        You can use **cdk8s** to define applications for any Kubernetes cluster
         running anywhere, including any cloud or on-premises. cdk8s runs locally
         in your development environment and produces standard Kubernetes YAML
         that can be applied to any cluster.
@@ -101,7 +101,7 @@ params:
       icon: laptop-cloud
       text: |
         You can import any Kubernetes API version and custom resource
-        definitions to use with *cdk8s*. This makes it easy to use cdk8s to easily
+        definitions to use with **cdk8s**. This makes it easy to use cdk8s to easily
         write entire Kubernetes applications and keep them up to date as
         applications change.
       url: /
@@ -110,7 +110,7 @@ params:
     - title: Language support
       icon: plug-cloud
       text: |
-        *cdk8s* lets you define applications using Typescript, JavaScript,
+        **cdk8s** lets you define applications using Typescript, JavaScript,
         and Python. Support for more languages, including Go is coming soon.
       url: /
       buttonText: Get started
@@ -118,7 +118,7 @@ params:
     - title: Deploy through GitOps
       icon: plug-cloud
       text: |
-        *cdk8s* works great with a [GitOps](https://www.weave.works/technologies/gitops/) workflow, making it easy
+        **cdk8s** works great with a [GitOps](https://www.weave.works/technologies/gitops/) workflow, making it easy
         to see changes as you modify your configuration and between API
         versions. Simply use the cdk8s to synthesize new YAML configuration
         files and commit them to your git repo.
@@ -128,7 +128,7 @@ params:
     - title: Community-driven
       icon: plug-cloud
       text: |
-        We are building *cdk8s* for any developer who uses Kubernetes to
+        We are building **cdk8s** for any developer who uses Kubernetes to
         define their applications.  We encourage contributions of any type, from
         fixing typos to building new features. Our goal is that cdk8s becomes an
         official CNCF sandbox project that the entire community can use.
@@ -141,7 +141,6 @@ params:
     image: illustrations/mockups/cdk8s-code.png
     buttonText: Get started with cdk8s
     buttonLink: "/getting-started/python/"
-
 
 #   section3:
 #     title: One platform
