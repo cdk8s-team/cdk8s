@@ -14,7 +14,7 @@ markup:
 params:
   # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
   openGraph: true
-  # Used as meta data; describe your site to make Google Bots happy 
+  # Used as meta data; describe your site to make Google Bots happy
   description: Define Kubernetes native apps and abstractions using familiar programming languages
 
 
@@ -32,7 +32,7 @@ params:
     subtitle: |
       Define Kubernetes native apps and abstractions using familiar programming
       languages
-    image: illustrations/worker.svg
+    image: illustrations/cdk8s_banner.svg
     # Footer logos (from static/images/logos/clients/___.svg)
     clientlogos:
     - eks
@@ -42,6 +42,12 @@ params:
 
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbar:
+  - title: Getting Started
+    sublinks:
+    - title: Python
+      url: "/getting-started/python"
+    - title: TypeScript
+      url: "/getting-started/typescript"
   - title: Resources
     sublinks:
     - title: Examples
@@ -49,15 +55,8 @@ params:
     - title: Roadmap
       url: https://github.com/awslabs/cdk8s/projects/1
 
-  - title: Getting Started
-    sublinks:
-    - title: Python
-      url: "/getting-started/python"
-    - title: TypeScript
-      url: "/getting-started/typescript"
-
   section1:
-    title: What is CDK for Kubernetes?
+    title: Why should you use CDK for Kubernetes?
     subtitle: |
       **Cloud Development Kit for Kubernetes** (cdk8s) is a software development
       framework for defining Kubernetes applications and reusable abstractions
@@ -66,19 +65,20 @@ params:
       any Kubernetes cluster running anywhere.
 
     tiles:
-
     - title: Harness the power of code
-      icon: laptop-globe
+      icon: code
       text: |
-        Define manifests using object-oriented programming languages
+        Define Kubernetes applications using
+        object-oriented languages
 
-    - title: Familiar workflows and tools
-      icon: doc-sync
+    - title: Simplify application workflows
+      icon: workflows
       text: |
-        Use the same tools and workflows you know and love
+        Use the same tools to build your
+        application and its configuration
 
     - title: Define best practices
-      icon: mobile-feed
+      icon: best-practices
       text: |
         Compose and share reusable components
         through code libraries
@@ -110,7 +110,7 @@ params:
     - title: Language support
       icon: plug-cloud
       text: |
-        Today, *cdk8s* lets you define applications using Typescript, JavaScript,
+        *cdk8s* lets you define applications using Typescript, JavaScript,
         and Python. Support for more languages, including Go is coming soon.
       url: /
       buttonText: Get started
@@ -135,13 +135,20 @@ params:
       url: /
       buttonText: Get started
 
+  section3:
+    title: Go from code to config
+    subtitle: Easily template and generate perfect Kubernetes YAML
+    image: illustrations/mockups/cdk8s-code.png
+    buttonText: Get started with cdk8s
+    buttonLink: "/getting-started/python/"
 
-  # section3:
-  #   # title: One platform
-  #   # subtitle: To rule them all
-  #   image: illustrations/mockups/app-mockup.png
-  #   buttonText: Get started
-  #   buttonLink: "#"
+
+#   section3:
+#     title: One platform
+#     subtitle: To rule them all
+#     image: illustrations/mockups/app-mockup.png
+#     buttonText: Get started
+#     buttonLink: "#"
 
   # section4:
   #   title: Our Clients love us!
@@ -180,16 +187,18 @@ params:
 
     quicklinks:
       column1:
+        title: "Docs"
+        links:
+        - text: Start with Python
+          link: "/getting-started/python"
+        - text: Start with TypeScript
+          link: "/getting-started/typescript"
+      column2:
         title: "More Resources"
         links:
         - text: Examples
           link: https://github.com/awslabs/cdk8s/tree/master/examples
         - text: Roadmap
           link: https://github.com/awslabs/cdk8s/projects/1
-      column2:
-        title: "Docs"
-        links:
-        - text: Getting started (Python)
-          link: "/getting-started/python"
-        - text: Getting Started (TypeScript)
-          link: "/getting-started/typescript"
+        - text: Contributing
+          link: https://github.com/awslabs/cdk8s/blob/master/CONTRIBUTING.md
