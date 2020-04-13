@@ -173,15 +173,13 @@ params:
     # Logo (from /images/logos/___)
     logo: footer-logo.svg
     # Social Media Title
-    socialmediatitle: Follow Us
+    socialmediatitle: Connect with Us
     # Social media links (GitHub, Twitter, etc.). All are optional.
     socialmedia:
     - link: https://github.com/awslabs/cdk8s
       icon: github
     - link: https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU
       icon: slack
-    - link: https://github.com/awslabs/cdk8s
-      icon: twitter
 
     bulmalogo: true
 
