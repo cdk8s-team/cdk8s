@@ -14,7 +14,7 @@ markup:
 params:
   # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
   openGraph: true
-  # Used as meta data; describe your site to make Google Bots happy 
+  # Used as meta data; describe your site to make Google Bots happy
   description: Define Kubernetes native apps and abstractions using familiar programming languages
 
 
@@ -32,7 +32,7 @@ params:
     subtitle: |
       Define Kubernetes native apps and abstractions using familiar programming
       languages
-    image: illustrations/worker.svg
+    image: illustrations/cdk8s_banner.svg
     # Footer logos (from static/images/logos/clients/___.svg)
     clientlogos:
     - eks
@@ -42,6 +42,12 @@ params:
 
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbar:
+  - title: Getting Started
+    sublinks:
+    - title: Python
+      url: "/getting-started/python"
+    - title: TypeScript
+      url: "/getting-started/typescript"
   - title: Resources
     sublinks:
     - title: Examples
@@ -49,15 +55,8 @@ params:
     - title: Roadmap
       url: https://github.com/awslabs/cdk8s/projects/1
 
-  - title: Getting Started
-    sublinks:
-    - title: Python
-      url: "/getting-started/python"
-    - title: TypeScript
-      url: "/getting-started/typescript"
-
   section1:
-    title: What is CDK for Kubernetes?
+    title: Why should you use CDK for Kubernetes?
     subtitle: |
       **Cloud Development Kit for Kubernetes** (cdk8s) is a software development
       framework for defining Kubernetes applications and reusable abstractions
@@ -66,19 +65,20 @@ params:
       any Kubernetes cluster running anywhere.
 
     tiles:
-
     - title: Harness the power of code
-      icon: laptop-globe
+      icon: code
       text: |
-        Define manifests using object-oriented programming languages
+        Define Kubernetes applications using
+        object-oriented languages
 
-    - title: Familiar workflows and tools
-      icon: doc-sync
+    - title: Simplify application workflows
+      icon: workflows
       text: |
-        Use the same tools and workflows you know and love
+        Use the same tools to build your
+        application and its configuration
 
     - title: Define best practices
-      icon: mobile-feed
+      icon: best-practices
       text: |
         Compose and share reusable components
         through code libraries
@@ -90,7 +90,7 @@ params:
     - title: Works with Kubernetes everywhere
       icon: mouse-globe
       text: |
-        You can use *cdk8s* to define applications for any Kubernetes cluster
+        You can use **cdk8s** to define applications for any Kubernetes cluster
         running anywhere, including any cloud or on-premises. cdk8s runs locally
         in your development environment and produces standard Kubernetes YAML
         that can be applied to any cluster.
@@ -101,7 +101,7 @@ params:
       icon: laptop-cloud
       text: |
         You can import any Kubernetes API version and custom resource
-        definitions to use with *cdk8s*. This makes it easy to use cdk8s to easily
+        definitions to use with **cdk8s**. This makes it easy to use cdk8s to easily
         write entire Kubernetes applications and keep them up to date as
         applications change.
       url: /
@@ -110,7 +110,7 @@ params:
     - title: Language support
       icon: plug-cloud
       text: |
-        Today, *cdk8s* lets you define applications using Typescript, JavaScript,
+        **cdk8s** lets you define applications using Typescript, JavaScript,
         and Python. Support for more languages, including Go is coming soon.
       url: /
       buttonText: Get started
@@ -118,7 +118,7 @@ params:
     - title: Deploy through GitOps
       icon: plug-cloud
       text: |
-        *cdk8s* works great with a [GitOps](https://www.weave.works/technologies/gitops/) workflow, making it easy
+        **cdk8s** works great with a [GitOps](https://www.weave.works/technologies/gitops/) workflow, making it easy
         to see changes as you modify your configuration and between API
         versions. Simply use the cdk8s to synthesize new YAML configuration
         files and commit them to your git repo.
@@ -128,20 +128,26 @@ params:
     - title: Community-driven
       icon: plug-cloud
       text: |
-        We are building *cdk8s* for any developer who uses Kubernetes to
+        We are building **cdk8s** for any developer who uses Kubernetes to
         define their applications.  We encourage contributions of any type, from
         fixing typos to building new features. Our goal is that cdk8s becomes an
         official CNCF sandbox project that the entire community can use.
       url: /
       buttonText: Get started
 
+  section3:
+    title: Go from code to config
+    subtitle: Easily template and generate perfect Kubernetes YAML
+    image: illustrations/mockups/cdk8s-code.png
+    buttonText: Get started with cdk8s
+    buttonLink: "/getting-started/python/"
 
-  # section3:
-  #   # title: One platform
-  #   # subtitle: To rule them all
-  #   image: illustrations/mockups/app-mockup.png
-  #   buttonText: Get started
-  #   buttonLink: "#"
+#   section3:
+#     title: One platform
+#     subtitle: To rule them all
+#     image: illustrations/mockups/app-mockup.png
+#     buttonText: Get started
+#     buttonLink: "#"
 
   # section4:
   #   title: Our Clients love us!
@@ -166,30 +172,30 @@ params:
     # Logo (from /images/logos/___)
     logo: footer-logo.svg
     # Social Media Title
-    socialmediatitle: Follow Us
+    socialmediatitle: Connect with Us
     # Social media links (GitHub, Twitter, etc.). All are optional.
     socialmedia:
     - link: https://github.com/awslabs/cdk8s
       icon: github
     - link: https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU
       icon: slack
-    - link: https://github.com/awslabs/cdk8s
-      icon: twitter
 
     bulmalogo: true
 
     quicklinks:
       column1:
+        title: "Docs"
+        links:
+        - text: Start with Python
+          link: "/getting-started/python"
+        - text: Start with TypeScript
+          link: "/getting-started/typescript"
+      column2:
         title: "More Resources"
         links:
         - text: Examples
           link: https://github.com/awslabs/cdk8s/tree/master/examples
         - text: Roadmap
           link: https://github.com/awslabs/cdk8s/projects/1
-      column2:
-        title: "Docs"
-        links:
-        - text: Getting started (Python)
-          link: "/getting-started/python"
-        - text: Getting Started (TypeScript)
-          link: "/getting-started/typescript"
+        - text: Contributing
+          link: https://github.com/awslabs/cdk8s/blob/master/CONTRIBUTING.md

@@ -4,8 +4,7 @@
 {{- $image      := index $section3 "image" }}
 {{- $buttonText := index $section3 "buttontext" }}
 {{- $buttonLink := index $section3 "buttonlink" }}
-<section class="section section-feature-white is-medium">
-  <div class="container">
+<section class="section section-feature-grey">
     <div class="columns">
       <div class="column is-10 is-offset-1">
         <div class="has-text-centered">
@@ -13,16 +12,18 @@
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="title-wrapper has-text-centered">
+        <h2 class="title is-2">{{ $title }}</h2>
+        <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+      </div>
 
-    <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2">{{ $title }}</h2>
-      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
-    </div>
-
-    <p class="has-text-centered mt-20">
+   <p class="has-text-centered mt-20">
       <a class="button cta is-large rounded secondary-btn raised" href="{{ $buttonLink }}">
         {{ $buttonText }}
       </a>
     </p>
+
+
   </div>
 </section>
