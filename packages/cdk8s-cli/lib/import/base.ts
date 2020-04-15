@@ -29,9 +29,10 @@ export abstract class ImportBase {
     const outdir = path.resolve(options.outdir);
     await fs.mkdirp(outdir);
     const isTypescript = options.targetLanguage === Language.TYPESCRIPT
+    const { moduleNamePrefix } = options;
 
     for (const name of this.moduleNames) {
-      const fileName = options?.moduleNamePrefix ? `${options.moduleNamePrefix}-${name}.ts` : `${name}.ts`;
+      const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${name}.ts` : `${name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
       await this.generateTypeScript(code, name);
@@ -50,6 +51,7 @@ export abstract class ImportBase {
         await code.save('.');
         await jsiiCompile('.', {
           main: name,
+          moduleNamePrefix,
           name,
         });
 
@@ -67,12 +69,7 @@ export abstract class ImportBase {
         throw new Error('no op for typescript');
   
       case Language.PYTHON:
-        if (moduleNamePrefix != null) {
-          // logging error instead of throwing, so it doesn't interrupt other imports
-          console.error(`Name overriding of imports is not yet supported in python. Named import: ${moduleNamePrefix}`);
-          break;
-        }
-        await this.harvestPython(targetdir, moduleName);
+        await this.harvestPython(targetdir, moduleNamePrefix ? moduleNamePrefix : moduleName);
         break;
   
       default:
