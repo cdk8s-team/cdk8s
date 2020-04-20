@@ -36,43 +36,6 @@ $ cdk8s init typescript-app
 
 ## import
 
-### Selecting import language
-
-You can specify the language of your imports with the `--language` flag.
-
-`cdk8s` CLI
-
-```code
-cdk8s import --language typescript
-```
-
-`cdk8s.yaml` Config
-
-```yaml
-language: typescript
-```
-
-Both `typescript` and `python` are supported right now, unless noted otherwise.
-
-Example output for `typescript` imports is:
-
-```
-imports/
-  k8s.ts
-```
-
-Example output for `python` imports is:
-
-```
-imports/
-  k8s/
-    __init__.py
-    py.typed
-    _jsii/
-      __init__.py
-      k8s@1.17.0.jsii.tgz
-```
-
 ### Import Kubernetes API objects as constructs
 
 To generate constructs for all Kubernetes API objects of a certain version, use
@@ -82,7 +45,7 @@ the `import` subcommand:
 $ cdk8s import k8s
 ```
 
-By default, the import command will create a file under `imports/k8s.ts`
+By default, the import command will put your imports under `imports/`
 with constructs for each API object in the k8s spec.
 
 The following example will import a specific version of the Kubernetes API objects:
@@ -143,12 +106,19 @@ imports:
 
 By default, your imported CRD will be named by its `spec.names.kind`. If your CRD file contains multiple CRDs, this will create multiple imports, each named by its respective `spec.names.kind`.
 
-For example, if `my_crd.yaml` contained two kinds, `cluster` and `autoscaler`, you would have two imports:
+For example, if `my_crd.yaml` contained two kinds, `cluster` and `autoscaler`, you would have two imports. You could use them in this fashion:
 
+Typescript:
+
+```javascript
+import { cluster } from './imports/cluster';
+import { autoscaler } from './imports/autoscaler';
 ```
-imports/
-  cluster.ts
-  autoscaler.ts
+
+Python:
+
+```python
+from imports import cluster, autoscaler
 ```
 
 ### Override default behavior of import naming
@@ -170,13 +140,40 @@ imports:
   - example:=my_crd.yaml
 ```
 
-If your CRD contained two kinds, `cluster` and `autoscaler`, you would have two imports:
+If your CRD contained two kinds, `cluster` and `autoscaler`, you would have two imports. You could use them in this fashion:
 
+
+Typescript:
+
+```javascript
+import { cluster } from './imports/example-cluster';
+import { autoscaler } from './imports/example-autoscaler';
 ```
-imports/
-  example-cluster.ts
-  example-autoscaler.ts
+
+Python:
+
+```python
+not yet supported
 ```
+
+## Selecting language
+
+You can specify your desired language with the `--language` flag. For example:
+
+`cdk8s` CLI
+
+```code
+cdk8s import --language typescript
+```
+
+`cdk8s.yaml` Config
+
+```yaml
+language: typescript
+```
+
+Both `typescript` and `python` are supported right now, unless noted otherwise.
+
 
 ## License
 
