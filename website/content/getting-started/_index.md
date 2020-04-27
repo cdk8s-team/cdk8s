@@ -1,6 +1,5 @@
 ---
 title: Getting Started with CDK for Kubernetes
-sidebar: true
 ---
 
 Welcome to **cdk8s**! 
