@@ -18,12 +18,12 @@
   },
   "dependencies": {
     "cdk8s": "0.0.0",
-    "constructs": "^2.0.1"
+    "constructs": "^3.0.2"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.2",
-    "@types/node": "^13.7.1",
     "cdk8s-cli": "0.0.0",
-    "typescript": "^3.7.5"
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.4",
+    "typescript": "^3.8.3"
   }
 }
