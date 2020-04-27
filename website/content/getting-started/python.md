@@ -1,5 +1,5 @@
 ---
-title: Getting Started with CDK for Kubernetes (Python)
+title: Getting Started with Python
 ---
 
 Let's walk through a simple "Hello, World!" example in Python.

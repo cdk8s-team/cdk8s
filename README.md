@@ -22,6 +22,7 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
+- [Documentation](#documentation)
 - [Examples](#examples)
 - [Help & Feedback](#help--feedback)
 - [Contributing](#contributing)
@@ -55,8 +56,12 @@ Kubernetes resources and other CDK constructs as first class citizens.
 
 Choose your weapon:
 
-- [TypeScript](./docs/intro-typescript.md)
-- [Python](./docs/intro-python.md)
+- [TypeScript](https://cdk8s.io/getting-started/typescript)
+- [Python](https://cdk8s.io/getting-started/python)
+
+## Documentation
+
+See [Docs Home](https://cdk8s.io/docs).
 
 ## Examples
 
