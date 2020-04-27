@@ -2323,12 +2323,7 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/constructs/-/constructs-2.0.1.tgz#274d6b8ce6a698813495c444466b0c745349ddb5"
-  integrity sha512-edR85YFGI9TBT9byAo5vAfI0PRi+jFGzinwN3RAJwKfv6Yc9x9kALYfoEmgotp95qT7/k/iUQWHrH9BMJeqpdg==
-
-constructs@^3.0.2:
+constructs@3.0.2, constructs@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.0.2.tgz#49432ba2ef765445bddd5fcc5b3948903ec5210b"
   integrity sha512-Q4SkOFaRH2D65kvcGrDZ/FgJwk59HwUohbdCbeIueas+8RJhd9N4j6QgvHnMfTOmQWDPXCn1IGwteTLC0OK1NA==
