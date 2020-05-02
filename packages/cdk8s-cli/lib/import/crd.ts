@@ -106,7 +106,7 @@ export class ImportCustomResourceDefinition extends ImportBase {
 
     return yaml.parseAllDocuments(manifest)
                .map((doc: yaml.ast.Document) => doc.toJSON())
-               .filter((doc) => (doc as CustomResourceApiObject).kind === 'CustomResourceDefinition');
+               .filter((doc) => doc && (doc as CustomResourceApiObject).kind === 'CustomResourceDefinition');
   }
 
   private readonly customResourceDefinitions: CustomResourceDefinition[] = [];
