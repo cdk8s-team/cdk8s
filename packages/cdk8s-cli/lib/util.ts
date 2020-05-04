@@ -34,22 +34,22 @@ async function get(url: string, protocol: typeof http | typeof https = https): P
   return new Promise((ok, ko) => {
     const req = protocol.get(url, async res => {
       switch(res.statusCode) {
-        case 200: {
+        case 200:
           const data = new Array<Buffer>();
           res.on('data', chunk => data.push(chunk));
           res.once('end', () => ok(Buffer.concat(data).toString('utf-8')));
           res.once('error', ko);
           break;
-        }
-        case 302: case 301: {
+
+        case 301:
+        case 302:
           if (res.headers.location) {
             await ok(get(res.headers.location, protocol));
           }
           break;
-        }
-        default: {
+
+        default:
           throw new Error(`${res.statusMessage}: ${url}`);
-        }
       }
     });
 
