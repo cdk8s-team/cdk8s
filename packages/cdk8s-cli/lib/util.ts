@@ -41,7 +41,7 @@ async function get(url: string, protocol: typeof http | typeof https = https): P
           res.once('error', ko);
           break;
         }
-        case 302: {
+        case 302: case 301: {
           if (res.headers.location) {
             await ok(get(res.headers.location, protocol));
           }
