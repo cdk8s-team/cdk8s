@@ -7,6 +7,7 @@ mkdir test && cd test
 
 cp ${scriptdir}/cdk8s.yaml  .
 cp ${scriptdir}/mattermost_crd.yaml .
+cp ${scriptdir}/example_multiple_crd.yaml .
 
 cdk8s import mattermost:=mattermost_crd.yaml --language python
 

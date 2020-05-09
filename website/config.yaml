@@ -40,21 +40,6 @@ params:
     - aks
     - ibm
 
-  # Customizable navbar. For a dropdown, add a "sublinks" list.
-  navbar:
-  - title: Getting Started
-    sublinks:
-    - title: Python
-      url: "/getting-started/python"
-    - title: TypeScript
-      url: "/getting-started/typescript"
-  - title: Resources
-    sublinks:
-    - title: Examples
-      url: https://github.com/awslabs/cdk8s/tree/master/examples
-    - title: Roadmap
-      url: https://github.com/awslabs/cdk8s/projects/1
-
   section1:
     title: Why should you use CDK for Kubernetes?
     subtitle: |
@@ -179,23 +164,3 @@ params:
       icon: github
     - link: https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU
       icon: slack
-
-    bulmalogo: true
-
-    quicklinks:
-      column1:
-        title: "Docs"
-        links:
-        - text: Start with Python
-          link: "/getting-started/python"
-        - text: Start with TypeScript
-          link: "/getting-started/typescript"
-      column2:
-        title: "More Resources"
-        links:
-        - text: Examples
-          link: https://github.com/awslabs/cdk8s/tree/master/examples
-        - text: Roadmap
-          link: https://github.com/awslabs/cdk8s/projects/1
-        - text: Contributing
-          link: https://github.com/awslabs/cdk8s/blob/master/CONTRIBUTING.md
