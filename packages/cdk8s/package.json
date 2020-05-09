@@ -9,6 +9,7 @@
     "lint": "eslint . --ext .ts",
     "test": "jest && yarn lint"
   },
+  "keywords": [ "cdk", "kubernetes", "k8s", "constructs" ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "jsii": {

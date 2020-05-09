@@ -1,5 +1,5 @@
 ---
-title: Getting Started with CDK for Kubernetes (TypeScript)
+title: Getting Started with TypeScript
 ---
 
 Let's walk through a simple "Hello, World!" example in TypeScript.
