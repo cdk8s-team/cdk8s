@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.0](https://github.com/awslabs/cdk8s/compare/v0.19.0...v0.20.0) (2020-04-27)
+
+
+### Features
+
+* surface cdk8s in awscdk.io ([45e188e](https://github.com/awslabs/cdk8s/commit/45e188e08a607a0fbc8b5003ce9ab84789f1322e))
+
+
+### Bug Fixes
+
+* **docs:** top-level "getting started" page not found ([#120](https://github.com/awslabs/cdk8s/issues/120)) ([eb9d2ad](https://github.com/awslabs/cdk8s/commit/eb9d2ad0e09f7bc8ba1ee2346aad2f3119d1f3e9)), closes [#106](https://github.com/awslabs/cdk8s/issues/106)
+* **readme:** missing information about imports in cdk8s-cli readme ([#108](https://github.com/awslabs/cdk8s/issues/108)) ([e9f291e](https://github.com/awslabs/cdk8s/commit/e9f291e8da8beebc1bb26b20078ed0d3675ce580))
+
 ## [0.19.0](https://github.com/awslabs/cdk8s/compare/v0.18.0...v0.19.0) (2020-04-12)
 
 

@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: |
           cd website
-          hugo --minify
+          ./build.sh
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

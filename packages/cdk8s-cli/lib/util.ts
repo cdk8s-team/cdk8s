@@ -32,14 +32,28 @@ export async function withTempDir(dirname: string, closure: () => Promise<void>)
 
 async function get(url: string, protocol: typeof http | typeof https = https): Promise<string> {
   return new Promise((ok, ko) => {
-    const req = protocol.get(url, res => {
-      if (res.statusCode !== 200) {
-        throw new Error(`${res.statusMessage}: ${url}`);
+    const req = protocol.get(url, async res => {
+      switch(res.statusCode) {
+        case 200: {
+          const data = new Array<Buffer>();
+          res.on('data', chunk => data.push(chunk));
+          res.once('end', () => ok(Buffer.concat(data).toString('utf-8')));
+          res.once('error', ko);
+          break;
+        }
+
+        case 301:
+        case 302: {
+          if (res.headers.location) {
+            await ok(get(res.headers.location, protocol));
+          }
+          break;
+        }
+
+        default: {
+          throw new Error(`${res.statusMessage}: ${url}`);
+        }
       }
-      const data = new Array<Buffer>();
-      res.on('data', chunk => data.push(chunk));
-      res.once('end', () => ok(Buffer.concat(data).toString('utf-8')));
-      res.once('error', ko);
     });
 
     req.once('error', ko);
