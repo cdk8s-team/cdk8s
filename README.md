@@ -54,7 +54,7 @@ Kubernetes resources and other CDK constructs as first class citizens.
 
 ## At a glance
 
-![](./website/assets/author-chart.gif)
+![](./website/static/images/illustrations/mockups/cdk8s-code.gif)
 
 ## Getting Started
 
