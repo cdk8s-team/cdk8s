@@ -52,6 +52,10 @@ Cloud Development Kit](https://aws.amazon.com/cdk), and can interoperate with
 AWS CDK constructs to define cloud-native applications that include both
 Kubernetes resources and other CDK constructs as first class citizens.
 
+## At a glance
+
+![](./website/assets/cdk8s-welcome.gif)
+
 ## Getting Started
 
 Choose your weapon:
