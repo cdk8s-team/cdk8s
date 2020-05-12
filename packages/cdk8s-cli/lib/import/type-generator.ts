@@ -214,6 +214,10 @@ export class TypeGenerator {
         if (propName.startsWith('x-')) {
           continue; // skip extensions for now
         }
+
+        if (code.toCamelCase(propName) !== propName) {
+          continue; // skip non-camel-case properties
+        }
   
         this.emitProperty(code, propName, propSpec, structFqn, structDef);
       }
