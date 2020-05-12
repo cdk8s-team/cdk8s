@@ -12827,7 +12827,7 @@ Object {
     },
   },
   "description": "crontab",
-  "fingerprint": "H5UeGZ9P3Ob8LuS6Iol+GONtDAZmkFRUJJeet8zaUTA=",
+  "fingerprint": "TJdwYSvbkcJQtcjIycBKphzt209j/s7dMrzJ9xsAmBI=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -12854,7 +12854,6 @@ Object {
         "custom": Object {
           "schema": "CronTab",
         },
-        "summary": "undefined.",
       },
       "fqn": "crontab.CronTab",
       "initializer": Object {
@@ -13071,7 +13070,7 @@ Object {
     },
   },
   "description": "othercrontab",
-  "fingerprint": "YGs+v2Cvzxti/5e8tY6Z/wfjYLs0CNb+UYBJN0r/sZ4=",
+  "fingerprint": "EbkCePgDYQOgpAm48pcVUMn8Yq0RivAq6ZnIaBu86BQ=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -13098,7 +13097,6 @@ Object {
         "custom": Object {
           "schema": "OtherCronTab",
         },
-        "summary": "undefined.",
       },
       "fqn": "othercrontab.OtherCronTab",
       "initializer": Object {
