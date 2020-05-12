@@ -19,12 +19,13 @@ export interface CustomResourceApiObject {
       kind: string;
     };
     versions?: Array<{ name: string; schema?: { openAPIV3Schema?: any } }>;
+    version?: string;
     validation?: { openAPIV3Schema?: any };
   };
 }
 
 export class CustomResourceDefinition {
-  private readonly schema: any;
+  private readonly schema?: any;
   private readonly group: string;
   private readonly version: string;
   private readonly kind: string;
@@ -39,7 +40,7 @@ export class CustomResourceDefinition {
       throw new Error(`manifest does not have a "spec" attribute`)
     }
 
-    const version = (spec.versions ?? [])[0];
+    const version = spec.version ?? (spec.versions ?? [])[0];
     if (!version) {
       throw new Error(`unable to determine CRD version`);
     }
@@ -48,15 +49,11 @@ export class CustomResourceDefinition {
       throw new Error(`"metadata.name" is required`);
     }
 
-    const schema = version.schema?.openAPIV3Schema ?? spec.validation?.openAPIV3Schema;
-
-    if (!schema) {
-      throw new Error(`unable to determine schema for custom resource`);
-    }
+    const schema = typeof version === 'string' ? spec.validation?.openAPIV3Schema : version?.schema?.openAPIV3Schema ?? spec.validation?.openAPIV3Schema;
 
     this.schema = schema;
     this.group = spec.group;
-    this.version = version.name;
+    this.version = typeof version === 'string' ? version : version.name;
     this.kind = spec.names.kind;
     this.fqn = this.kind;
   }
