@@ -215,8 +215,9 @@ export class TypeGenerator {
           continue; // skip extensions for now
         }
 
-        if (code.toCamelCase(propName) !== propName) {
-          continue; // skip non-camel-case properties
+        if (propName.includes('_')) {
+          console.error(`warning: property ${structFqn}.${propName} omitted since it includes an underscore`);
+          continue; // skip 
         }
   
         this.emitProperty(code, propName, propSpec, structFqn, structDef);
