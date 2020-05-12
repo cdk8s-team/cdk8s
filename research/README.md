@@ -2,6 +2,8 @@
 
 Welcome to the *cdk8s* research facility!
 
+The goal of this facility is two fold:
+
 1. Share the research being done by core team members with the community.
 2. Collect additional ideas thought of by the community.
 
