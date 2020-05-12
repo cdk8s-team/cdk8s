@@ -2016,8 +2016,7 @@ class CertificateSigningRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_t
 
 
 class CertificateSigningRequestList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CertificateSigningRequestList"):
-    """undefined.
-
+    """
     schema:
     :schema:: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList
     """

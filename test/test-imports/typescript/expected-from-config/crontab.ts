@@ -3,7 +3,7 @@ import { ApiObject } from 'cdk8s';
 import { Construct } from 'constructs';
 
 /**
- * undefined
+ * 
  *
  * @schema CronTab
  */
