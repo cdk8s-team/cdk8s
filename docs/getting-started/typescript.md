@@ -1,6 +1,4 @@
----
-title: Getting Started with TypeScript
----
+# Getting Started with TypeScript
 
 Let's walk through a simple "Hello, World!" example in TypeScript.
 
