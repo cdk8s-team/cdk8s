@@ -21,6 +21,7 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
 ### Contents
 
 - [Overview](#overview)
+- [At a glance](#at-a-glance)
 - [Getting Started](#getting-started)
 - [Documentation](#documentation)
 - [Examples](#examples)
@@ -54,7 +55,7 @@ Kubernetes resources and other CDK constructs as first class citizens.
 
 ## At a glance
 
-![](./website/static/images/illustrations/mockups/cdk8s-code.gif)
+![](./website/static/images/animation.gif)
 
 ## Getting Started
 

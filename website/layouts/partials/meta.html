@@ -1,8 +1,0 @@
-{{ template "_internal/google_analytics_async.html" . }}
-{{ if eq .Site.Params.openGraph true }}
-{{ template "_internal/opengraph.html" . }}
-{{ end }}
-<meta name="description" content="{{ if .Params.summary }}{{ .Params.summary }}{{ else if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else }}Hardcoded description; the author should update :){{ end }}" />
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
