@@ -61,8 +61,8 @@ Kubernetes resources and other CDK constructs as first class citizens.
 
 Choose your weapon:
 
-- [TypeScript](./getting-started/typescript.md)
-- [Python](./getting-started/python.md)
+- [TypeScript](./docs/getting-started/typescript.md)
+- [Python](./docs/getting-started/python.md)
 
 ## Examples
 
