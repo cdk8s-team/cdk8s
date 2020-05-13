@@ -2,7 +2,7 @@
 
 > Cloud Development Kit for Kubernetes
 
-![Stability:Experimental](https://img.shields.io/badge/stability-experimental-orange)
+![Stability:Alpha](https://img.shields.io/badge/stability-alpha-orange)
 ![Release](https://github.com/awslabs/cdk8s/workflows/Release/badge.svg)
 [![npm version](https://badge.fury.io/js/cdk8s.svg)](https://badge.fury.io/js/cdk8s)
 [![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
