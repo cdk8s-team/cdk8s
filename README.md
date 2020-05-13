@@ -53,6 +53,8 @@ Cloud Development Kit](https://aws.amazon.com/cdk), and can interoperate with
 AWS CDK constructs to define cloud-native applications that include both
 Kubernetes resources and other CDK constructs as first class citizens.
 
+Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/) or [watch our CNCF webinar](https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/) to learn more and see a live demo of cdk8s in action.
+
 ## At a glance
 
 ![](./website/static/images/animation.gif)
