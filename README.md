@@ -61,12 +61,8 @@ Kubernetes resources and other CDK constructs as first class citizens.
 
 Choose your weapon:
 
-- [TypeScript](https://cdk8s.io/getting-started/typescript)
-- [Python](https://cdk8s.io/getting-started/python)
-
-## Documentation
-
-See [Docs Home](https://cdk8s.io/docs).
+- [TypeScript](./getting-started/typescript.md)
+- [Python](./getting-started/python.md)
 
 ## Examples
 
