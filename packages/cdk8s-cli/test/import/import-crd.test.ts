@@ -51,7 +51,7 @@ test('fails if one apiObject in multiObject CRD is not a valid CRD', async () =>
       kind: 'CustomResourceDefinition'
     }
   ])).toThrow('manifest does not have a "spec" attribute');
-})
+});
 
 function loadFixture(fileName: string) {
   const filePath = path.join(__dirname, 'fixtures', fileName);
@@ -64,4 +64,3 @@ function expectImportMatchSnapshotCustomResource(fixtureFile: string) {
   const crd = loadFixture(fixtureFile);
   expectImportMatchSnapshot(fixtureFile, () => new ImportCustomResourceDefinition(crd));
 }
-
