@@ -23,7 +23,7 @@ yarn global add cdk8s-cli
 This command creates new cdk8s projects from built in templates:
 
 ```shell
-$ cdk9s init TEMPLATE
+$ cdk8s init TEMPLATE
 ```
 
 The following example will create a new TypeScript app project:

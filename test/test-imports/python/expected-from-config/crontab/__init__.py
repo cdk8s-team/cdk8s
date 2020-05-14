@@ -15,8 +15,7 @@ __jsii_assembly__ = jsii.JSIIAssembly.load("crontab", "0.0.0", __name__, "cronta
 
 
 class CronTab(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="crontab.CronTab"):
-    """undefined.
-
+    """
     schema:
     :schema:: CronTab
     """

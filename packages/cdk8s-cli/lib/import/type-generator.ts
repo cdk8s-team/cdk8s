@@ -27,17 +27,17 @@ export class TypeGenerator {
 
   public emitConstruct(def: GeneratedConstruct) {
     this.emitLater(def.kind, code => {
-      const optionsStructName = `${def.kind}Options`;
-      const schema = def.schema;
-
       const options = createOptionsStructSchema();
+
+      const optionsStructName = options.type ? `${def.kind}Options` : 'any';
+      const schema = def.schema;
 
       this.emitType(optionsStructName, options, def.fqn);
 
       emitConstruct();
 
       function createOptionsStructSchema() {
-        const copy: JSONSchema4 = { ...def.schema };
+        const copy: JSONSchema4 = { ...def.schema || {} };
         const props = copy.properties = copy.properties || {};
         delete props.apiVersion;
         delete props.kind;
@@ -52,7 +52,7 @@ export class TypeGenerator {
     
       function emitConstruct() {
         code.line('/**');
-        code.line(` * ${def.schema.description}`);
+        code.line(` * ${def.schema?.description ?? ''}`);
         code.line(` *`);
         code.line(` * @schema ${def.fqn}`)
         code.line(` */`);
@@ -72,7 +72,7 @@ export class TypeGenerator {
         code.line(` * @param options configuration options`);
         code.line(` */`);
     
-        const hasRequired = schema.required && Array.isArray(schema.required) && schema.required.length > 0;
+        const hasRequired = schema?.required && Array.isArray(schema.required) && schema.required.length > 0;
         const defaultOptions = hasRequired ? '' : ' = {}';
         code.openBlock(`public constructor(scope: Construct, name: string, options: ${optionsStructName}${defaultOptions})`);
         emitInitializerSuper();
@@ -213,6 +213,11 @@ export class TypeGenerator {
   
         if (propName.startsWith('x-')) {
           continue; // skip extensions for now
+        }
+
+        if (propName.includes('_')) {
+          console.error(`warning: property ${structFqn}.${propName} omitted since it includes an underscore`);
+          continue; // skip 
         }
   
         this.emitProperty(code, propName, propSpec, structFqn, structDef);
