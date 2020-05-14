@@ -97,6 +97,10 @@ development environment and submit code.
 
 See our [roadmap](https://github.com/awslabs/cdk8s/projects/1) for details about our plans for the project.
 
+## Community
+
+See [Awesome cdk8s](https://github.com/dungahk/awesome-cdk8s).
+
 ## License
 
 This project is distributed under the [Apache License, Version 2.0](./LICENSE).
