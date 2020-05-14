@@ -7,6 +7,8 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { ImportSpec } from '../config';
 
+const CRD_KIND = 'CustomResourceDefinition';
+
 export interface CustomResourceApiObject {
   apiVersion?: string;
   kind?: string;
@@ -24,6 +26,12 @@ export interface CustomResourceApiObject {
   };
 }
 
+// all these APIs are compatible from our perspective.
+const SUPPORTED_API_VERSIONS = [
+  'apiextensions.k8s.io/v1beta1',
+  'apiextensions.k8s.io/v1'
+];
+
 export class CustomResourceDefinition {
   private readonly schema?: any;
   private readonly group: string;
@@ -32,8 +40,9 @@ export class CustomResourceDefinition {
   private readonly fqn: string;
 
   constructor(manifest: CustomResourceApiObject) {
-    assert(manifest.apiVersion === 'apiextensions.k8s.io/v1beta1', '"apiVersion" must be "apiextensions.k8s.io/v1beta1"');
-    assert(manifest.kind === 'CustomResourceDefinition', '"kind" must be "CustomResourceDefinition"');
+    const apiVersion = manifest?.apiVersion ?? 'undefined';
+    assert(SUPPORTED_API_VERSIONS.includes(apiVersion), `"apiVersion" is "${apiVersion}" but it should be one of: ${SUPPORTED_API_VERSIONS.map(x => `"${x}"`).join(', ')}`);
+    assert(manifest.kind === CRD_KIND, `"kind" must be "${CRD_KIND}"`);
 
     const spec = manifest.spec;
     if (!spec) {
@@ -49,7 +58,9 @@ export class CustomResourceDefinition {
       throw new Error(`"metadata.name" is required`);
     }
 
-    const schema = typeof version === 'string' ? spec.validation?.openAPIV3Schema : version?.schema?.openAPIV3Schema ?? spec.validation?.openAPIV3Schema;
+    const schema = typeof version === 'string'
+      ? spec.validation?.openAPIV3Schema
+      : version?.schema?.openAPIV3Schema ?? spec.validation?.openAPIV3Schema;
 
     this.schema = schema;
     this.group = spec.group;
@@ -101,25 +112,26 @@ export class ImportCustomResourceDefinition extends ImportBase {
       return undefined;
     }
 
-    return yaml.parseAllDocuments(manifest)
-               .map((doc: yaml.ast.Document) => doc.toJSON())
-               .filter((doc) => doc && (doc as CustomResourceApiObject).kind === 'CustomResourceDefinition');
+    return yaml.parseAllDocuments(manifest).map((doc: yaml.ast.Document) => doc.toJSON());
   }
 
-  private readonly customResourceDefinitions: CustomResourceDefinition[] = [];
+  private readonly defs: CustomResourceDefinition[] = [];
 
   constructor(manifest: CustomResourceApiObject[]) {
     super();
 
-    this.customResourceDefinitions = manifest?.map(obj => new CustomResourceDefinition(obj));
+    this.defs = manifest
+      .filter(obj => obj) // filter empty docs in the manifest
+      .filter(obj => obj.kind === CRD_KIND) // filter non-CRD resources from the manifest
+      .map(obj => new CustomResourceDefinition(obj));
   }
 
   public get moduleNames() {
-    return this.customResourceDefinitions.map(crd => crd.moduleName);
+    return this.defs.map(crd => crd.moduleName);
   }
 
   protected async generateTypeScript(code: CodeMaker, moduleName: string) {
-    this.customResourceDefinitions.filter(crd => moduleName === crd.moduleName).map(crd => crd.generateTypeScript(code));
+    this.defs.filter(crd => moduleName === crd.moduleName).map(crd => crd.generateTypeScript(code));
   }
 }
 
