@@ -1,0 +1,4 @@
+language: java
+app:  mvn exec:java -Dexec.mainClass="com.mycompany.app.Main"
+imports:
+  - k8s
