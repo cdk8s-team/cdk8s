@@ -101,4 +101,11 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# Java IDE files
+*.settings
+*.classpath
+*.project
+*.class
+*.jar
+
 # End of https://www.gitignore.io/api/node
