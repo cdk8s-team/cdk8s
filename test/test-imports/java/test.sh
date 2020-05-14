@@ -15,13 +15,13 @@ cdk8s import --language java
 
 # Exclude some files because their annotations differ
 # because they were pacmak-ed at different times.
-diff -r --exclude=*.java --exclude=*.xml imports ${scriptdir}/expected-from-config
+diff -r --exclude=*.java --exclude=*.xml --exclude=*.tgz imports ${scriptdir}/expected-from-config
 
 rm -rf imports
 
 cdk8s import mattermost_crd.yaml --language java
 
-diff -r --exclude=*.java --exclude=*.xml imports ${scriptdir}/expected-from-cli
+diff -r --exclude=*.java --exclude=*.xml --exclude=*.tgz imports ${scriptdir}/expected-from-cli
 
 rm -rf imports
 
