@@ -2,7 +2,7 @@
 
 > Cloud Development Kit for Kubernetes
 
-![Stability:Experimental](https://img.shields.io/badge/stability-experimental-orange)
+![Stability:Alpha](https://img.shields.io/badge/stability-alpha-orange)
 ![Release](https://github.com/awslabs/cdk8s/workflows/Release/badge.svg)
 [![npm version](https://badge.fury.io/js/cdk8s.svg)](https://badge.fury.io/js/cdk8s)
 [![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
@@ -21,6 +21,7 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
 ### Contents
 
 - [Overview](#overview)
+- [At a glance](#at-a-glance)
 - [Getting Started](#getting-started)
 - [Documentation](#documentation)
 - [Examples](#examples)
@@ -52,20 +53,18 @@ Cloud Development Kit](https://aws.amazon.com/cdk), and can interoperate with
 AWS CDK constructs to define cloud-native applications that include both
 Kubernetes resources and other CDK constructs as first class citizens.
 
+Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/) or [watch our CNCF webinar](https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/) to learn more and see a live demo of cdk8s in action.
+
 ## At a glance
 
-![](./website/static/images/illustrations/mockups/cdk8s-code.gif)
+![](./website/static/images/animation.gif)
 
 ## Getting Started
 
 Choose your weapon:
 
-- [TypeScript](https://cdk8s.io/getting-started/typescript)
-- [Python](https://cdk8s.io/getting-started/python)
-
-## Documentation
-
-See [Docs Home](https://cdk8s.io/docs).
+- [TypeScript](./docs/getting-started/typescript.md)
+- [Python](./docs/getting-started/python.md)
 
 ## Examples
 
@@ -97,6 +96,10 @@ development environment and submit code.
 ## Roadmap
 
 See our [roadmap](https://github.com/awslabs/cdk8s/projects/1) for details about our plans for the project.
+
+## Community
+
+See [Awesome cdk8s](https://github.com/dungahk/awesome-cdk8s).
 
 ## License
 

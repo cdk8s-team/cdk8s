@@ -1,6 +1,4 @@
----
-title: Getting Started with Python
----
+# Getting Started with Python
 
 Let's walk through a simple "Hello, World!" example in Python.
 

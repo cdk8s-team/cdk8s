@@ -1,6 +1,4 @@
----
-title: Getting Started with TypeScript
----
+# Getting Started with TypeScript
 
 Let's walk through a simple "Hello, World!" example in TypeScript.
 
@@ -248,7 +246,7 @@ to use `lib` for reusable components):
 
 ```ts
 import { Construct, Node } from 'constructs';
-import { Deployment, Service, IntOrString } from './imports/k8s';
+import { Deployment, Service, IntOrString } from '../imports/k8s';
 
 export interface WebServiceOptions {
   /**
