@@ -1,5 +1,4 @@
-app: node index.js
-language: typescript
+language: python
 imports:
   - k8s@1.17.0
   - mattermost:=mattermost_crd.yaml

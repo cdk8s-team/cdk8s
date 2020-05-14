@@ -11,7 +11,7 @@ export enum Language {
   JAVA = 'java',
 }
 
-export const LANGUAGES = [ Language.TYPESCRIPT, Language.PYTHON ];
+export const LANGUAGES = [ Language.TYPESCRIPT, Language.PYTHON, Language.JAVA ];
 
 export interface ImportOptions {
   readonly moduleNamePrefix?: string;
@@ -71,11 +71,25 @@ export abstract class ImportBase {
       case Language.PYTHON:
         await this.harvestPython(targetdir, moduleNamePrefix ? moduleNamePrefix : moduleName);
         break;
+
+      case Language.JAVA:
+        if (moduleNamePrefix != null) {
+          // logging error instead of throwing, so it doesn't interrupt other imports
+          console.error(`Name overriding of imports is not yet supported in java. Named import: ${moduleNamePrefix}`);
+          break;
+        }
+        await this.harvestJava(targetdir, moduleName);
+        break;
   
       default:
         throw new Error(`unsupported language ${options.targetLanguage} (yet)`);
     }
   
+  }
+
+  private async harvestJava(targetDir: string, moduleName: string) {
+    const target = path.join(targetDir, moduleName);
+    await fs.move(`dist/java/`, target, { overwrite: true });
   }
 
   private async harvestPython(targetdir: string, moduleName: string) {

@@ -59,7 +59,7 @@ Object {
     },
   },
   "description": "jenkins",
-  "fingerprint": "wvCqW07ix3SnOotRut5fw9VneFCG6rF5/u+OV4qcYfg=",
+  "fingerprint": "hiFE/bzU6uzTBh+USuvfGw8MdoKmrBVwHij/ipigdJQ=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -70,6 +70,13 @@ Object {
   },
   "schema": "jsii/0.10.0",
   "targets": Object {
+    "java": Object {
+      "maven": Object {
+        "artifactId": "jenkins",
+        "groupId": "jenkins",
+      },
+      "package": "jenkins",
+    },
     "js": Object {
       "npm": "jenkins",
     },
@@ -12827,7 +12834,7 @@ Object {
     },
   },
   "description": "crontab",
-  "fingerprint": "TJdwYSvbkcJQtcjIycBKphzt209j/s7dMrzJ9xsAmBI=",
+  "fingerprint": "E+CpBscaXkSBof8Ao0wVK9PasGIa6pwlbKCudM6aETw=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -12838,6 +12845,13 @@ Object {
   },
   "schema": "jsii/0.10.0",
   "targets": Object {
+    "java": Object {
+      "maven": Object {
+        "artifactId": "crontab",
+        "groupId": "crontab",
+      },
+      "package": "crontab",
+    },
     "js": Object {
       "npm": "crontab",
     },
@@ -13070,7 +13084,7 @@ Object {
     },
   },
   "description": "othercrontab",
-  "fingerprint": "EbkCePgDYQOgpAm48pcVUMn8Yq0RivAq6ZnIaBu86BQ=",
+  "fingerprint": "5E61EW0WKCTxtpGQp4LFyh1g2iQv5i7ViOqlxcCfMdc=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -13081,6 +13095,13 @@ Object {
   },
   "schema": "jsii/0.10.0",
   "targets": Object {
+    "java": Object {
+      "maven": Object {
+        "artifactId": "othercrontab",
+        "groupId": "othercrontab",
+      },
+      "package": "othercrontab",
+    },
     "js": Object {
       "npm": "othercrontab",
     },

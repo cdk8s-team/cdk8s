@@ -54,6 +54,13 @@ export async function jsiiCompile(workdir: string, options: JsiiCompileOptions) 
     jsii: {
       outdir: "dist",
       targets: {
+        java: {
+          package: main,
+          maven: {
+            groupId: main,
+            artifactId: main
+          }
+        },
         python: {
           distName: moduleNamePrefix ? `${moduleNamePrefix}.${main}` : main,
           module: moduleNamePrefix ? `${moduleNamePrefix}.${main}` : main

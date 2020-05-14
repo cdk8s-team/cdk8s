@@ -41,7 +41,8 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     const ret = {
       'npm_cdk8s': path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
       'npm_cdk8s_cli': path.resolve(dist, 'js', `cdk8s-cli-${version}.tgz`),
-      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`)
+      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`),
+      'maven_cdk8s': path.resolve(dist, 'java', `org/cdk8s/cdk8s/${version}/cdk8s-${version}.jar`)
     };
 
     for (const file of Object.values(ret)) {
@@ -67,6 +68,7 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     'npm_cdk8s': `cdk8s@${ver}`,
     'npm_cdk8s_cli': `cdk8s-cli@${ver}`,
     'pypi_cdk8s': `cdk8s~=${version}`, // no support for pre-release
+    'maven_cdk8s': `cdk8s -Dversion=${version}`,
   };
 }
 
@@ -74,6 +76,7 @@ interface Deps {
   npm_cdk8s: string;
   npm_cdk8s_cli: string;
   pypi_cdk8s: string;
+  maven_cdk8s: string;
 }
 
 module.exports = new Command();
