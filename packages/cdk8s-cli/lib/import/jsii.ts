@@ -9,6 +9,11 @@ export interface JsiiCompileOptions {
   readonly name: string;
 
   /**
+   * Optional prefix for the module for custom-naming.
+   */
+  readonly moduleNamePrefix?: string;
+
+  /**
    * Name of the main module file without suffix.
    */
   readonly main: string;
@@ -30,6 +35,7 @@ export async function jsiiCompile(workdir: string, options: JsiiCompileOptions) 
   const args = [ '--silence-warnings', 'reserved-word' ];
 
   const main = options.main;
+  const moduleNamePrefix = options.moduleNamePrefix;
 
   const modules = [ 
     'constructs', 
@@ -41,16 +47,16 @@ export async function jsiiCompile(workdir: string, options: JsiiCompileOptions) 
     name,
     version: '0.0.0',
     author: "dummy@dummy.com",
-    main: `${main}.js`,
-    types: `${main}.d.ts`,
+    main: moduleNamePrefix ? `${moduleNamePrefix}-${main}.js` : `${main}.js`,
+    types: moduleNamePrefix ? `${moduleNamePrefix}-${main}.d.ts` : `${main}.d.ts`,
     license: 'Apache-2.0',
     repository: { url: 'http://repo', type: 'git' },
     jsii: {
       outdir: "dist",
       targets: {
         python: {
-          distName: main,
-          module: main
+          distName: moduleNamePrefix ? `${moduleNamePrefix}.${main}` : main,
+          module: moduleNamePrefix ? `${moduleNamePrefix}.${main}` : main
         }
       }
     },    
