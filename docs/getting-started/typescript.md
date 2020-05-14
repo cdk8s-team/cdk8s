@@ -246,7 +246,7 @@ to use `lib` for reusable components):
 
 ```ts
 import { Construct, Node } from 'constructs';
-import { Deployment, Service, IntOrString } from './imports/k8s';
+import { Deployment, Service, IntOrString } from '../imports/k8s';
 
 export interface WebServiceOptions {
   /**
