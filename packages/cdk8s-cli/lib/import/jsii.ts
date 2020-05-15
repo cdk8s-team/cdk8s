@@ -55,7 +55,7 @@ export async function jsiiCompile(workdir: string, options: JsiiCompileOptions) 
       outdir: "dist",
       targets: {
         java: {
-          package: main,
+          package: `cdk8s.imports.${main}`,
           maven: {
             groupId: main,
             artifactId: main
