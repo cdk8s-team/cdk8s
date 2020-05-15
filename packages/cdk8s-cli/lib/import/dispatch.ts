@@ -1,6 +1,7 @@
 import { ImportOptions } from "./base";
 import { ImportKubernetesApi } from "./k8s";
 import { ImportCustomResourceDefinition } from './crd';
+import { ImportOpenShiftApi } from "./openshift";
 import { ImportSpec } from '../config';
 
 export async function importDispatch(imports: ImportSpec[], argv: any, options: ImportOptions) {
@@ -27,6 +28,11 @@ async function matchImporter(importSpec: ImportSpec, argv: any) {
   const crd = await ImportCustomResourceDefinition.match(importSpec);
   if (crd) {
     return new ImportCustomResourceDefinition(crd);
+  }
+
+  const openshift = await ImportOpenShiftApi.match(importSpec, argv);
+  if (openshift) {
+    return new ImportOpenShiftApi(openshift);
   }
 
   return undefined;
