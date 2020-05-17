@@ -1,5 +1,5 @@
-import {MyChart, Testing} from './main';
-import {App} from "cdk8s";
+import {MyChart} from './main';
+import {App, Testing} from "cdk8s";
 
 describe('Placeholder', () => {
     test('Empty', () => {
