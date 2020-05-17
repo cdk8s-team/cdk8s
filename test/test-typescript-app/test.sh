@@ -14,6 +14,7 @@ cdk8s init typescript-app
 
 # put some code in it
 cp ${scriptdir}/main.ts .
+cp ${scriptdir}/main.test.ts .
 
 # build
 yarn build
