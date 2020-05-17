@@ -3,7 +3,7 @@ import { App, Chart } from 'cdk8s';
 
 import { Pod } from './imports/k8s';
 
-class MyChart extends Chart {
+export class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
     super(scope, name);
 
