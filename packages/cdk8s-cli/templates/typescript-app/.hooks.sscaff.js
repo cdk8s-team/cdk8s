@@ -11,7 +11,14 @@ exports.post = ctx => {
   if (!npm_cdk8s_cli) { throw new Error(`missing context "npm_cdk8s_cli"`); }
 
   installDeps([ npm_cdk8s, `constructs@${constructs_version}` ]);
-  installDeps([ npm_cdk8s_cli, '@types/node', 'typescript' ], true);
+  installDeps([
+      npm_cdk8s_cli,
+      '@types/node',
+      '@types/jest',
+      'jest',
+      'ts-jest',
+      'typescript'
+  ], true);
 
   // import k8s objects
   execSync('npm run import', { stdio: 'inherit' });
