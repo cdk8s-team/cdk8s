@@ -6,6 +6,6 @@ describe('Placeholder', () => {
         const app = new App();
         const chart = new MyChart(app, 'test-chart');
         const results = Testing.synth(chart)
-        expect(results).toHaveLength(0);
+        expect(results).toHaveLength(1);
     });
 });
