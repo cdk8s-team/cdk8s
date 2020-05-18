@@ -21,7 +21,7 @@ cp ${scriptdir}/main.ts .
 cp ${scriptdir}/main.test.ts .
 
 # build
-yarn build
+yarn compile && yarn test -u && yarn synth
 
 # show output
 diff dist ${scriptdir}/expected
