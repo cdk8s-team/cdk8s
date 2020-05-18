@@ -12,6 +12,10 @@ mkdir .bar
 # initialize an empty project
 cdk8s init typescript-app
 
+# the init will create the placeholder test and run it, creating a snapshot
+# which will cause errors later. So removing that snapshot...
+rm -rf __snapshots__
+
 # put some code in it
 cp ${scriptdir}/main.ts .
 cp ${scriptdir}/main.test.ts .
