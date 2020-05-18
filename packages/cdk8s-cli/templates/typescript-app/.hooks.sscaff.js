@@ -22,7 +22,9 @@ exports.post = ctx => {
 
   // import k8s objects
   execSync('npm run import', { stdio: 'inherit' });
-  execSync('npm run build', { stdio: 'inherit' });
+  execSync('npm run compile', { stdio: 'inherit' });
+  execSync('npm run test -- -u', { stdio: 'inherit' });
+  execSync('npm run synth', { stdio: 'inherit' });
 
   console.log(readFileSync('./help', 'utf-8'));
 };
