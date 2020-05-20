@@ -68,7 +68,7 @@ Choose your weapon:
 
 ## Examples
 
-- [Typescript](./examples/typscript)
+- [Typescript](./examples/typescript)
 - [Python](./examples/python)
 
 ## Help & Feedback
