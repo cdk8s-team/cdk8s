@@ -20,6 +20,10 @@ $ npm install -g cdk8s-cli
 ```
 
 ## New Project
+In order to start new project using Python cdk8s generator, `pipenv` is required. OS X users can install via 
+```
+brew install pipenv
+```
 
 Now, we'll use the `cdk8s init` command to create a new Python cdk8s app:
 
