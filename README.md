@@ -21,11 +21,11 @@ This is an early-stage, experimental project built with ❤️ by AWS. We encour
 - [Overview](#overview)
 - [At a glance](#at-a-glance)
 - [Getting Started](#getting-started)
-- [Documentation](#documentation)
-- [Examples](#examples)
 - [Help & Feedback](#help--feedback)
-- [Contributing](#contributing)
+- [Examples](#examples)
 - [Roadmap](#roadmap)
+- [Community](#community)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
@@ -64,13 +64,6 @@ Choose your weapon:
 - [TypeScript](./docs/getting-started/typescript.md)
 - [Python](./docs/getting-started/python.md)
 
-## Examples
-
-- [Hello!](./examples/hello) - a basic Kubernetes deployment
-- [Web Service](./examples/web-service) - an example of using constructs to template a web service
-- [Podinfo](./examples/podinfo/examples/app-example.ts) - an example of
-  high-level APIs for Kubernetes objects.
-
 ## Help & Feedback
 
 Interacting with the community and the development team is a great way to
@@ -82,14 +75,9 @@ contribute to the project. Please consider the following venues (in order):
 * Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
 * Slack: [cdk8s.slack.com](https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU)
 
-## Contributing
+## Examples
 
-The cdk8s project adheres to the [CNCF Code of
-Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
-
-We welcome community contributions and pull requests. See our [contribution
-guide](./CONTRIBUTING.md) for more information on how to report issues, set up a
-development environment and submit code.
+See our [Examples Directory](./examples/README.md).
 
 ## Roadmap
 
@@ -98,6 +86,15 @@ See our [roadmap](https://github.com/awslabs/cdk8s/projects/1) for details about
 ## Community
 
 See [Awesome cdk8s](https://github.com/dungahk/awesome-cdk8s).
+
+## Contributing
+
+The cdk8s project adheres to the [CNCF Code of
+Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
+
+We welcome community contributions and pull requests. See our [contribution
+guide](./CONTRIBUTING.md) for more information on how to report issues, set up a
+development environment and submit code.
 
 ## License
 
