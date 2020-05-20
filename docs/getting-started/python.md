@@ -2,6 +2,11 @@
 
 Let's walk through a simple "Hello, World!" example in Python.
 
+## Prerequisites
+
+* [Python >= 3.7](https://www.python.org/downloads/release/python-377)
+* [pipenv](https://pipenv.pypa.io/en/latest) version 2018.11.26 or above.
+
 ## Install the CLI
 
 cdk8s has a cute little CLI that has a few useful commands. Let's start by

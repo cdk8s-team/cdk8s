@@ -11,10 +11,14 @@ cp ${scriptdir}/example_multiple_crd.yaml .
 
 cdk8s import mattermost:=mattermost_crd.yaml --language python
 
-cdk8s import --language python
-
 # Exclude the .tgz files because their headers differ
 # because they were zipped at different times.
+diff -r --exclude=*.tgz imports ${scriptdir}/expected-named-from-cli
+
+rm -rf imports
+
+cdk8s import --language python
+
 diff -r --exclude=*.tgz imports ${scriptdir}/expected-from-config
 
 rm -rf imports
