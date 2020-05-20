@@ -14,7 +14,7 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use
 cdk8s to define applications for any Kubernetes cluster running anywhere.
 
-This is an early-stage, experimental project built with ❤️ by AWS. We encourage you to [try it out](#getting-started), [leave feedback](#getting-help), and [jump in to help](#contributions)!
+This is an early-stage, experimental project built with ❤️ by AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
 
 ### Contents
 
@@ -69,9 +69,9 @@ Choose your weapon:
 Interacting with the community and the development team is a great way to
 contribute to the project. Please consider the following venues (in order):
 
-* Search [open issues](./issues)
-* Stack Overflow: [cdk8s](https://stackoverflow.com/questions/ask?tags=cdk8s)
-* File a [new issue](./issues/new/choose)
+* Search [open issues](https://github.com/awslabs/cdk8s/issues)
+* Stack Overflow: [cdk8s](https://stackoverflow.com/questions/tagged/cdk8s)
+* File a [new issue](https://github.com/awslabs/cdk8s/issues/new/choose)
 * Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
 * Slack: [cdk8s.slack.com](https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU)
 
