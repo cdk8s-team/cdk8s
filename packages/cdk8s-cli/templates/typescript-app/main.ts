@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
 
-class MyChart extends Chart {
+export class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
     super(scope, name);
 
