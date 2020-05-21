@@ -73,12 +73,7 @@ export abstract class ImportBase {
         break;
 
       case Language.JAVA:
-        if (moduleNamePrefix != null) {
-          // logging error instead of throwing, so it doesn't interrupt other imports
-          console.error(`Name overriding of imports is not yet supported in java. Named import: ${moduleNamePrefix}`);
-          break;
-        }
-        await this.harvestJava(targetdir, moduleName);
+        await this.harvestJava(targetdir, moduleNamePrefix ? moduleNamePrefix : moduleName);
         break;
   
       default:
@@ -87,9 +82,9 @@ export abstract class ImportBase {
   
   }
 
-  private async harvestJava(targetDir: string, moduleName: string) {
-    const target = path.join(targetDir, moduleName);
-    await fs.move(`dist/java/`, target, { overwrite: true });
+  private async harvestJava(targetdir: string, moduleName: string) {
+    const target = path.join(targetdir, moduleName);
+    await fs.move(`dist/java/src/`, target, { overwrite: true });
   }
 
   private async harvestPython(targetdir: string, moduleName: string) {

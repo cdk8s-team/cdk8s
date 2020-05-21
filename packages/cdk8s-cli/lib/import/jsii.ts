@@ -55,10 +55,10 @@ export async function jsiiCompile(workdir: string, options: JsiiCompileOptions) 
       outdir: "dist",
       targets: {
         java: {
-          package: `cdk8s.imports.${main}`,
+          package: moduleNamePrefix ? `cdk8s.imports.${moduleNamePrefix}.${main}` : `cdk8s.imports.${main}`,
           maven: {
-            groupId: main,
-            artifactId: main
+            groupId: moduleNamePrefix ? `${moduleNamePrefix}.${main}` : main,
+            artifactId: moduleNamePrefix ? `${moduleNamePrefix}.${main}` : main
           }
         },
         python: {
