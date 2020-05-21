@@ -59,7 +59,7 @@ Object {
     },
   },
   "description": "jenkins",
-  "fingerprint": "hiFE/bzU6uzTBh+USuvfGw8MdoKmrBVwHij/ipigdJQ=",
+  "fingerprint": "TJbwzOi4GJWdoBjKTOw+oz2txRJKU1mTuYd38d42pMU=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -75,7 +75,7 @@ Object {
         "artifactId": "jenkins",
         "groupId": "jenkins",
       },
-      "package": "jenkins",
+      "package": "cdk8s.imports.jenkins",
     },
     "js": Object {
       "npm": "jenkins",
@@ -12834,7 +12834,7 @@ Object {
     },
   },
   "description": "crontab",
-  "fingerprint": "E+CpBscaXkSBof8Ao0wVK9PasGIa6pwlbKCudM6aETw=",
+  "fingerprint": "q4n8VLnJKTkgzDk3QGllSThs8Py/ESeIiWjQUln/fQI=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -12850,7 +12850,7 @@ Object {
         "artifactId": "crontab",
         "groupId": "crontab",
       },
-      "package": "crontab",
+      "package": "cdk8s.imports.crontab",
     },
     "js": Object {
       "npm": "crontab",
@@ -13084,7 +13084,7 @@ Object {
     },
   },
   "description": "othercrontab",
-  "fingerprint": "5E61EW0WKCTxtpGQp4LFyh1g2iQv5i7ViOqlxcCfMdc=",
+  "fingerprint": "VC8q66S1yn/kja+zFIoHq//orTmrbTYrvq4Dhtbv4V8=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -13100,7 +13100,7 @@ Object {
         "artifactId": "othercrontab",
         "groupId": "othercrontab",
       },
-      "package": "othercrontab",
+      "package": "cdk8s.imports.othercrontab",
     },
     "js": Object {
       "npm": "othercrontab",
@@ -13334,7 +13334,7 @@ Object {
     },
   },
   "description": "thanosruler",
-  "fingerprint": "6zaqcdR1fBSLSUamQEYr/ZAx89SZthmX+qxZ1342/KQ=",
+  "fingerprint": "5w0On0f4PyoL9LZ+lhiVJ9BE22PFaxI2vzrFqNFHbVU=",
   "homepage": "http://repo",
   "jsiiVersion": "1.1.0 (build df55f5e)",
   "license": "Apache-2.0",
@@ -13345,6 +13345,13 @@ Object {
   },
   "schema": "jsii/0.10.0",
   "targets": Object {
+    "java": Object {
+      "maven": Object {
+        "artifactId": "thanosruler",
+        "groupId": "thanosruler",
+      },
+      "package": "cdk8s.imports.thanosruler",
+    },
     "js": Object {
       "npm": "thanosruler",
     },
