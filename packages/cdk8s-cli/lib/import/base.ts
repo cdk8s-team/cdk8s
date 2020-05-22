@@ -56,7 +56,7 @@ export abstract class ImportBase {
         });
 
         const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
-        await shell(pacmak, [ '--target', options.targetLanguage, '--code-only' ]);
+        await shell(pacmak, [ '--target', options.targetLanguage, '--code-only' ], { shell: true });
         await this.harvestCode(options, outdir, name);
       });
     }

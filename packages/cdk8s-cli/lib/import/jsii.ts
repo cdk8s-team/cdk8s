@@ -78,7 +78,8 @@ export async function jsiiCompile(workdir: string, options: JsiiCompileOptions) 
 
   await fs.writeFile(path.join(workdir, 'package.json'), JSON.stringify(pkg, undefined, 2));
 
-  await shell(compiler, args, { 
+  await shell(compiler, args, {
+    shell: true,
     cwd: workdir,
     stdio: [ 'inherit', stdout ? 'inherit' : 'ignore', 'inherit' ]
   });
