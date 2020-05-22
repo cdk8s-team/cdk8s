@@ -11,17 +11,28 @@ cp ${scriptdir}/example_multiple_crd.yaml .
 
 cdk8s import mattermost:=mattermost_crd.yaml --language java
 
-diff -r <(grep -qrvE "^(javax.annotation.Generated)" imports) <(grep -qrvE "^(javax.annotation.Generated)" ${scriptdir}/expected-named-from-cli)
+for f in `find imports/*`
+do
+    diff -I '^@javax.annotation.Generated' $f ${scriptdir}/expected-named-from-cli/${f#*/}
+done
+
+rm -rf imports
 
 cdk8s import --language java
 
-diff -r <(grep -qrvE "^(javax.annotation.Generated)" imports) <(grep -qrvE "^(javax.annotation.Generated)" ${scriptdir}/expected-from-config)
+for f in `find imports/*`
+do
+    diff -I '^@javax.annotation.Generated' $f ${scriptdir}/expected-from-config/${f#*/}
+done
 
 rm -rf imports
 
 cdk8s import mattermost_crd.yaml --language java
 
-diff -r <(grep -qrvE "^(javax.annotation.Generated)" imports) <(grep -qrvE "^(javax.annotation.Generated)" ${scriptdir}/expected-from-cli)
+for f in `find imports/*`
+do
+    diff -I '^@javax.annotation.Generated' $f ${scriptdir}/expected-from-cli/${f#*/}
+done
 
 rm -rf imports
 
