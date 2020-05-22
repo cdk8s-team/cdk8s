@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 scriptdir=$(cd $(dirname $0) && pwd)
 
@@ -11,17 +11,17 @@ cp ${scriptdir}/example_multiple_crd.yaml .
 
 cdk8s import mattermost:=mattermost_crd.yaml --language java
 
+diff -r <(grep -qrvE "^(javax.annotation.Generated)" imports) <(grep -qrvE "^(javax.annotation.Generated)" ${scriptdir}/expected-named-from-cli)
+
 cdk8s import --language java
 
-# Exclude some files because their annotations differ
-# because they were pacmak-ed at different times.
-diff -r --exclude=*.java --exclude=*.xml --exclude=*.tgz imports ${scriptdir}/expected-from-config
+diff -r <(grep -qrvE "^(javax.annotation.Generated)" imports) <(grep -qrvE "^(javax.annotation.Generated)" ${scriptdir}/expected-from-config)
 
 rm -rf imports
 
 cdk8s import mattermost_crd.yaml --language java
 
-diff -r --exclude=*.java --exclude=*.xml --exclude=*.tgz imports ${scriptdir}/expected-from-cli
+diff -r <(grep -qrvE "^(javax.annotation.Generated)" imports) <(grep -qrvE "^(javax.annotation.Generated)" ${scriptdir}/expected-from-cli)
 
 rm -rf imports
 
