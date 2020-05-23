@@ -139,7 +139,7 @@ describe('toJson', () => {
     Node.of(obj1).addDependency(obj2);  
 
     const charObjects = chart1.toJson();
-    
+
     expect(charObjects.length).toEqual(1);
     expect(charObjects[0].kind).toEqual('Kind1');
   

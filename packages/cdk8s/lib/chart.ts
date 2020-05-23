@@ -175,13 +175,15 @@ export class DepNode {
   readonly children: DepNode[] = [];
   readonly parents: DepNode[] = [];
 
+  private readonly _decendants: DepNode[] = [];
+
   constructor(value: IConstruct) {
     this.value = value;
   }
 
   addChild(dep: DepNode) {
     
-    if (dep.getDecendants().includes(this)) {
+    if (dep._decendants.includes(this)) {
       const cycle: DepNode[] = this.findRoute(dep, this);
       cycle.push(dep);
       throw new Error(`Cycle detected: ${cycle.map(d => Node.of(d.value).uniqueId).join(' => ')}`);
@@ -189,22 +191,20 @@ export class DepNode {
 
     this.children.push(dep);
 
+    // keep track of all decendants to detect cycles during construction
+    // TODO: is this really the best way...?
+    this.addAsDecendant(this, dep);
+
     // keep track of parents in order to later on find the root
     // TODO: can probably avoid doing this...
     dep.parents.push(this);
   }
 
-  private getDecendants(): DepNode[] {
+  private addAsDecendant(parent: DepNode, decendant: DepNode) {
 
-    const decendatans: DepNode[] = [];
-    walk(this);
-    return decendatans;
-
-    function walk(n: DepNode) {
-      decendatans.push(...n.children)
-      for (const c of n.children) {
-        walk(c);
-      }
+    parent._decendants.push(decendant)
+    for (const grandParent of parent.parents) {
+      this.addAsDecendant(grandParent, decendant);
     }
 
   }
@@ -216,11 +216,8 @@ export class DepNode {
     return route;
     
     function walk(n: DepNode): boolean {
-
       route.push(n);
-
       let found = false;
-
       for (const c of n.children) {
         if (c === dst) {
           route.push(c);
@@ -228,11 +225,9 @@ export class DepNode {
         }
         found = walk(c);
       }
-
       if (!found) {
         route.pop();
       }
-      
       return found;
 
     }
