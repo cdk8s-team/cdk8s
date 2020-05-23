@@ -1,4 +1,4 @@
-import { Testing, Chart, App } from '../lib';
+import { Testing, Chart, App, ApiObject } from '../lib';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';

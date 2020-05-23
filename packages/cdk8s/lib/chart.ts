@@ -1,4 +1,4 @@
-import { Construct, ISynthesisSession, Node } from 'constructs';
+import { Construct, ISynthesisSession, Node, Dependency, IConstruct } from 'constructs';
 import * as fs from 'fs';
 import * as path from 'path';
 import { ApiObject } from './api-object';
@@ -22,7 +22,7 @@ export class Chart extends Construct {
    * Finds the chart in which a node is defined.
    * @param c a construct node
    */
-  public static of(c: Construct): Chart {
+  public static of(c: IConstruct): Chart {
     if (c instanceof Chart) {
       return c;
     }
@@ -81,8 +81,20 @@ export class Chart extends Construct {
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-    return Node.of(this)
-      .findAll()
+
+    const chartNode = Node.of(this);
+
+    // only fetch dependencies that are contained within this chart.
+    // TODO: might make sense to actually take them into account for detecting cycles...
+    const dependencies: Dependency[] = chartNode.dependencies.filter(dep => Chart.of(dep.target) === this);
+
+    const ordered = dependencies.length !== 0 ? new DependencyGraph(dependencies).topology() : [];
+
+    // constructs that are not part of the dependency graph
+    // can go to the front of line.
+    ordered.unshift(...chartNode.findAll().filter(obj => !ordered.includes(obj)))
+
+    return ordered
       .filter(x => x instanceof ApiObject)
       .map(x => (x as ApiObject).toJson());
   }
@@ -95,4 +107,136 @@ export class Chart extends Construct {
     const doc = this.toJson().map(r => YAML.stringify(r)).join('---\n');
     fs.writeFileSync(path.join(session.outdir, this.manifestFile), doc);
   }
+
 }
+
+
+
+export class DependencyGraph {
+
+  private readonly root: DepNode;
+
+  constructor(dependencies: Dependency[]) {
+
+    const nodes: Record<string, DepNode> = {};
+
+    for (const dep of dependencies) {
+            
+      const sourceNode = Node.of(dep.source);
+      const targetNode = Node.of(dep.target);
+
+      if (!nodes[sourceNode.uniqueId]) {
+        nodes[sourceNode.uniqueId] = new DepNode(dep.source);
+      }
+
+      if (!nodes[targetNode.uniqueId]) {
+        nodes[targetNode.uniqueId] = new DepNode(dep.target);
+      }
+
+      const sourceDepNode = nodes[sourceNode.uniqueId];
+      const targetDepNode = nodes[targetNode.uniqueId];
+
+      sourceDepNode.addChild(targetDepNode!);
+      
+    }
+
+    this.root = this.findRoot(Object.values(nodes)[0])
+
+  }
+
+  public topology(): IConstruct[] {
+
+    const topology: DepNode[] = [];
+
+    function visit(n: DepNode) {
+      for (const c of n.children) {
+        visit(c);
+      }
+      topology.push(n);
+    }
+
+    visit(this.root);
+
+    return topology.map(d => d.value);
+  }
+
+  private findRoot(node: DepNode): DepNode {
+    if (node.parents.length === 0) {
+      return node;
+    }
+    return this.findRoot(node.parents[0]);
+  }
+
+}
+
+export class DepNode {
+  
+  readonly value: IConstruct;
+  readonly children: DepNode[] = [];
+  readonly parents: DepNode[] = [];
+
+  constructor(value: IConstruct) {
+    this.value = value;
+  }
+
+  addChild(dep: DepNode) {
+    
+    if (dep.getDecendants().includes(this)) {
+      const cycle: DepNode[] = this.findRoute(dep, this);
+      cycle.push(dep);
+      throw new Error(`Cycle detected: ${cycle.map(d => Node.of(d.value).uniqueId).join(' => ')}`);
+    }
+
+    this.children.push(dep);
+
+    // keep track of parents in order to later on find the root
+    // TODO: can probably avoid doing this...
+    dep.parents.push(this);
+  }
+
+  private getDecendants(): DepNode[] {
+
+    const decendatans: DepNode[] = [];
+    walk(this);
+    return decendatans;
+
+    function walk(n: DepNode) {
+      decendatans.push(...n.children)
+      for (const c of n.children) {
+        walk(c);
+      }
+    }
+
+  }
+
+  private findRoute(src: DepNode, dst: DepNode): DepNode[] {
+    
+    const route: DepNode[] = [];
+    walk(src);
+    return route;
+    
+    function walk(n: DepNode): boolean {
+
+      route.push(n);
+
+      let found = false;
+
+      for (const c of n.children) {
+        if (c === dst) {
+          route.push(c);
+          return true;
+        }
+        found = walk(c);
+      }
+
+      if (!found) {
+        route.pop();
+      }
+      
+      return found;
+
+    }
+
+  }
+}
+

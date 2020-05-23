@@ -1,5 +1,5 @@
-import { Chart, ApiObject, Testing } from '../lib';
-import { Construct, Lazy } from 'constructs';
+import { Chart, ApiObject, Testing, DependencyGraph } from '../lib';
+import { Construct, Lazy, Node } from 'constructs';
 
 test('empty stack', () => {
   // GIVEN
@@ -92,6 +92,89 @@ test('synthesizeManifest() can be used to synthesize a specific chart', () => {
   // THEN
   expect(manifest).toMatchSnapshot();
 });
+
+describe('toJson', () => {
+
+  test('returns on ordered list', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+  
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+    
+    Node.of(obj1).addDependency(obj2);  
+  
+    const charObjects = chart1.toJson();
+  
+    expect(charObjects[0].kind).toEqual('Kind2');
+    expect(charObjects[1].kind).toEqual('Kind1');
+  
+  });
+  
+  test('returns objects not in dependency list', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+  
+    new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+      
+    const charObjects = chart1.toJson();
+  
+    expect(charObjects[0].kind).toEqual('Kind1');
+    expect(charObjects[1].kind).toEqual('Kind2');
+  
+  });
+
+  test('ignores objects belonging to a different chart', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+    const chart2 = new Chart(app, 'chart2');
+  
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+    
+    Node.of(obj1).addDependency(obj2);  
+
+    const charObjects = chart1.toJson();
+    
+    expect(charObjects.length).toEqual(1);
+    expect(charObjects[0].kind).toEqual('Kind1');
+  
+  });
+
+  test('fails on dependency cycles', () => {
+  
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+  
+    function createObject(index: number) {
+      return new ApiObject(chart1, `obj${index}`, { apiVersion: 'v1', kind: `Kind${index}` });
+    }
+  
+    const obj1 = createObject(1);
+    const obj2 = createObject(2);
+    const obj3 = createObject(3);
+    const obj4 = createObject(4);
+    const obj5 = createObject(5);
+  
+    Node.of(obj1).addDependency(obj2);  
+    Node.of(obj2).addDependency(obj3);  
+    Node.of(obj3).addDependency(obj4);
+    Node.of(obj4).addDependency(obj5);
+  
+    // this creates a cycle
+    Node.of(obj5).addDependency(obj2);
+  
+    expect(() => {
+      chart1.toJson()
+    }).toThrowError(`Cycle detected: ${Node.of(obj2).uniqueId} => ${Node.of(obj3).uniqueId} => ${Node.of(obj4).uniqueId} => ${Node.of(obj5).uniqueId} => ${Node.of(obj2).uniqueId}`);
+  
+  });
+  
+})
 
 function createImplictToken(value: any) {
   const implicit = {};
