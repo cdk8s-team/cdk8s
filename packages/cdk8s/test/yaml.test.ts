@@ -4,7 +4,6 @@ import * as fs from 'fs';
 describe('load', () => {
   test('from file', () => {
     expect(Yaml.load(`${__dirname}/fixtures/sample.yaml`)).toMatchSnapshot();
-    expect(Yaml.load(`file://${__dirname}/fixtures/sample.yaml`)).toMatchSnapshot();
   });
 
   test('from url', () => {

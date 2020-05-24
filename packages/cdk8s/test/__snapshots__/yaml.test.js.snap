@@ -34,26 +34,6 @@ Array [
 ]
 `;
 
-exports[`load from file 2`] = `
-Array [
-  Object {
-    "hello": 1234,
-    "world": 111,
-  },
-  Object {
-    "foo": Array [
-      "bar",
-      "zoo",
-      "goo",
-    ],
-  },
-  Array [
-    "hello",
-    "world",
-  ],
-]
-`;
-
 exports[`load from url 1`] = `
 Array [
   Object {
