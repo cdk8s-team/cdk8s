@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.22.0](https://github.com/campionfellin/cdk8s/compare/v0.21.0...v0.22.0) (2020-05-22)
+
+
+### Features
+
+* **cli:** jest tests in typescript-app template ([b6aed5a](https://github.com/campionfellin/cdk8s/commit/b6aed5ad9252c18f6f86d94caa472895c1c6a529))
+* **cli:** support CRDs with apiVersion "apiextensions.k8s.io/v1" ([#142](https://github.com/campionfellin/cdk8s/issues/142)) ([f5111b0](https://github.com/campionfellin/cdk8s/commit/f5111b07eefbc58a4ae23b498e6b41f48a0b82ac))
+* **cli:** support import module name overriding in python ([#107](https://github.com/campionfellin/cdk8s/issues/107)) ([327ba47](https://github.com/campionfellin/cdk8s/commit/327ba47524b7dfdb05096bb9a78c9d504db4a02c))
+* **docs:** add python and pipenv prerequisites ([db23fa1](https://github.com/campionfellin/cdk8s/commit/db23fa168ed6262d199383a651769fc2fae14a11)), closes [#166](https://github.com/campionfellin/cdk8s/issues/166)
+* **examples:** central readme for all examples ([#176](https://github.com/campionfellin/cdk8s/issues/176)) ([9cab302](https://github.com/campionfellin/cdk8s/commit/9cab302939c3d8ce3104e30d2bd1ad22b87bcbf8)), closes [#174](https://github.com/campionfellin/cdk8s/issues/174)
+* **examples:** reorganize examples by language ([#138](https://github.com/campionfellin/cdk8s/issues/138)) ([85cf631](https://github.com/campionfellin/cdk8s/commit/85cf6313c20771b718c19ee6085afc23cd787311))
+* **readme:** add link to "awesome cdk8s" ([0889a6e](https://github.com/campionfellin/cdk8s/commit/0889a6e5d738d928219b24c523b8bfdcec73bc43))
+
 ## [0.21.0](https://github.com/awslabs/cdk8s/compare/v0.20.0...v0.21.0) (2020-05-14)
 
 
