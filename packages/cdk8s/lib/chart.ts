@@ -78,32 +78,10 @@ export class Chart extends Construct {
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-
-    const chartNode = Node.of(this);
-
-    // only fetch dependencies that are contained within this chart.
-    // cycles between charts are detected at the app level.
-    // note that we only check 'dep.target' because 'dep.source' always belongs to this chart.
-    const dependencies: Dependency[] = chartNode.dependencies.filter(dep => dep.source instanceof ApiObject && dep.target instanceof ApiObject && Chart.of(dep.target) === this);
-
-    // create an ordered list of ApiObjects from the dependencies
-    const apiObjects = dependencies.length !== 0 ? new DependencyGraph(dependencies).topology() : [];
-
-    // constructs that are not part of the dependency graph
-    // can go to the front of line.
-    apiObjects.unshift(...chartNode.findAll().filter(obj => obj instanceof ApiObject && !apiObjects.includes(obj)))
-
-    return apiObjects.map(x => (x as ApiObject).toJson());
+    return new DependencyGraph(this).topology()
+      .filter(x => x instanceof ApiObject && Chart.of(x) === this)
+      .map(x => (x as ApiObject).toJson());
   }
-
-  // /**
-  //  * Called by the app to synthesize the chart as a YAML file in the output directory/
-  //  */
-  // protected onSynthesize(session: ISynthesisSession) {
-  //   // convert each resource to yaml and separate with a '---' line
-  //   const doc = this.toJson().map(r => YAML.stringify(r)).join('---\n');
-  //   fs.writeFileSync(path.join(session.outdir, this.manifestFile), doc);
-  // }
 
 }
 
@@ -113,11 +91,11 @@ export class DependencyGraph {
 
   private readonly root: DepNode;
 
-  constructor(dependencies: Dependency[]) {
+  constructor(construct: IConstruct) {
 
-    if (dependencies.length === 0) {
-      throw new Error('DependencyGraph cannot be created without dependencies');
-    }
+    const node: Node = Node.of(construct);
+
+    const dependencies: Dependency[] = Node.of(construct).dependencies
 
     const nodes: Record<string, DepNode> = {};
 
@@ -140,6 +118,16 @@ export class DependencyGraph {
       sourceDepNode.addChild(targetDepNode!);
       
     }
+
+    // add all constructs that don't participate in dependencies
+    // these are just floating childless orphans (sad choice of words...)
+    for (const child of node.findAll()) {
+      const childNode: Node = Node.of(child);
+      if (!nodes[childNode.uniqueId]) {
+        nodes[childNode.uniqueId] = new DepNode(child);
+      }
+    }
+
 
     // dummy node to serve as the root of all roots
     const root: DepNode = new DepNode(null);

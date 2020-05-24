@@ -1,4 +1,4 @@
-import { Construct, Node, ISynthesisSession, IConstruct, Dependency } from 'constructs';
+import { Construct, Node, ISynthesisSession, IConstruct } from 'constructs';
 import fs = require('fs');
 import * as YAML from 'yaml';
 import { Chart, DependencyGraph } from './chart';
@@ -50,15 +50,7 @@ export class App extends Construct {
 
   protected onSynthesize(session: ISynthesisSession) {
 
-    const appNode = Node.of(this);
-
-    const chartDependencies: Dependency[] = appNode.dependencies.filter(dep => dep.source instanceof Chart && dep.target instanceof Chart)
-
-    // create an ordered list of charts from the dependencies
-    const charts: IConstruct[] = chartDependencies.length !== 0 ? new DependencyGraph(chartDependencies).topology() : [];
-
-    // charts that are not part of the dependency graph can go to the front of line.
-    charts.unshift(...appNode.findAll().filter(obj => obj instanceof Chart && !charts.includes(obj)))
+    const charts: IConstruct[] = new DependencyGraph(this).topology().filter(x => x instanceof Chart);
 
     for (const index in charts) {
 
