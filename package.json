@@ -1,6 +1,6 @@
 {
   "name": "root",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "private": true,
   "scripts": {
     "bump": "tools/bump.sh",
@@ -19,7 +19,9 @@
       "cdk8s/yaml",
       "cdk8s/yaml/**",
       "cdk8s/json-stable-stringify",
-      "cdk8s/json-stable-stringify/**"
+      "cdk8s/json-stable-stringify/**",
+      "cdk8s/follow-redirects",
+      "cdk8s/follow-redirects/**"
     ]
   },
   "devDependencies": {

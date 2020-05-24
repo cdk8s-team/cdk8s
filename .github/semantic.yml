@@ -9,6 +9,7 @@ scopes:
   - readme
   - docs
   - website
+  - release
   
 # only allow these types
 types:
