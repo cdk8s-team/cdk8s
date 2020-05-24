@@ -2,6 +2,7 @@ import { Testing, Chart, App, ApiObject } from '../lib';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
+import { Node } from 'constructs';
 
 test('empty app emits no files', () => {
   // GIVEN
@@ -25,9 +26,79 @@ test('app with two charts', () => {
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
-    'chart1.k8s.yaml',
-    'chart2.k8s.yaml'
+    '0-chart1.k8s.yaml',
+    '1-chart2.k8s.yaml'
   ]);
+});
+
+test('app with two charts directly dependant', () => {
+
+  // GIVEN
+  const app = Testing.app();
+
+  // WHEN
+  const chart1 = new Chart(app, 'chart1');
+  const chart2 = new Chart(app, 'chart2');
+
+  Node.of(chart1).addDependency(chart2);
+
+  app.synth();
+
+  // THEN
+  expect(fs.readdirSync(app.outdir)).toEqual([
+    '0-chart2.k8s.yaml',
+    '1-chart1.k8s.yaml'
+  ]);
+  
+});
+
+test('app with two charts indirectly dependant', () => {
+
+  // GIVEN
+  const app = Testing.app();
+
+  // WHEN
+  const chart1 = new Chart(app, 'chart1');
+  const chart2 = new Chart(app, 'chart2');
+
+  const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+  const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+
+  Node.of(obj1).addDependency(obj2);
+
+  app.synth();
+
+  // THEN
+  expect(fs.readdirSync(app.outdir)).toEqual([
+    '0-chart2.k8s.yaml',
+    '1-chart1.k8s.yaml'
+  ]);
+  
+});
+
+test('app with two charts indirectly and directly dependant', () => {
+
+  // GIVEN
+  const app = Testing.app();
+
+  // WHEN
+  const chart1 = new Chart(app, 'chart1');
+  const chart2 = new Chart(app, 'chart2');
+
+  const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+  const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+
+  Node.of(obj1).addDependency(obj2);
+  Node.of(chart1).addDependency(chart2);
+
+  app.synth();
+
+  // THEN
+  expect(fs.readdirSync(app.outdir)).toEqual([
+    '0-chart2.k8s.yaml',
+    '1-chart1.k8s.yaml'
+  ]);
+  
 });
 
 test('default output directory is "dist"', () => {
@@ -48,7 +119,7 @@ test('default output directory is "dist"', () => {
     expect(app.outdir).toEqual('dist');
     expect(fs.existsSync('./dist')).toBeTruthy();
     expect(fs.statSync('./dist').isDirectory());
-    expect(fs.existsSync('./dist/chart1.k8s.yaml')).toBeTruthy();
+    expect(fs.existsSync('./dist/0-chart1.k8s.yaml')).toBeTruthy();
   } finally {
     process.chdir(prev);
     // fs.rmdirSync(workdir, { recursive: true });

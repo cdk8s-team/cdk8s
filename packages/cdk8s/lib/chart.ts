@@ -92,21 +92,21 @@ export class Chart extends Construct {
 
     // constructs that are not part of the dependency graph
     // can go to the front of line.
-    ordered.unshift(...chartNode.findAll().filter(obj => !ordered.includes(obj)))
+    ordered.unshift(...chartNode.findAll().filter(obj => obj instanceof ApiObject && !ordered.includes(obj)))
 
     return ordered
       .filter(x => x instanceof ApiObject)
       .map(x => (x as ApiObject).toJson());
   }
 
-  /**
-   * Called by the app to synthesize the chart as a YAML file in the output directory/
-   */
-  protected onSynthesize(session: ISynthesisSession) {
-    // convert each resource to yaml and separate with a '---' line
-    const doc = this.toJson().map(r => YAML.stringify(r)).join('---\n');
-    fs.writeFileSync(path.join(session.outdir, this.manifestFile), doc);
-  }
+  // /**
+  //  * Called by the app to synthesize the chart as a YAML file in the output directory/
+  //  */
+  // protected onSynthesize(session: ISynthesisSession) {
+  //   // convert each resource to yaml and separate with a '---' line
+  //   const doc = this.toJson().map(r => YAML.stringify(r)).join('---\n');
+  //   fs.writeFileSync(path.join(session.outdir, this.manifestFile), doc);
+  // }
 
 }
 
@@ -117,6 +117,10 @@ export class DependencyGraph {
   private readonly root: DepNode;
 
   constructor(dependencies: Dependency[]) {
+
+    if (dependencies.length === 0) {
+      throw new Error('DependencyGraph cannot be created without dependencies');
+    }
 
     const nodes: Record<string, DepNode> = {};
 
