@@ -2,8 +2,8 @@ import { Construct, ISynthesisSession, Node } from 'constructs';
 import * as fs from 'fs';
 import * as path from 'path';
 import { ApiObject } from './api-object';
-import * as YAML from 'yaml';
 import { Names } from './names';
+import { Yaml } from './yaml';
 
 export interface ChartOptions {
   /**
@@ -91,8 +91,6 @@ export class Chart extends Construct {
    * Called by the app to synthesize the chart as a YAML file in the output directory/
    */
   protected onSynthesize(session: ISynthesisSession) {
-    // convert each resource to yaml and separate with a '---' line
-    const doc = this.toJson().map(r => YAML.stringify(r)).join('---\n');
-    fs.writeFileSync(path.join(session.outdir, this.manifestFile), doc);
+    Yaml.save(path.join(session.outdir, this.manifestFile), this.toJson());
   }
 }

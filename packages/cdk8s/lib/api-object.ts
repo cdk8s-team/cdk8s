@@ -69,12 +69,8 @@ export interface ApiObjectOptions {
 }
 
 export class ApiObject extends Construct {
-
   /**
-   * The app-unique name of the object.
-   *
-   * The name is allocated based on the path of the object construct within the
-   * construct tree.
+   * The name of the API object (`metadata.name`).
    */
   public readonly name: string;
 
@@ -126,4 +122,3 @@ export class ApiObject extends Construct {
     return JSON.parse(stringify(removeEmpty(resolve(this, data))));
   }
 }
-
