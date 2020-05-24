@@ -29,7 +29,7 @@ export class Yaml {
   public static tmp(docs: any[]): string {
     const tmpdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-'));
     const filePath = path.join(tmpdir, 'temp.yaml');
-    this.save(filePath, docs);
+    Yaml.save(filePath, docs);
     return filePath;
   }
 
