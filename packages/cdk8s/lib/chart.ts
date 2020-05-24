@@ -1,5 +1,4 @@
 import { Construct, ISynthesisSession, Node } from 'constructs';
-import * as fs from 'fs';
 import * as path from 'path';
 import { ApiObject } from './api-object';
 import { Names } from './names';
