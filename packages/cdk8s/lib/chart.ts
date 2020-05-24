@@ -1,8 +1,5 @@
-import { Construct, ISynthesisSession, Node, Dependency, IConstruct } from 'constructs';
-import * as fs from 'fs';
-import * as path from 'path';
+import { Construct, Node, Dependency, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
-import * as YAML from 'yaml';
 import { Names } from './names';
 
 export interface ChartOptions {
@@ -144,45 +141,57 @@ export class DependencyGraph {
       
     }
 
-    this.root = this.findRoot(Object.values(nodes)[0])
+    // dummy node to serve as the root of all roots
+    const root: DepNode = new DepNode(null);
+
+    // our actual roots are added to the dummy as children
+    for (const node of Object.values(nodes)) {
+      if (node.parents.length === 0) {
+        root.addChild(node);
+      }
+    }
+
+    this.root = root;
 
   }
 
   public topology(): IConstruct[] {
+    return this.root.topology();
+  }
+}
 
+export class DepNode {
+  
+  readonly value: IConstruct | null;
+
+  readonly children: DepNode[] = [];
+  readonly parents: DepNode[] = [];
+
+  private readonly _decendants: DepNode[] = [];
+
+  constructor(value: IConstruct | null) {
+    this.value = value;
+  }
+
+  public topology(): IConstruct[] {
+
+    const found = new Set<DepNode>();
     const topology: DepNode[] = [];
 
     function visit(n: DepNode) {
       for (const c of n.children) {
         visit(c);
       }
-      topology.push(n);
+      if (!found.has(n)) {
+        topology.push(n);
+        found.add(n);  
+      }
     }
 
-    visit(this.root);
+    visit(this);
 
-    return topology.map(d => d.value);
-  }
+    return topology.filter(d => d.value).map(d => d.value!);
 
-  private findRoot(node: DepNode): DepNode {
-    if (node.parents.length === 0) {
-      return node;
-    }
-    return this.findRoot(node.parents[0]);
-  }
-
-}
-
-export class DepNode {
-  
-  readonly value: IConstruct;
-  readonly children: DepNode[] = [];
-  readonly parents: DepNode[] = [];
-
-  private readonly _decendants: DepNode[] = [];
-
-  constructor(value: IConstruct) {
-    this.value = value;
   }
 
   addChild(dep: DepNode) {
@@ -190,7 +199,7 @@ export class DepNode {
     if (dep._decendants.includes(this)) {
       const cycle: DepNode[] = this.findRoute(dep, this);
       cycle.push(dep);
-      throw new Error(`Cycle detected: ${cycle.map(d => Node.of(d.value).uniqueId).join(' => ')}`);
+      throw new Error(`Cycle detected: ${cycle.map(d => Node.of(d.value!).uniqueId).join(' => ')}`);
     }
 
     this.children.push(dep);
