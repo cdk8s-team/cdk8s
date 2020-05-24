@@ -88,9 +88,11 @@
   },
   "bundledDependencies": [
     "yaml",
-    "json-stable-stringify"
+    "json-stable-stringify",
+    "got"
   ],
   "dependencies": {
+    "got": "^11.1.4",
     "json-stable-stringify": "^1.0.1",
     "yaml": "^1.7.2"
   },

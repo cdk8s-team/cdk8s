@@ -19,7 +19,9 @@
       "cdk8s/yaml",
       "cdk8s/yaml/**",
       "cdk8s/json-stable-stringify",
-      "cdk8s/json-stable-stringify/**"
+      "cdk8s/json-stable-stringify/**",
+      "cdk8s/got",
+      "cdk8s/got/**"
     ]
   },
   "devDependencies": {

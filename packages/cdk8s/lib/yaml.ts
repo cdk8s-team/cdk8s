@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as YAML from 'yaml';
-import { execSync } from 'child_process';
-import { parse as urlparse } from 'url';
+import { execFileSync } from 'child_process';
 import * as os from 'os';
 import * as path from 'path';
 
@@ -43,7 +42,7 @@ export class Yaml {
    * @returns an array of objects, each represents a document inside the YAML
    */
   public static load(urlOrFile: string): any[] {
-    const body = readOrDownload(urlOrFile);
+    const body = loadurl(urlOrFile);
     const objects = YAML.parseAllDocuments(body);
     const result = new Array<any>();
 
@@ -68,16 +67,12 @@ export class Yaml {
   }
 }
 
-
-function readOrDownload(url: string) {
-  if (isFile(url)) {
-    return fs.readFileSync(url, 'utf-8');
-  } else {
-    return execSync(`curl --no-fail -L ${url}`, { encoding: 'utf-8' });
-  }
+/**
+ * Loads a url (or file) and returns the contents.
+ * This method spawns a child process in order to perform an http call synchronously.
+ */
+function loadurl(url: string) {
+  const loadurl = path.join(__dirname, '_loadurl.js');
+  return execFileSync(process.execPath, [ loadurl, url ], { encoding: 'utf-8' })
 }
 
-function isFile(url: string) {
-  const purl = urlparse(url);
-  return !purl.protocol || purl.protocol === 'file://';
-}

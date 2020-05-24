@@ -43,6 +43,19 @@ describe('save', () => {
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
   });
 
+  test('empty values are preserved', () => {
+    const temp = Yaml.tmp([
+      {
+        'i_am_undefined': undefined, // converted to "null"
+        'i_am_null': null,
+        'empty_array': [],
+        'empty_object': {}
+      },
+    ]);
+
+    expect(fs.readFileSync(temp, 'utf-8')).toMatchSnapshot();
+  })
+
   test('empty documents are respected', () => {
     const outputFile = Yaml.tmp([
       {},

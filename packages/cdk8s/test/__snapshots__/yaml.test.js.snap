@@ -289,6 +289,14 @@ empty: true
 "
 `;
 
+exports[`save empty values are preserved 1`] = `
+"i_am_undefined: null
+i_am_null: null
+empty_array: []
+empty_object: {}
+"
+`;
+
 exports[`save multiple documents 1`] = `
 "foo: bar
 hello:
