@@ -17,6 +17,13 @@ export class Testing {
   }
 
   /**
+   * @returns a Chart that can be used for tests
+   */
+  public static chart() {
+    return new Chart(this.app(), 'test');
+  }
+
+  /**
    * Returns the Kubernetes manifest synthesized from this chart.
    */
   public static synth(chart: Chart) {
