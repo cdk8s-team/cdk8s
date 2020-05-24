@@ -50,36 +50,15 @@ export class App extends Construct {
 
   protected onSynthesize(session: ISynthesisSession) {
 
-    const chartDependencies: Dependency[] = Node.of(this).dependencies.filter(dep => {
-      
-      const source = dep.source;
-      const target = dep.target;
+    const appNode = Node.of(this);
 
-      if (source instanceof Chart && !(target instanceof Chart)) {
-        // TODO: chart depends on non chart...?
-        throw new Error('IllegalState')
-      }
+    const chartDependencies: Dependency[] = appNode.dependencies.filter(dep => dep.source instanceof Chart && dep.target instanceof Chart)
 
-      if (target instanceof Chart && !(source instanceof Chart)) {
-        // TODO: non chart depends chart...?
-        throw new Error('IllegalState')
-      }
-
-      if (source instanceof Chart && target instanceof Chart) {
-        // this is what we are looking for
-        return true;
-      }
-
-      // non chart depends on non chart, not interesting.
-      return false;
-
-    })
-
+    // create an ordered list of charts from the dependencies
     const charts: IConstruct[] = chartDependencies.length !== 0 ? new DependencyGraph(chartDependencies).topology() : [];
 
-    // charts that are not part of the dependency graph
-    // can go to the front of line.
-    charts.unshift(...Node.of(this).findAll().filter(obj => obj instanceof Chart && !charts.includes(obj)))
+    // charts that are not part of the dependency graph can go to the front of line.
+    charts.unshift(...appNode.findAll().filter(obj => obj instanceof Chart && !charts.includes(obj)))
 
     for (const index in charts) {
 

@@ -1,4 +1,4 @@
-import { Chart, ApiObject, Testing, DependencyGraph } from '../lib';
+import { Chart, ApiObject, Testing } from '../lib';
 import { Construct, Lazy, Node } from 'constructs';
 
 test('empty stack', () => {
@@ -105,25 +105,36 @@ describe('toJson', () => {
     
     Node.of(obj1).addDependency(obj2);  
   
-    const charObjects = chart1.toJson();
-  
-    expect(charObjects[0].kind).toEqual('Kind2');
-    expect(charObjects[1].kind).toEqual('Kind1');
+    expect(chart1.toJson()).toEqual([obj2.toJson(), obj1.toJson()]);
   
   });
+
+  test('returns on ordered list for multiple dependency roots', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
   
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+    const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
+    
+    // obj1 and obj3 are roots
+    Node.of(obj1).addDependency(obj2);
+    Node.of(obj3).addDependency(obj2);
+  
+    expect(chart1.toJson()).toEqual([obj2.toJson(), obj1.toJson(), obj3.toJson()]);
+  
+  });
+
   test('returns objects not in dependency list', () => {
 
     const app = Testing.app();
     const chart1 = new Chart(app, 'chart1');
   
-    new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
-    new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
-      
-    const charObjects = chart1.toJson();
-  
-    expect(charObjects[0].kind).toEqual('Kind1');
-    expect(charObjects[1].kind).toEqual('Kind2');
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+        
+    expect(chart1.toJson()).toEqual([obj1.toJson(), obj2.toJson()]);
   
   });
 
@@ -138,11 +149,24 @@ describe('toJson', () => {
     
     Node.of(obj1).addDependency(obj2);  
 
-    const charObjects = chart1.toJson();
-
-    expect(charObjects.length).toEqual(1);
-    expect(charObjects[0].kind).toEqual('Kind1');
+    expect(chart1.toJson()).toEqual([obj1.toJson()]);
   
+  });
+
+  test('orders dependencies of transitive children', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+  
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(obj1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+    const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
+    
+    Node.of(obj1).addDependency(obj2);
+    Node.of(obj2).addDependency(obj3);
+  
+    expect(chart1.toJson()).toEqual([obj3.toJson(), obj2.toJson(), obj1.toJson()]);
+
   });
 
   test('fails on dependency cycles', () => {

@@ -85,18 +85,18 @@ export class Chart extends Construct {
     const chartNode = Node.of(this);
 
     // only fetch dependencies that are contained within this chart.
-    // TODO: might make sense to actually take them into account for detecting cycles...
-    const dependencies: Dependency[] = chartNode.dependencies.filter(dep => Chart.of(dep.target) === this);
+    // cycles between charts are detected at the app level.
+    // note that we only check 'dep.target' because 'dep.source' always belongs to this chart.
+    const dependencies: Dependency[] = chartNode.dependencies.filter(dep => dep.source instanceof ApiObject && dep.target instanceof ApiObject && Chart.of(dep.target) === this);
 
-    const ordered = dependencies.length !== 0 ? new DependencyGraph(dependencies).topology() : [];
+    // create an ordered list of ApiObjects from the dependencies
+    const apiObjects = dependencies.length !== 0 ? new DependencyGraph(dependencies).topology() : [];
 
     // constructs that are not part of the dependency graph
     // can go to the front of line.
-    ordered.unshift(...chartNode.findAll().filter(obj => obj instanceof ApiObject && !ordered.includes(obj)))
+    apiObjects.unshift(...chartNode.findAll().filter(obj => obj instanceof ApiObject && !apiObjects.includes(obj)))
 
-    return ordered
-      .filter(x => x instanceof ApiObject)
-      .map(x => (x as ApiObject).toJson());
+    return apiObjects.map(x => (x as ApiObject).toJson());
   }
 
   // /**
