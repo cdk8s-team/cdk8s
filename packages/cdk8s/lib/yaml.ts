@@ -2,7 +2,12 @@ import * as fs from 'fs';
 import * as YAML from 'yaml';
 import { execSync } from 'child_process';
 import { parse as urlparse } from 'url';
+import * as os from 'os';
+import * as path from 'path';
 
+/**
+ * YAML utilities.
+ */
 export class Yaml {
   /**
    * Saves a set of objects as a multi-document YAML file.
@@ -13,6 +18,19 @@ export class Yaml {
     // convert each resource to yaml and separate with a '---' line
     const data = docs.map(r => YAML.stringify(r)).join('---\n');
     fs.writeFileSync(filePath, data, { encoding: 'utf-8' });
+  }
+
+  /**
+   * Saves a set of YAML documents into a temp file (in /tmp)
+   *
+   * @returns the path to the temporary file
+   * @param docs the set of documents to save
+   */
+  public static tmp(docs: any[]): string {
+    const tmpdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-'));
+    const filePath = path.join(tmpdir, 'temp.yaml');
+    this.save(filePath, docs);
+    return filePath;
   }
 
   /**
@@ -30,7 +48,12 @@ export class Yaml {
     const result = new Array<any>();
 
     for (const obj of objects.map(x => x.toJSON())) {
-      if (!obj) { continue; } // skip empty documents
+      // skip empty documents
+      if (obj === undefined) { continue; }
+      if (obj === null) { continue; }
+      if (Array.isArray(obj) && obj.length === 0) { continue; }
+      if (typeof(obj) === 'object' && Object.keys(obj).length === 0) { continue; }
+
       result.push(obj);
     }
 

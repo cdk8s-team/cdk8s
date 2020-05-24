@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`loadYaml from file 1`] = `
+exports[`load empty documents are filtered out 1`] = `
+Array [
+  Object {
+    "doc": 1,
+  },
+  "str_doc",
+  "",
+  0,
+  Object {
+    "doc": 2,
+  },
+]
+`;
+
+exports[`load from file 1`] = `
 Array [
   Object {
     "hello": 1234,
@@ -20,7 +34,7 @@ Array [
 ]
 `;
 
-exports[`loadYaml from file 2`] = `
+exports[`load from file 2`] = `
 Array [
   Object {
     "hello": 1234,
@@ -40,7 +54,7 @@ Array [
 ]
 `;
 
-exports[`loadYaml from url 1`] = `
+exports[`load from url 1`] = `
 Array [
   Object {
     "apiVersion": "v1",
@@ -260,4 +274,37 @@ Array [
     },
   },
 ]
+`;
+
+exports[`save empty documents are respected 1`] = `
+"{}
+---
+{}
+---
+
+---
+empty: true
+---
+{}
+"
+`;
+
+exports[`save multiple documents 1`] = `
+"foo: bar
+hello:
+  - 1
+  - 2
+  - 3
+---
+number: 2
+"
+`;
+
+exports[`save single document 1`] = `
+"foo: bar
+hello:
+  - 1
+  - 2
+  - 3
+"
 `;
