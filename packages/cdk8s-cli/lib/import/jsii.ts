@@ -30,7 +30,7 @@ export interface JsiiCompileOptions {
  */
 export async function jsiiCompile(workdir: string, options: JsiiCompileOptions) {
   const stdout = options.stdout ?? false;
-  const name = options.name ?? 'dummy';
+  const name = (options.name ?? 'dummy').replace(/[^a-z0-9]/gi, '_').toLocaleLowerCase(); // slugify
   const compiler = require.resolve('jsii/bin/jsii');
   const args = [ '--silence-warnings', 'reserved-word' ];
 

@@ -9,7 +9,7 @@ import { ImportSpec } from '../config';
 
 const CRD_KIND = 'CustomResourceDefinition';
 
-export interface CustomResourceApiObject {
+export interface ManifestObjectDefinition {
   apiVersion?: string;
   kind?: string;
   metadata?: {
@@ -39,7 +39,7 @@ export class CustomResourceDefinition {
   private readonly kind: string;
   private readonly fqn: string;
 
-  constructor(manifest: CustomResourceApiObject) {
+  constructor(manifest: ManifestObjectDefinition) {
     const apiVersion = manifest?.apiVersion ?? 'undefined';
     assert(SUPPORTED_API_VERSIONS.includes(apiVersion), `"apiVersion" is "${apiVersion}" but it should be one of: ${SUPPORTED_API_VERSIONS.map(x => `"${x}"`).join(', ')}`);
     assert(manifest.kind === CRD_KIND, `"kind" must be "${CRD_KIND}"`);
@@ -54,10 +54,6 @@ export class CustomResourceDefinition {
       throw new Error(`unable to determine CRD version`);
     }
 
-    if (!manifest.metadata?.name) {
-      throw new Error(`"metadata.name" is required`);
-    }
-
     const schema = typeof version === 'string'
       ? spec.validation?.openAPIV3Schema
       : version?.schema?.openAPIV3Schema ?? spec.validation?.openAPIV3Schema;
@@ -70,7 +66,7 @@ export class CustomResourceDefinition {
   }
 
   public get moduleName() {
-    return this.kind.toLocaleLowerCase();
+    return `${this.group}/${this.kind.toLocaleLowerCase()}`;
   }
 
   public async generateTypeScript(code: CodeMaker) {
@@ -93,7 +89,7 @@ export class CustomResourceDefinition {
 }
 
 export class ImportCustomResourceDefinition extends ImportBase {
-  public static async match(importSpec: ImportSpec): Promise<undefined | CustomResourceApiObject[]> {
+  public static async match(importSpec: ImportSpec): Promise<undefined | ManifestObjectDefinition[]> {
     const { source } = importSpec;
     let manifest;
     if (source.startsWith('https://')) {
@@ -117,13 +113,37 @@ export class ImportCustomResourceDefinition extends ImportBase {
 
   private readonly defs: CustomResourceDefinition[] = [];
 
-  constructor(manifest: CustomResourceApiObject[]) {
+  constructor(manifest: ManifestObjectDefinition[]) {
     super();
 
-    this.defs = manifest
-      .filter(obj => obj) // filter empty docs in the manifest
-      .filter(obj => obj.kind === CRD_KIND) // filter non-CRD resources from the manifest
-      .map(obj => new CustomResourceDefinition(obj));
+    const defs: Record<string, CustomResourceDefinition> = { };
+
+    const extractCRDs = (objects: ManifestObjectDefinition[] = []) => {
+      for (const obj of objects) {
+        // filter empty docs in the manifest
+       if (!obj) {
+         continue;
+       }
+
+       // found a crd, yey!
+       if (obj.kind === CRD_KIND) {
+          const crd = new CustomResourceDefinition(obj);
+          const key = crd.moduleName;
+
+          if (key in defs) {
+            console.log(JSON.stringify(obj, undefined, 2));
+            throw new Error(`${key} already exists`);
+          }
+
+          defs[key] = crd;
+          continue;
+       }
+     }
+    };
+
+    extractCRDs(manifest);
+
+    this.defs = Object.values(defs);
   }
 
   public get moduleNames() {
