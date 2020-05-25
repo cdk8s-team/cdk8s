@@ -240,9 +240,9 @@ from imports import k8s
 class WebService(Construct):
     def __init__(self, scope: Construct, ns: str, *,
                  image: str,
-                 replicas: typing.Optional[int] = 1,
-                 port: typing.Optional[int] = 80,
-                 container_port: typing.Optional[int] = 8080):
+                 replicas: int = 1,
+                 port: int = 80,
+                 container_port: int = 8080):
         super().__init__(scope, ns)
 
         label = {'app': Node.of(self).unique_id}
