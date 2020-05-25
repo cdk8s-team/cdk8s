@@ -1,4 +1,4 @@
-import { Construct, Node, Dependency, IConstruct } from 'constructs';
+import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
 import { Names } from './names';
 
@@ -96,6 +96,7 @@ export class DependencyGraph {
     const node: Node = Node.of(construct);
 
     const nodes: Record<string, DepNode> = {};
+    const roots: Set<DepNode> = new Set<DepNode>();
 
     for (const dep of node.dependencies) {
             
@@ -112,8 +113,14 @@ export class DependencyGraph {
 
       const sourceDepNode = nodes[sourceNode.uniqueId];
       const targetDepNode = nodes[targetNode.uniqueId];
-
+      
       sourceDepNode.addChild(targetDepNode!);
+
+      if (roots.has(sourceDepNode)) {
+        roots.delete(sourceDepNode);
+      } else {
+        roots.add(sourceDepNode);
+      }
       
     }
 
@@ -122,7 +129,9 @@ export class DependencyGraph {
     for (const child of node.findAll()) {
       const childNode: Node = Node.of(child);
       if (!nodes[childNode.uniqueId]) {
-        nodes[childNode.uniqueId] = new DepNode(child);
+        const childDepNode: DepNode = new DepNode(child);
+        nodes[childNode.uniqueId] = childDepNode;
+        roots.add(childDepNode);
       }
     }
 
@@ -130,10 +139,8 @@ export class DependencyGraph {
     const root: DepNode = new DepNode(null);
 
     // our actual roots are added to the dummy as children
-    for (const node of Object.values(nodes)) {
-      if (node.parents.length === 0) {
-        root.addChild(node);
-      }
+    for (const node of roots) {
+      root.addChild(node);
     }
 
     this.root = root;
@@ -147,11 +154,7 @@ export class DependencyGraph {
 export class DepNode {
   
   readonly value: IConstruct | null;
-
   readonly children: DepNode[] = [];
-  readonly parents: DepNode[] = [];
-
-  private readonly _decendants: DepNode[] = [];
 
   constructor(value: IConstruct | null) {
     this.value = value;
@@ -180,30 +183,16 @@ export class DepNode {
 
   addChild(dep: DepNode) {
     
-    if (dep._decendants.includes(this)) {
-      const cycle: DepNode[] = this.findRoute(dep, this);
+    // make sure this doesn't create a cycle
+    // TODO: should we optimize for speed here by storing all
+    // decendants for each node? 
+    const cycle: DepNode[] = this.findRoute(dep, this);
+    if (cycle.length !== 0) {
       cycle.push(dep);
-      throw new Error(`Cycle detected: ${cycle.map(d => Node.of(d.value!).uniqueId).join(' => ')}`);
+      throw new Error(`Cycle detected: ${cycle.map(d => Node.of(d.value!).uniqueId).join(' => ')}`);  
     }
 
     this.children.push(dep);
-
-    // keep track of all decendants to detect cycles during construction
-    // TODO: is this really the best way...?
-    this.addAsDecendant(this, dep);
-
-    // keep track of parents in order to later on find the root
-    // TODO: can probably avoid doing this...
-    dep.parents.push(this);
-  }
-
-  private addAsDecendant(parent: DepNode, decendant: DepNode) {
-
-    parent._decendants.push(decendant)
-    for (const grandParent of parent.parents) {
-      this.addAsDecendant(grandParent, decendant);
-    }
-
   }
 
   private findRoute(src: DepNode, dst: DepNode): DepNode[] {
