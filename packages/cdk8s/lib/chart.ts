@@ -95,11 +95,9 @@ export class DependencyGraph {
 
     const node: Node = Node.of(construct);
 
-    const dependencies: Dependency[] = Node.of(construct).dependencies
-
     const nodes: Record<string, DepNode> = {};
 
-    for (const dep of dependencies) {
+    for (const dep of node.dependencies) {
             
       const sourceNode = Node.of(dep.source);
       const targetNode = Node.of(dep.target);
@@ -128,7 +126,6 @@ export class DependencyGraph {
       }
     }
 
-
     // dummy node to serve as the root of all roots
     const root: DepNode = new DepNode(null);
 
@@ -140,7 +137,6 @@ export class DependencyGraph {
     }
 
     this.root = root;
-
   }
 
   public topology(): IConstruct[] {
