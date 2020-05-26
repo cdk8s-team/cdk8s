@@ -26,10 +26,12 @@ export class TypeGenerator {
   }
 
   public emitConstruct(def: GeneratedConstruct) {
-    this.emitLater(def.kind, code => {
+    const constructName = normalizeTypeName(def.kind);
+
+    this.emitLater(constructName, code => {
       const options = createOptionsStructSchema();
 
-      const optionsStructName = options.type ? `${def.kind}Options` : 'any';
+      const optionsStructName = normalizeTypeName(options.type ? `${constructName}Options` : 'any');
       const schema = def.schema;
 
       this.emitType(optionsStructName, options, def.fqn);
@@ -56,7 +58,7 @@ export class TypeGenerator {
         code.line(` *`);
         code.line(` * @schema ${def.fqn}`)
         code.line(` */`);
-        code.openBlock(`export class ${def.kind} extends ApiObject`);
+        code.openBlock(`export class ${constructName} extends ApiObject`);
     
         emitInitializer();
       
@@ -92,7 +94,12 @@ export class TypeGenerator {
   }
 
   public emitType(typeName: string, def: JSONSchema4, structFqn: string): string {
-    typeName = normalizeTypeName(typeName);
+
+    // callers expect that emit a type named `typeName` so we can't change it here
+    // but at least we can verify it's correct.
+    if (normalizeTypeName(typeName) !== typeName) {
+      throw new Error(`${typeName} must be normalized before calling emitType`);
+    }
 
     if (structFqn.startsWith(DEFINITIONS_PREFIX)) {
       structFqn = structFqn.substring(DEFINITIONS_PREFIX.length);
@@ -278,7 +285,7 @@ export class TypeGenerator {
   }
 
   private typeForProperty(propertyFqn: string, def: JSONSchema4): string {
-    const subtype = propertyFqn.split('.').map(x => toPascalCase(x)).join('');
+    const subtype = normalizeTypeName(propertyFqn.split('.').map(x => toPascalCase(x)).join(''));
     return this.emitType(subtype, def, subtype);
   }
 
@@ -293,7 +300,7 @@ export class TypeGenerator {
     }
 
     const comps = def.$ref.substring(prefix.length).split('.');
-    const typeName = comps[comps.length - 1];
+    const typeName = normalizeTypeName(comps[comps.length - 1]);
     const schema = this.resolveReference(def);
     return this.emitType(typeName, schema, def.$ref);
   }

@@ -9,7 +9,12 @@
     "lint": "eslint . --ext .ts",
     "test": "yarn lint && jest"
   },
-  "keywords": [ "cdk", "kubernetes", "k8s", "constructs" ],
+  "keywords": [
+    "cdk",
+    "kubernetes",
+    "k8s",
+    "constructs"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "jsii": {
@@ -66,6 +71,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
+    "@types/follow-redirects": "^1.8.0",
     "@types/jest": "^25.1.2",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/node": "13.7.1",
@@ -88,9 +94,11 @@
   },
   "bundledDependencies": [
     "yaml",
-    "json-stable-stringify"
+    "json-stable-stringify",
+    "follow-redirects"
   ],
   "dependencies": {
+    "follow-redirects": "^1.11.0",
     "json-stable-stringify": "^1.0.1",
     "yaml": "^1.7.2"
   },

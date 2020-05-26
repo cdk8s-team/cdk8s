@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.23.0](https://github.com/awslabs/cdk8s/compare/v0.22.0...v0.23.0) (2020-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cli**: the generated module names of imported CRDs now include the resource's group and not just its kind in order to ensure uniqueness. For example, when importing the Jenkins CRD, instead of 'imports/jenkins.ts`, we now have `imports/jenkins.io/jenkins.ts`.
+- **cli**: class names of imported apis are now normalized to `PascalCase`.
+
+### Features
+
+* **cli:** import CRDs from a running cluster ([#207](https://github.com/awslabs/cdk8s/issues/207)) ([5153422](https://github.com/awslabs/cdk8s/commit/5153422432d78aa97b928f507be27048e1868c7a)), closes [#197](https://github.com/awslabs/cdk8s/issues/197)
+* **lib:** introduce "include" ([#202](https://github.com/awslabs/cdk8s/issues/202)) ([75d13e8](https://github.com/awslabs/cdk8s/commit/75d13e8b06351b66bd5d495f6ac6a3575fac6421)), closes [#199](https://github.com/awslabs/cdk8s/issues/199)
+* **lib:** yaml utility functions ([#198](https://github.com/awslabs/cdk8s/issues/198)) ([9e0f030](https://github.com/awslabs/cdk8s/commit/9e0f030ecdb249d9095d0d774b33919a17cc48f7))
+
+
+### Bug Fixes
+
+* **cli:** impossible to import two crds with the same kind ([#203](https://github.com/awslabs/cdk8s/issues/203)) ([f6248ce](https://github.com/awslabs/cdk8s/commit/f6248ce5b7f3004108f0449a319015c8d6e99df4))
+* **docs:** do not mark arguments as optional in python getting-started ([#191](https://github.com/awslabs/cdk8s/issues/191)) ([be090d0](https://github.com/awslabs/cdk8s/commit/be090d09b6bdc2105e21c2f6de0cdcc9da657b50))
+* **lib:** unable to express empty objects and array ([#200](https://github.com/awslabs/cdk8s/issues/200)) ([9ae5efb](https://github.com/awslabs/cdk8s/commit/9ae5efb9834e1608ae196db88680a34005ac7203))
+
+## [0.22.0](https://github.com/campionfellin/cdk8s/compare/v0.21.0...v0.22.0) (2020-05-22)
+
+
+### Features
+
+* **cli:** jest tests in typescript-app template ([b6aed5a](https://github.com/campionfellin/cdk8s/commit/b6aed5ad9252c18f6f86d94caa472895c1c6a529))
+* **cli:** support CRDs with apiVersion "apiextensions.k8s.io/v1" ([#142](https://github.com/campionfellin/cdk8s/issues/142)) ([f5111b0](https://github.com/campionfellin/cdk8s/commit/f5111b07eefbc58a4ae23b498e6b41f48a0b82ac))
+* **cli:** support import module name overriding in python ([#107](https://github.com/campionfellin/cdk8s/issues/107)) ([327ba47](https://github.com/campionfellin/cdk8s/commit/327ba47524b7dfdb05096bb9a78c9d504db4a02c))
+* **docs:** add python and pipenv prerequisites ([db23fa1](https://github.com/campionfellin/cdk8s/commit/db23fa168ed6262d199383a651769fc2fae14a11)), closes [#166](https://github.com/campionfellin/cdk8s/issues/166)
+* **examples:** central readme for all examples ([#176](https://github.com/campionfellin/cdk8s/issues/176)) ([9cab302](https://github.com/campionfellin/cdk8s/commit/9cab302939c3d8ce3104e30d2bd1ad22b87bcbf8)), closes [#174](https://github.com/campionfellin/cdk8s/issues/174)
+* **examples:** reorganize examples by language ([#138](https://github.com/campionfellin/cdk8s/issues/138)) ([85cf631](https://github.com/campionfellin/cdk8s/commit/85cf6313c20771b718c19ee6085afc23cd787311))
+* **readme:** add link to "awesome cdk8s" ([0889a6e](https://github.com/campionfellin/cdk8s/commit/0889a6e5d738d928219b24c523b8bfdcec73bc43))
+
 ## [0.21.0](https://github.com/awslabs/cdk8s/compare/v0.20.0...v0.21.0) (2020-05-14)
 
 

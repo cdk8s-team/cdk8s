@@ -1,8 +1,8 @@
 import { Construct, Node, ISynthesisSession, IConstruct } from 'constructs';
 import fs = require('fs');
-import * as YAML from 'yaml';
 import { Chart, DependencyGraph } from './chart';
 import * as path from 'path';
+import { Yaml } from './yaml';
 
 export interface AppOptions {
   /**
@@ -58,9 +58,7 @@ export class App extends Construct {
       const chart: Chart = Chart.of(node);
       const manifestFile = `${Node.of(chart).uniqueId}.k8s.yaml`;
 
-      // convert each resource to yaml and separate with a '---' line
-      const doc = chart.toJson().map(r => YAML.stringify(r)).join('---\n');
-      fs.writeFileSync(path.join(session.outdir, `${index}-${manifestFile}`), doc);
+      Yaml.save(path.join(session.outdir, `${index}-${manifestFile}`), chart.toJson());
     }
   }
 
