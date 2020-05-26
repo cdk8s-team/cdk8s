@@ -11,10 +11,10 @@ import publication
 import cdk8s
 import constructs
 
-__jsii_assembly__ = jsii.JSIIAssembly.load("crontab", "0.0.0", __name__, "crontab@0.0.0.jsii.tgz")
+from ._jsii import *
 
 
-class CronTab(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="crontab.CronTab"):
+class CronTab(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CronTab"):
     """
     schema:
     :schema:: CronTab
@@ -31,9 +31,9 @@ class CronTab(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="crontab.CronT
         jsii.create(CronTab, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="crontab.CronTabOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.CronTabOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec'})
 class CronTabOptions():
-    def __init__(self, *, spec: typing.Optional["CronTabSpec"]=None):
+    def __init__(self, *, spec: typing.Optional["CronTabSpec"]=None) -> None:
         """
         :param spec: 
 
@@ -63,9 +63,9 @@ class CronTabOptions():
         return 'CronTabOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="crontab.CronTabSpec", jsii_struct_bases=[], name_mapping={'cron_spec': 'cronSpec', 'image': 'image', 'replicas': 'replicas'})
+@jsii.data_type(jsii_type="generated.CronTabSpec", jsii_struct_bases=[], name_mapping={'cron_spec': 'cronSpec', 'image': 'image', 'replicas': 'replicas'})
 class CronTabSpec():
-    def __init__(self, *, cron_spec: typing.Optional[str]=None, image: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, cron_spec: typing.Optional[str]=None, image: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None) -> None:
         """
         :param cron_spec: 
         :param image: 
@@ -114,6 +114,10 @@ class CronTabSpec():
         return 'CronTabSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-__all__ = ["CronTab", "CronTabOptions", "CronTabSpec", "__jsii_assembly__"]
+__all__ = [
+    "CronTab",
+    "CronTabOptions",
+    "CronTabSpec",
+]
 
 publication.publish()
