@@ -3,10 +3,10 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { CodeMaker } from "codemaker";
 import { JSONSchema4 } from "json-schema";
-import { jsiiCompile } from "../../lib/import/jsii";
-import { withTempDir } from "../../lib/util";
+import { mkdtemp } from "../../lib/util";
+import { srcmak } from "jsii-srcmak";
 
-jest.setTimeout(60_000); // 1min
+jest.setTimeout(3 * 60_000); // 1min
 
 describe('unions', () => {
 
@@ -160,13 +160,13 @@ function which(name: string, schema: JSONSchema4, definitions?: JSONSchema4) {
     const gen = new TypeGenerator(definitions);
     gen.emitType('TestType', schema, 'fqn.of.TestType');
 
-    await withTempDir('test', async () => {
-      expect(await generate(gen)).toMatchSnapshot();
+    await mkdtemp(async workdir => {
+      expect(await generate(workdir, gen)).toMatchSnapshot();
     });
   });
 }
 
-async function generate(gen: TypeGenerator) {
+async function generate(workdir: string, gen: TypeGenerator) {
   const code = new CodeMaker();
 
   const entrypoint = 'index.ts';
@@ -174,20 +174,14 @@ async function generate(gen: TypeGenerator) {
   code.openFile(entrypoint);
   gen.generate(code);
   code.closeFile(entrypoint)
-  await code.save('.');
 
-  const source = await fs.readFile(path.join('.', entrypoint), 'utf-8');
+  await code.save(workdir);
 
-  try {
-    await jsiiCompile('.', {
-      main: 'index',
-      name: 'dummy',
-      stdout: true 
-    });
-  } catch (e) {
-    console.error(source);
-    throw e;
-  }
+  const source = await fs.readFile(path.join(workdir, entrypoint), 'utf-8');
+  const deps = [ 'constructs', 'cdk8s', '@types/node' ].map(d => path.dirname(require.resolve(`${d}/package.json`)));
+
+  // check that the output compiles & is jsii-compatible
+  await srcmak(workdir, { deps });
 
   return source;
 }

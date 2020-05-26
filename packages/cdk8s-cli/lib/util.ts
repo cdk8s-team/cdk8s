@@ -16,17 +16,12 @@ export async function shell(program: string, args: string[] = [], options: Spawn
   });
 }
 
-export async function withTempDir(dirname: string, closure: () => Promise<void>) {
-  const prevdir = process.cwd();
-  const parent = await fs.mkdtemp(path.join(os.tmpdir(), 'cdk8s.'));
-  const workdir = path.join(parent, dirname);
-  await fs.mkdirp(workdir);
+export async function mkdtemp(closure: (dir: string) => Promise<void>) {
+  const workdir = await fs.mkdtemp(path.join(os.tmpdir(), 'cdk8s-'));
   try {
-    process.chdir(workdir);
-    await closure();
+    await closure(workdir);
   } finally {
-    process.chdir(prevdir);
-    await fs.remove(parent);
+    await fs.remove(workdir);
   }
 }
 
