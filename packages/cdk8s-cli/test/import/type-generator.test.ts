@@ -6,7 +6,7 @@ import { JSONSchema4 } from "json-schema";
 import { mkdtemp } from "../../lib/util";
 import { srcmak } from "jsii-srcmak";
 
-jest.setTimeout(60_000); // 1min
+jest.setTimeout(3 * 60_000); // 1min
 
 describe('unions', () => {
 

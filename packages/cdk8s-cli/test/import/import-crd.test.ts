@@ -4,15 +4,13 @@ import * as fs from 'fs';
 import { ImportCustomResourceDefinition } from '../../lib/import/crd';
 import { expectImportMatchSnapshot } from './util';
 
-jest.setTimeout(3 * 60_000); // 3min, yes it takes a while
-
 expectImportMatchSnapshotCustomResource('jenkins_crd.yaml');
 expectImportMatchSnapshotCustomResource('multi_object_crd.yaml');
 expectImportMatchSnapshotCustomResource('mixed_crd.yaml');
 expectImportMatchSnapshotCustomResource('prometheus.yaml');
 
 test('fails if CRDs api version is not supported', () => {
-  expect(() => new ImportCustomResourceDefinition([{ 
+  expect(() => new ImportCustomResourceDefinition([{
     apiVersion: 'voo' ,
     kind: 'CustomResourceDefinition'
   }])).toThrow('invalid CustomResourceDefinition manifest: "apiVersion" is "voo" but it should be one of: "apiextensions.k8s.io/v1beta1", "apiextensions.k8s.io/v1"');
@@ -27,7 +25,7 @@ test('fails if manifest does not have a "spec" field', () => {
 
 test('fails if one apiObject in multiObject CRD is not a valid CRD', async () => {
   expect(() => new ImportCustomResourceDefinition([
-    { 
+    {
       apiVersion: 'apiextensions.k8s.io/v1beta1',
       kind: 'CustomResourceDefinition',
       metadata: {

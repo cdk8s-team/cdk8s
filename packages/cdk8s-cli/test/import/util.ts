@@ -4,7 +4,7 @@ import { ImportBase, Language } from "../../lib/import/base";
 import * as path from 'path';
 
 export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
-  jest.setTimeout(60_000);
+  jest.setTimeout(3 * 60_000);
 
   test(name, async () => {
     await mkdtemp(async workdir => {
