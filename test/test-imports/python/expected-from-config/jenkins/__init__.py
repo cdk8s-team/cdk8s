@@ -11,10 +11,10 @@ import publication
 import cdk8s
 import constructs
 
-__jsii_assembly__ = jsii.JSIIAssembly.load("jenkins", "0.0.0", __name__, "jenkins@0.0.0.jsii.tgz")
+from ._jsii import *
 
 
-class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="jenkins.Jenkins"):
+class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Jenkins"):
     """Jenkins is the Schema for the jenkins API.
 
     schema:
@@ -33,9 +33,9 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="jenkins.Jenki
         jsii.create(Jenkins, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.JenkinsOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class JenkinsOptions():
-    def __init__(self, *, metadata: typing.Any=None, spec: typing.Optional["JenkinsSpec"]=None):
+    def __init__(self, *, metadata: typing.Any=None, spec: typing.Optional["JenkinsSpec"]=None) -> None:
         """Jenkins is the Schema for the jenkins API.
 
         :param metadata: 
@@ -77,9 +77,9 @@ class JenkinsOptions():
         return 'JenkinsOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpec", jsii_struct_bases=[], name_mapping={'jenkins_api_settings': 'jenkinsAPISettings', 'master': 'master', 'backup': 'backup', 'configuration_as_code': 'configurationAsCode', 'groovy_scripts': 'groovyScripts', 'notifications': 'notifications', 'restore': 'restore', 'roles': 'roles', 'seed_jobs': 'seedJobs', 'service': 'service', 'service_account': 'serviceAccount', 'slave_service': 'slaveService'})
+@jsii.data_type(jsii_type="generated.JenkinsSpec", jsii_struct_bases=[], name_mapping={'jenkins_api_settings': 'jenkinsAPISettings', 'master': 'master', 'backup': 'backup', 'configuration_as_code': 'configurationAsCode', 'groovy_scripts': 'groovyScripts', 'notifications': 'notifications', 'restore': 'restore', 'roles': 'roles', 'seed_jobs': 'seedJobs', 'service': 'service', 'service_account': 'serviceAccount', 'slave_service': 'slaveService'})
 class JenkinsSpec():
-    def __init__(self, *, jenkins_api_settings: "JenkinsSpecJenkinsApiSettings", master: "JenkinsSpecMaster", backup: typing.Optional["JenkinsSpecBackup"]=None, configuration_as_code: typing.Optional["JenkinsSpecConfigurationAsCode"]=None, groovy_scripts: typing.Optional["JenkinsSpecGroovyScripts"]=None, notifications: typing.Optional[typing.List["JenkinsSpecNotifications"]]=None, restore: typing.Optional["JenkinsSpecRestore"]=None, roles: typing.Optional[typing.List["JenkinsSpecRoles"]]=None, seed_jobs: typing.Optional[typing.List["JenkinsSpecSeedJobs"]]=None, service: typing.Optional["JenkinsSpecService"]=None, service_account: typing.Optional["JenkinsSpecServiceAccount"]=None, slave_service: typing.Optional["JenkinsSpecSlaveService"]=None):
+    def __init__(self, *, jenkins_api_settings: "JenkinsSpecJenkinsApiSettings", master: "JenkinsSpecMaster", backup: typing.Optional["JenkinsSpecBackup"]=None, configuration_as_code: typing.Optional["JenkinsSpecConfigurationAsCode"]=None, groovy_scripts: typing.Optional["JenkinsSpecGroovyScripts"]=None, notifications: typing.Optional[typing.List["JenkinsSpecNotifications"]]=None, restore: typing.Optional["JenkinsSpecRestore"]=None, roles: typing.Optional[typing.List["JenkinsSpecRoles"]]=None, seed_jobs: typing.Optional[typing.List["JenkinsSpecSeedJobs"]]=None, service: typing.Optional["JenkinsSpecService"]=None, service_account: typing.Optional["JenkinsSpecServiceAccount"]=None, slave_service: typing.Optional["JenkinsSpecSlaveService"]=None) -> None:
         """Spec defines the desired state of the Jenkins.
 
         :param jenkins_api_settings: JenkinsAPISettings defines configuration used by the operator to gain admin access to the Jenkins API.
@@ -248,9 +248,9 @@ class JenkinsSpec():
         return 'JenkinsSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecBackup", jsii_struct_bases=[], name_mapping={'action': 'action', 'container_name': 'containerName', 'interval': 'interval', 'make_backup_before_pod_deletion': 'makeBackupBeforePodDeletion'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecBackup", jsii_struct_bases=[], name_mapping={'action': 'action', 'container_name': 'containerName', 'interval': 'interval', 'make_backup_before_pod_deletion': 'makeBackupBeforePodDeletion'})
 class JenkinsSpecBackup():
-    def __init__(self, *, action: "JenkinsSpecBackupAction", container_name: str, interval: jsii.Number, make_backup_before_pod_deletion: bool):
+    def __init__(self, *, action: "JenkinsSpecBackupAction", container_name: str, interval: jsii.Number, make_backup_before_pod_deletion: bool) -> None:
         """Backup defines configuration of Jenkins backup More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-backup-and-restore.
 
         :param action: Action defines action which performs backup in backup container sidecar.
@@ -318,9 +318,9 @@ class JenkinsSpecBackup():
         return 'JenkinsSpecBackup(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecBackupAction", jsii_struct_bases=[], name_mapping={'exec': 'exec'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecBackupAction", jsii_struct_bases=[], name_mapping={'exec': 'exec'})
 class JenkinsSpecBackupAction():
-    def __init__(self, *, exec: typing.Optional["JenkinsSpecBackupActionExec"]=None):
+    def __init__(self, *, exec: typing.Optional["JenkinsSpecBackupActionExec"]=None) -> None:
         """Action defines action which performs backup in backup container sidecar.
 
         :param exec: Exec specifies the action to take.
@@ -352,9 +352,9 @@ class JenkinsSpecBackupAction():
         return 'JenkinsSpecBackupAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecBackupActionExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecBackupActionExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class JenkinsSpecBackupActionExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """Exec specifies the action to take.
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -387,9 +387,9 @@ class JenkinsSpecBackupActionExec():
         return 'JenkinsSpecBackupActionExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecConfigurationAsCode", jsii_struct_bases=[], name_mapping={'configurations': 'configurations', 'secret': 'secret'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecConfigurationAsCode", jsii_struct_bases=[], name_mapping={'configurations': 'configurations', 'secret': 'secret'})
 class JenkinsSpecConfigurationAsCode():
-    def __init__(self, *, configurations: typing.List["JenkinsSpecConfigurationAsCodeConfigurations"], secret: "JenkinsSpecConfigurationAsCodeSecret"):
+    def __init__(self, *, configurations: typing.List["JenkinsSpecConfigurationAsCodeConfigurations"], secret: "JenkinsSpecConfigurationAsCodeSecret") -> None:
         """ConfigurationAsCode defines configuration of Jenkins customization via Configuration as Code Jenkins plugin.
 
         :param configurations: 
@@ -431,9 +431,9 @@ class JenkinsSpecConfigurationAsCode():
         return 'JenkinsSpecConfigurationAsCode(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecConfigurationAsCodeConfigurations", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecConfigurationAsCodeConfigurations", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecConfigurationAsCodeConfigurations():
-    def __init__(self, *, name: str):
+    def __init__(self, *, name: str) -> None:
         """ConfigMapRef is reference to Kubernetes ConfigMap.
 
         :param name: 
@@ -463,9 +463,9 @@ class JenkinsSpecConfigurationAsCodeConfigurations():
         return 'JenkinsSpecConfigurationAsCodeConfigurations(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecConfigurationAsCodeSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecConfigurationAsCodeSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecConfigurationAsCodeSecret():
-    def __init__(self, *, name: str):
+    def __init__(self, *, name: str) -> None:
         """SecretRef is reference to Kubernetes secret.
 
         :param name: 
@@ -495,9 +495,9 @@ class JenkinsSpecConfigurationAsCodeSecret():
         return 'JenkinsSpecConfigurationAsCodeSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecGroovyScripts", jsii_struct_bases=[], name_mapping={'configurations': 'configurations', 'secret': 'secret'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecGroovyScripts", jsii_struct_bases=[], name_mapping={'configurations': 'configurations', 'secret': 'secret'})
 class JenkinsSpecGroovyScripts():
-    def __init__(self, *, configurations: typing.List["JenkinsSpecGroovyScriptsConfigurations"], secret: "JenkinsSpecGroovyScriptsSecret"):
+    def __init__(self, *, configurations: typing.List["JenkinsSpecGroovyScriptsConfigurations"], secret: "JenkinsSpecGroovyScriptsSecret") -> None:
         """GroovyScripts defines configuration of Jenkins customization via groovy scripts.
 
         :param configurations: 
@@ -539,9 +539,9 @@ class JenkinsSpecGroovyScripts():
         return 'JenkinsSpecGroovyScripts(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecGroovyScriptsConfigurations", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecGroovyScriptsConfigurations", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecGroovyScriptsConfigurations():
-    def __init__(self, *, name: str):
+    def __init__(self, *, name: str) -> None:
         """ConfigMapRef is reference to Kubernetes ConfigMap.
 
         :param name: 
@@ -571,9 +571,9 @@ class JenkinsSpecGroovyScriptsConfigurations():
         return 'JenkinsSpecGroovyScriptsConfigurations(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecGroovyScriptsSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecGroovyScriptsSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecGroovyScriptsSecret():
-    def __init__(self, *, name: str):
+    def __init__(self, *, name: str) -> None:
         """SecretRef is reference to Kubernetes secret.
 
         :param name: 
@@ -603,9 +603,9 @@ class JenkinsSpecGroovyScriptsSecret():
         return 'JenkinsSpecGroovyScriptsSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecJenkinsApiSettings", jsii_struct_bases=[], name_mapping={'authorization_strategy': 'authorizationStrategy'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecJenkinsApiSettings", jsii_struct_bases=[], name_mapping={'authorization_strategy': 'authorizationStrategy'})
 class JenkinsSpecJenkinsApiSettings():
-    def __init__(self, *, authorization_strategy: str):
+    def __init__(self, *, authorization_strategy: str) -> None:
         """JenkinsAPISettings defines configuration used by the operator to gain admin access to the Jenkins API.
 
         :param authorization_strategy: AuthorizationStrategy defines authorization strategy of the operator for the Jenkins API.
@@ -636,9 +636,9 @@ class JenkinsSpecJenkinsApiSettings():
         return 'JenkinsSpecJenkinsApiSettings(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMaster", jsii_struct_bases=[], name_mapping={'disable_csrf_protection': 'disableCSRFProtection', 'annotations': 'annotations', 'base_plugins': 'basePlugins', 'containers': 'containers', 'image_pull_secrets': 'imagePullSecrets', 'labels': 'labels', 'master_annotations': 'masterAnnotations', 'node_selector': 'nodeSelector', 'plugins': 'plugins', 'security_context': 'securityContext', 'tolerations': 'tolerations', 'volumes': 'volumes'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMaster", jsii_struct_bases=[], name_mapping={'disable_csrf_protection': 'disableCSRFProtection', 'annotations': 'annotations', 'base_plugins': 'basePlugins', 'containers': 'containers', 'image_pull_secrets': 'imagePullSecrets', 'labels': 'labels', 'master_annotations': 'masterAnnotations', 'node_selector': 'nodeSelector', 'plugins': 'plugins', 'security_context': 'securityContext', 'tolerations': 'tolerations', 'volumes': 'volumes'})
 class JenkinsSpecMaster():
-    def __init__(self, *, disable_csrf_protection: bool, annotations: typing.Optional[typing.Mapping[str,str]]=None, base_plugins: typing.Optional[typing.List["JenkinsSpecMasterBasePlugins"]]=None, containers: typing.Optional[typing.List["JenkinsSpecMasterContainers"]]=None, image_pull_secrets: typing.Optional[typing.List["JenkinsSpecMasterImagePullSecrets"]]=None, labels: typing.Optional[typing.Mapping[str,str]]=None, master_annotations: typing.Optional[typing.Mapping[str,str]]=None, node_selector: typing.Optional[typing.Mapping[str,str]]=None, plugins: typing.Optional[typing.List["JenkinsSpecMasterPlugins"]]=None, security_context: typing.Optional["JenkinsSpecMasterSecurityContext"]=None, tolerations: typing.Optional[typing.List["JenkinsSpecMasterTolerations"]]=None, volumes: typing.Optional[typing.List["JenkinsSpecMasterVolumes"]]=None):
+    def __init__(self, *, disable_csrf_protection: bool, annotations: typing.Optional[typing.Mapping[str, str]]=None, base_plugins: typing.Optional[typing.List["JenkinsSpecMasterBasePlugins"]]=None, containers: typing.Optional[typing.List["JenkinsSpecMasterContainers"]]=None, image_pull_secrets: typing.Optional[typing.List["JenkinsSpecMasterImagePullSecrets"]]=None, labels: typing.Optional[typing.Mapping[str, str]]=None, master_annotations: typing.Optional[typing.Mapping[str, str]]=None, node_selector: typing.Optional[typing.Mapping[str, str]]=None, plugins: typing.Optional[typing.List["JenkinsSpecMasterPlugins"]]=None, security_context: typing.Optional["JenkinsSpecMasterSecurityContext"]=None, tolerations: typing.Optional[typing.List["JenkinsSpecMasterTolerations"]]=None, volumes: typing.Optional[typing.List["JenkinsSpecMasterVolumes"]]=None) -> None:
         """Master represents Jenkins master pod properties and Jenkins plugins.
 
         Every single change here requires a pod restart.
@@ -685,7 +685,7 @@ class JenkinsSpecMaster():
         return self._values.get('disable_csrf_protection')
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -733,7 +733,7 @@ class JenkinsSpecMaster():
         return self._values.get('image_pull_secrets')
 
     @builtins.property
-    def labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Map of string keys and values that can be used to organize and categorize (scope and select) objects.
 
         May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
@@ -744,7 +744,7 @@ class JenkinsSpecMaster():
         return self._values.get('labels')
 
     @builtins.property
-    def master_annotations(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def master_annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations Deprecated: will be removed in the future, please use Annotations(annotations)
@@ -755,7 +755,7 @@ class JenkinsSpecMaster():
         return self._values.get('master_annotations')
 
     @builtins.property
-    def node_selector(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def node_selector(self) -> typing.Optional[typing.Mapping[str, str]]:
         """NodeSelector is a selector which must be true for the pod to fit on a node.
 
         Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
@@ -818,9 +818,9 @@ class JenkinsSpecMaster():
         return 'JenkinsSpecMaster(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterBasePlugins", jsii_struct_bases=[], name_mapping={'name': 'name', 'version': 'version'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterBasePlugins", jsii_struct_bases=[], name_mapping={'name': 'name', 'version': 'version'})
 class JenkinsSpecMasterBasePlugins():
-    def __init__(self, *, name: str, version: str):
+    def __init__(self, *, name: str, version: str) -> None:
         """Plugin defines Jenkins plugin.
 
         :param name: Name is the name of Jenkins plugin.
@@ -862,9 +862,9 @@ class JenkinsSpecMasterBasePlugins():
         return 'JenkinsSpecMasterBasePlugins(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainers", jsii_struct_bases=[], name_mapping={'image': 'image', 'image_pull_policy': 'imagePullPolicy', 'name': 'name', 'resources': 'resources', 'args': 'args', 'command': 'command', 'env': 'env', 'env_from': 'envFrom', 'lifecycle': 'lifecycle', 'liveness_probe': 'livenessProbe', 'ports': 'ports', 'readiness_probe': 'readinessProbe', 'security_context': 'securityContext', 'volume_mounts': 'volumeMounts', 'working_dir': 'workingDir'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainers", jsii_struct_bases=[], name_mapping={'image': 'image', 'image_pull_policy': 'imagePullPolicy', 'name': 'name', 'resources': 'resources', 'args': 'args', 'command': 'command', 'env': 'env', 'env_from': 'envFrom', 'lifecycle': 'lifecycle', 'liveness_probe': 'livenessProbe', 'ports': 'ports', 'readiness_probe': 'readinessProbe', 'security_context': 'securityContext', 'volume_mounts': 'volumeMounts', 'working_dir': 'workingDir'})
 class JenkinsSpecMasterContainers():
-    def __init__(self, *, image: str, image_pull_policy: str, name: str, resources: "JenkinsSpecMasterContainersResources", args: typing.Optional[typing.List[str]]=None, command: typing.Optional[typing.List[str]]=None, env: typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]]=None, env_from: typing.Optional[typing.List["JenkinsSpecMasterContainersEnvFrom"]]=None, lifecycle: typing.Optional["JenkinsSpecMasterContainersLifecycle"]=None, liveness_probe: typing.Optional["JenkinsSpecMasterContainersLivenessProbe"]=None, ports: typing.Optional[typing.List["JenkinsSpecMasterContainersPorts"]]=None, readiness_probe: typing.Optional["JenkinsSpecMasterContainersReadinessProbe"]=None, security_context: typing.Optional["JenkinsSpecMasterContainersSecurityContext"]=None, volume_mounts: typing.Optional[typing.List["JenkinsSpecMasterContainersVolumeMounts"]]=None, working_dir: typing.Optional[str]=None):
+    def __init__(self, *, image: str, image_pull_policy: str, name: str, resources: "JenkinsSpecMasterContainersResources", args: typing.Optional[typing.List[str]]=None, command: typing.Optional[typing.List[str]]=None, env: typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]]=None, env_from: typing.Optional[typing.List["JenkinsSpecMasterContainersEnvFrom"]]=None, lifecycle: typing.Optional["JenkinsSpecMasterContainersLifecycle"]=None, liveness_probe: typing.Optional["JenkinsSpecMasterContainersLivenessProbe"]=None, ports: typing.Optional[typing.List["JenkinsSpecMasterContainersPorts"]]=None, readiness_probe: typing.Optional["JenkinsSpecMasterContainersReadinessProbe"]=None, security_context: typing.Optional["JenkinsSpecMasterContainersSecurityContext"]=None, volume_mounts: typing.Optional[typing.List["JenkinsSpecMasterContainersVolumeMounts"]]=None, working_dir: typing.Optional[str]=None) -> None:
         """Container defines Kubernetes container attributes.
 
         :param image: Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images
@@ -1081,9 +1081,9 @@ class JenkinsSpecMasterContainers():
         return 'JenkinsSpecMasterContainers(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnv", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value', 'value_from': 'valueFrom'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnv", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value', 'value_from': 'valueFrom'})
 class JenkinsSpecMasterContainersEnv():
-    def __init__(self, *, name: str, value: typing.Optional[str]=None, value_from: typing.Optional["JenkinsSpecMasterContainersEnvValueFrom"]=None):
+    def __init__(self, *, name: str, value: typing.Optional[str]=None, value_from: typing.Optional["JenkinsSpecMasterContainersEnvValueFrom"]=None) -> None:
         """EnvVar represents an environment variable present in a Container.
 
         :param name: Name of the environment variable. Must be a C_IDENTIFIER.
@@ -1146,9 +1146,9 @@ class JenkinsSpecMasterContainersEnv():
         return 'JenkinsSpecMasterContainersEnv(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnvFrom", jsii_struct_bases=[], name_mapping={'config_map_ref': 'configMapRef', 'prefix': 'prefix', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnvFrom", jsii_struct_bases=[], name_mapping={'config_map_ref': 'configMapRef', 'prefix': 'prefix', 'secret_ref': 'secretRef'})
 class JenkinsSpecMasterContainersEnvFrom():
-    def __init__(self, *, config_map_ref: typing.Optional["JenkinsSpecMasterContainersEnvFromConfigMapRef"]=None, prefix: typing.Optional[str]=None, secret_ref: typing.Optional["JenkinsSpecMasterContainersEnvFromSecretRef"]=None):
+    def __init__(self, *, config_map_ref: typing.Optional["JenkinsSpecMasterContainersEnvFromConfigMapRef"]=None, prefix: typing.Optional[str]=None, secret_ref: typing.Optional["JenkinsSpecMasterContainersEnvFromSecretRef"]=None) -> None:
         """EnvFromSource represents the source of a set of ConfigMaps.
 
         :param config_map_ref: The ConfigMap to select from.
@@ -1205,9 +1205,9 @@ class JenkinsSpecMasterContainersEnvFrom():
         return 'JenkinsSpecMasterContainersEnvFrom(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnvFromConfigMapRef", jsii_struct_bases=[], name_mapping={'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnvFromConfigMapRef", jsii_struct_bases=[], name_mapping={'name': 'name', 'optional': 'optional'})
 class JenkinsSpecMasterContainersEnvFromConfigMapRef():
-    def __init__(self, *, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """The ConfigMap to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -1251,9 +1251,9 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef():
         return 'JenkinsSpecMasterContainersEnvFromConfigMapRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnvFromSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnvFromSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name', 'optional': 'optional'})
 class JenkinsSpecMasterContainersEnvFromSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """The Secret to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -1297,9 +1297,9 @@ class JenkinsSpecMasterContainersEnvFromSecretRef():
         return 'JenkinsSpecMasterContainersEnvFromSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnvValueFrom", jsii_struct_bases=[], name_mapping={'config_map_key_ref': 'configMapKeyRef', 'field_ref': 'fieldRef', 'resource_field_ref': 'resourceFieldRef', 'secret_key_ref': 'secretKeyRef'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnvValueFrom", jsii_struct_bases=[], name_mapping={'config_map_key_ref': 'configMapKeyRef', 'field_ref': 'fieldRef', 'resource_field_ref': 'resourceFieldRef', 'secret_key_ref': 'secretKeyRef'})
 class JenkinsSpecMasterContainersEnvValueFrom():
-    def __init__(self, *, config_map_key_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef"]=None, field_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromFieldRef"]=None, resource_field_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromResourceFieldRef"]=None, secret_key_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromSecretKeyRef"]=None):
+    def __init__(self, *, config_map_key_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef"]=None, field_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromFieldRef"]=None, resource_field_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromResourceFieldRef"]=None, secret_key_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromSecretKeyRef"]=None) -> None:
         """Source for the environment variable's value.
 
         Cannot be used if value is not empty.
@@ -1369,9 +1369,9 @@ class JenkinsSpecMasterContainersEnvValueFrom():
         return 'JenkinsSpecMasterContainersEnvValueFrom(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
 class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef():
-    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """Selects a key of a ConfigMap.
 
         :param key: The key to select.
@@ -1426,9 +1426,9 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef():
         return 'JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnvValueFromFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnvValueFromFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
 class JenkinsSpecMasterContainersEnvValueFromFieldRef():
-    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None):
+    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None) -> None:
         """Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP.
 
         :param field_path: Path of the field to select in the specified API version.
@@ -1470,9 +1470,9 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef():
         return 'JenkinsSpecMasterContainersEnvValueFromFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnvValueFromResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnvValueFromResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
 class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef():
-    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None):
+    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None) -> None:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 
         :param resource: Required: resource to select.
@@ -1525,9 +1525,9 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef():
         return 'JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersEnvValueFromSecretKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersEnvValueFromSecretKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
 class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef():
-    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """Selects a key of a secret in the pod's namespace.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -1584,9 +1584,9 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef():
         return 'JenkinsSpecMasterContainersEnvValueFromSecretKeyRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecycle", jsii_struct_bases=[], name_mapping={'post_start': 'postStart', 'pre_stop': 'preStop'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecycle", jsii_struct_bases=[], name_mapping={'post_start': 'postStart', 'pre_stop': 'preStop'})
 class JenkinsSpecMasterContainersLifecycle():
-    def __init__(self, *, post_start: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStart"]=None, pre_stop: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStop"]=None):
+    def __init__(self, *, post_start: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStart"]=None, pre_stop: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStop"]=None) -> None:
         """Actions that the management system should take in response to container lifecycle events.
 
         :param post_start: PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
@@ -1634,9 +1634,9 @@ class JenkinsSpecMasterContainersLifecycle():
         return 'JenkinsSpecMasterContainersLifecycle(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePostStart", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'http_get': 'httpGet', 'tcp_socket': 'tcpSocket'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePostStart", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'http_get': 'httpGet', 'tcp_socket': 'tcpSocket'})
 class JenkinsSpecMasterContainersLifecyclePostStart():
-    def __init__(self, *, exec: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartExec"]=None, http_get: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartHttpGet"]=None, tcp_socket: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartTcpSocket"]=None):
+    def __init__(self, *, exec: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartExec"]=None, http_get: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartHttpGet"]=None, tcp_socket: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartTcpSocket"]=None) -> None:
         """PostStart is called immediately after a container is created.
 
         If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
@@ -1698,9 +1698,9 @@ class JenkinsSpecMasterContainersLifecyclePostStart():
         return 'JenkinsSpecMasterContainersLifecyclePostStart(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePostStartExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePostStartExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class JenkinsSpecMasterContainersLifecyclePostStartExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -1735,9 +1735,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec():
         return 'JenkinsSpecMasterContainersLifecyclePostStartExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePostStartHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePostStartHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
 class JenkinsSpecMasterContainersLifecyclePostStartHttpGet():
-    def __init__(self, *, port: "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None):
+    def __init__(self, *, port: "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
         """HTTPGet specifies the http request to perform.
 
         :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -1823,9 +1823,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet():
         return 'JenkinsSpecMasterContainersLifecyclePostStartHttpGet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
 class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders():
-    def __init__(self, *, name: str, value: str):
+    def __init__(self, *, name: str, value: str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -1867,7 +1867,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders():
         return 'JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort"):
+class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="generated.JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort"):
     """Name or number of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -1892,9 +1892,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(metaclass=jsii.JS
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePostStartTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePostStartTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
 class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket():
-    def __init__(self, *, port: "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", host: typing.Optional[str]=None):
+    def __init__(self, *, port: "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", host: typing.Optional[str]=None) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -1940,7 +1940,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket():
         return 'JenkinsSpecMasterContainersLifecyclePostStartTcpSocket(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort"):
+class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="generated.JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort"):
     """Number or name of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -1965,9 +1965,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(metaclass=jsii.
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePreStop", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'http_get': 'httpGet', 'tcp_socket': 'tcpSocket'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePreStop", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'http_get': 'httpGet', 'tcp_socket': 'tcpSocket'})
 class JenkinsSpecMasterContainersLifecyclePreStop():
-    def __init__(self, *, exec: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopExec"]=None, http_get: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopHttpGet"]=None, tcp_socket: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopTcpSocket"]=None):
+    def __init__(self, *, exec: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopExec"]=None, http_get: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopHttpGet"]=None, tcp_socket: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopTcpSocket"]=None) -> None:
         """PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc.
 
         The handler is not called if the container crashes or exits. The reason for termination is passed to the handler. The Pod's termination grace period countdown begins before the PreStop hooked is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period. Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
@@ -2029,9 +2029,9 @@ class JenkinsSpecMasterContainersLifecyclePreStop():
         return 'JenkinsSpecMasterContainersLifecyclePreStop(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePreStopExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePreStopExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class JenkinsSpecMasterContainersLifecyclePreStopExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -2066,9 +2066,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec():
         return 'JenkinsSpecMasterContainersLifecyclePreStopExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePreStopHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePreStopHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
 class JenkinsSpecMasterContainersLifecyclePreStopHttpGet():
-    def __init__(self, *, port: "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None):
+    def __init__(self, *, port: "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
         """HTTPGet specifies the http request to perform.
 
         :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2154,9 +2154,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet():
         return 'JenkinsSpecMasterContainersLifecyclePreStopHttpGet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
 class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders():
-    def __init__(self, *, name: str, value: str):
+    def __init__(self, *, name: str, value: str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -2198,7 +2198,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders():
         return 'JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort"):
+class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="generated.JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort"):
     """Name or number of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2223,9 +2223,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(metaclass=jsii.JSII
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePreStopTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLifecyclePreStopTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
 class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket():
-    def __init__(self, *, port: "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", host: typing.Optional[str]=None):
+    def __init__(self, *, port: "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", host: typing.Optional[str]=None) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -2271,7 +2271,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket():
         return 'JenkinsSpecMasterContainersLifecyclePreStopTcpSocket(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="jenkins.JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort"):
+class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="generated.JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort"):
     """Number or name of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2296,9 +2296,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(metaclass=jsii.JS
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLivenessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLivenessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
 class JenkinsSpecMasterContainersLivenessProbe():
-    def __init__(self, *, exec: typing.Optional["JenkinsSpecMasterContainersLivenessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["JenkinsSpecMasterContainersLivenessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["JenkinsSpecMasterContainersLivenessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, exec: typing.Optional["JenkinsSpecMasterContainersLivenessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["JenkinsSpecMasterContainersLivenessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["JenkinsSpecMasterContainersLivenessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """Periodic probe of container liveness.
 
         Container will be restarted if the probe fails.
@@ -2437,9 +2437,9 @@ class JenkinsSpecMasterContainersLivenessProbe():
         return 'JenkinsSpecMasterContainersLivenessProbe(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLivenessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLivenessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class JenkinsSpecMasterContainersLivenessProbeExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -2474,9 +2474,9 @@ class JenkinsSpecMasterContainersLivenessProbeExec():
         return 'JenkinsSpecMasterContainersLivenessProbeExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLivenessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLivenessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
 class JenkinsSpecMasterContainersLivenessProbeHttpGet():
-    def __init__(self, *, port: "JenkinsSpecMasterContainersLivenessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None):
+    def __init__(self, *, port: "JenkinsSpecMasterContainersLivenessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
         """HTTPGet specifies the http request to perform.
 
         :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2562,9 +2562,9 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet():
         return 'JenkinsSpecMasterContainersLivenessProbeHttpGet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
 class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders():
-    def __init__(self, *, name: str, value: str):
+    def __init__(self, *, name: str, value: str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -2606,7 +2606,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders():
         return 'JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="jenkins.JenkinsSpecMasterContainersLivenessProbeHttpGetPort"):
+class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="generated.JenkinsSpecMasterContainersLivenessProbeHttpGetPort"):
     """Name or number of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2631,9 +2631,9 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(metaclass=jsii.JSIIMet
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersLivenessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersLivenessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
 class JenkinsSpecMasterContainersLivenessProbeTcpSocket():
-    def __init__(self, *, port: "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", host: typing.Optional[str]=None):
+    def __init__(self, *, port: "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", host: typing.Optional[str]=None) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -2679,7 +2679,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket():
         return 'JenkinsSpecMasterContainersLivenessProbeTcpSocket(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="jenkins.JenkinsSpecMasterContainersLivenessProbeTcpSocketPort"):
+class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="generated.JenkinsSpecMasterContainersLivenessProbeTcpSocketPort"):
     """Number or name of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2704,9 +2704,9 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(metaclass=jsii.JSIIM
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersPorts", jsii_struct_bases=[], name_mapping={'container_port': 'containerPort', 'host_ip': 'hostIP', 'host_port': 'hostPort', 'name': 'name', 'protocol': 'protocol'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersPorts", jsii_struct_bases=[], name_mapping={'container_port': 'containerPort', 'host_ip': 'hostIP', 'host_port': 'hostPort', 'name': 'name', 'protocol': 'protocol'})
 class JenkinsSpecMasterContainersPorts():
-    def __init__(self, *, container_port: jsii.Number, host_ip: typing.Optional[str]=None, host_port: typing.Optional[jsii.Number]=None, name: typing.Optional[str]=None, protocol: typing.Optional[str]=None):
+    def __init__(self, *, container_port: jsii.Number, host_ip: typing.Optional[str]=None, host_port: typing.Optional[jsii.Number]=None, name: typing.Optional[str]=None, protocol: typing.Optional[str]=None) -> None:
         """ContainerPort represents a network port in a single container.
 
         :param container_port: Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
@@ -2792,9 +2792,9 @@ class JenkinsSpecMasterContainersPorts():
         return 'JenkinsSpecMasterContainersPorts(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersReadinessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersReadinessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
 class JenkinsSpecMasterContainersReadinessProbe():
-    def __init__(self, *, exec: typing.Optional["JenkinsSpecMasterContainersReadinessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["JenkinsSpecMasterContainersReadinessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["JenkinsSpecMasterContainersReadinessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, exec: typing.Optional["JenkinsSpecMasterContainersReadinessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["JenkinsSpecMasterContainersReadinessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["JenkinsSpecMasterContainersReadinessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """Periodic probe of container service readiness.
 
         Container will be removed from service endpoints if the probe fails.
@@ -2933,9 +2933,9 @@ class JenkinsSpecMasterContainersReadinessProbe():
         return 'JenkinsSpecMasterContainersReadinessProbe(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersReadinessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersReadinessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class JenkinsSpecMasterContainersReadinessProbeExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -2970,9 +2970,9 @@ class JenkinsSpecMasterContainersReadinessProbeExec():
         return 'JenkinsSpecMasterContainersReadinessProbeExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersReadinessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersReadinessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
 class JenkinsSpecMasterContainersReadinessProbeHttpGet():
-    def __init__(self, *, port: "JenkinsSpecMasterContainersReadinessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None):
+    def __init__(self, *, port: "JenkinsSpecMasterContainersReadinessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
         """HTTPGet specifies the http request to perform.
 
         :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3058,9 +3058,9 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet():
         return 'JenkinsSpecMasterContainersReadinessProbeHttpGet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
 class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders():
-    def __init__(self, *, name: str, value: str):
+    def __init__(self, *, name: str, value: str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -3102,7 +3102,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders():
         return 'JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="jenkins.JenkinsSpecMasterContainersReadinessProbeHttpGetPort"):
+class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="generated.JenkinsSpecMasterContainersReadinessProbeHttpGetPort"):
     """Name or number of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3127,9 +3127,9 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(metaclass=jsii.JSIIMe
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersReadinessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersReadinessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
 class JenkinsSpecMasterContainersReadinessProbeTcpSocket():
-    def __init__(self, *, port: "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", host: typing.Optional[str]=None):
+    def __init__(self, *, port: "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", host: typing.Optional[str]=None) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -3175,7 +3175,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket():
         return 'JenkinsSpecMasterContainersReadinessProbeTcpSocket(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="jenkins.JenkinsSpecMasterContainersReadinessProbeTcpSocketPort"):
+class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="generated.JenkinsSpecMasterContainersReadinessProbeTcpSocketPort"):
     """Number or name of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3200,9 +3200,9 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(metaclass=jsii.JSII
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
 class JenkinsSpecMasterContainersResources():
-    def __init__(self, *, limits: typing.Optional[typing.Mapping[str,str]]=None, requests: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, limits: typing.Optional[typing.Mapping[str, str]]=None, requests: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """Compute Resources required by this container.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3219,7 +3219,7 @@ class JenkinsSpecMasterContainersResources():
         if requests is not None: self._values["requests"] = requests
 
     @builtins.property
-    def limits(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def limits(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Limits describes the maximum amount of compute resources allowed.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3230,7 +3230,7 @@ class JenkinsSpecMasterContainersResources():
         return self._values.get('limits')
 
     @builtins.property
-    def requests(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def requests(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Requests describes the minimum amount of compute resources required.
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3250,9 +3250,9 @@ class JenkinsSpecMasterContainersResources():
         return 'JenkinsSpecMasterContainersResources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersSecurityContext", jsii_struct_bases=[], name_mapping={'allow_privilege_escalation': 'allowPrivilegeEscalation', 'capabilities': 'capabilities', 'privileged': 'privileged', 'proc_mount': 'procMount', 'read_only_root_filesystem': 'readOnlyRootFilesystem', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'windows_options': 'windowsOptions'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersSecurityContext", jsii_struct_bases=[], name_mapping={'allow_privilege_escalation': 'allowPrivilegeEscalation', 'capabilities': 'capabilities', 'privileged': 'privileged', 'proc_mount': 'procMount', 'read_only_root_filesystem': 'readOnlyRootFilesystem', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'windows_options': 'windowsOptions'})
 class JenkinsSpecMasterContainersSecurityContext():
-    def __init__(self, *, allow_privilege_escalation: typing.Optional[bool]=None, capabilities: typing.Optional["JenkinsSpecMasterContainersSecurityContextCapabilities"]=None, privileged: typing.Optional[bool]=None, proc_mount: typing.Optional[str]=None, read_only_root_filesystem: typing.Optional[bool]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["JenkinsSpecMasterContainersSecurityContextSeLinuxOptions"]=None, windows_options: typing.Optional["JenkinsSpecMasterContainersSecurityContextWindowsOptions"]=None):
+    def __init__(self, *, allow_privilege_escalation: typing.Optional[bool]=None, capabilities: typing.Optional["JenkinsSpecMasterContainersSecurityContextCapabilities"]=None, privileged: typing.Optional[bool]=None, proc_mount: typing.Optional[str]=None, read_only_root_filesystem: typing.Optional[bool]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["JenkinsSpecMasterContainersSecurityContextSeLinuxOptions"]=None, windows_options: typing.Optional["JenkinsSpecMasterContainersSecurityContextWindowsOptions"]=None) -> None:
         """Security options the pod should run with.
 
         More info: https://kubernetes.io/docs/concepts/policy/security-context/ More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
@@ -3419,9 +3419,9 @@ class JenkinsSpecMasterContainersSecurityContext():
         return 'JenkinsSpecMasterContainersSecurityContext(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersSecurityContextCapabilities", jsii_struct_bases=[], name_mapping={'add': 'add', 'drop': 'drop'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersSecurityContextCapabilities", jsii_struct_bases=[], name_mapping={'add': 'add', 'drop': 'drop'})
 class JenkinsSpecMasterContainersSecurityContextCapabilities():
-    def __init__(self, *, add: typing.Optional[typing.List[str]]=None, drop: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, add: typing.Optional[typing.List[str]]=None, drop: typing.Optional[typing.List[str]]=None) -> None:
         """The capabilities to add/drop when running containers.
 
         Defaults to the default set of capabilities granted by the container runtime.
@@ -3468,9 +3468,9 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities():
         return 'JenkinsSpecMasterContainersSecurityContextCapabilities(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersSecurityContextSeLinuxOptions", jsii_struct_bases=[], name_mapping={'level': 'level', 'role': 'role', 'type': 'type', 'user': 'user'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersSecurityContextSeLinuxOptions", jsii_struct_bases=[], name_mapping={'level': 'level', 'role': 'role', 'type': 'type', 'user': 'user'})
 class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions():
-    def __init__(self, *, level: typing.Optional[str]=None, role: typing.Optional[str]=None, type: typing.Optional[str]=None, user: typing.Optional[str]=None):
+    def __init__(self, *, level: typing.Optional[str]=None, role: typing.Optional[str]=None, type: typing.Optional[str]=None, user: typing.Optional[str]=None) -> None:
         """The SELinux context to be applied to the container.
 
         If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
@@ -3536,9 +3536,9 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions():
         return 'JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersSecurityContextWindowsOptions", jsii_struct_bases=[], name_mapping={'gmsa_credential_spec': 'gmsaCredentialSpec', 'gmsa_credential_spec_name': 'gmsaCredentialSpecName', 'run_as_user_name': 'runAsUserName'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersSecurityContextWindowsOptions", jsii_struct_bases=[], name_mapping={'gmsa_credential_spec': 'gmsaCredentialSpec', 'gmsa_credential_spec_name': 'gmsaCredentialSpecName', 'run_as_user_name': 'runAsUserName'})
 class JenkinsSpecMasterContainersSecurityContextWindowsOptions():
-    def __init__(self, *, gmsa_credential_spec: typing.Optional[str]=None, gmsa_credential_spec_name: typing.Optional[str]=None, run_as_user_name: typing.Optional[str]=None):
+    def __init__(self, *, gmsa_credential_spec: typing.Optional[str]=None, gmsa_credential_spec_name: typing.Optional[str]=None, run_as_user_name: typing.Optional[str]=None) -> None:
         """The Windows specific settings applied to all containers.
 
         If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
@@ -3600,9 +3600,9 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions():
         return 'JenkinsSpecMasterContainersSecurityContextWindowsOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterContainersVolumeMounts", jsii_struct_bases=[], name_mapping={'mount_path': 'mountPath', 'name': 'name', 'mount_propagation': 'mountPropagation', 'read_only': 'readOnly', 'sub_path': 'subPath', 'sub_path_expr': 'subPathExpr'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterContainersVolumeMounts", jsii_struct_bases=[], name_mapping={'mount_path': 'mountPath', 'name': 'name', 'mount_propagation': 'mountPropagation', 'read_only': 'readOnly', 'sub_path': 'subPath', 'sub_path_expr': 'subPathExpr'})
 class JenkinsSpecMasterContainersVolumeMounts():
-    def __init__(self, *, mount_path: str, name: str, mount_propagation: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, sub_path: typing.Optional[str]=None, sub_path_expr: typing.Optional[str]=None):
+    def __init__(self, *, mount_path: str, name: str, mount_propagation: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, sub_path: typing.Optional[str]=None, sub_path_expr: typing.Optional[str]=None) -> None:
         """VolumeMount describes a mounting of a Volume within a container.
 
         :param mount_path: Path within the container at which the volume should be mounted. Must not contain ':'.
@@ -3707,9 +3707,9 @@ class JenkinsSpecMasterContainersVolumeMounts():
         return 'JenkinsSpecMasterContainersVolumeMounts(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterImagePullSecrets", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterImagePullSecrets", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterImagePullSecrets():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -3742,9 +3742,9 @@ class JenkinsSpecMasterImagePullSecrets():
         return 'JenkinsSpecMasterImagePullSecrets(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterPlugins", jsii_struct_bases=[], name_mapping={'name': 'name', 'version': 'version'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterPlugins", jsii_struct_bases=[], name_mapping={'name': 'name', 'version': 'version'})
 class JenkinsSpecMasterPlugins():
-    def __init__(self, *, name: str, version: str):
+    def __init__(self, *, name: str, version: str) -> None:
         """Plugin defines Jenkins plugin.
 
         :param name: Name is the name of Jenkins plugin.
@@ -3786,9 +3786,9 @@ class JenkinsSpecMasterPlugins():
         return 'JenkinsSpecMasterPlugins(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterSecurityContext", jsii_struct_bases=[], name_mapping={'fs_group': 'fsGroup', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'supplemental_groups': 'supplementalGroups', 'sysctls': 'sysctls', 'windows_options': 'windowsOptions'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterSecurityContext", jsii_struct_bases=[], name_mapping={'fs_group': 'fsGroup', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'supplemental_groups': 'supplementalGroups', 'sysctls': 'sysctls', 'windows_options': 'windowsOptions'})
 class JenkinsSpecMasterSecurityContext():
-    def __init__(self, *, fs_group: typing.Optional[jsii.Number]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["JenkinsSpecMasterSecurityContextSeLinuxOptions"]=None, supplemental_groups: typing.Optional[typing.List[jsii.Number]]=None, sysctls: typing.Optional[typing.List["JenkinsSpecMasterSecurityContextSysctls"]]=None, windows_options: typing.Optional["JenkinsSpecMasterSecurityContextWindowsOptions"]=None):
+    def __init__(self, *, fs_group: typing.Optional[jsii.Number]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["JenkinsSpecMasterSecurityContextSeLinuxOptions"]=None, supplemental_groups: typing.Optional[typing.List[jsii.Number]]=None, sysctls: typing.Optional[typing.List["JenkinsSpecMasterSecurityContextSysctls"]]=None, windows_options: typing.Optional["JenkinsSpecMasterSecurityContextWindowsOptions"]=None) -> None:
         """SecurityContext that applies to all the containers of the Jenkins Master.
 
         As per kubernetes specification, it can be overridden for each container individually. Defaults to: runAsUser: 1000 fsGroup: 1000
@@ -3925,9 +3925,9 @@ class JenkinsSpecMasterSecurityContext():
         return 'JenkinsSpecMasterSecurityContext(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterSecurityContextSeLinuxOptions", jsii_struct_bases=[], name_mapping={'level': 'level', 'role': 'role', 'type': 'type', 'user': 'user'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterSecurityContextSeLinuxOptions", jsii_struct_bases=[], name_mapping={'level': 'level', 'role': 'role', 'type': 'type', 'user': 'user'})
 class JenkinsSpecMasterSecurityContextSeLinuxOptions():
-    def __init__(self, *, level: typing.Optional[str]=None, role: typing.Optional[str]=None, type: typing.Optional[str]=None, user: typing.Optional[str]=None):
+    def __init__(self, *, level: typing.Optional[str]=None, role: typing.Optional[str]=None, type: typing.Optional[str]=None, user: typing.Optional[str]=None) -> None:
         """The SELinux context to be applied to all containers.
 
         If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
@@ -3993,9 +3993,9 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions():
         return 'JenkinsSpecMasterSecurityContextSeLinuxOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterSecurityContextSysctls", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterSecurityContextSysctls", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
 class JenkinsSpecMasterSecurityContextSysctls():
-    def __init__(self, *, name: str, value: str):
+    def __init__(self, *, name: str, value: str) -> None:
         """Sysctl defines a kernel parameter to be set.
 
         :param name: Name of a property to set.
@@ -4037,9 +4037,9 @@ class JenkinsSpecMasterSecurityContextSysctls():
         return 'JenkinsSpecMasterSecurityContextSysctls(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterSecurityContextWindowsOptions", jsii_struct_bases=[], name_mapping={'gmsa_credential_spec': 'gmsaCredentialSpec', 'gmsa_credential_spec_name': 'gmsaCredentialSpecName', 'run_as_user_name': 'runAsUserName'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterSecurityContextWindowsOptions", jsii_struct_bases=[], name_mapping={'gmsa_credential_spec': 'gmsaCredentialSpec', 'gmsa_credential_spec_name': 'gmsaCredentialSpecName', 'run_as_user_name': 'runAsUserName'})
 class JenkinsSpecMasterSecurityContextWindowsOptions():
-    def __init__(self, *, gmsa_credential_spec: typing.Optional[str]=None, gmsa_credential_spec_name: typing.Optional[str]=None, run_as_user_name: typing.Optional[str]=None):
+    def __init__(self, *, gmsa_credential_spec: typing.Optional[str]=None, gmsa_credential_spec_name: typing.Optional[str]=None, run_as_user_name: typing.Optional[str]=None) -> None:
         """The Windows specific settings applied to all containers.
 
         If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
@@ -4101,9 +4101,9 @@ class JenkinsSpecMasterSecurityContextWindowsOptions():
         return 'JenkinsSpecMasterSecurityContextWindowsOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterTolerations", jsii_struct_bases=[], name_mapping={'effect': 'effect', 'key': 'key', 'operator': 'operator', 'toleration_seconds': 'tolerationSeconds', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterTolerations", jsii_struct_bases=[], name_mapping={'effect': 'effect', 'key': 'key', 'operator': 'operator', 'toleration_seconds': 'tolerationSeconds', 'value': 'value'})
 class JenkinsSpecMasterTolerations():
-    def __init__(self, *, effect: typing.Optional[str]=None, key: typing.Optional[str]=None, operator: typing.Optional[str]=None, toleration_seconds: typing.Optional[jsii.Number]=None, value: typing.Optional[str]=None):
+    def __init__(self, *, effect: typing.Optional[str]=None, key: typing.Optional[str]=None, operator: typing.Optional[str]=None, toleration_seconds: typing.Optional[jsii.Number]=None, value: typing.Optional[str]=None) -> None:
         """The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator .
 
         :param effect: Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
@@ -4191,9 +4191,9 @@ class JenkinsSpecMasterTolerations():
         return 'JenkinsSpecMasterTolerations(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumes", jsii_struct_bases=[], name_mapping={'name': 'name', 'aws_elastic_block_store': 'awsElasticBlockStore', 'azure_disk': 'azureDisk', 'azure_file': 'azureFile', 'cephfs': 'cephfs', 'cinder': 'cinder', 'config_map': 'configMap', 'csi': 'csi', 'downward_api': 'downwardAPI', 'empty_dir': 'emptyDir', 'fc': 'fc', 'flex_volume': 'flexVolume', 'flocker': 'flocker', 'gce_persistent_disk': 'gcePersistentDisk', 'git_repo': 'gitRepo', 'glusterfs': 'glusterfs', 'host_path': 'hostPath', 'iscsi': 'iscsi', 'nfs': 'nfs', 'persistent_volume_claim': 'persistentVolumeClaim', 'photon_persistent_disk': 'photonPersistentDisk', 'portworx_volume': 'portworxVolume', 'projected': 'projected', 'quobyte': 'quobyte', 'rbd': 'rbd', 'scale_io': 'scaleIO', 'secret': 'secret', 'storageos': 'storageos', 'vsphere_volume': 'vsphereVolume'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumes", jsii_struct_bases=[], name_mapping={'name': 'name', 'aws_elastic_block_store': 'awsElasticBlockStore', 'azure_disk': 'azureDisk', 'azure_file': 'azureFile', 'cephfs': 'cephfs', 'cinder': 'cinder', 'config_map': 'configMap', 'csi': 'csi', 'downward_api': 'downwardAPI', 'empty_dir': 'emptyDir', 'fc': 'fc', 'flex_volume': 'flexVolume', 'flocker': 'flocker', 'gce_persistent_disk': 'gcePersistentDisk', 'git_repo': 'gitRepo', 'glusterfs': 'glusterfs', 'host_path': 'hostPath', 'iscsi': 'iscsi', 'nfs': 'nfs', 'persistent_volume_claim': 'persistentVolumeClaim', 'photon_persistent_disk': 'photonPersistentDisk', 'portworx_volume': 'portworxVolume', 'projected': 'projected', 'quobyte': 'quobyte', 'rbd': 'rbd', 'scale_io': 'scaleIO', 'secret': 'secret', 'storageos': 'storageos', 'vsphere_volume': 'vsphereVolume'})
 class JenkinsSpecMasterVolumes():
-    def __init__(self, *, name: str, aws_elastic_block_store: typing.Optional["JenkinsSpecMasterVolumesAwsElasticBlockStore"]=None, azure_disk: typing.Optional["JenkinsSpecMasterVolumesAzureDisk"]=None, azure_file: typing.Optional["JenkinsSpecMasterVolumesAzureFile"]=None, cephfs: typing.Optional["JenkinsSpecMasterVolumesCephfs"]=None, cinder: typing.Optional["JenkinsSpecMasterVolumesCinder"]=None, config_map: typing.Optional["JenkinsSpecMasterVolumesConfigMap"]=None, csi: typing.Optional["JenkinsSpecMasterVolumesCsi"]=None, downward_api: typing.Optional["JenkinsSpecMasterVolumesDownwardApi"]=None, empty_dir: typing.Optional["JenkinsSpecMasterVolumesEmptyDir"]=None, fc: typing.Optional["JenkinsSpecMasterVolumesFc"]=None, flex_volume: typing.Optional["JenkinsSpecMasterVolumesFlexVolume"]=None, flocker: typing.Optional["JenkinsSpecMasterVolumesFlocker"]=None, gce_persistent_disk: typing.Optional["JenkinsSpecMasterVolumesGcePersistentDisk"]=None, git_repo: typing.Optional["JenkinsSpecMasterVolumesGitRepo"]=None, glusterfs: typing.Optional["JenkinsSpecMasterVolumesGlusterfs"]=None, host_path: typing.Optional["JenkinsSpecMasterVolumesHostPath"]=None, iscsi: typing.Optional["JenkinsSpecMasterVolumesIscsi"]=None, nfs: typing.Optional["JenkinsSpecMasterVolumesNfs"]=None, persistent_volume_claim: typing.Optional["JenkinsSpecMasterVolumesPersistentVolumeClaim"]=None, photon_persistent_disk: typing.Optional["JenkinsSpecMasterVolumesPhotonPersistentDisk"]=None, portworx_volume: typing.Optional["JenkinsSpecMasterVolumesPortworxVolume"]=None, projected: typing.Optional["JenkinsSpecMasterVolumesProjected"]=None, quobyte: typing.Optional["JenkinsSpecMasterVolumesQuobyte"]=None, rbd: typing.Optional["JenkinsSpecMasterVolumesRbd"]=None, scale_io: typing.Optional["JenkinsSpecMasterVolumesScaleIo"]=None, secret: typing.Optional["JenkinsSpecMasterVolumesSecret"]=None, storageos: typing.Optional["JenkinsSpecMasterVolumesStorageos"]=None, vsphere_volume: typing.Optional["JenkinsSpecMasterVolumesVsphereVolume"]=None):
+    def __init__(self, *, name: str, aws_elastic_block_store: typing.Optional["JenkinsSpecMasterVolumesAwsElasticBlockStore"]=None, azure_disk: typing.Optional["JenkinsSpecMasterVolumesAzureDisk"]=None, azure_file: typing.Optional["JenkinsSpecMasterVolumesAzureFile"]=None, cephfs: typing.Optional["JenkinsSpecMasterVolumesCephfs"]=None, cinder: typing.Optional["JenkinsSpecMasterVolumesCinder"]=None, config_map: typing.Optional["JenkinsSpecMasterVolumesConfigMap"]=None, csi: typing.Optional["JenkinsSpecMasterVolumesCsi"]=None, downward_api: typing.Optional["JenkinsSpecMasterVolumesDownwardApi"]=None, empty_dir: typing.Optional["JenkinsSpecMasterVolumesEmptyDir"]=None, fc: typing.Optional["JenkinsSpecMasterVolumesFc"]=None, flex_volume: typing.Optional["JenkinsSpecMasterVolumesFlexVolume"]=None, flocker: typing.Optional["JenkinsSpecMasterVolumesFlocker"]=None, gce_persistent_disk: typing.Optional["JenkinsSpecMasterVolumesGcePersistentDisk"]=None, git_repo: typing.Optional["JenkinsSpecMasterVolumesGitRepo"]=None, glusterfs: typing.Optional["JenkinsSpecMasterVolumesGlusterfs"]=None, host_path: typing.Optional["JenkinsSpecMasterVolumesHostPath"]=None, iscsi: typing.Optional["JenkinsSpecMasterVolumesIscsi"]=None, nfs: typing.Optional["JenkinsSpecMasterVolumesNfs"]=None, persistent_volume_claim: typing.Optional["JenkinsSpecMasterVolumesPersistentVolumeClaim"]=None, photon_persistent_disk: typing.Optional["JenkinsSpecMasterVolumesPhotonPersistentDisk"]=None, portworx_volume: typing.Optional["JenkinsSpecMasterVolumesPortworxVolume"]=None, projected: typing.Optional["JenkinsSpecMasterVolumesProjected"]=None, quobyte: typing.Optional["JenkinsSpecMasterVolumesQuobyte"]=None, rbd: typing.Optional["JenkinsSpecMasterVolumesRbd"]=None, scale_io: typing.Optional["JenkinsSpecMasterVolumesScaleIo"]=None, secret: typing.Optional["JenkinsSpecMasterVolumesSecret"]=None, storageos: typing.Optional["JenkinsSpecMasterVolumesStorageos"]=None, vsphere_volume: typing.Optional["JenkinsSpecMasterVolumesVsphereVolume"]=None) -> None:
         """Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
         :param name: Volume's name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -4586,9 +4586,9 @@ class JenkinsSpecMasterVolumes():
         return 'JenkinsSpecMasterVolumes(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesAwsElasticBlockStore", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesAwsElasticBlockStore", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
 class JenkinsSpecMasterVolumesAwsElasticBlockStore():
-    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None) -> None:
         """AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
@@ -4662,9 +4662,9 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore():
         return 'JenkinsSpecMasterVolumesAwsElasticBlockStore(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesAzureDisk", jsii_struct_bases=[], name_mapping={'disk_name': 'diskName', 'disk_uri': 'diskURI', 'caching_mode': 'cachingMode', 'fs_type': 'fsType', 'kind': 'kind', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesAzureDisk", jsii_struct_bases=[], name_mapping={'disk_name': 'diskName', 'disk_uri': 'diskURI', 'caching_mode': 'cachingMode', 'fs_type': 'fsType', 'kind': 'kind', 'read_only': 'readOnly'})
 class JenkinsSpecMasterVolumesAzureDisk():
-    def __init__(self, *, disk_name: str, disk_uri: str, caching_mode: typing.Optional[str]=None, fs_type: typing.Optional[str]=None, kind: typing.Optional[str]=None, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, disk_name: str, disk_uri: str, caching_mode: typing.Optional[str]=None, fs_type: typing.Optional[str]=None, kind: typing.Optional[str]=None, read_only: typing.Optional[bool]=None) -> None:
         """AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
 
         :param disk_name: The Name of the data disk in the blob storage.
@@ -4759,9 +4759,9 @@ class JenkinsSpecMasterVolumesAzureDisk():
         return 'JenkinsSpecMasterVolumesAzureDisk(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesAzureFile", jsii_struct_bases=[], name_mapping={'secret_name': 'secretName', 'share_name': 'shareName', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesAzureFile", jsii_struct_bases=[], name_mapping={'secret_name': 'secretName', 'share_name': 'shareName', 'read_only': 'readOnly'})
 class JenkinsSpecMasterVolumesAzureFile():
-    def __init__(self, *, secret_name: str, share_name: str, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, secret_name: str, share_name: str, read_only: typing.Optional[bool]=None) -> None:
         """AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
 
         :param secret_name: the name of secret that contains Azure Storage Account Name and Key.
@@ -4819,9 +4819,9 @@ class JenkinsSpecMasterVolumesAzureFile():
         return 'JenkinsSpecMasterVolumesAzureFile(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesCephfs", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesCephfs", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
 class JenkinsSpecMasterVolumesCephfs():
-    def __init__(self, *, monitors: typing.List[str], path: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_file: typing.Optional[str]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesCephfsSecretRef"]=None, user: typing.Optional[str]=None):
+    def __init__(self, *, monitors: typing.List[str], path: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_file: typing.Optional[str]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesCephfsSecretRef"]=None, user: typing.Optional[str]=None) -> None:
         """CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
 
         :param monitors: Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
@@ -4915,9 +4915,9 @@ class JenkinsSpecMasterVolumesCephfs():
         return 'JenkinsSpecMasterVolumesCephfs(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesCephfsSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesCephfsSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterVolumesCephfsSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """Optional: SecretRef is reference to the authentication secret for User, default is empty.
 
         More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
@@ -4952,9 +4952,9 @@ class JenkinsSpecMasterVolumesCephfsSecretRef():
         return 'JenkinsSpecMasterVolumesCephfsSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesCinder", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesCinder", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class JenkinsSpecMasterVolumesCinder():
-    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesCinderSecretRef"]=None):
+    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesCinderSecretRef"]=None) -> None:
         """Cinder represents a cinder volume attached and mounted on kubelets host machine.
 
         More info: https://examples.k8s.io/mysql-cinder-pd/README.md
@@ -5030,9 +5030,9 @@ class JenkinsSpecMasterVolumesCinder():
         return 'JenkinsSpecMasterVolumesCinder(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesCinderSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesCinderSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterVolumesCinderSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """Optional: points to a secret object containing parameters used to connect to OpenStack.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -5065,9 +5065,9 @@ class JenkinsSpecMasterVolumesCinderSecretRef():
         return 'JenkinsSpecMasterVolumesCinderSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesConfigMap", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesConfigMap", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items', 'name': 'name', 'optional': 'optional'})
 class JenkinsSpecMasterVolumesConfigMap():
-    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesConfigMapItems"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesConfigMapItems"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """ConfigMap represents a configMap that should populate this volume.
 
         :param default_mode: Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set. Default: 644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
@@ -5140,9 +5140,9 @@ class JenkinsSpecMasterVolumesConfigMap():
         return 'JenkinsSpecMasterVolumesConfigMap(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesConfigMapItems", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesConfigMapItems", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
 class JenkinsSpecMasterVolumesConfigMapItems():
-    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None) -> None:
         """Maps a string key to a path within a volume.
 
         :param key: The key to project.
@@ -5199,9 +5199,9 @@ class JenkinsSpecMasterVolumesConfigMapItems():
         return 'JenkinsSpecMasterVolumesConfigMapItems(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesCsi", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesCsi", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
 class JenkinsSpecMasterVolumesCsi():
-    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["JenkinsSpecMasterVolumesCsiNodePublishSecretRef"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["JenkinsSpecMasterVolumesCsiNodePublishSecretRef"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """CSI (Container Storage Interface) represents storage that is handled by an external CSI driver (Alpha feature).
 
         :param driver: Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
@@ -5270,7 +5270,7 @@ class JenkinsSpecMasterVolumesCsi():
         return self._values.get('read_only')
 
     @builtins.property
-    def volume_attributes(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def volume_attributes(self) -> typing.Optional[typing.Mapping[str, str]]:
         """VolumeAttributes stores driver-specific properties that are passed to the CSI driver.
 
         Consult your driver's documentation for supported values.
@@ -5290,9 +5290,9 @@ class JenkinsSpecMasterVolumesCsi():
         return 'JenkinsSpecMasterVolumesCsi(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesCsiNodePublishSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesCsiNodePublishSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterVolumesCsiNodePublishSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
 
         This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
@@ -5327,9 +5327,9 @@ class JenkinsSpecMasterVolumesCsiNodePublishSecretRef():
         return 'JenkinsSpecMasterVolumesCsiNodePublishSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesDownwardApi", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesDownwardApi", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items'})
 class JenkinsSpecMasterVolumesDownwardApi():
-    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]]=None):
+    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]]=None) -> None:
         """DownwardAPI represents downward API about the pod that should populate this volume.
 
         :param default_mode: Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set. Default: 644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
@@ -5376,9 +5376,9 @@ class JenkinsSpecMasterVolumesDownwardApi():
         return 'JenkinsSpecMasterVolumesDownwardApi(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesDownwardApiItems", jsii_struct_bases=[], name_mapping={'path': 'path', 'field_ref': 'fieldRef', 'mode': 'mode', 'resource_field_ref': 'resourceFieldRef'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesDownwardApiItems", jsii_struct_bases=[], name_mapping={'path': 'path', 'field_ref': 'fieldRef', 'mode': 'mode', 'resource_field_ref': 'resourceFieldRef'})
 class JenkinsSpecMasterVolumesDownwardApiItems():
-    def __init__(self, *, path: str, field_ref: typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsFieldRef"]=None, mode: typing.Optional[jsii.Number]=None, resource_field_ref: typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef"]=None):
+    def __init__(self, *, path: str, field_ref: typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsFieldRef"]=None, mode: typing.Optional[jsii.Number]=None, resource_field_ref: typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef"]=None) -> None:
         """DownwardAPIVolumeFile represents information to create the file containing the pod field.
 
         :param path: Required: Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
@@ -5448,9 +5448,9 @@ class JenkinsSpecMasterVolumesDownwardApiItems():
         return 'JenkinsSpecMasterVolumesDownwardApiItems(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesDownwardApiItemsFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesDownwardApiItemsFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
 class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef():
-    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None):
+    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None) -> None:
         """Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
 
         :param field_path: Path of the field to select in the specified API version.
@@ -5492,9 +5492,9 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef():
         return 'JenkinsSpecMasterVolumesDownwardApiItemsFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
 class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef():
-    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None):
+    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None) -> None:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
         :param resource: Required: resource to select.
@@ -5547,9 +5547,9 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef():
         return 'JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesEmptyDir", jsii_struct_bases=[], name_mapping={'medium': 'medium', 'size_limit': 'sizeLimit'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesEmptyDir", jsii_struct_bases=[], name_mapping={'medium': 'medium', 'size_limit': 'sizeLimit'})
 class JenkinsSpecMasterVolumesEmptyDir():
-    def __init__(self, *, medium: typing.Optional[str]=None, size_limit: typing.Optional[str]=None):
+    def __init__(self, *, medium: typing.Optional[str]=None, size_limit: typing.Optional[str]=None) -> None:
         """EmptyDir represents a temporary directory that shares a pod's lifetime.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
@@ -5597,9 +5597,9 @@ class JenkinsSpecMasterVolumesEmptyDir():
         return 'JenkinsSpecMasterVolumesEmptyDir(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesFc", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'lun': 'lun', 'read_only': 'readOnly', 'target_ww_ns': 'targetWWNs', 'wwids': 'wwids'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesFc", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'lun': 'lun', 'read_only': 'readOnly', 'target_ww_ns': 'targetWWNs', 'wwids': 'wwids'})
 class JenkinsSpecMasterVolumesFc():
-    def __init__(self, *, fs_type: typing.Optional[str]=None, lun: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None, target_ww_ns: typing.Optional[typing.List[str]]=None, wwids: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, fs_type: typing.Optional[str]=None, lun: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None, target_ww_ns: typing.Optional[typing.List[str]]=None, wwids: typing.Optional[typing.List[str]]=None) -> None:
         """FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. TODO: how do we prevent errors in the filesystem from compromising the machine
@@ -5681,9 +5681,9 @@ class JenkinsSpecMasterVolumesFc():
         return 'JenkinsSpecMasterVolumesFc(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesFlexVolume", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'options': 'options', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesFlexVolume", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'options': 'options', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class JenkinsSpecMasterVolumesFlexVolume():
-    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, options: typing.Optional[typing.Mapping[str,str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesFlexVolumeSecretRef"]=None):
+    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, options: typing.Optional[typing.Mapping[str, str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesFlexVolumeSecretRef"]=None) -> None:
         """FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
 
         :param driver: Driver is the name of the driver to use for this volume.
@@ -5725,7 +5725,7 @@ class JenkinsSpecMasterVolumesFlexVolume():
         return self._values.get('fs_type')
 
     @builtins.property
-    def options(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def options(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Optional: Extra command options if any.
 
         schema:
@@ -5768,9 +5768,9 @@ class JenkinsSpecMasterVolumesFlexVolume():
         return 'JenkinsSpecMasterVolumesFlexVolume(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesFlexVolumeSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesFlexVolumeSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterVolumesFlexVolumeSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts.
 
         This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
@@ -5805,9 +5805,9 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef():
         return 'JenkinsSpecMasterVolumesFlexVolumeSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesFlocker", jsii_struct_bases=[], name_mapping={'dataset_name': 'datasetName', 'dataset_uuid': 'datasetUUID'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesFlocker", jsii_struct_bases=[], name_mapping={'dataset_name': 'datasetName', 'dataset_uuid': 'datasetUUID'})
 class JenkinsSpecMasterVolumesFlocker():
-    def __init__(self, *, dataset_name: typing.Optional[str]=None, dataset_uuid: typing.Optional[str]=None):
+    def __init__(self, *, dataset_name: typing.Optional[str]=None, dataset_uuid: typing.Optional[str]=None) -> None:
         """Flocker represents a Flocker volume attached to a kubelet's host machine.
 
         This depends on the Flocker control service being running
@@ -5853,9 +5853,9 @@ class JenkinsSpecMasterVolumesFlocker():
         return 'JenkinsSpecMasterVolumesFlocker(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesGcePersistentDisk", jsii_struct_bases=[], name_mapping={'pd_name': 'pdName', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesGcePersistentDisk", jsii_struct_bases=[], name_mapping={'pd_name': 'pdName', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
 class JenkinsSpecMasterVolumesGcePersistentDisk():
-    def __init__(self, *, pd_name: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, pd_name: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None) -> None:
         """GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
@@ -5932,9 +5932,9 @@ class JenkinsSpecMasterVolumesGcePersistentDisk():
         return 'JenkinsSpecMasterVolumesGcePersistentDisk(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesGitRepo", jsii_struct_bases=[], name_mapping={'repository': 'repository', 'directory': 'directory', 'revision': 'revision'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesGitRepo", jsii_struct_bases=[], name_mapping={'repository': 'repository', 'directory': 'directory', 'revision': 'revision'})
 class JenkinsSpecMasterVolumesGitRepo():
-    def __init__(self, *, repository: str, directory: typing.Optional[str]=None, revision: typing.Optional[str]=None):
+    def __init__(self, *, repository: str, directory: typing.Optional[str]=None, revision: typing.Optional[str]=None) -> None:
         """GitRepo represents a git repository at a particular revision.
 
         DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
@@ -5991,9 +5991,9 @@ class JenkinsSpecMasterVolumesGitRepo():
         return 'JenkinsSpecMasterVolumesGitRepo(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesGlusterfs", jsii_struct_bases=[], name_mapping={'endpoints': 'endpoints', 'path': 'path', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesGlusterfs", jsii_struct_bases=[], name_mapping={'endpoints': 'endpoints', 'path': 'path', 'read_only': 'readOnly'})
 class JenkinsSpecMasterVolumesGlusterfs():
-    def __init__(self, *, endpoints: str, path: str, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, endpoints: str, path: str, read_only: typing.Optional[bool]=None) -> None:
         """Glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime.
 
         More info: https://examples.k8s.io/volumes/glusterfs/README.md
@@ -6057,9 +6057,9 @@ class JenkinsSpecMasterVolumesGlusterfs():
         return 'JenkinsSpecMasterVolumesGlusterfs(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesHostPath", jsii_struct_bases=[], name_mapping={'path': 'path', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesHostPath", jsii_struct_bases=[], name_mapping={'path': 'path', 'type': 'type'})
 class JenkinsSpecMasterVolumesHostPath():
-    def __init__(self, *, path: str, type: typing.Optional[str]=None):
+    def __init__(self, *, path: str, type: typing.Optional[str]=None) -> None:
         """HostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container.
 
         This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath --- TODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not mount host directories as read/write.
@@ -6108,9 +6108,9 @@ class JenkinsSpecMasterVolumesHostPath():
         return 'JenkinsSpecMasterVolumesHostPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesIscsi", jsii_struct_bases=[], name_mapping={'iqn': 'iqn', 'lun': 'lun', 'target_portal': 'targetPortal', 'chap_auth_discovery': 'chapAuthDiscovery', 'chap_auth_session': 'chapAuthSession', 'fs_type': 'fsType', 'initiator_name': 'initiatorName', 'iscsi_interface': 'iscsiInterface', 'portals': 'portals', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesIscsi", jsii_struct_bases=[], name_mapping={'iqn': 'iqn', 'lun': 'lun', 'target_portal': 'targetPortal', 'chap_auth_discovery': 'chapAuthDiscovery', 'chap_auth_session': 'chapAuthSession', 'fs_type': 'fsType', 'initiator_name': 'initiatorName', 'iscsi_interface': 'iscsiInterface', 'portals': 'portals', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class JenkinsSpecMasterVolumesIscsi():
-    def __init__(self, *, iqn: str, lun: jsii.Number, target_portal: str, chap_auth_discovery: typing.Optional[bool]=None, chap_auth_session: typing.Optional[bool]=None, fs_type: typing.Optional[str]=None, initiator_name: typing.Optional[str]=None, iscsi_interface: typing.Optional[str]=None, portals: typing.Optional[typing.List[str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesIscsiSecretRef"]=None):
+    def __init__(self, *, iqn: str, lun: jsii.Number, target_portal: str, chap_auth_discovery: typing.Optional[bool]=None, chap_auth_session: typing.Optional[bool]=None, fs_type: typing.Optional[str]=None, initiator_name: typing.Optional[str]=None, iscsi_interface: typing.Optional[str]=None, portals: typing.Optional[typing.List[str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesIscsiSecretRef"]=None) -> None:
         """ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://examples.k8s.io/volumes/iscsi/README.md
@@ -6272,9 +6272,9 @@ class JenkinsSpecMasterVolumesIscsi():
         return 'JenkinsSpecMasterVolumesIscsi(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesIscsiSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesIscsiSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterVolumesIscsiSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """CHAP Secret for iSCSI target and initiator authentication.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -6307,9 +6307,9 @@ class JenkinsSpecMasterVolumesIscsiSecretRef():
         return 'JenkinsSpecMasterVolumesIscsiSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesNfs", jsii_struct_bases=[], name_mapping={'path': 'path', 'server': 'server', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesNfs", jsii_struct_bases=[], name_mapping={'path': 'path', 'server': 'server', 'read_only': 'readOnly'})
 class JenkinsSpecMasterVolumesNfs():
-    def __init__(self, *, path: str, server: str, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, path: str, server: str, read_only: typing.Optional[bool]=None) -> None:
         """NFS represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs.
 
         :param path: Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
@@ -6371,9 +6371,9 @@ class JenkinsSpecMasterVolumesNfs():
         return 'JenkinsSpecMasterVolumesNfs(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesPersistentVolumeClaim", jsii_struct_bases=[], name_mapping={'claim_name': 'claimName', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesPersistentVolumeClaim", jsii_struct_bases=[], name_mapping={'claim_name': 'claimName', 'read_only': 'readOnly'})
 class JenkinsSpecMasterVolumesPersistentVolumeClaim():
-    def __init__(self, *, claim_name: str, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, claim_name: str, read_only: typing.Optional[bool]=None) -> None:
         """PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace.
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
@@ -6421,9 +6421,9 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim():
         return 'JenkinsSpecMasterVolumesPersistentVolumeClaim(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesPhotonPersistentDisk", jsii_struct_bases=[], name_mapping={'pd_id': 'pdID', 'fs_type': 'fsType'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesPhotonPersistentDisk", jsii_struct_bases=[], name_mapping={'pd_id': 'pdID', 'fs_type': 'fsType'})
 class JenkinsSpecMasterVolumesPhotonPersistentDisk():
-    def __init__(self, *, pd_id: str, fs_type: typing.Optional[str]=None):
+    def __init__(self, *, pd_id: str, fs_type: typing.Optional[str]=None) -> None:
         """PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine.
 
         :param pd_id: ID that identifies Photon Controller persistent disk.
@@ -6467,9 +6467,9 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk():
         return 'JenkinsSpecMasterVolumesPhotonPersistentDisk(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesPortworxVolume", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesPortworxVolume", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly'})
 class JenkinsSpecMasterVolumesPortworxVolume():
-    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None) -> None:
         """PortworxVolume represents a portworx volume attached and mounted on kubelets host machine.
 
         :param volume_id: VolumeID uniquely identifies a Portworx volume.
@@ -6529,9 +6529,9 @@ class JenkinsSpecMasterVolumesPortworxVolume():
         return 'JenkinsSpecMasterVolumesPortworxVolume(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjected", jsii_struct_bases=[], name_mapping={'sources': 'sources', 'default_mode': 'defaultMode'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjected", jsii_struct_bases=[], name_mapping={'sources': 'sources', 'default_mode': 'defaultMode'})
 class JenkinsSpecMasterVolumesProjected():
-    def __init__(self, *, sources: typing.List["JenkinsSpecMasterVolumesProjectedSources"], default_mode: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, sources: typing.List["JenkinsSpecMasterVolumesProjectedSources"], default_mode: typing.Optional[jsii.Number]=None) -> None:
         """Items for all in one resources secrets, configmaps, and downward API.
 
         :param sources: list of volume projections.
@@ -6575,9 +6575,9 @@ class JenkinsSpecMasterVolumesProjected():
         return 'JenkinsSpecMasterVolumesProjected(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSources", jsii_struct_bases=[], name_mapping={'config_map': 'configMap', 'downward_api': 'downwardAPI', 'secret': 'secret', 'service_account_token': 'serviceAccountToken'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSources", jsii_struct_bases=[], name_mapping={'config_map': 'configMap', 'downward_api': 'downwardAPI', 'secret': 'secret', 'service_account_token': 'serviceAccountToken'})
 class JenkinsSpecMasterVolumesProjectedSources():
-    def __init__(self, *, config_map: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesConfigMap"]=None, downward_api: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApi"]=None, secret: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesSecret"]=None, service_account_token: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken"]=None):
+    def __init__(self, *, config_map: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesConfigMap"]=None, downward_api: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApi"]=None, secret: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesSecret"]=None, service_account_token: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken"]=None) -> None:
         """Projection that may be projected along with other supported volume types.
 
         :param config_map: information about the configMap data to project.
@@ -6645,9 +6645,9 @@ class JenkinsSpecMasterVolumesProjectedSources():
         return 'JenkinsSpecMasterVolumesProjectedSources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesConfigMap", jsii_struct_bases=[], name_mapping={'items': 'items', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesConfigMap", jsii_struct_bases=[], name_mapping={'items': 'items', 'name': 'name', 'optional': 'optional'})
 class JenkinsSpecMasterVolumesProjectedSourcesConfigMap():
-    def __init__(self, *, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """information about the configMap data to project.
 
         :param items: If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
@@ -6704,9 +6704,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap():
         return 'JenkinsSpecMasterVolumesProjectedSourcesConfigMap(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
 class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems():
-    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None) -> None:
         """Maps a string key to a path within a volume.
 
         :param key: The key to project.
@@ -6763,9 +6763,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems():
         return 'JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesDownwardApi", jsii_struct_bases=[], name_mapping={'items': 'items'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesDownwardApi", jsii_struct_bases=[], name_mapping={'items': 'items'})
 class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi():
-    def __init__(self, *, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]]=None):
+    def __init__(self, *, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]]=None) -> None:
         """information about the downwardAPI data to project.
 
         :param items: Items is a list of DownwardAPIVolume file.
@@ -6796,9 +6796,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi():
         return 'JenkinsSpecMasterVolumesProjectedSourcesDownwardApi(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems", jsii_struct_bases=[], name_mapping={'path': 'path', 'field_ref': 'fieldRef', 'mode': 'mode', 'resource_field_ref': 'resourceFieldRef'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems", jsii_struct_bases=[], name_mapping={'path': 'path', 'field_ref': 'fieldRef', 'mode': 'mode', 'resource_field_ref': 'resourceFieldRef'})
 class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems():
-    def __init__(self, *, path: str, field_ref: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"]=None, mode: typing.Optional[jsii.Number]=None, resource_field_ref: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"]=None):
+    def __init__(self, *, path: str, field_ref: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"]=None, mode: typing.Optional[jsii.Number]=None, resource_field_ref: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"]=None) -> None:
         """DownwardAPIVolumeFile represents information to create the file containing the pod field.
 
         :param path: Required: Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
@@ -6868,9 +6868,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems():
         return 'JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
 class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef():
-    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None):
+    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None) -> None:
         """Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
 
         :param field_path: Path of the field to select in the specified API version.
@@ -6912,9 +6912,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef():
         return 'JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
 class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef():
-    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None):
+    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None) -> None:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
         :param resource: Required: resource to select.
@@ -6967,9 +6967,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef()
         return 'JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesSecret", jsii_struct_bases=[], name_mapping={'items': 'items', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesSecret", jsii_struct_bases=[], name_mapping={'items': 'items', 'name': 'name', 'optional': 'optional'})
 class JenkinsSpecMasterVolumesProjectedSourcesSecret():
-    def __init__(self, *, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """information about the secret data to project.
 
         :param items: If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
@@ -7026,9 +7026,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret():
         return 'JenkinsSpecMasterVolumesProjectedSourcesSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesSecretItems", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesSecretItems", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
 class JenkinsSpecMasterVolumesProjectedSourcesSecretItems():
-    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None) -> None:
         """Maps a string key to a path within a volume.
 
         :param key: The key to project.
@@ -7085,9 +7085,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems():
         return 'JenkinsSpecMasterVolumesProjectedSourcesSecretItems(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken", jsii_struct_bases=[], name_mapping={'path': 'path', 'audience': 'audience', 'expiration_seconds': 'expirationSeconds'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken", jsii_struct_bases=[], name_mapping={'path': 'path', 'audience': 'audience', 'expiration_seconds': 'expirationSeconds'})
 class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken():
-    def __init__(self, *, path: str, audience: typing.Optional[str]=None, expiration_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, path: str, audience: typing.Optional[str]=None, expiration_seconds: typing.Optional[jsii.Number]=None) -> None:
         """information about the serviceAccountToken data to project.
 
         :param path: Path is the path relative to the mount point of the file to project the token into.
@@ -7147,9 +7147,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken():
         return 'JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesQuobyte", jsii_struct_bases=[], name_mapping={'registry': 'registry', 'volume': 'volume', 'group': 'group', 'read_only': 'readOnly', 'tenant': 'tenant', 'user': 'user'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesQuobyte", jsii_struct_bases=[], name_mapping={'registry': 'registry', 'volume': 'volume', 'group': 'group', 'read_only': 'readOnly', 'tenant': 'tenant', 'user': 'user'})
 class JenkinsSpecMasterVolumesQuobyte():
-    def __init__(self, *, registry: str, volume: str, group: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, tenant: typing.Optional[str]=None, user: typing.Optional[str]=None):
+    def __init__(self, *, registry: str, volume: str, group: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, tenant: typing.Optional[str]=None, user: typing.Optional[str]=None) -> None:
         """Quobyte represents a Quobyte mount on the host that shares a pod's lifetime.
 
         :param registry: Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes.
@@ -7246,9 +7246,9 @@ class JenkinsSpecMasterVolumesQuobyte():
         return 'JenkinsSpecMasterVolumesQuobyte(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesRbd", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesRbd", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
 class JenkinsSpecMasterVolumesRbd():
-    def __init__(self, *, image: str, monitors: typing.List[str], fs_type: typing.Optional[str]=None, keyring: typing.Optional[str]=None, pool: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesRbdSecretRef"]=None, user: typing.Optional[str]=None):
+    def __init__(self, *, image: str, monitors: typing.List[str], fs_type: typing.Optional[str]=None, keyring: typing.Optional[str]=None, pool: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesRbdSecretRef"]=None, user: typing.Optional[str]=None) -> None:
         """RBD represents a Rados Block Device mount on the host that shares a pod's lifetime.
 
         More info: https://examples.k8s.io/volumes/rbd/README.md
@@ -7390,9 +7390,9 @@ class JenkinsSpecMasterVolumesRbd():
         return 'JenkinsSpecMasterVolumesRbd(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesRbdSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesRbdSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterVolumesRbdSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """SecretRef is name of the authentication secret for RBDUser.
 
         If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -7430,9 +7430,9 @@ class JenkinsSpecMasterVolumesRbdSecretRef():
         return 'JenkinsSpecMasterVolumesRbdSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesScaleIo", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesScaleIo", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
 class JenkinsSpecMasterVolumesScaleIo():
-    def __init__(self, *, gateway: str, secret_ref: "JenkinsSpecMasterVolumesScaleIoSecretRef", system: str, fs_type: typing.Optional[str]=None, protection_domain: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, ssl_enabled: typing.Optional[bool]=None, storage_mode: typing.Optional[str]=None, storage_pool: typing.Optional[str]=None, volume_name: typing.Optional[str]=None):
+    def __init__(self, *, gateway: str, secret_ref: "JenkinsSpecMasterVolumesScaleIoSecretRef", system: str, fs_type: typing.Optional[str]=None, protection_domain: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, ssl_enabled: typing.Optional[bool]=None, storage_mode: typing.Optional[str]=None, storage_pool: typing.Optional[str]=None, volume_name: typing.Optional[str]=None) -> None:
         """ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
 
         :param gateway: The host address of the ScaleIO API Gateway.
@@ -7580,9 +7580,9 @@ class JenkinsSpecMasterVolumesScaleIo():
         return 'JenkinsSpecMasterVolumesScaleIo(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesScaleIoSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesScaleIoSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterVolumesScaleIoSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """SecretRef references to the secret for ScaleIO user and other sensitive information.
 
         If this is not provided, Login operation will fail.
@@ -7617,9 +7617,9 @@ class JenkinsSpecMasterVolumesScaleIoSecretRef():
         return 'JenkinsSpecMasterVolumesScaleIoSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesSecret", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items', 'optional': 'optional', 'secret_name': 'secretName'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesSecret", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items', 'optional': 'optional', 'secret_name': 'secretName'})
 class JenkinsSpecMasterVolumesSecret():
-    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesSecretItems"]]=None, optional: typing.Optional[bool]=None, secret_name: typing.Optional[str]=None):
+    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["JenkinsSpecMasterVolumesSecretItems"]]=None, optional: typing.Optional[bool]=None, secret_name: typing.Optional[str]=None) -> None:
         """Secret represents a secret that should populate this volume.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
@@ -7694,9 +7694,9 @@ class JenkinsSpecMasterVolumesSecret():
         return 'JenkinsSpecMasterVolumesSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesSecretItems", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesSecretItems", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
 class JenkinsSpecMasterVolumesSecretItems():
-    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None) -> None:
         """Maps a string key to a path within a volume.
 
         :param key: The key to project.
@@ -7753,9 +7753,9 @@ class JenkinsSpecMasterVolumesSecretItems():
         return 'JenkinsSpecMasterVolumesSecretItems(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesStorageos", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesStorageos", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
 class JenkinsSpecMasterVolumesStorageos():
-    def __init__(self, *, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesStorageosSecretRef"]=None, volume_name: typing.Optional[str]=None, volume_namespace: typing.Optional[str]=None):
+    def __init__(self, *, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["JenkinsSpecMasterVolumesStorageosSecretRef"]=None, volume_name: typing.Optional[str]=None, volume_namespace: typing.Optional[str]=None) -> None:
         """StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
 
         :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
@@ -7844,9 +7844,9 @@ class JenkinsSpecMasterVolumesStorageos():
         return 'JenkinsSpecMasterVolumesStorageos(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesStorageosSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesStorageosSecretRef", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecMasterVolumesStorageosSecretRef():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """SecretRef specifies the secret to use for obtaining the StorageOS API credentials.
 
         If not specified, default values will be attempted.
@@ -7881,9 +7881,9 @@ class JenkinsSpecMasterVolumesStorageosSecretRef():
         return 'JenkinsSpecMasterVolumesStorageosSecretRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecMasterVolumesVsphereVolume", jsii_struct_bases=[], name_mapping={'volume_path': 'volumePath', 'fs_type': 'fsType', 'storage_policy_id': 'storagePolicyID', 'storage_policy_name': 'storagePolicyName'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecMasterVolumesVsphereVolume", jsii_struct_bases=[], name_mapping={'volume_path': 'volumePath', 'fs_type': 'fsType', 'storage_policy_id': 'storagePolicyID', 'storage_policy_name': 'storagePolicyName'})
 class JenkinsSpecMasterVolumesVsphereVolume():
-    def __init__(self, *, volume_path: str, fs_type: typing.Optional[str]=None, storage_policy_id: typing.Optional[str]=None, storage_policy_name: typing.Optional[str]=None):
+    def __init__(self, *, volume_path: str, fs_type: typing.Optional[str]=None, storage_policy_id: typing.Optional[str]=None, storage_policy_name: typing.Optional[str]=None) -> None:
         """VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine.
 
         :param volume_path: Path that identifies vSphere volume vmdk.
@@ -7949,9 +7949,9 @@ class JenkinsSpecMasterVolumesVsphereVolume():
         return 'JenkinsSpecMasterVolumesVsphereVolume(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotifications", jsii_struct_bases=[], name_mapping={'level': 'level', 'name': 'name', 'verbose': 'verbose', 'mailgun': 'mailgun', 'slack': 'slack', 'smtp': 'smtp', 'teams': 'teams'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotifications", jsii_struct_bases=[], name_mapping={'level': 'level', 'name': 'name', 'verbose': 'verbose', 'mailgun': 'mailgun', 'slack': 'slack', 'smtp': 'smtp', 'teams': 'teams'})
 class JenkinsSpecNotifications():
-    def __init__(self, *, level: str, name: str, verbose: bool, mailgun: typing.Optional["JenkinsSpecNotificationsMailgun"]=None, slack: typing.Optional["JenkinsSpecNotificationsSlack"]=None, smtp: typing.Optional["JenkinsSpecNotificationsSmtp"]=None, teams: typing.Optional["JenkinsSpecNotificationsTeams"]=None):
+    def __init__(self, *, level: str, name: str, verbose: bool, mailgun: typing.Optional["JenkinsSpecNotificationsMailgun"]=None, slack: typing.Optional["JenkinsSpecNotificationsSlack"]=None, smtp: typing.Optional["JenkinsSpecNotificationsSmtp"]=None, teams: typing.Optional["JenkinsSpecNotificationsTeams"]=None) -> None:
         """Notification is a service configuration used to send notifications about Jenkins status.
 
         :param level: NotificationLevel defines the level of a Notification.
@@ -8050,9 +8050,9 @@ class JenkinsSpecNotifications():
         return 'JenkinsSpecNotifications(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsMailgun", jsii_struct_bases=[], name_mapping={'api_key_secret_key_selector': 'apiKeySecretKeySelector', 'domain': 'domain', 'from_': 'from', 'recipient': 'recipient'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsMailgun", jsii_struct_bases=[], name_mapping={'api_key_secret_key_selector': 'apiKeySecretKeySelector', 'domain': 'domain', 'from_': 'from', 'recipient': 'recipient'})
 class JenkinsSpecNotificationsMailgun():
-    def __init__(self, *, api_key_secret_key_selector: "JenkinsSpecNotificationsMailgunApiKeySecretKeySelector", domain: str, from_: str, recipient: str):
+    def __init__(self, *, api_key_secret_key_selector: "JenkinsSpecNotificationsMailgunApiKeySecretKeySelector", domain: str, from_: str, recipient: str) -> None:
         """Mailgun is handler for Mailgun email service notification channel.
 
         :param api_key_secret_key_selector: SecretKeySelector selects a key of a Secret.
@@ -8114,9 +8114,9 @@ class JenkinsSpecNotificationsMailgun():
         return 'JenkinsSpecNotificationsMailgun(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsMailgunApiKeySecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsMailgunApiKeySecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
 class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector():
-    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret"):
+    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret") -> None:
         """SecretKeySelector selects a key of a Secret.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -8161,9 +8161,9 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector():
         return 'JenkinsSpecNotificationsMailgunApiKeySecretKeySelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -8196,9 +8196,9 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret():
         return 'JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsSlack", jsii_struct_bases=[], name_mapping={'web_hook_url_secret_key_selector': 'webHookURLSecretKeySelector'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsSlack", jsii_struct_bases=[], name_mapping={'web_hook_url_secret_key_selector': 'webHookURLSecretKeySelector'})
 class JenkinsSpecNotificationsSlack():
-    def __init__(self, *, web_hook_url_secret_key_selector: "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector"):
+    def __init__(self, *, web_hook_url_secret_key_selector: "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector") -> None:
         """Slack is handler for Slack notification channel.
 
         :param web_hook_url_secret_key_selector: The web hook URL to Slack App.
@@ -8230,9 +8230,9 @@ class JenkinsSpecNotificationsSlack():
         return 'JenkinsSpecNotificationsSlack(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
 class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector():
-    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret"):
+    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret") -> None:
         """The web hook URL to Slack App.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -8277,9 +8277,9 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector():
         return 'JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -8312,9 +8312,9 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret():
         return 'JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsSmtp", jsii_struct_bases=[], name_mapping={'from_': 'from', 'password_secret_key_selector': 'passwordSecretKeySelector', 'port': 'port', 'server': 'server', 'to': 'to', 'username_secret_key_selector': 'usernameSecretKeySelector', 'tls_insecure_skip_verify': 'tlsInsecureSkipVerify'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsSmtp", jsii_struct_bases=[], name_mapping={'from_': 'from', 'password_secret_key_selector': 'passwordSecretKeySelector', 'port': 'port', 'server': 'server', 'to': 'to', 'username_secret_key_selector': 'usernameSecretKeySelector', 'tls_insecure_skip_verify': 'tlsInsecureSkipVerify'})
 class JenkinsSpecNotificationsSmtp():
-    def __init__(self, *, from_: str, password_secret_key_selector: "JenkinsSpecNotificationsSmtpPasswordSecretKeySelector", port: jsii.Number, server: str, to: str, username_secret_key_selector: "JenkinsSpecNotificationsSmtpUsernameSecretKeySelector", tls_insecure_skip_verify: typing.Optional[bool]=None):
+    def __init__(self, *, from_: str, password_secret_key_selector: "JenkinsSpecNotificationsSmtpPasswordSecretKeySelector", port: jsii.Number, server: str, to: str, username_secret_key_selector: "JenkinsSpecNotificationsSmtpUsernameSecretKeySelector", tls_insecure_skip_verify: typing.Optional[bool]=None) -> None:
         """SMTP is handler for sending emails via this protocol.
 
         :param from_: 
@@ -8408,9 +8408,9 @@ class JenkinsSpecNotificationsSmtp():
         return 'JenkinsSpecNotificationsSmtp(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsSmtpPasswordSecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsSmtpPasswordSecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
 class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector():
-    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret"):
+    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret") -> None:
         """SecretKeySelector selects a key of a Secret.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -8455,9 +8455,9 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector():
         return 'JenkinsSpecNotificationsSmtpPasswordSecretKeySelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -8490,9 +8490,9 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret():
         return 'JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsSmtpUsernameSecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsSmtpUsernameSecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
 class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector():
-    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret"):
+    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret") -> None:
         """SecretKeySelector selects a key of a Secret.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -8537,9 +8537,9 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector():
         return 'JenkinsSpecNotificationsSmtpUsernameSecretKeySelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -8572,9 +8572,9 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret():
         return 'JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsTeams", jsii_struct_bases=[], name_mapping={'web_hook_url_secret_key_selector': 'webHookURLSecretKeySelector'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsTeams", jsii_struct_bases=[], name_mapping={'web_hook_url_secret_key_selector': 'webHookURLSecretKeySelector'})
 class JenkinsSpecNotificationsTeams():
-    def __init__(self, *, web_hook_url_secret_key_selector: "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector"):
+    def __init__(self, *, web_hook_url_secret_key_selector: "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector") -> None:
         """MicrosoftTeams is handler for Microsoft MicrosoftTeams notification channel.
 
         :param web_hook_url_secret_key_selector: The web hook URL to MicrosoftTeams App.
@@ -8606,9 +8606,9 @@ class JenkinsSpecNotificationsTeams():
         return 'JenkinsSpecNotificationsTeams(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'secret': 'secret'})
 class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector():
-    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret"):
+    def __init__(self, *, key: str, secret: "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret") -> None:
         """The web hook URL to MicrosoftTeams App.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -8653,9 +8653,9 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector():
         return 'JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -8688,9 +8688,9 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret():
         return 'JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecRestore", jsii_struct_bases=[], name_mapping={'action': 'action', 'container_name': 'containerName', 'recovery_once': 'recoveryOnce'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecRestore", jsii_struct_bases=[], name_mapping={'action': 'action', 'container_name': 'containerName', 'recovery_once': 'recoveryOnce'})
 class JenkinsSpecRestore():
-    def __init__(self, *, action: "JenkinsSpecRestoreAction", container_name: str, recovery_once: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, action: "JenkinsSpecRestoreAction", container_name: str, recovery_once: typing.Optional[jsii.Number]=None) -> None:
         """Backup defines configuration of Jenkins backup restore More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-backup-and-restore.
 
         :param action: Action defines action which performs restore backup in restore container sidecar.
@@ -8744,9 +8744,9 @@ class JenkinsSpecRestore():
         return 'JenkinsSpecRestore(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecRestoreAction", jsii_struct_bases=[], name_mapping={'exec': 'exec'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecRestoreAction", jsii_struct_bases=[], name_mapping={'exec': 'exec'})
 class JenkinsSpecRestoreAction():
-    def __init__(self, *, exec: typing.Optional["JenkinsSpecRestoreActionExec"]=None):
+    def __init__(self, *, exec: typing.Optional["JenkinsSpecRestoreActionExec"]=None) -> None:
         """Action defines action which performs restore backup in restore container sidecar.
 
         :param exec: Exec specifies the action to take.
@@ -8778,9 +8778,9 @@ class JenkinsSpecRestoreAction():
         return 'JenkinsSpecRestoreAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecRestoreActionExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecRestoreActionExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class JenkinsSpecRestoreActionExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """Exec specifies the action to take.
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -8813,9 +8813,9 @@ class JenkinsSpecRestoreActionExec():
         return 'JenkinsSpecRestoreActionExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecRoles", jsii_struct_bases=[], name_mapping={'api_group': 'apiGroup', 'kind': 'kind', 'name': 'name'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecRoles", jsii_struct_bases=[], name_mapping={'api_group': 'apiGroup', 'kind': 'kind', 'name': 'name'})
 class JenkinsSpecRoles():
-    def __init__(self, *, api_group: str, kind: str, name: str):
+    def __init__(self, *, api_group: str, kind: str, name: str) -> None:
         """RoleRef contains information that points to the role being used.
 
         :param api_group: APIGroup is the group for the resource being referenced.
@@ -8868,9 +8868,9 @@ class JenkinsSpecRoles():
         return 'JenkinsSpecRoles(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecSeedJobs", jsii_struct_bases=[], name_mapping={'additional_classpath': 'additionalClasspath', 'bitbucket_push_trigger': 'bitbucketPushTrigger', 'build_periodically': 'buildPeriodically', 'credential_id': 'credentialID', 'credential_type': 'credentialType', 'description': 'description', 'fail_on_missing_plugin': 'failOnMissingPlugin', 'github_push_trigger': 'githubPushTrigger', 'id': 'id', 'ignore_missing_files': 'ignoreMissingFiles', 'poll_scm': 'pollSCM', 'repository_branch': 'repositoryBranch', 'repository_url': 'repositoryUrl', 'targets': 'targets', 'unstable_on_deprecation': 'unstableOnDeprecation'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecSeedJobs", jsii_struct_bases=[], name_mapping={'additional_classpath': 'additionalClasspath', 'bitbucket_push_trigger': 'bitbucketPushTrigger', 'build_periodically': 'buildPeriodically', 'credential_id': 'credentialID', 'credential_type': 'credentialType', 'description': 'description', 'fail_on_missing_plugin': 'failOnMissingPlugin', 'github_push_trigger': 'githubPushTrigger', 'id': 'id', 'ignore_missing_files': 'ignoreMissingFiles', 'poll_scm': 'pollSCM', 'repository_branch': 'repositoryBranch', 'repository_url': 'repositoryUrl', 'targets': 'targets', 'unstable_on_deprecation': 'unstableOnDeprecation'})
 class JenkinsSpecSeedJobs():
-    def __init__(self, *, additional_classpath: typing.Optional[str]=None, bitbucket_push_trigger: typing.Optional[bool]=None, build_periodically: typing.Optional[str]=None, credential_id: typing.Optional[str]=None, credential_type: typing.Optional[str]=None, description: typing.Optional[str]=None, fail_on_missing_plugin: typing.Optional[bool]=None, github_push_trigger: typing.Optional[bool]=None, id: typing.Optional[str]=None, ignore_missing_files: typing.Optional[bool]=None, poll_scm: typing.Optional[str]=None, repository_branch: typing.Optional[str]=None, repository_url: typing.Optional[str]=None, targets: typing.Optional[str]=None, unstable_on_deprecation: typing.Optional[bool]=None):
+    def __init__(self, *, additional_classpath: typing.Optional[str]=None, bitbucket_push_trigger: typing.Optional[bool]=None, build_periodically: typing.Optional[str]=None, credential_id: typing.Optional[str]=None, credential_type: typing.Optional[str]=None, description: typing.Optional[str]=None, fail_on_missing_plugin: typing.Optional[bool]=None, github_push_trigger: typing.Optional[bool]=None, id: typing.Optional[str]=None, ignore_missing_files: typing.Optional[bool]=None, poll_scm: typing.Optional[str]=None, repository_branch: typing.Optional[str]=None, repository_url: typing.Optional[str]=None, targets: typing.Optional[str]=None, unstable_on_deprecation: typing.Optional[bool]=None) -> None:
         """SeedJob defines configuration for seed job More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-seed-jobs-and-pipelines.
 
         :param additional_classpath: AdditionalClasspath is setting for Job DSL API plugin to set Additional Classpath.
@@ -9057,9 +9057,9 @@ class JenkinsSpecSeedJobs():
         return 'JenkinsSpecSeedJobs(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecService", jsii_struct_bases=[], name_mapping={'annotations': 'annotations', 'labels': 'labels', 'load_balancer_ip': 'loadBalancerIP', 'load_balancer_source_ranges': 'loadBalancerSourceRanges', 'node_port': 'nodePort', 'port': 'port', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecService", jsii_struct_bases=[], name_mapping={'annotations': 'annotations', 'labels': 'labels', 'load_balancer_ip': 'loadBalancerIP', 'load_balancer_source_ranges': 'loadBalancerSourceRanges', 'node_port': 'nodePort', 'port': 'port', 'type': 'type'})
 class JenkinsSpecService():
-    def __init__(self, *, annotations: typing.Optional[typing.Mapping[str,str]]=None, labels: typing.Optional[typing.Mapping[str,str]]=None, load_balancer_ip: typing.Optional[str]=None, load_balancer_source_ranges: typing.Optional[typing.List[str]]=None, node_port: typing.Optional[jsii.Number]=None, port: typing.Optional[jsii.Number]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, annotations: typing.Optional[typing.Mapping[str, str]]=None, labels: typing.Optional[typing.Mapping[str, str]]=None, load_balancer_ip: typing.Optional[str]=None, load_balancer_source_ranges: typing.Optional[typing.List[str]]=None, node_port: typing.Optional[jsii.Number]=None, port: typing.Optional[jsii.Number]=None, type: typing.Optional[str]=None) -> None:
         """Service is Kubernetes service of Jenkins master HTTP pod Defaults to : port: 8080 type: ClusterIP.
 
         :param annotations: Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -9087,7 +9087,7 @@ class JenkinsSpecService():
         if type is not None: self._values["type"] = type
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -9098,7 +9098,7 @@ class JenkinsSpecService():
         return self._values.get('annotations')
 
     @builtins.property
-    def labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Route service traffic to pods with label keys and values matching this selector.
 
         If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
@@ -9179,9 +9179,9 @@ class JenkinsSpecService():
         return 'JenkinsSpecService(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecServiceAccount", jsii_struct_bases=[], name_mapping={'annotations': 'annotations'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecServiceAccount", jsii_struct_bases=[], name_mapping={'annotations': 'annotations'})
 class JenkinsSpecServiceAccount():
-    def __init__(self, *, annotations: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, annotations: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """ServiceAccount defines Jenkins master service account attributes.
 
         :param annotations: Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -9194,7 +9194,7 @@ class JenkinsSpecServiceAccount():
         if annotations is not None: self._values["annotations"] = annotations
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -9214,9 +9214,9 @@ class JenkinsSpecServiceAccount():
         return 'JenkinsSpecServiceAccount(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="jenkins.JenkinsSpecSlaveService", jsii_struct_bases=[], name_mapping={'annotations': 'annotations', 'labels': 'labels', 'load_balancer_ip': 'loadBalancerIP', 'load_balancer_source_ranges': 'loadBalancerSourceRanges', 'node_port': 'nodePort', 'port': 'port', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.JenkinsSpecSlaveService", jsii_struct_bases=[], name_mapping={'annotations': 'annotations', 'labels': 'labels', 'load_balancer_ip': 'loadBalancerIP', 'load_balancer_source_ranges': 'loadBalancerSourceRanges', 'node_port': 'nodePort', 'port': 'port', 'type': 'type'})
 class JenkinsSpecSlaveService():
-    def __init__(self, *, annotations: typing.Optional[typing.Mapping[str,str]]=None, labels: typing.Optional[typing.Mapping[str,str]]=None, load_balancer_ip: typing.Optional[str]=None, load_balancer_source_ranges: typing.Optional[typing.List[str]]=None, node_port: typing.Optional[jsii.Number]=None, port: typing.Optional[jsii.Number]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, annotations: typing.Optional[typing.Mapping[str, str]]=None, labels: typing.Optional[typing.Mapping[str, str]]=None, load_balancer_ip: typing.Optional[str]=None, load_balancer_source_ranges: typing.Optional[typing.List[str]]=None, node_port: typing.Optional[jsii.Number]=None, port: typing.Optional[jsii.Number]=None, type: typing.Optional[str]=None) -> None:
         """Service is Kubernetes service of Jenkins slave pods Defaults to : port: 50000 type: ClusterIP.
 
         :param annotations: Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -9244,7 +9244,7 @@ class JenkinsSpecSlaveService():
         if type is not None: self._values["type"] = type
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -9255,7 +9255,7 @@ class JenkinsSpecSlaveService():
         return self._values.get('annotations')
 
     @builtins.property
-    def labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Route service traffic to pods with label keys and values matching this selector.
 
         If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
@@ -9336,6 +9336,150 @@ class JenkinsSpecSlaveService():
         return 'JenkinsSpecSlaveService(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-__all__ = ["Jenkins", "JenkinsOptions", "JenkinsSpec", "JenkinsSpecBackup", "JenkinsSpecBackupAction", "JenkinsSpecBackupActionExec", "JenkinsSpecConfigurationAsCode", "JenkinsSpecConfigurationAsCodeConfigurations", "JenkinsSpecConfigurationAsCodeSecret", "JenkinsSpecGroovyScripts", "JenkinsSpecGroovyScriptsConfigurations", "JenkinsSpecGroovyScriptsSecret", "JenkinsSpecJenkinsApiSettings", "JenkinsSpecMaster", "JenkinsSpecMasterBasePlugins", "JenkinsSpecMasterContainers", "JenkinsSpecMasterContainersEnv", "JenkinsSpecMasterContainersEnvFrom", "JenkinsSpecMasterContainersEnvFromConfigMapRef", "JenkinsSpecMasterContainersEnvFromSecretRef", "JenkinsSpecMasterContainersEnvValueFrom", "JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef", "JenkinsSpecMasterContainersEnvValueFromFieldRef", "JenkinsSpecMasterContainersEnvValueFromResourceFieldRef", "JenkinsSpecMasterContainersEnvValueFromSecretKeyRef", "JenkinsSpecMasterContainersLifecycle", "JenkinsSpecMasterContainersLifecyclePostStart", "JenkinsSpecMasterContainersLifecyclePostStartExec", "JenkinsSpecMasterContainersLifecyclePostStartHttpGet", "JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders", "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", "JenkinsSpecMasterContainersLifecyclePostStartTcpSocket", "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", "JenkinsSpecMasterContainersLifecyclePreStop", "JenkinsSpecMasterContainersLifecyclePreStopExec", "JenkinsSpecMasterContainersLifecyclePreStopHttpGet", "JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders", "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", "JenkinsSpecMasterContainersLifecyclePreStopTcpSocket", "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", "JenkinsSpecMasterContainersLivenessProbe", "JenkinsSpecMasterContainersLivenessProbeExec", "JenkinsSpecMasterContainersLivenessProbeHttpGet", "JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders", "JenkinsSpecMasterContainersLivenessProbeHttpGetPort", "JenkinsSpecMasterContainersLivenessProbeTcpSocket", "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", "JenkinsSpecMasterContainersPorts", "JenkinsSpecMasterContainersReadinessProbe", "JenkinsSpecMasterContainersReadinessProbeExec", "JenkinsSpecMasterContainersReadinessProbeHttpGet", "JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders", "JenkinsSpecMasterContainersReadinessProbeHttpGetPort", "JenkinsSpecMasterContainersReadinessProbeTcpSocket", "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", "JenkinsSpecMasterContainersResources", "JenkinsSpecMasterContainersSecurityContext", "JenkinsSpecMasterContainersSecurityContextCapabilities", "JenkinsSpecMasterContainersSecurityContextSeLinuxOptions", "JenkinsSpecMasterContainersSecurityContextWindowsOptions", "JenkinsSpecMasterContainersVolumeMounts", "JenkinsSpecMasterImagePullSecrets", "JenkinsSpecMasterPlugins", "JenkinsSpecMasterSecurityContext", "JenkinsSpecMasterSecurityContextSeLinuxOptions", "JenkinsSpecMasterSecurityContextSysctls", "JenkinsSpecMasterSecurityContextWindowsOptions", "JenkinsSpecMasterTolerations", "JenkinsSpecMasterVolumes", "JenkinsSpecMasterVolumesAwsElasticBlockStore", "JenkinsSpecMasterVolumesAzureDisk", "JenkinsSpecMasterVolumesAzureFile", "JenkinsSpecMasterVolumesCephfs", "JenkinsSpecMasterVolumesCephfsSecretRef", "JenkinsSpecMasterVolumesCinder", "JenkinsSpecMasterVolumesCinderSecretRef", "JenkinsSpecMasterVolumesConfigMap", "JenkinsSpecMasterVolumesConfigMapItems", "JenkinsSpecMasterVolumesCsi", "JenkinsSpecMasterVolumesCsiNodePublishSecretRef", "JenkinsSpecMasterVolumesDownwardApi", "JenkinsSpecMasterVolumesDownwardApiItems", "JenkinsSpecMasterVolumesDownwardApiItemsFieldRef", "JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef", "JenkinsSpecMasterVolumesEmptyDir", "JenkinsSpecMasterVolumesFc", "JenkinsSpecMasterVolumesFlexVolume", "JenkinsSpecMasterVolumesFlexVolumeSecretRef", "JenkinsSpecMasterVolumesFlocker", "JenkinsSpecMasterVolumesGcePersistentDisk", "JenkinsSpecMasterVolumesGitRepo", "JenkinsSpecMasterVolumesGlusterfs", "JenkinsSpecMasterVolumesHostPath", "JenkinsSpecMasterVolumesIscsi", "JenkinsSpecMasterVolumesIscsiSecretRef", "JenkinsSpecMasterVolumesNfs", "JenkinsSpecMasterVolumesPersistentVolumeClaim", "JenkinsSpecMasterVolumesPhotonPersistentDisk", "JenkinsSpecMasterVolumesPortworxVolume", "JenkinsSpecMasterVolumesProjected", "JenkinsSpecMasterVolumesProjectedSources", "JenkinsSpecMasterVolumesProjectedSourcesConfigMap", "JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems", "JenkinsSpecMasterVolumesProjectedSourcesDownwardApi", "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems", "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef", "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef", "JenkinsSpecMasterVolumesProjectedSourcesSecret", "JenkinsSpecMasterVolumesProjectedSourcesSecretItems", "JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken", "JenkinsSpecMasterVolumesQuobyte", "JenkinsSpecMasterVolumesRbd", "JenkinsSpecMasterVolumesRbdSecretRef", "JenkinsSpecMasterVolumesScaleIo", "JenkinsSpecMasterVolumesScaleIoSecretRef", "JenkinsSpecMasterVolumesSecret", "JenkinsSpecMasterVolumesSecretItems", "JenkinsSpecMasterVolumesStorageos", "JenkinsSpecMasterVolumesStorageosSecretRef", "JenkinsSpecMasterVolumesVsphereVolume", "JenkinsSpecNotifications", "JenkinsSpecNotificationsMailgun", "JenkinsSpecNotificationsMailgunApiKeySecretKeySelector", "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret", "JenkinsSpecNotificationsSlack", "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector", "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret", "JenkinsSpecNotificationsSmtp", "JenkinsSpecNotificationsSmtpPasswordSecretKeySelector", "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret", "JenkinsSpecNotificationsSmtpUsernameSecretKeySelector", "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret", "JenkinsSpecNotificationsTeams", "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector", "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret", "JenkinsSpecRestore", "JenkinsSpecRestoreAction", "JenkinsSpecRestoreActionExec", "JenkinsSpecRoles", "JenkinsSpecSeedJobs", "JenkinsSpecService", "JenkinsSpecServiceAccount", "JenkinsSpecSlaveService", "__jsii_assembly__"]
+__all__ = [
+    "Jenkins",
+    "JenkinsOptions",
+    "JenkinsSpec",
+    "JenkinsSpecBackup",
+    "JenkinsSpecBackupAction",
+    "JenkinsSpecBackupActionExec",
+    "JenkinsSpecConfigurationAsCode",
+    "JenkinsSpecConfigurationAsCodeConfigurations",
+    "JenkinsSpecConfigurationAsCodeSecret",
+    "JenkinsSpecGroovyScripts",
+    "JenkinsSpecGroovyScriptsConfigurations",
+    "JenkinsSpecGroovyScriptsSecret",
+    "JenkinsSpecJenkinsApiSettings",
+    "JenkinsSpecMaster",
+    "JenkinsSpecMasterBasePlugins",
+    "JenkinsSpecMasterContainers",
+    "JenkinsSpecMasterContainersEnv",
+    "JenkinsSpecMasterContainersEnvFrom",
+    "JenkinsSpecMasterContainersEnvFromConfigMapRef",
+    "JenkinsSpecMasterContainersEnvFromSecretRef",
+    "JenkinsSpecMasterContainersEnvValueFrom",
+    "JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef",
+    "JenkinsSpecMasterContainersEnvValueFromFieldRef",
+    "JenkinsSpecMasterContainersEnvValueFromResourceFieldRef",
+    "JenkinsSpecMasterContainersEnvValueFromSecretKeyRef",
+    "JenkinsSpecMasterContainersLifecycle",
+    "JenkinsSpecMasterContainersLifecyclePostStart",
+    "JenkinsSpecMasterContainersLifecyclePostStartExec",
+    "JenkinsSpecMasterContainersLifecyclePostStartHttpGet",
+    "JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders",
+    "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort",
+    "JenkinsSpecMasterContainersLifecyclePostStartTcpSocket",
+    "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort",
+    "JenkinsSpecMasterContainersLifecyclePreStop",
+    "JenkinsSpecMasterContainersLifecyclePreStopExec",
+    "JenkinsSpecMasterContainersLifecyclePreStopHttpGet",
+    "JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders",
+    "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort",
+    "JenkinsSpecMasterContainersLifecyclePreStopTcpSocket",
+    "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort",
+    "JenkinsSpecMasterContainersLivenessProbe",
+    "JenkinsSpecMasterContainersLivenessProbeExec",
+    "JenkinsSpecMasterContainersLivenessProbeHttpGet",
+    "JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders",
+    "JenkinsSpecMasterContainersLivenessProbeHttpGetPort",
+    "JenkinsSpecMasterContainersLivenessProbeTcpSocket",
+    "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort",
+    "JenkinsSpecMasterContainersPorts",
+    "JenkinsSpecMasterContainersReadinessProbe",
+    "JenkinsSpecMasterContainersReadinessProbeExec",
+    "JenkinsSpecMasterContainersReadinessProbeHttpGet",
+    "JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders",
+    "JenkinsSpecMasterContainersReadinessProbeHttpGetPort",
+    "JenkinsSpecMasterContainersReadinessProbeTcpSocket",
+    "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort",
+    "JenkinsSpecMasterContainersResources",
+    "JenkinsSpecMasterContainersSecurityContext",
+    "JenkinsSpecMasterContainersSecurityContextCapabilities",
+    "JenkinsSpecMasterContainersSecurityContextSeLinuxOptions",
+    "JenkinsSpecMasterContainersSecurityContextWindowsOptions",
+    "JenkinsSpecMasterContainersVolumeMounts",
+    "JenkinsSpecMasterImagePullSecrets",
+    "JenkinsSpecMasterPlugins",
+    "JenkinsSpecMasterSecurityContext",
+    "JenkinsSpecMasterSecurityContextSeLinuxOptions",
+    "JenkinsSpecMasterSecurityContextSysctls",
+    "JenkinsSpecMasterSecurityContextWindowsOptions",
+    "JenkinsSpecMasterTolerations",
+    "JenkinsSpecMasterVolumes",
+    "JenkinsSpecMasterVolumesAwsElasticBlockStore",
+    "JenkinsSpecMasterVolumesAzureDisk",
+    "JenkinsSpecMasterVolumesAzureFile",
+    "JenkinsSpecMasterVolumesCephfs",
+    "JenkinsSpecMasterVolumesCephfsSecretRef",
+    "JenkinsSpecMasterVolumesCinder",
+    "JenkinsSpecMasterVolumesCinderSecretRef",
+    "JenkinsSpecMasterVolumesConfigMap",
+    "JenkinsSpecMasterVolumesConfigMapItems",
+    "JenkinsSpecMasterVolumesCsi",
+    "JenkinsSpecMasterVolumesCsiNodePublishSecretRef",
+    "JenkinsSpecMasterVolumesDownwardApi",
+    "JenkinsSpecMasterVolumesDownwardApiItems",
+    "JenkinsSpecMasterVolumesDownwardApiItemsFieldRef",
+    "JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef",
+    "JenkinsSpecMasterVolumesEmptyDir",
+    "JenkinsSpecMasterVolumesFc",
+    "JenkinsSpecMasterVolumesFlexVolume",
+    "JenkinsSpecMasterVolumesFlexVolumeSecretRef",
+    "JenkinsSpecMasterVolumesFlocker",
+    "JenkinsSpecMasterVolumesGcePersistentDisk",
+    "JenkinsSpecMasterVolumesGitRepo",
+    "JenkinsSpecMasterVolumesGlusterfs",
+    "JenkinsSpecMasterVolumesHostPath",
+    "JenkinsSpecMasterVolumesIscsi",
+    "JenkinsSpecMasterVolumesIscsiSecretRef",
+    "JenkinsSpecMasterVolumesNfs",
+    "JenkinsSpecMasterVolumesPersistentVolumeClaim",
+    "JenkinsSpecMasterVolumesPhotonPersistentDisk",
+    "JenkinsSpecMasterVolumesPortworxVolume",
+    "JenkinsSpecMasterVolumesProjected",
+    "JenkinsSpecMasterVolumesProjectedSources",
+    "JenkinsSpecMasterVolumesProjectedSourcesConfigMap",
+    "JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems",
+    "JenkinsSpecMasterVolumesProjectedSourcesDownwardApi",
+    "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems",
+    "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef",
+    "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef",
+    "JenkinsSpecMasterVolumesProjectedSourcesSecret",
+    "JenkinsSpecMasterVolumesProjectedSourcesSecretItems",
+    "JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken",
+    "JenkinsSpecMasterVolumesQuobyte",
+    "JenkinsSpecMasterVolumesRbd",
+    "JenkinsSpecMasterVolumesRbdSecretRef",
+    "JenkinsSpecMasterVolumesScaleIo",
+    "JenkinsSpecMasterVolumesScaleIoSecretRef",
+    "JenkinsSpecMasterVolumesSecret",
+    "JenkinsSpecMasterVolumesSecretItems",
+    "JenkinsSpecMasterVolumesStorageos",
+    "JenkinsSpecMasterVolumesStorageosSecretRef",
+    "JenkinsSpecMasterVolumesVsphereVolume",
+    "JenkinsSpecNotifications",
+    "JenkinsSpecNotificationsMailgun",
+    "JenkinsSpecNotificationsMailgunApiKeySecretKeySelector",
+    "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret",
+    "JenkinsSpecNotificationsSlack",
+    "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector",
+    "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret",
+    "JenkinsSpecNotificationsSmtp",
+    "JenkinsSpecNotificationsSmtpPasswordSecretKeySelector",
+    "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret",
+    "JenkinsSpecNotificationsSmtpUsernameSecretKeySelector",
+    "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret",
+    "JenkinsSpecNotificationsTeams",
+    "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector",
+    "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret",
+    "JenkinsSpecRestore",
+    "JenkinsSpecRestoreAction",
+    "JenkinsSpecRestoreActionExec",
+    "JenkinsSpecRoles",
+    "JenkinsSpecSeedJobs",
+    "JenkinsSpecService",
+    "JenkinsSpecServiceAccount",
+    "JenkinsSpecSlaveService",
+]
 
 publication.publish()

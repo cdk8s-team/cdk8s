@@ -11,10 +11,10 @@ import publication
 import cdk8s
 import constructs
 
-__jsii_assembly__ = jsii.JSIIAssembly.load("clusterinstallation", "0.0.0", __name__, "clusterinstallation@0.0.0.jsii.tgz")
+from ._jsii import *
 
 
-class ClusterInstallation(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="clusterinstallation.ClusterInstallation"):
+class ClusterInstallation(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallation"):
     """ClusterInstallation is the Schema for the clusterinstallations API.
 
     schema:
@@ -33,9 +33,9 @@ class ClusterInstallation(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="c
         jsii.create(ClusterInstallation, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class ClusterInstallationOptions():
-    def __init__(self, *, spec: "ClusterInstallationSpec", metadata: typing.Any=None):
+    def __init__(self, *, spec: "ClusterInstallationSpec", metadata: typing.Any=None) -> None:
         """ClusterInstallation is the Schema for the clusterinstallations API.
 
         :param spec: Specification of the desired behavior of the Mattermost cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
@@ -79,9 +79,9 @@ class ClusterInstallationOptions():
         return 'ClusterInstallationOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpec", jsii_struct_bases=[], name_mapping={'ingress_name': 'ingressName', 'affinity': 'affinity', 'blue_green': 'blueGreen', 'canary': 'canary', 'database': 'database', 'elastic_search': 'elasticSearch', 'image': 'image', 'ingress_annotations': 'ingressAnnotations', 'liveness_probe': 'livenessProbe', 'mattermost_env': 'mattermostEnv', 'mattermost_license_secret': 'mattermostLicenseSecret', 'minio': 'minio', 'node_selector': 'nodeSelector', 'readiness_probe': 'readinessProbe', 'replicas': 'replicas', 'resources': 'resources', 'service_annotations': 'serviceAnnotations', 'size': 'size', 'use_service_load_balancer': 'useServiceLoadBalancer', 'version': 'version'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpec", jsii_struct_bases=[], name_mapping={'ingress_name': 'ingressName', 'affinity': 'affinity', 'blue_green': 'blueGreen', 'canary': 'canary', 'database': 'database', 'elastic_search': 'elasticSearch', 'image': 'image', 'ingress_annotations': 'ingressAnnotations', 'liveness_probe': 'livenessProbe', 'mattermost_env': 'mattermostEnv', 'mattermost_license_secret': 'mattermostLicenseSecret', 'minio': 'minio', 'node_selector': 'nodeSelector', 'readiness_probe': 'readinessProbe', 'replicas': 'replicas', 'resources': 'resources', 'service_annotations': 'serviceAnnotations', 'size': 'size', 'use_service_load_balancer': 'useServiceLoadBalancer', 'version': 'version'})
 class ClusterInstallationSpec():
-    def __init__(self, *, ingress_name: str, affinity: typing.Optional["ClusterInstallationSpecAffinity"]=None, blue_green: typing.Optional["ClusterInstallationSpecBlueGreen"]=None, canary: typing.Optional["ClusterInstallationSpecCanary"]=None, database: typing.Optional["ClusterInstallationSpecDatabase"]=None, elastic_search: typing.Optional["ClusterInstallationSpecElasticSearch"]=None, image: typing.Optional[str]=None, ingress_annotations: typing.Optional[typing.Mapping[str,str]]=None, liveness_probe: typing.Optional["ClusterInstallationSpecLivenessProbe"]=None, mattermost_env: typing.Optional[typing.List["ClusterInstallationSpecMattermostEnv"]]=None, mattermost_license_secret: typing.Optional[str]=None, minio: typing.Optional["ClusterInstallationSpecMinio"]=None, node_selector: typing.Optional[typing.Mapping[str,str]]=None, readiness_probe: typing.Optional["ClusterInstallationSpecReadinessProbe"]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecResources"]=None, service_annotations: typing.Optional[typing.Mapping[str,str]]=None, size: typing.Optional[str]=None, use_service_load_balancer: typing.Optional[bool]=None, version: typing.Optional[str]=None):
+    def __init__(self, *, ingress_name: str, affinity: typing.Optional["ClusterInstallationSpecAffinity"]=None, blue_green: typing.Optional["ClusterInstallationSpecBlueGreen"]=None, canary: typing.Optional["ClusterInstallationSpecCanary"]=None, database: typing.Optional["ClusterInstallationSpecDatabase"]=None, elastic_search: typing.Optional["ClusterInstallationSpecElasticSearch"]=None, image: typing.Optional[str]=None, ingress_annotations: typing.Optional[typing.Mapping[str, str]]=None, liveness_probe: typing.Optional["ClusterInstallationSpecLivenessProbe"]=None, mattermost_env: typing.Optional[typing.List["ClusterInstallationSpecMattermostEnv"]]=None, mattermost_license_secret: typing.Optional[str]=None, minio: typing.Optional["ClusterInstallationSpecMinio"]=None, node_selector: typing.Optional[typing.Mapping[str, str]]=None, readiness_probe: typing.Optional["ClusterInstallationSpecReadinessProbe"]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecResources"]=None, service_annotations: typing.Optional[typing.Mapping[str, str]]=None, size: typing.Optional[str]=None, use_service_load_balancer: typing.Optional[bool]=None, version: typing.Optional[str]=None) -> None:
         """Specification of the desired behavior of the Mattermost cluster.
 
         More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
@@ -206,7 +206,7 @@ class ClusterInstallationSpec():
         return self._values.get('image')
 
     @builtins.property
-    def ingress_annotations(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def ingress_annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
         """
         schema:
         :schema:: ClusterInstallationSpec#ingressAnnotations
@@ -250,7 +250,7 @@ class ClusterInstallationSpec():
         return self._values.get('minio')
 
     @builtins.property
-    def node_selector(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def node_selector(self) -> typing.Optional[typing.Mapping[str, str]]:
         """NodeSelector is a selector which must be true for the pod to fit on a node.
 
         Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
@@ -290,7 +290,7 @@ class ClusterInstallationSpec():
         return self._values.get('resources')
 
     @builtins.property
-    def service_annotations(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def service_annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
         """
         schema:
         :schema:: ClusterInstallationSpec#serviceAnnotations
@@ -338,9 +338,9 @@ class ClusterInstallationSpec():
         return 'ClusterInstallationSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinity", jsii_struct_bases=[], name_mapping={'node_affinity': 'nodeAffinity', 'pod_affinity': 'podAffinity', 'pod_anti_affinity': 'podAntiAffinity'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinity", jsii_struct_bases=[], name_mapping={'node_affinity': 'nodeAffinity', 'pod_affinity': 'podAffinity', 'pod_anti_affinity': 'podAntiAffinity'})
 class ClusterInstallationSpecAffinity():
-    def __init__(self, *, node_affinity: typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"]=None, pod_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAffinity"]=None, pod_anti_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"]=None):
+    def __init__(self, *, node_affinity: typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"]=None, pod_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAffinity"]=None, pod_anti_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"]=None) -> None:
         """If specified, affinity will define the pod's scheduling constraints.
 
         :param node_affinity: Describes node affinity scheduling rules for the pod.
@@ -396,9 +396,9 @@ class ClusterInstallationSpecAffinity():
         return 'ClusterInstallationSpecAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
 class ClusterInstallationSpecAffinityNodeAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"]=None):
+    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"]=None) -> None:
         """Describes node affinity scheduling rules for the pod.
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
@@ -445,9 +445,9 @@ class ClusterInstallationSpecAffinityNodeAffinity():
         return 'ClusterInstallationSpecAffinityNodeAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'preference': 'preference', 'weight': 'weight'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'preference': 'preference', 'weight': 'weight'})
 class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, preference: "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", weight: jsii.Number):
+    def __init__(self, *, preference: "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", weight: jsii.Number) -> None:
         """An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
 
         :param preference: A node selector term, associated with the corresponding weight.
@@ -490,9 +490,9 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return 'ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_fields': 'matchFields'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_fields': 'matchFields'})
 class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]]=None, match_fields: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]]=None, match_fields: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]]=None) -> None:
         """A node selector term, associated with the corresponding weight.
 
         :param match_expressions: A list of node selector requirements by node's labels.
@@ -534,9 +534,9 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return 'ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -593,9 +593,9 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return 'ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -652,9 +652,9 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return 'ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'node_selector_terms': 'nodeSelectorTerms'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'node_selector_terms': 'nodeSelectorTerms'})
 class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, node_selector_terms: typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"]):
+    def __init__(self, *, node_selector_terms: typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"]) -> None:
         """If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
         If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
@@ -689,9 +689,9 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return 'ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_fields': 'matchFields'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_fields': 'matchFields'})
 class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]]=None, match_fields: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]]=None, match_fields: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]]=None) -> None:
         """A null or empty node selector term matches no objects.
 
         The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
@@ -735,9 +735,9 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return 'ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -794,9 +794,9 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return 'ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -853,9 +853,9 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return 'ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
 class ClusterInstallationSpecAffinityPodAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]=None):
+    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]=None) -> None:
         """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -901,9 +901,9 @@ class ClusterInstallationSpecAffinityPodAffinity():
         return 'ClusterInstallationSpecAffinityPodAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'pod_affinity_term': 'podAffinityTerm', 'weight': 'weight'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'pod_affinity_term': 'podAffinityTerm', 'weight': 'weight'})
 class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, pod_affinity_term: "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", weight: jsii.Number):
+    def __init__(self, *, pod_affinity_term: "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", weight: jsii.Number) -> None:
         """The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
 
         :param pod_affinity_term: Required. A pod affinity term, associated with the corresponding weight.
@@ -948,9 +948,9 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return 'ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
 class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
         """Required.
 
         A pod affinity term, associated with the corresponding weight.
@@ -1010,9 +1010,9 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return 'ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
 class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """A label query over a set of resources, in this case pods.
 
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
@@ -1038,7 +1038,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return self._values.get('match_expressions')
 
     @builtins.property
-    def match_labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """matchLabels is a map of {key,value} pairs.
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
@@ -1058,9 +1058,9 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return 'ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -1117,9 +1117,9 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return 'ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
 class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
         """Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
 
         :param topology_key: This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
@@ -1177,9 +1177,9 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return 'ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
 class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """A label query over a set of resources, in this case pods.
 
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
@@ -1205,7 +1205,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return self._values.get('match_expressions')
 
     @builtins.property
-    def match_labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """matchLabels is a map of {key,value} pairs.
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
@@ -1225,9 +1225,9 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return 'ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -1284,9 +1284,9 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return 'ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAntiAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
 class ClusterInstallationSpecAffinityPodAntiAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]=None):
+    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]=None) -> None:
         """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -1332,9 +1332,9 @@ class ClusterInstallationSpecAffinityPodAntiAffinity():
         return 'ClusterInstallationSpecAffinityPodAntiAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'pod_affinity_term': 'podAffinityTerm', 'weight': 'weight'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'pod_affinity_term': 'podAffinityTerm', 'weight': 'weight'})
 class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, pod_affinity_term: "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", weight: jsii.Number):
+    def __init__(self, *, pod_affinity_term: "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", weight: jsii.Number) -> None:
         """The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
 
         :param pod_affinity_term: Required. A pod affinity term, associated with the corresponding weight.
@@ -1379,9 +1379,9 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return 'ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
 class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
         """Required.
 
         A pod affinity term, associated with the corresponding weight.
@@ -1441,9 +1441,9 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return 'ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
 class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """A label query over a set of resources, in this case pods.
 
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
@@ -1469,7 +1469,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return self._values.get('match_expressions')
 
     @builtins.property
-    def match_labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """matchLabels is a map of {key,value} pairs.
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
@@ -1489,9 +1489,9 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return 'ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -1548,9 +1548,9 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return 'ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
 class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
         """Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
 
         :param topology_key: This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
@@ -1608,9 +1608,9 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return 'ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
 class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """A label query over a set of resources, in this case pods.
 
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
@@ -1636,7 +1636,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return self._values.get('match_expressions')
 
     @builtins.property
-    def match_labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """matchLabels is a map of {key,value} pairs.
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
@@ -1656,9 +1656,9 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return 'ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -1715,9 +1715,9 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return 'ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecBlueGreen", jsii_struct_bases=[], name_mapping={'blue': 'blue', 'enable': 'enable', 'green': 'green', 'production_deployment': 'productionDeployment'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecBlueGreen", jsii_struct_bases=[], name_mapping={'blue': 'blue', 'enable': 'enable', 'green': 'green', 'production_deployment': 'productionDeployment'})
 class ClusterInstallationSpecBlueGreen():
-    def __init__(self, *, blue: typing.Optional["ClusterInstallationSpecBlueGreenBlue"]=None, enable: typing.Optional[bool]=None, green: typing.Optional["ClusterInstallationSpecBlueGreenGreen"]=None, production_deployment: typing.Optional[str]=None):
+    def __init__(self, *, blue: typing.Optional["ClusterInstallationSpecBlueGreenBlue"]=None, enable: typing.Optional[bool]=None, green: typing.Optional["ClusterInstallationSpecBlueGreenGreen"]=None, production_deployment: typing.Optional[str]=None) -> None:
         """BlueGreen defines the configuration of BlueGreen deployment for a ClusterInstallation.
 
         :param blue: Blue defines the blue deployment.
@@ -1783,9 +1783,9 @@ class ClusterInstallationSpecBlueGreen():
         return 'ClusterInstallationSpecBlueGreen(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecBlueGreenBlue", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecBlueGreenBlue", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
 class ClusterInstallationSpecBlueGreenBlue():
-    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None):
+    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None) -> None:
         """Blue defines the blue deployment.
 
         :param image: Image defines the base Docker image that will be used for the deployment. Required when BlueGreen or Canary is enabled.
@@ -1855,9 +1855,9 @@ class ClusterInstallationSpecBlueGreenBlue():
         return 'ClusterInstallationSpecBlueGreenBlue(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecBlueGreenGreen", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecBlueGreenGreen", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
 class ClusterInstallationSpecBlueGreenGreen():
-    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None):
+    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None) -> None:
         """Green defines the green deployment.
 
         :param image: Image defines the base Docker image that will be used for the deployment. Required when BlueGreen or Canary is enabled.
@@ -1927,9 +1927,9 @@ class ClusterInstallationSpecBlueGreenGreen():
         return 'ClusterInstallationSpecBlueGreenGreen(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecCanary", jsii_struct_bases=[], name_mapping={'deployment': 'deployment', 'enable': 'enable'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecCanary", jsii_struct_bases=[], name_mapping={'deployment': 'deployment', 'enable': 'enable'})
 class ClusterInstallationSpecCanary():
-    def __init__(self, *, deployment: typing.Optional["ClusterInstallationSpecCanaryDeployment"]=None, enable: typing.Optional[bool]=None):
+    def __init__(self, *, deployment: typing.Optional["ClusterInstallationSpecCanaryDeployment"]=None, enable: typing.Optional[bool]=None) -> None:
         """Canary defines the configuration of Canary deployment for a ClusterInstallation.
 
         :param deployment: Deployment defines the canary deployment.
@@ -1972,9 +1972,9 @@ class ClusterInstallationSpecCanary():
         return 'ClusterInstallationSpecCanary(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecCanaryDeployment", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecCanaryDeployment", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
 class ClusterInstallationSpecCanaryDeployment():
-    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None):
+    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None) -> None:
         """Deployment defines the canary deployment.
 
         :param image: Image defines the base Docker image that will be used for the deployment. Required when BlueGreen or Canary is enabled.
@@ -2044,9 +2044,9 @@ class ClusterInstallationSpecCanaryDeployment():
         return 'ClusterInstallationSpecCanaryDeployment(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecDatabase", jsii_struct_bases=[], name_mapping={'backup_remote_delete_policy': 'backupRemoteDeletePolicy', 'backup_restore_secret_name': 'backupRestoreSecretName', 'backup_schedule': 'backupSchedule', 'backup_secret_name': 'backupSecretName', 'backup_url': 'backupURL', 'init_bucket_url': 'initBucketURL', 'replicas': 'replicas', 'resources': 'resources', 'secret': 'secret', 'storage_size': 'storageSize', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecDatabase", jsii_struct_bases=[], name_mapping={'backup_remote_delete_policy': 'backupRemoteDeletePolicy', 'backup_restore_secret_name': 'backupRestoreSecretName', 'backup_schedule': 'backupSchedule', 'backup_secret_name': 'backupSecretName', 'backup_url': 'backupURL', 'init_bucket_url': 'initBucketURL', 'replicas': 'replicas', 'resources': 'resources', 'secret': 'secret', 'storage_size': 'storageSize', 'type': 'type'})
 class ClusterInstallationSpecDatabase():
-    def __init__(self, *, backup_remote_delete_policy: typing.Optional[str]=None, backup_restore_secret_name: typing.Optional[str]=None, backup_schedule: typing.Optional[str]=None, backup_secret_name: typing.Optional[str]=None, backup_url: typing.Optional[str]=None, init_bucket_url: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecDatabaseResources"]=None, secret: typing.Optional[str]=None, storage_size: typing.Optional[str]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, backup_remote_delete_policy: typing.Optional[str]=None, backup_restore_secret_name: typing.Optional[str]=None, backup_schedule: typing.Optional[str]=None, backup_secret_name: typing.Optional[str]=None, backup_url: typing.Optional[str]=None, init_bucket_url: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecDatabaseResources"]=None, secret: typing.Optional[str]=None, storage_size: typing.Optional[str]=None, type: typing.Optional[str]=None) -> None:
         """Database defines the database configuration for a ClusterInstallation.
 
         :param backup_remote_delete_policy: Defines the backup retention policy.
@@ -2197,9 +2197,9 @@ class ClusterInstallationSpecDatabase():
         return 'ClusterInstallationSpecDatabase(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecDatabaseResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecDatabaseResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
 class ClusterInstallationSpecDatabaseResources():
-    def __init__(self, *, limits: typing.Optional[typing.Mapping[str,str]]=None, requests: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, limits: typing.Optional[typing.Mapping[str, str]]=None, requests: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """Defines the resource requests and limits for the database pods.
 
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -2214,7 +2214,7 @@ class ClusterInstallationSpecDatabaseResources():
         if requests is not None: self._values["requests"] = requests
 
     @builtins.property
-    def limits(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def limits(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Limits describes the maximum amount of compute resources allowed.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -2225,7 +2225,7 @@ class ClusterInstallationSpecDatabaseResources():
         return self._values.get('limits')
 
     @builtins.property
-    def requests(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def requests(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Requests describes the minimum amount of compute resources required.
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -2245,9 +2245,9 @@ class ClusterInstallationSpecDatabaseResources():
         return 'ClusterInstallationSpecDatabaseResources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecElasticSearch", jsii_struct_bases=[], name_mapping={'host': 'host', 'password': 'password', 'username': 'username'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecElasticSearch", jsii_struct_bases=[], name_mapping={'host': 'host', 'password': 'password', 'username': 'username'})
 class ClusterInstallationSpecElasticSearch():
-    def __init__(self, *, host: typing.Optional[str]=None, password: typing.Optional[str]=None, username: typing.Optional[str]=None):
+    def __init__(self, *, host: typing.Optional[str]=None, password: typing.Optional[str]=None, username: typing.Optional[str]=None) -> None:
         """ElasticSearch defines the ElasticSearch configuration for a ClusterInstallation.
 
         :param host: 
@@ -2297,9 +2297,9 @@ class ClusterInstallationSpecElasticSearch():
         return 'ClusterInstallationSpecElasticSearch(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecLivenessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
 class ClusterInstallationSpecLivenessProbe():
-    def __init__(self, *, exec: typing.Optional["ClusterInstallationSpecLivenessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["ClusterInstallationSpecLivenessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, exec: typing.Optional["ClusterInstallationSpecLivenessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["ClusterInstallationSpecLivenessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """Defines the probe to check if the application is up and running.
 
         :param exec: One and only one of the following should be specified. Exec specifies the action to take.
@@ -2436,9 +2436,9 @@ class ClusterInstallationSpecLivenessProbe():
         return 'ClusterInstallationSpecLivenessProbe(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecLivenessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class ClusterInstallationSpecLivenessProbeExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -2473,9 +2473,9 @@ class ClusterInstallationSpecLivenessProbeExec():
         return 'ClusterInstallationSpecLivenessProbeExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecLivenessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
 class ClusterInstallationSpecLivenessProbeHttpGet():
-    def __init__(self, *, port: "ClusterInstallationSpecLivenessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None):
+    def __init__(self, *, port: "ClusterInstallationSpecLivenessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
         """HTTPGet specifies the http request to perform.
 
         :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2561,9 +2561,9 @@ class ClusterInstallationSpecLivenessProbeHttpGet():
         return 'ClusterInstallationSpecLivenessProbeHttpGet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
 class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders():
-    def __init__(self, *, name: str, value: str):
+    def __init__(self, *, name: str, value: str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -2605,7 +2605,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders():
         return 'ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ClusterInstallationSpecLivenessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="clusterinstallation.ClusterInstallationSpecLivenessProbeHttpGetPort"):
+class ClusterInstallationSpecLivenessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGetPort"):
     """Name or number of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2630,9 +2630,9 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(metaclass=jsii.JSIIMeta, j
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecLivenessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
 class ClusterInstallationSpecLivenessProbeTcpSocket():
-    def __init__(self, *, port: "ClusterInstallationSpecLivenessProbeTcpSocketPort", host: typing.Optional[str]=None):
+    def __init__(self, *, port: "ClusterInstallationSpecLivenessProbeTcpSocketPort", host: typing.Optional[str]=None) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -2678,7 +2678,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket():
         return 'ClusterInstallationSpecLivenessProbeTcpSocket(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ClusterInstallationSpecLivenessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="clusterinstallation.ClusterInstallationSpecLivenessProbeTcpSocketPort"):
+class ClusterInstallationSpecLivenessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallationSpecLivenessProbeTcpSocketPort"):
     """Number or name of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2703,9 +2703,9 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(metaclass=jsii.JSIIMeta,
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecMattermostEnv", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value', 'value_from': 'valueFrom'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnv", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value', 'value_from': 'valueFrom'})
 class ClusterInstallationSpecMattermostEnv():
-    def __init__(self, *, name: str, value: typing.Optional[str]=None, value_from: typing.Optional["ClusterInstallationSpecMattermostEnvValueFrom"]=None):
+    def __init__(self, *, name: str, value: typing.Optional[str]=None, value_from: typing.Optional["ClusterInstallationSpecMattermostEnvValueFrom"]=None) -> None:
         """EnvVar represents an environment variable present in a Container.
 
         :param name: Name of the environment variable. Must be a C_IDENTIFIER.
@@ -2768,9 +2768,9 @@ class ClusterInstallationSpecMattermostEnv():
         return 'ClusterInstallationSpecMattermostEnv(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecMattermostEnvValueFrom", jsii_struct_bases=[], name_mapping={'config_map_key_ref': 'configMapKeyRef', 'field_ref': 'fieldRef', 'resource_field_ref': 'resourceFieldRef', 'secret_key_ref': 'secretKeyRef'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFrom", jsii_struct_bases=[], name_mapping={'config_map_key_ref': 'configMapKeyRef', 'field_ref': 'fieldRef', 'resource_field_ref': 'resourceFieldRef', 'secret_key_ref': 'secretKeyRef'})
 class ClusterInstallationSpecMattermostEnvValueFrom():
-    def __init__(self, *, config_map_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"]=None, field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"]=None, resource_field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"]=None, secret_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"]=None):
+    def __init__(self, *, config_map_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"]=None, field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"]=None, resource_field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"]=None, secret_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"]=None) -> None:
         """Source for the environment variable's value.
 
         Cannot be used if value is not empty.
@@ -2840,9 +2840,9 @@ class ClusterInstallationSpecMattermostEnvValueFrom():
         return 'ClusterInstallationSpecMattermostEnvValueFrom(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
 class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef():
-    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """Selects a key of a ConfigMap.
 
         :param key: The key to select.
@@ -2897,9 +2897,9 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef():
         return 'ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecMattermostEnvValueFromFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
 class ClusterInstallationSpecMattermostEnvValueFromFieldRef():
-    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None):
+    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None) -> None:
         """Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
 
         :param field_path: Path of the field to select in the specified API version.
@@ -2941,9 +2941,9 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef():
         return 'ClusterInstallationSpecMattermostEnvValueFromFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
 class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef():
-    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None):
+    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None) -> None:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 
         :param resource: Required: resource to select.
@@ -2996,9 +2996,9 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef():
         return 'ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
 class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef():
-    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """Selects a key of a secret in the pod's namespace.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -3055,9 +3055,9 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef():
         return 'ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecMinio", jsii_struct_bases=[], name_mapping={'external_bucket': 'externalBucket', 'external_url': 'externalURL', 'replicas': 'replicas', 'resources': 'resources', 'secret': 'secret', 'storage_size': 'storageSize'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMinio", jsii_struct_bases=[], name_mapping={'external_bucket': 'externalBucket', 'external_url': 'externalURL', 'replicas': 'replicas', 'resources': 'resources', 'secret': 'secret', 'storage_size': 'storageSize'})
 class ClusterInstallationSpecMinio():
-    def __init__(self, *, external_bucket: typing.Optional[str]=None, external_url: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecMinioResources"]=None, secret: typing.Optional[str]=None, storage_size: typing.Optional[str]=None):
+    def __init__(self, *, external_bucket: typing.Optional[str]=None, external_url: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecMinioResources"]=None, secret: typing.Optional[str]=None, storage_size: typing.Optional[str]=None) -> None:
         """Minio defines the configuration of Minio for a ClusterInstallation.
 
         :param external_bucket: Set to the bucket name of your external MinIO or S3.
@@ -3152,9 +3152,9 @@ class ClusterInstallationSpecMinio():
         return 'ClusterInstallationSpecMinio(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecMinioResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMinioResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
 class ClusterInstallationSpecMinioResources():
-    def __init__(self, *, limits: typing.Optional[typing.Mapping[str,str]]=None, requests: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, limits: typing.Optional[typing.Mapping[str, str]]=None, requests: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """Defines the resource requests and limits for the Minio pods.
 
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3169,7 +3169,7 @@ class ClusterInstallationSpecMinioResources():
         if requests is not None: self._values["requests"] = requests
 
     @builtins.property
-    def limits(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def limits(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Limits describes the maximum amount of compute resources allowed.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3180,7 +3180,7 @@ class ClusterInstallationSpecMinioResources():
         return self._values.get('limits')
 
     @builtins.property
-    def requests(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def requests(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Requests describes the minimum amount of compute resources required.
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3200,9 +3200,9 @@ class ClusterInstallationSpecMinioResources():
         return 'ClusterInstallationSpecMinioResources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecReadinessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
 class ClusterInstallationSpecReadinessProbe():
-    def __init__(self, *, exec: typing.Optional["ClusterInstallationSpecReadinessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["ClusterInstallationSpecReadinessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, exec: typing.Optional["ClusterInstallationSpecReadinessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["ClusterInstallationSpecReadinessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """Defines the probe to check if the application is ready to accept traffic.
 
         :param exec: One and only one of the following should be specified. Exec specifies the action to take.
@@ -3339,9 +3339,9 @@ class ClusterInstallationSpecReadinessProbe():
         return 'ClusterInstallationSpecReadinessProbe(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecReadinessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class ClusterInstallationSpecReadinessProbeExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -3376,9 +3376,9 @@ class ClusterInstallationSpecReadinessProbeExec():
         return 'ClusterInstallationSpecReadinessProbeExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecReadinessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
 class ClusterInstallationSpecReadinessProbeHttpGet():
-    def __init__(self, *, port: "ClusterInstallationSpecReadinessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None):
+    def __init__(self, *, port: "ClusterInstallationSpecReadinessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
         """HTTPGet specifies the http request to perform.
 
         :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3464,9 +3464,9 @@ class ClusterInstallationSpecReadinessProbeHttpGet():
         return 'ClusterInstallationSpecReadinessProbeHttpGet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
 class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders():
-    def __init__(self, *, name: str, value: str):
+    def __init__(self, *, name: str, value: str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -3508,7 +3508,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders():
         return 'ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ClusterInstallationSpecReadinessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="clusterinstallation.ClusterInstallationSpecReadinessProbeHttpGetPort"):
+class ClusterInstallationSpecReadinessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGetPort"):
     """Name or number of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3533,9 +3533,9 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(metaclass=jsii.JSIIMeta, 
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecReadinessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
 class ClusterInstallationSpecReadinessProbeTcpSocket():
-    def __init__(self, *, port: "ClusterInstallationSpecReadinessProbeTcpSocketPort", host: typing.Optional[str]=None):
+    def __init__(self, *, port: "ClusterInstallationSpecReadinessProbeTcpSocketPort", host: typing.Optional[str]=None) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -3581,7 +3581,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket():
         return 'ClusterInstallationSpecReadinessProbeTcpSocket(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ClusterInstallationSpecReadinessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="clusterinstallation.ClusterInstallationSpecReadinessProbeTcpSocketPort"):
+class ClusterInstallationSpecReadinessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallationSpecReadinessProbeTcpSocketPort"):
     """Number or name of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3606,9 +3606,9 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(metaclass=jsii.JSIIMeta
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="clusterinstallation.ClusterInstallationSpecResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
+@jsii.data_type(jsii_type="generated.ClusterInstallationSpecResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
 class ClusterInstallationSpecResources():
-    def __init__(self, *, limits: typing.Optional[typing.Mapping[str,str]]=None, requests: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, limits: typing.Optional[typing.Mapping[str, str]]=None, requests: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """Defines the resource requests and limits for the Mattermost app server pods.
 
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3623,7 +3623,7 @@ class ClusterInstallationSpecResources():
         if requests is not None: self._values["requests"] = requests
 
     @builtins.property
-    def limits(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def limits(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Limits describes the maximum amount of compute resources allowed.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3634,7 +3634,7 @@ class ClusterInstallationSpecResources():
         return self._values.get('limits')
 
     @builtins.property
-    def requests(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def requests(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Requests describes the minimum amount of compute resources required.
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3654,6 +3654,67 @@ class ClusterInstallationSpecResources():
         return 'ClusterInstallationSpecResources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-__all__ = ["ClusterInstallation", "ClusterInstallationOptions", "ClusterInstallationSpec", "ClusterInstallationSpecAffinity", "ClusterInstallationSpecAffinityNodeAffinity", "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution", "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions", "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields", "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution", "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms", "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions", "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields", "ClusterInstallationSpecAffinityPodAffinity", "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution", "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution", "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", "ClusterInstallationSpecAffinityPodAntiAffinity", "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution", "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution", "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", "ClusterInstallationSpecBlueGreen", "ClusterInstallationSpecBlueGreenBlue", "ClusterInstallationSpecBlueGreenGreen", "ClusterInstallationSpecCanary", "ClusterInstallationSpecCanaryDeployment", "ClusterInstallationSpecDatabase", "ClusterInstallationSpecDatabaseResources", "ClusterInstallationSpecElasticSearch", "ClusterInstallationSpecLivenessProbe", "ClusterInstallationSpecLivenessProbeExec", "ClusterInstallationSpecLivenessProbeHttpGet", "ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders", "ClusterInstallationSpecLivenessProbeHttpGetPort", "ClusterInstallationSpecLivenessProbeTcpSocket", "ClusterInstallationSpecLivenessProbeTcpSocketPort", "ClusterInstallationSpecMattermostEnv", "ClusterInstallationSpecMattermostEnvValueFrom", "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef", "ClusterInstallationSpecMattermostEnvValueFromFieldRef", "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef", "ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef", "ClusterInstallationSpecMinio", "ClusterInstallationSpecMinioResources", "ClusterInstallationSpecReadinessProbe", "ClusterInstallationSpecReadinessProbeExec", "ClusterInstallationSpecReadinessProbeHttpGet", "ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders", "ClusterInstallationSpecReadinessProbeHttpGetPort", "ClusterInstallationSpecReadinessProbeTcpSocket", "ClusterInstallationSpecReadinessProbeTcpSocketPort", "ClusterInstallationSpecResources", "__jsii_assembly__"]
+__all__ = [
+    "ClusterInstallation",
+    "ClusterInstallationOptions",
+    "ClusterInstallationSpec",
+    "ClusterInstallationSpecAffinity",
+    "ClusterInstallationSpecAffinityNodeAffinity",
+    "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
+    "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions",
+    "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields",
+    "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms",
+    "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions",
+    "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields",
+    "ClusterInstallationSpecAffinityPodAffinity",
+    "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+    "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+    "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+    "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+    "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+    "ClusterInstallationSpecAffinityPodAntiAffinity",
+    "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+    "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+    "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+    "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+    "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+    "ClusterInstallationSpecBlueGreen",
+    "ClusterInstallationSpecBlueGreenBlue",
+    "ClusterInstallationSpecBlueGreenGreen",
+    "ClusterInstallationSpecCanary",
+    "ClusterInstallationSpecCanaryDeployment",
+    "ClusterInstallationSpecDatabase",
+    "ClusterInstallationSpecDatabaseResources",
+    "ClusterInstallationSpecElasticSearch",
+    "ClusterInstallationSpecLivenessProbe",
+    "ClusterInstallationSpecLivenessProbeExec",
+    "ClusterInstallationSpecLivenessProbeHttpGet",
+    "ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders",
+    "ClusterInstallationSpecLivenessProbeHttpGetPort",
+    "ClusterInstallationSpecLivenessProbeTcpSocket",
+    "ClusterInstallationSpecLivenessProbeTcpSocketPort",
+    "ClusterInstallationSpecMattermostEnv",
+    "ClusterInstallationSpecMattermostEnvValueFrom",
+    "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef",
+    "ClusterInstallationSpecMattermostEnvValueFromFieldRef",
+    "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef",
+    "ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef",
+    "ClusterInstallationSpecMinio",
+    "ClusterInstallationSpecMinioResources",
+    "ClusterInstallationSpecReadinessProbe",
+    "ClusterInstallationSpecReadinessProbeExec",
+    "ClusterInstallationSpecReadinessProbeHttpGet",
+    "ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders",
+    "ClusterInstallationSpecReadinessProbeHttpGetPort",
+    "ClusterInstallationSpecReadinessProbeTcpSocket",
+    "ClusterInstallationSpecReadinessProbeTcpSocketPort",
+    "ClusterInstallationSpecResources",
+]
 
 publication.publish()
