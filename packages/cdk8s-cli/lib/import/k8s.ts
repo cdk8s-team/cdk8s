@@ -3,8 +3,8 @@ import { JSONSchema4 } from 'json-schema';
 import { TypeGenerator } from './type-generator';
 import { ImportBase } from './base';
 import { ApiObjectName, parseApiTypeName, compareApiVersions } from './k8s-util';
-import { httpsGet } from '../util';
 import { ImportSpec } from '../config';
+import { download } from '../util';
 
 const DEFAULT_API_VERSION = '1.15.0';
 
@@ -191,6 +191,6 @@ const X_GROUP_VERSION_KIND = 'x-kubernetes-group-version-kind';
 
 async function downloadSchema(apiVersion: string) {
   const url = `https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v${apiVersion}/_definitions.json`
-  const output = await httpsGet(url);
+  const output = await download(url);
   return JSON.parse(output) as JSONSchema4;
 }
