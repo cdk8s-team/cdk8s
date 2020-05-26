@@ -37,8 +37,20 @@ Test Environment:
 - See existing tests as examples on how to bring in auxiliary files to the test.
 - Test MUST NOT install any dependencies or the `cdk8s` CLI. They can expect it
   to be available in the environment.
-- To install dependencies from pacakge managers, use `yarn`, `npm`, `pipenv`,
+- To install dependencies from package managers, use `yarn`, `npm`, `pipenv`,
   `mvn` and `nuget`. Those programs will be shimmed to allow consuming local
   dependencies.
 
+
+## Snapshot Testing
+
+Some integration tests utilize a simple snapshot testing mechanism.
+
+To update snapshots, run tests with:
+
+    UPDATE_SNAPSHOTS=1
+
+Or, run this from the root of the repo:
+
+    yarn integ:update
 
