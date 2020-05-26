@@ -105,8 +105,41 @@ Prepare your environment:
 
 1. Fork this repo and obtain a local clone.
 2. Install all dependencies: `yarn install`
-3. Build: `yarn build`
-4. Test: `yarn test`
+3. Run `yarn build` to build all modules.
+
+### Testing
+
+This project includes per-module unit tests and project-wide integration tests.
+
+#### Unit tests
+
+Unit tests are located under the `test/` directory within each module and use the [jest](https://jestjs.io/) framework.
+
+To run unit tests, execute `yarn test` either from the root of the repo (to unit test all modules) or from individual module directories:
+
+    yarn test
+
+Out tests utilize [jest snapshot testing](https://jestjs.io/docs/en/snapshot-testing). In case a snapshot needs to be updated, just run:
+
+    yarn test -u
+
+#### Integration tests
+
+Integration tests are executed *after* we bundle the release. This means that in order to execute integration tests you'll need to create a bundle by running the following command from the root of the repo:
+
+    yarn run package
+
+This will result in `./dist` that contains all the ready-to-publish artifacts.
+
+Now, you can run integration tests via:
+
+    yarn integ
+
+Our integration tests also utilize snapshot testing. To update integration test snapshots, run:
+
+    yarn integ:update
+
+Read [this](./test/README.md) for more details about integration testing in this project.
 
 ### Pull Requests
 
