@@ -26,10 +26,12 @@ export class TypeGenerator {
   }
 
   public emitConstruct(def: GeneratedConstruct) {
-    this.emitLater(def.kind, code => {
+    const constructName = normalizeTypeName(def.kind);
+
+    this.emitLater(constructName, code => {
       const options = createOptionsStructSchema();
 
-      const optionsStructName = normalizeTypeName(options.type ? `${def.kind}Options` : 'any');
+      const optionsStructName = normalizeTypeName(options.type ? `${constructName}Options` : 'any');
       const schema = def.schema;
 
       this.emitType(optionsStructName, options, def.fqn);
@@ -56,7 +58,7 @@ export class TypeGenerator {
         code.line(` *`);
         code.line(` * @schema ${def.fqn}`)
         code.line(` */`);
-        code.openBlock(`export class ${def.kind} extends ApiObject`);
+        code.openBlock(`export class ${constructName} extends ApiObject`);
     
         emitInitializer();
       
@@ -93,6 +95,8 @@ export class TypeGenerator {
 
   public emitType(typeName: string, def: JSONSchema4, structFqn: string): string {
 
+    // callers expect that emit a type named `typeName` so we can't change it here
+    // but at least we can verify it's correct.
     if (normalizeTypeName(typeName) !== typeName) {
       throw new Error(`${typeName} must be normalized before calling emitType`);
     }

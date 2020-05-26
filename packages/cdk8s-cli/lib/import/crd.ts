@@ -131,7 +131,6 @@ export class ImportCustomResourceDefinition extends ImportBase {
           const key = crd.moduleName;
 
           if (key in defs) {
-            console.log(JSON.stringify(obj, undefined, 2));
             throw new Error(`${key} already exists`);
           }
 
