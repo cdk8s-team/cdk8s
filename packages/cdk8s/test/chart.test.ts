@@ -126,6 +126,23 @@ describe('toJson', () => {
   
   });
 
+  test('returns on ordered list regardless of children order', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+  
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+    const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
+    
+    // obj1 and obj3 are roots
+    Node.of(obj1).addDependency(obj2);
+    Node.of(obj3).addDependency(obj1);
+    
+    expect(chart1.toJson()).toEqual([obj2.toJson(), obj1.toJson(), obj3.toJson()]);
+  
+  });
+
   test('returns objects not in dependency list', () => {
 
     const app = Testing.app();
@@ -150,6 +167,56 @@ describe('toJson', () => {
     Node.of(obj1).addDependency(obj2);  
 
     expect(chart1.toJson()).toEqual([obj1.toJson()]);
+  
+  });
+
+  test('ignores chart dependency on chart', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+    const chart2 = new Chart(app, 'chart2');
+  
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+    
+    Node.of(obj1).addDependency(obj2);
+    Node.of(chart1).addDependency(chart2);
+
+    expect(chart1.toJson()).toEqual([obj1.toJson()]);
+  
+  });
+
+  // TODO: does it make sense for a chart to depend on inner api object?
+  test('handles chart dependency on object', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+  
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+    const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
+    
+    Node.of(obj1).addDependency(obj2);
+    Node.of(chart1).addDependency(obj3);
+
+    expect(chart1.toJson()).toEqual([obj3.toJson(), obj2.toJson(), obj1.toJson()]);
+  
+  });
+
+  // TODO: does it make sense for an api object to depend on its chart?
+  test('handles object dependency on chart', () => {
+
+    const app = Testing.app();
+    const chart1 = new Chart(app, 'chart1');
+  
+    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+    const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+    const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
+    
+    Node.of(obj1).addDependency(obj2);
+    Node.of(obj3).addDependency(chart1);
+
+    expect(chart1.toJson()).toEqual([obj2.toJson(), obj1.toJson(), obj3.toJson()]);
   
   });
 

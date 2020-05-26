@@ -93,10 +93,14 @@ export class DependencyGraph {
 
   constructor(construct: IConstruct) {
 
+    // uber root since our graph might have
+    // multiple dependency roots.
+    this.root = new DepNode(null);
+
     const node: Node = Node.of(construct);
 
     const nodes: Record<string, DepNode> = {};
-    const roots: Set<DepNode> = new Set<DepNode>();
+    const dependencyRoots: Set<DepNode> = new Set<DepNode>();
 
     for (const dep of node.dependencies) {
             
@@ -116,34 +120,26 @@ export class DependencyGraph {
       
       sourceDepNode.addChild(targetDepNode!);
 
-      if (roots.has(sourceDepNode)) {
-        roots.delete(sourceDepNode);
-      } else {
-        roots.add(sourceDepNode);
-      }
+      // no target can be a dependency root (this will remove targets that are also sources)
+      dependencyRoots.delete(targetDepNode);
+
+      // every source initially starts as a dependency root
+      dependencyRoots.add(sourceDepNode);
       
     }
 
-    // add all constructs that don't participate in dependencies
-    // these are just floating childless orphans (sad choice of words...)
+    // an orphan and childless (sad) node is considered a dependency root.
     for (const child of node.findAll()) {
-      const childNode: Node = Node.of(child);
-      if (!nodes[childNode.uniqueId]) {
-        const childDepNode: DepNode = new DepNode(child);
-        nodes[childNode.uniqueId] = childDepNode;
-        roots.add(childDepNode);
+      if (!nodes[Node.of(child).uniqueId]) {
+        dependencyRoots.add(new DepNode(child));
       }
     }
 
-    // dummy node to serve as the root of all roots
-    const root: DepNode = new DepNode(null);
-
-    // our actual roots are added to the dummy as children
-    for (const node of roots) {
-      root.addChild(node);
+    // all dependency roots are should be children of the uber root.
+    for (const node of dependencyRoots) {
+      this.root.addChild(node);
     }
 
-    this.root = root;
   }
 
   public topology(): IConstruct[] {
