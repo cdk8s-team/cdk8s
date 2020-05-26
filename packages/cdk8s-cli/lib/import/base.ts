@@ -1,8 +1,8 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { CodeMaker } from 'codemaker';
-import { withTempDir, shell } from '../util';
-import { jsiiCompile } from './jsii';
+import { withTempDir } from '../util';
+import * as srcmak from 'jsii-srcmak';
 
 export enum Language {
   TYPESCRIPT = 'typescript',
@@ -17,14 +17,22 @@ export interface ImportOptions {
   readonly moduleNamePrefix?: string;
   readonly targetLanguage: Language;
   readonly outdir: string;
+
+  /**
+   * Path to copy the output .jsii file.
+   * @default - jsii file is not emitted
+   */
+  readonly outputJsii?: string;
 }
 
 export abstract class ImportBase {
   public abstract get moduleNames(): string[];
+
   protected abstract async generateTypeScript(code: CodeMaker, moduleName?: string): Promise<void>;
 
   public async import(options: ImportOptions) {
     const code = new CodeMaker();
+    const outputJsii = options.outputJsii ? path.resolve(options.outputJsii) : undefined;
 
     const outdir = path.resolve(options.outdir);
     await fs.mkdirp(outdir);
@@ -40,46 +48,35 @@ export abstract class ImportBase {
 
       if (isTypescript) {
         await code.save(outdir);
-      }
-    }
+      } else {
+        // this is not typescript, so we generate in a staging directory and harvest the code
+        await withTempDir('importer', async () => {
+          await code.save('.');
 
-    if (isTypescript) return;
+          // these are the module dependencies we compile against
+          const deps = [
+            '@types/node',
+            'constructs',
+            'cdk8s'
+          ].map(dep => path.dirname(require.resolve(`${dep}/package.json`)));
 
-    for (const name of this.moduleNames) {
-      // this is not typescript, so we generate in a staging directory and harvest the code
-      await withTempDir('importer', async () => {
-        await code.save('.');
-        await jsiiCompile('.', {
-          main: name,
-          moduleNamePrefix,
-          name,
+          const opts: srcmak.Options = {
+            entrypoint: fileName,
+            deps: deps,
+            jsii: outputJsii ? { path: outputJsii } : undefined
+          };
+
+          if (options.targetLanguage === Language.PYTHON) {
+            opts.python = {
+              outdir: outdir,
+              moduleName: moduleNamePrefix ? `${moduleNamePrefix}.${name}` : name
+            };
+          }
+
+          await srcmak.srcmak('.', opts);
         });
 
-        const pacmak = require.resolve('jsii-pacmak/bin/jsii-pacmak');
-        await shell(pacmak, [ '--target', options.targetLanguage, '--code-only' ]);
-        await this.harvestCode(options, outdir, name);
-      });
+      }
     }
-  }
-
-  private async harvestCode(options: ImportOptions, targetdir: string, moduleName: string) {
-    const { moduleNamePrefix } = options
-    switch (options.targetLanguage) {
-      case Language.TYPESCRIPT:
-        throw new Error('no op for typescript');
-  
-      case Language.PYTHON:
-        await this.harvestPython(targetdir, moduleNamePrefix ? moduleNamePrefix : moduleName);
-        break;
-  
-      default:
-        throw new Error(`unsupported language ${options.targetLanguage} (yet)`);
-    }
-  
-  }
-
-  private async harvestPython(targetdir: string, moduleName: string) {
-    const target = path.join(targetdir, moduleName);
-    await fs.move(`dist/python/src/${moduleName}`, target, { overwrite: true });
   }
 }

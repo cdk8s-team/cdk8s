@@ -3,8 +3,8 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { CodeMaker } from "codemaker";
 import { JSONSchema4 } from "json-schema";
-import { jsiiCompile } from "../../lib/import/jsii";
 import { withTempDir } from "../../lib/util";
+import { srcmak } from "jsii-srcmak";
 
 jest.setTimeout(60_000); // 1min
 
@@ -177,17 +177,10 @@ async function generate(gen: TypeGenerator) {
   await code.save('.');
 
   const source = await fs.readFile(path.join('.', entrypoint), 'utf-8');
+  const deps = [ 'constructs', 'cdk8s', '@types/node' ].map(d => path.dirname(require.resolve(`${d}/package.json`)));
 
-  try {
-    await jsiiCompile('.', {
-      main: 'index',
-      name: 'dummy',
-      stdout: true 
-    });
-  } catch (e) {
-    console.error(source);
-    throw e;
-  }
+  // check that the output compiles & is jsii-compatible
+  await srcmak('.', { deps });
 
   return source;
 }
