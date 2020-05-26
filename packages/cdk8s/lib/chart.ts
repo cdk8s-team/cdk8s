@@ -33,19 +33,12 @@ export class Chart extends Construct {
   }
 
   /**
-   * The name of the stack's YAML file as emitted into the cloud assembly
-   * directory during synthesis.
-   */
-  public readonly manifestFile: string;
-
-  /**
    * The default namespace for all objects in this chart.
    */
   public readonly namespace?: string;
 
   constructor(scope: Construct, ns: string, options: ChartOptions = { }) {
     super(scope, ns);
-    this.manifestFile = `${Node.of(this).uniqueId}.k8s.yaml`;
     this.namespace = options.namespace;
   }
 

@@ -50,16 +50,17 @@ export class App extends Construct {
 
   protected onSynthesize(session: ISynthesisSession) {
 
-    const charts: IConstruct[] = new DependencyGraph(this).topology().filter(x => x instanceof Chart);
+    const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
 
     for (const index in charts) {
 
       const node: IConstruct = charts[index];
       const chart: Chart = Chart.of(node);
+      const manifestFile = `${Node.of(chart).uniqueId}.k8s.yaml`;
 
       // convert each resource to yaml and separate with a '---' line
       const doc = chart.toJson().map(r => YAML.stringify(r)).join('---\n');
-      fs.writeFileSync(path.join(session.outdir, `${index}-${chart.manifestFile}`), doc);
+      fs.writeFileSync(path.join(session.outdir, `${index}-${manifestFile}`), doc);
     }
   }
 
