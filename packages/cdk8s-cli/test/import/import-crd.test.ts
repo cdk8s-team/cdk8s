@@ -4,6 +4,8 @@ import * as fs from 'fs';
 import { ImportCustomResourceDefinition } from '../../lib/import/crd';
 import { expectImportMatchSnapshot } from './util';
 
+jest.setTimeout(60_000);
+
 expectImportMatchSnapshotCustomResource('jenkins_crd.yaml');
 expectImportMatchSnapshotCustomResource('multi_object_crd.yaml');
 expectImportMatchSnapshotCustomResource('mixed_crd.yaml');
