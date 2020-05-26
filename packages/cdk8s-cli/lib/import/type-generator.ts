@@ -348,22 +348,23 @@ export class TypeGenerator {
   }
 }
 
+/**
+ * @internal exported for tests
+ */
+export function normalizeTypeName(typeName: string) {
+  const re = /([A-Z]+)(?:[^a-z]|$)/g;
+  let result = typeName;
+  let m;
+  do {
+    m = re.exec(typeName);
+    if (m) {
+      const before = result.slice(0, m.index);
+      const cap = m[1];
+      const pascal = cap[0] + cap.slice(1).toLowerCase();
+      const after = result.slice(m.index + pascal.length);
+      result = before + pascal + after;
+    }
+  } while (m);
 
-
-function normalizeTypeName(typeName: string) {
-  if (!typeName.startsWith('I')) { // avoid the regex
-    return typeName;
-  }
-
-  // if the type name starts with IXXXFoo then make XXX lowercase because we assume
-  // it's an acromym that starts with an I, and this will be identified as an interface by JSII.
-  const re = /^I([A-Z]+)([A-Z][a-z]+[A-Za-z]+)$/.exec(typeName);
-  if (!re) {
-    return typeName;
-  }
-
-  const group1 = re[1];
-  const rest = re[2];
-  const normalized = `I${group1.toLocaleLowerCase()}${rest}`;
-  return normalized;
+  return result;
 }
