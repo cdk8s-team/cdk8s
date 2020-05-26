@@ -50,7 +50,7 @@ export interface ApiObjectOptions {
    * If `name` is not specified, an app-unique name will be allocated by the
    * framework based on the path of the construct within thes construct tree.
    */
-  readonly metadata?: ApiObjectMetadata;  
+  readonly metadata?: ApiObjectMetadata;
 
   /**
    * API version.
@@ -96,7 +96,7 @@ export class ApiObject extends Construct {
 
   /**
    * Defines an API object.
-   * 
+   *
    * @param scope the construct scope
    * @param ns namespace
    * @param options options
