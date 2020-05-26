@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.23.0](https://github.com/awslabs/cdk8s/compare/v0.22.0...v0.23.0) (2020-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cli**: the generated module names of imported CRDs now include the resource's group and not just its kind in order to ensure uniqueness. For example, when importing the Jenkins CRD, instead of 'imports/jenkins.ts`, we now have `imports/jenkins.io/jenkins.ts`.
+- **cli**: class names of imported apis are now normalized to `PascalCase`.
+
+### Features
+
+* **cli:** import CRDs from a running cluster ([#207](https://github.com/awslabs/cdk8s/issues/207)) ([5153422](https://github.com/awslabs/cdk8s/commit/5153422432d78aa97b928f507be27048e1868c7a)), closes [#197](https://github.com/awslabs/cdk8s/issues/197)
+* **lib:** introduce "include" ([#202](https://github.com/awslabs/cdk8s/issues/202)) ([75d13e8](https://github.com/awslabs/cdk8s/commit/75d13e8b06351b66bd5d495f6ac6a3575fac6421)), closes [#199](https://github.com/awslabs/cdk8s/issues/199)
+* **lib:** yaml utility functions ([#198](https://github.com/awslabs/cdk8s/issues/198)) ([9e0f030](https://github.com/awslabs/cdk8s/commit/9e0f030ecdb249d9095d0d774b33919a17cc48f7))
+
+
+### Bug Fixes
+
+* **cli:** impossible to import two crds with the same kind ([#203](https://github.com/awslabs/cdk8s/issues/203)) ([f6248ce](https://github.com/awslabs/cdk8s/commit/f6248ce5b7f3004108f0449a319015c8d6e99df4))
+* **docs:** do not mark arguments as optional in python getting-started ([#191](https://github.com/awslabs/cdk8s/issues/191)) ([be090d0](https://github.com/awslabs/cdk8s/commit/be090d09b6bdc2105e21c2f6de0cdcc9da657b50))
+* **lib:** unable to express empty objects and array ([#200](https://github.com/awslabs/cdk8s/issues/200)) ([9ae5efb](https://github.com/awslabs/cdk8s/commit/9ae5efb9834e1608ae196db88680a34005ac7203))
+
 ## [0.22.0](https://github.com/campionfellin/cdk8s/compare/v0.21.0...v0.22.0) (2020-05-22)
 
 
