@@ -38,7 +38,14 @@ export abstract class ImportBase {
     const isTypescript = options.targetLanguage === Language.TYPESCRIPT
     const { moduleNamePrefix } = options;
 
+    if (this.moduleNames.length === 0) {
+      console.error(`warning: no definitions to import`);
+    }
+
     for (const name of this.moduleNames) {
+      // output the name of the imported resource
+      console.error(name);
+
       const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${name}.ts` : `${name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;

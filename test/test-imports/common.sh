@@ -2,9 +2,9 @@ function match_snapshot() {
   local actual=$1
   local expected=$2
 
-  if [ "$UPDATE_SNAPSHOTS" == "1" ]; then
+  if [ "${UPDATE_SNAPSHOTS}" == "1" ]; then
     echo "Updating snapshot under $expected"
-    rsync -av --exclude=*.tgz $actual/ $expected/
+    rsync -a --delete --exclude=*.tgz $actual/ $expected/
   fi
 
   # Exclude the .tgz files because their headers differ

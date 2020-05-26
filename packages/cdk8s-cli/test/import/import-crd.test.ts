@@ -11,7 +11,7 @@ expectImportMatchSnapshotCustomResource('prometheus.yaml');
 
 test('fails if CRDs api version is not supported', () => {
   expect(() => new ImportCustomResourceDefinition([{
-    apiVersion: 'voo' ,
+    apiVersion: 'voo',
     kind: 'CustomResourceDefinition'
   }])).toThrow('invalid CustomResourceDefinition manifest: "apiVersion" is "voo" but it should be one of: "apiextensions.k8s.io/v1beta1", "apiextensions.k8s.io/v1"');
 });
