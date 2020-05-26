@@ -177,7 +177,7 @@ export class DepNode {
 
   public addChild(dep: DepNode) {
     
-    const cycle: DepNode[] = this.findRoute(dep, this);
+    const cycle: DepNode[] = dep.findRoute(this);
     if (cycle.length !== 0) {
       cycle.push(dep);
       throw new Error(`Dependency cycle detected: ${cycle.map(d => Node.of(d.value!).uniqueId).join(' => ')}`);  
@@ -191,10 +191,10 @@ export class DepNode {
     this.parents.push(dep);
   }
 
-  private findRoute(src: DepNode, dst: DepNode): DepNode[] {
+  private findRoute(dst: DepNode): DepNode[] {
     
     const route: DepNode[] = [];
-    visit(src);
+    visit(this);
     return route;
     
     function visit(n: DepNode): boolean {
