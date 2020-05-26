@@ -78,7 +78,7 @@ export class Chart extends Construct {
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-    return new DependencyGraph(this).topology()
+    return new DependencyGraph(Node.of(this)).topology()
       .filter(x => x instanceof ApiObject && Chart.of(x) === this)
       .map(x => (x as ApiObject).toJson());
   }
@@ -91,53 +91,41 @@ export class DependencyGraph {
 
   private readonly root: DepNode;
 
-  constructor(construct: IConstruct) {
+  constructor(node: Node) {
 
-    // uber root since our graph might have
-    // multiple dependency roots.
     this.root = new DepNode(null);
 
-    const node: Node = Node.of(construct);
-
     const nodes: Record<string, DepNode> = {};
-    const dependencyRoots: Set<DepNode> = new Set<DepNode>();
 
+    function getOrCreate(construct: IConstruct) {
+      const id = Node.of(construct).uniqueId;
+      if (!nodes[id]) {
+        nodes[id] = new DepNode(construct);
+      }
+      return nodes[id];
+    }
+
+    // create the graph from the edges
     for (const dep of node.dependencies) {
             
-      const sourceNode = Node.of(dep.source);
-      const targetNode = Node.of(dep.target);
-
-      if (!nodes[sourceNode.uniqueId]) {
-        nodes[sourceNode.uniqueId] = new DepNode(dep.source);
-      }
-
-      if (!nodes[targetNode.uniqueId]) {
-        nodes[targetNode.uniqueId] = new DepNode(dep.target);
-      }
-
-      const sourceDepNode = nodes[sourceNode.uniqueId];
-      const targetDepNode = nodes[targetNode.uniqueId];
+      const sourceDepNode = getOrCreate(dep.source);
+      const targetDepNode = getOrCreate(dep.target);
       
-      sourceDepNode.addChild(targetDepNode!);
-
-      // no target can be a dependency root (this will remove targets that are also sources)
-      dependencyRoots.delete(targetDepNode);
-
-      // every source initially starts as a dependency root
-      dependencyRoots.add(sourceDepNode);
-      
+      sourceDepNode.addChild(targetDepNode!);      
     }
 
-    // an orphan and childless (sad) node is considered a dependency root.
-    for (const child of node.findAll()) {
-      if (!nodes[Node.of(child).uniqueId]) {
-        dependencyRoots.add(new DepNode(child));
+    for (const n of Object.values(nodes)) {
+      if (n.isOrphan()) {
+        // orphans are dependency roots
+        this.root.addChild(n);        
       }
     }
-
-    // all dependency roots are should be children of the uber root.
-    for (const node of dependencyRoots) {
-      this.root.addChild(node);
+    
+    for (const n of node.findAll()) {
+      if (!nodes[Node.of(n).uniqueId]) {
+        // lonely nodes are also dependency roots.
+        this.root.addChild(new DepNode(n));
+      }
     }
 
   }
@@ -149,11 +137,28 @@ export class DependencyGraph {
 
 export class DepNode {
   
-  readonly value: IConstruct | null;
-  readonly children: DepNode[] = [];
+  private readonly _value: IConstruct | null;
+  private readonly _children: DepNode[] = [];
+  private readonly _parents: DepNode[] = [];
 
   constructor(value: IConstruct | null) {
-    this.value = value;
+    this._value = value;
+  }
+
+  public get value(): IConstruct | null {
+    return this._value;
+  }
+
+  public get children(): DepNode[] {
+    return this._children;
+  }
+
+  public get parents(): DepNode[] {
+    return this._parents;
+  }
+
+  public isOrphan() {
+    return this.parents.length === 0;
   }
 
   public topology(): IConstruct[] {
@@ -177,27 +182,29 @@ export class DepNode {
 
   }
 
-  addChild(dep: DepNode) {
+  public addChild(dep: DepNode) {
     
-    // make sure this doesn't create a cycle
-    // TODO: should we optimize for speed here by storing all
-    // decendants for each node? 
     const cycle: DepNode[] = this.findRoute(dep, this);
     if (cycle.length !== 0) {
       cycle.push(dep);
-      throw new Error(`Cycle detected: ${cycle.map(d => Node.of(d.value!).uniqueId).join(' => ')}`);  
+      throw new Error(`Dependency cycle detected: ${cycle.map(d => Node.of(d.value!).uniqueId).join(' => ')}`);  
     }
 
-    this.children.push(dep);
+    this._children.push(dep);
+    dep.addParent(this);
+  }
+
+  private addParent(dep: DepNode) {
+    this.parents.push(dep);
   }
 
   private findRoute(src: DepNode, dst: DepNode): DepNode[] {
     
     const route: DepNode[] = [];
-    walk(src);
+    visit(src);
     return route;
     
-    function walk(n: DepNode): boolean {
+    function visit(n: DepNode): boolean {
       route.push(n);
       let found = false;
       for (const c of n.children) {
@@ -205,7 +212,7 @@ export class DepNode {
           route.push(c);
           return true;
         }
-        found = walk(c);
+        found = visit(c);
       }
       if (!found) {
         route.pop();
