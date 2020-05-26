@@ -118,10 +118,13 @@ export class TypeGenerator {
       return this.typeForRef(def);
     }
 
-    // unions
+    // unions (unless this is a struct, and then we just ignore the constraints)
     if (def.oneOf || def.anyOf) {
-      this.emitUnion(typeName, def, structFqn)
-      return typeName;
+      if (this.emitUnion(typeName, def, structFqn)) {
+        return typeName;
+      }
+
+      // carry on, we can't represent this schema as a union (yet?)
     }
 
     if (def.type === 'string' && def.format === 'date-time') {
@@ -185,18 +188,26 @@ export class TypeGenerator {
     this.typesToEmit[typeName] = codeEmitter;
   }
 
+  /**
+   * @returns true if this definition can be represented as a union or false if it cannot
+   */
   private emitUnion(typeName: string, def: JSONSchema4, fqn: string) {
+    const options = new Array<string>();
+    for (const option of def.oneOf || def.anyOf || []) {
+      if (!supportedUnionOptionType(option.type)) {
+        return false;
+      }
+
+      const type = option.type === 'integer' ? 'number' : option.type;
+      options.push(type);
+    }
+
     this.emitLater(typeName, code => {
       this.emitDescription(code, fqn, def.description);
 
       code.openBlock(`export class ${typeName}`);
 
-      for (const option of def.oneOf || def.anyOf || []) {
-        if (typeof(option.type) !== 'string' || !PRIMITIVE_TYPES.includes(option.type)) {
-          throw new Error(`unexpected union type ${JSON.stringify(option.type)}`);
-        }
-
-        const type = option.type === 'integer' ? 'number' : option.type;
+      for (const type of options) {
         const methodName = 'from' + type[0].toUpperCase() + type.substr(1);
         code.openBlock(`public static ${methodName}(value: ${type}): ${typeName}`);
         code.line(`return new ${typeName}(value);`);
@@ -209,6 +220,8 @@ export class TypeGenerator {
 
       code.closeBlock();
     });
+
+    return true;
   }
 
   private emitStruct(typeName: string, structDef: JSONSchema4, structFqn: string) {
@@ -366,4 +379,8 @@ function normalizeTypeName(typeName: string) {
   const rest = re[2];
   const normalized = `I${group1.toLocaleLowerCase()}${rest}`;
   return normalized;
+}
+
+function supportedUnionOptionType(type: any): type is string {
+  return type && (typeof(type) === 'string' && PRIMITIVE_TYPES.includes(type));
 }

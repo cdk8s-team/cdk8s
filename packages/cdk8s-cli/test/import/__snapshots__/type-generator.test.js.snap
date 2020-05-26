@@ -178,6 +178,86 @@ export interface MyType {
 "
 `;
 
+exports[`unions constraints are ignored for objects 1`] = `
+"/**
+ * @schema TestType
+ */
+export interface TestType {
+    /**
+     * Fault injection policy to apply on HTTP traffic at
+the client side.
+     *
+     * @schema TestType#fault
+     */
+    readonly fault?: TestTypeFault;
+
+}
+
+/**
+ * Fault injection policy to apply on HTTP traffic at
+the client side.
+ *
+ * @schema TestTypeFault
+ */
+export interface TestTypeFault {
+    /**
+     * @schema TestTypeFault#delay
+     */
+    readonly delay?: TestTypeFaultDelay;
+
+}
+
+/**
+ * @schema TestTypeFaultDelay
+ */
+export interface TestTypeFaultDelay {
+    /**
+     * @schema TestTypeFaultDelay#exponentialDelay
+     */
+    readonly exponentialDelay?: string;
+
+    /**
+     * Add a fixed delay before forwarding the request.
+     *
+     * @schema TestTypeFaultDelay#fixedDelay
+     */
+    readonly fixedDelay?: string;
+
+    /**
+     * Percentage of requests on which the delay
+will be injected (0-100).
+     *
+     * @schema TestTypeFaultDelay#percent
+     */
+    readonly percent?: number;
+
+    /**
+     * Percentage of requests on which the delay
+will be injected.
+     *
+     * @schema TestTypeFaultDelay#percentage
+     */
+    readonly percentage?: TestTypeFaultDelayPercentage;
+
+}
+
+/**
+ * Percentage of requests on which the delay
+will be injected.
+ *
+ * @schema TestTypeFaultDelayPercentage
+ */
+export interface TestTypeFaultDelayPercentage {
+    /**
+     * @schema TestTypeFaultDelayPercentage#value
+     */
+    readonly value?: number;
+
+}
+
+"
+`;
+
 exports[`unions include primitives 1`] = `
 "/**
  * @schema fqn.of.TestType
