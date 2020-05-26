@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { CodeMaker } from 'codemaker';
-import { withTempDir } from '../util';
+import { mkdtemp } from '../util';
 import * as srcmak from 'jsii-srcmak';
 
 export enum Language {
@@ -32,7 +32,6 @@ export abstract class ImportBase {
 
   public async import(options: ImportOptions) {
     const code = new CodeMaker();
-    const outputJsii = options.outputJsii ? path.resolve(options.outputJsii) : undefined;
 
     const outdir = path.resolve(options.outdir);
     await fs.mkdirp(outdir);
@@ -48,24 +47,30 @@ export abstract class ImportBase {
 
       if (isTypescript) {
         await code.save(outdir);
-      } else {
-        // this is not typescript, so we generate in a staging directory and harvest the code
-        await withTempDir('importer', async () => {
-          await code.save('.');
+      }
+
+      if (!isTypescript || options.outputJsii) {
+        await mkdtemp(async staging => {
+
+          // this is not typescript, so we generate in a staging directory and
+          // use jsii-srcmak to compile and extract the language-specific source
+          // into our project.
+          await code.save(staging);
 
           // these are the module dependencies we compile against
-          const deps = [
-            '@types/node',
-            'constructs',
-            'cdk8s'
-          ].map(dep => path.dirname(require.resolve(`${dep}/package.json`)));
+          const deps = [ '@types/node', 'constructs', 'cdk8s' ];
 
           const opts: srcmak.Options = {
             entrypoint: fileName,
-            deps: deps,
-            jsii: outputJsii ? { path: outputJsii } : undefined
+            deps: deps.map(dep => path.dirname(require.resolve(`${dep}/package.json`))),
           };
 
+          // used for testing.
+          if (options.outputJsii) {
+            opts.jsii = { path: options.outputJsii };
+          }
+
+          // python!
           if (options.targetLanguage === Language.PYTHON) {
             opts.python = {
               outdir: outdir,
@@ -73,9 +78,8 @@ export abstract class ImportBase {
             };
           }
 
-          await srcmak.srcmak('.', opts);
+          await srcmak.srcmak(staging, opts);
         });
-
       }
     }
   }
