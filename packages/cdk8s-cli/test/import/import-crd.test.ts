@@ -53,6 +53,151 @@ test('fails if one apiObject in multiObject CRD is not a valid CRD', async () =>
   ])).toThrow('manifest does not have a "spec" attribute');
 });
 
+test('can import a "List" of CRDs (kubectl get crds -o json)', () => {
+  const importer = new ImportCustomResourceDefinition([
+    {
+      kind: 'List',
+      items: [
+        {
+          "apiVersion": "apiextensions.k8s.io/v1beta1",
+          "kind": "CustomResourceDefinition",
+          "metadata": {
+            "name": "crontabs.stable.example.com"
+          },
+          "spec": {
+            "group": "stable.example.com",
+            "versions": [
+              {
+                "name": "v1",
+                "served": true,
+                "storage": true
+              }
+            ],
+            "scope": "Namespaced",
+            "names": {
+              "plural": "crontabs",
+              "singular": "crontab",
+              "kind": "OtherCronTab",
+              "shortNames": [
+                "ct"
+              ]
+            },
+            "preserveUnknownFields": false,
+            "validation": {
+              "openAPIV3Schema": {
+                "type": "object",
+                "properties": {
+                  "spec": {
+                    "type": "object",
+                    "properties": {
+                      "cronSpec": {
+                        "type": "string"
+                      },
+                      "image": {
+                        "type": "string"
+                      },
+                      "replicas": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {}, // verify that we skip empty
+        {
+          "kind": "List",
+          "items": []
+        },
+
+        // nested lists
+        {
+          "kind": "List",
+          "items": [
+            {
+              "apiVersion": "apiextensions.k8s.io/v1beta1",
+              "kind": "CustomResourceDefinition",
+              "spec": {
+                "group": "foo.bar",
+                "version": "v1",
+                "names": {
+                  "kind": "foo"
+                }
+              }
+            },
+
+            // skip non-CRD
+            {
+              "apiVersion": "apiextensions.k8s.io/v1beta1",
+              "kind": "NonCustomResourceDefinition",
+              "spec": {
+                "group": "foo.bar",
+                "names": { "kind": "foo" },
+              }
+            }
+          ]
+        },
+        {
+          "apiVersion": "apiextensions.k8s.io/v1beta1",
+          "kind": "CustomResourceDefinition",
+          "metadata": {
+            "name": "crontabs.stable.example.com"
+          },
+          "spec": {
+            "group": "stable.example.com",
+            "versions": [
+              {
+                "name": "v1",
+                "served": true,
+                "storage": true
+              }
+            ],
+            "scope": "Namespaced",
+            "names": {
+              "plural": "crontabs",
+              "singular": "crontab",
+              "kind": "CronTab",
+              "shortNames": [
+                "ct"
+              ]
+            },
+            "preserveUnknownFields": false,
+            "validation": {
+              "openAPIV3Schema": {
+                "type": "object",
+                "properties": {
+                  "spec": {
+                    "type": "object",
+                    "properties": {
+                      "cronSpec": {
+                        "type": "string"
+                      },
+                      "image": {
+                        "type": "string"
+                      },
+                      "replicas": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]);
+
+  expect(importer.moduleNames).toEqual([
+    'stable.example.com/othercrontab',
+    'foo.bar/foo',
+    'stable.example.com/crontab'
+  ]);
+});
+
 function loadFixture(fileName: string) {
   const filePath = path.join(__dirname, 'fixtures', fileName);
   return yaml

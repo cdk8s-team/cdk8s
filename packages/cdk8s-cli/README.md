@@ -8,19 +8,15 @@ the full power of software in order to define abstract components called
 "constructs" which compose Kubernetes resources or other constructs into
 higher-level abstractions.
 
-## Installation
+To install the CLI use one of the following methods:
 
-Install globally via `yarn` (or `npm`):
-
-```shell
-yarn global add cdk8s-cli
-```
+* Homebrew: `brew install cdk8s`
+* npm: `npm i -g cdk8s-cli`
+* yarn: `yarn global add cdk8s-cli`
 
 ## init
 
-### Create new projects
-
-This command creates new cdk8s projects from built in templates:
+This command creates new cdk8s projects from built-in templates:
 
 ```shell
 $ cdk8s init TEMPLATE
@@ -36,19 +32,21 @@ $ cdk8s init typescript-app
 
 ## import
 
-### Import Kubernetes API objects as constructs
+The `import` command generates constructs for Kubernetes objects.
 
-To generate constructs for all Kubernetes API objects of a certain version, use
-the `import` subcommand:
+### Kubernetes API
+
+To generate constructs for all Kubernetes API objects of a certain version, use:
 
 ```shell
 $ cdk8s import k8s
 ```
 
-By default, the import command will put your imports under `imports/`
-with constructs for each API object in the k8s spec.
+The import command will generate files under `imports/k8s.ts` with constructs for each API object in the Kubernetes spec.
 
-The following example will import a specific version of the Kubernetes API objects:
+#### Specifying Kubernetes version
+
+Use the `@version` notation to import a specific Kubernetes version:
 
 ```shell
 $ cdk8s import k8s@1.16.0
@@ -73,53 +71,44 @@ Let's say that you want the behavior of [extensions/v1beta1](https://kubernetes.
 
 To do this, you could add the `--include` flag to your `cdk8s import`. Here is how that would look:
 
-`cdk8s` CLI
+From the CLI:
 
 ```code
 cdk8s import k8s --language typescript --include io.k8s.api.extensions.v1beta1.Deployment
 ```
 
-`cdk8s.yaml` Config
-
-This is not yet supported in `cdk8s.yaml` config.
-
 Here we are explicitly choosing to use the [Deployment extensions/v1beta1](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#deployment-v1beta1-extensions) version, which includes the new default behavior that we want from `DeploymentSpec`
 
-### Import Custom Resource Definitions (CRDs)
+> This feature is not yet supported in `cdk8s.yaml` config.
 
-You can import CRDs from local files (`my_crd.yml`) or from a remote host (`https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/master/deploy/crds/jenkins.io_jenkins_crd.yaml`)
+### Custom Resource Definitions (CRDs)
 
-Just like other imports, this is how you do that:
+You can import CRDs from local files or URLs:
 
-`cdk8s` CLI
-
-```code
-cdk8s import my_crd.yaml
+```shell
+$ cdk8s import my_crd.yaml
 ```
 
-`cdk8s.yaml` config
+Or from `cdk8s.yaml`:
 
 ```yaml
 imports:
   - my_crd.yaml
 ```
 
-By default, your imported CRD will be named by its `spec.names.kind`. If your CRD file contains multiple CRDs, this will create multiple imports, each named by its respective `spec.names.kind`.
+A CRD with group `mygroup.io` and kind `Foo` will be imported to the following locations:
 
-For example, if `my_crd.yaml` contained two kinds, `cluster` and `autoscaler`, you would have two imports. You could use them in this fashion:
+- TypeScript: `imports/mygroup.io/foo.ts`
+- Python: `imports/mygroup/io/foo/__init__.py`
 
-Typescript:
+If the imported YAML is a `List` of CRDs, all these CRDs will be imported. This
+is useful, for example, to import all the CRDs from a running cluster:
 
-```javascript
-import { cluster } from './imports/cluster';
-import { autoscaler } from './imports/autoscaler';
+```shell
+kubectl get crds -o json | cdk8s import /dev/stdin
 ```
 
-Python:
-
-```python
-from imports import cluster, autoscaler
-```
+> Yes, this works!
 
 ### Override default behavior of import naming
 

@@ -1,10 +1,8 @@
 import { TypeGenerator } from './type-generator';
 import { ImportBase } from './base';
 import { CodeMaker } from 'codemaker';
-import { httpGet, httpsGet } from '../util';
+import { download } from '../util';
 import * as yaml from 'yaml';
-import * as fs from 'fs-extra';
-import * as path from 'path';
 import { ImportSpec } from '../config';
 
 const CRD_KIND = 'CustomResourceDefinition';
@@ -12,6 +10,7 @@ const CRD_KIND = 'CustomResourceDefinition';
 export interface ManifestObjectDefinition {
   apiVersion?: string;
   kind?: string;
+  items?: ManifestObjectDefinition[]; // if `kind` is "List"
   metadata?: {
     name?: string;
   };
@@ -19,10 +18,16 @@ export interface ManifestObjectDefinition {
     group: string;
     names: {
       kind: string;
+      [key: string]: any;
     };
-    versions?: Array<{ name: string; schema?: { openAPIV3Schema?: any } }>;
+    versions?: Array<{
+      name: string;
+      schema?: { openAPIV3Schema?: any };
+      [key: string]: any;
+    }>;
     version?: string;
     validation?: { openAPIV3Schema?: any };
+    [key: string]: any;
   };
 }
 
@@ -91,23 +96,7 @@ export class CustomResourceDefinition {
 export class ImportCustomResourceDefinition extends ImportBase {
   public static async match(importSpec: ImportSpec): Promise<undefined | ManifestObjectDefinition[]> {
     const { source } = importSpec;
-    let manifest;
-    if (source.startsWith('https://')) {
-      manifest = await httpsGet(source);
-    } else if (source.startsWith('http://')) {
-        manifest = await httpGet(source)
-    } else if (path.extname(source) === '.yaml' || path.extname(source) === '.yml' || path.extname(source) === '.json') {
-      if (!(await fs.pathExists(source))) {
-        throw new Error(`can't find file ${source}`);
-      }
-
-      manifest = await fs.readFile(source, 'utf-8');
-    }
-
-    if (!manifest) {
-      return undefined;
-    }
-
+    const manifest = await download(source);
     return yaml.parseAllDocuments(manifest).map((doc: yaml.ast.Document) => doc.toJSON());
   }
 
@@ -136,6 +125,12 @@ export class ImportCustomResourceDefinition extends ImportBase {
 
           defs[key] = crd;
           continue;
+       }
+
+       // recurse into lists
+       if (obj.kind === 'List') {
+         extractCRDs(obj.items);
+         continue;
        }
      }
     };
