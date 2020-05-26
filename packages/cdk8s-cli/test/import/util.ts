@@ -21,6 +21,7 @@ export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
 
       // patch cdk8s version in manifest because it's not stable
       manifest.dependencies.cdk8s = '999.999.999';
+      manifest.fingerprint = '<fingerprint>';
 
       expect(manifest).toMatchSnapshot();
     });
