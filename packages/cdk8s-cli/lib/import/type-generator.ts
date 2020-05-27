@@ -349,20 +349,23 @@ export class TypeGenerator {
 }
 
 /**
+ * Convert all-caps acronyms (e.g. "VPC", "FooBARZooFIGoo") to pascal case (e.g. "Vpc", "FooBarZooFiGoo").
+ *
  * @internal exported for tests
  */
 export function normalizeTypeName(typeName: string) {
+  // start with the full string and then use the regex to match all-caps sequences.
   const re = /([A-Z]+)(?:[^a-z]|$)/g;
   let result = typeName;
   let m;
   do {
     m = re.exec(typeName);
     if (m) {
-      const before = result.slice(0, m.index);
-      const cap = m[1];
-      const pascal = cap[0] + cap.slice(1).toLowerCase();
-      const after = result.slice(m.index + pascal.length);
-      result = before + pascal + after;
+      const before = result.slice(0, m.index); // all the text before the sequence
+      const cap = m[1]; // group #1 matches the all-caps sequence we are after
+      const pascal = cap[0] + cap.slice(1).toLowerCase(); // convert to pascal case by lowercasing all but the first char
+      const after = result.slice(m.index + pascal.length); // all the text after the sequence
+      result = before + pascal + after; // concat
     }
   } while (m);
 
