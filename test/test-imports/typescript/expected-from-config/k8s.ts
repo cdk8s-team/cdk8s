@@ -7436,7 +7436,7 @@ export interface DeleteOptions {
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#kind
    */
-  readonly kind?: string;
+  readonly kind?: IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind;
 
   /**
    * Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
@@ -10881,6 +10881,16 @@ bigger numbers of ACS mean more reserved concurrent requests (at the expense of 
    */
   readonly limitResponse?: LimitResponse;
 
+}
+
+/**
+ * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+ *
+ * @schema IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind
+ */
+export enum IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind {
+  /** DeleteOptions */
+  DELETE_OPTIONS = "DeleteOptions",
 }
 
 /**
