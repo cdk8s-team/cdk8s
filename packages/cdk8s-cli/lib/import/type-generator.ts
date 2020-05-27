@@ -148,6 +148,10 @@ export class TypeGenerator {
         return 'Date';
       }
 
+      if (Array.isArray(def.enum) && def.enum.length > 0 && !def.enum.find(x => typeof(x) !== 'string')) {
+        return this.emitEnum(typeName, def, structFqn);
+      }
+
       return 'string';
     }
     
@@ -269,6 +273,40 @@ export class TypeGenerator {
 
     code.line(`readonly ${name}${optional}: ${propertyType};`);
     code.line();
+  }
+
+  private emitEnum(typeName: string, def: JSONSchema4, structFqn: string) {
+
+    this.emitLater(typeName, code => {
+
+      if (!def.enum || def.enum.length === 0) {
+        throw new Error(`definition is not an enum: ${JSON.stringify(def)}`);
+      }
+
+      if (def.type !== 'string') {
+        throw new Error(`can only generate string enums`);
+      }
+
+      this.emitDescription(code, structFqn, def.description);
+
+      code.openBlock(`export enum ${typeName}`);
+
+      for (const value of def.enum) {
+        if (typeof(value) !== 'string') {
+          throw new Error(`can only generate enums for string values`);
+        }
+
+        // sluggify and turn to UPPER_SNAKE_CASE
+        const memberName = code.toSnakeCase(value.replace(/[^a-z0-9]/gi, '_')).split('_').filter(x => x).join('_').toUpperCase();
+
+        code.line(`/** ${value} */`);
+        code.line(`${memberName} = "${value}",`);
+      }
+
+      code.closeBlock();
+    });
+
+    return typeName;
   }
 
   private emitDescription(code: CodeMaker, fqn: string, description?: string, annotations: { [type: string]: string } = { }) {
