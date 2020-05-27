@@ -14,7 +14,216 @@ import constructs
 from ._jsii import *
 
 
-class APIService(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.APIService"):
+@jsii.data_type(jsii_type="generated.Affinity", jsii_struct_bases=[], name_mapping={'node_affinity': 'nodeAffinity', 'pod_affinity': 'podAffinity', 'pod_anti_affinity': 'podAntiAffinity'})
+class Affinity():
+    def __init__(self, *, node_affinity: typing.Optional["NodeAffinity"]=None, pod_affinity: typing.Optional["PodAffinity"]=None, pod_anti_affinity: typing.Optional["PodAntiAffinity"]=None) -> None:
+        """Affinity is a group of affinity scheduling rules.
+
+        :param node_affinity: Describes node affinity scheduling rules for the pod.
+        :param pod_affinity: Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+        :param pod_anti_affinity: Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.Affinity
+        """
+        if isinstance(node_affinity, dict): node_affinity = NodeAffinity(**node_affinity)
+        if isinstance(pod_affinity, dict): pod_affinity = PodAffinity(**pod_affinity)
+        if isinstance(pod_anti_affinity, dict): pod_anti_affinity = PodAntiAffinity(**pod_anti_affinity)
+        self._values = {
+        }
+        if node_affinity is not None: self._values["node_affinity"] = node_affinity
+        if pod_affinity is not None: self._values["pod_affinity"] = pod_affinity
+        if pod_anti_affinity is not None: self._values["pod_anti_affinity"] = pod_anti_affinity
+
+    @builtins.property
+    def node_affinity(self) -> typing.Optional["NodeAffinity"]:
+        """Describes node affinity scheduling rules for the pod.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.Affinity#nodeAffinity
+        """
+        return self._values.get('node_affinity')
+
+    @builtins.property
+    def pod_affinity(self) -> typing.Optional["PodAffinity"]:
+        """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.Affinity#podAffinity
+        """
+        return self._values.get('pod_affinity')
+
+    @builtins.property
+    def pod_anti_affinity(self) -> typing.Optional["PodAntiAffinity"]:
+        """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.Affinity#podAntiAffinity
+        """
+        return self._values.get('pod_anti_affinity')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'Affinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AggregationRule", jsii_struct_bases=[], name_mapping={'cluster_role_selectors': 'clusterRoleSelectors'})
+class AggregationRule():
+    def __init__(self, *, cluster_role_selectors: typing.Optional[typing.List["LabelSelector"]]=None) -> None:
+        """AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
+
+        :param cluster_role_selectors: ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added
+
+        schema:
+        :schema:: io.k8s.api.rbac.v1.AggregationRule
+        """
+        self._values = {
+        }
+        if cluster_role_selectors is not None: self._values["cluster_role_selectors"] = cluster_role_selectors
+
+    @builtins.property
+    def cluster_role_selectors(self) -> typing.Optional[typing.List["LabelSelector"]]:
+        """ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+
+        If any of the selectors match, then the ClusterRole's permissions will be added
+
+        schema:
+        :schema:: io.k8s.api.rbac.v1.AggregationRule#clusterRoleSelectors
+        """
+        return self._values.get('cluster_role_selectors')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AggregationRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AllowedCsiDriver", jsii_struct_bases=[], name_mapping={'name': 'name'})
+class AllowedCsiDriver():
+    def __init__(self, *, name: str) -> None:
+        """AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
+
+        :param name: Name is the registered name of the CSI driver.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedCSIDriver
+        """
+        self._values = {
+            'name': name,
+        }
+
+    @builtins.property
+    def name(self) -> str:
+        """Name is the registered name of the CSI driver.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedCSIDriver#name
+        """
+        return self._values.get('name')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AllowedCsiDriver(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AllowedFlexVolume", jsii_struct_bases=[], name_mapping={'driver': 'driver'})
+class AllowedFlexVolume():
+    def __init__(self, *, driver: str) -> None:
+        """AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
+
+        :param driver: driver is the name of the Flexvolume driver.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedFlexVolume
+        """
+        self._values = {
+            'driver': driver,
+        }
+
+    @builtins.property
+    def driver(self) -> str:
+        """driver is the name of the Flexvolume driver.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedFlexVolume#driver
+        """
+        return self._values.get('driver')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AllowedFlexVolume(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AllowedHostPath", jsii_struct_bases=[], name_mapping={'path_prefix': 'pathPrefix', 'read_only': 'readOnly'})
+class AllowedHostPath():
+    def __init__(self, *, path_prefix: typing.Optional[str]=None, read_only: typing.Optional[bool]=None) -> None:
+        """AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use.
+
+        It requires the path prefix to be defined.
+
+        :param path_prefix: pathPrefix is the path prefix that the host volume must match. It does not support ``*``. Trailing slashes are trimmed when validating the path prefix with a host path. Examples: ``/foo`` would allow ``/foo``, ``/foo/`` and ``/foo/bar`` ``/foo`` would not allow ``/food`` or ``/etc/foo``
+        :param read_only: when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath
+        """
+        self._values = {
+        }
+        if path_prefix is not None: self._values["path_prefix"] = path_prefix
+        if read_only is not None: self._values["read_only"] = read_only
+
+    @builtins.property
+    def path_prefix(self) -> typing.Optional[str]:
+        """pathPrefix is the path prefix that the host volume must match.
+
+        It does not support ``*``. Trailing slashes are trimmed when validating the path prefix with a host path.
+
+        Examples: ``/foo`` would allow ``/foo``, ``/foo/`` and ``/foo/bar`` ``/foo`` would not allow ``/food`` or ``/etc/foo``
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath#pathPrefix
+        """
+        return self._values.get('path_prefix')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath#readOnly
+        """
+        return self._values.get('read_only')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AllowedHostPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class ApiService(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ApiService"):
     """APIService represents a server for a particular GroupVersion.
 
     Name must be "version.group".
@@ -22,7 +231,7 @@ class APIService(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.
     schema:
     :schema:: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService
     """
-    def __init__(self, scope: constructs.Construct, name: str, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["APIServiceSpec"]=None) -> None:
+    def __init__(self, scope: constructs.Construct, name: str, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ApiServiceSpec"]=None) -> None:
         """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService" API object.
 
         :param scope: the scope in which to define this object.
@@ -30,18 +239,18 @@ class APIService(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.
         :param metadata: 
         :param spec: Spec contains information for locating and communicating with a server.
         """
-        options = APIServiceOptions(metadata=metadata, spec=spec)
+        options = ApiServiceOptions(metadata=metadata, spec=spec)
 
-        jsii.create(APIService, self, [scope, name, options])
+        jsii.create(ApiService, self, [scope, name, options])
 
 
-class APIServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.APIServiceList"):
+class ApiServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ApiServiceList"):
     """APIServiceList is a list of APIService objects.
 
     schema:
     :schema:: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList
     """
-    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["APIService"], metadata: typing.Optional["ListMeta"]=None) -> None:
+    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["ApiService"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" API object.
 
         :param scope: the scope in which to define this object.
@@ -49,14 +258,14 @@ class APIServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="genera
         :param items: 
         :param metadata: 
         """
-        options = APIServiceListOptions(items=items, metadata=metadata)
+        options = ApiServiceListOptions(items=items, metadata=metadata)
 
-        jsii.create(APIServiceList, self, [scope, name, options])
+        jsii.create(ApiServiceList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="generated.APIServiceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
-class APIServiceListOptions():
-    def __init__(self, *, items: typing.List["APIService"], metadata: typing.Optional["ListMeta"]=None) -> None:
+@jsii.data_type(jsii_type="generated.ApiServiceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+class ApiServiceListOptions():
+    def __init__(self, *, items: typing.List["ApiService"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """APIServiceList is a list of APIService objects.
 
         :param items: 
@@ -72,7 +281,7 @@ class APIServiceListOptions():
         if metadata is not None: self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["APIService"]:
+    def items(self) -> typing.List["ApiService"]:
         """
         schema:
         :schema:: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
@@ -94,12 +303,12 @@ class APIServiceListOptions():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'APIServiceListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ApiServiceListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.APIServiceOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
-class APIServiceOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["APIServiceSpec"]=None) -> None:
+@jsii.data_type(jsii_type="generated.ApiServiceOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+class ApiServiceOptions():
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ApiServiceSpec"]=None) -> None:
         """APIService represents a server for a particular GroupVersion.
 
         Name must be "version.group".
@@ -111,7 +320,7 @@ class APIServiceOptions():
         :schema:: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService
         """
         if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict): spec = APIServiceSpec(**spec)
+        if isinstance(spec, dict): spec = ApiServiceSpec(**spec)
         self._values = {
         }
         if metadata is not None: self._values["metadata"] = metadata
@@ -126,7 +335,7 @@ class APIServiceOptions():
         return self._values.get('metadata')
 
     @builtins.property
-    def spec(self) -> typing.Optional["APIServiceSpec"]:
+    def spec(self) -> typing.Optional["ApiServiceSpec"]:
         """Spec contains information for locating and communicating with a server.
 
         schema:
@@ -141,11 +350,11 @@ class APIServiceOptions():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'APIServiceOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ApiServiceOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.APIServiceSpec", jsii_struct_bases=[], name_mapping={'group_priority_minimum': 'groupPriorityMinimum', 'service': 'service', 'version_priority': 'versionPriority', 'ca_bundle': 'caBundle', 'group': 'group', 'insecure_skip_tls_verify': 'insecureSkipTLSVerify', 'version': 'version'})
-class APIServiceSpec():
+@jsii.data_type(jsii_type="generated.ApiServiceSpec", jsii_struct_bases=[], name_mapping={'group_priority_minimum': 'groupPriorityMinimum', 'service': 'service', 'version_priority': 'versionPriority', 'ca_bundle': 'caBundle', 'group': 'group', 'insecure_skip_tls_verify': 'insecureSkipTLSVerify', 'version': 'version'})
+class ApiServiceSpec():
     def __init__(self, *, group_priority_minimum: jsii.Number, service: "ServiceReference", version_priority: jsii.Number, ca_bundle: typing.Optional[str]=None, group: typing.Optional[str]=None, insecure_skip_tls_verify: typing.Optional[bool]=None, version: typing.Optional[str]=None) -> None:
         """APIServiceSpec contains information for locating and communicating with a server.
 
@@ -255,292 +464,7 @@ class APIServiceSpec():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'APIServiceSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.AWSElasticBlockStoreVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
-class AWSElasticBlockStoreVolumeSource():
-    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None) -> None:
-        """Represents a Persistent Disk resource in AWS.
-
-        An AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling.
-
-        :param volume_id: Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-        :param fs_type: Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-        :param partition: The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
-        :param read_only: Specify "true" to force and set the ReadOnly property in VolumeMounts to "true". If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-
-        schema:
-        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource
-        """
-        self._values = {
-            'volume_id': volume_id,
-        }
-        if fs_type is not None: self._values["fs_type"] = fs_type
-        if partition is not None: self._values["partition"] = partition
-        if read_only is not None: self._values["read_only"] = read_only
-
-    @builtins.property
-    def volume_id(self) -> str:
-        """Unique ID of the persistent disk resource in AWS (Amazon EBS volume).
-
-        More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-
-        schema:
-        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#volumeID
-        """
-        return self._values.get('volume_id')
-
-    @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
-        """Filesystem type of the volume that you want to mount.
-
-        Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-
-        schema:
-        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#fsType
-        """
-        return self._values.get('fs_type')
-
-    @builtins.property
-    def partition(self) -> typing.Optional[jsii.Number]:
-        """The partition in the volume that you want to mount.
-
-        If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#partition
-        """
-        return self._values.get('partition')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """Specify "true" to force and set the ReadOnly property in VolumeMounts to "true".
-
-        If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-
-        schema:
-        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#readOnly
-        """
-        return self._values.get('read_only')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AWSElasticBlockStoreVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.Affinity", jsii_struct_bases=[], name_mapping={'node_affinity': 'nodeAffinity', 'pod_affinity': 'podAffinity', 'pod_anti_affinity': 'podAntiAffinity'})
-class Affinity():
-    def __init__(self, *, node_affinity: typing.Optional["NodeAffinity"]=None, pod_affinity: typing.Optional["PodAffinity"]=None, pod_anti_affinity: typing.Optional["PodAntiAffinity"]=None) -> None:
-        """Affinity is a group of affinity scheduling rules.
-
-        :param node_affinity: Describes node affinity scheduling rules for the pod.
-        :param pod_affinity: Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
-        :param pod_anti_affinity: Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.Affinity
-        """
-        if isinstance(node_affinity, dict): node_affinity = NodeAffinity(**node_affinity)
-        if isinstance(pod_affinity, dict): pod_affinity = PodAffinity(**pod_affinity)
-        if isinstance(pod_anti_affinity, dict): pod_anti_affinity = PodAntiAffinity(**pod_anti_affinity)
-        self._values = {
-        }
-        if node_affinity is not None: self._values["node_affinity"] = node_affinity
-        if pod_affinity is not None: self._values["pod_affinity"] = pod_affinity
-        if pod_anti_affinity is not None: self._values["pod_anti_affinity"] = pod_anti_affinity
-
-    @builtins.property
-    def node_affinity(self) -> typing.Optional["NodeAffinity"]:
-        """Describes node affinity scheduling rules for the pod.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.Affinity#nodeAffinity
-        """
-        return self._values.get('node_affinity')
-
-    @builtins.property
-    def pod_affinity(self) -> typing.Optional["PodAffinity"]:
-        """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.Affinity#podAffinity
-        """
-        return self._values.get('pod_affinity')
-
-    @builtins.property
-    def pod_anti_affinity(self) -> typing.Optional["PodAntiAffinity"]:
-        """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.Affinity#podAntiAffinity
-        """
-        return self._values.get('pod_anti_affinity')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'Affinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.AggregationRule", jsii_struct_bases=[], name_mapping={'cluster_role_selectors': 'clusterRoleSelectors'})
-class AggregationRule():
-    def __init__(self, *, cluster_role_selectors: typing.Optional[typing.List["LabelSelector"]]=None) -> None:
-        """AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
-
-        :param cluster_role_selectors: ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added
-
-        schema:
-        :schema:: io.k8s.api.rbac.v1.AggregationRule
-        """
-        self._values = {
-        }
-        if cluster_role_selectors is not None: self._values["cluster_role_selectors"] = cluster_role_selectors
-
-    @builtins.property
-    def cluster_role_selectors(self) -> typing.Optional[typing.List["LabelSelector"]]:
-        """ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
-
-        If any of the selectors match, then the ClusterRole's permissions will be added
-
-        schema:
-        :schema:: io.k8s.api.rbac.v1.AggregationRule#clusterRoleSelectors
-        """
-        return self._values.get('cluster_role_selectors')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AggregationRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.AllowedCSIDriver", jsii_struct_bases=[], name_mapping={'name': 'name'})
-class AllowedCSIDriver():
-    def __init__(self, *, name: str) -> None:
-        """AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
-
-        :param name: Name is the registered name of the CSI driver.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedCSIDriver
-        """
-        self._values = {
-            'name': name,
-        }
-
-    @builtins.property
-    def name(self) -> str:
-        """Name is the registered name of the CSI driver.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedCSIDriver#name
-        """
-        return self._values.get('name')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AllowedCSIDriver(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.AllowedFlexVolume", jsii_struct_bases=[], name_mapping={'driver': 'driver'})
-class AllowedFlexVolume():
-    def __init__(self, *, driver: str) -> None:
-        """AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
-
-        :param driver: driver is the name of the Flexvolume driver.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedFlexVolume
-        """
-        self._values = {
-            'driver': driver,
-        }
-
-    @builtins.property
-    def driver(self) -> str:
-        """driver is the name of the Flexvolume driver.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedFlexVolume#driver
-        """
-        return self._values.get('driver')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AllowedFlexVolume(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.AllowedHostPath", jsii_struct_bases=[], name_mapping={'path_prefix': 'pathPrefix', 'read_only': 'readOnly'})
-class AllowedHostPath():
-    def __init__(self, *, path_prefix: typing.Optional[str]=None, read_only: typing.Optional[bool]=None) -> None:
-        """AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use.
-
-        It requires the path prefix to be defined.
-
-        :param path_prefix: pathPrefix is the path prefix that the host volume must match. It does not support ``*``. Trailing slashes are trimmed when validating the path prefix with a host path. Examples: ``/foo`` would allow ``/foo``, ``/foo/`` and ``/foo/bar`` ``/foo`` would not allow ``/food`` or ``/etc/foo``
-        :param read_only: when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath
-        """
-        self._values = {
-        }
-        if path_prefix is not None: self._values["path_prefix"] = path_prefix
-        if read_only is not None: self._values["read_only"] = read_only
-
-    @builtins.property
-    def path_prefix(self) -> typing.Optional[str]:
-        """pathPrefix is the path prefix that the host volume must match.
-
-        It does not support ``*``. Trailing slashes are trimmed when validating the path prefix with a host path.
-
-        Examples: ``/foo`` would allow ``/foo``, ``/foo/`` and ``/foo/bar`` ``/foo`` would not allow ``/food`` or ``/etc/foo``
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath#pathPrefix
-        """
-        return self._values.get('path_prefix')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath#readOnly
-        """
-        return self._values.get('read_only')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AllowedHostPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ApiServiceSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class AuditSink(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.AuditSink"):
@@ -714,6 +638,82 @@ class AuditSinkSpec():
 
     def __repr__(self) -> str:
         return 'AuditSinkSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AwsElasticBlockStoreVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
+class AwsElasticBlockStoreVolumeSource():
+    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None) -> None:
+        """Represents a Persistent Disk resource in AWS.
+
+        An AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling.
+
+        :param volume_id: Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+        :param fs_type: Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+        :param partition: The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+        :param read_only: Specify "true" to force and set the ReadOnly property in VolumeMounts to "true". If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+
+        schema:
+        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource
+        """
+        self._values = {
+            'volume_id': volume_id,
+        }
+        if fs_type is not None: self._values["fs_type"] = fs_type
+        if partition is not None: self._values["partition"] = partition
+        if read_only is not None: self._values["read_only"] = read_only
+
+    @builtins.property
+    def volume_id(self) -> str:
+        """Unique ID of the persistent disk resource in AWS (Amazon EBS volume).
+
+        More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+
+        schema:
+        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#volumeID
+        """
+        return self._values.get('volume_id')
+
+    @builtins.property
+    def fs_type(self) -> typing.Optional[str]:
+        """Filesystem type of the volume that you want to mount.
+
+        Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+
+        schema:
+        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#fsType
+        """
+        return self._values.get('fs_type')
+
+    @builtins.property
+    def partition(self) -> typing.Optional[jsii.Number]:
+        """The partition in the volume that you want to mount.
+
+        If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#partition
+        """
+        return self._values.get('partition')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """Specify "true" to force and set the ReadOnly property in VolumeMounts to "true".
+
+        If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+
+        schema:
+        :schema:: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#readOnly
+        """
+        return self._values.get('read_only')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AwsElasticBlockStoreVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 @jsii.data_type(jsii_type="generated.AzureDiskVolumeSource", jsii_struct_bases=[], name_mapping={'disk_name': 'diskName', 'disk_uri': 'diskURI', 'caching_mode': 'cachingMode', 'fs_type': 'fsType', 'kind': 'kind', 'read_only': 'readOnly'})
@@ -1083,683 +1083,6 @@ class BoundObjectReference():
         return 'BoundObjectReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class CSIDriver(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CSIDriver"):
-    """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
-
-    CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
-
-    schema:
-    :schema:: io.k8s.api.storage.v1beta1.CSIDriver
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, spec: "CSIDriverSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
-        """Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param spec: Specification of the CSI Driver.
-        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        """
-        options = CSIDriverOptions(spec=spec, metadata=metadata)
-
-        jsii.create(CSIDriver, self, [scope, name, options])
-
-
-class CSIDriverList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CSIDriverList"):
-    """CSIDriverList is a collection of CSIDriver objects.
-
-    schema:
-    :schema:: io.k8s.api.storage.v1beta1.CSIDriverList
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["CSIDriver"], metadata: typing.Optional["ListMeta"]=None) -> None:
-        """Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: items is the list of CSIDriver.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        """
-        options = CSIDriverListOptions(items=items, metadata=metadata)
-
-        jsii.create(CSIDriverList, self, [scope, name, options])
-
-
-@jsii.data_type(jsii_type="generated.CSIDriverListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
-class CSIDriverListOptions():
-    def __init__(self, *, items: typing.List["CSIDriver"], metadata: typing.Optional["ListMeta"]=None) -> None:
-        """CSIDriverList is a collection of CSIDriver objects.
-
-        :param items: items is the list of CSIDriver.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList
-        """
-        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
-        self._values = {
-            'items': items,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List["CSIDriver"]:
-        """items is the list of CSIDriver.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList#items
-        """
-        return self._values.get('items')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIDriverListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.CSIDriverOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
-class CSIDriverOptions():
-    def __init__(self, *, spec: "CSIDriverSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
-        """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
-
-        CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
-
-        :param spec: Specification of the CSI Driver.
-        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriver
-        """
-        if isinstance(spec, dict): spec = CSIDriverSpec(**spec)
-        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        self._values = {
-            'spec': spec,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def spec(self) -> "CSIDriverSpec":
-        """Specification of the CSI Driver.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriver#spec
-        """
-        return self._values.get('spec')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object metadata.
-
-        metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriver#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIDriverOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.CSIDriverSpec", jsii_struct_bases=[], name_mapping={'attach_required': 'attachRequired', 'pod_info_on_mount': 'podInfoOnMount', 'volume_lifecycle_modes': 'volumeLifecycleModes'})
-class CSIDriverSpec():
-    def __init__(self, *, attach_required: typing.Optional[bool]=None, pod_info_on_mount: typing.Optional[bool]=None, volume_lifecycle_modes: typing.Optional[typing.List[str]]=None) -> None:
-        """CSIDriverSpec is the specification of a CSIDriver.
-
-        :param attach_required: attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting. The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
-        :param pod_info_on_mount: If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume defined by a CSIVolumeSource, otherwise "false". "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver. Default: false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
-        :param volume_lifecycle_modes: VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports. The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec
-        """
-        self._values = {
-        }
-        if attach_required is not None: self._values["attach_required"] = attach_required
-        if pod_info_on_mount is not None: self._values["pod_info_on_mount"] = pod_info_on_mount
-        if volume_lifecycle_modes is not None: self._values["volume_lifecycle_modes"] = volume_lifecycle_modes
-
-    @builtins.property
-    def attach_required(self) -> typing.Optional[bool]:
-        """attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting.
-
-        The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#attachRequired
-        """
-        return self._values.get('attach_required')
-
-    @builtins.property
-    def pod_info_on_mount(self) -> typing.Optional[bool]:
-        """If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume                             defined by a CSIVolumeSource, otherwise "false".
-
-        "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.
-
-        default
-        :default: false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#podInfoOnMount
-        """
-        return self._values.get('pod_info_on_mount')
-
-    @builtins.property
-    def volume_lifecycle_modes(self) -> typing.Optional[typing.List[str]]:
-        """VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
-
-        The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#volumeLifecycleModes
-        """
-        return self._values.get('volume_lifecycle_modes')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIDriverSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-class CSINode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CSINode"):
-    """CSINode holds information about all CSI drivers installed on a node.
-
-    CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
-
-    schema:
-    :schema:: io.k8s.api.storage.v1.CSINode
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, spec: "CSINodeSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
-        """Defines a "io.k8s.api.storage.v1.CSINode" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param spec: spec is the specification of CSINode.
-        :param metadata: metadata.name must be the Kubernetes node name.
-        """
-        options = CSINodeOptions(spec=spec, metadata=metadata)
-
-        jsii.create(CSINode, self, [scope, name, options])
-
-
-@jsii.data_type(jsii_type="generated.CSINodeDriver", jsii_struct_bases=[], name_mapping={'name': 'name', 'node_id': 'nodeID', 'allocatable': 'allocatable', 'topology_keys': 'topologyKeys'})
-class CSINodeDriver():
-    def __init__(self, *, name: str, node_id: str, allocatable: typing.Optional["VolumeNodeResources"]=None, topology_keys: typing.Optional[typing.List[str]]=None) -> None:
-        """CSINodeDriver holds information about the specification of one CSI driver installed on a node.
-
-        :param name: This is the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.
-        :param node_id: nodeID of the node from the driver point of view. This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
-        :param allocatable: allocatable represents the volume resources of a node that are available for scheduling. This field is beta.
-        :param topology_keys: topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver
-        """
-        if isinstance(allocatable, dict): allocatable = VolumeNodeResources(**allocatable)
-        self._values = {
-            'name': name,
-            'node_id': node_id,
-        }
-        if allocatable is not None: self._values["allocatable"] = allocatable
-        if topology_keys is not None: self._values["topology_keys"] = topology_keys
-
-    @builtins.property
-    def name(self) -> str:
-        """This is the name of the CSI driver that this object refers to.
-
-        This MUST be the same name returned by the CSI GetPluginName() call for that driver.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver#name
-        """
-        return self._values.get('name')
-
-    @builtins.property
-    def node_id(self) -> str:
-        """nodeID of the node from the driver point of view.
-
-        This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver#nodeID
-        """
-        return self._values.get('node_id')
-
-    @builtins.property
-    def allocatable(self) -> typing.Optional["VolumeNodeResources"]:
-        """allocatable represents the volume resources of a node that are available for scheduling.
-
-        This field is beta.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver#allocatable
-        """
-        return self._values.get('allocatable')
-
-    @builtins.property
-    def topology_keys(self) -> typing.Optional[typing.List[str]]:
-        """topologyKeys is the list of keys supported by the driver.
-
-        When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver#topologyKeys
-        """
-        return self._values.get('topology_keys')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSINodeDriver(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-class CSINodeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CSINodeList"):
-    """CSINodeList is a collection of CSINode objects.
-
-    schema:
-    :schema:: io.k8s.api.storage.v1.CSINodeList
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["CSINode"], metadata: typing.Optional["ListMeta"]=None) -> None:
-        """Defines a "io.k8s.api.storage.v1.CSINodeList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: items is the list of CSINode.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        """
-        options = CSINodeListOptions(items=items, metadata=metadata)
-
-        jsii.create(CSINodeList, self, [scope, name, options])
-
-
-@jsii.data_type(jsii_type="generated.CSINodeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
-class CSINodeListOptions():
-    def __init__(self, *, items: typing.List["CSINode"], metadata: typing.Optional["ListMeta"]=None) -> None:
-        """CSINodeList is a collection of CSINode objects.
-
-        :param items: items is the list of CSINode.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeList
-        """
-        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
-        self._values = {
-            'items': items,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List["CSINode"]:
-        """items is the list of CSINode.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeList#items
-        """
-        return self._values.get('items')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeList#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSINodeListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.CSINodeOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
-class CSINodeOptions():
-    def __init__(self, *, spec: "CSINodeSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
-        """CSINode holds information about all CSI drivers installed on a node.
-
-        CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
-
-        :param spec: spec is the specification of CSINode.
-        :param metadata: metadata.name must be the Kubernetes node name.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINode
-        """
-        if isinstance(spec, dict): spec = CSINodeSpec(**spec)
-        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        self._values = {
-            'spec': spec,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def spec(self) -> "CSINodeSpec":
-        """spec is the specification of CSINode.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINode#spec
-        """
-        return self._values.get('spec')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """metadata.name must be the Kubernetes node name.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINode#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSINodeOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.CSINodeSpec", jsii_struct_bases=[], name_mapping={'drivers': 'drivers'})
-class CSINodeSpec():
-    def __init__(self, *, drivers: typing.List["CSINodeDriver"]) -> None:
-        """CSINodeSpec holds information about the specification of all CSI drivers installed on a node.
-
-        :param drivers: drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeSpec
-        """
-        self._values = {
-            'drivers': drivers,
-        }
-
-    @builtins.property
-    def drivers(self) -> typing.List["CSINodeDriver"]:
-        """drivers is a list of information of all CSI Drivers existing on a node.
-
-        If all drivers in the list are uninstalled, this can become empty.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeSpec#drivers
-        """
-        return self._values.get('drivers')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSINodeSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.CSIPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'volume_handle': 'volumeHandle', 'controller_expand_secret_ref': 'controllerExpandSecretRef', 'controller_publish_secret_ref': 'controllerPublishSecretRef', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'node_stage_secret_ref': 'nodeStageSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
-class CSIPersistentVolumeSource():
-    def __init__(self, *, driver: str, volume_handle: str, controller_expand_secret_ref: typing.Optional["SecretReference"]=None, controller_publish_secret_ref: typing.Optional["SecretReference"]=None, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["SecretReference"]=None, node_stage_secret_ref: typing.Optional["SecretReference"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str, str]]=None) -> None:
-        """Represents storage that is managed by an external CSI volume driver (Beta feature).
-
-        :param driver: Driver is the name of the driver to use for this volume. Required.
-        :param volume_handle: VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
-        :param controller_expand_secret_ref: ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-        :param controller_publish_secret_ref: ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-        :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
-        :param node_publish_secret_ref: NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-        :param node_stage_secret_ref: NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-        :param read_only: Optional: The value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write). Default: false (read/write).
-        :param volume_attributes: Attributes of the volume to publish.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource
-        """
-        if isinstance(controller_expand_secret_ref, dict): controller_expand_secret_ref = SecretReference(**controller_expand_secret_ref)
-        if isinstance(controller_publish_secret_ref, dict): controller_publish_secret_ref = SecretReference(**controller_publish_secret_ref)
-        if isinstance(node_publish_secret_ref, dict): node_publish_secret_ref = SecretReference(**node_publish_secret_ref)
-        if isinstance(node_stage_secret_ref, dict): node_stage_secret_ref = SecretReference(**node_stage_secret_ref)
-        self._values = {
-            'driver': driver,
-            'volume_handle': volume_handle,
-        }
-        if controller_expand_secret_ref is not None: self._values["controller_expand_secret_ref"] = controller_expand_secret_ref
-        if controller_publish_secret_ref is not None: self._values["controller_publish_secret_ref"] = controller_publish_secret_ref
-        if fs_type is not None: self._values["fs_type"] = fs_type
-        if node_publish_secret_ref is not None: self._values["node_publish_secret_ref"] = node_publish_secret_ref
-        if node_stage_secret_ref is not None: self._values["node_stage_secret_ref"] = node_stage_secret_ref
-        if read_only is not None: self._values["read_only"] = read_only
-        if volume_attributes is not None: self._values["volume_attributes"] = volume_attributes
-
-    @builtins.property
-    def driver(self) -> str:
-        """Driver is the name of the driver to use for this volume.
-
-        Required.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#driver
-        """
-        return self._values.get('driver')
-
-    @builtins.property
-    def volume_handle(self) -> str:
-        """VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls.
-
-        Required.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeHandle
-        """
-        return self._values.get('volume_handle')
-
-    @builtins.property
-    def controller_expand_secret_ref(self) -> typing.Optional["SecretReference"]:
-        """ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call.
-
-        This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerExpandSecretRef
-        """
-        return self._values.get('controller_expand_secret_ref')
-
-    @builtins.property
-    def controller_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
-        """ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls.
-
-        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerPublishSecretRef
-        """
-        return self._values.get('controller_publish_secret_ref')
-
-    @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
-        """Filesystem type to mount.
-
-        Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#fsType
-        """
-        return self._values.get('fs_type')
-
-    @builtins.property
-    def node_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
-        """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
-
-        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodePublishSecretRef
-        """
-        return self._values.get('node_publish_secret_ref')
-
-    @builtins.property
-    def node_stage_secret_ref(self) -> typing.Optional["SecretReference"]:
-        """NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls.
-
-        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodeStageSecretRef
-        """
-        return self._values.get('node_stage_secret_ref')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """Optional: The value to pass to ControllerPublishVolumeRequest.
-
-        Defaults to false (read/write).
-
-        default
-        :default: false (read/write).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#readOnly
-        """
-        return self._values.get('read_only')
-
-    @builtins.property
-    def volume_attributes(self) -> typing.Optional[typing.Mapping[str, str]]:
-        """Attributes of the volume to publish.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeAttributes
-        """
-        return self._values.get('volume_attributes')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.CSIVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
-class CSIVolumeSource():
-    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["LocalObjectReference"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str, str]]=None) -> None:
-        """Represents a source location of a volume to mount, managed by an external CSI driver.
-
-        :param driver: Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
-        :param fs_type: Filesystem type to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
-        :param node_publish_secret_ref: NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
-        :param read_only: Specifies a read-only configuration for the volume. Defaults to false (read/write). Default: false (read/write).
-        :param volume_attributes: VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource
-        """
-        if isinstance(node_publish_secret_ref, dict): node_publish_secret_ref = LocalObjectReference(**node_publish_secret_ref)
-        self._values = {
-            'driver': driver,
-        }
-        if fs_type is not None: self._values["fs_type"] = fs_type
-        if node_publish_secret_ref is not None: self._values["node_publish_secret_ref"] = node_publish_secret_ref
-        if read_only is not None: self._values["read_only"] = read_only
-        if volume_attributes is not None: self._values["volume_attributes"] = volume_attributes
-
-    @builtins.property
-    def driver(self) -> str:
-        """Driver is the name of the CSI driver that handles this volume.
-
-        Consult with your admin for the correct name as registered in the cluster.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#driver
-        """
-        return self._values.get('driver')
-
-    @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
-        """Filesystem type to mount.
-
-        Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#fsType
-        """
-        return self._values.get('fs_type')
-
-    @builtins.property
-    def node_publish_secret_ref(self) -> typing.Optional["LocalObjectReference"]:
-        """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
-
-        This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#nodePublishSecretRef
-        """
-        return self._values.get('node_publish_secret_ref')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """Specifies a read-only configuration for the volume.
-
-        Defaults to false (read/write).
-
-        default
-        :default: false (read/write).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#readOnly
-        """
-        return self._values.get('read_only')
-
-    @builtins.property
-    def volume_attributes(self) -> typing.Optional[typing.Mapping[str, str]]:
-        """VolumeAttributes stores driver-specific properties that are passed to the CSI driver.
-
-        Consult your driver's documentation for supported values.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#volumeAttributes
-        """
-        return self._values.get('volume_attributes')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
 @jsii.data_type(jsii_type="generated.Capabilities", jsii_struct_bases=[], name_mapping={'add': 'add', 'drop': 'drop'})
 class Capabilities():
     def __init__(self, *, add: typing.Optional[typing.List[str]]=None, drop: typing.Optional[typing.List[str]]=None) -> None:
@@ -1804,8 +1127,8 @@ class Capabilities():
         return 'Capabilities(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.CephFSPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
-class CephFSPersistentVolumeSource():
+@jsii.data_type(jsii_type="generated.CephFsPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
+class CephFsPersistentVolumeSource():
     def __init__(self, *, monitors: typing.List[str], path: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_file: typing.Optional[str]=None, secret_ref: typing.Optional["SecretReference"]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.
 
@@ -1897,11 +1220,11 @@ class CephFSPersistentVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'CephFSPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'CephFsPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.CephFSVolumeSource", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
-class CephFSVolumeSource():
+@jsii.data_type(jsii_type="generated.CephFsVolumeSource", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
+class CephFsVolumeSource():
     def __init__(self, *, monitors: typing.List[str], path: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_file: typing.Optional[str]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.
 
@@ -1993,7 +1316,7 @@ class CephFSVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'CephFSVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'CephFsVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class CertificateSigningRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CertificateSigningRequest"):
@@ -2377,8 +1700,8 @@ class CinderVolumeSource():
         return 'CinderVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.ClientIPConfig", jsii_struct_bases=[], name_mapping={'timeout_seconds': 'timeoutSeconds'})
-class ClientIPConfig():
+@jsii.data_type(jsii_type="generated.ClientIpConfig", jsii_struct_bases=[], name_mapping={'timeout_seconds': 'timeoutSeconds'})
+class ClientIpConfig():
     def __init__(self, *, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """ClientIPConfig represents the configurations of Client IP based session affinity.
 
@@ -2409,7 +1732,7 @@ class ClientIPConfig():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClientIPConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ClientIpConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class ClusterRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterRole"):
@@ -4253,6 +3576,683 @@ class CrossVersionObjectReference():
         return 'CrossVersionObjectReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
+class CsiDriver(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiDriver"):
+    """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
+
+    CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
+
+    schema:
+    :schema:: io.k8s.api.storage.v1beta1.CSIDriver
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, spec: "CsiDriverSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Specification of the CSI Driver.
+        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = CsiDriverOptions(spec=spec, metadata=metadata)
+
+        jsii.create(CsiDriver, self, [scope, name, options])
+
+
+class CsiDriverList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiDriverList"):
+    """CSIDriverList is a collection of CSIDriver objects.
+
+    schema:
+    :schema:: io.k8s.api.storage.v1beta1.CSIDriverList
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["CsiDriver"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of CSIDriver.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = CsiDriverListOptions(items=items, metadata=metadata)
+
+        jsii.create(CsiDriverList, self, [scope, name, options])
+
+
+@jsii.data_type(jsii_type="generated.CsiDriverListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+class CsiDriverListOptions():
+    def __init__(self, *, items: typing.List["CsiDriver"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """CSIDriverList is a collection of CSIDriver objects.
+
+        :param items: items is the list of CSIDriver.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList
+        """
+        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
+        self._values = {
+            'items': items,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List["CsiDriver"]:
+        """items is the list of CSIDriver.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList#items
+        """
+        return self._values.get('items')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiDriverListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiDriverOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+class CsiDriverOptions():
+    def __init__(self, *, spec: "CsiDriverSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
+        """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
+
+        CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
+
+        :param spec: Specification of the CSI Driver.
+        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriver
+        """
+        if isinstance(spec, dict): spec = CsiDriverSpec(**spec)
+        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
+        self._values = {
+            'spec': spec,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> "CsiDriverSpec":
+        """Specification of the CSI Driver.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriver#spec
+        """
+        return self._values.get('spec')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object metadata.
+
+        metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriver#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiDriverOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiDriverSpec", jsii_struct_bases=[], name_mapping={'attach_required': 'attachRequired', 'pod_info_on_mount': 'podInfoOnMount', 'volume_lifecycle_modes': 'volumeLifecycleModes'})
+class CsiDriverSpec():
+    def __init__(self, *, attach_required: typing.Optional[bool]=None, pod_info_on_mount: typing.Optional[bool]=None, volume_lifecycle_modes: typing.Optional[typing.List[str]]=None) -> None:
+        """CSIDriverSpec is the specification of a CSIDriver.
+
+        :param attach_required: attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting. The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
+        :param pod_info_on_mount: If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume defined by a CSIVolumeSource, otherwise "false". "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver. Default: false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
+        :param volume_lifecycle_modes: VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports. The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec
+        """
+        self._values = {
+        }
+        if attach_required is not None: self._values["attach_required"] = attach_required
+        if pod_info_on_mount is not None: self._values["pod_info_on_mount"] = pod_info_on_mount
+        if volume_lifecycle_modes is not None: self._values["volume_lifecycle_modes"] = volume_lifecycle_modes
+
+    @builtins.property
+    def attach_required(self) -> typing.Optional[bool]:
+        """attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting.
+
+        The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#attachRequired
+        """
+        return self._values.get('attach_required')
+
+    @builtins.property
+    def pod_info_on_mount(self) -> typing.Optional[bool]:
+        """If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume                             defined by a CSIVolumeSource, otherwise "false".
+
+        "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.
+
+        default
+        :default: false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#podInfoOnMount
+        """
+        return self._values.get('pod_info_on_mount')
+
+    @builtins.property
+    def volume_lifecycle_modes(self) -> typing.Optional[typing.List[str]]:
+        """VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+
+        The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#volumeLifecycleModes
+        """
+        return self._values.get('volume_lifecycle_modes')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiDriverSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class CsiNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiNode"):
+    """CSINode holds information about all CSI drivers installed on a node.
+
+    CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
+
+    schema:
+    :schema:: io.k8s.api.storage.v1.CSINode
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, spec: "CsiNodeSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
+        """Defines a "io.k8s.api.storage.v1.CSINode" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: spec is the specification of CSINode.
+        :param metadata: metadata.name must be the Kubernetes node name.
+        """
+        options = CsiNodeOptions(spec=spec, metadata=metadata)
+
+        jsii.create(CsiNode, self, [scope, name, options])
+
+
+@jsii.data_type(jsii_type="generated.CsiNodeDriver", jsii_struct_bases=[], name_mapping={'name': 'name', 'node_id': 'nodeID', 'allocatable': 'allocatable', 'topology_keys': 'topologyKeys'})
+class CsiNodeDriver():
+    def __init__(self, *, name: str, node_id: str, allocatable: typing.Optional["VolumeNodeResources"]=None, topology_keys: typing.Optional[typing.List[str]]=None) -> None:
+        """CSINodeDriver holds information about the specification of one CSI driver installed on a node.
+
+        :param name: This is the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.
+        :param node_id: nodeID of the node from the driver point of view. This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
+        :param allocatable: allocatable represents the volume resources of a node that are available for scheduling. This field is beta.
+        :param topology_keys: topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver
+        """
+        if isinstance(allocatable, dict): allocatable = VolumeNodeResources(**allocatable)
+        self._values = {
+            'name': name,
+            'node_id': node_id,
+        }
+        if allocatable is not None: self._values["allocatable"] = allocatable
+        if topology_keys is not None: self._values["topology_keys"] = topology_keys
+
+    @builtins.property
+    def name(self) -> str:
+        """This is the name of the CSI driver that this object refers to.
+
+        This MUST be the same name returned by the CSI GetPluginName() call for that driver.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver#name
+        """
+        return self._values.get('name')
+
+    @builtins.property
+    def node_id(self) -> str:
+        """nodeID of the node from the driver point of view.
+
+        This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver#nodeID
+        """
+        return self._values.get('node_id')
+
+    @builtins.property
+    def allocatable(self) -> typing.Optional["VolumeNodeResources"]:
+        """allocatable represents the volume resources of a node that are available for scheduling.
+
+        This field is beta.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver#allocatable
+        """
+        return self._values.get('allocatable')
+
+    @builtins.property
+    def topology_keys(self) -> typing.Optional[typing.List[str]]:
+        """topologyKeys is the list of keys supported by the driver.
+
+        When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver#topologyKeys
+        """
+        return self._values.get('topology_keys')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiNodeDriver(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class CsiNodeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiNodeList"):
+    """CSINodeList is a collection of CSINode objects.
+
+    schema:
+    :schema:: io.k8s.api.storage.v1.CSINodeList
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["CsiNode"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """Defines a "io.k8s.api.storage.v1.CSINodeList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of CSINode.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = CsiNodeListOptions(items=items, metadata=metadata)
+
+        jsii.create(CsiNodeList, self, [scope, name, options])
+
+
+@jsii.data_type(jsii_type="generated.CsiNodeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+class CsiNodeListOptions():
+    def __init__(self, *, items: typing.List["CsiNode"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """CSINodeList is a collection of CSINode objects.
+
+        :param items: items is the list of CSINode.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeList
+        """
+        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
+        self._values = {
+            'items': items,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List["CsiNode"]:
+        """items is the list of CSINode.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeList#items
+        """
+        return self._values.get('items')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeList#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiNodeListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiNodeOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+class CsiNodeOptions():
+    def __init__(self, *, spec: "CsiNodeSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
+        """CSINode holds information about all CSI drivers installed on a node.
+
+        CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
+
+        :param spec: spec is the specification of CSINode.
+        :param metadata: metadata.name must be the Kubernetes node name.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINode
+        """
+        if isinstance(spec, dict): spec = CsiNodeSpec(**spec)
+        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
+        self._values = {
+            'spec': spec,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> "CsiNodeSpec":
+        """spec is the specification of CSINode.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINode#spec
+        """
+        return self._values.get('spec')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """metadata.name must be the Kubernetes node name.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINode#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiNodeOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiNodeSpec", jsii_struct_bases=[], name_mapping={'drivers': 'drivers'})
+class CsiNodeSpec():
+    def __init__(self, *, drivers: typing.List["CsiNodeDriver"]) -> None:
+        """CSINodeSpec holds information about the specification of all CSI drivers installed on a node.
+
+        :param drivers: drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeSpec
+        """
+        self._values = {
+            'drivers': drivers,
+        }
+
+    @builtins.property
+    def drivers(self) -> typing.List["CsiNodeDriver"]:
+        """drivers is a list of information of all CSI Drivers existing on a node.
+
+        If all drivers in the list are uninstalled, this can become empty.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeSpec#drivers
+        """
+        return self._values.get('drivers')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiNodeSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'volume_handle': 'volumeHandle', 'controller_expand_secret_ref': 'controllerExpandSecretRef', 'controller_publish_secret_ref': 'controllerPublishSecretRef', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'node_stage_secret_ref': 'nodeStageSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
+class CsiPersistentVolumeSource():
+    def __init__(self, *, driver: str, volume_handle: str, controller_expand_secret_ref: typing.Optional["SecretReference"]=None, controller_publish_secret_ref: typing.Optional["SecretReference"]=None, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["SecretReference"]=None, node_stage_secret_ref: typing.Optional["SecretReference"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+        """Represents storage that is managed by an external CSI volume driver (Beta feature).
+
+        :param driver: Driver is the name of the driver to use for this volume. Required.
+        :param volume_handle: VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
+        :param controller_expand_secret_ref: ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+        :param controller_publish_secret_ref: ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+        :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
+        :param node_publish_secret_ref: NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+        :param node_stage_secret_ref: NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+        :param read_only: Optional: The value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write). Default: false (read/write).
+        :param volume_attributes: Attributes of the volume to publish.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource
+        """
+        if isinstance(controller_expand_secret_ref, dict): controller_expand_secret_ref = SecretReference(**controller_expand_secret_ref)
+        if isinstance(controller_publish_secret_ref, dict): controller_publish_secret_ref = SecretReference(**controller_publish_secret_ref)
+        if isinstance(node_publish_secret_ref, dict): node_publish_secret_ref = SecretReference(**node_publish_secret_ref)
+        if isinstance(node_stage_secret_ref, dict): node_stage_secret_ref = SecretReference(**node_stage_secret_ref)
+        self._values = {
+            'driver': driver,
+            'volume_handle': volume_handle,
+        }
+        if controller_expand_secret_ref is not None: self._values["controller_expand_secret_ref"] = controller_expand_secret_ref
+        if controller_publish_secret_ref is not None: self._values["controller_publish_secret_ref"] = controller_publish_secret_ref
+        if fs_type is not None: self._values["fs_type"] = fs_type
+        if node_publish_secret_ref is not None: self._values["node_publish_secret_ref"] = node_publish_secret_ref
+        if node_stage_secret_ref is not None: self._values["node_stage_secret_ref"] = node_stage_secret_ref
+        if read_only is not None: self._values["read_only"] = read_only
+        if volume_attributes is not None: self._values["volume_attributes"] = volume_attributes
+
+    @builtins.property
+    def driver(self) -> str:
+        """Driver is the name of the driver to use for this volume.
+
+        Required.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#driver
+        """
+        return self._values.get('driver')
+
+    @builtins.property
+    def volume_handle(self) -> str:
+        """VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls.
+
+        Required.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeHandle
+        """
+        return self._values.get('volume_handle')
+
+    @builtins.property
+    def controller_expand_secret_ref(self) -> typing.Optional["SecretReference"]:
+        """ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call.
+
+        This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerExpandSecretRef
+        """
+        return self._values.get('controller_expand_secret_ref')
+
+    @builtins.property
+    def controller_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
+        """ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls.
+
+        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerPublishSecretRef
+        """
+        return self._values.get('controller_publish_secret_ref')
+
+    @builtins.property
+    def fs_type(self) -> typing.Optional[str]:
+        """Filesystem type to mount.
+
+        Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#fsType
+        """
+        return self._values.get('fs_type')
+
+    @builtins.property
+    def node_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
+        """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
+
+        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodePublishSecretRef
+        """
+        return self._values.get('node_publish_secret_ref')
+
+    @builtins.property
+    def node_stage_secret_ref(self) -> typing.Optional["SecretReference"]:
+        """NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls.
+
+        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodeStageSecretRef
+        """
+        return self._values.get('node_stage_secret_ref')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """Optional: The value to pass to ControllerPublishVolumeRequest.
+
+        Defaults to false (read/write).
+
+        default
+        :default: false (read/write).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#readOnly
+        """
+        return self._values.get('read_only')
+
+    @builtins.property
+    def volume_attributes(self) -> typing.Optional[typing.Mapping[str, str]]:
+        """Attributes of the volume to publish.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeAttributes
+        """
+        return self._values.get('volume_attributes')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
+class CsiVolumeSource():
+    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["LocalObjectReference"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+        """Represents a source location of a volume to mount, managed by an external CSI driver.
+
+        :param driver: Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
+        :param fs_type: Filesystem type to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
+        :param node_publish_secret_ref: NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+        :param read_only: Specifies a read-only configuration for the volume. Defaults to false (read/write). Default: false (read/write).
+        :param volume_attributes: VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource
+        """
+        if isinstance(node_publish_secret_ref, dict): node_publish_secret_ref = LocalObjectReference(**node_publish_secret_ref)
+        self._values = {
+            'driver': driver,
+        }
+        if fs_type is not None: self._values["fs_type"] = fs_type
+        if node_publish_secret_ref is not None: self._values["node_publish_secret_ref"] = node_publish_secret_ref
+        if read_only is not None: self._values["read_only"] = read_only
+        if volume_attributes is not None: self._values["volume_attributes"] = volume_attributes
+
+    @builtins.property
+    def driver(self) -> str:
+        """Driver is the name of the CSI driver that handles this volume.
+
+        Consult with your admin for the correct name as registered in the cluster.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#driver
+        """
+        return self._values.get('driver')
+
+    @builtins.property
+    def fs_type(self) -> typing.Optional[str]:
+        """Filesystem type to mount.
+
+        Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#fsType
+        """
+        return self._values.get('fs_type')
+
+    @builtins.property
+    def node_publish_secret_ref(self) -> typing.Optional["LocalObjectReference"]:
+        """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
+
+        This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#nodePublishSecretRef
+        """
+        return self._values.get('node_publish_secret_ref')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """Specifies a read-only configuration for the volume.
+
+        Defaults to false (read/write).
+
+        default
+        :default: false (read/write).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#readOnly
+        """
+        return self._values.get('read_only')
+
+    @builtins.property
+    def volume_attributes(self) -> typing.Optional[typing.Mapping[str, str]]:
+        """VolumeAttributes stores driver-specific properties that are passed to the CSI driver.
+
+        Consult your driver's documentation for supported values.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#volumeAttributes
+        """
+        return self._values.get('volume_attributes')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
 @jsii.data_type(jsii_type="generated.CustomResourceColumnDefinition", jsii_struct_bases=[], name_mapping={'json_path': 'jsonPath', 'name': 'name', 'type': 'type', 'description': 'description', 'format': 'format', 'priority': 'priority'})
 class CustomResourceColumnDefinition():
     def __init__(self, *, json_path: str, name: str, type: str, description: typing.Optional[str]=None, format: typing.Optional[str]=None, priority: typing.Optional[jsii.Number]=None) -> None:
@@ -4928,7 +4928,7 @@ class CustomResourceSubresources():
 
 @jsii.data_type(jsii_type="generated.CustomResourceValidation", jsii_struct_bases=[], name_mapping={'open_api_v3_schema': 'openAPIV3Schema'})
 class CustomResourceValidation():
-    def __init__(self, *, open_api_v3_schema: typing.Optional["JSONSchemaProps"]=None) -> None:
+    def __init__(self, *, open_api_v3_schema: typing.Optional["JsonSchemaProps"]=None) -> None:
         """CustomResourceValidation is a list of validation methods for CustomResources.
 
         :param open_api_v3_schema: openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
@@ -4936,13 +4936,13 @@ class CustomResourceValidation():
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceValidation
         """
-        if isinstance(open_api_v3_schema, dict): open_api_v3_schema = JSONSchemaProps(**open_api_v3_schema)
+        if isinstance(open_api_v3_schema, dict): open_api_v3_schema = JsonSchemaProps(**open_api_v3_schema)
         self._values = {
         }
         if open_api_v3_schema is not None: self._values["open_api_v3_schema"] = open_api_v3_schema
 
     @builtins.property
-    def open_api_v3_schema(self) -> typing.Optional["JSONSchemaProps"]:
+    def open_api_v3_schema(self) -> typing.Optional["JsonSchemaProps"]:
         """openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
 
         schema:
@@ -5672,9 +5672,9 @@ class DeploymentStrategy():
         return 'DeploymentStrategy(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.DownwardAPIProjection", jsii_struct_bases=[], name_mapping={'items': 'items'})
-class DownwardAPIProjection():
-    def __init__(self, *, items: typing.Optional[typing.List["DownwardAPIVolumeFile"]]=None) -> None:
+@jsii.data_type(jsii_type="generated.DownwardApiProjection", jsii_struct_bases=[], name_mapping={'items': 'items'})
+class DownwardApiProjection():
+    def __init__(self, *, items: typing.Optional[typing.List["DownwardApiVolumeFile"]]=None) -> None:
         """Represents downward API info for projecting into a projected volume.
 
         Note that this is identical to a downwardAPI volume source without the default mode.
@@ -5689,7 +5689,7 @@ class DownwardAPIProjection():
         if items is not None: self._values["items"] = items
 
     @builtins.property
-    def items(self) -> typing.Optional[typing.List["DownwardAPIVolumeFile"]]:
+    def items(self) -> typing.Optional[typing.List["DownwardApiVolumeFile"]]:
         """Items is a list of DownwardAPIVolume file.
 
         schema:
@@ -5704,11 +5704,11 @@ class DownwardAPIProjection():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'DownwardAPIProjection(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'DownwardApiProjection(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.DownwardAPIVolumeFile", jsii_struct_bases=[], name_mapping={'path': 'path', 'field_ref': 'fieldRef', 'mode': 'mode', 'resource_field_ref': 'resourceFieldRef'})
-class DownwardAPIVolumeFile():
+@jsii.data_type(jsii_type="generated.DownwardApiVolumeFile", jsii_struct_bases=[], name_mapping={'path': 'path', 'field_ref': 'fieldRef', 'mode': 'mode', 'resource_field_ref': 'resourceFieldRef'})
+class DownwardApiVolumeFile():
     def __init__(self, *, path: str, field_ref: typing.Optional["ObjectFieldSelector"]=None, mode: typing.Optional[jsii.Number]=None, resource_field_ref: typing.Optional["ResourceFieldSelector"]=None) -> None:
         """DownwardAPIVolumeFile represents information to create the file containing the pod field.
 
@@ -5776,12 +5776,12 @@ class DownwardAPIVolumeFile():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'DownwardAPIVolumeFile(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'DownwardApiVolumeFile(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.DownwardAPIVolumeSource", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items'})
-class DownwardAPIVolumeSource():
-    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["DownwardAPIVolumeFile"]]=None) -> None:
+@jsii.data_type(jsii_type="generated.DownwardApiVolumeSource", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items'})
+class DownwardApiVolumeSource():
+    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["DownwardApiVolumeFile"]]=None) -> None:
         """DownwardAPIVolumeSource represents a volume containing downward API info.
 
         Downward API volumes support ownership management and SELinux relabeling.
@@ -5812,7 +5812,7 @@ class DownwardAPIVolumeSource():
         return self._values.get('default_mode')
 
     @builtins.property
-    def items(self) -> typing.Optional[typing.List["DownwardAPIVolumeFile"]]:
+    def items(self) -> typing.Optional[typing.List["DownwardApiVolumeFile"]]:
         """Items is a list of downward API volume file.
 
         schema:
@@ -5827,7 +5827,7 @@ class DownwardAPIVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'DownwardAPIVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'DownwardApiVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 @jsii.data_type(jsii_type="generated.EmptyDirVolumeSource", jsii_struct_bases=[], name_mapping={'medium': 'medium', 'size_limit': 'sizeLimit'})
@@ -7599,8 +7599,8 @@ class ExternalDocumentation():
         return 'ExternalDocumentation(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.FCVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'lun': 'lun', 'read_only': 'readOnly', 'target_ww_ns': 'targetWWNs', 'wwids': 'wwids'})
-class FCVolumeSource():
+@jsii.data_type(jsii_type="generated.FcVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'lun': 'lun', 'read_only': 'readOnly', 'target_ww_ns': 'targetWWNs', 'wwids': 'wwids'})
+class FcVolumeSource():
     def __init__(self, *, fs_type: typing.Optional[str]=None, lun: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None, target_ww_ns: typing.Optional[typing.List[str]]=None, wwids: typing.Optional[typing.List[str]]=None) -> None:
         """Represents a Fibre Channel volume.
 
@@ -7682,53 +7682,7 @@ class FCVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'FCVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.FSGroupStrategyOptions", jsii_struct_bases=[], name_mapping={'ranges': 'ranges', 'rule': 'rule'})
-class FSGroupStrategyOptions():
-    def __init__(self, *, ranges: typing.Optional[typing.List["IdRange"]]=None, rule: typing.Optional[str]=None) -> None:
-        """FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
-
-        :param ranges: ranges are the allowed ranges of fs groups. If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
-        :param rule: rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions
-        """
-        self._values = {
-        }
-        if ranges is not None: self._values["ranges"] = ranges
-        if rule is not None: self._values["rule"] = rule
-
-    @builtins.property
-    def ranges(self) -> typing.Optional[typing.List["IdRange"]]:
-        """ranges are the allowed ranges of fs groups.
-
-        If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#ranges
-        """
-        return self._values.get('ranges')
-
-    @builtins.property
-    def rule(self) -> typing.Optional[str]:
-        """rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#rule
-        """
-        return self._values.get('rule')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'FSGroupStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'FcVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 @jsii.data_type(jsii_type="generated.FlexPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'options': 'options', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
@@ -8203,8 +8157,54 @@ class FlowSchemaSpec():
         return 'FlowSchemaSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.GCEPersistentDiskVolumeSource", jsii_struct_bases=[], name_mapping={'pd_name': 'pdName', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
-class GCEPersistentDiskVolumeSource():
+@jsii.data_type(jsii_type="generated.FsGroupStrategyOptions", jsii_struct_bases=[], name_mapping={'ranges': 'ranges', 'rule': 'rule'})
+class FsGroupStrategyOptions():
+    def __init__(self, *, ranges: typing.Optional[typing.List["IdRange"]]=None, rule: typing.Optional[str]=None) -> None:
+        """FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
+
+        :param ranges: ranges are the allowed ranges of fs groups. If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
+        :param rule: rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions
+        """
+        self._values = {
+        }
+        if ranges is not None: self._values["ranges"] = ranges
+        if rule is not None: self._values["rule"] = rule
+
+    @builtins.property
+    def ranges(self) -> typing.Optional[typing.List["IdRange"]]:
+        """ranges are the allowed ranges of fs groups.
+
+        If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#ranges
+        """
+        return self._values.get('ranges')
+
+    @builtins.property
+    def rule(self) -> typing.Optional[str]:
+        """rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#rule
+        """
+        return self._values.get('rule')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'FsGroupStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.GcePersistentDiskVolumeSource", jsii_struct_bases=[], name_mapping={'pd_name': 'pdName', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
+class GcePersistentDiskVolumeSource():
     def __init__(self, *, pd_name: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None) -> None:
         """Represents a Persistent Disk resource in Google Compute Engine.
 
@@ -8279,7 +8279,7 @@ class GCEPersistentDiskVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'GCEPersistentDiskVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'GcePersistentDiskVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 @jsii.data_type(jsii_type="generated.GitRepoVolumeSource", jsii_struct_bases=[], name_mapping={'repository': 'repository', 'directory': 'directory', 'revision': 'revision'})
@@ -8488,223 +8488,9 @@ class GlusterfsVolumeSource():
         return 'GlusterfsVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.HTTPGetAction", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
-class HTTPGetAction():
-    def __init__(self, *, port: "IntOrString", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["HTTPHeader"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
-        """HTTPGetAction describes an action based on HTTP Get requests.
-
-        :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-        :param host: Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-        :param http_headers: Custom headers to set in the request. HTTP allows repeated headers.
-        :param path: Path to access on the HTTP server.
-        :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction
-        """
-        self._values = {
-            'port': port,
-        }
-        if host is not None: self._values["host"] = host
-        if http_headers is not None: self._values["http_headers"] = http_headers
-        if path is not None: self._values["path"] = path
-        if scheme is not None: self._values["scheme"] = scheme
-
-    @builtins.property
-    def port(self) -> "IntOrString":
-        """Name or number of the port to access on the container.
-
-        Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#port
-        """
-        return self._values.get('port')
-
-    @builtins.property
-    def host(self) -> typing.Optional[str]:
-        """Host name to connect to, defaults to the pod IP.
-
-        You probably want to set "Host" in httpHeaders instead.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#host
-        """
-        return self._values.get('host')
-
-    @builtins.property
-    def http_headers(self) -> typing.Optional[typing.List["HTTPHeader"]]:
-        """Custom headers to set in the request.
-
-        HTTP allows repeated headers.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#httpHeaders
-        """
-        return self._values.get('http_headers')
-
-    @builtins.property
-    def path(self) -> typing.Optional[str]:
-        """Path to access on the HTTP server.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#path
-        """
-        return self._values.get('path')
-
-    @builtins.property
-    def scheme(self) -> typing.Optional[str]:
-        """Scheme to use for connecting to the host.
-
-        Defaults to HTTP.
-
-        default
-        :default: HTTP.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#scheme
-        """
-        return self._values.get('scheme')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'HTTPGetAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.HTTPHeader", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
-class HTTPHeader():
-    def __init__(self, *, name: str, value: str) -> None:
-        """HTTPHeader describes a custom header to be used in HTTP probes.
-
-        :param name: The header field name.
-        :param value: The header field value.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPHeader
-        """
-        self._values = {
-            'name': name,
-            'value': value,
-        }
-
-    @builtins.property
-    def name(self) -> str:
-        """The header field name.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPHeader#name
-        """
-        return self._values.get('name')
-
-    @builtins.property
-    def value(self) -> str:
-        """The header field value.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPHeader#value
-        """
-        return self._values.get('value')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'HTTPHeader(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.HTTPIngressPath", jsii_struct_bases=[], name_mapping={'backend': 'backend', 'path': 'path'})
-class HTTPIngressPath():
-    def __init__(self, *, backend: "IngressBackend", path: typing.Optional[str]=None) -> None:
-        """HTTPIngressPath associates a path regex with a backend.
-
-        Incoming urls matching the path are forwarded to the backend.
-
-        :param backend: Backend defines the referenced service endpoint to which the traffic will be forwarded to.
-        :param path: Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath
-        """
-        if isinstance(backend, dict): backend = IngressBackend(**backend)
-        self._values = {
-            'backend': backend,
-        }
-        if path is not None: self._values["path"] = path
-
-    @builtins.property
-    def backend(self) -> "IngressBackend":
-        """Backend defines the referenced service endpoint to which the traffic will be forwarded to.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath#backend
-        """
-        return self._values.get('backend')
-
-    @builtins.property
-    def path(self) -> typing.Optional[str]:
-        """Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath#path
-        """
-        return self._values.get('path')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'HTTPIngressPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.HTTPIngressRuleValue", jsii_struct_bases=[], name_mapping={'paths': 'paths'})
-class HTTPIngressRuleValue():
-    def __init__(self, *, paths: typing.List["HTTPIngressPath"]) -> None:
-        """HTTPIngressRuleValue is a list of http selectors pointing to backends.
-
-        In the example: http:///? -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.
-
-        :param paths: A collection of paths that map requests to backends.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue
-        """
-        self._values = {
-            'paths': paths,
-        }
-
-    @builtins.property
-    def paths(self) -> typing.List["HTTPIngressPath"]:
-        """A collection of paths that map requests to backends.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue#paths
-        """
-        return self._values.get('paths')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'HTTPIngressRuleValue(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
 @jsii.data_type(jsii_type="generated.Handler", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'http_get': 'httpGet', 'tcp_socket': 'tcpSocket'})
 class Handler():
-    def __init__(self, *, exec: typing.Optional["ExecAction"]=None, http_get: typing.Optional["HTTPGetAction"]=None, tcp_socket: typing.Optional["TCPSocketAction"]=None) -> None:
+    def __init__(self, *, exec: typing.Optional["ExecAction"]=None, http_get: typing.Optional["HttpGetAction"]=None, tcp_socket: typing.Optional["TcpSocketAction"]=None) -> None:
         """Handler defines a specific action that should be taken.
 
         :param exec: One and only one of the following should be specified. Exec specifies the action to take.
@@ -8715,8 +8501,8 @@ class Handler():
         :schema:: io.k8s.api.core.v1.Handler
         """
         if isinstance(exec, dict): exec = ExecAction(**exec)
-        if isinstance(http_get, dict): http_get = HTTPGetAction(**http_get)
-        if isinstance(tcp_socket, dict): tcp_socket = TCPSocketAction(**tcp_socket)
+        if isinstance(http_get, dict): http_get = HttpGetAction(**http_get)
+        if isinstance(tcp_socket, dict): tcp_socket = TcpSocketAction(**tcp_socket)
         self._values = {
         }
         if exec is not None: self._values["exec"] = exec
@@ -8735,7 +8521,7 @@ class Handler():
         return self._values.get('exec')
 
     @builtins.property
-    def http_get(self) -> typing.Optional["HTTPGetAction"]:
+    def http_get(self) -> typing.Optional["HttpGetAction"]:
         """HTTPGet specifies the http request to perform.
 
         schema:
@@ -8744,7 +8530,7 @@ class Handler():
         return self._values.get('http_get')
 
     @builtins.property
-    def tcp_socket(self) -> typing.Optional["TCPSocketAction"]:
+    def tcp_socket(self) -> typing.Optional["TcpSocketAction"]:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported
@@ -9113,6 +8899,220 @@ class HostPortRange():
         return 'HostPortRange(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
+@jsii.data_type(jsii_type="generated.HttpGetAction", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
+class HttpGetAction():
+    def __init__(self, *, port: "IntOrString", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["HttpHeader"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
+        """HTTPGetAction describes an action based on HTTP Get requests.
+
+        :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        :param host: Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+        :param http_headers: Custom headers to set in the request. HTTP allows repeated headers.
+        :param path: Path to access on the HTTP server.
+        :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction
+        """
+        self._values = {
+            'port': port,
+        }
+        if host is not None: self._values["host"] = host
+        if http_headers is not None: self._values["http_headers"] = http_headers
+        if path is not None: self._values["path"] = path
+        if scheme is not None: self._values["scheme"] = scheme
+
+    @builtins.property
+    def port(self) -> "IntOrString":
+        """Name or number of the port to access on the container.
+
+        Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#port
+        """
+        return self._values.get('port')
+
+    @builtins.property
+    def host(self) -> typing.Optional[str]:
+        """Host name to connect to, defaults to the pod IP.
+
+        You probably want to set "Host" in httpHeaders instead.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#host
+        """
+        return self._values.get('host')
+
+    @builtins.property
+    def http_headers(self) -> typing.Optional[typing.List["HttpHeader"]]:
+        """Custom headers to set in the request.
+
+        HTTP allows repeated headers.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#httpHeaders
+        """
+        return self._values.get('http_headers')
+
+    @builtins.property
+    def path(self) -> typing.Optional[str]:
+        """Path to access on the HTTP server.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#path
+        """
+        return self._values.get('path')
+
+    @builtins.property
+    def scheme(self) -> typing.Optional[str]:
+        """Scheme to use for connecting to the host.
+
+        Defaults to HTTP.
+
+        default
+        :default: HTTP.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#scheme
+        """
+        return self._values.get('scheme')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'HttpGetAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.HttpHeader", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+class HttpHeader():
+    def __init__(self, *, name: str, value: str) -> None:
+        """HTTPHeader describes a custom header to be used in HTTP probes.
+
+        :param name: The header field name.
+        :param value: The header field value.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPHeader
+        """
+        self._values = {
+            'name': name,
+            'value': value,
+        }
+
+    @builtins.property
+    def name(self) -> str:
+        """The header field name.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPHeader#name
+        """
+        return self._values.get('name')
+
+    @builtins.property
+    def value(self) -> str:
+        """The header field value.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPHeader#value
+        """
+        return self._values.get('value')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'HttpHeader(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.HttpIngressPath", jsii_struct_bases=[], name_mapping={'backend': 'backend', 'path': 'path'})
+class HttpIngressPath():
+    def __init__(self, *, backend: "IngressBackend", path: typing.Optional[str]=None) -> None:
+        """HTTPIngressPath associates a path regex with a backend.
+
+        Incoming urls matching the path are forwarded to the backend.
+
+        :param backend: Backend defines the referenced service endpoint to which the traffic will be forwarded to.
+        :param path: Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath
+        """
+        if isinstance(backend, dict): backend = IngressBackend(**backend)
+        self._values = {
+            'backend': backend,
+        }
+        if path is not None: self._values["path"] = path
+
+    @builtins.property
+    def backend(self) -> "IngressBackend":
+        """Backend defines the referenced service endpoint to which the traffic will be forwarded to.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath#backend
+        """
+        return self._values.get('backend')
+
+    @builtins.property
+    def path(self) -> typing.Optional[str]:
+        """Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath#path
+        """
+        return self._values.get('path')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'HttpIngressPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.HttpIngressRuleValue", jsii_struct_bases=[], name_mapping={'paths': 'paths'})
+class HttpIngressRuleValue():
+    def __init__(self, *, paths: typing.List["HttpIngressPath"]) -> None:
+        """HTTPIngressRuleValue is a list of http selectors pointing to backends.
+
+        In the example: http:///? -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.
+
+        :param paths: A collection of paths that map requests to backends.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue
+        """
+        self._values = {
+            'paths': paths,
+        }
+
+    @builtins.property
+    def paths(self) -> typing.List["HttpIngressPath"]:
+        """A collection of paths that map requests to backends.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue#paths
+        """
+        return self._values.get('paths')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'HttpIngressRuleValue(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
 @jsii.data_type(jsii_type="generated.IdRange", jsii_struct_bases=[], name_mapping={'max': 'max', 'min': 'min'})
 class IdRange():
     def __init__(self, *, max: jsii.Number, min: jsii.Number) -> None:
@@ -9342,7 +9342,7 @@ class IngressOptions():
 
 @jsii.data_type(jsii_type="generated.IngressRule", jsii_struct_bases=[], name_mapping={'host': 'host', 'http': 'http'})
 class IngressRule():
-    def __init__(self, *, host: typing.Optional[str]=None, http: typing.Optional["HTTPIngressRuleValue"]=None) -> None:
+    def __init__(self, *, host: typing.Optional[str]=None, http: typing.Optional["HttpIngressRuleValue"]=None) -> None:
         """IngressRule represents the rules mapping the paths under a specified host to the related backend services.
 
         Incoming requests are first evaluated for a host match, then routed to the backend associated with the matching IngressRuleValue.
@@ -9353,7 +9353,7 @@ class IngressRule():
         schema:
         :schema:: io.k8s.api.networking.v1beta1.IngressRule
         """
-        if isinstance(http, dict): http = HTTPIngressRuleValue(**http)
+        if isinstance(http, dict): http = HttpIngressRuleValue(**http)
         self._values = {
         }
         if host is not None: self._values["host"] = host
@@ -9376,7 +9376,7 @@ class IngressRule():
         return self._values.get('host')
 
     @builtins.property
-    def http(self) -> typing.Optional["HTTPIngressRuleValue"]:
+    def http(self) -> typing.Optional["HttpIngressRuleValue"]:
         """
         schema:
         :schema:: io.k8s.api.networking.v1beta1.IngressRule#http
@@ -9395,7 +9395,7 @@ class IngressRule():
 
 @jsii.data_type(jsii_type="generated.IngressSpec", jsii_struct_bases=[], name_mapping={'backend': 'backend', 'rules': 'rules', 'tls': 'tls'})
 class IngressSpec():
-    def __init__(self, *, backend: typing.Optional["IngressBackend"]=None, rules: typing.Optional[typing.List["IngressRule"]]=None, tls: typing.Optional[typing.List["IngressTLS"]]=None) -> None:
+    def __init__(self, *, backend: typing.Optional["IngressBackend"]=None, rules: typing.Optional[typing.List["IngressRule"]]=None, tls: typing.Optional[typing.List["IngressTls"]]=None) -> None:
         """IngressSpec describes the Ingress the user wishes to exist.
 
         :param backend: A default backend capable of servicing requests that don't match any rule. At least one of 'backend' or 'rules' must be specified. This field is optional to allow the loadbalancer controller or defaulting logic to specify a global default.
@@ -9435,7 +9435,7 @@ class IngressSpec():
         return self._values.get('rules')
 
     @builtins.property
-    def tls(self) -> typing.Optional[typing.List["IngressTLS"]]:
+    def tls(self) -> typing.Optional[typing.List["IngressTls"]]:
         """TLS configuration.
 
         Currently the Ingress only supports a single TLS port, 443. If multiple members of this list specify different hosts, they will be multiplexed on the same port according to the hostname specified through the SNI TLS extension, if the ingress controller fulfilling the ingress supports SNI.
@@ -9455,8 +9455,8 @@ class IngressSpec():
         return 'IngressSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.IngressTLS", jsii_struct_bases=[], name_mapping={'hosts': 'hosts', 'secret_name': 'secretName'})
-class IngressTLS():
+@jsii.data_type(jsii_type="generated.IngressTls", jsii_struct_bases=[], name_mapping={'hosts': 'hosts', 'secret_name': 'secretName'})
+class IngressTls():
     def __init__(self, *, hosts: typing.Optional[typing.List[str]]=None, secret_name: typing.Optional[str]=None) -> None:
         """IngressTLS describes the transport layer security associated with an Ingress.
 
@@ -9503,7 +9503,7 @@ class IngressTLS():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'IngressTLS(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'IngressTls(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="generated.IntOrString"):
@@ -9914,406 +9914,6 @@ class IscsiVolumeSource():
         return 'IscsiVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.JSONSchemaProps", jsii_struct_bases=[], name_mapping={'additional_items': 'additionalItems', 'additional_properties': 'additionalProperties', 'all_of': 'allOf', 'any_of': 'anyOf', 'default': 'default', 'definitions': 'definitions', 'dependencies': 'dependencies', 'description': 'description', 'enum': 'enum', 'example': 'example', 'exclusive_maximum': 'exclusiveMaximum', 'exclusive_minimum': 'exclusiveMinimum', 'external_docs': 'externalDocs', 'format': 'format', 'id': 'id', 'items': 'items', 'maximum': 'maximum', 'max_items': 'maxItems', 'max_length': 'maxLength', 'max_properties': 'maxProperties', 'minimum': 'minimum', 'min_items': 'minItems', 'min_length': 'minLength', 'min_properties': 'minProperties', 'multiple_of': 'multipleOf', 'not_': 'not', 'nullable': 'nullable', 'one_of': 'oneOf', 'pattern': 'pattern', 'pattern_properties': 'patternProperties', 'properties': 'properties', 'ref': 'ref', 'required': 'required', 'schema': 'schema', 'title': 'title', 'type': 'type', 'unique_items': 'uniqueItems'})
-class JSONSchemaProps():
-    def __init__(self, *, additional_items: typing.Optional[str]=None, additional_properties: typing.Optional[str]=None, all_of: typing.Optional[typing.List["JSONSchemaProps"]]=None, any_of: typing.Optional[typing.List["JSONSchemaProps"]]=None, default: typing.Optional[str]=None, definitions: typing.Optional[typing.Mapping[str, "JSONSchemaProps"]]=None, dependencies: typing.Optional[typing.Mapping[str, str]]=None, description: typing.Optional[str]=None, enum: typing.Optional[typing.List[str]]=None, example: typing.Optional[str]=None, exclusive_maximum: typing.Optional[bool]=None, exclusive_minimum: typing.Optional[bool]=None, external_docs: typing.Optional["ExternalDocumentation"]=None, format: typing.Optional[str]=None, id: typing.Optional[str]=None, items: typing.Optional[str]=None, maximum: typing.Optional[jsii.Number]=None, max_items: typing.Optional[jsii.Number]=None, max_length: typing.Optional[jsii.Number]=None, max_properties: typing.Optional[jsii.Number]=None, minimum: typing.Optional[jsii.Number]=None, min_items: typing.Optional[jsii.Number]=None, min_length: typing.Optional[jsii.Number]=None, min_properties: typing.Optional[jsii.Number]=None, multiple_of: typing.Optional[jsii.Number]=None, not_: typing.Optional["JSONSchemaProps"]=None, nullable: typing.Optional[bool]=None, one_of: typing.Optional[typing.List["JSONSchemaProps"]]=None, pattern: typing.Optional[str]=None, pattern_properties: typing.Optional[typing.Mapping[str, "JSONSchemaProps"]]=None, properties: typing.Optional[typing.Mapping[str, "JSONSchemaProps"]]=None, ref: typing.Optional[str]=None, required: typing.Optional[typing.List[str]]=None, schema: typing.Optional[str]=None, title: typing.Optional[str]=None, type: typing.Optional[str]=None, unique_items: typing.Optional[bool]=None) -> None:
-        """JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
-
-        :param additional_items: 
-        :param additional_properties: 
-        :param all_of: 
-        :param any_of: 
-        :param default: default is a default value for undefined object fields. Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
-        :param definitions: 
-        :param dependencies: 
-        :param description: 
-        :param enum: 
-        :param example: 
-        :param exclusive_maximum: 
-        :param exclusive_minimum: 
-        :param external_docs: 
-        :param format: format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:. - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
-        :param id: 
-        :param items: 
-        :param maximum: 
-        :param max_items: 
-        :param max_length: 
-        :param max_properties: 
-        :param minimum: 
-        :param min_items: 
-        :param min_length: 
-        :param min_properties: 
-        :param multiple_of: 
-        :param not_: 
-        :param nullable: 
-        :param one_of: 
-        :param pattern: 
-        :param pattern_properties: 
-        :param properties: 
-        :param ref: 
-        :param required: 
-        :param schema: 
-        :param title: 
-        :param type: 
-        :param unique_items: 
-
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps
-        """
-        if isinstance(external_docs, dict): external_docs = ExternalDocumentation(**external_docs)
-        if isinstance(not_, dict): not_ = JSONSchemaProps(**not_)
-        self._values = {
-        }
-        if additional_items is not None: self._values["additional_items"] = additional_items
-        if additional_properties is not None: self._values["additional_properties"] = additional_properties
-        if all_of is not None: self._values["all_of"] = all_of
-        if any_of is not None: self._values["any_of"] = any_of
-        if default is not None: self._values["default"] = default
-        if definitions is not None: self._values["definitions"] = definitions
-        if dependencies is not None: self._values["dependencies"] = dependencies
-        if description is not None: self._values["description"] = description
-        if enum is not None: self._values["enum"] = enum
-        if example is not None: self._values["example"] = example
-        if exclusive_maximum is not None: self._values["exclusive_maximum"] = exclusive_maximum
-        if exclusive_minimum is not None: self._values["exclusive_minimum"] = exclusive_minimum
-        if external_docs is not None: self._values["external_docs"] = external_docs
-        if format is not None: self._values["format"] = format
-        if id is not None: self._values["id"] = id
-        if items is not None: self._values["items"] = items
-        if maximum is not None: self._values["maximum"] = maximum
-        if max_items is not None: self._values["max_items"] = max_items
-        if max_length is not None: self._values["max_length"] = max_length
-        if max_properties is not None: self._values["max_properties"] = max_properties
-        if minimum is not None: self._values["minimum"] = minimum
-        if min_items is not None: self._values["min_items"] = min_items
-        if min_length is not None: self._values["min_length"] = min_length
-        if min_properties is not None: self._values["min_properties"] = min_properties
-        if multiple_of is not None: self._values["multiple_of"] = multiple_of
-        if not_ is not None: self._values["not_"] = not_
-        if nullable is not None: self._values["nullable"] = nullable
-        if one_of is not None: self._values["one_of"] = one_of
-        if pattern is not None: self._values["pattern"] = pattern
-        if pattern_properties is not None: self._values["pattern_properties"] = pattern_properties
-        if properties is not None: self._values["properties"] = properties
-        if ref is not None: self._values["ref"] = ref
-        if required is not None: self._values["required"] = required
-        if schema is not None: self._values["schema"] = schema
-        if title is not None: self._values["title"] = title
-        if type is not None: self._values["type"] = type
-        if unique_items is not None: self._values["unique_items"] = unique_items
-
-    @builtins.property
-    def additional_items(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalItems
-        """
-        return self._values.get('additional_items')
-
-    @builtins.property
-    def additional_properties(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalProperties
-        """
-        return self._values.get('additional_properties')
-
-    @builtins.property
-    def all_of(self) -> typing.Optional[typing.List["JSONSchemaProps"]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#allOf
-        """
-        return self._values.get('all_of')
-
-    @builtins.property
-    def any_of(self) -> typing.Optional[typing.List["JSONSchemaProps"]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#anyOf
-        """
-        return self._values.get('any_of')
-
-    @builtins.property
-    def default(self) -> typing.Optional[str]:
-        """default is a default value for undefined object fields.
-
-        Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
-
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#default
-        """
-        return self._values.get('default')
-
-    @builtins.property
-    def definitions(self) -> typing.Optional[typing.Mapping[str, "JSONSchemaProps"]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#definitions
-        """
-        return self._values.get('definitions')
-
-    @builtins.property
-    def dependencies(self) -> typing.Optional[typing.Mapping[str, str]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#dependencies
-        """
-        return self._values.get('dependencies')
-
-    @builtins.property
-    def description(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#description
-        """
-        return self._values.get('description')
-
-    @builtins.property
-    def enum(self) -> typing.Optional[typing.List[str]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#enum
-        """
-        return self._values.get('enum')
-
-    @builtins.property
-    def example(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#example
-        """
-        return self._values.get('example')
-
-    @builtins.property
-    def exclusive_maximum(self) -> typing.Optional[bool]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#exclusiveMaximum
-        """
-        return self._values.get('exclusive_maximum')
-
-    @builtins.property
-    def exclusive_minimum(self) -> typing.Optional[bool]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#exclusiveMinimum
-        """
-        return self._values.get('exclusive_minimum')
-
-    @builtins.property
-    def external_docs(self) -> typing.Optional["ExternalDocumentation"]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#externalDocs
-        """
-        return self._values.get('external_docs')
-
-    @builtins.property
-    def format(self) -> typing.Optional[str]:
-        """format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:.
-
-        - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
-
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#format
-        """
-        return self._values.get('format')
-
-    @builtins.property
-    def id(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#id
-        """
-        return self._values.get('id')
-
-    @builtins.property
-    def items(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#items
-        """
-        return self._values.get('items')
-
-    @builtins.property
-    def maximum(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maximum
-        """
-        return self._values.get('maximum')
-
-    @builtins.property
-    def max_items(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxItems
-        """
-        return self._values.get('max_items')
-
-    @builtins.property
-    def max_length(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxLength
-        """
-        return self._values.get('max_length')
-
-    @builtins.property
-    def max_properties(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxProperties
-        """
-        return self._values.get('max_properties')
-
-    @builtins.property
-    def minimum(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minimum
-        """
-        return self._values.get('minimum')
-
-    @builtins.property
-    def min_items(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minItems
-        """
-        return self._values.get('min_items')
-
-    @builtins.property
-    def min_length(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minLength
-        """
-        return self._values.get('min_length')
-
-    @builtins.property
-    def min_properties(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minProperties
-        """
-        return self._values.get('min_properties')
-
-    @builtins.property
-    def multiple_of(self) -> typing.Optional[jsii.Number]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#multipleOf
-        """
-        return self._values.get('multiple_of')
-
-    @builtins.property
-    def not_(self) -> typing.Optional["JSONSchemaProps"]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#not
-        """
-        return self._values.get('not_')
-
-    @builtins.property
-    def nullable(self) -> typing.Optional[bool]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#nullable
-        """
-        return self._values.get('nullable')
-
-    @builtins.property
-    def one_of(self) -> typing.Optional[typing.List["JSONSchemaProps"]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#oneOf
-        """
-        return self._values.get('one_of')
-
-    @builtins.property
-    def pattern(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#pattern
-        """
-        return self._values.get('pattern')
-
-    @builtins.property
-    def pattern_properties(self) -> typing.Optional[typing.Mapping[str, "JSONSchemaProps"]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#patternProperties
-        """
-        return self._values.get('pattern_properties')
-
-    @builtins.property
-    def properties(self) -> typing.Optional[typing.Mapping[str, "JSONSchemaProps"]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#properties
-        """
-        return self._values.get('properties')
-
-    @builtins.property
-    def ref(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#$ref
-        """
-        return self._values.get('ref')
-
-    @builtins.property
-    def required(self) -> typing.Optional[typing.List[str]]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#required
-        """
-        return self._values.get('required')
-
-    @builtins.property
-    def schema(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#$schema
-        """
-        return self._values.get('schema')
-
-    @builtins.property
-    def title(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#title
-        """
-        return self._values.get('title')
-
-    @builtins.property
-    def type(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#type
-        """
-        return self._values.get('type')
-
-    @builtins.property
-    def unique_items(self) -> typing.Optional[bool]:
-        """
-        schema:
-        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#uniqueItems
-        """
-        return self._values.get('unique_items')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'JSONSchemaProps(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
 class Job(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Job"):
     """Job represents the configuration of a single job.
 
@@ -10628,6 +10228,406 @@ class JobTemplateSpec():
 
     def __repr__(self) -> str:
         return 'JobTemplateSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.JsonSchemaProps", jsii_struct_bases=[], name_mapping={'additional_items': 'additionalItems', 'additional_properties': 'additionalProperties', 'all_of': 'allOf', 'any_of': 'anyOf', 'default': 'default', 'definitions': 'definitions', 'dependencies': 'dependencies', 'description': 'description', 'enum': 'enum', 'example': 'example', 'exclusive_maximum': 'exclusiveMaximum', 'exclusive_minimum': 'exclusiveMinimum', 'external_docs': 'externalDocs', 'format': 'format', 'id': 'id', 'items': 'items', 'maximum': 'maximum', 'max_items': 'maxItems', 'max_length': 'maxLength', 'max_properties': 'maxProperties', 'minimum': 'minimum', 'min_items': 'minItems', 'min_length': 'minLength', 'min_properties': 'minProperties', 'multiple_of': 'multipleOf', 'not_': 'not', 'nullable': 'nullable', 'one_of': 'oneOf', 'pattern': 'pattern', 'pattern_properties': 'patternProperties', 'properties': 'properties', 'ref': 'ref', 'required': 'required', 'schema': 'schema', 'title': 'title', 'type': 'type', 'unique_items': 'uniqueItems'})
+class JsonSchemaProps():
+    def __init__(self, *, additional_items: typing.Optional[str]=None, additional_properties: typing.Optional[str]=None, all_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, any_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, default: typing.Optional[str]=None, definitions: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, dependencies: typing.Optional[typing.Mapping[str, str]]=None, description: typing.Optional[str]=None, enum: typing.Optional[typing.List[str]]=None, example: typing.Optional[str]=None, exclusive_maximum: typing.Optional[bool]=None, exclusive_minimum: typing.Optional[bool]=None, external_docs: typing.Optional["ExternalDocumentation"]=None, format: typing.Optional[str]=None, id: typing.Optional[str]=None, items: typing.Optional[str]=None, maximum: typing.Optional[jsii.Number]=None, max_items: typing.Optional[jsii.Number]=None, max_length: typing.Optional[jsii.Number]=None, max_properties: typing.Optional[jsii.Number]=None, minimum: typing.Optional[jsii.Number]=None, min_items: typing.Optional[jsii.Number]=None, min_length: typing.Optional[jsii.Number]=None, min_properties: typing.Optional[jsii.Number]=None, multiple_of: typing.Optional[jsii.Number]=None, not_: typing.Optional["JsonSchemaProps"]=None, nullable: typing.Optional[bool]=None, one_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, pattern: typing.Optional[str]=None, pattern_properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, ref: typing.Optional[str]=None, required: typing.Optional[typing.List[str]]=None, schema: typing.Optional[str]=None, title: typing.Optional[str]=None, type: typing.Optional[str]=None, unique_items: typing.Optional[bool]=None) -> None:
+        """JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
+
+        :param additional_items: 
+        :param additional_properties: 
+        :param all_of: 
+        :param any_of: 
+        :param default: default is a default value for undefined object fields. Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
+        :param definitions: 
+        :param dependencies: 
+        :param description: 
+        :param enum: 
+        :param example: 
+        :param exclusive_maximum: 
+        :param exclusive_minimum: 
+        :param external_docs: 
+        :param format: format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:. - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+        :param id: 
+        :param items: 
+        :param maximum: 
+        :param max_items: 
+        :param max_length: 
+        :param max_properties: 
+        :param minimum: 
+        :param min_items: 
+        :param min_length: 
+        :param min_properties: 
+        :param multiple_of: 
+        :param not_: 
+        :param nullable: 
+        :param one_of: 
+        :param pattern: 
+        :param pattern_properties: 
+        :param properties: 
+        :param ref: 
+        :param required: 
+        :param schema: 
+        :param title: 
+        :param type: 
+        :param unique_items: 
+
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps
+        """
+        if isinstance(external_docs, dict): external_docs = ExternalDocumentation(**external_docs)
+        if isinstance(not_, dict): not_ = JsonSchemaProps(**not_)
+        self._values = {
+        }
+        if additional_items is not None: self._values["additional_items"] = additional_items
+        if additional_properties is not None: self._values["additional_properties"] = additional_properties
+        if all_of is not None: self._values["all_of"] = all_of
+        if any_of is not None: self._values["any_of"] = any_of
+        if default is not None: self._values["default"] = default
+        if definitions is not None: self._values["definitions"] = definitions
+        if dependencies is not None: self._values["dependencies"] = dependencies
+        if description is not None: self._values["description"] = description
+        if enum is not None: self._values["enum"] = enum
+        if example is not None: self._values["example"] = example
+        if exclusive_maximum is not None: self._values["exclusive_maximum"] = exclusive_maximum
+        if exclusive_minimum is not None: self._values["exclusive_minimum"] = exclusive_minimum
+        if external_docs is not None: self._values["external_docs"] = external_docs
+        if format is not None: self._values["format"] = format
+        if id is not None: self._values["id"] = id
+        if items is not None: self._values["items"] = items
+        if maximum is not None: self._values["maximum"] = maximum
+        if max_items is not None: self._values["max_items"] = max_items
+        if max_length is not None: self._values["max_length"] = max_length
+        if max_properties is not None: self._values["max_properties"] = max_properties
+        if minimum is not None: self._values["minimum"] = minimum
+        if min_items is not None: self._values["min_items"] = min_items
+        if min_length is not None: self._values["min_length"] = min_length
+        if min_properties is not None: self._values["min_properties"] = min_properties
+        if multiple_of is not None: self._values["multiple_of"] = multiple_of
+        if not_ is not None: self._values["not_"] = not_
+        if nullable is not None: self._values["nullable"] = nullable
+        if one_of is not None: self._values["one_of"] = one_of
+        if pattern is not None: self._values["pattern"] = pattern
+        if pattern_properties is not None: self._values["pattern_properties"] = pattern_properties
+        if properties is not None: self._values["properties"] = properties
+        if ref is not None: self._values["ref"] = ref
+        if required is not None: self._values["required"] = required
+        if schema is not None: self._values["schema"] = schema
+        if title is not None: self._values["title"] = title
+        if type is not None: self._values["type"] = type
+        if unique_items is not None: self._values["unique_items"] = unique_items
+
+    @builtins.property
+    def additional_items(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalItems
+        """
+        return self._values.get('additional_items')
+
+    @builtins.property
+    def additional_properties(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalProperties
+        """
+        return self._values.get('additional_properties')
+
+    @builtins.property
+    def all_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#allOf
+        """
+        return self._values.get('all_of')
+
+    @builtins.property
+    def any_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#anyOf
+        """
+        return self._values.get('any_of')
+
+    @builtins.property
+    def default(self) -> typing.Optional[str]:
+        """default is a default value for undefined object fields.
+
+        Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
+
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#default
+        """
+        return self._values.get('default')
+
+    @builtins.property
+    def definitions(self) -> typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#definitions
+        """
+        return self._values.get('definitions')
+
+    @builtins.property
+    def dependencies(self) -> typing.Optional[typing.Mapping[str, str]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#dependencies
+        """
+        return self._values.get('dependencies')
+
+    @builtins.property
+    def description(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#description
+        """
+        return self._values.get('description')
+
+    @builtins.property
+    def enum(self) -> typing.Optional[typing.List[str]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#enum
+        """
+        return self._values.get('enum')
+
+    @builtins.property
+    def example(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#example
+        """
+        return self._values.get('example')
+
+    @builtins.property
+    def exclusive_maximum(self) -> typing.Optional[bool]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#exclusiveMaximum
+        """
+        return self._values.get('exclusive_maximum')
+
+    @builtins.property
+    def exclusive_minimum(self) -> typing.Optional[bool]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#exclusiveMinimum
+        """
+        return self._values.get('exclusive_minimum')
+
+    @builtins.property
+    def external_docs(self) -> typing.Optional["ExternalDocumentation"]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#externalDocs
+        """
+        return self._values.get('external_docs')
+
+    @builtins.property
+    def format(self) -> typing.Optional[str]:
+        """format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:.
+
+        - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#format
+        """
+        return self._values.get('format')
+
+    @builtins.property
+    def id(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#id
+        """
+        return self._values.get('id')
+
+    @builtins.property
+    def items(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#items
+        """
+        return self._values.get('items')
+
+    @builtins.property
+    def maximum(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maximum
+        """
+        return self._values.get('maximum')
+
+    @builtins.property
+    def max_items(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxItems
+        """
+        return self._values.get('max_items')
+
+    @builtins.property
+    def max_length(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxLength
+        """
+        return self._values.get('max_length')
+
+    @builtins.property
+    def max_properties(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxProperties
+        """
+        return self._values.get('max_properties')
+
+    @builtins.property
+    def minimum(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minimum
+        """
+        return self._values.get('minimum')
+
+    @builtins.property
+    def min_items(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minItems
+        """
+        return self._values.get('min_items')
+
+    @builtins.property
+    def min_length(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minLength
+        """
+        return self._values.get('min_length')
+
+    @builtins.property
+    def min_properties(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minProperties
+        """
+        return self._values.get('min_properties')
+
+    @builtins.property
+    def multiple_of(self) -> typing.Optional[jsii.Number]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#multipleOf
+        """
+        return self._values.get('multiple_of')
+
+    @builtins.property
+    def not_(self) -> typing.Optional["JsonSchemaProps"]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#not
+        """
+        return self._values.get('not_')
+
+    @builtins.property
+    def nullable(self) -> typing.Optional[bool]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#nullable
+        """
+        return self._values.get('nullable')
+
+    @builtins.property
+    def one_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#oneOf
+        """
+        return self._values.get('one_of')
+
+    @builtins.property
+    def pattern(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#pattern
+        """
+        return self._values.get('pattern')
+
+    @builtins.property
+    def pattern_properties(self) -> typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#patternProperties
+        """
+        return self._values.get('pattern_properties')
+
+    @builtins.property
+    def properties(self) -> typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#properties
+        """
+        return self._values.get('properties')
+
+    @builtins.property
+    def ref(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#$ref
+        """
+        return self._values.get('ref')
+
+    @builtins.property
+    def required(self) -> typing.Optional[typing.List[str]]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#required
+        """
+        return self._values.get('required')
+
+    @builtins.property
+    def schema(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#$schema
+        """
+        return self._values.get('schema')
+
+    @builtins.property
+    def title(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#title
+        """
+        return self._values.get('title')
+
+    @builtins.property
+    def type(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#type
+        """
+        return self._values.get('type')
+
+    @builtins.property
+    def unique_items(self) -> typing.Optional[bool]:
+        """
+        schema:
+        :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#uniqueItems
+        """
+        return self._values.get('unique_items')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'JsonSchemaProps(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 @jsii.data_type(jsii_type="generated.KeyToPath", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
@@ -12108,72 +12108,6 @@ class MutatingWebhookConfigurationOptions():
         return 'MutatingWebhookConfigurationOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.NFSVolumeSource", jsii_struct_bases=[], name_mapping={'path': 'path', 'server': 'server', 'read_only': 'readOnly'})
-class NFSVolumeSource():
-    def __init__(self, *, path: str, server: str, read_only: typing.Optional[bool]=None) -> None:
-        """Represents an NFS mount that lasts the lifetime of a pod.
-
-        NFS volumes do not support ownership management or SELinux relabeling.
-
-        :param path: Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-        :param server: Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-        :param read_only: ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs Default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        schema:
-        :schema:: io.k8s.api.core.v1.NFSVolumeSource
-        """
-        self._values = {
-            'path': path,
-            'server': server,
-        }
-        if read_only is not None: self._values["read_only"] = read_only
-
-    @builtins.property
-    def path(self) -> str:
-        """Path that is exported by the NFS server.
-
-        More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        schema:
-        :schema:: io.k8s.api.core.v1.NFSVolumeSource#path
-        """
-        return self._values.get('path')
-
-    @builtins.property
-    def server(self) -> str:
-        """Server is the hostname or IP address of the NFS server.
-
-        More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        schema:
-        :schema:: io.k8s.api.core.v1.NFSVolumeSource#server
-        """
-        return self._values.get('server')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """ReadOnly here will force the NFS export to be mounted with read-only permissions.
-
-        Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        default
-        :default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        schema:
-        :schema:: io.k8s.api.core.v1.NFSVolumeSource#readOnly
-        """
-        return self._values.get('read_only')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'NFSVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
 class Namespace(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Namespace"):
     """Namespace provides a scope for Names.
 
@@ -12774,6 +12708,72 @@ class NetworkPolicySpec():
 
     def __repr__(self) -> str:
         return 'NetworkPolicySpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.NfsVolumeSource", jsii_struct_bases=[], name_mapping={'path': 'path', 'server': 'server', 'read_only': 'readOnly'})
+class NfsVolumeSource():
+    def __init__(self, *, path: str, server: str, read_only: typing.Optional[bool]=None) -> None:
+        """Represents an NFS mount that lasts the lifetime of a pod.
+
+        NFS volumes do not support ownership management or SELinux relabeling.
+
+        :param path: Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+        :param server: Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+        :param read_only: ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs Default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        schema:
+        :schema:: io.k8s.api.core.v1.NFSVolumeSource
+        """
+        self._values = {
+            'path': path,
+            'server': server,
+        }
+        if read_only is not None: self._values["read_only"] = read_only
+
+    @builtins.property
+    def path(self) -> str:
+        """Path that is exported by the NFS server.
+
+        More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        schema:
+        :schema:: io.k8s.api.core.v1.NFSVolumeSource#path
+        """
+        return self._values.get('path')
+
+    @builtins.property
+    def server(self) -> str:
+        """Server is the hostname or IP address of the NFS server.
+
+        More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        schema:
+        :schema:: io.k8s.api.core.v1.NFSVolumeSource#server
+        """
+        return self._values.get('server')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """ReadOnly here will force the NFS export to be mounted with read-only permissions.
+
+        Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        default
+        :default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        schema:
+        :schema:: io.k8s.api.core.v1.NFSVolumeSource#readOnly
+        """
+        return self._values.get('read_only')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'NfsVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class Node(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Node"):
@@ -14322,7 +14322,7 @@ class PersistentVolumeOptions():
 
 @jsii.data_type(jsii_type="generated.PersistentVolumeSpec", jsii_struct_bases=[], name_mapping={'access_modes': 'accessModes', 'aws_elastic_block_store': 'awsElasticBlockStore', 'azure_disk': 'azureDisk', 'azure_file': 'azureFile', 'capacity': 'capacity', 'cephfs': 'cephfs', 'cinder': 'cinder', 'claim_ref': 'claimRef', 'csi': 'csi', 'fc': 'fc', 'flex_volume': 'flexVolume', 'flocker': 'flocker', 'gce_persistent_disk': 'gcePersistentDisk', 'glusterfs': 'glusterfs', 'host_path': 'hostPath', 'iscsi': 'iscsi', 'local': 'local', 'mount_options': 'mountOptions', 'nfs': 'nfs', 'node_affinity': 'nodeAffinity', 'persistent_volume_reclaim_policy': 'persistentVolumeReclaimPolicy', 'photon_persistent_disk': 'photonPersistentDisk', 'portworx_volume': 'portworxVolume', 'quobyte': 'quobyte', 'rbd': 'rbd', 'scale_io': 'scaleIO', 'storage_class_name': 'storageClassName', 'storageos': 'storageos', 'volume_mode': 'volumeMode', 'vsphere_volume': 'vsphereVolume'})
 class PersistentVolumeSpec():
-    def __init__(self, *, access_modes: typing.Optional[typing.List[str]]=None, aws_elastic_block_store: typing.Optional["AWSElasticBlockStoreVolumeSource"]=None, azure_disk: typing.Optional["AzureDiskVolumeSource"]=None, azure_file: typing.Optional["AzureFilePersistentVolumeSource"]=None, capacity: typing.Optional[typing.Mapping[str, "Quantity"]]=None, cephfs: typing.Optional["CephFSPersistentVolumeSource"]=None, cinder: typing.Optional["CinderPersistentVolumeSource"]=None, claim_ref: typing.Optional["ObjectReference"]=None, csi: typing.Optional["CSIPersistentVolumeSource"]=None, fc: typing.Optional["FCVolumeSource"]=None, flex_volume: typing.Optional["FlexPersistentVolumeSource"]=None, flocker: typing.Optional["FlockerVolumeSource"]=None, gce_persistent_disk: typing.Optional["GCEPersistentDiskVolumeSource"]=None, glusterfs: typing.Optional["GlusterfsPersistentVolumeSource"]=None, host_path: typing.Optional["HostPathVolumeSource"]=None, iscsi: typing.Optional["IscsiPersistentVolumeSource"]=None, local: typing.Optional["LocalVolumeSource"]=None, mount_options: typing.Optional[typing.List[str]]=None, nfs: typing.Optional["NFSVolumeSource"]=None, node_affinity: typing.Optional["VolumeNodeAffinity"]=None, persistent_volume_reclaim_policy: typing.Optional[str]=None, photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"]=None, portworx_volume: typing.Optional["PortworxVolumeSource"]=None, quobyte: typing.Optional["QuobyteVolumeSource"]=None, rbd: typing.Optional["RBDPersistentVolumeSource"]=None, scale_io: typing.Optional["ScaleIOPersistentVolumeSource"]=None, storage_class_name: typing.Optional[str]=None, storageos: typing.Optional["StorageOSPersistentVolumeSource"]=None, volume_mode: typing.Optional[str]=None, vsphere_volume: typing.Optional["VsphereVirtualDiskVolumeSource"]=None) -> None:
+    def __init__(self, *, access_modes: typing.Optional[typing.List[str]]=None, aws_elastic_block_store: typing.Optional["AwsElasticBlockStoreVolumeSource"]=None, azure_disk: typing.Optional["AzureDiskVolumeSource"]=None, azure_file: typing.Optional["AzureFilePersistentVolumeSource"]=None, capacity: typing.Optional[typing.Mapping[str, "Quantity"]]=None, cephfs: typing.Optional["CephFsPersistentVolumeSource"]=None, cinder: typing.Optional["CinderPersistentVolumeSource"]=None, claim_ref: typing.Optional["ObjectReference"]=None, csi: typing.Optional["CsiPersistentVolumeSource"]=None, fc: typing.Optional["FcVolumeSource"]=None, flex_volume: typing.Optional["FlexPersistentVolumeSource"]=None, flocker: typing.Optional["FlockerVolumeSource"]=None, gce_persistent_disk: typing.Optional["GcePersistentDiskVolumeSource"]=None, glusterfs: typing.Optional["GlusterfsPersistentVolumeSource"]=None, host_path: typing.Optional["HostPathVolumeSource"]=None, iscsi: typing.Optional["IscsiPersistentVolumeSource"]=None, local: typing.Optional["LocalVolumeSource"]=None, mount_options: typing.Optional[typing.List[str]]=None, nfs: typing.Optional["NfsVolumeSource"]=None, node_affinity: typing.Optional["VolumeNodeAffinity"]=None, persistent_volume_reclaim_policy: typing.Optional[str]=None, photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"]=None, portworx_volume: typing.Optional["PortworxVolumeSource"]=None, quobyte: typing.Optional["QuobyteVolumeSource"]=None, rbd: typing.Optional["RbdPersistentVolumeSource"]=None, scale_io: typing.Optional["ScaleIoPersistentVolumeSource"]=None, storage_class_name: typing.Optional[str]=None, storageos: typing.Optional["StorageOsPersistentVolumeSource"]=None, volume_mode: typing.Optional[str]=None, vsphere_volume: typing.Optional["VsphereVirtualDiskVolumeSource"]=None) -> None:
         """PersistentVolumeSpec is the specification of a persistent volume.
 
         :param access_modes: AccessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
@@ -14359,29 +14359,29 @@ class PersistentVolumeSpec():
         schema:
         :schema:: io.k8s.api.core.v1.PersistentVolumeSpec
         """
-        if isinstance(aws_elastic_block_store, dict): aws_elastic_block_store = AWSElasticBlockStoreVolumeSource(**aws_elastic_block_store)
+        if isinstance(aws_elastic_block_store, dict): aws_elastic_block_store = AwsElasticBlockStoreVolumeSource(**aws_elastic_block_store)
         if isinstance(azure_disk, dict): azure_disk = AzureDiskVolumeSource(**azure_disk)
         if isinstance(azure_file, dict): azure_file = AzureFilePersistentVolumeSource(**azure_file)
-        if isinstance(cephfs, dict): cephfs = CephFSPersistentVolumeSource(**cephfs)
+        if isinstance(cephfs, dict): cephfs = CephFsPersistentVolumeSource(**cephfs)
         if isinstance(cinder, dict): cinder = CinderPersistentVolumeSource(**cinder)
         if isinstance(claim_ref, dict): claim_ref = ObjectReference(**claim_ref)
-        if isinstance(csi, dict): csi = CSIPersistentVolumeSource(**csi)
-        if isinstance(fc, dict): fc = FCVolumeSource(**fc)
+        if isinstance(csi, dict): csi = CsiPersistentVolumeSource(**csi)
+        if isinstance(fc, dict): fc = FcVolumeSource(**fc)
         if isinstance(flex_volume, dict): flex_volume = FlexPersistentVolumeSource(**flex_volume)
         if isinstance(flocker, dict): flocker = FlockerVolumeSource(**flocker)
-        if isinstance(gce_persistent_disk, dict): gce_persistent_disk = GCEPersistentDiskVolumeSource(**gce_persistent_disk)
+        if isinstance(gce_persistent_disk, dict): gce_persistent_disk = GcePersistentDiskVolumeSource(**gce_persistent_disk)
         if isinstance(glusterfs, dict): glusterfs = GlusterfsPersistentVolumeSource(**glusterfs)
         if isinstance(host_path, dict): host_path = HostPathVolumeSource(**host_path)
         if isinstance(iscsi, dict): iscsi = IscsiPersistentVolumeSource(**iscsi)
         if isinstance(local, dict): local = LocalVolumeSource(**local)
-        if isinstance(nfs, dict): nfs = NFSVolumeSource(**nfs)
+        if isinstance(nfs, dict): nfs = NfsVolumeSource(**nfs)
         if isinstance(node_affinity, dict): node_affinity = VolumeNodeAffinity(**node_affinity)
         if isinstance(photon_persistent_disk, dict): photon_persistent_disk = PhotonPersistentDiskVolumeSource(**photon_persistent_disk)
         if isinstance(portworx_volume, dict): portworx_volume = PortworxVolumeSource(**portworx_volume)
         if isinstance(quobyte, dict): quobyte = QuobyteVolumeSource(**quobyte)
-        if isinstance(rbd, dict): rbd = RBDPersistentVolumeSource(**rbd)
-        if isinstance(scale_io, dict): scale_io = ScaleIOPersistentVolumeSource(**scale_io)
-        if isinstance(storageos, dict): storageos = StorageOSPersistentVolumeSource(**storageos)
+        if isinstance(rbd, dict): rbd = RbdPersistentVolumeSource(**rbd)
+        if isinstance(scale_io, dict): scale_io = ScaleIoPersistentVolumeSource(**scale_io)
+        if isinstance(storageos, dict): storageos = StorageOsPersistentVolumeSource(**storageos)
         if isinstance(vsphere_volume, dict): vsphere_volume = VsphereVirtualDiskVolumeSource(**vsphere_volume)
         self._values = {
         }
@@ -14428,7 +14428,7 @@ class PersistentVolumeSpec():
         return self._values.get('access_modes')
 
     @builtins.property
-    def aws_elastic_block_store(self) -> typing.Optional["AWSElasticBlockStoreVolumeSource"]:
+    def aws_elastic_block_store(self) -> typing.Optional["AwsElasticBlockStoreVolumeSource"]:
         """AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
@@ -14468,7 +14468,7 @@ class PersistentVolumeSpec():
         return self._values.get('capacity')
 
     @builtins.property
-    def cephfs(self) -> typing.Optional["CephFSPersistentVolumeSource"]:
+    def cephfs(self) -> typing.Optional["CephFsPersistentVolumeSource"]:
         """CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
 
         schema:
@@ -14499,7 +14499,7 @@ class PersistentVolumeSpec():
         return self._values.get('claim_ref')
 
     @builtins.property
-    def csi(self) -> typing.Optional["CSIPersistentVolumeSource"]:
+    def csi(self) -> typing.Optional["CsiPersistentVolumeSource"]:
         """CSI represents storage that is handled by an external CSI driver (Beta feature).
 
         schema:
@@ -14508,7 +14508,7 @@ class PersistentVolumeSpec():
         return self._values.get('csi')
 
     @builtins.property
-    def fc(self) -> typing.Optional["FCVolumeSource"]:
+    def fc(self) -> typing.Optional["FcVolumeSource"]:
         """FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         schema:
@@ -14537,7 +14537,7 @@ class PersistentVolumeSpec():
         return self._values.get('flocker')
 
     @builtins.property
-    def gce_persistent_disk(self) -> typing.Optional["GCEPersistentDiskVolumeSource"]:
+    def gce_persistent_disk(self) -> typing.Optional["GcePersistentDiskVolumeSource"]:
         """GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
@@ -14599,7 +14599,7 @@ class PersistentVolumeSpec():
         return self._values.get('mount_options')
 
     @builtins.property
-    def nfs(self) -> typing.Optional["NFSVolumeSource"]:
+    def nfs(self) -> typing.Optional["NfsVolumeSource"]:
         """NFS represents an NFS mount on the host.
 
         Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
@@ -14659,7 +14659,7 @@ class PersistentVolumeSpec():
         return self._values.get('quobyte')
 
     @builtins.property
-    def rbd(self) -> typing.Optional["RBDPersistentVolumeSource"]:
+    def rbd(self) -> typing.Optional["RbdPersistentVolumeSource"]:
         """RBD represents a Rados Block Device mount on the host that shares a pod's lifetime.
 
         More info: https://examples.k8s.io/volumes/rbd/README.md
@@ -14670,7 +14670,7 @@ class PersistentVolumeSpec():
         return self._values.get('rbd')
 
     @builtins.property
-    def scale_io(self) -> typing.Optional["ScaleIOPersistentVolumeSource"]:
+    def scale_io(self) -> typing.Optional["ScaleIoPersistentVolumeSource"]:
         """ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
 
         schema:
@@ -14690,7 +14690,7 @@ class PersistentVolumeSpec():
         return self._values.get('storage_class_name')
 
     @builtins.property
-    def storageos(self) -> typing.Optional["StorageOSPersistentVolumeSource"]:
+    def storageos(self) -> typing.Optional["StorageOsPersistentVolumeSource"]:
         """StorageOS represents a StorageOS volume that is attached to the kubelet's host machine and mounted into the pod More info: https://examples.k8s.io/volumes/storageos/README.md.
 
         schema:
@@ -14951,110 +14951,6 @@ class PodAntiAffinity():
         return 'PodAntiAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.PodDNSConfig", jsii_struct_bases=[], name_mapping={'nameservers': 'nameservers', 'options': 'options', 'searches': 'searches'})
-class PodDNSConfig():
-    def __init__(self, *, nameservers: typing.Optional[typing.List[str]]=None, options: typing.Optional[typing.List["PodDNSConfigOption"]]=None, searches: typing.Optional[typing.List[str]]=None) -> None:
-        """PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
-
-        :param nameservers: A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
-        :param options: A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
-        :param searches: A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfig
-        """
-        self._values = {
-        }
-        if nameservers is not None: self._values["nameservers"] = nameservers
-        if options is not None: self._values["options"] = options
-        if searches is not None: self._values["searches"] = searches
-
-    @builtins.property
-    def nameservers(self) -> typing.Optional[typing.List[str]]:
-        """A list of DNS name server IP addresses.
-
-        This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfig#nameservers
-        """
-        return self._values.get('nameservers')
-
-    @builtins.property
-    def options(self) -> typing.Optional[typing.List["PodDNSConfigOption"]]:
-        """A list of DNS resolver options.
-
-        This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfig#options
-        """
-        return self._values.get('options')
-
-    @builtins.property
-    def searches(self) -> typing.Optional[typing.List[str]]:
-        """A list of DNS search domains for host-name lookup.
-
-        This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfig#searches
-        """
-        return self._values.get('searches')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'PodDNSConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.PodDNSConfigOption", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
-class PodDNSConfigOption():
-    def __init__(self, *, name: typing.Optional[str]=None, value: typing.Optional[str]=None) -> None:
-        """PodDNSConfigOption defines DNS resolver options of a pod.
-
-        :param name: Required.
-        :param value: 
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfigOption
-        """
-        self._values = {
-        }
-        if name is not None: self._values["name"] = name
-        if value is not None: self._values["value"] = value
-
-    @builtins.property
-    def name(self) -> typing.Optional[str]:
-        """Required.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfigOption#name
-        """
-        return self._values.get('name')
-
-    @builtins.property
-    def value(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfigOption#value
-        """
-        return self._values.get('value')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'PodDNSConfigOption(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
 class PodDisruptionBudget(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodDisruptionBudget"):
     """PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
 
@@ -15235,6 +15131,110 @@ class PodDisruptionBudgetSpec():
 
     def __repr__(self) -> str:
         return 'PodDisruptionBudgetSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.PodDnsConfig", jsii_struct_bases=[], name_mapping={'nameservers': 'nameservers', 'options': 'options', 'searches': 'searches'})
+class PodDnsConfig():
+    def __init__(self, *, nameservers: typing.Optional[typing.List[str]]=None, options: typing.Optional[typing.List["PodDnsConfigOption"]]=None, searches: typing.Optional[typing.List[str]]=None) -> None:
+        """PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
+
+        :param nameservers: A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
+        :param options: A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
+        :param searches: A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfig
+        """
+        self._values = {
+        }
+        if nameservers is not None: self._values["nameservers"] = nameservers
+        if options is not None: self._values["options"] = options
+        if searches is not None: self._values["searches"] = searches
+
+    @builtins.property
+    def nameservers(self) -> typing.Optional[typing.List[str]]:
+        """A list of DNS name server IP addresses.
+
+        This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfig#nameservers
+        """
+        return self._values.get('nameservers')
+
+    @builtins.property
+    def options(self) -> typing.Optional[typing.List["PodDnsConfigOption"]]:
+        """A list of DNS resolver options.
+
+        This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfig#options
+        """
+        return self._values.get('options')
+
+    @builtins.property
+    def searches(self) -> typing.Optional[typing.List[str]]:
+        """A list of DNS search domains for host-name lookup.
+
+        This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfig#searches
+        """
+        return self._values.get('searches')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'PodDnsConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.PodDnsConfigOption", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+class PodDnsConfigOption():
+    def __init__(self, *, name: typing.Optional[str]=None, value: typing.Optional[str]=None) -> None:
+        """PodDNSConfigOption defines DNS resolver options of a pod.
+
+        :param name: Required.
+        :param value: 
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfigOption
+        """
+        self._values = {
+        }
+        if name is not None: self._values["name"] = name
+        if value is not None: self._values["value"] = value
+
+    @builtins.property
+    def name(self) -> typing.Optional[str]:
+        """Required.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfigOption#name
+        """
+        return self._values.get('name')
+
+    @builtins.property
+    def value(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfigOption#value
+        """
+        return self._values.get('value')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'PodDnsConfigOption(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class PodList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodList"):
@@ -15601,7 +15601,7 @@ class PodReadinessGate():
 
 @jsii.data_type(jsii_type="generated.PodSecurityContext", jsii_struct_bases=[], name_mapping={'fs_group': 'fsGroup', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'supplemental_groups': 'supplementalGroups', 'sysctls': 'sysctls', 'windows_options': 'windowsOptions'})
 class PodSecurityContext():
-    def __init__(self, *, fs_group: typing.Optional[jsii.Number]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["SELinuxOptions"]=None, supplemental_groups: typing.Optional[typing.List[jsii.Number]]=None, sysctls: typing.Optional[typing.List["Sysctl"]]=None, windows_options: typing.Optional["WindowsSecurityContextOptions"]=None) -> None:
+    def __init__(self, *, fs_group: typing.Optional[jsii.Number]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["SeLinuxOptions"]=None, supplemental_groups: typing.Optional[typing.List[jsii.Number]]=None, sysctls: typing.Optional[typing.List["Sysctl"]]=None, windows_options: typing.Optional["WindowsSecurityContextOptions"]=None) -> None:
         """PodSecurityContext holds pod-level security attributes and common container settings.
 
         Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.
@@ -15618,7 +15618,7 @@ class PodSecurityContext():
         schema:
         :schema:: io.k8s.api.core.v1.PodSecurityContext
         """
-        if isinstance(se_linux_options, dict): se_linux_options = SELinuxOptions(**se_linux_options)
+        if isinstance(se_linux_options, dict): se_linux_options = SeLinuxOptions(**se_linux_options)
         if isinstance(windows_options, dict): windows_options = WindowsSecurityContextOptions(**windows_options)
         self._values = {
         }
@@ -15683,7 +15683,7 @@ class PodSecurityContext():
         return self._values.get('run_as_user')
 
     @builtins.property
-    def se_linux_options(self) -> typing.Optional["SELinuxOptions"]:
+    def se_linux_options(self) -> typing.Optional["SeLinuxOptions"]:
         """The SELinux context to be applied to all containers.
 
         If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
@@ -15871,7 +15871,7 @@ class PodSecurityPolicyOptions():
 
 @jsii.data_type(jsii_type="generated.PodSecurityPolicySpec", jsii_struct_bases=[], name_mapping={'fs_group': 'fsGroup', 'run_as_user': 'runAsUser', 'se_linux': 'seLinux', 'supplemental_groups': 'supplementalGroups', 'allowed_capabilities': 'allowedCapabilities', 'allowed_csi_drivers': 'allowedCSIDrivers', 'allowed_flex_volumes': 'allowedFlexVolumes', 'allowed_host_paths': 'allowedHostPaths', 'allowed_proc_mount_types': 'allowedProcMountTypes', 'allowed_unsafe_sysctls': 'allowedUnsafeSysctls', 'allow_privilege_escalation': 'allowPrivilegeEscalation', 'default_add_capabilities': 'defaultAddCapabilities', 'default_allow_privilege_escalation': 'defaultAllowPrivilegeEscalation', 'forbidden_sysctls': 'forbiddenSysctls', 'host_ipc': 'hostIPC', 'host_network': 'hostNetwork', 'host_pid': 'hostPID', 'host_ports': 'hostPorts', 'privileged': 'privileged', 'read_only_root_filesystem': 'readOnlyRootFilesystem', 'required_drop_capabilities': 'requiredDropCapabilities', 'run_as_group': 'runAsGroup', 'runtime_class': 'runtimeClass', 'volumes': 'volumes'})
 class PodSecurityPolicySpec():
-    def __init__(self, *, fs_group: "FSGroupStrategyOptions", run_as_user: "RunAsUserStrategyOptions", se_linux: "SELinuxStrategyOptions", supplemental_groups: "SupplementalGroupsStrategyOptions", allowed_capabilities: typing.Optional[typing.List[str]]=None, allowed_csi_drivers: typing.Optional[typing.List["AllowedCSIDriver"]]=None, allowed_flex_volumes: typing.Optional[typing.List["AllowedFlexVolume"]]=None, allowed_host_paths: typing.Optional[typing.List["AllowedHostPath"]]=None, allowed_proc_mount_types: typing.Optional[typing.List[str]]=None, allowed_unsafe_sysctls: typing.Optional[typing.List[str]]=None, allow_privilege_escalation: typing.Optional[bool]=None, default_add_capabilities: typing.Optional[typing.List[str]]=None, default_allow_privilege_escalation: typing.Optional[bool]=None, forbidden_sysctls: typing.Optional[typing.List[str]]=None, host_ipc: typing.Optional[bool]=None, host_network: typing.Optional[bool]=None, host_pid: typing.Optional[bool]=None, host_ports: typing.Optional[typing.List["HostPortRange"]]=None, privileged: typing.Optional[bool]=None, read_only_root_filesystem: typing.Optional[bool]=None, required_drop_capabilities: typing.Optional[typing.List[str]]=None, run_as_group: typing.Optional["RunAsGroupStrategyOptions"]=None, runtime_class: typing.Optional["RuntimeClassStrategyOptions"]=None, volumes: typing.Optional[typing.List[str]]=None) -> None:
+    def __init__(self, *, fs_group: "FsGroupStrategyOptions", run_as_user: "RunAsUserStrategyOptions", se_linux: "SeLinuxStrategyOptions", supplemental_groups: "SupplementalGroupsStrategyOptions", allowed_capabilities: typing.Optional[typing.List[str]]=None, allowed_csi_drivers: typing.Optional[typing.List["AllowedCsiDriver"]]=None, allowed_flex_volumes: typing.Optional[typing.List["AllowedFlexVolume"]]=None, allowed_host_paths: typing.Optional[typing.List["AllowedHostPath"]]=None, allowed_proc_mount_types: typing.Optional[typing.List[str]]=None, allowed_unsafe_sysctls: typing.Optional[typing.List[str]]=None, allow_privilege_escalation: typing.Optional[bool]=None, default_add_capabilities: typing.Optional[typing.List[str]]=None, default_allow_privilege_escalation: typing.Optional[bool]=None, forbidden_sysctls: typing.Optional[typing.List[str]]=None, host_ipc: typing.Optional[bool]=None, host_network: typing.Optional[bool]=None, host_pid: typing.Optional[bool]=None, host_ports: typing.Optional[typing.List["HostPortRange"]]=None, privileged: typing.Optional[bool]=None, read_only_root_filesystem: typing.Optional[bool]=None, required_drop_capabilities: typing.Optional[typing.List[str]]=None, run_as_group: typing.Optional["RunAsGroupStrategyOptions"]=None, runtime_class: typing.Optional["RuntimeClassStrategyOptions"]=None, volumes: typing.Optional[typing.List[str]]=None) -> None:
         """PodSecurityPolicySpec defines the policy enforced.
 
         :param fs_group: fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
@@ -15902,9 +15902,9 @@ class PodSecurityPolicySpec():
         schema:
         :schema:: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec
         """
-        if isinstance(fs_group, dict): fs_group = FSGroupStrategyOptions(**fs_group)
+        if isinstance(fs_group, dict): fs_group = FsGroupStrategyOptions(**fs_group)
         if isinstance(run_as_user, dict): run_as_user = RunAsUserStrategyOptions(**run_as_user)
-        if isinstance(se_linux, dict): se_linux = SELinuxStrategyOptions(**se_linux)
+        if isinstance(se_linux, dict): se_linux = SeLinuxStrategyOptions(**se_linux)
         if isinstance(supplemental_groups, dict): supplemental_groups = SupplementalGroupsStrategyOptions(**supplemental_groups)
         if isinstance(run_as_group, dict): run_as_group = RunAsGroupStrategyOptions(**run_as_group)
         if isinstance(runtime_class, dict): runtime_class = RuntimeClassStrategyOptions(**runtime_class)
@@ -15936,7 +15936,7 @@ class PodSecurityPolicySpec():
         if volumes is not None: self._values["volumes"] = volumes
 
     @builtins.property
-    def fs_group(self) -> "FSGroupStrategyOptions":
+    def fs_group(self) -> "FsGroupStrategyOptions":
         """fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
 
         schema:
@@ -15954,7 +15954,7 @@ class PodSecurityPolicySpec():
         return self._values.get('run_as_user')
 
     @builtins.property
-    def se_linux(self) -> "SELinuxStrategyOptions":
+    def se_linux(self) -> "SeLinuxStrategyOptions":
         """seLinux is the strategy that will dictate the allowable labels that may be set.
 
         schema:
@@ -15983,7 +15983,7 @@ class PodSecurityPolicySpec():
         return self._values.get('allowed_capabilities')
 
     @builtins.property
-    def allowed_csi_drivers(self) -> typing.Optional[typing.List["AllowedCSIDriver"]]:
+    def allowed_csi_drivers(self) -> typing.Optional[typing.List["AllowedCsiDriver"]]:
         """AllowedCSIDrivers is a whitelist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
 
         An empty value indicates that any CSI driver can be used for inline ephemeral volumes. This is an alpha field, and is only honored if the API server enables the CSIInlineVolume feature gate.
@@ -16195,7 +16195,7 @@ class PodSecurityPolicySpec():
 
 @jsii.data_type(jsii_type="generated.PodSpec", jsii_struct_bases=[], name_mapping={'containers': 'containers', 'active_deadline_seconds': 'activeDeadlineSeconds', 'affinity': 'affinity', 'automount_service_account_token': 'automountServiceAccountToken', 'dns_config': 'dnsConfig', 'dns_policy': 'dnsPolicy', 'enable_service_links': 'enableServiceLinks', 'ephemeral_containers': 'ephemeralContainers', 'host_aliases': 'hostAliases', 'host_ipc': 'hostIPC', 'hostname': 'hostname', 'host_network': 'hostNetwork', 'host_pid': 'hostPID', 'image_pull_secrets': 'imagePullSecrets', 'init_containers': 'initContainers', 'node_name': 'nodeName', 'node_selector': 'nodeSelector', 'overhead': 'overhead', 'preemption_policy': 'preemptionPolicy', 'priority': 'priority', 'priority_class_name': 'priorityClassName', 'readiness_gates': 'readinessGates', 'restart_policy': 'restartPolicy', 'runtime_class_name': 'runtimeClassName', 'scheduler_name': 'schedulerName', 'security_context': 'securityContext', 'service_account': 'serviceAccount', 'service_account_name': 'serviceAccountName', 'share_process_namespace': 'shareProcessNamespace', 'subdomain': 'subdomain', 'termination_grace_period_seconds': 'terminationGracePeriodSeconds', 'tolerations': 'tolerations', 'topology_spread_constraints': 'topologySpreadConstraints', 'volumes': 'volumes'})
 class PodSpec():
-    def __init__(self, *, containers: typing.List["Container"], active_deadline_seconds: typing.Optional[jsii.Number]=None, affinity: typing.Optional["Affinity"]=None, automount_service_account_token: typing.Optional[bool]=None, dns_config: typing.Optional["PodDNSConfig"]=None, dns_policy: typing.Optional[str]=None, enable_service_links: typing.Optional[bool]=None, ephemeral_containers: typing.Optional[typing.List["EphemeralContainer"]]=None, host_aliases: typing.Optional[typing.List["HostAlias"]]=None, host_ipc: typing.Optional[bool]=None, hostname: typing.Optional[str]=None, host_network: typing.Optional[bool]=None, host_pid: typing.Optional[bool]=None, image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]]=None, init_containers: typing.Optional[typing.List["Container"]]=None, node_name: typing.Optional[str]=None, node_selector: typing.Optional[typing.Mapping[str, str]]=None, overhead: typing.Optional[typing.Mapping[str, "Quantity"]]=None, preemption_policy: typing.Optional[str]=None, priority: typing.Optional[jsii.Number]=None, priority_class_name: typing.Optional[str]=None, readiness_gates: typing.Optional[typing.List["PodReadinessGate"]]=None, restart_policy: typing.Optional[str]=None, runtime_class_name: typing.Optional[str]=None, scheduler_name: typing.Optional[str]=None, security_context: typing.Optional["PodSecurityContext"]=None, service_account: typing.Optional[str]=None, service_account_name: typing.Optional[str]=None, share_process_namespace: typing.Optional[bool]=None, subdomain: typing.Optional[str]=None, termination_grace_period_seconds: typing.Optional[jsii.Number]=None, tolerations: typing.Optional[typing.List["Toleration"]]=None, topology_spread_constraints: typing.Optional[typing.List["TopologySpreadConstraint"]]=None, volumes: typing.Optional[typing.List["Volume"]]=None) -> None:
+    def __init__(self, *, containers: typing.List["Container"], active_deadline_seconds: typing.Optional[jsii.Number]=None, affinity: typing.Optional["Affinity"]=None, automount_service_account_token: typing.Optional[bool]=None, dns_config: typing.Optional["PodDnsConfig"]=None, dns_policy: typing.Optional[str]=None, enable_service_links: typing.Optional[bool]=None, ephemeral_containers: typing.Optional[typing.List["EphemeralContainer"]]=None, host_aliases: typing.Optional[typing.List["HostAlias"]]=None, host_ipc: typing.Optional[bool]=None, hostname: typing.Optional[str]=None, host_network: typing.Optional[bool]=None, host_pid: typing.Optional[bool]=None, image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]]=None, init_containers: typing.Optional[typing.List["Container"]]=None, node_name: typing.Optional[str]=None, node_selector: typing.Optional[typing.Mapping[str, str]]=None, overhead: typing.Optional[typing.Mapping[str, "Quantity"]]=None, preemption_policy: typing.Optional[str]=None, priority: typing.Optional[jsii.Number]=None, priority_class_name: typing.Optional[str]=None, readiness_gates: typing.Optional[typing.List["PodReadinessGate"]]=None, restart_policy: typing.Optional[str]=None, runtime_class_name: typing.Optional[str]=None, scheduler_name: typing.Optional[str]=None, security_context: typing.Optional["PodSecurityContext"]=None, service_account: typing.Optional[str]=None, service_account_name: typing.Optional[str]=None, share_process_namespace: typing.Optional[bool]=None, subdomain: typing.Optional[str]=None, termination_grace_period_seconds: typing.Optional[jsii.Number]=None, tolerations: typing.Optional[typing.List["Toleration"]]=None, topology_spread_constraints: typing.Optional[typing.List["TopologySpreadConstraint"]]=None, volumes: typing.Optional[typing.List["Volume"]]=None) -> None:
         """PodSpec is a description of a pod.
 
         :param containers: List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
@@ -16237,7 +16237,7 @@ class PodSpec():
         :schema:: io.k8s.api.core.v1.PodSpec
         """
         if isinstance(affinity, dict): affinity = Affinity(**affinity)
-        if isinstance(dns_config, dict): dns_config = PodDNSConfig(**dns_config)
+        if isinstance(dns_config, dict): dns_config = PodDnsConfig(**dns_config)
         if isinstance(security_context, dict): security_context = PodSecurityContext(**security_context)
         self._values = {
             'containers': containers,
@@ -16317,7 +16317,7 @@ class PodSpec():
         return self._values.get('automount_service_account_token')
 
     @builtins.property
-    def dns_config(self) -> typing.Optional["PodDNSConfig"]:
+    def dns_config(self) -> typing.Optional["PodDnsConfig"]:
         """Specifies the DNS parameters of a pod.
 
         Parameters specified here will be merged to the generated DNS configuration based on DNSPolicy.
@@ -17606,7 +17606,7 @@ class PriorityLevelConfigurationSpec():
 
 @jsii.data_type(jsii_type="generated.Probe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
 class Probe():
-    def __init__(self, *, exec: typing.Optional["ExecAction"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["HTTPGetAction"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["TCPSocketAction"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
+    def __init__(self, *, exec: typing.Optional["ExecAction"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["HttpGetAction"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["TcpSocketAction"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
 
         :param exec: One and only one of the following should be specified. Exec specifies the action to take.
@@ -17622,8 +17622,8 @@ class Probe():
         :schema:: io.k8s.api.core.v1.Probe
         """
         if isinstance(exec, dict): exec = ExecAction(**exec)
-        if isinstance(http_get, dict): http_get = HTTPGetAction(**http_get)
-        if isinstance(tcp_socket, dict): tcp_socket = TCPSocketAction(**tcp_socket)
+        if isinstance(http_get, dict): http_get = HttpGetAction(**http_get)
+        if isinstance(tcp_socket, dict): tcp_socket = TcpSocketAction(**tcp_socket)
         self._values = {
         }
         if exec is not None: self._values["exec"] = exec
@@ -17661,7 +17661,7 @@ class Probe():
         return self._values.get('failure_threshold')
 
     @builtins.property
-    def http_get(self) -> typing.Optional["HTTPGetAction"]:
+    def http_get(self) -> typing.Optional["HttpGetAction"]:
         """HTTPGet specifies the http request to perform.
 
         schema:
@@ -17709,7 +17709,7 @@ class Probe():
         return self._values.get('success_threshold')
 
     @builtins.property
-    def tcp_socket(self) -> typing.Optional["TCPSocketAction"]:
+    def tcp_socket(self) -> typing.Optional["TcpSocketAction"]:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported
@@ -17973,8 +17973,8 @@ class QuobyteVolumeSource():
         return 'QuobyteVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.RBDPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
-class RBDPersistentVolumeSource():
+@jsii.data_type(jsii_type="generated.RbdPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
+class RbdPersistentVolumeSource():
     def __init__(self, *, image: str, monitors: typing.List[str], fs_type: typing.Optional[str]=None, keyring: typing.Optional[str]=None, pool: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Rados Block Device mount that lasts the lifetime of a pod.
 
@@ -18114,11 +18114,11 @@ class RBDPersistentVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'RBDPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'RbdPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.RBDVolumeSource", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
-class RBDVolumeSource():
+@jsii.data_type(jsii_type="generated.RbdVolumeSource", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
+class RbdVolumeSource():
     def __init__(self, *, image: str, monitors: typing.List[str], fs_type: typing.Optional[str]=None, keyring: typing.Optional[str]=None, pool: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Rados Block Device mount that lasts the lifetime of a pod.
 
@@ -18258,7 +18258,7 @@ class RBDVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'RBDVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'RbdVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class ReplicaSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ReplicaSet"):
@@ -20056,119 +20056,6 @@ class RuntimeClassStrategyOptions():
         return 'RuntimeClassStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.SELinuxOptions", jsii_struct_bases=[], name_mapping={'level': 'level', 'role': 'role', 'type': 'type', 'user': 'user'})
-class SELinuxOptions():
-    def __init__(self, *, level: typing.Optional[str]=None, role: typing.Optional[str]=None, type: typing.Optional[str]=None, user: typing.Optional[str]=None) -> None:
-        """SELinuxOptions are the labels to be applied to the container.
-
-        :param level: Level is SELinux level label that applies to the container.
-        :param role: Role is a SELinux role label that applies to the container.
-        :param type: Type is a SELinux type label that applies to the container.
-        :param user: User is a SELinux user label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions
-        """
-        self._values = {
-        }
-        if level is not None: self._values["level"] = level
-        if role is not None: self._values["role"] = role
-        if type is not None: self._values["type"] = type
-        if user is not None: self._values["user"] = user
-
-    @builtins.property
-    def level(self) -> typing.Optional[str]:
-        """Level is SELinux level label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions#level
-        """
-        return self._values.get('level')
-
-    @builtins.property
-    def role(self) -> typing.Optional[str]:
-        """Role is a SELinux role label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions#role
-        """
-        return self._values.get('role')
-
-    @builtins.property
-    def type(self) -> typing.Optional[str]:
-        """Type is a SELinux type label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions#type
-        """
-        return self._values.get('type')
-
-    @builtins.property
-    def user(self) -> typing.Optional[str]:
-        """User is a SELinux user label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions#user
-        """
-        return self._values.get('user')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'SELinuxOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="generated.SELinuxStrategyOptions", jsii_struct_bases=[], name_mapping={'rule': 'rule', 'se_linux_options': 'seLinuxOptions'})
-class SELinuxStrategyOptions():
-    def __init__(self, *, rule: str, se_linux_options: typing.Optional["SELinuxOptions"]=None) -> None:
-        """SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.
-
-        :param rule: rule is the strategy that will dictate the allowable labels that may be set.
-        :param se_linux_options: seLinuxOptions required to run as; required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions
-        """
-        if isinstance(se_linux_options, dict): se_linux_options = SELinuxOptions(**se_linux_options)
-        self._values = {
-            'rule': rule,
-        }
-        if se_linux_options is not None: self._values["se_linux_options"] = se_linux_options
-
-    @builtins.property
-    def rule(self) -> str:
-        """rule is the strategy that will dictate the allowable labels that may be set.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#rule
-        """
-        return self._values.get('rule')
-
-    @builtins.property
-    def se_linux_options(self) -> typing.Optional["SELinuxOptions"]:
-        """seLinuxOptions required to run as;
-
-        required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#seLinuxOptions
-        """
-        return self._values.get('se_linux_options')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'SELinuxStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
 class Scale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Scale"):
     """Scale represents a scaling request for a resource.
 
@@ -20188,8 +20075,8 @@ class Scale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Scale
         jsii.create(Scale, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="generated.ScaleIOPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
-class ScaleIOPersistentVolumeSource():
+@jsii.data_type(jsii_type="generated.ScaleIoPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
+class ScaleIoPersistentVolumeSource():
     def __init__(self, *, gateway: str, secret_ref: "SecretReference", system: str, fs_type: typing.Optional[str]=None, protection_domain: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, ssl_enabled: typing.Optional[bool]=None, storage_mode: typing.Optional[str]=None, storage_pool: typing.Optional[str]=None, volume_name: typing.Optional[str]=None) -> None:
         """ScaleIOPersistentVolumeSource represents a persistent ScaleIO volume.
 
@@ -20335,11 +20222,11 @@ class ScaleIOPersistentVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ScaleIOPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ScaleIoPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.ScaleIOVolumeSource", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
-class ScaleIOVolumeSource():
+@jsii.data_type(jsii_type="generated.ScaleIoVolumeSource", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
+class ScaleIoVolumeSource():
     def __init__(self, *, gateway: str, secret_ref: "LocalObjectReference", system: str, fs_type: typing.Optional[str]=None, protection_domain: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, ssl_enabled: typing.Optional[bool]=None, storage_mode: typing.Optional[str]=None, storage_pool: typing.Optional[str]=None, volume_name: typing.Optional[str]=None) -> None:
         """ScaleIOVolumeSource represents a persistent ScaleIO volume.
 
@@ -20485,7 +20372,7 @@ class ScaleIOVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ScaleIOVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ScaleIoVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 @jsii.data_type(jsii_type="generated.ScaleOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
@@ -20707,6 +20594,119 @@ class ScopedResourceSelectorRequirement():
 
     def __repr__(self) -> str:
         return 'ScopedResourceSelectorRequirement(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.SeLinuxOptions", jsii_struct_bases=[], name_mapping={'level': 'level', 'role': 'role', 'type': 'type', 'user': 'user'})
+class SeLinuxOptions():
+    def __init__(self, *, level: typing.Optional[str]=None, role: typing.Optional[str]=None, type: typing.Optional[str]=None, user: typing.Optional[str]=None) -> None:
+        """SELinuxOptions are the labels to be applied to the container.
+
+        :param level: Level is SELinux level label that applies to the container.
+        :param role: Role is a SELinux role label that applies to the container.
+        :param type: Type is a SELinux type label that applies to the container.
+        :param user: User is a SELinux user label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions
+        """
+        self._values = {
+        }
+        if level is not None: self._values["level"] = level
+        if role is not None: self._values["role"] = role
+        if type is not None: self._values["type"] = type
+        if user is not None: self._values["user"] = user
+
+    @builtins.property
+    def level(self) -> typing.Optional[str]:
+        """Level is SELinux level label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions#level
+        """
+        return self._values.get('level')
+
+    @builtins.property
+    def role(self) -> typing.Optional[str]:
+        """Role is a SELinux role label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions#role
+        """
+        return self._values.get('role')
+
+    @builtins.property
+    def type(self) -> typing.Optional[str]:
+        """Type is a SELinux type label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions#type
+        """
+        return self._values.get('type')
+
+    @builtins.property
+    def user(self) -> typing.Optional[str]:
+        """User is a SELinux user label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions#user
+        """
+        return self._values.get('user')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'SeLinuxOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.SeLinuxStrategyOptions", jsii_struct_bases=[], name_mapping={'rule': 'rule', 'se_linux_options': 'seLinuxOptions'})
+class SeLinuxStrategyOptions():
+    def __init__(self, *, rule: str, se_linux_options: typing.Optional["SeLinuxOptions"]=None) -> None:
+        """SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.
+
+        :param rule: rule is the strategy that will dictate the allowable labels that may be set.
+        :param se_linux_options: seLinuxOptions required to run as; required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions
+        """
+        if isinstance(se_linux_options, dict): se_linux_options = SeLinuxOptions(**se_linux_options)
+        self._values = {
+            'rule': rule,
+        }
+        if se_linux_options is not None: self._values["se_linux_options"] = se_linux_options
+
+    @builtins.property
+    def rule(self) -> str:
+        """rule is the strategy that will dictate the allowable labels that may be set.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#rule
+        """
+        return self._values.get('rule')
+
+    @builtins.property
+    def se_linux_options(self) -> typing.Optional["SeLinuxOptions"]:
+        """seLinuxOptions required to run as;
+
+        required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#seLinuxOptions
+        """
+        return self._values.get('se_linux_options')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'SeLinuxStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class Secret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Secret"):
@@ -21168,7 +21168,7 @@ class SecretVolumeSource():
 
 @jsii.data_type(jsii_type="generated.SecurityContext", jsii_struct_bases=[], name_mapping={'allow_privilege_escalation': 'allowPrivilegeEscalation', 'capabilities': 'capabilities', 'privileged': 'privileged', 'proc_mount': 'procMount', 'read_only_root_filesystem': 'readOnlyRootFilesystem', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'windows_options': 'windowsOptions'})
 class SecurityContext():
-    def __init__(self, *, allow_privilege_escalation: typing.Optional[bool]=None, capabilities: typing.Optional["Capabilities"]=None, privileged: typing.Optional[bool]=None, proc_mount: typing.Optional[str]=None, read_only_root_filesystem: typing.Optional[bool]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["SELinuxOptions"]=None, windows_options: typing.Optional["WindowsSecurityContextOptions"]=None) -> None:
+    def __init__(self, *, allow_privilege_escalation: typing.Optional[bool]=None, capabilities: typing.Optional["Capabilities"]=None, privileged: typing.Optional[bool]=None, proc_mount: typing.Optional[str]=None, read_only_root_filesystem: typing.Optional[bool]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["SeLinuxOptions"]=None, windows_options: typing.Optional["WindowsSecurityContextOptions"]=None) -> None:
         """SecurityContext holds security configuration that will be applied to a container.
 
         Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.
@@ -21188,7 +21188,7 @@ class SecurityContext():
         :schema:: io.k8s.api.core.v1.SecurityContext
         """
         if isinstance(capabilities, dict): capabilities = Capabilities(**capabilities)
-        if isinstance(se_linux_options, dict): se_linux_options = SELinuxOptions(**se_linux_options)
+        if isinstance(se_linux_options, dict): se_linux_options = SeLinuxOptions(**se_linux_options)
         if isinstance(windows_options, dict): windows_options = WindowsSecurityContextOptions(**windows_options)
         self._values = {
         }
@@ -21304,7 +21304,7 @@ class SecurityContext():
         return self._values.get('run_as_user')
 
     @builtins.property
-    def se_linux_options(self) -> typing.Optional["SELinuxOptions"]:
+    def se_linux_options(self) -> typing.Optional["SeLinuxOptions"]:
         """The SELinux context to be applied to the container.
 
         If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
@@ -22306,7 +22306,7 @@ class ServiceSpec():
 
 @jsii.data_type(jsii_type="generated.SessionAffinityConfig", jsii_struct_bases=[], name_mapping={'client_ip': 'clientIP'})
 class SessionAffinityConfig():
-    def __init__(self, *, client_ip: typing.Optional["ClientIPConfig"]=None) -> None:
+    def __init__(self, *, client_ip: typing.Optional["ClientIpConfig"]=None) -> None:
         """SessionAffinityConfig represents the configurations of session affinity.
 
         :param client_ip: clientIP contains the configurations of Client IP based session affinity.
@@ -22314,13 +22314,13 @@ class SessionAffinityConfig():
         schema:
         :schema:: io.k8s.api.core.v1.SessionAffinityConfig
         """
-        if isinstance(client_ip, dict): client_ip = ClientIPConfig(**client_ip)
+        if isinstance(client_ip, dict): client_ip = ClientIpConfig(**client_ip)
         self._values = {
         }
         if client_ip is not None: self._values["client_ip"] = client_ip
 
     @builtins.property
-    def client_ip(self) -> typing.Optional["ClientIPConfig"]:
+    def client_ip(self) -> typing.Optional["ClientIpConfig"]:
         """clientIP contains the configurations of Client IP based session affinity.
 
         schema:
@@ -23140,8 +23140,8 @@ class StorageClassOptions():
         return 'StorageClassOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.StorageOSPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
-class StorageOSPersistentVolumeSource():
+@jsii.data_type(jsii_type="generated.StorageOsPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
+class StorageOsPersistentVolumeSource():
     def __init__(self, *, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["ObjectReference"]=None, volume_name: typing.Optional[str]=None, volume_namespace: typing.Optional[str]=None) -> None:
         """Represents a StorageOS persistent volume resource.
 
@@ -23228,11 +23228,11 @@ class StorageOSPersistentVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'StorageOSPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'StorageOsPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.StorageOSVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
-class StorageOSVolumeSource():
+@jsii.data_type(jsii_type="generated.StorageOsVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
+class StorageOsVolumeSource():
     def __init__(self, *, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, volume_name: typing.Optional[str]=None, volume_namespace: typing.Optional[str]=None) -> None:
         """Represents a StorageOS persistent volume resource.
 
@@ -23319,7 +23319,7 @@ class StorageOSVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'StorageOSVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'StorageOsVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 @jsii.data_type(jsii_type="generated.Subject", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'name': 'name', 'api_group': 'apiGroup', 'namespace': 'namespace'})
@@ -23647,52 +23647,6 @@ class Sysctl():
         return 'Sysctl(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="generated.TCPSocketAction", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
-class TCPSocketAction():
-    def __init__(self, *, port: "IntOrString", host: typing.Optional[str]=None) -> None:
-        """TCPSocketAction describes an action based on opening a socket.
-
-        :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-        :param host: Optional: Host name to connect to, defaults to the pod IP.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.TCPSocketAction
-        """
-        self._values = {
-            'port': port,
-        }
-        if host is not None: self._values["host"] = host
-
-    @builtins.property
-    def port(self) -> "IntOrString":
-        """Number or name of the port to access on the container.
-
-        Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.TCPSocketAction#port
-        """
-        return self._values.get('port')
-
-    @builtins.property
-    def host(self) -> typing.Optional[str]:
-        """Optional: Host name to connect to, defaults to the pod IP.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.TCPSocketAction#host
-        """
-        return self._values.get('host')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'TCPSocketAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
 @jsii.data_type(jsii_type="generated.Taint", jsii_struct_bases=[], name_mapping={'effect': 'effect', 'key': 'key', 'time_added': 'timeAdded', 'value': 'value'})
 class Taint():
     def __init__(self, *, effect: str, key: str, time_added: typing.Optional[datetime.datetime]=None, value: typing.Optional[str]=None) -> None:
@@ -23765,6 +23719,52 @@ class Taint():
 
     def __repr__(self) -> str:
         return 'Taint(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.TcpSocketAction", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
+class TcpSocketAction():
+    def __init__(self, *, port: "IntOrString", host: typing.Optional[str]=None) -> None:
+        """TCPSocketAction describes an action based on opening a socket.
+
+        :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        :param host: Optional: Host name to connect to, defaults to the pod IP.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.TCPSocketAction
+        """
+        self._values = {
+            'port': port,
+        }
+        if host is not None: self._values["host"] = host
+
+    @builtins.property
+    def port(self) -> "IntOrString":
+        """Number or name of the port to access on the container.
+
+        Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.TCPSocketAction#port
+        """
+        return self._values.get('port')
+
+    @builtins.property
+    def host(self) -> typing.Optional[str]:
+        """Optional: Host name to connect to, defaults to the pod IP.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.TCPSocketAction#host
+        """
+        return self._values.get('host')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'TcpSocketAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
 class TokenRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.TokenRequest"):
@@ -24648,7 +24648,7 @@ class ValidatingWebhookConfigurationOptions():
 
 @jsii.data_type(jsii_type="generated.Volume", jsii_struct_bases=[], name_mapping={'name': 'name', 'aws_elastic_block_store': 'awsElasticBlockStore', 'azure_disk': 'azureDisk', 'azure_file': 'azureFile', 'cephfs': 'cephfs', 'cinder': 'cinder', 'config_map': 'configMap', 'csi': 'csi', 'downward_api': 'downwardAPI', 'empty_dir': 'emptyDir', 'fc': 'fc', 'flex_volume': 'flexVolume', 'flocker': 'flocker', 'gce_persistent_disk': 'gcePersistentDisk', 'git_repo': 'gitRepo', 'glusterfs': 'glusterfs', 'host_path': 'hostPath', 'iscsi': 'iscsi', 'nfs': 'nfs', 'persistent_volume_claim': 'persistentVolumeClaim', 'photon_persistent_disk': 'photonPersistentDisk', 'portworx_volume': 'portworxVolume', 'projected': 'projected', 'quobyte': 'quobyte', 'rbd': 'rbd', 'scale_io': 'scaleIO', 'secret': 'secret', 'storageos': 'storageos', 'vsphere_volume': 'vsphereVolume'})
 class Volume():
-    def __init__(self, *, name: str, aws_elastic_block_store: typing.Optional["AWSElasticBlockStoreVolumeSource"]=None, azure_disk: typing.Optional["AzureDiskVolumeSource"]=None, azure_file: typing.Optional["AzureFileVolumeSource"]=None, cephfs: typing.Optional["CephFSVolumeSource"]=None, cinder: typing.Optional["CinderVolumeSource"]=None, config_map: typing.Optional["ConfigMapVolumeSource"]=None, csi: typing.Optional["CSIVolumeSource"]=None, downward_api: typing.Optional["DownwardAPIVolumeSource"]=None, empty_dir: typing.Optional["EmptyDirVolumeSource"]=None, fc: typing.Optional["FCVolumeSource"]=None, flex_volume: typing.Optional["FlexVolumeSource"]=None, flocker: typing.Optional["FlockerVolumeSource"]=None, gce_persistent_disk: typing.Optional["GCEPersistentDiskVolumeSource"]=None, git_repo: typing.Optional["GitRepoVolumeSource"]=None, glusterfs: typing.Optional["GlusterfsVolumeSource"]=None, host_path: typing.Optional["HostPathVolumeSource"]=None, iscsi: typing.Optional["IscsiVolumeSource"]=None, nfs: typing.Optional["NFSVolumeSource"]=None, persistent_volume_claim: typing.Optional["PersistentVolumeClaimVolumeSource"]=None, photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"]=None, portworx_volume: typing.Optional["PortworxVolumeSource"]=None, projected: typing.Optional["ProjectedVolumeSource"]=None, quobyte: typing.Optional["QuobyteVolumeSource"]=None, rbd: typing.Optional["RBDVolumeSource"]=None, scale_io: typing.Optional["ScaleIOVolumeSource"]=None, secret: typing.Optional["SecretVolumeSource"]=None, storageos: typing.Optional["StorageOSVolumeSource"]=None, vsphere_volume: typing.Optional["VsphereVirtualDiskVolumeSource"]=None) -> None:
+    def __init__(self, *, name: str, aws_elastic_block_store: typing.Optional["AwsElasticBlockStoreVolumeSource"]=None, azure_disk: typing.Optional["AzureDiskVolumeSource"]=None, azure_file: typing.Optional["AzureFileVolumeSource"]=None, cephfs: typing.Optional["CephFsVolumeSource"]=None, cinder: typing.Optional["CinderVolumeSource"]=None, config_map: typing.Optional["ConfigMapVolumeSource"]=None, csi: typing.Optional["CsiVolumeSource"]=None, downward_api: typing.Optional["DownwardApiVolumeSource"]=None, empty_dir: typing.Optional["EmptyDirVolumeSource"]=None, fc: typing.Optional["FcVolumeSource"]=None, flex_volume: typing.Optional["FlexVolumeSource"]=None, flocker: typing.Optional["FlockerVolumeSource"]=None, gce_persistent_disk: typing.Optional["GcePersistentDiskVolumeSource"]=None, git_repo: typing.Optional["GitRepoVolumeSource"]=None, glusterfs: typing.Optional["GlusterfsVolumeSource"]=None, host_path: typing.Optional["HostPathVolumeSource"]=None, iscsi: typing.Optional["IscsiVolumeSource"]=None, nfs: typing.Optional["NfsVolumeSource"]=None, persistent_volume_claim: typing.Optional["PersistentVolumeClaimVolumeSource"]=None, photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"]=None, portworx_volume: typing.Optional["PortworxVolumeSource"]=None, projected: typing.Optional["ProjectedVolumeSource"]=None, quobyte: typing.Optional["QuobyteVolumeSource"]=None, rbd: typing.Optional["RbdVolumeSource"]=None, scale_io: typing.Optional["ScaleIoVolumeSource"]=None, secret: typing.Optional["SecretVolumeSource"]=None, storageos: typing.Optional["StorageOsVolumeSource"]=None, vsphere_volume: typing.Optional["VsphereVirtualDiskVolumeSource"]=None) -> None:
         """Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
         :param name: Volume's name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -24684,33 +24684,33 @@ class Volume():
         schema:
         :schema:: io.k8s.api.core.v1.Volume
         """
-        if isinstance(aws_elastic_block_store, dict): aws_elastic_block_store = AWSElasticBlockStoreVolumeSource(**aws_elastic_block_store)
+        if isinstance(aws_elastic_block_store, dict): aws_elastic_block_store = AwsElasticBlockStoreVolumeSource(**aws_elastic_block_store)
         if isinstance(azure_disk, dict): azure_disk = AzureDiskVolumeSource(**azure_disk)
         if isinstance(azure_file, dict): azure_file = AzureFileVolumeSource(**azure_file)
-        if isinstance(cephfs, dict): cephfs = CephFSVolumeSource(**cephfs)
+        if isinstance(cephfs, dict): cephfs = CephFsVolumeSource(**cephfs)
         if isinstance(cinder, dict): cinder = CinderVolumeSource(**cinder)
         if isinstance(config_map, dict): config_map = ConfigMapVolumeSource(**config_map)
-        if isinstance(csi, dict): csi = CSIVolumeSource(**csi)
-        if isinstance(downward_api, dict): downward_api = DownwardAPIVolumeSource(**downward_api)
+        if isinstance(csi, dict): csi = CsiVolumeSource(**csi)
+        if isinstance(downward_api, dict): downward_api = DownwardApiVolumeSource(**downward_api)
         if isinstance(empty_dir, dict): empty_dir = EmptyDirVolumeSource(**empty_dir)
-        if isinstance(fc, dict): fc = FCVolumeSource(**fc)
+        if isinstance(fc, dict): fc = FcVolumeSource(**fc)
         if isinstance(flex_volume, dict): flex_volume = FlexVolumeSource(**flex_volume)
         if isinstance(flocker, dict): flocker = FlockerVolumeSource(**flocker)
-        if isinstance(gce_persistent_disk, dict): gce_persistent_disk = GCEPersistentDiskVolumeSource(**gce_persistent_disk)
+        if isinstance(gce_persistent_disk, dict): gce_persistent_disk = GcePersistentDiskVolumeSource(**gce_persistent_disk)
         if isinstance(git_repo, dict): git_repo = GitRepoVolumeSource(**git_repo)
         if isinstance(glusterfs, dict): glusterfs = GlusterfsVolumeSource(**glusterfs)
         if isinstance(host_path, dict): host_path = HostPathVolumeSource(**host_path)
         if isinstance(iscsi, dict): iscsi = IscsiVolumeSource(**iscsi)
-        if isinstance(nfs, dict): nfs = NFSVolumeSource(**nfs)
+        if isinstance(nfs, dict): nfs = NfsVolumeSource(**nfs)
         if isinstance(persistent_volume_claim, dict): persistent_volume_claim = PersistentVolumeClaimVolumeSource(**persistent_volume_claim)
         if isinstance(photon_persistent_disk, dict): photon_persistent_disk = PhotonPersistentDiskVolumeSource(**photon_persistent_disk)
         if isinstance(portworx_volume, dict): portworx_volume = PortworxVolumeSource(**portworx_volume)
         if isinstance(projected, dict): projected = ProjectedVolumeSource(**projected)
         if isinstance(quobyte, dict): quobyte = QuobyteVolumeSource(**quobyte)
-        if isinstance(rbd, dict): rbd = RBDVolumeSource(**rbd)
-        if isinstance(scale_io, dict): scale_io = ScaleIOVolumeSource(**scale_io)
+        if isinstance(rbd, dict): rbd = RbdVolumeSource(**rbd)
+        if isinstance(scale_io, dict): scale_io = ScaleIoVolumeSource(**scale_io)
         if isinstance(secret, dict): secret = SecretVolumeSource(**secret)
-        if isinstance(storageos, dict): storageos = StorageOSVolumeSource(**storageos)
+        if isinstance(storageos, dict): storageos = StorageOsVolumeSource(**storageos)
         if isinstance(vsphere_volume, dict): vsphere_volume = VsphereVirtualDiskVolumeSource(**vsphere_volume)
         self._values = {
             'name': name,
@@ -24756,7 +24756,7 @@ class Volume():
         return self._values.get('name')
 
     @builtins.property
-    def aws_elastic_block_store(self) -> typing.Optional["AWSElasticBlockStoreVolumeSource"]:
+    def aws_elastic_block_store(self) -> typing.Optional["AwsElasticBlockStoreVolumeSource"]:
         """AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
@@ -24785,7 +24785,7 @@ class Volume():
         return self._values.get('azure_file')
 
     @builtins.property
-    def cephfs(self) -> typing.Optional["CephFSVolumeSource"]:
+    def cephfs(self) -> typing.Optional["CephFsVolumeSource"]:
         """CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
 
         schema:
@@ -24814,7 +24814,7 @@ class Volume():
         return self._values.get('config_map')
 
     @builtins.property
-    def csi(self) -> typing.Optional["CSIVolumeSource"]:
+    def csi(self) -> typing.Optional["CsiVolumeSource"]:
         """CSI (Container Storage Interface) represents storage that is handled by an external CSI driver (Alpha feature).
 
         schema:
@@ -24823,7 +24823,7 @@ class Volume():
         return self._values.get('csi')
 
     @builtins.property
-    def downward_api(self) -> typing.Optional["DownwardAPIVolumeSource"]:
+    def downward_api(self) -> typing.Optional["DownwardApiVolumeSource"]:
         """DownwardAPI represents downward API about the pod that should populate this volume.
 
         schema:
@@ -24843,7 +24843,7 @@ class Volume():
         return self._values.get('empty_dir')
 
     @builtins.property
-    def fc(self) -> typing.Optional["FCVolumeSource"]:
+    def fc(self) -> typing.Optional["FcVolumeSource"]:
         """FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         schema:
@@ -24872,7 +24872,7 @@ class Volume():
         return self._values.get('flocker')
 
     @builtins.property
-    def gce_persistent_disk(self) -> typing.Optional["GCEPersistentDiskVolumeSource"]:
+    def gce_persistent_disk(self) -> typing.Optional["GcePersistentDiskVolumeSource"]:
         """GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
@@ -24927,7 +24927,7 @@ class Volume():
         return self._values.get('iscsi')
 
     @builtins.property
-    def nfs(self) -> typing.Optional["NFSVolumeSource"]:
+    def nfs(self) -> typing.Optional["NfsVolumeSource"]:
         """NFS represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs.
 
         schema:
@@ -24983,7 +24983,7 @@ class Volume():
         return self._values.get('quobyte')
 
     @builtins.property
-    def rbd(self) -> typing.Optional["RBDVolumeSource"]:
+    def rbd(self) -> typing.Optional["RbdVolumeSource"]:
         """RBD represents a Rados Block Device mount on the host that shares a pod's lifetime.
 
         More info: https://examples.k8s.io/volumes/rbd/README.md
@@ -24994,7 +24994,7 @@ class Volume():
         return self._values.get('rbd')
 
     @builtins.property
-    def scale_io(self) -> typing.Optional["ScaleIOVolumeSource"]:
+    def scale_io(self) -> typing.Optional["ScaleIoVolumeSource"]:
         """ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
 
         schema:
@@ -25014,7 +25014,7 @@ class Volume():
         return self._values.get('secret')
 
     @builtins.property
-    def storageos(self) -> typing.Optional["StorageOSVolumeSource"]:
+    def storageos(self) -> typing.Optional["StorageOsVolumeSource"]:
         """StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
 
         schema:
@@ -25507,7 +25507,7 @@ class VolumeNodeResources():
 
 @jsii.data_type(jsii_type="generated.VolumeProjection", jsii_struct_bases=[], name_mapping={'config_map': 'configMap', 'downward_api': 'downwardAPI', 'secret': 'secret', 'service_account_token': 'serviceAccountToken'})
 class VolumeProjection():
-    def __init__(self, *, config_map: typing.Optional["ConfigMapProjection"]=None, downward_api: typing.Optional["DownwardAPIProjection"]=None, secret: typing.Optional["SecretProjection"]=None, service_account_token: typing.Optional["ServiceAccountTokenProjection"]=None) -> None:
+    def __init__(self, *, config_map: typing.Optional["ConfigMapProjection"]=None, downward_api: typing.Optional["DownwardApiProjection"]=None, secret: typing.Optional["SecretProjection"]=None, service_account_token: typing.Optional["ServiceAccountTokenProjection"]=None) -> None:
         """Projection that may be projected along with other supported volume types.
 
         :param config_map: information about the configMap data to project.
@@ -25519,7 +25519,7 @@ class VolumeProjection():
         :schema:: io.k8s.api.core.v1.VolumeProjection
         """
         if isinstance(config_map, dict): config_map = ConfigMapProjection(**config_map)
-        if isinstance(downward_api, dict): downward_api = DownwardAPIProjection(**downward_api)
+        if isinstance(downward_api, dict): downward_api = DownwardApiProjection(**downward_api)
         if isinstance(secret, dict): secret = SecretProjection(**secret)
         if isinstance(service_account_token, dict): service_account_token = ServiceAccountTokenProjection(**service_account_token)
         self._values = {
@@ -25539,7 +25539,7 @@ class VolumeProjection():
         return self._values.get('config_map')
 
     @builtins.property
-    def downward_api(self) -> typing.Optional["DownwardAPIProjection"]:
+    def downward_api(self) -> typing.Optional["DownwardApiProjection"]:
         """information about the downwardAPI data to project.
 
         schema:
@@ -25962,44 +25962,31 @@ class WindowsSecurityContextOptions():
 
 
 __all__ = [
-    "APIService",
-    "APIServiceList",
-    "APIServiceListOptions",
-    "APIServiceOptions",
-    "APIServiceSpec",
-    "AWSElasticBlockStoreVolumeSource",
     "Affinity",
     "AggregationRule",
-    "AllowedCSIDriver",
+    "AllowedCsiDriver",
     "AllowedFlexVolume",
     "AllowedHostPath",
+    "ApiService",
+    "ApiServiceList",
+    "ApiServiceListOptions",
+    "ApiServiceOptions",
+    "ApiServiceSpec",
     "AuditSink",
     "AuditSinkList",
     "AuditSinkListOptions",
     "AuditSinkOptions",
     "AuditSinkSpec",
+    "AwsElasticBlockStoreVolumeSource",
     "AzureDiskVolumeSource",
     "AzureFilePersistentVolumeSource",
     "AzureFileVolumeSource",
     "Binding",
     "BindingOptions",
     "BoundObjectReference",
-    "CSIDriver",
-    "CSIDriverList",
-    "CSIDriverListOptions",
-    "CSIDriverOptions",
-    "CSIDriverSpec",
-    "CSINode",
-    "CSINodeDriver",
-    "CSINodeList",
-    "CSINodeListOptions",
-    "CSINodeOptions",
-    "CSINodeSpec",
-    "CSIPersistentVolumeSource",
-    "CSIVolumeSource",
     "Capabilities",
-    "CephFSPersistentVolumeSource",
-    "CephFSVolumeSource",
+    "CephFsPersistentVolumeSource",
+    "CephFsVolumeSource",
     "CertificateSigningRequest",
     "CertificateSigningRequestList",
     "CertificateSigningRequestListOptions",
@@ -26007,7 +25994,7 @@ __all__ = [
     "CertificateSigningRequestSpec",
     "CinderPersistentVolumeSource",
     "CinderVolumeSource",
-    "ClientIPConfig",
+    "ClientIpConfig",
     "ClusterRole",
     "ClusterRoleBinding",
     "ClusterRoleBindingList",
@@ -26042,6 +26029,19 @@ __all__ = [
     "CronJobOptions",
     "CronJobSpec",
     "CrossVersionObjectReference",
+    "CsiDriver",
+    "CsiDriverList",
+    "CsiDriverListOptions",
+    "CsiDriverOptions",
+    "CsiDriverSpec",
+    "CsiNode",
+    "CsiNodeDriver",
+    "CsiNodeList",
+    "CsiNodeListOptions",
+    "CsiNodeOptions",
+    "CsiNodeSpec",
+    "CsiPersistentVolumeSource",
+    "CsiVolumeSource",
     "CustomResourceColumnDefinition",
     "CustomResourceConversion",
     "CustomResourceDefinition",
@@ -26067,9 +26067,9 @@ __all__ = [
     "DeploymentOptions",
     "DeploymentSpec",
     "DeploymentStrategy",
-    "DownwardAPIProjection",
-    "DownwardAPIVolumeFile",
-    "DownwardAPIVolumeSource",
+    "DownwardApiProjection",
+    "DownwardApiVolumeFile",
+    "DownwardApiVolumeSource",
     "EmptyDirVolumeSource",
     "Endpoint",
     "EndpointAddress",
@@ -26098,8 +26098,7 @@ __all__ = [
     "EvictionOptions",
     "ExecAction",
     "ExternalDocumentation",
-    "FCVolumeSource",
-    "FSGroupStrategyOptions",
+    "FcVolumeSource",
     "FlexPersistentVolumeSource",
     "FlexVolumeSource",
     "FlockerVolumeSource",
@@ -26109,14 +26108,11 @@ __all__ = [
     "FlowSchemaListOptions",
     "FlowSchemaOptions",
     "FlowSchemaSpec",
-    "GCEPersistentDiskVolumeSource",
+    "FsGroupStrategyOptions",
+    "GcePersistentDiskVolumeSource",
     "GitRepoVolumeSource",
     "GlusterfsPersistentVolumeSource",
     "GlusterfsVolumeSource",
-    "HTTPGetAction",
-    "HTTPHeader",
-    "HTTPIngressPath",
-    "HTTPIngressRuleValue",
     "Handler",
     "HorizontalPodAutoscaler",
     "HorizontalPodAutoscalerList",
@@ -26126,6 +26122,10 @@ __all__ = [
     "HostAlias",
     "HostPathVolumeSource",
     "HostPortRange",
+    "HttpGetAction",
+    "HttpHeader",
+    "HttpIngressPath",
+    "HttpIngressRuleValue",
     "IdRange",
     "Ingress",
     "IngressBackend",
@@ -26134,19 +26134,19 @@ __all__ = [
     "IngressOptions",
     "IngressRule",
     "IngressSpec",
-    "IngressTLS",
+    "IngressTls",
     "IntOrString",
     "IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind",
     "IpBlock",
     "IscsiPersistentVolumeSource",
     "IscsiVolumeSource",
-    "JSONSchemaProps",
     "Job",
     "JobList",
     "JobListOptions",
     "JobOptions",
     "JobSpec",
     "JobTemplateSpec",
+    "JsonSchemaProps",
     "KeyToPath",
     "LabelSelector",
     "LabelSelectorRequirement",
@@ -26175,7 +26175,6 @@ __all__ = [
     "MutatingWebhookConfigurationList",
     "MutatingWebhookConfigurationListOptions",
     "MutatingWebhookConfigurationOptions",
-    "NFSVolumeSource",
     "Namespace",
     "NamespaceList",
     "NamespaceListOptions",
@@ -26190,6 +26189,7 @@ __all__ = [
     "NetworkPolicyPeer",
     "NetworkPolicyPort",
     "NetworkPolicySpec",
+    "NfsVolumeSource",
     "Node",
     "NodeAffinity",
     "NodeConfigSource",
@@ -26223,13 +26223,13 @@ __all__ = [
     "PodAffinity",
     "PodAffinityTerm",
     "PodAntiAffinity",
-    "PodDNSConfig",
-    "PodDNSConfigOption",
     "PodDisruptionBudget",
     "PodDisruptionBudgetList",
     "PodDisruptionBudgetListOptions",
     "PodDisruptionBudgetOptions",
     "PodDisruptionBudgetSpec",
+    "PodDnsConfig",
+    "PodDnsConfigOption",
     "PodList",
     "PodListOptions",
     "PodOptions",
@@ -26272,8 +26272,8 @@ __all__ = [
     "Quantity",
     "QueuingConfiguration",
     "QuobyteVolumeSource",
-    "RBDPersistentVolumeSource",
-    "RBDVolumeSource",
+    "RbdPersistentVolumeSource",
+    "RbdVolumeSource",
     "ReplicaSet",
     "ReplicaSetList",
     "ReplicaSetListOptions",
@@ -26313,16 +26313,16 @@ __all__ = [
     "RuntimeClassListOptions",
     "RuntimeClassOptions",
     "RuntimeClassStrategyOptions",
-    "SELinuxOptions",
-    "SELinuxStrategyOptions",
     "Scale",
-    "ScaleIOPersistentVolumeSource",
-    "ScaleIOVolumeSource",
+    "ScaleIoPersistentVolumeSource",
+    "ScaleIoVolumeSource",
     "ScaleOptions",
     "ScaleSpec",
     "Scheduling",
     "ScopeSelector",
     "ScopedResourceSelectorRequirement",
+    "SeLinuxOptions",
+    "SeLinuxStrategyOptions",
     "Secret",
     "SecretEnvSource",
     "SecretKeySelector",
@@ -26366,16 +26366,16 @@ __all__ = [
     "StorageClassList",
     "StorageClassListOptions",
     "StorageClassOptions",
-    "StorageOSPersistentVolumeSource",
-    "StorageOSVolumeSource",
+    "StorageOsPersistentVolumeSource",
+    "StorageOsVolumeSource",
     "Subject",
     "SubjectAccessReview",
     "SubjectAccessReviewOptions",
     "SubjectAccessReviewSpec",
     "SupplementalGroupsStrategyOptions",
     "Sysctl",
-    "TCPSocketAction",
     "Taint",
+    "TcpSocketAction",
     "TokenRequest",
     "TokenRequestOptions",
     "TokenRequestSpec",

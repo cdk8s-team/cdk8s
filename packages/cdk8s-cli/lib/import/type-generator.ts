@@ -399,24 +399,28 @@ export class TypeGenerator {
   }
 }
 
+/**
+ * Convert all-caps acronyms (e.g. "VPC", "FooBARZooFIGoo") to pascal case (e.g. "Vpc", "FooBarZooFiGoo").
+ *
+ * @internal exported for tests
+ */
+export function normalizeTypeName(typeName: string) {
+  // start with the full string and then use the regex to match all-caps sequences.
+  const re = /([A-Z]+)(?:[^a-z]|$)/g;
+  let result = typeName;
+  let m;
+  do {
+    m = re.exec(typeName);
+    if (m) {
+      const before = result.slice(0, m.index); // all the text before the sequence
+      const cap = m[1]; // group #1 matches the all-caps sequence we are after
+      const pascal = cap[0] + cap.slice(1).toLowerCase(); // convert to pascal case by lowercasing all but the first char
+      const after = result.slice(m.index + pascal.length); // all the text after the sequence
+      result = before + pascal + after; // concat
+    }
+  } while (m);
 
-
-function normalizeTypeName(typeName: string) {
-  if (!typeName.startsWith('I')) { // avoid the regex
-    return typeName;
-  }
-
-  // if the type name starts with IXXXFoo then make XXX lowercase because we assume
-  // it's an acromym that starts with an I, and this will be identified as an interface by JSII.
-  const re = /^I([A-Z]+)([A-Z][a-z]+[A-Za-z]+)$/.exec(typeName);
-  if (!re) {
-    return typeName;
-  }
-
-  const group1 = re[1];
-  const rest = re[2];
-  const normalized = `I${group1.toLocaleLowerCase()}${rest}`;
-  return normalized;
+  return result;
 }
 
 function supportedUnionOptionType(type: any): type is string {
