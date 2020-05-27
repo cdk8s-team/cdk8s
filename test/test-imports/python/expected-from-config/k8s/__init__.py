@@ -5243,7 +5243,7 @@ class DaemonSetUpdateStrategy():
 
 @jsii.data_type(jsii_type="generated.DeleteOptions", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'dry_run': 'dryRun', 'grace_period_seconds': 'gracePeriodSeconds', 'kind': 'kind', 'orphan_dependents': 'orphanDependents', 'preconditions': 'preconditions', 'propagation_policy': 'propagationPolicy'})
 class DeleteOptions():
-    def __init__(self, *, api_version: typing.Optional[str]=None, dry_run: typing.Optional[typing.List[str]]=None, grace_period_seconds: typing.Optional[jsii.Number]=None, kind: typing.Optional[str]=None, orphan_dependents: typing.Optional[bool]=None, preconditions: typing.Optional["Preconditions"]=None, propagation_policy: typing.Optional[str]=None) -> None:
+    def __init__(self, *, api_version: typing.Optional[str]=None, dry_run: typing.Optional[typing.List[str]]=None, grace_period_seconds: typing.Optional[jsii.Number]=None, kind: typing.Optional["IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"]=None, orphan_dependents: typing.Optional[bool]=None, preconditions: typing.Optional["Preconditions"]=None, propagation_policy: typing.Optional[str]=None) -> None:
         """DeleteOptions may be provided when deleting an API object.
 
         :param api_version: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
@@ -5305,7 +5305,7 @@ class DeleteOptions():
         return self._values.get('grace_period_seconds')
 
     @builtins.property
-    def kind(self) -> typing.Optional[str]:
+    def kind(self) -> typing.Optional["IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"]:
         """Kind is a string value representing the REST resource this object represents.
 
         Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -9527,6 +9527,18 @@ class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="generated.IntOrString"):
         """
         return jsii.sinvoke(cls, "fromString", [value])
 
+
+@jsii.enum(jsii_type="generated.IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind")
+class IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind(enum.Enum):
+    """Kind is a string value representing the REST resource this object represents.
+
+    Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+    schema:
+    :schema:: IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind
+    """
+    DELETE_OPTIONS = "DELETE_OPTIONS"
+    """DeleteOptions."""
 
 @jsii.data_type(jsii_type="generated.IpBlock", jsii_struct_bases=[], name_mapping={'cidr': 'cidr', 'except_': 'except'})
 class IpBlock():
@@ -26124,6 +26136,7 @@ __all__ = [
     "IngressSpec",
     "IngressTLS",
     "IntOrString",
+    "IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind",
     "IpBlock",
     "IscsiPersistentVolumeSource",
     "IscsiVolumeSource",

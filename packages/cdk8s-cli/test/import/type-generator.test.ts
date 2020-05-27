@@ -140,17 +140,58 @@ describe('structs', () => {
 describe('documentation', () => {
 
   which('does not render if not defined', {
-    type: 'boolean'
+    type: 'object',
+    properties: {
+      field: {
+        type: 'boolean'
+      }
+    }
   });
 
   which('renders based on description', {
-    description: 'hello, description',
-    type: 'string'
+    type: 'object',
+    properties: {
+      field: {
+        description: 'hello, description',
+        type: 'string'
+      }
+    }
   });
 
   which('"*/" is is escaped', {
-    description: 'hello */world',
-    type: 'string'
+    type: 'object',
+    properties: {
+      field: {
+        description: 'hello */world',
+        type: 'string'
+      }
+    }
+  });
+
+});
+
+describe('enums', () => {
+
+  which('renders a typescript enum', {
+    type: 'object',
+    required: [ 'firstEnum' ],
+    properties: {
+      firstEnum: {
+        description: 'description of first enum',
+        type: 'string',
+        enum: [ 'value1', 'value2', 'value-of-three', 'valueOfFour' ]
+      },
+      child: {
+        type: 'object',
+        properties: {
+          secondEnum: {
+            description: 'description of second enum',
+            type: 'string',
+            enum: [ 'hey', 'enum values can be crazy', 'yes>>123' ]
+          }
+        }
+      }
+    }
   });
 
 });
