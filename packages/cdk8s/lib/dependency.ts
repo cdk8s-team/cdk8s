@@ -23,17 +23,17 @@ export class DependencyGraph {
 
     const nodes: Record<string, DependencyVertex> = {};
 
-    function putVertexIfAbsent(construct: IConstruct) {
-      const id = Node.of(construct).uniqueId;
-      if (!nodes[id]) {
-        nodes[id] = new DependencyVertex(construct);
-      }
-      return nodes[id];
+    function putVertex(construct: IConstruct) {
+      nodes[Node.of(construct).uniqueId] = new DependencyVertex(construct);
     }
 
-    // add all the tree nodes as verices.
+    function getVertex(construct: IConstruct) {
+      return nodes[Node.of(construct).uniqueId];
+    }
+
+    // create all vertices of the graph.
     for (const n of node.findAll()) {
-      putVertexIfAbsent(n);
+      putVertex(n);
     }
 
     // create all the edges of the graph.
@@ -47,8 +47,8 @@ export class DependencyGraph {
         continue;
       }
 
-      const sourceDepNode = putVertexIfAbsent(dep.source);
-      const targetDepNode = putVertexIfAbsent(dep.target);
+      const sourceDepNode = getVertex(dep.source);
+      const targetDepNode = getVertex(dep.target);
 
       sourceDepNode.addChild(targetDepNode!);
 
