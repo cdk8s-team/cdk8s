@@ -202,7 +202,7 @@ function loadFixture(fileName: string) {
   const filePath = path.join(__dirname, 'fixtures', fileName);
   return yaml
     .parseAllDocuments(fs.readFileSync(filePath, 'utf-8'))
-    .map((doc: yaml.ast.Document) => doc.toJSON());
+    .map((doc: yaml.Document) => doc.toJSON());
 }
 
 function expectImportMatchSnapshotCustomResource(fixtureFile: string) {
