@@ -73,7 +73,7 @@ export class Chart extends Construct {
    */
   public toJson(): any[] {
     return new DependencyGraph(Node.of(this)).topology()
-      .filter(x => x instanceof ApiObject && Chart.of(x) === this)
+      .filter(x => x instanceof ApiObject)
       .map(x => (x as ApiObject).toJson());
   }
 
