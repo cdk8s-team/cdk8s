@@ -63,6 +63,16 @@ MyChart(app, "hello")
 
 app.synth()
 ```
+---
+**NOTE**
+
+If the Python 3.7 binary in your operating system is python3 instead of python, update the interpreter line as follows
+
+```python
+#!/usr/bin/env python3
+```
+
+---
 
 Apps are structured as a tree of **constructs**, which are composable units of
 abstraction. We will learn more about constructs soon.
