@@ -6,8 +6,11 @@ import { Node, IConstruct } from "constructs";
  * This graph includes the dependency relationships between all nodes in the
  * node (construct) sub-tree who's root is this Node.
  *
- * Note that this means that lonely (no dependencies and no dependants) are also included in this graph as
+ * Note that this means that lonely nodes (no dependencies and no dependants) are also included in this graph as
  * childless children of the root node of the graph.
+ *
+ * The graph does not include cross-scope dependencies. That is, if a child on the current scope depends on a node
+ * from a different scope, that relationship is not represented in this graph.
  *
  */
 export class DependencyGraph {
