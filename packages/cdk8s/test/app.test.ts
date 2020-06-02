@@ -48,9 +48,9 @@ test('app with charts directly dependant', () => {
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
-    '0000-chart2.k8s.yaml',
-    '0001-chart1.k8s.yaml',
-    '0002-chart0.k8s.yaml'
+    '0000-chart3.k8s.yaml',
+    '0001-chart2.k8s.yaml',
+    '0002-chart1.k8s.yaml'
   ]);
 
 });
@@ -63,7 +63,7 @@ test('app with charts indirectly dependant', () => {
   // WHEN
   const chart1 = new Chart(app, 'chart1');
   const chart2 = new Chart(app, 'chart2');
-  const chart3 = new Chart(app, 'chart2');
+  const chart3 = new Chart(app, 'chart3');
 
   const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
   const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
@@ -76,9 +76,9 @@ test('app with charts indirectly dependant', () => {
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
-    '0000-chart2.k8s.yaml',
-    '0001-chart1.k8s.yaml',
-    '0002-chart0.k8s.yaml'
+    '0000-chart3.k8s.yaml',
+    '0001-chart2.k8s.yaml',
+    '0002-chart1.k8s.yaml'
   ]);
 
 });
@@ -104,6 +104,6 @@ test('default output directory is "dist"', () => {
     expect(fs.existsSync('./dist/0000-chart1.k8s.yaml')).toBeTruthy();
   } finally {
     process.chdir(prev);
-    fs.rmdirSync(workdir, { recursive: true });
+    // fs.rmdirSync(workdir, { recursive: true });
   }
 });
