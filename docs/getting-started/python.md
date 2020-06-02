@@ -4,7 +4,7 @@ Let's walk through a simple "Hello, World!" example in Python.
 
 ## Prerequisites
 
-* [Python >= 3.7](https://www.python.org/downloads/release/python-377)
+* [Python >= 3.7.7](https://www.python.org/downloads/release/python-377/)
 * [pipenv](https://pipenv.pypa.io/en/latest) version 2018.11.26 or above.
 
 ## Install the CLI

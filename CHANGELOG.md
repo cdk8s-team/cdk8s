@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.24.0](https://github.com/awslabs/cdk8s/compare/v0.23.0...v0.24.0) (2020-05-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cli:** enum string values are now proper enums instead of just `string`s.
+
+### Features
+
+* **cli:** import - support enum string fields ([#210](https://github.com/awslabs/cdk8s/issues/210)) ([8b8ad44](https://github.com/awslabs/cdk8s/commit/8b8ad44bba1f0ebced6d41af52d079b1a2ec54b2)), closes [#196](https://github.com/awslabs/cdk8s/issues/196)
+
+
+### Bug Fixes
+
+* **cli:** unable to import CRDs with non-trivial "xxxOf" constraints ([#212](https://github.com/awslabs/cdk8s/issues/212)) ([18136ed](https://github.com/awslabs/cdk8s/commit/18136ed26d833a27036b7cbf04fac4b8f7d9b542)), closes [#171](https://github.com/awslabs/cdk8s/issues/171)
+* **cli:** unable to import types with all-caps TLAs ([#211](https://github.com/awslabs/cdk8s/issues/211)) ([a11d0e8](https://github.com/awslabs/cdk8s/commit/a11d0e8f8f8e5bbc745d9315086b97cbc49d2890)), closes [#209](https://github.com/awslabs/cdk8s/issues/209)
+
 ## [0.23.0](https://github.com/awslabs/cdk8s/compare/v0.22.0...v0.23.0) (2020-05-26)
 
 

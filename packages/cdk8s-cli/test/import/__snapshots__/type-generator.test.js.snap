@@ -1,10 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`documentation "*/" is is escaped 1`] = `""`;
+exports[`documentation "*/" is is escaped 1`] = `
+"/**
+ * @schema fqn.of.TestType
+ */
+export interface TestType {
+    /**
+     * hello _/world
+     *
+     * @schema fqn.of.TestType#field
+     */
+    readonly field?: string;
 
-exports[`documentation does not render if not defined 1`] = `""`;
+}
 
-exports[`documentation renders based on description 1`] = `""`;
+"
+`;
+
+exports[`documentation does not render if not defined 1`] = `
+"/**
+ * @schema fqn.of.TestType
+ */
+export interface TestType {
+    /**
+     * @schema fqn.of.TestType#field
+     */
+    readonly field?: boolean;
+
+}
+
+"
+`;
+
+exports[`documentation renders based on description 1`] = `
+"/**
+ * @schema fqn.of.TestType
+ */
+export interface TestType {
+    /**
+     * hello, description
+     *
+     * @schema fqn.of.TestType#field
+     */
+    readonly field?: string;
+
+}
+
+"
+`;
+
+exports[`enums renders a typescript enum 1`] = `
+"/**
+ * @schema fqn.of.TestType
+ */
+export interface TestType {
+    /**
+     * description of first enum
+     *
+     * @schema fqn.of.TestType#firstEnum
+     */
+    readonly firstEnum: FqnOfTestTypeFirstEnum;
+
+    /**
+     * @schema fqn.of.TestType#child
+     */
+    readonly child?: FqnOfTestTypeChild;
+
+}
+
+/**
+ * description of first enum
+ *
+ * @schema FqnOfTestTypeFirstEnum
+ */
+export enum FqnOfTestTypeFirstEnum {
+    /** value1 */
+    VALUE1 = \\"value1\\",
+    /** value2 */
+    VALUE2 = \\"value2\\",
+    /** value-of-three */
+    VALUE_OF_THREE = \\"value-of-three\\",
+    /** valueOfFour */
+    VALUE_OF_FOUR = \\"valueOfFour\\",
+}
+
+/**
+ * @schema FqnOfTestTypeChild
+ */
+export interface FqnOfTestTypeChild {
+    /**
+     * description of second enum
+     *
+     * @schema FqnOfTestTypeChild#secondEnum
+     */
+    readonly secondEnum?: FqnOfTestTypeChildSecondEnum;
+
+}
+
+/**
+ * description of second enum
+ *
+ * @schema FqnOfTestTypeChildSecondEnum
+ */
+export enum FqnOfTestTypeChildSecondEnum {
+    /** hey */
+    HEY = \\"hey\\",
+    /** enum values can be crazy */
+    ENUM_VALUES_CAN_BE_CRAZY = \\"enum values can be crazy\\",
+    /** yes>>123 */
+    YES_123 = \\"yes>>123\\",
+}
+
+"
+`;
 
 exports[`structs array of structs is considered optional 1`] = `
 "/**
@@ -172,6 +280,86 @@ export interface MyType {
      * @schema MyType#self
      */
     readonly self?: MyType;
+
+}
+
+"
+`;
+
+exports[`unions constraints are ignored for objects 1`] = `
+"/**
+ * @schema TestType
+ */
+export interface TestType {
+    /**
+     * Fault injection policy to apply on HTTP traffic at
+the client side.
+     *
+     * @schema TestType#fault
+     */
+    readonly fault?: TestTypeFault;
+
+}
+
+/**
+ * Fault injection policy to apply on HTTP traffic at
+the client side.
+ *
+ * @schema TestTypeFault
+ */
+export interface TestTypeFault {
+    /**
+     * @schema TestTypeFault#delay
+     */
+    readonly delay?: TestTypeFaultDelay;
+
+}
+
+/**
+ * @schema TestTypeFaultDelay
+ */
+export interface TestTypeFaultDelay {
+    /**
+     * @schema TestTypeFaultDelay#exponentialDelay
+     */
+    readonly exponentialDelay?: string;
+
+    /**
+     * Add a fixed delay before forwarding the request.
+     *
+     * @schema TestTypeFaultDelay#fixedDelay
+     */
+    readonly fixedDelay?: string;
+
+    /**
+     * Percentage of requests on which the delay
+will be injected (0-100).
+     *
+     * @schema TestTypeFaultDelay#percent
+     */
+    readonly percent?: number;
+
+    /**
+     * Percentage of requests on which the delay
+will be injected.
+     *
+     * @schema TestTypeFaultDelay#percentage
+     */
+    readonly percentage?: TestTypeFaultDelayPercentage;
+
+}
+
+/**
+ * Percentage of requests on which the delay
+will be injected.
+ *
+ * @schema TestTypeFaultDelayPercentage
+ */
+export interface TestTypeFaultDelayPercentage {
+    /**
+     * @schema TestTypeFaultDelayPercentage#value
+     */
+    readonly value?: number;
 
 }
 

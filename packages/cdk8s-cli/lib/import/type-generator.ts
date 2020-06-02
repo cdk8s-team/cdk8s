@@ -118,10 +118,13 @@ export class TypeGenerator {
       return this.typeForRef(def);
     }
 
-    // unions
+    // unions (unless this is a struct, and then we just ignore the constraints)
     if (def.oneOf || def.anyOf) {
-      this.emitUnion(typeName, def, structFqn)
-      return typeName;
+      if (this.emitUnion(typeName, def, structFqn)) {
+        return typeName;
+      }
+
+      // carry on, we can't represent this schema as a union (yet?)
     }
 
     if (def.type === 'string' && def.format === 'date-time') {
@@ -143,6 +146,10 @@ export class TypeGenerator {
     if (def.type === 'string') {
       if (def.format === 'date-time') {
         return 'Date';
+      }
+
+      if (Array.isArray(def.enum) && def.enum.length > 0 && !def.enum.find(x => typeof(x) !== 'string')) {
+        return this.emitEnum(typeName, def, structFqn);
       }
 
       return 'string';
@@ -185,18 +192,26 @@ export class TypeGenerator {
     this.typesToEmit[typeName] = codeEmitter;
   }
 
+  /**
+   * @returns true if this definition can be represented as a union or false if it cannot
+   */
   private emitUnion(typeName: string, def: JSONSchema4, fqn: string) {
+    const options = new Array<string>();
+    for (const option of def.oneOf || def.anyOf || []) {
+      if (!supportedUnionOptionType(option.type)) {
+        return false;
+      }
+
+      const type = option.type === 'integer' ? 'number' : option.type;
+      options.push(type);
+    }
+
     this.emitLater(typeName, code => {
       this.emitDescription(code, fqn, def.description);
 
       code.openBlock(`export class ${typeName}`);
 
-      for (const option of def.oneOf || def.anyOf || []) {
-        if (typeof(option.type) !== 'string' || !PRIMITIVE_TYPES.includes(option.type)) {
-          throw new Error(`unexpected union type ${JSON.stringify(option.type)}`);
-        }
-
-        const type = option.type === 'integer' ? 'number' : option.type;
+      for (const type of options) {
         const methodName = 'from' + type[0].toUpperCase() + type.substr(1);
         code.openBlock(`public static ${methodName}(value: ${type}): ${typeName}`);
         code.line(`return new ${typeName}(value);`);
@@ -209,6 +224,8 @@ export class TypeGenerator {
 
       code.closeBlock();
     });
+
+    return true;
   }
 
   private emitStruct(typeName: string, structDef: JSONSchema4, structFqn: string) {
@@ -256,6 +273,40 @@ export class TypeGenerator {
 
     code.line(`readonly ${name}${optional}: ${propertyType};`);
     code.line();
+  }
+
+  private emitEnum(typeName: string, def: JSONSchema4, structFqn: string) {
+
+    this.emitLater(typeName, code => {
+
+      if (!def.enum || def.enum.length === 0) {
+        throw new Error(`definition is not an enum: ${JSON.stringify(def)}`);
+      }
+
+      if (def.type !== 'string') {
+        throw new Error(`can only generate string enums`);
+      }
+
+      this.emitDescription(code, structFqn, def.description);
+
+      code.openBlock(`export enum ${typeName}`);
+
+      for (const value of def.enum) {
+        if (typeof(value) !== 'string') {
+          throw new Error(`can only generate enums for string values`);
+        }
+
+        // sluggify and turn to UPPER_SNAKE_CASE
+        const memberName = code.toSnakeCase(value.replace(/[^a-z0-9]/gi, '_')).split('_').filter(x => x).join('_').toUpperCase();
+
+        code.line(`/** ${value} */`);
+        code.line(`${memberName} = "${value}",`);
+      }
+
+      code.closeBlock();
+    });
+
+    return typeName;
   }
 
   private emitDescription(code: CodeMaker, fqn: string, description?: string, annotations: { [type: string]: string } = { }) {
@@ -348,22 +399,30 @@ export class TypeGenerator {
   }
 }
 
+/**
+ * Convert all-caps acronyms (e.g. "VPC", "FooBARZooFIGoo") to pascal case (e.g. "Vpc", "FooBarZooFiGoo").
+ *
+ * @internal exported for tests
+ */
+export function normalizeTypeName(typeName: string) {
+  // start with the full string and then use the regex to match all-caps sequences.
+  const re = /([A-Z]+)(?:[^a-z]|$)/g;
+  let result = typeName;
+  let m;
+  do {
+    m = re.exec(typeName);
+    if (m) {
+      const before = result.slice(0, m.index); // all the text before the sequence
+      const cap = m[1]; // group #1 matches the all-caps sequence we are after
+      const pascal = cap[0] + cap.slice(1).toLowerCase(); // convert to pascal case by lowercasing all but the first char
+      const after = result.slice(m.index + pascal.length); // all the text after the sequence
+      result = before + pascal + after; // concat
+    }
+  } while (m);
 
+  return result;
+}
 
-function normalizeTypeName(typeName: string) {
-  if (!typeName.startsWith('I')) { // avoid the regex
-    return typeName;
-  }
-
-  // if the type name starts with IXXXFoo then make XXX lowercase because we assume
-  // it's an acromym that starts with an I, and this will be identified as an interface by JSII.
-  const re = /^I([A-Z]+)([A-Z][a-z]+[A-Za-z]+)$/.exec(typeName);
-  if (!re) {
-    return typeName;
-  }
-
-  const group1 = re[1];
-  const rest = re[2];
-  const normalized = `I${group1.toLocaleLowerCase()}${rest}`;
-  return normalized;
+function supportedUnionOptionType(type: any): type is string {
+  return type && (typeof(type) === 'string' && PRIMITIVE_TYPES.includes(type));
 }
