@@ -31,7 +31,7 @@ test('app with two charts', () => {
   ]);
 });
 
-test('app with two charts directly dependant', () => {
+test('app with charts directly dependant', () => {
 
   // GIVEN
   const app = Testing.app();
@@ -39,20 +39,23 @@ test('app with two charts directly dependant', () => {
   // WHEN
   const chart1 = new Chart(app, 'chart1');
   const chart2 = new Chart(app, 'chart2');
+  const chart3 = new Chart(app, 'chart3');
 
   Node.of(chart1).addDependency(chart2);
+  Node.of(chart2).addDependency(chart3);
 
   app.synth();
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
     '0000-chart2.k8s.yaml',
-    '0001-chart1.k8s.yaml'
+    '0001-chart1.k8s.yaml',
+    '0002-chart0.k8s.yaml'
   ]);
 
 });
 
-test('app with two charts indirectly dependant', () => {
+test('app with charts indirectly dependant', () => {
 
   // GIVEN
   const app = Testing.app();
@@ -60,43 +63,22 @@ test('app with two charts indirectly dependant', () => {
   // WHEN
   const chart1 = new Chart(app, 'chart1');
   const chart2 = new Chart(app, 'chart2');
+  const chart3 = new Chart(app, 'chart2');
 
   const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
   const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+  const obj3 = new ApiObject(chart3, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
 
   Node.of(obj1).addDependency(obj2);
+  Node.of(obj2).addDependency(obj3);
 
   app.synth();
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
     '0000-chart2.k8s.yaml',
-    '0001-chart1.k8s.yaml'
-  ]);
-
-});
-
-test('app with two charts indirectly and directly dependant', () => {
-
-  // GIVEN
-  const app = Testing.app();
-
-  // WHEN
-  const chart1 = new Chart(app, 'chart1');
-  const chart2 = new Chart(app, 'chart2');
-
-  const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
-  const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
-
-  Node.of(obj1).addDependency(obj2);
-  Node.of(chart1).addDependency(chart2);
-
-  app.synth();
-
-  // THEN
-  expect(fs.readdirSync(app.outdir)).toEqual([
-    '0000-chart2.k8s.yaml',
-    '0001-chart1.k8s.yaml'
+    '0001-chart1.k8s.yaml',
+    '0002-chart0.k8s.yaml'
   ]);
 
 });
@@ -122,6 +104,6 @@ test('default output directory is "dist"', () => {
     expect(fs.existsSync('./dist/0000-chart1.k8s.yaml')).toBeTruthy();
   } finally {
     process.chdir(prev);
-    // fs.rmdirSync(workdir, { recursive: true });
+    fs.rmdirSync(workdir, { recursive: true });
   }
 });
