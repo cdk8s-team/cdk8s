@@ -1,13 +1,14 @@
 import { Construct, Node, ISynthesisSession, IConstruct } from 'constructs';
 import fs = require('fs');
-import { Chart, DependencyGraph } from './chart';
+import { Chart } from './chart';
 import * as path from 'path';
 import { Yaml } from './yaml';
+import { DependencyGraph } from './dependency';
 
 export interface AppOptions {
   /**
    * The directory to output Kubernetes manifests.
-   * 
+   *
    * @default - CDK8S_OUTDIR if defined, otherwise "dist"
    */
   readonly outdir?: string;
@@ -33,11 +34,11 @@ export class App extends Construct {
 
   protected onPrepare() {
     super.onPrepare()
-    
-    // create explicit chart dependencies 
+
+    // create explicit chart dependencies
     // from implicit construct dependencies
     for (const dep of Node.of(this).dependencies) {
-      
+
       const sourceChart = Chart.of(dep.source);
       const targetChart = Chart.of(dep.target);
 
@@ -58,7 +59,9 @@ export class App extends Construct {
       const chart: Chart = Chart.of(node);
       const manifestFile = `${Node.of(chart).uniqueId}.k8s.yaml`;
 
-      Yaml.save(path.join(session.outdir, `${index}-${manifestFile}`), chart.toJson());
+      const paddedIndex = index.toString().padStart(4, '0');
+
+      Yaml.save(path.join(session.outdir, `${paddedIndex}-${manifestFile}`), chart.toJson());
     }
   }
 

@@ -54,7 +54,7 @@ test('tokens are resolved during synth', () => {
 test('Chart.of(node) returns the first chart in which a node is defined', () => {
   // GIVEN
   const app = Testing.app();
-  
+
   // WHEN
   const chart = new Chart(app, 'MyFirst');
   const direct = new Construct(chart, 'Direct');
@@ -95,49 +95,20 @@ test('synthesizeManifest() can be used to synthesize a specific chart', () => {
 
 describe('toJson', () => {
 
-  test('returns on ordered list', () => {
+  test('returns an ordered list', () => {
 
     const app = Testing.app();
     const chart1 = new Chart(app, 'chart1');
-  
+
     const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
     const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
     const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
-    
-    Node.of(obj1).addDependency(obj2);  
-    Node.of(obj2).addDependency(obj3);  
-  
-    expect(chart1.toJson()).toEqual([obj3.toJson(), obj2.toJson(), obj1.toJson()]);
-  
-  });
 
-  test('returns on ordered list for multiple dependency roots', () => {
-
-    const app = Testing.app();
-    const chart1 = new Chart(app, 'chart1');
-  
-    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
-    const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
-    const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
-    
-    // obj1 and obj3 are roots
     Node.of(obj1).addDependency(obj2);
-    Node.of(obj3).addDependency(obj2);
-  
-    expect(chart1.toJson()).toEqual([obj2.toJson(), obj1.toJson(), obj3.toJson()]);
-  
-  });
+    Node.of(obj2).addDependency(obj3);
 
-  test('returns objects not in dependency list', () => {
+    expect(chart1.toJson()).toEqual([obj3.toJson(), obj2.toJson(), obj1.toJson()]);
 
-    const app = Testing.app();
-    const chart1 = new Chart(app, 'chart1');
-  
-    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
-    const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
-        
-    expect(chart1.toJson()).toEqual([obj1.toJson(), obj2.toJson()]);
-  
   });
 
   test('ignores objects belonging to a different chart', () => {
@@ -145,14 +116,14 @@ describe('toJson', () => {
     const app = Testing.app();
     const chart1 = new Chart(app, 'chart1');
     const chart2 = new Chart(app, 'chart2');
-  
+
     const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
     const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
-    
-    Node.of(obj1).addDependency(obj2);  
+
+    Node.of(obj1).addDependency(obj2);
 
     expect(chart1.toJson()).toEqual([obj1.toJson()]);
-  
+
   });
 
   test('ignores chart objects', () => {
@@ -160,61 +131,17 @@ describe('toJson', () => {
     const app = Testing.app();
     const chart1 = new Chart(app, 'chart1');
     const chart2 = new Chart(app, 'chart2');
-  
+
     const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
     const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
-    
+
     Node.of(obj1).addDependency(obj2);
     Node.of(chart1).addDependency(chart2);
 
     expect(chart1.toJson()).toEqual([obj1.toJson()]);
-  
+
   });
 
-  test('handles lonely transitive children as dependency roots', () => {
-
-    const app = Testing.app();
-    const chart1 = new Chart(app, 'chart1');
-  
-    const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
-    const obj2 = new ApiObject(obj1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
-    const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
-    
-    Node.of(obj1).addDependency(obj3);
-
-    expect(chart1.toJson()).toEqual([obj3.toJson(), obj1.toJson(), obj2.toJson()]);
-  
-  });
-
-  test('fails on dependency cycles', () => {
-  
-    const app = Testing.app();
-    const chart1 = new Chart(app, 'chart1');
-  
-    function createObject(index: number) {
-      return new ApiObject(chart1, `obj${index}`, { apiVersion: 'v1', kind: `Kind${index}` });
-    }
-  
-    const obj1 = createObject(1);
-    const obj2 = createObject(2);
-    const obj3 = createObject(3);
-    const obj4 = createObject(4);
-    const obj5 = createObject(5);
-  
-    Node.of(obj1).addDependency(obj2);  
-    Node.of(obj2).addDependency(obj3);  
-    Node.of(obj3).addDependency(obj4);
-    Node.of(obj4).addDependency(obj5);
-  
-    // this creates a cycle
-    Node.of(obj5).addDependency(obj2);
-  
-    expect(() => {
-      chart1.toJson()
-    }).toThrowError(`Dependency cycle detected: ${Node.of(obj2).uniqueId} => ${Node.of(obj3).uniqueId} => ${Node.of(obj4).uniqueId} => ${Node.of(obj5).uniqueId} => ${Node.of(obj2).uniqueId}`);
-  
-  });
-  
 })
 
 function createImplictToken(value: any) {

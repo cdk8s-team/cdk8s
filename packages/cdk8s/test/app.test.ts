@@ -26,8 +26,8 @@ test('app with two charts', () => {
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
-    '0-chart1.k8s.yaml',
-    '1-chart2.k8s.yaml'
+    '0000-chart1.k8s.yaml',
+    '0001-chart2.k8s.yaml'
   ]);
 });
 
@@ -46,10 +46,10 @@ test('app with two charts directly dependant', () => {
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
-    '0-chart2.k8s.yaml',
-    '1-chart1.k8s.yaml'
+    '0000-chart2.k8s.yaml',
+    '0001-chart1.k8s.yaml'
   ]);
-  
+
 });
 
 test('app with two charts indirectly dependant', () => {
@@ -70,10 +70,10 @@ test('app with two charts indirectly dependant', () => {
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
-    '0-chart2.k8s.yaml',
-    '1-chart1.k8s.yaml'
+    '0000-chart2.k8s.yaml',
+    '0001-chart1.k8s.yaml'
   ]);
-  
+
 });
 
 test('app with two charts indirectly and directly dependant', () => {
@@ -95,10 +95,10 @@ test('app with two charts indirectly and directly dependant', () => {
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
-    '0-chart2.k8s.yaml',
-    '1-chart1.k8s.yaml'
+    '0000-chart2.k8s.yaml',
+    '0001-chart1.k8s.yaml'
   ]);
-  
+
 });
 
 test('default output directory is "dist"', () => {
@@ -119,7 +119,7 @@ test('default output directory is "dist"', () => {
     expect(app.outdir).toEqual('dist');
     expect(fs.existsSync('./dist')).toBeTruthy();
     expect(fs.statSync('./dist').isDirectory());
-    expect(fs.existsSync('./dist/0-chart1.k8s.yaml')).toBeTruthy();
+    expect(fs.existsSync('./dist/0000-chart1.k8s.yaml')).toBeTruthy();
   } finally {
     process.chdir(prev);
     // fs.rmdirSync(workdir, { recursive: true });
