@@ -8,10 +8,10 @@ import jsii
 import jsii.compat
 import publication
 
+from ._jsii import *
+
 import cdk8s
 import constructs
-
-from ._jsii import *
 
 
 @jsii.data_type(jsii_type="generated.Affinity", jsii_struct_bases=[], name_mapping={'node_affinity': 'nodeAffinity', 'pod_affinity': 'podAffinity', 'pod_anti_affinity': 'podAntiAffinity'})
