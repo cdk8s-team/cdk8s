@@ -36,9 +36,7 @@ export class App extends Construct {
    * Synthesizes all manifests to the output directory
    */
   public synth(): void {
-    if (!fs.existsSync(this.outdir)) {
-      fs.mkdirSync(this.outdir);
-    }
+    fs.mkdirSync(this.outdir, { recursive: true });
 
     // create explicit chart dependencies
     // from implicit construct dependencies
