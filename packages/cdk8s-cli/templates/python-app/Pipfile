@@ -5,3 +5,6 @@ verify_ssl = true
 
 [requires]
 python_version = "3.7"
+
+[packages]
+constructs = "==2.0.1"

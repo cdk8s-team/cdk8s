@@ -97,7 +97,7 @@ export class ImportCustomResourceDefinition extends ImportBase {
   public static async match(importSpec: ImportSpec): Promise<undefined | ManifestObjectDefinition[]> {
     const { source } = importSpec;
     const manifest = await download(source);
-    return yaml.parseAllDocuments(manifest).map((doc: yaml.ast.Document) => doc.toJSON());
+    return yaml.parseAllDocuments(manifest).map((doc: yaml.Document) => doc.toJSON());
   }
 
   private readonly defs: CustomResourceDefinition[] = [];
