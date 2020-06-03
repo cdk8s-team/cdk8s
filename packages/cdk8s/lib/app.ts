@@ -1,4 +1,4 @@
-import { Construct, Node, ISynthesisSession, IConstruct } from 'constructs';
+import { Construct, Node, IConstruct } from 'constructs';
 import fs = require('fs');
 import { Chart } from './chart';
 import * as path from 'path';
@@ -32,8 +32,13 @@ export class App extends Construct {
     this.outdir = options.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
   }
 
-  protected onPrepare() {
-    super.onPrepare()
+  /**
+   * Synthesizes all manifests to the output directory
+   */
+  public synth(): void {
+    if (!fs.existsSync(this.outdir)) {
+      fs.mkdirSync(this.outdir);
+    }
 
     // create explicit chart dependencies
     // from implicit construct dependencies
@@ -47,9 +52,7 @@ export class App extends Construct {
       }
     }
 
-  }
-
-  protected onSynthesize(session: ISynthesisSession) {
+    // TODO add validate call here
 
     const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
 
@@ -61,20 +64,8 @@ export class App extends Construct {
 
       const paddedIndex = index.toString().padStart(4, '0');
 
-      Yaml.save(path.join(session.outdir, `${paddedIndex}-${manifestFile}`), chart.toJson());
-    }
-  }
-
-  /**
-   * Synthesizes all manifests to the output directory
-   */
-  public synth(): void {
-    if (!fs.existsSync(this.outdir)) {
-      fs.mkdirSync(this.outdir);
+      Yaml.save(path.join(this.outdir, `${paddedIndex}-${manifestFile}`), chart.toJson());
     }
 
-    Node.of(this).synthesize({
-      outdir: this.outdir
-    });
   }
 }
