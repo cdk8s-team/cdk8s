@@ -56,15 +56,17 @@ export class App extends Construct {
 
     const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
 
-    for (const index in charts) {
+    let index = 0;
+    for (const node of charts) {
 
-      const node: IConstruct = charts[index];
       const chart: Chart = Chart.of(node);
       const manifestFile = `${Node.of(chart).uniqueId}.k8s.yaml`;
 
       const paddedIndex = index.toString().padStart(4, '0');
 
       Yaml.save(path.join(this.outdir, `${paddedIndex}-${manifestFile}`), chart.toJson());
+
+      index++;
     }
 
   }
