@@ -27,7 +27,7 @@ export class DependencyGraph {
       nodes[Node.of(construct).uniqueId] = new DependencyVertex(construct);
     }
 
-    function getVertex(construct: IConstruct) {
+    function getVertex(construct: IConstruct): DependencyVertex {
       return nodes[Node.of(construct).uniqueId];
     }
 
@@ -50,7 +50,7 @@ export class DependencyGraph {
       const sourceDepNode = getVertex(dep.source);
       const targetDepNode = getVertex(dep.target);
 
-      sourceDepNode.addChild(targetDepNode!);
+      sourceDepNode.addChild(targetDepNode);
 
     }
 
@@ -157,7 +157,7 @@ export class DependencyVertex {
     const cycle: DependencyVertex[] = dep.findRoute(this);
     if (cycle.length !== 0) {
       cycle.push(dep);
-      throw new Error(`Dependency cycle detected: ${cycle.map(d => Node.of(d.value!).uniqueId).join(' => ')}`);
+      throw new Error(`Dependency cycle detected: ${cycle.filter(d => d.value).map(d => Node.of(d.value!).uniqueId).join(' => ')}`);
     }
 
     this._children.add(dep);
