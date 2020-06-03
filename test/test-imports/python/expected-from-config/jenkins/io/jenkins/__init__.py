@@ -8,10 +8,10 @@ import jsii
 import jsii.compat
 import publication
 
+from ._jsii import *
+
 import cdk8s
 import constructs
-
-from ._jsii import *
 
 
 class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Jenkins"):
