@@ -40,7 +40,16 @@ export class App extends Construct {
     fs.mkdirSync(this.outdir, { recursive: true });
 
     this.inferChartDependencies();
-    this.validate();
+
+    // Since we plan on removing the distributed synth mechanism, we no longer call `Node.synthesize`, but rather simply implement
+    // the necessary operations. We do however want to preserve the distributed validation.
+    // Note this is a copy-paste of https://github.com/aws/constructs/blob/master/lib/construct.ts#L438.
+    const errors = Node.of(this).validate();
+    if (errors.length > 0) {
+      const errorList = errors.map(e => `[${Node.of(e.source).path}] ${e.message}`).join('\n  ');
+      throw new Error(`Validation failed with the following errors:\n  ${errorList}`);
+    }
+
     this.produceManifests();
 
   }
@@ -63,17 +72,6 @@ export class App extends Construct {
       if (sourceChart !== targetChart) {
         Node.of(sourceChart).addDependency(targetChart);
       }
-    }
-
-  }
-
-  private validate() {
-
-    // this will validate ALL nodes of the application
-    const errors = Node.of(this).validate();
-    if (errors.length > 0) {
-      const errorList = errors.map(e => `[${Node.of(e.source).path}] ${e.message}`).join('\n  ');
-      throw new Error(`Validation failed with the following errors:\n  ${errorList}`);
     }
 
   }
