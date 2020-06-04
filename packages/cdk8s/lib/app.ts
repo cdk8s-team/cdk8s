@@ -39,7 +39,7 @@ export class App extends Construct {
 
     fs.mkdirSync(this.outdir, { recursive: true });
 
-    this.inferChartDependencies();
+    const hasChartDependencies = this.inferChartDependencies();
 
     // Since we plan on removing the distributed synth mechanism, we no longer call `Node.synthesize`, but rather simply implement
     // the necessary operations. We do however want to preserve the distributed validation.
@@ -50,17 +50,15 @@ export class App extends Construct {
       throw new Error(`Validation failed with the following errors:\n  ${errorList}`);
     }
 
-    this.produceManifests();
+    this.produceManifests(hasChartDependencies);
 
   }
 
-  private hasDependantCharts() {
+  private inferChartDependencies(): boolean {
+
     // this is kind of sucky, eventually I would like the DependencyGraph
     // to be able to answer this question.
-    return Node.of(this).dependencies.filter(d => d.source instanceof Chart && d.target instanceof Chart).length !== 0;
-  }
-
-  private inferChartDependencies() {
+    let hasChartDependencies = false;
 
     // create explicit chart dependencies
     // from implicit construct dependencies
@@ -71,18 +69,20 @@ export class App extends Construct {
 
       if (sourceChart !== targetChart) {
         Node.of(sourceChart).addDependency(targetChart);
+        hasChartDependencies = true;
       }
     }
 
+    return hasChartDependencies;
   }
 
-  private produceManifests() {
+  private produceManifests(hasChartDependencies: boolean) {
 
     const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
 
     const simpleManifestNamer = (chart: Chart) => `${Node.of(chart).uniqueId}.k8s.yaml`;
 
-    const manifestNamer = this.hasDependantCharts() ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
+    const manifestNamer = hasChartDependencies ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
 
     let index = 0;
     for (const node of charts) {
