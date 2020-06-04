@@ -76,6 +76,26 @@ NOTE: names of included objects (`metadata.name`) are preserved. This means that
 if you try to include the same manifest twice into the same chart, your manifest
 will have duplicate definitions of the same objects.
 
+### Dependencies
+
+You can declare dependencies between various `cdk8s` constructs by using the built-in support of the underlying `constructs` model.
+
+#### `ApiObject`s
+
+For example, you can force kubernetes to first apply a `Service` before applying the `Deployment` that uses that service.
+
+```typescript
+
+const deployment = new k8s.Deployment(chart, 'Deployment');
+const service = new k8s.Service(chart, 'Service');
+
+Node.of(deployment).addDependency(service);
+```
+
+
+
+#### `Chart`s
+
 ### Testing
 
 cdk8s bundles a set of test utilities under the `Testing` class:
