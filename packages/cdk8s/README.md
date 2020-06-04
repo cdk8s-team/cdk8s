@@ -111,8 +111,48 @@ metadata:
 You can also specify dependencies between charts, in exactly the same manner. For example, if we have a chart that deploys our `namespace`, we need that chart to be applied first:
 
 ```typescript
-const chart
+const namespaceChart = new MyChart(app, 'namespace');
+const applicationChart = new MyChart(app, 'application');
+
+Node.of(applicationChart).addDependency(namespaceChart);
 ```
+
+Running `cdk8s synth` will produce the following dist directory:
+
+```console
+> cdk8s synth
+
+dist/0000-namespace.k8s.yaml
+dist/0001-application.k8s.yaml
+```
+
+Notice that the `namespace` chart appears first with the `0000` prefix. This will ensure that a subsequent execution of `kubectl apply -f dist/` will apply the `namespace` first, and the `application` second.
+
+#### Things just got cool
+
+If you simply declare a dependency between two `ApiObject`s, that belong to two different `Chart`s, `cdk8s` will create the chart dependency automatically for you.
+
+```typescript
+const namespaceChart = new MyChart(app, 'namespace');
+const applicationChart = new MyChart(app, 'application');
+
+const namespace = new k8s.Namespace(namespaceChart, 'namespace');
+const deployment = new k8s.Deployment(applicationChart, 'Deployment');
+
+// dependency between ApiObjects, not Charts!
+Node.of(deployment).addDependency(namespace);
+```
+
+Running `cdk8s synth` will produce the same result as if explicit chart dependencies were declared:
+
+```console
+> cdk8s synth
+
+dist/0000-namespace.k8s.yaml
+dist/0001-application.k8s.yaml
+```
+
+This means you need not be bothered with managing chart dependencies, simply work with the `ApiObject`s you create, and let `cdk8s` infer the chart dependencies.
 
 ### Testing
 
@@ -121,7 +161,6 @@ cdk8s bundles a set of test utilities under the `Testing` class:
 * `Testing.app()` returns an `App` object bound to a temporary output directory.
 * `Testing.synth(chart)` returns the Kubernetes manifest synthesized from a
   chart.
-
 
 
 ## License
