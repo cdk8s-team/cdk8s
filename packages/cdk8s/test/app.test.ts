@@ -2,7 +2,7 @@ import { Testing, Chart, App, ApiObject } from '../lib';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
-import { Node } from 'constructs';
+import { Node, Construct } from 'constructs';
 
 test('empty app emits no files', () => {
   // GIVEN
@@ -26,8 +26,8 @@ test('app with two charts', () => {
 
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
-    '0000-chart1.k8s.yaml',
-    '0001-chart2.k8s.yaml'
+    'chart1.k8s.yaml',
+    'chart2.k8s.yaml'
   ]);
 });
 
@@ -101,9 +101,35 @@ test('default output directory is "dist"', () => {
     expect(app.outdir).toEqual('dist');
     expect(fs.existsSync('./dist')).toBeTruthy();
     expect(fs.statSync('./dist').isDirectory());
-    expect(fs.existsSync('./dist/0000-chart1.k8s.yaml')).toBeTruthy();
+    expect(fs.existsSync('./dist/chart1.k8s.yaml')).toBeTruthy();
   } finally {
     process.chdir(prev);
     // fs.rmdirSync(workdir, { recursive: true });
   }
 });
+
+test('synth calls validate', () => {
+
+  class ValidatingConstruct extends Construct {
+
+    public validateInvoked = false;
+
+    constructor(scope: Construct, id: string) {
+      super(scope, id);
+    }
+
+    protected onValidate(): string[] {
+      this.validateInvoked = true;
+      return []
+    }
+  }
+
+  const app = new App();
+
+  const construct = new ValidatingConstruct(app, 'ValidatingConstruct');
+
+  app.synth();
+
+  expect(construct.validateInvoked).toBeTruthy();
+
+})

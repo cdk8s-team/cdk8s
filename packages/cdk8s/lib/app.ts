@@ -50,22 +50,32 @@ export class App extends Construct {
       }
     }
 
-    // TODO add validate call here
+    // this will validate ALL nodes of the application
+    const errors = Node.of(this).validate();
+    if (errors.length > 0) {
+      const errorList = errors.map(e => `[${Node.of(e.source).path}] ${e.message}`).join('\n  ');
+      throw new Error(`Validation failed with the following errors:\n  ${errorList}`);
+    }
 
     const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
 
+    const simpleManifestNamer = (chart: Chart) => `${Node.of(chart).uniqueId}.k8s.yaml`;
+
+    const manifestNamer = this.hasDependantCharts() ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
+
     let index = 0;
     for (const node of charts) {
-
       const chart: Chart = Chart.of(node);
-      const manifestFile = `${Node.of(chart).uniqueId}.k8s.yaml`;
-
-      const paddedIndex = index.toString().padStart(4, '0');
-
-      Yaml.save(path.join(this.outdir, `${paddedIndex}-${manifestFile}`), chart.toJson());
-
+      Yaml.save(path.join(this.outdir, manifestNamer(chart)), chart.toJson());
       index++;
     }
 
   }
+
+  private hasDependantCharts() {
+    // this is kind of sucky, eventually I would like the DependencyGraph
+    // to be able to answer this question.
+    return Node.of(this).dependencies.filter(d => d.source instanceof Chart && d.target instanceof Chart).length !== 0;
+  }
+
 }
