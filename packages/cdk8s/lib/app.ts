@@ -36,7 +36,22 @@ export class App extends Construct {
    * Synthesizes all manifests to the output directory
    */
   public synth(): void {
+
     fs.mkdirSync(this.outdir, { recursive: true });
+
+    this.inferChartDependencies();
+    this.validate();
+    this.produceManifests();
+
+  }
+
+  private hasDependantCharts() {
+    // this is kind of sucky, eventually I would like the DependencyGraph
+    // to be able to answer this question.
+    return Node.of(this).dependencies.filter(d => d.source instanceof Chart && d.target instanceof Chart).length !== 0;
+  }
+
+  private inferChartDependencies() {
 
     // create explicit chart dependencies
     // from implicit construct dependencies
@@ -50,12 +65,20 @@ export class App extends Construct {
       }
     }
 
+  }
+
+  private validate() {
+
     // this will validate ALL nodes of the application
     const errors = Node.of(this).validate();
     if (errors.length > 0) {
       const errorList = errors.map(e => `[${Node.of(e.source).path}] ${e.message}`).join('\n  ');
       throw new Error(`Validation failed with the following errors:\n  ${errorList}`);
     }
+
+  }
+
+  private produceManifests() {
 
     const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
 
@@ -70,12 +93,6 @@ export class App extends Construct {
       index++;
     }
 
-  }
-
-  private hasDependantCharts() {
-    // this is kind of sucky, eventually I would like the DependencyGraph
-    // to be able to answer this question.
-    return Node.of(this).dependencies.filter(d => d.source instanceof Chart && d.target instanceof Chart).length !== 0;
   }
 
 }
