@@ -92,9 +92,27 @@ const service = new k8s.Service(chart, 'Service');
 Node.of(deployment).addDependency(service);
 ```
 
+`cdk8s` will ensure that the `service` construct is placed before the `deployment` construct in the resulting manifest:
 
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: cdk8s-playground-service-f42ff561
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cdk8s-playground-deployment-bef88ab7
+```
 
 #### `Chart`s
+
+You can also specify dependencies between charts, in exactly the same manner. For example, if we have a chart that deploys our `namespace`, we need that chart to be applied first:
+
+```typescript
+const chart
+```
 
 ### Testing
 
