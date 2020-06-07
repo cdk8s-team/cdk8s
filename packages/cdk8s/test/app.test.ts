@@ -108,6 +108,31 @@ test('default output directory is "dist"', () => {
   }
 });
 
+test('app with dependent and independent charts', () => {
+
+  // GIVEN
+  const app = Testing.app();
+
+  // WHEN
+  const chart1 = new Chart(app, 'chart1');
+  new Chart(app, 'chart2');
+  const chart3 = new Chart(app, 'chart3');
+  new Chart(app, 'chart4');
+
+  Node.of(chart1).addDependency(chart3);
+
+  app.synth();
+
+  // THEN
+  expect(fs.readdirSync(app.outdir)).toEqual([
+    '0000-chart3.k8s.yaml',
+    '0001-chart1.k8s.yaml',
+    '0002-chart2.k8s.yaml',
+    '0003-chart4.k8s.yaml'
+  ]);
+
+});
+
 test('synth calls validate', () => {
 
   class ValidatingConstruct extends Construct {
