@@ -2,7 +2,7 @@ import { Testing, Chart, App, ApiObject } from '../lib';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
-import { Node, Construct } from 'constructs';
+import { Node, Construct, IConstruct } from 'constructs';
 
 test('empty app emits no files', () => {
   // GIVEN
@@ -129,6 +129,37 @@ test('app with dependent and independent charts', () => {
     '0001-chart1.k8s.yaml',
     '0002-chart2.k8s.yaml',
     '0003-chart4.k8s.yaml'
+  ]);
+
+});
+
+test('app with chart dependencies via custom constructs', () => {
+
+  class CustomConstruct extends Construct {
+
+    public obj: ApiObject;
+
+    constructor(scope: Construct, id: string) {
+      super(scope, id);
+
+      this.obj = new ApiObject(this, `${id}obj`, { apiVersion: 'v1', kind: 'CustomConstruct' });
+    }
+  }
+
+  const app = Testing.app();
+  const chart1 = new Chart(app, 'chart1');
+  const chart2 = new Chart(app, 'chart2');
+
+  const microService = new CustomConstruct(chart1, 'MicroService');
+  const dataBase = new CustomConstruct(chart2, 'DataBase');
+
+  Node.of(microService).addDependency(dataBase);
+
+  app.synth();
+
+  expect(fs.readdirSync(app.outdir)).toEqual([
+    '0000-chart2.k8s.yaml',
+    '0001-chart1.k8s.yaml'
   ]);
 
 });

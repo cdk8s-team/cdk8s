@@ -107,7 +107,11 @@ describe('toJson', () => {
     Node.of(obj1).addDependency(obj2);
     Node.of(obj2).addDependency(obj3);
 
-    expect(chart1.toJson()).toEqual([obj3.toJson(), obj2.toJson(), obj1.toJson()]);
+    expect(chart1.toJson()).toEqual([
+      obj3.toJson(),
+      obj2.toJson(),
+      obj1.toJson()
+    ]);
 
   });
 
@@ -122,7 +126,9 @@ describe('toJson', () => {
 
     Node.of(obj1).addDependency(obj2);
 
-    expect(chart1.toJson()).toEqual([obj1.toJson()]);
+    expect(chart1.toJson()).toEqual([
+      obj1.toJson()
+    ]);
 
   });
 
@@ -138,11 +144,41 @@ describe('toJson', () => {
     Node.of(obj1).addDependency(obj2);
     Node.of(chart1).addDependency(chart2);
 
-    expect(chart1.toJson()).toEqual([obj1.toJson()]);
+    expect(chart1.toJson()).toEqual([
+      obj1.toJson()
+    ]);
 
   });
 
-})
+  test('orders custom constructs', () => {
+
+    class CustomConstruct extends Construct {
+
+      public obj: ApiObject;
+
+      constructor(scope: Construct, id: string) {
+        super(scope, id);
+
+        this.obj = new ApiObject(this, `${id}obj`, { apiVersion: 'v1', kind: 'CustomConstruct' });
+      }
+    }
+
+    const app = Testing.app();
+    const chart = new Chart(app, 'chart');
+
+    const microService = new CustomConstruct(chart, 'MicroService');
+    const dataBase = new CustomConstruct(chart, 'DataBase');
+
+    Node.of(microService).addDependency(dataBase);
+
+    expect(chart.toJson()).toEqual([
+      dataBase.obj.toJson(),
+      microService.obj.toJson()
+    ])
+
+  });
+
+});
 
 function createImplictToken(value: any) {
   const implicit = {};

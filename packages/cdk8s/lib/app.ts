@@ -4,6 +4,7 @@ import { Chart } from './chart';
 import * as path from 'path';
 import { Yaml } from './yaml';
 import { DependencyGraph } from './dependency';
+import { ApiObject } from './api-object';
 
 export interface AppOptions {
   /**
@@ -61,7 +62,7 @@ export class App extends Construct {
     let hasChartDependencies = false;
 
     // create explicit chart dependencies
-    // from implicit construct dependencies
+    // from implicit api object dependencies
     for (const dep of Node.of(this).dependencies) {
 
       const sourceChart = Chart.of(dep.source);
@@ -71,6 +72,7 @@ export class App extends Construct {
         Node.of(sourceChart).addDependency(targetChart);
         hasChartDependencies = true;
       }
+
     }
 
     return hasChartDependencies;

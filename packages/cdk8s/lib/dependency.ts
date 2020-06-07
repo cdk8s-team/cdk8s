@@ -39,7 +39,7 @@ export class DependencyGraph {
     // create all the edges of the graph.
     for (const dep of node.dependencies) {
 
-      if (!node.tryFindChild(Node.of(dep.target).id)) {
+      if (!getVertex(dep.target)) {
         // dont cross scope boundaries.
         // since charts only renders its own children, this is ok and
         // has the benefit of simplifying the graph. we should reconsider this behavior when moving
