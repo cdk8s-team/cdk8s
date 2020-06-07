@@ -4,7 +4,6 @@ import { Chart } from './chart';
 import * as path from 'path';
 import { Yaml } from './yaml';
 import { DependencyGraph } from './dependency';
-import { ApiObject } from './api-object';
 
 export interface AppOptions {
   /**
@@ -65,6 +64,8 @@ export class App extends Construct {
     // from implicit api object dependencies
     for (const dep of Node.of(this).dependencies) {
 
+      // note that this will also work for dependencies between
+      // constructs, not just ApiObjects, yey!
       const sourceChart = Chart.of(dep.source);
       const targetChart = Chart.of(dep.target);
 

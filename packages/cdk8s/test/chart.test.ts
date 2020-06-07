@@ -167,13 +167,80 @@ describe('toJson', () => {
     const chart = new Chart(app, 'chart');
 
     const microService = new CustomConstruct(chart, 'MicroService');
-    const dataBase = new CustomConstruct(chart, 'DataBase');
+    const dataBase = new CustomConstruct(chart, 'Database');
 
     Node.of(microService).addDependency(dataBase);
 
     expect(chart.toJson()).toEqual([
       dataBase.obj.toJson(),
       microService.obj.toJson()
+    ])
+
+  });
+
+  test('orders transitive custom constructs', () => {
+
+    class CustomOne extends Construct {
+
+      public obj: ApiObject;
+
+      constructor(scope: Construct, id: string) {
+        super(scope, id);
+
+        this.obj = new ApiObject(this, `${id}obj`, { apiVersion: 'v1', kind: 'CustomOne' });
+      }
+    }
+
+    class CustomTwo extends Construct {
+
+      public obj: CustomOne;
+
+      constructor(scope: Construct, id: string) {
+        super(scope, id);
+
+        this.obj = new CustomOne(this, 'nested');
+      }
+    }
+
+    const app = Testing.app();
+    const chart = new Chart(app, 'chart');
+
+    const microService = new CustomOne(chart, 'MicroService');
+    const dataBase = new CustomTwo(chart, 'Database');
+
+    Node.of(microService).addDependency(dataBase);
+
+    expect(chart.toJson()).toEqual([
+      dataBase.obj.obj.toJson(),
+      microService.obj.toJson()
+    ])
+
+  });
+
+  test('api object depends on custom construct', () => {
+
+    class CustomConstruct extends Construct {
+
+      public obj: ApiObject;
+
+      constructor(scope: Construct, id: string) {
+        super(scope, id);
+
+        this.obj = new ApiObject(this, `${id}obj`, { apiVersion: 'v1', kind: 'CustomConstruct' });
+      }
+    }
+
+    const app = Testing.app();
+    const chart = new Chart(app, 'chart');
+
+    const microService = new ApiObject(chart, 'MicroService', { apiVersion: 'v1', kind: 'MicroService' });
+    const dataBase = new CustomConstruct(chart, 'Database');
+
+    Node.of(microService).addDependency(dataBase);
+
+    expect(chart.toJson()).toEqual([
+      dataBase.obj.toJson(),
+      microService.toJson()
     ])
 
   });
