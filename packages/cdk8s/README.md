@@ -80,9 +80,9 @@ will have duplicate definitions of the same objects.
 
 You can declare dependencies between various `cdk8s` constructs by using the built-in support of the underlying `constructs` model.
 
-#### `ApiObject`s
+#### ApiObjects
 
-For example, you can force kubernetes to first apply a `Service` before applying the `Deployment` that uses that service.
+For example, you can force kubernetes to first apply a `Service` before applying the `Deployment` that uses that service:
 
 ```typescript
 
@@ -106,7 +106,7 @@ metadata:
   name: cdk8s-playground-deployment-bef88ab7
 ```
 
-#### `Chart`s
+#### Charts
 
 You can also specify dependencies between charts, in exactly the same manner. For example, if we have a chart that deploys our `namespace`, we need that chart to be applied first:
 
