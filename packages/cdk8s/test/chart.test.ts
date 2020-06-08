@@ -104,8 +104,8 @@ describe('toJson', () => {
     const obj2 = new ApiObject(chart1, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
     const obj3 = new ApiObject(chart1, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
 
-    Node.of(obj1).addDependency(obj2);
-    Node.of(obj2).addDependency(obj3);
+    obj1.addDependency(obj2);
+    obj2.addDependency(obj3);
 
     expect(chart1.toJson()).toEqual([
       obj3.toJson(),
@@ -124,7 +124,7 @@ describe('toJson', () => {
     const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
     const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
 
-    Node.of(obj1).addDependency(obj2);
+    obj1.addDependency(obj2);
 
     expect(chart1.toJson()).toEqual([
       obj1.toJson()
@@ -141,8 +141,8 @@ describe('toJson', () => {
     const obj1 = new ApiObject(chart1, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
     const obj2 = new ApiObject(chart2, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
 
-    Node.of(obj1).addDependency(obj2);
-    Node.of(chart1).addDependency(chart2);
+    obj1.addDependency(obj2);
+    chart1.addDependency(chart2);
 
     expect(chart1.toJson()).toEqual([
       obj1.toJson()
@@ -236,7 +236,7 @@ describe('toJson', () => {
     const microService = new ApiObject(chart, 'MicroService', { apiVersion: 'v1', kind: 'MicroService' });
     const dataBase = new CustomConstruct(chart, 'Database');
 
-    Node.of(microService).addDependency(dataBase);
+    microService.addDependency(dataBase);
 
     expect(chart.toJson()).toEqual([
       dataBase.obj.toJson(),

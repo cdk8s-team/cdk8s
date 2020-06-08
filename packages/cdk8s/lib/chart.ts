@@ -68,6 +68,16 @@ export class Chart extends Construct {
   }
 
   /**
+   * Create a dependency between this Chart and other constructs.
+   * These can be other ApiObjects, Charts, or Custom.
+   *
+   * @param dependencies the dependencies to add.
+   */
+  public addDependency(...dependencies: IConstruct[]) {
+    Node.of(this).addDependency(...dependencies);
+  }
+
+  /**
    * Renders this chart to a set of Kubernetes JSON resources.
    * @returns array of resource manifests
    */
