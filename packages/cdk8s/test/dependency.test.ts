@@ -66,7 +66,7 @@ test('children of root contains all orphans', () => {
 
   const expected = new Set<IConstruct>();
 
-  new DependencyGraph(Node.of(group)).root.children.forEach(c => expected.add(c.value!))
+  new DependencyGraph(Node.of(group)).root.outbound.forEach(c => expected.add(c.value!))
 
   // chart1 and obj1 are orphans because no one depends on them (no parents)
   // they should be dependency roots, i.e chidren of the dummy root.

@@ -56,7 +56,7 @@ export class DependencyGraph {
 
     // create the root.
     for (const n of Object.values(nodes)) {
-      if (n.parents.size === 0) {
+      if (n.inbound.size === 0) {
         // orphans are dependency roots. lets adopt them!
         this._fosterParent.addChild(n);
       }
@@ -109,14 +109,14 @@ export class DependencyVertex {
   /**
    * Returns the children of the vertex (i.e dependencies)
    */
-  public get children(): Set<DependencyVertex> {
+  public get outbound(): Set<DependencyVertex> {
     return this._children;
   }
 
   /**
    * Returns the parents of the vertex (i.e dependants)
    */
-  public get parents(): Set<DependencyVertex> {
+  public get inbound(): Set<DependencyVertex> {
     return this._parents;
   }
 
@@ -129,7 +129,7 @@ export class DependencyVertex {
     const topology: DependencyVertex[] = [];
 
     function visit(n: DependencyVertex) {
-      for (const c of n.children) {
+      for (const c of n.outbound) {
         visit(c);
       }
       if (!found.has(n)) {
@@ -165,7 +165,7 @@ export class DependencyVertex {
   }
 
   private addParent(dep: DependencyVertex) {
-    this.parents.add(dep);
+    this.inbound.add(dep);
   }
 
   private findRoute(dst: DependencyVertex): DependencyVertex[] {
@@ -177,7 +177,7 @@ export class DependencyVertex {
     function visit(n: DependencyVertex): boolean {
       route.push(n);
       let found = false;
-      for (const c of n.children) {
+      for (const c of n.outbound) {
         if (c === dst) {
           route.push(c);
           return true;
