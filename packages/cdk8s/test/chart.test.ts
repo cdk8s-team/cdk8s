@@ -95,6 +95,32 @@ test('synthesizeManifest() can be used to synthesize a specific chart', () => {
 
 describe('toJson', () => {
 
+  test('validates the chart', () => {
+    class ValidatingConstruct extends Construct {
+
+      public validateInvoked = false;
+
+      constructor(scope: Construct, id: string) {
+        super(scope, id);
+      }
+
+      protected onValidate(): string[] {
+        this.validateInvoked = true;
+        return []
+      }
+    }
+
+    const app = Testing.app();
+    const chart = new Chart(app, 'chart');
+
+    const construct = new ValidatingConstruct(chart, 'ValidatingConstruct');
+
+    chart.toJson();
+
+    expect(construct.validateInvoked).toBeTruthy();
+
+  });
+
   test('returns an ordered list', () => {
 
     const app = Testing.app();
