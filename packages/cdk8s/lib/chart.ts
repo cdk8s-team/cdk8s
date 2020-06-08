@@ -2,6 +2,7 @@ import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
 import { Names } from './names';
 import { DependencyGraph } from './dependency';
+import { App } from './app';
 
 export interface ChartOptions {
   /**
@@ -82,28 +83,7 @@ export class Chart extends Construct {
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-
-    // create explicit api object dependencies
-    // from implicit construct dependencies
-    for (const dep of Node.of(this).dependencies) {
-
-      const targetApiObjects = this.findApiObjects(dep.target);
-      const sourceApiObjects = this.findApiObjects(dep.source);
-
-      for (const target of targetApiObjects) {
-        for (const source of sourceApiObjects) {
-          Node.of(source).addDependency(target);
-        }
-      }
-    }
-
-    return new DependencyGraph(Node.of(this)).topology()
-      .filter(x => x instanceof ApiObject)
-      .map(x => (x as ApiObject).toJson());
-  }
-
-  private findApiObjects(root: IConstruct): IConstruct[] {
-    return Node.of(root).findAll().filter(c => c instanceof ApiObject);
+    return App.synthChart(this);
   }
 
 }

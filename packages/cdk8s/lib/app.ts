@@ -1,9 +1,10 @@
-import { Construct, Node, IConstruct } from 'constructs';
+import { Construct, Node, IConstruct, Dependency } from 'constructs';
 import fs = require('fs');
 import { Chart } from './chart';
 import * as path from 'path';
 import { Yaml } from './yaml';
 import { DependencyGraph } from './dependency';
+import { ApiObject } from './api-object';
 
 export interface AppOptions {
   /**
@@ -32,6 +33,29 @@ export class App extends Construct {
     this.outdir = options.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
   }
 
+  public static synthChart(chart: Chart): any[] {
+
+    App.prepare(Node.of(chart).root as App)
+
+    return App.toJson(chart);
+  }
+
+  public static prepare(app: App) {
+
+    let hasChartDependencies = false;
+
+    for (const dep of Node.of(app).dependencies) {
+
+      // create explicit api object dependencies from implicit construct dependencies
+      this.inferApiObjectDependencies(dep);
+
+      // create an explicit chart dependency from implicit construct dependencies
+      hasChartDependencies = this.inferChartsDependency(dep);
+    }
+
+    return hasChartDependencies;
+  }
+
   /**
    * Synthesizes all manifests to the output directory
    */
@@ -39,7 +63,9 @@ export class App extends Construct {
 
     fs.mkdirSync(this.outdir, { recursive: true });
 
-    const hasChartDependencies = this.inferChartDependencies();
+    // this is kind of sucky, eventually I would like the DependencyGraph
+    // to be able to answer this question.
+    const hasChartDependencies = App.prepare(this);
 
     // Since we plan on removing the distributed synth mechanism, we no longer call `Node.synthesize`, but rather simply implement
     // the necessary operations. We do however want to preserve the distributed validation.
@@ -54,29 +80,34 @@ export class App extends Construct {
 
   }
 
-  private inferChartDependencies(): boolean {
+  private static findApiObjects(root: IConstruct): IConstruct[] {
+    return Node.of(root).findAll().filter(c => c instanceof ApiObject);
+  }
 
-    // this is kind of sucky, eventually I would like the DependencyGraph
-    // to be able to answer this question.
-    let hasChartDependencies = false;
+  private static inferChartsDependency(dep: Dependency): boolean {
 
-    // create explicit chart dependencies
-    // from implicit api object dependencies
-    for (const dep of Node.of(this).dependencies) {
+    const sourceChart = Chart.of(dep.source);
+    const targetChart = Chart.of(dep.target);
 
-      // note that this will also work for dependencies between
-      // constructs, not just ApiObjects, yey!
-      const sourceChart = Chart.of(dep.source);
-      const targetChart = Chart.of(dep.target);
-
-      if (sourceChart !== targetChart) {
-        Node.of(sourceChart).addDependency(targetChart);
-        hasChartDependencies = true;
-      }
-
+    if (sourceChart !== targetChart) {
+      Node.of(sourceChart).addDependency(targetChart);
+      return true;
     }
 
-    return hasChartDependencies;
+    return false;
+  }
+
+  private static inferApiObjectDependencies(dep: Dependency) {
+
+    const targetApiObjects = this.findApiObjects(dep.target);
+    const sourceApiObjects = this.findApiObjects(dep.source);
+
+    for (const target of targetApiObjects) {
+      for (const source of sourceApiObjects) {
+        Node.of(source).addDependency(target);
+      }
+    }
+
   }
 
   private produceManifests(hasChartDependencies: boolean) {
@@ -90,10 +121,17 @@ export class App extends Construct {
     let index = 0;
     for (const node of charts) {
       const chart: Chart = Chart.of(node);
-      Yaml.save(path.join(this.outdir, manifestNamer(chart)), chart.toJson());
+      Yaml.save(path.join(this.outdir, manifestNamer(chart)), App.toJson(chart));
       index++;
     }
 
   }
+
+  private static toJson(chart: Chart): any[] {
+    return new DependencyGraph(Node.of(chart)).topology()
+      .filter(x => x instanceof ApiObject)
+      .map(x => (x as ApiObject).toJson());
+  }
+
 
 }

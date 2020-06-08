@@ -2,7 +2,7 @@ import { Testing, Chart, App, ApiObject } from '../lib';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
-import { Node, Construct, IConstruct } from 'constructs';
+import { Node, Construct } from 'constructs';
 
 test('empty app emits no files', () => {
   // GIVEN
