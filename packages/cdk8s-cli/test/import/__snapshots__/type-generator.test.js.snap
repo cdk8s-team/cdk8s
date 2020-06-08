@@ -211,6 +211,21 @@ export interface TestType {
 "
 `;
 
+exports[`structs if we have "properties" and "type" is omitted, it is considered a struct 1`] = `
+"/**
+ * @schema fqn.of.TestType
+ */
+export interface TestType {
+    /**
+     * @schema fqn.of.TestType#foo
+     */
+    readonly foo?: string;
+
+}
+
+"
+`;
+
 exports[`structs includes required fields 1`] = `
 "/**
  * @schema fqn.of.TestType

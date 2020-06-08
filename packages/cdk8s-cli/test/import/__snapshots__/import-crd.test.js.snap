@@ -1,6 +1,4067 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`jenkins_crd.yaml 1`] = `
+exports[`snapshots elastic.yaml 1`] = `
+Object {
+  "author": Object {
+    "name": "generated@generated.com",
+    "roles": Array [
+      "author",
+    ],
+  },
+  "dependencies": Object {
+    "cdk8s": "999.999.999",
+    "constructs": "2.0.1",
+  },
+  "dependencyClosure": Object {
+    "cdk8s": Object {
+      "targets": Object {
+        "dotnet": Object {
+          "namespace": "Org.Cdk8s",
+          "packageId": "Org.Cdk8s",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "cdk8s",
+            "groupId": "org.cdk8s",
+          },
+          "package": "org.cdk8s",
+        },
+        "js": Object {
+          "npm": "cdk8s",
+        },
+        "python": Object {
+          "distName": "cdk8s",
+          "module": "cdk8s",
+        },
+      },
+    },
+    "constructs": Object {
+      "targets": Object {
+        "dotnet": Object {
+          "namespace": "Constructs",
+          "packageId": "Constructs",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs",
+            "groupId": "software.constructs",
+          },
+          "package": "software.constructs",
+        },
+        "js": Object {
+          "npm": "constructs",
+        },
+        "python": Object {
+          "distName": "constructs",
+          "module": "constructs",
+        },
+      },
+    },
+  },
+  "description": "generated",
+  "fingerprint": "<fingerprint>",
+  "homepage": "http://generated",
+  "jsiiVersion": "1.5.0 (build 46538f8)",
+  "license": "Apache-2.0",
+  "name": "generated",
+  "repository": Object {
+    "type": "git",
+    "url": "http://generated",
+  },
+  "schema": "jsii/0.10.0",
+  "targets": Object {
+    "js": Object {
+      "npm": "generated",
+    },
+  },
+  "types": Object {
+    "generated.Elasticsearch": Object {
+      "assembly": "generated",
+      "base": "cdk8s.ApiObject",
+      "docs": Object {
+        "custom": Object {
+          "schema": "Elasticsearch",
+        },
+        "summary": "Elasticsearch represents an Elasticsearch resource in a Kubernetes cluster.",
+      },
+      "fqn": "generated.Elasticsearch",
+      "initializer": Object {
+        "docs": Object {
+          "summary": "Defines a \\"Elasticsearch\\" API object.",
+        },
+        "parameters": Array [
+          Object {
+            "docs": Object {
+              "summary": "the scope in which to define this object.",
+            },
+            "name": "scope",
+            "type": Object {
+              "fqn": "constructs.Construct",
+            },
+          },
+          Object {
+            "docs": Object {
+              "summary": "a scope-local name for the object.",
+            },
+            "name": "name",
+            "type": Object {
+              "primitive": "string",
+            },
+          },
+          Object {
+            "docs": Object {
+              "summary": "configuration options.",
+            },
+            "name": "options",
+            "optional": true,
+            "type": Object {
+              "fqn": "generated.ElasticsearchOptions",
+            },
+          },
+        ],
+      },
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 10,
+      },
+      "name": "Elasticsearch",
+    },
+    "generated.ElasticsearchOptions": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "Elasticsearch",
+        },
+        "summary": "Elasticsearch represents an Elasticsearch resource in a Kubernetes cluster.",
+      },
+      "fqn": "generated.ElasticsearchOptions",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 31,
+      },
+      "name": "ElasticsearchOptions",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "Elasticsearch#metadata",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 35,
+          },
+          "name": "metadata",
+          "optional": true,
+          "type": Object {
+            "primitive": "any",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "Elasticsearch#spec",
+            },
+            "summary": "ElasticsearchSpec holds the specification of an Elasticsearch cluster.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 42,
+          },
+          "name": "spec",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpec",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpec": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpec",
+        },
+        "summary": "ElasticsearchSpec holds the specification of an Elasticsearch cluster.",
+      },
+      "fqn": "generated.ElasticsearchSpec",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 51,
+      },
+      "name": "ElasticsearchSpec",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#nodeSets",
+            },
+            "remarks": "See: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-orchestration.html",
+            "summary": "NodeSets allow specifying groups of Elasticsearch nodes sharing the same configuration and Pod templates.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 78,
+          },
+          "name": "nodeSets",
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecNodeSets",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#version",
+            },
+            "summary": "Version of Elasticsearch.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 127,
+          },
+          "name": "version",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#auth",
+            },
+            "summary": "Auth contains user authentication and authorization security settings for Elasticsearch.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 57,
+          },
+          "name": "auth",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecAuth",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#http",
+            },
+            "summary": "HTTP holds HTTP layer settings for Elasticsearch.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 64,
+          },
+          "name": "http",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttp",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#image",
+            },
+            "summary": "Image is the Elasticsearch Docker image to deploy.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 71,
+          },
+          "name": "image",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#podDisruptionBudget",
+            },
+            "remarks": "The default budget selects all cluster pods and sets \`maxUnavailable\` to 1. To disable, set \`PodDisruptionBudget\` to the empty value (\`{}\` in YAML).",
+            "summary": "PodDisruptionBudget provides access to the default pod disruption budget for the Elasticsearch cluster.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 85,
+          },
+          "name": "podDisruptionBudget",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecPodDisruptionBudget",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#remoteClusters",
+            },
+            "summary": "RemoteClusters enables you to establish uni-directional connections to a remote Elasticsearch cluster.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 92,
+          },
+          "name": "remoteClusters",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecRemoteClusters",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#secureSettings",
+            },
+            "summary": "SecureSettings is a list of references to Kubernetes secrets containing sensitive configuration options for Elasticsearch.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 99,
+          },
+          "name": "secureSettings",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecSecureSettings",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#serviceAccountName",
+            },
+            "remarks": "a remote Elasticsearch cluster) in a different namespace. Can only be used if ECK is enforcing RBAC on references.",
+            "summary": "ServiceAccountName is used to check access from the current resource to a resource (eg.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 106,
+          },
+          "name": "serviceAccountName",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#transport",
+            },
+            "summary": "Transport holds transport layer settings for Elasticsearch.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 113,
+          },
+          "name": "transport",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecTransport",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpec#updateStrategy",
+            },
+            "summary": "UpdateStrategy specifies how updates to the cluster should be performed.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 120,
+          },
+          "name": "updateStrategy",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecUpdateStrategy",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecAuth": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecAuth",
+        },
+        "summary": "Auth contains user authentication and authorization security settings for Elasticsearch.",
+      },
+      "fqn": "generated.ElasticsearchSpecAuth",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 136,
+      },
+      "name": "ElasticsearchSpecAuth",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecAuth#fileRealm",
+            },
+            "summary": "FileRealm to propagate to the Elasticsearch cluster.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 142,
+          },
+          "name": "fileRealm",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecAuthFileRealm",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecAuth#roles",
+            },
+            "summary": "Roles to propagate to the Elasticsearch cluster.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 149,
+          },
+          "name": "roles",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecAuthRoles",
+              },
+              "kind": "array",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecAuthFileRealm": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecAuthFileRealm",
+        },
+        "summary": "FileRealmSource references users to create in the Elasticsearch cluster.",
+      },
+      "fqn": "generated.ElasticsearchSpecAuthFileRealm",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 319,
+      },
+      "name": "ElasticsearchSpecAuthFileRealm",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecAuthFileRealm#secretName",
+            },
+            "summary": "SecretName is the name of the secret.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 325,
+          },
+          "name": "secretName",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecAuthRoles": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecAuthRoles",
+        },
+        "summary": "RoleSource references roles to create in the Elasticsearch cluster.",
+      },
+      "fqn": "generated.ElasticsearchSpecAuthRoles",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 334,
+      },
+      "name": "ElasticsearchSpecAuthRoles",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecAuthRoles#secretName",
+            },
+            "summary": "SecretName is the name of the secret.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 340,
+          },
+          "name": "secretName",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttp": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttp",
+        },
+        "summary": "HTTP holds HTTP layer settings for Elasticsearch.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttp",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 158,
+      },
+      "name": "ElasticsearchSpecHttp",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttp#service",
+            },
+            "summary": "Service defines the template for the associated Kubernetes Service object.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 164,
+          },
+          "name": "service",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttpService",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttp#tls",
+            },
+            "summary": "TLS defines options for configuring TLS for HTTP.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 171,
+          },
+          "name": "tls",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttpTls",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpService": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpService",
+        },
+        "summary": "Service defines the template for the associated Kubernetes Service object.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpService",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 349,
+      },
+      "name": "ElasticsearchSpecHttpService",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpService#metadata",
+            },
+            "remarks": "The name and namespace provided here are managed by ECK and will be ignored.",
+            "summary": "ObjectMeta is the metadata of the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 355,
+          },
+          "name": "metadata",
+          "optional": true,
+          "type": Object {
+            "primitive": "any",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpService#spec",
+            },
+            "summary": "Spec is the specification of the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 362,
+          },
+          "name": "spec",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttpServiceSpec",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpServiceSpec": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpServiceSpec",
+        },
+        "summary": "Spec is the specification of the service.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpServiceSpec",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 556,
+      },
+      "name": "ElasticsearchSpecHttpServiceSpec",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#clusterIP",
+            },
+            "remarks": "If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. This field can not be changed through updates. Valid values are \\"None\\", empty string (\\"\\"), or a valid IP address. \\"None\\" can be specified for headless services when proxying is not required. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "summary": "clusterIP is the IP address of the service and is usually assigned randomly by the master.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 562,
+          },
+          "name": "clusterIP",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#externalIPs",
+            },
+            "remarks": "These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.",
+            "summary": "externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 569,
+          },
+          "name": "externalIPs",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#externalName",
+            },
+            "remarks": "No proxying will be involved. Must be a valid RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires Type to be ExternalName.",
+            "summary": "externalName is the external reference that kubedns or equivalent will return as a CNAME record for this service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 576,
+          },
+          "name": "externalName",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#externalTrafficPolicy",
+            },
+            "remarks": "\\"Local\\" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. \\"Cluster\\" obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading.",
+            "summary": "externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 583,
+          },
+          "name": "externalTrafficPolicy",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#healthCheckNodePort",
+            },
+            "remarks": "If not specified, HealthCheckNodePort is created by the service api backend with the allocated nodePort. Will use user-specified nodePort value if specified by the client. Only effects when Type is set to LoadBalancer and ExternalTrafficPolicy is set to Local.",
+            "summary": "healthCheckNodePort specifies the healthcheck nodePort for the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 590,
+          },
+          "name": "healthCheckNodePort",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#ipFamily",
+            },
+            "summary": "ipFamily specifies whether this Service has a preference for a particular IP family (e.g. IPv4 vs. IPv6).  If a specific IP family is requested, the clusterIP field will be allocated from that family, if it is available in the cluster.  If no IP family is requested, the cluster's primary IP family will be used. Other IP fields (loadBalancerIP, loadBalancerSourceRanges, externalIPs) and controllers which allocate external load-balancers should use the same IP family.  Endpoints for this Service will be of this family.  This field is immutable after creation. Assigning a ServiceIPFamily not available in the cluster (e.g. IPv6 in IPv4 only cluster) is an error condition and will fail during clusterIP assignment.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 597,
+          },
+          "name": "ipFamily",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#loadBalancerIP",
+            },
+            "remarks": "This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.",
+            "summary": "Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 604,
+          },
+          "name": "loadBalancerIP",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#loadBalancerSourceRanges",
+            },
+            "remarks": "This field will be ignored if the cloud-provider does not support the feature.\\" More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/",
+            "summary": "If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 611,
+          },
+          "name": "loadBalancerSourceRanges",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#ports",
+            },
+            "remarks": "More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "summary": "The list of ports that are exposed by this service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 618,
+          },
+          "name": "ports",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecHttpServiceSpecPorts",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#publishNotReadyAddresses",
+            },
+            "remarks": "The default value is false. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate SRV records for its Pods without respect to their readiness for purpose of peer discovery.",
+            "summary": "publishNotReadyAddresses, when set to true, indicates that DNS implementations must publish the notReadyAddresses of subsets for the Endpoints associated with the Service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 625,
+          },
+          "name": "publishNotReadyAddresses",
+          "optional": true,
+          "type": Object {
+            "primitive": "boolean",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#selector",
+            },
+            "remarks": "If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/",
+            "summary": "Route service traffic to pods with label keys and values matching this selector.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 632,
+          },
+          "name": "selector",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "map",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#sessionAffinity",
+            },
+            "default": "None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "remarks": "Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "summary": "Supports \\"ClientIP\\" and \\"None\\".",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 640,
+          },
+          "name": "sessionAffinity",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#sessionAffinityConfig",
+            },
+            "summary": "sessionAffinityConfig contains the configurations of session affinity.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 647,
+          },
+          "name": "sessionAffinityConfig",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttpServiceSpecSessionAffinityConfig",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#topologyKeys",
+            },
+            "remarks": "Topology keys must be valid label keys and at most 16 keys may be specified. Endpoints are chosen based on the first topology key with available backends. If this field is specified and all entries have no backends that match the topology of the client, the service has no backends for that client and connections should fail. The special value \\"*\\" may be used to mean \\"any topology\\". This catch-all value, if used, only makes sense as the last value in the list. If this is not specified or empty, no topology constraints will be applied.",
+            "summary": "topologyKeys is a preference-order list of topology keys which implementations of services should use to preferentially sort endpoints when accessing this Service, it can not be used at the same time as externalTrafficPolicy=Local.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 654,
+          },
+          "name": "topologyKeys",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpec#type",
+            },
+            "default": "ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \\"ExternalName\\" maps to the specified externalName. \\"ClusterIP\\" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is \\"None\\", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. \\"NodePort\\" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. \\"LoadBalancer\\" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
+            "remarks": "Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \\"ExternalName\\" maps to the specified externalName. \\"ClusterIP\\" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is \\"None\\", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. \\"NodePort\\" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. \\"LoadBalancer\\" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
+            "summary": "type determines how the Service is exposed.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 662,
+          },
+          "name": "type",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpServiceSpecPorts": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpServiceSpecPorts",
+        },
+        "summary": "ServicePort contains information on service's port.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpServiceSpecPorts",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 973,
+      },
+      "name": "ElasticsearchSpecHttpServiceSpecPorts",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpecPorts#port",
+            },
+            "summary": "The port that will be exposed by this service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 994,
+          },
+          "name": "port",
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpecPorts#name",
+            },
+            "remarks": "This must be a DNS_LABEL. All ports within a ServiceSpec must have unique names. When considering the endpoints for a Service, this must match the 'name' field in the EndpointPort. Optional if only one ServicePort is defined on this service.",
+            "summary": "The name of this port within the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 979,
+          },
+          "name": "name",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpecPorts#nodePort",
+            },
+            "default": "to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
+            "remarks": "Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
+            "summary": "The port on each node on which this service is exposed when type=NodePort or LoadBalancer.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 987,
+          },
+          "name": "nodePort",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpecPorts#protocol",
+            },
+            "default": "TCP.",
+            "remarks": "Supports \\"TCP\\", \\"UDP\\", and \\"SCTP\\". Default is TCP.",
+            "summary": "The IP protocol for this port.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1002,
+          },
+          "name": "protocol",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpecPorts#targetPort",
+            },
+            "remarks": "Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service",
+            "summary": "Number or name of the port to access on the pods targeted by the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1009,
+          },
+          "name": "targetPort",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttpServiceSpecPortsTargetPort",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpServiceSpecPortsTargetPort": Object {
+      "assembly": "generated",
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpServiceSpecPortsTargetPort",
+        },
+        "remarks": "Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service",
+        "summary": "Number or name of the port to access on the pods targeted by the service.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpServiceSpecPortsTargetPort",
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1280,
+      },
+      "methods": Array [
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1281,
+          },
+          "name": "fromNumber",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "number",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecHttpServiceSpecPortsTargetPort",
+            },
+          },
+          "static": true,
+        },
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1284,
+          },
+          "name": "fromString",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "string",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecHttpServiceSpecPortsTargetPort",
+            },
+          },
+          "static": true,
+        },
+      ],
+      "name": "ElasticsearchSpecHttpServiceSpecPortsTargetPort",
+    },
+    "generated.ElasticsearchSpecHttpServiceSpecSessionAffinityConfig": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpServiceSpecSessionAffinityConfig",
+        },
+        "summary": "sessionAffinityConfig contains the configurations of session affinity.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpServiceSpecSessionAffinityConfig",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1018,
+      },
+      "name": "ElasticsearchSpecHttpServiceSpecSessionAffinityConfig",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpecSessionAffinityConfig#clientIP",
+            },
+            "summary": "clientIP contains the configurations of Client IP based session affinity.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1024,
+          },
+          "name": "clientIP",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttpServiceSpecSessionAffinityConfigClientIp",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpServiceSpecSessionAffinityConfigClientIp": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpServiceSpecSessionAffinityConfigClientIp",
+        },
+        "summary": "clientIP contains the configurations of Client IP based session affinity.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpServiceSpecSessionAffinityConfigClientIp",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1297,
+      },
+      "name": "ElasticsearchSpecHttpServiceSpecSessionAffinityConfigClientIp",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpServiceSpecSessionAffinityConfigClientIp#timeoutSeconds",
+            },
+            "remarks": "The value must be >0 && <=86400(for 1 day) if ServiceAffinity == \\"ClientIP\\". Default value is 10800(for 3 hours).",
+            "summary": "timeoutSeconds specifies the seconds of ClientIP type session sticky time.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1303,
+          },
+          "name": "timeoutSeconds",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpTls": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpTls",
+        },
+        "summary": "TLS defines options for configuring TLS for HTTP.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpTls",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 371,
+      },
+      "name": "ElasticsearchSpecHttpTls",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpTls#certificate",
+            },
+            "remarks": "The referenced secret should contain the following: 
+- \`ca.crt\`: The certificate authority (optional). - \`tls.crt\`: The certificate (or a chain). - \`tls.key\`: The private key to the first certificate in the certificate chain.",
+            "summary": "Certificate is a reference to a Kubernetes secret that contains the certificate and private key for enabling TLS.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 378,
+          },
+          "name": "certificate",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttpTlsCertificate",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpTls#selfSignedCertificate",
+            },
+            "summary": "SelfSignedCertificate allows configuring the self-signed certificate generated by the operator.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 385,
+          },
+          "name": "selfSignedCertificate",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecHttpTlsSelfSignedCertificate",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpTlsCertificate": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpTlsCertificate",
+        },
+        "remarks": "The referenced secret should contain the following: 
+- \`ca.crt\`: The certificate authority (optional). - \`tls.crt\`: The certificate (or a chain). - \`tls.key\`: The private key to the first certificate in the certificate chain.",
+        "summary": "Certificate is a reference to a Kubernetes secret that contains the certificate and private key for enabling TLS.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpTlsCertificate",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 672,
+      },
+      "name": "ElasticsearchSpecHttpTlsCertificate",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpTlsCertificate#secretName",
+            },
+            "summary": "SecretName is the name of the secret.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 678,
+          },
+          "name": "secretName",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpTlsSelfSignedCertificate": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpTlsSelfSignedCertificate",
+        },
+        "summary": "SelfSignedCertificate allows configuring the self-signed certificate generated by the operator.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpTlsSelfSignedCertificate",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 687,
+      },
+      "name": "ElasticsearchSpecHttpTlsSelfSignedCertificate",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpTlsSelfSignedCertificate#disabled",
+            },
+            "summary": "Disabled indicates that the provisioning of the self-signed certifcate should be disabled.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 693,
+          },
+          "name": "disabled",
+          "optional": true,
+          "type": Object {
+            "primitive": "boolean",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpTlsSelfSignedCertificate#subjectAltNames",
+            },
+            "summary": "SubjectAlternativeNames is a list of SANs to include in the generated HTTP TLS certificate.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 700,
+          },
+          "name": "subjectAltNames",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecHttpTlsSelfSignedCertificateSubjectAltNames",
+              },
+              "kind": "array",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecHttpTlsSelfSignedCertificateSubjectAltNames": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecHttpTlsSelfSignedCertificateSubjectAltNames",
+        },
+        "summary": "SubjectAlternativeName represents a SAN entry in a x509 certificate.",
+      },
+      "fqn": "generated.ElasticsearchSpecHttpTlsSelfSignedCertificateSubjectAltNames",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1033,
+      },
+      "name": "ElasticsearchSpecHttpTlsSelfSignedCertificateSubjectAltNames",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpTlsSelfSignedCertificateSubjectAltNames#dns",
+            },
+            "summary": "DNS is the DNS name of the subject.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1039,
+          },
+          "name": "dns",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecHttpTlsSelfSignedCertificateSubjectAltNames#ip",
+            },
+            "summary": "IP is the IP address of the subject.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1046,
+          },
+          "name": "ip",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSets": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSets",
+        },
+        "summary": "NodeSet is the specification for a group of Elasticsearch nodes sharing the same configuration and a Pod template.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSets",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 180,
+      },
+      "name": "ElasticsearchSpecNodeSets",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSets#count",
+            },
+            "summary": "Count of Elasticsearch nodes to deploy.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 193,
+          },
+          "name": "count",
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSets#name",
+            },
+            "remarks": "Becomes a part of the Elasticsearch node.name setting.",
+            "summary": "Name of this set of nodes.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 200,
+          },
+          "name": "name",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSets#config",
+            },
+            "summary": "Config holds the Elasticsearch configuration.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 186,
+          },
+          "name": "config",
+          "optional": true,
+          "type": Object {
+            "primitive": "any",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSets#podTemplate",
+            },
+            "summary": "PodTemplate provides customisation options (labels, annotations, affinity rules, resource requests, and so on) for the Pods belonging to this NodeSet.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 207,
+          },
+          "name": "podTemplate",
+          "optional": true,
+          "type": Object {
+            "primitive": "any",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSets#volumeClaimTemplates",
+            },
+            "remarks": "Every claim in this list must have a matching volumeMount in one of the containers defined in the PodTemplate. Items defined here take precedence over any default claims added by the operator with the same name. See: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-volume-claim-templates.html",
+            "summary": "VolumeClaimTemplates is a list of persistent volume claims to be used by each Pod in this NodeSet.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 214,
+          },
+          "name": "volumeClaimTemplates",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplates",
+              },
+              "kind": "array",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplates": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplates",
+        },
+        "summary": "PersistentVolumeClaim is a user's request for and claim to a persistent volume.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplates",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 394,
+      },
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplates",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplates#apiVersion",
+            },
+            "remarks": "Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+            "summary": "APIVersion defines the versioned schema of this representation of an object.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 400,
+          },
+          "name": "apiVersion",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplates#kind",
+            },
+            "remarks": "Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+            "summary": "Kind is a string value representing the REST resource this object represents.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 407,
+          },
+          "name": "kind",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplates#metadata",
+            },
+            "remarks": "More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+            "summary": "Standard object's metadata.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 414,
+          },
+          "name": "metadata",
+          "optional": true,
+          "type": Object {
+            "primitive": "any",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplates#spec",
+            },
+            "remarks": "More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims",
+            "summary": "Spec defines the desired characteristics of a volume requested by a pod author.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 421,
+          },
+          "name": "spec",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplates#status",
+            },
+            "remarks": "Read-only. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims",
+            "summary": "Status represents the current information/status of a persistent volume claim.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 428,
+          },
+          "name": "status",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec",
+        },
+        "remarks": "More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims",
+        "summary": "Spec defines the desired characteristics of a volume requested by a pod author.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 709,
+      },
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec#accessModes",
+            },
+            "remarks": "More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1",
+            "summary": "AccessModes contains the desired access modes the volume should have.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 715,
+          },
+          "name": "accessModes",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec#dataSource",
+            },
+            "remarks": "If the provisioner can support VolumeSnapshot data source, it will create a new volume and data will be restored to the volume at the same time. If the provisioner does not support VolumeSnapshot data source, volume will not be created and the failure will be reported as an event. In the future, we plan to support more data source types and the behavior of the provisioner may change.",
+            "summary": "This field requires the VolumeSnapshotDataSource alpha feature gate to be enabled and currently VolumeSnapshot is the only supported data source.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 722,
+          },
+          "name": "dataSource",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecDataSource",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec#resources",
+            },
+            "remarks": "More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources",
+            "summary": "Resources represents the minimum resources the volume should have.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 729,
+          },
+          "name": "resources",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResources",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec#selector",
+            },
+            "summary": "A label query over volumes to consider for binding.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 736,
+          },
+          "name": "selector",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelector",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec#storageClassName",
+            },
+            "remarks": "More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1",
+            "summary": "Name of the StorageClass required by the claim.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 743,
+          },
+          "name": "storageClassName",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec#volumeMode",
+            },
+            "remarks": "Value of Filesystem is implied when not included in claim spec. This is a beta feature.",
+            "summary": "volumeMode defines what type of volume is required by the claim.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 750,
+          },
+          "name": "volumeMode",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpec#volumeName",
+            },
+            "summary": "VolumeName is the binding reference to the PersistentVolume backing this claim.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 757,
+          },
+          "name": "volumeName",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecDataSource": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecDataSource",
+        },
+        "remarks": "If the provisioner can support VolumeSnapshot data source, it will create a new volume and data will be restored to the volume at the same time. If the provisioner does not support VolumeSnapshot data source, volume will not be created and the failure will be reported as an event. In the future, we plan to support more data source types and the behavior of the provisioner may change.",
+        "summary": "This field requires the VolumeSnapshotDataSource alpha feature gate to be enabled and currently VolumeSnapshot is the only supported data source.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecDataSource",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1055,
+      },
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecDataSource",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecDataSource#kind",
+            },
+            "summary": "Kind is the type of resource being referenced.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1068,
+          },
+          "name": "kind",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecDataSource#name",
+            },
+            "summary": "Name is the name of resource being referenced.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1075,
+          },
+          "name": "name",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecDataSource#apiGroup",
+            },
+            "remarks": "If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
+            "summary": "APIGroup is the group for the resource being referenced.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1061,
+          },
+          "name": "apiGroup",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResources": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResources",
+        },
+        "remarks": "More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources",
+        "summary": "Resources represents the minimum resources the volume should have.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResources",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1084,
+      },
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResources",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResources#limits",
+            },
+            "remarks": "More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/",
+            "summary": "Limits describes the maximum amount of compute resources allowed.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1090,
+          },
+          "name": "limits",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesLimits",
+              },
+              "kind": "map",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResources#requests",
+            },
+            "remarks": "If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/",
+            "summary": "Requests describes the minimum amount of compute resources required.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1097,
+          },
+          "name": "requests",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesRequests",
+              },
+              "kind": "map",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesLimits": Object {
+      "assembly": "generated",
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesLimits",
+        },
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesLimits",
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1310,
+      },
+      "methods": Array [
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1311,
+          },
+          "name": "fromNumber",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "number",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesLimits",
+            },
+          },
+          "static": true,
+        },
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1314,
+          },
+          "name": "fromString",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "string",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesLimits",
+            },
+          },
+          "static": true,
+        },
+      ],
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesLimits",
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesRequests": Object {
+      "assembly": "generated",
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesRequests",
+        },
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesRequests",
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1325,
+      },
+      "methods": Array [
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1326,
+          },
+          "name": "fromNumber",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "number",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesRequests",
+            },
+          },
+          "static": true,
+        },
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1329,
+          },
+          "name": "fromString",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "string",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesRequests",
+            },
+          },
+          "static": true,
+        },
+      ],
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecResourcesRequests",
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelector": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelector",
+        },
+        "summary": "A label query over volumes to consider for binding.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelector",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1106,
+      },
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelector",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelector#matchExpressions",
+            },
+            "remarks": "The requirements are ANDed.",
+            "summary": "matchExpressions is a list of label selector requirements.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1112,
+          },
+          "name": "matchExpressions",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelectorMatchExpressions",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelector#matchLabels",
+            },
+            "remarks": "A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \\"key\\", the operator is \\"In\\", and the values array contains only \\"value\\". The requirements are ANDed.",
+            "summary": "matchLabels is a map of {key,value} pairs.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1119,
+          },
+          "name": "matchLabels",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "map",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelectorMatchExpressions": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelectorMatchExpressions",
+        },
+        "summary": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelectorMatchExpressions",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1342,
+      },
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelectorMatchExpressions",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelectorMatchExpressions#key",
+            },
+            "summary": "key is the label key that the selector applies to.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1348,
+          },
+          "name": "key",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelectorMatchExpressions#operator",
+            },
+            "remarks": "Valid operators are In, NotIn, Exists and DoesNotExist.",
+            "summary": "operator represents a key's relationship to a set of values.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1355,
+          },
+          "name": "operator",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesSpecSelectorMatchExpressions#values",
+            },
+            "remarks": "If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+            "summary": "values is an array of string values.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1362,
+          },
+          "name": "values",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus",
+        },
+        "remarks": "Read-only. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims",
+        "summary": "Status represents the current information/status of a persistent volume claim.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 766,
+      },
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus#accessModes",
+            },
+            "remarks": "More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1",
+            "summary": "AccessModes contains the actual access modes the volume backing the PVC has.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 772,
+          },
+          "name": "accessModes",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus#capacity",
+            },
+            "summary": "Represents the actual resources of the underlying volume.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 779,
+          },
+          "name": "capacity",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusCapacity",
+              },
+              "kind": "map",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus#conditions",
+            },
+            "remarks": "If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.",
+            "summary": "Current Condition of persistent volume claim.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 786,
+          },
+          "name": "conditions",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatus#phase",
+            },
+            "summary": "Phase represents the current phase of PersistentVolumeClaim.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 793,
+          },
+          "name": "phase",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusCapacity": Object {
+      "assembly": "generated",
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusCapacity",
+        },
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusCapacity",
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1126,
+      },
+      "methods": Array [
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1127,
+          },
+          "name": "fromNumber",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "number",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusCapacity",
+            },
+          },
+          "static": true,
+        },
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1130,
+          },
+          "name": "fromString",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "string",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusCapacity",
+            },
+          },
+          "static": true,
+        },
+      ],
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusCapacity",
+    },
+    "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions",
+        },
+        "summary": "PersistentVolumeClaimCondition contails details about state of pvc.",
+      },
+      "fqn": "generated.ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1143,
+      },
+      "name": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions#status",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1175,
+          },
+          "name": "status",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions#type",
+            },
+            "summary": "PersistentVolumeClaimConditionType is a valid value of PersistentVolumeClaimCondition.Type.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1182,
+          },
+          "name": "type",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions#lastProbeTime",
+            },
+            "summary": "Last time we probed the condition.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1149,
+          },
+          "name": "lastProbeTime",
+          "optional": true,
+          "type": Object {
+            "primitive": "date",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions#lastTransitionTime",
+            },
+            "summary": "Last time the condition transitioned from one status to another.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1156,
+          },
+          "name": "lastTransitionTime",
+          "optional": true,
+          "type": Object {
+            "primitive": "date",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions#message",
+            },
+            "summary": "Human-readable message indicating details about last transition.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1163,
+          },
+          "name": "message",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecNodeSetsVolumeClaimTemplatesStatusConditions#reason",
+            },
+            "remarks": "If it reports \\"ResizeStarted\\" that means the underlying persistent volume is being resized.",
+            "summary": "Unique, this should be a short, machine understandable string that gives the reason for condition's last transition.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1170,
+          },
+          "name": "reason",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecPodDisruptionBudget": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecPodDisruptionBudget",
+        },
+        "remarks": "The default budget selects all cluster pods and sets \`maxUnavailable\` to 1. To disable, set \`PodDisruptionBudget\` to the empty value (\`{}\` in YAML).",
+        "summary": "PodDisruptionBudget provides access to the default pod disruption budget for the Elasticsearch cluster.",
+      },
+      "fqn": "generated.ElasticsearchSpecPodDisruptionBudget",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 223,
+      },
+      "name": "ElasticsearchSpecPodDisruptionBudget",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudget#metadata",
+            },
+            "remarks": "The name and namespace provided here are managed by ECK and will be ignored.",
+            "summary": "ObjectMeta is the metadata of the PDB.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 229,
+          },
+          "name": "metadata",
+          "optional": true,
+          "type": Object {
+            "primitive": "any",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudget#spec",
+            },
+            "summary": "Spec is the specification of the PDB.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 236,
+          },
+          "name": "spec",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpec",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecPodDisruptionBudgetSpec": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecPodDisruptionBudgetSpec",
+        },
+        "summary": "Spec is the specification of the PDB.",
+      },
+      "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpec",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 437,
+      },
+      "name": "ElasticsearchSpecPodDisruptionBudgetSpec",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudgetSpec#maxUnavailable",
+            },
+            "summary": "An eviction is allowed if at most \\"maxUnavailable\\" pods selected by \\"selector\\" are unavailable after the eviction, i.e. even in absence of the evicted pod. For example, one can prevent all voluntary evictions by specifying 0. This is a mutually exclusive setting with \\"minAvailable\\".",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 443,
+          },
+          "name": "maxUnavailable",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecMaxUnavailable",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudgetSpec#minAvailable",
+            },
+            "summary": "An eviction is allowed if at least \\"minAvailable\\" pods selected by \\"selector\\" will still be available after the eviction, i.e. even in the absence of the evicted pod.  So for example you can prevent all voluntary evictions by specifying \\"100%\\".",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 450,
+          },
+          "name": "minAvailable",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecMinAvailable",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudgetSpec#selector",
+            },
+            "summary": "Label query over pods whose evictions are managed by the disruption budget.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 457,
+          },
+          "name": "selector",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecSelector",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecPodDisruptionBudgetSpecMaxUnavailable": Object {
+      "assembly": "generated",
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecPodDisruptionBudgetSpecMaxUnavailable",
+        },
+        "summary": "An eviction is allowed if at most \\"maxUnavailable\\" pods selected by \\"selector\\" are unavailable after the eviction, i.e. even in absence of the evicted pod. For example, one can prevent all voluntary evictions by specifying 0. This is a mutually exclusive setting with \\"minAvailable\\".",
+      },
+      "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecMaxUnavailable",
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 802,
+      },
+      "methods": Array [
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 803,
+          },
+          "name": "fromNumber",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "number",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecMaxUnavailable",
+            },
+          },
+          "static": true,
+        },
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 806,
+          },
+          "name": "fromString",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "string",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecMaxUnavailable",
+            },
+          },
+          "static": true,
+        },
+      ],
+      "name": "ElasticsearchSpecPodDisruptionBudgetSpecMaxUnavailable",
+    },
+    "generated.ElasticsearchSpecPodDisruptionBudgetSpecMinAvailable": Object {
+      "assembly": "generated",
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecPodDisruptionBudgetSpecMinAvailable",
+        },
+        "summary": "An eviction is allowed if at least \\"minAvailable\\" pods selected by \\"selector\\" will still be available after the eviction, i.e. even in the absence of the evicted pod.  So for example you can prevent all voluntary evictions by specifying \\"100%\\".",
+      },
+      "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecMinAvailable",
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 819,
+      },
+      "methods": Array [
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 820,
+          },
+          "name": "fromNumber",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "number",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecMinAvailable",
+            },
+          },
+          "static": true,
+        },
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 823,
+          },
+          "name": "fromString",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "string",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecMinAvailable",
+            },
+          },
+          "static": true,
+        },
+      ],
+      "name": "ElasticsearchSpecPodDisruptionBudgetSpecMinAvailable",
+    },
+    "generated.ElasticsearchSpecPodDisruptionBudgetSpecSelector": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecPodDisruptionBudgetSpecSelector",
+        },
+        "summary": "Label query over pods whose evictions are managed by the disruption budget.",
+      },
+      "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecSelector",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 836,
+      },
+      "name": "ElasticsearchSpecPodDisruptionBudgetSpecSelector",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudgetSpecSelector#matchExpressions",
+            },
+            "remarks": "The requirements are ANDed.",
+            "summary": "matchExpressions is a list of label selector requirements.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 842,
+          },
+          "name": "matchExpressions",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecSelectorMatchExpressions",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudgetSpecSelector#matchLabels",
+            },
+            "remarks": "A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \\"key\\", the operator is \\"In\\", and the values array contains only \\"value\\". The requirements are ANDed.",
+            "summary": "matchLabels is a map of {key,value} pairs.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 849,
+          },
+          "name": "matchLabels",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "map",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecPodDisruptionBudgetSpecSelectorMatchExpressions": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecPodDisruptionBudgetSpecSelectorMatchExpressions",
+        },
+        "summary": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+      },
+      "fqn": "generated.ElasticsearchSpecPodDisruptionBudgetSpecSelectorMatchExpressions",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1191,
+      },
+      "name": "ElasticsearchSpecPodDisruptionBudgetSpecSelectorMatchExpressions",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudgetSpecSelectorMatchExpressions#key",
+            },
+            "summary": "key is the label key that the selector applies to.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1197,
+          },
+          "name": "key",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudgetSpecSelectorMatchExpressions#operator",
+            },
+            "remarks": "Valid operators are In, NotIn, Exists and DoesNotExist.",
+            "summary": "operator represents a key's relationship to a set of values.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1204,
+          },
+          "name": "operator",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecPodDisruptionBudgetSpecSelectorMatchExpressions#values",
+            },
+            "remarks": "If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+            "summary": "values is an array of string values.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1211,
+          },
+          "name": "values",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecRemoteClusters": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecRemoteClusters",
+        },
+        "summary": "RemoteCluster declares a remote Elasticsearch cluster connection.",
+      },
+      "fqn": "generated.ElasticsearchSpecRemoteClusters",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 245,
+      },
+      "name": "ElasticsearchSpecRemoteClusters",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecRemoteClusters#name",
+            },
+            "remarks": "The name is expected to be unique for each remote clusters.",
+            "summary": "Name is the name of the remote cluster as it is set in the Elasticsearch settings.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 258,
+          },
+          "name": "name",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecRemoteClusters#elasticsearchRef",
+            },
+            "summary": "ElasticsearchRef is a reference to an Elasticsearch cluster running within the same k8s cluster.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 251,
+          },
+          "name": "elasticsearchRef",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecRemoteClustersElasticsearchRef",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecRemoteClustersElasticsearchRef": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecRemoteClustersElasticsearchRef",
+        },
+        "summary": "ElasticsearchRef is a reference to an Elasticsearch cluster running within the same k8s cluster.",
+      },
+      "fqn": "generated.ElasticsearchSpecRemoteClustersElasticsearchRef",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 466,
+      },
+      "name": "ElasticsearchSpecRemoteClustersElasticsearchRef",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecRemoteClustersElasticsearchRef#name",
+            },
+            "summary": "Name of the Kubernetes object.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 472,
+          },
+          "name": "name",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecRemoteClustersElasticsearchRef#namespace",
+            },
+            "remarks": "If empty, defaults to the current namespace.",
+            "summary": "Namespace of the Kubernetes object.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 479,
+          },
+          "name": "namespace",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecSecureSettings": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecSecureSettings",
+        },
+        "summary": "SecretSource defines a data source based on a Kubernetes Secret.",
+      },
+      "fqn": "generated.ElasticsearchSpecSecureSettings",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 267,
+      },
+      "name": "ElasticsearchSpecSecureSettings",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecSecureSettings#secretName",
+            },
+            "summary": "SecretName is the name of the secret.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 280,
+          },
+          "name": "secretName",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecSecureSettings#entries",
+            },
+            "remarks": "If not defined, all keys will be projected to similarly named paths in the filesystem. If defined, only the specified keys will be projected to the corresponding paths.",
+            "summary": "Entries define how to project each key-value pair in the secret to filesystem paths.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 273,
+          },
+          "name": "entries",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecSecureSettingsEntries",
+              },
+              "kind": "array",
+            },
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecSecureSettingsEntries": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecSecureSettingsEntries",
+        },
+        "summary": "KeyToPath defines how to map a key in a Secret object to a filesystem path.",
+      },
+      "fqn": "generated.ElasticsearchSpecSecureSettingsEntries",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 488,
+      },
+      "name": "ElasticsearchSpecSecureSettingsEntries",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecSecureSettingsEntries#key",
+            },
+            "summary": "Key is the key contained in the secret.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 494,
+          },
+          "name": "key",
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecSecureSettingsEntries#path",
+            },
+            "remarks": "Path must not be an absolute file path and must not contain any \\"..\\" components.",
+            "summary": "Path is the relative file path to map the key to.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 501,
+          },
+          "name": "path",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecTransport": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecTransport",
+        },
+        "summary": "Transport holds transport layer settings for Elasticsearch.",
+      },
+      "fqn": "generated.ElasticsearchSpecTransport",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 289,
+      },
+      "name": "ElasticsearchSpecTransport",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransport#service",
+            },
+            "summary": "Service defines the template for the associated Kubernetes Service object.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 295,
+          },
+          "name": "service",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecTransportService",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecTransportService": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecTransportService",
+        },
+        "summary": "Service defines the template for the associated Kubernetes Service object.",
+      },
+      "fqn": "generated.ElasticsearchSpecTransportService",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 510,
+      },
+      "name": "ElasticsearchSpecTransportService",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportService#metadata",
+            },
+            "remarks": "The name and namespace provided here are managed by ECK and will be ignored.",
+            "summary": "ObjectMeta is the metadata of the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 516,
+          },
+          "name": "metadata",
+          "optional": true,
+          "type": Object {
+            "primitive": "any",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportService#spec",
+            },
+            "summary": "Spec is the specification of the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 523,
+          },
+          "name": "spec",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecTransportServiceSpec",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecTransportServiceSpec": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecTransportServiceSpec",
+        },
+        "summary": "Spec is the specification of the service.",
+      },
+      "fqn": "generated.ElasticsearchSpecTransportServiceSpec",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 858,
+      },
+      "name": "ElasticsearchSpecTransportServiceSpec",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#clusterIP",
+            },
+            "remarks": "If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. This field can not be changed through updates. Valid values are \\"None\\", empty string (\\"\\"), or a valid IP address. \\"None\\" can be specified for headless services when proxying is not required. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "summary": "clusterIP is the IP address of the service and is usually assigned randomly by the master.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 864,
+          },
+          "name": "clusterIP",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#externalIPs",
+            },
+            "remarks": "These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.",
+            "summary": "externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 871,
+          },
+          "name": "externalIPs",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#externalName",
+            },
+            "remarks": "No proxying will be involved. Must be a valid RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires Type to be ExternalName.",
+            "summary": "externalName is the external reference that kubedns or equivalent will return as a CNAME record for this service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 878,
+          },
+          "name": "externalName",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#externalTrafficPolicy",
+            },
+            "remarks": "\\"Local\\" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. \\"Cluster\\" obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading.",
+            "summary": "externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 885,
+          },
+          "name": "externalTrafficPolicy",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#healthCheckNodePort",
+            },
+            "remarks": "If not specified, HealthCheckNodePort is created by the service api backend with the allocated nodePort. Will use user-specified nodePort value if specified by the client. Only effects when Type is set to LoadBalancer and ExternalTrafficPolicy is set to Local.",
+            "summary": "healthCheckNodePort specifies the healthcheck nodePort for the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 892,
+          },
+          "name": "healthCheckNodePort",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#ipFamily",
+            },
+            "summary": "ipFamily specifies whether this Service has a preference for a particular IP family (e.g. IPv4 vs. IPv6).  If a specific IP family is requested, the clusterIP field will be allocated from that family, if it is available in the cluster.  If no IP family is requested, the cluster's primary IP family will be used. Other IP fields (loadBalancerIP, loadBalancerSourceRanges, externalIPs) and controllers which allocate external load-balancers should use the same IP family.  Endpoints for this Service will be of this family.  This field is immutable after creation. Assigning a ServiceIPFamily not available in the cluster (e.g. IPv6 in IPv4 only cluster) is an error condition and will fail during clusterIP assignment.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 899,
+          },
+          "name": "ipFamily",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#loadBalancerIP",
+            },
+            "remarks": "This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.",
+            "summary": "Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 906,
+          },
+          "name": "loadBalancerIP",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#loadBalancerSourceRanges",
+            },
+            "remarks": "This field will be ignored if the cloud-provider does not support the feature.\\" More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/",
+            "summary": "If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 913,
+          },
+          "name": "loadBalancerSourceRanges",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#ports",
+            },
+            "remarks": "More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "summary": "The list of ports that are exposed by this service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 920,
+          },
+          "name": "ports",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "fqn": "generated.ElasticsearchSpecTransportServiceSpecPorts",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#publishNotReadyAddresses",
+            },
+            "remarks": "The default value is false. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate SRV records for its Pods without respect to their readiness for purpose of peer discovery.",
+            "summary": "publishNotReadyAddresses, when set to true, indicates that DNS implementations must publish the notReadyAddresses of subsets for the Endpoints associated with the Service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 927,
+          },
+          "name": "publishNotReadyAddresses",
+          "optional": true,
+          "type": Object {
+            "primitive": "boolean",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#selector",
+            },
+            "remarks": "If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/",
+            "summary": "Route service traffic to pods with label keys and values matching this selector.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 934,
+          },
+          "name": "selector",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "map",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#sessionAffinity",
+            },
+            "default": "None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "remarks": "Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "summary": "Supports \\"ClientIP\\" and \\"None\\".",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 942,
+          },
+          "name": "sessionAffinity",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#sessionAffinityConfig",
+            },
+            "summary": "sessionAffinityConfig contains the configurations of session affinity.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 949,
+          },
+          "name": "sessionAffinityConfig",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecTransportServiceSpecSessionAffinityConfig",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#topologyKeys",
+            },
+            "remarks": "Topology keys must be valid label keys and at most 16 keys may be specified. Endpoints are chosen based on the first topology key with available backends. If this field is specified and all entries have no backends that match the topology of the client, the service has no backends for that client and connections should fail. The special value \\"*\\" may be used to mean \\"any topology\\". This catch-all value, if used, only makes sense as the last value in the list. If this is not specified or empty, no topology constraints will be applied.",
+            "summary": "topologyKeys is a preference-order list of topology keys which implementations of services should use to preferentially sort endpoints when accessing this Service, it can not be used at the same time as externalTrafficPolicy=Local.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 956,
+          },
+          "name": "topologyKeys",
+          "optional": true,
+          "type": Object {
+            "collection": Object {
+              "elementtype": Object {
+                "primitive": "string",
+              },
+              "kind": "array",
+            },
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpec#type",
+            },
+            "default": "ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \\"ExternalName\\" maps to the specified externalName. \\"ClusterIP\\" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is \\"None\\", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. \\"NodePort\\" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. \\"LoadBalancer\\" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
+            "remarks": "Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \\"ExternalName\\" maps to the specified externalName. \\"ClusterIP\\" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is \\"None\\", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. \\"NodePort\\" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. \\"LoadBalancer\\" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
+            "summary": "type determines how the Service is exposed.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 964,
+          },
+          "name": "type",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecTransportServiceSpecPorts": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecTransportServiceSpecPorts",
+        },
+        "summary": "ServicePort contains information on service's port.",
+      },
+      "fqn": "generated.ElasticsearchSpecTransportServiceSpecPorts",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1220,
+      },
+      "name": "ElasticsearchSpecTransportServiceSpecPorts",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpecPorts#port",
+            },
+            "summary": "The port that will be exposed by this service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1241,
+          },
+          "name": "port",
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpecPorts#name",
+            },
+            "remarks": "This must be a DNS_LABEL. All ports within a ServiceSpec must have unique names. When considering the endpoints for a Service, this must match the 'name' field in the EndpointPort. Optional if only one ServicePort is defined on this service.",
+            "summary": "The name of this port within the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1226,
+          },
+          "name": "name",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpecPorts#nodePort",
+            },
+            "default": "to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
+            "remarks": "Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
+            "summary": "The port on each node on which this service is exposed when type=NodePort or LoadBalancer.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1234,
+          },
+          "name": "nodePort",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpecPorts#protocol",
+            },
+            "default": "TCP.",
+            "remarks": "Supports \\"TCP\\", \\"UDP\\", and \\"SCTP\\". Default is TCP.",
+            "summary": "The IP protocol for this port.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1249,
+          },
+          "name": "protocol",
+          "optional": true,
+          "type": Object {
+            "primitive": "string",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpecPorts#targetPort",
+            },
+            "remarks": "Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service",
+            "summary": "Number or name of the port to access on the pods targeted by the service.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1256,
+          },
+          "name": "targetPort",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecTransportServiceSpecPortsTargetPort",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecTransportServiceSpecPortsTargetPort": Object {
+      "assembly": "generated",
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecTransportServiceSpecPortsTargetPort",
+        },
+        "remarks": "Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service",
+        "summary": "Number or name of the port to access on the pods targeted by the service.",
+      },
+      "fqn": "generated.ElasticsearchSpecTransportServiceSpecPortsTargetPort",
+      "kind": "class",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1371,
+      },
+      "methods": Array [
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1372,
+          },
+          "name": "fromNumber",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "number",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecTransportServiceSpecPortsTargetPort",
+            },
+          },
+          "static": true,
+        },
+        Object {
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1375,
+          },
+          "name": "fromString",
+          "parameters": Array [
+            Object {
+              "name": "value",
+              "type": Object {
+                "primitive": "string",
+              },
+            },
+          ],
+          "returns": Object {
+            "type": Object {
+              "fqn": "generated.ElasticsearchSpecTransportServiceSpecPortsTargetPort",
+            },
+          },
+          "static": true,
+        },
+      ],
+      "name": "ElasticsearchSpecTransportServiceSpecPortsTargetPort",
+    },
+    "generated.ElasticsearchSpecTransportServiceSpecSessionAffinityConfig": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecTransportServiceSpecSessionAffinityConfig",
+        },
+        "summary": "sessionAffinityConfig contains the configurations of session affinity.",
+      },
+      "fqn": "generated.ElasticsearchSpecTransportServiceSpecSessionAffinityConfig",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1265,
+      },
+      "name": "ElasticsearchSpecTransportServiceSpecSessionAffinityConfig",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpecSessionAffinityConfig#clientIP",
+            },
+            "summary": "clientIP contains the configurations of Client IP based session affinity.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1271,
+          },
+          "name": "clientIP",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecTransportServiceSpecSessionAffinityConfigClientIp",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecTransportServiceSpecSessionAffinityConfigClientIp": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecTransportServiceSpecSessionAffinityConfigClientIp",
+        },
+        "summary": "clientIP contains the configurations of Client IP based session affinity.",
+      },
+      "fqn": "generated.ElasticsearchSpecTransportServiceSpecSessionAffinityConfigClientIp",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 1388,
+      },
+      "name": "ElasticsearchSpecTransportServiceSpecSessionAffinityConfigClientIp",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecTransportServiceSpecSessionAffinityConfigClientIp#timeoutSeconds",
+            },
+            "remarks": "The value must be >0 && <=86400(for 1 day) if ServiceAffinity == \\"ClientIP\\". Default value is 10800(for 3 hours).",
+            "summary": "timeoutSeconds specifies the seconds of ClientIP type session sticky time.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 1394,
+          },
+          "name": "timeoutSeconds",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecUpdateStrategy": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecUpdateStrategy",
+        },
+        "summary": "UpdateStrategy specifies how updates to the cluster should be performed.",
+      },
+      "fqn": "generated.ElasticsearchSpecUpdateStrategy",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 304,
+      },
+      "name": "ElasticsearchSpecUpdateStrategy",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecUpdateStrategy#changeBudget",
+            },
+            "summary": "ChangeBudget defines the constraints to consider when applying changes to the Elasticsearch cluster.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 310,
+          },
+          "name": "changeBudget",
+          "optional": true,
+          "type": Object {
+            "fqn": "generated.ElasticsearchSpecUpdateStrategyChangeBudget",
+          },
+        },
+      ],
+    },
+    "generated.ElasticsearchSpecUpdateStrategyChangeBudget": Object {
+      "assembly": "generated",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ElasticsearchSpecUpdateStrategyChangeBudget",
+        },
+        "summary": "ChangeBudget defines the constraints to consider when applying changes to the Elasticsearch cluster.",
+      },
+      "fqn": "generated.ElasticsearchSpecUpdateStrategyChangeBudget",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+        "line": 532,
+      },
+      "name": "ElasticsearchSpecUpdateStrategyChangeBudget",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecUpdateStrategyChangeBudget#maxSurge",
+            },
+            "default": "unbounded if not specified.",
+            "remarks": "MaxSurge is only taken into consideration when scaling up. Setting a negative value will disable the restriction. Defaults to unbounded if not specified.",
+            "summary": "MaxSurge is the maximum number of new pods that can be created exceeding the original number of pods defined in the specification.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 539,
+          },
+          "name": "maxSurge",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "ElasticsearchSpecUpdateStrategyChangeBudget#maxUnavailable",
+            },
+            "default": "1 if not specified.",
+            "remarks": "Setting a negative value will disable this restriction. Defaults to 1 if not specified.",
+            "summary": "MaxUnavailable is the maximum number of pods that can be unavailable (not ready) during the update due to circumstances under the control of the operator.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+            "line": 547,
+          },
+          "name": "maxUnavailable",
+          "optional": true,
+          "type": Object {
+            "primitive": "number",
+          },
+        },
+      ],
+    },
+  },
+  "version": "0.0.0",
+}
+`;
+
+exports[`snapshots jenkins_crd.yaml 1`] = `
 Object {
   "author": Object {
     "name": "generated@generated.com",
@@ -12764,7 +16825,7 @@ If unset, the Kubelet will not modify the ownership and permissions of any volum
 }
 `;
 
-exports[`mixed_crd.yaml 1`] = `
+exports[`snapshots mixed_crd.yaml 1`] = `
 Object {
   "author": Object {
     "name": "generated@generated.com",
@@ -13003,7 +17064,7 @@ Object {
 }
 `;
 
-exports[`multi_object_crd.yaml 1`] = `
+exports[`snapshots multi_object_crd.yaml 1`] = `
 Object {
   "author": Object {
     "name": "generated@generated.com",
@@ -13242,7 +17303,7 @@ Object {
 }
 `;
 
-exports[`prometheus.yaml 1`] = `
+exports[`snapshots prometheus.yaml 1`] = `
 Object {
   "author": Object {
     "name": "generated@generated.com",

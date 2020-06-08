@@ -145,7 +145,9 @@ export class ImportCustomResourceDefinition extends ImportBase {
   }
 
   protected async generateTypeScript(code: CodeMaker, moduleName: string) {
-    this.defs.filter(crd => moduleName === crd.moduleName).map(crd => crd.generateTypeScript(code));
+    for (const crd of this.defs.filter(crd => moduleName === crd.moduleName)) {
+      await crd.generateTypeScript(code);
+    }
   }
 }
 
