@@ -1,8 +1,7 @@
-import { Construct, ISynthesisSession, Node } from 'constructs';
-import * as path from 'path';
+import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
 import { Names } from './names';
-import { Yaml } from './yaml';
+import { App } from './app';
 
 export interface ChartOptions {
   /**
@@ -21,7 +20,7 @@ export class Chart extends Construct {
    * Finds the chart in which a node is defined.
    * @param c a construct node
    */
-  public static of(c: Construct): Chart {
+  public static of(c: IConstruct): Chart {
     if (c instanceof Chart) {
       return c;
     }
@@ -35,19 +34,12 @@ export class Chart extends Construct {
   }
 
   /**
-   * The name of the stack's YAML file as emitted into the cloud assembly
-   * directory during synthesis.
-   */
-  public readonly manifestFile: string;
-
-  /**
    * The default namespace for all objects in this chart.
    */
   public readonly namespace?: string;
 
   constructor(scope: Construct, ns: string, options: ChartOptions = { }) {
     super(scope, ns);
-    this.manifestFile = `${Node.of(this).uniqueId}.k8s.yaml`;
     this.namespace = options.namespace;
   }
 
@@ -76,20 +68,22 @@ export class Chart extends Construct {
   }
 
   /**
+   * Create a dependency between this Chart and other constructs.
+   * These can be other ApiObjects, Charts, or custom.
+   *
+   * @param dependencies the dependencies to add.
+   */
+  public addDependency(...dependencies: IConstruct[]) {
+    Node.of(this).addDependency(...dependencies);
+  }
+
+  /**
    * Renders this chart to a set of Kubernetes JSON resources.
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-    return Node.of(this)
-      .findAll()
-      .filter(x => x instanceof ApiObject)
-      .map(x => (x as ApiObject).toJson());
+    return App._synthChart(this);
   }
 
-  /**
-   * Called by the app to synthesize the chart as a YAML file in the output directory/
-   */
-  protected onSynthesize(session: ISynthesisSession) {
-    Yaml.save(path.join(session.outdir, this.manifestFile), this.toJson());
-  }
 }
+
