@@ -82,7 +82,7 @@ You can declare dependencies between various `cdk8s` constructs by using the bui
 
 #### ApiObjects
 
-For example, you can force kubernetes to first apply a `Service` before applying the `Deployment` that uses that service:
+For example, you can force kubernetes to first apply a `Namespace` before applying the `Service` in the scope of that namespace:
 
 ```typescript
 
