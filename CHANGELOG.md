@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.25.0](https://github.com/awslabs/cdk8s/compare/v0.24.0...v0.25.0) (2020-06-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **lib:** `cdk8s` discontinues support for the `onPrepare` and `onSynthesis` construct hooks. These methods will eventually be removed from the `constructs` programming model.
+
+### Features
+
+* **cli:** java import support  ([#226](https://github.com/awslabs/cdk8s/issues/226)) ([9619a73](https://github.com/awslabs/cdk8s/commit/9619a730766a109e429007c459f77541ebb97399))
+* **lib:** dependencies and ordering of charts and objects ([#223](https://github.com/awslabs/cdk8s/issues/223)) ([701579e](https://github.com/awslabs/cdk8s/commit/701579e46a1f5891a1233c2e44e06a528f5a183e)), closes [#111](https://github.com/awslabs/cdk8s/issues/111)
+
+
+### Bug Fixes
+
+* **cli:** options type not generated for certain CRDs ([#229](https://github.com/awslabs/cdk8s/issues/229)) ([0cbaf19](https://github.com/awslabs/cdk8s/commit/0cbaf19c0d9f1cff6832c44c0699e20c83903a64)), closes [#219](https://github.com/awslabs/cdk8s/issues/219)
+
 ## [0.24.0](https://github.com/awslabs/cdk8s/compare/v0.23.0...v0.24.0) (2020-05-27)
 
 
