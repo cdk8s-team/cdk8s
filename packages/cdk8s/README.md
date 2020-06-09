@@ -86,34 +86,35 @@ For example, you can force kubernetes to first apply a `Service` before applying
 
 ```typescript
 
-const deployment = new k8s.Deployment(chart, 'Deployment');
-const service = new k8s.Service(chart, 'Service');
+const namespace = new k8s.Namespace(chart, 'backend');
+const service = new k8s.Service(chart, 'Service', { metadata: { namespace: namespace.name }});
 
-// declare the dependency. this is just a syntactic sugar for Node.of(deployment).addDependency(service)
-deployment.addDependency(service);
+// declare the dependency. this is just a syntactic sugar for Node.of(service).addDependency(namespace)
+service.addDependency(namespace);
 ```
 
-`cdk8s` will ensure that the `service` construct is placed before the `deployment` construct in the resulting manifest:
+`cdk8s` will ensure that the `Namespace` object is placed before the `Service` object in the resulting manifest:
 
 ```yaml
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: chart-backend-a59d2e47
+---
+apiVersion: v1
 kind: Service
 metadata:
-  name: cdk8s-playground-service-f42ff561
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: cdk8s-playground-deployment-bef88ab7
+  name: chart-service-93d02be7
+  namespace: chart-backend-a59d2e47
 ```
 
 #### Charts
 
-You can also specify dependencies between charts, in exactly the same manner. For example, if we have a chart that deploys our `namespace`, we need that chart to be applied first:
+You can also specify dependencies between charts, in exactly the same manner. For example, if we have a chart that provisions our `namespace`, we need that chart to be applied first:
 
 ```typescript
-const namespaceChart = new MyChart(app, 'namespace');
-const applicationChart = new MyChart(app, 'application');
+const namespaceChart = new NamespaceChart(app, 'namespace');
+const applicationChart = new ApplicationChart(app, 'application');
 
 // declare the dependency. this is just a syntactic sugar for Node.of(applicationChart).addDependency(namespaceChart)
 applicationChart.addDependency(namespaceChart);
