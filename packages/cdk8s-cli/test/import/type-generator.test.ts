@@ -187,6 +187,14 @@ describe('structs', () => {
     },
   });
 
+  which('if we have "properties" and "type" is omitted, it is considered a struct', {
+    properties: {
+      foo: {
+        type: 'string'
+      }
+    }
+  });
+
 });
 
 

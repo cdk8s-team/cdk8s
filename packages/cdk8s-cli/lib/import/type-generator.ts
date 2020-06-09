@@ -29,12 +29,11 @@ export class TypeGenerator {
     const constructName = normalizeTypeName(def.kind);
 
     this.emitLater(constructName, code => {
-      const options = createOptionsStructSchema();
-
-      const optionsStructName = normalizeTypeName(options.type ? `${constructName}Options` : 'any');
       const schema = def.schema;
 
-      this.emitType(optionsStructName, options, def.fqn);
+      // this will return `any` in case the schema can't be parsed
+      const optionsSchema = createOptionsStructSchema();
+      const optionsStructName = this.emitType(normalizeTypeName(`${constructName}Options`), optionsSchema, def.fqn);
 
       emitConstruct();
 
@@ -132,7 +131,6 @@ export class TypeGenerator {
     }
   
     switch (def.type) {
-      case undefined: return 'string';
       case 'boolean': return 'boolean';
       case 'array': return `${this.typeForArray(typeName, def)}[]`;
       case 'any': return 'any';
@@ -155,10 +153,6 @@ export class TypeGenerator {
       return 'string';
     }
     
-    if (def.type !== 'object') {
-      throw new Error(`unexpected schema type ${def.type}. Expecting "object"`);
-    }
-
     // map
     if (!def.properties && def.additionalProperties && typeof(def.additionalProperties) === 'object') {
       return `{ [key: string]: ${this.typeForProperty(typeName, def.additionalProperties)} }`;
