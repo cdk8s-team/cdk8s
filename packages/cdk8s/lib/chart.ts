@@ -69,7 +69,7 @@ export class Chart extends Construct {
 
   /**
    * Create a dependency between this Chart and other constructs.
-   * These can be other ApiObjects, Charts, or Custom.
+   * These can be other ApiObjects, Charts, or custom.
    *
    * @param dependencies the dependencies to add.
    */
