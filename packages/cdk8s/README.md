@@ -187,8 +187,8 @@ You can see that all `ApiObject`s of the `Database` construct, appear before the
 If you simply declare a dependency between two `ApiObject`s (or `Constructs`), that belong to two different `Chart`s, `cdk8s` will create the chart dependency automatically for you.
 
 ```typescript
-const namespaceChart = new MyChart(app, 'namespace');
-const applicationChart = new MyChart(app, 'application');
+const namespaceChart = new NamespaceChart(app, 'namespace');
+const applicationChart = new ApplicationChart(app, 'application');
 
 const namespace = new k8s.Namespace(namespaceChart, 'namespace');
 const deployment = new k8s.Deployment(applicationChart, 'Deployment');
