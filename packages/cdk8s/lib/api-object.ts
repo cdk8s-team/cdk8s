@@ -1,4 +1,4 @@
-import { Construct } from 'constructs';
+import { Construct, IConstruct, Node } from 'constructs';
 import { Chart } from './chart';
 import { removeEmpty } from './_util';
 import { resolve } from './_tokens';
@@ -107,6 +107,16 @@ export class ApiObject extends Construct {
     this.kind = options.kind;
     this.apiVersion = options.apiVersion;
     this.name = options.metadata?.name ?? this.chart.generateObjectName(this);
+  }
+
+  /**
+   * Create a dependency between this ApiObject and other constructs.
+   * These can be other ApiObjects, Charts, or custom.
+   *
+   * @param dependencies the dependencies to add.
+   */
+  public addDependency(...dependencies: IConstruct[]) {
+    Node.of(this).addDependency(...dependencies);
   }
 
   /**
