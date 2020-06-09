@@ -8,13 +8,222 @@ import jsii
 import jsii.compat
 import publication
 
+from ._jsii import *
+
 import cdk8s
 import constructs
 
-__jsii_assembly__ = jsii.JSIIAssembly.load("k8s", "0.0.0", __name__, "k8s@0.0.0.jsii.tgz")
+
+@jsii.data_type(jsii_type="generated.Affinity", jsii_struct_bases=[], name_mapping={'node_affinity': 'nodeAffinity', 'pod_affinity': 'podAffinity', 'pod_anti_affinity': 'podAntiAffinity'})
+class Affinity():
+    def __init__(self, *, node_affinity: typing.Optional["NodeAffinity"]=None, pod_affinity: typing.Optional["PodAffinity"]=None, pod_anti_affinity: typing.Optional["PodAntiAffinity"]=None) -> None:
+        """Affinity is a group of affinity scheduling rules.
+
+        :param node_affinity: Describes node affinity scheduling rules for the pod.
+        :param pod_affinity: Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+        :param pod_anti_affinity: Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.Affinity
+        """
+        if isinstance(node_affinity, dict): node_affinity = NodeAffinity(**node_affinity)
+        if isinstance(pod_affinity, dict): pod_affinity = PodAffinity(**pod_affinity)
+        if isinstance(pod_anti_affinity, dict): pod_anti_affinity = PodAntiAffinity(**pod_anti_affinity)
+        self._values = {
+        }
+        if node_affinity is not None: self._values["node_affinity"] = node_affinity
+        if pod_affinity is not None: self._values["pod_affinity"] = pod_affinity
+        if pod_anti_affinity is not None: self._values["pod_anti_affinity"] = pod_anti_affinity
+
+    @builtins.property
+    def node_affinity(self) -> typing.Optional["NodeAffinity"]:
+        """Describes node affinity scheduling rules for the pod.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.Affinity#nodeAffinity
+        """
+        return self._values.get('node_affinity')
+
+    @builtins.property
+    def pod_affinity(self) -> typing.Optional["PodAffinity"]:
+        """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.Affinity#podAffinity
+        """
+        return self._values.get('pod_affinity')
+
+    @builtins.property
+    def pod_anti_affinity(self) -> typing.Optional["PodAntiAffinity"]:
+        """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.Affinity#podAntiAffinity
+        """
+        return self._values.get('pod_anti_affinity')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'Affinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class APIService(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.APIService"):
+@jsii.data_type(jsii_type="generated.AggregationRule", jsii_struct_bases=[], name_mapping={'cluster_role_selectors': 'clusterRoleSelectors'})
+class AggregationRule():
+    def __init__(self, *, cluster_role_selectors: typing.Optional[typing.List["LabelSelector"]]=None) -> None:
+        """AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
+
+        :param cluster_role_selectors: ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added
+
+        schema:
+        :schema:: io.k8s.api.rbac.v1.AggregationRule
+        """
+        self._values = {
+        }
+        if cluster_role_selectors is not None: self._values["cluster_role_selectors"] = cluster_role_selectors
+
+    @builtins.property
+    def cluster_role_selectors(self) -> typing.Optional[typing.List["LabelSelector"]]:
+        """ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+
+        If any of the selectors match, then the ClusterRole's permissions will be added
+
+        schema:
+        :schema:: io.k8s.api.rbac.v1.AggregationRule#clusterRoleSelectors
+        """
+        return self._values.get('cluster_role_selectors')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AggregationRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AllowedCsiDriver", jsii_struct_bases=[], name_mapping={'name': 'name'})
+class AllowedCsiDriver():
+    def __init__(self, *, name: str) -> None:
+        """AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
+
+        :param name: Name is the registered name of the CSI driver.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedCSIDriver
+        """
+        self._values = {
+            'name': name,
+        }
+
+    @builtins.property
+    def name(self) -> str:
+        """Name is the registered name of the CSI driver.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedCSIDriver#name
+        """
+        return self._values.get('name')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AllowedCsiDriver(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AllowedFlexVolume", jsii_struct_bases=[], name_mapping={'driver': 'driver'})
+class AllowedFlexVolume():
+    def __init__(self, *, driver: str) -> None:
+        """AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
+
+        :param driver: driver is the name of the Flexvolume driver.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedFlexVolume
+        """
+        self._values = {
+            'driver': driver,
+        }
+
+    @builtins.property
+    def driver(self) -> str:
+        """driver is the name of the Flexvolume driver.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedFlexVolume#driver
+        """
+        return self._values.get('driver')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AllowedFlexVolume(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AllowedHostPath", jsii_struct_bases=[], name_mapping={'path_prefix': 'pathPrefix', 'read_only': 'readOnly'})
+class AllowedHostPath():
+    def __init__(self, *, path_prefix: typing.Optional[str]=None, read_only: typing.Optional[bool]=None) -> None:
+        """AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use.
+
+        It requires the path prefix to be defined.
+
+        :param path_prefix: pathPrefix is the path prefix that the host volume must match. It does not support ``*``. Trailing slashes are trimmed when validating the path prefix with a host path. Examples: ``/foo`` would allow ``/foo``, ``/foo/`` and ``/foo/bar`` ``/foo`` would not allow ``/food`` or ``/etc/foo``
+        :param read_only: when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath
+        """
+        self._values = {
+        }
+        if path_prefix is not None: self._values["path_prefix"] = path_prefix
+        if read_only is not None: self._values["read_only"] = read_only
+
+    @builtins.property
+    def path_prefix(self) -> typing.Optional[str]:
+        """pathPrefix is the path prefix that the host volume must match.
+
+        It does not support ``*``. Trailing slashes are trimmed when validating the path prefix with a host path.
+
+        Examples: ``/foo`` would allow ``/foo``, ``/foo/`` and ``/foo/bar`` ``/foo`` would not allow ``/food`` or ``/etc/foo``
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath#pathPrefix
+        """
+        return self._values.get('path_prefix')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath#readOnly
+        """
+        return self._values.get('read_only')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AllowedHostPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class ApiService(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ApiService"):
     """APIService represents a server for a particular GroupVersion.
 
     Name must be "version.group".
@@ -22,7 +231,7 @@ class APIService(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.APISer
     schema:
     :schema:: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService
     """
-    def __init__(self, scope: constructs.Construct, name: str, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["APIServiceSpec"]=None) -> None:
+    def __init__(self, scope: constructs.Construct, name: str, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ApiServiceSpec"]=None) -> None:
         """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService" API object.
 
         :param scope: the scope in which to define this object.
@@ -30,18 +239,18 @@ class APIService(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.APISer
         :param metadata: 
         :param spec: Spec contains information for locating and communicating with a server.
         """
-        options = APIServiceOptions(metadata=metadata, spec=spec)
+        options = ApiServiceOptions(metadata=metadata, spec=spec)
 
-        jsii.create(APIService, self, [scope, name, options])
+        jsii.create(ApiService, self, [scope, name, options])
 
 
-class APIServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.APIServiceList"):
+class ApiServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ApiServiceList"):
     """APIServiceList is a list of APIService objects.
 
     schema:
     :schema:: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList
     """
-    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["APIService"], metadata: typing.Optional["ListMeta"]=None) -> None:
+    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["ApiService"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" API object.
 
         :param scope: the scope in which to define this object.
@@ -49,14 +258,14 @@ class APIServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.AP
         :param items: 
         :param metadata: 
         """
-        options = APIServiceListOptions(items=items, metadata=metadata)
+        options = ApiServiceListOptions(items=items, metadata=metadata)
 
-        jsii.create(APIServiceList, self, [scope, name, options])
+        jsii.create(ApiServiceList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.APIServiceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
-class APIServiceListOptions():
-    def __init__(self, *, items: typing.List["APIService"], metadata: typing.Optional["ListMeta"]=None):
+@jsii.data_type(jsii_type="generated.ApiServiceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+class ApiServiceListOptions():
+    def __init__(self, *, items: typing.List["ApiService"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """APIServiceList is a list of APIService objects.
 
         :param items: 
@@ -72,7 +281,7 @@ class APIServiceListOptions():
         if metadata is not None: self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["APIService"]:
+    def items(self) -> typing.List["ApiService"]:
         """
         schema:
         :schema:: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
@@ -94,12 +303,12 @@ class APIServiceListOptions():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'APIServiceListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ApiServiceListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.APIServiceOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
-class APIServiceOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["APIServiceSpec"]=None):
+@jsii.data_type(jsii_type="generated.ApiServiceOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+class ApiServiceOptions():
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ApiServiceSpec"]=None) -> None:
         """APIService represents a server for a particular GroupVersion.
 
         Name must be "version.group".
@@ -111,7 +320,7 @@ class APIServiceOptions():
         :schema:: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService
         """
         if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict): spec = APIServiceSpec(**spec)
+        if isinstance(spec, dict): spec = ApiServiceSpec(**spec)
         self._values = {
         }
         if metadata is not None: self._values["metadata"] = metadata
@@ -126,7 +335,7 @@ class APIServiceOptions():
         return self._values.get('metadata')
 
     @builtins.property
-    def spec(self) -> typing.Optional["APIServiceSpec"]:
+    def spec(self) -> typing.Optional["ApiServiceSpec"]:
         """Spec contains information for locating and communicating with a server.
 
         schema:
@@ -141,12 +350,12 @@ class APIServiceOptions():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'APIServiceOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ApiServiceOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.APIServiceSpec", jsii_struct_bases=[], name_mapping={'group_priority_minimum': 'groupPriorityMinimum', 'service': 'service', 'version_priority': 'versionPriority', 'ca_bundle': 'caBundle', 'group': 'group', 'insecure_skip_tls_verify': 'insecureSkipTLSVerify', 'version': 'version'})
-class APIServiceSpec():
-    def __init__(self, *, group_priority_minimum: jsii.Number, service: "ServiceReference", version_priority: jsii.Number, ca_bundle: typing.Optional[str]=None, group: typing.Optional[str]=None, insecure_skip_tls_verify: typing.Optional[bool]=None, version: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.ApiServiceSpec", jsii_struct_bases=[], name_mapping={'group_priority_minimum': 'groupPriorityMinimum', 'service': 'service', 'version_priority': 'versionPriority', 'ca_bundle': 'caBundle', 'group': 'group', 'insecure_skip_tls_verify': 'insecureSkipTLSVerify', 'version': 'version'})
+class ApiServiceSpec():
+    def __init__(self, *, group_priority_minimum: jsii.Number, service: "ServiceReference", version_priority: jsii.Number, ca_bundle: typing.Optional[str]=None, group: typing.Optional[str]=None, insecure_skip_tls_verify: typing.Optional[bool]=None, version: typing.Optional[str]=None) -> None:
         """APIServiceSpec contains information for locating and communicating with a server.
 
         Only https is supported, though you are able to disable certificate verification.
@@ -255,12 +464,185 @@ class APIServiceSpec():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'APIServiceSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ApiServiceSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.AWSElasticBlockStoreVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
-class AWSElasticBlockStoreVolumeSource():
-    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None):
+class AuditSink(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.AuditSink"):
+    """AuditSink represents a cluster level audit sink.
+
+    schema:
+    :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSink
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["AuditSinkSpec"]=None) -> None:
+        """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSink" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: 
+        :param spec: Spec defines the audit configuration spec.
+        """
+        options = AuditSinkOptions(metadata=metadata, spec=spec)
+
+        jsii.create(AuditSink, self, [scope, name, options])
+
+
+class AuditSinkList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.AuditSinkList"):
+    """AuditSinkList is a list of AuditSink items.
+
+    schema:
+    :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkList
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["AuditSink"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: List of audit configurations.
+        :param metadata: 
+        """
+        options = AuditSinkListOptions(items=items, metadata=metadata)
+
+        jsii.create(AuditSinkList, self, [scope, name, options])
+
+
+@jsii.data_type(jsii_type="generated.AuditSinkListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+class AuditSinkListOptions():
+    def __init__(self, *, items: typing.List["AuditSink"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """AuditSinkList is a list of AuditSink items.
+
+        :param items: List of audit configurations.
+        :param metadata: 
+
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkList
+        """
+        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
+        self._values = {
+            'items': items,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List["AuditSink"]:
+        """List of audit configurations.
+
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#items
+        """
+        return self._values.get('items')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AuditSinkListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AuditSinkOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+class AuditSinkOptions():
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["AuditSinkSpec"]=None) -> None:
+        """AuditSink represents a cluster level audit sink.
+
+        :param metadata: 
+        :param spec: Spec defines the audit configuration spec.
+
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSink
+        """
+        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict): spec = AuditSinkSpec(**spec)
+        self._values = {
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+        if spec is not None: self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSink#metadata
+        """
+        return self._values.get('metadata')
+
+    @builtins.property
+    def spec(self) -> typing.Optional["AuditSinkSpec"]:
+        """Spec defines the audit configuration spec.
+
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSink#spec
+        """
+        return self._values.get('spec')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AuditSinkOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AuditSinkSpec", jsii_struct_bases=[], name_mapping={'policy': 'policy', 'webhook': 'webhook'})
+class AuditSinkSpec():
+    def __init__(self, *, policy: "Policy", webhook: "Webhook") -> None:
+        """AuditSinkSpec holds the spec for the audit sink.
+
+        :param policy: Policy defines the policy for selecting which events should be sent to the webhook required.
+        :param webhook: Webhook to send events required.
+
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkSpec
+        """
+        if isinstance(policy, dict): policy = Policy(**policy)
+        if isinstance(webhook, dict): webhook = Webhook(**webhook)
+        self._values = {
+            'policy': policy,
+            'webhook': webhook,
+        }
+
+    @builtins.property
+    def policy(self) -> "Policy":
+        """Policy defines the policy for selecting which events should be sent to the webhook required.
+
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkSpec#policy
+        """
+        return self._values.get('policy')
+
+    @builtins.property
+    def webhook(self) -> "Webhook":
+        """Webhook to send events required.
+
+        schema:
+        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkSpec#webhook
+        """
+        return self._values.get('webhook')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'AuditSinkSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.AwsElasticBlockStoreVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
+class AwsElasticBlockStoreVolumeSource():
+    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None) -> None:
         """Represents a Persistent Disk resource in AWS.
 
         An AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling.
@@ -331,394 +713,12 @@ class AWSElasticBlockStoreVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'AWSElasticBlockStoreVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'AwsElasticBlockStoreVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Affinity", jsii_struct_bases=[], name_mapping={'node_affinity': 'nodeAffinity', 'pod_affinity': 'podAffinity', 'pod_anti_affinity': 'podAntiAffinity'})
-class Affinity():
-    def __init__(self, *, node_affinity: typing.Optional["NodeAffinity"]=None, pod_affinity: typing.Optional["PodAffinity"]=None, pod_anti_affinity: typing.Optional["PodAntiAffinity"]=None):
-        """Affinity is a group of affinity scheduling rules.
-
-        :param node_affinity: Describes node affinity scheduling rules for the pod.
-        :param pod_affinity: Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
-        :param pod_anti_affinity: Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.Affinity
-        """
-        if isinstance(node_affinity, dict): node_affinity = NodeAffinity(**node_affinity)
-        if isinstance(pod_affinity, dict): pod_affinity = PodAffinity(**pod_affinity)
-        if isinstance(pod_anti_affinity, dict): pod_anti_affinity = PodAntiAffinity(**pod_anti_affinity)
-        self._values = {
-        }
-        if node_affinity is not None: self._values["node_affinity"] = node_affinity
-        if pod_affinity is not None: self._values["pod_affinity"] = pod_affinity
-        if pod_anti_affinity is not None: self._values["pod_anti_affinity"] = pod_anti_affinity
-
-    @builtins.property
-    def node_affinity(self) -> typing.Optional["NodeAffinity"]:
-        """Describes node affinity scheduling rules for the pod.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.Affinity#nodeAffinity
-        """
-        return self._values.get('node_affinity')
-
-    @builtins.property
-    def pod_affinity(self) -> typing.Optional["PodAffinity"]:
-        """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.Affinity#podAffinity
-        """
-        return self._values.get('pod_affinity')
-
-    @builtins.property
-    def pod_anti_affinity(self) -> typing.Optional["PodAntiAffinity"]:
-        """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.Affinity#podAntiAffinity
-        """
-        return self._values.get('pod_anti_affinity')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'Affinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.AggregationRule", jsii_struct_bases=[], name_mapping={'cluster_role_selectors': 'clusterRoleSelectors'})
-class AggregationRule():
-    def __init__(self, *, cluster_role_selectors: typing.Optional[typing.List["LabelSelector"]]=None):
-        """AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
-
-        :param cluster_role_selectors: ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added
-
-        schema:
-        :schema:: io.k8s.api.rbac.v1.AggregationRule
-        """
-        self._values = {
-        }
-        if cluster_role_selectors is not None: self._values["cluster_role_selectors"] = cluster_role_selectors
-
-    @builtins.property
-    def cluster_role_selectors(self) -> typing.Optional[typing.List["LabelSelector"]]:
-        """ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
-
-        If any of the selectors match, then the ClusterRole's permissions will be added
-
-        schema:
-        :schema:: io.k8s.api.rbac.v1.AggregationRule#clusterRoleSelectors
-        """
-        return self._values.get('cluster_role_selectors')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AggregationRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.AllowedCSIDriver", jsii_struct_bases=[], name_mapping={'name': 'name'})
-class AllowedCSIDriver():
-    def __init__(self, *, name: str):
-        """AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
-
-        :param name: Name is the registered name of the CSI driver.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedCSIDriver
-        """
-        self._values = {
-            'name': name,
-        }
-
-    @builtins.property
-    def name(self) -> str:
-        """Name is the registered name of the CSI driver.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedCSIDriver#name
-        """
-        return self._values.get('name')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AllowedCSIDriver(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.AllowedFlexVolume", jsii_struct_bases=[], name_mapping={'driver': 'driver'})
-class AllowedFlexVolume():
-    def __init__(self, *, driver: str):
-        """AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
-
-        :param driver: driver is the name of the Flexvolume driver.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedFlexVolume
-        """
-        self._values = {
-            'driver': driver,
-        }
-
-    @builtins.property
-    def driver(self) -> str:
-        """driver is the name of the Flexvolume driver.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedFlexVolume#driver
-        """
-        return self._values.get('driver')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AllowedFlexVolume(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.AllowedHostPath", jsii_struct_bases=[], name_mapping={'path_prefix': 'pathPrefix', 'read_only': 'readOnly'})
-class AllowedHostPath():
-    def __init__(self, *, path_prefix: typing.Optional[str]=None, read_only: typing.Optional[bool]=None):
-        """AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use.
-
-        It requires the path prefix to be defined.
-
-        :param path_prefix: pathPrefix is the path prefix that the host volume must match. It does not support ``*``. Trailing slashes are trimmed when validating the path prefix with a host path. Examples: ``/foo`` would allow ``/foo``, ``/foo/`` and ``/foo/bar`` ``/foo`` would not allow ``/food`` or ``/etc/foo``
-        :param read_only: when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath
-        """
-        self._values = {
-        }
-        if path_prefix is not None: self._values["path_prefix"] = path_prefix
-        if read_only is not None: self._values["read_only"] = read_only
-
-    @builtins.property
-    def path_prefix(self) -> typing.Optional[str]:
-        """pathPrefix is the path prefix that the host volume must match.
-
-        It does not support ``*``. Trailing slashes are trimmed when validating the path prefix with a host path.
-
-        Examples: ``/foo`` would allow ``/foo``, ``/foo/`` and ``/foo/bar`` ``/foo`` would not allow ``/food`` or ``/etc/foo``
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath#pathPrefix
-        """
-        return self._values.get('path_prefix')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.AllowedHostPath#readOnly
-        """
-        return self._values.get('read_only')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AllowedHostPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-class AuditSink(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.AuditSink"):
-    """AuditSink represents a cluster level audit sink.
-
-    schema:
-    :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSink
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["AuditSinkSpec"]=None) -> None:
-        """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSink" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param metadata: 
-        :param spec: Spec defines the audit configuration spec.
-        """
-        options = AuditSinkOptions(metadata=metadata, spec=spec)
-
-        jsii.create(AuditSink, self, [scope, name, options])
-
-
-class AuditSinkList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.AuditSinkList"):
-    """AuditSinkList is a list of AuditSink items.
-
-    schema:
-    :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkList
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["AuditSink"], metadata: typing.Optional["ListMeta"]=None) -> None:
-        """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: List of audit configurations.
-        :param metadata: 
-        """
-        options = AuditSinkListOptions(items=items, metadata=metadata)
-
-        jsii.create(AuditSinkList, self, [scope, name, options])
-
-
-@jsii.data_type(jsii_type="k8s.AuditSinkListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
-class AuditSinkListOptions():
-    def __init__(self, *, items: typing.List["AuditSink"], metadata: typing.Optional["ListMeta"]=None):
-        """AuditSinkList is a list of AuditSink items.
-
-        :param items: List of audit configurations.
-        :param metadata: 
-
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkList
-        """
-        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
-        self._values = {
-            'items': items,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List["AuditSink"]:
-        """List of audit configurations.
-
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#items
-        """
-        return self._values.get('items')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AuditSinkListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.AuditSinkOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
-class AuditSinkOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["AuditSinkSpec"]=None):
-        """AuditSink represents a cluster level audit sink.
-
-        :param metadata: 
-        :param spec: Spec defines the audit configuration spec.
-
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSink
-        """
-        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict): spec = AuditSinkSpec(**spec)
-        self._values = {
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-        if spec is not None: self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSink#metadata
-        """
-        return self._values.get('metadata')
-
-    @builtins.property
-    def spec(self) -> typing.Optional["AuditSinkSpec"]:
-        """Spec defines the audit configuration spec.
-
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSink#spec
-        """
-        return self._values.get('spec')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AuditSinkOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.AuditSinkSpec", jsii_struct_bases=[], name_mapping={'policy': 'policy', 'webhook': 'webhook'})
-class AuditSinkSpec():
-    def __init__(self, *, policy: "Policy", webhook: "Webhook"):
-        """AuditSinkSpec holds the spec for the audit sink.
-
-        :param policy: Policy defines the policy for selecting which events should be sent to the webhook required.
-        :param webhook: Webhook to send events required.
-
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkSpec
-        """
-        if isinstance(policy, dict): policy = Policy(**policy)
-        if isinstance(webhook, dict): webhook = Webhook(**webhook)
-        self._values = {
-            'policy': policy,
-            'webhook': webhook,
-        }
-
-    @builtins.property
-    def policy(self) -> "Policy":
-        """Policy defines the policy for selecting which events should be sent to the webhook required.
-
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkSpec#policy
-        """
-        return self._values.get('policy')
-
-    @builtins.property
-    def webhook(self) -> "Webhook":
-        """Webhook to send events required.
-
-        schema:
-        :schema:: io.k8s.api.auditregistration.v1alpha1.AuditSinkSpec#webhook
-        """
-        return self._values.get('webhook')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'AuditSinkSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.AzureDiskVolumeSource", jsii_struct_bases=[], name_mapping={'disk_name': 'diskName', 'disk_uri': 'diskURI', 'caching_mode': 'cachingMode', 'fs_type': 'fsType', 'kind': 'kind', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.AzureDiskVolumeSource", jsii_struct_bases=[], name_mapping={'disk_name': 'diskName', 'disk_uri': 'diskURI', 'caching_mode': 'cachingMode', 'fs_type': 'fsType', 'kind': 'kind', 'read_only': 'readOnly'})
 class AzureDiskVolumeSource():
-    def __init__(self, *, disk_name: str, disk_uri: str, caching_mode: typing.Optional[str]=None, fs_type: typing.Optional[str]=None, kind: typing.Optional[str]=None, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, disk_name: str, disk_uri: str, caching_mode: typing.Optional[str]=None, fs_type: typing.Optional[str]=None, kind: typing.Optional[str]=None, read_only: typing.Optional[bool]=None) -> None:
         """AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
 
         :param disk_name: The Name of the data disk in the blob storage.
@@ -813,9 +813,9 @@ class AzureDiskVolumeSource():
         return 'AzureDiskVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.AzureFilePersistentVolumeSource", jsii_struct_bases=[], name_mapping={'secret_name': 'secretName', 'share_name': 'shareName', 'read_only': 'readOnly', 'secret_namespace': 'secretNamespace'})
+@jsii.data_type(jsii_type="generated.AzureFilePersistentVolumeSource", jsii_struct_bases=[], name_mapping={'secret_name': 'secretName', 'share_name': 'shareName', 'read_only': 'readOnly', 'secret_namespace': 'secretNamespace'})
 class AzureFilePersistentVolumeSource():
-    def __init__(self, *, secret_name: str, share_name: str, read_only: typing.Optional[bool]=None, secret_namespace: typing.Optional[str]=None):
+    def __init__(self, *, secret_name: str, share_name: str, read_only: typing.Optional[bool]=None, secret_namespace: typing.Optional[str]=None) -> None:
         """AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
 
         :param secret_name: the name of secret that contains Azure Storage Account Name and Key.
@@ -884,9 +884,9 @@ class AzureFilePersistentVolumeSource():
         return 'AzureFilePersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.AzureFileVolumeSource", jsii_struct_bases=[], name_mapping={'secret_name': 'secretName', 'share_name': 'shareName', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.AzureFileVolumeSource", jsii_struct_bases=[], name_mapping={'secret_name': 'secretName', 'share_name': 'shareName', 'read_only': 'readOnly'})
 class AzureFileVolumeSource():
-    def __init__(self, *, secret_name: str, share_name: str, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, secret_name: str, share_name: str, read_only: typing.Optional[bool]=None) -> None:
         """AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
 
         :param secret_name: the name of secret that contains Azure Storage Account Name and Key.
@@ -944,7 +944,7 @@ class AzureFileVolumeSource():
         return 'AzureFileVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Binding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Binding"):
+class Binding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Binding"):
     """Binding ties one object to another;
 
     for example, a pod is bound to a node by a scheduler. Deprecated in 1.7, please use the bindings subresource of pods instead.
@@ -965,9 +965,9 @@ class Binding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Binding")
         jsii.create(Binding, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.BindingOptions", jsii_struct_bases=[], name_mapping={'target': 'target', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.BindingOptions", jsii_struct_bases=[], name_mapping={'target': 'target', 'metadata': 'metadata'})
 class BindingOptions():
-    def __init__(self, *, target: "ObjectReference", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, target: "ObjectReference", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """Binding ties one object to another;
 
         for example, a pod is bound to a node by a scheduler. Deprecated in 1.7, please use the bindings subresource of pods instead.
@@ -1015,9 +1015,9 @@ class BindingOptions():
         return 'BindingOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.BoundObjectReference", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'kind': 'kind', 'name': 'name', 'uid': 'uid'})
+@jsii.data_type(jsii_type="generated.BoundObjectReference", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'kind': 'kind', 'name': 'name', 'uid': 'uid'})
 class BoundObjectReference():
-    def __init__(self, *, api_version: typing.Optional[str]=None, kind: typing.Optional[str]=None, name: typing.Optional[str]=None, uid: typing.Optional[str]=None):
+    def __init__(self, *, api_version: typing.Optional[str]=None, kind: typing.Optional[str]=None, name: typing.Optional[str]=None, uid: typing.Optional[str]=None) -> None:
         """BoundObjectReference is a reference to an object that a token is bound to.
 
         :param api_version: API version of the referent.
@@ -1083,686 +1083,9 @@ class BoundObjectReference():
         return 'BoundObjectReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class CSIDriver(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CSIDriver"):
-    """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
-
-    CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
-
-    schema:
-    :schema:: io.k8s.api.storage.v1beta1.CSIDriver
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, spec: "CSIDriverSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
-        """Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param spec: Specification of the CSI Driver.
-        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        """
-        options = CSIDriverOptions(spec=spec, metadata=metadata)
-
-        jsii.create(CSIDriver, self, [scope, name, options])
-
-
-class CSIDriverList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CSIDriverList"):
-    """CSIDriverList is a collection of CSIDriver objects.
-
-    schema:
-    :schema:: io.k8s.api.storage.v1beta1.CSIDriverList
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["CSIDriver"], metadata: typing.Optional["ListMeta"]=None) -> None:
-        """Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: items is the list of CSIDriver.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        """
-        options = CSIDriverListOptions(items=items, metadata=metadata)
-
-        jsii.create(CSIDriverList, self, [scope, name, options])
-
-
-@jsii.data_type(jsii_type="k8s.CSIDriverListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
-class CSIDriverListOptions():
-    def __init__(self, *, items: typing.List["CSIDriver"], metadata: typing.Optional["ListMeta"]=None):
-        """CSIDriverList is a collection of CSIDriver objects.
-
-        :param items: items is the list of CSIDriver.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList
-        """
-        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
-        self._values = {
-            'items': items,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List["CSIDriver"]:
-        """items is the list of CSIDriver.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList#items
-        """
-        return self._values.get('items')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIDriverListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.CSIDriverOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
-class CSIDriverOptions():
-    def __init__(self, *, spec: "CSIDriverSpec", metadata: typing.Optional["ObjectMeta"]=None):
-        """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
-
-        CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
-
-        :param spec: Specification of the CSI Driver.
-        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriver
-        """
-        if isinstance(spec, dict): spec = CSIDriverSpec(**spec)
-        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        self._values = {
-            'spec': spec,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def spec(self) -> "CSIDriverSpec":
-        """Specification of the CSI Driver.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriver#spec
-        """
-        return self._values.get('spec')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object metadata.
-
-        metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriver#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIDriverOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.CSIDriverSpec", jsii_struct_bases=[], name_mapping={'attach_required': 'attachRequired', 'pod_info_on_mount': 'podInfoOnMount', 'volume_lifecycle_modes': 'volumeLifecycleModes'})
-class CSIDriverSpec():
-    def __init__(self, *, attach_required: typing.Optional[bool]=None, pod_info_on_mount: typing.Optional[bool]=None, volume_lifecycle_modes: typing.Optional[typing.List[str]]=None):
-        """CSIDriverSpec is the specification of a CSIDriver.
-
-        :param attach_required: attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting. The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
-        :param pod_info_on_mount: If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume defined by a CSIVolumeSource, otherwise "false". "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver. Default: false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
-        :param volume_lifecycle_modes: VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports. The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec
-        """
-        self._values = {
-        }
-        if attach_required is not None: self._values["attach_required"] = attach_required
-        if pod_info_on_mount is not None: self._values["pod_info_on_mount"] = pod_info_on_mount
-        if volume_lifecycle_modes is not None: self._values["volume_lifecycle_modes"] = volume_lifecycle_modes
-
-    @builtins.property
-    def attach_required(self) -> typing.Optional[bool]:
-        """attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting.
-
-        The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#attachRequired
-        """
-        return self._values.get('attach_required')
-
-    @builtins.property
-    def pod_info_on_mount(self) -> typing.Optional[bool]:
-        """If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume                             defined by a CSIVolumeSource, otherwise "false".
-
-        "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.
-
-        default
-        :default: false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#podInfoOnMount
-        """
-        return self._values.get('pod_info_on_mount')
-
-    @builtins.property
-    def volume_lifecycle_modes(self) -> typing.Optional[typing.List[str]]:
-        """VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
-
-        The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#volumeLifecycleModes
-        """
-        return self._values.get('volume_lifecycle_modes')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIDriverSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-class CSINode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CSINode"):
-    """CSINode holds information about all CSI drivers installed on a node.
-
-    CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
-
-    schema:
-    :schema:: io.k8s.api.storage.v1.CSINode
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, spec: "CSINodeSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
-        """Defines a "io.k8s.api.storage.v1.CSINode" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param spec: spec is the specification of CSINode.
-        :param metadata: metadata.name must be the Kubernetes node name.
-        """
-        options = CSINodeOptions(spec=spec, metadata=metadata)
-
-        jsii.create(CSINode, self, [scope, name, options])
-
-
-@jsii.data_type(jsii_type="k8s.CSINodeDriver", jsii_struct_bases=[], name_mapping={'name': 'name', 'node_id': 'nodeID', 'allocatable': 'allocatable', 'topology_keys': 'topologyKeys'})
-class CSINodeDriver():
-    def __init__(self, *, name: str, node_id: str, allocatable: typing.Optional["VolumeNodeResources"]=None, topology_keys: typing.Optional[typing.List[str]]=None):
-        """CSINodeDriver holds information about the specification of one CSI driver installed on a node.
-
-        :param name: This is the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.
-        :param node_id: nodeID of the node from the driver point of view. This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
-        :param allocatable: allocatable represents the volume resources of a node that are available for scheduling. This field is beta.
-        :param topology_keys: topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver
-        """
-        if isinstance(allocatable, dict): allocatable = VolumeNodeResources(**allocatable)
-        self._values = {
-            'name': name,
-            'node_id': node_id,
-        }
-        if allocatable is not None: self._values["allocatable"] = allocatable
-        if topology_keys is not None: self._values["topology_keys"] = topology_keys
-
-    @builtins.property
-    def name(self) -> str:
-        """This is the name of the CSI driver that this object refers to.
-
-        This MUST be the same name returned by the CSI GetPluginName() call for that driver.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver#name
-        """
-        return self._values.get('name')
-
-    @builtins.property
-    def node_id(self) -> str:
-        """nodeID of the node from the driver point of view.
-
-        This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver#nodeID
-        """
-        return self._values.get('node_id')
-
-    @builtins.property
-    def allocatable(self) -> typing.Optional["VolumeNodeResources"]:
-        """allocatable represents the volume resources of a node that are available for scheduling.
-
-        This field is beta.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver#allocatable
-        """
-        return self._values.get('allocatable')
-
-    @builtins.property
-    def topology_keys(self) -> typing.Optional[typing.List[str]]:
-        """topologyKeys is the list of keys supported by the driver.
-
-        When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeDriver#topologyKeys
-        """
-        return self._values.get('topology_keys')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSINodeDriver(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-class CSINodeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CSINodeList"):
-    """CSINodeList is a collection of CSINode objects.
-
-    schema:
-    :schema:: io.k8s.api.storage.v1.CSINodeList
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["CSINode"], metadata: typing.Optional["ListMeta"]=None) -> None:
-        """Defines a "io.k8s.api.storage.v1.CSINodeList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: items is the list of CSINode.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        """
-        options = CSINodeListOptions(items=items, metadata=metadata)
-
-        jsii.create(CSINodeList, self, [scope, name, options])
-
-
-@jsii.data_type(jsii_type="k8s.CSINodeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
-class CSINodeListOptions():
-    def __init__(self, *, items: typing.List["CSINode"], metadata: typing.Optional["ListMeta"]=None):
-        """CSINodeList is a collection of CSINode objects.
-
-        :param items: items is the list of CSINode.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeList
-        """
-        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
-        self._values = {
-            'items': items,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List["CSINode"]:
-        """items is the list of CSINode.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeList#items
-        """
-        return self._values.get('items')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeList#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSINodeListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.CSINodeOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
-class CSINodeOptions():
-    def __init__(self, *, spec: "CSINodeSpec", metadata: typing.Optional["ObjectMeta"]=None):
-        """CSINode holds information about all CSI drivers installed on a node.
-
-        CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
-
-        :param spec: spec is the specification of CSINode.
-        :param metadata: metadata.name must be the Kubernetes node name.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINode
-        """
-        if isinstance(spec, dict): spec = CSINodeSpec(**spec)
-        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        self._values = {
-            'spec': spec,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def spec(self) -> "CSINodeSpec":
-        """spec is the specification of CSINode.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINode#spec
-        """
-        return self._values.get('spec')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """metadata.name must be the Kubernetes node name.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINode#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSINodeOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.CSINodeSpec", jsii_struct_bases=[], name_mapping={'drivers': 'drivers'})
-class CSINodeSpec():
-    def __init__(self, *, drivers: typing.List["CSINodeDriver"]):
-        """CSINodeSpec holds information about the specification of all CSI drivers installed on a node.
-
-        :param drivers: drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeSpec
-        """
-        self._values = {
-            'drivers': drivers,
-        }
-
-    @builtins.property
-    def drivers(self) -> typing.List["CSINodeDriver"]:
-        """drivers is a list of information of all CSI Drivers existing on a node.
-
-        If all drivers in the list are uninstalled, this can become empty.
-
-        schema:
-        :schema:: io.k8s.api.storage.v1.CSINodeSpec#drivers
-        """
-        return self._values.get('drivers')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSINodeSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.CSIPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'volume_handle': 'volumeHandle', 'controller_expand_secret_ref': 'controllerExpandSecretRef', 'controller_publish_secret_ref': 'controllerPublishSecretRef', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'node_stage_secret_ref': 'nodeStageSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
-class CSIPersistentVolumeSource():
-    def __init__(self, *, driver: str, volume_handle: str, controller_expand_secret_ref: typing.Optional["SecretReference"]=None, controller_publish_secret_ref: typing.Optional["SecretReference"]=None, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["SecretReference"]=None, node_stage_secret_ref: typing.Optional["SecretReference"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str,str]]=None):
-        """Represents storage that is managed by an external CSI volume driver (Beta feature).
-
-        :param driver: Driver is the name of the driver to use for this volume. Required.
-        :param volume_handle: VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
-        :param controller_expand_secret_ref: ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-        :param controller_publish_secret_ref: ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-        :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
-        :param node_publish_secret_ref: NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-        :param node_stage_secret_ref: NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-        :param read_only: Optional: The value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write). Default: false (read/write).
-        :param volume_attributes: Attributes of the volume to publish.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource
-        """
-        if isinstance(controller_expand_secret_ref, dict): controller_expand_secret_ref = SecretReference(**controller_expand_secret_ref)
-        if isinstance(controller_publish_secret_ref, dict): controller_publish_secret_ref = SecretReference(**controller_publish_secret_ref)
-        if isinstance(node_publish_secret_ref, dict): node_publish_secret_ref = SecretReference(**node_publish_secret_ref)
-        if isinstance(node_stage_secret_ref, dict): node_stage_secret_ref = SecretReference(**node_stage_secret_ref)
-        self._values = {
-            'driver': driver,
-            'volume_handle': volume_handle,
-        }
-        if controller_expand_secret_ref is not None: self._values["controller_expand_secret_ref"] = controller_expand_secret_ref
-        if controller_publish_secret_ref is not None: self._values["controller_publish_secret_ref"] = controller_publish_secret_ref
-        if fs_type is not None: self._values["fs_type"] = fs_type
-        if node_publish_secret_ref is not None: self._values["node_publish_secret_ref"] = node_publish_secret_ref
-        if node_stage_secret_ref is not None: self._values["node_stage_secret_ref"] = node_stage_secret_ref
-        if read_only is not None: self._values["read_only"] = read_only
-        if volume_attributes is not None: self._values["volume_attributes"] = volume_attributes
-
-    @builtins.property
-    def driver(self) -> str:
-        """Driver is the name of the driver to use for this volume.
-
-        Required.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#driver
-        """
-        return self._values.get('driver')
-
-    @builtins.property
-    def volume_handle(self) -> str:
-        """VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls.
-
-        Required.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeHandle
-        """
-        return self._values.get('volume_handle')
-
-    @builtins.property
-    def controller_expand_secret_ref(self) -> typing.Optional["SecretReference"]:
-        """ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call.
-
-        This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerExpandSecretRef
-        """
-        return self._values.get('controller_expand_secret_ref')
-
-    @builtins.property
-    def controller_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
-        """ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls.
-
-        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerPublishSecretRef
-        """
-        return self._values.get('controller_publish_secret_ref')
-
-    @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
-        """Filesystem type to mount.
-
-        Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#fsType
-        """
-        return self._values.get('fs_type')
-
-    @builtins.property
-    def node_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
-        """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
-
-        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodePublishSecretRef
-        """
-        return self._values.get('node_publish_secret_ref')
-
-    @builtins.property
-    def node_stage_secret_ref(self) -> typing.Optional["SecretReference"]:
-        """NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls.
-
-        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodeStageSecretRef
-        """
-        return self._values.get('node_stage_secret_ref')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """Optional: The value to pass to ControllerPublishVolumeRequest.
-
-        Defaults to false (read/write).
-
-        default
-        :default: false (read/write).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#readOnly
-        """
-        return self._values.get('read_only')
-
-    @builtins.property
-    def volume_attributes(self) -> typing.Optional[typing.Mapping[str,str]]:
-        """Attributes of the volume to publish.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeAttributes
-        """
-        return self._values.get('volume_attributes')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.CSIVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
-class CSIVolumeSource():
-    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["LocalObjectReference"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str,str]]=None):
-        """Represents a source location of a volume to mount, managed by an external CSI driver.
-
-        :param driver: Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
-        :param fs_type: Filesystem type to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
-        :param node_publish_secret_ref: NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
-        :param read_only: Specifies a read-only configuration for the volume. Defaults to false (read/write). Default: false (read/write).
-        :param volume_attributes: VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource
-        """
-        if isinstance(node_publish_secret_ref, dict): node_publish_secret_ref = LocalObjectReference(**node_publish_secret_ref)
-        self._values = {
-            'driver': driver,
-        }
-        if fs_type is not None: self._values["fs_type"] = fs_type
-        if node_publish_secret_ref is not None: self._values["node_publish_secret_ref"] = node_publish_secret_ref
-        if read_only is not None: self._values["read_only"] = read_only
-        if volume_attributes is not None: self._values["volume_attributes"] = volume_attributes
-
-    @builtins.property
-    def driver(self) -> str:
-        """Driver is the name of the CSI driver that handles this volume.
-
-        Consult with your admin for the correct name as registered in the cluster.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#driver
-        """
-        return self._values.get('driver')
-
-    @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
-        """Filesystem type to mount.
-
-        Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#fsType
-        """
-        return self._values.get('fs_type')
-
-    @builtins.property
-    def node_publish_secret_ref(self) -> typing.Optional["LocalObjectReference"]:
-        """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
-
-        This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#nodePublishSecretRef
-        """
-        return self._values.get('node_publish_secret_ref')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """Specifies a read-only configuration for the volume.
-
-        Defaults to false (read/write).
-
-        default
-        :default: false (read/write).
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#readOnly
-        """
-        return self._values.get('read_only')
-
-    @builtins.property
-    def volume_attributes(self) -> typing.Optional[typing.Mapping[str,str]]:
-        """VolumeAttributes stores driver-specific properties that are passed to the CSI driver.
-
-        Consult your driver's documentation for supported values.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.CSIVolumeSource#volumeAttributes
-        """
-        return self._values.get('volume_attributes')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'CSIVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.Capabilities", jsii_struct_bases=[], name_mapping={'add': 'add', 'drop': 'drop'})
+@jsii.data_type(jsii_type="generated.Capabilities", jsii_struct_bases=[], name_mapping={'add': 'add', 'drop': 'drop'})
 class Capabilities():
-    def __init__(self, *, add: typing.Optional[typing.List[str]]=None, drop: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, add: typing.Optional[typing.List[str]]=None, drop: typing.Optional[typing.List[str]]=None) -> None:
         """Adds and removes POSIX capabilities from running containers.
 
         :param add: Added capabilities.
@@ -1804,9 +1127,9 @@ class Capabilities():
         return 'Capabilities(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CephFSPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
-class CephFSPersistentVolumeSource():
-    def __init__(self, *, monitors: typing.List[str], path: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_file: typing.Optional[str]=None, secret_ref: typing.Optional["SecretReference"]=None, user: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.CephFsPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
+class CephFsPersistentVolumeSource():
+    def __init__(self, *, monitors: typing.List[str], path: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_file: typing.Optional[str]=None, secret_ref: typing.Optional["SecretReference"]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.
 
         :param monitors: Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
@@ -1897,12 +1220,12 @@ class CephFSPersistentVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'CephFSPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'CephFsPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CephFSVolumeSource", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
-class CephFSVolumeSource():
-    def __init__(self, *, monitors: typing.List[str], path: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_file: typing.Optional[str]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, user: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.CephFsVolumeSource", jsii_struct_bases=[], name_mapping={'monitors': 'monitors', 'path': 'path', 'read_only': 'readOnly', 'secret_file': 'secretFile', 'secret_ref': 'secretRef', 'user': 'user'})
+class CephFsVolumeSource():
+    def __init__(self, *, monitors: typing.List[str], path: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_file: typing.Optional[str]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.
 
         :param monitors: Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
@@ -1993,10 +1316,10 @@ class CephFSVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'CephFSVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'CephFsVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class CertificateSigningRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CertificateSigningRequest"):
+class CertificateSigningRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CertificateSigningRequest"):
     """Describes a certificate signing request.
 
     schema:
@@ -2015,7 +1338,7 @@ class CertificateSigningRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_t
         jsii.create(CertificateSigningRequest, self, [scope, name, options])
 
 
-class CertificateSigningRequestList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CertificateSigningRequestList"):
+class CertificateSigningRequestList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CertificateSigningRequestList"):
     """
     schema:
     :schema:: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList
@@ -2033,9 +1356,9 @@ class CertificateSigningRequestList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, js
         jsii.create(CertificateSigningRequestList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.CertificateSigningRequestListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.CertificateSigningRequestListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class CertificateSigningRequestListOptions():
-    def __init__(self, *, items: typing.List["CertificateSigningRequest"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["CertificateSigningRequest"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """
         :param items: 
         :param metadata: 
@@ -2075,9 +1398,9 @@ class CertificateSigningRequestListOptions():
         return 'CertificateSigningRequestListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CertificateSigningRequestOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.CertificateSigningRequestOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class CertificateSigningRequestOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["CertificateSigningRequestSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["CertificateSigningRequestSpec"]=None) -> None:
         """Describes a certificate signing request.
 
         :param metadata: 
@@ -2120,9 +1443,9 @@ class CertificateSigningRequestOptions():
         return 'CertificateSigningRequestOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CertificateSigningRequestSpec", jsii_struct_bases=[], name_mapping={'request': 'request', 'extra': 'extra', 'groups': 'groups', 'uid': 'uid', 'usages': 'usages', 'username': 'username'})
+@jsii.data_type(jsii_type="generated.CertificateSigningRequestSpec", jsii_struct_bases=[], name_mapping={'request': 'request', 'extra': 'extra', 'groups': 'groups', 'uid': 'uid', 'usages': 'usages', 'username': 'username'})
 class CertificateSigningRequestSpec():
-    def __init__(self, *, request: str, extra: typing.Optional[typing.Mapping[str,typing.List[str]]]=None, groups: typing.Optional[typing.List[str]]=None, uid: typing.Optional[str]=None, usages: typing.Optional[typing.List[str]]=None, username: typing.Optional[str]=None):
+    def __init__(self, *, request: str, extra: typing.Optional[typing.Mapping[str, typing.List[str]]]=None, groups: typing.Optional[typing.List[str]]=None, uid: typing.Optional[str]=None, usages: typing.Optional[typing.List[str]]=None, username: typing.Optional[str]=None) -> None:
         """This information is immutable after the request is created.
 
         Only the Request and Usages fields can be set on creation, other fields are derived by Kubernetes and cannot be modified by users.
@@ -2156,7 +1479,7 @@ class CertificateSigningRequestSpec():
         return self._values.get('request')
 
     @builtins.property
-    def extra(self) -> typing.Optional[typing.Mapping[str,typing.List[str]]]:
+    def extra(self) -> typing.Optional[typing.Mapping[str, typing.List[str]]]:
         """Extra information about the requesting user.
 
         See user.Info interface for details.
@@ -2221,9 +1544,9 @@ class CertificateSigningRequestSpec():
         return 'CertificateSigningRequestSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CinderPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.CinderPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class CinderPersistentVolumeSource():
-    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None):
+    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None) -> None:
         """Represents a cinder volume resource in Openstack.
 
         A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.
@@ -2299,9 +1622,9 @@ class CinderPersistentVolumeSource():
         return 'CinderPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CinderVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.CinderVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class CinderVolumeSource():
-    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None):
+    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None) -> None:
         """Represents a cinder volume resource in Openstack.
 
         A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.
@@ -2377,9 +1700,9 @@ class CinderVolumeSource():
         return 'CinderVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ClientIPConfig", jsii_struct_bases=[], name_mapping={'timeout_seconds': 'timeoutSeconds'})
-class ClientIPConfig():
-    def __init__(self, *, timeout_seconds: typing.Optional[jsii.Number]=None):
+@jsii.data_type(jsii_type="generated.ClientIpConfig", jsii_struct_bases=[], name_mapping={'timeout_seconds': 'timeoutSeconds'})
+class ClientIpConfig():
+    def __init__(self, *, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """ClientIPConfig represents the configurations of Client IP based session affinity.
 
         :param timeout_seconds: timeoutSeconds specifies the seconds of ClientIP type session sticky time. The value must be >0 && <=86400(for 1 day) if ServiceAffinity == "ClientIP". Default value is 10800(for 3 hours).
@@ -2409,10 +1732,10 @@ class ClientIPConfig():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClientIPConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ClientIpConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ClusterRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ClusterRole"):
+class ClusterRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterRole"):
     """ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
 
     schema:
@@ -2432,7 +1755,7 @@ class ClusterRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Clust
         jsii.create(ClusterRole, self, [scope, name, options])
 
 
-class ClusterRoleBinding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ClusterRoleBinding"):
+class ClusterRoleBinding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterRoleBinding"):
     """ClusterRoleBinding references a ClusterRole, but not contain it.
 
     It can reference a ClusterRole in the global namespace, and adds who information via Subject.
@@ -2454,7 +1777,7 @@ class ClusterRoleBinding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8
         jsii.create(ClusterRoleBinding, self, [scope, name, options])
 
 
-class ClusterRoleBindingList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ClusterRoleBindingList"):
+class ClusterRoleBindingList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterRoleBindingList"):
     """ClusterRoleBindingList is a collection of ClusterRoleBindings.
 
     schema:
@@ -2473,9 +1796,9 @@ class ClusterRoleBindingList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type
         jsii.create(ClusterRoleBindingList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ClusterRoleBindingListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ClusterRoleBindingListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ClusterRoleBindingListOptions():
-    def __init__(self, *, items: typing.List["ClusterRoleBinding"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ClusterRoleBinding"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ClusterRoleBindingList is a collection of ClusterRoleBindings.
 
         :param items: Items is a list of ClusterRoleBindings.
@@ -2518,9 +1841,9 @@ class ClusterRoleBindingListOptions():
         return 'ClusterRoleBindingListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ClusterRoleBindingOptions", jsii_struct_bases=[], name_mapping={'role_ref': 'roleRef', 'metadata': 'metadata', 'subjects': 'subjects'})
+@jsii.data_type(jsii_type="generated.ClusterRoleBindingOptions", jsii_struct_bases=[], name_mapping={'role_ref': 'roleRef', 'metadata': 'metadata', 'subjects': 'subjects'})
 class ClusterRoleBindingOptions():
-    def __init__(self, *, role_ref: "RoleRef", metadata: typing.Optional["ObjectMeta"]=None, subjects: typing.Optional[typing.List["Subject"]]=None):
+    def __init__(self, *, role_ref: "RoleRef", metadata: typing.Optional["ObjectMeta"]=None, subjects: typing.Optional[typing.List["Subject"]]=None) -> None:
         """ClusterRoleBinding references a ClusterRole, but not contain it.
 
         It can reference a ClusterRole in the global namespace, and adds who information via Subject.
@@ -2579,7 +1902,7 @@ class ClusterRoleBindingOptions():
         return 'ClusterRoleBindingOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ClusterRoleList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ClusterRoleList"):
+class ClusterRoleList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterRoleList"):
     """ClusterRoleList is a collection of ClusterRoles.
 
     schema:
@@ -2598,9 +1921,9 @@ class ClusterRoleList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.C
         jsii.create(ClusterRoleList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ClusterRoleListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ClusterRoleListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ClusterRoleListOptions():
-    def __init__(self, *, items: typing.List["ClusterRole"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ClusterRole"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ClusterRoleList is a collection of ClusterRoles.
 
         :param items: Items is a list of ClusterRoles.
@@ -2643,9 +1966,9 @@ class ClusterRoleListOptions():
         return 'ClusterRoleListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ClusterRoleOptions", jsii_struct_bases=[], name_mapping={'aggregation_rule': 'aggregationRule', 'metadata': 'metadata', 'rules': 'rules'})
+@jsii.data_type(jsii_type="generated.ClusterRoleOptions", jsii_struct_bases=[], name_mapping={'aggregation_rule': 'aggregationRule', 'metadata': 'metadata', 'rules': 'rules'})
 class ClusterRoleOptions():
-    def __init__(self, *, aggregation_rule: typing.Optional["AggregationRule"]=None, metadata: typing.Optional["ObjectMeta"]=None, rules: typing.Optional[typing.List["PolicyRule"]]=None):
+    def __init__(self, *, aggregation_rule: typing.Optional["AggregationRule"]=None, metadata: typing.Optional["ObjectMeta"]=None, rules: typing.Optional[typing.List["PolicyRule"]]=None) -> None:
         """ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
 
         :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
@@ -2702,9 +2025,9 @@ class ClusterRoleOptions():
         return 'ClusterRoleOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ComponentCondition", jsii_struct_bases=[], name_mapping={'status': 'status', 'type': 'type', 'error': 'error', 'message': 'message'})
+@jsii.data_type(jsii_type="generated.ComponentCondition", jsii_struct_bases=[], name_mapping={'status': 'status', 'type': 'type', 'error': 'error', 'message': 'message'})
 class ComponentCondition():
-    def __init__(self, *, status: str, type: str, error: typing.Optional[str]=None, message: typing.Optional[str]=None):
+    def __init__(self, *, status: str, type: str, error: typing.Optional[str]=None, message: typing.Optional[str]=None) -> None:
         """Information about the condition of a component.
 
         :param status: Status of the condition for a component. Valid values for "Healthy": "True", "False", or "Unknown".
@@ -2776,7 +2099,7 @@ class ComponentCondition():
         return 'ComponentCondition(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ComponentStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ComponentStatus"):
+class ComponentStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ComponentStatus"):
     """ComponentStatus (and ComponentStatusList) holds the cluster validation info.
 
     schema:
@@ -2795,7 +2118,7 @@ class ComponentStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.C
         jsii.create(ComponentStatus, self, [scope, name, options])
 
 
-class ComponentStatusList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ComponentStatusList"):
+class ComponentStatusList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ComponentStatusList"):
     """Status of all the conditions for the component as a list of ComponentStatus objects.
 
     schema:
@@ -2814,9 +2137,9 @@ class ComponentStatusList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k
         jsii.create(ComponentStatusList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ComponentStatusListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ComponentStatusListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ComponentStatusListOptions():
-    def __init__(self, *, items: typing.List["ComponentStatus"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ComponentStatus"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """Status of all the conditions for the component as a list of ComponentStatus objects.
 
         :param items: List of ComponentStatus objects.
@@ -2861,9 +2184,9 @@ class ComponentStatusListOptions():
         return 'ComponentStatusListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ComponentStatusOptions", jsii_struct_bases=[], name_mapping={'conditions': 'conditions', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ComponentStatusOptions", jsii_struct_bases=[], name_mapping={'conditions': 'conditions', 'metadata': 'metadata'})
 class ComponentStatusOptions():
-    def __init__(self, *, conditions: typing.Optional[typing.List["ComponentCondition"]]=None, metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, conditions: typing.Optional[typing.List["ComponentCondition"]]=None, metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """ComponentStatus (and ComponentStatusList) holds the cluster validation info.
 
         :param conditions: List of component conditions observed.
@@ -2908,13 +2231,13 @@ class ComponentStatusOptions():
         return 'ComponentStatusOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ConfigMap(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ConfigMap"):
+class ConfigMap(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ConfigMap"):
     """ConfigMap holds configuration data for pods to consume.
 
     schema:
     :schema:: io.k8s.api.core.v1.ConfigMap
     """
-    def __init__(self, scope: constructs.Construct, name: str, *, binary_data: typing.Optional[typing.Mapping[str,str]]=None, data: typing.Optional[typing.Mapping[str,str]]=None, metadata: typing.Optional["ObjectMeta"]=None) -> None:
+    def __init__(self, scope: constructs.Construct, name: str, *, binary_data: typing.Optional[typing.Mapping[str, str]]=None, data: typing.Optional[typing.Mapping[str, str]]=None, metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """Defines a "io.k8s.api.core.v1.ConfigMap" API object.
 
         :param scope: the scope in which to define this object.
@@ -2928,9 +2251,9 @@ class ConfigMap(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ConfigM
         jsii.create(ConfigMap, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ConfigMapEnvSource", jsii_struct_bases=[], name_mapping={'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.ConfigMapEnvSource", jsii_struct_bases=[], name_mapping={'name': 'name', 'optional': 'optional'})
 class ConfigMapEnvSource():
-    def __init__(self, *, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.
 
         The contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.
@@ -2976,9 +2299,9 @@ class ConfigMapEnvSource():
         return 'ConfigMapEnvSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ConfigMapKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.ConfigMapKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
 class ConfigMapKeySelector():
-    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """Selects a key from a ConfigMap.
 
         :param key: The key to select.
@@ -3033,7 +2356,7 @@ class ConfigMapKeySelector():
         return 'ConfigMapKeySelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ConfigMapList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ConfigMapList"):
+class ConfigMapList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ConfigMapList"):
     """ConfigMapList is a resource containing a list of ConfigMap objects.
 
     schema:
@@ -3052,9 +2375,9 @@ class ConfigMapList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Con
         jsii.create(ConfigMapList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ConfigMapListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ConfigMapListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ConfigMapListOptions():
-    def __init__(self, *, items: typing.List["ConfigMap"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ConfigMap"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ConfigMapList is a resource containing a list of ConfigMap objects.
 
         :param items: Items is the list of ConfigMaps.
@@ -3097,9 +2420,9 @@ class ConfigMapListOptions():
         return 'ConfigMapListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ConfigMapNodeConfigSource", jsii_struct_bases=[], name_mapping={'kubelet_config_key': 'kubeletConfigKey', 'name': 'name', 'namespace': 'namespace', 'resource_version': 'resourceVersion', 'uid': 'uid'})
+@jsii.data_type(jsii_type="generated.ConfigMapNodeConfigSource", jsii_struct_bases=[], name_mapping={'kubelet_config_key': 'kubeletConfigKey', 'name': 'name', 'namespace': 'namespace', 'resource_version': 'resourceVersion', 'uid': 'uid'})
 class ConfigMapNodeConfigSource():
-    def __init__(self, *, kubelet_config_key: str, name: str, namespace: str, resource_version: typing.Optional[str]=None, uid: typing.Optional[str]=None):
+    def __init__(self, *, kubelet_config_key: str, name: str, namespace: str, resource_version: typing.Optional[str]=None, uid: typing.Optional[str]=None) -> None:
         """ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.
 
         :param kubelet_config_key: KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.
@@ -3174,9 +2497,9 @@ class ConfigMapNodeConfigSource():
         return 'ConfigMapNodeConfigSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ConfigMapOptions", jsii_struct_bases=[], name_mapping={'binary_data': 'binaryData', 'data': 'data', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ConfigMapOptions", jsii_struct_bases=[], name_mapping={'binary_data': 'binaryData', 'data': 'data', 'metadata': 'metadata'})
 class ConfigMapOptions():
-    def __init__(self, *, binary_data: typing.Optional[typing.Mapping[str,str]]=None, data: typing.Optional[typing.Mapping[str,str]]=None, metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, binary_data: typing.Optional[typing.Mapping[str, str]]=None, data: typing.Optional[typing.Mapping[str, str]]=None, metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """ConfigMap holds configuration data for pods to consume.
 
         :param binary_data: BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
@@ -3194,7 +2517,7 @@ class ConfigMapOptions():
         if metadata is not None: self._values["metadata"] = metadata
 
     @builtins.property
-    def binary_data(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def binary_data(self) -> typing.Optional[typing.Mapping[str, str]]:
         """BinaryData contains the binary data.
 
         Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
@@ -3205,7 +2528,7 @@ class ConfigMapOptions():
         return self._values.get('binary_data')
 
     @builtins.property
-    def data(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def data(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Data contains the configuration data.
 
         Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
@@ -3236,9 +2559,9 @@ class ConfigMapOptions():
         return 'ConfigMapOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ConfigMapProjection", jsii_struct_bases=[], name_mapping={'items': 'items', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.ConfigMapProjection", jsii_struct_bases=[], name_mapping={'items': 'items', 'name': 'name', 'optional': 'optional'})
 class ConfigMapProjection():
-    def __init__(self, *, items: typing.Optional[typing.List["KeyToPath"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, items: typing.Optional[typing.List["KeyToPath"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """Adapts a ConfigMap into a projected volume.
 
         The contents of the target ConfigMap's Data field will be presented in a projected volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. Note that this is identical to a configmap volume source without the default mode.
@@ -3297,9 +2620,9 @@ class ConfigMapProjection():
         return 'ConfigMapProjection(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ConfigMapVolumeSource", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.ConfigMapVolumeSource", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items', 'name': 'name', 'optional': 'optional'})
 class ConfigMapVolumeSource():
-    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["KeyToPath"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["KeyToPath"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """Adapts a ConfigMap into a volume.
 
         The contents of the target ConfigMap's Data field will be presented in a volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. ConfigMap volumes support ownership management and SELinux relabeling.
@@ -3374,9 +2697,9 @@ class ConfigMapVolumeSource():
         return 'ConfigMapVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Container", jsii_struct_bases=[], name_mapping={'name': 'name', 'args': 'args', 'command': 'command', 'env': 'env', 'env_from': 'envFrom', 'image': 'image', 'image_pull_policy': 'imagePullPolicy', 'lifecycle': 'lifecycle', 'liveness_probe': 'livenessProbe', 'ports': 'ports', 'readiness_probe': 'readinessProbe', 'resources': 'resources', 'security_context': 'securityContext', 'startup_probe': 'startupProbe', 'stdin': 'stdin', 'stdin_once': 'stdinOnce', 'termination_message_path': 'terminationMessagePath', 'termination_message_policy': 'terminationMessagePolicy', 'tty': 'tty', 'volume_devices': 'volumeDevices', 'volume_mounts': 'volumeMounts', 'working_dir': 'workingDir'})
+@jsii.data_type(jsii_type="generated.Container", jsii_struct_bases=[], name_mapping={'name': 'name', 'args': 'args', 'command': 'command', 'env': 'env', 'env_from': 'envFrom', 'image': 'image', 'image_pull_policy': 'imagePullPolicy', 'lifecycle': 'lifecycle', 'liveness_probe': 'livenessProbe', 'ports': 'ports', 'readiness_probe': 'readinessProbe', 'resources': 'resources', 'security_context': 'securityContext', 'startup_probe': 'startupProbe', 'stdin': 'stdin', 'stdin_once': 'stdinOnce', 'termination_message_path': 'terminationMessagePath', 'termination_message_policy': 'terminationMessagePolicy', 'tty': 'tty', 'volume_devices': 'volumeDevices', 'volume_mounts': 'volumeMounts', 'working_dir': 'workingDir'})
 class Container():
-    def __init__(self, *, name: str, args: typing.Optional[typing.List[str]]=None, command: typing.Optional[typing.List[str]]=None, env: typing.Optional[typing.List["EnvVar"]]=None, env_from: typing.Optional[typing.List["EnvFromSource"]]=None, image: typing.Optional[str]=None, image_pull_policy: typing.Optional[str]=None, lifecycle: typing.Optional["Lifecycle"]=None, liveness_probe: typing.Optional["Probe"]=None, ports: typing.Optional[typing.List["ContainerPort"]]=None, readiness_probe: typing.Optional["Probe"]=None, resources: typing.Optional["ResourceRequirements"]=None, security_context: typing.Optional["SecurityContext"]=None, startup_probe: typing.Optional["Probe"]=None, stdin: typing.Optional[bool]=None, stdin_once: typing.Optional[bool]=None, termination_message_path: typing.Optional[str]=None, termination_message_policy: typing.Optional[str]=None, tty: typing.Optional[bool]=None, volume_devices: typing.Optional[typing.List["VolumeDevice"]]=None, volume_mounts: typing.Optional[typing.List["VolumeMount"]]=None, working_dir: typing.Optional[str]=None):
+    def __init__(self, *, name: str, args: typing.Optional[typing.List[str]]=None, command: typing.Optional[typing.List[str]]=None, env: typing.Optional[typing.List["EnvVar"]]=None, env_from: typing.Optional[typing.List["EnvFromSource"]]=None, image: typing.Optional[str]=None, image_pull_policy: typing.Optional[str]=None, lifecycle: typing.Optional["Lifecycle"]=None, liveness_probe: typing.Optional["Probe"]=None, ports: typing.Optional[typing.List["ContainerPort"]]=None, readiness_probe: typing.Optional["Probe"]=None, resources: typing.Optional["ResourceRequirements"]=None, security_context: typing.Optional["SecurityContext"]=None, startup_probe: typing.Optional["Probe"]=None, stdin: typing.Optional[bool]=None, stdin_once: typing.Optional[bool]=None, termination_message_path: typing.Optional[str]=None, termination_message_policy: typing.Optional[str]=None, tty: typing.Optional[bool]=None, volume_devices: typing.Optional[typing.List["VolumeDevice"]]=None, volume_mounts: typing.Optional[typing.List["VolumeMount"]]=None, working_dir: typing.Optional[str]=None) -> None:
         """A single application container that you want to run within a pod.
 
         :param name: Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
@@ -3706,9 +3029,9 @@ class Container():
         return 'Container(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ContainerPort", jsii_struct_bases=[], name_mapping={'container_port': 'containerPort', 'host_ip': 'hostIP', 'host_port': 'hostPort', 'name': 'name', 'protocol': 'protocol'})
+@jsii.data_type(jsii_type="generated.ContainerPort", jsii_struct_bases=[], name_mapping={'container_port': 'containerPort', 'host_ip': 'hostIP', 'host_port': 'hostPort', 'name': 'name', 'protocol': 'protocol'})
 class ContainerPort():
-    def __init__(self, *, container_port: jsii.Number, host_ip: typing.Optional[str]=None, host_port: typing.Optional[jsii.Number]=None, name: typing.Optional[str]=None, protocol: typing.Optional[str]=None):
+    def __init__(self, *, container_port: jsii.Number, host_ip: typing.Optional[str]=None, host_port: typing.Optional[jsii.Number]=None, name: typing.Optional[str]=None, protocol: typing.Optional[str]=None) -> None:
         """ContainerPort represents a network port in a single container.
 
         :param container_port: Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
@@ -3794,7 +3117,7 @@ class ContainerPort():
         return 'ContainerPort(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ControllerRevision(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ControllerRevision"):
+class ControllerRevision(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ControllerRevision"):
     """ControllerRevision implements an immutable snapshot of state data.
 
     Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
@@ -3816,7 +3139,7 @@ class ControllerRevision(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8
         jsii.create(ControllerRevision, self, [scope, name, options])
 
 
-class ControllerRevisionList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ControllerRevisionList"):
+class ControllerRevisionList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ControllerRevisionList"):
     """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
 
     schema:
@@ -3835,9 +3158,9 @@ class ControllerRevisionList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type
         jsii.create(ControllerRevisionList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ControllerRevisionListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ControllerRevisionListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ControllerRevisionListOptions():
-    def __init__(self, *, items: typing.List["ControllerRevision"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ControllerRevision"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
 
         :param items: Items is the list of ControllerRevisions.
@@ -3880,9 +3203,9 @@ class ControllerRevisionListOptions():
         return 'ControllerRevisionListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ControllerRevisionOptions", jsii_struct_bases=[], name_mapping={'revision': 'revision', 'data': 'data', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ControllerRevisionOptions", jsii_struct_bases=[], name_mapping={'revision': 'revision', 'data': 'data', 'metadata': 'metadata'})
 class ControllerRevisionOptions():
-    def __init__(self, *, revision: jsii.Number, data: typing.Any=None, metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, revision: jsii.Number, data: typing.Any=None, metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """ControllerRevision implements an immutable snapshot of state data.
 
         Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
@@ -3940,7 +3263,7 @@ class ControllerRevisionOptions():
         return 'ControllerRevisionOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class CronJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CronJob"):
+class CronJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CronJob"):
     """CronJob represents the configuration of a single cron job.
 
     schema:
@@ -3959,7 +3282,7 @@ class CronJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CronJob")
         jsii.create(CronJob, self, [scope, name, options])
 
 
-class CronJobList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CronJobList"):
+class CronJobList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CronJobList"):
     """CronJobList is a collection of cron jobs.
 
     schema:
@@ -3978,9 +3301,9 @@ class CronJobList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CronJ
         jsii.create(CronJobList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.CronJobListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.CronJobListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class CronJobListOptions():
-    def __init__(self, *, items: typing.List["CronJob"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["CronJob"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """CronJobList is a collection of cron jobs.
 
         :param items: items is the list of CronJobs.
@@ -4025,9 +3348,9 @@ class CronJobListOptions():
         return 'CronJobListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CronJobOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.CronJobOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class CronJobOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["CronJobSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["CronJobSpec"]=None) -> None:
         """CronJob represents the configuration of a single cron job.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4075,9 +3398,9 @@ class CronJobOptions():
         return 'CronJobOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CronJobSpec", jsii_struct_bases=[], name_mapping={'job_template': 'jobTemplate', 'schedule': 'schedule', 'concurrency_policy': 'concurrencyPolicy', 'failed_jobs_history_limit': 'failedJobsHistoryLimit', 'starting_deadline_seconds': 'startingDeadlineSeconds', 'successful_jobs_history_limit': 'successfulJobsHistoryLimit', 'suspend': 'suspend'})
+@jsii.data_type(jsii_type="generated.CronJobSpec", jsii_struct_bases=[], name_mapping={'job_template': 'jobTemplate', 'schedule': 'schedule', 'concurrency_policy': 'concurrencyPolicy', 'failed_jobs_history_limit': 'failedJobsHistoryLimit', 'starting_deadline_seconds': 'startingDeadlineSeconds', 'successful_jobs_history_limit': 'successfulJobsHistoryLimit', 'suspend': 'suspend'})
 class CronJobSpec():
-    def __init__(self, *, job_template: "JobTemplateSpec", schedule: str, concurrency_policy: typing.Optional[str]=None, failed_jobs_history_limit: typing.Optional[jsii.Number]=None, starting_deadline_seconds: typing.Optional[jsii.Number]=None, successful_jobs_history_limit: typing.Optional[jsii.Number]=None, suspend: typing.Optional[bool]=None):
+    def __init__(self, *, job_template: "JobTemplateSpec", schedule: str, concurrency_policy: typing.Optional[str]=None, failed_jobs_history_limit: typing.Optional[jsii.Number]=None, starting_deadline_seconds: typing.Optional[jsii.Number]=None, successful_jobs_history_limit: typing.Optional[jsii.Number]=None, suspend: typing.Optional[bool]=None) -> None:
         """CronJobSpec describes how the job execution will look like and when it will actually run.
 
         :param job_template: Specifies the job that will be created when executing a CronJob.
@@ -4194,9 +3517,9 @@ class CronJobSpec():
         return 'CronJobSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CrossVersionObjectReference", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'name': 'name', 'api_version': 'apiVersion'})
+@jsii.data_type(jsii_type="generated.CrossVersionObjectReference", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'name': 'name', 'api_version': 'apiVersion'})
 class CrossVersionObjectReference():
-    def __init__(self, *, kind: str, name: str, api_version: typing.Optional[str]=None):
+    def __init__(self, *, kind: str, name: str, api_version: typing.Optional[str]=None) -> None:
         """CrossVersionObjectReference contains enough information to let you identify the referred resource.
 
         :param kind: Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
@@ -4253,9 +3576,686 @@ class CrossVersionObjectReference():
         return 'CrossVersionObjectReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceColumnDefinition", jsii_struct_bases=[], name_mapping={'json_path': 'jsonPath', 'name': 'name', 'type': 'type', 'description': 'description', 'format': 'format', 'priority': 'priority'})
+class CsiDriver(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiDriver"):
+    """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
+
+    CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
+
+    schema:
+    :schema:: io.k8s.api.storage.v1beta1.CSIDriver
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, spec: "CsiDriverSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Specification of the CSI Driver.
+        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = CsiDriverOptions(spec=spec, metadata=metadata)
+
+        jsii.create(CsiDriver, self, [scope, name, options])
+
+
+class CsiDriverList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiDriverList"):
+    """CSIDriverList is a collection of CSIDriver objects.
+
+    schema:
+    :schema:: io.k8s.api.storage.v1beta1.CSIDriverList
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["CsiDriver"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of CSIDriver.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = CsiDriverListOptions(items=items, metadata=metadata)
+
+        jsii.create(CsiDriverList, self, [scope, name, options])
+
+
+@jsii.data_type(jsii_type="generated.CsiDriverListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+class CsiDriverListOptions():
+    def __init__(self, *, items: typing.List["CsiDriver"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """CSIDriverList is a collection of CSIDriver objects.
+
+        :param items: items is the list of CSIDriver.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList
+        """
+        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
+        self._values = {
+            'items': items,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List["CsiDriver"]:
+        """items is the list of CSIDriver.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList#items
+        """
+        return self._values.get('items')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverList#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiDriverListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiDriverOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+class CsiDriverOptions():
+    def __init__(self, *, spec: "CsiDriverSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
+        """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
+
+        CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
+
+        :param spec: Specification of the CSI Driver.
+        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriver
+        """
+        if isinstance(spec, dict): spec = CsiDriverSpec(**spec)
+        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
+        self._values = {
+            'spec': spec,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> "CsiDriverSpec":
+        """Specification of the CSI Driver.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriver#spec
+        """
+        return self._values.get('spec')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object metadata.
+
+        metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriver#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiDriverOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiDriverSpec", jsii_struct_bases=[], name_mapping={'attach_required': 'attachRequired', 'pod_info_on_mount': 'podInfoOnMount', 'volume_lifecycle_modes': 'volumeLifecycleModes'})
+class CsiDriverSpec():
+    def __init__(self, *, attach_required: typing.Optional[bool]=None, pod_info_on_mount: typing.Optional[bool]=None, volume_lifecycle_modes: typing.Optional[typing.List[str]]=None) -> None:
+        """CSIDriverSpec is the specification of a CSIDriver.
+
+        :param attach_required: attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting. The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
+        :param pod_info_on_mount: If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume defined by a CSIVolumeSource, otherwise "false". "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver. Default: false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
+        :param volume_lifecycle_modes: VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports. The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec
+        """
+        self._values = {
+        }
+        if attach_required is not None: self._values["attach_required"] = attach_required
+        if pod_info_on_mount is not None: self._values["pod_info_on_mount"] = pod_info_on_mount
+        if volume_lifecycle_modes is not None: self._values["volume_lifecycle_modes"] = volume_lifecycle_modes
+
+    @builtins.property
+    def attach_required(self) -> typing.Optional[bool]:
+        """attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting.
+
+        The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#attachRequired
+        """
+        return self._values.get('attach_required')
+
+    @builtins.property
+    def pod_info_on_mount(self) -> typing.Optional[bool]:
+        """If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume                             defined by a CSIVolumeSource, otherwise "false".
+
+        "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.
+
+        default
+        :default: false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#podInfoOnMount
+        """
+        return self._values.get('pod_info_on_mount')
+
+    @builtins.property
+    def volume_lifecycle_modes(self) -> typing.Optional[typing.List[str]]:
+        """VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+
+        The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1beta1.CSIDriverSpec#volumeLifecycleModes
+        """
+        return self._values.get('volume_lifecycle_modes')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiDriverSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class CsiNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiNode"):
+    """CSINode holds information about all CSI drivers installed on a node.
+
+    CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
+
+    schema:
+    :schema:: io.k8s.api.storage.v1.CSINode
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, spec: "CsiNodeSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
+        """Defines a "io.k8s.api.storage.v1.CSINode" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: spec is the specification of CSINode.
+        :param metadata: metadata.name must be the Kubernetes node name.
+        """
+        options = CsiNodeOptions(spec=spec, metadata=metadata)
+
+        jsii.create(CsiNode, self, [scope, name, options])
+
+
+@jsii.data_type(jsii_type="generated.CsiNodeDriver", jsii_struct_bases=[], name_mapping={'name': 'name', 'node_id': 'nodeID', 'allocatable': 'allocatable', 'topology_keys': 'topologyKeys'})
+class CsiNodeDriver():
+    def __init__(self, *, name: str, node_id: str, allocatable: typing.Optional["VolumeNodeResources"]=None, topology_keys: typing.Optional[typing.List[str]]=None) -> None:
+        """CSINodeDriver holds information about the specification of one CSI driver installed on a node.
+
+        :param name: This is the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.
+        :param node_id: nodeID of the node from the driver point of view. This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
+        :param allocatable: allocatable represents the volume resources of a node that are available for scheduling. This field is beta.
+        :param topology_keys: topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver
+        """
+        if isinstance(allocatable, dict): allocatable = VolumeNodeResources(**allocatable)
+        self._values = {
+            'name': name,
+            'node_id': node_id,
+        }
+        if allocatable is not None: self._values["allocatable"] = allocatable
+        if topology_keys is not None: self._values["topology_keys"] = topology_keys
+
+    @builtins.property
+    def name(self) -> str:
+        """This is the name of the CSI driver that this object refers to.
+
+        This MUST be the same name returned by the CSI GetPluginName() call for that driver.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver#name
+        """
+        return self._values.get('name')
+
+    @builtins.property
+    def node_id(self) -> str:
+        """nodeID of the node from the driver point of view.
+
+        This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver#nodeID
+        """
+        return self._values.get('node_id')
+
+    @builtins.property
+    def allocatable(self) -> typing.Optional["VolumeNodeResources"]:
+        """allocatable represents the volume resources of a node that are available for scheduling.
+
+        This field is beta.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver#allocatable
+        """
+        return self._values.get('allocatable')
+
+    @builtins.property
+    def topology_keys(self) -> typing.Optional[typing.List[str]]:
+        """topologyKeys is the list of keys supported by the driver.
+
+        When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeDriver#topologyKeys
+        """
+        return self._values.get('topology_keys')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiNodeDriver(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class CsiNodeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiNodeList"):
+    """CSINodeList is a collection of CSINode objects.
+
+    schema:
+    :schema:: io.k8s.api.storage.v1.CSINodeList
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["CsiNode"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """Defines a "io.k8s.api.storage.v1.CSINodeList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of CSINode.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = CsiNodeListOptions(items=items, metadata=metadata)
+
+        jsii.create(CsiNodeList, self, [scope, name, options])
+
+
+@jsii.data_type(jsii_type="generated.CsiNodeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+class CsiNodeListOptions():
+    def __init__(self, *, items: typing.List["CsiNode"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """CSINodeList is a collection of CSINode objects.
+
+        :param items: items is the list of CSINode.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeList
+        """
+        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
+        self._values = {
+            'items': items,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List["CsiNode"]:
+        """items is the list of CSINode.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeList#items
+        """
+        return self._values.get('items')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeList#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiNodeListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiNodeOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+class CsiNodeOptions():
+    def __init__(self, *, spec: "CsiNodeSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
+        """CSINode holds information about all CSI drivers installed on a node.
+
+        CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
+
+        :param spec: spec is the specification of CSINode.
+        :param metadata: metadata.name must be the Kubernetes node name.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINode
+        """
+        if isinstance(spec, dict): spec = CsiNodeSpec(**spec)
+        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
+        self._values = {
+            'spec': spec,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> "CsiNodeSpec":
+        """spec is the specification of CSINode.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINode#spec
+        """
+        return self._values.get('spec')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """metadata.name must be the Kubernetes node name.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINode#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiNodeOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiNodeSpec", jsii_struct_bases=[], name_mapping={'drivers': 'drivers'})
+class CsiNodeSpec():
+    def __init__(self, *, drivers: typing.List["CsiNodeDriver"]) -> None:
+        """CSINodeSpec holds information about the specification of all CSI drivers installed on a node.
+
+        :param drivers: drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeSpec
+        """
+        self._values = {
+            'drivers': drivers,
+        }
+
+    @builtins.property
+    def drivers(self) -> typing.List["CsiNodeDriver"]:
+        """drivers is a list of information of all CSI Drivers existing on a node.
+
+        If all drivers in the list are uninstalled, this can become empty.
+
+        schema:
+        :schema:: io.k8s.api.storage.v1.CSINodeSpec#drivers
+        """
+        return self._values.get('drivers')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiNodeSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'volume_handle': 'volumeHandle', 'controller_expand_secret_ref': 'controllerExpandSecretRef', 'controller_publish_secret_ref': 'controllerPublishSecretRef', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'node_stage_secret_ref': 'nodeStageSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
+class CsiPersistentVolumeSource():
+    def __init__(self, *, driver: str, volume_handle: str, controller_expand_secret_ref: typing.Optional["SecretReference"]=None, controller_publish_secret_ref: typing.Optional["SecretReference"]=None, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["SecretReference"]=None, node_stage_secret_ref: typing.Optional["SecretReference"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+        """Represents storage that is managed by an external CSI volume driver (Beta feature).
+
+        :param driver: Driver is the name of the driver to use for this volume. Required.
+        :param volume_handle: VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
+        :param controller_expand_secret_ref: ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+        :param controller_publish_secret_ref: ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+        :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
+        :param node_publish_secret_ref: NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+        :param node_stage_secret_ref: NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+        :param read_only: Optional: The value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write). Default: false (read/write).
+        :param volume_attributes: Attributes of the volume to publish.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource
+        """
+        if isinstance(controller_expand_secret_ref, dict): controller_expand_secret_ref = SecretReference(**controller_expand_secret_ref)
+        if isinstance(controller_publish_secret_ref, dict): controller_publish_secret_ref = SecretReference(**controller_publish_secret_ref)
+        if isinstance(node_publish_secret_ref, dict): node_publish_secret_ref = SecretReference(**node_publish_secret_ref)
+        if isinstance(node_stage_secret_ref, dict): node_stage_secret_ref = SecretReference(**node_stage_secret_ref)
+        self._values = {
+            'driver': driver,
+            'volume_handle': volume_handle,
+        }
+        if controller_expand_secret_ref is not None: self._values["controller_expand_secret_ref"] = controller_expand_secret_ref
+        if controller_publish_secret_ref is not None: self._values["controller_publish_secret_ref"] = controller_publish_secret_ref
+        if fs_type is not None: self._values["fs_type"] = fs_type
+        if node_publish_secret_ref is not None: self._values["node_publish_secret_ref"] = node_publish_secret_ref
+        if node_stage_secret_ref is not None: self._values["node_stage_secret_ref"] = node_stage_secret_ref
+        if read_only is not None: self._values["read_only"] = read_only
+        if volume_attributes is not None: self._values["volume_attributes"] = volume_attributes
+
+    @builtins.property
+    def driver(self) -> str:
+        """Driver is the name of the driver to use for this volume.
+
+        Required.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#driver
+        """
+        return self._values.get('driver')
+
+    @builtins.property
+    def volume_handle(self) -> str:
+        """VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls.
+
+        Required.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeHandle
+        """
+        return self._values.get('volume_handle')
+
+    @builtins.property
+    def controller_expand_secret_ref(self) -> typing.Optional["SecretReference"]:
+        """ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call.
+
+        This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerExpandSecretRef
+        """
+        return self._values.get('controller_expand_secret_ref')
+
+    @builtins.property
+    def controller_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
+        """ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls.
+
+        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerPublishSecretRef
+        """
+        return self._values.get('controller_publish_secret_ref')
+
+    @builtins.property
+    def fs_type(self) -> typing.Optional[str]:
+        """Filesystem type to mount.
+
+        Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#fsType
+        """
+        return self._values.get('fs_type')
+
+    @builtins.property
+    def node_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
+        """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
+
+        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodePublishSecretRef
+        """
+        return self._values.get('node_publish_secret_ref')
+
+    @builtins.property
+    def node_stage_secret_ref(self) -> typing.Optional["SecretReference"]:
+        """NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls.
+
+        This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodeStageSecretRef
+        """
+        return self._values.get('node_stage_secret_ref')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """Optional: The value to pass to ControllerPublishVolumeRequest.
+
+        Defaults to false (read/write).
+
+        default
+        :default: false (read/write).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#readOnly
+        """
+        return self._values.get('read_only')
+
+    @builtins.property
+    def volume_attributes(self) -> typing.Optional[typing.Mapping[str, str]]:
+        """Attributes of the volume to publish.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeAttributes
+        """
+        return self._values.get('volume_attributes')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CsiVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'node_publish_secret_ref': 'nodePublishSecretRef', 'read_only': 'readOnly', 'volume_attributes': 'volumeAttributes'})
+class CsiVolumeSource():
+    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, node_publish_secret_ref: typing.Optional["LocalObjectReference"]=None, read_only: typing.Optional[bool]=None, volume_attributes: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+        """Represents a source location of a volume to mount, managed by an external CSI driver.
+
+        :param driver: Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
+        :param fs_type: Filesystem type to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
+        :param node_publish_secret_ref: NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+        :param read_only: Specifies a read-only configuration for the volume. Defaults to false (read/write). Default: false (read/write).
+        :param volume_attributes: VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource
+        """
+        if isinstance(node_publish_secret_ref, dict): node_publish_secret_ref = LocalObjectReference(**node_publish_secret_ref)
+        self._values = {
+            'driver': driver,
+        }
+        if fs_type is not None: self._values["fs_type"] = fs_type
+        if node_publish_secret_ref is not None: self._values["node_publish_secret_ref"] = node_publish_secret_ref
+        if read_only is not None: self._values["read_only"] = read_only
+        if volume_attributes is not None: self._values["volume_attributes"] = volume_attributes
+
+    @builtins.property
+    def driver(self) -> str:
+        """Driver is the name of the CSI driver that handles this volume.
+
+        Consult with your admin for the correct name as registered in the cluster.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#driver
+        """
+        return self._values.get('driver')
+
+    @builtins.property
+    def fs_type(self) -> typing.Optional[str]:
+        """Filesystem type to mount.
+
+        Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#fsType
+        """
+        return self._values.get('fs_type')
+
+    @builtins.property
+    def node_publish_secret_ref(self) -> typing.Optional["LocalObjectReference"]:
+        """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
+
+        This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#nodePublishSecretRef
+        """
+        return self._values.get('node_publish_secret_ref')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """Specifies a read-only configuration for the volume.
+
+        Defaults to false (read/write).
+
+        default
+        :default: false (read/write).
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#readOnly
+        """
+        return self._values.get('read_only')
+
+    @builtins.property
+    def volume_attributes(self) -> typing.Optional[typing.Mapping[str, str]]:
+        """VolumeAttributes stores driver-specific properties that are passed to the CSI driver.
+
+        Consult your driver's documentation for supported values.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.CSIVolumeSource#volumeAttributes
+        """
+        return self._values.get('volume_attributes')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'CsiVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.CustomResourceColumnDefinition", jsii_struct_bases=[], name_mapping={'json_path': 'jsonPath', 'name': 'name', 'type': 'type', 'description': 'description', 'format': 'format', 'priority': 'priority'})
 class CustomResourceColumnDefinition():
-    def __init__(self, *, json_path: str, name: str, type: str, description: typing.Optional[str]=None, format: typing.Optional[str]=None, priority: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, json_path: str, name: str, type: str, description: typing.Optional[str]=None, format: typing.Optional[str]=None, priority: typing.Optional[jsii.Number]=None) -> None:
         """CustomResourceColumnDefinition specifies a column for server side printing.
 
         :param json_path: jsonPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
@@ -4347,9 +4347,9 @@ class CustomResourceColumnDefinition():
         return 'CustomResourceColumnDefinition(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceConversion", jsii_struct_bases=[], name_mapping={'strategy': 'strategy', 'webhook': 'webhook'})
+@jsii.data_type(jsii_type="generated.CustomResourceConversion", jsii_struct_bases=[], name_mapping={'strategy': 'strategy', 'webhook': 'webhook'})
 class CustomResourceConversion():
-    def __init__(self, *, strategy: str, webhook: typing.Optional["WebhookConversion"]=None):
+    def __init__(self, *, strategy: str, webhook: typing.Optional["WebhookConversion"]=None) -> None:
         """CustomResourceConversion describes how to convert different versions of a CR.
 
         :param strategy: strategy specifies how custom resources are converted between versions. Allowed values are: - ``None``: The converter only change the apiVersion and would not touch any other field in the custom resource. - ``Webhook``: API Server will call to an external webhook to do the conversion. Additional information is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhook to be set.
@@ -4397,7 +4397,7 @@ class CustomResourceConversion():
         return 'CustomResourceConversion(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class CustomResourceDefinition(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CustomResourceDefinition"):
+class CustomResourceDefinition(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CustomResourceDefinition"):
     """CustomResourceDefinition represents a resource that should be exposed on the API server.
 
     Its name MUST be in the format <.spec.name>.<.spec.group>.
@@ -4418,7 +4418,7 @@ class CustomResourceDefinition(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_ty
         jsii.create(CustomResourceDefinition, self, [scope, name, options])
 
 
-class CustomResourceDefinitionList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CustomResourceDefinitionList"):
+class CustomResourceDefinitionList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CustomResourceDefinitionList"):
     """CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
 
     schema:
@@ -4437,9 +4437,9 @@ class CustomResourceDefinitionList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsi
         jsii.create(CustomResourceDefinitionList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceDefinitionListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.CustomResourceDefinitionListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class CustomResourceDefinitionListOptions():
-    def __init__(self, *, items: typing.List["CustomResourceDefinition"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["CustomResourceDefinition"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
 
         :param items: items list individual CustomResourceDefinition objects.
@@ -4481,9 +4481,9 @@ class CustomResourceDefinitionListOptions():
         return 'CustomResourceDefinitionListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceDefinitionNames", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'plural': 'plural', 'categories': 'categories', 'list_kind': 'listKind', 'short_names': 'shortNames', 'singular': 'singular'})
+@jsii.data_type(jsii_type="generated.CustomResourceDefinitionNames", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'plural': 'plural', 'categories': 'categories', 'list_kind': 'listKind', 'short_names': 'shortNames', 'singular': 'singular'})
 class CustomResourceDefinitionNames():
-    def __init__(self, *, kind: str, plural: str, categories: typing.Optional[typing.List[str]]=None, list_kind: typing.Optional[str]=None, short_names: typing.Optional[typing.List[str]]=None, singular: typing.Optional[str]=None):
+    def __init__(self, *, kind: str, plural: str, categories: typing.Optional[typing.List[str]]=None, list_kind: typing.Optional[str]=None, short_names: typing.Optional[typing.List[str]]=None, singular: typing.Optional[str]=None) -> None:
         """CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition.
 
         :param kind: kind is the serialized kind of the resource. It is normally CamelCase and singular. Custom resource instances will use this value as the ``kind`` attribute in API calls.
@@ -4585,9 +4585,9 @@ class CustomResourceDefinitionNames():
         return 'CustomResourceDefinitionNames(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceDefinitionOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.CustomResourceDefinitionOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class CustomResourceDefinitionOptions():
-    def __init__(self, *, spec: "CustomResourceDefinitionSpec", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, spec: "CustomResourceDefinitionSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """CustomResourceDefinition represents a resource that should be exposed on the API server.
 
         Its name MUST be in the format <.spec.name>.<.spec.group>.
@@ -4632,9 +4632,9 @@ class CustomResourceDefinitionOptions():
         return 'CustomResourceDefinitionOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceDefinitionSpec", jsii_struct_bases=[], name_mapping={'group': 'group', 'names': 'names', 'scope': 'scope', 'versions': 'versions', 'conversion': 'conversion', 'preserve_unknown_fields': 'preserveUnknownFields'})
+@jsii.data_type(jsii_type="generated.CustomResourceDefinitionSpec", jsii_struct_bases=[], name_mapping={'group': 'group', 'names': 'names', 'scope': 'scope', 'versions': 'versions', 'conversion': 'conversion', 'preserve_unknown_fields': 'preserveUnknownFields'})
 class CustomResourceDefinitionSpec():
-    def __init__(self, *, group: str, names: "CustomResourceDefinitionNames", scope: str, versions: typing.List["CustomResourceDefinitionVersion"], conversion: typing.Optional["CustomResourceConversion"]=None, preserve_unknown_fields: typing.Optional[bool]=None):
+    def __init__(self, *, group: str, names: "CustomResourceDefinitionNames", scope: str, versions: typing.List["CustomResourceDefinitionVersion"], conversion: typing.Optional["CustomResourceConversion"]=None, preserve_unknown_fields: typing.Optional[bool]=None) -> None:
         """CustomResourceDefinitionSpec describes how a user wants their resource to appear.
 
         :param group: group is the API group of the defined custom resource. The custom resources are served under ``/apis/<group>/...``. Must match the name of the CustomResourceDefinition (in the form ``<names.plural>.<group>``).
@@ -4730,9 +4730,9 @@ class CustomResourceDefinitionSpec():
         return 'CustomResourceDefinitionSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceDefinitionVersion", jsii_struct_bases=[], name_mapping={'name': 'name', 'served': 'served', 'storage': 'storage', 'additional_printer_columns': 'additionalPrinterColumns', 'schema': 'schema', 'subresources': 'subresources'})
+@jsii.data_type(jsii_type="generated.CustomResourceDefinitionVersion", jsii_struct_bases=[], name_mapping={'name': 'name', 'served': 'served', 'storage': 'storage', 'additional_printer_columns': 'additionalPrinterColumns', 'schema': 'schema', 'subresources': 'subresources'})
 class CustomResourceDefinitionVersion():
-    def __init__(self, *, name: str, served: bool, storage: bool, additional_printer_columns: typing.Optional[typing.List["CustomResourceColumnDefinition"]]=None, schema: typing.Optional["CustomResourceValidation"]=None, subresources: typing.Optional["CustomResourceSubresources"]=None):
+    def __init__(self, *, name: str, served: bool, storage: bool, additional_printer_columns: typing.Optional[typing.List["CustomResourceColumnDefinition"]]=None, schema: typing.Optional["CustomResourceValidation"]=None, subresources: typing.Optional["CustomResourceSubresources"]=None) -> None:
         """CustomResourceDefinitionVersion describes a version for CRD.
 
         :param name: name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at ``/apis/<group>/<version>/...`` if ``served`` is true.
@@ -4824,9 +4824,9 @@ class CustomResourceDefinitionVersion():
         return 'CustomResourceDefinitionVersion(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceSubresourceScale", jsii_struct_bases=[], name_mapping={'spec_replicas_path': 'specReplicasPath', 'status_replicas_path': 'statusReplicasPath', 'label_selector_path': 'labelSelectorPath'})
+@jsii.data_type(jsii_type="generated.CustomResourceSubresourceScale", jsii_struct_bases=[], name_mapping={'spec_replicas_path': 'specReplicasPath', 'status_replicas_path': 'statusReplicasPath', 'label_selector_path': 'labelSelectorPath'})
 class CustomResourceSubresourceScale():
-    def __init__(self, *, spec_replicas_path: str, status_replicas_path: str, label_selector_path: typing.Optional[str]=None):
+    def __init__(self, *, spec_replicas_path: str, status_replicas_path: str, label_selector_path: typing.Optional[str]=None) -> None:
         """CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
 
         :param spec_replicas_path: specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale ``spec.replicas``. Only JSON paths without the array notation are allowed. Must be a JSON Path under ``.spec``. If there is no value under the given path in the custom resource, the ``/scale`` subresource will return an error on GET.
@@ -4879,9 +4879,9 @@ class CustomResourceSubresourceScale():
         return 'CustomResourceSubresourceScale(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceSubresources", jsii_struct_bases=[], name_mapping={'scale': 'scale', 'status': 'status'})
+@jsii.data_type(jsii_type="generated.CustomResourceSubresources", jsii_struct_bases=[], name_mapping={'scale': 'scale', 'status': 'status'})
 class CustomResourceSubresources():
-    def __init__(self, *, scale: typing.Optional["CustomResourceSubresourceScale"]=None, status: typing.Any=None):
+    def __init__(self, *, scale: typing.Optional["CustomResourceSubresourceScale"]=None, status: typing.Any=None) -> None:
         """CustomResourceSubresources defines the status and scale subresources for CustomResources.
 
         :param scale: scale indicates the custom resource should serve a ``/scale`` subresource that returns an ``autoscaling/v1`` Scale object.
@@ -4926,9 +4926,9 @@ class CustomResourceSubresources():
         return 'CustomResourceSubresources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.CustomResourceValidation", jsii_struct_bases=[], name_mapping={'open_api_v3_schema': 'openAPIV3Schema'})
+@jsii.data_type(jsii_type="generated.CustomResourceValidation", jsii_struct_bases=[], name_mapping={'open_api_v3_schema': 'openAPIV3Schema'})
 class CustomResourceValidation():
-    def __init__(self, *, open_api_v3_schema: typing.Optional["JSONSchemaProps"]=None):
+    def __init__(self, *, open_api_v3_schema: typing.Optional["JsonSchemaProps"]=None) -> None:
         """CustomResourceValidation is a list of validation methods for CustomResources.
 
         :param open_api_v3_schema: openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
@@ -4936,13 +4936,13 @@ class CustomResourceValidation():
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceValidation
         """
-        if isinstance(open_api_v3_schema, dict): open_api_v3_schema = JSONSchemaProps(**open_api_v3_schema)
+        if isinstance(open_api_v3_schema, dict): open_api_v3_schema = JsonSchemaProps(**open_api_v3_schema)
         self._values = {
         }
         if open_api_v3_schema is not None: self._values["open_api_v3_schema"] = open_api_v3_schema
 
     @builtins.property
-    def open_api_v3_schema(self) -> typing.Optional["JSONSchemaProps"]:
+    def open_api_v3_schema(self) -> typing.Optional["JsonSchemaProps"]:
         """openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
 
         schema:
@@ -4960,7 +4960,7 @@ class CustomResourceValidation():
         return 'CustomResourceValidation(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class DaemonSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.DaemonSet"):
+class DaemonSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.DaemonSet"):
     """DaemonSet represents the configuration of a daemon set.
 
     schema:
@@ -4979,7 +4979,7 @@ class DaemonSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.DaemonS
         jsii.create(DaemonSet, self, [scope, name, options])
 
 
-class DaemonSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.DaemonSetList"):
+class DaemonSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.DaemonSetList"):
     """DaemonSetList is a collection of daemon sets.
 
     schema:
@@ -4998,9 +4998,9 @@ class DaemonSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Dae
         jsii.create(DaemonSetList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.DaemonSetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.DaemonSetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class DaemonSetListOptions():
-    def __init__(self, *, items: typing.List["DaemonSet"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["DaemonSet"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """DaemonSetList is a collection of daemon sets.
 
         :param items: A list of daemon sets.
@@ -5045,9 +5045,9 @@ class DaemonSetListOptions():
         return 'DaemonSetListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DaemonSetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.DaemonSetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class DaemonSetOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["DaemonSetSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["DaemonSetSpec"]=None) -> None:
         """DaemonSet represents the configuration of a daemon set.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -5095,9 +5095,9 @@ class DaemonSetOptions():
         return 'DaemonSetOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DaemonSetSpec", jsii_struct_bases=[], name_mapping={'selector': 'selector', 'template': 'template', 'min_ready_seconds': 'minReadySeconds', 'revision_history_limit': 'revisionHistoryLimit', 'update_strategy': 'updateStrategy'})
+@jsii.data_type(jsii_type="generated.DaemonSetSpec", jsii_struct_bases=[], name_mapping={'selector': 'selector', 'template': 'template', 'min_ready_seconds': 'minReadySeconds', 'revision_history_limit': 'revisionHistoryLimit', 'update_strategy': 'updateStrategy'})
 class DaemonSetSpec():
-    def __init__(self, *, selector: "LabelSelector", template: "PodTemplateSpec", min_ready_seconds: typing.Optional[jsii.Number]=None, revision_history_limit: typing.Optional[jsii.Number]=None, update_strategy: typing.Optional["DaemonSetUpdateStrategy"]=None):
+    def __init__(self, *, selector: "LabelSelector", template: "PodTemplateSpec", min_ready_seconds: typing.Optional[jsii.Number]=None, revision_history_limit: typing.Optional[jsii.Number]=None, update_strategy: typing.Optional["DaemonSetUpdateStrategy"]=None) -> None:
         """DaemonSetSpec is the specification of a daemon set.
 
         :param selector: A label query over pods that are managed by the daemon set. Must match in order to be controlled. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
@@ -5189,9 +5189,9 @@ class DaemonSetSpec():
         return 'DaemonSetSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DaemonSetUpdateStrategy", jsii_struct_bases=[], name_mapping={'rolling_update': 'rollingUpdate', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.DaemonSetUpdateStrategy", jsii_struct_bases=[], name_mapping={'rolling_update': 'rollingUpdate', 'type': 'type'})
 class DaemonSetUpdateStrategy():
-    def __init__(self, *, rolling_update: typing.Optional["RollingUpdateDaemonSet"]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, rolling_update: typing.Optional["RollingUpdateDaemonSet"]=None, type: typing.Optional[str]=None) -> None:
         """DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
 
         :param rolling_update: Rolling update config params. Present only if type = "RollingUpdate".
@@ -5241,9 +5241,9 @@ class DaemonSetUpdateStrategy():
         return 'DaemonSetUpdateStrategy(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DeleteOptions", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'dry_run': 'dryRun', 'grace_period_seconds': 'gracePeriodSeconds', 'kind': 'kind', 'orphan_dependents': 'orphanDependents', 'preconditions': 'preconditions', 'propagation_policy': 'propagationPolicy'})
+@jsii.data_type(jsii_type="generated.DeleteOptions", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'dry_run': 'dryRun', 'grace_period_seconds': 'gracePeriodSeconds', 'kind': 'kind', 'orphan_dependents': 'orphanDependents', 'preconditions': 'preconditions', 'propagation_policy': 'propagationPolicy'})
 class DeleteOptions():
-    def __init__(self, *, api_version: typing.Optional[str]=None, dry_run: typing.Optional[typing.List[str]]=None, grace_period_seconds: typing.Optional[jsii.Number]=None, kind: typing.Optional[str]=None, orphan_dependents: typing.Optional[bool]=None, preconditions: typing.Optional["Preconditions"]=None, propagation_policy: typing.Optional[str]=None):
+    def __init__(self, *, api_version: typing.Optional[str]=None, dry_run: typing.Optional[typing.List[str]]=None, grace_period_seconds: typing.Optional[jsii.Number]=None, kind: typing.Optional["IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"]=None, orphan_dependents: typing.Optional[bool]=None, preconditions: typing.Optional["Preconditions"]=None, propagation_policy: typing.Optional[str]=None) -> None:
         """DeleteOptions may be provided when deleting an API object.
 
         :param api_version: APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
@@ -5305,7 +5305,7 @@ class DeleteOptions():
         return self._values.get('grace_period_seconds')
 
     @builtins.property
-    def kind(self) -> typing.Optional[str]:
+    def kind(self) -> typing.Optional["IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"]:
         """Kind is a string value representing the REST resource this object represents.
 
         Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -5356,7 +5356,7 @@ class DeleteOptions():
         return 'DeleteOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Deployment(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Deployment"):
+class Deployment(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Deployment"):
     """Deployment enables declarative updates for Pods and ReplicaSets.
 
     schema:
@@ -5375,7 +5375,7 @@ class Deployment(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Deploy
         jsii.create(Deployment, self, [scope, name, options])
 
 
-class DeploymentList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.DeploymentList"):
+class DeploymentList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.DeploymentList"):
     """DeploymentList is a list of Deployments.
 
     schema:
@@ -5394,9 +5394,9 @@ class DeploymentList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.De
         jsii.create(DeploymentList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.DeploymentListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.DeploymentListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class DeploymentListOptions():
-    def __init__(self, *, items: typing.List["Deployment"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Deployment"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """DeploymentList is a list of Deployments.
 
         :param items: Items is the list of Deployments.
@@ -5439,9 +5439,9 @@ class DeploymentListOptions():
         return 'DeploymentListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DeploymentOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.DeploymentOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class DeploymentOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["DeploymentSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["DeploymentSpec"]=None) -> None:
         """Deployment enables declarative updates for Pods and ReplicaSets.
 
         :param metadata: Standard object metadata.
@@ -5485,9 +5485,9 @@ class DeploymentOptions():
         return 'DeploymentOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DeploymentSpec", jsii_struct_bases=[], name_mapping={'selector': 'selector', 'template': 'template', 'min_ready_seconds': 'minReadySeconds', 'paused': 'paused', 'progress_deadline_seconds': 'progressDeadlineSeconds', 'replicas': 'replicas', 'revision_history_limit': 'revisionHistoryLimit', 'strategy': 'strategy'})
+@jsii.data_type(jsii_type="generated.DeploymentSpec", jsii_struct_bases=[], name_mapping={'selector': 'selector', 'template': 'template', 'min_ready_seconds': 'minReadySeconds', 'paused': 'paused', 'progress_deadline_seconds': 'progressDeadlineSeconds', 'replicas': 'replicas', 'revision_history_limit': 'revisionHistoryLimit', 'strategy': 'strategy'})
 class DeploymentSpec():
-    def __init__(self, *, selector: "LabelSelector", template: "PodTemplateSpec", min_ready_seconds: typing.Optional[jsii.Number]=None, paused: typing.Optional[bool]=None, progress_deadline_seconds: typing.Optional[jsii.Number]=None, replicas: typing.Optional[jsii.Number]=None, revision_history_limit: typing.Optional[jsii.Number]=None, strategy: typing.Optional["DeploymentStrategy"]=None):
+    def __init__(self, *, selector: "LabelSelector", template: "PodTemplateSpec", min_ready_seconds: typing.Optional[jsii.Number]=None, paused: typing.Optional[bool]=None, progress_deadline_seconds: typing.Optional[jsii.Number]=None, replicas: typing.Optional[jsii.Number]=None, revision_history_limit: typing.Optional[jsii.Number]=None, strategy: typing.Optional["DeploymentStrategy"]=None) -> None:
         """DeploymentSpec is the specification of the desired behavior of the Deployment.
 
         :param selector: Label selector for pods. Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment. It must match the pod template's labels.
@@ -5620,9 +5620,9 @@ class DeploymentSpec():
         return 'DeploymentSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DeploymentStrategy", jsii_struct_bases=[], name_mapping={'rolling_update': 'rollingUpdate', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.DeploymentStrategy", jsii_struct_bases=[], name_mapping={'rolling_update': 'rollingUpdate', 'type': 'type'})
 class DeploymentStrategy():
-    def __init__(self, *, rolling_update: typing.Optional["RollingUpdateDeployment"]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, rolling_update: typing.Optional["RollingUpdateDeployment"]=None, type: typing.Optional[str]=None) -> None:
         """DeploymentStrategy describes how to replace existing pods with new ones.
 
         :param rolling_update: Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate.
@@ -5672,9 +5672,9 @@ class DeploymentStrategy():
         return 'DeploymentStrategy(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DownwardAPIProjection", jsii_struct_bases=[], name_mapping={'items': 'items'})
-class DownwardAPIProjection():
-    def __init__(self, *, items: typing.Optional[typing.List["DownwardAPIVolumeFile"]]=None):
+@jsii.data_type(jsii_type="generated.DownwardApiProjection", jsii_struct_bases=[], name_mapping={'items': 'items'})
+class DownwardApiProjection():
+    def __init__(self, *, items: typing.Optional[typing.List["DownwardApiVolumeFile"]]=None) -> None:
         """Represents downward API info for projecting into a projected volume.
 
         Note that this is identical to a downwardAPI volume source without the default mode.
@@ -5689,7 +5689,7 @@ class DownwardAPIProjection():
         if items is not None: self._values["items"] = items
 
     @builtins.property
-    def items(self) -> typing.Optional[typing.List["DownwardAPIVolumeFile"]]:
+    def items(self) -> typing.Optional[typing.List["DownwardApiVolumeFile"]]:
         """Items is a list of DownwardAPIVolume file.
 
         schema:
@@ -5704,12 +5704,12 @@ class DownwardAPIProjection():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'DownwardAPIProjection(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'DownwardApiProjection(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DownwardAPIVolumeFile", jsii_struct_bases=[], name_mapping={'path': 'path', 'field_ref': 'fieldRef', 'mode': 'mode', 'resource_field_ref': 'resourceFieldRef'})
-class DownwardAPIVolumeFile():
-    def __init__(self, *, path: str, field_ref: typing.Optional["ObjectFieldSelector"]=None, mode: typing.Optional[jsii.Number]=None, resource_field_ref: typing.Optional["ResourceFieldSelector"]=None):
+@jsii.data_type(jsii_type="generated.DownwardApiVolumeFile", jsii_struct_bases=[], name_mapping={'path': 'path', 'field_ref': 'fieldRef', 'mode': 'mode', 'resource_field_ref': 'resourceFieldRef'})
+class DownwardApiVolumeFile():
+    def __init__(self, *, path: str, field_ref: typing.Optional["ObjectFieldSelector"]=None, mode: typing.Optional[jsii.Number]=None, resource_field_ref: typing.Optional["ResourceFieldSelector"]=None) -> None:
         """DownwardAPIVolumeFile represents information to create the file containing the pod field.
 
         :param path: Required: Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
@@ -5776,12 +5776,12 @@ class DownwardAPIVolumeFile():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'DownwardAPIVolumeFile(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'DownwardApiVolumeFile(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.DownwardAPIVolumeSource", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items'})
-class DownwardAPIVolumeSource():
-    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["DownwardAPIVolumeFile"]]=None):
+@jsii.data_type(jsii_type="generated.DownwardApiVolumeSource", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items'})
+class DownwardApiVolumeSource():
+    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["DownwardApiVolumeFile"]]=None) -> None:
         """DownwardAPIVolumeSource represents a volume containing downward API info.
 
         Downward API volumes support ownership management and SELinux relabeling.
@@ -5812,7 +5812,7 @@ class DownwardAPIVolumeSource():
         return self._values.get('default_mode')
 
     @builtins.property
-    def items(self) -> typing.Optional[typing.List["DownwardAPIVolumeFile"]]:
+    def items(self) -> typing.Optional[typing.List["DownwardApiVolumeFile"]]:
         """Items is a list of downward API volume file.
 
         schema:
@@ -5827,12 +5827,12 @@ class DownwardAPIVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'DownwardAPIVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'DownwardApiVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EmptyDirVolumeSource", jsii_struct_bases=[], name_mapping={'medium': 'medium', 'size_limit': 'sizeLimit'})
+@jsii.data_type(jsii_type="generated.EmptyDirVolumeSource", jsii_struct_bases=[], name_mapping={'medium': 'medium', 'size_limit': 'sizeLimit'})
 class EmptyDirVolumeSource():
-    def __init__(self, *, medium: typing.Optional[str]=None, size_limit: typing.Optional["Quantity"]=None):
+    def __init__(self, *, medium: typing.Optional[str]=None, size_limit: typing.Optional["Quantity"]=None) -> None:
         """Represents an empty directory for a pod.
 
         Empty directory volumes support ownership management and SELinux relabeling.
@@ -5880,9 +5880,9 @@ class EmptyDirVolumeSource():
         return 'EmptyDirVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Endpoint", jsii_struct_bases=[], name_mapping={'addresses': 'addresses', 'conditions': 'conditions', 'hostname': 'hostname', 'target_ref': 'targetRef', 'topology': 'topology'})
+@jsii.data_type(jsii_type="generated.Endpoint", jsii_struct_bases=[], name_mapping={'addresses': 'addresses', 'conditions': 'conditions', 'hostname': 'hostname', 'target_ref': 'targetRef', 'topology': 'topology'})
 class Endpoint():
-    def __init__(self, *, addresses: typing.List[str], conditions: typing.Optional["EndpointConditions"]=None, hostname: typing.Optional[str]=None, target_ref: typing.Optional["ObjectReference"]=None, topology: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, addresses: typing.List[str], conditions: typing.Optional["EndpointConditions"]=None, hostname: typing.Optional[str]=None, target_ref: typing.Optional["ObjectReference"]=None, topology: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """Endpoint represents a single logical "backend" implementing a service.
 
         :param addresses: addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100.
@@ -5945,7 +5945,7 @@ class Endpoint():
         return self._values.get('target_ref')
 
     @builtins.property
-    def topology(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def topology(self) -> typing.Optional[typing.Mapping[str, str]]:
         """topology contains arbitrary topology information associated with the endpoint.
 
         These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node
@@ -5971,9 +5971,9 @@ class Endpoint():
         return 'Endpoint(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EndpointAddress", jsii_struct_bases=[], name_mapping={'ip': 'ip', 'hostname': 'hostname', 'node_name': 'nodeName', 'target_ref': 'targetRef'})
+@jsii.data_type(jsii_type="generated.EndpointAddress", jsii_struct_bases=[], name_mapping={'ip': 'ip', 'hostname': 'hostname', 'node_name': 'nodeName', 'target_ref': 'targetRef'})
 class EndpointAddress():
-    def __init__(self, *, ip: str, hostname: typing.Optional[str]=None, node_name: typing.Optional[str]=None, target_ref: typing.Optional["ObjectReference"]=None):
+    def __init__(self, *, ip: str, hostname: typing.Optional[str]=None, node_name: typing.Optional[str]=None, target_ref: typing.Optional["ObjectReference"]=None) -> None:
         """EndpointAddress is a tuple that describes single IP address.
 
         :param ip: The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24). IPv6 is also accepted but not fully supported on all platforms. Also, certain kubernetes components, like kube-proxy, are not IPv6 ready.
@@ -6042,9 +6042,9 @@ class EndpointAddress():
         return 'EndpointAddress(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EndpointConditions", jsii_struct_bases=[], name_mapping={'ready': 'ready'})
+@jsii.data_type(jsii_type="generated.EndpointConditions", jsii_struct_bases=[], name_mapping={'ready': 'ready'})
 class EndpointConditions():
-    def __init__(self, *, ready: typing.Optional[bool]=None):
+    def __init__(self, *, ready: typing.Optional[bool]=None) -> None:
         """EndpointConditions represents the current condition of an endpoint.
 
         :param ready: ready indicates that this endpoint is prepared to receive traffic, according to whatever system is managing the endpoint. A nil value indicates an unknown state. In most cases consumers should interpret this unknown state as ready.
@@ -6077,9 +6077,9 @@ class EndpointConditions():
         return 'EndpointConditions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EndpointPort", jsii_struct_bases=[], name_mapping={'port': 'port', 'name': 'name', 'protocol': 'protocol'})
+@jsii.data_type(jsii_type="generated.EndpointPort", jsii_struct_bases=[], name_mapping={'port': 'port', 'name': 'name', 'protocol': 'protocol'})
 class EndpointPort():
-    def __init__(self, *, port: jsii.Number, name: typing.Optional[str]=None, protocol: typing.Optional[str]=None):
+    def __init__(self, *, port: jsii.Number, name: typing.Optional[str]=None, protocol: typing.Optional[str]=None) -> None:
         """EndpointPort is a tuple that describes a single port.
 
         :param port: The port number of the endpoint.
@@ -6139,7 +6139,7 @@ class EndpointPort():
         return 'EndpointPort(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class EndpointSlice(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.EndpointSlice"):
+class EndpointSlice(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.EndpointSlice"):
     """EndpointSlice represents a subset of the endpoints that implement a service.
 
     For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
@@ -6162,7 +6162,7 @@ class EndpointSlice(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.End
         jsii.create(EndpointSlice, self, [scope, name, options])
 
 
-class EndpointSliceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.EndpointSliceList"):
+class EndpointSliceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.EndpointSliceList"):
     """EndpointSliceList represents a list of endpoint slices.
 
     schema:
@@ -6181,9 +6181,9 @@ class EndpointSliceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s
         jsii.create(EndpointSliceList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.EndpointSliceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.EndpointSliceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class EndpointSliceListOptions():
-    def __init__(self, *, items: typing.List["EndpointSlice"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["EndpointSlice"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """EndpointSliceList represents a list of endpoint slices.
 
         :param items: List of endpoint slices.
@@ -6226,9 +6226,9 @@ class EndpointSliceListOptions():
         return 'EndpointSliceListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EndpointSliceOptions", jsii_struct_bases=[], name_mapping={'address_type': 'addressType', 'endpoints': 'endpoints', 'metadata': 'metadata', 'ports': 'ports'})
+@jsii.data_type(jsii_type="generated.EndpointSliceOptions", jsii_struct_bases=[], name_mapping={'address_type': 'addressType', 'endpoints': 'endpoints', 'metadata': 'metadata', 'ports': 'ports'})
 class EndpointSliceOptions():
-    def __init__(self, *, address_type: str, endpoints: typing.List["Endpoint"], metadata: typing.Optional["ObjectMeta"]=None, ports: typing.Optional[typing.List["EndpointPort"]]=None):
+    def __init__(self, *, address_type: str, endpoints: typing.List["Endpoint"], metadata: typing.Optional["ObjectMeta"]=None, ports: typing.Optional[typing.List["EndpointPort"]]=None) -> None:
         """EndpointSlice represents a subset of the endpoints that implement a service.
 
         For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
@@ -6301,9 +6301,9 @@ class EndpointSliceOptions():
         return 'EndpointSliceOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EndpointSubset", jsii_struct_bases=[], name_mapping={'addresses': 'addresses', 'not_ready_addresses': 'notReadyAddresses', 'ports': 'ports'})
+@jsii.data_type(jsii_type="generated.EndpointSubset", jsii_struct_bases=[], name_mapping={'addresses': 'addresses', 'not_ready_addresses': 'notReadyAddresses', 'ports': 'ports'})
 class EndpointSubset():
-    def __init__(self, *, addresses: typing.Optional[typing.List["EndpointAddress"]]=None, not_ready_addresses: typing.Optional[typing.List["EndpointAddress"]]=None, ports: typing.Optional[typing.List["EndpointPort"]]=None):
+    def __init__(self, *, addresses: typing.Optional[typing.List["EndpointAddress"]]=None, not_ready_addresses: typing.Optional[typing.List["EndpointAddress"]]=None, ports: typing.Optional[typing.List["EndpointPort"]]=None) -> None:
         """EndpointSubset is a group of addresses with a common set of ports.
 
         The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:
@@ -6367,7 +6367,7 @@ class EndpointSubset():
         return 'EndpointSubset(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Endpoints(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Endpoints"):
+class Endpoints(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Endpoints"):
     """Endpoints is a collection of endpoints that implement the actual service.
 
     Example:
@@ -6399,7 +6399,7 @@ class Endpoints(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Endpoin
         jsii.create(Endpoints, self, [scope, name, options])
 
 
-class EndpointsList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.EndpointsList"):
+class EndpointsList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.EndpointsList"):
     """EndpointsList is a list of endpoints.
 
     schema:
@@ -6418,9 +6418,9 @@ class EndpointsList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.End
         jsii.create(EndpointsList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.EndpointsListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.EndpointsListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class EndpointsListOptions():
-    def __init__(self, *, items: typing.List["Endpoints"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Endpoints"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """EndpointsList is a list of endpoints.
 
         :param items: List of endpoints.
@@ -6465,9 +6465,9 @@ class EndpointsListOptions():
         return 'EndpointsListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EndpointsOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'subsets': 'subsets'})
+@jsii.data_type(jsii_type="generated.EndpointsOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'subsets': 'subsets'})
 class EndpointsOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, subsets: typing.Optional[typing.List["EndpointSubset"]]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, subsets: typing.Optional[typing.List["EndpointSubset"]]=None) -> None:
         """Endpoints is a collection of endpoints that implement the actual service.
 
         Example:
@@ -6527,9 +6527,9 @@ class EndpointsOptions():
         return 'EndpointsOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EnvFromSource", jsii_struct_bases=[], name_mapping={'config_map_ref': 'configMapRef', 'prefix': 'prefix', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.EnvFromSource", jsii_struct_bases=[], name_mapping={'config_map_ref': 'configMapRef', 'prefix': 'prefix', 'secret_ref': 'secretRef'})
 class EnvFromSource():
-    def __init__(self, *, config_map_ref: typing.Optional["ConfigMapEnvSource"]=None, prefix: typing.Optional[str]=None, secret_ref: typing.Optional["SecretEnvSource"]=None):
+    def __init__(self, *, config_map_ref: typing.Optional["ConfigMapEnvSource"]=None, prefix: typing.Optional[str]=None, secret_ref: typing.Optional["SecretEnvSource"]=None) -> None:
         """EnvFromSource represents the source of a set of ConfigMaps.
 
         :param config_map_ref: The ConfigMap to select from.
@@ -6586,9 +6586,9 @@ class EnvFromSource():
         return 'EnvFromSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EnvVar", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value', 'value_from': 'valueFrom'})
+@jsii.data_type(jsii_type="generated.EnvVar", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value', 'value_from': 'valueFrom'})
 class EnvVar():
-    def __init__(self, *, name: str, value: typing.Optional[str]=None, value_from: typing.Optional["EnvVarSource"]=None):
+    def __init__(self, *, name: str, value: typing.Optional[str]=None, value_from: typing.Optional["EnvVarSource"]=None) -> None:
         """EnvVar represents an environment variable present in a Container.
 
         :param name: Name of the environment variable. Must be a C_IDENTIFIER.
@@ -6651,9 +6651,9 @@ class EnvVar():
         return 'EnvVar(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EnvVarSource", jsii_struct_bases=[], name_mapping={'config_map_key_ref': 'configMapKeyRef', 'field_ref': 'fieldRef', 'resource_field_ref': 'resourceFieldRef', 'secret_key_ref': 'secretKeyRef'})
+@jsii.data_type(jsii_type="generated.EnvVarSource", jsii_struct_bases=[], name_mapping={'config_map_key_ref': 'configMapKeyRef', 'field_ref': 'fieldRef', 'resource_field_ref': 'resourceFieldRef', 'secret_key_ref': 'secretKeyRef'})
 class EnvVarSource():
-    def __init__(self, *, config_map_key_ref: typing.Optional["ConfigMapKeySelector"]=None, field_ref: typing.Optional["ObjectFieldSelector"]=None, resource_field_ref: typing.Optional["ResourceFieldSelector"]=None, secret_key_ref: typing.Optional["SecretKeySelector"]=None):
+    def __init__(self, *, config_map_key_ref: typing.Optional["ConfigMapKeySelector"]=None, field_ref: typing.Optional["ObjectFieldSelector"]=None, resource_field_ref: typing.Optional["ResourceFieldSelector"]=None, secret_key_ref: typing.Optional["SecretKeySelector"]=None) -> None:
         """EnvVarSource represents a source for the value of an EnvVar.
 
         :param config_map_key_ref: Selects a key of a ConfigMap.
@@ -6721,9 +6721,9 @@ class EnvVarSource():
         return 'EnvVarSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EphemeralContainer", jsii_struct_bases=[], name_mapping={'name': 'name', 'args': 'args', 'command': 'command', 'env': 'env', 'env_from': 'envFrom', 'image': 'image', 'image_pull_policy': 'imagePullPolicy', 'lifecycle': 'lifecycle', 'liveness_probe': 'livenessProbe', 'ports': 'ports', 'readiness_probe': 'readinessProbe', 'resources': 'resources', 'security_context': 'securityContext', 'startup_probe': 'startupProbe', 'stdin': 'stdin', 'stdin_once': 'stdinOnce', 'target_container_name': 'targetContainerName', 'termination_message_path': 'terminationMessagePath', 'termination_message_policy': 'terminationMessagePolicy', 'tty': 'tty', 'volume_devices': 'volumeDevices', 'volume_mounts': 'volumeMounts', 'working_dir': 'workingDir'})
+@jsii.data_type(jsii_type="generated.EphemeralContainer", jsii_struct_bases=[], name_mapping={'name': 'name', 'args': 'args', 'command': 'command', 'env': 'env', 'env_from': 'envFrom', 'image': 'image', 'image_pull_policy': 'imagePullPolicy', 'lifecycle': 'lifecycle', 'liveness_probe': 'livenessProbe', 'ports': 'ports', 'readiness_probe': 'readinessProbe', 'resources': 'resources', 'security_context': 'securityContext', 'startup_probe': 'startupProbe', 'stdin': 'stdin', 'stdin_once': 'stdinOnce', 'target_container_name': 'targetContainerName', 'termination_message_path': 'terminationMessagePath', 'termination_message_policy': 'terminationMessagePolicy', 'tty': 'tty', 'volume_devices': 'volumeDevices', 'volume_mounts': 'volumeMounts', 'working_dir': 'workingDir'})
 class EphemeralContainer():
-    def __init__(self, *, name: str, args: typing.Optional[typing.List[str]]=None, command: typing.Optional[typing.List[str]]=None, env: typing.Optional[typing.List["EnvVar"]]=None, env_from: typing.Optional[typing.List["EnvFromSource"]]=None, image: typing.Optional[str]=None, image_pull_policy: typing.Optional[str]=None, lifecycle: typing.Optional["Lifecycle"]=None, liveness_probe: typing.Optional["Probe"]=None, ports: typing.Optional[typing.List["ContainerPort"]]=None, readiness_probe: typing.Optional["Probe"]=None, resources: typing.Optional["ResourceRequirements"]=None, security_context: typing.Optional["SecurityContext"]=None, startup_probe: typing.Optional["Probe"]=None, stdin: typing.Optional[bool]=None, stdin_once: typing.Optional[bool]=None, target_container_name: typing.Optional[str]=None, termination_message_path: typing.Optional[str]=None, termination_message_policy: typing.Optional[str]=None, tty: typing.Optional[bool]=None, volume_devices: typing.Optional[typing.List["VolumeDevice"]]=None, volume_mounts: typing.Optional[typing.List["VolumeMount"]]=None, working_dir: typing.Optional[str]=None):
+    def __init__(self, *, name: str, args: typing.Optional[typing.List[str]]=None, command: typing.Optional[typing.List[str]]=None, env: typing.Optional[typing.List["EnvVar"]]=None, env_from: typing.Optional[typing.List["EnvFromSource"]]=None, image: typing.Optional[str]=None, image_pull_policy: typing.Optional[str]=None, lifecycle: typing.Optional["Lifecycle"]=None, liveness_probe: typing.Optional["Probe"]=None, ports: typing.Optional[typing.List["ContainerPort"]]=None, readiness_probe: typing.Optional["Probe"]=None, resources: typing.Optional["ResourceRequirements"]=None, security_context: typing.Optional["SecurityContext"]=None, startup_probe: typing.Optional["Probe"]=None, stdin: typing.Optional[bool]=None, stdin_once: typing.Optional[bool]=None, target_container_name: typing.Optional[str]=None, termination_message_path: typing.Optional[str]=None, termination_message_policy: typing.Optional[str]=None, tty: typing.Optional[bool]=None, volume_devices: typing.Optional[typing.List["VolumeDevice"]]=None, volume_mounts: typing.Optional[typing.List["VolumeMount"]]=None, working_dir: typing.Optional[str]=None) -> None:
         """An EphemeralContainer is a container that may be added temporarily to an existing pod for user-initiated activities such as debugging.
 
         Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a pod is removed or restarted. If an ephemeral container causes a pod to exceed its resource allocation, the pod may be evicted. Ephemeral containers may not be added by directly updating the pod spec. They must be added via the pod's ephemeralcontainers subresource, and they will appear in the pod spec once added. This is an alpha feature enabled by the EphemeralContainers feature flag.
@@ -7056,7 +7056,7 @@ class EphemeralContainer():
         return 'EphemeralContainer(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Event(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Event"):
+class Event(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Event"):
     """Event is a report of an event somewhere in the cluster.
 
     schema:
@@ -7088,7 +7088,7 @@ class Event(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Event"):
         jsii.create(Event, self, [scope, name, options])
 
 
-class EventList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.EventList"):
+class EventList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.EventList"):
     """EventList is a list of events.
 
     schema:
@@ -7107,9 +7107,9 @@ class EventList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.EventLi
         jsii.create(EventList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.EventListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.EventListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class EventListOptions():
-    def __init__(self, *, items: typing.List["Event"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Event"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """EventList is a list of events.
 
         :param items: List of events.
@@ -7154,9 +7154,9 @@ class EventListOptions():
         return 'EventListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EventOptions", jsii_struct_bases=[], name_mapping={'involved_object': 'involvedObject', 'metadata': 'metadata', 'action': 'action', 'count': 'count', 'event_time': 'eventTime', 'first_timestamp': 'firstTimestamp', 'last_timestamp': 'lastTimestamp', 'message': 'message', 'reason': 'reason', 'related': 'related', 'reporting_component': 'reportingComponent', 'reporting_instance': 'reportingInstance', 'series': 'series', 'source': 'source', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.EventOptions", jsii_struct_bases=[], name_mapping={'involved_object': 'involvedObject', 'metadata': 'metadata', 'action': 'action', 'count': 'count', 'event_time': 'eventTime', 'first_timestamp': 'firstTimestamp', 'last_timestamp': 'lastTimestamp', 'message': 'message', 'reason': 'reason', 'related': 'related', 'reporting_component': 'reportingComponent', 'reporting_instance': 'reportingInstance', 'series': 'series', 'source': 'source', 'type': 'type'})
 class EventOptions():
-    def __init__(self, *, involved_object: "ObjectReference", metadata: "ObjectMeta", action: typing.Optional[str]=None, count: typing.Optional[jsii.Number]=None, event_time: typing.Optional[datetime.datetime]=None, first_timestamp: typing.Optional[datetime.datetime]=None, last_timestamp: typing.Optional[datetime.datetime]=None, message: typing.Optional[str]=None, reason: typing.Optional[str]=None, related: typing.Optional["ObjectReference"]=None, reporting_component: typing.Optional[str]=None, reporting_instance: typing.Optional[str]=None, series: typing.Optional["EventSeries"]=None, source: typing.Optional["EventSource"]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, involved_object: "ObjectReference", metadata: "ObjectMeta", action: typing.Optional[str]=None, count: typing.Optional[jsii.Number]=None, event_time: typing.Optional[datetime.datetime]=None, first_timestamp: typing.Optional[datetime.datetime]=None, last_timestamp: typing.Optional[datetime.datetime]=None, message: typing.Optional[str]=None, reason: typing.Optional[str]=None, related: typing.Optional["ObjectReference"]=None, reporting_component: typing.Optional[str]=None, reporting_instance: typing.Optional[str]=None, series: typing.Optional["EventSeries"]=None, source: typing.Optional["EventSource"]=None, type: typing.Optional[str]=None) -> None:
         """Event is a report of an event somewhere in the cluster.
 
         :param involved_object: The object that this event is about.
@@ -7352,9 +7352,9 @@ class EventOptions():
         return 'EventOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EventSeries", jsii_struct_bases=[], name_mapping={'count': 'count', 'last_observed_time': 'lastObservedTime', 'state': 'state'})
+@jsii.data_type(jsii_type="generated.EventSeries", jsii_struct_bases=[], name_mapping={'count': 'count', 'last_observed_time': 'lastObservedTime', 'state': 'state'})
 class EventSeries():
-    def __init__(self, *, count: typing.Optional[jsii.Number]=None, last_observed_time: typing.Optional[datetime.datetime]=None, state: typing.Optional[str]=None):
+    def __init__(self, *, count: typing.Optional[jsii.Number]=None, last_observed_time: typing.Optional[datetime.datetime]=None, state: typing.Optional[str]=None) -> None:
         """EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
 
         :param count: Number of occurrences in this series up to the last heartbeat time.
@@ -7409,9 +7409,9 @@ class EventSeries():
         return 'EventSeries(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.EventSource", jsii_struct_bases=[], name_mapping={'component': 'component', 'host': 'host'})
+@jsii.data_type(jsii_type="generated.EventSource", jsii_struct_bases=[], name_mapping={'component': 'component', 'host': 'host'})
 class EventSource():
-    def __init__(self, *, component: typing.Optional[str]=None, host: typing.Optional[str]=None):
+    def __init__(self, *, component: typing.Optional[str]=None, host: typing.Optional[str]=None) -> None:
         """EventSource contains information for an event.
 
         :param component: Component from which the event is generated.
@@ -7453,7 +7453,7 @@ class EventSource():
         return 'EventSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Eviction(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Eviction"):
+class Eviction(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Eviction"):
     """Eviction evicts a pod from its node subject to certain policies and safety constraints.
 
     This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods//evictions.
@@ -7474,9 +7474,9 @@ class Eviction(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Eviction
         jsii.create(Eviction, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.EvictionOptions", jsii_struct_bases=[], name_mapping={'delete_options': 'deleteOptions', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.EvictionOptions", jsii_struct_bases=[], name_mapping={'delete_options': 'deleteOptions', 'metadata': 'metadata'})
 class EvictionOptions():
-    def __init__(self, *, delete_options: typing.Optional["DeleteOptions"]=None, metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, delete_options: typing.Optional["DeleteOptions"]=None, metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """Eviction evicts a pod from its node subject to certain policies and safety constraints.
 
         This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods//evictions.
@@ -7522,9 +7522,9 @@ class EvictionOptions():
         return 'EvictionOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ExecAction", jsii_struct_bases=[], name_mapping={'command': 'command'})
+@jsii.data_type(jsii_type="generated.ExecAction", jsii_struct_bases=[], name_mapping={'command': 'command'})
 class ExecAction():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
         """ExecAction describes a "run in container" action.
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -7557,9 +7557,9 @@ class ExecAction():
         return 'ExecAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ExternalDocumentation", jsii_struct_bases=[], name_mapping={'description': 'description', 'url': 'url'})
+@jsii.data_type(jsii_type="generated.ExternalDocumentation", jsii_struct_bases=[], name_mapping={'description': 'description', 'url': 'url'})
 class ExternalDocumentation():
-    def __init__(self, *, description: typing.Optional[str]=None, url: typing.Optional[str]=None):
+    def __init__(self, *, description: typing.Optional[str]=None, url: typing.Optional[str]=None) -> None:
         """ExternalDocumentation allows referencing an external resource for extended documentation.
 
         :param description: 
@@ -7599,9 +7599,9 @@ class ExternalDocumentation():
         return 'ExternalDocumentation(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.FCVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'lun': 'lun', 'read_only': 'readOnly', 'target_ww_ns': 'targetWWNs', 'wwids': 'wwids'})
-class FCVolumeSource():
-    def __init__(self, *, fs_type: typing.Optional[str]=None, lun: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None, target_ww_ns: typing.Optional[typing.List[str]]=None, wwids: typing.Optional[typing.List[str]]=None):
+@jsii.data_type(jsii_type="generated.FcVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'lun': 'lun', 'read_only': 'readOnly', 'target_ww_ns': 'targetWWNs', 'wwids': 'wwids'})
+class FcVolumeSource():
+    def __init__(self, *, fs_type: typing.Optional[str]=None, lun: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None, target_ww_ns: typing.Optional[typing.List[str]]=None, wwids: typing.Optional[typing.List[str]]=None) -> None:
         """Represents a Fibre Channel volume.
 
         Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling.
@@ -7682,58 +7682,12 @@ class FCVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'FCVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'FcVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.FSGroupStrategyOptions", jsii_struct_bases=[], name_mapping={'ranges': 'ranges', 'rule': 'rule'})
-class FSGroupStrategyOptions():
-    def __init__(self, *, ranges: typing.Optional[typing.List["IdRange"]]=None, rule: typing.Optional[str]=None):
-        """FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
-
-        :param ranges: ranges are the allowed ranges of fs groups. If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
-        :param rule: rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions
-        """
-        self._values = {
-        }
-        if ranges is not None: self._values["ranges"] = ranges
-        if rule is not None: self._values["rule"] = rule
-
-    @builtins.property
-    def ranges(self) -> typing.Optional[typing.List["IdRange"]]:
-        """ranges are the allowed ranges of fs groups.
-
-        If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#ranges
-        """
-        return self._values.get('ranges')
-
-    @builtins.property
-    def rule(self) -> typing.Optional[str]:
-        """rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#rule
-        """
-        return self._values.get('rule')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'FSGroupStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.FlexPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'options': 'options', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.FlexPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'options': 'options', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class FlexPersistentVolumeSource():
-    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, options: typing.Optional[typing.Mapping[str,str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None):
+    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, options: typing.Optional[typing.Mapping[str, str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None) -> None:
         """FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.
 
         :param driver: Driver is the name of the driver to use for this volume.
@@ -7775,7 +7729,7 @@ class FlexPersistentVolumeSource():
         return self._values.get('fs_type')
 
     @builtins.property
-    def options(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def options(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Optional: Extra command options if any.
 
         schema:
@@ -7818,9 +7772,9 @@ class FlexPersistentVolumeSource():
         return 'FlexPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.FlexVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'options': 'options', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.FlexVolumeSource", jsii_struct_bases=[], name_mapping={'driver': 'driver', 'fs_type': 'fsType', 'options': 'options', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class FlexVolumeSource():
-    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, options: typing.Optional[typing.Mapping[str,str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None):
+    def __init__(self, *, driver: str, fs_type: typing.Optional[str]=None, options: typing.Optional[typing.Mapping[str, str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None) -> None:
         """FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
 
         :param driver: Driver is the name of the driver to use for this volume.
@@ -7862,7 +7816,7 @@ class FlexVolumeSource():
         return self._values.get('fs_type')
 
     @builtins.property
-    def options(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def options(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Optional: Extra command options if any.
 
         schema:
@@ -7905,9 +7859,9 @@ class FlexVolumeSource():
         return 'FlexVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.FlockerVolumeSource", jsii_struct_bases=[], name_mapping={'dataset_name': 'datasetName', 'dataset_uuid': 'datasetUUID'})
+@jsii.data_type(jsii_type="generated.FlockerVolumeSource", jsii_struct_bases=[], name_mapping={'dataset_name': 'datasetName', 'dataset_uuid': 'datasetUUID'})
 class FlockerVolumeSource():
-    def __init__(self, *, dataset_name: typing.Optional[str]=None, dataset_uuid: typing.Optional[str]=None):
+    def __init__(self, *, dataset_name: typing.Optional[str]=None, dataset_uuid: typing.Optional[str]=None) -> None:
         """Represents a Flocker volume mounted by the Flocker agent.
 
         One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.
@@ -7953,9 +7907,9 @@ class FlockerVolumeSource():
         return 'FlockerVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.FlowDistinguisherMethod", jsii_struct_bases=[], name_mapping={'type': 'type'})
+@jsii.data_type(jsii_type="generated.FlowDistinguisherMethod", jsii_struct_bases=[], name_mapping={'type': 'type'})
 class FlowDistinguisherMethod():
-    def __init__(self, *, type: str):
+    def __init__(self, *, type: str) -> None:
         """FlowDistinguisherMethod specifies the method of a flow distinguisher.
 
         :param type: ``type`` is the type of flow distinguisher method The supported types are "ByUser" and "ByNamespace". Required.
@@ -7988,7 +7942,7 @@ class FlowDistinguisherMethod():
         return 'FlowDistinguisherMethod(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class FlowSchema(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.FlowSchema"):
+class FlowSchema(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.FlowSchema"):
     """FlowSchema defines the schema of a group of flows.
 
     Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
@@ -8009,7 +7963,7 @@ class FlowSchema(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.FlowSc
         jsii.create(FlowSchema, self, [scope, name, options])
 
 
-class FlowSchemaList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.FlowSchemaList"):
+class FlowSchemaList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.FlowSchemaList"):
     """FlowSchemaList is a list of FlowSchema objects.
 
     schema:
@@ -8028,9 +7982,9 @@ class FlowSchemaList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Fl
         jsii.create(FlowSchemaList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.FlowSchemaListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.FlowSchemaListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class FlowSchemaListOptions():
-    def __init__(self, *, items: typing.List["FlowSchema"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["FlowSchema"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """FlowSchemaList is a list of FlowSchema objects.
 
         :param items: ``items`` is a list of FlowSchemas.
@@ -8075,9 +8029,9 @@ class FlowSchemaListOptions():
         return 'FlowSchemaListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.FlowSchemaOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.FlowSchemaOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class FlowSchemaOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["FlowSchemaSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["FlowSchemaSpec"]=None) -> None:
         """FlowSchema defines the schema of a group of flows.
 
         Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
@@ -8127,9 +8081,9 @@ class FlowSchemaOptions():
         return 'FlowSchemaOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.FlowSchemaSpec", jsii_struct_bases=[], name_mapping={'priority_level_configuration': 'priorityLevelConfiguration', 'distinguisher_method': 'distinguisherMethod', 'matching_precedence': 'matchingPrecedence', 'rules': 'rules'})
+@jsii.data_type(jsii_type="generated.FlowSchemaSpec", jsii_struct_bases=[], name_mapping={'priority_level_configuration': 'priorityLevelConfiguration', 'distinguisher_method': 'distinguisherMethod', 'matching_precedence': 'matchingPrecedence', 'rules': 'rules'})
 class FlowSchemaSpec():
-    def __init__(self, *, priority_level_configuration: "PriorityLevelConfigurationReference", distinguisher_method: typing.Optional["FlowDistinguisherMethod"]=None, matching_precedence: typing.Optional[jsii.Number]=None, rules: typing.Optional[typing.List["PolicyRulesWithSubjects"]]=None):
+    def __init__(self, *, priority_level_configuration: "PriorityLevelConfigurationReference", distinguisher_method: typing.Optional["FlowDistinguisherMethod"]=None, matching_precedence: typing.Optional[jsii.Number]=None, rules: typing.Optional[typing.List["PolicyRulesWithSubjects"]]=None) -> None:
         """FlowSchemaSpec describes how the FlowSchema's specification looks like.
 
         :param priority_level_configuration: ``priorityLevelConfiguration`` should reference a PriorityLevelConfiguration in the cluster. If the reference cannot be resolved, the FlowSchema will be ignored and marked as invalid in its status. Required.
@@ -8203,9 +8157,55 @@ class FlowSchemaSpec():
         return 'FlowSchemaSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.GCEPersistentDiskVolumeSource", jsii_struct_bases=[], name_mapping={'pd_name': 'pdName', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
-class GCEPersistentDiskVolumeSource():
-    def __init__(self, *, pd_name: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None):
+@jsii.data_type(jsii_type="generated.FsGroupStrategyOptions", jsii_struct_bases=[], name_mapping={'ranges': 'ranges', 'rule': 'rule'})
+class FsGroupStrategyOptions():
+    def __init__(self, *, ranges: typing.Optional[typing.List["IdRange"]]=None, rule: typing.Optional[str]=None) -> None:
+        """FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
+
+        :param ranges: ranges are the allowed ranges of fs groups. If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
+        :param rule: rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions
+        """
+        self._values = {
+        }
+        if ranges is not None: self._values["ranges"] = ranges
+        if rule is not None: self._values["rule"] = rule
+
+    @builtins.property
+    def ranges(self) -> typing.Optional[typing.List["IdRange"]]:
+        """ranges are the allowed ranges of fs groups.
+
+        If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#ranges
+        """
+        return self._values.get('ranges')
+
+    @builtins.property
+    def rule(self) -> typing.Optional[str]:
+        """rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#rule
+        """
+        return self._values.get('rule')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'FsGroupStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.GcePersistentDiskVolumeSource", jsii_struct_bases=[], name_mapping={'pd_name': 'pdName', 'fs_type': 'fsType', 'partition': 'partition', 'read_only': 'readOnly'})
+class GcePersistentDiskVolumeSource():
+    def __init__(self, *, pd_name: str, fs_type: typing.Optional[str]=None, partition: typing.Optional[jsii.Number]=None, read_only: typing.Optional[bool]=None) -> None:
         """Represents a Persistent Disk resource in Google Compute Engine.
 
         A GCE PD must exist before mounting to a container. The disk must also be in the same GCE project and zone as the kubelet. A GCE PD can only be mounted as read/write once or read-only many times. GCE PDs support ownership management and SELinux relabeling.
@@ -8279,12 +8279,12 @@ class GCEPersistentDiskVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'GCEPersistentDiskVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'GcePersistentDiskVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.GitRepoVolumeSource", jsii_struct_bases=[], name_mapping={'repository': 'repository', 'directory': 'directory', 'revision': 'revision'})
+@jsii.data_type(jsii_type="generated.GitRepoVolumeSource", jsii_struct_bases=[], name_mapping={'repository': 'repository', 'directory': 'directory', 'revision': 'revision'})
 class GitRepoVolumeSource():
-    def __init__(self, *, repository: str, directory: typing.Optional[str]=None, revision: typing.Optional[str]=None):
+    def __init__(self, *, repository: str, directory: typing.Optional[str]=None, revision: typing.Optional[str]=None) -> None:
         """Represents a volume that is populated with the contents of a git repository.
 
         Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.
@@ -8343,9 +8343,9 @@ class GitRepoVolumeSource():
         return 'GitRepoVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.GlusterfsPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'endpoints': 'endpoints', 'path': 'path', 'endpoints_namespace': 'endpointsNamespace', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.GlusterfsPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'endpoints': 'endpoints', 'path': 'path', 'endpoints_namespace': 'endpointsNamespace', 'read_only': 'readOnly'})
 class GlusterfsPersistentVolumeSource():
-    def __init__(self, *, endpoints: str, path: str, endpoints_namespace: typing.Optional[str]=None, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, endpoints: str, path: str, endpoints_namespace: typing.Optional[str]=None, read_only: typing.Optional[bool]=None) -> None:
         """Represents a Glusterfs mount that lasts the lifetime of a pod.
 
         Glusterfs volumes do not support ownership management or SELinux relabeling.
@@ -8422,9 +8422,9 @@ class GlusterfsPersistentVolumeSource():
         return 'GlusterfsPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.GlusterfsVolumeSource", jsii_struct_bases=[], name_mapping={'endpoints': 'endpoints', 'path': 'path', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.GlusterfsVolumeSource", jsii_struct_bases=[], name_mapping={'endpoints': 'endpoints', 'path': 'path', 'read_only': 'readOnly'})
 class GlusterfsVolumeSource():
-    def __init__(self, *, endpoints: str, path: str, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, endpoints: str, path: str, read_only: typing.Optional[bool]=None) -> None:
         """Represents a Glusterfs mount that lasts the lifetime of a pod.
 
         Glusterfs volumes do not support ownership management or SELinux relabeling.
@@ -8488,223 +8488,9 @@ class GlusterfsVolumeSource():
         return 'GlusterfsVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.HTTPGetAction", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
-class HTTPGetAction():
-    def __init__(self, *, port: "IntOrString", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["HTTPHeader"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None):
-        """HTTPGetAction describes an action based on HTTP Get requests.
-
-        :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-        :param host: Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-        :param http_headers: Custom headers to set in the request. HTTP allows repeated headers.
-        :param path: Path to access on the HTTP server.
-        :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction
-        """
-        self._values = {
-            'port': port,
-        }
-        if host is not None: self._values["host"] = host
-        if http_headers is not None: self._values["http_headers"] = http_headers
-        if path is not None: self._values["path"] = path
-        if scheme is not None: self._values["scheme"] = scheme
-
-    @builtins.property
-    def port(self) -> "IntOrString":
-        """Name or number of the port to access on the container.
-
-        Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#port
-        """
-        return self._values.get('port')
-
-    @builtins.property
-    def host(self) -> typing.Optional[str]:
-        """Host name to connect to, defaults to the pod IP.
-
-        You probably want to set "Host" in httpHeaders instead.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#host
-        """
-        return self._values.get('host')
-
-    @builtins.property
-    def http_headers(self) -> typing.Optional[typing.List["HTTPHeader"]]:
-        """Custom headers to set in the request.
-
-        HTTP allows repeated headers.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#httpHeaders
-        """
-        return self._values.get('http_headers')
-
-    @builtins.property
-    def path(self) -> typing.Optional[str]:
-        """Path to access on the HTTP server.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#path
-        """
-        return self._values.get('path')
-
-    @builtins.property
-    def scheme(self) -> typing.Optional[str]:
-        """Scheme to use for connecting to the host.
-
-        Defaults to HTTP.
-
-        default
-        :default: HTTP.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPGetAction#scheme
-        """
-        return self._values.get('scheme')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'HTTPGetAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.HTTPHeader", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
-class HTTPHeader():
-    def __init__(self, *, name: str, value: str):
-        """HTTPHeader describes a custom header to be used in HTTP probes.
-
-        :param name: The header field name.
-        :param value: The header field value.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPHeader
-        """
-        self._values = {
-            'name': name,
-            'value': value,
-        }
-
-    @builtins.property
-    def name(self) -> str:
-        """The header field name.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPHeader#name
-        """
-        return self._values.get('name')
-
-    @builtins.property
-    def value(self) -> str:
-        """The header field value.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.HTTPHeader#value
-        """
-        return self._values.get('value')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'HTTPHeader(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.HTTPIngressPath", jsii_struct_bases=[], name_mapping={'backend': 'backend', 'path': 'path'})
-class HTTPIngressPath():
-    def __init__(self, *, backend: "IngressBackend", path: typing.Optional[str]=None):
-        """HTTPIngressPath associates a path regex with a backend.
-
-        Incoming urls matching the path are forwarded to the backend.
-
-        :param backend: Backend defines the referenced service endpoint to which the traffic will be forwarded to.
-        :param path: Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath
-        """
-        if isinstance(backend, dict): backend = IngressBackend(**backend)
-        self._values = {
-            'backend': backend,
-        }
-        if path is not None: self._values["path"] = path
-
-    @builtins.property
-    def backend(self) -> "IngressBackend":
-        """Backend defines the referenced service endpoint to which the traffic will be forwarded to.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath#backend
-        """
-        return self._values.get('backend')
-
-    @builtins.property
-    def path(self) -> typing.Optional[str]:
-        """Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath#path
-        """
-        return self._values.get('path')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'HTTPIngressPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.HTTPIngressRuleValue", jsii_struct_bases=[], name_mapping={'paths': 'paths'})
-class HTTPIngressRuleValue():
-    def __init__(self, *, paths: typing.List["HTTPIngressPath"]):
-        """HTTPIngressRuleValue is a list of http selectors pointing to backends.
-
-        In the example: http:///? -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.
-
-        :param paths: A collection of paths that map requests to backends.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue
-        """
-        self._values = {
-            'paths': paths,
-        }
-
-    @builtins.property
-    def paths(self) -> typing.List["HTTPIngressPath"]:
-        """A collection of paths that map requests to backends.
-
-        schema:
-        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue#paths
-        """
-        return self._values.get('paths')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'HTTPIngressRuleValue(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.Handler", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'http_get': 'httpGet', 'tcp_socket': 'tcpSocket'})
+@jsii.data_type(jsii_type="generated.Handler", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'http_get': 'httpGet', 'tcp_socket': 'tcpSocket'})
 class Handler():
-    def __init__(self, *, exec: typing.Optional["ExecAction"]=None, http_get: typing.Optional["HTTPGetAction"]=None, tcp_socket: typing.Optional["TCPSocketAction"]=None):
+    def __init__(self, *, exec: typing.Optional["ExecAction"]=None, http_get: typing.Optional["HttpGetAction"]=None, tcp_socket: typing.Optional["TcpSocketAction"]=None) -> None:
         """Handler defines a specific action that should be taken.
 
         :param exec: One and only one of the following should be specified. Exec specifies the action to take.
@@ -8715,8 +8501,8 @@ class Handler():
         :schema:: io.k8s.api.core.v1.Handler
         """
         if isinstance(exec, dict): exec = ExecAction(**exec)
-        if isinstance(http_get, dict): http_get = HTTPGetAction(**http_get)
-        if isinstance(tcp_socket, dict): tcp_socket = TCPSocketAction(**tcp_socket)
+        if isinstance(http_get, dict): http_get = HttpGetAction(**http_get)
+        if isinstance(tcp_socket, dict): tcp_socket = TcpSocketAction(**tcp_socket)
         self._values = {
         }
         if exec is not None: self._values["exec"] = exec
@@ -8735,7 +8521,7 @@ class Handler():
         return self._values.get('exec')
 
     @builtins.property
-    def http_get(self) -> typing.Optional["HTTPGetAction"]:
+    def http_get(self) -> typing.Optional["HttpGetAction"]:
         """HTTPGet specifies the http request to perform.
 
         schema:
@@ -8744,7 +8530,7 @@ class Handler():
         return self._values.get('http_get')
 
     @builtins.property
-    def tcp_socket(self) -> typing.Optional["TCPSocketAction"]:
+    def tcp_socket(self) -> typing.Optional["TcpSocketAction"]:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported
@@ -8764,7 +8550,7 @@ class Handler():
         return 'Handler(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class HorizontalPodAutoscaler(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.HorizontalPodAutoscaler"):
+class HorizontalPodAutoscaler(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.HorizontalPodAutoscaler"):
     """configuration of a horizontal pod autoscaler.
 
     schema:
@@ -8783,7 +8569,7 @@ class HorizontalPodAutoscaler(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_typ
         jsii.create(HorizontalPodAutoscaler, self, [scope, name, options])
 
 
-class HorizontalPodAutoscalerList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.HorizontalPodAutoscalerList"):
+class HorizontalPodAutoscalerList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.HorizontalPodAutoscalerList"):
     """list of horizontal pod autoscaler objects.
 
     schema:
@@ -8802,9 +8588,9 @@ class HorizontalPodAutoscalerList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii
         jsii.create(HorizontalPodAutoscalerList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.HorizontalPodAutoscalerListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.HorizontalPodAutoscalerListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class HorizontalPodAutoscalerListOptions():
-    def __init__(self, *, items: typing.List["HorizontalPodAutoscaler"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["HorizontalPodAutoscaler"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """list of horizontal pod autoscaler objects.
 
         :param items: list of horizontal pod autoscaler objects.
@@ -8847,9 +8633,9 @@ class HorizontalPodAutoscalerListOptions():
         return 'HorizontalPodAutoscalerListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.HorizontalPodAutoscalerOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.HorizontalPodAutoscalerOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class HorizontalPodAutoscalerOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["HorizontalPodAutoscalerSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["HorizontalPodAutoscalerSpec"]=None) -> None:
         """configuration of a horizontal pod autoscaler.
 
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -8897,9 +8683,9 @@ class HorizontalPodAutoscalerOptions():
         return 'HorizontalPodAutoscalerOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.HorizontalPodAutoscalerSpec", jsii_struct_bases=[], name_mapping={'max_replicas': 'maxReplicas', 'scale_target_ref': 'scaleTargetRef', 'min_replicas': 'minReplicas', 'target_cpu_utilization_percentage': 'targetCPUUtilizationPercentage'})
+@jsii.data_type(jsii_type="generated.HorizontalPodAutoscalerSpec", jsii_struct_bases=[], name_mapping={'max_replicas': 'maxReplicas', 'scale_target_ref': 'scaleTargetRef', 'min_replicas': 'minReplicas', 'target_cpu_utilization_percentage': 'targetCPUUtilizationPercentage'})
 class HorizontalPodAutoscalerSpec():
-    def __init__(self, *, max_replicas: jsii.Number, scale_target_ref: "CrossVersionObjectReference", min_replicas: typing.Optional[jsii.Number]=None, target_cpu_utilization_percentage: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, max_replicas: jsii.Number, scale_target_ref: "CrossVersionObjectReference", min_replicas: typing.Optional[jsii.Number]=None, target_cpu_utilization_percentage: typing.Optional[jsii.Number]=None) -> None:
         """specification of a horizontal pod autoscaler.
 
         :param max_replicas: upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
@@ -8972,9 +8758,9 @@ class HorizontalPodAutoscalerSpec():
         return 'HorizontalPodAutoscalerSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.HostAlias", jsii_struct_bases=[], name_mapping={'hostnames': 'hostnames', 'ip': 'ip'})
+@jsii.data_type(jsii_type="generated.HostAlias", jsii_struct_bases=[], name_mapping={'hostnames': 'hostnames', 'ip': 'ip'})
 class HostAlias():
-    def __init__(self, *, hostnames: typing.Optional[typing.List[str]]=None, ip: typing.Optional[str]=None):
+    def __init__(self, *, hostnames: typing.Optional[typing.List[str]]=None, ip: typing.Optional[str]=None) -> None:
         """HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.
 
         :param hostnames: Hostnames for the above IP address.
@@ -9016,9 +8802,9 @@ class HostAlias():
         return 'HostAlias(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.HostPathVolumeSource", jsii_struct_bases=[], name_mapping={'path': 'path', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.HostPathVolumeSource", jsii_struct_bases=[], name_mapping={'path': 'path', 'type': 'type'})
 class HostPathVolumeSource():
-    def __init__(self, *, path: str, type: typing.Optional[str]=None):
+    def __init__(self, *, path: str, type: typing.Optional[str]=None) -> None:
         """Represents a host path mapped into a pod.
 
         Host path volumes do not support ownership management or SELinux relabeling.
@@ -9067,9 +8853,9 @@ class HostPathVolumeSource():
         return 'HostPathVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.HostPortRange", jsii_struct_bases=[], name_mapping={'max': 'max', 'min': 'min'})
+@jsii.data_type(jsii_type="generated.HostPortRange", jsii_struct_bases=[], name_mapping={'max': 'max', 'min': 'min'})
 class HostPortRange():
-    def __init__(self, *, max: jsii.Number, min: jsii.Number):
+    def __init__(self, *, max: jsii.Number, min: jsii.Number) -> None:
         """HostPortRange defines a range of host ports that will be enabled by a policy for pods to use.
 
         It requires both the start and end to be defined.
@@ -9113,9 +8899,223 @@ class HostPortRange():
         return 'HostPortRange(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.IdRange", jsii_struct_bases=[], name_mapping={'max': 'max', 'min': 'min'})
+@jsii.data_type(jsii_type="generated.HttpGetAction", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
+class HttpGetAction():
+    def __init__(self, *, port: "IntOrString", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["HttpHeader"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
+        """HTTPGetAction describes an action based on HTTP Get requests.
+
+        :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        :param host: Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+        :param http_headers: Custom headers to set in the request. HTTP allows repeated headers.
+        :param path: Path to access on the HTTP server.
+        :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction
+        """
+        self._values = {
+            'port': port,
+        }
+        if host is not None: self._values["host"] = host
+        if http_headers is not None: self._values["http_headers"] = http_headers
+        if path is not None: self._values["path"] = path
+        if scheme is not None: self._values["scheme"] = scheme
+
+    @builtins.property
+    def port(self) -> "IntOrString":
+        """Name or number of the port to access on the container.
+
+        Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#port
+        """
+        return self._values.get('port')
+
+    @builtins.property
+    def host(self) -> typing.Optional[str]:
+        """Host name to connect to, defaults to the pod IP.
+
+        You probably want to set "Host" in httpHeaders instead.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#host
+        """
+        return self._values.get('host')
+
+    @builtins.property
+    def http_headers(self) -> typing.Optional[typing.List["HttpHeader"]]:
+        """Custom headers to set in the request.
+
+        HTTP allows repeated headers.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#httpHeaders
+        """
+        return self._values.get('http_headers')
+
+    @builtins.property
+    def path(self) -> typing.Optional[str]:
+        """Path to access on the HTTP server.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#path
+        """
+        return self._values.get('path')
+
+    @builtins.property
+    def scheme(self) -> typing.Optional[str]:
+        """Scheme to use for connecting to the host.
+
+        Defaults to HTTP.
+
+        default
+        :default: HTTP.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPGetAction#scheme
+        """
+        return self._values.get('scheme')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'HttpGetAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.HttpHeader", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+class HttpHeader():
+    def __init__(self, *, name: str, value: str) -> None:
+        """HTTPHeader describes a custom header to be used in HTTP probes.
+
+        :param name: The header field name.
+        :param value: The header field value.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPHeader
+        """
+        self._values = {
+            'name': name,
+            'value': value,
+        }
+
+    @builtins.property
+    def name(self) -> str:
+        """The header field name.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPHeader#name
+        """
+        return self._values.get('name')
+
+    @builtins.property
+    def value(self) -> str:
+        """The header field value.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.HTTPHeader#value
+        """
+        return self._values.get('value')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'HttpHeader(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.HttpIngressPath", jsii_struct_bases=[], name_mapping={'backend': 'backend', 'path': 'path'})
+class HttpIngressPath():
+    def __init__(self, *, backend: "IngressBackend", path: typing.Optional[str]=None) -> None:
+        """HTTPIngressPath associates a path regex with a backend.
+
+        Incoming urls matching the path are forwarded to the backend.
+
+        :param backend: Backend defines the referenced service endpoint to which the traffic will be forwarded to.
+        :param path: Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath
+        """
+        if isinstance(backend, dict): backend = IngressBackend(**backend)
+        self._values = {
+            'backend': backend,
+        }
+        if path is not None: self._values["path"] = path
+
+    @builtins.property
+    def backend(self) -> "IngressBackend":
+        """Backend defines the referenced service endpoint to which the traffic will be forwarded to.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath#backend
+        """
+        return self._values.get('backend')
+
+    @builtins.property
+    def path(self) -> typing.Optional[str]:
+        """Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressPath#path
+        """
+        return self._values.get('path')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'HttpIngressPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.HttpIngressRuleValue", jsii_struct_bases=[], name_mapping={'paths': 'paths'})
+class HttpIngressRuleValue():
+    def __init__(self, *, paths: typing.List["HttpIngressPath"]) -> None:
+        """HTTPIngressRuleValue is a list of http selectors pointing to backends.
+
+        In the example: http:///? -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.
+
+        :param paths: A collection of paths that map requests to backends.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue
+        """
+        self._values = {
+            'paths': paths,
+        }
+
+    @builtins.property
+    def paths(self) -> typing.List["HttpIngressPath"]:
+        """A collection of paths that map requests to backends.
+
+        schema:
+        :schema:: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue#paths
+        """
+        return self._values.get('paths')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'HttpIngressRuleValue(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.IdRange", jsii_struct_bases=[], name_mapping={'max': 'max', 'min': 'min'})
 class IdRange():
-    def __init__(self, *, max: jsii.Number, min: jsii.Number):
+    def __init__(self, *, max: jsii.Number, min: jsii.Number) -> None:
         """IDRange provides a min/max of an allowed range of IDs.
 
         :param max: max is the end of the range, inclusive.
@@ -9157,7 +9157,7 @@ class IdRange():
         return 'IdRange(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Ingress(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Ingress"):
+class Ingress(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Ingress"):
     """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
 
     An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
@@ -9178,9 +9178,9 @@ class Ingress(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Ingress")
         jsii.create(Ingress, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.IngressBackend", jsii_struct_bases=[], name_mapping={'service_name': 'serviceName', 'service_port': 'servicePort'})
+@jsii.data_type(jsii_type="generated.IngressBackend", jsii_struct_bases=[], name_mapping={'service_name': 'serviceName', 'service_port': 'servicePort'})
 class IngressBackend():
-    def __init__(self, *, service_name: str, service_port: "IntOrString"):
+    def __init__(self, *, service_name: str, service_port: "IntOrString") -> None:
         """IngressBackend describes all endpoints for a given service and port.
 
         :param service_name: Specifies the name of the referenced service.
@@ -9222,7 +9222,7 @@ class IngressBackend():
         return 'IngressBackend(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class IngressList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.IngressList"):
+class IngressList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.IngressList"):
     """IngressList is a collection of Ingress.
 
     schema:
@@ -9241,9 +9241,9 @@ class IngressList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Ingre
         jsii.create(IngressList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.IngressListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.IngressListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class IngressListOptions():
-    def __init__(self, *, items: typing.List["Ingress"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Ingress"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """IngressList is a collection of Ingress.
 
         :param items: Items is the list of Ingress.
@@ -9288,9 +9288,9 @@ class IngressListOptions():
         return 'IngressListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.IngressOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.IngressOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class IngressOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["IngressSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["IngressSpec"]=None) -> None:
         """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
 
         An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
@@ -9340,9 +9340,9 @@ class IngressOptions():
         return 'IngressOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.IngressRule", jsii_struct_bases=[], name_mapping={'host': 'host', 'http': 'http'})
+@jsii.data_type(jsii_type="generated.IngressRule", jsii_struct_bases=[], name_mapping={'host': 'host', 'http': 'http'})
 class IngressRule():
-    def __init__(self, *, host: typing.Optional[str]=None, http: typing.Optional["HTTPIngressRuleValue"]=None):
+    def __init__(self, *, host: typing.Optional[str]=None, http: typing.Optional["HttpIngressRuleValue"]=None) -> None:
         """IngressRule represents the rules mapping the paths under a specified host to the related backend services.
 
         Incoming requests are first evaluated for a host match, then routed to the backend associated with the matching IngressRuleValue.
@@ -9353,7 +9353,7 @@ class IngressRule():
         schema:
         :schema:: io.k8s.api.networking.v1beta1.IngressRule
         """
-        if isinstance(http, dict): http = HTTPIngressRuleValue(**http)
+        if isinstance(http, dict): http = HttpIngressRuleValue(**http)
         self._values = {
         }
         if host is not None: self._values["host"] = host
@@ -9376,7 +9376,7 @@ class IngressRule():
         return self._values.get('host')
 
     @builtins.property
-    def http(self) -> typing.Optional["HTTPIngressRuleValue"]:
+    def http(self) -> typing.Optional["HttpIngressRuleValue"]:
         """
         schema:
         :schema:: io.k8s.api.networking.v1beta1.IngressRule#http
@@ -9393,9 +9393,9 @@ class IngressRule():
         return 'IngressRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.IngressSpec", jsii_struct_bases=[], name_mapping={'backend': 'backend', 'rules': 'rules', 'tls': 'tls'})
+@jsii.data_type(jsii_type="generated.IngressSpec", jsii_struct_bases=[], name_mapping={'backend': 'backend', 'rules': 'rules', 'tls': 'tls'})
 class IngressSpec():
-    def __init__(self, *, backend: typing.Optional["IngressBackend"]=None, rules: typing.Optional[typing.List["IngressRule"]]=None, tls: typing.Optional[typing.List["IngressTLS"]]=None):
+    def __init__(self, *, backend: typing.Optional["IngressBackend"]=None, rules: typing.Optional[typing.List["IngressRule"]]=None, tls: typing.Optional[typing.List["IngressTls"]]=None) -> None:
         """IngressSpec describes the Ingress the user wishes to exist.
 
         :param backend: A default backend capable of servicing requests that don't match any rule. At least one of 'backend' or 'rules' must be specified. This field is optional to allow the loadbalancer controller or defaulting logic to specify a global default.
@@ -9435,7 +9435,7 @@ class IngressSpec():
         return self._values.get('rules')
 
     @builtins.property
-    def tls(self) -> typing.Optional[typing.List["IngressTLS"]]:
+    def tls(self) -> typing.Optional[typing.List["IngressTls"]]:
         """TLS configuration.
 
         Currently the Ingress only supports a single TLS port, 443. If multiple members of this list specify different hosts, they will be multiplexed on the same port according to the hostname specified through the SNI TLS extension, if the ingress controller fulfilling the ingress supports SNI.
@@ -9455,9 +9455,9 @@ class IngressSpec():
         return 'IngressSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.IngressTLS", jsii_struct_bases=[], name_mapping={'hosts': 'hosts', 'secret_name': 'secretName'})
-class IngressTLS():
-    def __init__(self, *, hosts: typing.Optional[typing.List[str]]=None, secret_name: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.IngressTls", jsii_struct_bases=[], name_mapping={'hosts': 'hosts', 'secret_name': 'secretName'})
+class IngressTls():
+    def __init__(self, *, hosts: typing.Optional[typing.List[str]]=None, secret_name: typing.Optional[str]=None) -> None:
         """IngressTLS describes the transport layer security associated with an Ingress.
 
         :param hosts: Hosts are a list of hosts included in the TLS certificate. The values in this list must match the name/s used in the tlsSecret. Defaults to the wildcard host setting for the loadbalancer controller fulfilling this Ingress, if left unspecified. Default: the wildcard host setting for the loadbalancer controller fulfilling this Ingress, if left unspecified.
@@ -9503,10 +9503,10 @@ class IngressTLS():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'IngressTLS(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'IngressTls(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="k8s.IntOrString"):
+class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="generated.IntOrString"):
     """
     schema:
     :schema:: io.k8s.apimachinery.pkg.util.intstr.IntOrString
@@ -9528,9 +9528,21 @@ class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="k8s.IntOrString"):
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="k8s.IpBlock", jsii_struct_bases=[], name_mapping={'cidr': 'cidr', 'except_': 'except'})
+@jsii.enum(jsii_type="generated.IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind")
+class IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind(enum.Enum):
+    """Kind is a string value representing the REST resource this object represents.
+
+    Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+    schema:
+    :schema:: IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind
+    """
+    DELETE_OPTIONS = "DELETE_OPTIONS"
+    """DeleteOptions."""
+
+@jsii.data_type(jsii_type="generated.IpBlock", jsii_struct_bases=[], name_mapping={'cidr': 'cidr', 'except_': 'except'})
 class IpBlock():
-    def __init__(self, *, cidr: str, except_: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, cidr: str, except_: typing.Optional[typing.List[str]]=None) -> None:
         """IPBlock describes a particular CIDR (Ex.
 
         "192.168.1.1/24") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
@@ -9574,9 +9586,9 @@ class IpBlock():
         return 'IpBlock(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.IscsiPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'iqn': 'iqn', 'lun': 'lun', 'target_portal': 'targetPortal', 'chap_auth_discovery': 'chapAuthDiscovery', 'chap_auth_session': 'chapAuthSession', 'fs_type': 'fsType', 'initiator_name': 'initiatorName', 'iscsi_interface': 'iscsiInterface', 'portals': 'portals', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.IscsiPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'iqn': 'iqn', 'lun': 'lun', 'target_portal': 'targetPortal', 'chap_auth_discovery': 'chapAuthDiscovery', 'chap_auth_session': 'chapAuthSession', 'fs_type': 'fsType', 'initiator_name': 'initiatorName', 'iscsi_interface': 'iscsiInterface', 'portals': 'portals', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class IscsiPersistentVolumeSource():
-    def __init__(self, *, iqn: str, lun: jsii.Number, target_portal: str, chap_auth_discovery: typing.Optional[bool]=None, chap_auth_session: typing.Optional[bool]=None, fs_type: typing.Optional[str]=None, initiator_name: typing.Optional[str]=None, iscsi_interface: typing.Optional[str]=None, portals: typing.Optional[typing.List[str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None):
+    def __init__(self, *, iqn: str, lun: jsii.Number, target_portal: str, chap_auth_discovery: typing.Optional[bool]=None, chap_auth_session: typing.Optional[bool]=None, fs_type: typing.Optional[str]=None, initiator_name: typing.Optional[str]=None, iscsi_interface: typing.Optional[str]=None, portals: typing.Optional[typing.List[str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None) -> None:
         """ISCSIPersistentVolumeSource represents an ISCSI disk.
 
         ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.
@@ -9738,9 +9750,9 @@ class IscsiPersistentVolumeSource():
         return 'IscsiPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.IscsiVolumeSource", jsii_struct_bases=[], name_mapping={'iqn': 'iqn', 'lun': 'lun', 'target_portal': 'targetPortal', 'chap_auth_discovery': 'chapAuthDiscovery', 'chap_auth_session': 'chapAuthSession', 'fs_type': 'fsType', 'initiator_name': 'initiatorName', 'iscsi_interface': 'iscsiInterface', 'portals': 'portals', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
+@jsii.data_type(jsii_type="generated.IscsiVolumeSource", jsii_struct_bases=[], name_mapping={'iqn': 'iqn', 'lun': 'lun', 'target_portal': 'targetPortal', 'chap_auth_discovery': 'chapAuthDiscovery', 'chap_auth_session': 'chapAuthSession', 'fs_type': 'fsType', 'initiator_name': 'initiatorName', 'iscsi_interface': 'iscsiInterface', 'portals': 'portals', 'read_only': 'readOnly', 'secret_ref': 'secretRef'})
 class IscsiVolumeSource():
-    def __init__(self, *, iqn: str, lun: jsii.Number, target_portal: str, chap_auth_discovery: typing.Optional[bool]=None, chap_auth_session: typing.Optional[bool]=None, fs_type: typing.Optional[str]=None, initiator_name: typing.Optional[str]=None, iscsi_interface: typing.Optional[str]=None, portals: typing.Optional[typing.List[str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None):
+    def __init__(self, *, iqn: str, lun: jsii.Number, target_portal: str, chap_auth_discovery: typing.Optional[bool]=None, chap_auth_session: typing.Optional[bool]=None, fs_type: typing.Optional[str]=None, initiator_name: typing.Optional[str]=None, iscsi_interface: typing.Optional[str]=None, portals: typing.Optional[typing.List[str]]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None) -> None:
         """Represents an ISCSI disk.
 
         ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.
@@ -9902,9 +9914,325 @@ class IscsiVolumeSource():
         return 'IscsiVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.JSONSchemaProps", jsii_struct_bases=[], name_mapping={'additional_items': 'additionalItems', 'additional_properties': 'additionalProperties', 'all_of': 'allOf', 'any_of': 'anyOf', 'default': 'default', 'definitions': 'definitions', 'dependencies': 'dependencies', 'description': 'description', 'enum': 'enum', 'example': 'example', 'exclusive_maximum': 'exclusiveMaximum', 'exclusive_minimum': 'exclusiveMinimum', 'external_docs': 'externalDocs', 'format': 'format', 'id': 'id', 'items': 'items', 'maximum': 'maximum', 'max_items': 'maxItems', 'max_length': 'maxLength', 'max_properties': 'maxProperties', 'minimum': 'minimum', 'min_items': 'minItems', 'min_length': 'minLength', 'min_properties': 'minProperties', 'multiple_of': 'multipleOf', 'not_': 'not', 'nullable': 'nullable', 'one_of': 'oneOf', 'pattern': 'pattern', 'pattern_properties': 'patternProperties', 'properties': 'properties', 'ref': 'ref', 'required': 'required', 'schema': 'schema', 'title': 'title', 'type': 'type', 'unique_items': 'uniqueItems'})
-class JSONSchemaProps():
-    def __init__(self, *, additional_items: typing.Optional[str]=None, additional_properties: typing.Optional[str]=None, all_of: typing.Optional[typing.List["JSONSchemaProps"]]=None, any_of: typing.Optional[typing.List["JSONSchemaProps"]]=None, default: typing.Optional[str]=None, definitions: typing.Optional[typing.Mapping[str,"JSONSchemaProps"]]=None, dependencies: typing.Optional[typing.Mapping[str,str]]=None, description: typing.Optional[str]=None, enum: typing.Optional[typing.List[str]]=None, example: typing.Optional[str]=None, exclusive_maximum: typing.Optional[bool]=None, exclusive_minimum: typing.Optional[bool]=None, external_docs: typing.Optional["ExternalDocumentation"]=None, format: typing.Optional[str]=None, id: typing.Optional[str]=None, items: typing.Optional[str]=None, maximum: typing.Optional[jsii.Number]=None, max_items: typing.Optional[jsii.Number]=None, max_length: typing.Optional[jsii.Number]=None, max_properties: typing.Optional[jsii.Number]=None, minimum: typing.Optional[jsii.Number]=None, min_items: typing.Optional[jsii.Number]=None, min_length: typing.Optional[jsii.Number]=None, min_properties: typing.Optional[jsii.Number]=None, multiple_of: typing.Optional[jsii.Number]=None, not_: typing.Optional["JSONSchemaProps"]=None, nullable: typing.Optional[bool]=None, one_of: typing.Optional[typing.List["JSONSchemaProps"]]=None, pattern: typing.Optional[str]=None, pattern_properties: typing.Optional[typing.Mapping[str,"JSONSchemaProps"]]=None, properties: typing.Optional[typing.Mapping[str,"JSONSchemaProps"]]=None, ref: typing.Optional[str]=None, required: typing.Optional[typing.List[str]]=None, schema: typing.Optional[str]=None, title: typing.Optional[str]=None, type: typing.Optional[str]=None, unique_items: typing.Optional[bool]=None):
+class Job(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Job"):
+    """Job represents the configuration of a single job.
+
+    schema:
+    :schema:: io.k8s.api.batch.v1.Job
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["JobSpec"]=None) -> None:
+        """Defines a "io.k8s.api.batch.v1.Job" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = JobOptions(metadata=metadata, spec=spec)
+
+        jsii.create(Job, self, [scope, name, options])
+
+
+class JobList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.JobList"):
+    """JobList is a collection of jobs.
+
+    schema:
+    :schema:: io.k8s.api.batch.v1.JobList
+    """
+    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["Job"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """Defines a "io.k8s.api.batch.v1.JobList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of Jobs.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = JobListOptions(items=items, metadata=metadata)
+
+        jsii.create(JobList, self, [scope, name, options])
+
+
+@jsii.data_type(jsii_type="generated.JobListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+class JobListOptions():
+    def __init__(self, *, items: typing.List["Job"], metadata: typing.Optional["ListMeta"]=None) -> None:
+        """JobList is a collection of jobs.
+
+        :param items: items is the list of Jobs.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobList
+        """
+        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
+        self._values = {
+            'items': items,
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List["Job"]:
+        """items is the list of Jobs.
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobList#items
+        """
+        return self._values.get('items')
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobList#metadata
+        """
+        return self._values.get('metadata')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'JobListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.JobOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+class JobOptions():
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["JobSpec"]=None) -> None:
+        """Job represents the configuration of a single job.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.Job
+        """
+        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict): spec = JobSpec(**spec)
+        self._values = {
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+        if spec is not None: self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.Job#metadata
+        """
+        return self._values.get('metadata')
+
+    @builtins.property
+    def spec(self) -> typing.Optional["JobSpec"]:
+        """Specification of the desired behavior of a job.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.Job#spec
+        """
+        return self._values.get('spec')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'JobOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.JobSpec", jsii_struct_bases=[], name_mapping={'template': 'template', 'active_deadline_seconds': 'activeDeadlineSeconds', 'backoff_limit': 'backoffLimit', 'completions': 'completions', 'manual_selector': 'manualSelector', 'parallelism': 'parallelism', 'selector': 'selector', 'ttl_seconds_after_finished': 'ttlSecondsAfterFinished'})
+class JobSpec():
+    def __init__(self, *, template: "PodTemplateSpec", active_deadline_seconds: typing.Optional[jsii.Number]=None, backoff_limit: typing.Optional[jsii.Number]=None, completions: typing.Optional[jsii.Number]=None, manual_selector: typing.Optional[bool]=None, parallelism: typing.Optional[jsii.Number]=None, selector: typing.Optional["LabelSelector"]=None, ttl_seconds_after_finished: typing.Optional[jsii.Number]=None) -> None:
+        """JobSpec describes how the job execution will look like.
+
+        :param template: Describes the pod that will be created when executing a job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+        :param active_deadline_seconds: Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it; value must be positive integer
+        :param backoff_limit: Specifies the number of retries before marking this job failed. Defaults to 6 Default: 6
+        :param completions: Specifies the desired number of successfully finished pods the job should be run with. Setting to nil means that the success of any pod signals the success of all pods, and allows parallelism to have any positive value. Setting to 1 means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+        :param manual_selector: manualSelector controls generation of pod labels and pod selectors. Leave ``manualSelector`` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template. When true, the user is responsible for picking unique labels and specifying the selector. Failure to pick a unique label may cause this and other jobs to not function correctly. However, You may see ``manualSelector=true`` in jobs that were created with the old ``extensions/v1beta1`` API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector
+        :param parallelism: Specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+        :param selector: A label query over pods that should match the pod count. Normally, the system sets this field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+        :param ttl_seconds_after_finished: ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes. This field is alpha-level and is only honored by servers that enable the TTLAfterFinished feature.
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec
+        """
+        if isinstance(template, dict): template = PodTemplateSpec(**template)
+        if isinstance(selector, dict): selector = LabelSelector(**selector)
+        self._values = {
+            'template': template,
+        }
+        if active_deadline_seconds is not None: self._values["active_deadline_seconds"] = active_deadline_seconds
+        if backoff_limit is not None: self._values["backoff_limit"] = backoff_limit
+        if completions is not None: self._values["completions"] = completions
+        if manual_selector is not None: self._values["manual_selector"] = manual_selector
+        if parallelism is not None: self._values["parallelism"] = parallelism
+        if selector is not None: self._values["selector"] = selector
+        if ttl_seconds_after_finished is not None: self._values["ttl_seconds_after_finished"] = ttl_seconds_after_finished
+
+    @builtins.property
+    def template(self) -> "PodTemplateSpec":
+        """Describes the pod that will be created when executing a job.
+
+        More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec#template
+        """
+        return self._values.get('template')
+
+    @builtins.property
+    def active_deadline_seconds(self) -> typing.Optional[jsii.Number]:
+        """Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it;
+
+        value must be positive integer
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec#activeDeadlineSeconds
+        """
+        return self._values.get('active_deadline_seconds')
+
+    @builtins.property
+    def backoff_limit(self) -> typing.Optional[jsii.Number]:
+        """Specifies the number of retries before marking this job failed.
+
+        Defaults to 6
+
+        default
+        :default: 6
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec#backoffLimit
+        """
+        return self._values.get('backoff_limit')
+
+    @builtins.property
+    def completions(self) -> typing.Optional[jsii.Number]:
+        """Specifies the desired number of successfully finished pods the job should be run with.
+
+        Setting to nil means that the success of any pod signals the success of all pods, and allows parallelism to have any positive value.  Setting to 1 means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec#completions
+        """
+        return self._values.get('completions')
+
+    @builtins.property
+    def manual_selector(self) -> typing.Optional[bool]:
+        """manualSelector controls generation of pod labels and pod selectors.
+
+        Leave ``manualSelector`` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see ``manualSelector=true`` in jobs that were created with the old ``extensions/v1beta1`` API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec#manualSelector
+        """
+        return self._values.get('manual_selector')
+
+    @builtins.property
+    def parallelism(self) -> typing.Optional[jsii.Number]:
+        """Specifies the maximum desired number of pods the job should run at any given time.
+
+        The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec#parallelism
+        """
+        return self._values.get('parallelism')
+
+    @builtins.property
+    def selector(self) -> typing.Optional["LabelSelector"]:
+        """A label query over pods that should match the pod count.
+
+        Normally, the system sets this field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec#selector
+        """
+        return self._values.get('selector')
+
+    @builtins.property
+    def ttl_seconds_after_finished(self) -> typing.Optional[jsii.Number]:
+        """ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed).
+
+        If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes. This field is alpha-level and is only honored by servers that enable the TTLAfterFinished feature.
+
+        schema:
+        :schema:: io.k8s.api.batch.v1.JobSpec#ttlSecondsAfterFinished
+        """
+        return self._values.get('ttl_seconds_after_finished')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'JobSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.JobTemplateSpec", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+class JobTemplateSpec():
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["JobSpec"]=None) -> None:
+        """JobTemplateSpec describes the data a Job should have when created from a template.
+
+        :param metadata: Standard object's metadata of the jobs created from this template. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of the job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        schema:
+        :schema:: io.k8s.api.batch.v1beta1.JobTemplateSpec
+        """
+        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict): spec = JobSpec(**spec)
+        self._values = {
+        }
+        if metadata is not None: self._values["metadata"] = metadata
+        if spec is not None: self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata of the jobs created from this template.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        schema:
+        :schema:: io.k8s.api.batch.v1beta1.JobTemplateSpec#metadata
+        """
+        return self._values.get('metadata')
+
+    @builtins.property
+    def spec(self) -> typing.Optional["JobSpec"]:
+        """Specification of the desired behavior of the job.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        schema:
+        :schema:: io.k8s.api.batch.v1beta1.JobTemplateSpec#spec
+        """
+        return self._values.get('spec')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'JobTemplateSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.JsonSchemaProps", jsii_struct_bases=[], name_mapping={'additional_items': 'additionalItems', 'additional_properties': 'additionalProperties', 'all_of': 'allOf', 'any_of': 'anyOf', 'default': 'default', 'definitions': 'definitions', 'dependencies': 'dependencies', 'description': 'description', 'enum': 'enum', 'example': 'example', 'exclusive_maximum': 'exclusiveMaximum', 'exclusive_minimum': 'exclusiveMinimum', 'external_docs': 'externalDocs', 'format': 'format', 'id': 'id', 'items': 'items', 'maximum': 'maximum', 'max_items': 'maxItems', 'max_length': 'maxLength', 'max_properties': 'maxProperties', 'minimum': 'minimum', 'min_items': 'minItems', 'min_length': 'minLength', 'min_properties': 'minProperties', 'multiple_of': 'multipleOf', 'not_': 'not', 'nullable': 'nullable', 'one_of': 'oneOf', 'pattern': 'pattern', 'pattern_properties': 'patternProperties', 'properties': 'properties', 'ref': 'ref', 'required': 'required', 'schema': 'schema', 'title': 'title', 'type': 'type', 'unique_items': 'uniqueItems'})
+class JsonSchemaProps():
+    def __init__(self, *, additional_items: typing.Optional[str]=None, additional_properties: typing.Optional[str]=None, all_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, any_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, default: typing.Optional[str]=None, definitions: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, dependencies: typing.Optional[typing.Mapping[str, str]]=None, description: typing.Optional[str]=None, enum: typing.Optional[typing.List[str]]=None, example: typing.Optional[str]=None, exclusive_maximum: typing.Optional[bool]=None, exclusive_minimum: typing.Optional[bool]=None, external_docs: typing.Optional["ExternalDocumentation"]=None, format: typing.Optional[str]=None, id: typing.Optional[str]=None, items: typing.Optional[str]=None, maximum: typing.Optional[jsii.Number]=None, max_items: typing.Optional[jsii.Number]=None, max_length: typing.Optional[jsii.Number]=None, max_properties: typing.Optional[jsii.Number]=None, minimum: typing.Optional[jsii.Number]=None, min_items: typing.Optional[jsii.Number]=None, min_length: typing.Optional[jsii.Number]=None, min_properties: typing.Optional[jsii.Number]=None, multiple_of: typing.Optional[jsii.Number]=None, not_: typing.Optional["JsonSchemaProps"]=None, nullable: typing.Optional[bool]=None, one_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, pattern: typing.Optional[str]=None, pattern_properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, ref: typing.Optional[str]=None, required: typing.Optional[typing.List[str]]=None, schema: typing.Optional[str]=None, title: typing.Optional[str]=None, type: typing.Optional[str]=None, unique_items: typing.Optional[bool]=None) -> None:
         """JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
 
         :param additional_items: 
@@ -9949,7 +10277,7 @@ class JSONSchemaProps():
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps
         """
         if isinstance(external_docs, dict): external_docs = ExternalDocumentation(**external_docs)
-        if isinstance(not_, dict): not_ = JSONSchemaProps(**not_)
+        if isinstance(not_, dict): not_ = JsonSchemaProps(**not_)
         self._values = {
         }
         if additional_items is not None: self._values["additional_items"] = additional_items
@@ -10007,7 +10335,7 @@ class JSONSchemaProps():
         return self._values.get('additional_properties')
 
     @builtins.property
-    def all_of(self) -> typing.Optional[typing.List["JSONSchemaProps"]]:
+    def all_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#allOf
@@ -10015,7 +10343,7 @@ class JSONSchemaProps():
         return self._values.get('all_of')
 
     @builtins.property
-    def any_of(self) -> typing.Optional[typing.List["JSONSchemaProps"]]:
+    def any_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#anyOf
@@ -10034,7 +10362,7 @@ class JSONSchemaProps():
         return self._values.get('default')
 
     @builtins.property
-    def definitions(self) -> typing.Optional[typing.Mapping[str,"JSONSchemaProps"]]:
+    def definitions(self) -> typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#definitions
@@ -10042,7 +10370,7 @@ class JSONSchemaProps():
         return self._values.get('definitions')
 
     @builtins.property
-    def dependencies(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def dependencies(self) -> typing.Optional[typing.Mapping[str, str]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#dependencies
@@ -10197,7 +10525,7 @@ class JSONSchemaProps():
         return self._values.get('multiple_of')
 
     @builtins.property
-    def not_(self) -> typing.Optional["JSONSchemaProps"]:
+    def not_(self) -> typing.Optional["JsonSchemaProps"]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#not
@@ -10213,7 +10541,7 @@ class JSONSchemaProps():
         return self._values.get('nullable')
 
     @builtins.property
-    def one_of(self) -> typing.Optional[typing.List["JSONSchemaProps"]]:
+    def one_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#oneOf
@@ -10229,7 +10557,7 @@ class JSONSchemaProps():
         return self._values.get('pattern')
 
     @builtins.property
-    def pattern_properties(self) -> typing.Optional[typing.Mapping[str,"JSONSchemaProps"]]:
+    def pattern_properties(self) -> typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#patternProperties
@@ -10237,7 +10565,7 @@ class JSONSchemaProps():
         return self._values.get('pattern_properties')
 
     @builtins.property
-    def properties(self) -> typing.Optional[typing.Mapping[str,"JSONSchemaProps"]]:
+    def properties(self) -> typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#properties
@@ -10299,328 +10627,12 @@ class JSONSchemaProps():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'JSONSchemaProps(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'JsonSchemaProps(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Job(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Job"):
-    """Job represents the configuration of a single job.
-
-    schema:
-    :schema:: io.k8s.api.batch.v1.Job
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["JobSpec"]=None) -> None:
-        """Defines a "io.k8s.api.batch.v1.Job" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-        """
-        options = JobOptions(metadata=metadata, spec=spec)
-
-        jsii.create(Job, self, [scope, name, options])
-
-
-class JobList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.JobList"):
-    """JobList is a collection of jobs.
-
-    schema:
-    :schema:: io.k8s.api.batch.v1.JobList
-    """
-    def __init__(self, scope: constructs.Construct, name: str, *, items: typing.List["Job"], metadata: typing.Optional["ListMeta"]=None) -> None:
-        """Defines a "io.k8s.api.batch.v1.JobList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: items is the list of Jobs.
-        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        """
-        options = JobListOptions(items=items, metadata=metadata)
-
-        jsii.create(JobList, self, [scope, name, options])
-
-
-@jsii.data_type(jsii_type="k8s.JobListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
-class JobListOptions():
-    def __init__(self, *, items: typing.List["Job"], metadata: typing.Optional["ListMeta"]=None):
-        """JobList is a collection of jobs.
-
-        :param items: items is the list of Jobs.
-        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobList
-        """
-        if isinstance(metadata, dict): metadata = ListMeta(**metadata)
-        self._values = {
-            'items': items,
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List["Job"]:
-        """items is the list of Jobs.
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobList#items
-        """
-        return self._values.get('items')
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """Standard list metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobList#metadata
-        """
-        return self._values.get('metadata')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'JobListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.JobOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
-class JobOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["JobSpec"]=None):
-        """Job represents the configuration of a single job.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.Job
-        """
-        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict): spec = JobSpec(**spec)
-        self._values = {
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-        if spec is not None: self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.Job#metadata
-        """
-        return self._values.get('metadata')
-
-    @builtins.property
-    def spec(self) -> typing.Optional["JobSpec"]:
-        """Specification of the desired behavior of a job.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.Job#spec
-        """
-        return self._values.get('spec')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'JobOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.JobSpec", jsii_struct_bases=[], name_mapping={'template': 'template', 'active_deadline_seconds': 'activeDeadlineSeconds', 'backoff_limit': 'backoffLimit', 'completions': 'completions', 'manual_selector': 'manualSelector', 'parallelism': 'parallelism', 'selector': 'selector', 'ttl_seconds_after_finished': 'ttlSecondsAfterFinished'})
-class JobSpec():
-    def __init__(self, *, template: "PodTemplateSpec", active_deadline_seconds: typing.Optional[jsii.Number]=None, backoff_limit: typing.Optional[jsii.Number]=None, completions: typing.Optional[jsii.Number]=None, manual_selector: typing.Optional[bool]=None, parallelism: typing.Optional[jsii.Number]=None, selector: typing.Optional["LabelSelector"]=None, ttl_seconds_after_finished: typing.Optional[jsii.Number]=None):
-        """JobSpec describes how the job execution will look like.
-
-        :param template: Describes the pod that will be created when executing a job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-        :param active_deadline_seconds: Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it; value must be positive integer
-        :param backoff_limit: Specifies the number of retries before marking this job failed. Defaults to 6 Default: 6
-        :param completions: Specifies the desired number of successfully finished pods the job should be run with. Setting to nil means that the success of any pod signals the success of all pods, and allows parallelism to have any positive value. Setting to 1 means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-        :param manual_selector: manualSelector controls generation of pod labels and pod selectors. Leave ``manualSelector`` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template. When true, the user is responsible for picking unique labels and specifying the selector. Failure to pick a unique label may cause this and other jobs to not function correctly. However, You may see ``manualSelector=true`` in jobs that were created with the old ``extensions/v1beta1`` API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector
-        :param parallelism: Specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-        :param selector: A label query over pods that should match the pod count. Normally, the system sets this field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-        :param ttl_seconds_after_finished: ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes. This field is alpha-level and is only honored by servers that enable the TTLAfterFinished feature.
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec
-        """
-        if isinstance(template, dict): template = PodTemplateSpec(**template)
-        if isinstance(selector, dict): selector = LabelSelector(**selector)
-        self._values = {
-            'template': template,
-        }
-        if active_deadline_seconds is not None: self._values["active_deadline_seconds"] = active_deadline_seconds
-        if backoff_limit is not None: self._values["backoff_limit"] = backoff_limit
-        if completions is not None: self._values["completions"] = completions
-        if manual_selector is not None: self._values["manual_selector"] = manual_selector
-        if parallelism is not None: self._values["parallelism"] = parallelism
-        if selector is not None: self._values["selector"] = selector
-        if ttl_seconds_after_finished is not None: self._values["ttl_seconds_after_finished"] = ttl_seconds_after_finished
-
-    @builtins.property
-    def template(self) -> "PodTemplateSpec":
-        """Describes the pod that will be created when executing a job.
-
-        More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec#template
-        """
-        return self._values.get('template')
-
-    @builtins.property
-    def active_deadline_seconds(self) -> typing.Optional[jsii.Number]:
-        """Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it;
-
-        value must be positive integer
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec#activeDeadlineSeconds
-        """
-        return self._values.get('active_deadline_seconds')
-
-    @builtins.property
-    def backoff_limit(self) -> typing.Optional[jsii.Number]:
-        """Specifies the number of retries before marking this job failed.
-
-        Defaults to 6
-
-        default
-        :default: 6
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec#backoffLimit
-        """
-        return self._values.get('backoff_limit')
-
-    @builtins.property
-    def completions(self) -> typing.Optional[jsii.Number]:
-        """Specifies the desired number of successfully finished pods the job should be run with.
-
-        Setting to nil means that the success of any pod signals the success of all pods, and allows parallelism to have any positive value.  Setting to 1 means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec#completions
-        """
-        return self._values.get('completions')
-
-    @builtins.property
-    def manual_selector(self) -> typing.Optional[bool]:
-        """manualSelector controls generation of pod labels and pod selectors.
-
-        Leave ``manualSelector`` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see ``manualSelector=true`` in jobs that were created with the old ``extensions/v1beta1`` API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec#manualSelector
-        """
-        return self._values.get('manual_selector')
-
-    @builtins.property
-    def parallelism(self) -> typing.Optional[jsii.Number]:
-        """Specifies the maximum desired number of pods the job should run at any given time.
-
-        The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec#parallelism
-        """
-        return self._values.get('parallelism')
-
-    @builtins.property
-    def selector(self) -> typing.Optional["LabelSelector"]:
-        """A label query over pods that should match the pod count.
-
-        Normally, the system sets this field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec#selector
-        """
-        return self._values.get('selector')
-
-    @builtins.property
-    def ttl_seconds_after_finished(self) -> typing.Optional[jsii.Number]:
-        """ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed).
-
-        If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes. This field is alpha-level and is only honored by servers that enable the TTLAfterFinished feature.
-
-        schema:
-        :schema:: io.k8s.api.batch.v1.JobSpec#ttlSecondsAfterFinished
-        """
-        return self._values.get('ttl_seconds_after_finished')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'JobSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.JobTemplateSpec", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
-class JobTemplateSpec():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["JobSpec"]=None):
-        """JobTemplateSpec describes the data a Job should have when created from a template.
-
-        :param metadata: Standard object's metadata of the jobs created from this template. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior of the job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        schema:
-        :schema:: io.k8s.api.batch.v1beta1.JobTemplateSpec
-        """
-        if isinstance(metadata, dict): metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict): spec = JobSpec(**spec)
-        self._values = {
-        }
-        if metadata is not None: self._values["metadata"] = metadata
-        if spec is not None: self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata of the jobs created from this template.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        schema:
-        :schema:: io.k8s.api.batch.v1beta1.JobTemplateSpec#metadata
-        """
-        return self._values.get('metadata')
-
-    @builtins.property
-    def spec(self) -> typing.Optional["JobSpec"]:
-        """Specification of the desired behavior of the job.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        schema:
-        :schema:: io.k8s.api.batch.v1beta1.JobTemplateSpec#spec
-        """
-        return self._values.get('spec')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'JobTemplateSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.KeyToPath", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
+@jsii.data_type(jsii_type="generated.KeyToPath", jsii_struct_bases=[], name_mapping={'key': 'key', 'path': 'path', 'mode': 'mode'})
 class KeyToPath():
-    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, key: str, path: str, mode: typing.Optional[jsii.Number]=None) -> None:
         """Maps a string key to a path within a volume.
 
         :param key: The key to project.
@@ -10677,9 +10689,9 @@ class KeyToPath():
         return 'KeyToPath(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
+@jsii.data_type(jsii_type="generated.LabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
 class LabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["LabelSelectorRequirement"]]=None, match_labels: typing.Optional[typing.Mapping[str,str]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["LabelSelectorRequirement"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
         """A label selector is a label query over a set of resources.
 
         The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
@@ -10707,7 +10719,7 @@ class LabelSelector():
         return self._values.get('match_expressions')
 
     @builtins.property
-    def match_labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """matchLabels is a map of {key,value} pairs.
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
@@ -10727,9 +10739,9 @@ class LabelSelector():
         return 'LabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LabelSelectorRequirement", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.LabelSelectorRequirement", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class LabelSelectorRequirement():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -10786,7 +10798,7 @@ class LabelSelectorRequirement():
         return 'LabelSelectorRequirement(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Lease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Lease"):
+class Lease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Lease"):
     """Lease defines a lease concept.
 
     schema:
@@ -10805,7 +10817,7 @@ class Lease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Lease"):
         jsii.create(Lease, self, [scope, name, options])
 
 
-class LeaseList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.LeaseList"):
+class LeaseList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.LeaseList"):
     """LeaseList is a list of Lease objects.
 
     schema:
@@ -10824,9 +10836,9 @@ class LeaseList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.LeaseLi
         jsii.create(LeaseList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.LeaseListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.LeaseListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class LeaseListOptions():
-    def __init__(self, *, items: typing.List["Lease"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Lease"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """LeaseList is a list of Lease objects.
 
         :param items: Items is a list of schema objects.
@@ -10871,9 +10883,9 @@ class LeaseListOptions():
         return 'LeaseListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LeaseOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.LeaseOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class LeaseOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["LeaseSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["LeaseSpec"]=None) -> None:
         """Lease defines a lease concept.
 
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
@@ -10919,9 +10931,9 @@ class LeaseOptions():
         return 'LeaseOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LeaseSpec", jsii_struct_bases=[], name_mapping={'acquire_time': 'acquireTime', 'holder_identity': 'holderIdentity', 'lease_duration_seconds': 'leaseDurationSeconds', 'lease_transitions': 'leaseTransitions', 'renew_time': 'renewTime'})
+@jsii.data_type(jsii_type="generated.LeaseSpec", jsii_struct_bases=[], name_mapping={'acquire_time': 'acquireTime', 'holder_identity': 'holderIdentity', 'lease_duration_seconds': 'leaseDurationSeconds', 'lease_transitions': 'leaseTransitions', 'renew_time': 'renewTime'})
 class LeaseSpec():
-    def __init__(self, *, acquire_time: typing.Optional[datetime.datetime]=None, holder_identity: typing.Optional[str]=None, lease_duration_seconds: typing.Optional[jsii.Number]=None, lease_transitions: typing.Optional[jsii.Number]=None, renew_time: typing.Optional[datetime.datetime]=None):
+    def __init__(self, *, acquire_time: typing.Optional[datetime.datetime]=None, holder_identity: typing.Optional[str]=None, lease_duration_seconds: typing.Optional[jsii.Number]=None, lease_transitions: typing.Optional[jsii.Number]=None, renew_time: typing.Optional[datetime.datetime]=None) -> None:
         """LeaseSpec is a specification of a Lease.
 
         :param acquire_time: acquireTime is a time when the current lease was acquired.
@@ -10998,9 +11010,9 @@ class LeaseSpec():
         return 'LeaseSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Lifecycle", jsii_struct_bases=[], name_mapping={'post_start': 'postStart', 'pre_stop': 'preStop'})
+@jsii.data_type(jsii_type="generated.Lifecycle", jsii_struct_bases=[], name_mapping={'post_start': 'postStart', 'pre_stop': 'preStop'})
 class Lifecycle():
-    def __init__(self, *, post_start: typing.Optional["Handler"]=None, pre_stop: typing.Optional["Handler"]=None):
+    def __init__(self, *, post_start: typing.Optional["Handler"]=None, pre_stop: typing.Optional["Handler"]=None) -> None:
         """Lifecycle describes actions that the management system should take in response to container lifecycle events.
 
         For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.
@@ -11050,7 +11062,7 @@ class Lifecycle():
         return 'Lifecycle(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class LimitRange(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.LimitRange"):
+class LimitRange(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.LimitRange"):
     """LimitRange sets resource usage limits for each kind of resource in a Namespace.
 
     schema:
@@ -11069,9 +11081,9 @@ class LimitRange(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.LimitR
         jsii.create(LimitRange, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.LimitRangeItem", jsii_struct_bases=[], name_mapping={'default': 'default', 'default_request': 'defaultRequest', 'max': 'max', 'max_limit_request_ratio': 'maxLimitRequestRatio', 'min': 'min', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.LimitRangeItem", jsii_struct_bases=[], name_mapping={'default': 'default', 'default_request': 'defaultRequest', 'max': 'max', 'max_limit_request_ratio': 'maxLimitRequestRatio', 'min': 'min', 'type': 'type'})
 class LimitRangeItem():
-    def __init__(self, *, default: typing.Optional[typing.Mapping[str,"Quantity"]]=None, default_request: typing.Optional[typing.Mapping[str,"Quantity"]]=None, max: typing.Optional[typing.Mapping[str,"Quantity"]]=None, max_limit_request_ratio: typing.Optional[typing.Mapping[str,"Quantity"]]=None, min: typing.Optional[typing.Mapping[str,"Quantity"]]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, default: typing.Optional[typing.Mapping[str, "Quantity"]]=None, default_request: typing.Optional[typing.Mapping[str, "Quantity"]]=None, max: typing.Optional[typing.Mapping[str, "Quantity"]]=None, max_limit_request_ratio: typing.Optional[typing.Mapping[str, "Quantity"]]=None, min: typing.Optional[typing.Mapping[str, "Quantity"]]=None, type: typing.Optional[str]=None) -> None:
         """LimitRangeItem defines a min/max usage limit for any resource that matches on kind.
 
         :param default: Default resource requirement limit value by resource name if resource limit is omitted.
@@ -11094,7 +11106,7 @@ class LimitRangeItem():
         if type is not None: self._values["type"] = type
 
     @builtins.property
-    def default(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def default(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """Default resource requirement limit value by resource name if resource limit is omitted.
 
         schema:
@@ -11103,7 +11115,7 @@ class LimitRangeItem():
         return self._values.get('default')
 
     @builtins.property
-    def default_request(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def default_request(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.
 
         schema:
@@ -11112,7 +11124,7 @@ class LimitRangeItem():
         return self._values.get('default_request')
 
     @builtins.property
-    def max(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def max(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """Max usage constraints on this kind by resource name.
 
         schema:
@@ -11121,7 +11133,7 @@ class LimitRangeItem():
         return self._values.get('max')
 
     @builtins.property
-    def max_limit_request_ratio(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def max_limit_request_ratio(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value;
 
         this represents the max burst for the named resource.
@@ -11132,7 +11144,7 @@ class LimitRangeItem():
         return self._values.get('max_limit_request_ratio')
 
     @builtins.property
-    def min(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def min(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """Min usage constraints on this kind by resource name.
 
         schema:
@@ -11159,7 +11171,7 @@ class LimitRangeItem():
         return 'LimitRangeItem(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class LimitRangeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.LimitRangeList"):
+class LimitRangeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.LimitRangeList"):
     """LimitRangeList is a list of LimitRange items.
 
     schema:
@@ -11178,9 +11190,9 @@ class LimitRangeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Li
         jsii.create(LimitRangeList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.LimitRangeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.LimitRangeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class LimitRangeListOptions():
-    def __init__(self, *, items: typing.List["LimitRange"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["LimitRange"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """LimitRangeList is a list of LimitRange items.
 
         :param items: Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -11227,9 +11239,9 @@ class LimitRangeListOptions():
         return 'LimitRangeListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LimitRangeOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.LimitRangeOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class LimitRangeOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["LimitRangeSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["LimitRangeSpec"]=None) -> None:
         """LimitRange sets resource usage limits for each kind of resource in a Namespace.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -11277,9 +11289,9 @@ class LimitRangeOptions():
         return 'LimitRangeOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LimitRangeSpec", jsii_struct_bases=[], name_mapping={'limits': 'limits'})
+@jsii.data_type(jsii_type="generated.LimitRangeSpec", jsii_struct_bases=[], name_mapping={'limits': 'limits'})
 class LimitRangeSpec():
-    def __init__(self, *, limits: typing.List["LimitRangeItem"]):
+    def __init__(self, *, limits: typing.List["LimitRangeItem"]) -> None:
         """LimitRangeSpec defines a min/max usage limit for resources that match on kind.
 
         :param limits: Limits is the list of LimitRangeItem objects that are enforced.
@@ -11310,9 +11322,9 @@ class LimitRangeSpec():
         return 'LimitRangeSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LimitResponse", jsii_struct_bases=[], name_mapping={'type': 'type', 'queuing': 'queuing'})
+@jsii.data_type(jsii_type="generated.LimitResponse", jsii_struct_bases=[], name_mapping={'type': 'type', 'queuing': 'queuing'})
 class LimitResponse():
-    def __init__(self, *, type: str, queuing: typing.Optional["QueuingConfiguration"]=None):
+    def __init__(self, *, type: str, queuing: typing.Optional["QueuingConfiguration"]=None) -> None:
         """LimitResponse defines how to handle requests that can not be executed right now.
 
         :param type: ``type`` is "Queue" or "Reject". "Queue" means that requests that can not be executed upon arrival are held in a queue until they can be executed or a queuing limit is reached. "Reject" means that requests that can not be executed upon arrival are rejected. Required.
@@ -11359,9 +11371,9 @@ class LimitResponse():
         return 'LimitResponse(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LimitedPriorityLevelConfiguration", jsii_struct_bases=[], name_mapping={'assured_concurrency_shares': 'assuredConcurrencyShares', 'limit_response': 'limitResponse'})
+@jsii.data_type(jsii_type="generated.LimitedPriorityLevelConfiguration", jsii_struct_bases=[], name_mapping={'assured_concurrency_shares': 'assuredConcurrencyShares', 'limit_response': 'limitResponse'})
 class LimitedPriorityLevelConfiguration():
-    def __init__(self, *, assured_concurrency_shares: typing.Optional[jsii.Number]=None, limit_response: typing.Optional["LimitResponse"]=None):
+    def __init__(self, *, assured_concurrency_shares: typing.Optional[jsii.Number]=None, limit_response: typing.Optional["LimitResponse"]=None) -> None:
         """LimitedPriorityLevelConfiguration specifies how to handle requests that are subject to limits.
 
         It addresses two issues:
@@ -11414,9 +11426,9 @@ class LimitedPriorityLevelConfiguration():
         return 'LimitedPriorityLevelConfiguration(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ListMeta", jsii_struct_bases=[], name_mapping={'continue_': 'continue', 'remaining_item_count': 'remainingItemCount', 'resource_version': 'resourceVersion', 'self_link': 'selfLink'})
+@jsii.data_type(jsii_type="generated.ListMeta", jsii_struct_bases=[], name_mapping={'continue_': 'continue', 'remaining_item_count': 'remainingItemCount', 'resource_version': 'resourceVersion', 'self_link': 'selfLink'})
 class ListMeta():
-    def __init__(self, *, continue_: typing.Optional[str]=None, remaining_item_count: typing.Optional[jsii.Number]=None, resource_version: typing.Optional[str]=None, self_link: typing.Optional[str]=None):
+    def __init__(self, *, continue_: typing.Optional[str]=None, remaining_item_count: typing.Optional[jsii.Number]=None, resource_version: typing.Optional[str]=None, self_link: typing.Optional[str]=None) -> None:
         """ListMeta describes metadata that synthetic resources must have, including lists and various status objects.
 
         A resource may have only one of {ObjectMeta, ListMeta}.
@@ -11490,9 +11502,9 @@ class ListMeta():
         return 'ListMeta(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LocalObjectReference", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.LocalObjectReference", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class LocalObjectReference():
-    def __init__(self, *, name: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None) -> None:
         """LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -11525,7 +11537,7 @@ class LocalObjectReference():
         return 'LocalObjectReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class LocalSubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.LocalSubjectAccessReview"):
+class LocalSubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.LocalSubjectAccessReview"):
     """LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
 
     Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.
@@ -11546,9 +11558,9 @@ class LocalSubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_ty
         jsii.create(LocalSubjectAccessReview, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.LocalSubjectAccessReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.LocalSubjectAccessReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class LocalSubjectAccessReviewOptions():
-    def __init__(self, *, spec: "SubjectAccessReviewSpec", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, spec: "SubjectAccessReviewSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
 
         Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.
@@ -11595,9 +11607,9 @@ class LocalSubjectAccessReviewOptions():
         return 'LocalSubjectAccessReviewOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.LocalVolumeSource", jsii_struct_bases=[], name_mapping={'path': 'path', 'fs_type': 'fsType'})
+@jsii.data_type(jsii_type="generated.LocalVolumeSource", jsii_struct_bases=[], name_mapping={'path': 'path', 'fs_type': 'fsType'})
 class LocalVolumeSource():
-    def __init__(self, *, path: str, fs_type: typing.Optional[str]=None):
+    def __init__(self, *, path: str, fs_type: typing.Optional[str]=None) -> None:
         """Local represents directly-attached storage with node affinity (Beta feature).
 
         :param path: The full path to the volume on the node. It can be either a directory or block device (disk, partition, ...).
@@ -11643,9 +11655,9 @@ class LocalVolumeSource():
         return 'LocalVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ManagedFieldsEntry", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'fields_type': 'fieldsType', 'fields_v1': 'fieldsV1', 'manager': 'manager', 'operation': 'operation', 'time': 'time'})
+@jsii.data_type(jsii_type="generated.ManagedFieldsEntry", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'fields_type': 'fieldsType', 'fields_v1': 'fieldsV1', 'manager': 'manager', 'operation': 'operation', 'time': 'time'})
 class ManagedFieldsEntry():
-    def __init__(self, *, api_version: typing.Optional[str]=None, fields_type: typing.Optional[str]=None, fields_v1: typing.Any=None, manager: typing.Optional[str]=None, operation: typing.Optional[str]=None, time: typing.Optional[datetime.datetime]=None):
+    def __init__(self, *, api_version: typing.Optional[str]=None, fields_type: typing.Optional[str]=None, fields_v1: typing.Any=None, manager: typing.Optional[str]=None, operation: typing.Optional[str]=None, time: typing.Optional[datetime.datetime]=None) -> None:
         """ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.
 
         :param api_version: APIVersion defines the version of this resource that this field set applies to. The format is "group/version" just like the top-level APIVersion field. It is necessary to track the version of a field set because it cannot be automatically converted.
@@ -11739,9 +11751,9 @@ class ManagedFieldsEntry():
         return 'ManagedFieldsEntry(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.MutatingWebhook", jsii_struct_bases=[], name_mapping={'admission_review_versions': 'admissionReviewVersions', 'client_config': 'clientConfig', 'name': 'name', 'side_effects': 'sideEffects', 'failure_policy': 'failurePolicy', 'match_policy': 'matchPolicy', 'namespace_selector': 'namespaceSelector', 'object_selector': 'objectSelector', 'reinvocation_policy': 'reinvocationPolicy', 'rules': 'rules', 'timeout_seconds': 'timeoutSeconds'})
+@jsii.data_type(jsii_type="generated.MutatingWebhook", jsii_struct_bases=[], name_mapping={'admission_review_versions': 'admissionReviewVersions', 'client_config': 'clientConfig', 'name': 'name', 'side_effects': 'sideEffects', 'failure_policy': 'failurePolicy', 'match_policy': 'matchPolicy', 'namespace_selector': 'namespaceSelector', 'object_selector': 'objectSelector', 'reinvocation_policy': 'reinvocationPolicy', 'rules': 'rules', 'timeout_seconds': 'timeoutSeconds'})
 class MutatingWebhook():
-    def __init__(self, *, admission_review_versions: typing.List[str], client_config: "WebhookClientConfig", name: str, side_effects: str, failure_policy: typing.Optional[str]=None, match_policy: typing.Optional[str]=None, namespace_selector: typing.Optional["LabelSelector"]=None, object_selector: typing.Optional["LabelSelector"]=None, reinvocation_policy: typing.Optional[str]=None, rules: typing.Optional[typing.List["RuleWithOperations"]]=None, timeout_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, admission_review_versions: typing.List[str], client_config: "WebhookClientConfig", name: str, side_effects: str, failure_policy: typing.Optional[str]=None, match_policy: typing.Optional[str]=None, namespace_selector: typing.Optional["LabelSelector"]=None, object_selector: typing.Optional["LabelSelector"]=None, reinvocation_policy: typing.Optional[str]=None, rules: typing.Optional[typing.List["RuleWithOperations"]]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """MutatingWebhook describes an admission webhook and the resources and operations it applies to.
 
         :param admission_review_versions: AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
@@ -11964,7 +11976,7 @@ class MutatingWebhook():
         return 'MutatingWebhook(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class MutatingWebhookConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.MutatingWebhookConfiguration"):
+class MutatingWebhookConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.MutatingWebhookConfiguration"):
     """MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
 
     schema:
@@ -11983,7 +11995,7 @@ class MutatingWebhookConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsi
         jsii.create(MutatingWebhookConfiguration, self, [scope, name, options])
 
 
-class MutatingWebhookConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.MutatingWebhookConfigurationList"):
+class MutatingWebhookConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.MutatingWebhookConfigurationList"):
     """MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
 
     schema:
@@ -12002,9 +12014,9 @@ class MutatingWebhookConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta,
         jsii.create(MutatingWebhookConfigurationList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.MutatingWebhookConfigurationListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.MutatingWebhookConfigurationListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class MutatingWebhookConfigurationListOptions():
-    def __init__(self, *, items: typing.List["MutatingWebhookConfiguration"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["MutatingWebhookConfiguration"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
 
         :param items: List of MutatingWebhookConfiguration.
@@ -12049,9 +12061,9 @@ class MutatingWebhookConfigurationListOptions():
         return 'MutatingWebhookConfigurationListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.MutatingWebhookConfigurationOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'webhooks': 'webhooks'})
+@jsii.data_type(jsii_type="generated.MutatingWebhookConfigurationOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'webhooks': 'webhooks'})
 class MutatingWebhookConfigurationOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, webhooks: typing.Optional[typing.List["MutatingWebhook"]]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, webhooks: typing.Optional[typing.List["MutatingWebhook"]]=None) -> None:
         """MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
 
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
@@ -12096,73 +12108,7 @@ class MutatingWebhookConfigurationOptions():
         return 'MutatingWebhookConfigurationOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NFSVolumeSource", jsii_struct_bases=[], name_mapping={'path': 'path', 'server': 'server', 'read_only': 'readOnly'})
-class NFSVolumeSource():
-    def __init__(self, *, path: str, server: str, read_only: typing.Optional[bool]=None):
-        """Represents an NFS mount that lasts the lifetime of a pod.
-
-        NFS volumes do not support ownership management or SELinux relabeling.
-
-        :param path: Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-        :param server: Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-        :param read_only: ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs Default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        schema:
-        :schema:: io.k8s.api.core.v1.NFSVolumeSource
-        """
-        self._values = {
-            'path': path,
-            'server': server,
-        }
-        if read_only is not None: self._values["read_only"] = read_only
-
-    @builtins.property
-    def path(self) -> str:
-        """Path that is exported by the NFS server.
-
-        More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        schema:
-        :schema:: io.k8s.api.core.v1.NFSVolumeSource#path
-        """
-        return self._values.get('path')
-
-    @builtins.property
-    def server(self) -> str:
-        """Server is the hostname or IP address of the NFS server.
-
-        More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        schema:
-        :schema:: io.k8s.api.core.v1.NFSVolumeSource#server
-        """
-        return self._values.get('server')
-
-    @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
-        """ReadOnly here will force the NFS export to be mounted with read-only permissions.
-
-        Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        default
-        :default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-
-        schema:
-        :schema:: io.k8s.api.core.v1.NFSVolumeSource#readOnly
-        """
-        return self._values.get('read_only')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'NFSVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-class Namespace(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Namespace"):
+class Namespace(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Namespace"):
     """Namespace provides a scope for Names.
 
     Use of multiple namespaces is optional.
@@ -12183,7 +12129,7 @@ class Namespace(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Namespa
         jsii.create(Namespace, self, [scope, name, options])
 
 
-class NamespaceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.NamespaceList"):
+class NamespaceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.NamespaceList"):
     """NamespaceList is a list of Namespaces.
 
     schema:
@@ -12202,9 +12148,9 @@ class NamespaceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Nam
         jsii.create(NamespaceList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.NamespaceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.NamespaceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class NamespaceListOptions():
-    def __init__(self, *, items: typing.List["Namespace"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Namespace"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """NamespaceList is a list of Namespaces.
 
         :param items: Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
@@ -12251,9 +12197,9 @@ class NamespaceListOptions():
         return 'NamespaceListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NamespaceOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.NamespaceOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class NamespaceOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["NamespaceSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["NamespaceSpec"]=None) -> None:
         """Namespace provides a scope for Names.
 
         Use of multiple namespaces is optional.
@@ -12303,9 +12249,9 @@ class NamespaceOptions():
         return 'NamespaceOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NamespaceSpec", jsii_struct_bases=[], name_mapping={'finalizers': 'finalizers'})
+@jsii.data_type(jsii_type="generated.NamespaceSpec", jsii_struct_bases=[], name_mapping={'finalizers': 'finalizers'})
 class NamespaceSpec():
-    def __init__(self, *, finalizers: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, finalizers: typing.Optional[typing.List[str]]=None) -> None:
         """NamespaceSpec describes the attributes on a Namespace.
 
         :param finalizers: Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
@@ -12338,7 +12284,7 @@ class NamespaceSpec():
         return 'NamespaceSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class NetworkPolicy(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.NetworkPolicy"):
+class NetworkPolicy(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.NetworkPolicy"):
     """NetworkPolicy describes what network traffic is allowed for a set of Pods.
 
     schema:
@@ -12357,9 +12303,9 @@ class NetworkPolicy(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Net
         jsii.create(NetworkPolicy, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.NetworkPolicyEgressRule", jsii_struct_bases=[], name_mapping={'ports': 'ports', 'to': 'to'})
+@jsii.data_type(jsii_type="generated.NetworkPolicyEgressRule", jsii_struct_bases=[], name_mapping={'ports': 'ports', 'to': 'to'})
 class NetworkPolicyEgressRule():
-    def __init__(self, *, ports: typing.Optional[typing.List["NetworkPolicyPort"]]=None, to: typing.Optional[typing.List["NetworkPolicyPeer"]]=None):
+    def __init__(self, *, ports: typing.Optional[typing.List["NetworkPolicyPort"]]=None, to: typing.Optional[typing.List["NetworkPolicyPeer"]]=None) -> None:
         """NetworkPolicyEgressRule describes a particular set of traffic that is allowed out of pods matched by a NetworkPolicySpec's podSelector.
 
         The traffic must match both ports and to. This type is beta-level in 1.8
@@ -12407,9 +12353,9 @@ class NetworkPolicyEgressRule():
         return 'NetworkPolicyEgressRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NetworkPolicyIngressRule", jsii_struct_bases=[], name_mapping={'from_': 'from', 'ports': 'ports'})
+@jsii.data_type(jsii_type="generated.NetworkPolicyIngressRule", jsii_struct_bases=[], name_mapping={'from_': 'from', 'ports': 'ports'})
 class NetworkPolicyIngressRule():
-    def __init__(self, *, from_: typing.Optional[typing.List["NetworkPolicyPeer"]]=None, ports: typing.Optional[typing.List["NetworkPolicyPort"]]=None):
+    def __init__(self, *, from_: typing.Optional[typing.List["NetworkPolicyPeer"]]=None, ports: typing.Optional[typing.List["NetworkPolicyPort"]]=None) -> None:
         """NetworkPolicyIngressRule describes a particular set of traffic that is allowed to the pods matched by a NetworkPolicySpec's podSelector.
 
         The traffic must match both ports and from.
@@ -12457,7 +12403,7 @@ class NetworkPolicyIngressRule():
         return 'NetworkPolicyIngressRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class NetworkPolicyList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.NetworkPolicyList"):
+class NetworkPolicyList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.NetworkPolicyList"):
     """NetworkPolicyList is a list of NetworkPolicy objects.
 
     schema:
@@ -12476,9 +12422,9 @@ class NetworkPolicyList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s
         jsii.create(NetworkPolicyList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.NetworkPolicyListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.NetworkPolicyListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class NetworkPolicyListOptions():
-    def __init__(self, *, items: typing.List["NetworkPolicy"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["NetworkPolicy"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """NetworkPolicyList is a list of NetworkPolicy objects.
 
         :param items: Items is a list of schema objects.
@@ -12523,9 +12469,9 @@ class NetworkPolicyListOptions():
         return 'NetworkPolicyListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NetworkPolicyOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.NetworkPolicyOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class NetworkPolicyOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["NetworkPolicySpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["NetworkPolicySpec"]=None) -> None:
         """NetworkPolicy describes what network traffic is allowed for a set of Pods.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -12571,9 +12517,9 @@ class NetworkPolicyOptions():
         return 'NetworkPolicyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NetworkPolicyPeer", jsii_struct_bases=[], name_mapping={'ip_block': 'ipBlock', 'namespace_selector': 'namespaceSelector', 'pod_selector': 'podSelector'})
+@jsii.data_type(jsii_type="generated.NetworkPolicyPeer", jsii_struct_bases=[], name_mapping={'ip_block': 'ipBlock', 'namespace_selector': 'namespaceSelector', 'pod_selector': 'podSelector'})
 class NetworkPolicyPeer():
-    def __init__(self, *, ip_block: typing.Optional["IpBlock"]=None, namespace_selector: typing.Optional["LabelSelector"]=None, pod_selector: typing.Optional["LabelSelector"]=None):
+    def __init__(self, *, ip_block: typing.Optional["IpBlock"]=None, namespace_selector: typing.Optional["LabelSelector"]=None, pod_selector: typing.Optional["LabelSelector"]=None) -> None:
         """NetworkPolicyPeer describes a peer to allow traffic from.
 
         Only certain combinations of fields are allowed
@@ -12641,9 +12587,9 @@ class NetworkPolicyPeer():
         return 'NetworkPolicyPeer(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NetworkPolicyPort", jsii_struct_bases=[], name_mapping={'port': 'port', 'protocol': 'protocol'})
+@jsii.data_type(jsii_type="generated.NetworkPolicyPort", jsii_struct_bases=[], name_mapping={'port': 'port', 'protocol': 'protocol'})
 class NetworkPolicyPort():
-    def __init__(self, *, port: typing.Optional["IntOrString"]=None, protocol: typing.Optional[str]=None):
+    def __init__(self, *, port: typing.Optional["IntOrString"]=None, protocol: typing.Optional[str]=None) -> None:
         """NetworkPolicyPort describes a port to allow traffic on.
 
         :param port: The port on the given protocol. This can either be a numerical or named port on a pod. If this field is not provided, this matches all port names and numbers.
@@ -12689,9 +12635,9 @@ class NetworkPolicyPort():
         return 'NetworkPolicyPort(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NetworkPolicySpec", jsii_struct_bases=[], name_mapping={'pod_selector': 'podSelector', 'egress': 'egress', 'ingress': 'ingress', 'policy_types': 'policyTypes'})
+@jsii.data_type(jsii_type="generated.NetworkPolicySpec", jsii_struct_bases=[], name_mapping={'pod_selector': 'podSelector', 'egress': 'egress', 'ingress': 'ingress', 'policy_types': 'policyTypes'})
 class NetworkPolicySpec():
-    def __init__(self, *, pod_selector: "LabelSelector", egress: typing.Optional[typing.List["NetworkPolicyEgressRule"]]=None, ingress: typing.Optional[typing.List["NetworkPolicyIngressRule"]]=None, policy_types: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, pod_selector: "LabelSelector", egress: typing.Optional[typing.List["NetworkPolicyEgressRule"]]=None, ingress: typing.Optional[typing.List["NetworkPolicyIngressRule"]]=None, policy_types: typing.Optional[typing.List[str]]=None) -> None:
         """NetworkPolicySpec provides the specification of a NetworkPolicy.
 
         :param pod_selector: Selects the pods to which this NetworkPolicy object applies. The array of ingress rules is applied to any pods selected by this field. Multiple network policies can select the same set of pods. In this case, the ingress rules for each are combined additively. This field is NOT optional and follows standard label selector semantics. An empty podSelector matches all pods in this namespace.
@@ -12764,7 +12710,73 @@ class NetworkPolicySpec():
         return 'NetworkPolicySpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Node(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Node"):
+@jsii.data_type(jsii_type="generated.NfsVolumeSource", jsii_struct_bases=[], name_mapping={'path': 'path', 'server': 'server', 'read_only': 'readOnly'})
+class NfsVolumeSource():
+    def __init__(self, *, path: str, server: str, read_only: typing.Optional[bool]=None) -> None:
+        """Represents an NFS mount that lasts the lifetime of a pod.
+
+        NFS volumes do not support ownership management or SELinux relabeling.
+
+        :param path: Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+        :param server: Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+        :param read_only: ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs Default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        schema:
+        :schema:: io.k8s.api.core.v1.NFSVolumeSource
+        """
+        self._values = {
+            'path': path,
+            'server': server,
+        }
+        if read_only is not None: self._values["read_only"] = read_only
+
+    @builtins.property
+    def path(self) -> str:
+        """Path that is exported by the NFS server.
+
+        More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        schema:
+        :schema:: io.k8s.api.core.v1.NFSVolumeSource#path
+        """
+        return self._values.get('path')
+
+    @builtins.property
+    def server(self) -> str:
+        """Server is the hostname or IP address of the NFS server.
+
+        More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        schema:
+        :schema:: io.k8s.api.core.v1.NFSVolumeSource#server
+        """
+        return self._values.get('server')
+
+    @builtins.property
+    def read_only(self) -> typing.Optional[bool]:
+        """ReadOnly here will force the NFS export to be mounted with read-only permissions.
+
+        Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        default
+        :default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+
+        schema:
+        :schema:: io.k8s.api.core.v1.NFSVolumeSource#readOnly
+        """
+        return self._values.get('read_only')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'NfsVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class Node(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Node"):
     """Node is a worker node in Kubernetes.
 
     Each node will have a unique identifier in the cache (i.e. in etcd).
@@ -12785,9 +12797,9 @@ class Node(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Node"):
         jsii.create(Node, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.NodeAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
+@jsii.data_type(jsii_type="generated.NodeAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
 class NodeAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PreferredSchedulingTerm"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional["NodeSelector"]=None):
+    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PreferredSchedulingTerm"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional["NodeSelector"]=None) -> None:
         """Node affinity is a group of node affinity scheduling rules.
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
@@ -12834,9 +12846,9 @@ class NodeAffinity():
         return 'NodeAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NodeConfigSource", jsii_struct_bases=[], name_mapping={'config_map': 'configMap'})
+@jsii.data_type(jsii_type="generated.NodeConfigSource", jsii_struct_bases=[], name_mapping={'config_map': 'configMap'})
 class NodeConfigSource():
-    def __init__(self, *, config_map: typing.Optional["ConfigMapNodeConfigSource"]=None):
+    def __init__(self, *, config_map: typing.Optional["ConfigMapNodeConfigSource"]=None) -> None:
         """NodeConfigSource specifies a source of node configuration.
 
         Exactly one subfield (excluding metadata) must be non-nil.
@@ -12870,7 +12882,7 @@ class NodeConfigSource():
         return 'NodeConfigSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class NodeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.NodeList"):
+class NodeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.NodeList"):
     """NodeList is the whole list of all Nodes which have been registered with master.
 
     schema:
@@ -12889,9 +12901,9 @@ class NodeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.NodeList
         jsii.create(NodeList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.NodeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.NodeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class NodeListOptions():
-    def __init__(self, *, items: typing.List["Node"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Node"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """NodeList is the whole list of all Nodes which have been registered with master.
 
         :param items: List of nodes.
@@ -12936,9 +12948,9 @@ class NodeListOptions():
         return 'NodeListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NodeOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.NodeOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class NodeOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["NodeSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["NodeSpec"]=None) -> None:
         """Node is a worker node in Kubernetes.
 
         Each node will have a unique identifier in the cache (i.e. in etcd).
@@ -12988,9 +13000,9 @@ class NodeOptions():
         return 'NodeOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NodeSelector", jsii_struct_bases=[], name_mapping={'node_selector_terms': 'nodeSelectorTerms'})
+@jsii.data_type(jsii_type="generated.NodeSelector", jsii_struct_bases=[], name_mapping={'node_selector_terms': 'nodeSelectorTerms'})
 class NodeSelector():
-    def __init__(self, *, node_selector_terms: typing.List["NodeSelectorTerm"]):
+    def __init__(self, *, node_selector_terms: typing.List["NodeSelectorTerm"]) -> None:
         """A node selector represents the union of the results of one or more label queries over a set of nodes;
 
         that is, it represents the OR of the selectors represented by the node selector terms.
@@ -13025,9 +13037,9 @@ class NodeSelector():
         return 'NodeSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NodeSelectorRequirement", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.NodeSelectorRequirement", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
 class NodeSelectorRequirement():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -13084,9 +13096,9 @@ class NodeSelectorRequirement():
         return 'NodeSelectorRequirement(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NodeSelectorTerm", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_fields': 'matchFields'})
+@jsii.data_type(jsii_type="generated.NodeSelectorTerm", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_fields': 'matchFields'})
 class NodeSelectorTerm():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["NodeSelectorRequirement"]]=None, match_fields: typing.Optional[typing.List["NodeSelectorRequirement"]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["NodeSelectorRequirement"]]=None, match_fields: typing.Optional[typing.List["NodeSelectorRequirement"]]=None) -> None:
         """A null or empty node selector term matches no objects.
 
         The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
@@ -13130,9 +13142,9 @@ class NodeSelectorTerm():
         return 'NodeSelectorTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NodeSpec", jsii_struct_bases=[], name_mapping={'config_source': 'configSource', 'external_id': 'externalID', 'pod_cidr': 'podCIDR', 'pod_cid_rs': 'podCIDRs', 'provider_id': 'providerID', 'taints': 'taints', 'unschedulable': 'unschedulable'})
+@jsii.data_type(jsii_type="generated.NodeSpec", jsii_struct_bases=[], name_mapping={'config_source': 'configSource', 'external_id': 'externalID', 'pod_cidr': 'podCIDR', 'pod_cid_rs': 'podCIDRs', 'provider_id': 'providerID', 'taints': 'taints', 'unschedulable': 'unschedulable'})
 class NodeSpec():
-    def __init__(self, *, config_source: typing.Optional["NodeConfigSource"]=None, external_id: typing.Optional[str]=None, pod_cidr: typing.Optional[str]=None, pod_cid_rs: typing.Optional[typing.List[str]]=None, provider_id: typing.Optional[str]=None, taints: typing.Optional[typing.List["Taint"]]=None, unschedulable: typing.Optional[bool]=None):
+    def __init__(self, *, config_source: typing.Optional["NodeConfigSource"]=None, external_id: typing.Optional[str]=None, pod_cidr: typing.Optional[str]=None, pod_cid_rs: typing.Optional[typing.List[str]]=None, provider_id: typing.Optional[str]=None, taints: typing.Optional[typing.List["Taint"]]=None, unschedulable: typing.Optional[bool]=None) -> None:
         """NodeSpec describes the attributes that a node is created with.
 
         :param config_source: If specified, the source to get node configuration from The DynamicKubeletConfig feature gate must be enabled for the Kubelet to use this field.
@@ -13236,9 +13248,9 @@ class NodeSpec():
         return 'NodeSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NonResourceAttributes", jsii_struct_bases=[], name_mapping={'path': 'path', 'verb': 'verb'})
+@jsii.data_type(jsii_type="generated.NonResourceAttributes", jsii_struct_bases=[], name_mapping={'path': 'path', 'verb': 'verb'})
 class NonResourceAttributes():
-    def __init__(self, *, path: typing.Optional[str]=None, verb: typing.Optional[str]=None):
+    def __init__(self, *, path: typing.Optional[str]=None, verb: typing.Optional[str]=None) -> None:
         """NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface.
 
         :param path: Path is the URL path of the request.
@@ -13280,9 +13292,9 @@ class NonResourceAttributes():
         return 'NonResourceAttributes(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.NonResourcePolicyRule", jsii_struct_bases=[], name_mapping={'non_resource_ur_ls': 'nonResourceURLs', 'verbs': 'verbs'})
+@jsii.data_type(jsii_type="generated.NonResourcePolicyRule", jsii_struct_bases=[], name_mapping={'non_resource_ur_ls': 'nonResourceURLs', 'verbs': 'verbs'})
 class NonResourcePolicyRule():
-    def __init__(self, *, non_resource_ur_ls: typing.List[str], verbs: typing.List[str]):
+    def __init__(self, *, non_resource_ur_ls: typing.List[str], verbs: typing.List[str]) -> None:
         """NonResourcePolicyRule is a predicate that matches non-resource requests according to their verb and the target non-resource URL.
 
         A NonResourcePolicyRule matches a request if and only if both (a) at least one member of verbs matches the request and (b) at least one member of nonResourceURLs matches the request.
@@ -13337,9 +13349,9 @@ class NonResourcePolicyRule():
         return 'NonResourcePolicyRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ObjectFieldSelector", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
+@jsii.data_type(jsii_type="generated.ObjectFieldSelector", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
 class ObjectFieldSelector():
-    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None):
+    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None) -> None:
         """ObjectFieldSelector selects an APIVersioned field of an object.
 
         :param field_path: Path of the field to select in the specified API version.
@@ -13381,9 +13393,9 @@ class ObjectFieldSelector():
         return 'ObjectFieldSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ObjectMeta", jsii_struct_bases=[], name_mapping={'annotations': 'annotations', 'cluster_name': 'clusterName', 'creation_timestamp': 'creationTimestamp', 'deletion_grace_period_seconds': 'deletionGracePeriodSeconds', 'deletion_timestamp': 'deletionTimestamp', 'finalizers': 'finalizers', 'generate_name': 'generateName', 'generation': 'generation', 'labels': 'labels', 'managed_fields': 'managedFields', 'name': 'name', 'namespace': 'namespace', 'owner_references': 'ownerReferences', 'resource_version': 'resourceVersion', 'self_link': 'selfLink', 'uid': 'uid'})
+@jsii.data_type(jsii_type="generated.ObjectMeta", jsii_struct_bases=[], name_mapping={'annotations': 'annotations', 'cluster_name': 'clusterName', 'creation_timestamp': 'creationTimestamp', 'deletion_grace_period_seconds': 'deletionGracePeriodSeconds', 'deletion_timestamp': 'deletionTimestamp', 'finalizers': 'finalizers', 'generate_name': 'generateName', 'generation': 'generation', 'labels': 'labels', 'managed_fields': 'managedFields', 'name': 'name', 'namespace': 'namespace', 'owner_references': 'ownerReferences', 'resource_version': 'resourceVersion', 'self_link': 'selfLink', 'uid': 'uid'})
 class ObjectMeta():
-    def __init__(self, *, annotations: typing.Optional[typing.Mapping[str,str]]=None, cluster_name: typing.Optional[str]=None, creation_timestamp: typing.Optional[datetime.datetime]=None, deletion_grace_period_seconds: typing.Optional[jsii.Number]=None, deletion_timestamp: typing.Optional[datetime.datetime]=None, finalizers: typing.Optional[typing.List[str]]=None, generate_name: typing.Optional[str]=None, generation: typing.Optional[jsii.Number]=None, labels: typing.Optional[typing.Mapping[str,str]]=None, managed_fields: typing.Optional[typing.List["ManagedFieldsEntry"]]=None, name: typing.Optional[str]=None, namespace: typing.Optional[str]=None, owner_references: typing.Optional[typing.List["OwnerReference"]]=None, resource_version: typing.Optional[str]=None, self_link: typing.Optional[str]=None, uid: typing.Optional[str]=None):
+    def __init__(self, *, annotations: typing.Optional[typing.Mapping[str, str]]=None, cluster_name: typing.Optional[str]=None, creation_timestamp: typing.Optional[datetime.datetime]=None, deletion_grace_period_seconds: typing.Optional[jsii.Number]=None, deletion_timestamp: typing.Optional[datetime.datetime]=None, finalizers: typing.Optional[typing.List[str]]=None, generate_name: typing.Optional[str]=None, generation: typing.Optional[jsii.Number]=None, labels: typing.Optional[typing.Mapping[str, str]]=None, managed_fields: typing.Optional[typing.List["ManagedFieldsEntry"]]=None, name: typing.Optional[str]=None, namespace: typing.Optional[str]=None, owner_references: typing.Optional[typing.List["OwnerReference"]]=None, resource_version: typing.Optional[str]=None, self_link: typing.Optional[str]=None, uid: typing.Optional[str]=None) -> None:
         """ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.
 
         :param annotations: Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -13426,7 +13438,7 @@ class ObjectMeta():
         if uid is not None: self._values["uid"] = uid
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -13522,7 +13534,7 @@ class ObjectMeta():
         return self._values.get('generation')
 
     @builtins.property
-    def labels(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def labels(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Map of string keys and values that can be used to organize and categorize (scope and select) objects.
 
         May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
@@ -13625,9 +13637,9 @@ class ObjectMeta():
         return 'ObjectMeta(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ObjectReference", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'field_path': 'fieldPath', 'kind': 'kind', 'name': 'name', 'namespace': 'namespace', 'resource_version': 'resourceVersion', 'uid': 'uid'})
+@jsii.data_type(jsii_type="generated.ObjectReference", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'field_path': 'fieldPath', 'kind': 'kind', 'name': 'name', 'namespace': 'namespace', 'resource_version': 'resourceVersion', 'uid': 'uid'})
 class ObjectReference():
-    def __init__(self, *, api_version: typing.Optional[str]=None, field_path: typing.Optional[str]=None, kind: typing.Optional[str]=None, name: typing.Optional[str]=None, namespace: typing.Optional[str]=None, resource_version: typing.Optional[str]=None, uid: typing.Optional[str]=None):
+    def __init__(self, *, api_version: typing.Optional[str]=None, field_path: typing.Optional[str]=None, kind: typing.Optional[str]=None, name: typing.Optional[str]=None, namespace: typing.Optional[str]=None, resource_version: typing.Optional[str]=None, uid: typing.Optional[str]=None) -> None:
         """ObjectReference contains enough information to let you inspect or modify the referred object.
 
         :param api_version: API version of the referent.
@@ -13734,9 +13746,9 @@ class ObjectReference():
         return 'ObjectReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Overhead", jsii_struct_bases=[], name_mapping={'pod_fixed': 'podFixed'})
+@jsii.data_type(jsii_type="generated.Overhead", jsii_struct_bases=[], name_mapping={'pod_fixed': 'podFixed'})
 class Overhead():
-    def __init__(self, *, pod_fixed: typing.Optional[typing.Mapping[str,"Quantity"]]=None):
+    def __init__(self, *, pod_fixed: typing.Optional[typing.Mapping[str, "Quantity"]]=None) -> None:
         """Overhead structure represents the resource overhead associated with running a pod.
 
         :param pod_fixed: PodFixed represents the fixed resource overhead associated with running a pod.
@@ -13749,7 +13761,7 @@ class Overhead():
         if pod_fixed is not None: self._values["pod_fixed"] = pod_fixed
 
     @builtins.property
-    def pod_fixed(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def pod_fixed(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """PodFixed represents the fixed resource overhead associated with running a pod.
 
         schema:
@@ -13767,9 +13779,9 @@ class Overhead():
         return 'Overhead(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.OwnerReference", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'kind': 'kind', 'name': 'name', 'uid': 'uid', 'block_owner_deletion': 'blockOwnerDeletion', 'controller': 'controller'})
+@jsii.data_type(jsii_type="generated.OwnerReference", jsii_struct_bases=[], name_mapping={'api_version': 'apiVersion', 'kind': 'kind', 'name': 'name', 'uid': 'uid', 'block_owner_deletion': 'blockOwnerDeletion', 'controller': 'controller'})
 class OwnerReference():
-    def __init__(self, *, api_version: str, kind: str, name: str, uid: str, block_owner_deletion: typing.Optional[bool]=None, controller: typing.Optional[bool]=None):
+    def __init__(self, *, api_version: str, kind: str, name: str, uid: str, block_owner_deletion: typing.Optional[bool]=None, controller: typing.Optional[bool]=None) -> None:
         """OwnerReference contains enough information to let you identify an owning object.
 
         An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.
@@ -13868,7 +13880,7 @@ class OwnerReference():
         return 'OwnerReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class PersistentVolume(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PersistentVolume"):
+class PersistentVolume(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PersistentVolume"):
     """PersistentVolume (PV) is a storage resource provisioned by an administrator.
 
     It is analogous to a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
@@ -13889,7 +13901,7 @@ class PersistentVolume(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.
         jsii.create(PersistentVolume, self, [scope, name, options])
 
 
-class PersistentVolumeClaim(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PersistentVolumeClaim"):
+class PersistentVolumeClaim(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PersistentVolumeClaim"):
     """PersistentVolumeClaim is a user's request for and claim to a persistent volume.
 
     schema:
@@ -13908,7 +13920,7 @@ class PersistentVolumeClaim(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type=
         jsii.create(PersistentVolumeClaim, self, [scope, name, options])
 
 
-class PersistentVolumeClaimList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PersistentVolumeClaimList"):
+class PersistentVolumeClaimList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PersistentVolumeClaimList"):
     """PersistentVolumeClaimList is a list of PersistentVolumeClaim items.
 
     schema:
@@ -13927,9 +13939,9 @@ class PersistentVolumeClaimList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_t
         jsii.create(PersistentVolumeClaimList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PersistentVolumeClaimListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PersistentVolumeClaimListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PersistentVolumeClaimListOptions():
-    def __init__(self, *, items: typing.List["PersistentVolumeClaim"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["PersistentVolumeClaim"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PersistentVolumeClaimList is a list of PersistentVolumeClaim items.
 
         :param items: A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
@@ -13976,9 +13988,9 @@ class PersistentVolumeClaimListOptions():
         return 'PersistentVolumeClaimListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PersistentVolumeClaimOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.PersistentVolumeClaimOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class PersistentVolumeClaimOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PersistentVolumeClaimSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PersistentVolumeClaimSpec"]=None) -> None:
         """PersistentVolumeClaim is a user's request for and claim to a persistent volume.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -14026,9 +14038,9 @@ class PersistentVolumeClaimOptions():
         return 'PersistentVolumeClaimOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PersistentVolumeClaimSpec", jsii_struct_bases=[], name_mapping={'access_modes': 'accessModes', 'data_source': 'dataSource', 'resources': 'resources', 'selector': 'selector', 'storage_class_name': 'storageClassName', 'volume_mode': 'volumeMode', 'volume_name': 'volumeName'})
+@jsii.data_type(jsii_type="generated.PersistentVolumeClaimSpec", jsii_struct_bases=[], name_mapping={'access_modes': 'accessModes', 'data_source': 'dataSource', 'resources': 'resources', 'selector': 'selector', 'storage_class_name': 'storageClassName', 'volume_mode': 'volumeMode', 'volume_name': 'volumeName'})
 class PersistentVolumeClaimSpec():
-    def __init__(self, *, access_modes: typing.Optional[typing.List[str]]=None, data_source: typing.Optional["TypedLocalObjectReference"]=None, resources: typing.Optional["ResourceRequirements"]=None, selector: typing.Optional["LabelSelector"]=None, storage_class_name: typing.Optional[str]=None, volume_mode: typing.Optional[str]=None, volume_name: typing.Optional[str]=None):
+    def __init__(self, *, access_modes: typing.Optional[typing.List[str]]=None, data_source: typing.Optional["TypedLocalObjectReference"]=None, resources: typing.Optional["ResourceRequirements"]=None, selector: typing.Optional["LabelSelector"]=None, storage_class_name: typing.Optional[str]=None, volume_mode: typing.Optional[str]=None, volume_name: typing.Optional[str]=None) -> None:
         """PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes.
 
         :param access_modes: AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
@@ -14138,9 +14150,9 @@ class PersistentVolumeClaimSpec():
         return 'PersistentVolumeClaimSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PersistentVolumeClaimVolumeSource", jsii_struct_bases=[], name_mapping={'claim_name': 'claimName', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.PersistentVolumeClaimVolumeSource", jsii_struct_bases=[], name_mapping={'claim_name': 'claimName', 'read_only': 'readOnly'})
 class PersistentVolumeClaimVolumeSource():
-    def __init__(self, *, claim_name: str, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, claim_name: str, read_only: typing.Optional[bool]=None) -> None:
         """PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace.
 
         This volume finds the bound PV and mounts that volume for the pod. A PersistentVolumeClaimVolumeSource is, essentially, a wrapper around another type of volume that is owned by someone else (the system).
@@ -14188,7 +14200,7 @@ class PersistentVolumeClaimVolumeSource():
         return 'PersistentVolumeClaimVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class PersistentVolumeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PersistentVolumeList"):
+class PersistentVolumeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PersistentVolumeList"):
     """PersistentVolumeList is a list of PersistentVolume items.
 
     schema:
@@ -14207,9 +14219,9 @@ class PersistentVolumeList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="
         jsii.create(PersistentVolumeList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PersistentVolumeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PersistentVolumeListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PersistentVolumeListOptions():
-    def __init__(self, *, items: typing.List["PersistentVolume"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["PersistentVolume"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PersistentVolumeList is a list of PersistentVolume items.
 
         :param items: List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
@@ -14256,9 +14268,9 @@ class PersistentVolumeListOptions():
         return 'PersistentVolumeListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PersistentVolumeOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.PersistentVolumeOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class PersistentVolumeOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PersistentVolumeSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PersistentVolumeSpec"]=None) -> None:
         """PersistentVolume (PV) is a storage resource provisioned by an administrator.
 
         It is analogous to a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
@@ -14308,9 +14320,9 @@ class PersistentVolumeOptions():
         return 'PersistentVolumeOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PersistentVolumeSpec", jsii_struct_bases=[], name_mapping={'access_modes': 'accessModes', 'aws_elastic_block_store': 'awsElasticBlockStore', 'azure_disk': 'azureDisk', 'azure_file': 'azureFile', 'capacity': 'capacity', 'cephfs': 'cephfs', 'cinder': 'cinder', 'claim_ref': 'claimRef', 'csi': 'csi', 'fc': 'fc', 'flex_volume': 'flexVolume', 'flocker': 'flocker', 'gce_persistent_disk': 'gcePersistentDisk', 'glusterfs': 'glusterfs', 'host_path': 'hostPath', 'iscsi': 'iscsi', 'local': 'local', 'mount_options': 'mountOptions', 'nfs': 'nfs', 'node_affinity': 'nodeAffinity', 'persistent_volume_reclaim_policy': 'persistentVolumeReclaimPolicy', 'photon_persistent_disk': 'photonPersistentDisk', 'portworx_volume': 'portworxVolume', 'quobyte': 'quobyte', 'rbd': 'rbd', 'scale_io': 'scaleIO', 'storage_class_name': 'storageClassName', 'storageos': 'storageos', 'volume_mode': 'volumeMode', 'vsphere_volume': 'vsphereVolume'})
+@jsii.data_type(jsii_type="generated.PersistentVolumeSpec", jsii_struct_bases=[], name_mapping={'access_modes': 'accessModes', 'aws_elastic_block_store': 'awsElasticBlockStore', 'azure_disk': 'azureDisk', 'azure_file': 'azureFile', 'capacity': 'capacity', 'cephfs': 'cephfs', 'cinder': 'cinder', 'claim_ref': 'claimRef', 'csi': 'csi', 'fc': 'fc', 'flex_volume': 'flexVolume', 'flocker': 'flocker', 'gce_persistent_disk': 'gcePersistentDisk', 'glusterfs': 'glusterfs', 'host_path': 'hostPath', 'iscsi': 'iscsi', 'local': 'local', 'mount_options': 'mountOptions', 'nfs': 'nfs', 'node_affinity': 'nodeAffinity', 'persistent_volume_reclaim_policy': 'persistentVolumeReclaimPolicy', 'photon_persistent_disk': 'photonPersistentDisk', 'portworx_volume': 'portworxVolume', 'quobyte': 'quobyte', 'rbd': 'rbd', 'scale_io': 'scaleIO', 'storage_class_name': 'storageClassName', 'storageos': 'storageos', 'volume_mode': 'volumeMode', 'vsphere_volume': 'vsphereVolume'})
 class PersistentVolumeSpec():
-    def __init__(self, *, access_modes: typing.Optional[typing.List[str]]=None, aws_elastic_block_store: typing.Optional["AWSElasticBlockStoreVolumeSource"]=None, azure_disk: typing.Optional["AzureDiskVolumeSource"]=None, azure_file: typing.Optional["AzureFilePersistentVolumeSource"]=None, capacity: typing.Optional[typing.Mapping[str,"Quantity"]]=None, cephfs: typing.Optional["CephFSPersistentVolumeSource"]=None, cinder: typing.Optional["CinderPersistentVolumeSource"]=None, claim_ref: typing.Optional["ObjectReference"]=None, csi: typing.Optional["CSIPersistentVolumeSource"]=None, fc: typing.Optional["FCVolumeSource"]=None, flex_volume: typing.Optional["FlexPersistentVolumeSource"]=None, flocker: typing.Optional["FlockerVolumeSource"]=None, gce_persistent_disk: typing.Optional["GCEPersistentDiskVolumeSource"]=None, glusterfs: typing.Optional["GlusterfsPersistentVolumeSource"]=None, host_path: typing.Optional["HostPathVolumeSource"]=None, iscsi: typing.Optional["IscsiPersistentVolumeSource"]=None, local: typing.Optional["LocalVolumeSource"]=None, mount_options: typing.Optional[typing.List[str]]=None, nfs: typing.Optional["NFSVolumeSource"]=None, node_affinity: typing.Optional["VolumeNodeAffinity"]=None, persistent_volume_reclaim_policy: typing.Optional[str]=None, photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"]=None, portworx_volume: typing.Optional["PortworxVolumeSource"]=None, quobyte: typing.Optional["QuobyteVolumeSource"]=None, rbd: typing.Optional["RBDPersistentVolumeSource"]=None, scale_io: typing.Optional["ScaleIOPersistentVolumeSource"]=None, storage_class_name: typing.Optional[str]=None, storageos: typing.Optional["StorageOSPersistentVolumeSource"]=None, volume_mode: typing.Optional[str]=None, vsphere_volume: typing.Optional["VsphereVirtualDiskVolumeSource"]=None):
+    def __init__(self, *, access_modes: typing.Optional[typing.List[str]]=None, aws_elastic_block_store: typing.Optional["AwsElasticBlockStoreVolumeSource"]=None, azure_disk: typing.Optional["AzureDiskVolumeSource"]=None, azure_file: typing.Optional["AzureFilePersistentVolumeSource"]=None, capacity: typing.Optional[typing.Mapping[str, "Quantity"]]=None, cephfs: typing.Optional["CephFsPersistentVolumeSource"]=None, cinder: typing.Optional["CinderPersistentVolumeSource"]=None, claim_ref: typing.Optional["ObjectReference"]=None, csi: typing.Optional["CsiPersistentVolumeSource"]=None, fc: typing.Optional["FcVolumeSource"]=None, flex_volume: typing.Optional["FlexPersistentVolumeSource"]=None, flocker: typing.Optional["FlockerVolumeSource"]=None, gce_persistent_disk: typing.Optional["GcePersistentDiskVolumeSource"]=None, glusterfs: typing.Optional["GlusterfsPersistentVolumeSource"]=None, host_path: typing.Optional["HostPathVolumeSource"]=None, iscsi: typing.Optional["IscsiPersistentVolumeSource"]=None, local: typing.Optional["LocalVolumeSource"]=None, mount_options: typing.Optional[typing.List[str]]=None, nfs: typing.Optional["NfsVolumeSource"]=None, node_affinity: typing.Optional["VolumeNodeAffinity"]=None, persistent_volume_reclaim_policy: typing.Optional[str]=None, photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"]=None, portworx_volume: typing.Optional["PortworxVolumeSource"]=None, quobyte: typing.Optional["QuobyteVolumeSource"]=None, rbd: typing.Optional["RbdPersistentVolumeSource"]=None, scale_io: typing.Optional["ScaleIoPersistentVolumeSource"]=None, storage_class_name: typing.Optional[str]=None, storageos: typing.Optional["StorageOsPersistentVolumeSource"]=None, volume_mode: typing.Optional[str]=None, vsphere_volume: typing.Optional["VsphereVirtualDiskVolumeSource"]=None) -> None:
         """PersistentVolumeSpec is the specification of a persistent volume.
 
         :param access_modes: AccessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
@@ -14347,29 +14359,29 @@ class PersistentVolumeSpec():
         schema:
         :schema:: io.k8s.api.core.v1.PersistentVolumeSpec
         """
-        if isinstance(aws_elastic_block_store, dict): aws_elastic_block_store = AWSElasticBlockStoreVolumeSource(**aws_elastic_block_store)
+        if isinstance(aws_elastic_block_store, dict): aws_elastic_block_store = AwsElasticBlockStoreVolumeSource(**aws_elastic_block_store)
         if isinstance(azure_disk, dict): azure_disk = AzureDiskVolumeSource(**azure_disk)
         if isinstance(azure_file, dict): azure_file = AzureFilePersistentVolumeSource(**azure_file)
-        if isinstance(cephfs, dict): cephfs = CephFSPersistentVolumeSource(**cephfs)
+        if isinstance(cephfs, dict): cephfs = CephFsPersistentVolumeSource(**cephfs)
         if isinstance(cinder, dict): cinder = CinderPersistentVolumeSource(**cinder)
         if isinstance(claim_ref, dict): claim_ref = ObjectReference(**claim_ref)
-        if isinstance(csi, dict): csi = CSIPersistentVolumeSource(**csi)
-        if isinstance(fc, dict): fc = FCVolumeSource(**fc)
+        if isinstance(csi, dict): csi = CsiPersistentVolumeSource(**csi)
+        if isinstance(fc, dict): fc = FcVolumeSource(**fc)
         if isinstance(flex_volume, dict): flex_volume = FlexPersistentVolumeSource(**flex_volume)
         if isinstance(flocker, dict): flocker = FlockerVolumeSource(**flocker)
-        if isinstance(gce_persistent_disk, dict): gce_persistent_disk = GCEPersistentDiskVolumeSource(**gce_persistent_disk)
+        if isinstance(gce_persistent_disk, dict): gce_persistent_disk = GcePersistentDiskVolumeSource(**gce_persistent_disk)
         if isinstance(glusterfs, dict): glusterfs = GlusterfsPersistentVolumeSource(**glusterfs)
         if isinstance(host_path, dict): host_path = HostPathVolumeSource(**host_path)
         if isinstance(iscsi, dict): iscsi = IscsiPersistentVolumeSource(**iscsi)
         if isinstance(local, dict): local = LocalVolumeSource(**local)
-        if isinstance(nfs, dict): nfs = NFSVolumeSource(**nfs)
+        if isinstance(nfs, dict): nfs = NfsVolumeSource(**nfs)
         if isinstance(node_affinity, dict): node_affinity = VolumeNodeAffinity(**node_affinity)
         if isinstance(photon_persistent_disk, dict): photon_persistent_disk = PhotonPersistentDiskVolumeSource(**photon_persistent_disk)
         if isinstance(portworx_volume, dict): portworx_volume = PortworxVolumeSource(**portworx_volume)
         if isinstance(quobyte, dict): quobyte = QuobyteVolumeSource(**quobyte)
-        if isinstance(rbd, dict): rbd = RBDPersistentVolumeSource(**rbd)
-        if isinstance(scale_io, dict): scale_io = ScaleIOPersistentVolumeSource(**scale_io)
-        if isinstance(storageos, dict): storageos = StorageOSPersistentVolumeSource(**storageos)
+        if isinstance(rbd, dict): rbd = RbdPersistentVolumeSource(**rbd)
+        if isinstance(scale_io, dict): scale_io = ScaleIoPersistentVolumeSource(**scale_io)
+        if isinstance(storageos, dict): storageos = StorageOsPersistentVolumeSource(**storageos)
         if isinstance(vsphere_volume, dict): vsphere_volume = VsphereVirtualDiskVolumeSource(**vsphere_volume)
         self._values = {
         }
@@ -14416,7 +14428,7 @@ class PersistentVolumeSpec():
         return self._values.get('access_modes')
 
     @builtins.property
-    def aws_elastic_block_store(self) -> typing.Optional["AWSElasticBlockStoreVolumeSource"]:
+    def aws_elastic_block_store(self) -> typing.Optional["AwsElasticBlockStoreVolumeSource"]:
         """AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
@@ -14445,7 +14457,7 @@ class PersistentVolumeSpec():
         return self._values.get('azure_file')
 
     @builtins.property
-    def capacity(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def capacity(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """A description of the persistent volume's resources and capacity.
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
@@ -14456,7 +14468,7 @@ class PersistentVolumeSpec():
         return self._values.get('capacity')
 
     @builtins.property
-    def cephfs(self) -> typing.Optional["CephFSPersistentVolumeSource"]:
+    def cephfs(self) -> typing.Optional["CephFsPersistentVolumeSource"]:
         """CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
 
         schema:
@@ -14487,7 +14499,7 @@ class PersistentVolumeSpec():
         return self._values.get('claim_ref')
 
     @builtins.property
-    def csi(self) -> typing.Optional["CSIPersistentVolumeSource"]:
+    def csi(self) -> typing.Optional["CsiPersistentVolumeSource"]:
         """CSI represents storage that is handled by an external CSI driver (Beta feature).
 
         schema:
@@ -14496,7 +14508,7 @@ class PersistentVolumeSpec():
         return self._values.get('csi')
 
     @builtins.property
-    def fc(self) -> typing.Optional["FCVolumeSource"]:
+    def fc(self) -> typing.Optional["FcVolumeSource"]:
         """FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         schema:
@@ -14525,7 +14537,7 @@ class PersistentVolumeSpec():
         return self._values.get('flocker')
 
     @builtins.property
-    def gce_persistent_disk(self) -> typing.Optional["GCEPersistentDiskVolumeSource"]:
+    def gce_persistent_disk(self) -> typing.Optional["GcePersistentDiskVolumeSource"]:
         """GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
@@ -14587,7 +14599,7 @@ class PersistentVolumeSpec():
         return self._values.get('mount_options')
 
     @builtins.property
-    def nfs(self) -> typing.Optional["NFSVolumeSource"]:
+    def nfs(self) -> typing.Optional["NfsVolumeSource"]:
         """NFS represents an NFS mount on the host.
 
         Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
@@ -14647,7 +14659,7 @@ class PersistentVolumeSpec():
         return self._values.get('quobyte')
 
     @builtins.property
-    def rbd(self) -> typing.Optional["RBDPersistentVolumeSource"]:
+    def rbd(self) -> typing.Optional["RbdPersistentVolumeSource"]:
         """RBD represents a Rados Block Device mount on the host that shares a pod's lifetime.
 
         More info: https://examples.k8s.io/volumes/rbd/README.md
@@ -14658,7 +14670,7 @@ class PersistentVolumeSpec():
         return self._values.get('rbd')
 
     @builtins.property
-    def scale_io(self) -> typing.Optional["ScaleIOPersistentVolumeSource"]:
+    def scale_io(self) -> typing.Optional["ScaleIoPersistentVolumeSource"]:
         """ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
 
         schema:
@@ -14678,7 +14690,7 @@ class PersistentVolumeSpec():
         return self._values.get('storage_class_name')
 
     @builtins.property
-    def storageos(self) -> typing.Optional["StorageOSPersistentVolumeSource"]:
+    def storageos(self) -> typing.Optional["StorageOsPersistentVolumeSource"]:
         """StorageOS represents a StorageOS volume that is attached to the kubelet's host machine and mounted into the pod More info: https://examples.k8s.io/volumes/storageos/README.md.
 
         schema:
@@ -14716,9 +14728,9 @@ class PersistentVolumeSpec():
         return 'PersistentVolumeSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PhotonPersistentDiskVolumeSource", jsii_struct_bases=[], name_mapping={'pd_id': 'pdID', 'fs_type': 'fsType'})
+@jsii.data_type(jsii_type="generated.PhotonPersistentDiskVolumeSource", jsii_struct_bases=[], name_mapping={'pd_id': 'pdID', 'fs_type': 'fsType'})
 class PhotonPersistentDiskVolumeSource():
-    def __init__(self, *, pd_id: str, fs_type: typing.Optional[str]=None):
+    def __init__(self, *, pd_id: str, fs_type: typing.Optional[str]=None) -> None:
         """Represents a Photon Controller persistent disk resource.
 
         :param pd_id: ID that identifies Photon Controller persistent disk.
@@ -14762,7 +14774,7 @@ class PhotonPersistentDiskVolumeSource():
         return 'PhotonPersistentDiskVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Pod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Pod"):
+class Pod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Pod"):
     """Pod is a collection of containers that can run on a host.
 
     This resource is created by clients and scheduled onto hosts.
@@ -14783,9 +14795,9 @@ class Pod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Pod"):
         jsii.create(Pod, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PodAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
+@jsii.data_type(jsii_type="generated.PodAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
 class PodAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["WeightedPodAffinityTerm"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PodAffinityTerm"]]=None):
+    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["WeightedPodAffinityTerm"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PodAffinityTerm"]]=None) -> None:
         """Pod affinity is a group of inter pod affinity scheduling rules.
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -14831,9 +14843,9 @@ class PodAffinity():
         return 'PodAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodAffinityTerm", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
+@jsii.data_type(jsii_type="generated.PodAffinityTerm", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
 class PodAffinityTerm():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["LabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, topology_key: str, label_selector: typing.Optional["LabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
         """Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
 
         :param topology_key: This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
@@ -14891,9 +14903,9 @@ class PodAffinityTerm():
         return 'PodAffinityTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodAntiAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
+@jsii.data_type(jsii_type="generated.PodAntiAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
 class PodAntiAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["WeightedPodAffinityTerm"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PodAffinityTerm"]]=None):
+    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["WeightedPodAffinityTerm"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PodAffinityTerm"]]=None) -> None:
         """Pod anti affinity is a group of inter pod anti affinity scheduling rules.
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -14939,111 +14951,7 @@ class PodAntiAffinity():
         return 'PodAntiAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodDNSConfig", jsii_struct_bases=[], name_mapping={'nameservers': 'nameservers', 'options': 'options', 'searches': 'searches'})
-class PodDNSConfig():
-    def __init__(self, *, nameservers: typing.Optional[typing.List[str]]=None, options: typing.Optional[typing.List["PodDNSConfigOption"]]=None, searches: typing.Optional[typing.List[str]]=None):
-        """PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
-
-        :param nameservers: A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
-        :param options: A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
-        :param searches: A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfig
-        """
-        self._values = {
-        }
-        if nameservers is not None: self._values["nameservers"] = nameservers
-        if options is not None: self._values["options"] = options
-        if searches is not None: self._values["searches"] = searches
-
-    @builtins.property
-    def nameservers(self) -> typing.Optional[typing.List[str]]:
-        """A list of DNS name server IP addresses.
-
-        This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfig#nameservers
-        """
-        return self._values.get('nameservers')
-
-    @builtins.property
-    def options(self) -> typing.Optional[typing.List["PodDNSConfigOption"]]:
-        """A list of DNS resolver options.
-
-        This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfig#options
-        """
-        return self._values.get('options')
-
-    @builtins.property
-    def searches(self) -> typing.Optional[typing.List[str]]:
-        """A list of DNS search domains for host-name lookup.
-
-        This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfig#searches
-        """
-        return self._values.get('searches')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'PodDNSConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.PodDNSConfigOption", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
-class PodDNSConfigOption():
-    def __init__(self, *, name: typing.Optional[str]=None, value: typing.Optional[str]=None):
-        """PodDNSConfigOption defines DNS resolver options of a pod.
-
-        :param name: Required.
-        :param value: 
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfigOption
-        """
-        self._values = {
-        }
-        if name is not None: self._values["name"] = name
-        if value is not None: self._values["value"] = value
-
-    @builtins.property
-    def name(self) -> typing.Optional[str]:
-        """Required.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfigOption#name
-        """
-        return self._values.get('name')
-
-    @builtins.property
-    def value(self) -> typing.Optional[str]:
-        """
-        schema:
-        :schema:: io.k8s.api.core.v1.PodDNSConfigOption#value
-        """
-        return self._values.get('value')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'PodDNSConfigOption(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-class PodDisruptionBudget(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodDisruptionBudget"):
+class PodDisruptionBudget(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodDisruptionBudget"):
     """PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
 
     schema:
@@ -15062,7 +14970,7 @@ class PodDisruptionBudget(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k
         jsii.create(PodDisruptionBudget, self, [scope, name, options])
 
 
-class PodDisruptionBudgetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodDisruptionBudgetList"):
+class PodDisruptionBudgetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodDisruptionBudgetList"):
     """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
 
     schema:
@@ -15081,9 +14989,9 @@ class PodDisruptionBudgetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_typ
         jsii.create(PodDisruptionBudgetList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PodDisruptionBudgetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PodDisruptionBudgetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PodDisruptionBudgetListOptions():
-    def __init__(self, *, items: typing.List["PodDisruptionBudget"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["PodDisruptionBudget"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
 
         :param items: 
@@ -15124,9 +15032,9 @@ class PodDisruptionBudgetListOptions():
         return 'PodDisruptionBudgetListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodDisruptionBudgetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.PodDisruptionBudgetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class PodDisruptionBudgetOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodDisruptionBudgetSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodDisruptionBudgetSpec"]=None) -> None:
         """PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
 
         :param metadata: 
@@ -15169,9 +15077,9 @@ class PodDisruptionBudgetOptions():
         return 'PodDisruptionBudgetOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodDisruptionBudgetSpec", jsii_struct_bases=[], name_mapping={'max_unavailable': 'maxUnavailable', 'min_available': 'minAvailable', 'selector': 'selector'})
+@jsii.data_type(jsii_type="generated.PodDisruptionBudgetSpec", jsii_struct_bases=[], name_mapping={'max_unavailable': 'maxUnavailable', 'min_available': 'minAvailable', 'selector': 'selector'})
 class PodDisruptionBudgetSpec():
-    def __init__(self, *, max_unavailable: typing.Optional["IntOrString"]=None, min_available: typing.Optional["IntOrString"]=None, selector: typing.Optional["LabelSelector"]=None):
+    def __init__(self, *, max_unavailable: typing.Optional["IntOrString"]=None, min_available: typing.Optional["IntOrString"]=None, selector: typing.Optional["LabelSelector"]=None) -> None:
         """PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
 
         :param max_unavailable: An eviction is allowed if at most "maxUnavailable" pods selected by "selector" are unavailable after the eviction, i.e. even in absence of the evicted pod. For example, one can prevent all voluntary evictions by specifying 0. This is a mutually exclusive setting with "minAvailable".
@@ -15225,7 +15133,111 @@ class PodDisruptionBudgetSpec():
         return 'PodDisruptionBudgetSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class PodList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodList"):
+@jsii.data_type(jsii_type="generated.PodDnsConfig", jsii_struct_bases=[], name_mapping={'nameservers': 'nameservers', 'options': 'options', 'searches': 'searches'})
+class PodDnsConfig():
+    def __init__(self, *, nameservers: typing.Optional[typing.List[str]]=None, options: typing.Optional[typing.List["PodDnsConfigOption"]]=None, searches: typing.Optional[typing.List[str]]=None) -> None:
+        """PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
+
+        :param nameservers: A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
+        :param options: A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
+        :param searches: A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfig
+        """
+        self._values = {
+        }
+        if nameservers is not None: self._values["nameservers"] = nameservers
+        if options is not None: self._values["options"] = options
+        if searches is not None: self._values["searches"] = searches
+
+    @builtins.property
+    def nameservers(self) -> typing.Optional[typing.List[str]]:
+        """A list of DNS name server IP addresses.
+
+        This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfig#nameservers
+        """
+        return self._values.get('nameservers')
+
+    @builtins.property
+    def options(self) -> typing.Optional[typing.List["PodDnsConfigOption"]]:
+        """A list of DNS resolver options.
+
+        This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfig#options
+        """
+        return self._values.get('options')
+
+    @builtins.property
+    def searches(self) -> typing.Optional[typing.List[str]]:
+        """A list of DNS search domains for host-name lookup.
+
+        This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfig#searches
+        """
+        return self._values.get('searches')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'PodDnsConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.PodDnsConfigOption", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+class PodDnsConfigOption():
+    def __init__(self, *, name: typing.Optional[str]=None, value: typing.Optional[str]=None) -> None:
+        """PodDNSConfigOption defines DNS resolver options of a pod.
+
+        :param name: Required.
+        :param value: 
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfigOption
+        """
+        self._values = {
+        }
+        if name is not None: self._values["name"] = name
+        if value is not None: self._values["value"] = value
+
+    @builtins.property
+    def name(self) -> typing.Optional[str]:
+        """Required.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfigOption#name
+        """
+        return self._values.get('name')
+
+    @builtins.property
+    def value(self) -> typing.Optional[str]:
+        """
+        schema:
+        :schema:: io.k8s.api.core.v1.PodDNSConfigOption#value
+        """
+        return self._values.get('value')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'PodDnsConfigOption(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class PodList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodList"):
     """PodList is a list of Pods.
 
     schema:
@@ -15244,9 +15256,9 @@ class PodList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodList")
         jsii.create(PodList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PodListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PodListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PodListOptions():
-    def __init__(self, *, items: typing.List["Pod"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Pod"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PodList is a list of Pods.
 
         :param items: List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
@@ -15293,9 +15305,9 @@ class PodListOptions():
         return 'PodListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.PodOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class PodOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodSpec"]=None) -> None:
         """Pod is a collection of containers that can run on a host.
 
         This resource is created by clients and scheduled onto hosts.
@@ -15345,7 +15357,7 @@ class PodOptions():
         return 'PodOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class PodPreset(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodPreset"):
+class PodPreset(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodPreset"):
     """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
 
     schema:
@@ -15364,7 +15376,7 @@ class PodPreset(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodPres
         jsii.create(PodPreset, self, [scope, name, options])
 
 
-class PodPresetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodPresetList"):
+class PodPresetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodPresetList"):
     """PodPresetList is a list of PodPreset objects.
 
     schema:
@@ -15383,9 +15395,9 @@ class PodPresetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Pod
         jsii.create(PodPresetList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PodPresetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PodPresetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PodPresetListOptions():
-    def __init__(self, *, items: typing.List["PodPreset"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["PodPreset"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PodPresetList is a list of PodPreset objects.
 
         :param items: Items is a list of schema objects.
@@ -15430,9 +15442,9 @@ class PodPresetListOptions():
         return 'PodPresetListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodPresetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.PodPresetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class PodPresetOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodPresetSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodPresetSpec"]=None) -> None:
         """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
 
         :param metadata: 
@@ -15474,9 +15486,9 @@ class PodPresetOptions():
         return 'PodPresetOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodPresetSpec", jsii_struct_bases=[], name_mapping={'env': 'env', 'env_from': 'envFrom', 'selector': 'selector', 'volume_mounts': 'volumeMounts', 'volumes': 'volumes'})
+@jsii.data_type(jsii_type="generated.PodPresetSpec", jsii_struct_bases=[], name_mapping={'env': 'env', 'env_from': 'envFrom', 'selector': 'selector', 'volume_mounts': 'volumeMounts', 'volumes': 'volumes'})
 class PodPresetSpec():
-    def __init__(self, *, env: typing.Optional[typing.List["EnvVar"]]=None, env_from: typing.Optional[typing.List["EnvFromSource"]]=None, selector: typing.Optional["LabelSelector"]=None, volume_mounts: typing.Optional[typing.List["VolumeMount"]]=None, volumes: typing.Optional[typing.List["Volume"]]=None):
+    def __init__(self, *, env: typing.Optional[typing.List["EnvVar"]]=None, env_from: typing.Optional[typing.List["EnvFromSource"]]=None, selector: typing.Optional["LabelSelector"]=None, volume_mounts: typing.Optional[typing.List["VolumeMount"]]=None, volumes: typing.Optional[typing.List["Volume"]]=None) -> None:
         """PodPresetSpec is a description of a pod preset.
 
         :param env: Env defines the collection of EnvVar to inject into containers.
@@ -15554,9 +15566,9 @@ class PodPresetSpec():
         return 'PodPresetSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodReadinessGate", jsii_struct_bases=[], name_mapping={'condition_type': 'conditionType'})
+@jsii.data_type(jsii_type="generated.PodReadinessGate", jsii_struct_bases=[], name_mapping={'condition_type': 'conditionType'})
 class PodReadinessGate():
-    def __init__(self, *, condition_type: str):
+    def __init__(self, *, condition_type: str) -> None:
         """PodReadinessGate contains the reference to a pod condition.
 
         :param condition_type: ConditionType refers to a condition in the pod's condition list with matching type.
@@ -15587,9 +15599,9 @@ class PodReadinessGate():
         return 'PodReadinessGate(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodSecurityContext", jsii_struct_bases=[], name_mapping={'fs_group': 'fsGroup', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'supplemental_groups': 'supplementalGroups', 'sysctls': 'sysctls', 'windows_options': 'windowsOptions'})
+@jsii.data_type(jsii_type="generated.PodSecurityContext", jsii_struct_bases=[], name_mapping={'fs_group': 'fsGroup', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'supplemental_groups': 'supplementalGroups', 'sysctls': 'sysctls', 'windows_options': 'windowsOptions'})
 class PodSecurityContext():
-    def __init__(self, *, fs_group: typing.Optional[jsii.Number]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["SELinuxOptions"]=None, supplemental_groups: typing.Optional[typing.List[jsii.Number]]=None, sysctls: typing.Optional[typing.List["Sysctl"]]=None, windows_options: typing.Optional["WindowsSecurityContextOptions"]=None):
+    def __init__(self, *, fs_group: typing.Optional[jsii.Number]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["SeLinuxOptions"]=None, supplemental_groups: typing.Optional[typing.List[jsii.Number]]=None, sysctls: typing.Optional[typing.List["Sysctl"]]=None, windows_options: typing.Optional["WindowsSecurityContextOptions"]=None) -> None:
         """PodSecurityContext holds pod-level security attributes and common container settings.
 
         Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.
@@ -15606,7 +15618,7 @@ class PodSecurityContext():
         schema:
         :schema:: io.k8s.api.core.v1.PodSecurityContext
         """
-        if isinstance(se_linux_options, dict): se_linux_options = SELinuxOptions(**se_linux_options)
+        if isinstance(se_linux_options, dict): se_linux_options = SeLinuxOptions(**se_linux_options)
         if isinstance(windows_options, dict): windows_options = WindowsSecurityContextOptions(**windows_options)
         self._values = {
         }
@@ -15671,7 +15683,7 @@ class PodSecurityContext():
         return self._values.get('run_as_user')
 
     @builtins.property
-    def se_linux_options(self) -> typing.Optional["SELinuxOptions"]:
+    def se_linux_options(self) -> typing.Optional["SeLinuxOptions"]:
         """The SELinux context to be applied to all containers.
 
         If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
@@ -15724,7 +15736,7 @@ class PodSecurityContext():
         return 'PodSecurityContext(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class PodSecurityPolicy(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodSecurityPolicy"):
+class PodSecurityPolicy(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodSecurityPolicy"):
     """PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
 
     schema:
@@ -15743,7 +15755,7 @@ class PodSecurityPolicy(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s
         jsii.create(PodSecurityPolicy, self, [scope, name, options])
 
 
-class PodSecurityPolicyList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodSecurityPolicyList"):
+class PodSecurityPolicyList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodSecurityPolicyList"):
     """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
 
     schema:
@@ -15762,9 +15774,9 @@ class PodSecurityPolicyList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type=
         jsii.create(PodSecurityPolicyList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PodSecurityPolicyListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PodSecurityPolicyListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PodSecurityPolicyListOptions():
-    def __init__(self, *, items: typing.List["PodSecurityPolicy"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["PodSecurityPolicy"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
 
         :param items: items is a list of schema objects.
@@ -15809,9 +15821,9 @@ class PodSecurityPolicyListOptions():
         return 'PodSecurityPolicyListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodSecurityPolicyOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.PodSecurityPolicyOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class PodSecurityPolicyOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodSecurityPolicySpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodSecurityPolicySpec"]=None) -> None:
         """PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -15857,9 +15869,9 @@ class PodSecurityPolicyOptions():
         return 'PodSecurityPolicyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodSecurityPolicySpec", jsii_struct_bases=[], name_mapping={'fs_group': 'fsGroup', 'run_as_user': 'runAsUser', 'se_linux': 'seLinux', 'supplemental_groups': 'supplementalGroups', 'allowed_capabilities': 'allowedCapabilities', 'allowed_csi_drivers': 'allowedCSIDrivers', 'allowed_flex_volumes': 'allowedFlexVolumes', 'allowed_host_paths': 'allowedHostPaths', 'allowed_proc_mount_types': 'allowedProcMountTypes', 'allowed_unsafe_sysctls': 'allowedUnsafeSysctls', 'allow_privilege_escalation': 'allowPrivilegeEscalation', 'default_add_capabilities': 'defaultAddCapabilities', 'default_allow_privilege_escalation': 'defaultAllowPrivilegeEscalation', 'forbidden_sysctls': 'forbiddenSysctls', 'host_ipc': 'hostIPC', 'host_network': 'hostNetwork', 'host_pid': 'hostPID', 'host_ports': 'hostPorts', 'privileged': 'privileged', 'read_only_root_filesystem': 'readOnlyRootFilesystem', 'required_drop_capabilities': 'requiredDropCapabilities', 'run_as_group': 'runAsGroup', 'runtime_class': 'runtimeClass', 'volumes': 'volumes'})
+@jsii.data_type(jsii_type="generated.PodSecurityPolicySpec", jsii_struct_bases=[], name_mapping={'fs_group': 'fsGroup', 'run_as_user': 'runAsUser', 'se_linux': 'seLinux', 'supplemental_groups': 'supplementalGroups', 'allowed_capabilities': 'allowedCapabilities', 'allowed_csi_drivers': 'allowedCSIDrivers', 'allowed_flex_volumes': 'allowedFlexVolumes', 'allowed_host_paths': 'allowedHostPaths', 'allowed_proc_mount_types': 'allowedProcMountTypes', 'allowed_unsafe_sysctls': 'allowedUnsafeSysctls', 'allow_privilege_escalation': 'allowPrivilegeEscalation', 'default_add_capabilities': 'defaultAddCapabilities', 'default_allow_privilege_escalation': 'defaultAllowPrivilegeEscalation', 'forbidden_sysctls': 'forbiddenSysctls', 'host_ipc': 'hostIPC', 'host_network': 'hostNetwork', 'host_pid': 'hostPID', 'host_ports': 'hostPorts', 'privileged': 'privileged', 'read_only_root_filesystem': 'readOnlyRootFilesystem', 'required_drop_capabilities': 'requiredDropCapabilities', 'run_as_group': 'runAsGroup', 'runtime_class': 'runtimeClass', 'volumes': 'volumes'})
 class PodSecurityPolicySpec():
-    def __init__(self, *, fs_group: "FSGroupStrategyOptions", run_as_user: "RunAsUserStrategyOptions", se_linux: "SELinuxStrategyOptions", supplemental_groups: "SupplementalGroupsStrategyOptions", allowed_capabilities: typing.Optional[typing.List[str]]=None, allowed_csi_drivers: typing.Optional[typing.List["AllowedCSIDriver"]]=None, allowed_flex_volumes: typing.Optional[typing.List["AllowedFlexVolume"]]=None, allowed_host_paths: typing.Optional[typing.List["AllowedHostPath"]]=None, allowed_proc_mount_types: typing.Optional[typing.List[str]]=None, allowed_unsafe_sysctls: typing.Optional[typing.List[str]]=None, allow_privilege_escalation: typing.Optional[bool]=None, default_add_capabilities: typing.Optional[typing.List[str]]=None, default_allow_privilege_escalation: typing.Optional[bool]=None, forbidden_sysctls: typing.Optional[typing.List[str]]=None, host_ipc: typing.Optional[bool]=None, host_network: typing.Optional[bool]=None, host_pid: typing.Optional[bool]=None, host_ports: typing.Optional[typing.List["HostPortRange"]]=None, privileged: typing.Optional[bool]=None, read_only_root_filesystem: typing.Optional[bool]=None, required_drop_capabilities: typing.Optional[typing.List[str]]=None, run_as_group: typing.Optional["RunAsGroupStrategyOptions"]=None, runtime_class: typing.Optional["RuntimeClassStrategyOptions"]=None, volumes: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, fs_group: "FsGroupStrategyOptions", run_as_user: "RunAsUserStrategyOptions", se_linux: "SeLinuxStrategyOptions", supplemental_groups: "SupplementalGroupsStrategyOptions", allowed_capabilities: typing.Optional[typing.List[str]]=None, allowed_csi_drivers: typing.Optional[typing.List["AllowedCsiDriver"]]=None, allowed_flex_volumes: typing.Optional[typing.List["AllowedFlexVolume"]]=None, allowed_host_paths: typing.Optional[typing.List["AllowedHostPath"]]=None, allowed_proc_mount_types: typing.Optional[typing.List[str]]=None, allowed_unsafe_sysctls: typing.Optional[typing.List[str]]=None, allow_privilege_escalation: typing.Optional[bool]=None, default_add_capabilities: typing.Optional[typing.List[str]]=None, default_allow_privilege_escalation: typing.Optional[bool]=None, forbidden_sysctls: typing.Optional[typing.List[str]]=None, host_ipc: typing.Optional[bool]=None, host_network: typing.Optional[bool]=None, host_pid: typing.Optional[bool]=None, host_ports: typing.Optional[typing.List["HostPortRange"]]=None, privileged: typing.Optional[bool]=None, read_only_root_filesystem: typing.Optional[bool]=None, required_drop_capabilities: typing.Optional[typing.List[str]]=None, run_as_group: typing.Optional["RunAsGroupStrategyOptions"]=None, runtime_class: typing.Optional["RuntimeClassStrategyOptions"]=None, volumes: typing.Optional[typing.List[str]]=None) -> None:
         """PodSecurityPolicySpec defines the policy enforced.
 
         :param fs_group: fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
@@ -15890,9 +15902,9 @@ class PodSecurityPolicySpec():
         schema:
         :schema:: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec
         """
-        if isinstance(fs_group, dict): fs_group = FSGroupStrategyOptions(**fs_group)
+        if isinstance(fs_group, dict): fs_group = FsGroupStrategyOptions(**fs_group)
         if isinstance(run_as_user, dict): run_as_user = RunAsUserStrategyOptions(**run_as_user)
-        if isinstance(se_linux, dict): se_linux = SELinuxStrategyOptions(**se_linux)
+        if isinstance(se_linux, dict): se_linux = SeLinuxStrategyOptions(**se_linux)
         if isinstance(supplemental_groups, dict): supplemental_groups = SupplementalGroupsStrategyOptions(**supplemental_groups)
         if isinstance(run_as_group, dict): run_as_group = RunAsGroupStrategyOptions(**run_as_group)
         if isinstance(runtime_class, dict): runtime_class = RuntimeClassStrategyOptions(**runtime_class)
@@ -15924,7 +15936,7 @@ class PodSecurityPolicySpec():
         if volumes is not None: self._values["volumes"] = volumes
 
     @builtins.property
-    def fs_group(self) -> "FSGroupStrategyOptions":
+    def fs_group(self) -> "FsGroupStrategyOptions":
         """fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
 
         schema:
@@ -15942,7 +15954,7 @@ class PodSecurityPolicySpec():
         return self._values.get('run_as_user')
 
     @builtins.property
-    def se_linux(self) -> "SELinuxStrategyOptions":
+    def se_linux(self) -> "SeLinuxStrategyOptions":
         """seLinux is the strategy that will dictate the allowable labels that may be set.
 
         schema:
@@ -15971,7 +15983,7 @@ class PodSecurityPolicySpec():
         return self._values.get('allowed_capabilities')
 
     @builtins.property
-    def allowed_csi_drivers(self) -> typing.Optional[typing.List["AllowedCSIDriver"]]:
+    def allowed_csi_drivers(self) -> typing.Optional[typing.List["AllowedCsiDriver"]]:
         """AllowedCSIDrivers is a whitelist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
 
         An empty value indicates that any CSI driver can be used for inline ephemeral volumes. This is an alpha field, and is only honored if the API server enables the CSIInlineVolume feature gate.
@@ -16181,9 +16193,9 @@ class PodSecurityPolicySpec():
         return 'PodSecurityPolicySpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodSpec", jsii_struct_bases=[], name_mapping={'containers': 'containers', 'active_deadline_seconds': 'activeDeadlineSeconds', 'affinity': 'affinity', 'automount_service_account_token': 'automountServiceAccountToken', 'dns_config': 'dnsConfig', 'dns_policy': 'dnsPolicy', 'enable_service_links': 'enableServiceLinks', 'ephemeral_containers': 'ephemeralContainers', 'host_aliases': 'hostAliases', 'host_ipc': 'hostIPC', 'hostname': 'hostname', 'host_network': 'hostNetwork', 'host_pid': 'hostPID', 'image_pull_secrets': 'imagePullSecrets', 'init_containers': 'initContainers', 'node_name': 'nodeName', 'node_selector': 'nodeSelector', 'overhead': 'overhead', 'preemption_policy': 'preemptionPolicy', 'priority': 'priority', 'priority_class_name': 'priorityClassName', 'readiness_gates': 'readinessGates', 'restart_policy': 'restartPolicy', 'runtime_class_name': 'runtimeClassName', 'scheduler_name': 'schedulerName', 'security_context': 'securityContext', 'service_account': 'serviceAccount', 'service_account_name': 'serviceAccountName', 'share_process_namespace': 'shareProcessNamespace', 'subdomain': 'subdomain', 'termination_grace_period_seconds': 'terminationGracePeriodSeconds', 'tolerations': 'tolerations', 'topology_spread_constraints': 'topologySpreadConstraints', 'volumes': 'volumes'})
+@jsii.data_type(jsii_type="generated.PodSpec", jsii_struct_bases=[], name_mapping={'containers': 'containers', 'active_deadline_seconds': 'activeDeadlineSeconds', 'affinity': 'affinity', 'automount_service_account_token': 'automountServiceAccountToken', 'dns_config': 'dnsConfig', 'dns_policy': 'dnsPolicy', 'enable_service_links': 'enableServiceLinks', 'ephemeral_containers': 'ephemeralContainers', 'host_aliases': 'hostAliases', 'host_ipc': 'hostIPC', 'hostname': 'hostname', 'host_network': 'hostNetwork', 'host_pid': 'hostPID', 'image_pull_secrets': 'imagePullSecrets', 'init_containers': 'initContainers', 'node_name': 'nodeName', 'node_selector': 'nodeSelector', 'overhead': 'overhead', 'preemption_policy': 'preemptionPolicy', 'priority': 'priority', 'priority_class_name': 'priorityClassName', 'readiness_gates': 'readinessGates', 'restart_policy': 'restartPolicy', 'runtime_class_name': 'runtimeClassName', 'scheduler_name': 'schedulerName', 'security_context': 'securityContext', 'service_account': 'serviceAccount', 'service_account_name': 'serviceAccountName', 'share_process_namespace': 'shareProcessNamespace', 'subdomain': 'subdomain', 'termination_grace_period_seconds': 'terminationGracePeriodSeconds', 'tolerations': 'tolerations', 'topology_spread_constraints': 'topologySpreadConstraints', 'volumes': 'volumes'})
 class PodSpec():
-    def __init__(self, *, containers: typing.List["Container"], active_deadline_seconds: typing.Optional[jsii.Number]=None, affinity: typing.Optional["Affinity"]=None, automount_service_account_token: typing.Optional[bool]=None, dns_config: typing.Optional["PodDNSConfig"]=None, dns_policy: typing.Optional[str]=None, enable_service_links: typing.Optional[bool]=None, ephemeral_containers: typing.Optional[typing.List["EphemeralContainer"]]=None, host_aliases: typing.Optional[typing.List["HostAlias"]]=None, host_ipc: typing.Optional[bool]=None, hostname: typing.Optional[str]=None, host_network: typing.Optional[bool]=None, host_pid: typing.Optional[bool]=None, image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]]=None, init_containers: typing.Optional[typing.List["Container"]]=None, node_name: typing.Optional[str]=None, node_selector: typing.Optional[typing.Mapping[str,str]]=None, overhead: typing.Optional[typing.Mapping[str,"Quantity"]]=None, preemption_policy: typing.Optional[str]=None, priority: typing.Optional[jsii.Number]=None, priority_class_name: typing.Optional[str]=None, readiness_gates: typing.Optional[typing.List["PodReadinessGate"]]=None, restart_policy: typing.Optional[str]=None, runtime_class_name: typing.Optional[str]=None, scheduler_name: typing.Optional[str]=None, security_context: typing.Optional["PodSecurityContext"]=None, service_account: typing.Optional[str]=None, service_account_name: typing.Optional[str]=None, share_process_namespace: typing.Optional[bool]=None, subdomain: typing.Optional[str]=None, termination_grace_period_seconds: typing.Optional[jsii.Number]=None, tolerations: typing.Optional[typing.List["Toleration"]]=None, topology_spread_constraints: typing.Optional[typing.List["TopologySpreadConstraint"]]=None, volumes: typing.Optional[typing.List["Volume"]]=None):
+    def __init__(self, *, containers: typing.List["Container"], active_deadline_seconds: typing.Optional[jsii.Number]=None, affinity: typing.Optional["Affinity"]=None, automount_service_account_token: typing.Optional[bool]=None, dns_config: typing.Optional["PodDnsConfig"]=None, dns_policy: typing.Optional[str]=None, enable_service_links: typing.Optional[bool]=None, ephemeral_containers: typing.Optional[typing.List["EphemeralContainer"]]=None, host_aliases: typing.Optional[typing.List["HostAlias"]]=None, host_ipc: typing.Optional[bool]=None, hostname: typing.Optional[str]=None, host_network: typing.Optional[bool]=None, host_pid: typing.Optional[bool]=None, image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]]=None, init_containers: typing.Optional[typing.List["Container"]]=None, node_name: typing.Optional[str]=None, node_selector: typing.Optional[typing.Mapping[str, str]]=None, overhead: typing.Optional[typing.Mapping[str, "Quantity"]]=None, preemption_policy: typing.Optional[str]=None, priority: typing.Optional[jsii.Number]=None, priority_class_name: typing.Optional[str]=None, readiness_gates: typing.Optional[typing.List["PodReadinessGate"]]=None, restart_policy: typing.Optional[str]=None, runtime_class_name: typing.Optional[str]=None, scheduler_name: typing.Optional[str]=None, security_context: typing.Optional["PodSecurityContext"]=None, service_account: typing.Optional[str]=None, service_account_name: typing.Optional[str]=None, share_process_namespace: typing.Optional[bool]=None, subdomain: typing.Optional[str]=None, termination_grace_period_seconds: typing.Optional[jsii.Number]=None, tolerations: typing.Optional[typing.List["Toleration"]]=None, topology_spread_constraints: typing.Optional[typing.List["TopologySpreadConstraint"]]=None, volumes: typing.Optional[typing.List["Volume"]]=None) -> None:
         """PodSpec is a description of a pod.
 
         :param containers: List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
@@ -16225,7 +16237,7 @@ class PodSpec():
         :schema:: io.k8s.api.core.v1.PodSpec
         """
         if isinstance(affinity, dict): affinity = Affinity(**affinity)
-        if isinstance(dns_config, dict): dns_config = PodDNSConfig(**dns_config)
+        if isinstance(dns_config, dict): dns_config = PodDnsConfig(**dns_config)
         if isinstance(security_context, dict): security_context = PodSecurityContext(**security_context)
         self._values = {
             'containers': containers,
@@ -16305,7 +16317,7 @@ class PodSpec():
         return self._values.get('automount_service_account_token')
 
     @builtins.property
-    def dns_config(self) -> typing.Optional["PodDNSConfig"]:
+    def dns_config(self) -> typing.Optional["PodDnsConfig"]:
         """Specifies the DNS parameters of a pod.
 
         Parameters specified here will be merged to the generated DNS configuration based on DNSPolicy.
@@ -16450,7 +16462,7 @@ class PodSpec():
         return self._values.get('node_name')
 
     @builtins.property
-    def node_selector(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def node_selector(self) -> typing.Optional[typing.Mapping[str, str]]:
         """NodeSelector is a selector which must be true for the pod to fit on a node.
 
         Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
@@ -16461,7 +16473,7 @@ class PodSpec():
         return self._values.get('node_selector')
 
     @builtins.property
-    def overhead(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def overhead(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """Overhead represents the resource overhead associated with running a pod for a given RuntimeClass.
 
         This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.16, and is only honored by servers that enable the PodOverhead feature.
@@ -16666,7 +16678,7 @@ class PodSpec():
         return 'PodSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class PodTemplate(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodTemplate"):
+class PodTemplate(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodTemplate"):
     """PodTemplate describes a template for creating copies of a predefined pod.
 
     schema:
@@ -16685,7 +16697,7 @@ class PodTemplate(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodTe
         jsii.create(PodTemplate, self, [scope, name, options])
 
 
-class PodTemplateList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodTemplateList"):
+class PodTemplateList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodTemplateList"):
     """PodTemplateList is a list of PodTemplates.
 
     schema:
@@ -16704,9 +16716,9 @@ class PodTemplateList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.P
         jsii.create(PodTemplateList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PodTemplateListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PodTemplateListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PodTemplateListOptions():
-    def __init__(self, *, items: typing.List["PodTemplate"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["PodTemplate"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PodTemplateList is a list of PodTemplates.
 
         :param items: List of pod templates.
@@ -16751,9 +16763,9 @@ class PodTemplateListOptions():
         return 'PodTemplateListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodTemplateOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'template': 'template'})
+@jsii.data_type(jsii_type="generated.PodTemplateOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'template': 'template'})
 class PodTemplateOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, template: typing.Optional["PodTemplateSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, template: typing.Optional["PodTemplateSpec"]=None) -> None:
         """PodTemplate describes a template for creating copies of a predefined pod.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -16801,9 +16813,9 @@ class PodTemplateOptions():
         return 'PodTemplateOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PodTemplateSpec", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.PodTemplateSpec", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class PodTemplateSpec():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PodSpec"]=None) -> None:
         """PodTemplateSpec describes the data a pod should have when created from a template.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -16851,9 +16863,9 @@ class PodTemplateSpec():
         return 'PodTemplateSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Policy", jsii_struct_bases=[], name_mapping={'level': 'level', 'stages': 'stages'})
+@jsii.data_type(jsii_type="generated.Policy", jsii_struct_bases=[], name_mapping={'level': 'level', 'stages': 'stages'})
 class Policy():
-    def __init__(self, *, level: str, stages: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, level: str, stages: typing.Optional[typing.List[str]]=None) -> None:
         """Policy defines the configuration of how audit events are logged.
 
         :param level: The Level that all requests are recorded at. available options: None, Metadata, Request, RequestResponse required
@@ -16897,9 +16909,9 @@ class Policy():
         return 'Policy(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PolicyRule", jsii_struct_bases=[], name_mapping={'verbs': 'verbs', 'api_groups': 'apiGroups', 'non_resource_ur_ls': 'nonResourceURLs', 'resource_names': 'resourceNames', 'resources': 'resources'})
+@jsii.data_type(jsii_type="generated.PolicyRule", jsii_struct_bases=[], name_mapping={'verbs': 'verbs', 'api_groups': 'apiGroups', 'non_resource_ur_ls': 'nonResourceURLs', 'resource_names': 'resourceNames', 'resources': 'resources'})
 class PolicyRule():
-    def __init__(self, *, verbs: typing.List[str], api_groups: typing.Optional[typing.List[str]]=None, non_resource_ur_ls: typing.Optional[typing.List[str]]=None, resource_names: typing.Optional[typing.List[str]]=None, resources: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, verbs: typing.List[str], api_groups: typing.Optional[typing.List[str]]=None, non_resource_ur_ls: typing.Optional[typing.List[str]]=None, resource_names: typing.Optional[typing.List[str]]=None, resources: typing.Optional[typing.List[str]]=None) -> None:
         """PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
 
         :param verbs: Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. VerbAll represents all kinds.
@@ -16984,9 +16996,9 @@ class PolicyRule():
         return 'PolicyRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PolicyRulesWithSubjects", jsii_struct_bases=[], name_mapping={'subjects': 'subjects', 'non_resource_rules': 'nonResourceRules', 'resource_rules': 'resourceRules'})
+@jsii.data_type(jsii_type="generated.PolicyRulesWithSubjects", jsii_struct_bases=[], name_mapping={'subjects': 'subjects', 'non_resource_rules': 'nonResourceRules', 'resource_rules': 'resourceRules'})
 class PolicyRulesWithSubjects():
-    def __init__(self, *, subjects: typing.List["Subject"], non_resource_rules: typing.Optional[typing.List["NonResourcePolicyRule"]]=None, resource_rules: typing.Optional[typing.List["ResourcePolicyRule"]]=None):
+    def __init__(self, *, subjects: typing.List["Subject"], non_resource_rules: typing.Optional[typing.List["NonResourcePolicyRule"]]=None, resource_rules: typing.Optional[typing.List["ResourcePolicyRule"]]=None) -> None:
         """PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver.
 
         The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.
@@ -17045,9 +17057,9 @@ class PolicyRulesWithSubjects():
         return 'PolicyRulesWithSubjects(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PortworxVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly'})
+@jsii.data_type(jsii_type="generated.PortworxVolumeSource", jsii_struct_bases=[], name_mapping={'volume_id': 'volumeID', 'fs_type': 'fsType', 'read_only': 'readOnly'})
 class PortworxVolumeSource():
-    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None):
+    def __init__(self, *, volume_id: str, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None) -> None:
         """PortworxVolumeSource represents a Portworx volume resource.
 
         :param volume_id: VolumeID uniquely identifies a Portworx volume.
@@ -17107,9 +17119,9 @@ class PortworxVolumeSource():
         return 'PortworxVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Preconditions", jsii_struct_bases=[], name_mapping={'resource_version': 'resourceVersion', 'uid': 'uid'})
+@jsii.data_type(jsii_type="generated.Preconditions", jsii_struct_bases=[], name_mapping={'resource_version': 'resourceVersion', 'uid': 'uid'})
 class Preconditions():
-    def __init__(self, *, resource_version: typing.Optional[str]=None, uid: typing.Optional[str]=None):
+    def __init__(self, *, resource_version: typing.Optional[str]=None, uid: typing.Optional[str]=None) -> None:
         """Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
 
         :param resource_version: Specifies the target ResourceVersion.
@@ -17151,9 +17163,9 @@ class Preconditions():
         return 'Preconditions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PreferredSchedulingTerm", jsii_struct_bases=[], name_mapping={'preference': 'preference', 'weight': 'weight'})
+@jsii.data_type(jsii_type="generated.PreferredSchedulingTerm", jsii_struct_bases=[], name_mapping={'preference': 'preference', 'weight': 'weight'})
 class PreferredSchedulingTerm():
-    def __init__(self, *, preference: "NodeSelectorTerm", weight: jsii.Number):
+    def __init__(self, *, preference: "NodeSelectorTerm", weight: jsii.Number) -> None:
         """An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
 
         :param preference: A node selector term, associated with the corresponding weight.
@@ -17196,7 +17208,7 @@ class PreferredSchedulingTerm():
         return 'PreferredSchedulingTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class PriorityClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PriorityClass"):
+class PriorityClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PriorityClass"):
     """PriorityClass defines mapping from a priority class name to the priority integer value.
 
     The value can be any valid integer.
@@ -17220,7 +17232,7 @@ class PriorityClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Pri
         jsii.create(PriorityClass, self, [scope, name, options])
 
 
-class PriorityClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PriorityClassList"):
+class PriorityClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PriorityClassList"):
     """PriorityClassList is a collection of priority classes.
 
     schema:
@@ -17239,9 +17251,9 @@ class PriorityClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s
         jsii.create(PriorityClassList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PriorityClassListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PriorityClassListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PriorityClassListOptions():
-    def __init__(self, *, items: typing.List["PriorityClass"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["PriorityClass"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PriorityClassList is a collection of priority classes.
 
         :param items: items is the list of PriorityClasses.
@@ -17284,9 +17296,9 @@ class PriorityClassListOptions():
         return 'PriorityClassListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PriorityClassOptions", jsii_struct_bases=[], name_mapping={'value': 'value', 'description': 'description', 'global_default': 'globalDefault', 'metadata': 'metadata', 'preemption_policy': 'preemptionPolicy'})
+@jsii.data_type(jsii_type="generated.PriorityClassOptions", jsii_struct_bases=[], name_mapping={'value': 'value', 'description': 'description', 'global_default': 'globalDefault', 'metadata': 'metadata', 'preemption_policy': 'preemptionPolicy'})
 class PriorityClassOptions():
-    def __init__(self, *, value: jsii.Number, description: typing.Optional[str]=None, global_default: typing.Optional[bool]=None, metadata: typing.Optional["ObjectMeta"]=None, preemption_policy: typing.Optional[str]=None):
+    def __init__(self, *, value: jsii.Number, description: typing.Optional[str]=None, global_default: typing.Optional[bool]=None, metadata: typing.Optional["ObjectMeta"]=None, preemption_policy: typing.Optional[str]=None) -> None:
         """PriorityClass defines mapping from a priority class name to the priority integer value.
 
         The value can be any valid integer.
@@ -17375,7 +17387,7 @@ class PriorityClassOptions():
         return 'PriorityClassOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class PriorityLevelConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PriorityLevelConfiguration"):
+class PriorityLevelConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PriorityLevelConfiguration"):
     """PriorityLevelConfiguration represents the configuration of a priority level.
 
     schema:
@@ -17394,7 +17406,7 @@ class PriorityLevelConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_
         jsii.create(PriorityLevelConfiguration, self, [scope, name, options])
 
 
-class PriorityLevelConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PriorityLevelConfigurationList"):
+class PriorityLevelConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PriorityLevelConfigurationList"):
     """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
 
     schema:
@@ -17413,9 +17425,9 @@ class PriorityLevelConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, j
         jsii.create(PriorityLevelConfigurationList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.PriorityLevelConfigurationListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.PriorityLevelConfigurationListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class PriorityLevelConfigurationListOptions():
-    def __init__(self, *, items: typing.List["PriorityLevelConfiguration"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["PriorityLevelConfiguration"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
 
         :param items: ``items`` is a list of request-priorities.
@@ -17460,9 +17472,9 @@ class PriorityLevelConfigurationListOptions():
         return 'PriorityLevelConfigurationListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PriorityLevelConfigurationOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.PriorityLevelConfigurationOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class PriorityLevelConfigurationOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PriorityLevelConfigurationSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["PriorityLevelConfigurationSpec"]=None) -> None:
         """PriorityLevelConfiguration represents the configuration of a priority level.
 
         :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -17510,9 +17522,9 @@ class PriorityLevelConfigurationOptions():
         return 'PriorityLevelConfigurationOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PriorityLevelConfigurationReference", jsii_struct_bases=[], name_mapping={'name': 'name'})
+@jsii.data_type(jsii_type="generated.PriorityLevelConfigurationReference", jsii_struct_bases=[], name_mapping={'name': 'name'})
 class PriorityLevelConfigurationReference():
-    def __init__(self, *, name: str):
+    def __init__(self, *, name: str) -> None:
         """PriorityLevelConfigurationReference contains information that points to the "request-priority" being used.
 
         :param name: ``name`` is the name of the priority level configuration being referenced Required.
@@ -17543,9 +17555,9 @@ class PriorityLevelConfigurationReference():
         return 'PriorityLevelConfigurationReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.PriorityLevelConfigurationSpec", jsii_struct_bases=[], name_mapping={'type': 'type', 'limited': 'limited'})
+@jsii.data_type(jsii_type="generated.PriorityLevelConfigurationSpec", jsii_struct_bases=[], name_mapping={'type': 'type', 'limited': 'limited'})
 class PriorityLevelConfigurationSpec():
-    def __init__(self, *, type: str, limited: typing.Optional["LimitedPriorityLevelConfiguration"]=None):
+    def __init__(self, *, type: str, limited: typing.Optional["LimitedPriorityLevelConfiguration"]=None) -> None:
         """PriorityLevelConfigurationSpec specifies the configuration of a priority level.
 
         :param type: ``type`` indicates whether this priority level is subject to limitation on request execution. A value of ``"Exempt"`` means that requests of this priority level are not subject to a limit (and thus are never queued) and do not detract from the capacity made available to other priority levels. A value of ``"Limited"`` means that (a) requests of this priority level *are* subject to limits and (b) some of the server's limited capacity is made available exclusively to this priority level. Required.
@@ -17592,9 +17604,9 @@ class PriorityLevelConfigurationSpec():
         return 'PriorityLevelConfigurationSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Probe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
+@jsii.data_type(jsii_type="generated.Probe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
 class Probe():
-    def __init__(self, *, exec: typing.Optional["ExecAction"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["HTTPGetAction"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["TCPSocketAction"]=None, timeout_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, exec: typing.Optional["ExecAction"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["HttpGetAction"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["TcpSocketAction"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
 
         :param exec: One and only one of the following should be specified. Exec specifies the action to take.
@@ -17610,8 +17622,8 @@ class Probe():
         :schema:: io.k8s.api.core.v1.Probe
         """
         if isinstance(exec, dict): exec = ExecAction(**exec)
-        if isinstance(http_get, dict): http_get = HTTPGetAction(**http_get)
-        if isinstance(tcp_socket, dict): tcp_socket = TCPSocketAction(**tcp_socket)
+        if isinstance(http_get, dict): http_get = HttpGetAction(**http_get)
+        if isinstance(tcp_socket, dict): tcp_socket = TcpSocketAction(**tcp_socket)
         self._values = {
         }
         if exec is not None: self._values["exec"] = exec
@@ -17649,7 +17661,7 @@ class Probe():
         return self._values.get('failure_threshold')
 
     @builtins.property
-    def http_get(self) -> typing.Optional["HTTPGetAction"]:
+    def http_get(self) -> typing.Optional["HttpGetAction"]:
         """HTTPGet specifies the http request to perform.
 
         schema:
@@ -17697,7 +17709,7 @@ class Probe():
         return self._values.get('success_threshold')
 
     @builtins.property
-    def tcp_socket(self) -> typing.Optional["TCPSocketAction"]:
+    def tcp_socket(self) -> typing.Optional["TcpSocketAction"]:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported
@@ -17731,9 +17743,9 @@ class Probe():
         return 'Probe(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ProjectedVolumeSource", jsii_struct_bases=[], name_mapping={'sources': 'sources', 'default_mode': 'defaultMode'})
+@jsii.data_type(jsii_type="generated.ProjectedVolumeSource", jsii_struct_bases=[], name_mapping={'sources': 'sources', 'default_mode': 'defaultMode'})
 class ProjectedVolumeSource():
-    def __init__(self, *, sources: typing.List["VolumeProjection"], default_mode: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, sources: typing.List["VolumeProjection"], default_mode: typing.Optional[jsii.Number]=None) -> None:
         """Represents a projected volume source.
 
         :param sources: list of volume projections.
@@ -17777,7 +17789,7 @@ class ProjectedVolumeSource():
         return 'ProjectedVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Quantity(metaclass=jsii.JSIIMeta, jsii_type="k8s.Quantity"):
+class Quantity(metaclass=jsii.JSIIMeta, jsii_type="generated.Quantity"):
     """
     schema:
     :schema:: io.k8s.apimachinery.pkg.api.resource.Quantity
@@ -17799,9 +17811,9 @@ class Quantity(metaclass=jsii.JSIIMeta, jsii_type="k8s.Quantity"):
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="k8s.QueuingConfiguration", jsii_struct_bases=[], name_mapping={'hand_size': 'handSize', 'queue_length_limit': 'queueLengthLimit', 'queues': 'queues'})
+@jsii.data_type(jsii_type="generated.QueuingConfiguration", jsii_struct_bases=[], name_mapping={'hand_size': 'handSize', 'queue_length_limit': 'queueLengthLimit', 'queues': 'queues'})
 class QueuingConfiguration():
-    def __init__(self, *, hand_size: typing.Optional[jsii.Number]=None, queue_length_limit: typing.Optional[jsii.Number]=None, queues: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, hand_size: typing.Optional[jsii.Number]=None, queue_length_limit: typing.Optional[jsii.Number]=None, queues: typing.Optional[jsii.Number]=None) -> None:
         """QueuingConfiguration holds the configuration parameters for queuing.
 
         :param hand_size: ``handSize`` is a small positive number that configures the shuffle sharding of requests into queues. When enqueuing a request at this priority level the request's flow identifier (a string pair) is hashed and the hash value is used to shuffle the list of queues and deal a hand of the size specified here. The request is put into one of the shortest queues in that hand. ``handSize`` must be no larger than ``queues``, and should be significantly smaller (so that a few heavy flows do not saturate most of the queues). See the user-facing documentation for more extensive guidance on setting this field. This field has a default value of 8.
@@ -17860,9 +17872,9 @@ class QueuingConfiguration():
         return 'QueuingConfiguration(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.QuobyteVolumeSource", jsii_struct_bases=[], name_mapping={'registry': 'registry', 'volume': 'volume', 'group': 'group', 'read_only': 'readOnly', 'tenant': 'tenant', 'user': 'user'})
+@jsii.data_type(jsii_type="generated.QuobyteVolumeSource", jsii_struct_bases=[], name_mapping={'registry': 'registry', 'volume': 'volume', 'group': 'group', 'read_only': 'readOnly', 'tenant': 'tenant', 'user': 'user'})
 class QuobyteVolumeSource():
-    def __init__(self, *, registry: str, volume: str, group: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, tenant: typing.Optional[str]=None, user: typing.Optional[str]=None):
+    def __init__(self, *, registry: str, volume: str, group: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, tenant: typing.Optional[str]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Quobyte mount that lasts the lifetime of a pod.
 
         Quobyte volumes do not support ownership management or SELinux relabeling.
@@ -17961,9 +17973,9 @@ class QuobyteVolumeSource():
         return 'QuobyteVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RBDPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
-class RBDPersistentVolumeSource():
-    def __init__(self, *, image: str, monitors: typing.List[str], fs_type: typing.Optional[str]=None, keyring: typing.Optional[str]=None, pool: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None, user: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.RbdPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
+class RbdPersistentVolumeSource():
+    def __init__(self, *, image: str, monitors: typing.List[str], fs_type: typing.Optional[str]=None, keyring: typing.Optional[str]=None, pool: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["SecretReference"]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Rados Block Device mount that lasts the lifetime of a pod.
 
         RBD volumes support ownership management and SELinux relabeling.
@@ -18102,12 +18114,12 @@ class RBDPersistentVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'RBDPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'RbdPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RBDVolumeSource", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
-class RBDVolumeSource():
-    def __init__(self, *, image: str, monitors: typing.List[str], fs_type: typing.Optional[str]=None, keyring: typing.Optional[str]=None, pool: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, user: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.RbdVolumeSource", jsii_struct_bases=[], name_mapping={'image': 'image', 'monitors': 'monitors', 'fs_type': 'fsType', 'keyring': 'keyring', 'pool': 'pool', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'user': 'user'})
+class RbdVolumeSource():
+    def __init__(self, *, image: str, monitors: typing.List[str], fs_type: typing.Optional[str]=None, keyring: typing.Optional[str]=None, pool: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, user: typing.Optional[str]=None) -> None:
         """Represents a Rados Block Device mount that lasts the lifetime of a pod.
 
         RBD volumes support ownership management and SELinux relabeling.
@@ -18246,10 +18258,10 @@ class RBDVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'RBDVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'RbdVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ReplicaSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ReplicaSet"):
+class ReplicaSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ReplicaSet"):
     """ReplicaSet ensures that a specified number of pod replicas are running at any given time.
 
     schema:
@@ -18268,7 +18280,7 @@ class ReplicaSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Replic
         jsii.create(ReplicaSet, self, [scope, name, options])
 
 
-class ReplicaSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ReplicaSetList"):
+class ReplicaSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ReplicaSetList"):
     """ReplicaSetList is a collection of ReplicaSets.
 
     schema:
@@ -18287,9 +18299,9 @@ class ReplicaSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Re
         jsii.create(ReplicaSetList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ReplicaSetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ReplicaSetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ReplicaSetListOptions():
-    def __init__(self, *, items: typing.List["ReplicaSet"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ReplicaSet"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ReplicaSetList is a collection of ReplicaSets.
 
         :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
@@ -18336,9 +18348,9 @@ class ReplicaSetListOptions():
         return 'ReplicaSetListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ReplicaSetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.ReplicaSetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class ReplicaSetOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ReplicaSetSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ReplicaSetSpec"]=None) -> None:
         """ReplicaSet ensures that a specified number of pod replicas are running at any given time.
 
         :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -18386,9 +18398,9 @@ class ReplicaSetOptions():
         return 'ReplicaSetOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ReplicaSetSpec", jsii_struct_bases=[], name_mapping={'selector': 'selector', 'min_ready_seconds': 'minReadySeconds', 'replicas': 'replicas', 'template': 'template'})
+@jsii.data_type(jsii_type="generated.ReplicaSetSpec", jsii_struct_bases=[], name_mapping={'selector': 'selector', 'min_ready_seconds': 'minReadySeconds', 'replicas': 'replicas', 'template': 'template'})
 class ReplicaSetSpec():
-    def __init__(self, *, selector: "LabelSelector", min_ready_seconds: typing.Optional[jsii.Number]=None, replicas: typing.Optional[jsii.Number]=None, template: typing.Optional["PodTemplateSpec"]=None):
+    def __init__(self, *, selector: "LabelSelector", min_ready_seconds: typing.Optional[jsii.Number]=None, replicas: typing.Optional[jsii.Number]=None, template: typing.Optional["PodTemplateSpec"]=None) -> None:
         """ReplicaSetSpec is the specification of a ReplicaSet.
 
         :param selector: Selector is a label query over pods that should match the replica count. Label keys and values that must match in order to be controlled by this replica set. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
@@ -18468,7 +18480,7 @@ class ReplicaSetSpec():
         return 'ReplicaSetSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ReplicationController(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ReplicationController"):
+class ReplicationController(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ReplicationController"):
     """ReplicationController represents the configuration of a replication controller.
 
     schema:
@@ -18487,7 +18499,7 @@ class ReplicationController(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type=
         jsii.create(ReplicationController, self, [scope, name, options])
 
 
-class ReplicationControllerList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ReplicationControllerList"):
+class ReplicationControllerList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ReplicationControllerList"):
     """ReplicationControllerList is a collection of replication controllers.
 
     schema:
@@ -18506,9 +18518,9 @@ class ReplicationControllerList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_t
         jsii.create(ReplicationControllerList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ReplicationControllerListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ReplicationControllerListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ReplicationControllerListOptions():
-    def __init__(self, *, items: typing.List["ReplicationController"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ReplicationController"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ReplicationControllerList is a collection of replication controllers.
 
         :param items: List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
@@ -18555,9 +18567,9 @@ class ReplicationControllerListOptions():
         return 'ReplicationControllerListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ReplicationControllerOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.ReplicationControllerOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class ReplicationControllerOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ReplicationControllerSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ReplicationControllerSpec"]=None) -> None:
         """ReplicationController represents the configuration of a replication controller.
 
         :param metadata: If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -18605,9 +18617,9 @@ class ReplicationControllerOptions():
         return 'ReplicationControllerOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ReplicationControllerSpec", jsii_struct_bases=[], name_mapping={'min_ready_seconds': 'minReadySeconds', 'replicas': 'replicas', 'selector': 'selector', 'template': 'template'})
+@jsii.data_type(jsii_type="generated.ReplicationControllerSpec", jsii_struct_bases=[], name_mapping={'min_ready_seconds': 'minReadySeconds', 'replicas': 'replicas', 'selector': 'selector', 'template': 'template'})
 class ReplicationControllerSpec():
-    def __init__(self, *, min_ready_seconds: typing.Optional[jsii.Number]=None, replicas: typing.Optional[jsii.Number]=None, selector: typing.Optional[typing.Mapping[str,str]]=None, template: typing.Optional["PodTemplateSpec"]=None):
+    def __init__(self, *, min_ready_seconds: typing.Optional[jsii.Number]=None, replicas: typing.Optional[jsii.Number]=None, selector: typing.Optional[typing.Mapping[str, str]]=None, template: typing.Optional["PodTemplateSpec"]=None) -> None:
         """ReplicationControllerSpec is the specification of a replication controller.
 
         :param min_ready_seconds: Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) Default: 0 (pod will be considered available as soon as it is ready)
@@ -18655,7 +18667,7 @@ class ReplicationControllerSpec():
         return self._values.get('replicas')
 
     @builtins.property
-    def selector(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def selector(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Selector is a label query over pods that should match the Replicas count.
 
         If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
@@ -18686,9 +18698,9 @@ class ReplicationControllerSpec():
         return 'ReplicationControllerSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ResourceAttributes", jsii_struct_bases=[], name_mapping={'group': 'group', 'name': 'name', 'namespace': 'namespace', 'resource': 'resource', 'subresource': 'subresource', 'verb': 'verb', 'version': 'version'})
+@jsii.data_type(jsii_type="generated.ResourceAttributes", jsii_struct_bases=[], name_mapping={'group': 'group', 'name': 'name', 'namespace': 'namespace', 'resource': 'resource', 'subresource': 'subresource', 'verb': 'verb', 'version': 'version'})
 class ResourceAttributes():
-    def __init__(self, *, group: typing.Optional[str]=None, name: typing.Optional[str]=None, namespace: typing.Optional[str]=None, resource: typing.Optional[str]=None, subresource: typing.Optional[str]=None, verb: typing.Optional[str]=None, version: typing.Optional[str]=None):
+    def __init__(self, *, group: typing.Optional[str]=None, name: typing.Optional[str]=None, namespace: typing.Optional[str]=None, resource: typing.Optional[str]=None, subresource: typing.Optional[str]=None, verb: typing.Optional[str]=None, version: typing.Optional[str]=None) -> None:
         """ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface.
 
         :param group: Group is the API Group of the Resource. "*" means all.
@@ -18799,9 +18811,9 @@ class ResourceAttributes():
         return 'ResourceAttributes(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ResourceFieldSelector", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
+@jsii.data_type(jsii_type="generated.ResourceFieldSelector", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
 class ResourceFieldSelector():
-    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional["Quantity"]=None):
+    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional["Quantity"]=None) -> None:
         """ResourceFieldSelector represents container resources (cpu, memory) and their output format.
 
         :param resource: Required: resource to select.
@@ -18854,9 +18866,9 @@ class ResourceFieldSelector():
         return 'ResourceFieldSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ResourcePolicyRule", jsii_struct_bases=[], name_mapping={'api_groups': 'apiGroups', 'resources': 'resources', 'verbs': 'verbs', 'cluster_scope': 'clusterScope', 'namespaces': 'namespaces'})
+@jsii.data_type(jsii_type="generated.ResourcePolicyRule", jsii_struct_bases=[], name_mapping={'api_groups': 'apiGroups', 'resources': 'resources', 'verbs': 'verbs', 'cluster_scope': 'clusterScope', 'namespaces': 'namespaces'})
 class ResourcePolicyRule():
-    def __init__(self, *, api_groups: typing.List[str], resources: typing.List[str], verbs: typing.List[str], cluster_scope: typing.Optional[bool]=None, namespaces: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, api_groups: typing.List[str], resources: typing.List[str], verbs: typing.List[str], cluster_scope: typing.Optional[bool]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
         """ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource.
 
         A ResourcePolicyRule matches a resource request if and only if: (a) at least one member of verbs matches the request, (b) at least one member of apiGroups matches the request, (c) at least one member of resources matches the request, and (d) least one member of namespaces matches the request.
@@ -18941,7 +18953,7 @@ class ResourcePolicyRule():
         return 'ResourcePolicyRule(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ResourceQuota(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ResourceQuota"):
+class ResourceQuota(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ResourceQuota"):
     """ResourceQuota sets aggregate quota restrictions enforced per namespace.
 
     schema:
@@ -18960,7 +18972,7 @@ class ResourceQuota(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Res
         jsii.create(ResourceQuota, self, [scope, name, options])
 
 
-class ResourceQuotaList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ResourceQuotaList"):
+class ResourceQuotaList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ResourceQuotaList"):
     """ResourceQuotaList is a list of ResourceQuota items.
 
     schema:
@@ -18979,9 +18991,9 @@ class ResourceQuotaList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s
         jsii.create(ResourceQuotaList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ResourceQuotaListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ResourceQuotaListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ResourceQuotaListOptions():
-    def __init__(self, *, items: typing.List["ResourceQuota"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ResourceQuota"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ResourceQuotaList is a list of ResourceQuota items.
 
         :param items: Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
@@ -19028,9 +19040,9 @@ class ResourceQuotaListOptions():
         return 'ResourceQuotaListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ResourceQuotaOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.ResourceQuotaOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class ResourceQuotaOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ResourceQuotaSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ResourceQuotaSpec"]=None) -> None:
         """ResourceQuota sets aggregate quota restrictions enforced per namespace.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -19078,9 +19090,9 @@ class ResourceQuotaOptions():
         return 'ResourceQuotaOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ResourceQuotaSpec", jsii_struct_bases=[], name_mapping={'hard': 'hard', 'scopes': 'scopes', 'scope_selector': 'scopeSelector'})
+@jsii.data_type(jsii_type="generated.ResourceQuotaSpec", jsii_struct_bases=[], name_mapping={'hard': 'hard', 'scopes': 'scopes', 'scope_selector': 'scopeSelector'})
 class ResourceQuotaSpec():
-    def __init__(self, *, hard: typing.Optional[typing.Mapping[str,"Quantity"]]=None, scopes: typing.Optional[typing.List[str]]=None, scope_selector: typing.Optional["ScopeSelector"]=None):
+    def __init__(self, *, hard: typing.Optional[typing.Mapping[str, "Quantity"]]=None, scopes: typing.Optional[typing.List[str]]=None, scope_selector: typing.Optional["ScopeSelector"]=None) -> None:
         """ResourceQuotaSpec defines the desired hard limits to enforce for Quota.
 
         :param hard: hard is the set of desired hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
@@ -19098,7 +19110,7 @@ class ResourceQuotaSpec():
         if scope_selector is not None: self._values["scope_selector"] = scope_selector
 
     @builtins.property
-    def hard(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def hard(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """hard is the set of desired hard limits for each named resource.
 
         More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
@@ -19140,9 +19152,9 @@ class ResourceQuotaSpec():
         return 'ResourceQuotaSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ResourceRequirements", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
+@jsii.data_type(jsii_type="generated.ResourceRequirements", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
 class ResourceRequirements():
-    def __init__(self, *, limits: typing.Optional[typing.Mapping[str,"Quantity"]]=None, requests: typing.Optional[typing.Mapping[str,"Quantity"]]=None):
+    def __init__(self, *, limits: typing.Optional[typing.Mapping[str, "Quantity"]]=None, requests: typing.Optional[typing.Mapping[str, "Quantity"]]=None) -> None:
         """ResourceRequirements describes the compute resource requirements.
 
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -19157,7 +19169,7 @@ class ResourceRequirements():
         if requests is not None: self._values["requests"] = requests
 
     @builtins.property
-    def limits(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def limits(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """Limits describes the maximum amount of compute resources allowed.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -19168,7 +19180,7 @@ class ResourceRequirements():
         return self._values.get('limits')
 
     @builtins.property
-    def requests(self) -> typing.Optional[typing.Mapping[str,"Quantity"]]:
+    def requests(self) -> typing.Optional[typing.Mapping[str, "Quantity"]]:
         """Requests describes the minimum amount of compute resources required.
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -19188,7 +19200,7 @@ class ResourceRequirements():
         return 'ResourceRequirements(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Role(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Role"):
+class Role(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Role"):
     """Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 
     schema:
@@ -19207,7 +19219,7 @@ class Role(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Role"):
         jsii.create(Role, self, [scope, name, options])
 
 
-class RoleBinding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.RoleBinding"):
+class RoleBinding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RoleBinding"):
     """RoleBinding references a role, but does not contain it.
 
     It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.
@@ -19229,7 +19241,7 @@ class RoleBinding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.RoleB
         jsii.create(RoleBinding, self, [scope, name, options])
 
 
-class RoleBindingList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.RoleBindingList"):
+class RoleBindingList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RoleBindingList"):
     """RoleBindingList is a collection of RoleBindings.
 
     schema:
@@ -19248,9 +19260,9 @@ class RoleBindingList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.R
         jsii.create(RoleBindingList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.RoleBindingListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.RoleBindingListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class RoleBindingListOptions():
-    def __init__(self, *, items: typing.List["RoleBinding"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["RoleBinding"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """RoleBindingList is a collection of RoleBindings.
 
         :param items: Items is a list of RoleBindings.
@@ -19293,9 +19305,9 @@ class RoleBindingListOptions():
         return 'RoleBindingListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RoleBindingOptions", jsii_struct_bases=[], name_mapping={'role_ref': 'roleRef', 'metadata': 'metadata', 'subjects': 'subjects'})
+@jsii.data_type(jsii_type="generated.RoleBindingOptions", jsii_struct_bases=[], name_mapping={'role_ref': 'roleRef', 'metadata': 'metadata', 'subjects': 'subjects'})
 class RoleBindingOptions():
-    def __init__(self, *, role_ref: "RoleRef", metadata: typing.Optional["ObjectMeta"]=None, subjects: typing.Optional[typing.List["Subject"]]=None):
+    def __init__(self, *, role_ref: "RoleRef", metadata: typing.Optional["ObjectMeta"]=None, subjects: typing.Optional[typing.List["Subject"]]=None) -> None:
         """RoleBinding references a role, but does not contain it.
 
         It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.
@@ -19354,7 +19366,7 @@ class RoleBindingOptions():
         return 'RoleBindingOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class RoleList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.RoleList"):
+class RoleList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RoleList"):
     """RoleList is a collection of Roles.
 
     schema:
@@ -19373,9 +19385,9 @@ class RoleList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.RoleList
         jsii.create(RoleList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.RoleListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.RoleListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class RoleListOptions():
-    def __init__(self, *, items: typing.List["Role"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Role"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """RoleList is a collection of Roles.
 
         :param items: Items is a list of Roles.
@@ -19418,9 +19430,9 @@ class RoleListOptions():
         return 'RoleListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RoleOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'rules': 'rules'})
+@jsii.data_type(jsii_type="generated.RoleOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'rules': 'rules'})
 class RoleOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, rules: typing.Optional[typing.List["PolicyRule"]]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, rules: typing.Optional[typing.List["PolicyRule"]]=None) -> None:
         """Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 
         :param metadata: Standard object's metadata.
@@ -19463,9 +19475,9 @@ class RoleOptions():
         return 'RoleOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RoleRef", jsii_struct_bases=[], name_mapping={'api_group': 'apiGroup', 'kind': 'kind', 'name': 'name'})
+@jsii.data_type(jsii_type="generated.RoleRef", jsii_struct_bases=[], name_mapping={'api_group': 'apiGroup', 'kind': 'kind', 'name': 'name'})
 class RoleRef():
-    def __init__(self, *, api_group: str, kind: str, name: str):
+    def __init__(self, *, api_group: str, kind: str, name: str) -> None:
         """RoleRef contains information that points to the role being used.
 
         :param api_group: APIGroup is the group for the resource being referenced.
@@ -19518,9 +19530,9 @@ class RoleRef():
         return 'RoleRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RollingUpdateDaemonSet", jsii_struct_bases=[], name_mapping={'max_unavailable': 'maxUnavailable'})
+@jsii.data_type(jsii_type="generated.RollingUpdateDaemonSet", jsii_struct_bases=[], name_mapping={'max_unavailable': 'maxUnavailable'})
 class RollingUpdateDaemonSet():
-    def __init__(self, *, max_unavailable: typing.Optional["IntOrString"]=None):
+    def __init__(self, *, max_unavailable: typing.Optional["IntOrString"]=None) -> None:
         """Spec to control the desired behavior of daemon set rolling update.
 
         :param max_unavailable: The maximum number of DaemonSet pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of total number of DaemonSet pods at the start of the update (ex: 10%). Absolute number is calculated from percentage by rounding up. This cannot be 0. Default value is 1. Example: when this is set to 30%, at most 30% of the total number of nodes that should be running the daemon pod (i.e. status.desiredNumberScheduled) can have their pods stopped for an update at any given time. The update starts by stopping at most 30% of those DaemonSet pods and then brings up new DaemonSet pods in their place. Once the new pods are available, it then proceeds onto other DaemonSet pods, thus ensuring that at least 70% of original number of DaemonSet pods are available at all times during the update.
@@ -19553,9 +19565,9 @@ class RollingUpdateDaemonSet():
         return 'RollingUpdateDaemonSet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RollingUpdateDeployment", jsii_struct_bases=[], name_mapping={'max_surge': 'maxSurge', 'max_unavailable': 'maxUnavailable'})
+@jsii.data_type(jsii_type="generated.RollingUpdateDeployment", jsii_struct_bases=[], name_mapping={'max_surge': 'maxSurge', 'max_unavailable': 'maxUnavailable'})
 class RollingUpdateDeployment():
-    def __init__(self, *, max_surge: typing.Optional["IntOrString"]=None, max_unavailable: typing.Optional["IntOrString"]=None):
+    def __init__(self, *, max_surge: typing.Optional["IntOrString"]=None, max_unavailable: typing.Optional["IntOrString"]=None) -> None:
         """Spec to control the desired behavior of rolling update.
 
         :param max_surge: The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods. Default: 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods.
@@ -19607,9 +19619,9 @@ class RollingUpdateDeployment():
         return 'RollingUpdateDeployment(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RollingUpdateStatefulSetStrategy", jsii_struct_bases=[], name_mapping={'partition': 'partition'})
+@jsii.data_type(jsii_type="generated.RollingUpdateStatefulSetStrategy", jsii_struct_bases=[], name_mapping={'partition': 'partition'})
 class RollingUpdateStatefulSetStrategy():
-    def __init__(self, *, partition: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, partition: typing.Optional[jsii.Number]=None) -> None:
         """RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
 
         :param partition: Partition indicates the ordinal at which the StatefulSet should be partitioned. Default value is 0.
@@ -19642,9 +19654,9 @@ class RollingUpdateStatefulSetStrategy():
         return 'RollingUpdateStatefulSetStrategy(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RuleWithOperations", jsii_struct_bases=[], name_mapping={'api_groups': 'apiGroups', 'api_versions': 'apiVersions', 'operations': 'operations', 'resources': 'resources', 'scope': 'scope'})
+@jsii.data_type(jsii_type="generated.RuleWithOperations", jsii_struct_bases=[], name_mapping={'api_groups': 'apiGroups', 'api_versions': 'apiVersions', 'operations': 'operations', 'resources': 'resources', 'scope': 'scope'})
 class RuleWithOperations():
-    def __init__(self, *, api_groups: typing.Optional[typing.List[str]]=None, api_versions: typing.Optional[typing.List[str]]=None, operations: typing.Optional[typing.List[str]]=None, resources: typing.Optional[typing.List[str]]=None, scope: typing.Optional[str]=None):
+    def __init__(self, *, api_groups: typing.Optional[typing.List[str]]=None, api_versions: typing.Optional[typing.List[str]]=None, operations: typing.Optional[typing.List[str]]=None, resources: typing.Optional[typing.List[str]]=None, scope: typing.Optional[str]=None) -> None:
         """RuleWithOperations is a tuple of Operations and Resources.
 
         It is recommended to make sure that all the tuple expansions are valid.
@@ -19738,9 +19750,9 @@ class RuleWithOperations():
         return 'RuleWithOperations(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RunAsGroupStrategyOptions", jsii_struct_bases=[], name_mapping={'rule': 'rule', 'ranges': 'ranges'})
+@jsii.data_type(jsii_type="generated.RunAsGroupStrategyOptions", jsii_struct_bases=[], name_mapping={'rule': 'rule', 'ranges': 'ranges'})
 class RunAsGroupStrategyOptions():
-    def __init__(self, *, rule: str, ranges: typing.Optional[typing.List["IdRange"]]=None):
+    def __init__(self, *, rule: str, ranges: typing.Optional[typing.List["IdRange"]]=None) -> None:
         """RunAsGroupStrategyOptions defines the strategy type and any options used to create the strategy.
 
         :param rule: rule is the strategy that will dictate the allowable RunAsGroup values that may be set.
@@ -19784,9 +19796,9 @@ class RunAsGroupStrategyOptions():
         return 'RunAsGroupStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RunAsUserStrategyOptions", jsii_struct_bases=[], name_mapping={'rule': 'rule', 'ranges': 'ranges'})
+@jsii.data_type(jsii_type="generated.RunAsUserStrategyOptions", jsii_struct_bases=[], name_mapping={'rule': 'rule', 'ranges': 'ranges'})
 class RunAsUserStrategyOptions():
-    def __init__(self, *, rule: str, ranges: typing.Optional[typing.List["IdRange"]]=None):
+    def __init__(self, *, rule: str, ranges: typing.Optional[typing.List["IdRange"]]=None) -> None:
         """RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.
 
         :param rule: rule is the strategy that will dictate the allowable RunAsUser values that may be set.
@@ -19830,7 +19842,7 @@ class RunAsUserStrategyOptions():
         return 'RunAsUserStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class RuntimeClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.RuntimeClass"):
+class RuntimeClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RuntimeClass"):
     """RuntimeClass defines a class of container runtime supported in the cluster.
 
     The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
@@ -19853,7 +19865,7 @@ class RuntimeClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Runt
         jsii.create(RuntimeClass, self, [scope, name, options])
 
 
-class RuntimeClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.RuntimeClassList"):
+class RuntimeClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RuntimeClassList"):
     """RuntimeClassList is a list of RuntimeClass objects.
 
     schema:
@@ -19872,9 +19884,9 @@ class RuntimeClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.
         jsii.create(RuntimeClassList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.RuntimeClassListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.RuntimeClassListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class RuntimeClassListOptions():
-    def __init__(self, *, items: typing.List["RuntimeClass"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["RuntimeClass"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """RuntimeClassList is a list of RuntimeClass objects.
 
         :param items: Items is a list of schema objects.
@@ -19919,9 +19931,9 @@ class RuntimeClassListOptions():
         return 'RuntimeClassListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RuntimeClassOptions", jsii_struct_bases=[], name_mapping={'handler': 'handler', 'metadata': 'metadata', 'overhead': 'overhead', 'scheduling': 'scheduling'})
+@jsii.data_type(jsii_type="generated.RuntimeClassOptions", jsii_struct_bases=[], name_mapping={'handler': 'handler', 'metadata': 'metadata', 'overhead': 'overhead', 'scheduling': 'scheduling'})
 class RuntimeClassOptions():
-    def __init__(self, *, handler: str, metadata: typing.Optional["ObjectMeta"]=None, overhead: typing.Optional["Overhead"]=None, scheduling: typing.Optional["Scheduling"]=None):
+    def __init__(self, *, handler: str, metadata: typing.Optional["ObjectMeta"]=None, overhead: typing.Optional["Overhead"]=None, scheduling: typing.Optional["Scheduling"]=None) -> None:
         """RuntimeClass defines a class of container runtime supported in the cluster.
 
         The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
@@ -19996,9 +20008,9 @@ class RuntimeClassOptions():
         return 'RuntimeClassOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.RuntimeClassStrategyOptions", jsii_struct_bases=[], name_mapping={'allowed_runtime_class_names': 'allowedRuntimeClassNames', 'default_runtime_class_name': 'defaultRuntimeClassName'})
+@jsii.data_type(jsii_type="generated.RuntimeClassStrategyOptions", jsii_struct_bases=[], name_mapping={'allowed_runtime_class_names': 'allowedRuntimeClassNames', 'default_runtime_class_name': 'defaultRuntimeClassName'})
 class RuntimeClassStrategyOptions():
-    def __init__(self, *, allowed_runtime_class_names: typing.List[str], default_runtime_class_name: typing.Optional[str]=None):
+    def __init__(self, *, allowed_runtime_class_names: typing.List[str], default_runtime_class_name: typing.Optional[str]=None) -> None:
         """RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.
 
         :param allowed_runtime_class_names: allowedRuntimeClassNames is a whitelist of RuntimeClass names that may be specified on a pod. A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the list. An empty list requires the RuntimeClassName field to be unset.
@@ -20044,120 +20056,7 @@ class RuntimeClassStrategyOptions():
         return 'RuntimeClassStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SELinuxOptions", jsii_struct_bases=[], name_mapping={'level': 'level', 'role': 'role', 'type': 'type', 'user': 'user'})
-class SELinuxOptions():
-    def __init__(self, *, level: typing.Optional[str]=None, role: typing.Optional[str]=None, type: typing.Optional[str]=None, user: typing.Optional[str]=None):
-        """SELinuxOptions are the labels to be applied to the container.
-
-        :param level: Level is SELinux level label that applies to the container.
-        :param role: Role is a SELinux role label that applies to the container.
-        :param type: Type is a SELinux type label that applies to the container.
-        :param user: User is a SELinux user label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions
-        """
-        self._values = {
-        }
-        if level is not None: self._values["level"] = level
-        if role is not None: self._values["role"] = role
-        if type is not None: self._values["type"] = type
-        if user is not None: self._values["user"] = user
-
-    @builtins.property
-    def level(self) -> typing.Optional[str]:
-        """Level is SELinux level label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions#level
-        """
-        return self._values.get('level')
-
-    @builtins.property
-    def role(self) -> typing.Optional[str]:
-        """Role is a SELinux role label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions#role
-        """
-        return self._values.get('role')
-
-    @builtins.property
-    def type(self) -> typing.Optional[str]:
-        """Type is a SELinux type label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions#type
-        """
-        return self._values.get('type')
-
-    @builtins.property
-    def user(self) -> typing.Optional[str]:
-        """User is a SELinux user label that applies to the container.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.SELinuxOptions#user
-        """
-        return self._values.get('user')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'SELinuxOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.SELinuxStrategyOptions", jsii_struct_bases=[], name_mapping={'rule': 'rule', 'se_linux_options': 'seLinuxOptions'})
-class SELinuxStrategyOptions():
-    def __init__(self, *, rule: str, se_linux_options: typing.Optional["SELinuxOptions"]=None):
-        """SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.
-
-        :param rule: rule is the strategy that will dictate the allowable labels that may be set.
-        :param se_linux_options: seLinuxOptions required to run as; required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions
-        """
-        if isinstance(se_linux_options, dict): se_linux_options = SELinuxOptions(**se_linux_options)
-        self._values = {
-            'rule': rule,
-        }
-        if se_linux_options is not None: self._values["se_linux_options"] = se_linux_options
-
-    @builtins.property
-    def rule(self) -> str:
-        """rule is the strategy that will dictate the allowable labels that may be set.
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#rule
-        """
-        return self._values.get('rule')
-
-    @builtins.property
-    def se_linux_options(self) -> typing.Optional["SELinuxOptions"]:
-        """seLinuxOptions required to run as;
-
-        required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-
-        schema:
-        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#seLinuxOptions
-        """
-        return self._values.get('se_linux_options')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'SELinuxStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-class Scale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Scale"):
+class Scale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Scale"):
     """Scale represents a scaling request for a resource.
 
     schema:
@@ -20176,9 +20075,9 @@ class Scale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Scale"):
         jsii.create(Scale, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ScaleIOPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
-class ScaleIOPersistentVolumeSource():
-    def __init__(self, *, gateway: str, secret_ref: "SecretReference", system: str, fs_type: typing.Optional[str]=None, protection_domain: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, ssl_enabled: typing.Optional[bool]=None, storage_mode: typing.Optional[str]=None, storage_pool: typing.Optional[str]=None, volume_name: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.ScaleIoPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
+class ScaleIoPersistentVolumeSource():
+    def __init__(self, *, gateway: str, secret_ref: "SecretReference", system: str, fs_type: typing.Optional[str]=None, protection_domain: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, ssl_enabled: typing.Optional[bool]=None, storage_mode: typing.Optional[str]=None, storage_pool: typing.Optional[str]=None, volume_name: typing.Optional[str]=None) -> None:
         """ScaleIOPersistentVolumeSource represents a persistent ScaleIO volume.
 
         :param gateway: The host address of the ScaleIO API Gateway.
@@ -20323,12 +20222,12 @@ class ScaleIOPersistentVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ScaleIOPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ScaleIoPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ScaleIOVolumeSource", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
-class ScaleIOVolumeSource():
-    def __init__(self, *, gateway: str, secret_ref: "LocalObjectReference", system: str, fs_type: typing.Optional[str]=None, protection_domain: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, ssl_enabled: typing.Optional[bool]=None, storage_mode: typing.Optional[str]=None, storage_pool: typing.Optional[str]=None, volume_name: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.ScaleIoVolumeSource", jsii_struct_bases=[], name_mapping={'gateway': 'gateway', 'secret_ref': 'secretRef', 'system': 'system', 'fs_type': 'fsType', 'protection_domain': 'protectionDomain', 'read_only': 'readOnly', 'ssl_enabled': 'sslEnabled', 'storage_mode': 'storageMode', 'storage_pool': 'storagePool', 'volume_name': 'volumeName'})
+class ScaleIoVolumeSource():
+    def __init__(self, *, gateway: str, secret_ref: "LocalObjectReference", system: str, fs_type: typing.Optional[str]=None, protection_domain: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, ssl_enabled: typing.Optional[bool]=None, storage_mode: typing.Optional[str]=None, storage_pool: typing.Optional[str]=None, volume_name: typing.Optional[str]=None) -> None:
         """ScaleIOVolumeSource represents a persistent ScaleIO volume.
 
         :param gateway: The host address of the ScaleIO API Gateway.
@@ -20473,12 +20372,12 @@ class ScaleIOVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ScaleIOVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'ScaleIoVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ScaleOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.ScaleOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class ScaleOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ScaleSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ScaleSpec"]=None) -> None:
         """Scale represents a scaling request for a resource.
 
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
@@ -20526,9 +20425,9 @@ class ScaleOptions():
         return 'ScaleOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ScaleSpec", jsii_struct_bases=[], name_mapping={'replicas': 'replicas'})
+@jsii.data_type(jsii_type="generated.ScaleSpec", jsii_struct_bases=[], name_mapping={'replicas': 'replicas'})
 class ScaleSpec():
-    def __init__(self, *, replicas: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, replicas: typing.Optional[jsii.Number]=None) -> None:
         """ScaleSpec describes the attributes of a scale subresource.
 
         :param replicas: desired number of instances for the scaled object.
@@ -20559,9 +20458,9 @@ class ScaleSpec():
         return 'ScaleSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Scheduling", jsii_struct_bases=[], name_mapping={'node_selector': 'nodeSelector', 'tolerations': 'tolerations'})
+@jsii.data_type(jsii_type="generated.Scheduling", jsii_struct_bases=[], name_mapping={'node_selector': 'nodeSelector', 'tolerations': 'tolerations'})
 class Scheduling():
-    def __init__(self, *, node_selector: typing.Optional[typing.Mapping[str,str]]=None, tolerations: typing.Optional[typing.List["Toleration"]]=None):
+    def __init__(self, *, node_selector: typing.Optional[typing.Mapping[str, str]]=None, tolerations: typing.Optional[typing.List["Toleration"]]=None) -> None:
         """Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.
 
         :param node_selector: nodeSelector lists labels that must be present on nodes that support this RuntimeClass. Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
@@ -20576,7 +20475,7 @@ class Scheduling():
         if tolerations is not None: self._values["tolerations"] = tolerations
 
     @builtins.property
-    def node_selector(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def node_selector(self) -> typing.Optional[typing.Mapping[str, str]]:
         """nodeSelector lists labels that must be present on nodes that support this RuntimeClass.
 
         Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
@@ -20605,9 +20504,9 @@ class Scheduling():
         return 'Scheduling(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ScopeSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions'})
+@jsii.data_type(jsii_type="generated.ScopeSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions'})
 class ScopeSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ScopedResourceSelectorRequirement"]]=None):
+    def __init__(self, *, match_expressions: typing.Optional[typing.List["ScopedResourceSelectorRequirement"]]=None) -> None:
         """A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.
 
         :param match_expressions: A list of scope selector requirements by scope of the resources.
@@ -20638,9 +20537,9 @@ class ScopeSelector():
         return 'ScopeSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ScopedResourceSelectorRequirement", jsii_struct_bases=[], name_mapping={'operator': 'operator', 'scope_name': 'scopeName', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.ScopedResourceSelectorRequirement", jsii_struct_bases=[], name_mapping={'operator': 'operator', 'scope_name': 'scopeName', 'values': 'values'})
 class ScopedResourceSelectorRequirement():
-    def __init__(self, *, operator: str, scope_name: str, values: typing.Optional[typing.List[str]]=None):
+    def __init__(self, *, operator: str, scope_name: str, values: typing.Optional[typing.List[str]]=None) -> None:
         """A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.
 
         :param operator: Represents a scope's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist.
@@ -20697,7 +20596,120 @@ class ScopedResourceSelectorRequirement():
         return 'ScopedResourceSelectorRequirement(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Secret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Secret"):
+@jsii.data_type(jsii_type="generated.SeLinuxOptions", jsii_struct_bases=[], name_mapping={'level': 'level', 'role': 'role', 'type': 'type', 'user': 'user'})
+class SeLinuxOptions():
+    def __init__(self, *, level: typing.Optional[str]=None, role: typing.Optional[str]=None, type: typing.Optional[str]=None, user: typing.Optional[str]=None) -> None:
+        """SELinuxOptions are the labels to be applied to the container.
+
+        :param level: Level is SELinux level label that applies to the container.
+        :param role: Role is a SELinux role label that applies to the container.
+        :param type: Type is a SELinux type label that applies to the container.
+        :param user: User is a SELinux user label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions
+        """
+        self._values = {
+        }
+        if level is not None: self._values["level"] = level
+        if role is not None: self._values["role"] = role
+        if type is not None: self._values["type"] = type
+        if user is not None: self._values["user"] = user
+
+    @builtins.property
+    def level(self) -> typing.Optional[str]:
+        """Level is SELinux level label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions#level
+        """
+        return self._values.get('level')
+
+    @builtins.property
+    def role(self) -> typing.Optional[str]:
+        """Role is a SELinux role label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions#role
+        """
+        return self._values.get('role')
+
+    @builtins.property
+    def type(self) -> typing.Optional[str]:
+        """Type is a SELinux type label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions#type
+        """
+        return self._values.get('type')
+
+    @builtins.property
+    def user(self) -> typing.Optional[str]:
+        """User is a SELinux user label that applies to the container.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.SELinuxOptions#user
+        """
+        return self._values.get('user')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'SeLinuxOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+@jsii.data_type(jsii_type="generated.SeLinuxStrategyOptions", jsii_struct_bases=[], name_mapping={'rule': 'rule', 'se_linux_options': 'seLinuxOptions'})
+class SeLinuxStrategyOptions():
+    def __init__(self, *, rule: str, se_linux_options: typing.Optional["SeLinuxOptions"]=None) -> None:
+        """SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.
+
+        :param rule: rule is the strategy that will dictate the allowable labels that may be set.
+        :param se_linux_options: seLinuxOptions required to run as; required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions
+        """
+        if isinstance(se_linux_options, dict): se_linux_options = SeLinuxOptions(**se_linux_options)
+        self._values = {
+            'rule': rule,
+        }
+        if se_linux_options is not None: self._values["se_linux_options"] = se_linux_options
+
+    @builtins.property
+    def rule(self) -> str:
+        """rule is the strategy that will dictate the allowable labels that may be set.
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#rule
+        """
+        return self._values.get('rule')
+
+    @builtins.property
+    def se_linux_options(self) -> typing.Optional["SeLinuxOptions"]:
+        """seLinuxOptions required to run as;
+
+        required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+
+        schema:
+        :schema:: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#seLinuxOptions
+        """
+        return self._values.get('se_linux_options')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'SeLinuxStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class Secret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Secret"):
     """Secret holds secret data of a certain type.
 
     The total bytes of the values in the Data field must be less than MaxSecretSize bytes.
@@ -20705,7 +20717,7 @@ class Secret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Secret"):
     schema:
     :schema:: io.k8s.api.core.v1.Secret
     """
-    def __init__(self, scope: constructs.Construct, name: str, *, data: typing.Optional[typing.Mapping[str,str]]=None, metadata: typing.Optional["ObjectMeta"]=None, string_data: typing.Optional[typing.Mapping[str,str]]=None, type: typing.Optional[str]=None) -> None:
+    def __init__(self, scope: constructs.Construct, name: str, *, data: typing.Optional[typing.Mapping[str, str]]=None, metadata: typing.Optional["ObjectMeta"]=None, string_data: typing.Optional[typing.Mapping[str, str]]=None, type: typing.Optional[str]=None) -> None:
         """Defines a "io.k8s.api.core.v1.Secret" API object.
 
         :param scope: the scope in which to define this object.
@@ -20720,9 +20732,9 @@ class Secret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Secret"):
         jsii.create(Secret, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.SecretEnvSource", jsii_struct_bases=[], name_mapping={'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.SecretEnvSource", jsii_struct_bases=[], name_mapping={'name': 'name', 'optional': 'optional'})
 class SecretEnvSource():
-    def __init__(self, *, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """SecretEnvSource selects a Secret to populate the environment variables with.
 
         The contents of the target Secret's Data field will represent the key-value pairs as environment variables.
@@ -20768,9 +20780,9 @@ class SecretEnvSource():
         return 'SecretEnvSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.SecretKeySelector", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
 class SecretKeySelector():
-    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """SecretKeySelector selects a key of a Secret.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -20827,7 +20839,7 @@ class SecretKeySelector():
         return 'SecretKeySelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class SecretList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.SecretList"):
+class SecretList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.SecretList"):
     """SecretList is a list of Secret.
 
     schema:
@@ -20846,9 +20858,9 @@ class SecretList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Secret
         jsii.create(SecretList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.SecretListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.SecretListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class SecretListOptions():
-    def __init__(self, *, items: typing.List["Secret"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Secret"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """SecretList is a list of Secret.
 
         :param items: Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
@@ -20895,9 +20907,9 @@ class SecretListOptions():
         return 'SecretListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SecretOptions", jsii_struct_bases=[], name_mapping={'data': 'data', 'metadata': 'metadata', 'string_data': 'stringData', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.SecretOptions", jsii_struct_bases=[], name_mapping={'data': 'data', 'metadata': 'metadata', 'string_data': 'stringData', 'type': 'type'})
 class SecretOptions():
-    def __init__(self, *, data: typing.Optional[typing.Mapping[str,str]]=None, metadata: typing.Optional["ObjectMeta"]=None, string_data: typing.Optional[typing.Mapping[str,str]]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, data: typing.Optional[typing.Mapping[str, str]]=None, metadata: typing.Optional["ObjectMeta"]=None, string_data: typing.Optional[typing.Mapping[str, str]]=None, type: typing.Optional[str]=None) -> None:
         """Secret holds secret data of a certain type.
 
         The total bytes of the values in the Data field must be less than MaxSecretSize bytes.
@@ -20919,7 +20931,7 @@ class SecretOptions():
         if type is not None: self._values["type"] = type
 
     @builtins.property
-    def data(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def data(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Data contains the secret data.
 
         Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
@@ -20941,7 +20953,7 @@ class SecretOptions():
         return self._values.get('metadata')
 
     @builtins.property
-    def string_data(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def string_data(self) -> typing.Optional[typing.Mapping[str, str]]:
         """stringData allows specifying non-binary secret data in string form.
 
         It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
@@ -20970,9 +20982,9 @@ class SecretOptions():
         return 'SecretOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SecretProjection", jsii_struct_bases=[], name_mapping={'items': 'items', 'name': 'name', 'optional': 'optional'})
+@jsii.data_type(jsii_type="generated.SecretProjection", jsii_struct_bases=[], name_mapping={'items': 'items', 'name': 'name', 'optional': 'optional'})
 class SecretProjection():
-    def __init__(self, *, items: typing.Optional[typing.List["KeyToPath"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None):
+    def __init__(self, *, items: typing.Optional[typing.List["KeyToPath"]]=None, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
         """Adapts a secret into a projected volume.
 
         The contents of the target Secret's Data field will be presented in a projected volume as files using the keys in the Data field as the file names. Note that this is identical to a secret volume source without the default mode.
@@ -21031,9 +21043,9 @@ class SecretProjection():
         return 'SecretProjection(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SecretReference", jsii_struct_bases=[], name_mapping={'name': 'name', 'namespace': 'namespace'})
+@jsii.data_type(jsii_type="generated.SecretReference", jsii_struct_bases=[], name_mapping={'name': 'name', 'namespace': 'namespace'})
 class SecretReference():
-    def __init__(self, *, name: typing.Optional[str]=None, namespace: typing.Optional[str]=None):
+    def __init__(self, *, name: typing.Optional[str]=None, namespace: typing.Optional[str]=None) -> None:
         """SecretReference represents a Secret Reference.
 
         It has enough information to retrieve secret in any namespace
@@ -21077,9 +21089,9 @@ class SecretReference():
         return 'SecretReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SecretVolumeSource", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items', 'optional': 'optional', 'secret_name': 'secretName'})
+@jsii.data_type(jsii_type="generated.SecretVolumeSource", jsii_struct_bases=[], name_mapping={'default_mode': 'defaultMode', 'items': 'items', 'optional': 'optional', 'secret_name': 'secretName'})
 class SecretVolumeSource():
-    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["KeyToPath"]]=None, optional: typing.Optional[bool]=None, secret_name: typing.Optional[str]=None):
+    def __init__(self, *, default_mode: typing.Optional[jsii.Number]=None, items: typing.Optional[typing.List["KeyToPath"]]=None, optional: typing.Optional[bool]=None, secret_name: typing.Optional[str]=None) -> None:
         """Adapts a Secret into a volume.
 
         The contents of the target Secret's Data field will be presented in a volume as files using the keys in the Data field as the file names. Secret volumes support ownership management and SELinux relabeling.
@@ -21154,9 +21166,9 @@ class SecretVolumeSource():
         return 'SecretVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SecurityContext", jsii_struct_bases=[], name_mapping={'allow_privilege_escalation': 'allowPrivilegeEscalation', 'capabilities': 'capabilities', 'privileged': 'privileged', 'proc_mount': 'procMount', 'read_only_root_filesystem': 'readOnlyRootFilesystem', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'windows_options': 'windowsOptions'})
+@jsii.data_type(jsii_type="generated.SecurityContext", jsii_struct_bases=[], name_mapping={'allow_privilege_escalation': 'allowPrivilegeEscalation', 'capabilities': 'capabilities', 'privileged': 'privileged', 'proc_mount': 'procMount', 'read_only_root_filesystem': 'readOnlyRootFilesystem', 'run_as_group': 'runAsGroup', 'run_as_non_root': 'runAsNonRoot', 'run_as_user': 'runAsUser', 'se_linux_options': 'seLinuxOptions', 'windows_options': 'windowsOptions'})
 class SecurityContext():
-    def __init__(self, *, allow_privilege_escalation: typing.Optional[bool]=None, capabilities: typing.Optional["Capabilities"]=None, privileged: typing.Optional[bool]=None, proc_mount: typing.Optional[str]=None, read_only_root_filesystem: typing.Optional[bool]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["SELinuxOptions"]=None, windows_options: typing.Optional["WindowsSecurityContextOptions"]=None):
+    def __init__(self, *, allow_privilege_escalation: typing.Optional[bool]=None, capabilities: typing.Optional["Capabilities"]=None, privileged: typing.Optional[bool]=None, proc_mount: typing.Optional[str]=None, read_only_root_filesystem: typing.Optional[bool]=None, run_as_group: typing.Optional[jsii.Number]=None, run_as_non_root: typing.Optional[bool]=None, run_as_user: typing.Optional[jsii.Number]=None, se_linux_options: typing.Optional["SeLinuxOptions"]=None, windows_options: typing.Optional["WindowsSecurityContextOptions"]=None) -> None:
         """SecurityContext holds security configuration that will be applied to a container.
 
         Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.
@@ -21176,7 +21188,7 @@ class SecurityContext():
         :schema:: io.k8s.api.core.v1.SecurityContext
         """
         if isinstance(capabilities, dict): capabilities = Capabilities(**capabilities)
-        if isinstance(se_linux_options, dict): se_linux_options = SELinuxOptions(**se_linux_options)
+        if isinstance(se_linux_options, dict): se_linux_options = SeLinuxOptions(**se_linux_options)
         if isinstance(windows_options, dict): windows_options = WindowsSecurityContextOptions(**windows_options)
         self._values = {
         }
@@ -21292,7 +21304,7 @@ class SecurityContext():
         return self._values.get('run_as_user')
 
     @builtins.property
-    def se_linux_options(self) -> typing.Optional["SELinuxOptions"]:
+    def se_linux_options(self) -> typing.Optional["SeLinuxOptions"]:
         """The SELinux context to be applied to the container.
 
         If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
@@ -21323,7 +21335,7 @@ class SecurityContext():
         return 'SecurityContext(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class SelfSubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.SelfSubjectAccessReview"):
+class SelfSubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.SelfSubjectAccessReview"):
     """SelfSubjectAccessReview checks whether or the current user can perform an action.
 
     Not filling in a spec.namespace means "in all namespaces".  Self is a special case, because users should always be able to check whether they can perform an action
@@ -21344,9 +21356,9 @@ class SelfSubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_typ
         jsii.create(SelfSubjectAccessReview, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.SelfSubjectAccessReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.SelfSubjectAccessReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class SelfSubjectAccessReviewOptions():
-    def __init__(self, *, spec: "SelfSubjectAccessReviewSpec", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, spec: "SelfSubjectAccessReviewSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """SelfSubjectAccessReview checks whether or the current user can perform an action.
 
         Not filling in a spec.namespace means "in all namespaces".  Self is a special case, because users should always be able to check whether they can perform an action
@@ -21393,9 +21405,9 @@ class SelfSubjectAccessReviewOptions():
         return 'SelfSubjectAccessReviewOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SelfSubjectAccessReviewSpec", jsii_struct_bases=[], name_mapping={'non_resource_attributes': 'nonResourceAttributes', 'resource_attributes': 'resourceAttributes'})
+@jsii.data_type(jsii_type="generated.SelfSubjectAccessReviewSpec", jsii_struct_bases=[], name_mapping={'non_resource_attributes': 'nonResourceAttributes', 'resource_attributes': 'resourceAttributes'})
 class SelfSubjectAccessReviewSpec():
-    def __init__(self, *, non_resource_attributes: typing.Optional["NonResourceAttributes"]=None, resource_attributes: typing.Optional["ResourceAttributes"]=None):
+    def __init__(self, *, non_resource_attributes: typing.Optional["NonResourceAttributes"]=None, resource_attributes: typing.Optional["ResourceAttributes"]=None) -> None:
         """SelfSubjectAccessReviewSpec is a description of the access request.
 
         Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
@@ -21441,7 +21453,7 @@ class SelfSubjectAccessReviewSpec():
         return 'SelfSubjectAccessReviewSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class SelfSubjectRulesReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.SelfSubjectRulesReview"):
+class SelfSubjectRulesReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.SelfSubjectRulesReview"):
     """SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace.
 
     The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
@@ -21462,9 +21474,9 @@ class SelfSubjectRulesReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type
         jsii.create(SelfSubjectRulesReview, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.SelfSubjectRulesReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.SelfSubjectRulesReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class SelfSubjectRulesReviewOptions():
-    def __init__(self, *, spec: "SelfSubjectRulesReviewSpec", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, spec: "SelfSubjectRulesReviewSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace.
 
         The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
@@ -21509,9 +21521,9 @@ class SelfSubjectRulesReviewOptions():
         return 'SelfSubjectRulesReviewOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SelfSubjectRulesReviewSpec", jsii_struct_bases=[], name_mapping={'namespace': 'namespace'})
+@jsii.data_type(jsii_type="generated.SelfSubjectRulesReviewSpec", jsii_struct_bases=[], name_mapping={'namespace': 'namespace'})
 class SelfSubjectRulesReviewSpec():
-    def __init__(self, *, namespace: typing.Optional[str]=None):
+    def __init__(self, *, namespace: typing.Optional[str]=None) -> None:
         """
         :param namespace: Namespace to evaluate rules for. Required.
 
@@ -21543,7 +21555,7 @@ class SelfSubjectRulesReviewSpec():
         return 'SelfSubjectRulesReviewSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Service(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Service"):
+class Service(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Service"):
     """Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
 
     schema:
@@ -21562,7 +21574,7 @@ class Service(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Service")
         jsii.create(Service, self, [scope, name, options])
 
 
-class ServiceAccount(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ServiceAccount"):
+class ServiceAccount(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ServiceAccount"):
     """ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets.
 
     schema:
@@ -21583,7 +21595,7 @@ class ServiceAccount(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Se
         jsii.create(ServiceAccount, self, [scope, name, options])
 
 
-class ServiceAccountList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ServiceAccountList"):
+class ServiceAccountList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ServiceAccountList"):
     """ServiceAccountList is a list of ServiceAccount objects.
 
     schema:
@@ -21602,9 +21614,9 @@ class ServiceAccountList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8
         jsii.create(ServiceAccountList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ServiceAccountListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ServiceAccountListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ServiceAccountListOptions():
-    def __init__(self, *, items: typing.List["ServiceAccount"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ServiceAccount"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ServiceAccountList is a list of ServiceAccount objects.
 
         :param items: List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
@@ -21651,9 +21663,9 @@ class ServiceAccountListOptions():
         return 'ServiceAccountListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ServiceAccountOptions", jsii_struct_bases=[], name_mapping={'automount_service_account_token': 'automountServiceAccountToken', 'image_pull_secrets': 'imagePullSecrets', 'metadata': 'metadata', 'secrets': 'secrets'})
+@jsii.data_type(jsii_type="generated.ServiceAccountOptions", jsii_struct_bases=[], name_mapping={'automount_service_account_token': 'automountServiceAccountToken', 'image_pull_secrets': 'imagePullSecrets', 'metadata': 'metadata', 'secrets': 'secrets'})
 class ServiceAccountOptions():
-    def __init__(self, *, automount_service_account_token: typing.Optional[bool]=None, image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]]=None, metadata: typing.Optional["ObjectMeta"]=None, secrets: typing.Optional[typing.List["ObjectReference"]]=None):
+    def __init__(self, *, automount_service_account_token: typing.Optional[bool]=None, image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]]=None, metadata: typing.Optional["ObjectMeta"]=None, secrets: typing.Optional[typing.List["ObjectReference"]]=None) -> None:
         """ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets.
 
         :param automount_service_account_token: AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
@@ -21726,9 +21738,9 @@ class ServiceAccountOptions():
         return 'ServiceAccountOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ServiceAccountTokenProjection", jsii_struct_bases=[], name_mapping={'path': 'path', 'audience': 'audience', 'expiration_seconds': 'expirationSeconds'})
+@jsii.data_type(jsii_type="generated.ServiceAccountTokenProjection", jsii_struct_bases=[], name_mapping={'path': 'path', 'audience': 'audience', 'expiration_seconds': 'expirationSeconds'})
 class ServiceAccountTokenProjection():
-    def __init__(self, *, path: str, audience: typing.Optional[str]=None, expiration_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, path: str, audience: typing.Optional[str]=None, expiration_seconds: typing.Optional[jsii.Number]=None) -> None:
         """ServiceAccountTokenProjection represents a projected service account token volume.
 
         This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).
@@ -21790,7 +21802,7 @@ class ServiceAccountTokenProjection():
         return 'ServiceAccountTokenProjection(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ServiceList"):
+class ServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ServiceList"):
     """ServiceList holds a list of services.
 
     schema:
@@ -21809,9 +21821,9 @@ class ServiceList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Servi
         jsii.create(ServiceList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ServiceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ServiceListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ServiceListOptions():
-    def __init__(self, *, items: typing.List["Service"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["Service"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ServiceList holds a list of services.
 
         :param items: List of services.
@@ -21856,9 +21868,9 @@ class ServiceListOptions():
         return 'ServiceListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ServiceOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.ServiceOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class ServiceOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ServiceSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["ServiceSpec"]=None) -> None:
         """Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
 
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -21906,9 +21918,9 @@ class ServiceOptions():
         return 'ServiceOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ServicePort", jsii_struct_bases=[], name_mapping={'port': 'port', 'name': 'name', 'node_port': 'nodePort', 'protocol': 'protocol', 'target_port': 'targetPort'})
+@jsii.data_type(jsii_type="generated.ServicePort", jsii_struct_bases=[], name_mapping={'port': 'port', 'name': 'name', 'node_port': 'nodePort', 'protocol': 'protocol', 'target_port': 'targetPort'})
 class ServicePort():
-    def __init__(self, *, port: jsii.Number, name: typing.Optional[str]=None, node_port: typing.Optional[jsii.Number]=None, protocol: typing.Optional[str]=None, target_port: typing.Optional["IntOrString"]=None):
+    def __init__(self, *, port: jsii.Number, name: typing.Optional[str]=None, node_port: typing.Optional[jsii.Number]=None, protocol: typing.Optional[str]=None, target_port: typing.Optional["IntOrString"]=None) -> None:
         """ServicePort contains information on service's port.
 
         :param port: The port that will be exposed by this service.
@@ -21997,9 +22009,9 @@ class ServicePort():
         return 'ServicePort(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ServiceReference", jsii_struct_bases=[], name_mapping={'name': 'name', 'namespace': 'namespace', 'path': 'path', 'port': 'port'})
+@jsii.data_type(jsii_type="generated.ServiceReference", jsii_struct_bases=[], name_mapping={'name': 'name', 'namespace': 'namespace', 'path': 'path', 'port': 'port'})
 class ServiceReference():
-    def __init__(self, *, name: str, namespace: str, path: typing.Optional[str]=None, port: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, name: str, namespace: str, path: typing.Optional[str]=None, port: typing.Optional[jsii.Number]=None) -> None:
         """ServiceReference holds a reference to Service.legacy.k8s.io.
 
         :param name: ``name`` is the name of the service. Required
@@ -22072,9 +22084,9 @@ class ServiceReference():
         return 'ServiceReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ServiceSpec", jsii_struct_bases=[], name_mapping={'cluster_ip': 'clusterIP', 'external_i_ps': 'externalIPs', 'external_name': 'externalName', 'external_traffic_policy': 'externalTrafficPolicy', 'health_check_node_port': 'healthCheckNodePort', 'ip_family': 'ipFamily', 'load_balancer_ip': 'loadBalancerIP', 'load_balancer_source_ranges': 'loadBalancerSourceRanges', 'ports': 'ports', 'publish_not_ready_addresses': 'publishNotReadyAddresses', 'selector': 'selector', 'session_affinity': 'sessionAffinity', 'session_affinity_config': 'sessionAffinityConfig', 'topology_keys': 'topologyKeys', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.ServiceSpec", jsii_struct_bases=[], name_mapping={'cluster_ip': 'clusterIP', 'external_i_ps': 'externalIPs', 'external_name': 'externalName', 'external_traffic_policy': 'externalTrafficPolicy', 'health_check_node_port': 'healthCheckNodePort', 'ip_family': 'ipFamily', 'load_balancer_ip': 'loadBalancerIP', 'load_balancer_source_ranges': 'loadBalancerSourceRanges', 'ports': 'ports', 'publish_not_ready_addresses': 'publishNotReadyAddresses', 'selector': 'selector', 'session_affinity': 'sessionAffinity', 'session_affinity_config': 'sessionAffinityConfig', 'topology_keys': 'topologyKeys', 'type': 'type'})
 class ServiceSpec():
-    def __init__(self, *, cluster_ip: typing.Optional[str]=None, external_i_ps: typing.Optional[typing.List[str]]=None, external_name: typing.Optional[str]=None, external_traffic_policy: typing.Optional[str]=None, health_check_node_port: typing.Optional[jsii.Number]=None, ip_family: typing.Optional[str]=None, load_balancer_ip: typing.Optional[str]=None, load_balancer_source_ranges: typing.Optional[typing.List[str]]=None, ports: typing.Optional[typing.List["ServicePort"]]=None, publish_not_ready_addresses: typing.Optional[bool]=None, selector: typing.Optional[typing.Mapping[str,str]]=None, session_affinity: typing.Optional[str]=None, session_affinity_config: typing.Optional["SessionAffinityConfig"]=None, topology_keys: typing.Optional[typing.List[str]]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, cluster_ip: typing.Optional[str]=None, external_i_ps: typing.Optional[typing.List[str]]=None, external_name: typing.Optional[str]=None, external_traffic_policy: typing.Optional[str]=None, health_check_node_port: typing.Optional[jsii.Number]=None, ip_family: typing.Optional[str]=None, load_balancer_ip: typing.Optional[str]=None, load_balancer_source_ranges: typing.Optional[typing.List[str]]=None, ports: typing.Optional[typing.List["ServicePort"]]=None, publish_not_ready_addresses: typing.Optional[bool]=None, selector: typing.Optional[typing.Mapping[str, str]]=None, session_affinity: typing.Optional[str]=None, session_affinity_config: typing.Optional["SessionAffinityConfig"]=None, topology_keys: typing.Optional[typing.List[str]]=None, type: typing.Optional[str]=None) -> None:
         """ServiceSpec describes the attributes that a user creates on a service.
 
         :param cluster_ip: clusterIP is the IP address of the service and is usually assigned randomly by the master. If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. This field can not be changed through updates. Valid values are "None", empty string (""), or a valid IP address. "None" can be specified for headless services when proxying is not required. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
@@ -22224,7 +22236,7 @@ class ServiceSpec():
         return self._values.get('publish_not_ready_addresses')
 
     @builtins.property
-    def selector(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def selector(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Route service traffic to pods with label keys and values matching this selector.
 
         If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
@@ -22292,9 +22304,9 @@ class ServiceSpec():
         return 'ServiceSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SessionAffinityConfig", jsii_struct_bases=[], name_mapping={'client_ip': 'clientIP'})
+@jsii.data_type(jsii_type="generated.SessionAffinityConfig", jsii_struct_bases=[], name_mapping={'client_ip': 'clientIP'})
 class SessionAffinityConfig():
-    def __init__(self, *, client_ip: typing.Optional["ClientIPConfig"]=None):
+    def __init__(self, *, client_ip: typing.Optional["ClientIpConfig"]=None) -> None:
         """SessionAffinityConfig represents the configurations of session affinity.
 
         :param client_ip: clientIP contains the configurations of Client IP based session affinity.
@@ -22302,13 +22314,13 @@ class SessionAffinityConfig():
         schema:
         :schema:: io.k8s.api.core.v1.SessionAffinityConfig
         """
-        if isinstance(client_ip, dict): client_ip = ClientIPConfig(**client_ip)
+        if isinstance(client_ip, dict): client_ip = ClientIpConfig(**client_ip)
         self._values = {
         }
         if client_ip is not None: self._values["client_ip"] = client_ip
 
     @builtins.property
-    def client_ip(self) -> typing.Optional["ClientIPConfig"]:
+    def client_ip(self) -> typing.Optional["ClientIpConfig"]:
         """clientIP contains the configurations of Client IP based session affinity.
 
         schema:
@@ -22326,7 +22338,7 @@ class SessionAffinityConfig():
         return 'SessionAffinityConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class StatefulSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.StatefulSet"):
+class StatefulSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.StatefulSet"):
     """StatefulSet represents a set of pods with consistent identities.
 
     Identities are defined as:
@@ -22351,7 +22363,7 @@ class StatefulSet(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.State
         jsii.create(StatefulSet, self, [scope, name, options])
 
 
-class StatefulSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.StatefulSetList"):
+class StatefulSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.StatefulSetList"):
     """StatefulSetList is a collection of StatefulSets.
 
     schema:
@@ -22370,9 +22382,9 @@ class StatefulSetList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.S
         jsii.create(StatefulSetList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.StatefulSetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.StatefulSetListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class StatefulSetListOptions():
-    def __init__(self, *, items: typing.List["StatefulSet"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["StatefulSet"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """StatefulSetList is a collection of StatefulSets.
 
         :param items: 
@@ -22413,9 +22425,9 @@ class StatefulSetListOptions():
         return 'StatefulSetListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.StatefulSetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
+@jsii.data_type(jsii_type="generated.StatefulSetOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'spec': 'spec'})
 class StatefulSetOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["StatefulSetSpec"]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, spec: typing.Optional["StatefulSetSpec"]=None) -> None:
         """StatefulSet represents a set of pods with consistent identities.
 
         Identities are defined as:
@@ -22464,9 +22476,9 @@ class StatefulSetOptions():
         return 'StatefulSetOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.StatefulSetSpec", jsii_struct_bases=[], name_mapping={'selector': 'selector', 'service_name': 'serviceName', 'template': 'template', 'pod_management_policy': 'podManagementPolicy', 'replicas': 'replicas', 'revision_history_limit': 'revisionHistoryLimit', 'update_strategy': 'updateStrategy', 'volume_claim_templates': 'volumeClaimTemplates'})
+@jsii.data_type(jsii_type="generated.StatefulSetSpec", jsii_struct_bases=[], name_mapping={'selector': 'selector', 'service_name': 'serviceName', 'template': 'template', 'pod_management_policy': 'podManagementPolicy', 'replicas': 'replicas', 'revision_history_limit': 'revisionHistoryLimit', 'update_strategy': 'updateStrategy', 'volume_claim_templates': 'volumeClaimTemplates'})
 class StatefulSetSpec():
-    def __init__(self, *, selector: "LabelSelector", service_name: str, template: "PodTemplateSpec", pod_management_policy: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None, revision_history_limit: typing.Optional[jsii.Number]=None, update_strategy: typing.Optional["StatefulSetUpdateStrategy"]=None, volume_claim_templates: typing.Optional[typing.List["PersistentVolumeClaim"]]=None):
+    def __init__(self, *, selector: "LabelSelector", service_name: str, template: "PodTemplateSpec", pod_management_policy: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None, revision_history_limit: typing.Optional[jsii.Number]=None, update_strategy: typing.Optional["StatefulSetUpdateStrategy"]=None, volume_claim_templates: typing.Optional[typing.List["PersistentVolumeClaim"]]=None) -> None:
         """A StatefulSetSpec is the specification of a StatefulSet.
 
         :param selector: selector is a label query over pods that should match the replica count. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
@@ -22591,9 +22603,9 @@ class StatefulSetSpec():
         return 'StatefulSetSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.StatefulSetUpdateStrategy", jsii_struct_bases=[], name_mapping={'rolling_update': 'rollingUpdate', 'type': 'type'})
+@jsii.data_type(jsii_type="generated.StatefulSetUpdateStrategy", jsii_struct_bases=[], name_mapping={'rolling_update': 'rollingUpdate', 'type': 'type'})
 class StatefulSetUpdateStrategy():
-    def __init__(self, *, rolling_update: typing.Optional["RollingUpdateStatefulSetStrategy"]=None, type: typing.Optional[str]=None):
+    def __init__(self, *, rolling_update: typing.Optional["RollingUpdateStatefulSetStrategy"]=None, type: typing.Optional[str]=None) -> None:
         """StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates.
 
         It includes any additional parameters necessary to perform the update for the indicated strategy.
@@ -22643,7 +22655,7 @@ class StatefulSetUpdateStrategy():
         return 'StatefulSetUpdateStrategy(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class Status(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Status"):
+class Status(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Status"):
     """Status is a return value for calls that don't return other objects.
 
     schema:
@@ -22665,9 +22677,9 @@ class Status(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Status"):
         jsii.create(Status, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.StatusCause", jsii_struct_bases=[], name_mapping={'field': 'field', 'message': 'message', 'reason': 'reason'})
+@jsii.data_type(jsii_type="generated.StatusCause", jsii_struct_bases=[], name_mapping={'field': 'field', 'message': 'message', 'reason': 'reason'})
 class StatusCause():
-    def __init__(self, *, field: typing.Optional[str]=None, message: typing.Optional[str]=None, reason: typing.Optional[str]=None):
+    def __init__(self, *, field: typing.Optional[str]=None, message: typing.Optional[str]=None, reason: typing.Optional[str]=None) -> None:
         """StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.
 
         :param field: The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed. Fields may appear more than once in an array of causes due to fields having multiple errors. Optional. Examples: "name" - the field "name" on the current resource "items[0].name" - the field "name" on the first array entry in "items"
@@ -22730,9 +22742,9 @@ class StatusCause():
         return 'StatusCause(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.StatusDetails", jsii_struct_bases=[], name_mapping={'causes': 'causes', 'group': 'group', 'kind': 'kind', 'name': 'name', 'retry_after_seconds': 'retryAfterSeconds', 'uid': 'uid'})
+@jsii.data_type(jsii_type="generated.StatusDetails", jsii_struct_bases=[], name_mapping={'causes': 'causes', 'group': 'group', 'kind': 'kind', 'name': 'name', 'retry_after_seconds': 'retryAfterSeconds', 'uid': 'uid'})
 class StatusDetails():
-    def __init__(self, *, causes: typing.Optional[typing.List["StatusCause"]]=None, group: typing.Optional[str]=None, kind: typing.Optional[str]=None, name: typing.Optional[str]=None, retry_after_seconds: typing.Optional[jsii.Number]=None, uid: typing.Optional[str]=None):
+    def __init__(self, *, causes: typing.Optional[typing.List["StatusCause"]]=None, group: typing.Optional[str]=None, kind: typing.Optional[str]=None, name: typing.Optional[str]=None, retry_after_seconds: typing.Optional[jsii.Number]=None, uid: typing.Optional[str]=None) -> None:
         """StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response.
 
         The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.
@@ -22828,9 +22840,9 @@ class StatusDetails():
         return 'StatusDetails(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.StatusOptions", jsii_struct_bases=[], name_mapping={'code': 'code', 'details': 'details', 'message': 'message', 'metadata': 'metadata', 'reason': 'reason'})
+@jsii.data_type(jsii_type="generated.StatusOptions", jsii_struct_bases=[], name_mapping={'code': 'code', 'details': 'details', 'message': 'message', 'metadata': 'metadata', 'reason': 'reason'})
 class StatusOptions():
-    def __init__(self, *, code: typing.Optional[jsii.Number]=None, details: typing.Optional["StatusDetails"]=None, message: typing.Optional[str]=None, metadata: typing.Optional["ListMeta"]=None, reason: typing.Optional[str]=None):
+    def __init__(self, *, code: typing.Optional[jsii.Number]=None, details: typing.Optional["StatusDetails"]=None, message: typing.Optional[str]=None, metadata: typing.Optional["ListMeta"]=None, reason: typing.Optional[str]=None) -> None:
         """Status is a return value for calls that don't return other objects.
 
         :param code: Suggested HTTP return code for this status, 0 if not set.
@@ -22913,7 +22925,7 @@ class StatusOptions():
         return 'StatusOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class StorageClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.StorageClass"):
+class StorageClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.StorageClass"):
     """StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
 
     StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
@@ -22921,7 +22933,7 @@ class StorageClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Stor
     schema:
     :schema:: io.k8s.api.storage.v1.StorageClass
     """
-    def __init__(self, scope: constructs.Construct, name: str, *, provisioner: str, allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]]=None, allow_volume_expansion: typing.Optional[bool]=None, metadata: typing.Optional["ObjectMeta"]=None, mount_options: typing.Optional[typing.List[str]]=None, parameters: typing.Optional[typing.Mapping[str,str]]=None, reclaim_policy: typing.Optional[str]=None, volume_binding_mode: typing.Optional[str]=None) -> None:
+    def __init__(self, scope: constructs.Construct, name: str, *, provisioner: str, allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]]=None, allow_volume_expansion: typing.Optional[bool]=None, metadata: typing.Optional["ObjectMeta"]=None, mount_options: typing.Optional[typing.List[str]]=None, parameters: typing.Optional[typing.Mapping[str, str]]=None, reclaim_policy: typing.Optional[str]=None, volume_binding_mode: typing.Optional[str]=None) -> None:
         """Defines a "io.k8s.api.storage.v1.StorageClass" API object.
 
         :param scope: the scope in which to define this object.
@@ -22940,7 +22952,7 @@ class StorageClass(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Stor
         jsii.create(StorageClass, self, [scope, name, options])
 
 
-class StorageClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.StorageClassList"):
+class StorageClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.StorageClassList"):
     """StorageClassList is a collection of storage classes.
 
     schema:
@@ -22959,9 +22971,9 @@ class StorageClassList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.
         jsii.create(StorageClassList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.StorageClassListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.StorageClassListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class StorageClassListOptions():
-    def __init__(self, *, items: typing.List["StorageClass"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["StorageClass"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """StorageClassList is a collection of storage classes.
 
         :param items: Items is the list of StorageClasses.
@@ -23004,9 +23016,9 @@ class StorageClassListOptions():
         return 'StorageClassListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.StorageClassOptions", jsii_struct_bases=[], name_mapping={'provisioner': 'provisioner', 'allowed_topologies': 'allowedTopologies', 'allow_volume_expansion': 'allowVolumeExpansion', 'metadata': 'metadata', 'mount_options': 'mountOptions', 'parameters': 'parameters', 'reclaim_policy': 'reclaimPolicy', 'volume_binding_mode': 'volumeBindingMode'})
+@jsii.data_type(jsii_type="generated.StorageClassOptions", jsii_struct_bases=[], name_mapping={'provisioner': 'provisioner', 'allowed_topologies': 'allowedTopologies', 'allow_volume_expansion': 'allowVolumeExpansion', 'metadata': 'metadata', 'mount_options': 'mountOptions', 'parameters': 'parameters', 'reclaim_policy': 'reclaimPolicy', 'volume_binding_mode': 'volumeBindingMode'})
 class StorageClassOptions():
-    def __init__(self, *, provisioner: str, allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]]=None, allow_volume_expansion: typing.Optional[bool]=None, metadata: typing.Optional["ObjectMeta"]=None, mount_options: typing.Optional[typing.List[str]]=None, parameters: typing.Optional[typing.Mapping[str,str]]=None, reclaim_policy: typing.Optional[str]=None, volume_binding_mode: typing.Optional[str]=None):
+    def __init__(self, *, provisioner: str, allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]]=None, allow_volume_expansion: typing.Optional[bool]=None, metadata: typing.Optional["ObjectMeta"]=None, mount_options: typing.Optional[typing.List[str]]=None, parameters: typing.Optional[typing.Mapping[str, str]]=None, reclaim_policy: typing.Optional[str]=None, volume_binding_mode: typing.Optional[str]=None) -> None:
         """StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
 
         StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
@@ -23085,7 +23097,7 @@ class StorageClassOptions():
         return self._values.get('mount_options')
 
     @builtins.property
-    def parameters(self) -> typing.Optional[typing.Mapping[str,str]]:
+    def parameters(self) -> typing.Optional[typing.Mapping[str, str]]:
         """Parameters holds the parameters for the provisioner that should create volumes of this storage class.
 
         schema:
@@ -23128,9 +23140,9 @@ class StorageClassOptions():
         return 'StorageClassOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.StorageOSPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
-class StorageOSPersistentVolumeSource():
-    def __init__(self, *, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["ObjectReference"]=None, volume_name: typing.Optional[str]=None, volume_namespace: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.StorageOsPersistentVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
+class StorageOsPersistentVolumeSource():
+    def __init__(self, *, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["ObjectReference"]=None, volume_name: typing.Optional[str]=None, volume_namespace: typing.Optional[str]=None) -> None:
         """Represents a StorageOS persistent volume resource.
 
         :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
@@ -23216,12 +23228,12 @@ class StorageOSPersistentVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'StorageOSPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'StorageOsPersistentVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.StorageOSVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
-class StorageOSVolumeSource():
-    def __init__(self, *, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, volume_name: typing.Optional[str]=None, volume_namespace: typing.Optional[str]=None):
+@jsii.data_type(jsii_type="generated.StorageOsVolumeSource", jsii_struct_bases=[], name_mapping={'fs_type': 'fsType', 'read_only': 'readOnly', 'secret_ref': 'secretRef', 'volume_name': 'volumeName', 'volume_namespace': 'volumeNamespace'})
+class StorageOsVolumeSource():
+    def __init__(self, *, fs_type: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, secret_ref: typing.Optional["LocalObjectReference"]=None, volume_name: typing.Optional[str]=None, volume_namespace: typing.Optional[str]=None) -> None:
         """Represents a StorageOS persistent volume resource.
 
         :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
@@ -23307,12 +23319,12 @@ class StorageOSVolumeSource():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'StorageOSVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return 'StorageOsVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Subject", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'name': 'name', 'api_group': 'apiGroup', 'namespace': 'namespace'})
+@jsii.data_type(jsii_type="generated.Subject", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'name': 'name', 'api_group': 'apiGroup', 'namespace': 'namespace'})
 class Subject():
-    def __init__(self, *, kind: str, name: str, api_group: typing.Optional[str]=None, namespace: typing.Optional[str]=None):
+    def __init__(self, *, kind: str, name: str, api_group: typing.Optional[str]=None, namespace: typing.Optional[str]=None) -> None:
         """Subject contains a reference to the object or user identities a role binding applies to.
 
         This can either hold a direct API object reference, or a value for non-objects such as user and group names.
@@ -23387,7 +23399,7 @@ class Subject():
         return 'Subject(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class SubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.SubjectAccessReview"):
+class SubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.SubjectAccessReview"):
     """SubjectAccessReview checks whether or not a user or group can perform an action.
 
     schema:
@@ -23406,9 +23418,9 @@ class SubjectAccessReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k
         jsii.create(SubjectAccessReview, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.SubjectAccessReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.SubjectAccessReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class SubjectAccessReviewOptions():
-    def __init__(self, *, spec: "SubjectAccessReviewSpec", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, spec: "SubjectAccessReviewSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """SubjectAccessReview checks whether or not a user or group can perform an action.
 
         :param spec: Spec holds information about the request being evaluated.
@@ -23451,9 +23463,9 @@ class SubjectAccessReviewOptions():
         return 'SubjectAccessReviewOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SubjectAccessReviewSpec", jsii_struct_bases=[], name_mapping={'extra': 'extra', 'groups': 'groups', 'non_resource_attributes': 'nonResourceAttributes', 'resource_attributes': 'resourceAttributes', 'uid': 'uid', 'user': 'user'})
+@jsii.data_type(jsii_type="generated.SubjectAccessReviewSpec", jsii_struct_bases=[], name_mapping={'extra': 'extra', 'groups': 'groups', 'non_resource_attributes': 'nonResourceAttributes', 'resource_attributes': 'resourceAttributes', 'uid': 'uid', 'user': 'user'})
 class SubjectAccessReviewSpec():
-    def __init__(self, *, extra: typing.Optional[typing.Mapping[str,typing.List[str]]]=None, groups: typing.Optional[typing.List[str]]=None, non_resource_attributes: typing.Optional["NonResourceAttributes"]=None, resource_attributes: typing.Optional["ResourceAttributes"]=None, uid: typing.Optional[str]=None, user: typing.Optional[str]=None):
+    def __init__(self, *, extra: typing.Optional[typing.Mapping[str, typing.List[str]]]=None, groups: typing.Optional[typing.List[str]]=None, non_resource_attributes: typing.Optional["NonResourceAttributes"]=None, resource_attributes: typing.Optional["ResourceAttributes"]=None, uid: typing.Optional[str]=None, user: typing.Optional[str]=None) -> None:
         """SubjectAccessReviewSpec is a description of the access request.
 
         Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
@@ -23480,7 +23492,7 @@ class SubjectAccessReviewSpec():
         if user is not None: self._values["user"] = user
 
     @builtins.property
-    def extra(self) -> typing.Optional[typing.Mapping[str,typing.List[str]]]:
+    def extra(self) -> typing.Optional[typing.Mapping[str, typing.List[str]]]:
         """Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.
 
         schema:
@@ -23545,9 +23557,9 @@ class SubjectAccessReviewSpec():
         return 'SubjectAccessReviewSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.SupplementalGroupsStrategyOptions", jsii_struct_bases=[], name_mapping={'ranges': 'ranges', 'rule': 'rule'})
+@jsii.data_type(jsii_type="generated.SupplementalGroupsStrategyOptions", jsii_struct_bases=[], name_mapping={'ranges': 'ranges', 'rule': 'rule'})
 class SupplementalGroupsStrategyOptions():
-    def __init__(self, *, ranges: typing.Optional[typing.List["IdRange"]]=None, rule: typing.Optional[str]=None):
+    def __init__(self, *, ranges: typing.Optional[typing.List["IdRange"]]=None, rule: typing.Optional[str]=None) -> None:
         """SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.
 
         :param ranges: ranges are the allowed ranges of supplemental groups. If you would like to force a single supplemental group then supply a single range with the same start and end. Required for MustRunAs.
@@ -23591,9 +23603,9 @@ class SupplementalGroupsStrategyOptions():
         return 'SupplementalGroupsStrategyOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Sysctl", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.Sysctl", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
 class Sysctl():
-    def __init__(self, *, name: str, value: str):
+    def __init__(self, *, name: str, value: str) -> None:
         """Sysctl defines a kernel parameter to be set.
 
         :param name: Name of a property to set.
@@ -23635,55 +23647,9 @@ class Sysctl():
         return 'Sysctl(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.TCPSocketAction", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
-class TCPSocketAction():
-    def __init__(self, *, port: "IntOrString", host: typing.Optional[str]=None):
-        """TCPSocketAction describes an action based on opening a socket.
-
-        :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-        :param host: Optional: Host name to connect to, defaults to the pod IP.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.TCPSocketAction
-        """
-        self._values = {
-            'port': port,
-        }
-        if host is not None: self._values["host"] = host
-
-    @builtins.property
-    def port(self) -> "IntOrString":
-        """Number or name of the port to access on the container.
-
-        Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.TCPSocketAction#port
-        """
-        return self._values.get('port')
-
-    @builtins.property
-    def host(self) -> typing.Optional[str]:
-        """Optional: Host name to connect to, defaults to the pod IP.
-
-        schema:
-        :schema:: io.k8s.api.core.v1.TCPSocketAction#host
-        """
-        return self._values.get('host')
-
-    def __eq__(self, rhs) -> bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs) -> bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return 'TCPSocketAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
-
-
-@jsii.data_type(jsii_type="k8s.Taint", jsii_struct_bases=[], name_mapping={'effect': 'effect', 'key': 'key', 'time_added': 'timeAdded', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.Taint", jsii_struct_bases=[], name_mapping={'effect': 'effect', 'key': 'key', 'time_added': 'timeAdded', 'value': 'value'})
 class Taint():
-    def __init__(self, *, effect: str, key: str, time_added: typing.Optional[datetime.datetime]=None, value: typing.Optional[str]=None):
+    def __init__(self, *, effect: str, key: str, time_added: typing.Optional[datetime.datetime]=None, value: typing.Optional[str]=None) -> None:
         """The node this Taint is attached to has the "effect" on any pod that does not tolerate the Taint.
 
         :param effect: Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.
@@ -23755,7 +23721,53 @@ class Taint():
         return 'Taint(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class TokenRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.TokenRequest"):
+@jsii.data_type(jsii_type="generated.TcpSocketAction", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
+class TcpSocketAction():
+    def __init__(self, *, port: "IntOrString", host: typing.Optional[str]=None) -> None:
+        """TCPSocketAction describes an action based on opening a socket.
+
+        :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+        :param host: Optional: Host name to connect to, defaults to the pod IP.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.TCPSocketAction
+        """
+        self._values = {
+            'port': port,
+        }
+        if host is not None: self._values["host"] = host
+
+    @builtins.property
+    def port(self) -> "IntOrString":
+        """Number or name of the port to access on the container.
+
+        Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.TCPSocketAction#port
+        """
+        return self._values.get('port')
+
+    @builtins.property
+    def host(self) -> typing.Optional[str]:
+        """Optional: Host name to connect to, defaults to the pod IP.
+
+        schema:
+        :schema:: io.k8s.api.core.v1.TCPSocketAction#host
+        """
+        return self._values.get('host')
+
+    def __eq__(self, rhs) -> bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs) -> bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return 'TcpSocketAction(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+
+
+class TokenRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.TokenRequest"):
     """TokenRequest requests a token for a given service account.
 
     schema:
@@ -23774,9 +23786,9 @@ class TokenRequest(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Toke
         jsii.create(TokenRequest, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.TokenRequestOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.TokenRequestOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class TokenRequestOptions():
-    def __init__(self, *, spec: "TokenRequestSpec", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, spec: "TokenRequestSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """TokenRequest requests a token for a given service account.
 
         :param spec: 
@@ -23818,9 +23830,9 @@ class TokenRequestOptions():
         return 'TokenRequestOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.TokenRequestSpec", jsii_struct_bases=[], name_mapping={'audiences': 'audiences', 'bound_object_ref': 'boundObjectRef', 'expiration_seconds': 'expirationSeconds'})
+@jsii.data_type(jsii_type="generated.TokenRequestSpec", jsii_struct_bases=[], name_mapping={'audiences': 'audiences', 'bound_object_ref': 'boundObjectRef', 'expiration_seconds': 'expirationSeconds'})
 class TokenRequestSpec():
-    def __init__(self, *, audiences: typing.List[str], bound_object_ref: typing.Optional["BoundObjectReference"]=None, expiration_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, audiences: typing.List[str], bound_object_ref: typing.Optional["BoundObjectReference"]=None, expiration_seconds: typing.Optional[jsii.Number]=None) -> None:
         """TokenRequestSpec contains client provided parameters of a token request.
 
         :param audiences: Audiences are the intendend audiences of the token. A recipient of a token must identitfy themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
@@ -23880,7 +23892,7 @@ class TokenRequestSpec():
         return 'TokenRequestSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class TokenReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.TokenReview"):
+class TokenReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.TokenReview"):
     """TokenReview attempts to authenticate a token to a known user.
 
     Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
@@ -23901,9 +23913,9 @@ class TokenReview(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Token
         jsii.create(TokenReview, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.TokenReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.TokenReviewOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class TokenReviewOptions():
-    def __init__(self, *, spec: "TokenReviewSpec", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, spec: "TokenReviewSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """TokenReview attempts to authenticate a token to a known user.
 
         Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
@@ -23948,9 +23960,9 @@ class TokenReviewOptions():
         return 'TokenReviewOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.TokenReviewSpec", jsii_struct_bases=[], name_mapping={'audiences': 'audiences', 'token': 'token'})
+@jsii.data_type(jsii_type="generated.TokenReviewSpec", jsii_struct_bases=[], name_mapping={'audiences': 'audiences', 'token': 'token'})
 class TokenReviewSpec():
-    def __init__(self, *, audiences: typing.Optional[typing.List[str]]=None, token: typing.Optional[str]=None):
+    def __init__(self, *, audiences: typing.Optional[typing.List[str]]=None, token: typing.Optional[str]=None) -> None:
         """TokenReviewSpec is a description of the token authentication request.
 
         :param audiences: Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.
@@ -23994,9 +24006,9 @@ class TokenReviewSpec():
         return 'TokenReviewSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Toleration", jsii_struct_bases=[], name_mapping={'effect': 'effect', 'key': 'key', 'operator': 'operator', 'toleration_seconds': 'tolerationSeconds', 'value': 'value'})
+@jsii.data_type(jsii_type="generated.Toleration", jsii_struct_bases=[], name_mapping={'effect': 'effect', 'key': 'key', 'operator': 'operator', 'toleration_seconds': 'tolerationSeconds', 'value': 'value'})
 class Toleration():
-    def __init__(self, *, effect: typing.Optional[str]=None, key: typing.Optional[str]=None, operator: typing.Optional[str]=None, toleration_seconds: typing.Optional[jsii.Number]=None, value: typing.Optional[str]=None):
+    def __init__(self, *, effect: typing.Optional[str]=None, key: typing.Optional[str]=None, operator: typing.Optional[str]=None, toleration_seconds: typing.Optional[jsii.Number]=None, value: typing.Optional[str]=None) -> None:
         """The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator .
 
         :param effect: Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
@@ -24084,9 +24096,9 @@ class Toleration():
         return 'Toleration(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.TopologySelectorLabelRequirement", jsii_struct_bases=[], name_mapping={'key': 'key', 'values': 'values'})
+@jsii.data_type(jsii_type="generated.TopologySelectorLabelRequirement", jsii_struct_bases=[], name_mapping={'key': 'key', 'values': 'values'})
 class TopologySelectorLabelRequirement():
-    def __init__(self, *, key: str, values: typing.List[str]):
+    def __init__(self, *, key: str, values: typing.List[str]) -> None:
         """A topology selector requirement is a selector that matches given label.
 
         This is an alpha feature and may change in the future.
@@ -24132,9 +24144,9 @@ class TopologySelectorLabelRequirement():
         return 'TopologySelectorLabelRequirement(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.TopologySelectorTerm", jsii_struct_bases=[], name_mapping={'match_label_expressions': 'matchLabelExpressions'})
+@jsii.data_type(jsii_type="generated.TopologySelectorTerm", jsii_struct_bases=[], name_mapping={'match_label_expressions': 'matchLabelExpressions'})
 class TopologySelectorTerm():
-    def __init__(self, *, match_label_expressions: typing.Optional[typing.List["TopologySelectorLabelRequirement"]]=None):
+    def __init__(self, *, match_label_expressions: typing.Optional[typing.List["TopologySelectorLabelRequirement"]]=None) -> None:
         """A topology selector term represents the result of label queries.
 
         A null or empty topology selector term matches no objects. The requirements of them are ANDed. It provides a subset of functionality as NodeSelectorTerm. This is an alpha feature and may change in the future.
@@ -24167,9 +24179,9 @@ class TopologySelectorTerm():
         return 'TopologySelectorTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.TopologySpreadConstraint", jsii_struct_bases=[], name_mapping={'max_skew': 'maxSkew', 'topology_key': 'topologyKey', 'when_unsatisfiable': 'whenUnsatisfiable', 'label_selector': 'labelSelector'})
+@jsii.data_type(jsii_type="generated.TopologySpreadConstraint", jsii_struct_bases=[], name_mapping={'max_skew': 'maxSkew', 'topology_key': 'topologyKey', 'when_unsatisfiable': 'whenUnsatisfiable', 'label_selector': 'labelSelector'})
 class TopologySpreadConstraint():
-    def __init__(self, *, max_skew: jsii.Number, topology_key: str, when_unsatisfiable: str, label_selector: typing.Optional["LabelSelector"]=None):
+    def __init__(self, *, max_skew: jsii.Number, topology_key: str, when_unsatisfiable: str, label_selector: typing.Optional["LabelSelector"]=None) -> None:
         """TopologySpreadConstraint specifies how to spread matching pods among the given topology.
 
         :param max_skew: MaxSkew describes the degree to which pods may be unevenly distributed. It's the maximum permitted difference between the number of matching pods in any two topology domains of a given topology type. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 1/1/0: | zone1 | zone2 | zone3 | | P | P | | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 1/1/1; scheduling it onto zone1(zone2) would make the ActualSkew(2-0) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. It's a required field. Default value is 1 and 0 is not allowed.
@@ -24242,9 +24254,9 @@ class TopologySpreadConstraint():
         return 'TopologySpreadConstraint(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.TypedLocalObjectReference", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'name': 'name', 'api_group': 'apiGroup'})
+@jsii.data_type(jsii_type="generated.TypedLocalObjectReference", jsii_struct_bases=[], name_mapping={'kind': 'kind', 'name': 'name', 'api_group': 'apiGroup'})
 class TypedLocalObjectReference():
-    def __init__(self, *, kind: str, name: str, api_group: typing.Optional[str]=None):
+    def __init__(self, *, kind: str, name: str, api_group: typing.Optional[str]=None) -> None:
         """TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.
 
         :param kind: Kind is the type of resource being referenced.
@@ -24299,9 +24311,9 @@ class TypedLocalObjectReference():
         return 'TypedLocalObjectReference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ValidatingWebhook", jsii_struct_bases=[], name_mapping={'admission_review_versions': 'admissionReviewVersions', 'client_config': 'clientConfig', 'name': 'name', 'side_effects': 'sideEffects', 'failure_policy': 'failurePolicy', 'match_policy': 'matchPolicy', 'namespace_selector': 'namespaceSelector', 'object_selector': 'objectSelector', 'rules': 'rules', 'timeout_seconds': 'timeoutSeconds'})
+@jsii.data_type(jsii_type="generated.ValidatingWebhook", jsii_struct_bases=[], name_mapping={'admission_review_versions': 'admissionReviewVersions', 'client_config': 'clientConfig', 'name': 'name', 'side_effects': 'sideEffects', 'failure_policy': 'failurePolicy', 'match_policy': 'matchPolicy', 'namespace_selector': 'namespaceSelector', 'object_selector': 'objectSelector', 'rules': 'rules', 'timeout_seconds': 'timeoutSeconds'})
 class ValidatingWebhook():
-    def __init__(self, *, admission_review_versions: typing.List[str], client_config: "WebhookClientConfig", name: str, side_effects: str, failure_policy: typing.Optional[str]=None, match_policy: typing.Optional[str]=None, namespace_selector: typing.Optional["LabelSelector"]=None, object_selector: typing.Optional["LabelSelector"]=None, rules: typing.Optional[typing.List["RuleWithOperations"]]=None, timeout_seconds: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, admission_review_versions: typing.List[str], client_config: "WebhookClientConfig", name: str, side_effects: str, failure_policy: typing.Optional[str]=None, match_policy: typing.Optional[str]=None, namespace_selector: typing.Optional["LabelSelector"]=None, object_selector: typing.Optional["LabelSelector"]=None, rules: typing.Optional[typing.List["RuleWithOperations"]]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
         """ValidatingWebhook describes an admission webhook and the resources and operations it applies to.
 
         :param admission_review_versions: AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
@@ -24502,7 +24514,7 @@ class ValidatingWebhook():
         return 'ValidatingWebhook(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class ValidatingWebhookConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ValidatingWebhookConfiguration"):
+class ValidatingWebhookConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ValidatingWebhookConfiguration"):
     """ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
 
     schema:
@@ -24521,7 +24533,7 @@ class ValidatingWebhookConfiguration(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, j
         jsii.create(ValidatingWebhookConfiguration, self, [scope, name, options])
 
 
-class ValidatingWebhookConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.ValidatingWebhookConfigurationList"):
+class ValidatingWebhookConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ValidatingWebhookConfigurationList"):
     """ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
 
     schema:
@@ -24540,9 +24552,9 @@ class ValidatingWebhookConfigurationList(cdk8s.ApiObject, metaclass=jsii.JSIIMet
         jsii.create(ValidatingWebhookConfigurationList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.ValidatingWebhookConfigurationListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.ValidatingWebhookConfigurationListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class ValidatingWebhookConfigurationListOptions():
-    def __init__(self, *, items: typing.List["ValidatingWebhookConfiguration"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["ValidatingWebhookConfiguration"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
 
         :param items: List of ValidatingWebhookConfiguration.
@@ -24587,9 +24599,9 @@ class ValidatingWebhookConfigurationListOptions():
         return 'ValidatingWebhookConfigurationListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.ValidatingWebhookConfigurationOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'webhooks': 'webhooks'})
+@jsii.data_type(jsii_type="generated.ValidatingWebhookConfigurationOptions", jsii_struct_bases=[], name_mapping={'metadata': 'metadata', 'webhooks': 'webhooks'})
 class ValidatingWebhookConfigurationOptions():
-    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, webhooks: typing.Optional[typing.List["ValidatingWebhook"]]=None):
+    def __init__(self, *, metadata: typing.Optional["ObjectMeta"]=None, webhooks: typing.Optional[typing.List["ValidatingWebhook"]]=None) -> None:
         """ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
 
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
@@ -24634,9 +24646,9 @@ class ValidatingWebhookConfigurationOptions():
         return 'ValidatingWebhookConfigurationOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Volume", jsii_struct_bases=[], name_mapping={'name': 'name', 'aws_elastic_block_store': 'awsElasticBlockStore', 'azure_disk': 'azureDisk', 'azure_file': 'azureFile', 'cephfs': 'cephfs', 'cinder': 'cinder', 'config_map': 'configMap', 'csi': 'csi', 'downward_api': 'downwardAPI', 'empty_dir': 'emptyDir', 'fc': 'fc', 'flex_volume': 'flexVolume', 'flocker': 'flocker', 'gce_persistent_disk': 'gcePersistentDisk', 'git_repo': 'gitRepo', 'glusterfs': 'glusterfs', 'host_path': 'hostPath', 'iscsi': 'iscsi', 'nfs': 'nfs', 'persistent_volume_claim': 'persistentVolumeClaim', 'photon_persistent_disk': 'photonPersistentDisk', 'portworx_volume': 'portworxVolume', 'projected': 'projected', 'quobyte': 'quobyte', 'rbd': 'rbd', 'scale_io': 'scaleIO', 'secret': 'secret', 'storageos': 'storageos', 'vsphere_volume': 'vsphereVolume'})
+@jsii.data_type(jsii_type="generated.Volume", jsii_struct_bases=[], name_mapping={'name': 'name', 'aws_elastic_block_store': 'awsElasticBlockStore', 'azure_disk': 'azureDisk', 'azure_file': 'azureFile', 'cephfs': 'cephfs', 'cinder': 'cinder', 'config_map': 'configMap', 'csi': 'csi', 'downward_api': 'downwardAPI', 'empty_dir': 'emptyDir', 'fc': 'fc', 'flex_volume': 'flexVolume', 'flocker': 'flocker', 'gce_persistent_disk': 'gcePersistentDisk', 'git_repo': 'gitRepo', 'glusterfs': 'glusterfs', 'host_path': 'hostPath', 'iscsi': 'iscsi', 'nfs': 'nfs', 'persistent_volume_claim': 'persistentVolumeClaim', 'photon_persistent_disk': 'photonPersistentDisk', 'portworx_volume': 'portworxVolume', 'projected': 'projected', 'quobyte': 'quobyte', 'rbd': 'rbd', 'scale_io': 'scaleIO', 'secret': 'secret', 'storageos': 'storageos', 'vsphere_volume': 'vsphereVolume'})
 class Volume():
-    def __init__(self, *, name: str, aws_elastic_block_store: typing.Optional["AWSElasticBlockStoreVolumeSource"]=None, azure_disk: typing.Optional["AzureDiskVolumeSource"]=None, azure_file: typing.Optional["AzureFileVolumeSource"]=None, cephfs: typing.Optional["CephFSVolumeSource"]=None, cinder: typing.Optional["CinderVolumeSource"]=None, config_map: typing.Optional["ConfigMapVolumeSource"]=None, csi: typing.Optional["CSIVolumeSource"]=None, downward_api: typing.Optional["DownwardAPIVolumeSource"]=None, empty_dir: typing.Optional["EmptyDirVolumeSource"]=None, fc: typing.Optional["FCVolumeSource"]=None, flex_volume: typing.Optional["FlexVolumeSource"]=None, flocker: typing.Optional["FlockerVolumeSource"]=None, gce_persistent_disk: typing.Optional["GCEPersistentDiskVolumeSource"]=None, git_repo: typing.Optional["GitRepoVolumeSource"]=None, glusterfs: typing.Optional["GlusterfsVolumeSource"]=None, host_path: typing.Optional["HostPathVolumeSource"]=None, iscsi: typing.Optional["IscsiVolumeSource"]=None, nfs: typing.Optional["NFSVolumeSource"]=None, persistent_volume_claim: typing.Optional["PersistentVolumeClaimVolumeSource"]=None, photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"]=None, portworx_volume: typing.Optional["PortworxVolumeSource"]=None, projected: typing.Optional["ProjectedVolumeSource"]=None, quobyte: typing.Optional["QuobyteVolumeSource"]=None, rbd: typing.Optional["RBDVolumeSource"]=None, scale_io: typing.Optional["ScaleIOVolumeSource"]=None, secret: typing.Optional["SecretVolumeSource"]=None, storageos: typing.Optional["StorageOSVolumeSource"]=None, vsphere_volume: typing.Optional["VsphereVirtualDiskVolumeSource"]=None):
+    def __init__(self, *, name: str, aws_elastic_block_store: typing.Optional["AwsElasticBlockStoreVolumeSource"]=None, azure_disk: typing.Optional["AzureDiskVolumeSource"]=None, azure_file: typing.Optional["AzureFileVolumeSource"]=None, cephfs: typing.Optional["CephFsVolumeSource"]=None, cinder: typing.Optional["CinderVolumeSource"]=None, config_map: typing.Optional["ConfigMapVolumeSource"]=None, csi: typing.Optional["CsiVolumeSource"]=None, downward_api: typing.Optional["DownwardApiVolumeSource"]=None, empty_dir: typing.Optional["EmptyDirVolumeSource"]=None, fc: typing.Optional["FcVolumeSource"]=None, flex_volume: typing.Optional["FlexVolumeSource"]=None, flocker: typing.Optional["FlockerVolumeSource"]=None, gce_persistent_disk: typing.Optional["GcePersistentDiskVolumeSource"]=None, git_repo: typing.Optional["GitRepoVolumeSource"]=None, glusterfs: typing.Optional["GlusterfsVolumeSource"]=None, host_path: typing.Optional["HostPathVolumeSource"]=None, iscsi: typing.Optional["IscsiVolumeSource"]=None, nfs: typing.Optional["NfsVolumeSource"]=None, persistent_volume_claim: typing.Optional["PersistentVolumeClaimVolumeSource"]=None, photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"]=None, portworx_volume: typing.Optional["PortworxVolumeSource"]=None, projected: typing.Optional["ProjectedVolumeSource"]=None, quobyte: typing.Optional["QuobyteVolumeSource"]=None, rbd: typing.Optional["RbdVolumeSource"]=None, scale_io: typing.Optional["ScaleIoVolumeSource"]=None, secret: typing.Optional["SecretVolumeSource"]=None, storageos: typing.Optional["StorageOsVolumeSource"]=None, vsphere_volume: typing.Optional["VsphereVirtualDiskVolumeSource"]=None) -> None:
         """Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
         :param name: Volume's name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -24672,33 +24684,33 @@ class Volume():
         schema:
         :schema:: io.k8s.api.core.v1.Volume
         """
-        if isinstance(aws_elastic_block_store, dict): aws_elastic_block_store = AWSElasticBlockStoreVolumeSource(**aws_elastic_block_store)
+        if isinstance(aws_elastic_block_store, dict): aws_elastic_block_store = AwsElasticBlockStoreVolumeSource(**aws_elastic_block_store)
         if isinstance(azure_disk, dict): azure_disk = AzureDiskVolumeSource(**azure_disk)
         if isinstance(azure_file, dict): azure_file = AzureFileVolumeSource(**azure_file)
-        if isinstance(cephfs, dict): cephfs = CephFSVolumeSource(**cephfs)
+        if isinstance(cephfs, dict): cephfs = CephFsVolumeSource(**cephfs)
         if isinstance(cinder, dict): cinder = CinderVolumeSource(**cinder)
         if isinstance(config_map, dict): config_map = ConfigMapVolumeSource(**config_map)
-        if isinstance(csi, dict): csi = CSIVolumeSource(**csi)
-        if isinstance(downward_api, dict): downward_api = DownwardAPIVolumeSource(**downward_api)
+        if isinstance(csi, dict): csi = CsiVolumeSource(**csi)
+        if isinstance(downward_api, dict): downward_api = DownwardApiVolumeSource(**downward_api)
         if isinstance(empty_dir, dict): empty_dir = EmptyDirVolumeSource(**empty_dir)
-        if isinstance(fc, dict): fc = FCVolumeSource(**fc)
+        if isinstance(fc, dict): fc = FcVolumeSource(**fc)
         if isinstance(flex_volume, dict): flex_volume = FlexVolumeSource(**flex_volume)
         if isinstance(flocker, dict): flocker = FlockerVolumeSource(**flocker)
-        if isinstance(gce_persistent_disk, dict): gce_persistent_disk = GCEPersistentDiskVolumeSource(**gce_persistent_disk)
+        if isinstance(gce_persistent_disk, dict): gce_persistent_disk = GcePersistentDiskVolumeSource(**gce_persistent_disk)
         if isinstance(git_repo, dict): git_repo = GitRepoVolumeSource(**git_repo)
         if isinstance(glusterfs, dict): glusterfs = GlusterfsVolumeSource(**glusterfs)
         if isinstance(host_path, dict): host_path = HostPathVolumeSource(**host_path)
         if isinstance(iscsi, dict): iscsi = IscsiVolumeSource(**iscsi)
-        if isinstance(nfs, dict): nfs = NFSVolumeSource(**nfs)
+        if isinstance(nfs, dict): nfs = NfsVolumeSource(**nfs)
         if isinstance(persistent_volume_claim, dict): persistent_volume_claim = PersistentVolumeClaimVolumeSource(**persistent_volume_claim)
         if isinstance(photon_persistent_disk, dict): photon_persistent_disk = PhotonPersistentDiskVolumeSource(**photon_persistent_disk)
         if isinstance(portworx_volume, dict): portworx_volume = PortworxVolumeSource(**portworx_volume)
         if isinstance(projected, dict): projected = ProjectedVolumeSource(**projected)
         if isinstance(quobyte, dict): quobyte = QuobyteVolumeSource(**quobyte)
-        if isinstance(rbd, dict): rbd = RBDVolumeSource(**rbd)
-        if isinstance(scale_io, dict): scale_io = ScaleIOVolumeSource(**scale_io)
+        if isinstance(rbd, dict): rbd = RbdVolumeSource(**rbd)
+        if isinstance(scale_io, dict): scale_io = ScaleIoVolumeSource(**scale_io)
         if isinstance(secret, dict): secret = SecretVolumeSource(**secret)
-        if isinstance(storageos, dict): storageos = StorageOSVolumeSource(**storageos)
+        if isinstance(storageos, dict): storageos = StorageOsVolumeSource(**storageos)
         if isinstance(vsphere_volume, dict): vsphere_volume = VsphereVirtualDiskVolumeSource(**vsphere_volume)
         self._values = {
             'name': name,
@@ -24744,7 +24756,7 @@ class Volume():
         return self._values.get('name')
 
     @builtins.property
-    def aws_elastic_block_store(self) -> typing.Optional["AWSElasticBlockStoreVolumeSource"]:
+    def aws_elastic_block_store(self) -> typing.Optional["AwsElasticBlockStoreVolumeSource"]:
         """AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
@@ -24773,7 +24785,7 @@ class Volume():
         return self._values.get('azure_file')
 
     @builtins.property
-    def cephfs(self) -> typing.Optional["CephFSVolumeSource"]:
+    def cephfs(self) -> typing.Optional["CephFsVolumeSource"]:
         """CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
 
         schema:
@@ -24802,7 +24814,7 @@ class Volume():
         return self._values.get('config_map')
 
     @builtins.property
-    def csi(self) -> typing.Optional["CSIVolumeSource"]:
+    def csi(self) -> typing.Optional["CsiVolumeSource"]:
         """CSI (Container Storage Interface) represents storage that is handled by an external CSI driver (Alpha feature).
 
         schema:
@@ -24811,7 +24823,7 @@ class Volume():
         return self._values.get('csi')
 
     @builtins.property
-    def downward_api(self) -> typing.Optional["DownwardAPIVolumeSource"]:
+    def downward_api(self) -> typing.Optional["DownwardApiVolumeSource"]:
         """DownwardAPI represents downward API about the pod that should populate this volume.
 
         schema:
@@ -24831,7 +24843,7 @@ class Volume():
         return self._values.get('empty_dir')
 
     @builtins.property
-    def fc(self) -> typing.Optional["FCVolumeSource"]:
+    def fc(self) -> typing.Optional["FcVolumeSource"]:
         """FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         schema:
@@ -24860,7 +24872,7 @@ class Volume():
         return self._values.get('flocker')
 
     @builtins.property
-    def gce_persistent_disk(self) -> typing.Optional["GCEPersistentDiskVolumeSource"]:
+    def gce_persistent_disk(self) -> typing.Optional["GcePersistentDiskVolumeSource"]:
         """GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
@@ -24915,7 +24927,7 @@ class Volume():
         return self._values.get('iscsi')
 
     @builtins.property
-    def nfs(self) -> typing.Optional["NFSVolumeSource"]:
+    def nfs(self) -> typing.Optional["NfsVolumeSource"]:
         """NFS represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs.
 
         schema:
@@ -24971,7 +24983,7 @@ class Volume():
         return self._values.get('quobyte')
 
     @builtins.property
-    def rbd(self) -> typing.Optional["RBDVolumeSource"]:
+    def rbd(self) -> typing.Optional["RbdVolumeSource"]:
         """RBD represents a Rados Block Device mount on the host that shares a pod's lifetime.
 
         More info: https://examples.k8s.io/volumes/rbd/README.md
@@ -24982,7 +24994,7 @@ class Volume():
         return self._values.get('rbd')
 
     @builtins.property
-    def scale_io(self) -> typing.Optional["ScaleIOVolumeSource"]:
+    def scale_io(self) -> typing.Optional["ScaleIoVolumeSource"]:
         """ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
 
         schema:
@@ -25002,7 +25014,7 @@ class Volume():
         return self._values.get('secret')
 
     @builtins.property
-    def storageos(self) -> typing.Optional["StorageOSVolumeSource"]:
+    def storageos(self) -> typing.Optional["StorageOsVolumeSource"]:
         """StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
 
         schema:
@@ -25029,7 +25041,7 @@ class Volume():
         return 'Volume(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-class VolumeAttachment(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.VolumeAttachment"):
+class VolumeAttachment(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.VolumeAttachment"):
     """VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
 
     VolumeAttachment objects are non-namespaced.
@@ -25050,7 +25062,7 @@ class VolumeAttachment(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.
         jsii.create(VolumeAttachment, self, [scope, name, options])
 
 
-class VolumeAttachmentList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.VolumeAttachmentList"):
+class VolumeAttachmentList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.VolumeAttachmentList"):
     """VolumeAttachmentList is a collection of VolumeAttachment objects.
 
     schema:
@@ -25069,9 +25081,9 @@ class VolumeAttachmentList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="
         jsii.create(VolumeAttachmentList, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="k8s.VolumeAttachmentListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.VolumeAttachmentListOptions", jsii_struct_bases=[], name_mapping={'items': 'items', 'metadata': 'metadata'})
 class VolumeAttachmentListOptions():
-    def __init__(self, *, items: typing.List["VolumeAttachment"], metadata: typing.Optional["ListMeta"]=None):
+    def __init__(self, *, items: typing.List["VolumeAttachment"], metadata: typing.Optional["ListMeta"]=None) -> None:
         """VolumeAttachmentList is a collection of VolumeAttachment objects.
 
         :param items: Items is the list of VolumeAttachments.
@@ -25114,9 +25126,9 @@ class VolumeAttachmentListOptions():
         return 'VolumeAttachmentListOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VolumeAttachmentOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
+@jsii.data_type(jsii_type="generated.VolumeAttachmentOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
 class VolumeAttachmentOptions():
-    def __init__(self, *, spec: "VolumeAttachmentSpec", metadata: typing.Optional["ObjectMeta"]=None):
+    def __init__(self, *, spec: "VolumeAttachmentSpec", metadata: typing.Optional["ObjectMeta"]=None) -> None:
         """VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
 
         VolumeAttachment objects are non-namespaced.
@@ -25166,9 +25178,9 @@ class VolumeAttachmentOptions():
         return 'VolumeAttachmentOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VolumeAttachmentSource", jsii_struct_bases=[], name_mapping={'inline_volume_spec': 'inlineVolumeSpec', 'persistent_volume_name': 'persistentVolumeName'})
+@jsii.data_type(jsii_type="generated.VolumeAttachmentSource", jsii_struct_bases=[], name_mapping={'inline_volume_spec': 'inlineVolumeSpec', 'persistent_volume_name': 'persistentVolumeName'})
 class VolumeAttachmentSource():
-    def __init__(self, *, inline_volume_spec: typing.Optional["PersistentVolumeSpec"]=None, persistent_volume_name: typing.Optional[str]=None):
+    def __init__(self, *, inline_volume_spec: typing.Optional["PersistentVolumeSpec"]=None, persistent_volume_name: typing.Optional[str]=None) -> None:
         """VolumeAttachmentSource represents a volume that should be attached.
 
         Right now only PersistenVolumes can be attached via external attacher, in future we may allow also inline volumes in pods. Exactly one member can be set.
@@ -25215,9 +25227,9 @@ class VolumeAttachmentSource():
         return 'VolumeAttachmentSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VolumeAttachmentSpec", jsii_struct_bases=[], name_mapping={'attacher': 'attacher', 'node_name': 'nodeName', 'source': 'source'})
+@jsii.data_type(jsii_type="generated.VolumeAttachmentSpec", jsii_struct_bases=[], name_mapping={'attacher': 'attacher', 'node_name': 'nodeName', 'source': 'source'})
 class VolumeAttachmentSpec():
-    def __init__(self, *, attacher: str, node_name: str, source: "VolumeAttachmentSource"):
+    def __init__(self, *, attacher: str, node_name: str, source: "VolumeAttachmentSource") -> None:
         """VolumeAttachmentSpec is the specification of a VolumeAttachment request.
 
         :param attacher: Attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().
@@ -25273,9 +25285,9 @@ class VolumeAttachmentSpec():
         return 'VolumeAttachmentSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VolumeDevice", jsii_struct_bases=[], name_mapping={'device_path': 'devicePath', 'name': 'name'})
+@jsii.data_type(jsii_type="generated.VolumeDevice", jsii_struct_bases=[], name_mapping={'device_path': 'devicePath', 'name': 'name'})
 class VolumeDevice():
-    def __init__(self, *, device_path: str, name: str):
+    def __init__(self, *, device_path: str, name: str) -> None:
         """volumeDevice describes a mapping of a raw block device within a container.
 
         :param device_path: devicePath is the path inside of the container that the device will be mapped to.
@@ -25317,9 +25329,9 @@ class VolumeDevice():
         return 'VolumeDevice(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VolumeMount", jsii_struct_bases=[], name_mapping={'mount_path': 'mountPath', 'name': 'name', 'mount_propagation': 'mountPropagation', 'read_only': 'readOnly', 'sub_path': 'subPath', 'sub_path_expr': 'subPathExpr'})
+@jsii.data_type(jsii_type="generated.VolumeMount", jsii_struct_bases=[], name_mapping={'mount_path': 'mountPath', 'name': 'name', 'mount_propagation': 'mountPropagation', 'read_only': 'readOnly', 'sub_path': 'subPath', 'sub_path_expr': 'subPathExpr'})
 class VolumeMount():
-    def __init__(self, *, mount_path: str, name: str, mount_propagation: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, sub_path: typing.Optional[str]=None, sub_path_expr: typing.Optional[str]=None):
+    def __init__(self, *, mount_path: str, name: str, mount_propagation: typing.Optional[str]=None, read_only: typing.Optional[bool]=None, sub_path: typing.Optional[str]=None, sub_path_expr: typing.Optional[str]=None) -> None:
         """VolumeMount describes a mounting of a Volume within a container.
 
         :param mount_path: Path within the container at which the volume should be mounted. Must not contain ':'.
@@ -25424,9 +25436,9 @@ class VolumeMount():
         return 'VolumeMount(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VolumeNodeAffinity", jsii_struct_bases=[], name_mapping={'required': 'required'})
+@jsii.data_type(jsii_type="generated.VolumeNodeAffinity", jsii_struct_bases=[], name_mapping={'required': 'required'})
 class VolumeNodeAffinity():
-    def __init__(self, *, required: typing.Optional["NodeSelector"]=None):
+    def __init__(self, *, required: typing.Optional["NodeSelector"]=None) -> None:
         """VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.
 
         :param required: Required specifies hard node constraints that must be met.
@@ -25458,9 +25470,9 @@ class VolumeNodeAffinity():
         return 'VolumeNodeAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VolumeNodeResources", jsii_struct_bases=[], name_mapping={'count': 'count'})
+@jsii.data_type(jsii_type="generated.VolumeNodeResources", jsii_struct_bases=[], name_mapping={'count': 'count'})
 class VolumeNodeResources():
-    def __init__(self, *, count: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, count: typing.Optional[jsii.Number]=None) -> None:
         """VolumeNodeResources is a set of resource limits for scheduling of volumes.
 
         :param count: Maximum number of unique volumes managed by the CSI driver that can be used on a node. A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is not specified, then the supported number of volumes on this node is unbounded.
@@ -25493,9 +25505,9 @@ class VolumeNodeResources():
         return 'VolumeNodeResources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VolumeProjection", jsii_struct_bases=[], name_mapping={'config_map': 'configMap', 'downward_api': 'downwardAPI', 'secret': 'secret', 'service_account_token': 'serviceAccountToken'})
+@jsii.data_type(jsii_type="generated.VolumeProjection", jsii_struct_bases=[], name_mapping={'config_map': 'configMap', 'downward_api': 'downwardAPI', 'secret': 'secret', 'service_account_token': 'serviceAccountToken'})
 class VolumeProjection():
-    def __init__(self, *, config_map: typing.Optional["ConfigMapProjection"]=None, downward_api: typing.Optional["DownwardAPIProjection"]=None, secret: typing.Optional["SecretProjection"]=None, service_account_token: typing.Optional["ServiceAccountTokenProjection"]=None):
+    def __init__(self, *, config_map: typing.Optional["ConfigMapProjection"]=None, downward_api: typing.Optional["DownwardApiProjection"]=None, secret: typing.Optional["SecretProjection"]=None, service_account_token: typing.Optional["ServiceAccountTokenProjection"]=None) -> None:
         """Projection that may be projected along with other supported volume types.
 
         :param config_map: information about the configMap data to project.
@@ -25507,7 +25519,7 @@ class VolumeProjection():
         :schema:: io.k8s.api.core.v1.VolumeProjection
         """
         if isinstance(config_map, dict): config_map = ConfigMapProjection(**config_map)
-        if isinstance(downward_api, dict): downward_api = DownwardAPIProjection(**downward_api)
+        if isinstance(downward_api, dict): downward_api = DownwardApiProjection(**downward_api)
         if isinstance(secret, dict): secret = SecretProjection(**secret)
         if isinstance(service_account_token, dict): service_account_token = ServiceAccountTokenProjection(**service_account_token)
         self._values = {
@@ -25527,7 +25539,7 @@ class VolumeProjection():
         return self._values.get('config_map')
 
     @builtins.property
-    def downward_api(self) -> typing.Optional["DownwardAPIProjection"]:
+    def downward_api(self) -> typing.Optional["DownwardApiProjection"]:
         """information about the downwardAPI data to project.
 
         schema:
@@ -25563,9 +25575,9 @@ class VolumeProjection():
         return 'VolumeProjection(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.VsphereVirtualDiskVolumeSource", jsii_struct_bases=[], name_mapping={'volume_path': 'volumePath', 'fs_type': 'fsType', 'storage_policy_id': 'storagePolicyID', 'storage_policy_name': 'storagePolicyName'})
+@jsii.data_type(jsii_type="generated.VsphereVirtualDiskVolumeSource", jsii_struct_bases=[], name_mapping={'volume_path': 'volumePath', 'fs_type': 'fsType', 'storage_policy_id': 'storagePolicyID', 'storage_policy_name': 'storagePolicyName'})
 class VsphereVirtualDiskVolumeSource():
-    def __init__(self, *, volume_path: str, fs_type: typing.Optional[str]=None, storage_policy_id: typing.Optional[str]=None, storage_policy_name: typing.Optional[str]=None):
+    def __init__(self, *, volume_path: str, fs_type: typing.Optional[str]=None, storage_policy_id: typing.Optional[str]=None, storage_policy_name: typing.Optional[str]=None) -> None:
         """Represents a vSphere volume resource.
 
         :param volume_path: Path that identifies vSphere volume vmdk.
@@ -25631,9 +25643,9 @@ class VsphereVirtualDiskVolumeSource():
         return 'VsphereVirtualDiskVolumeSource(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.Webhook", jsii_struct_bases=[], name_mapping={'client_config': 'clientConfig', 'throttle': 'throttle'})
+@jsii.data_type(jsii_type="generated.Webhook", jsii_struct_bases=[], name_mapping={'client_config': 'clientConfig', 'throttle': 'throttle'})
 class Webhook():
-    def __init__(self, *, client_config: "WebhookClientConfig", throttle: typing.Optional["WebhookThrottleConfig"]=None):
+    def __init__(self, *, client_config: "WebhookClientConfig", throttle: typing.Optional["WebhookThrottleConfig"]=None) -> None:
         """Webhook holds the configuration of the webhook.
 
         :param client_config: ClientConfig holds the connection parameters for the webhook required.
@@ -25677,9 +25689,9 @@ class Webhook():
         return 'Webhook(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.WebhookClientConfig", jsii_struct_bases=[], name_mapping={'ca_bundle': 'caBundle', 'service': 'service', 'url': 'url'})
+@jsii.data_type(jsii_type="generated.WebhookClientConfig", jsii_struct_bases=[], name_mapping={'ca_bundle': 'caBundle', 'service': 'service', 'url': 'url'})
 class WebhookClientConfig():
-    def __init__(self, *, ca_bundle: typing.Optional[str]=None, service: typing.Optional["ServiceReference"]=None, url: typing.Optional[str]=None):
+    def __init__(self, *, ca_bundle: typing.Optional[str]=None, service: typing.Optional["ServiceReference"]=None, url: typing.Optional[str]=None) -> None:
         """WebhookClientConfig contains the information to make a TLS connection with the webhook.
 
         :param ca_bundle: ``caBundle`` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate. If unspecified, system trust roots on the apiserver are used.
@@ -25749,9 +25761,9 @@ class WebhookClientConfig():
         return 'WebhookClientConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.WebhookConversion", jsii_struct_bases=[], name_mapping={'conversion_review_versions': 'conversionReviewVersions', 'client_config': 'clientConfig'})
+@jsii.data_type(jsii_type="generated.WebhookConversion", jsii_struct_bases=[], name_mapping={'conversion_review_versions': 'conversionReviewVersions', 'client_config': 'clientConfig'})
 class WebhookConversion():
-    def __init__(self, *, conversion_review_versions: typing.List[str], client_config: typing.Optional["WebhookClientConfig"]=None):
+    def __init__(self, *, conversion_review_versions: typing.List[str], client_config: typing.Optional["WebhookClientConfig"]=None) -> None:
         """WebhookConversion describes how to call a conversion webhook.
 
         :param conversion_review_versions: conversionReviewVersions is an ordered list of preferred ``ConversionReview`` versions the Webhook expects. The API server will use the first version in the list which it supports. If none of the versions specified in this list are supported by API server, conversion will fail for the custom resource. If a persisted Webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail.
@@ -25796,9 +25808,9 @@ class WebhookConversion():
         return 'WebhookConversion(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.WebhookThrottleConfig", jsii_struct_bases=[], name_mapping={'burst': 'burst', 'qps': 'qps'})
+@jsii.data_type(jsii_type="generated.WebhookThrottleConfig", jsii_struct_bases=[], name_mapping={'burst': 'burst', 'qps': 'qps'})
 class WebhookThrottleConfig():
-    def __init__(self, *, burst: typing.Optional[jsii.Number]=None, qps: typing.Optional[jsii.Number]=None):
+    def __init__(self, *, burst: typing.Optional[jsii.Number]=None, qps: typing.Optional[jsii.Number]=None) -> None:
         """WebhookThrottleConfig holds the configuration for throttling events.
 
         :param burst: ThrottleBurst is the maximum number of events sent at the same moment default 15 QPS.
@@ -25840,9 +25852,9 @@ class WebhookThrottleConfig():
         return 'WebhookThrottleConfig(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.WeightedPodAffinityTerm", jsii_struct_bases=[], name_mapping={'pod_affinity_term': 'podAffinityTerm', 'weight': 'weight'})
+@jsii.data_type(jsii_type="generated.WeightedPodAffinityTerm", jsii_struct_bases=[], name_mapping={'pod_affinity_term': 'podAffinityTerm', 'weight': 'weight'})
 class WeightedPodAffinityTerm():
-    def __init__(self, *, pod_affinity_term: "PodAffinityTerm", weight: jsii.Number):
+    def __init__(self, *, pod_affinity_term: "PodAffinityTerm", weight: jsii.Number) -> None:
         """The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
 
         :param pod_affinity_term: Required. A pod affinity term, associated with the corresponding weight.
@@ -25887,9 +25899,9 @@ class WeightedPodAffinityTerm():
         return 'WeightedPodAffinityTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-@jsii.data_type(jsii_type="k8s.WindowsSecurityContextOptions", jsii_struct_bases=[], name_mapping={'gmsa_credential_spec': 'gmsaCredentialSpec', 'gmsa_credential_spec_name': 'gmsaCredentialSpecName', 'run_as_user_name': 'runAsUserName'})
+@jsii.data_type(jsii_type="generated.WindowsSecurityContextOptions", jsii_struct_bases=[], name_mapping={'gmsa_credential_spec': 'gmsaCredentialSpec', 'gmsa_credential_spec_name': 'gmsaCredentialSpecName', 'run_as_user_name': 'runAsUserName'})
 class WindowsSecurityContextOptions():
-    def __init__(self, *, gmsa_credential_spec: typing.Optional[str]=None, gmsa_credential_spec_name: typing.Optional[str]=None, run_as_user_name: typing.Optional[str]=None):
+    def __init__(self, *, gmsa_credential_spec: typing.Optional[str]=None, gmsa_credential_spec_name: typing.Optional[str]=None, run_as_user_name: typing.Optional[str]=None) -> None:
         """WindowsSecurityContextOptions contain Windows-specific options and credentials.
 
         :param gmsa_credential_spec: GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
@@ -25949,6 +25961,456 @@ class WindowsSecurityContextOptions():
         return 'WindowsSecurityContextOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
 
 
-__all__ = ["APIService", "APIServiceList", "APIServiceListOptions", "APIServiceOptions", "APIServiceSpec", "AWSElasticBlockStoreVolumeSource", "Affinity", "AggregationRule", "AllowedCSIDriver", "AllowedFlexVolume", "AllowedHostPath", "AuditSink", "AuditSinkList", "AuditSinkListOptions", "AuditSinkOptions", "AuditSinkSpec", "AzureDiskVolumeSource", "AzureFilePersistentVolumeSource", "AzureFileVolumeSource", "Binding", "BindingOptions", "BoundObjectReference", "CSIDriver", "CSIDriverList", "CSIDriverListOptions", "CSIDriverOptions", "CSIDriverSpec", "CSINode", "CSINodeDriver", "CSINodeList", "CSINodeListOptions", "CSINodeOptions", "CSINodeSpec", "CSIPersistentVolumeSource", "CSIVolumeSource", "Capabilities", "CephFSPersistentVolumeSource", "CephFSVolumeSource", "CertificateSigningRequest", "CertificateSigningRequestList", "CertificateSigningRequestListOptions", "CertificateSigningRequestOptions", "CertificateSigningRequestSpec", "CinderPersistentVolumeSource", "CinderVolumeSource", "ClientIPConfig", "ClusterRole", "ClusterRoleBinding", "ClusterRoleBindingList", "ClusterRoleBindingListOptions", "ClusterRoleBindingOptions", "ClusterRoleList", "ClusterRoleListOptions", "ClusterRoleOptions", "ComponentCondition", "ComponentStatus", "ComponentStatusList", "ComponentStatusListOptions", "ComponentStatusOptions", "ConfigMap", "ConfigMapEnvSource", "ConfigMapKeySelector", "ConfigMapList", "ConfigMapListOptions", "ConfigMapNodeConfigSource", "ConfigMapOptions", "ConfigMapProjection", "ConfigMapVolumeSource", "Container", "ContainerPort", "ControllerRevision", "ControllerRevisionList", "ControllerRevisionListOptions", "ControllerRevisionOptions", "CronJob", "CronJobList", "CronJobListOptions", "CronJobOptions", "CronJobSpec", "CrossVersionObjectReference", "CustomResourceColumnDefinition", "CustomResourceConversion", "CustomResourceDefinition", "CustomResourceDefinitionList", "CustomResourceDefinitionListOptions", "CustomResourceDefinitionNames", "CustomResourceDefinitionOptions", "CustomResourceDefinitionSpec", "CustomResourceDefinitionVersion", "CustomResourceSubresourceScale", "CustomResourceSubresources", "CustomResourceValidation", "DaemonSet", "DaemonSetList", "DaemonSetListOptions", "DaemonSetOptions", "DaemonSetSpec", "DaemonSetUpdateStrategy", "DeleteOptions", "Deployment", "DeploymentList", "DeploymentListOptions", "DeploymentOptions", "DeploymentSpec", "DeploymentStrategy", "DownwardAPIProjection", "DownwardAPIVolumeFile", "DownwardAPIVolumeSource", "EmptyDirVolumeSource", "Endpoint", "EndpointAddress", "EndpointConditions", "EndpointPort", "EndpointSlice", "EndpointSliceList", "EndpointSliceListOptions", "EndpointSliceOptions", "EndpointSubset", "Endpoints", "EndpointsList", "EndpointsListOptions", "EndpointsOptions", "EnvFromSource", "EnvVar", "EnvVarSource", "EphemeralContainer", "Event", "EventList", "EventListOptions", "EventOptions", "EventSeries", "EventSource", "Eviction", "EvictionOptions", "ExecAction", "ExternalDocumentation", "FCVolumeSource", "FSGroupStrategyOptions", "FlexPersistentVolumeSource", "FlexVolumeSource", "FlockerVolumeSource", "FlowDistinguisherMethod", "FlowSchema", "FlowSchemaList", "FlowSchemaListOptions", "FlowSchemaOptions", "FlowSchemaSpec", "GCEPersistentDiskVolumeSource", "GitRepoVolumeSource", "GlusterfsPersistentVolumeSource", "GlusterfsVolumeSource", "HTTPGetAction", "HTTPHeader", "HTTPIngressPath", "HTTPIngressRuleValue", "Handler", "HorizontalPodAutoscaler", "HorizontalPodAutoscalerList", "HorizontalPodAutoscalerListOptions", "HorizontalPodAutoscalerOptions", "HorizontalPodAutoscalerSpec", "HostAlias", "HostPathVolumeSource", "HostPortRange", "IdRange", "Ingress", "IngressBackend", "IngressList", "IngressListOptions", "IngressOptions", "IngressRule", "IngressSpec", "IngressTLS", "IntOrString", "IpBlock", "IscsiPersistentVolumeSource", "IscsiVolumeSource", "JSONSchemaProps", "Job", "JobList", "JobListOptions", "JobOptions", "JobSpec", "JobTemplateSpec", "KeyToPath", "LabelSelector", "LabelSelectorRequirement", "Lease", "LeaseList", "LeaseListOptions", "LeaseOptions", "LeaseSpec", "Lifecycle", "LimitRange", "LimitRangeItem", "LimitRangeList", "LimitRangeListOptions", "LimitRangeOptions", "LimitRangeSpec", "LimitResponse", "LimitedPriorityLevelConfiguration", "ListMeta", "LocalObjectReference", "LocalSubjectAccessReview", "LocalSubjectAccessReviewOptions", "LocalVolumeSource", "ManagedFieldsEntry", "MutatingWebhook", "MutatingWebhookConfiguration", "MutatingWebhookConfigurationList", "MutatingWebhookConfigurationListOptions", "MutatingWebhookConfigurationOptions", "NFSVolumeSource", "Namespace", "NamespaceList", "NamespaceListOptions", "NamespaceOptions", "NamespaceSpec", "NetworkPolicy", "NetworkPolicyEgressRule", "NetworkPolicyIngressRule", "NetworkPolicyList", "NetworkPolicyListOptions", "NetworkPolicyOptions", "NetworkPolicyPeer", "NetworkPolicyPort", "NetworkPolicySpec", "Node", "NodeAffinity", "NodeConfigSource", "NodeList", "NodeListOptions", "NodeOptions", "NodeSelector", "NodeSelectorRequirement", "NodeSelectorTerm", "NodeSpec", "NonResourceAttributes", "NonResourcePolicyRule", "ObjectFieldSelector", "ObjectMeta", "ObjectReference", "Overhead", "OwnerReference", "PersistentVolume", "PersistentVolumeClaim", "PersistentVolumeClaimList", "PersistentVolumeClaimListOptions", "PersistentVolumeClaimOptions", "PersistentVolumeClaimSpec", "PersistentVolumeClaimVolumeSource", "PersistentVolumeList", "PersistentVolumeListOptions", "PersistentVolumeOptions", "PersistentVolumeSpec", "PhotonPersistentDiskVolumeSource", "Pod", "PodAffinity", "PodAffinityTerm", "PodAntiAffinity", "PodDNSConfig", "PodDNSConfigOption", "PodDisruptionBudget", "PodDisruptionBudgetList", "PodDisruptionBudgetListOptions", "PodDisruptionBudgetOptions", "PodDisruptionBudgetSpec", "PodList", "PodListOptions", "PodOptions", "PodPreset", "PodPresetList", "PodPresetListOptions", "PodPresetOptions", "PodPresetSpec", "PodReadinessGate", "PodSecurityContext", "PodSecurityPolicy", "PodSecurityPolicyList", "PodSecurityPolicyListOptions", "PodSecurityPolicyOptions", "PodSecurityPolicySpec", "PodSpec", "PodTemplate", "PodTemplateList", "PodTemplateListOptions", "PodTemplateOptions", "PodTemplateSpec", "Policy", "PolicyRule", "PolicyRulesWithSubjects", "PortworxVolumeSource", "Preconditions", "PreferredSchedulingTerm", "PriorityClass", "PriorityClassList", "PriorityClassListOptions", "PriorityClassOptions", "PriorityLevelConfiguration", "PriorityLevelConfigurationList", "PriorityLevelConfigurationListOptions", "PriorityLevelConfigurationOptions", "PriorityLevelConfigurationReference", "PriorityLevelConfigurationSpec", "Probe", "ProjectedVolumeSource", "Quantity", "QueuingConfiguration", "QuobyteVolumeSource", "RBDPersistentVolumeSource", "RBDVolumeSource", "ReplicaSet", "ReplicaSetList", "ReplicaSetListOptions", "ReplicaSetOptions", "ReplicaSetSpec", "ReplicationController", "ReplicationControllerList", "ReplicationControllerListOptions", "ReplicationControllerOptions", "ReplicationControllerSpec", "ResourceAttributes", "ResourceFieldSelector", "ResourcePolicyRule", "ResourceQuota", "ResourceQuotaList", "ResourceQuotaListOptions", "ResourceQuotaOptions", "ResourceQuotaSpec", "ResourceRequirements", "Role", "RoleBinding", "RoleBindingList", "RoleBindingListOptions", "RoleBindingOptions", "RoleList", "RoleListOptions", "RoleOptions", "RoleRef", "RollingUpdateDaemonSet", "RollingUpdateDeployment", "RollingUpdateStatefulSetStrategy", "RuleWithOperations", "RunAsGroupStrategyOptions", "RunAsUserStrategyOptions", "RuntimeClass", "RuntimeClassList", "RuntimeClassListOptions", "RuntimeClassOptions", "RuntimeClassStrategyOptions", "SELinuxOptions", "SELinuxStrategyOptions", "Scale", "ScaleIOPersistentVolumeSource", "ScaleIOVolumeSource", "ScaleOptions", "ScaleSpec", "Scheduling", "ScopeSelector", "ScopedResourceSelectorRequirement", "Secret", "SecretEnvSource", "SecretKeySelector", "SecretList", "SecretListOptions", "SecretOptions", "SecretProjection", "SecretReference", "SecretVolumeSource", "SecurityContext", "SelfSubjectAccessReview", "SelfSubjectAccessReviewOptions", "SelfSubjectAccessReviewSpec", "SelfSubjectRulesReview", "SelfSubjectRulesReviewOptions", "SelfSubjectRulesReviewSpec", "Service", "ServiceAccount", "ServiceAccountList", "ServiceAccountListOptions", "ServiceAccountOptions", "ServiceAccountTokenProjection", "ServiceList", "ServiceListOptions", "ServiceOptions", "ServicePort", "ServiceReference", "ServiceSpec", "SessionAffinityConfig", "StatefulSet", "StatefulSetList", "StatefulSetListOptions", "StatefulSetOptions", "StatefulSetSpec", "StatefulSetUpdateStrategy", "Status", "StatusCause", "StatusDetails", "StatusOptions", "StorageClass", "StorageClassList", "StorageClassListOptions", "StorageClassOptions", "StorageOSPersistentVolumeSource", "StorageOSVolumeSource", "Subject", "SubjectAccessReview", "SubjectAccessReviewOptions", "SubjectAccessReviewSpec", "SupplementalGroupsStrategyOptions", "Sysctl", "TCPSocketAction", "Taint", "TokenRequest", "TokenRequestOptions", "TokenRequestSpec", "TokenReview", "TokenReviewOptions", "TokenReviewSpec", "Toleration", "TopologySelectorLabelRequirement", "TopologySelectorTerm", "TopologySpreadConstraint", "TypedLocalObjectReference", "ValidatingWebhook", "ValidatingWebhookConfiguration", "ValidatingWebhookConfigurationList", "ValidatingWebhookConfigurationListOptions", "ValidatingWebhookConfigurationOptions", "Volume", "VolumeAttachment", "VolumeAttachmentList", "VolumeAttachmentListOptions", "VolumeAttachmentOptions", "VolumeAttachmentSource", "VolumeAttachmentSpec", "VolumeDevice", "VolumeMount", "VolumeNodeAffinity", "VolumeNodeResources", "VolumeProjection", "VsphereVirtualDiskVolumeSource", "Webhook", "WebhookClientConfig", "WebhookConversion", "WebhookThrottleConfig", "WeightedPodAffinityTerm", "WindowsSecurityContextOptions", "__jsii_assembly__"]
+__all__ = [
+    "Affinity",
+    "AggregationRule",
+    "AllowedCsiDriver",
+    "AllowedFlexVolume",
+    "AllowedHostPath",
+    "ApiService",
+    "ApiServiceList",
+    "ApiServiceListOptions",
+    "ApiServiceOptions",
+    "ApiServiceSpec",
+    "AuditSink",
+    "AuditSinkList",
+    "AuditSinkListOptions",
+    "AuditSinkOptions",
+    "AuditSinkSpec",
+    "AwsElasticBlockStoreVolumeSource",
+    "AzureDiskVolumeSource",
+    "AzureFilePersistentVolumeSource",
+    "AzureFileVolumeSource",
+    "Binding",
+    "BindingOptions",
+    "BoundObjectReference",
+    "Capabilities",
+    "CephFsPersistentVolumeSource",
+    "CephFsVolumeSource",
+    "CertificateSigningRequest",
+    "CertificateSigningRequestList",
+    "CertificateSigningRequestListOptions",
+    "CertificateSigningRequestOptions",
+    "CertificateSigningRequestSpec",
+    "CinderPersistentVolumeSource",
+    "CinderVolumeSource",
+    "ClientIpConfig",
+    "ClusterRole",
+    "ClusterRoleBinding",
+    "ClusterRoleBindingList",
+    "ClusterRoleBindingListOptions",
+    "ClusterRoleBindingOptions",
+    "ClusterRoleList",
+    "ClusterRoleListOptions",
+    "ClusterRoleOptions",
+    "ComponentCondition",
+    "ComponentStatus",
+    "ComponentStatusList",
+    "ComponentStatusListOptions",
+    "ComponentStatusOptions",
+    "ConfigMap",
+    "ConfigMapEnvSource",
+    "ConfigMapKeySelector",
+    "ConfigMapList",
+    "ConfigMapListOptions",
+    "ConfigMapNodeConfigSource",
+    "ConfigMapOptions",
+    "ConfigMapProjection",
+    "ConfigMapVolumeSource",
+    "Container",
+    "ContainerPort",
+    "ControllerRevision",
+    "ControllerRevisionList",
+    "ControllerRevisionListOptions",
+    "ControllerRevisionOptions",
+    "CronJob",
+    "CronJobList",
+    "CronJobListOptions",
+    "CronJobOptions",
+    "CronJobSpec",
+    "CrossVersionObjectReference",
+    "CsiDriver",
+    "CsiDriverList",
+    "CsiDriverListOptions",
+    "CsiDriverOptions",
+    "CsiDriverSpec",
+    "CsiNode",
+    "CsiNodeDriver",
+    "CsiNodeList",
+    "CsiNodeListOptions",
+    "CsiNodeOptions",
+    "CsiNodeSpec",
+    "CsiPersistentVolumeSource",
+    "CsiVolumeSource",
+    "CustomResourceColumnDefinition",
+    "CustomResourceConversion",
+    "CustomResourceDefinition",
+    "CustomResourceDefinitionList",
+    "CustomResourceDefinitionListOptions",
+    "CustomResourceDefinitionNames",
+    "CustomResourceDefinitionOptions",
+    "CustomResourceDefinitionSpec",
+    "CustomResourceDefinitionVersion",
+    "CustomResourceSubresourceScale",
+    "CustomResourceSubresources",
+    "CustomResourceValidation",
+    "DaemonSet",
+    "DaemonSetList",
+    "DaemonSetListOptions",
+    "DaemonSetOptions",
+    "DaemonSetSpec",
+    "DaemonSetUpdateStrategy",
+    "DeleteOptions",
+    "Deployment",
+    "DeploymentList",
+    "DeploymentListOptions",
+    "DeploymentOptions",
+    "DeploymentSpec",
+    "DeploymentStrategy",
+    "DownwardApiProjection",
+    "DownwardApiVolumeFile",
+    "DownwardApiVolumeSource",
+    "EmptyDirVolumeSource",
+    "Endpoint",
+    "EndpointAddress",
+    "EndpointConditions",
+    "EndpointPort",
+    "EndpointSlice",
+    "EndpointSliceList",
+    "EndpointSliceListOptions",
+    "EndpointSliceOptions",
+    "EndpointSubset",
+    "Endpoints",
+    "EndpointsList",
+    "EndpointsListOptions",
+    "EndpointsOptions",
+    "EnvFromSource",
+    "EnvVar",
+    "EnvVarSource",
+    "EphemeralContainer",
+    "Event",
+    "EventList",
+    "EventListOptions",
+    "EventOptions",
+    "EventSeries",
+    "EventSource",
+    "Eviction",
+    "EvictionOptions",
+    "ExecAction",
+    "ExternalDocumentation",
+    "FcVolumeSource",
+    "FlexPersistentVolumeSource",
+    "FlexVolumeSource",
+    "FlockerVolumeSource",
+    "FlowDistinguisherMethod",
+    "FlowSchema",
+    "FlowSchemaList",
+    "FlowSchemaListOptions",
+    "FlowSchemaOptions",
+    "FlowSchemaSpec",
+    "FsGroupStrategyOptions",
+    "GcePersistentDiskVolumeSource",
+    "GitRepoVolumeSource",
+    "GlusterfsPersistentVolumeSource",
+    "GlusterfsVolumeSource",
+    "Handler",
+    "HorizontalPodAutoscaler",
+    "HorizontalPodAutoscalerList",
+    "HorizontalPodAutoscalerListOptions",
+    "HorizontalPodAutoscalerOptions",
+    "HorizontalPodAutoscalerSpec",
+    "HostAlias",
+    "HostPathVolumeSource",
+    "HostPortRange",
+    "HttpGetAction",
+    "HttpHeader",
+    "HttpIngressPath",
+    "HttpIngressRuleValue",
+    "IdRange",
+    "Ingress",
+    "IngressBackend",
+    "IngressList",
+    "IngressListOptions",
+    "IngressOptions",
+    "IngressRule",
+    "IngressSpec",
+    "IngressTls",
+    "IntOrString",
+    "IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind",
+    "IpBlock",
+    "IscsiPersistentVolumeSource",
+    "IscsiVolumeSource",
+    "Job",
+    "JobList",
+    "JobListOptions",
+    "JobOptions",
+    "JobSpec",
+    "JobTemplateSpec",
+    "JsonSchemaProps",
+    "KeyToPath",
+    "LabelSelector",
+    "LabelSelectorRequirement",
+    "Lease",
+    "LeaseList",
+    "LeaseListOptions",
+    "LeaseOptions",
+    "LeaseSpec",
+    "Lifecycle",
+    "LimitRange",
+    "LimitRangeItem",
+    "LimitRangeList",
+    "LimitRangeListOptions",
+    "LimitRangeOptions",
+    "LimitRangeSpec",
+    "LimitResponse",
+    "LimitedPriorityLevelConfiguration",
+    "ListMeta",
+    "LocalObjectReference",
+    "LocalSubjectAccessReview",
+    "LocalSubjectAccessReviewOptions",
+    "LocalVolumeSource",
+    "ManagedFieldsEntry",
+    "MutatingWebhook",
+    "MutatingWebhookConfiguration",
+    "MutatingWebhookConfigurationList",
+    "MutatingWebhookConfigurationListOptions",
+    "MutatingWebhookConfigurationOptions",
+    "Namespace",
+    "NamespaceList",
+    "NamespaceListOptions",
+    "NamespaceOptions",
+    "NamespaceSpec",
+    "NetworkPolicy",
+    "NetworkPolicyEgressRule",
+    "NetworkPolicyIngressRule",
+    "NetworkPolicyList",
+    "NetworkPolicyListOptions",
+    "NetworkPolicyOptions",
+    "NetworkPolicyPeer",
+    "NetworkPolicyPort",
+    "NetworkPolicySpec",
+    "NfsVolumeSource",
+    "Node",
+    "NodeAffinity",
+    "NodeConfigSource",
+    "NodeList",
+    "NodeListOptions",
+    "NodeOptions",
+    "NodeSelector",
+    "NodeSelectorRequirement",
+    "NodeSelectorTerm",
+    "NodeSpec",
+    "NonResourceAttributes",
+    "NonResourcePolicyRule",
+    "ObjectFieldSelector",
+    "ObjectMeta",
+    "ObjectReference",
+    "Overhead",
+    "OwnerReference",
+    "PersistentVolume",
+    "PersistentVolumeClaim",
+    "PersistentVolumeClaimList",
+    "PersistentVolumeClaimListOptions",
+    "PersistentVolumeClaimOptions",
+    "PersistentVolumeClaimSpec",
+    "PersistentVolumeClaimVolumeSource",
+    "PersistentVolumeList",
+    "PersistentVolumeListOptions",
+    "PersistentVolumeOptions",
+    "PersistentVolumeSpec",
+    "PhotonPersistentDiskVolumeSource",
+    "Pod",
+    "PodAffinity",
+    "PodAffinityTerm",
+    "PodAntiAffinity",
+    "PodDisruptionBudget",
+    "PodDisruptionBudgetList",
+    "PodDisruptionBudgetListOptions",
+    "PodDisruptionBudgetOptions",
+    "PodDisruptionBudgetSpec",
+    "PodDnsConfig",
+    "PodDnsConfigOption",
+    "PodList",
+    "PodListOptions",
+    "PodOptions",
+    "PodPreset",
+    "PodPresetList",
+    "PodPresetListOptions",
+    "PodPresetOptions",
+    "PodPresetSpec",
+    "PodReadinessGate",
+    "PodSecurityContext",
+    "PodSecurityPolicy",
+    "PodSecurityPolicyList",
+    "PodSecurityPolicyListOptions",
+    "PodSecurityPolicyOptions",
+    "PodSecurityPolicySpec",
+    "PodSpec",
+    "PodTemplate",
+    "PodTemplateList",
+    "PodTemplateListOptions",
+    "PodTemplateOptions",
+    "PodTemplateSpec",
+    "Policy",
+    "PolicyRule",
+    "PolicyRulesWithSubjects",
+    "PortworxVolumeSource",
+    "Preconditions",
+    "PreferredSchedulingTerm",
+    "PriorityClass",
+    "PriorityClassList",
+    "PriorityClassListOptions",
+    "PriorityClassOptions",
+    "PriorityLevelConfiguration",
+    "PriorityLevelConfigurationList",
+    "PriorityLevelConfigurationListOptions",
+    "PriorityLevelConfigurationOptions",
+    "PriorityLevelConfigurationReference",
+    "PriorityLevelConfigurationSpec",
+    "Probe",
+    "ProjectedVolumeSource",
+    "Quantity",
+    "QueuingConfiguration",
+    "QuobyteVolumeSource",
+    "RbdPersistentVolumeSource",
+    "RbdVolumeSource",
+    "ReplicaSet",
+    "ReplicaSetList",
+    "ReplicaSetListOptions",
+    "ReplicaSetOptions",
+    "ReplicaSetSpec",
+    "ReplicationController",
+    "ReplicationControllerList",
+    "ReplicationControllerListOptions",
+    "ReplicationControllerOptions",
+    "ReplicationControllerSpec",
+    "ResourceAttributes",
+    "ResourceFieldSelector",
+    "ResourcePolicyRule",
+    "ResourceQuota",
+    "ResourceQuotaList",
+    "ResourceQuotaListOptions",
+    "ResourceQuotaOptions",
+    "ResourceQuotaSpec",
+    "ResourceRequirements",
+    "Role",
+    "RoleBinding",
+    "RoleBindingList",
+    "RoleBindingListOptions",
+    "RoleBindingOptions",
+    "RoleList",
+    "RoleListOptions",
+    "RoleOptions",
+    "RoleRef",
+    "RollingUpdateDaemonSet",
+    "RollingUpdateDeployment",
+    "RollingUpdateStatefulSetStrategy",
+    "RuleWithOperations",
+    "RunAsGroupStrategyOptions",
+    "RunAsUserStrategyOptions",
+    "RuntimeClass",
+    "RuntimeClassList",
+    "RuntimeClassListOptions",
+    "RuntimeClassOptions",
+    "RuntimeClassStrategyOptions",
+    "Scale",
+    "ScaleIoPersistentVolumeSource",
+    "ScaleIoVolumeSource",
+    "ScaleOptions",
+    "ScaleSpec",
+    "Scheduling",
+    "ScopeSelector",
+    "ScopedResourceSelectorRequirement",
+    "SeLinuxOptions",
+    "SeLinuxStrategyOptions",
+    "Secret",
+    "SecretEnvSource",
+    "SecretKeySelector",
+    "SecretList",
+    "SecretListOptions",
+    "SecretOptions",
+    "SecretProjection",
+    "SecretReference",
+    "SecretVolumeSource",
+    "SecurityContext",
+    "SelfSubjectAccessReview",
+    "SelfSubjectAccessReviewOptions",
+    "SelfSubjectAccessReviewSpec",
+    "SelfSubjectRulesReview",
+    "SelfSubjectRulesReviewOptions",
+    "SelfSubjectRulesReviewSpec",
+    "Service",
+    "ServiceAccount",
+    "ServiceAccountList",
+    "ServiceAccountListOptions",
+    "ServiceAccountOptions",
+    "ServiceAccountTokenProjection",
+    "ServiceList",
+    "ServiceListOptions",
+    "ServiceOptions",
+    "ServicePort",
+    "ServiceReference",
+    "ServiceSpec",
+    "SessionAffinityConfig",
+    "StatefulSet",
+    "StatefulSetList",
+    "StatefulSetListOptions",
+    "StatefulSetOptions",
+    "StatefulSetSpec",
+    "StatefulSetUpdateStrategy",
+    "Status",
+    "StatusCause",
+    "StatusDetails",
+    "StatusOptions",
+    "StorageClass",
+    "StorageClassList",
+    "StorageClassListOptions",
+    "StorageClassOptions",
+    "StorageOsPersistentVolumeSource",
+    "StorageOsVolumeSource",
+    "Subject",
+    "SubjectAccessReview",
+    "SubjectAccessReviewOptions",
+    "SubjectAccessReviewSpec",
+    "SupplementalGroupsStrategyOptions",
+    "Sysctl",
+    "Taint",
+    "TcpSocketAction",
+    "TokenRequest",
+    "TokenRequestOptions",
+    "TokenRequestSpec",
+    "TokenReview",
+    "TokenReviewOptions",
+    "TokenReviewSpec",
+    "Toleration",
+    "TopologySelectorLabelRequirement",
+    "TopologySelectorTerm",
+    "TopologySpreadConstraint",
+    "TypedLocalObjectReference",
+    "ValidatingWebhook",
+    "ValidatingWebhookConfiguration",
+    "ValidatingWebhookConfigurationList",
+    "ValidatingWebhookConfigurationListOptions",
+    "ValidatingWebhookConfigurationOptions",
+    "Volume",
+    "VolumeAttachment",
+    "VolumeAttachmentList",
+    "VolumeAttachmentListOptions",
+    "VolumeAttachmentOptions",
+    "VolumeAttachmentSource",
+    "VolumeAttachmentSpec",
+    "VolumeDevice",
+    "VolumeMount",
+    "VolumeNodeAffinity",
+    "VolumeNodeResources",
+    "VolumeProjection",
+    "VsphereVirtualDiskVolumeSource",
+    "Webhook",
+    "WebhookClientConfig",
+    "WebhookConversion",
+    "WebhookThrottleConfig",
+    "WeightedPodAffinityTerm",
+    "WindowsSecurityContextOptions",
+]
 
 publication.publish()

@@ -1,6 +1,6 @@
 {
   "name": "root",
-  "version": "0.20.0",
+  "version": "0.24.0",
   "private": true,
   "scripts": {
     "bump": "tools/bump.sh",
@@ -8,18 +8,21 @@
     "test": "lerna run test",
     "package": "lerna run package && tools/collect-dist.sh",
     "integ": "test/run-against-dist test/test-all.sh",
+    "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ",
     "release-github": "tools/release-github.sh"
   },
   "workspaces": {
     "packages": [
       "packages/*",
-      "examples/*"
+      "examples/**/*"
     ],
     "nohoist": [
       "cdk8s/yaml",
       "cdk8s/yaml/**",
       "cdk8s/json-stable-stringify",
-      "cdk8s/json-stable-stringify/**"
+      "cdk8s/json-stable-stringify/**",
+      "cdk8s/follow-redirects",
+      "cdk8s/follow-redirects/**"
     ]
   },
   "devDependencies": {

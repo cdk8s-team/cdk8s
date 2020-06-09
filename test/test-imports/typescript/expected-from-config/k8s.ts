@@ -2016,14 +2016,14 @@ export class PodPresetList extends ApiObject {
  *
  * @schema io.k8s.api.storage.v1.CSINode
  */
-export class CSINode extends ApiObject {
+export class CsiNode extends ApiObject {
   /**
    * Defines a "io.k8s.api.storage.v1.CSINode" API object
    * @param scope the scope in which to define this object
    * @param name a scope-local name for the object
    * @param options configuration options
    */
-  public constructor(scope: Construct, name: string, options: CSINodeOptions) {
+  public constructor(scope: Construct, name: string, options: CsiNodeOptions) {
     super(scope, name, {
       ...options,
       kind: 'CSINode',
@@ -2037,14 +2037,14 @@ export class CSINode extends ApiObject {
  *
  * @schema io.k8s.api.storage.v1.CSINodeList
  */
-export class CSINodeList extends ApiObject {
+export class CsiNodeList extends ApiObject {
   /**
    * Defines a "io.k8s.api.storage.v1.CSINodeList" API object
    * @param scope the scope in which to define this object
    * @param name a scope-local name for the object
    * @param options configuration options
    */
-  public constructor(scope: Construct, name: string, options: CSINodeListOptions) {
+  public constructor(scope: Construct, name: string, options: CsiNodeListOptions) {
     super(scope, name, {
       ...options,
       kind: 'CSINodeList',
@@ -2146,14 +2146,14 @@ export class VolumeAttachmentList extends ApiObject {
  *
  * @schema io.k8s.api.storage.v1beta1.CSIDriver
  */
-export class CSIDriver extends ApiObject {
+export class CsiDriver extends ApiObject {
   /**
    * Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object
    * @param scope the scope in which to define this object
    * @param name a scope-local name for the object
    * @param options configuration options
    */
-  public constructor(scope: Construct, name: string, options: CSIDriverOptions) {
+  public constructor(scope: Construct, name: string, options: CsiDriverOptions) {
     super(scope, name, {
       ...options,
       kind: 'CSIDriver',
@@ -2167,14 +2167,14 @@ export class CSIDriver extends ApiObject {
  *
  * @schema io.k8s.api.storage.v1beta1.CSIDriverList
  */
-export class CSIDriverList extends ApiObject {
+export class CsiDriverList extends ApiObject {
   /**
    * Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object
    * @param scope the scope in which to define this object
    * @param name a scope-local name for the object
    * @param options configuration options
    */
-  public constructor(scope: Construct, name: string, options: CSIDriverListOptions) {
+  public constructor(scope: Construct, name: string, options: CsiDriverListOptions) {
     super(scope, name, {
       ...options,
       kind: 'CSIDriverList',
@@ -2251,14 +2251,14 @@ export class Status extends ApiObject {
  *
  * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService
  */
-export class APIService extends ApiObject {
+export class ApiService extends ApiObject {
   /**
    * Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService" API object
    * @param scope the scope in which to define this object
    * @param name a scope-local name for the object
    * @param options configuration options
    */
-  public constructor(scope: Construct, name: string, options: APIServiceOptions = {}) {
+  public constructor(scope: Construct, name: string, options: ApiServiceOptions = {}) {
     super(scope, name, {
       ...options,
       kind: 'APIService',
@@ -2272,14 +2272,14 @@ export class APIService extends ApiObject {
  *
  * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList
  */
-export class APIServiceList extends ApiObject {
+export class ApiServiceList extends ApiObject {
   /**
    * Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" API object
    * @param scope the scope in which to define this object
    * @param name a scope-local name for the object
    * @param options configuration options
    */
-  public constructor(scope: Construct, name: string, options: APIServiceListOptions) {
+  public constructor(scope: Construct, name: string, options: ApiServiceListOptions) {
     super(scope, name, {
       ...options,
       kind: 'APIServiceList',
@@ -4559,7 +4559,7 @@ export interface PodPresetListOptions {
  *
  * @schema io.k8s.api.storage.v1.CSINode
  */
-export interface CSINodeOptions {
+export interface CsiNodeOptions {
   /**
    * metadata.name must be the Kubernetes node name.
    *
@@ -4572,7 +4572,7 @@ export interface CSINodeOptions {
    *
    * @schema io.k8s.api.storage.v1.CSINode#spec
    */
-  readonly spec: CSINodeSpec;
+  readonly spec: CsiNodeSpec;
 
 }
 
@@ -4581,13 +4581,13 @@ export interface CSINodeOptions {
  *
  * @schema io.k8s.api.storage.v1.CSINodeList
  */
-export interface CSINodeListOptions {
+export interface CsiNodeListOptions {
   /**
    * items is the list of CSINode
    *
    * @schema io.k8s.api.storage.v1.CSINodeList#items
    */
-  readonly items: CSINode[];
+  readonly items: CsiNode[];
 
   /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4738,7 +4738,7 @@ export interface VolumeAttachmentListOptions {
  *
  * @schema io.k8s.api.storage.v1beta1.CSIDriver
  */
-export interface CSIDriverOptions {
+export interface CsiDriverOptions {
   /**
    * Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -4751,7 +4751,7 @@ export interface CSIDriverOptions {
    *
    * @schema io.k8s.api.storage.v1beta1.CSIDriver#spec
    */
-  readonly spec: CSIDriverSpec;
+  readonly spec: CsiDriverSpec;
 
 }
 
@@ -4760,13 +4760,13 @@ export interface CSIDriverOptions {
  *
  * @schema io.k8s.api.storage.v1beta1.CSIDriverList
  */
-export interface CSIDriverListOptions {
+export interface CsiDriverListOptions {
   /**
    * items is the list of CSIDriver
    *
    * @schema io.k8s.api.storage.v1beta1.CSIDriverList#items
    */
-  readonly items: CSIDriver[];
+  readonly items: CsiDriver[];
 
   /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4865,7 +4865,7 @@ export interface StatusOptions {
  *
  * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService
  */
-export interface APIServiceOptions {
+export interface ApiServiceOptions {
   /**
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService#metadata
    */
@@ -4876,7 +4876,7 @@ export interface APIServiceOptions {
    *
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService#spec
    */
-  readonly spec?: APIServiceSpec;
+  readonly spec?: ApiServiceSpec;
 
 }
 
@@ -4885,11 +4885,11 @@ export interface APIServiceOptions {
  *
  * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList
  */
-export interface APIServiceListOptions {
+export interface ApiServiceListOptions {
   /**
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
    */
-  readonly items: APIService[];
+  readonly items: ApiService[];
 
   /**
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#metadata
@@ -6252,7 +6252,7 @@ export interface PersistentVolumeSpec {
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#awsElasticBlockStore
    */
-  readonly awsElasticBlockStore?: AWSElasticBlockStoreVolumeSource;
+  readonly awsElasticBlockStore?: AwsElasticBlockStoreVolumeSource;
 
   /**
    * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
@@ -6280,7 +6280,7 @@ export interface PersistentVolumeSpec {
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#cephfs
    */
-  readonly cephfs?: CephFSPersistentVolumeSource;
+  readonly cephfs?: CephFsPersistentVolumeSource;
 
   /**
    * Cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
@@ -6301,14 +6301,14 @@ export interface PersistentVolumeSpec {
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#csi
    */
-  readonly csi?: CSIPersistentVolumeSource;
+  readonly csi?: CsiPersistentVolumeSource;
 
   /**
    * FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#fc
    */
-  readonly fc?: FCVolumeSource;
+  readonly fc?: FcVolumeSource;
 
   /**
    * FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
@@ -6329,7 +6329,7 @@ export interface PersistentVolumeSpec {
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#gcePersistentDisk
    */
-  readonly gcePersistentDisk?: GCEPersistentDiskVolumeSource;
+  readonly gcePersistentDisk?: GcePersistentDiskVolumeSource;
 
   /**
    * Glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: https://examples.k8s.io/volumes/glusterfs/README.md
@@ -6371,7 +6371,7 @@ export interface PersistentVolumeSpec {
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#nfs
    */
-  readonly nfs?: NFSVolumeSource;
+  readonly nfs?: NfsVolumeSource;
 
   /**
    * NodeAffinity defines constraints that limit what nodes this volume can be accessed from. This field influences the scheduling of pods that use this volume.
@@ -6413,14 +6413,14 @@ export interface PersistentVolumeSpec {
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#rbd
    */
-  readonly rbd?: RBDPersistentVolumeSource;
+  readonly rbd?: RbdPersistentVolumeSource;
 
   /**
    * ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#scaleIO
    */
-  readonly scaleIO?: ScaleIOPersistentVolumeSource;
+  readonly scaleIO?: ScaleIoPersistentVolumeSource;
 
   /**
    * Name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.
@@ -6434,7 +6434,7 @@ export interface PersistentVolumeSpec {
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#storageos
    */
-  readonly storageos?: StorageOSPersistentVolumeSource;
+  readonly storageos?: StorageOsPersistentVolumeSource;
 
   /**
    * volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec. This is a beta feature.
@@ -6548,7 +6548,7 @@ export interface PodSpec {
    *
    * @schema io.k8s.api.core.v1.PodSpec#dnsConfig
    */
-  readonly dnsConfig?: PodDNSConfig;
+  readonly dnsConfig?: PodDnsConfig;
 
   /**
    * Set DNS policy for the pod. Defaults to "ClusterFirst". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
@@ -7088,7 +7088,7 @@ export interface IngressSpec {
    *
    * @schema io.k8s.api.networking.v1beta1.IngressSpec#tls
    */
-  readonly tls?: IngressTLS[];
+  readonly tls?: IngressTls[];
 
 }
 
@@ -7146,7 +7146,7 @@ export interface PodSecurityPolicySpec {
    *
    * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedCSIDrivers
    */
-  readonly allowedCSIDrivers?: AllowedCSIDriver[];
+  readonly allowedCSIDrivers?: AllowedCsiDriver[];
 
   /**
    * allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.
@@ -7213,7 +7213,7 @@ Examples: e.g. "foo/*" forbids "foo/bar", "foo/baz", etc. e.g. "foo.*" forbids "
    *
    * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#fsGroup
    */
-  readonly fsGroup: FSGroupStrategyOptions;
+  readonly fsGroup: FsGroupStrategyOptions;
 
   /**
    * hostIPC determines if the policy allows the use of HostIPC in the pod spec.
@@ -7290,7 +7290,7 @@ Examples: e.g. "foo/*" forbids "foo/bar", "foo/baz", etc. e.g. "foo.*" forbids "
    *
    * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#seLinux
    */
-  readonly seLinux: SELinuxStrategyOptions;
+  readonly seLinux: SeLinuxStrategyOptions;
 
   /**
    * supplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext.
@@ -7436,7 +7436,7 @@ export interface DeleteOptions {
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#kind
    */
-  readonly kind?: string;
+  readonly kind?: IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind;
 
   /**
    * Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
@@ -7662,13 +7662,13 @@ export interface PodPresetSpec {
  *
  * @schema io.k8s.api.storage.v1.CSINodeSpec
  */
-export interface CSINodeSpec {
+export interface CsiNodeSpec {
   /**
    * drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
    *
    * @schema io.k8s.api.storage.v1.CSINodeSpec#drivers
    */
-  readonly drivers: CSINodeDriver[];
+  readonly drivers: CsiNodeDriver[];
 
 }
 
@@ -7721,7 +7721,7 @@ export interface VolumeAttachmentSpec {
  *
  * @schema io.k8s.api.storage.v1beta1.CSIDriverSpec
  */
-export interface CSIDriverSpec {
+export interface CsiDriverSpec {
   /**
    * attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting. The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
    *
@@ -7854,7 +7854,7 @@ export interface StatusDetails {
  *
  * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec
  */
-export interface APIServiceSpec {
+export interface ApiServiceSpec {
   /**
    * CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate. If unspecified, system trust roots on the apiserver are used.
    *
@@ -8543,7 +8543,7 @@ An AWS EBS disk must exist before mounting to a container. The disk must also be
  *
  * @schema io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource
  */
-export interface AWSElasticBlockStoreVolumeSource {
+export interface AwsElasticBlockStoreVolumeSource {
   /**
    * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
    *
@@ -8682,7 +8682,7 @@ export class Quantity {
  *
  * @schema io.k8s.api.core.v1.CephFSPersistentVolumeSource
  */
-export interface CephFSPersistentVolumeSource {
+export interface CephFsPersistentVolumeSource {
   /**
    * Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
@@ -8770,7 +8770,7 @@ export interface CinderPersistentVolumeSource {
  *
  * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource
  */
-export interface CSIPersistentVolumeSource {
+export interface CsiPersistentVolumeSource {
   /**
    * ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
    *
@@ -8842,7 +8842,7 @@ export interface CSIPersistentVolumeSource {
  *
  * @schema io.k8s.api.core.v1.FCVolumeSource
  */
-export interface FCVolumeSource {
+export interface FcVolumeSource {
   /**
    * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
@@ -8954,7 +8954,7 @@ A GCE PD must exist before mounting to a container. The disk must also be in the
  *
  * @schema io.k8s.api.core.v1.GCEPersistentDiskVolumeSource
  */
-export interface GCEPersistentDiskVolumeSource {
+export interface GcePersistentDiskVolumeSource {
   /**
    * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
    *
@@ -9160,7 +9160,7 @@ export interface LocalVolumeSource {
  *
  * @schema io.k8s.api.core.v1.NFSVolumeSource
  */
-export interface NFSVolumeSource {
+export interface NfsVolumeSource {
   /**
    * Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    *
@@ -9310,7 +9310,7 @@ export interface QuobyteVolumeSource {
  *
  * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource
  */
-export interface RBDPersistentVolumeSource {
+export interface RbdPersistentVolumeSource {
   /**
    * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
    *
@@ -9379,7 +9379,7 @@ export interface RBDPersistentVolumeSource {
  *
  * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource
  */
-export interface ScaleIOPersistentVolumeSource {
+export interface ScaleIoPersistentVolumeSource {
   /**
    * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs"
    *
@@ -9460,7 +9460,7 @@ export interface ScaleIOPersistentVolumeSource {
  *
  * @schema io.k8s.api.core.v1.StorageOSPersistentVolumeSource
  */
-export interface StorageOSPersistentVolumeSource {
+export interface StorageOsPersistentVolumeSource {
   /**
    * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
@@ -9788,7 +9788,7 @@ export interface Container {
  *
  * @schema io.k8s.api.core.v1.PodDNSConfig
  */
-export interface PodDNSConfig {
+export interface PodDnsConfig {
   /**
    * A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
    *
@@ -9801,7 +9801,7 @@ export interface PodDNSConfig {
    *
    * @schema io.k8s.api.core.v1.PodDNSConfig#options
    */
-  readonly options?: PodDNSConfigOption[];
+  readonly options?: PodDnsConfigOption[];
 
   /**
    * A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
@@ -10068,7 +10068,7 @@ If unset, the Kubelet will not modify the ownership and permissions of any volum
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#seLinuxOptions
    */
-  readonly seLinuxOptions?: SELinuxOptions;
+  readonly seLinuxOptions?: SeLinuxOptions;
 
   /**
    * A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container.
@@ -10184,7 +10184,7 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#awsElasticBlockStore
    */
-  readonly awsElasticBlockStore?: AWSElasticBlockStoreVolumeSource;
+  readonly awsElasticBlockStore?: AwsElasticBlockStoreVolumeSource;
 
   /**
    * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
@@ -10205,7 +10205,7 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#cephfs
    */
-  readonly cephfs?: CephFSVolumeSource;
+  readonly cephfs?: CephFsVolumeSource;
 
   /**
    * Cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
@@ -10226,14 +10226,14 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#csi
    */
-  readonly csi?: CSIVolumeSource;
+  readonly csi?: CsiVolumeSource;
 
   /**
    * DownwardAPI represents downward API about the pod that should populate this volume
    *
    * @schema io.k8s.api.core.v1.Volume#downwardAPI
    */
-  readonly downwardAPI?: DownwardAPIVolumeSource;
+  readonly downwardAPI?: DownwardApiVolumeSource;
 
   /**
    * EmptyDir represents a temporary directory that shares a pod's lifetime. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
@@ -10247,7 +10247,7 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#fc
    */
-  readonly fc?: FCVolumeSource;
+  readonly fc?: FcVolumeSource;
 
   /**
    * FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
@@ -10268,7 +10268,7 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#gcePersistentDisk
    */
-  readonly gcePersistentDisk?: GCEPersistentDiskVolumeSource;
+  readonly gcePersistentDisk?: GcePersistentDiskVolumeSource;
 
   /**
    * GitRepo represents a git repository at a particular revision. DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
@@ -10310,7 +10310,7 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#nfs
    */
-  readonly nfs?: NFSVolumeSource;
+  readonly nfs?: NfsVolumeSource;
 
   /**
    * PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
@@ -10352,14 +10352,14 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#rbd
    */
-  readonly rbd?: RBDVolumeSource;
+  readonly rbd?: RbdVolumeSource;
 
   /**
    * ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
    *
    * @schema io.k8s.api.core.v1.Volume#scaleIO
    */
-  readonly scaleIO?: ScaleIOVolumeSource;
+  readonly scaleIO?: ScaleIoVolumeSource;
 
   /**
    * Secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
@@ -10373,7 +10373,7 @@ export interface Volume {
    *
    * @schema io.k8s.api.core.v1.Volume#storageos
    */
-  readonly storageos?: StorageOSVolumeSource;
+  readonly storageos?: StorageOsVolumeSource;
 
   /**
    * VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
@@ -10455,7 +10455,7 @@ export interface SessionAffinityConfig {
    *
    * @schema io.k8s.api.core.v1.SessionAffinityConfig#clientIP
    */
-  readonly clientIP?: ClientIPConfig;
+  readonly clientIP?: ClientIpConfig;
 
 }
 
@@ -10517,7 +10517,7 @@ Both these may change in the future. Incoming requests are matched against the h
   /**
    * @schema io.k8s.api.networking.v1beta1.IngressRule#http
    */
-  readonly http?: HTTPIngressRuleValue;
+  readonly http?: HttpIngressRuleValue;
 
 }
 
@@ -10526,7 +10526,7 @@ Both these may change in the future. Incoming requests are matched against the h
  *
  * @schema io.k8s.api.networking.v1beta1.IngressTLS
  */
-export interface IngressTLS {
+export interface IngressTls {
   /**
    * Hosts are a list of hosts included in the TLS certificate. The values in this list must match the name/s used in the tlsSecret. Defaults to the wildcard host setting for the loadbalancer controller fulfilling this Ingress, if left unspecified.
    *
@@ -10593,7 +10593,7 @@ export interface NetworkPolicyIngressRule {
  *
  * @schema io.k8s.api.policy.v1beta1.AllowedCSIDriver
  */
-export interface AllowedCSIDriver {
+export interface AllowedCsiDriver {
   /**
    * Name is the registered name of the CSI driver
    *
@@ -10647,7 +10647,7 @@ Examples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not all
  *
  * @schema io.k8s.api.policy.v1beta1.FSGroupStrategyOptions
  */
-export interface FSGroupStrategyOptions {
+export interface FsGroupStrategyOptions {
   /**
    * ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
    *
@@ -10757,7 +10757,7 @@ export interface RuntimeClassStrategyOptions {
  *
  * @schema io.k8s.api.policy.v1beta1.SELinuxStrategyOptions
  */
-export interface SELinuxStrategyOptions {
+export interface SeLinuxStrategyOptions {
   /**
    * rule is the strategy that will dictate the allowable labels that may be set.
    *
@@ -10770,7 +10770,7 @@ export interface SELinuxStrategyOptions {
    *
    * @schema io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#seLinuxOptions
    */
-  readonly seLinuxOptions?: SELinuxOptions;
+  readonly seLinuxOptions?: SeLinuxOptions;
 
 }
 
@@ -10881,6 +10881,16 @@ bigger numbers of ACS mean more reserved concurrent requests (at the expense of 
    */
   readonly limitResponse?: LimitResponse;
 
+}
+
+/**
+ * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+ *
+ * @schema IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind
+ */
+export enum IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind {
+  /** DeleteOptions */
+  DELETE_OPTIONS = "DeleteOptions",
 }
 
 /**
@@ -11037,7 +11047,7 @@ export interface VolumeMount {
  *
  * @schema io.k8s.api.storage.v1.CSINodeDriver
  */
-export interface CSINodeDriver {
+export interface CsiNodeDriver {
   /**
    * allocatable represents the volume resources of a node that are available for scheduling. This field is beta.
    *
@@ -11606,7 +11616,7 @@ export interface Probe {
    *
    * @schema io.k8s.api.core.v1.Probe#httpGet
    */
-  readonly httpGet?: HTTPGetAction;
+  readonly httpGet?: HttpGetAction;
 
   /**
    * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
@@ -11636,7 +11646,7 @@ export interface Probe {
    *
    * @schema io.k8s.api.core.v1.Probe#tcpSocket
    */
-  readonly tcpSocket?: TCPSocketAction;
+  readonly tcpSocket?: TcpSocketAction;
 
   /**
    * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
@@ -11763,7 +11773,7 @@ export interface SecurityContext {
    *
    * @schema io.k8s.api.core.v1.SecurityContext#seLinuxOptions
    */
-  readonly seLinuxOptions?: SELinuxOptions;
+  readonly seLinuxOptions?: SeLinuxOptions;
 
   /**
    * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
@@ -11801,7 +11811,7 @@ export interface VolumeDevice {
  *
  * @schema io.k8s.api.core.v1.PodDNSConfigOption
  */
-export interface PodDNSConfigOption {
+export interface PodDnsConfigOption {
   /**
    * Required.
    *
@@ -11821,7 +11831,7 @@ export interface PodDNSConfigOption {
  *
  * @schema io.k8s.api.core.v1.SELinuxOptions
  */
-export interface SELinuxOptions {
+export interface SeLinuxOptions {
   /**
    * Level is SELinux level label that applies to the container.
    *
@@ -11939,7 +11949,7 @@ export interface AzureFileVolumeSource {
  *
  * @schema io.k8s.api.core.v1.CephFSVolumeSource
  */
-export interface CephFSVolumeSource {
+export interface CephFsVolumeSource {
   /**
    * Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
@@ -12066,7 +12076,7 @@ export interface ConfigMapVolumeSource {
  *
  * @schema io.k8s.api.core.v1.CSIVolumeSource
  */
-export interface CSIVolumeSource {
+export interface CsiVolumeSource {
   /**
    * Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
    *
@@ -12110,7 +12120,7 @@ export interface CSIVolumeSource {
  *
  * @schema io.k8s.api.core.v1.DownwardAPIVolumeSource
  */
-export interface DownwardAPIVolumeSource {
+export interface DownwardApiVolumeSource {
   /**
    * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    *
@@ -12124,7 +12134,7 @@ export interface DownwardAPIVolumeSource {
    *
    * @schema io.k8s.api.core.v1.DownwardAPIVolumeSource#items
    */
-  readonly items?: DownwardAPIVolumeFile[];
+  readonly items?: DownwardApiVolumeFile[];
 
 }
 
@@ -12391,7 +12401,7 @@ export interface ProjectedVolumeSource {
  *
  * @schema io.k8s.api.core.v1.RBDVolumeSource
  */
-export interface RBDVolumeSource {
+export interface RbdVolumeSource {
   /**
    * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
    *
@@ -12460,7 +12470,7 @@ export interface RBDVolumeSource {
  *
  * @schema io.k8s.api.core.v1.ScaleIOVolumeSource
  */
-export interface ScaleIOVolumeSource {
+export interface ScaleIoVolumeSource {
   /**
    * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs".
    *
@@ -12580,7 +12590,7 @@ export interface SecretVolumeSource {
  *
  * @schema io.k8s.api.core.v1.StorageOSVolumeSource
  */
-export interface StorageOSVolumeSource {
+export interface StorageOsVolumeSource {
   /**
    * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
@@ -12653,7 +12663,7 @@ export interface ScopedResourceSelectorRequirement {
  *
  * @schema io.k8s.api.core.v1.ClientIPConfig
  */
-export interface ClientIPConfig {
+export interface ClientIpConfig {
   /**
    * timeoutSeconds specifies the seconds of ClientIP type session sticky time. The value must be >0 && <=86400(for 1 day) if ServiceAffinity == "ClientIP". Default value is 10800(for 3 hours).
    *
@@ -12668,13 +12678,13 @@ export interface ClientIPConfig {
  *
  * @schema io.k8s.api.networking.v1beta1.HTTPIngressRuleValue
  */
-export interface HTTPIngressRuleValue {
+export interface HttpIngressRuleValue {
   /**
    * A collection of paths that map requests to backends.
    *
    * @schema io.k8s.api.networking.v1beta1.HTTPIngressRuleValue#paths
    */
-  readonly paths: HTTPIngressPath[];
+  readonly paths: HttpIngressPath[];
 
 }
 
@@ -13030,7 +13040,7 @@ export interface CustomResourceValidation {
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceValidation#openAPIV3Schema
    */
-  readonly openAPIV3Schema?: JSONSchemaProps;
+  readonly openAPIV3Schema?: JsonSchemaProps;
 
 }
 
@@ -13169,14 +13179,14 @@ export interface Handler {
    *
    * @schema io.k8s.api.core.v1.Handler#httpGet
    */
-  readonly httpGet?: HTTPGetAction;
+  readonly httpGet?: HttpGetAction;
 
   /**
    * TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
    *
    * @schema io.k8s.api.core.v1.Handler#tcpSocket
    */
-  readonly tcpSocket?: TCPSocketAction;
+  readonly tcpSocket?: TcpSocketAction;
 
 }
 
@@ -13200,7 +13210,7 @@ export interface ExecAction {
  *
  * @schema io.k8s.api.core.v1.HTTPGetAction
  */
-export interface HTTPGetAction {
+export interface HttpGetAction {
   /**
    * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
    *
@@ -13213,7 +13223,7 @@ export interface HTTPGetAction {
    *
    * @schema io.k8s.api.core.v1.HTTPGetAction#httpHeaders
    */
-  readonly httpHeaders?: HTTPHeader[];
+  readonly httpHeaders?: HttpHeader[];
 
   /**
    * Path to access on the HTTP server.
@@ -13244,7 +13254,7 @@ export interface HTTPGetAction {
  *
  * @schema io.k8s.api.core.v1.TCPSocketAction
  */
-export interface TCPSocketAction {
+export interface TcpSocketAction {
   /**
    * Optional: Host name to connect to, defaults to the pod IP.
    *
@@ -13317,7 +13327,7 @@ export interface KeyToPath {
  *
  * @schema io.k8s.api.core.v1.DownwardAPIVolumeFile
  */
-export interface DownwardAPIVolumeFile {
+export interface DownwardApiVolumeFile {
   /**
    * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
    *
@@ -13366,7 +13376,7 @@ export interface VolumeProjection {
    *
    * @schema io.k8s.api.core.v1.VolumeProjection#downwardAPI
    */
-  readonly downwardAPI?: DownwardAPIProjection;
+  readonly downwardAPI?: DownwardApiProjection;
 
   /**
    * information about the secret data to project
@@ -13389,7 +13399,7 @@ export interface VolumeProjection {
  *
  * @schema io.k8s.api.networking.v1beta1.HTTPIngressPath
  */
-export interface HTTPIngressPath {
+export interface HttpIngressPath {
   /**
    * Backend defines the referenced service endpoint to which the traffic will be forwarded to.
    *
@@ -13571,7 +13581,7 @@ export interface SecretKeySelector {
  *
  * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps
  */
-export interface JSONSchemaProps {
+export interface JsonSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#$ref
    */
@@ -13595,12 +13605,12 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#allOf
    */
-  readonly allOf?: JSONSchemaProps[];
+  readonly allOf?: JsonSchemaProps[];
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#anyOf
    */
-  readonly anyOf?: JSONSchemaProps[];
+  readonly anyOf?: JsonSchemaProps[];
 
   /**
    * default is a default value for undefined object fields. Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
@@ -13612,7 +13622,7 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#definitions
    */
-  readonly definitions?: { [key: string]: JSONSchemaProps };
+  readonly definitions?: { [key: string]: JsonSchemaProps };
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#dependencies
@@ -13716,7 +13726,7 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#not
    */
-  readonly not?: JSONSchemaProps;
+  readonly not?: JsonSchemaProps;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#nullable
@@ -13726,7 +13736,7 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#oneOf
    */
-  readonly oneOf?: JSONSchemaProps[];
+  readonly oneOf?: JsonSchemaProps[];
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#pattern
@@ -13736,12 +13746,12 @@ export interface JSONSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#patternProperties
    */
-  readonly patternProperties?: { [key: string]: JSONSchemaProps };
+  readonly patternProperties?: { [key: string]: JsonSchemaProps };
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#properties
    */
-  readonly properties?: { [key: string]: JSONSchemaProps };
+  readonly properties?: { [key: string]: JsonSchemaProps };
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#required
@@ -13828,7 +13838,7 @@ export interface NodeSelectorRequirement {
  *
  * @schema io.k8s.api.core.v1.HTTPHeader
  */
-export interface HTTPHeader {
+export interface HttpHeader {
   /**
    * The header field name
    *
@@ -13881,13 +13891,13 @@ export interface ConfigMapProjection {
  *
  * @schema io.k8s.api.core.v1.DownwardAPIProjection
  */
-export interface DownwardAPIProjection {
+export interface DownwardApiProjection {
   /**
    * Items is a list of DownwardAPIVolume file
    *
    * @schema io.k8s.api.core.v1.DownwardAPIProjection#items
    */
-  readonly items?: DownwardAPIVolumeFile[];
+  readonly items?: DownwardApiVolumeFile[];
 
 }
 

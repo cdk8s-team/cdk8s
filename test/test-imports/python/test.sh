@@ -2,6 +2,8 @@
 set -e
 scriptdir=$(cd $(dirname $0) && pwd)
 
+source ${scriptdir}/../common.sh
+
 cd $(mktemp -d)
 mkdir test && cd test
 
@@ -11,17 +13,19 @@ cp ${scriptdir}/example_multiple_crd.yaml .
 
 cdk8s import mattermost:=mattermost_crd.yaml --language python
 
+match_snapshot imports ${scriptdir}/expected-named-from-cli
+
+rm -rf imports
+
 cdk8s import --language python
 
-# Exclude the .tgz files because their headers differ
-# because they were zipped at different times.
-diff -r --exclude=*.tgz imports ${scriptdir}/expected-from-config
+match_snapshot imports ${scriptdir}/expected-from-config
 
 rm -rf imports
 
 cdk8s import mattermost_crd.yaml --language python
 
-diff -r --exclude=*.tgz imports ${scriptdir}/expected-from-cli
+match_snapshot imports ${scriptdir}/expected-from-cli
 
 rm -rf imports
 

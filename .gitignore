@@ -5,6 +5,7 @@ dist/
 cdk.out
 *.d.ts
 *.js
+!jest.config.js
 lib/.generated
 
 # Created by https://www.gitignore.io/api/node

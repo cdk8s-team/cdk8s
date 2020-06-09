@@ -2,6 +2,11 @@
 
 Let's walk through a simple "Hello, World!" example in Python.
 
+## Prerequisites
+
+* [Python >= 3.7.7](https://www.python.org/downloads/release/python-377/)
+* [pipenv](https://pipenv.pypa.io/en/latest) version 2018.11.26 or above.
+
 ## Install the CLI
 
 cdk8s has a cute little CLI that has a few useful commands. Let's start by
@@ -235,9 +240,9 @@ from imports import k8s
 class WebService(Construct):
     def __init__(self, scope: Construct, ns: str, *,
                  image: str,
-                 replicas: typing.Optional[int] = 1,
-                 port: typing.Optional[int] = 80,
-                 container_port: typing.Optional[int] = 8080):
+                 replicas: int = 1,
+                 port: int = 80,
+                 container_port: int = 8080):
         super().__init__(scope, ns)
 
         label = {'app': Node.of(self).unique_id}

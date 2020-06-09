@@ -3,10 +3,10 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { CodeMaker } from "codemaker";
 import { JSONSchema4 } from "json-schema";
-import { jsiiCompile } from "../../lib/import/jsii";
-import { withTempDir } from "../../lib/util";
+import { mkdtemp } from "../../lib/util";
+import { srcmak } from "jsii-srcmak";
 
-jest.setTimeout(60_000); // 1min
+jest.setTimeout(3 * 60_000); // 1min
 
 describe('unions', () => {
 
@@ -15,6 +15,59 @@ describe('unions', () => {
       { type: "string" },
       { type: "number" }
     ]
+  });
+
+  which('constraints are ignored for objects', {
+    "description": "An ordered list of route rules for HTTP traffic.",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "fault": {
+          "type": "object",
+          "description": "Fault injection policy to apply on HTTP traffic at\nthe client side.",
+          "properties": {
+            "delay": {
+              "oneOf": [
+                {
+                  "anyOf": [
+                    { "required": [ "fixedDelay" ] },
+                    { "required": [ "exponentialDelay" ] }
+                  ]
+                },
+                { "required": [ "fixedDelay" ] },
+                { "required": [ "exponentialDelay" ] }
+              ],
+              "properties": {
+                "exponentialDelay": {
+                  "type": "string"
+                },
+                "fixedDelay": {
+                  "description": "Add a fixed delay before forwarding the request.",
+                  "type": "string"
+                },
+                "percent": {
+                  "description": "Percentage of requests on which the delay\nwill be injected (0-100).",
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "percentage": {
+                  "description": "Percentage of requests on which the delay\nwill be injected.",
+                  "properties": {
+                    "value": {
+                      "format": "double",
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+        }
+      },
+    },
   });
 
 });
@@ -140,17 +193,58 @@ describe('structs', () => {
 describe('documentation', () => {
 
   which('does not render if not defined', {
-    type: 'boolean'
+    type: 'object',
+    properties: {
+      field: {
+        type: 'boolean'
+      }
+    }
   });
 
   which('renders based on description', {
-    description: 'hello, description',
-    type: 'string'
+    type: 'object',
+    properties: {
+      field: {
+        description: 'hello, description',
+        type: 'string'
+      }
+    }
   });
 
   which('"*/" is is escaped', {
-    description: 'hello */world',
-    type: 'string'
+    type: 'object',
+    properties: {
+      field: {
+        description: 'hello */world',
+        type: 'string'
+      }
+    }
+  });
+
+});
+
+describe('enums', () => {
+
+  which('renders a typescript enum', {
+    type: 'object',
+    required: [ 'firstEnum' ],
+    properties: {
+      firstEnum: {
+        description: 'description of first enum',
+        type: 'string',
+        enum: [ 'value1', 'value2', 'value-of-three', 'valueOfFour' ]
+      },
+      child: {
+        type: 'object',
+        properties: {
+          secondEnum: {
+            description: 'description of second enum',
+            type: 'string',
+            enum: [ 'hey', 'enum values can be crazy', 'yes>>123' ]
+          }
+        }
+      }
+    }
   });
 
 });
@@ -160,13 +254,13 @@ function which(name: string, schema: JSONSchema4, definitions?: JSONSchema4) {
     const gen = new TypeGenerator(definitions);
     gen.emitType('TestType', schema, 'fqn.of.TestType');
 
-    await withTempDir('test', async () => {
-      expect(await generate(gen)).toMatchSnapshot();
+    await mkdtemp(async workdir => {
+      expect(await generate(workdir, gen)).toMatchSnapshot();
     });
   });
 }
 
-async function generate(gen: TypeGenerator) {
+async function generate(workdir: string, gen: TypeGenerator) {
   const code = new CodeMaker();
 
   const entrypoint = 'index.ts';
@@ -174,20 +268,14 @@ async function generate(gen: TypeGenerator) {
   code.openFile(entrypoint);
   gen.generate(code);
   code.closeFile(entrypoint)
-  await code.save('.');
 
-  const source = await fs.readFile(path.join('.', entrypoint), 'utf-8');
+  await code.save(workdir);
 
-  try {
-    await jsiiCompile('.', {
-      main: 'index',
-      name: 'dummy',
-      stdout: true 
-    });
-  } catch (e) {
-    console.error(source);
-    throw e;
-  }
+  const source = await fs.readFile(path.join(workdir, entrypoint), 'utf-8');
+  const deps = [ 'constructs', 'cdk8s', '@types/node' ].map(d => path.dirname(require.resolve(`${d}/package.json`)));
+
+  // check that the output compiles & is jsii-compatible
+  await srcmak(workdir, { deps });
 
   return source;
 }

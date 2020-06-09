@@ -10,7 +10,7 @@
     "synth": "cdk8s synth",
     "compile": "tsc",
     "watch": "tsc -w",
-    "test": "echo ok",
+    "test": "jest",
     "build": "npm run compile && npm run test && npm run synth",
     "upgrade": "npm i cdk8s@latest cdk8s-cli@latest",
     "upgrade:next": "npm i cdk8s@next cdk8s-cli@next"

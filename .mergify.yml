@@ -9,4 +9,6 @@ pull_request_rules:
         strict: smart
         method: squash
         strict_method: merge
+        commit_message: title+body
       delete_head_branch: {}
+      dismiss_reviews: {}
