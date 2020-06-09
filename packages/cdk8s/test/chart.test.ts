@@ -1,5 +1,5 @@
 import { Chart, ApiObject, Testing } from '../lib';
-import { Construct, Lazy, Node } from 'constructs';
+import { Construct, Lazy, Node, Dependency } from 'constructs';
 
 test('empty stack', () => {
   // GIVEN
@@ -93,6 +93,30 @@ test('synthesizeManifest() can be used to synthesize a specific chart', () => {
   expect(manifest).toMatchSnapshot();
 });
 
+test('addDependency', () => {
+
+  const app = Testing.app();
+  const chart1 = new Chart(app, 'chart1');
+  const chart2 = new Chart(app, 'chart2');
+  const chart3 = new Chart(app, 'chart3');
+
+  chart1.addDependency(chart2, chart3);
+
+  const dependencies: Set<Dependency> = new Set<Dependency>(Node.of(chart1).dependencies);
+
+  expect(dependencies).toEqual(new Set<Dependency>([
+    {
+      source: chart1,
+      target: chart2
+    },
+    {
+      source: chart1,
+      target: chart3
+    }
+  ]))
+
+});
+
 describe('toJson', () => {
 
   test('validates the chart', () => {
@@ -178,17 +202,6 @@ describe('toJson', () => {
 
   test('orders custom constructs', () => {
 
-    class CustomConstruct extends Construct {
-
-      public obj: ApiObject;
-
-      constructor(scope: Construct, id: string) {
-        super(scope, id);
-
-        this.obj = new ApiObject(this, `${id}obj`, { apiVersion: 'v1', kind: 'CustomConstruct' });
-      }
-    }
-
     const app = Testing.app();
     const chart = new Chart(app, 'chart');
 
@@ -206,33 +219,11 @@ describe('toJson', () => {
 
   test('orders transitive custom constructs', () => {
 
-    class CustomOne extends Construct {
-
-      public obj: ApiObject;
-
-      constructor(scope: Construct, id: string) {
-        super(scope, id);
-
-        this.obj = new ApiObject(this, `${id}obj`, { apiVersion: 'v1', kind: 'CustomOne' });
-      }
-    }
-
-    class CustomTwo extends Construct {
-
-      public obj: CustomOne;
-
-      constructor(scope: Construct, id: string) {
-        super(scope, id);
-
-        this.obj = new CustomOne(this, 'nested');
-      }
-    }
-
     const app = Testing.app();
     const chart = new Chart(app, 'chart');
 
-    const microService = new CustomOne(chart, 'MicroService');
-    const dataBase = new CustomTwo(chart, 'Database');
+    const microService = new CustomConstruct(chart, 'MicroService');
+    const dataBase = new CustomNestedConstruct(chart, 'Database');
 
     Node.of(microService).addDependency(dataBase);
 
@@ -244,17 +235,6 @@ describe('toJson', () => {
   });
 
   test('api object depends on custom construct', () => {
-
-    class CustomConstruct extends Construct {
-
-      public obj: ApiObject;
-
-      constructor(scope: Construct, id: string) {
-        super(scope, id);
-
-        this.obj = new ApiObject(this, `${id}obj`, { apiVersion: 'v1', kind: 'CustomConstruct' });
-      }
-    }
 
     const app = Testing.app();
     const chart = new Chart(app, 'chart');
@@ -271,10 +251,49 @@ describe('toJson', () => {
 
   });
 
+  test('construct depends on api object', () => {
+
+    const app = Testing.app();
+    const chart = new Chart(app, 'chart');
+
+    const database = new ApiObject(chart, 'MicroService', { apiVersion: 'v1', kind: 'MicroService' });
+    const microService = new CustomConstruct(chart, 'Database');
+
+    Node.of(microService).addDependency(database);
+
+    expect(chart.toJson()).toEqual([
+      database.toJson(),
+      microService.obj.toJson()
+    ])
+
+  });
+
 });
 
 function createImplictToken(value: any) {
   const implicit = {};
   Object.defineProperty(implicit, 'resolve', { value: () => value });
   return implicit;
+}
+
+class CustomConstruct extends Construct {
+
+  public obj: ApiObject;
+
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
+
+    this.obj = new ApiObject(this, `${id}obj`, { apiVersion: 'v1', kind: 'CustomConstruct' });
+  }
+}
+
+class CustomNestedConstruct extends Construct {
+
+  public obj: CustomConstruct;
+
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
+
+    this.obj = new CustomConstruct(this, 'nested');
+  }
 }

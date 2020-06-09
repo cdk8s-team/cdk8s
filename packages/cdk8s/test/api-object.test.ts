@@ -1,5 +1,5 @@
 import { ApiObject, Chart, Testing } from '../lib';
-import { Construct } from 'constructs';
+import { Construct, Node, Dependency } from 'constructs';
 
 test('minimal configuration', () => {
   const app = Testing.app();
@@ -32,6 +32,32 @@ test('printed yaml is alphabetical', () => {
 
   // Should match alphabetically-ordered snapshot
   expect(Testing.synth(stack)).toMatchSnapshot();
+});
+
+test('addDependency', () => {
+
+  const app = Testing.app();
+  const chart = new Chart(app, 'chart1');
+
+  const obj1 = new ApiObject(chart, 'obj1', { apiVersion: 'v1', kind: 'Kind1' });
+  const obj2 = new ApiObject(chart, 'obj2', { apiVersion: 'v1', kind: 'Kind2' });
+  const obj3 = new ApiObject(chart, 'obj3', { apiVersion: 'v1', kind: 'Kind3' });
+
+  obj1.addDependency(obj2, obj3);
+
+  const dependencies: Set<Dependency> = new Set<Dependency>(Node.of(obj1).dependencies);
+
+  expect(dependencies).toEqual(new Set<Dependency>([
+    {
+      source: obj1,
+      target: obj2
+    },
+    {
+      source: obj1,
+      target: obj3
+    }
+  ]))
+
 });
 
 test('synthesized resource name is based on path', () => {
@@ -149,20 +175,20 @@ test('default namespace can be defined at the chart level', () => {
   new ApiObject(group1, 'obj2', { apiVersion: 'v2', kind: 'Kind2', metadata: { namespace: 'foobar' } });
 
   // THEN
-  expect(Testing.synth(chart)).toStrictEqual([{ 
-    "apiVersion": "v1", 
-    "kind": 
-    "Kind1", 
-    "metadata": { 
-      "name": "chart-group1-obj1-b4b7a9d0", 
-      "namespace": "ns1" 
-    } 
-  }, { 
-    "apiVersion": "v2", 
-    "kind": "Kind2", 
-    "metadata": { 
-      "name": "chart-group1-obj2-3cdc9d22", 
-      "namespace": "foobar" 
-    } 
+  expect(Testing.synth(chart)).toStrictEqual([{
+    "apiVersion": "v1",
+    "kind":
+    "Kind1",
+    "metadata": {
+      "name": "chart-group1-obj1-b4b7a9d0",
+      "namespace": "ns1"
+    }
+  }, {
+    "apiVersion": "v2",
+    "kind": "Kind2",
+    "metadata": {
+      "name": "chart-group1-obj2-3cdc9d22",
+      "namespace": "foobar"
+    }
   }]);
 });
