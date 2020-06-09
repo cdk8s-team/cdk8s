@@ -82,7 +82,7 @@ export class Chart extends Construct {
    * @returns array of resource manifests
    */
   public toJson(): any[] {
-    return App.synthChart(this);
+    return App._synthChart(this);
   }
 
 }

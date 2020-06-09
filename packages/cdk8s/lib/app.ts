@@ -1,4 +1,4 @@
-import { Construct, Node, IConstruct, Dependency } from 'constructs';
+import { Construct, Node, IConstruct } from 'constructs';
 import fs = require('fs');
 import { Chart } from './chart';
 import * as path from 'path';
@@ -42,22 +42,21 @@ export class App extends Construct {
 
     // this is kind of sucky, eventually I would like the DependencyGraph
     // to be able to answer this question.
-    const hasChartDependencies = App.prepare(this);
+    const hasDependantCharts = resolveDependencies(this);
 
     // Since we plan on removing the distributed synth mechanism, we no longer call `Node.synthesize`, but rather simply implement
     // the necessary operations. We do however want to preserve the distributed validation.
-    App.validate(this);
-
-    const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
+    validate(this);
 
     const simpleManifestNamer = (chart: Chart) => `${Node.of(chart).uniqueId}.k8s.yaml`;
+    const manifestNamer = hasDependantCharts ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
 
-    const manifestNamer = hasChartDependencies ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
+    const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
 
     let index = 0;
     for (const node of charts) {
       const chart: Chart = Chart.of(node);
-      Yaml.save(path.join(this.outdir, manifestNamer(chart)), App.chartToJson(chart));
+      Yaml.save(path.join(this.outdir, manifestNamer(chart)), chartToKube(chart));
       index++;
     }
 
@@ -74,21 +73,22 @@ export class App extends Construct {
    *
    * @returns An array of JSON objects.
    * @param chart the chart to synthesize.
+   * @internal
    */
-  public static synthChart(chart: Chart): any[] {
+  public static _synthChart(chart: Chart): any[] {
 
     const app: App = App.of(chart);
 
     // we must prepare the entire app before synthesizing the chart
     // because the dependency inference happens on the app level.
-    App.prepare(app);
+    resolveDependencies(app);
 
     // validate the app since we want to call onValidate of the relevant constructs.
     // note this will also call onValidate on constructs from possibly different charts,
     // but thats ok too since we no longer treat constructs as a self-contained synthesis unit.
-    App.validate(app);
+    validate(app);
 
-    return App.chartToJson(chart);
+    return chartToKube(chart);
   }
 
   private static of(c: IConstruct): App {
@@ -96,30 +96,16 @@ export class App extends Construct {
     const scope = Node.of(c).scope;
 
     if (!scope) {
-      // the app the only construct without a scope.
+      // the app is the only construct without a scope.
       return c as App;
     }
 
     return App.of(scope);
   }
 
-  private static prepare(app: App) {
+}
 
-    let hasChartDependencies = false;
-
-    for (const dep of Node.of(app).dependencies) {
-
-      // create explicit api object dependencies from implicit construct dependencies
-      this.inferApiObjectDependencies(dep);
-
-      // create an explicit chart dependency from implicit construct dependencies
-      hasChartDependencies = this.inferChartsDependency(dep);
-    }
-
-    return hasChartDependencies;
-  }
-
-  private static validate(app: App) {
+function validate(app: App) {
 
     // Note this is a copy-paste of https://github.com/aws/constructs/blob/master/lib/construct.ts#L438.
     const errors = Node.of(app).validate();
@@ -128,29 +114,17 @@ export class App extends Construct {
       throw new Error(`Validation failed with the following errors:\n  ${errorList}`);
     }
 
-  }
+}
 
-  private static findApiObjects(root: IConstruct): IConstruct[] {
-    return Node.of(root).findAll().filter(c => c instanceof ApiObject);
-  }
+function resolveDependencies(app: App) {
 
-  private static inferChartsDependency(dep: Dependency): boolean {
+  let hasDependantCharts = false;
 
-    const sourceChart = Chart.of(dep.source);
-    const targetChart = Chart.of(dep.target);
+  for (const dep of Node.of(app).dependencies) {
 
-    if (sourceChart !== targetChart) {
-      Node.of(sourceChart).addDependency(targetChart);
-      return true;
-    }
-
-    return false;
-  }
-
-  private static inferApiObjectDependencies(dep: Dependency) {
-
-    const targetApiObjects = this.findApiObjects(dep.target);
-    const sourceApiObjects = this.findApiObjects(dep.source);
+    // create explicit api object dependencies from implicit construct dependencies
+    const targetApiObjects = Node.of(dep.target).findAll().filter(c => c instanceof ApiObject);
+    const sourceApiObjects = Node.of(dep.source).findAll().filter(c => c instanceof ApiObject);
 
     for (const target of targetApiObjects) {
       for (const source of sourceApiObjects) {
@@ -158,13 +132,23 @@ export class App extends Construct {
       }
     }
 
+    // create an explicit chart dependency from implicit construct dependencies
+    const sourceChart = Chart.of(dep.source);
+    const targetChart = Chart.of(dep.target);
+
+    if (sourceChart !== targetChart) {
+      Node.of(sourceChart).addDependency(targetChart);
+      hasDependantCharts = true;
+    }
+
   }
 
-  private static chartToJson(chart: Chart): any[] {
-    return new DependencyGraph(Node.of(chart)).topology()
-      .filter(x => x instanceof ApiObject)
-      .map(x => (x as ApiObject).toJson());
-  }
+  return hasDependantCharts;
 
+}
 
+function chartToKube(chart: Chart) {
+  return new DependencyGraph(Node.of(chart)).topology()
+    .filter(x => x instanceof ApiObject)
+    .map(x => (x as ApiObject).toJson());
 }
