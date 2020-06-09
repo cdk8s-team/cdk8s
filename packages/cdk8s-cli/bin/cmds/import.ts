@@ -5,7 +5,7 @@ import { importDispatch } from '../../lib/import/dispatch';
 const config = readConfigSync();
 
 const DEFAULT_OUTDIR = 'imports';
-const LANGUAGES = [ 'typescript', 'python' ];
+const LANGUAGES = [ 'typescript', 'python', 'java' ];
 
 class Command implements yargs.CommandModule {
   public readonly command = 'import [SPEC]';
