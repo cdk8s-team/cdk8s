@@ -10232,7 +10232,7 @@ class JobTemplateSpec():
 
 @jsii.data_type(jsii_type="generated.JsonSchemaProps", jsii_struct_bases=[], name_mapping={'additional_items': 'additionalItems', 'additional_properties': 'additionalProperties', 'all_of': 'allOf', 'any_of': 'anyOf', 'default': 'default', 'definitions': 'definitions', 'dependencies': 'dependencies', 'description': 'description', 'enum': 'enum', 'example': 'example', 'exclusive_maximum': 'exclusiveMaximum', 'exclusive_minimum': 'exclusiveMinimum', 'external_docs': 'externalDocs', 'format': 'format', 'id': 'id', 'items': 'items', 'maximum': 'maximum', 'max_items': 'maxItems', 'max_length': 'maxLength', 'max_properties': 'maxProperties', 'minimum': 'minimum', 'min_items': 'minItems', 'min_length': 'minLength', 'min_properties': 'minProperties', 'multiple_of': 'multipleOf', 'not_': 'not', 'nullable': 'nullable', 'one_of': 'oneOf', 'pattern': 'pattern', 'pattern_properties': 'patternProperties', 'properties': 'properties', 'ref': 'ref', 'required': 'required', 'schema': 'schema', 'title': 'title', 'type': 'type', 'unique_items': 'uniqueItems'})
 class JsonSchemaProps():
-    def __init__(self, *, additional_items: typing.Optional[str]=None, additional_properties: typing.Optional[str]=None, all_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, any_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, default: typing.Optional[str]=None, definitions: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, dependencies: typing.Optional[typing.Mapping[str, str]]=None, description: typing.Optional[str]=None, enum: typing.Optional[typing.List[str]]=None, example: typing.Optional[str]=None, exclusive_maximum: typing.Optional[bool]=None, exclusive_minimum: typing.Optional[bool]=None, external_docs: typing.Optional["ExternalDocumentation"]=None, format: typing.Optional[str]=None, id: typing.Optional[str]=None, items: typing.Optional[str]=None, maximum: typing.Optional[jsii.Number]=None, max_items: typing.Optional[jsii.Number]=None, max_length: typing.Optional[jsii.Number]=None, max_properties: typing.Optional[jsii.Number]=None, minimum: typing.Optional[jsii.Number]=None, min_items: typing.Optional[jsii.Number]=None, min_length: typing.Optional[jsii.Number]=None, min_properties: typing.Optional[jsii.Number]=None, multiple_of: typing.Optional[jsii.Number]=None, not_: typing.Optional["JsonSchemaProps"]=None, nullable: typing.Optional[bool]=None, one_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, pattern: typing.Optional[str]=None, pattern_properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, ref: typing.Optional[str]=None, required: typing.Optional[typing.List[str]]=None, schema: typing.Optional[str]=None, title: typing.Optional[str]=None, type: typing.Optional[str]=None, unique_items: typing.Optional[bool]=None) -> None:
+    def __init__(self, *, additional_items: typing.Any=None, additional_properties: typing.Any=None, all_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, any_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, default: typing.Any=None, definitions: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, dependencies: typing.Optional[typing.Mapping[str, typing.Any]]=None, description: typing.Optional[str]=None, enum: typing.Optional[typing.List[typing.Any]]=None, example: typing.Any=None, exclusive_maximum: typing.Optional[bool]=None, exclusive_minimum: typing.Optional[bool]=None, external_docs: typing.Optional["ExternalDocumentation"]=None, format: typing.Optional[str]=None, id: typing.Optional[str]=None, items: typing.Any=None, maximum: typing.Optional[jsii.Number]=None, max_items: typing.Optional[jsii.Number]=None, max_length: typing.Optional[jsii.Number]=None, max_properties: typing.Optional[jsii.Number]=None, minimum: typing.Optional[jsii.Number]=None, min_items: typing.Optional[jsii.Number]=None, min_length: typing.Optional[jsii.Number]=None, min_properties: typing.Optional[jsii.Number]=None, multiple_of: typing.Optional[jsii.Number]=None, not_: typing.Optional["JsonSchemaProps"]=None, nullable: typing.Optional[bool]=None, one_of: typing.Optional[typing.List["JsonSchemaProps"]]=None, pattern: typing.Optional[str]=None, pattern_properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]]=None, ref: typing.Optional[str]=None, required: typing.Optional[typing.List[str]]=None, schema: typing.Optional[str]=None, title: typing.Optional[str]=None, type: typing.Optional[str]=None, unique_items: typing.Optional[bool]=None) -> None:
         """JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
 
         :param additional_items: 
@@ -10319,7 +10319,7 @@ class JsonSchemaProps():
         if unique_items is not None: self._values["unique_items"] = unique_items
 
     @builtins.property
-    def additional_items(self) -> typing.Optional[str]:
+    def additional_items(self) -> typing.Any:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalItems
@@ -10327,7 +10327,7 @@ class JsonSchemaProps():
         return self._values.get('additional_items')
 
     @builtins.property
-    def additional_properties(self) -> typing.Optional[str]:
+    def additional_properties(self) -> typing.Any:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalProperties
@@ -10351,7 +10351,7 @@ class JsonSchemaProps():
         return self._values.get('any_of')
 
     @builtins.property
-    def default(self) -> typing.Optional[str]:
+    def default(self) -> typing.Any:
         """default is a default value for undefined object fields.
 
         Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
@@ -10370,7 +10370,7 @@ class JsonSchemaProps():
         return self._values.get('definitions')
 
     @builtins.property
-    def dependencies(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def dependencies(self) -> typing.Optional[typing.Mapping[str, typing.Any]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#dependencies
@@ -10386,7 +10386,7 @@ class JsonSchemaProps():
         return self._values.get('description')
 
     @builtins.property
-    def enum(self) -> typing.Optional[typing.List[str]]:
+    def enum(self) -> typing.Optional[typing.List[typing.Any]]:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#enum
@@ -10394,7 +10394,7 @@ class JsonSchemaProps():
         return self._values.get('enum')
 
     @builtins.property
-    def example(self) -> typing.Optional[str]:
+    def example(self) -> typing.Any:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#example
@@ -10445,7 +10445,7 @@ class JsonSchemaProps():
         return self._values.get('id')
 
     @builtins.property
-    def items(self) -> typing.Optional[str]:
+    def items(self) -> typing.Any:
         """
         schema:
         :schema:: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#items

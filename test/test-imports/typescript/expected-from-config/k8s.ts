@@ -13595,12 +13595,12 @@ export interface JsonSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalItems
    */
-  readonly additionalItems?: string;
+  readonly additionalItems?: any;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalProperties
    */
-  readonly additionalProperties?: string;
+  readonly additionalProperties?: any;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#allOf
@@ -13617,7 +13617,7 @@ export interface JsonSchemaProps {
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#default
    */
-  readonly default?: string;
+  readonly default?: any;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#definitions
@@ -13627,7 +13627,7 @@ export interface JsonSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#dependencies
    */
-  readonly dependencies?: { [key: string]: string };
+  readonly dependencies?: { [key: string]: any };
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#description
@@ -13637,12 +13637,12 @@ export interface JsonSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#enum
    */
-  readonly enum?: string[];
+  readonly enum?: any[];
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#example
    */
-  readonly example?: string;
+  readonly example?: any;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#exclusiveMaximum
@@ -13676,7 +13676,7 @@ export interface JsonSchemaProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#items
    */
-  readonly items?: string;
+  readonly items?: any;
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxItems
