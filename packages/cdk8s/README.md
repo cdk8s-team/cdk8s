@@ -151,14 +151,14 @@ const chart = new Chart(app, 'Chart');
 const service = new k8s.Service(chart, 'Service')
 const database = new Database(chart, 'Database');
 
-Node.of(service).addDependency(database);
+service.addDependency(database);
 ```
-
-> Note that custom constructs won't have the `addDependency` syntactic sugar by default, so you have to use `Node.of()`.
 
 Declaring such a dependency will cause **each** `ApiObject` in the source construct, to *depend on* **every** `ApiObject` in the target construct.
 
 Note that in the example above, the source construct is actually an `ApiObject`, which is also ok since it is essentially a construct with a single `ApiObject`.
+
+> Note that if the source of your dependency is a custom construct, it won't have the `addDependency` syntactic sugar by default, so you'll have to use `Node.of()`.
 
 The resulting manifest will be:
 
@@ -179,8 +179,7 @@ metadata:
   name: chart-service-93d02be7
 ```
 
-
-You can see that all `ApiObject`s of the `Database` construct, appear before the `Service` object. This clarifies what th
+You can see that all `ApiObject`s of the `Database` construct, appear before the `Service` object.
 
 #### Things just got cool
 

@@ -48,7 +48,18 @@ export class App extends Construct {
     // the necessary operations. We do however want to preserve the distributed validation.
     App.validate(this);
 
-    this.produceManifests(hasChartDependencies);
+    const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
+
+    const simpleManifestNamer = (chart: Chart) => `${Node.of(chart).uniqueId}.k8s.yaml`;
+
+    const manifestNamer = hasChartDependencies ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
+
+    let index = 0;
+    for (const node of charts) {
+      const chart: Chart = Chart.of(node);
+      Yaml.save(path.join(this.outdir, manifestNamer(chart)), App.chartToJson(chart));
+      index++;
+    }
 
   }
 
@@ -56,9 +67,9 @@ export class App extends Construct {
    * Synthesize a single chart.
    *
    * Each element returned in the resulting array represents a different ApiObject
-   * that is contained in the chart.
+   * in the scope of the chart.
    *
-   * Note that the return value order is important. It is determined by the various dependencies between
+   * Note that the returned array order is important. It is determined by the various dependencies between
    * the constructs in the chart, where the first element is the one without dependencies, and so on...
    *
    * @returns An array of JSON objects.
@@ -78,23 +89,6 @@ export class App extends Construct {
     App.validate(app);
 
     return App.chartToJson(chart);
-  }
-
-  private produceManifests(hasChartDependencies: boolean) {
-
-    const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
-
-    const simpleManifestNamer = (chart: Chart) => `${Node.of(chart).uniqueId}.k8s.yaml`;
-
-    const manifestNamer = hasChartDependencies ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
-
-    let index = 0;
-    for (const node of charts) {
-      const chart: Chart = Chart.of(node);
-      Yaml.save(path.join(this.outdir, manifestNamer(chart)), App.chartToJson(chart));
-      index++;
-    }
-
   }
 
   private static of(c: IConstruct): App {
