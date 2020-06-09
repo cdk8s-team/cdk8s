@@ -1,7 +1,6 @@
 import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
 import { Names } from './names';
-import { DependencyGraph } from './dependency';
 import { App } from './app';
 
 export interface ChartOptions {
