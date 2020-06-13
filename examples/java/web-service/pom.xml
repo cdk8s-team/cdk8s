@@ -45,9 +45,6 @@
     <testSourceDirectory>src/test/java</testSourceDirectory>
     <resources>
       <resource>
-        <directory>imports/src/main/k8s/main/java</directory>
-      </resource>
-      <resource>
         <directory>imports/src/main/k8s/main/resources</directory>
       </resource>
     </resources>
@@ -55,7 +52,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.1.0</version>
         <executions>
             <execution>
                 <phase>generate-sources</phase>
@@ -64,7 +61,7 @@
                 </goals>
                 <configuration>
                     <sources>
-                        <source>imports/src/main/k8s/main/java</source>
+                        <source>imports/</source>
                     </sources>
                 </configuration>
             </execution>
@@ -76,7 +73,7 @@
         <version>2.12.4</version>
         <configuration>
           <additionalClasspathElements>
-            <additionalClasspathElement>imports/src/main/k8s/main/java</additionalClasspathElement>
+            <additionalClasspathElement>imports/</additionalClasspathElement>
           </additionalClasspathElements>
         </configuration>
       </plugin>
