@@ -4,6 +4,7 @@ const constructsDependency = Semver.caret('2.0.1')
 const cdk8sDependency = Semver.caret('0.0.0')
 
 const project = new JsiiProject({
+  minNodeVersion: '13.7.1',
   name: 'cdk8s-plus',
   buildWorkflow: false,
   releaseWorkflow: false,
@@ -24,7 +25,7 @@ const project = new JsiiProject({
   bundledDependencies: [ 'minimatch' ],
   devDependencies: {
     'cdk8s-cli': Semver.caret('0.0.0'),
-    '@types/minimatch': Semver.caret('3.0.3'),
+    '@types/minimatch': Semver.caret('3.0.3')
   },
   stability: 'experimental',
 });

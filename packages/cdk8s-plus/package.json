@@ -37,7 +37,7 @@
     "jsii-diff": "^1.6.0",
     "jsii-pacmak": "^1.6.0",
     "jsii-release": "^0.1.6",
-    "@types/node": "^10.17.0",
+    "@types/node": "^13.7.1",
     "typescript": "^3.8.3",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.19.2",
@@ -61,7 +61,7 @@
     "minimatch"
   ],
   "engines": {
-    "node": ">= 10.17.0"
+    "node": ">= 13.7.1"
   },
   "license": "Apache-2.0",
   "version": "0.0.0",

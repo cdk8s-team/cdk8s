@@ -4,84 +4,84 @@
 
 Name|Description
 ----|-----------
-[ConfigMap](#stdk8s-configmap)|ConfigMap holds configuration data for pods to consume.
-[Container](#stdk8s-container)|*No description*
-[Deployment](#stdk8s-deployment)|*No description*
-[DeploymentSpec](#stdk8s-deploymentspec)|*No description*
-[Duration](#stdk8s-duration)|Represents a length of time.
-[EnvValue](#stdk8s-envvalue)|*No description*
-[Job](#stdk8s-job)|*No description*
-[JobSpec](#stdk8s-jobspec)|*No description*
-[ObjectMeta](#stdk8s-objectmeta)|*No description*
-[Pod](#stdk8s-pod)|Pod is a collection of containers that can run on a host.
-[PodSpec](#stdk8s-podspec)|A description of a pod.
-[PodTemplate](#stdk8s-podtemplate)|*No description*
-[PodTemplateSpec](#stdk8s-podtemplatespec)|*No description*
-[Resource](#stdk8s-resource)|Base class for all Kubernetes objects in stdk8s.
-[Secret](#stdk8s-secret)|*No description*
-[Service](#stdk8s-service)|*No description*
-[ServiceAccount](#stdk8s-serviceaccount)|*No description*
-[ServiceSpec](#stdk8s-servicespec)|*No description*
-[Volume](#stdk8s-volume)|*No description*
-[VolumeMount](#stdk8s-volumemount)|*No description*
+[ConfigMap](#cdk8s-plus-configmap)|ConfigMap holds configuration data for pods to consume.
+[Container](#cdk8s-plus-container)|*No description*
+[Deployment](#cdk8s-plus-deployment)|*No description*
+[DeploymentSpec](#cdk8s-plus-deploymentspec)|*No description*
+[Duration](#cdk8s-plus-duration)|Represents a length of time.
+[EnvValue](#cdk8s-plus-envvalue)|*No description*
+[Job](#cdk8s-plus-job)|*No description*
+[JobSpec](#cdk8s-plus-jobspec)|*No description*
+[ObjectMeta](#cdk8s-plus-objectmeta)|*No description*
+[Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
+[PodSpec](#cdk8s-plus-podspec)|A description of a pod.
+[PodTemplate](#cdk8s-plus-podtemplate)|*No description*
+[PodTemplateSpec](#cdk8s-plus-podtemplatespec)|*No description*
+[Resource](#cdk8s-plus-resource)|Base class for all Kubernetes objects in stdk8s.
+[Secret](#cdk8s-plus-secret)|*No description*
+[Service](#cdk8s-plus-service)|*No description*
+[ServiceAccount](#cdk8s-plus-serviceaccount)|*No description*
+[ServiceSpec](#cdk8s-plus-servicespec)|*No description*
+[Volume](#cdk8s-plus-volume)|*No description*
+[VolumeMount](#cdk8s-plus-volumemount)|*No description*
 
 
 **Structs**
 
 Name|Description
 ----|-----------
-[AddDirectoryOptions](#stdk8s-adddirectoryoptions)|Options for `configmap.addDirectory()`.
-[ConfigMapProps](#stdk8s-configmapprops)|Initialization props for config maps.
-[ConfigMapVolumeSource](#stdk8s-configmapvolumesource)|*No description*
-[ContainerProps](#stdk8s-containerprops)|*No description*
-[DeploymentProps](#stdk8s-deploymentprops)|*No description*
-[DeploymentSpecProps](#stdk8s-deploymentspecprops)|*No description*
-[EnvValueFromConfigMapOptions](#stdk8s-envvaluefromconfigmapoptions)|*No description*
-[EnvValueFromProcessOptions](#stdk8s-envvaluefromprocessoptions)|*No description*
-[EnvValueFromSecretOptions](#stdk8s-envvaluefromsecretoptions)|*No description*
-[ExposeOptions](#stdk8s-exposeoptions)|*No description*
-[HostPathVolumeSource](#stdk8s-hostpathvolumesource)|*No description*
-[JobProps](#stdk8s-jobprops)|*No description*
-[JobSpecProps](#stdk8s-jobspecprops)|*No description*
-[ObjectMetaProps](#stdk8s-objectmetaprops)|*No description*
-[PodProps](#stdk8s-podprops)|*No description*
-[PodSpecProps](#stdk8s-podspecprops)|Properties for initialization `PodSpec`.
-[PodTemplateProps](#stdk8s-podtemplateprops)|*No description*
-[PodTemplateSpecProps](#stdk8s-podtemplatespecprops)|*No description*
-[ResourceProps](#stdk8s-resourceprops)|Initialization properties for resources.
-[SecretProps](#stdk8s-secretprops)|*No description*
-[ServiceAccountProps](#stdk8s-serviceaccountprops)|*No description*
-[ServicePort](#stdk8s-serviceport)|*No description*
-[ServiceProps](#stdk8s-serviceprops)|*No description*
-[ServiceSpecProps](#stdk8s-servicespecprops)|*No description*
-[TimeConversionOptions](#stdk8s-timeconversionoptions)|Options for how to convert time to a different unit.
-[VolumeMountProps](#stdk8s-volumemountprops)|*No description*
+[AddDirectoryOptions](#cdk8s-plus-adddirectoryoptions)|Options for `configmap.addDirectory()`.
+[ConfigMapProps](#cdk8s-plus-configmapprops)|Initialization props for config maps.
+[ConfigMapVolumeSource](#cdk8s-plus-configmapvolumesource)|*No description*
+[ContainerProps](#cdk8s-plus-containerprops)|*No description*
+[DeploymentProps](#cdk8s-plus-deploymentprops)|*No description*
+[DeploymentSpecProps](#cdk8s-plus-deploymentspecprops)|*No description*
+[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)|*No description*
+[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|*No description*
+[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|*No description*
+[ExposeOptions](#cdk8s-plus-exposeoptions)|*No description*
+[HostPathVolumeSource](#cdk8s-plus-hostpathvolumesource)|*No description*
+[JobProps](#cdk8s-plus-jobprops)|*No description*
+[JobSpecProps](#cdk8s-plus-jobspecprops)|*No description*
+[ObjectMetaProps](#cdk8s-plus-objectmetaprops)|*No description*
+[PodProps](#cdk8s-plus-podprops)|*No description*
+[PodSpecProps](#cdk8s-plus-podspecprops)|Properties for initialization `PodSpec`.
+[PodTemplateProps](#cdk8s-plus-podtemplateprops)|*No description*
+[PodTemplateSpecProps](#cdk8s-plus-podtemplatespecprops)|*No description*
+[ResourceProps](#cdk8s-plus-resourceprops)|Initialization properties for resources.
+[SecretProps](#cdk8s-plus-secretprops)|*No description*
+[ServiceAccountProps](#cdk8s-plus-serviceaccountprops)|*No description*
+[ServicePort](#cdk8s-plus-serviceport)|*No description*
+[ServiceProps](#cdk8s-plus-serviceprops)|*No description*
+[ServiceSpecProps](#cdk8s-plus-servicespecprops)|*No description*
+[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)|Options for how to convert time to a different unit.
+[VolumeMountProps](#cdk8s-plus-volumemountprops)|*No description*
 
 
 **Interfaces**
 
 Name|Description
 ----|-----------
-[IConfigMap](#stdk8s-iconfigmap)|Represents a config map.
-[IResource](#stdk8s-iresource)|Represents a resource.
-[ISecret](#stdk8s-isecret)|*No description*
-[IServiceAccount](#stdk8s-iserviceaccount)|*No description*
+[IConfigMap](#cdk8s-plus-iconfigmap)|Represents a config map.
+[IResource](#cdk8s-plus-iresource)|Represents a resource.
+[ISecret](#cdk8s-plus-isecret)|*No description*
+[IServiceAccount](#cdk8s-plus-iserviceaccount)|*No description*
 
 
 **Enums**
 
 Name|Description
 ----|-----------
-[RestartPolicy](#stdk8s-restartpolicy)|Restart policy for all containers within the pod.
+[RestartPolicy](#cdk8s-plus-restartpolicy)|Restart policy for all containers within the pod.
 
 
 
-## class ConfigMap 🔹 <a id="stdk8s-configmap"></a>
+## class ConfigMap 🔹 <a id="cdk8s-plus-configmap"></a>
 
 ConfigMap holds configuration data for pods to consume.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource), [IConfigMap](#stdk8s-iconfigmap), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IConfigMap](#cdk8s-plus-iconfigmap), [IResource](#cdk8s-plus-iresource)
+<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -97,8 +97,8 @@ new ConfigMap(scope: Construct, id: string, props?: ConfigMapProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[ConfigMapProps](#stdk8s-configmapprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+* **props** (<code>[ConfigMapProps](#cdk8s-plus-configmapprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
   * **binaryData** (<code>Map<string, string></code>)  BinaryData contains the binary data. <span style="text-decoration: underline">*Optional*</span>
   * **data** (<code>Map<string, string></code>)  Data contains the configuration data. <span style="text-decoration: underline">*Optional*</span>
 
@@ -114,7 +114,7 @@ Name | Type | Description
 ### Methods
 
 
-#### addBinaryData(key, value)🔹 <a id="stdk8s-configmap-addbinarydata"></a>
+#### addBinaryData(key, value)🔹 <a id="cdk8s-plus-configmap-addbinarydata"></a>
 
 Adds a binary data entry to the config map.
 
@@ -134,7 +134,7 @@ addBinaryData(key: string, value: string): void
 
 
 
-#### addData(key, value)🔹 <a id="stdk8s-configmap-adddata"></a>
+#### addData(key, value)🔹 <a id="cdk8s-plus-configmap-adddata"></a>
 
 Adds a data entry to the config map.
 
@@ -151,7 +151,7 @@ addData(key: string, value: string): void
 
 
 
-#### addDirectory(localDir, options?)🔹 <a id="stdk8s-configmap-adddirectory"></a>
+#### addDirectory(localDir, options?)🔹 <a id="cdk8s-plus-configmap-adddirectory"></a>
 
 Adds a directory to the ConfigMap.
 
@@ -163,7 +163,7 @@ addDirectory(localDir: string, options?: AddDirectoryOptions): void
 
 <span style="text-decoration: underline">Parameters:</span>
 * **localDir** (<code>string</code>)  A path to a local directory.
-* **options** (<code>[AddDirectoryOptions](#stdk8s-adddirectoryoptions)</code>)  Options.
+* **options** (<code>[AddDirectoryOptions](#cdk8s-plus-adddirectoryoptions)</code>)  Options.
   * **exclude** (<code>Array<string></code>)  Glob patterns to exclude when adding files. <span style="text-decoration: underline">*Default*</span>: include all files
   * **keyPrefix** (<code>string</code>)  A prefix to add to all keys in the config map. <span style="text-decoration: underline">*Default*</span>: ""
   * **recursive** (<code>boolean</code>)  Whether to descend to subdirectories (not supported yet). <span style="text-decoration: underline">*Default*</span>: false
@@ -171,7 +171,7 @@ addDirectory(localDir: string, options?: AddDirectoryOptions): void
 
 
 
-#### addFile(localFile, key?)🔹 <a id="stdk8s-configmap-addfile"></a>
+#### addFile(localFile, key?)🔹 <a id="cdk8s-plus-configmap-addfile"></a>
 
 Adds a file to the ConfigMap.
 
@@ -188,7 +188,7 @@ addFile(localFile: string, key?: string): void
 
 
 
-#### *static* fromConfigMapName(name)🔹 <a id="stdk8s-configmap-fromconfigmapname"></a>
+#### *static* fromConfigMapName(name)🔹 <a id="cdk8s-plus-configmap-fromconfigmapname"></a>
 
 Represents a ConfigMap created elsewhere.
 
@@ -202,11 +202,11 @@ static fromConfigMapName(name: string): IConfigMap
 * **name** (<code>string</code>)  The name of the config map to import.
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[IConfigMap](#stdk8s-iconfigmap)</code>
+* <code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>
 
 
 
-## class Container 🔹 <a id="stdk8s-container"></a>
+## class Container 🔹 <a id="cdk8s-plus-container"></a>
 
 
 
@@ -223,10 +223,10 @@ new Container(props: ContainerProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[ContainerProps](#stdk8s-containerprops)</code>)  *No description*
+* **props** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
   * **image** (<code>string</code>)  *No description* 
   * **command** (<code>Array<string></code>)  The command to execute. <span style="text-decoration: underline">*Optional*</span>
-  * **env** (<code>Map<string, [EnvValue](#stdk8s-envvalue)></code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
   * **name** (<code>string</code>)  *No description* <span style="text-decoration: underline">*Default*</span>: "main"
   * **port** (<code>number</code>)  // TODO: make this an array of structs (see k8s#ContainerPort). <span style="text-decoration: underline">*Default*</span>: on port is exposed
   * **workingDir** (<code>string</code>)  Container's working directory. <span style="text-decoration: underline">*Default*</span>: If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
@@ -238,10 +238,10 @@ new Container(props: ContainerProps)
 
 Name | Type | Description 
 -----|------|-------------
-**env**🔹 | <code>Map<string, [EnvValue](#stdk8s-envvalue)></code> | <span></span>
+**env**🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | <span></span>
 **image**🔹 | <code>string</code> | <span></span>
 **name**🔹 | <code>string</code> | <span></span>
-**volumeMounts**🔹 | <code>Array<[VolumeMount](#stdk8s-volumemount)></code> | <span></span>
+**volumeMounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | <span></span>
 **command**?🔹 | <code>Array<string></code> | <span style="text-decoration: underline">*Optional*</span>
 **port**?🔹 | <code>number</code> | <span style="text-decoration: underline">*Optional*</span>
 **workingDir**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
@@ -249,7 +249,7 @@ Name | Type | Description
 ### Methods
 
 
-#### addEnv(name, value)🔹 <a id="stdk8s-container-addenv"></a>
+#### addEnv(name, value)🔹 <a id="cdk8s-plus-container-addenv"></a>
 
 
 
@@ -261,12 +261,12 @@ addEnv(name: string, value: EnvValue): void
 
 <span style="text-decoration: underline">Parameters:</span>
 * **name** (<code>string</code>)  *No description*
-* **value** (<code>[EnvValue](#stdk8s-envvalue)</code>)  *No description*
+* **value** (<code>[EnvValue](#cdk8s-plus-envvalue)</code>)  *No description*
 
 
 
 
-#### mount(options)🔹 <a id="stdk8s-container-mount"></a>
+#### mount(options)🔹 <a id="cdk8s-plus-container-mount"></a>
 
 
 
@@ -277,19 +277,19 @@ mount(options: VolumeMount): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **options** (<code>[VolumeMount](#stdk8s-volumemount)</code>)  *No description*
+* **options** (<code>[VolumeMount](#cdk8s-plus-volumemount)</code>)  *No description*
 
 
 
 
 
 
-## class Deployment 🔹 <a id="stdk8s-deployment"></a>
+## class Deployment 🔹 <a id="cdk8s-plus-deployment"></a>
 
 
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -305,9 +305,9 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[DeploymentProps](#stdk8s-deploymentprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[DeploymentSpec](#stdk8s-deploymentspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+* **props** (<code>[DeploymentProps](#cdk8s-plus-deploymentprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **spec** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -317,12 +317,12 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**spec**🔹 | <code>[DeploymentSpec](#stdk8s-deploymentspec)</code> | <span></span>
+**spec**🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | <span></span>
 
 ### Methods
 
 
-#### expose(options)🔹 <a id="stdk8s-deployment-expose"></a>
+#### expose(options)🔹 <a id="cdk8s-plus-deployment-expose"></a>
 
 
 
@@ -333,15 +333,15 @@ expose(options: ExposeOptions): Service
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **options** (<code>[ExposeOptions](#stdk8s-exposeoptions)</code>)  *No description*
+* **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  *No description*
   * **port** (<code>number</code>)  *No description* 
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Service](#stdk8s-service)</code>
+* <code>[Service](#cdk8s-plus-service)</code>
 
 
 
-## class DeploymentSpec 🔹 <a id="stdk8s-deploymentspec"></a>
+## class DeploymentSpec 🔹 <a id="cdk8s-plus-deploymentspec"></a>
 
 
 
@@ -358,9 +358,9 @@ new DeploymentSpec(props?: DeploymentSpecProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[DeploymentSpecProps](#stdk8s-deploymentspecprops)</code>)  *No description*
+* **props** (<code>[DeploymentSpecProps](#cdk8s-plus-deploymentspecprops)</code>)  *No description*
   * **replicas** (<code>number</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-  * **template** (<code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **template** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -370,12 +370,12 @@ new DeploymentSpec(props?: DeploymentSpecProps)
 Name | Type | Description 
 -----|------|-------------
 **labels**🔹 | <code>Map<string, string></code> | <span></span>
-**template**🔹 | <code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code> | <span></span>
+**template**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span></span>
 
 ### Methods
 
 
-#### selectByLabel(key, value)🔹 <a id="stdk8s-deploymentspec-selectbylabel"></a>
+#### selectByLabel(key, value)🔹 <a id="cdk8s-plus-deploymentspec-selectbylabel"></a>
 
 
 
@@ -394,7 +394,7 @@ selectByLabel(key: string, value: string): void
 
 
 
-## class Duration 🔹 <a id="stdk8s-duration"></a>
+## class Duration 🔹 <a id="cdk8s-plus-duration"></a>
 
 Represents a length of time.
 
@@ -407,7 +407,7 @@ When the amount is passed as a token, unit conversion is not possible.
 ### Methods
 
 
-#### toDays(opts?)🔹 <a id="stdk8s-duration-todays"></a>
+#### toDays(opts?)🔹 <a id="cdk8s-plus-duration-todays"></a>
 
 Return the total number of days in this Duration.
 
@@ -418,13 +418,13 @@ toDays(opts?: TimeConversionOptions): number
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **opts** (<code>[TimeConversionOptions](#stdk8s-timeconversionoptions)</code>)  *No description*
+* **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
   * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>number</code>
 
-#### toHours(opts?)🔹 <a id="stdk8s-duration-tohours"></a>
+#### toHours(opts?)🔹 <a id="cdk8s-plus-duration-tohours"></a>
 
 Return the total number of hours in this Duration.
 
@@ -435,13 +435,13 @@ toHours(opts?: TimeConversionOptions): number
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **opts** (<code>[TimeConversionOptions](#stdk8s-timeconversionoptions)</code>)  *No description*
+* **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
   * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>number</code>
 
-#### toHumanString()🔹 <a id="stdk8s-duration-tohumanstring"></a>
+#### toHumanString()🔹 <a id="cdk8s-plus-duration-tohumanstring"></a>
 
 Turn this duration into a human-readable string.
 
@@ -456,7 +456,7 @@ toHumanString(): string
 <span style="text-decoration: underline">Returns</span>:
 * <code>string</code>
 
-#### toISOString()⚠️ <a id="stdk8s-duration-toisostring"></a>
+#### toISOString()⚠️ <a id="cdk8s-plus-duration-toisostring"></a>
 
 Return an ISO 8601 representation of this period.
 
@@ -471,7 +471,7 @@ toISOString(): string
 <span style="text-decoration: underline">Returns</span>:
 * <code>string</code>
 
-#### toIsoString()🔹 <a id="stdk8s-duration-toisostring"></a>
+#### toIsoString()🔹 <a id="cdk8s-plus-duration-toisostring"></a>
 
 Return an ISO 8601 representation of this period.
 
@@ -486,7 +486,7 @@ toIsoString(): string
 <span style="text-decoration: underline">Returns</span>:
 * <code>string</code>
 
-#### toMilliseconds(opts?)🔹 <a id="stdk8s-duration-tomilliseconds"></a>
+#### toMilliseconds(opts?)🔹 <a id="cdk8s-plus-duration-tomilliseconds"></a>
 
 Return the total number of milliseconds in this Duration.
 
@@ -497,13 +497,13 @@ toMilliseconds(opts?: TimeConversionOptions): number
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **opts** (<code>[TimeConversionOptions](#stdk8s-timeconversionoptions)</code>)  *No description*
+* **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
   * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>number</code>
 
-#### toMinutes(opts?)🔹 <a id="stdk8s-duration-tominutes"></a>
+#### toMinutes(opts?)🔹 <a id="cdk8s-plus-duration-tominutes"></a>
 
 Return the total number of minutes in this Duration.
 
@@ -514,13 +514,13 @@ toMinutes(opts?: TimeConversionOptions): number
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **opts** (<code>[TimeConversionOptions](#stdk8s-timeconversionoptions)</code>)  *No description*
+* **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
   * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>number</code>
 
-#### toSeconds(opts?)🔹 <a id="stdk8s-duration-toseconds"></a>
+#### toSeconds(opts?)🔹 <a id="cdk8s-plus-duration-toseconds"></a>
 
 Return the total number of seconds in this Duration.
 
@@ -531,13 +531,13 @@ toSeconds(opts?: TimeConversionOptions): number
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **opts** (<code>[TimeConversionOptions](#stdk8s-timeconversionoptions)</code>)  *No description*
+* **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
   * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>number</code>
 
-#### toString()🔹 <a id="stdk8s-duration-tostring"></a>
+#### toString()🔹 <a id="cdk8s-plus-duration-tostring"></a>
 
 Returns a string representation of this `Duration` that is also a Token that cannot be successfully resolved.
 
@@ -556,7 +556,7 @@ toString(): string
 <span style="text-decoration: underline">Returns</span>:
 * <code>string</code>
 
-#### *static* days(amount)🔹 <a id="stdk8s-duration-days"></a>
+#### *static* days(amount)🔹 <a id="cdk8s-plus-duration-days"></a>
 
 Create a Duration representing an amount of days.
 
@@ -570,9 +570,9 @@ static days(amount: number): Duration
 * **amount** (<code>number</code>)  the amount of Days the `Duration` will represent.
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Duration](#stdk8s-duration)</code>
+* <code>[Duration](#cdk8s-plus-duration)</code>
 
-#### *static* hours(amount)🔹 <a id="stdk8s-duration-hours"></a>
+#### *static* hours(amount)🔹 <a id="cdk8s-plus-duration-hours"></a>
 
 Create a Duration representing an amount of hours.
 
@@ -586,9 +586,9 @@ static hours(amount: number): Duration
 * **amount** (<code>number</code>)  the amount of Hours the `Duration` will represent.
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Duration](#stdk8s-duration)</code>
+* <code>[Duration](#cdk8s-plus-duration)</code>
 
-#### *static* millis(amount)🔹 <a id="stdk8s-duration-millis"></a>
+#### *static* millis(amount)🔹 <a id="cdk8s-plus-duration-millis"></a>
 
 Create a Duration representing an amount of milliseconds.
 
@@ -602,9 +602,9 @@ static millis(amount: number): Duration
 * **amount** (<code>number</code>)  the amount of Milliseconds the `Duration` will represent.
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Duration](#stdk8s-duration)</code>
+* <code>[Duration](#cdk8s-plus-duration)</code>
 
-#### *static* minutes(amount)🔹 <a id="stdk8s-duration-minutes"></a>
+#### *static* minutes(amount)🔹 <a id="cdk8s-plus-duration-minutes"></a>
 
 Create a Duration representing an amount of minutes.
 
@@ -618,9 +618,9 @@ static minutes(amount: number): Duration
 * **amount** (<code>number</code>)  the amount of Minutes the `Duration` will represent.
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Duration](#stdk8s-duration)</code>
+* <code>[Duration](#cdk8s-plus-duration)</code>
 
-#### *static* parse(duration)🔹 <a id="stdk8s-duration-parse"></a>
+#### *static* parse(duration)🔹 <a id="cdk8s-plus-duration-parse"></a>
 
 Parse a period formatted according to the ISO 8601 standard.
 
@@ -634,9 +634,9 @@ static parse(duration: string): Duration
 * **duration** (<code>string</code>)  an ISO-formtted duration to be parsed.
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Duration](#stdk8s-duration)</code>
+* <code>[Duration](#cdk8s-plus-duration)</code>
 
-#### *static* seconds(amount)🔹 <a id="stdk8s-duration-seconds"></a>
+#### *static* seconds(amount)🔹 <a id="cdk8s-plus-duration-seconds"></a>
 
 Create a Duration representing an amount of seconds.
 
@@ -650,11 +650,11 @@ static seconds(amount: number): Duration
 * **amount** (<code>number</code>)  the amount of Seconds the `Duration` will represent.
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Duration](#stdk8s-duration)</code>
+* <code>[Duration](#cdk8s-plus-duration)</code>
 
 
 
-## class EnvValue 🔹 <a id="stdk8s-envvalue"></a>
+## class EnvValue 🔹 <a id="cdk8s-plus-envvalue"></a>
 
 
 
@@ -671,7 +671,7 @@ Name | Type | Description
 ### Methods
 
 
-#### *static* fromConfigMap(configMap, key, options?)🔹 <a id="stdk8s-envvalue-fromconfigmap"></a>
+#### *static* fromConfigMap(configMap, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromconfigmap"></a>
 
 
 
@@ -682,15 +682,15 @@ static fromConfigMap(configMap: IConfigMap, key: string, options?: EnvValueFromC
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **configMap** (<code>[IConfigMap](#stdk8s-iconfigmap)</code>)  *No description*
+* **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  *No description*
 * **key** (<code>string</code>)  *No description*
-* **options** (<code>[EnvValueFromConfigMapOptions](#stdk8s-envvaluefromconfigmapoptions)</code>)  *No description*
+* **options** (<code>[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)</code>)  *No description*
   * **optional** (<code>boolean</code>)  Specify whether the ConfigMap or its key must be defined. <span style="text-decoration: underline">*Default*</span>: false
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[EnvValue](#stdk8s-envvalue)</code>
+* <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
-#### *static* fromProcess(options)🔹 <a id="stdk8s-envvalue-fromprocess"></a>
+#### *static* fromProcess(options)🔹 <a id="cdk8s-plus-envvalue-fromprocess"></a>
 
 
 
@@ -701,14 +701,14 @@ static fromProcess(options: EnvValueFromProcessOptions): EnvValue
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **options** (<code>[EnvValueFromProcessOptions](#stdk8s-envvaluefromprocessoptions)</code>)  *No description*
+* **options** (<code>[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)</code>)  *No description*
   * **key** (<code>string</code>)  *No description* 
   * **required** (<code>boolean</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[EnvValue](#stdk8s-envvalue)</code>
+* <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
-#### *static* fromSecret(secret, key, options?)🔹 <a id="stdk8s-envvalue-fromsecret"></a>
+#### *static* fromSecret(secret, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromsecret"></a>
 
 
 
@@ -719,15 +719,15 @@ static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOpti
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **secret** (<code>[ISecret](#stdk8s-isecret)</code>)  *No description*
+* **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  *No description*
 * **key** (<code>string</code>)  *No description*
-* **options** (<code>[EnvValueFromSecretOptions](#stdk8s-envvaluefromsecretoptions)</code>)  *No description*
+* **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  *No description*
   * **optional** (<code>boolean</code>)  Specify whether the Secret or its key must be defined. <span style="text-decoration: underline">*Default*</span>: false
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[EnvValue](#stdk8s-envvalue)</code>
+* <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
-#### *static* fromValue(value)🔹 <a id="stdk8s-envvalue-fromvalue"></a>
+#### *static* fromValue(value)🔹 <a id="cdk8s-plus-envvalue-fromvalue"></a>
 
 
 
@@ -741,9 +741,9 @@ static fromValue(value: string): EnvValue
 * **value** (<code>string</code>)  *No description*
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[EnvValue](#stdk8s-envvalue)</code>
+* <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
-#### *static* of(value)🔹 <a id="stdk8s-envvalue-of"></a>
+#### *static* of(value)🔹 <a id="cdk8s-plus-envvalue-of"></a>
 
 
 
@@ -757,16 +757,16 @@ static of(value: string): EnvValue
 * **value** (<code>string</code>)  *No description*
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[EnvValue](#stdk8s-envvalue)</code>
+* <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
 
 
-## class Job 🔹 <a id="stdk8s-job"></a>
+## class Job 🔹 <a id="cdk8s-plus-job"></a>
 
 
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -782,9 +782,9 @@ new Job(scope: Construct, id: string, props: JobProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[JobProps](#stdk8s-jobprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[JobSpec](#stdk8s-jobspec)</code>)  *No description* 
+* **props** (<code>[JobProps](#cdk8s-plus-jobprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **spec** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  *No description* 
 
 
 
@@ -794,11 +794,11 @@ new Job(scope: Construct, id: string, props: JobProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**spec**🔹 | <code>[JobSpec](#stdk8s-jobspec)</code> | <span></span>
+**spec**🔹 | <code>[JobSpec](#cdk8s-plus-jobspec)</code> | <span></span>
 
 
 
-## class JobSpec 🔹 <a id="stdk8s-jobspec"></a>
+## class JobSpec 🔹 <a id="cdk8s-plus-jobspec"></a>
 
 
 
@@ -815,9 +815,9 @@ new JobSpec(props: JobSpecProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[JobSpecProps](#stdk8s-jobspecprops)</code>)  *No description*
-  * **template** (<code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code>)  *No description* 
-  * **ttlAfterFinished** (<code>[Duration](#stdk8s-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). <span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
+* **props** (<code>[JobSpecProps](#cdk8s-plus-jobspecprops)</code>)  *No description*
+  * **template** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* 
+  * **ttlAfterFinished** (<code>[Duration](#cdk8s-plus-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). <span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
 
 
 
@@ -826,12 +826,12 @@ new JobSpec(props: JobSpecProps)
 
 Name | Type | Description 
 -----|------|-------------
-**template**🔹 | <code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code> | <span></span>
-**ttlAfterFinished**?🔹 | <code>[Duration](#stdk8s-duration)</code> | <span style="text-decoration: underline">*Optional*</span>
+**template**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span></span>
+**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
-## class ObjectMeta 🔹 <a id="stdk8s-objectmeta"></a>
+## class ObjectMeta 🔹 <a id="cdk8s-plus-objectmeta"></a>
 
 
 
@@ -848,7 +848,7 @@ new ObjectMeta(props?: ObjectMetaProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[ObjectMetaProps](#stdk8s-objectmetaprops)</code>)  *No description*
+* **props** (<code>[ObjectMetaProps](#cdk8s-plus-objectmetaprops)</code>)  *No description*
   * **annotations** (<code>Map<string, string></code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
   * **clusterName** (<code>string</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
   * **labels** (<code>Map<string, string></code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
@@ -871,7 +871,7 @@ Name | Type | Description
 ### Methods
 
 
-#### addAnnotation(key, value)🔹 <a id="stdk8s-objectmeta-addannotation"></a>
+#### addAnnotation(key, value)🔹 <a id="cdk8s-plus-objectmeta-addannotation"></a>
 
 
 
@@ -888,7 +888,7 @@ addAnnotation(key: string, value: string): void
 
 
 
-#### addLabel(key, value)🔹 <a id="stdk8s-objectmeta-addlabel"></a>
+#### addLabel(key, value)🔹 <a id="cdk8s-plus-objectmeta-addlabel"></a>
 
 
 
@@ -907,15 +907,15 @@ addLabel(key: string, value: string): void
 
 
 
-## class Pod 🔹 <a id="stdk8s-pod"></a>
+## class Pod 🔹 <a id="cdk8s-plus-pod"></a>
 
 Pod is a collection of containers that can run on a host.
 
 This resource is
 created by clients and scheduled onto hosts.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -931,9 +931,9 @@ new Pod(scope: Construct, id: string, props?: PodProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[PodProps](#stdk8s-podprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[PodSpec](#stdk8s-podspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+* **props** (<code>[PodProps](#cdk8s-plus-podprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **spec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -943,11 +943,11 @@ new Pod(scope: Construct, id: string, props?: PodProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**spec**🔹 | <code>[PodSpec](#stdk8s-podspec)</code> | <span></span>
+**spec**🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | <span></span>
 
 
 
-## class PodSpec 🔹 <a id="stdk8s-podspec"></a>
+## class PodSpec 🔹 <a id="cdk8s-plus-podspec"></a>
 
 A description of a pod.
 
@@ -964,11 +964,11 @@ new PodSpec(props?: PodSpecProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[PodSpecProps](#stdk8s-podspecprops)</code>)  *No description*
-  * **containers** (<code>Array<[Container](#stdk8s-container)></code>)  List of containers belonging to the pod. <span style="text-decoration: underline">*Optional*</span>
-  * **restartPolicy** (<code>[RestartPolicy](#stdk8s-restartpolicy)</code>)  Restart policy for all containers within the pod. <span style="text-decoration: underline">*Default*</span>: RestartPolicy.ALWAYS
-  * **serviceAccout** (<code>[IServiceAccount](#stdk8s-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. <span style="text-decoration: underline">*Optional*</span>
-  * **volumes** (<code>Array<[Volume](#stdk8s-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. <span style="text-decoration: underline">*Default*</span>: no volumes
+* **props** (<code>[PodSpecProps](#cdk8s-plus-podspecprops)</code>)  *No description*
+  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. <span style="text-decoration: underline">*Optional*</span>
+  * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. <span style="text-decoration: underline">*Default*</span>: RestartPolicy.ALWAYS
+  * **serviceAccout** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. <span style="text-decoration: underline">*Optional*</span>
+  * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. <span style="text-decoration: underline">*Default*</span>: no volumes
 
 
 
@@ -977,15 +977,15 @@ new PodSpec(props?: PodSpecProps)
 
 Name | Type | Description 
 -----|------|-------------
-**containers**🔹 | <code>Array<[Container](#stdk8s-container)></code> | List of containers belonging to the pod.
-**volumes**🔹 | <code>Array<[Volume](#stdk8s-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.
-**restartPolicy**?🔹 | <code>[RestartPolicy](#stdk8s-restartpolicy)</code> | Restart policy for all containers within the pod.<br/><span style="text-decoration: underline">*Optional*</span>
-**serviceAccount**?🔹 | <code>[IServiceAccount](#stdk8s-iserviceaccount)</code> | The service account used to run this pod.<br/><span style="text-decoration: underline">*Optional*</span>
+**containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.
+**volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/><span style="text-decoration: underline">*Optional*</span>
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/><span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
 
-#### addContainer(container)🔹 <a id="stdk8s-podspec-addcontainer"></a>
+#### addContainer(container)🔹 <a id="cdk8s-plus-podspec-addcontainer"></a>
 
 Adds a container to this pod.
 
@@ -996,12 +996,12 @@ addContainer(container: Container): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **container** (<code>[Container](#stdk8s-container)</code>)  The container to add.
+* **container** (<code>[Container](#cdk8s-plus-container)</code>)  The container to add.
 
 
 
 
-#### addVolume(volume)🔹 <a id="stdk8s-podspec-addvolume"></a>
+#### addVolume(volume)🔹 <a id="cdk8s-plus-podspec-addvolume"></a>
 
 Adds a volume to this pod.
 
@@ -1012,19 +1012,19 @@ addVolume(volume: Volume): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **volume** (<code>[Volume](#stdk8s-volume)</code>)  The volume to add.
+* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  The volume to add.
 
 
 
 
 
 
-## class PodTemplate 🔹 <a id="stdk8s-podtemplate"></a>
+## class PodTemplate 🔹 <a id="cdk8s-plus-podtemplate"></a>
 
 
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -1040,9 +1040,9 @@ new PodTemplate(scope: Construct, name: string, props: PodTemplateProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **name** (<code>string</code>)  *No description*
-* **props** (<code>[PodTemplateProps](#stdk8s-podtemplateprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code>)  *No description* 
+* **props** (<code>[PodTemplateProps](#cdk8s-plus-podtemplateprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **spec** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* 
 
 
 
@@ -1055,7 +1055,7 @@ Name | Type | Description
 
 
 
-## class PodTemplateSpec 🔹 <a id="stdk8s-podtemplatespec"></a>
+## class PodTemplateSpec 🔹 <a id="cdk8s-plus-podtemplatespec"></a>
 
 
 
@@ -1072,9 +1072,9 @@ new PodTemplateSpec(props?: PodTemplateSpecProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[PodTemplateSpecProps](#stdk8s-podtemplatespecprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-  * **podSpec** (<code>[PodSpec](#stdk8s-podspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+* **props** (<code>[PodTemplateSpecProps](#cdk8s-plus-podtemplatespecprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **podSpec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1083,21 +1083,21 @@ new PodTemplateSpec(props?: PodTemplateSpecProps)
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | <span></span>
-**podSpec**🔹 | <code>[PodSpec](#stdk8s-podspec)</code> | <span></span>
+**metadata**🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | <span></span>
+**podSpec**🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | <span></span>
 
 
 
-## class Resource 🔹 <a id="stdk8s-resource"></a>
+## class Resource 🔹 <a id="cdk8s-plus-resource"></a>
 
 Base class for all Kubernetes objects in stdk8s.
 
 Represents a single
 resource.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
 <span style="text-decoration: underline">Extends</span>: [Construct](#constructs-construct)
-<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#stdk8s-configmap), [Deployment](#stdk8s-deployment), [Job](#stdk8s-job), [Pod](#stdk8s-pod), [PodTemplate](#stdk8s-podtemplate), [Secret](#stdk8s-secret), [Service](#stdk8s-service), [ServiceAccount](#stdk8s-serviceaccount)
+<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [PodTemplate](#cdk8s-plus-podtemplate), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
 
 ### Initializer
 
@@ -1113,8 +1113,8 @@ new Resource(scope: Construct, id: string, props: ResourceProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[ResourceProps](#stdk8s-resourceprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+* **props** (<code>[ResourceProps](#cdk8s-plus-resourceprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1125,16 +1125,16 @@ Name | Type | Description
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **name**🔹 | <code>string</code> | The name of this API object.
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | The metadata associated with this resource.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | The metadata associated with this resource.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
-## class Secret 🔹 <a id="stdk8s-secret"></a>
+## class Secret 🔹 <a id="cdk8s-plus-secret"></a>
 
 
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource), [ISecret](#stdk8s-isecret), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [ISecret](#cdk8s-plus-isecret), [IResource](#cdk8s-plus-iresource)
+<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -1150,7 +1150,7 @@ new Secret(scope: Construct, id: string, props?: SecretProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[SecretProps](#stdk8s-secretprops)</code>)  *No description*
+* **props** (<code>[SecretProps](#cdk8s-plus-secretprops)</code>)  *No description*
 
 
 
@@ -1164,7 +1164,7 @@ Name | Type | Description
 ### Methods
 
 
-#### addEnvVariable(key)🔹 <a id="stdk8s-secret-addenvvariable"></a>
+#### addEnvVariable(key)🔹 <a id="cdk8s-plus-secret-addenvvariable"></a>
 
 
 
@@ -1180,7 +1180,7 @@ addEnvVariable(key: string): void
 
 
 
-#### *static* fromSecretName(name)🔹 <a id="stdk8s-secret-fromsecretname"></a>
+#### *static* fromSecretName(name)🔹 <a id="cdk8s-plus-secret-fromsecretname"></a>
 
 
 
@@ -1194,16 +1194,16 @@ static fromSecretName(name: string): ISecret
 * **name** (<code>string</code>)  *No description*
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[ISecret](#stdk8s-isecret)</code>
+* <code>[ISecret](#cdk8s-plus-isecret)</code>
 
 
 
-## class Service 🔹 <a id="stdk8s-service"></a>
+## class Service 🔹 <a id="cdk8s-plus-service"></a>
 
 
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -1219,9 +1219,9 @@ new Service(scope: Construct, id: string, props?: ServiceProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[ServiceProps](#stdk8s-serviceprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[ServiceSpec](#stdk8s-servicespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+* **props** (<code>[ServiceProps](#cdk8s-plus-serviceprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **spec** (<code>[ServiceSpec](#cdk8s-plus-servicespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1231,16 +1231,16 @@ new Service(scope: Construct, id: string, props?: ServiceProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**spec**🔹 | <code>[ServiceSpec](#stdk8s-servicespec)</code> | <span></span>
+**spec**🔹 | <code>[ServiceSpec](#cdk8s-plus-servicespec)</code> | <span></span>
 
 
 
-## class ServiceAccount 🔹 <a id="stdk8s-serviceaccount"></a>
+## class ServiceAccount 🔹 <a id="cdk8s-plus-serviceaccount"></a>
 
 
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource), [IServiceAccount](#stdk8s-iserviceaccount), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
+<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IServiceAccount](#cdk8s-plus-iserviceaccount), [IResource](#cdk8s-plus-iresource)
+<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -1256,8 +1256,8 @@ new ServiceAccount(scope: Construct, id: string, props: ServiceAccountProps)
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[ServiceAccountProps](#stdk8s-serviceaccountprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+* **props** (<code>[ServiceAccountProps](#cdk8s-plus-serviceaccountprops)</code>)  *No description*
+  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1271,7 +1271,7 @@ Name | Type | Description
 ### Methods
 
 
-#### *static* fromServiceAccountName(serviceAccountName)🔹 <a id="stdk8s-serviceaccount-fromserviceaccountname"></a>
+#### *static* fromServiceAccountName(serviceAccountName)🔹 <a id="cdk8s-plus-serviceaccount-fromserviceaccountname"></a>
 
 
 
@@ -1285,11 +1285,11 @@ static fromServiceAccountName(serviceAccountName: string): IServiceAccount
 * **serviceAccountName** (<code>string</code>)  *No description*
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[IServiceAccount](#stdk8s-iserviceaccount)</code>
+* <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>
 
 
 
-## class ServiceSpec 🔹 <a id="stdk8s-servicespec"></a>
+## class ServiceSpec 🔹 <a id="cdk8s-plus-servicespec"></a>
 
 
 
@@ -1306,17 +1306,17 @@ new ServiceSpec(props?: ServiceSpecProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[ServiceSpecProps](#stdk8s-servicespecprops)</code>)  *No description*
+* **props** (<code>[ServiceSpecProps](#cdk8s-plus-servicespecprops)</code>)  *No description*
   * **clusterIP** (<code>string</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
   * **externalIPs** (<code>Array<string></code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-  * **port** (<code>[ServicePort](#stdk8s-serviceport)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **port** (<code>[ServicePort](#cdk8s-plus-serviceport)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
   * **type** (<code>string</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 
 ### Methods
 
 
-#### addExternalIP(ip)🔹 <a id="stdk8s-servicespec-addexternalip"></a>
+#### addExternalIP(ip)🔹 <a id="cdk8s-plus-servicespec-addexternalip"></a>
 
 
 
@@ -1332,7 +1332,7 @@ addExternalIP(ip: string): void
 
 
 
-#### selectByLabel(key, value)🔹 <a id="stdk8s-servicespec-selectbylabel"></a>
+#### selectByLabel(key, value)🔹 <a id="cdk8s-plus-servicespec-selectbylabel"></a>
 
 
 
@@ -1351,7 +1351,7 @@ selectByLabel(key: string, value: string): void
 
 
 
-## class Volume 🔹 <a id="stdk8s-volume"></a>
+## class Volume 🔹 <a id="cdk8s-plus-volume"></a>
 
 
 
@@ -1363,13 +1363,13 @@ selectByLabel(key: string, value: string): void
 Name | Type | Description 
 -----|------|-------------
 **name**🔹 | <code>string</code> | <span></span>
-**configMap**?🔹 | <code>[ConfigMapVolumeSource](#stdk8s-configmapvolumesource)</code> | <span style="text-decoration: underline">*Optional*</span>
-**hostPath**?🔹 | <code>[HostPathVolumeSource](#stdk8s-hostpathvolumesource)</code> | <span style="text-decoration: underline">*Optional*</span>
+**configMap**?🔹 | <code>[ConfigMapVolumeSource](#cdk8s-plus-configmapvolumesource)</code> | <span style="text-decoration: underline">*Optional*</span>
+**hostPath**?🔹 | <code>[HostPathVolumeSource](#cdk8s-plus-hostpathvolumesource)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
 
-#### *static* fromConfigMap(configMap)🔹 <a id="stdk8s-volume-fromconfigmap"></a>
+#### *static* fromConfigMap(configMap)🔹 <a id="cdk8s-plus-volume-fromconfigmap"></a>
 
 
 
@@ -1380,12 +1380,12 @@ static fromConfigMap(configMap: IConfigMap): Volume
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **configMap** (<code>[IConfigMap](#stdk8s-iconfigmap)</code>)  *No description*
+* **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  *No description*
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Volume](#stdk8s-volume)</code>
+* <code>[Volume](#cdk8s-plus-volume)</code>
 
-#### *static* fromDirectory(directory)🔹 <a id="stdk8s-volume-fromdirectory"></a>
+#### *static* fromDirectory(directory)🔹 <a id="cdk8s-plus-volume-fromdirectory"></a>
 
 
 
@@ -1399,11 +1399,11 @@ static fromDirectory(directory: string): Volume
 * **directory** (<code>string</code>)  *No description*
 
 <span style="text-decoration: underline">Returns</span>:
-* <code>[Volume](#stdk8s-volume)</code>
+* <code>[Volume](#cdk8s-plus-volume)</code>
 
 
 
-## class VolumeMount 🔹 <a id="stdk8s-volumemount"></a>
+## class VolumeMount 🔹 <a id="cdk8s-plus-volumemount"></a>
 
 
 
@@ -1420,9 +1420,9 @@ new VolumeMount(props: VolumeMountProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[VolumeMountProps](#stdk8s-volumemountprops)</code>)  *No description*
+* **props** (<code>[VolumeMountProps](#cdk8s-plus-volumemountprops)</code>)  *No description*
   * **path** (<code>string</code>)  *No description* 
-  * **volume** (<code>[Volume](#stdk8s-volume)</code>)  *No description* 
+  * **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  *No description* 
 
 
 
@@ -1432,11 +1432,11 @@ new VolumeMount(props: VolumeMountProps)
 Name | Type | Description 
 -----|------|-------------
 **path**🔹 | <code>string</code> | <span></span>
-**volume**🔹 | <code>[Volume](#stdk8s-volume)</code> | <span></span>
+**volume**🔹 | <code>[Volume](#cdk8s-plus-volume)</code> | <span></span>
 
 
 
-## struct AddDirectoryOptions 🔹 <a id="stdk8s-adddirectoryoptions"></a>
+## struct AddDirectoryOptions 🔹 <a id="cdk8s-plus-adddirectoryoptions"></a>
 
 
 Options for `configmap.addDirectory()`.
@@ -1451,7 +1451,7 @@ Name | Type | Description
 
 
 
-## struct ConfigMapProps 🔹 <a id="stdk8s-configmapprops"></a>
+## struct ConfigMapProps 🔹 <a id="cdk8s-plus-configmapprops"></a>
 
 
 Initialization props for config maps.
@@ -1462,11 +1462,11 @@ Name | Type | Description
 -----|------|-------------
 **binaryData**?🔹 | <code>Map<string, string></code> | BinaryData contains the binary data.<br/><span style="text-decoration: underline">*Optional*</span>
 **data**?🔹 | <code>Map<string, string></code> | Data contains the configuration data.<br/><span style="text-decoration: underline">*Optional*</span>
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct ConfigMapVolumeSource 🔹 <a id="stdk8s-configmapvolumesource"></a>
+## struct ConfigMapVolumeSource 🔹 <a id="cdk8s-plus-configmapvolumesource"></a>
 
 
 
@@ -1479,7 +1479,7 @@ Name | Type | Description
 
 
 
-## struct ContainerProps 🔹 <a id="stdk8s-containerprops"></a>
+## struct ContainerProps 🔹 <a id="cdk8s-plus-containerprops"></a>
 
 
 
@@ -1490,14 +1490,14 @@ Name | Type | Description
 -----|------|-------------
 **image**🔹 | <code>string</code> | <span></span>
 **command**?🔹 | <code>Array<string></code> | The command to execute.<br/><span style="text-decoration: underline">*Optional*</span>
-**env**?🔹 | <code>Map<string, [EnvValue](#stdk8s-envvalue)></code> | <span style="text-decoration: underline">*Optional*</span>
+**env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | <span style="text-decoration: underline">*Optional*</span>
 **name**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Default*</span>: "main"
 **port**?🔹 | <code>number</code> | // TODO: make this an array of structs (see k8s#ContainerPort).<br/><span style="text-decoration: underline">*Default*</span>: on port is exposed
 **workingDir**?🔹 | <code>string</code> | Container's working directory.<br/><span style="text-decoration: underline">*Default*</span>: If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
 
 
 
-## struct DeploymentProps 🔹 <a id="stdk8s-deploymentprops"></a>
+## struct DeploymentProps 🔹 <a id="cdk8s-plus-deploymentprops"></a>
 
 
 
@@ -1506,12 +1506,12 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[DeploymentSpec](#stdk8s-deploymentspec)</code> | <span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**spec**?🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct DeploymentSpecProps 🔹 <a id="stdk8s-deploymentspecprops"></a>
+## struct DeploymentSpecProps 🔹 <a id="cdk8s-plus-deploymentspecprops"></a>
 
 
 
@@ -1521,11 +1521,11 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **replicas**?🔹 | <code>number</code> | <span style="text-decoration: underline">*Optional*</span>
-**template**?🔹 | <code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code> | <span style="text-decoration: underline">*Optional*</span>
+**template**?🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct EnvValueFromConfigMapOptions 🔹 <a id="stdk8s-envvaluefromconfigmapoptions"></a>
+## struct EnvValueFromConfigMapOptions 🔹 <a id="cdk8s-plus-envvaluefromconfigmapoptions"></a>
 
 
 
@@ -1538,7 +1538,7 @@ Name | Type | Description
 
 
 
-## struct EnvValueFromProcessOptions 🔹 <a id="stdk8s-envvaluefromprocessoptions"></a>
+## struct EnvValueFromProcessOptions 🔹 <a id="cdk8s-plus-envvaluefromprocessoptions"></a>
 
 
 
@@ -1552,7 +1552,7 @@ Name | Type | Description
 
 
 
-## struct EnvValueFromSecretOptions 🔹 <a id="stdk8s-envvaluefromsecretoptions"></a>
+## struct EnvValueFromSecretOptions 🔹 <a id="cdk8s-plus-envvaluefromsecretoptions"></a>
 
 
 
@@ -1565,7 +1565,7 @@ Name | Type | Description
 
 
 
-## struct ExposeOptions 🔹 <a id="stdk8s-exposeoptions"></a>
+## struct ExposeOptions 🔹 <a id="cdk8s-plus-exposeoptions"></a>
 
 
 
@@ -1578,7 +1578,7 @@ Name | Type | Description
 
 
 
-## struct HostPathVolumeSource 🔹 <a id="stdk8s-hostpathvolumesource"></a>
+## struct HostPathVolumeSource 🔹 <a id="cdk8s-plus-hostpathvolumesource"></a>
 
 
 
@@ -1592,10 +1592,10 @@ Name | Type | Description
 
 
 
-## interface IConfigMap 🔹 <a id="stdk8s-iconfigmap"></a>
+## interface IConfigMap 🔹 <a id="cdk8s-plus-iconfigmap"></a>
 
-<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#stdk8s-configmap)
-<span style="text-decoration: underline">Obtainable from</span>: [ConfigMap](#stdk8s-configmap).[fromConfigMapName](#stdk8s-configmap#stdk8s-configmap-fromconfigmapname)()
+<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#cdk8s-plus-configmap)
+<span style="text-decoration: underline">Obtainable from</span>: [ConfigMap](#cdk8s-plus-configmap).[fromConfigMapName](#cdk8s-plus-configmap#cdk8s-plus-configmap-fromconfigmapname)()
 
 Represents a config map.
 
@@ -1608,9 +1608,9 @@ Name | Type | Description
 
 
 
-## interface IResource 🔹 <a id="stdk8s-iresource"></a>
+## interface IResource 🔹 <a id="cdk8s-plus-iresource"></a>
 
-<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#stdk8s-configmap), [Deployment](#stdk8s-deployment), [Job](#stdk8s-job), [Pod](#stdk8s-pod), [PodTemplate](#stdk8s-podtemplate), [Secret](#stdk8s-secret), [Service](#stdk8s-service), [ServiceAccount](#stdk8s-serviceaccount)
+<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [PodTemplate](#cdk8s-plus-podtemplate), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
 
 Represents a resource.
 
@@ -1623,26 +1623,10 @@ Name | Type | Description
 
 
 
-## interface ISecret 🔹 <a id="stdk8s-isecret"></a>
+## interface ISecret 🔹 <a id="cdk8s-plus-isecret"></a>
 
-<span style="text-decoration: underline">Implemented by</span>: [Secret](#stdk8s-secret)
-<span style="text-decoration: underline">Obtainable from</span>: [Secret](#stdk8s-secret).[fromSecretName](#stdk8s-secret#stdk8s-secret-fromsecretname)()
-
-
-
-### Properties
-
-
-Name | Type | Description 
------|------|-------------
-**name**🔹 | <code>string</code> | The Kubernetes name of this resource.
-
-
-
-## interface IServiceAccount 🔹 <a id="stdk8s-iserviceaccount"></a>
-
-<span style="text-decoration: underline">Implemented by</span>: [ServiceAccount](#stdk8s-serviceaccount)
-<span style="text-decoration: underline">Obtainable from</span>: [ServiceAccount](#stdk8s-serviceaccount).[fromServiceAccountName](#stdk8s-serviceaccount#stdk8s-serviceaccount-fromserviceaccountname)()
+<span style="text-decoration: underline">Implemented by</span>: [Secret](#cdk8s-plus-secret)
+<span style="text-decoration: underline">Obtainable from</span>: [Secret](#cdk8s-plus-secret).[fromSecretName](#cdk8s-plus-secret#cdk8s-plus-secret-fromsecretname)()
 
 
 
@@ -1655,7 +1639,23 @@ Name | Type | Description
 
 
 
-## struct JobProps 🔹 <a id="stdk8s-jobprops"></a>
+## interface IServiceAccount 🔹 <a id="cdk8s-plus-iserviceaccount"></a>
+
+<span style="text-decoration: underline">Implemented by</span>: [ServiceAccount](#cdk8s-plus-serviceaccount)
+<span style="text-decoration: underline">Obtainable from</span>: [ServiceAccount](#cdk8s-plus-serviceaccount).[fromServiceAccountName](#cdk8s-plus-serviceaccount#cdk8s-plus-serviceaccount-fromserviceaccountname)()
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**name**🔹 | <code>string</code> | The Kubernetes name of this resource.
+
+
+
+## struct JobProps 🔹 <a id="cdk8s-plus-jobprops"></a>
 
 
 
@@ -1664,12 +1664,12 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**spec**🔹 | <code>[JobSpec](#stdk8s-jobspec)</code> | <span></span>
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**spec**🔹 | <code>[JobSpec](#cdk8s-plus-jobspec)</code> | <span></span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct JobSpecProps 🔹 <a id="stdk8s-jobspecprops"></a>
+## struct JobSpecProps 🔹 <a id="cdk8s-plus-jobspecprops"></a>
 
 
 
@@ -1678,12 +1678,12 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**template**🔹 | <code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code> | <span></span>
-**ttlAfterFinished**?🔹 | <code>[Duration](#stdk8s-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/><span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
+**template**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span></span>
+**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/><span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
 
 
 
-## struct ObjectMetaProps 🔹 <a id="stdk8s-objectmetaprops"></a>
+## struct ObjectMetaProps 🔹 <a id="cdk8s-plus-objectmetaprops"></a>
 
 
 
@@ -1700,7 +1700,7 @@ Name | Type | Description
 
 
 
-## struct PodProps 🔹 <a id="stdk8s-podprops"></a>
+## struct PodProps 🔹 <a id="cdk8s-plus-podprops"></a>
 
 
 
@@ -1709,12 +1709,12 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[PodSpec](#stdk8s-podspec)</code> | <span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**spec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct PodSpecProps 🔹 <a id="stdk8s-podspecprops"></a>
+## struct PodSpecProps 🔹 <a id="cdk8s-plus-podspecprops"></a>
 
 
 Properties for initialization `PodSpec`.
@@ -1723,28 +1723,14 @@ Properties for initialization `PodSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**containers**?🔹 | <code>Array<[Container](#stdk8s-container)></code> | List of containers belonging to the pod.<br/><span style="text-decoration: underline">*Optional*</span>
-**restartPolicy**?🔹 | <code>[RestartPolicy](#stdk8s-restartpolicy)</code> | Restart policy for all containers within the pod.<br/><span style="text-decoration: underline">*Default*</span>: RestartPolicy.ALWAYS
-**serviceAccout**?🔹 | <code>[IServiceAccount](#stdk8s-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/><span style="text-decoration: underline">*Optional*</span>
-**volumes**?🔹 | <code>Array<[Volume](#stdk8s-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/><span style="text-decoration: underline">*Default*</span>: no volumes
+**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/><span style="text-decoration: underline">*Optional*</span>
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/><span style="text-decoration: underline">*Default*</span>: RestartPolicy.ALWAYS
+**serviceAccout**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/><span style="text-decoration: underline">*Optional*</span>
+**volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/><span style="text-decoration: underline">*Default*</span>: no volumes
 
 
 
-## struct PodTemplateProps 🔹 <a id="stdk8s-podtemplateprops"></a>
-
-
-
-
-
-
-Name | Type | Description 
------|------|-------------
-**spec**🔹 | <code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code> | <span></span>
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-
-
-
-## struct PodTemplateSpecProps 🔹 <a id="stdk8s-podtemplatespecprops"></a>
+## struct PodTemplateProps 🔹 <a id="cdk8s-plus-podtemplateprops"></a>
 
 
 
@@ -1753,12 +1739,26 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | <span style="text-decoration: underline">*Optional*</span>
-**podSpec**?🔹 | <code>[PodSpec](#stdk8s-podspec)</code> | <span style="text-decoration: underline">*Optional*</span>
+**spec**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span></span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct ResourceProps 🔹 <a id="stdk8s-resourceprops"></a>
+## struct PodTemplateSpecProps 🔹 <a id="cdk8s-plus-podtemplatespecprops"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | <span style="text-decoration: underline">*Optional*</span>
+**podSpec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | <span style="text-decoration: underline">*Optional*</span>
+
+
+
+## struct ResourceProps 🔹 <a id="cdk8s-plus-resourceprops"></a>
 
 
 Initialization properties for resources.
@@ -1767,17 +1767,17 @@ Initialization properties for resources.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct SecretProps 🔹 <a id="stdk8s-secretprops"></a>
+## struct SecretProps 🔹 <a id="cdk8s-plus-secretprops"></a>
 
 
 
 
 
-## struct ServiceAccountProps 🔹 <a id="stdk8s-serviceaccountprops"></a>
+## struct ServiceAccountProps 🔹 <a id="cdk8s-plus-serviceaccountprops"></a>
 
 
 
@@ -1786,11 +1786,11 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct ServicePort 🔹 <a id="stdk8s-serviceport"></a>
+## struct ServicePort 🔹 <a id="cdk8s-plus-serviceport"></a>
 
 
 
@@ -1804,7 +1804,7 @@ Name | Type | Description
 
 
 
-## struct ServiceProps 🔹 <a id="stdk8s-serviceprops"></a>
+## struct ServiceProps 🔹 <a id="cdk8s-plus-serviceprops"></a>
 
 
 
@@ -1813,12 +1813,12 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[ServiceSpec](#stdk8s-servicespec)</code> | <span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**spec**?🔹 | <code>[ServiceSpec](#cdk8s-plus-servicespec)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct ServiceSpecProps 🔹 <a id="stdk8s-servicespecprops"></a>
+## struct ServiceSpecProps 🔹 <a id="cdk8s-plus-servicespecprops"></a>
 
 
 
@@ -1829,12 +1829,12 @@ Name | Type | Description
 -----|------|-------------
 **clusterIP**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
 **externalIPs**?🔹 | <code>Array<string></code> | <span style="text-decoration: underline">*Optional*</span>
-**port**?🔹 | <code>[ServicePort](#stdk8s-serviceport)</code> | <span style="text-decoration: underline">*Optional*</span>
+**port**?🔹 | <code>[ServicePort](#cdk8s-plus-serviceport)</code> | <span style="text-decoration: underline">*Optional*</span>
 **type**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
-## struct TimeConversionOptions 🔹 <a id="stdk8s-timeconversionoptions"></a>
+## struct TimeConversionOptions 🔹 <a id="cdk8s-plus-timeconversionoptions"></a>
 
 
 Options for how to convert time to a different unit.
@@ -1847,7 +1847,7 @@ Name | Type | Description
 
 
 
-## struct VolumeMountProps 🔹 <a id="stdk8s-volumemountprops"></a>
+## struct VolumeMountProps 🔹 <a id="cdk8s-plus-volumemountprops"></a>
 
 
 
@@ -1857,11 +1857,11 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **path**🔹 | <code>string</code> | <span></span>
-**volume**🔹 | <code>[Volume](#stdk8s-volume)</code> | <span></span>
+**volume**🔹 | <code>[Volume](#cdk8s-plus-volume)</code> | <span></span>
 
 
 
-## enum RestartPolicy 🔹 <a id="stdk8s-restartpolicy"></a>
+## enum RestartPolicy 🔹 <a id="cdk8s-plus-restartpolicy"></a>
 
 Restart policy for all containers within the pod.
 
