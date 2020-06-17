@@ -35,7 +35,7 @@ import { Size } from './size';
  * hierarchy, and any volumes are mounted at the specified paths within the
  * image. Volumes can not mount onto other volumes
  */
-export abstract class Volume {
+export class Volume {
   /**
    * Populate the volume from a ConfigMap.
    *
@@ -52,17 +52,14 @@ export abstract class Volume {
    * @param options Options
    */
   public static fromConfigMap(configMap: IConfigMap, options: ConfigMapVolumeOptions = { }): Volume {
-    return {
-      _toKube: () => ({
-        name: options.name ?? `configmap-${configMap.name}`,
-        configMap: {
-          name: configMap.name,
-          defaultMode: options.defaultMode,
-          optional: options.optional,
-          items: renderItems(options.items),
-        },
-      }),
-    };
+    return new Volume(options.name ?? `configmap-${configMap.name}`, {
+      configMap: {
+        name: configMap.name,
+        defaultMode: options.defaultMode,
+        optional: options.optional,
+        items: renderItems(options.items),
+      },
+    });
 
     function renderItems(items?: { [key: string]: PathMapping }) {
       if (!items) { return undefined; }
@@ -90,23 +87,29 @@ export abstract class Volume {
    * @param options Options
    */
   public static fromEmptyDir(name: string, options: EmptyDirVolumeOptions = { }): Volume {
-    return {
-      _toKube: () => ({
-        name,
-        emptyDir: {
-          medium: options.medium,
-          sizeLimit: options.sizeLimit
-            ? `${options.sizeLimit.toMebibytes()}Mi`
-            : undefined,
-        },
-      }),
-    }
+    return new Volume(name, {
+      emptyDir: {
+        medium: options.medium,
+        sizeLimit: options.sizeLimit
+          ? `${options.sizeLimit.toMebibytes()}Mi`
+          : undefined,
+      },
+    });
   }
 
   /**
    * @internal
    */
-  public abstract _toKube(): k8s.Volume;
+  public _toKube(): k8s.Volume {
+    return {
+      name: this.name,
+      ...this.config,
+    };
+  }
+
+  protected constructor(public readonly name: string, private readonly config: any) {
+
+  }
 }
 
 /**
