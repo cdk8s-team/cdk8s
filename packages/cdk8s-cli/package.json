@@ -39,7 +39,7 @@
     "sscaff": "^1.2.0",
     "yaml": "^1.7.2",
     "yargs": "^15.1.0",
-    "json2jsii": "^0.1.1"
+    "json2jsii": "^0.1.2"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
