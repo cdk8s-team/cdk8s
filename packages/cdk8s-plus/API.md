@@ -24,7 +24,6 @@ Name|Description
 [ServiceSpec](#cdk8s-plus-servicespec)|*No description*
 [Size](#cdk8s-plus-size)|Represents the amount of digital storage.
 [Volume](#cdk8s-plus-volume)|Volume represents a named volume in a pod that may be accessed by any container in the pod.
-[VolumeMount](#cdk8s-plus-volumemount)|*No description*
 
 
 **Structs**
@@ -44,6 +43,7 @@ Name|Description
 [ExposeOptions](#cdk8s-plus-exposeoptions)|*No description*
 [JobProps](#cdk8s-plus-jobprops)|*No description*
 [JobSpecProps](#cdk8s-plus-jobspecprops)|*No description*
+[MountOptions](#cdk8s-plus-mountoptions)|Options for mounts.
 [ObjectMetaProps](#cdk8s-plus-objectmetaprops)|Properties to create an ObjectMeta.
 [PathMapping](#cdk8s-plus-pathmapping)|Maps a string key to a path within a volume.
 [PodProps](#cdk8s-plus-podprops)|*No description*
@@ -58,7 +58,7 @@ Name|Description
 [ServiceSpecProps](#cdk8s-plus-servicespecprops)|*No description*
 [SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)|Options for how to convert time to a different unit.
 [TimeConversionOptions](#cdk8s-plus-timeconversionoptions)|Options for how to convert time to a different unit.
-[VolumeMountProps](#cdk8s-plus-volumemountprops)|*No description*
+[VolumeMount](#cdk8s-plus-volumemount)|Mount a volume from the pod to the container.
 
 
 **Interfaces**
@@ -76,6 +76,7 @@ Name|Description
 Name|Description
 ----|-----------
 [EmptyDirMedium](#cdk8s-plus-emptydirmedium)|The medium on which to store the volume.
+[MountPropagation](#cdk8s-plus-mountpropagation)|*No description*
 [RestartPolicy](#cdk8s-plus-restartpolicy)|Restart policy for all containers within the pod.
 [SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)|Rounding behaviour when converting between units of `Size`.
 
@@ -234,6 +235,7 @@ new Container(props: ContainerProps)
   * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. <span style="text-decoration: underline">*Default*</span>: No environment variables.
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. <span style="text-decoration: underline">*Default*</span>: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. <span style="text-decoration: underline">*Default*</span>: No port is exposed.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. <span style="text-decoration: underline">*Optional*</span>
   * **workingDir** (<code>string</code>)  Container's working directory. <span style="text-decoration: underline">*Default*</span>: The container runtime's default.
 
 
@@ -268,7 +270,7 @@ addEnv(name: string, value: EnvValue): void
 
 
 
-#### mount(path, volume)🔹 <a id="cdk8s-plus-container-mount"></a>
+#### mount(path, volume, options?)🔹 <a id="cdk8s-plus-container-mount"></a>
 
 Mount a volume to a specific path so that it is accessible by the container.
 
@@ -277,12 +279,17 @@ Every pod that is configured to use this container will autmoatically have acces
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-mount(path: string, volume: Volume): void
+mount(path: string, volume: Volume, options?: MountOptions): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
 * **path** (<code>string</code>)  - The desired path in the container.
 * **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  - The volume to mount.
+* **options** (<code>[MountOptions](#cdk8s-plus-mountoptions)</code>)  *No description*
+  * **propagation** (<code>[MountPropagation](#cdk8s-plus-mountpropagation)</code>)  Determines how mounts are propagated from the host to container and the other way around. <span style="text-decoration: underline">*Default*</span>: MountPropagation.NONE
+  * **readOnly** (<code>boolean</code>)  Mounted read-only if true, read-write otherwise (false or unspecified). <span style="text-decoration: underline">*Default*</span>: false
+  * **subPath** (<code>string</code>)  Path within the volume from which the container's volume should be mounted.). <span style="text-decoration: underline">*Default*</span>: "" the volume's root
+  * **subPathExpr** (<code>string</code>)  Expanded path within the volume from which the container's volume should be mounted. <span style="text-decoration: underline">*Default*</span>: "" volume's root.
 
 
 
@@ -1643,39 +1650,6 @@ static fromEmptyDir(name: string, options?: EmptyDirVolumeOptions): Volume
 
 
 
-## class VolumeMount 🔹 <a id="cdk8s-plus-volumemount"></a>
-
-
-
-
-### Initializer
-
-
-
-
-<span style="text-decoration: underline">Usage:</span>
-
-```ts
-new VolumeMount(props: VolumeMountProps)
-```
-
-<span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[VolumeMountProps](#cdk8s-plus-volumemountprops)</code>)  *No description*
-  * **path** (<code>string</code>)  *No description* 
-  * **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  *No description* 
-
-
-
-### Properties
-
-
-Name | Type | Description 
------|------|-------------
-**path**🔹 | <code>string</code> | <span></span>
-**volume**🔹 | <code>[Volume](#cdk8s-plus-volume)</code> | <span></span>
-
-
-
 ## struct AddDirectoryOptions 🔹 <a id="cdk8s-plus-adddirectoryoptions"></a>
 
 
@@ -1736,6 +1710,7 @@ Name | Type | Description
 **env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/><span style="text-decoration: underline">*Default*</span>: No environment variables.
 **name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/><span style="text-decoration: underline">*Default*</span>: 'main'
 **port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/><span style="text-decoration: underline">*Default*</span>: No port is exposed.
+**volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/><span style="text-decoration: underline">*Optional*</span>
 **workingDir**?🔹 | <code>string</code> | Container's working directory.<br/><span style="text-decoration: underline">*Default*</span>: The container runtime's default.
 
 
@@ -1922,6 +1897,22 @@ Name | Type | Description
 -----|------|-------------
 **template**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span></span>
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/><span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
+
+
+
+## struct MountOptions 🔹 <a id="cdk8s-plus-mountoptions"></a>
+
+
+Options for mounts.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**propagation**?🔹 | <code>[MountPropagation](#cdk8s-plus-mountpropagation)</code> | Determines how mounts are propagated from the host to container and the other way around.<br/><span style="text-decoration: underline">*Default*</span>: MountPropagation.NONE
+**readOnly**?🔹 | <code>boolean</code> | Mounted read-only if true, read-write otherwise (false or unspecified).<br/><span style="text-decoration: underline">*Default*</span>: false
+**subPath**?🔹 | <code>string</code> | Path within the volume from which the container's volume should be mounted.).<br/><span style="text-decoration: underline">*Default*</span>: "" the volume's root
+**subPathExpr**?🔹 | <code>string</code> | Expanded path within the volume from which the container's volume should be mounted.<br/><span style="text-decoration: underline">*Default*</span>: "" volume's root.
 
 
 
@@ -2115,17 +2106,21 @@ Name | Type | Description
 
 
 
-## struct VolumeMountProps 🔹 <a id="cdk8s-plus-volumemountprops"></a>
+## struct VolumeMount 🔹 <a id="cdk8s-plus-volumemount"></a>
 
 
-
+Mount a volume from the pod to the container.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**path**🔹 | <code>string</code> | <span></span>
-**volume**🔹 | <code>[Volume](#cdk8s-plus-volume)</code> | <span></span>
+**path**🔹 | <code>string</code> | Path within the container at which the volume should be mounted.
+**volume**🔹 | <code>[Volume](#cdk8s-plus-volume)</code> | The volume to mount.
+**propagation**?🔹 | <code>[MountPropagation](#cdk8s-plus-mountpropagation)</code> | Determines how mounts are propagated from the host to container and the other way around.<br/><span style="text-decoration: underline">*Default*</span>: MountPropagation.NONE
+**readOnly**?🔹 | <code>boolean</code> | Mounted read-only if true, read-write otherwise (false or unspecified).<br/><span style="text-decoration: underline">*Default*</span>: false
+**subPath**?🔹 | <code>string</code> | Path within the volume from which the container's volume should be mounted.).<br/><span style="text-decoration: underline">*Default*</span>: "" the volume's root
+**subPathExpr**?🔹 | <code>string</code> | Expanded path within the volume from which the container's volume should be mounted.<br/><span style="text-decoration: underline">*Default*</span>: "" volume's root.
 
 
 
@@ -2137,6 +2132,17 @@ Name | Description
 -----|-----
 **DEFAULT** 🔹|The default volume of the backing node.
 **MEMORY** 🔹|Mount a tmpfs (RAM-backed filesystem) for you instead.
+
+
+## enum MountPropagation 🔹 <a id="cdk8s-plus-mountpropagation"></a>
+
+
+
+Name | Description
+-----|-----
+**NONE** 🔹|This volume mount will not receive any subsequent mounts that are mounted to this volume or any of its subdirectories by the host.
+**HOST_TO_CONTAINER** 🔹|This volume mount will receive all subsequent mounts that are mounted to this volume or any of its subdirectories.
+**BIDIRECTIONAL** 🔹|This volume mount behaves the same the HostToContainer mount.
 
 
 ## enum RestartPolicy 🔹 <a id="cdk8s-plus-restartpolicy"></a>

@@ -1,7 +1,6 @@
 import { IConfigMap } from './config-map';
 import { ISecret } from './secret';
 import * as k8s from '../imports/k8s';
-import { VolumeMount } from './volume-mount';
 import { Volume } from './volume';
 
 /**
@@ -169,7 +168,12 @@ export interface ContainerProps {
    *
    * @default - No environment variables.
    */
-  readonly env?: { [name: string]: EnvValue }
+  readonly env?: { [name: string]: EnvValue };
+
+  /**
+   * Pod volumes to mount into the container's filesystem. Cannot be updated.
+   */
+  readonly volumeMounts?: VolumeMount[];
 }
 
 /**
@@ -182,7 +186,7 @@ export class Container {
    */
   public readonly port?: number;
 
-  private readonly volumeMounts: VolumeMount[] = [];
+  private readonly volumeMounts: VolumeMount[];
   private readonly name: string;
   private readonly image: string;
   private readonly command?: string[];
@@ -196,6 +200,7 @@ export class Container {
     this.command = props.command;
     this.env = props.env ?? { };
     this.workingDir = props.workingDir;
+    this.volumeMounts = props.volumeMounts ?? [];
   }
 
   /**
@@ -218,25 +223,25 @@ export class Container {
    * @param path - The desired path in the container.
    * @param volume - The volume to mount.
    */
-  public mount(path: string, volume: Volume) {
-    this.volumeMounts.push({
-      path: path,
-      volume: volume,
-    });
+  public mount(path: string, volume: Volume, options: MountOptions = { }) {
+    this.volumeMounts.push({ path, volume, ...options });
   }
 
   /**
    * @internal
    */
   public _toKube(): k8s.Container {
-
     const volumeMounts: k8s.VolumeMount[] = [];
 
-    for (const volumeMount of this.volumeMounts) {
+    for (const mount of this.volumeMounts) {
       volumeMounts.push({
-        name: volumeMount.volume.name,
-        mountPath: volumeMount.path,
-      })
+        name: mount.volume.name,
+        mountPath: mount.path,
+        readOnly: mount.readOnly,
+        mountPropagation: mount.propagation,
+        subPath: mount.subPath,
+        subPathExpr: mount.subPathExpr,
+      });
     }
 
     const ports = new Array<k8s.ContainerPort>();
@@ -250,14 +255,127 @@ export class Container {
     return {
       name: this.name,
       image: this.image,
-      ports: ports,
-      volumeMounts: volumeMounts,
+      ports,
+      volumeMounts,
       command: this.command,
       workingDir: this.workingDir,
       env: renderEnv(this.env),
     }
   }
 
+}
+
+/**
+ * Options for mounts.
+ */
+export interface MountOptions {
+  /**
+   * Determines how mounts are propagated from the host to container and the
+   * other way around. When not set, MountPropagationNone is used.
+   *
+   * Mount propagation allows for sharing volumes mounted by a Container to
+   * other Containers in the same Pod, or even to other Pods on the same node.
+   *
+   * This field is beta in 1.10.
+   *
+   * @default MountPropagation.NONE
+   */
+  readonly propagation?: MountPropagation;
+
+  /**
+   * Mounted read-only if true, read-write otherwise (false or unspecified).
+   * Defaults to false.
+   *
+   * @default false
+   */
+  readonly readOnly?: boolean;
+
+  /**
+   * Path within the volume from which the container's volume should be mounted.).
+   *
+   * @default "" the volume's root
+   */
+  readonly subPath?: string;
+
+  /**
+   * Expanded path within the volume from which the container's volume should be
+   * mounted. Behaves similarly to SubPath but environment variable references
+   * $(VAR_NAME) are expanded using the container's environment. Defaults to ""
+   * (volume's root). SubPathExpr and SubPath are mutually exclusive. This field
+   * is beta in 1.15.
+   *
+   * `subPathExpr` and `subPath` are mutually exclusive. This field is beta in
+   * 1.15.
+   *
+   * @default "" volume's root.
+   */
+  readonly subPathExpr?: string;
+}
+
+/**
+ * Mount a volume from the pod to the container.
+ */
+export interface VolumeMount extends MountOptions {
+  /**
+   * The volume to mount.
+   */
+  readonly volume: Volume;
+
+  /**
+   * Path within the container at which the volume should be mounted. Must not
+   * contain ':'.
+   */
+  readonly path: string;
+}
+
+export enum MountPropagation {
+  /**
+   * This volume mount will not receive any subsequent mounts that are mounted
+   * to this volume or any of its subdirectories by the host. In similar
+   * fashion, no mounts created by the Container will be visible on the host.
+   *
+   * This is the default mode.
+   *
+   * This mode is equal to `private` mount propagation as described in the Linux
+   * kernel documentation
+   */
+  NONE = 'None',
+
+  /**
+   * This volume mount will receive all subsequent mounts that are mounted to
+   * this volume or any of its subdirectories.
+   *
+   * In other words, if the host mounts anything inside the volume mount, the
+   * Container will see it mounted there.
+   *
+   * Similarly, if any Pod with Bidirectional mount propagation to the same
+   * volume mounts anything there, the Container with HostToContainer mount
+   * propagation will see it.
+   *
+   * This mode is equal to `rslave` mount propagation as described in the Linux
+   * kernel documentation
+   */
+  HOST_TO_CONTAINER = 'HostToContainer',
+
+  /**
+   * This volume mount behaves the same the HostToContainer mount. In addition,
+   * all volume mounts created by the Container will be propagated back to the
+   * host and to all Containers of all Pods that use the same volume
+   *
+   * A typical use case for this mode is a Pod with a FlexVolume or CSI driver
+   * or a Pod that needs to mount something on the host using a hostPath volume.
+   *
+   * This mode is equal to `rshared` mount propagation as described in the Linux
+   * kernel documentation
+   *
+   * Caution: Bidirectional mount propagation can be dangerous. It can damage
+   * the host operating system and therefore it is allowed only in privileged
+   * Containers. Familiarity with Linux kernel behavior is strongly recommended.
+   * In addition, any volume mounts created by Containers in Pods must be
+   * destroyed (unmounted) by the Containers on termination.
+   *
+   */
+  BIDIRECTIONAL = 'Bidirectional',
 }
 
 function renderEnv(env?: { [name: string]: EnvValue }): k8s.EnvVar[] {

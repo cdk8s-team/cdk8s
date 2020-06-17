@@ -10,6 +10,5 @@ export * from './pod';
 export * from './secret';
 export * from './service-account';
 export * from './service';
-export * from './volume-mount';
 export * from './volume';
 export * from './size';

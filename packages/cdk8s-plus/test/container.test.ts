@@ -152,3 +152,46 @@ test('mount', () => {
 
   expect(container._toKube().volumeMounts).toEqual([expected])
 });
+
+test('mount options', () => {
+  const container = new kplus.Container({
+    image: 'image',
+  });
+
+  const volume = kplus.Volume.fromConfigMap(kplus.ConfigMap.fromConfigMapName('ConfigMap'));
+
+  container.mount('/path/to/mount', volume, {
+    propagation: kplus.MountPropagation.BIDIRECTIONAL,
+    readOnly: true,
+  });
+
+  const expected: k8s.VolumeMount = {
+    mountPath: '/path/to/mount',
+    name: volume.name,
+    mountPropagation: 'Bidirectional',
+    readOnly: true,
+  };
+
+  expect(container._toKube().volumeMounts).toEqual([expected]);
+});
+
+test('mount from ctor', () => {
+  const container = new kplus.Container({
+    image: 'image',
+    volumeMounts: [
+      {
+        path: '/foo',
+        volume: kplus.Volume.fromEmptyDir('empty'),
+        subPath: 'subPath',
+      },
+    ],
+  });
+
+  const expected: k8s.VolumeMount = {
+    mountPath: '/foo',
+    name: 'empty',
+    subPath: 'subPath',
+  };
+
+  expect(container._toKube().volumeMounts).toEqual([expected]);
+});
