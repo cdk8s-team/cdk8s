@@ -4,7 +4,6 @@ const constructsDependency = Semver.caret('2.0.1')
 const cdk8sDependency = Semver.caret('0.0.0')
 
 const project = new JsiiProject({
-  minNodeVersion: '13.7.1',
   name: 'cdk8s-plus',
   buildWorkflow: false,
   releaseWorkflow: false,
