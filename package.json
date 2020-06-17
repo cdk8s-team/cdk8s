@@ -22,7 +22,9 @@
       "cdk8s/json-stable-stringify",
       "cdk8s/json-stable-stringify/**",
       "cdk8s/follow-redirects",
-      "cdk8s/follow-redirects/**"
+      "cdk8s/follow-redirects/**",
+      "cdk8s-plus/minimatch",
+      "cdk8s-plus/minimatch/**"
     ]
   },
   "devDependencies": {
