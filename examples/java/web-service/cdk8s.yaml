@@ -1,4 +1,4 @@
 language: java
 app:  mvn exec:java -Dexec.mainClass="com.mycompany.app.HelloKube"
 imports:
-  - k8s 
+  - k8s
