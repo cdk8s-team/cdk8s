@@ -1,18 +1,25 @@
 #!/bin/bash
-#
-# usage: align-version.sh [SUFFIX]
-#
-# aligns lerna version to package.json
-# this is executed in CI builds so artifacts include the actual version instead of 0.0.0.0
-#
-# if SUFFIX is provided, appends this to the version as-is
-#
-
+#------------------------------------------------------------------------
+# updates all package.json files to the version defined in lerna.json
+# this is called when building inside our ci/cd system
+#------------------------------------------------------------------------
 set -euo pipefail
-scriptdir="$(cd $(dirname $0) && pwd)"
+scriptdir=$(cd $(dirname $0) && pwd)
+
+# go to repo root
 cd ${scriptdir}/..
 
-suffix="${1:-}"
-version="$(node -p "require('./package.json').version")${suffix}"
-npx lerna version ${version} --yes --exact --force-publish=* --no-git-tag-version --no-push
+files="./package.json $(npx lerna ls -p -a | xargs -n1 -I@ echo @/package.json)"
+${scriptdir}/align-version.js ${files}
 
+# validation
+marker=$(node -p "require('./tools/get-version-marker').replace(/\./g, '\\\.')")
+
+# Get a list of all package.json files. None of them shouldn contain 0.0.0 anymore.
+# Exclude a couple of specific ones that we don't care about.
+package_jsons=$(find . -name package.json | grep -v node_modules)
+
+if grep -l "[^0-9]${marker}" $package_jsons; then
+  echo "ERROR: unexpected version marker ${marker} in a package.json file"
+  exit 1
+fi
