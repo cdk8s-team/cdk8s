@@ -8,12 +8,6 @@
   <name>my-app</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
     <!-- https://mvnrepository.com/artifact/org.cdk8s/cdk8s -->
     <dependency>
       <groupId>org.cdk8s</groupId>
@@ -52,7 +46,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.0.0</version>
         <executions>
             <execution>
                 <phase>generate-sources</phase>
