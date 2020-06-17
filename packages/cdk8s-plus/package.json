@@ -11,7 +11,7 @@
   "scripts": {
     "projen": "node .projenrc.js && yarn install",
     "projen:upgrade": "yarn upgrade projen && yarn projen",
-    "test": "yarn eslint && jest --passWithNoTests",
+    "test": "yarn eslint && jest",
     "bump": "standard-version",
     "release": "yarn bump && git push --follow-tags origin master",
     "compile": "jsii --silence-warnings=reserved-word && jsii-docgen",
@@ -20,9 +20,7 @@
     "package": "jsii-pacmak",
     "build": "node .projenrc.js && jsii && yarn docgen",
     "eslint": "eslint . --ext .ts",
-    "docgen": "jsii-docgen",
-    "test:watch": "jest --watch",
-    "test:update": "jest -u"
+    "docgen": "jsii-docgen"
   },
   "author": {
     "name": "Amazon Web Services",
@@ -30,11 +28,11 @@
   },
   "devDependencies": {
     "constructs": "2.0.1",
-    "cdk8s": "0.0.0",
+    "cdk8s": "^0.0.0",
     "cdk8s-cli": "^0.0.0",
     "@types/minimatch": "^3.0.3",
     "ts-jest": "^26.1.0",
-    "projen": "^0.1.36",
+    "projen": "^0.1.35",
     "standard-version": "^8.0.0",
     "jsii": "^1.6.0",
     "jsii-diff": "^1.6.0",
@@ -96,13 +94,6 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ],
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "preset": "ts-jest",
-    "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
-    ]
+    "preset": "ts-jest"
   }
 }
