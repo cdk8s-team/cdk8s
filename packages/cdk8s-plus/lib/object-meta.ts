@@ -1,22 +1,46 @@
 import * as k8s from '../imports/k8s';
 
+/**
+ * Properties to create an ObjectMeta.
+ */
 export interface ObjectMetaProps {
 
+  /**
+   * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be
+   * preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * @default - No annotations.
+   */
   readonly annotations?: { [key: string]: string };
 
-  readonly clusterName?: string;
-
+  /**
+   * Map of string keys and values that can be used to organize and categorize (scope and select) objects.
+   * May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * @default - No labels.
+   */
   readonly labels?: { [key: string]: string };
 
+  /**
+   * The name to assign to the resource that is bound to this metadata object.
+   * If this is not set, cdk8s will generate an name for the resource that is based on the construct tree path.
+   *
+   * @default undefined
+   */
   readonly name?: string;
 
+  /**
+   * Namespace defines the space within each name must be unique. An empty namespace is equivalent to the "default" namespace, but "default" is the canonical representation.
+   * Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces
+   *
+   * @default undefined (will be assigned to the 'default' namespace)
+   */
   readonly namespace?: string;
 
 }
 
 export class ObjectMeta {
 
-  public readonly clusterName?: string;
   public readonly name?: string;
   public readonly namespace?: string;
   public readonly labels: { [key: string]: string };
@@ -25,7 +49,6 @@ export class ObjectMeta {
   constructor(props: ObjectMetaProps = {}) {
     this.annotations = props.annotations ?? {};
     this.labels = props.labels ?? {};
-    this.clusterName = props.clusterName;
     this.name = props.name;
     this.namespace = props.namespace;
   }
@@ -44,7 +67,6 @@ export class ObjectMeta {
   public _toKube(): k8s.ObjectMeta {
     return {
       annotations: this.annotations,
-      clusterName: this.clusterName,
       labels: this.labels,
       name: this.name,
       namespace: this.namespace,
