@@ -45,7 +45,7 @@
     <testSourceDirectory>src/test/java</testSourceDirectory>
     <resources>
       <resource>
-        <directory>imports/src/main/k8s/main/resources</directory>
+        <directory>imports/src/main/resources</directory>
       </resource>
     </resources>
     <plugins>

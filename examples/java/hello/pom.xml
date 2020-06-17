@@ -45,10 +45,7 @@
     <testSourceDirectory>src/test/java</testSourceDirectory>
     <resources>
       <resource>
-        <directory>imports/src/main/k8s/main/java</directory>
-      </resource>
-      <resource>
-        <directory>imports/src/main/k8s/main/resources</directory>
+        <directory>imports/src/main/resources</directory>
       </resource>
     </resources>
     <plugins>
@@ -64,7 +61,7 @@
                 </goals>
                 <configuration>
                     <sources>
-                        <source>imports/src/main/k8s/main/java</source>
+                        <source>imports/</source>
                     </sources>
                 </configuration>
             </execution>
@@ -76,7 +73,7 @@
         <version>2.12.4</version>
         <configuration>
           <additionalClasspathElements>
-            <additionalClasspathElement>imports/src/main/k8s/main/java</additionalClasspathElement>
+            <additionalClasspathElement>imports/</additionalClasspathElement>
           </additionalClasspathElements>
         </configuration>
       </plugin>
