@@ -21,11 +21,11 @@ const project = new JsiiProject({
   },
   dependencies: {
     minimatch: Semver.caret('3.0.4'),
+    cdk8s: cdk8sDependency
   },
   bundledDependencies: [ 'minimatch' ],
   devDependencies: {
     '@types/minimatch': Semver.caret('3.0.3'),
-    cdk8s: cdk8sDependency
   },
   stability: 'experimental',
   java: {
