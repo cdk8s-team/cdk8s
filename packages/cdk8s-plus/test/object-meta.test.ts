@@ -1,86 +1,56 @@
 import * as kplus from '../lib';
 import * as k8s from '../imports/k8s';
 
-test('addLabel', () => {
+test('Can add a label', () => {
 
   const meta = new kplus.ObjectMeta();
 
   meta.addLabel('key', 'value');
 
-  const expected: k8s.ObjectMeta = meta._toKube();
+  const actual: k8s.ObjectMeta = meta._toKube();
 
-  expect(expected.labels).toEqual({
+  expect(actual.labels).toEqual({
     'key': 'value',
   })
 
 });
 
-test('addAnnotation', () => {
+test('Can add an annotation', () => {
 
   const meta = new kplus.ObjectMeta();
 
   meta.addAnnotation('key', 'value');
 
-  const expected: k8s.ObjectMeta = meta._toKube();
+  const actual: k8s.ObjectMeta = meta._toKube();
 
-  expect(expected.annotations).toEqual({
+  expect(actual.annotations).toEqual({
     'key': 'value',
   })
 
 });
 
-test('labels', () => {
+test('Instantiation properties are all respected', () => {
 
   const meta = new kplus.ObjectMeta({
-    labels: {
-      'key': 'value',
-    },
-  });
-
-  const expected: k8s.ObjectMeta = meta._toKube();
-
-  expect(expected.labels).toEqual({
-    'key': 'value',
-  })
-
-});
-
-test('annotations', () => {
-
-  const meta = new kplus.ObjectMeta({
-    annotations: {
-      'key': 'value',
-    },
-  });
-
-  const expected: k8s.ObjectMeta = meta._toKube();
-
-  expect(expected.annotations).toEqual({
-    'key': 'value',
-  })
-
-});
-
-test('name', () => {
-
-  const meta = new kplus.ObjectMeta({
+    labels: {'key': 'value'},
+    annotations: {'key': 'value'},
     name: 'name',
-  });
-
-  const expected: k8s.ObjectMeta = meta._toKube();
-
-  expect(expected.name).toEqual('name');
-
-});
-
-test('namespace', () => {
-
-  const meta = new kplus.ObjectMeta({
     namespace: 'namespace',
   });
 
-  const expected: k8s.ObjectMeta = meta._toKube();
+  const actual: k8s.ObjectMeta = meta._toKube();
 
-  expect(expected.namespace).toEqual('namespace');
+  const expected: k8s.ObjectMeta = {
+    name: 'name',
+    namespace: 'namespace',
+    annotations: {
+      'key': 'value',
+    },
+    labels: {
+      'key': 'value',
+    },
+  }
+
+  expect(actual).toStrictEqual(expected);
 
 });

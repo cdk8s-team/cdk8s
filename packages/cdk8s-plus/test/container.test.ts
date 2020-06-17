@@ -1,9 +1,10 @@
 import * as kplus from '../lib';
 import * as k8s from '../imports/k8s';
+import { EnvValue } from '../lib';
 
-describe('env', () => {
+describe('EnvValue', () => {
 
-  test('fromValue', () => {
+  test('Can be created from value', () => {
 
     const container = new kplus.Container({
       image: 'image',
@@ -11,14 +12,18 @@ describe('env', () => {
 
     container.addEnv('key', kplus.EnvValue.fromValue('value'));
 
-    const spec: k8s.Container = container._toKube();
+    const actual: k8s.EnvVar[] = container._toKube().env!
 
-    expect(spec.env![0].name).toEqual('key');
-    expect(spec.env![0].value).toEqual('value');
+    const expected: k8s.EnvVar[] = [{
+      name: 'key',
+      value: 'value',
+    }];
+
+    expect(actual).toEqual(expected);
 
   });
 
-  test('fromConfigMapName', () => {
+  test('Can be created from config map name', () => {
 
     const container = new kplus.Container({
       image: 'image',
@@ -26,22 +31,23 @@ describe('env', () => {
 
     container.addEnv('key', kplus.EnvValue.fromConfigMap(kplus.ConfigMap.fromConfigMapName('ConfigMap'), 'key'));
 
-    const spec: k8s.Container = container._toKube();
+    const actual: k8s.EnvVar[] = container._toKube().env!;
 
-    const expected: k8s.EnvVarSource = {
-      configMapKeyRef: {
-        key: 'key',
-        name: 'ConfigMap',
+    const expected: k8s.EnvVar[] = [{
+      name: 'key',
+      valueFrom: {
+        configMapKeyRef: {
+          key: 'key',
+          name: 'ConfigMap',
+        },
       },
-    }
+    }]
 
-    expect(spec.env![0].name).toEqual('key');
-    expect(spec.env![0].value).toBeUndefined();
-    expect(spec.env![0].valueFrom).toEqual(expected);
+    expect(actual).toEqual(expected);
 
   });
 
-  test('fromSecret', () => {
+  test('Can be created from secret', () => {
 
     const container = new kplus.Container({
       image: 'image',
@@ -49,22 +55,23 @@ describe('env', () => {
 
     container.addEnv('key', kplus.EnvValue.fromSecret(kplus.Secret.fromSecretName('Secret'), 'key'));
 
-    const spec: k8s.Container = container._toKube();
+    const actual: k8s.EnvVar[] = container._toKube().env!;
 
-    const expected: k8s.EnvVarSource = {
-      secretKeyRef: {
-        key: 'key',
-        name: 'Secret',
+    const expected: k8s.EnvVar[] = [{
+      name: 'key',
+      valueFrom: {
+        secretKeyRef: {
+          key: 'key',
+          name: 'Secret',
+        },
       },
-    }
+    }]
 
-    expect(spec.env![0].name).toEqual('key');
-    expect(spec.env![0].value).toBeUndefined();
-    expect(spec.env![0].valueFrom).toEqual(expected);
+    expect(actual).toEqual(expected);
 
   });
 
-  test('fromProcess', () => {
+  test('Can be created from process', () => {
 
     const container = new kplus.Container({
       image: 'image',
@@ -78,64 +85,55 @@ describe('env', () => {
       delete process.env[key]
     }
 
-    const spec: k8s.Container = container._toKube();
+    const actual: k8s.EnvVar[] = container._toKube().env!;
 
-    expect(spec.env![0].name).toEqual('key');
-    expect(spec.env![0].value).toEqual('value')
-    expect(spec.env![0].valueFrom).toBeUndefined();
+    const expected: k8s.EnvVar[] = [{
+      name: 'key',
+      value: 'value',
+    }]
+
+    expect(actual).toEqual(expected);
 
   });
 
 });
 
-test('image', () => {
-
-  const container = new kplus.Container({
-    image: 'image',
-  });
-
-  expect(container._toKube().image).toEqual('image');
-
-});
-
-test('name', () => {
+test('Instantiation properties are all respected', () => {
 
   const container = new kplus.Container({
     image: 'image',
     name: 'name',
+    workingDir: 'workingDir',
+    port: 9000,
+    command: ['command'],
+    env: {
+      'key': EnvValue.fromValue('value'),
+    },
   });
 
-  expect(container._toKube().name).toEqual('name');
+  const actual: k8s.Container = container._toKube();
 
-});
-
-test('workingDir', () => {
-
-  const container = new kplus.Container({
+  const expected: k8s.Container = {
+    name: 'name',
     image: 'image',
     workingDir: 'workingDir',
-  });
-
-  expect(container._toKube().workingDir).toEqual('workingDir');
-
-});
-
-test('port', () => {
-
-  const container = new kplus.Container({
-    image: 'image',
-    port: 9000,
-  });
-
-  const expected: k8s.ContainerPort = {
-    containerPort: 9000,
+    ports: [{
+      containerPort: 9000,
+    }],
+    command: ['command'],
+    env: [{
+      name: 'key',
+      value: 'value',
+      valueFrom: undefined,
+    }],
+    volumeMounts: [],
   }
 
-  expect(container._toKube().ports).toEqual([expected]);
+  expect(actual).toEqual(expected);
 
 });
 
-test('mount', () => {
+test('Can mount container to volume', () => {
 
   const container = new kplus.Container({
     image: 'image',
