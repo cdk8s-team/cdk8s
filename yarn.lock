@@ -2446,39 +2446,6 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk8s-cli@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-0.21.0.tgz#a9d94ab37a65197d2f1437d3a2ac4ee9f22e7c02"
-  integrity sha512-YVMlJBX+oitcRdvRJS3jGlEG8TUVfOdsNFSvfhRosupAEpWDhs6hwVyqkENbI6YG+pYkFOnMmtV01B90OV8MNA==
-  dependencies:
-    "@types/node" "13.7.0"
-    cdk8s "0.21.0"
-    codemaker "^0.22.0"
-    constructs "^2.0.1"
-    fs-extra "^8.1.0"
-    jsii "1.1.0"
-    jsii-pacmak "1.1.0"
-    sscaff "^1.2.0"
-    yaml "^1.7.2"
-    yargs "^15.1.0"
-
-cdk8s@0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-0.21.0.tgz#98ad59078800afef5b21ee59750ebc61978b148b"
-  integrity sha512-THKo9VV1CchTY+m52vIYEc4/z00jEdL75QvMdXiZyq5ng74JrnN0XYEJDgA76obD5R6LBJGmqNInl4HewpsMVg==
-  dependencies:
-    json-stable-stringify "^1.0.1"
-    yaml "^1.7.2"
-
-cdk8s@0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-0.25.0.tgz#60e1eed0990a631b286d04a4033d19f0c21ed463"
-  integrity sha512-9Vyukkb/NwHtXLQ9lZqGqD8N37iOr2ikNX2rnKHavB7bBfoAwOsgsVBa6gzhMdXbVZplmd6vDJ0L/KChr6ZauQ==
-  dependencies:
-    follow-redirects "^1.11.0"
-    json-stable-stringify "^1.0.1"
-    yaml "^1.7.2"
-
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.1.0, chalk@^2.3.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"

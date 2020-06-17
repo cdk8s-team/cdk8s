@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "constructs": "2.0.1",
-    "cdk8s": "0.25.0",
-    "cdk8s-cli": "^0.21.0",
+    "cdk8s": "0.0.0",
+    "cdk8s-cli": "^0.0.0",
     "@types/minimatch": "^3.0.3",
     "projen": "^0.1.32",
     "standard-version": "^8.0.0",
@@ -52,7 +52,7 @@
   },
   "peerDependencies": {
     "constructs": "^2.0.1",
-    "cdk8s": "^0.25.0"
+    "cdk8s": "^0.0.0"
   },
   "dependencies": {
     "minimatch": "^3.0.4"
