@@ -5109,10 +5109,10 @@ jsii-rosetta@^1.1.0, jsii-rosetta@^1.5.0:
     xmldom "^0.3.0"
     yargs "^15.3.1"
 
-jsii-srcmak@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1.tgz#d9702ccf95caf6e3d24ca4a3f90b5d383a82ea8c"
-  integrity sha512-bwj/zE7IvC9K/1g30ru8gI+LG1xKGaQrIfwimMBfStNYP7T43z7RijY44lSj1vlITfsbjw3FECgEUGtr0STy+g==
+jsii-srcmak@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.3.tgz#d1d129a980ffe74f41bc1b5eda9e3d388444c9cb"
+  integrity sha512-zjI6Z8irFnuvAKDCtl+EcjFhDT/PO5fZ+1eMXXPF+ic3V7kKodijs/s+8Csk1Zfa44y1SzsT2bQUiVOr5s6tTA==
   dependencies:
     fs-extra "^9.0.0"
     jsii "^1.5.0"
