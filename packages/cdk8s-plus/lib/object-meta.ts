@@ -41,10 +41,14 @@ export interface ObjectMetaProps {
 
 export class ObjectMeta {
 
+  /**
+   * The name configured for this metadata object.
+   */
   public readonly name?: string;
-  public readonly namespace?: string;
-  public readonly labels: { [key: string]: string };
-  public readonly annotations: { [key: string]: string };
+
+  private readonly namespace?: string;
+  private readonly labels: { [key: string]: string };
+  private readonly annotations: { [key: string]: string };
 
   constructor(props: ObjectMetaProps = {}) {
     this.annotations = props.annotations ?? {};
@@ -53,10 +57,22 @@ export class ObjectMeta {
     this.namespace = props.namespace;
   }
 
+  /**
+   * Add a label.
+   *
+   * @param key - The key.
+   * @param value - The value.
+   */
   public addLabel(key: string, value: string) {
     this.labels[key] = value;
   }
 
+  /**
+   * Add an annotation.
+   *
+   * @param key - The key.
+   * @param value - The value.
+   */
   public addAnnotation(key: string, value: string) {
     this.annotations[key] = value;
   }
