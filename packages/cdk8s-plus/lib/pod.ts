@@ -3,7 +3,7 @@ import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
 import * as cdk8s from 'cdk8s';
 import { IServiceAccount } from './service-account';
-import { EnvValue, Container } from './container';
+import { Container } from './container';
 import { Volume } from './volume';
 
 export interface PodProps extends ResourceProps {
@@ -163,44 +163,16 @@ export class PodSpec {
     const volumes: k8s.Volume[] = [];
     const containers: k8s.Container[] = [];
 
+    for (const container of this.containers) {
+      containers.push(container._toKube());
+    }
+
     for (const volume of this.volumes) {
       volumes.push({
         name: volume.name,
         configMap: volume.configMap,
         hostPath: volume.hostPath,
       })
-    }
-
-    for (const container of this.containers) {
-
-      const volumeMounts: k8s.VolumeMount[] = [];
-
-      for (const volumeMount of container.volumeMounts) {
-        volumeMounts.push({
-          // TODO: validate this volume is actually one of the pod volumes.
-          // later we can consider automatically adding the volume.
-          name: volumeMount.volume.name,
-          mountPath: volumeMount.path,
-        })
-      }
-
-      const ports = new Array();
-
-      containers.push({
-        name: container.name,
-        image: container.image,
-        ports: ports,
-        volumeMounts: volumeMounts,
-        command: container.command,
-        workingDir: container.workingDir,
-        env: renderEnv(container.env),
-      });
-
-      if (container.port) {
-        ports.push({
-          containerPort: container.port,
-        });
-      }
     }
 
     return {
@@ -210,16 +182,5 @@ export class PodSpec {
       volumes: volumes,
     };
 
-    function renderEnv(env?: { [name: string]: EnvValue }): k8s.EnvVar[] {
-      const result = new Array<k8s.EnvVar>();
-      for (const [name, v] of Object.entries(env ?? {})) {
-        result.push({
-          name,
-          value: v.value,
-          valueFrom: v.valueFrom,
-        });
-      }
-      return result;
-    }
   }
 }

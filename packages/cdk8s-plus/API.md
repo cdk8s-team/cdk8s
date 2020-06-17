@@ -5,11 +5,11 @@
 Name|Description
 ----|-----------
 [ConfigMap](#cdk8s-plus-configmap)|ConfigMap holds configuration data for pods to consume.
-[Container](#cdk8s-plus-container)|*No description*
+[Container](#cdk8s-plus-container)|A single application container that you want to run within a pod.
 [Deployment](#cdk8s-plus-deployment)|*No description*
 [DeploymentSpec](#cdk8s-plus-deploymentspec)|*No description*
 [Duration](#cdk8s-plus-duration)|Represents a length of time.
-[EnvValue](#cdk8s-plus-envvalue)|*No description*
+[EnvValue](#cdk8s-plus-envvalue)|Utility class for creating reading env values from various sources.
 [Job](#cdk8s-plus-job)|*No description*
 [JobSpec](#cdk8s-plus-jobspec)|*No description*
 [ObjectMeta](#cdk8s-plus-objectmeta)|*No description*
@@ -33,12 +33,12 @@ Name|Description
 [AddDirectoryOptions](#cdk8s-plus-adddirectoryoptions)|Options for `configmap.addDirectory()`.
 [ConfigMapProps](#cdk8s-plus-configmapprops)|Initialization props for config maps.
 [ConfigMapVolumeSource](#cdk8s-plus-configmapvolumesource)|*No description*
-[ContainerProps](#cdk8s-plus-containerprops)|*No description*
+[ContainerProps](#cdk8s-plus-containerprops)|Properties for creating a container.
 [DeploymentProps](#cdk8s-plus-deploymentprops)|*No description*
 [DeploymentSpecProps](#cdk8s-plus-deploymentspecprops)|*No description*
-[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)|*No description*
-[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|*No description*
-[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|*No description*
+[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)|Options to specify an envionment variable value from a ConfigMap key.
+[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|Options to specify an environment variable value from the process environment.
+[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|Options to specify an environment variable value from a Secret.
 [ExposeOptions](#cdk8s-plus-exposeoptions)|*No description*
 [HostPathVolumeSource](#cdk8s-plus-hostpathvolumesource)|*No description*
 [JobProps](#cdk8s-plus-jobprops)|*No description*
@@ -208,7 +208,7 @@ static fromConfigMapName(name: string): IConfigMap
 
 ## class Container 🔹 <a id="cdk8s-plus-container"></a>
 
-
+A single application container that you want to run within a pod.
 
 
 ### Initializer
@@ -224,12 +224,12 @@ new Container(props: ContainerProps)
 
 <span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
-  * **image** (<code>string</code>)  *No description* 
-  * **command** (<code>Array<string></code>)  The command to execute. <span style="text-decoration: underline">*Optional*</span>
-  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-  * **name** (<code>string</code>)  *No description* <span style="text-decoration: underline">*Default*</span>: "main"
-  * **port** (<code>number</code>)  // TODO: make this an array of structs (see k8s#ContainerPort). <span style="text-decoration: underline">*Default*</span>: on port is exposed
-  * **workingDir** (<code>string</code>)  Container's working directory. <span style="text-decoration: underline">*Default*</span>: If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+  * **image** (<code>string</code>)  Docker image name. 
+  * **command** (<code>Array<string></code>)  Entrypoint array. <span style="text-decoration: underline">*Default*</span>: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. <span style="text-decoration: underline">*Default*</span>: No environment variables.
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. <span style="text-decoration: underline">*Default*</span>: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. <span style="text-decoration: underline">*Default*</span>: No port is exposed.
+  * **workingDir** (<code>string</code>)  Container's working directory. <span style="text-decoration: underline">*Default*</span>: The container runtime's default.
 
 
 
@@ -238,20 +238,17 @@ new Container(props: ContainerProps)
 
 Name | Type | Description 
 -----|------|-------------
-**env**🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | <span></span>
-**image**🔹 | <code>string</code> | <span></span>
-**name**🔹 | <code>string</code> | <span></span>
-**volumeMounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | <span></span>
-**command**?🔹 | <code>Array<string></code> | <span style="text-decoration: underline">*Optional*</span>
-**port**?🔹 | <code>number</code> | <span style="text-decoration: underline">*Optional*</span>
-**workingDir**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
+**port**?🔹 | <code>number</code> | The port this conainer exposes.<br/><span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
 
 #### addEnv(name, value)🔹 <a id="cdk8s-plus-container-addenv"></a>
 
+Add an environment value to the container.
 
+The variable value can come
+from various dynamic sources such a secrets of config maps.
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -260,24 +257,27 @@ addEnv(name: string, value: EnvValue): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **name** (<code>string</code>)  *No description*
-* **value** (<code>[EnvValue](#cdk8s-plus-envvalue)</code>)  *No description*
+* **name** (<code>string</code>)  - The variable name.
+* **value** (<code>[EnvValue](#cdk8s-plus-envvalue)</code>)  - The variable value.
 
 
 
 
-#### mount(options)🔹 <a id="cdk8s-plus-container-mount"></a>
+#### mount(path, volume)🔹 <a id="cdk8s-plus-container-mount"></a>
 
+Mount a volume to a specific path so that it is accessible by the container.
 
+Every pod that is configured to use this container will autmoatically have access to the volume.
 
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-mount(options: VolumeMount): void
+mount(path: string, volume: Volume): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **options** (<code>[VolumeMount](#cdk8s-plus-volumemount)</code>)  *No description*
+* **path** (<code>string</code>)  - The desired path in the container.
+* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  - The volume to mount.
 
 
 
@@ -656,7 +656,7 @@ static seconds(amount: number): Duration
 
 ## class EnvValue 🔹 <a id="cdk8s-plus-envvalue"></a>
 
-
+Utility class for creating reading env values from various sources.
 
 
 
@@ -673,7 +673,7 @@ Name | Type | Description
 
 #### *static* fromConfigMap(configMap, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromconfigmap"></a>
 
-
+Create a value by reading a specific key inside a config map.
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -682,35 +682,35 @@ static fromConfigMap(configMap: IConfigMap, key: string, options?: EnvValueFromC
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  *No description*
-* **key** (<code>string</code>)  *No description*
-* **options** (<code>[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)</code>)  *No description*
+* **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  - The config map.
+* **key** (<code>string</code>)  - The key to extract the value from.
+* **options** (<code>[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)</code>)  - Additional options.
   * **optional** (<code>boolean</code>)  Specify whether the ConfigMap or its key must be defined. <span style="text-decoration: underline">*Default*</span>: false
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
-#### *static* fromProcess(options)🔹 <a id="cdk8s-plus-envvalue-fromprocess"></a>
+#### *static* fromProcess(key, options?)🔹 <a id="cdk8s-plus-envvalue-fromprocess"></a>
 
-
+Create a value from a key in the current process environment.
 
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-static fromProcess(options: EnvValueFromProcessOptions): EnvValue
+static fromProcess(key: string, options?: EnvValueFromProcessOptions): EnvValue
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **options** (<code>[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)</code>)  *No description*
-  * **key** (<code>string</code>)  *No description* 
-  * **required** (<code>boolean</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+* **key** (<code>string</code>)  - The key to read.
+* **options** (<code>[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)</code>)  - Additional options.
+  * **required** (<code>boolean</code>)  Specify whether the key must exist in the environment. <span style="text-decoration: underline">*Default*</span>: false
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
 #### *static* fromSecret(secret, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromsecret"></a>
 
-
+Create a by reading a specific key inside a secret.
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -719,9 +719,9 @@ static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOpti
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  *No description*
-* **key** (<code>string</code>)  *No description*
-* **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  *No description*
+* **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  - The secret.
+* **key** (<code>string</code>)  - The key.
+* **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  - Additional options.
   * **optional** (<code>boolean</code>)  Specify whether the Secret or its key must be defined. <span style="text-decoration: underline">*Default*</span>: false
 
 <span style="text-decoration: underline">Returns</span>:
@@ -729,7 +729,7 @@ static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOpti
 
 #### *static* fromValue(value)🔹 <a id="cdk8s-plus-envvalue-fromvalue"></a>
 
-
+Create a value from the given argument.
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -738,23 +738,7 @@ static fromValue(value: string): EnvValue
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **value** (<code>string</code>)  *No description*
-
-<span style="text-decoration: underline">Returns</span>:
-* <code>[EnvValue](#cdk8s-plus-envvalue)</code>
-
-#### *static* of(value)🔹 <a id="cdk8s-plus-envvalue-of"></a>
-
-
-
-<span style="text-decoration: underline">Usage:</span>
-
-```ts
-static of(value: string): EnvValue
-```
-
-<span style="text-decoration: underline">Parameters:</span>
-* **value** (<code>string</code>)  *No description*
+* **value** (<code>string</code>)  - The value.
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
@@ -1482,18 +1466,18 @@ Name | Type | Description
 ## struct ContainerProps 🔹 <a id="cdk8s-plus-containerprops"></a>
 
 
-
+Properties for creating a container.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**image**🔹 | <code>string</code> | <span></span>
-**command**?🔹 | <code>Array<string></code> | The command to execute.<br/><span style="text-decoration: underline">*Optional*</span>
-**env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | <span style="text-decoration: underline">*Optional*</span>
-**name**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Default*</span>: "main"
-**port**?🔹 | <code>number</code> | // TODO: make this an array of structs (see k8s#ContainerPort).<br/><span style="text-decoration: underline">*Default*</span>: on port is exposed
-**workingDir**?🔹 | <code>string</code> | Container's working directory.<br/><span style="text-decoration: underline">*Default*</span>: If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+**image**🔹 | <code>string</code> | Docker image name.
+**command**?🔹 | <code>Array<string></code> | Entrypoint array.<br/><span style="text-decoration: underline">*Default*</span>: The docker image's ENTRYPOINT.
+**env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/><span style="text-decoration: underline">*Default*</span>: No environment variables.
+**name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/><span style="text-decoration: underline">*Default*</span>: 'main'
+**port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/><span style="text-decoration: underline">*Default*</span>: No port is exposed.
+**workingDir**?🔹 | <code>string</code> | Container's working directory.<br/><span style="text-decoration: underline">*Default*</span>: The container runtime's default.
 
 
 
@@ -1528,7 +1512,7 @@ Name | Type | Description
 ## struct EnvValueFromConfigMapOptions 🔹 <a id="cdk8s-plus-envvaluefromconfigmapoptions"></a>
 
 
-
+Options to specify an envionment variable value from a ConfigMap key.
 
 
 
@@ -1541,21 +1525,20 @@ Name | Type | Description
 ## struct EnvValueFromProcessOptions 🔹 <a id="cdk8s-plus-envvaluefromprocessoptions"></a>
 
 
-
+Options to specify an environment variable value from the process environment.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**key**🔹 | <code>string</code> | <span></span>
-**required**?🔹 | <code>boolean</code> | <span style="text-decoration: underline">*Optional*</span>
+**required**?🔹 | <code>boolean</code> | Specify whether the key must exist in the environment.<br/><span style="text-decoration: underline">*Default*</span>: false
 
 
 
 ## struct EnvValueFromSecretOptions 🔹 <a id="cdk8s-plus-envvaluefromsecretoptions"></a>
 
 
-
+Options to specify an environment variable value from a Secret.
 
 
 

@@ -38,7 +38,7 @@ export class Secret extends Resource implements ISecret {
   }
 
   public addEnvVariable(key: string) {
-    const value = EnvValue.fromProcess({key: key, required: true}).value!;
+    const value = EnvValue.fromProcess(key, {required: true}).value!;
     this.stringData[key] = value;
   }
 
