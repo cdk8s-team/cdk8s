@@ -22,8 +22,6 @@ Name|Description
 [Service](#stdk8s-service)|*No description*
 [ServiceAccount](#stdk8s-serviceaccount)|*No description*
 [ServiceSpec](#stdk8s-servicespec)|*No description*
-[StatefulSet](#stdk8s-statefulset)|*No description*
-[StatefulSetSpec](#stdk8s-statefulsetspec)|*No description*
 [Volume](#stdk8s-volume)|*No description*
 [VolumeMount](#stdk8s-volumemount)|*No description*
 
@@ -56,8 +54,6 @@ Name|Description
 [ServicePort](#stdk8s-serviceport)|*No description*
 [ServiceProps](#stdk8s-serviceprops)|*No description*
 [ServiceSpecProps](#stdk8s-servicespecprops)|*No description*
-[StatefulSetProps](#stdk8s-statefulsetprops)|*No description*
-[StatefulSetSpecProps](#stdk8s-statefulsetspecprops)|*No description*
 [TimeConversionOptions](#stdk8s-timeconversionoptions)|Options for how to convert time to a different unit.
 [VolumeMountProps](#stdk8s-volumemountprops)|*No description*
 
@@ -1101,7 +1097,7 @@ resource.
 
 <span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource)
 <span style="text-decoration: underline">Extends</span>: [Construct](#constructs-construct)
-<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#stdk8s-configmap), [Deployment](#stdk8s-deployment), [Job](#stdk8s-job), [Pod](#stdk8s-pod), [PodTemplate](#stdk8s-podtemplate), [Secret](#stdk8s-secret), [Service](#stdk8s-service), [ServiceAccount](#stdk8s-serviceaccount), [StatefulSet](#stdk8s-statefulset)
+<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#stdk8s-configmap), [Deployment](#stdk8s-deployment), [Job](#stdk8s-job), [Pod](#stdk8s-pod), [PodTemplate](#stdk8s-podtemplate), [Secret](#stdk8s-secret), [Service](#stdk8s-service), [ServiceAccount](#stdk8s-serviceaccount)
 
 ### Initializer
 
@@ -1337,97 +1333,6 @@ addExternalIP(ip: string): void
 
 
 #### selectByLabel(key, value)🔹 <a id="stdk8s-servicespec-selectbylabel"></a>
-
-
-
-<span style="text-decoration: underline">Usage:</span>
-
-```ts
-selectByLabel(key: string, value: string): void
-```
-
-<span style="text-decoration: underline">Parameters:</span>
-* **key** (<code>string</code>)  *No description*
-* **value** (<code>string</code>)  *No description*
-
-
-
-
-
-
-## class StatefulSet 🔹 <a id="stdk8s-statefulset"></a>
-
-
-
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#stdk8s-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#stdk8s-resource)
-
-### Initializer
-
-
-
-
-<span style="text-decoration: underline">Usage:</span>
-
-```ts
-new StatefulSet(scope: Construct, id: string, props?: StatefulSetProps)
-```
-
-<span style="text-decoration: underline">Parameters:</span>
-* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **id** (<code>string</code>)  *No description*
-* **props** (<code>[StatefulSetProps](#stdk8s-statefulsetprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#stdk8s-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[StatefulSetSpec](#stdk8s-statefulsetspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-
-
-
-### Properties
-
-
-Name | Type | Description 
------|------|-------------
-**apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**spec**🔹 | <code>[StatefulSetSpec](#stdk8s-statefulsetspec)</code> | <span></span>
-
-
-
-## class StatefulSetSpec 🔹 <a id="stdk8s-statefulsetspec"></a>
-
-
-
-
-### Initializer
-
-
-
-
-<span style="text-decoration: underline">Usage:</span>
-
-```ts
-new StatefulSetSpec(props?: StatefulSetSpecProps)
-```
-
-<span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[StatefulSetSpecProps](#stdk8s-statefulsetspecprops)</code>)  *No description*
-  * **podTemplateSpec** (<code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-  * **serviceName** (<code>string</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-
-
-
-### Properties
-
-
-Name | Type | Description 
------|------|-------------
-**labels**🔹 | <code>Map<string, string></code> | <span></span>
-**podTemplateSpec**🔹 | <code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code> | <span></span>
-**serviceName**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
-
-### Methods
-
-
-#### selectByLabel(key, value)🔹 <a id="stdk8s-statefulsetspec-selectbylabel"></a>
 
 
 
@@ -1705,7 +1610,7 @@ Name | Type | Description
 
 ## interface IResource 🔹 <a id="stdk8s-iresource"></a>
 
-<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#stdk8s-configmap), [Deployment](#stdk8s-deployment), [Job](#stdk8s-job), [Pod](#stdk8s-pod), [PodTemplate](#stdk8s-podtemplate), [Secret](#stdk8s-secret), [Service](#stdk8s-service), [ServiceAccount](#stdk8s-serviceaccount), [StatefulSet](#stdk8s-statefulset)
+<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#stdk8s-configmap), [Deployment](#stdk8s-deployment), [Job](#stdk8s-job), [Pod](#stdk8s-pod), [PodTemplate](#stdk8s-podtemplate), [Secret](#stdk8s-secret), [Service](#stdk8s-service), [ServiceAccount](#stdk8s-serviceaccount)
 
 Represents a resource.
 
@@ -1926,34 +1831,6 @@ Name | Type | Description
 **externalIPs**?🔹 | <code>Array<string></code> | <span style="text-decoration: underline">*Optional*</span>
 **port**?🔹 | <code>[ServicePort](#stdk8s-serviceport)</code> | <span style="text-decoration: underline">*Optional*</span>
 **type**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
-
-
-
-## struct StatefulSetProps 🔹 <a id="stdk8s-statefulsetprops"></a>
-
-
-
-
-
-
-Name | Type | Description 
------|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#stdk8s-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[StatefulSetSpec](#stdk8s-statefulsetspec)</code> | <span style="text-decoration: underline">*Optional*</span>
-
-
-
-## struct StatefulSetSpecProps 🔹 <a id="stdk8s-statefulsetspecprops"></a>
-
-
-
-
-
-
-Name | Type | Description 
------|------|-------------
-**podTemplateSpec**?🔹 | <code>[PodTemplateSpec](#stdk8s-podtemplatespec)</code> | <span style="text-decoration: underline">*Optional*</span>
-**serviceName**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
