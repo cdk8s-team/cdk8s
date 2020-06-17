@@ -18,7 +18,7 @@
     "watch": "jsii -w --silence-warnings=reserved-word",
     "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\")",
     "package": "jsii-pacmak",
-    "build": "node .projenrc.js && jsii && yarn docgen",
+    "build": "jsii && yarn docgen",
     "eslint": "eslint . --ext .ts",
     "docgen": "jsii-docgen",
     "test:watch": "jest --watch",
