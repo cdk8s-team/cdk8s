@@ -168,11 +168,7 @@ export class PodSpec {
     }
 
     for (const volume of this.volumes) {
-      volumes.push({
-        name: volume.name,
-        configMap: volume.configMap,
-        hostPath: volume.hostPath,
-      })
+      volumes.push(volume._toKube());
     }
 
     return {
