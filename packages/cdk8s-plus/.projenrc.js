@@ -44,8 +44,10 @@ const project = new JsiiProject({
   }
 });
 
+// override the default "build" from projen because currently in this
+// repo it means "compile"
 project.addScripts({
-  build: 'jsii'
+  build: 'node .projenrc.js && jsii'
 });
 
 project.synth();
