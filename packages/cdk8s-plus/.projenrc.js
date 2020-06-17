@@ -1,4 +1,5 @@
-const { JsiiProject, Semver } = require('projen');
+const { JsiiProject, Semver, JsonFile } = require('projen');
+const { Construct } = require('constructs');
 
 const constructsDependency = Semver.caret('2.0.1')
 const cdk8sDependency = Semver.caret('0.0.0')
@@ -24,7 +25,8 @@ const project = new JsiiProject({
   bundledDependencies: [ 'minimatch' ],
   devDependencies: {
     'cdk8s-cli': Semver.caret('0.0.0'),
-    '@types/minimatch': Semver.caret('3.0.3')
+    '@types/minimatch': Semver.caret('3.0.3'),
+    'ts-jest': Semver.caret('26.1.0'),
   },
   stability: 'experimental',
 });
