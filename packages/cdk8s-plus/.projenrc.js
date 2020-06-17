@@ -29,6 +29,23 @@ const project = new JsiiProject({
     'ts-jest': Semver.caret('26.1.0'),
   },
   stability: 'experimental',
+  java: {
+    javaPackage: 'org.cdk8s.plus',
+    mavenGroupId: 'org.cdk8s',
+    mavenArtifactId: 'cdk8s-plus'
+  },
+  python: {
+    distName: 'cdk8s-plus',
+    module: 'cdk8s_plus'
+  },
+  dotnet: {
+    dotNetNamespace: 'Org.Cdk8s.Plus',
+    packageId: 'Org.Cdk8s.Plus'
+  }
+});
+
+project.addScripts({
+  build: 'jsii'
 });
 
 project.synth();

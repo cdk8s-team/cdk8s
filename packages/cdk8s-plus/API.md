@@ -5,11 +5,11 @@
 Name|Description
 ----|-----------
 [ConfigMap](#cdk8s-plus-configmap)|ConfigMap holds configuration data for pods to consume.
-[Container](#cdk8s-plus-container)|A single application container that you want to run within a pod.
+[Container](#cdk8s-plus-container)|*No description*
 [Deployment](#cdk8s-plus-deployment)|*No description*
 [DeploymentSpec](#cdk8s-plus-deploymentspec)|*No description*
 [Duration](#cdk8s-plus-duration)|Represents a length of time.
-[EnvValue](#cdk8s-plus-envvalue)|Utility class for creating reading env values from various sources.
+[EnvValue](#cdk8s-plus-envvalue)|*No description*
 [Job](#cdk8s-plus-job)|*No description*
 [JobSpec](#cdk8s-plus-jobspec)|*No description*
 [ObjectMeta](#cdk8s-plus-objectmeta)|*No description*
@@ -22,7 +22,8 @@ Name|Description
 [Service](#cdk8s-plus-service)|*No description*
 [ServiceAccount](#cdk8s-plus-serviceaccount)|*No description*
 [ServiceSpec](#cdk8s-plus-servicespec)|*No description*
-[Volume](#cdk8s-plus-volume)|*No description*
+[Size](#cdk8s-plus-size)|Represents the amount of digital storage.
+[Volume](#cdk8s-plus-volume)|Volume represents a named volume in a pod that may be accessed by any container in the pod.
 [VolumeMount](#cdk8s-plus-volumemount)|*No description*
 
 
@@ -32,18 +33,19 @@ Name|Description
 ----|-----------
 [AddDirectoryOptions](#cdk8s-plus-adddirectoryoptions)|Options for `configmap.addDirectory()`.
 [ConfigMapProps](#cdk8s-plus-configmapprops)|Initialization props for config maps.
-[ConfigMapVolumeSource](#cdk8s-plus-configmapvolumesource)|*No description*
-[ContainerProps](#cdk8s-plus-containerprops)|Properties for creating a container.
+[ConfigMapVolumeOptions](#cdk8s-plus-configmapvolumeoptions)|Options for the ConfigMap-based volume.
+[ContainerProps](#cdk8s-plus-containerprops)|*No description*
 [DeploymentProps](#cdk8s-plus-deploymentprops)|*No description*
 [DeploymentSpecProps](#cdk8s-plus-deploymentspecprops)|*No description*
-[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)|Options to specify an envionment variable value from a ConfigMap key.
-[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|Options to specify an environment variable value from the process environment.
-[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|Options to specify an environment variable value from a Secret.
+[EmptyDirVolumeOptions](#cdk8s-plus-emptydirvolumeoptions)|Options for volumes populated with an empty directory.
+[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)|*No description*
+[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|*No description*
+[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|*No description*
 [ExposeOptions](#cdk8s-plus-exposeoptions)|*No description*
-[HostPathVolumeSource](#cdk8s-plus-hostpathvolumesource)|*No description*
 [JobProps](#cdk8s-plus-jobprops)|*No description*
 [JobSpecProps](#cdk8s-plus-jobspecprops)|*No description*
 [ObjectMetaProps](#cdk8s-plus-objectmetaprops)|*No description*
+[PathMapping](#cdk8s-plus-pathmapping)|Maps a string key to a path within a volume.
 [PodProps](#cdk8s-plus-podprops)|*No description*
 [PodSpecProps](#cdk8s-plus-podspecprops)|Properties for initialization `PodSpec`.
 [PodTemplateProps](#cdk8s-plus-podtemplateprops)|*No description*
@@ -54,6 +56,7 @@ Name|Description
 [ServicePort](#cdk8s-plus-serviceport)|*No description*
 [ServiceProps](#cdk8s-plus-serviceprops)|*No description*
 [ServiceSpecProps](#cdk8s-plus-servicespecprops)|*No description*
+[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)|Options for how to convert time to a different unit.
 [TimeConversionOptions](#cdk8s-plus-timeconversionoptions)|Options for how to convert time to a different unit.
 [VolumeMountProps](#cdk8s-plus-volumemountprops)|*No description*
 
@@ -72,7 +75,9 @@ Name|Description
 
 Name|Description
 ----|-----------
+[EmptyDirMedium](#cdk8s-plus-emptydirmedium)|The medium on which to store the volume.
 [RestartPolicy](#cdk8s-plus-restartpolicy)|Restart policy for all containers within the pod.
+[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)|Rounding behaviour when converting between units of `Size`.
 
 
 
@@ -208,7 +213,7 @@ static fromConfigMapName(name: string): IConfigMap
 
 ## class Container 🔹 <a id="cdk8s-plus-container"></a>
 
-A single application container that you want to run within a pod.
+
 
 
 ### Initializer
@@ -224,12 +229,12 @@ new Container(props: ContainerProps)
 
 <span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
-  * **image** (<code>string</code>)  Docker image name. 
-  * **command** (<code>Array<string></code>)  Entrypoint array. <span style="text-decoration: underline">*Default*</span>: The docker image's ENTRYPOINT.
-  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. <span style="text-decoration: underline">*Default*</span>: No environment variables.
-  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. <span style="text-decoration: underline">*Default*</span>: 'main'
-  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. <span style="text-decoration: underline">*Default*</span>: No port is exposed.
-  * **workingDir** (<code>string</code>)  Container's working directory. <span style="text-decoration: underline">*Default*</span>: The container runtime's default.
+  * **image** (<code>string</code>)  *No description* 
+  * **command** (<code>Array<string></code>)  The command to execute. <span style="text-decoration: underline">*Optional*</span>
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **name** (<code>string</code>)  *No description* <span style="text-decoration: underline">*Default*</span>: "main"
+  * **port** (<code>number</code>)  // TODO: make this an array of structs (see k8s#ContainerPort). <span style="text-decoration: underline">*Default*</span>: on port is exposed
+  * **workingDir** (<code>string</code>)  Container's working directory. <span style="text-decoration: underline">*Default*</span>: If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
 
 
 
@@ -238,17 +243,20 @@ new Container(props: ContainerProps)
 
 Name | Type | Description 
 -----|------|-------------
-**port**?🔹 | <code>number</code> | The port this conainer exposes.<br/><span style="text-decoration: underline">*Optional*</span>
+**env**🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | <span></span>
+**image**🔹 | <code>string</code> | <span></span>
+**name**🔹 | <code>string</code> | <span></span>
+**volumeMounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | <span></span>
+**command**?🔹 | <code>Array<string></code> | <span style="text-decoration: underline">*Optional*</span>
+**port**?🔹 | <code>number</code> | <span style="text-decoration: underline">*Optional*</span>
+**workingDir**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
 
 #### addEnv(name, value)🔹 <a id="cdk8s-plus-container-addenv"></a>
 
-Add an environment value to the container.
 
-The variable value can come
-from various dynamic sources such a secrets of config maps.
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -257,27 +265,24 @@ addEnv(name: string, value: EnvValue): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **name** (<code>string</code>)  - The variable name.
-* **value** (<code>[EnvValue](#cdk8s-plus-envvalue)</code>)  - The variable value.
+* **name** (<code>string</code>)  *No description*
+* **value** (<code>[EnvValue](#cdk8s-plus-envvalue)</code>)  *No description*
 
 
 
 
-#### mount(path, volume)🔹 <a id="cdk8s-plus-container-mount"></a>
+#### mount(options)🔹 <a id="cdk8s-plus-container-mount"></a>
 
-Mount a volume to a specific path so that it is accessible by the container.
 
-Every pod that is configured to use this container will autmoatically have access to the volume.
 
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-mount(path: string, volume: Volume): void
+mount(options: VolumeMount): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **path** (<code>string</code>)  - The desired path in the container.
-* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  - The volume to mount.
+* **options** (<code>[VolumeMount](#cdk8s-plus-volumemount)</code>)  *No description*
 
 
 
@@ -656,7 +661,7 @@ static seconds(amount: number): Duration
 
 ## class EnvValue 🔹 <a id="cdk8s-plus-envvalue"></a>
 
-Utility class for creating reading env values from various sources.
+
 
 
 
@@ -673,7 +678,7 @@ Name | Type | Description
 
 #### *static* fromConfigMap(configMap, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromconfigmap"></a>
 
-Create a value by reading a specific key inside a config map.
+
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -682,35 +687,35 @@ static fromConfigMap(configMap: IConfigMap, key: string, options?: EnvValueFromC
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  - The config map.
-* **key** (<code>string</code>)  - The key to extract the value from.
-* **options** (<code>[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)</code>)  - Additional options.
+* **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  *No description*
+* **key** (<code>string</code>)  *No description*
+* **options** (<code>[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)</code>)  *No description*
   * **optional** (<code>boolean</code>)  Specify whether the ConfigMap or its key must be defined. <span style="text-decoration: underline">*Default*</span>: false
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
-#### *static* fromProcess(key, options?)🔹 <a id="cdk8s-plus-envvalue-fromprocess"></a>
+#### *static* fromProcess(options)🔹 <a id="cdk8s-plus-envvalue-fromprocess"></a>
 
-Create a value from a key in the current process environment.
+
 
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-static fromProcess(key: string, options?: EnvValueFromProcessOptions): EnvValue
+static fromProcess(options: EnvValueFromProcessOptions): EnvValue
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **key** (<code>string</code>)  - The key to read.
-* **options** (<code>[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)</code>)  - Additional options.
-  * **required** (<code>boolean</code>)  Specify whether the key must exist in the environment. <span style="text-decoration: underline">*Default*</span>: false
+* **options** (<code>[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)</code>)  *No description*
+  * **key** (<code>string</code>)  *No description* 
+  * **required** (<code>boolean</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
 #### *static* fromSecret(secret, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromsecret"></a>
 
-Create a by reading a specific key inside a secret.
+
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -719,9 +724,9 @@ static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOpti
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  - The secret.
-* **key** (<code>string</code>)  - The key.
-* **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  - Additional options.
+* **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  *No description*
+* **key** (<code>string</code>)  *No description*
+* **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  *No description*
   * **optional** (<code>boolean</code>)  Specify whether the Secret or its key must be defined. <span style="text-decoration: underline">*Default*</span>: false
 
 <span style="text-decoration: underline">Returns</span>:
@@ -729,7 +734,7 @@ static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOpti
 
 #### *static* fromValue(value)🔹 <a id="cdk8s-plus-envvalue-fromvalue"></a>
 
-Create a value from the given argument.
+
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -738,7 +743,23 @@ static fromValue(value: string): EnvValue
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **value** (<code>string</code>)  - The value.
+* **value** (<code>string</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>[EnvValue](#cdk8s-plus-envvalue)</code>
+
+#### *static* of(value)🔹 <a id="cdk8s-plus-envvalue-of"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static of(value: string): EnvValue
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **value** (<code>string</code>)  *No description*
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
@@ -1335,52 +1356,298 @@ selectByLabel(key: string, value: string): void
 
 
 
-## class Volume 🔹 <a id="cdk8s-plus-volume"></a>
+## class Size 🔹 <a id="cdk8s-plus-size"></a>
 
+Represents the amount of digital storage.
 
+The amount can be specified either as a literal value (e.g: `10`) which
+cannot be negative, or as an unresolved number token.
 
+When the amount is passed as a token, unit conversion is not possible.
 
-
-### Properties
-
-
-Name | Type | Description 
------|------|-------------
-**name**🔹 | <code>string</code> | <span></span>
-**configMap**?🔹 | <code>[ConfigMapVolumeSource](#cdk8s-plus-configmapvolumesource)</code> | <span style="text-decoration: underline">*Optional*</span>
-**hostPath**?🔹 | <code>[HostPathVolumeSource](#cdk8s-plus-hostpathvolumesource)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
 
-#### *static* fromConfigMap(configMap)🔹 <a id="cdk8s-plus-volume-fromconfigmap"></a>
+#### toGibibytes(opts?)🔹 <a id="cdk8s-plus-size-togibibytes"></a>
+
+Return this storage as a total number of gibibytes.
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+toGibibytes(opts?: SizeConversionOptions): number
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>number</code>
+
+#### toKibibytes(opts?)🔹 <a id="cdk8s-plus-size-tokibibytes"></a>
+
+Return this storage as a total number of kibibytes.
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+toKibibytes(opts?: SizeConversionOptions): number
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>number</code>
+
+#### toMebibytes(opts?)🔹 <a id="cdk8s-plus-size-tomebibytes"></a>
+
+Return this storage as a total number of mebibytes.
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+toMebibytes(opts?: SizeConversionOptions): number
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>number</code>
+
+#### toPebibytes(opts?)🔹 <a id="cdk8s-plus-size-topebibytes"></a>
+
+Return this storage as a total number of pebibytes.
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+toPebibytes(opts?: SizeConversionOptions): number
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>number</code>
+
+#### toTebibytes(opts?)🔹 <a id="cdk8s-plus-size-totebibytes"></a>
+
+Return this storage as a total number of tebibytes.
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+toTebibytes(opts?: SizeConversionOptions): number
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>number</code>
+
+#### *static* gibibytes(amount)🔹 <a id="cdk8s-plus-size-gibibytes"></a>
+
+Create a Storage representing an amount gibibytes.
+
+1 GiB = 1024 MiB
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static gibibytes(amount: number): Size
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **amount** (<code>number</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>[Size](#cdk8s-plus-size)</code>
+
+#### *static* kibibytes(amount)🔹 <a id="cdk8s-plus-size-kibibytes"></a>
+
+Create a Storage representing an amount kibibytes.
+
+1 KiB = 1024 bytes
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static kibibytes(amount: number): Size
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **amount** (<code>number</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>[Size](#cdk8s-plus-size)</code>
+
+#### *static* mebibytes(amount)🔹 <a id="cdk8s-plus-size-mebibytes"></a>
+
+Create a Storage representing an amount mebibytes.
+
+1 MiB = 1024 KiB
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static mebibytes(amount: number): Size
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **amount** (<code>number</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>[Size](#cdk8s-plus-size)</code>
+
+#### *static* pebibyte(amount)🔹 <a id="cdk8s-plus-size-pebibyte"></a>
+
+Create a Storage representing an amount pebibytes.
+
+1 PiB = 1024 TiB
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static pebibyte(amount: number): Size
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **amount** (<code>number</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>[Size](#cdk8s-plus-size)</code>
+
+#### *static* tebibytes(amount)🔹 <a id="cdk8s-plus-size-tebibytes"></a>
+
+Create a Storage representing an amount tebibytes.
+
+1 TiB = 1024 GiB
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static tebibytes(amount: number): Size
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **amount** (<code>number</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>[Size](#cdk8s-plus-size)</code>
+
+
+
+## class Volume 🔹 <a id="cdk8s-plus-volume"></a>
+
+Volume represents a named volume in a pod that may be accessed by any container in the pod.
+
+Docker also has a concept of volumes, though it is somewhat looser and less
+managed. In Docker, a volume is simply a directory on disk or in another
+Container. Lifetimes are not managed and until very recently there were only
+local-disk-backed volumes. Docker now provides volume drivers, but the
+functionality is very limited for now (e.g. as of Docker 1.7 only one volume
+driver is allowed per Container and there is no way to pass parameters to
+volumes).
+
+A Kubernetes volume, on the other hand, has an explicit lifetime - the same
+as the Pod that encloses it. Consequently, a volume outlives any Containers
+that run within the Pod, and data is preserved across Container restarts. Of
+course, when a Pod ceases to exist, the volume will cease to exist, too.
+Perhaps more importantly than this, Kubernetes supports many types of
+volumes, and a Pod can use any number of them simultaneously.
+
+At its core, a volume is just a directory, possibly with some data in it,
+which is accessible to the Containers in a Pod. How that directory comes to
+be, the medium that backs it, and the contents of it are determined by the
+particular volume type used.
+
+To use a volume, a Pod specifies what volumes to provide for the Pod (the
+.spec.volumes field) and where to mount those into Containers (the
+.spec.containers[*].volumeMounts field).
+
+A process in a container sees a filesystem view composed from their Docker
+image and volumes. The Docker image is at the root of the filesystem
+hierarchy, and any volumes are mounted at the specified paths within the
+image. Volumes can not mount onto other volumes
+
+
+### Initializer
+
 
 
 
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-static fromConfigMap(configMap: IConfigMap): Volume
+new Volume()
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  *No description*
+
+
+### Methods
+
+
+#### *static* fromConfigMap(configMap, options?)🔹 <a id="cdk8s-plus-volume-fromconfigmap"></a>
+
+Populate the volume from a ConfigMap.
+
+The configMap resource provides a way to inject configuration data into
+Pods. The data stored in a ConfigMap object can be referenced in a volume
+of type configMap and then consumed by containerized applications running
+in a Pod.
+
+When referencing a configMap object, you can simply provide its name in the
+volume to reference it. You can also customize the path to use for a
+specific entry in the ConfigMap.
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static fromConfigMap(configMap: IConfigMap, options?: ConfigMapVolumeOptions): Volume
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  The config map to use to populate the volume.
+* **options** (<code>[ConfigMapVolumeOptions](#cdk8s-plus-configmapvolumeoptions)</code>)  Options.
+  * **defaultMode** (<code>number</code>)  Mode bits to use on created files by default. <span style="text-decoration: underline">*Default*</span>: 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+  * **items** (<code>Map<string, [PathMapping](#cdk8s-plus-pathmapping)></code>)  If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. <span style="text-decoration: underline">*Default*</span>: no mapping
+  * **name** (<code>string</code>)  The volume name. <span style="text-decoration: underline">*Default*</span>: auto-generated
+  * **optional** (<code>boolean</code>)  Specify whether the ConfigMap or its keys must be defined. <span style="text-decoration: underline">*Default*</span>: undocumented
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[Volume](#cdk8s-plus-volume)</code>
 
-#### *static* fromDirectory(directory)🔹 <a id="cdk8s-plus-volume-fromdirectory"></a>
+#### *static* fromEmptyDir(name, options?)🔹 <a id="cdk8s-plus-volume-fromemptydir"></a>
 
+An emptyDir volume is first created when a Pod is assigned to a Node, and exists as long as that Pod is running on that node.
 
+As the name says, it is
+initially empty. Containers in the Pod can all read and write the same
+files in the emptyDir volume, though that volume can be mounted at the same
+or different paths in each Container. When a Pod is removed from a node for
+any reason, the data in the emptyDir is deleted forever.
 
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-static fromDirectory(directory: string): Volume
+static fromEmptyDir(name: string, options?: EmptyDirVolumeOptions): Volume
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **directory** (<code>string</code>)  *No description*
+* **name** (<code>string</code>)  *No description*
+* **options** (<code>[EmptyDirVolumeOptions](#cdk8s-plus-emptydirvolumeoptions)</code>)  Options.
+  * **medium** (<code>[EmptyDirMedium](#cdk8s-plus-emptydirmedium)</code>)  By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment. <span style="text-decoration: underline">*Default*</span>: EmptyDirMedium.DEFAULT
+  * **sizeLimit** (<code>[Size](#cdk8s-plus-size)</code>)  Total amount of local storage required for this EmptyDir volume. <span style="text-decoration: underline">*Default*</span>: limit is undefined
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[Volume](#cdk8s-plus-volume)</code>
@@ -1450,34 +1717,37 @@ Name | Type | Description
 
 
 
-## struct ConfigMapVolumeSource 🔹 <a id="cdk8s-plus-configmapvolumesource"></a>
+## struct ConfigMapVolumeOptions 🔹 <a id="cdk8s-plus-configmapvolumeoptions"></a>
 
 
-
+Options for the ConfigMap-based volume.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**name**🔹 | <code>string</code> | <span></span>
+**defaultMode**?🔹 | <code>number</code> | Mode bits to use on created files by default.<br/><span style="text-decoration: underline">*Default*</span>: 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+**items**?🔹 | <code>Map<string, [PathMapping](#cdk8s-plus-pathmapping)></code> | If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.<br/><span style="text-decoration: underline">*Default*</span>: no mapping
+**name**?🔹 | <code>string</code> | The volume name.<br/><span style="text-decoration: underline">*Default*</span>: auto-generated
+**optional**?🔹 | <code>boolean</code> | Specify whether the ConfigMap or its keys must be defined.<br/><span style="text-decoration: underline">*Default*</span>: undocumented
 
 
 
 ## struct ContainerProps 🔹 <a id="cdk8s-plus-containerprops"></a>
 
 
-Properties for creating a container.
+
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**image**🔹 | <code>string</code> | Docker image name.
-**command**?🔹 | <code>Array<string></code> | Entrypoint array.<br/><span style="text-decoration: underline">*Default*</span>: The docker image's ENTRYPOINT.
-**env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/><span style="text-decoration: underline">*Default*</span>: No environment variables.
-**name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/><span style="text-decoration: underline">*Default*</span>: 'main'
-**port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/><span style="text-decoration: underline">*Default*</span>: No port is exposed.
-**workingDir**?🔹 | <code>string</code> | Container's working directory.<br/><span style="text-decoration: underline">*Default*</span>: The container runtime's default.
+**image**🔹 | <code>string</code> | <span></span>
+**command**?🔹 | <code>Array<string></code> | The command to execute.<br/><span style="text-decoration: underline">*Optional*</span>
+**env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | <span style="text-decoration: underline">*Optional*</span>
+**name**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Default*</span>: "main"
+**port**?🔹 | <code>number</code> | // TODO: make this an array of structs (see k8s#ContainerPort).<br/><span style="text-decoration: underline">*Default*</span>: on port is exposed
+**workingDir**?🔹 | <code>string</code> | Container's working directory.<br/><span style="text-decoration: underline">*Default*</span>: If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
 
 
 
@@ -1509,10 +1779,24 @@ Name | Type | Description
 
 
 
+## struct EmptyDirVolumeOptions 🔹 <a id="cdk8s-plus-emptydirvolumeoptions"></a>
+
+
+Options for volumes populated with an empty directory.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**medium**?🔹 | <code>[EmptyDirMedium](#cdk8s-plus-emptydirmedium)</code> | By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment.<br/><span style="text-decoration: underline">*Default*</span>: EmptyDirMedium.DEFAULT
+**sizeLimit**?🔹 | <code>[Size](#cdk8s-plus-size)</code> | Total amount of local storage required for this EmptyDir volume.<br/><span style="text-decoration: underline">*Default*</span>: limit is undefined
+
+
+
 ## struct EnvValueFromConfigMapOptions 🔹 <a id="cdk8s-plus-envvaluefromconfigmapoptions"></a>
 
 
-Options to specify an envionment variable value from a ConfigMap key.
+
 
 
 
@@ -1525,20 +1809,21 @@ Name | Type | Description
 ## struct EnvValueFromProcessOptions 🔹 <a id="cdk8s-plus-envvaluefromprocessoptions"></a>
 
 
-Options to specify an environment variable value from the process environment.
+
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**required**?🔹 | <code>boolean</code> | Specify whether the key must exist in the environment.<br/><span style="text-decoration: underline">*Default*</span>: false
+**key**🔹 | <code>string</code> | <span></span>
+**required**?🔹 | <code>boolean</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
 ## struct EnvValueFromSecretOptions 🔹 <a id="cdk8s-plus-envvaluefromsecretoptions"></a>
 
 
-Options to specify an environment variable value from a Secret.
+
 
 
 
@@ -1558,20 +1843,6 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **port**🔹 | <code>number</code> | <span></span>
-
-
-
-## struct HostPathVolumeSource 🔹 <a id="cdk8s-plus-hostpathvolumesource"></a>
-
-
-
-
-
-
-Name | Type | Description 
------|------|-------------
-**path**🔹 | <code>string</code> | Path of the directory on the host.
-**type**?🔹 | <code>string</code> | Type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath.<br/><span style="text-decoration: underline">*Default*</span>: More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
 
 
 
@@ -1680,6 +1951,20 @@ Name | Type | Description
 **labels**?🔹 | <code>Map<string, string></code> | <span style="text-decoration: underline">*Optional*</span>
 **name**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
 **namespace**?🔹 | <code>string</code> | <span style="text-decoration: underline">*Optional*</span>
+
+
+
+## struct PathMapping 🔹 <a id="cdk8s-plus-pathmapping"></a>
+
+
+Maps a string key to a path within a volume.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**path**🔹 | <code>string</code> | The relative path of the file to map the key to.
+**mode**?🔹 | <code>number</code> | Optional: mode bits to use on this file, must be a value between 0 and 0777.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1817,6 +2102,19 @@ Name | Type | Description
 
 
 
+## struct SizeConversionOptions 🔹 <a id="cdk8s-plus-sizeconversionoptions"></a>
+
+
+Options for how to convert time to a different unit.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**rounding**?🔹 | <code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code> | How conversions should behave when it encounters a non-integer result.<br/><span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+
+
+
 ## struct TimeConversionOptions 🔹 <a id="cdk8s-plus-timeconversionoptions"></a>
 
 
@@ -1844,6 +2142,16 @@ Name | Type | Description
 
 
 
+## enum EmptyDirMedium 🔹 <a id="cdk8s-plus-emptydirmedium"></a>
+
+The medium on which to store the volume.
+
+Name | Description
+-----|-----
+**DEFAULT** 🔹|The default volume of the backing node.
+**MEMORY** 🔹|Mount a tmpfs (RAM-backed filesystem) for you instead.
+
+
 ## enum RestartPolicy 🔹 <a id="cdk8s-plus-restartpolicy"></a>
 
 Restart policy for all containers within the pod.
@@ -1853,5 +2161,16 @@ Name | Description
 **ALWAYS** 🔹|Always restart the pod after it exits.
 **ON_FAILURE** 🔹|Only restart if the pod exits with a non-zero exit code.
 **NEVER** 🔹|Never restart the pod.
+
+
+## enum SizeRoundingBehavior 🔹 <a id="cdk8s-plus-sizeroundingbehavior"></a>
+
+Rounding behaviour when converting between units of `Size`.
+
+Name | Description
+-----|-----
+**FAIL** 🔹|Fail the conversion if the result is not an integer.
+**FLOOR** 🔹|If the result is not an integer, round it to the closest integer less than the result.
+**NONE** 🔹|Don't round.
 
 

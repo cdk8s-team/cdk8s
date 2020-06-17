@@ -11,16 +11,18 @@
   "scripts": {
     "projen": "node .projenrc.js && yarn install",
     "projen:upgrade": "yarn upgrade projen && yarn projen",
-    "test": "yarn eslint && jest",
+    "test": "yarn eslint && jest --passWithNoTests",
     "bump": "standard-version",
     "release": "yarn bump && git push --follow-tags origin master",
     "compile": "jsii --silence-warnings=reserved-word && jsii-docgen",
     "watch": "jsii -w --silence-warnings=reserved-word",
     "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\")",
     "package": "jsii-pacmak",
-    "build": "yarn compile && yarn test && yarn run package",
+    "build": "jsii",
     "eslint": "eslint . --ext .ts",
-    "docgen": "jsii-docgen"
+    "docgen": "jsii-docgen",
+    "test:watch": "jest --watch",
+    "test:update": "jest -u"
   },
   "author": {
     "name": "Amazon Web Services",
@@ -31,7 +33,8 @@
     "cdk8s": "0.0.0",
     "cdk8s-cli": "^0.0.0",
     "@types/minimatch": "^3.0.3",
-    "projen": "^0.1.35",
+    "ts-jest": "^26.1.0",
+    "projen": "^0.1.36",
     "standard-version": "^8.0.0",
     "jsii": "^1.6.0",
     "jsii-diff": "^1.6.0",
@@ -70,7 +73,23 @@
   "stability": "experimental",
   "jsii": {
     "outdir": "dist",
-    "targets": {}
+    "targets": {
+      "java": {
+        "package": "org.cdk8s.plus",
+        "maven": {
+          "groupId": "org.cdk8s",
+          "artifactId": "cdk8s-plus"
+        }
+      },
+      "python": {
+        "distName": "cdk8s-plus",
+        "module": "cdk8s_plus"
+      },
+      "dotnet": {
+        "namespace": "Org.Cdk8s.Plus",
+        "packageId": "Org.Cdk8s.Plus"
+      }
+    }
   },
   "jest": {
     "clearMocks": true,
@@ -78,6 +97,13 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ],
-    "preset": "ts-jest"
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "preset": "ts-jest",
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ]
   }
 }
