@@ -46,8 +46,8 @@ Name|Description
 [MountOptions](#cdk8s-plus-mountoptions)|Options for mounts.
 [ObjectMetaProps](#cdk8s-plus-objectmetaprops)|Properties to create an ObjectMeta.
 [PathMapping](#cdk8s-plus-pathmapping)|Maps a string key to a path within a volume.
-[PodProps](#cdk8s-plus-podprops)|*No description*
-[PodSpecProps](#cdk8s-plus-podspecprops)|Properties for initialization `PodSpec`.
+[PodProps](#cdk8s-plus-podprops)|Properties for initialization of `Pod`.
+[PodSpecProps](#cdk8s-plus-podspecprops)|Properties for initialization of `PodSpec`.
 [PodTemplateProps](#cdk8s-plus-podtemplateprops)|*No description*
 [PodTemplateSpecProps](#cdk8s-plus-podtemplatespecprops)|*No description*
 [ResourceProps](#cdk8s-plus-resourceprops)|Initialization properties for resources.
@@ -245,7 +245,8 @@ new Container(props: ContainerProps)
 
 Name | Type | Description 
 -----|------|-------------
-**port**?🔹 | <code>number</code> | The port this conainer exposes.<br/><span style="text-decoration: underline">*Optional*</span>
+**mounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Volume mounts configured for this container.
+**port**?🔹 | <code>number</code> | The port this container exposes.<br/><span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
@@ -956,10 +957,10 @@ new PodSpec(props?: PodSpecProps)
 
 <span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[PodSpecProps](#cdk8s-plus-podspecprops)</code>)  *No description*
-  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. <span style="text-decoration: underline">*Optional*</span>
+  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. <span style="text-decoration: underline">*Default*</span>: No containers. Note that a pod spec must include at least one container.
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. <span style="text-decoration: underline">*Default*</span>: RestartPolicy.ALWAYS
-  * **serviceAccout** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. <span style="text-decoration: underline">*Optional*</span>
-  * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. <span style="text-decoration: underline">*Default*</span>: no volumes
+  * **serviceAccout** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. <span style="text-decoration: underline">*Default*</span>: No service account.
+  * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. <span style="text-decoration: underline">*Default*</span>: No volumes.
 
 
 
@@ -1003,7 +1004,7 @@ addVolume(volume: Volume): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  The volume to add.
+* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  *No description*
 
 
 
@@ -1115,8 +1116,8 @@ new Resource(scope: Construct, id: string, props: ResourceProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
+**metadata**🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | The metadata associated with this resource.
 **name**🔹 | <code>string</code> | The name of this API object.
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | The metadata associated with this resource.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1641,7 +1642,7 @@ static fromEmptyDir(name: string, options?: EmptyDirVolumeOptions): Volume
 
 <span style="text-decoration: underline">Parameters:</span>
 * **name** (<code>string</code>)  *No description*
-* **options** (<code>[EmptyDirVolumeOptions](#cdk8s-plus-emptydirvolumeoptions)</code>)  Options.
+* **options** (<code>[EmptyDirVolumeOptions](#cdk8s-plus-emptydirvolumeoptions)</code>)  - Additional options.
   * **medium** (<code>[EmptyDirMedium](#cdk8s-plus-emptydirmedium)</code>)  By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment. <span style="text-decoration: underline">*Default*</span>: EmptyDirMedium.DEFAULT
   * **sizeLimit** (<code>[Size](#cdk8s-plus-size)</code>)  Total amount of local storage required for this EmptyDir volume. <span style="text-decoration: underline">*Default*</span>: limit is undefined
 
@@ -1949,7 +1950,7 @@ Name | Type | Description
 ## struct PodProps 🔹 <a id="cdk8s-plus-podprops"></a>
 
 
-
+Properties for initialization of `Pod`.
 
 
 
@@ -1963,16 +1964,16 @@ Name | Type | Description
 ## struct PodSpecProps 🔹 <a id="cdk8s-plus-podspecprops"></a>
 
 
-Properties for initialization `PodSpec`.
+Properties for initialization of `PodSpec`.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/><span style="text-decoration: underline">*Optional*</span>
+**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/><span style="text-decoration: underline">*Default*</span>: No containers. Note that a pod spec must include at least one container.
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/><span style="text-decoration: underline">*Default*</span>: RestartPolicy.ALWAYS
-**serviceAccout**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/><span style="text-decoration: underline">*Optional*</span>
-**volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/><span style="text-decoration: underline">*Default*</span>: no volumes
+**serviceAccout**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/><span style="text-decoration: underline">*Default*</span>: No service account.
+**volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/><span style="text-decoration: underline">*Default*</span>: No volumes.
 
 
 
