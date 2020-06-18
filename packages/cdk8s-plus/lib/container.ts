@@ -182,11 +182,15 @@ export interface ContainerProps {
 export class Container {
 
   /**
-   * The port this conainer exposes.
+   * The port this container exposes.
    */
   public readonly port?: number;
 
-  private readonly volumeMounts: VolumeMount[];
+  /**
+   * Volume mounts configured for this container.
+   */
+  public readonly mounts: VolumeMount[];
+
   private readonly name: string;
   private readonly image: string;
   private readonly command?: string[];
@@ -200,7 +204,7 @@ export class Container {
     this.command = props.command;
     this.env = props.env ?? { };
     this.workingDir = props.workingDir;
-    this.volumeMounts = props.volumeMounts ?? [];
+    this.mounts = props.volumeMounts ?? [];
   }
 
   /**
@@ -224,7 +228,7 @@ export class Container {
    * @param volume - The volume to mount.
    */
   public mount(path: string, volume: Volume, options: MountOptions = { }) {
-    this.volumeMounts.push({ path, volume, ...options });
+    this.mounts.push({ path, volume, ...options });
   }
 
   /**
@@ -233,7 +237,7 @@ export class Container {
   public _toKube(): k8s.Container {
     const volumeMounts: k8s.VolumeMount[] = [];
 
-    for (const mount of this.volumeMounts) {
+    for (const mount of this.mounts) {
       volumeMounts.push({
         name: mount.volume.name,
         mountPath: mount.path,

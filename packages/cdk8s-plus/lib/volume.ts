@@ -84,7 +84,8 @@ export class Volume {
    * any reason, the data in the emptyDir is deleted forever.
    *
    * @see http://kubernetes.io/docs/user-guide/volumes#emptydir
-   * @param options Options
+   *
+   * @param options - Additional options.
    */
   public static fromEmptyDir(name: string, options: EmptyDirVolumeOptions = { }): Volume {
     return new Volume(name, {

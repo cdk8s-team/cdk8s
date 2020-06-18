@@ -9,6 +9,8 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
+      "annotations": Object {},
+      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
     },
   },
@@ -25,6 +27,8 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
+      "annotations": Object {},
+      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
     },
   },
@@ -41,6 +45,8 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
+      "annotations": Object {},
+      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
     },
   },
@@ -57,6 +63,8 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
+      "annotations": Object {},
+      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
     },
   },

@@ -23,11 +23,8 @@ export class Service extends Resource {
     this.spec = props.spec ?? new ServiceSpec();
 
     this.apiObject = new k8s.Service(this, 'Pod', {
-      metadata: {
-        name: this.metadata?.name,
-        ...this.metadata?._toKube(),
-      },
-      spec: this.spec._toKube(),
+      metadata: this.synthesizeMetadata(),
+      spec: onSynth(() => this.spec._toKube()),
     })
   }
 
@@ -93,13 +90,13 @@ export class ServiceSpec {
       })
     }
 
-    return onSynth(() => ({
+    return {
       clusterIP: this.clusterIP,
       externalIPs: this.externalIPs,
       type: this.type,
       selector: this.labels,
       ports: ports,
-    }));
+    };
   }
 
 

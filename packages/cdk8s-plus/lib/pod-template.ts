@@ -23,14 +23,10 @@ export class PodTemplate extends Resource {
 
     this.spec = props.spec;
 
-    this.apiObject = new k8s.PodTemplate(this, 'PodTemplate', {
-      metadata: {
-        name: this.metadata?.name,
-        ...this.metadata?._toKube(),
-      },
-      template: this.spec._toKube(),
+    this.apiObject = new k8s.PodTemplate(this, 'Pod', {
+      metadata: this.synthesizeMetadata(),
+      template: onSynth(() => this.spec._toKube()),
     })
-
   }
 
 
@@ -58,10 +54,10 @@ export class PodTemplateSpec {
    * @internal
    */
   public _toKube(): k8s.PodTemplateSpec {
-    return onSynth(() => ({
+    return {
       metadata: this.metadata._toKube(),
       spec: this.podSpec._toKube(),
-    }));
+    };
   }
 
 }

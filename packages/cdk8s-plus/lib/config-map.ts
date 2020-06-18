@@ -65,10 +65,7 @@ export class ConfigMap extends Resource implements IConfigMap {
     super(scope, id, props);
 
     this.apiObject = new k8s.ConfigMap(this, 'ConfigMap', {
-      metadata: {
-        name: this.metadata?.name,
-        ...this.metadata?._toKube(),
-      },
+      metadata: this.synthesizeMetadata(),
       data: onSynth(() => this.synthesizeData()),
       binaryData: onSynth(() => this.synthesizeBinaryData()),
     });
@@ -172,6 +169,7 @@ export class ConfigMap extends Resource implements IConfigMap {
   private synthesizeBinaryData() {
     return undefinedIfEmpty(this.binaryData);
   }
+
 }
 
 

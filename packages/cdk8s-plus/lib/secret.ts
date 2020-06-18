@@ -29,10 +29,7 @@ export class Secret extends Resource implements ISecret {
     this.stringData = {};
 
     this.apiObject = new k8s.Secret(this, 'Secret', {
-      metadata: {
-        name: this.metadata?.name,
-        ...this.metadata?._toKube(),
-      },
+      metadata: this.synthesizeMetadata(),
       stringData: onSynth(() => this.stringData),
     })
   }

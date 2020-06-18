@@ -28,12 +28,9 @@ export class Deployment extends Resource {
 
     this.spec = props.spec ?? new DeploymentSpec();
 
-    this.apiObject = new k8s.Deployment(this, 'Deployment', {
-      metadata: {
-        name: this.metadata?.name,
-        ...this.metadata?._toKube(),
-      },
-      spec: this.spec._toKube(Node.of(this)),
+    this.apiObject = new k8s.Deployment(this, 'Pod', {
+      metadata: this.synthesizeMetadata(),
+      spec: onSynth(() => this.spec._toKube(Node.of(this))),
     })
   }
 
@@ -103,12 +100,12 @@ export class DeploymentSpec {
 
     this.selectByLabel(selector, matcher);
 
-    return onSynth(() => ({
+    return {
       replicas: this.replicas,
       template: this.template._toKube(),
       selector: {
         matchLabels: this.labels,
       },
-    }));
+    };
   }
 }

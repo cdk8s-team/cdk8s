@@ -14,6 +14,8 @@ test('minimal', () => {
     'kind': 'ConfigMap',
     'metadata': {
       'name': 'test-my-config-map-configmap-d0fa5644',
+      'annotations': {},
+      'labels': {},
     },
   }]);
 });
@@ -40,6 +42,8 @@ test('with data', () => {
     },
     'metadata': {
       'name': 'test-my-config-map-configmap-d0fa5644',
+      'annotations': {},
+      'labels': {},
     },
   }]);
 });
@@ -66,6 +70,8 @@ test('with binaryData', () => {
     },
     'metadata': {
       'name': 'test-my-config-map-configmap-d0fa5644',
+      'annotations': {},
+      'labels': {},
     },
   }]);
 });
@@ -98,6 +104,8 @@ test('with binaryData and data', () => {
     },
     'metadata': {
       'name': 'test-my-config-map-configmap-d0fa5644',
+      'annotations': {},
+      'labels': {},
     },
   }]);
 });
@@ -148,7 +156,11 @@ test('addData()/addBinaryDataq() can be used to add data', () => {
       'world': 'oh yeah!',
     },
     'kind': 'ConfigMap',
-    'metadata': {'name': 'test-my-config-map-configmap-d0fa5644'},
+    'metadata': {
+      'name': 'test-my-config-map-configmap-d0fa5644',
+      'annotations': {},
+      'labels': {},
+    },
   }]);
 });
 

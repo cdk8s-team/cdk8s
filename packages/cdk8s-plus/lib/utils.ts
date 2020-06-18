@@ -1,7 +1,7 @@
 import { Lazy } from 'constructs';
 
-export function onSynth<T>(produce: () => T): T {
-  return Lazy.anyValue({ produce: () => produce() }) as unknown as T;
+export function onSynth<T>(producer: () => T): T {
+  return Lazy.anyValue({ produce: () => producer() }) as unknown as T;
 }
 
 
