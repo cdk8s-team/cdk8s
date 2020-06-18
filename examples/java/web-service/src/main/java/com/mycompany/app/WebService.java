@@ -12,20 +12,20 @@ import org.cdk8s.App;
 import org.cdk8s.Chart;
 import org.cdk8s.ChartOptions;
 
-import k8s.IntOrString;
-import k8s.LabelSelector;
-import k8s.ObjectMeta;
-import k8s.PodTemplateSpec;
-import k8s.Service;
-import k8s.ServiceOptions;
-import k8s.ServicePort;
-import k8s.ServiceSpec;
-import k8s.DeploymentSpec;
-import k8s.PodSpec;
-import k8s.Container;
-import k8s.ContainerPort;
-import k8s.Deployment;
-import k8s.DeploymentOptions;
+import imports.k8s.IntOrString;
+import imports.k8s.LabelSelector;
+import imports.k8s.ObjectMeta;
+import imports.k8s.PodTemplateSpec;
+import imports.k8s.Service;
+import imports.k8s.ServiceOptions;
+import imports.k8s.ServicePort;
+import imports.k8s.ServiceSpec;
+import imports.k8s.DeploymentSpec;
+import imports.k8s.PodSpec;
+import imports.k8s.Container;
+import imports.k8s.ContainerPort;
+import imports.k8s.Deployment;
+import imports.k8s.DeploymentOptions;
 
 /**
  * Hello world!
