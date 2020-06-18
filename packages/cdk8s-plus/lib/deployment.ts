@@ -3,7 +3,7 @@ import { Construct, Node } from 'constructs';
 import { Service, ServiceSpec } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
-import { onSynth } from './utils';
+import { lazy } from './utils';
 import { PodTemplateSpec } from './pod-template';
 
 export interface DeploymentProps extends ResourceProps {
@@ -29,8 +29,8 @@ export class Deployment extends Resource {
     this.spec = props.spec ?? new DeploymentSpec();
 
     this.apiObject = new k8s.Deployment(this, 'Pod', {
-      metadata: this.synthesizeMetadata(),
-      spec: onSynth(() => this.spec._toKube(Node.of(this))),
+      metadata: this.metadata._toKube(),
+      spec: lazy(() => this.spec._toKube(Node.of(this))),
     })
   }
 

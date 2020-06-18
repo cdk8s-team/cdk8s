@@ -4,6 +4,9 @@ exports[`addDirectory() adds all files in a directory to the config map "exclude
 Array [
   Object {
     "apiVersion": "v1",
+    "data": Object {
+      "file1.txt": "Hello, world!",
+    },
     "kind": "ConfigMap",
     "metadata": Object {
       "annotations": Object {},
@@ -18,6 +21,10 @@ exports[`addDirectory() adds all files in a directory to the config map "prefix"
 Array [
   Object {
     "apiVersion": "v1",
+    "data": Object {
+      "prefix.file1.txt": "Hello, world!",
+      "prefix.file2.html": "<html>Hey</html>",
+    },
     "kind": "ConfigMap",
     "metadata": Object {
       "annotations": Object {},
@@ -32,6 +39,10 @@ exports[`addDirectory() adds all files in a directory to the config map keys are
 Array [
   Object {
     "apiVersion": "v1",
+    "data": Object {
+      "file1.txt": "Hello, world!",
+      "file2.html": "<html>Hey</html>",
+    },
     "kind": "ConfigMap",
     "metadata": Object {
       "annotations": Object {},
@@ -46,6 +57,10 @@ exports[`addFile() adds local files to the config map 1`] = `
 Array [
   Object {
     "apiVersion": "v1",
+    "data": Object {
+      "file1.txt": "Hello, world!",
+      "hey-there": "<html>Hey</html>",
+    },
     "kind": "ConfigMap",
     "metadata": Object {
       "annotations": Object {},

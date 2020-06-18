@@ -2,7 +2,7 @@ import * as k8s from '../imports/k8s';
 import { Construct } from 'constructs';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
-import { onSynth } from './utils';
+import { lazy } from './utils';
 import { ObjectMeta } from './object-meta';
 import { PodSpec } from './pod';
 
@@ -24,11 +24,10 @@ export class PodTemplate extends Resource {
     this.spec = props.spec;
 
     this.apiObject = new k8s.PodTemplate(this, 'Pod', {
-      metadata: this.synthesizeMetadata(),
-      template: onSynth(() => this.spec._toKube()),
+      metadata: this.metadata._toKube(),
+      template: lazy(() => this.spec._toKube()),
     })
   }
-
 
 }
 

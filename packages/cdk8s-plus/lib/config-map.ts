@@ -5,7 +5,7 @@ import * as cdk8s from 'cdk8s';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as minimatch from 'minimatch';
-import { onSynth, undefinedIfEmpty } from './utils';
+import { undefinedIfEmpty, lazy } from './utils';
 
 /**
  * Initialization props for config maps.
@@ -65,9 +65,11 @@ export class ConfigMap extends Resource implements IConfigMap {
     super(scope, id, props);
 
     this.apiObject = new k8s.ConfigMap(this, 'ConfigMap', {
-      metadata: this.synthesizeMetadata(),
-      data: onSynth(() => this.synthesizeData()),
-      binaryData: onSynth(() => this.synthesizeBinaryData()),
+      metadata: this.metadata._toKube(),
+
+      // we need lazy here because we filter empty
+      data: lazy(() => this.synthesizeData()),
+      binaryData: lazy(() => this.synthesizeBinaryData()),
     });
 
     for (const [k,v] of Object.entries(props.data ?? { })) {

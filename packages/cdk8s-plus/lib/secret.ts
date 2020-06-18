@@ -2,7 +2,6 @@ import { IResource, Resource } from './base';
 import * as cdk8s from 'cdk8s';
 import { Construct } from 'constructs';
 import * as k8s from '../imports/k8s';
-import { onSynth } from './utils';
 import { EnvValue } from './container';
 
 export interface SecretProps {
@@ -29,8 +28,8 @@ export class Secret extends Resource implements ISecret {
     this.stringData = {};
 
     this.apiObject = new k8s.Secret(this, 'Secret', {
-      metadata: this.synthesizeMetadata(),
-      stringData: onSynth(() => this.stringData),
+      metadata: this.metadata._toKube(),
+      stringData: this.stringData,
     })
   }
 

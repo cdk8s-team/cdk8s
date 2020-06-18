@@ -1,6 +1,5 @@
 import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
-import * as k8s from '../imports/k8s';
 import { ObjectMeta } from './object-meta';
 
 /**
@@ -33,7 +32,7 @@ export abstract class Resource extends Construct implements IResource {
   /**
    * The metadata associated with this resource.
    */
-  protected readonly metadata: ObjectMeta;
+  public readonly metadata: ObjectMeta;
 
   constructor(scope: Construct, id: string, props: ResourceProps) {
     super(scope, id);
@@ -51,9 +50,5 @@ export abstract class Resource extends Construct implements IResource {
    */
   public get name(): string {
     return this.apiObject.name;
-  }
-
-  protected synthesizeMetadata(): k8s.ObjectMeta {
-    return this.metadata._toKube();
   }
 }

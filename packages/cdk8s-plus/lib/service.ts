@@ -2,7 +2,7 @@ import * as k8s from '../imports/k8s';
 import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
 import * as cdk8s from 'cdk8s';
-import { onSynth } from './utils';
+import { lazy } from './utils';
 
 
 export interface ServiceProps extends ResourceProps {
@@ -23,8 +23,8 @@ export class Service extends Resource {
     this.spec = props.spec ?? new ServiceSpec();
 
     this.apiObject = new k8s.Service(this, 'Pod', {
-      metadata: this.synthesizeMetadata(),
-      spec: onSynth(() => this.spec._toKube()),
+      metadata: this.metadata._toKube(),
+      spec: lazy(() => this.spec._toKube()),
     })
   }
 

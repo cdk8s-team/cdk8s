@@ -1,6 +1,6 @@
 import { Lazy } from 'constructs';
 
-export function onSynth<T>(producer: () => T): T {
+export function lazy<T>(producer: () => T): T {
   return Lazy.anyValue({ produce: () => producer() }) as unknown as T;
 }
 

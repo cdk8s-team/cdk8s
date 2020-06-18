@@ -24,7 +24,7 @@ export class ServiceAccount extends Resource implements IServiceAccount {
     super(scope, id, props);
 
     this.apiObject = new k8s.ServiceAccount(this, 'Resource', {
-      metadata: this.synthesizeMetadata(),
+      metadata: this.metadata._toKube(),
     });
   }
 }
