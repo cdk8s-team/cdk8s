@@ -58,15 +58,15 @@ export class EnvValue {
    * @param options - Additional options.
    */
   public static fromConfigMap(configMap: IConfigMap, key: string, options: EnvValueFromConfigMapOptions = { }): EnvValue {
-    return {
-      valueFrom: {
-        configMapKeyRef: {
-          name: configMap.name,
-          key,
-          optional: options.optional,
-        },
-      } as k8s.EnvVarSource,
-    };
+
+    const source: k8s.EnvVarSource = {
+      configMapKeyRef: {
+        name: configMap.name,
+        key,
+        optional: options.optional,
+      },
+    }
+    return new EnvValue(undefined, source);
   }
 
   /**
@@ -77,16 +77,16 @@ export class EnvValue {
    * @param options - Additional options.
    */
   public static fromSecret(secret: ISecret, key: string, options: EnvValueFromSecretOptions = {}): EnvValue {
-    return {
-      valueFrom: {
-        secretKeyRef: {
-          name: secret.name,
-          key,
-          optional: options.optional,
-        },
-      } as k8s.EnvVarSource,
-    };
 
+    const source: k8s.EnvVarSource = {
+      secretKeyRef: {
+        name: secret.name,
+        key,
+        optional: options.optional,
+      },
+    }
+
+    return new EnvValue(undefined, source);
   }
 
   /**
@@ -95,9 +95,7 @@ export class EnvValue {
    * @param value - The value.
    */
   public static fromValue(value: string): EnvValue {
-    return {
-      value: value,
-    };
+    return new EnvValue(value);
   }
 
   /**
@@ -117,9 +115,7 @@ export class EnvValue {
     return EnvValue.fromValue(value!);
   }
 
-  private constructor(public readonly value?: any, public readonly valueFrom?: any) {
-
-  }
+  private constructor(public readonly value?: any, public readonly valueFrom?: any) {}
 }
 
 /**
