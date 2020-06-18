@@ -8,7 +8,6 @@
   <name>my-app</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.cdk8s/cdk8s -->
     <dependency>
       <groupId>org.cdk8s</groupId>
       <artifactId>cdk8s</artifactId>
@@ -23,12 +22,12 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>29.0-jre</version>
-  </dependency>  
-  <dependency>
-    <groupId>software.amazon.jsii</groupId>
-    <artifactId>jsii-runtime</artifactId>
-    <version>1.5.0</version>
-</dependency>
+    </dependency>  
+    <dependency>
+      <groupId>software.amazon.jsii</groupId>
+      <artifactId>jsii-runtime</artifactId>
+      <version>1.5.0</version>
+    </dependency>
   </dependencies>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -37,30 +36,5 @@
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <testSourceDirectory>src/test/java</testSourceDirectory>
-    <resources>
-      <resource>
-        <directory>imports/src/main/resources</directory>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-            <execution>
-                <phase>generate-sources</phase>
-                <goals>
-                    <goal>add-source</goal>
-                </goals>
-                <configuration>
-                    <sources>
-                        <source>imports/</source>
-                    </sources>
-                </configuration>
-            </execution>
-        </executions>
-      </plugin>
-    </plugins>
   </build>
 </project>
