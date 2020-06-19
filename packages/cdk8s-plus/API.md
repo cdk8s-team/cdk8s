@@ -6,8 +6,8 @@ Name|Description
 ----|-----------
 [ConfigMap](#cdk8s-plus-configmap)|ConfigMap holds configuration data for pods to consume.
 [Container](#cdk8s-plus-container)|A single application container that you want to run within a pod.
-[Deployment](#cdk8s-plus-deployment)|*No description*
-[DeploymentSpec](#cdk8s-plus-deploymentspec)|*No description*
+[Deployment](#cdk8s-plus-deployment)|A Deployment provides declarative updates for Pods and ReplicaSets.
+[DeploymentSpec](#cdk8s-plus-deploymentspec)|DeploymentSpec is the specification of the desired behavior of the Deployment.
 [Duration](#cdk8s-plus-duration)|Represents a length of time.
 [EnvValue](#cdk8s-plus-envvalue)|Utility class for creating reading env values from various sources.
 [Job](#cdk8s-plus-job)|*No description*
@@ -16,7 +16,7 @@ Name|Description
 [Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
 [PodSpec](#cdk8s-plus-podspec)|A description of a pod.
 [PodTemplate](#cdk8s-plus-podtemplate)|*No description*
-[PodTemplateSpec](#cdk8s-plus-podtemplatespec)|*No description*
+[PodTemplateSpec](#cdk8s-plus-podtemplatespec)|PodTemplateSpec describes the data a pod should have when created from a template.
 [Resource](#cdk8s-plus-resource)|Base class for all Kubernetes objects in stdk8s.
 [Secret](#cdk8s-plus-secret)|*No description*
 [Service](#cdk8s-plus-service)|*No description*
@@ -34,13 +34,13 @@ Name|Description
 [ConfigMapProps](#cdk8s-plus-configmapprops)|Initialization props for config maps.
 [ConfigMapVolumeOptions](#cdk8s-plus-configmapvolumeoptions)|Options for the ConfigMap-based volume.
 [ContainerProps](#cdk8s-plus-containerprops)|Properties for creating a container.
-[DeploymentProps](#cdk8s-plus-deploymentprops)|*No description*
-[DeploymentSpecProps](#cdk8s-plus-deploymentspecprops)|*No description*
+[DeploymentProps](#cdk8s-plus-deploymentprops)|Properties for initialization of `Deployment`.
+[DeploymentSpecProps](#cdk8s-plus-deploymentspecprops)|Properties for initialization of `DeploymentSpec`.
 [EmptyDirVolumeOptions](#cdk8s-plus-emptydirvolumeoptions)|Options for volumes populated with an empty directory.
 [EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)|Options to specify an envionment variable value from a ConfigMap key.
 [EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|Options to specify an environment variable value from the process environment.
 [EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|Options to specify an environment variable value from a Secret.
-[ExposeOptions](#cdk8s-plus-exposeoptions)|*No description*
+[ExposeOptions](#cdk8s-plus-exposeoptions)|Options for exposing a deployment via a service.
 [JobProps](#cdk8s-plus-jobprops)|*No description*
 [JobSpecProps](#cdk8s-plus-jobspecprops)|*No description*
 [MountOptions](#cdk8s-plus-mountoptions)|Options for mounts.
@@ -78,6 +78,7 @@ Name|Description
 [EmptyDirMedium](#cdk8s-plus-emptydirmedium)|The medium on which to store the volume.
 [MountPropagation](#cdk8s-plus-mountpropagation)|*No description*
 [RestartPolicy](#cdk8s-plus-restartpolicy)|Restart policy for all containers within the pod.
+[ServiceType](#cdk8s-plus-servicetype)|For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that's outside of your cluster.
 [SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)|Rounding behaviour when converting between units of `Size`.
 
 
@@ -299,7 +300,30 @@ mount(path: string, volume: Volume, options?: MountOptions): void
 
 ## class Deployment 🔹 <a id="cdk8s-plus-deployment"></a>
 
+A Deployment provides declarative updates for Pods and ReplicaSets.
 
+You describe a desired state in a Deployment, and the Deployment Controller changes the actual
+state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove
+existing Deployments and adopt all their resources with new Deployments.
+
+> Note: Do not manage ReplicaSets owned by a Deployment. Consider opening an issue in the main Kubernetes repository if your use case is not covered below.
+
+Use Case
+---------
+
+The following are typical use cases for Deployments:
+
+- Create a Deployment to rollout a ReplicaSet. The ReplicaSet creates Pods in the background.
+   Check the status of the rollout to see if it succeeds or not.
+- Declare the new state of the Pods by updating the PodTemplateSpec of the Deployment.
+   A new ReplicaSet is created and the Deployment manages moving the Pods from the old ReplicaSet to the new one at a controlled rate.
+   Each new ReplicaSet updates the revision of the Deployment.
+- Rollback to an earlier Deployment revision if the current state of the Deployment is not stable.
+   Each rollback updates the revision of the Deployment.
+- Scale up the Deployment to facilitate more load.
+- Pause the Deployment to apply multiple fixes to its PodTemplateSpec and then resume it to start a new rollout.
+- Use the status of the Deployment as an indicator that a rollout has stuck.
+- Clean up older ReplicaSets that you don't need anymore.
 
 <span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
 <span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
@@ -320,7 +344,7 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[DeploymentProps](#cdk8s-plus-deploymentprops)</code>)  *No description*
   * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **spec** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  The spec of the deployment. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
 
@@ -330,14 +354,16 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**spec**🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | <span></span>
+**spec**🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | Provides access to the underlying spec.
 
 ### Methods
 
 
 #### expose(options)🔹 <a id="cdk8s-plus-deployment-expose"></a>
 
+Expose a deployment via a service.
 
+This is equivalent to running `kubectl expose deployment <deployment-name>`.
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -346,8 +372,9 @@ expose(options: ExposeOptions): Service
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  *No description*
-  * **port** (<code>number</code>)  *No description* 
+* **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  - Options.
+  * **port** (<code>number</code>)  The port number the service will bind to. 
+  * **serviceType** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  The type of the exposed service. <span style="text-decoration: underline">*Default*</span>: ClusterIP.
 
 <span style="text-decoration: underline">Returns</span>:
 * <code>[Service](#cdk8s-plus-service)</code>
@@ -356,7 +383,7 @@ expose(options: ExposeOptions): Service
 
 ## class DeploymentSpec 🔹 <a id="cdk8s-plus-deploymentspec"></a>
 
-
+DeploymentSpec is the specification of the desired behavior of the Deployment.
 
 
 ### Initializer
@@ -372,8 +399,8 @@ new DeploymentSpec(props?: DeploymentSpecProps)
 
 <span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[DeploymentSpecProps](#cdk8s-plus-deploymentspecprops)</code>)  *No description*
-  * **replicas** (<code>number</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-  * **template** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **replicas** (<code>number</code>)  Number of desired pods. <span style="text-decoration: underline">*Default*</span>: 1
+  * **template** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  The PodTemplateSpec that will be used by a deployment to create pods. <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -382,15 +409,16 @@ new DeploymentSpec(props?: DeploymentSpecProps)
 
 Name | Type | Description 
 -----|------|-------------
-**labels**🔹 | <code>Map<string, string></code> | <span></span>
-**template**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span></span>
+**template**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | Provides access to the underlying pod template spec.
 
 ### Methods
 
 
 #### selectByLabel(key, value)🔹 <a id="cdk8s-plus-deploymentspec-selectbylabel"></a>
 
+Configure a label selector to this deployment.
 
+Pods that have the label will be selected by deployments configured with this spec.
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -399,8 +427,8 @@ selectByLabel(key: string, value: string): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **key** (<code>string</code>)  *No description*
-* **value** (<code>string</code>)  *No description*
+* **key** (<code>string</code>)  - The label key.
+* **value** (<code>string</code>)  - The label value.
 
 
 
@@ -925,7 +953,7 @@ new Pod(scope: Construct, id: string, props?: PodProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[PodProps](#cdk8s-plus-podprops)</code>)  *No description*
   * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **spec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of the pod. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
 
@@ -1049,7 +1077,7 @@ Name | Type | Description
 
 ## class PodTemplateSpec 🔹 <a id="cdk8s-plus-podtemplatespec"></a>
 
-
+PodTemplateSpec describes the data a pod should have when created from a template.
 
 
 ### Initializer
@@ -1719,28 +1747,28 @@ Name | Type | Description
 ## struct DeploymentProps 🔹 <a id="cdk8s-plus-deploymentprops"></a>
 
 
-
+Properties for initialization of `Deployment`.
 
 
 
 Name | Type | Description 
 -----|------|-------------
 **metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | <span style="text-decoration: underline">*Optional*</span>
+**spec**?🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | The spec of the deployment.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
 
 ## struct DeploymentSpecProps 🔹 <a id="cdk8s-plus-deploymentspecprops"></a>
 
 
-
+Properties for initialization of `DeploymentSpec`.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**replicas**?🔹 | <code>number</code> | <span style="text-decoration: underline">*Optional*</span>
-**template**?🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span style="text-decoration: underline">*Optional*</span>
+**replicas**?🔹 | <code>number</code> | Number of desired pods.<br/><span style="text-decoration: underline">*Default*</span>: 1
+**template**?🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | The PodTemplateSpec that will be used by a deployment to create pods.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1800,13 +1828,14 @@ Name | Type | Description
 ## struct ExposeOptions 🔹 <a id="cdk8s-plus-exposeoptions"></a>
 
 
-
+Options for exposing a deployment via a service.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**port**🔹 | <code>number</code> | <span></span>
+**port**🔹 | <code>number</code> | The port number the service will bind to.
+**serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | The type of the exposed service.<br/><span style="text-decoration: underline">*Default*</span>: ClusterIP.
 
 
 
@@ -1957,7 +1986,7 @@ Properties for initialization of `Pod`.
 Name | Type | Description 
 -----|------|-------------
 **metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | <span style="text-decoration: underline">*Optional*</span>
+**spec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of the pod.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
 
@@ -2155,6 +2184,21 @@ Name | Description
 **ALWAYS** 🔹|Always restart the pod after it exits.
 **ON_FAILURE** 🔹|Only restart if the pod exits with a non-zero exit code.
 **NEVER** 🔹|Never restart the pod.
+
+
+## enum ServiceType 🔹 <a id="cdk8s-plus-servicetype"></a>
+
+For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that's outside of your cluster.
+
+Kubernetes ServiceTypes allow you to specify what kind of Service you want.
+The default is ClusterIP.
+
+Name | Description
+-----|-----
+**CLUSTER_IP** 🔹|Exposes the Service on a cluster-internal IP.
+**NODE_PORT** 🔹|Exposes the Service on each Node's IP at a static port (the NodePort).
+**LOAD_BALANCER** 🔹|Exposes the Service externally using a cloud provider's load balancer.
+**EXTERNAL_NAME** 🔹|Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up.
 
 
 ## enum SizeRoundingBehavior 🔹 <a id="cdk8s-plus-sizeroundingbehavior"></a>

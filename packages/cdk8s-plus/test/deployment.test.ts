@@ -1,7 +1,6 @@
-import * as kplus from '../lib';
+import * as kplus from '../src';
 import * as k8s from '../imports/k8s';
 import { Testing } from 'cdk8s';
-import { ServiceType } from '../lib';
 import { Node } from 'constructs';
 
 describe('DeploymentSpec', () => {
@@ -44,7 +43,7 @@ describe('Deployment', () => {
       port: 9300,
     }))
 
-    const service = deployment.expose({port: 9200, serviceType: ServiceType.LOAD_BALANCER});
+    const service = deployment.expose({port: 9200, serviceType: kplus.ServiceType.LOAD_BALANCER});
 
     const actual = service.spec._toKube();
 
