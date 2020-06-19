@@ -13,15 +13,16 @@ describe('DeploymentSpec', () => {
     }))
 
     const chart = Testing.chart();
+    const deployment = new kplus.Deployment(chart, 'Deployment');
 
     spec.selectByLabel('key', 'value');
 
-    const actual: k8s.LabelSelector = spec._toKube(Node.of(chart)).selector;
+    const actual: k8s.LabelSelector = spec._toKube(deployment).selector;
 
     const expected: k8s.LabelSelector = {
       matchLabels: {
         'key': 'value',
-        'cdk8s.deployment': Node.of(chart).uniqueId,
+        'cdk8s.deployment': Node.of(deployment).uniqueId,
       },
     }
 

@@ -90,7 +90,7 @@ export class Deployment extends Resource {
 
     this.apiObject = new k8s.Deployment(this, 'Pod', {
       metadata: this.metadata._toKube(),
-      spec: lazy(() => this.spec._toKube(Node.of(this))),
+      spec: lazy(() => this.spec._toKube(this)),
     })
   }
 
@@ -192,12 +192,12 @@ export class DeploymentSpec {
   /**
    * @internal
    */
-  public _toKube(node: Node): k8s.DeploymentSpec {
+  public _toKube(deployment: Deployment): k8s.DeploymentSpec {
 
     // automatically select pods in this deployment
 
     const selector = 'cdk8s.deployment';
-    const matcher = node.uniqueId;
+    const matcher = Node.of(deployment).uniqueId;
 
     this.template.metadata.addLabel(selector, matcher);
 
