@@ -1,26 +1,30 @@
 # cdk8s+ (cdk8s-plus)
 
+![Experimental](https://img.shields.io/badge/experimental-important.svg?style=for-the-badge)
+
 **cdk8s+** is a software development framework that provides high level abstractions for authoring kuberenetes applications. Built on top of the auto generated building blocks provided by [cdk8s](../cdk8s), this library includes a hand crafted *construct* for each native kubernetes object, exposing richer API's with reduced complexity.
 
----
-
-![Experimental](https://img.shields.io/badge/experimental-important.svg?style=for-the-badge)
+## Disclaimer
 
 **You should not use this library in production environments.**
 
-> This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is likely to rapidly change in breaking ways.
+This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is likely to rapidly change in breaking ways. We therefore highly discourage using this library in production workloads.
 
----
+## Letter Of Intent
+
+We strive to develop this library with full transparency and as much community feedback and contributions as possible. To that end, we publish this development version. We acknowledge it might be lacking substantial capabilities, and is currently focused around experimentation and gathering feedback.
+
+> If you are interested in contributing, see [Contribution Guide](./CONTRIBUTING.md).
 
 ## At a glance
 
-## Documentation
+## In Depth
 
 ### `Container`
 
 Define containers that run in a pod using the `Container` class.
 
-Notable features:
+> Full API reference: [Container](./API.md#cdk8s-plus-container)<br>
 
 #### Environment variables
 
@@ -64,9 +68,7 @@ spec:
         name: 'config'
 ```
 
-Notice the apparent redundancy of having to specify the volume name twice, once in the container definition and one in the volumes. Also, if you happen to need the same mount in other pods, you would need to duplicate this configuration. This can get complex and cluttered very fast.
-
-In contrast, here is how to do this with `cdk8s+`:
+Notice the apparent redundancy of having to specify the volume name twice, once in the container definition and one in the volumes. Also, if you happen to need the same mount in other pods, you would need to duplicate this configuration. This can get complex and cluttered very fast. In contrast, here is how to do this with `cdk8s+`:
 
 ```typescript
 import * as kplus from 'cdk8s-plus';
@@ -82,8 +84,6 @@ const container = new kplus.Container({
 // will automatically have access to this volume, so you don't need to explicitly add it to the pod spec!.
 container.mount('/path/to/mount', volume);
 ```
-
-> Full API reference: [Container](./API.md#cdk8s-plus-container)<br>
 
 ### Volume
 
