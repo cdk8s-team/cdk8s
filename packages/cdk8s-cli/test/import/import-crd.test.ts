@@ -4,10 +4,26 @@ import * as fs from 'fs';
 import { ImportCustomResourceDefinition } from '../../lib/import/crd';
 import { expectImportMatchSnapshot } from './util';
 
-expectImportMatchSnapshotCustomResource('jenkins_crd.yaml');
-expectImportMatchSnapshotCustomResource('multi_object_crd.yaml');
-expectImportMatchSnapshotCustomResource('mixed_crd.yaml');
-expectImportMatchSnapshotCustomResource('prometheus.yaml');
+
+// just drop files into the "fixtures" directory and we will import it as a crd
+// and match it against a jest snapshot.
+describe('snapshots', () => {
+  const fixtures = path.join(__dirname, 'fixtures');
+
+  for (const fixture of fs.readdirSync(fixtures)) {
+    if (path.extname(fixture) !== '.yaml') {
+      continue;
+    }
+
+    const filePath = path.join(fixtures, fixture);
+    const crd = yaml
+      .parseAllDocuments(fs.readFileSync(filePath, 'utf-8'))
+      .map((doc: yaml.Document) => doc.toJSON());
+
+
+    expectImportMatchSnapshot(fixture, () => new ImportCustomResourceDefinition(crd));
+  }
+});
 
 test('fails if CRDs api version is not supported', () => {
   expect(() => new ImportCustomResourceDefinition([{
@@ -198,14 +214,3 @@ test('can import a "List" of CRDs (kubectl get crds -o json)', () => {
   ]);
 });
 
-function loadFixture(fileName: string) {
-  const filePath = path.join(__dirname, 'fixtures', fileName);
-  return yaml
-    .parseAllDocuments(fs.readFileSync(filePath, 'utf-8'))
-    .map((doc: yaml.ast.Document) => doc.toJSON());
-}
-
-function expectImportMatchSnapshotCustomResource(fixtureFile: string) {
-  const crd = loadFixture(fixtureFile);
-  expectImportMatchSnapshot(fixtureFile, () => new ImportCustomResourceDefinition(crd));
-}

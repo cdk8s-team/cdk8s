@@ -85,6 +85,14 @@ export abstract class ImportBase {
             };
           }
 
+          // java!
+          if (options.targetLanguage === Language.JAVA) {
+            opts.java = {
+              outdir: '.',
+              package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + name : name}`
+            };
+          }
+
           await srcmak.srcmak(staging, opts);
         });
       }

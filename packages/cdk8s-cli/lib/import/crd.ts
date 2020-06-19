@@ -1,9 +1,10 @@
-import { TypeGenerator } from './type-generator';
 import { ImportBase } from './base';
 import { CodeMaker } from 'codemaker';
 import { download } from '../util';
 import * as yaml from 'yaml';
 import { ImportSpec } from '../config';
+import { TypeGenerator } from 'json2jsii';
+import { generateConstruct } from './codegen';
 
 const CRD_KIND = 'CustomResourceDefinition';
 
@@ -77,7 +78,7 @@ export class CustomResourceDefinition {
   public async generateTypeScript(code: CodeMaker) {
     const types = new TypeGenerator();
 
-    types.emitConstruct({
+    generateConstruct(types, {
       group: this.group,
       version: this.version,
       kind: this.kind,
@@ -89,7 +90,7 @@ export class CustomResourceDefinition {
     code.line(`import { ApiObject } from 'cdk8s';`);
     code.line(`import { Construct } from 'constructs';`);
     code.line();
-    types.generate(code);
+    code.line(types.render());
   }
 }
 
@@ -97,7 +98,7 @@ export class ImportCustomResourceDefinition extends ImportBase {
   public static async match(importSpec: ImportSpec): Promise<undefined | ManifestObjectDefinition[]> {
     const { source } = importSpec;
     const manifest = await download(source);
-    return yaml.parseAllDocuments(manifest).map((doc: yaml.ast.Document) => doc.toJSON());
+    return yaml.parseAllDocuments(manifest).map((doc: yaml.Document) => doc.toJSON());
   }
 
   private readonly defs: CustomResourceDefinition[] = [];
@@ -145,7 +146,9 @@ export class ImportCustomResourceDefinition extends ImportBase {
   }
 
   protected async generateTypeScript(code: CodeMaker, moduleName: string) {
-    this.defs.filter(crd => moduleName === crd.moduleName).map(crd => crd.generateTypeScript(code));
+    for (const crd of this.defs.filter(crd => moduleName === crd.moduleName)) {
+      await crd.generateTypeScript(code);
+    }
   }
 }
 
