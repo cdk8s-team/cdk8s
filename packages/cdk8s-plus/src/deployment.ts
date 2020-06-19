@@ -1,4 +1,4 @@
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 import { Construct, Node } from 'constructs';
 import { Service, ServiceSpec } from './service';
 import { Resource, ResourceProps } from './base';

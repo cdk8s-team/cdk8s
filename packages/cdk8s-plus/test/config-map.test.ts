@@ -1,4 +1,4 @@
-import { ConfigMap, ObjectMeta } from '../lib';
+import { ConfigMap, ObjectMeta } from '../src';
 import { Testing } from 'cdk8s';
 
 test('minimal', () => {
@@ -10,12 +10,12 @@ test('minimal', () => {
 
   // THEN
   expect(Testing.synth(chart)).toStrictEqual([{
-    'apiVersion': 'v1',
-    'kind': 'ConfigMap',
-    'metadata': {
-      'name': 'test-my-config-map-configmap-d0fa5644',
-      'annotations': {},
-      'labels': {},
+    apiVersion: 'v1',
+    kind: 'ConfigMap',
+    metadata: {
+      name: 'test-my-config-map-configmap-d0fa5644',
+      annotations: {},
+      labels: {},
     },
   }]);
 });
@@ -34,16 +34,16 @@ test('with data', () => {
 
   // THEN
   expect(Testing.synth(chart)).toStrictEqual([{
-    'apiVersion': 'v1',
-    'kind': 'ConfigMap',
-    'data': {
-      'key1': 'foo',
-      'key2': 'bar',
+    apiVersion: 'v1',
+    kind: 'ConfigMap',
+    data: {
+      key1: 'foo',
+      key2: 'bar',
     },
-    'metadata': {
-      'name': 'test-my-config-map-configmap-d0fa5644',
-      'annotations': {},
-      'labels': {},
+    metadata: {
+      name: 'test-my-config-map-configmap-d0fa5644',
+      annotations: {},
+      labels: {},
     },
   }]);
 });
@@ -62,16 +62,16 @@ test('with binaryData', () => {
 
   // THEN
   expect(Testing.synth(chart)).toStrictEqual([{
-    'apiVersion': 'v1',
-    'kind': 'ConfigMap',
-    'binaryData': {
-      'key1': 'foo',
-      'key2': 'bar',
+    apiVersion: 'v1',
+    kind: 'ConfigMap',
+    binaryData: {
+      key1: 'foo',
+      key2: 'bar',
     },
-    'metadata': {
-      'name': 'test-my-config-map-configmap-d0fa5644',
-      'annotations': {},
-      'labels': {},
+    metadata: {
+      name: 'test-my-config-map-configmap-d0fa5644',
+      annotations: {},
+      labels: {},
     },
   }]);
 });
@@ -93,19 +93,19 @@ test('with binaryData and data', () => {
 
   // THEN
   expect(Testing.synth(chart)).toStrictEqual([{
-    'apiVersion': 'v1',
-    'kind': 'ConfigMap',
-    'data': {
-      'hello': 'world',
+    apiVersion: 'v1',
+    kind: 'ConfigMap',
+    data: {
+      hello: 'world',
     },
-    'binaryData': {
-      'key1': 'foo',
-      'key2': 'bar',
+    binaryData: {
+      key1: 'foo',
+      key2: 'bar',
     },
-    'metadata': {
-      'name': 'test-my-config-map-configmap-d0fa5644',
-      'annotations': {},
-      'labels': {},
+    metadata: {
+      name: 'test-my-config-map-configmap-d0fa5644',
+      annotations: {},
+      labels: {},
     },
   }]);
 });
@@ -145,21 +145,21 @@ test('addData()/addBinaryDataq() can be used to add data', () => {
 
   // THEN
   expect(Testing.synth(chart)).toStrictEqual([{
-    'apiVersion': 'v1',
-    'binaryData': {
-      'key1': 'foo',
-      'key2': 'bar',
-      'key3': 'baz',
+    apiVersion: 'v1',
+    binaryData: {
+      key1: 'foo',
+      key2: 'bar',
+      key3: 'baz',
     },
-    'data': {
-      'hello': 'world',
-      'world': 'oh yeah!',
+    data: {
+      hello: 'world',
+      world: 'oh yeah!',
     },
-    'kind': 'ConfigMap',
-    'metadata': {
-      'name': 'test-my-config-map-configmap-d0fa5644',
-      'annotations': {},
-      'labels': {},
+    kind: 'ConfigMap',
+    metadata: {
+      name: 'test-my-config-map-configmap-d0fa5644',
+      annotations: {},
+      labels: {},
     },
   }]);
 });

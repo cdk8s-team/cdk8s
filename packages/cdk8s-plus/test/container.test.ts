@@ -1,6 +1,5 @@
-import * as kplus from '../lib';
-import * as k8s from '../imports/k8s';
-import { EnvValue } from '../lib';
+import * as kplus from '../src';
+import * as k8s from '../src/imports/k8s';
 
 describe('EnvValue', () => {
 
@@ -87,7 +86,7 @@ describe('Container', () => {
       port: 9000,
       command: ['command'],
       env: {
-        'key': EnvValue.fromValue('value'),
+        key: kplus.EnvValue.fromValue('value'),
       },
     });
 

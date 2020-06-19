@@ -1,5 +1,5 @@
-import * as kplus from '../lib';
-import * as k8s from '../imports/k8s';
+import * as kplus from '../src';
+import * as k8s from '../src/imports/k8s';
 
 test('Can add a label', () => {
 
@@ -10,7 +10,7 @@ test('Can add a label', () => {
   const actual: k8s.ObjectMeta = meta._toKube();
 
   expect(actual.labels).toEqual({
-    'key': 'value',
+    key: 'value',
   })
 
 });
@@ -24,7 +24,7 @@ test('Can add an annotation', () => {
   const actual: k8s.ObjectMeta = meta._toKube();
 
   expect(actual.annotations).toEqual({
-    'key': 'value',
+    key: 'value',
   })
 
 });
@@ -32,8 +32,8 @@ test('Can add an annotation', () => {
 test('Instantiation properties are all respected', () => {
 
   const meta = new kplus.ObjectMeta({
-    labels: {'key': 'value'},
-    annotations: {'key': 'value'},
+    labels: {key: 'value'},
+    annotations: {key: 'value'},
     name: 'name',
     namespace: 'namespace',
   });
@@ -44,10 +44,10 @@ test('Instantiation properties are all respected', () => {
     name: 'name',
     namespace: 'namespace',
     annotations: {
-      'key': 'value',
+      key: 'value',
     },
     labels: {
-      'key': 'value',
+      key: 'value',
     },
   }
 

@@ -35,6 +35,8 @@ jspm_packages/
 .yarn-integrity
 # parcel-bundler cache (https://parceljs.org/)
 .cache
+/lib
+/coverage
 # exclude jsii outputs
 dist
 .jsii
@@ -53,6 +55,10 @@ tsconfig.json
 !version.json
 !# synthesized by projen, (do not modify by hand)
 !/.versionrc.json
+!/src
+!/test
 !# synthesized by projen, (do not modify by hand)
 !/.eslintrc.json
 !/API.md
+!# synthesized by projen, (do not modify by hand)
+!/tsconfig.jest.json

@@ -154,14 +154,10 @@ export class Duration {
   public toIsoString(): string {
     if (this.amount === 0) { return 'PT0S'; }
     switch (this.unit) {
-      case TimeUnit.Seconds:
-        return `PT${this.fractionDuration('S', 60, Duration.minutes)}`;
-      case TimeUnit.Minutes:
-        return `PT${this.fractionDuration('M', 60, Duration.hours)}`;
-      case TimeUnit.Hours:
-        return `PT${this.fractionDuration('H', 24, Duration.days)}`;
-      case TimeUnit.Days:
-        return `PT${this.amount}D`;
+      case TimeUnit.Seconds: return `PT${this.fractionDuration('S', 60, Duration.minutes)}`;
+      case TimeUnit.Minutes: return `PT${this.fractionDuration('M', 60, Duration.hours)}`;
+      case TimeUnit.Hours: return `PT${this.fractionDuration('H', 24, Duration.days)}`;
+      case TimeUnit.Days: return `PT${this.amount}D`;
       default:
         throw new Error(`Unexpected time unit: ${this.unit}`);
     }

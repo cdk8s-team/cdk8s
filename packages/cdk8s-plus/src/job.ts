@@ -2,7 +2,7 @@ import { Resource, ResourceProps } from './base';
 import { ApiObject } from 'cdk8s';
 import { Construct } from 'constructs';
 
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 import { PodTemplateSpec } from './pod-template';
 import { RestartPolicy } from './pod';
 import { Duration } from './duration';

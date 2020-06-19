@@ -1,7 +1,7 @@
-import { Resource, ResourceProps } from '../lib/base';
+import { Resource, ResourceProps } from '../src/base';
 import { Construct } from 'constructs';
 import { Testing, ApiObject } from 'cdk8s';
-import { ConfigMap } from '../imports/k8s';
+import { ConfigMap } from '../src/imports/k8s';
 
 test('Can mutate metadata', () => {
 
@@ -29,14 +29,14 @@ test('Can mutate metadata', () => {
   custom.metadata.addLabel('key', 'value');
 
   expect(Testing.synth(chart)).toStrictEqual([{
-    'apiVersion': 'v1',
-    'kind': 'ConfigMap',
-    'metadata': {
-      'labels': {
-        'key': 'value',
+    apiVersion: 'v1',
+    kind: 'ConfigMap',
+    metadata: {
+      labels: {
+        key: 'value',
       },
-      'annotations': {},
-      'name': 'test-custom-configmap-4cfa97cc',
+      annotations: {},
+      name: 'test-custom-configmap-4cfa97cc',
     },
   }]);
 

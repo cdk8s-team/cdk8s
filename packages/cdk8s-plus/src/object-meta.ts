@@ -1,4 +1,4 @@
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 
 /**
  * Properties to create an ObjectMeta.

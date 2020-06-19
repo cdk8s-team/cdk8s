@@ -1,6 +1,6 @@
 import { IConfigMap } from './config-map';
 import { ISecret } from './secret';
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 import { Volume } from './volume';
 
 /**

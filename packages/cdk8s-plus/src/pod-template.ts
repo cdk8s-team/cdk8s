@@ -1,4 +1,4 @@
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 import { Construct } from 'constructs';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';

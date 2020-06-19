@@ -39,6 +39,9 @@
     "@typescript-eslint/no-require-imports": [
       "error"
     ],
+    "indent": [
+      "off"
+    ],
     "@typescript-eslint/indent": [
       "error",
       2
@@ -53,6 +56,13 @@
     "comma-dangle": [
       "error",
       "always-multiline"
+    ],
+    "quote-props": [
+      "error",
+      "consistent-as-needed",
+      {
+        "unnecessary": true
+      }
     ],
     "import/no-extraneous-dependencies": [
       "error",

@@ -1,6 +1,6 @@
-import * as kplus from '../lib';
-import * as k8s from '../imports/k8s';
-import { RestartPolicy } from '../lib';
+import * as kplus from '../src';
+import * as k8s from '../src/imports/k8s';
+import { RestartPolicy } from '../src';
 import { Testing } from 'cdk8s';
 
 describe('PodSpec', () => {

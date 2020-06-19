@@ -1,4 +1,4 @@
-import { Duration } from '../lib';
+import { Duration } from '../src';
 import { Lazy } from 'constructs';
 
 test('negative amount', () => {

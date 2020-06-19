@@ -1,5 +1,5 @@
 import { IConfigMap } from './config-map';
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 import { Size } from './size';
 
 /**

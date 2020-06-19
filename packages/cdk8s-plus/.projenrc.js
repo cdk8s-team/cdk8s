@@ -46,7 +46,7 @@ const project = new JsiiProject({
 // override the default "build" from projen because currently in this
 // repo it means "compile"
 project.addScripts({
-  build: 'jsii && yarn docgen'
+  build: 'jsii --silence-warnings=reserved-word && yarn docgen'
 });
 
 project.synth();

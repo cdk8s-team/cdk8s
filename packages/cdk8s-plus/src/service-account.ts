@@ -1,6 +1,6 @@
 import { Resource, ResourceProps, IResource } from './base';
 import { Construct } from 'constructs';
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 import { ApiObject } from 'cdk8s';
 
 export interface ServiceAccountProps extends ResourceProps {

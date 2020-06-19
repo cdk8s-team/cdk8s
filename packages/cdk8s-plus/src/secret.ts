@@ -1,7 +1,7 @@
 import { IResource, Resource } from './base';
 import * as cdk8s from 'cdk8s';
 import { Construct } from 'constructs';
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 import { EnvValue } from './container';
 
 export interface SecretProps {

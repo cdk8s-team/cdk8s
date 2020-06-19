@@ -1,4 +1,4 @@
-import { Size, SizeRoundingBehavior } from '../lib';
+import { Size, SizeRoundingBehavior } from '../src';
 
 test('negative amount', () => {
   expect(() => Size.kibibytes(-1)).toThrow(/negative/);

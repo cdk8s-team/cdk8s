@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import * as k8s from '../imports/k8s';
+import * as k8s from './imports/k8s';
 import { ResourceProps, Resource, IResource } from './base';
 import * as cdk8s from 'cdk8s';
 import * as fs from 'fs';

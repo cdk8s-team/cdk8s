@@ -1,4 +1,4 @@
-import { Volume, ConfigMap, EmptyDirMedium, Size } from '../lib';
+import { Volume, ConfigMap, EmptyDirMedium, Size } from '../src';
 import { Testing } from 'cdk8s';
 
 describe('fromConfigMap', () => {
