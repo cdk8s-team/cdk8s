@@ -26,7 +26,7 @@ export class Testing {
   /**
    * Returns the Kubernetes manifest synthesized from this chart.
    */
-  public static synth(chart: Chart) {
+  public static synth(chart: Chart): any[] {
     return chart.toJson();
   }
 

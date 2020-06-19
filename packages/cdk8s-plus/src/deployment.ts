@@ -105,7 +105,7 @@ export class Deployment extends Resource {
 
     const containers = this.spec.template.podSpec.containers;
 
-    if (!containers) {
+    if (containers.length === 0) {
       throw new Error('Cannot expose a deployment without containers');
     }
 

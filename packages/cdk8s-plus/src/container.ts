@@ -378,9 +378,9 @@ export enum MountPropagation {
   BIDIRECTIONAL = 'Bidirectional',
 }
 
-function renderEnv(env?: { [name: string]: EnvValue }): k8s.EnvVar[] {
+function renderEnv(env: { [name: string]: EnvValue }): k8s.EnvVar[] {
   const result = new Array<k8s.EnvVar>();
-  for (const [name, v] of Object.entries(env ?? {})) {
+  for (const [name, v] of Object.entries(env)) {
     result.push({
       name,
       value: v.value,
