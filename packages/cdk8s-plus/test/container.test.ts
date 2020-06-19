@@ -14,6 +14,24 @@ describe('EnvValue', () => {
 
   test('Can be created from config map name', () => {
 
+    new k8s.Pod(Testing.chart(), 'ds', {
+      spec: {
+        containers: [{
+          name: 'name',
+          volumeMounts: [{
+            mountPath: '/pth',
+            name: 'volume',
+          }],
+        }],
+        volumes: [{
+          name: 'name',
+          configMap: {
+            name: 'asd',
+          },
+        }],
+      },
+    })
+
     const actual = kplus.EnvValue.fromConfigMap(kplus.ConfigMap.fromConfigMapName('ConfigMap'), 'key');
 
     expect(actual.value).toBeUndefined();
