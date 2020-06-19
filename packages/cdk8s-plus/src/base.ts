@@ -43,7 +43,7 @@ export abstract class Resource extends Construct implements IResource {
   /**
    * The underlying cdk8s API object.
    */
-  public abstract readonly apiObject: cdk8s.ApiObject;
+  protected abstract readonly apiObject: cdk8s.ApiObject;
 
   /**
    * The name of this API object.

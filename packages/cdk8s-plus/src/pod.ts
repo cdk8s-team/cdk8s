@@ -12,6 +12,11 @@ import { lazy } from './utils';
  */
 export interface PodProps extends ResourceProps {
 
+  /**
+   * The spec of the pod. Use `pod.spec` to apply post instatiation mutations.
+   *
+   * @default - An empty spec will be created.
+   */
   readonly spec?: PodSpec;
 
 }

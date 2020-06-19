@@ -39,6 +39,11 @@ export interface PodTemplateSpecProps {
 
 }
 
+/**
+ * PodTemplateSpec describes the data a pod should have when created from a template
+ *
+ * @schema io.k8s.api.core.v1.PodTemplateSpec
+ */
 export class PodTemplateSpec {
 
   public readonly metadata: ObjectMeta;
