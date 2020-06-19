@@ -12,15 +12,27 @@ export interface ISecret extends IResource {
 
 }
 
+/**
+ * Kubernetes Secrets let you store and manage sensitive information, such as
+ * passwords, OAuth tokens, and ssh keys. Storing confidential information in a
+ * Secret is safer and more flexible than putting it verbatim in a Pod
+ * definition or in a container image.
+ *
+ * @see https://kubernetes.io/docs/concepts/configuration/secret
+ */
 export class Secret extends Resource implements ISecret {
+
+  /**
+   * Imports a secret from the cluster as a reference.
+   * @param name The name of the secret to reference.
+   */
+  public static fromSecretName(name: string): ISecret {
+    return { name };
+  }
 
   public readonly apiObject: cdk8s.ApiObject;
 
   private readonly stringData: { [key: string]: string };
-
-  public static fromSecretName(name: string): ISecret {
-    return { name };
-  }
 
   public constructor(scope: Construct, id: string, props: SecretProps = { }) {
     super(scope, id, props);
@@ -37,7 +49,6 @@ export class Secret extends Resource implements ISecret {
     const value = EnvValue.fromProcess(key, {required: true}).value!;
     this.stringData[key] = value;
   }
-
 }
 
 
