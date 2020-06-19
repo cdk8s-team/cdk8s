@@ -4,11 +4,9 @@
 
 **cdk8s+** is a software development framework that provides high level abstractions for authoring kuberenetes applications. Built on top of the auto generated building blocks provided by [cdk8s](../cdk8s), this library includes a hand crafted *construct* for each native kubernetes object, exposing richer API's with reduced complexity.
 
-## Disclaimer
-
-**You should not use this library in production environments.**
-
-This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is likely to rapidly change in breaking ways. We therefore highly discourage using this library in production workloads.
+> ## Disclaimer<br>
+> **You should not use this library in production environments.**<br><br>
+> This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is likely to rapidly change in breaking ways. We therefore highly discourage using this library in production workloads.
 
 ## Letter Of Intent
 
