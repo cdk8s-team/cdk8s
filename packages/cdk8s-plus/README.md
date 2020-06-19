@@ -1,10 +1,6 @@
 # cdk8s+ (cdk8s-plus)
 
-> High level abstractions on top [cdk8s](../cdk8s).
-
-**cdk8s+** is a software development framework that provides high level abstractions for authoring kuberenetes applications.
-
-Built on top of the auto generated building blocks provided by [cdk8s](../cdk8s), this library includes a hand crafted *construct* for each native kubernetes object, exposing richer API's with reduced complexity.
+**cdk8s+** is a software development framework that provides high level abstractions for authoring kuberenetes applications. Built on top of the auto generated building blocks provided by [cdk8s](../cdk8s), this library includes a hand crafted *construct* for each native kubernetes object, exposing richer API's with reduced complexity.
 
 ---
 
@@ -51,7 +47,26 @@ container.addEnv('password', kplus.EnvValue.fromSecret(credentials, 'password'))
 
 #### Volume Mounts
 
-A very common capability is to mount a volume with some data onto a container. The `Container` class provides an API to do just that:
+A very common capability is to mount a volume with some data onto a container. Using pure kubernetes API, this would require writing something like:
+
+```yaml
+kind: Pod
+apiVersion: v1
+spec:
+  containers:
+    - name: main
+      volumeMounts:
+        - mountPath: /path/to/mount
+          name: 'config-volume'
+  volumes:
+    - name: 'config-volume'
+      configMap:
+        name: 'config'
+```
+
+Notice the apparent redundancy of having to specify the volume name twice, once in the container definition and one in the volumes. Also, if you happen to need the same mount in other pods, you would need to duplicate this configuration. This can get complex and cluttered very fast.
+
+In contrast, here is how to do this with `cdk8s+`:
 
 ```typescript
 import * as kplus from 'cdk8s-plus';
