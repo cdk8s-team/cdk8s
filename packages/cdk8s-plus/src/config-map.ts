@@ -8,7 +8,7 @@ import * as minimatch from 'minimatch';
 import { undefinedIfEmpty, lazy } from './utils';
 
 /**
- * Initialization props for config maps.
+ * Properties for initialization of `ConfigMap`.
  */
 export interface ConfigMapProps extends ResourceProps {
   /**
