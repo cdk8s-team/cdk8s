@@ -212,7 +212,7 @@ export class ServiceSpec {
    */
   public _toKube(): k8s.ServiceSpec {
 
-    if (this.ports?.length === 0) {
+    if (this.ports.length === 0) {
       throw new Error('A service must be configured with a port');
     }
 
