@@ -98,7 +98,7 @@ const container = new kplus.Container({
 container.mount('/path/to/mount', volume);
 ```
 
-### Volume
+### `Volume`
 
 Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
@@ -135,7 +135,7 @@ const redis = new kplus.Container({
 redis.mount('/var/lib/redis', data);
 ```
 
-### Job
+### `Job`
 
 Jobs are a very useful concept in kubernetes deployments.
 They can be used for add-hoc provisioning tasks, as well as long running processing jobs.
@@ -171,7 +171,7 @@ const chart = new k.Chart(app, 'Chart');
 const load = new kplus.Job(chart, 'LoadData', { spec: jobSpec });
 ```
 
-### Service
+### `Service`
 
 Use services when you want to expose a set of pods using a stable network identity. They can also be used for externalizing
 endpoints to clients outside of the kubernetes cluster.
@@ -211,7 +211,7 @@ const frontends = new kplus.Service(chart, 'FrontEnds');
 frontends.spec.serve({port: 9000, targetPort: 80)
 ```
 
-### Deployment
+### `Deployment`
 
 Create a deployment to govern the lifecycle and orchestration of a set of identical pods.
 
@@ -303,7 +303,7 @@ spec:
   type: ClusterIP
 ```
 
-### ConfigMap
+### `ConfigMap`
 
 ConfigMap are used to store configuration data. They provide a dictionary based data structure that can be consumed in
 various shapes and forms.
@@ -352,14 +352,14 @@ import * as path from 'path';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const app = new new kplus.ConfigMap(chart, 'Config');
+const appMap = new new kplus.ConfigMap(chart, 'Config');
 
 // add the files in the directory to the config map.
 // this will create a key for each file.
 // note that only top level files will be included, sub-directories are not yet supported.
-app.addDirectory(path.join(__dirname, 'app'));
+appMap.addDirectory(path.join(__dirname, 'app'));
 
-const appVolume = kplus.Volume.fromConfigMap(app);
+const appVolume = kplus.Volume.fromConfigMap(appMap);
 
 // for here, just mount the volume to a container, and run your app!
 const mountPath = '/var/app';
@@ -372,11 +372,67 @@ const container = new kplus.Container({
 container.mount(mountPath, appVolume);
 ```
 
-### PodTemplate
+### `Pod`
 
-### Pod
+A pod is essentially a collection of containers. It is the most fundamental computation unit that can be provisioned.
 
-### Secret
+> API Reference: [Pod](./API.md#cdk8s-plus-pod)
+
+#### Adding Containers/Volumes
+
+Containers and volumes can be added to pod definition like so:
+
+```typescript
+import * as kplus from 'cdk8s-plus';
+
+const container = new kplus.Container({
+  image: 'node',
+})
+
+const storage = kplus.Volume.fromEmptyDir('storage');
+
+container.mount('/data', storage);
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const pod = new new kplus.Pod(chart, 'Config');
+
+// this will automatically add the volume as well.
+pod.spec.addContainer(container);
+
+// but if you want to explicitly add it, simply use:
+pod.spec.addVolume(storage);
+
+```
+
+#### Applying a restart policy
+
+```typescript
+import * as kplus from 'cdk8s-plus';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const pod = new new kplus.Pod(chart, 'Config');
+pod.spec.restartPolicy = kplus.RestartPolicy.NEVER;
+```
+
+#### Assigning a ServiceAccount
+
+```typescript
+import * as kplus from 'cdk8s-plus';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const pod = new new kplus.Pod(chart, 'Config');
+pod.spec.serviceAccount = kplus.ServiceAccount.fromServiceAccountName('aws');
+```
+
+### `PodTemplate`
+
+### `Secret`
 
 Secrets are used to store confidential information. Never store such information on the definition of the pod itself.
 
@@ -408,7 +464,7 @@ const secret = new kplus.Secret(chart, 'Secret');
 secret.addStringData('password', 'some-encrypted-data');
 ```
 
-### ServiceAccount
+### `ServiceAccount`
 
 Use service accounts to provide an identity for pods.
 

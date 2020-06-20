@@ -56,7 +56,7 @@ describe('PodSpec', () => {
       ],
       volumes: [kplus.Volume.fromEmptyDir('volume')],
       restartPolicy: RestartPolicy.ALWAYS,
-      serviceAccout: kplus.ServiceAccount.fromServiceAccountName(
+      serviceAccount: kplus.ServiceAccount.fromServiceAccountName(
         'serviceAccount',
       ),
     });

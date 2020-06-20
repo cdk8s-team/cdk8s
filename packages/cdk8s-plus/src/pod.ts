@@ -1,4 +1,5 @@
 import * as k8s from './imports/k8s';
+import * as k8s from './imports/k8s';
 import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
 import * as cdk8s from 'cdk8s';
@@ -102,7 +103,7 @@ export interface PodSpecProps {
    *
    * @default - No service account.
    */
-  readonly serviceAccout?: IServiceAccount;
+  readonly serviceAccount?: IServiceAccount;
 }
 
 /**
@@ -154,7 +155,7 @@ export class PodSpec {
     this.containers = props.containers ?? [];
     this.volumes = props.volumes ?? [];
     this.restartPolicy = props.restartPolicy;
-    this.serviceAccount = props.serviceAccout;
+    this.serviceAccount = props.serviceAccount;
   }
 
   /**
@@ -169,7 +170,7 @@ export class PodSpec {
   /**
    * Adds a volume to this pod.
    *
-   * @paractualme The volume to add
+   * @param volume The volume to add
    */
   public addVolume(volume: Volume): void {
     this.volumes.push(volume);

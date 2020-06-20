@@ -6,17 +6,32 @@ import { lazy } from './utils';
 import { ObjectMeta } from './object-meta';
 import { PodSpec } from './pod';
 
+/**
+ * Properties for initialization of `PodTemplate`.
+ */
 export interface PodTemplateProps extends ResourceProps {
 
   readonly spec: PodTemplateSpec;
 
 }
 
+/**
+ * PodTemplate describes a template for creating copies of a predefined pod.
+ */
 export class PodTemplate extends Resource {
 
+  /**
+   * @see base.Resource.apiObject
+   */
   public readonly apiObject: cdk8s.ApiObject;
 
-  private readonly spec: PodTemplateSpec;
+  /**
+   * Provides access to the underlying spec.
+   *
+   * You can use this field to apply post instantiation mutations
+   * to the spec.
+   */
+  public readonly spec: PodTemplateSpec;
 
   constructor(scope: Construct, name: string, props: PodTemplateProps) {
     super(scope, name, props);
@@ -31,10 +46,24 @@ export class PodTemplate extends Resource {
 
 }
 
+/**
+ * Properties for initialization of `PodTemplateSpec`.
+ */
 export interface PodTemplateSpecProps {
 
+  /**
+   * The metadata of the pod that will be created based on the template.
+   *
+   * @default - No metadata.
+   */
   readonly metadata?: ObjectMeta;
 
+  /**
+   * The spec of the pod that will be created based on the template.
+   * Use `template.podSpec` to apply post instantiation mutations.
+   *
+   * @default - An empty spec will be created.
+   */
   readonly podSpec?: PodSpec;
 
 }
@@ -46,8 +75,15 @@ export interface PodTemplateSpecProps {
  */
 export class PodTemplateSpec {
 
-  public readonly metadata: ObjectMeta;
+  /**
+   * Provides access to the pod spec this template uses.
+   *
+   * You can use this field to apply post instantiation mutations
+   * to the spec.
+   */
   public readonly podSpec: PodSpec;
+
+  private readonly metadata: ObjectMeta;
 
   constructor(props: PodTemplateSpecProps = {}) {
     this.metadata = props.metadata ?? new ObjectMeta();
