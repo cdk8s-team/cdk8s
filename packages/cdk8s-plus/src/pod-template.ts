@@ -86,7 +86,13 @@ export class PodTemplateSpec {
    */
   public readonly podSpec: PodSpec;
 
-  private readonly metadata: ObjectMeta;
+  /**
+   * Provides access to the pod metadata this template uses.
+   *
+   * You can use this field to apply post instantiation mutations
+   * to the metadata.
+   */
+  public readonly metadata: ObjectMeta;
 
   constructor(props: PodTemplateSpecProps = {}) {
     this.metadata = props.metadata ?? new ObjectMeta();
