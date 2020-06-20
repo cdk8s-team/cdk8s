@@ -16,11 +16,20 @@ We strive to develop this library with full transparency and as much community f
 
 ## In Depth
 
+Following are excerpts for the usage of every *construct* provided by this library. It details the commonly used patterns and configuration properties.
+In general, every such construct can be configured using two mechanisms:
+
+- Spec Constructor Properties
+- Post Instantiation Spec Mutations
+
+The documentation presented here focuses on post instantiation mutations, however, every such mutation can also be pre-configured using constructor properties for the corresponding spec.
+A complete API reference can be found in [here](./API.md).
+
 ### `Container`
 
 Define containers that run in a pod using the `Container` class.
 
-> Full API reference: [Container](./API.md#cdk8s-plus-container)
+> API Reference: [Container](./API.md#cdk8s-plus-container)
 
 #### Environment variables
 
@@ -117,9 +126,87 @@ redis.mount('/var/lib/redis', data);
 
 ### Job
 
+Jobs are a very useful concept in kubernetes deployments. They can be used for add-hoc provisioning tasks, as well as long running processing jobs.
+
+> API Reference: [Job](./API.md#cdk8s-plus-job)
+
+In configuration, they don't differ much from regular pods, but offer some additional properties.
+
+#### Delete a Job after its finished
+
+You can configure a TTL for the job after it finished its execution successfully.
+
+```typescript
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus';
+
+// lets first create our pod template. this part if the same as configuring a pod.
+const podTemplateSpec = new kplus.PodTemplateSpec();
+podTemplateSpec.podSpec.addContainer(new kplus.Container({
+  image: 'loader'
+}))
+
+// now we use the pod template to define a job spec, and set a 1 second TTL.
+const jobSpec = new kplus.JobSpec({
+  template: podTemplateSpec,
+  ttlAfterFinished: kplus.Duration.seconds(1),
+})
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+// now we create the job
+const load = new kplus.Job(chart, 'LoadData', { spec: jobSpec });
+```
+
 ### ObjectMeta
 
+Every kubernetes object can be configured with metadata.
+
+> API reference: [ObjectMeta](./API.md#cdk8s-plus-objectmeta)
+
+#### Automatic name generation.
+
+One of the most important features of metadata, is the ability to specify an object name. This name can later be used when requiring to reference a specific object.
+
 ### Service
+
+Use services when you want to expose a set of pods using a stable network identity. They can also be used for externalizing endpoints to clients outside of the kubernetes cluster.
+
+> API Reference: [Service](./API.md#cdk8s-plus-service)
+
+#### Selectors
+
+Services must be configured with selectors that tell it which pods should it serve. The most common selector method is using labels.
+
+```typescript
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+const frontends = new kplus.Service(chart, 'FrontEnds');
+
+// this will cause the service to select all pods with the 'run: frontend' label.
+frontends.spec.selectByLabel('run', 'frontend')
+```
+
+#### Service Ports
+
+
+
+```typescript
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+const frontends = new kplus.Service(chart, 'FrontEnds');
+
+// make the service bind to port 9000 and redirect to port 80 on the associated containers.
+frontends.spec.serve({port: 9000, targetPort: 80)
+```
+
 
 ### Deployment
 
@@ -128,5 +215,7 @@ redis.mount('/var/lib/redis', data);
 ### Pod
 
 ### PodTemplate
+
+### Secret
 
 ### ServiceAccount

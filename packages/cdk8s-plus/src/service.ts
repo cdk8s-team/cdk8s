@@ -5,8 +5,16 @@ import * as cdk8s from 'cdk8s';
 import { lazy } from './utils';
 
 
+/**
+ * Properties for initialization of `Service`.
+ */
 export interface ServiceProps extends ResourceProps {
 
+  /**
+   * The spec of the service. Use `service.spec` to apply post instantiation mutations.
+   *
+   * @default - An empty spec will be created.
+   */
   readonly spec?: ServiceSpec;
 
 }
@@ -50,10 +58,33 @@ export enum ServiceType {
   EXTERNAL_NAME = 'ExternalName'
 }
 
+/**
+ * An abstract way to expose an application running on a set of Pods as a network service.
+ * With Kubernetes you don't need to modify your application to use an unfamiliar service discovery mechanism.
+ * Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.
+ *
+ * For example, consider a stateless image-processing backend which is running with 3 replicas. Those replicas are fungible—frontends do not care which backend they use.
+ * While the actual Pods that compose the backend set may change, the frontend clients should not need to be aware of that,
+ * nor should they need to keep track of the set of backends themselves.
+ * The Service abstraction enables this decoupling.
+ *
+ * If you're able to use Kubernetes APIs for service discovery in your application, you can query the API server for Endpoints,
+ * that get updated whenever the set of Pods in a Service changes. For non-native applications, Kubernetes offers ways to place a network port
+ * or load balancer in between your application and the backend Pods.
+ */
 export class Service extends Resource {
 
+  /**
+   * @see base.Resource.apiObject
+   */
   public readonly apiObject: cdk8s.ApiObject;
 
+  /**
+   * Provides access to the underlying spec.
+   *
+   * You can use this field to apply post instantiation mutations
+   * to the spec.
+   */
   public readonly spec: ServiceSpec;
 
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
@@ -69,50 +100,111 @@ export class Service extends Resource {
 
 }
 
+/**
+ * Definition of a service port.
+ */
 export interface ServicePort {
 
+  /**
+   * The port number the service will bind to.
+   */
   readonly port: number;
 
+  /**
+   * The port number the service will redirect to.
+   *
+   * @default - The value of `port` will be used.
+   */
   readonly targetPort?: number;
 
 }
 
+/**
+ * Properties for initialization of `ServiceSpec`.
+ */
 export interface ServiceSpecProps {
 
+  /**
+   * clusterIP is the IP address of the service and is usually assigned randomly by the master.
+   * If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail.
+   * This field can not be changed through updates. Valid values are "None", empty string (""), or a valid IP address. "None" can be specified
+   * for headless services when proxying is not required. Only applies to types ClusterIP, NodePort, and LoadBalancer.
+   * Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+   *
+   * @default - Automatically assigned.
+   *
+   */
   readonly clusterIP?: string;
 
+  /**
+   * externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service. These IPs are not managed by Kubernetes.
+   * The user is responsible for ensuring that traffic arrives at a node with this IP.
+   * A common example is external load-balancers that are not part of the Kubernetes system.
+   *
+   * @default - No external IPs.
+   */
   readonly externalIPs?: string[];
 
-  readonly type?: string;
+  /**
+   * type determines how the Service is exposed.
+   *
+   * More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+   *
+   * @see ServiceType
+   * @default 'ClusterIP'.
+   */
+  readonly type?: ServiceType;
 
-  // TODO: make this an array
-  readonly port?: ServicePort
+  /**
+   * The port exposed by this service.
+   *
+   * More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+   */
+  readonly ports?: ServicePort[]
 
 }
 
+/**
+ * A description of a service.
+ */
 export class ServiceSpec {
 
   private readonly clusterIP?: string;
   private readonly externalIPs: string[];
   private readonly type?: string;
-  private readonly port?: ServicePort
-
   private readonly labels: Record<string, string>;
+
+  private ports: ServicePort[];
 
   constructor(props: ServiceSpecProps = {}) {
     this.clusterIP = props.clusterIP;
     this.externalIPs = props.externalIPs ?? [];
-    this.type = props.type;
+    this.type = props.type ?? ServiceType.CLUSTER_IP;
     this.labels = {};
-    this.port = props.port;
+    this.ports = props.ports ?? [];
   }
 
-  public addExternalIP(ip: string) {
-    this.externalIPs.push(ip);
-  }
-
+  /**
+   * Services defined using this spec will select pods according the provided label.
+   *
+   * @param key The label key.
+   * @param value The label value.
+   */
   public selectByLabel(key: string, value: string) {
     this.labels[key] = value;
+  }
+
+  /**
+   * Configure a port the service will bind to.
+   * This method can be called multiple times.
+   *
+   * @param port The port definition.
+   */
+  public serve(port: ServicePort) {
+    this.ports.push({
+      port: port.port,
+      targetPort: port.targetPort
+    })
   }
 
   /**
@@ -120,12 +212,16 @@ export class ServiceSpec {
    */
   public _toKube(): k8s.ServiceSpec {
 
+    if (this.ports?.length === 0) {
+      throw new Error('A service must be configured with a port');
+    }
+
     const ports: k8s.ServicePort[] = [];
 
-    if (this.port) {
+    for (const port of this.ports) {
       ports.push({
-        port: this.port.port,
-        targetPort: this.port.targetPort,
+        port: port.port,
+        targetPort: port.targetPort
       })
     }
 

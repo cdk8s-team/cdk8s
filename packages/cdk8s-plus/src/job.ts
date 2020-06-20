@@ -8,11 +8,28 @@ import { RestartPolicy } from './pod';
 import { Duration } from './duration';
 
 
+/**
+ * Properties for initialization of `Job`.
+ */
 export interface JobProps extends ResourceProps {
+
+  /**
+   * The spec of the job. Use `job.spec` to apply post instantiation mutations.
+   *
+   * @default - An empty spec will be created.
+   */
   readonly spec: JobSpec;
 }
 
+/**
+ * A Job creates one or more Pods and ensures that a specified number of them successfully terminate. As pods successfully complete,
+ * the Job tracks the successful completions. When a specified number of successful completions is reached, the task (ie, Job) is complete.
+ * Deleting a Job will clean up the Pods it created. A simple case is to create one Job object in order to reliably run one Pod to completion.
+ * The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
+ * You can also use a Job to run multiple Pods in parallel.
+ */
 export class Job extends Resource {
+
   public readonly apiObject: ApiObject;
   public readonly spec: JobSpec;
 
@@ -28,8 +45,13 @@ export class Job extends Resource {
   }
 }
 
+/**
+ * Properties for initialization of `JobSpec`.
+ */
 export interface JobSpecProps {
+
   readonly template: PodTemplateSpec;
+
   /**
    * Limits the lifetime of a Job that has finished execution (either Complete
    * or Failed). If this field is set, after the Job finishes, it is eligible to
@@ -43,7 +65,6 @@ export interface JobSpecProps {
    */
   readonly ttlAfterFinished?: Duration;
 }
-
 export class JobSpec {
 
   public readonly template: PodTemplateSpec;

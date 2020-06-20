@@ -13,7 +13,7 @@ import { lazy } from './utils';
 export interface PodProps extends ResourceProps {
 
   /**
-   * The spec of the pod. Use `pod.spec` to apply post instatiation mutations.
+   * The spec of the pod. Use `pod.spec` to apply post instantiation mutations.
    *
    * @default - An empty spec will be created.
    */
@@ -26,8 +26,18 @@ export interface PodProps extends ResourceProps {
  * created by clients and scheduled onto hosts.
  */
 export class Pod extends Resource {
+
+  /**
+   * @see base.Resource.apiObject
+   */
   public readonly apiObject: cdk8s.ApiObject;
 
+  /**
+   * Provides access to the underlying spec.
+   *
+   * You can use this field to apply post instantiation mutations
+   * to the spec.
+   */
   public readonly spec: PodSpec;
 
   constructor(scope: Construct, id: string, props: PodProps = {}) {

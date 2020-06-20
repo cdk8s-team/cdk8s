@@ -77,7 +77,7 @@ export class Deployment extends Resource {
   /**
    * Provides access to the underlying spec.
    *
-   * You can use this field to apply post instatiation mutations
+   * You can use this field to apply post instantiation mutations
    * to the spec.
    *
    */
