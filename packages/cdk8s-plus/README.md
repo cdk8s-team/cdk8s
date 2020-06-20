@@ -94,7 +94,7 @@ container.mount('/path/to/mount', volume);
 
 Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
-> Full API reference: [Volume](./API.md#cdk8s-plus-volume)
+> API Reference: [Volume](./API.md#cdk8s-plus-volume)
 
 #### Create from a ConfigMap
 
