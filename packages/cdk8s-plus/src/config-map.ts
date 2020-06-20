@@ -126,9 +126,6 @@ export class ConfigMap extends Resource implements IConfigMap {
    * @param options Options
    */
   public addDirectory(localDir: string, options: AddDirectoryOptions = { }) {
-    if (options.recursive) {
-      throw new Error("'recursive' is not supported (see https://github.com/kubernetes/kubernetes/pull/63362)");
-    }
 
     const exclude = options.exclude ?? [];
     const shouldInclude = (file: string) => {
@@ -142,19 +139,19 @@ export class ConfigMap extends Resource implements IConfigMap {
 
     const keyPrefix = options.keyPrefix ?? '';
     for (const file of fs.readdirSync(localDir)) {
+
+      const filePath = path.join(localDir, file);
+
+      if (fs.statSync(filePath).isDirectory()) {
+        continue;
+      }
+
       if (!shouldInclude(file)) {
         continue;
       }
 
-      const filePath = path.join(localDir, file);
       const relativeFilePath = keyPrefix + file;
-      if (options.recursive && fs.statSync(filePath).isDirectory()) {
-        this.addDirectory(filePath, {
-          keyPrefix: relativeFilePath + '/',
-        });
-      } else {
-        this.addFile(filePath, relativeFilePath);
-      }
+      this.addFile(filePath, relativeFilePath);
     }
   }
 
@@ -190,10 +187,4 @@ export interface AddDirectoryOptions {
    * @default - include all files
    */
   readonly exclude?: string[];
-
-  /**
-   * Whether to descend to subdirectories (not supported yet).
-   * @default false
-   */
-  readonly recursive?: boolean;
 }

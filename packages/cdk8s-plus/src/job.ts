@@ -6,6 +6,7 @@ import * as k8s from './imports/k8s';
 import { PodTemplateSpec } from './pod-template';
 import { RestartPolicy } from './pod';
 import { Duration } from './duration';
+import { lazy } from './utils';
 
 
 /**
@@ -18,7 +19,7 @@ export interface JobProps extends ResourceProps {
    *
    * @default - An empty spec will be created.
    */
-  readonly spec: JobSpec;
+  readonly spec?: JobSpec;
 }
 
 /**
@@ -33,14 +34,14 @@ export class Job extends Resource {
   public readonly apiObject: ApiObject;
   public readonly spec: JobSpec;
 
-  constructor(scope: Construct, id: string, props: JobProps) {
+  constructor(scope: Construct, id: string, props: JobProps = {}) {
     super(scope, id, props);
 
-    this.spec = props.spec;
+    this.spec = props.spec ?? new JobSpec();
 
     this.apiObject = new k8s.Job(this, 'Default', {
       metadata: this.metadata._toKube(),
-      spec: this.spec._toKube(),
+      spec: lazy(() => this.spec._toKube()),
     });
   }
 }
@@ -50,7 +51,7 @@ export class Job extends Resource {
  */
 export interface JobSpecProps {
 
-  readonly template: PodTemplateSpec;
+  readonly template?: PodTemplateSpec;
 
   /**
    * Limits the lifetime of a Job that has finished execution (either Complete
@@ -70,8 +71,8 @@ export class JobSpec {
   public readonly template: PodTemplateSpec;
   public readonly ttlAfterFinished?: Duration;
 
-  constructor(props: JobSpecProps) {
-    this.template = props.template;
+  constructor(props: JobSpecProps = {}) {
+    this.template = props.template ?? new PodTemplateSpec();
     this.ttlAfterFinished = props.ttlAfterFinished;
 
     if (!this.template.podSpec.restartPolicy) {

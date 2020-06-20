@@ -184,8 +184,8 @@ test('addFile() adds local files to the config map', () => {
   const cm = new ConfigMap(chart, 'my-config-map');
 
   // WHEN
-  cm.addFile(`${__dirname}/fixtures/file1.txt`); // defaults to file name
-  cm.addFile(`${__dirname}/fixtures/file2.html`, 'hey-there');
+  cm.addFile(`${__dirname}/fixtures/flat-directory/file1.txt`); // defaults to file name
+  cm.addFile(`${__dirname}/fixtures/flat-directory/file2.html`, 'hey-there');
 
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();
@@ -193,13 +193,28 @@ test('addFile() adds local files to the config map', () => {
 
 describe('addDirectory() adds all files in a directory to the config map', () => {
 
+  // TODO: support this once this is resolved: https://github.com/kubernetes/kubernetes/pull/63362
+  test('sub-directories are skipped', () => {
+
+    // GIVEN
+    const chart = Testing.chart();
+    const cm = new ConfigMap(chart, 'my-config-map');
+
+    // WHEN
+    cm.addDirectory(`${__dirname}/fixtures/nested-directory`);
+
+    // THEN
+    expect(Testing.synth(chart)).toMatchSnapshot();
+
+  });
+
   test('keys are based on file names', () => {
     // GIVEN
     const chart = Testing.chart();
     const cm = new ConfigMap(chart, 'my-config-map');
 
     // WHEN
-    cm.addDirectory(`${__dirname}/fixtures`);
+    cm.addDirectory(`${__dirname}/fixtures/flat-directory`);
 
     // THEN
     expect(Testing.synth(chart)).toMatchSnapshot();
@@ -212,7 +227,7 @@ describe('addDirectory() adds all files in a directory to the config map', () =>
     const cm = new ConfigMap(chart, 'my-config-map');
 
     // WHEN
-    cm.addDirectory(`${__dirname}/fixtures`, { keyPrefix: 'prefix.' });
+    cm.addDirectory(`${__dirname}/fixtures/flat-directory`, { keyPrefix: 'prefix.' });
 
     // THEN
     expect(Testing.synth(chart)).toMatchSnapshot();
@@ -224,20 +239,12 @@ describe('addDirectory() adds all files in a directory to the config map', () =>
     const cm = new ConfigMap(chart, 'my-config-map');
 
     // WHEN
-    cm.addDirectory(`${__dirname}/fixtures`, { exclude: [ '*.html' ] });
+    cm.addDirectory(`${__dirname}/fixtures/flat-directory`, { exclude: [ '*.html' ] });
 
     // THEN
     expect(Testing.synth(chart)).toMatchSnapshot();
   });
 
-  test('"recursive" is not supported yet', () => {
-    // GIVEN
-    const chart = Testing.chart();
-    const cm = new ConfigMap(chart, 'my-config-map');
-
-    // WHEN
-    expect(() => cm.addDirectory(`${__dirname}/fixtures`, { recursive: true })).toThrow(/'recursive' is not supported/);
-  });
 });
 
 test('metadata is synthesized', () => {

@@ -11,7 +11,7 @@ import { PodSpec } from './pod';
  */
 export interface PodTemplateProps extends ResourceProps {
 
-  readonly spec: PodTemplateSpec;
+  readonly spec?: PodTemplateSpec;
 
 }
 
@@ -36,10 +36,10 @@ export class PodTemplate extends Resource {
    */
   public readonly spec: PodTemplateSpec;
 
-  constructor(scope: Construct, name: string, props: PodTemplateProps) {
+  constructor(scope: Construct, name: string, props: PodTemplateProps = {}) {
     super(scope, name, props);
 
-    this.spec = props.spec;
+    this.spec = props.spec ?? new PodTemplateSpec();
 
     this.apiObject = new k8s.PodTemplate(this, 'Pod', {
       metadata: this.metadata._toKube(),
