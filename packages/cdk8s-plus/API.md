@@ -173,7 +173,6 @@ addDirectory(localDir: string, options?: AddDirectoryOptions): void
 * **options** (<code>[AddDirectoryOptions](#cdk8s-plus-adddirectoryoptions)</code>)  Options.
   * **exclude** (<code>Array<string></code>)  Glob patterns to exclude when adding files. <span style="text-decoration: underline">*Default*</span>: include all files
   * **keyPrefix** (<code>string</code>)  A prefix to add to all keys in the config map. <span style="text-decoration: underline">*Default*</span>: ""
-  * **recursive** (<code>boolean</code>)  Whether to descend to subdirectories (not supported yet). <span style="text-decoration: underline">*Default*</span>: false
 
 
 
@@ -807,7 +806,7 @@ You can also use a Job to run multiple Pods in parallel.
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-new Job(scope: Construct, id: string, props: JobProps)
+new Job(scope: Construct, id: string, props?: JobProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
@@ -815,7 +814,7 @@ new Job(scope: Construct, id: string, props: JobProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[JobProps](#cdk8s-plus-jobprops)</code>)  *No description*
   * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  The spec of the job. 
+  * **spec** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  The spec of the job. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
 
@@ -842,12 +841,12 @@ Name | Type | Description
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-new JobSpec(props: JobSpecProps)
+new JobSpec(props?: JobSpecProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[JobSpecProps](#cdk8s-plus-jobspecprops)</code>)  *No description*
-  * **template** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* 
+  * **template** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
   * **ttlAfterFinished** (<code>[Duration](#cdk8s-plus-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). <span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
 
 
@@ -1064,7 +1063,7 @@ The PodTemplate is part of the desired state of whatever workload resource you u
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-new PodTemplate(scope: Construct, name: string, props: PodTemplateProps)
+new PodTemplate(scope: Construct, name: string, props?: PodTemplateProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
@@ -1072,7 +1071,7 @@ new PodTemplate(scope: Construct, name: string, props: PodTemplateProps)
 * **name** (<code>string</code>)  *No description*
 * **props** (<code>[PodTemplateProps](#cdk8s-plus-podtemplateprops)</code>)  *No description*
   * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* 
+  * **spec** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1747,7 +1746,6 @@ Name | Type | Description
 -----|------|-------------
 **exclude**?🔹 | <code>Array<string></code> | Glob patterns to exclude when adding files.<br/><span style="text-decoration: underline">*Default*</span>: include all files
 **keyPrefix**?🔹 | <code>string</code> | A prefix to add to all keys in the config map.<br/><span style="text-decoration: underline">*Default*</span>: ""
-**recursive**?🔹 | <code>boolean</code> | Whether to descend to subdirectories (not supported yet).<br/><span style="text-decoration: underline">*Default*</span>: false
 
 
 
@@ -1968,8 +1966,8 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
-**spec**🔹 | <code>[JobSpec](#cdk8s-plus-jobspec)</code> | The spec of the job.
 **metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**spec**?🔹 | <code>[JobSpec](#cdk8s-plus-jobspec)</code> | The spec of the job.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
 
@@ -1982,7 +1980,7 @@ Properties for initialization of `JobSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**template**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span></span>
+**template**?🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span style="text-decoration: underline">*Optional*</span>
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/><span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
 
 
@@ -2072,8 +2070,8 @@ Properties for initialization of `PodTemplate`.
 
 Name | Type | Description 
 -----|------|-------------
-**spec**🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span></span>
 **metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**spec**?🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
 
