@@ -88,8 +88,8 @@ export abstract class ImportBase {
           // java!
           if (options.targetLanguage === Language.JAVA) {
             opts.java = {
-              outdir: outdir,
-              package: moduleNamePrefix ? `${moduleNamePrefix}.${name}` : name
+              outdir: '.',
+              package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + name : name}`
             };
           }
 
