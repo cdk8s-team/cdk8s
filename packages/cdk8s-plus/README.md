@@ -4,7 +4,7 @@
 
 > **You should not use this library in production environments.**<br><br>
 > ![Experimental](https://img.shields.io/badge/experimental-important.svg?style=for-the-badge)<br><br>
-> This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is likely to rapidly change in breaking ways. We therefore highly discourage using this library in production workloads.
+> This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is likely to rapidly change in breaking ways. We therefore highly discourage from using this library in production workloads.
 
 ## Letter Of Intent
 
@@ -20,7 +20,7 @@ We strive to develop this library with full transparency and as much community f
 
 Define containers that run in a pod using the `Container` class.
 
-> Full API reference: [Container](./API.md#cdk8s-plus-container)<br>
+> Full API reference: [Container](./API.md#cdk8s-plus-container)
 
 #### Environment variables
 
@@ -64,7 +64,7 @@ spec:
         name: 'config'
 ```
 
-Notice the apparent redundancy of having to specify the volume name twice, once in the container definition and one in the volumes. Also, if you happen to need the same mount in other pods, you would need to duplicate this configuration. This can get complex and cluttered very fast. In contrast, here is how to do this with `cdk8s+`:
+Notice the apparent redundancy of having to specify the volume name twice. Also, if you happen to need the same mount in other pods, you would need to duplicate this configuration. This can get complex and cluttered very fast. In contrast, here is how to do this with `cdk8s+`:
 
 ```typescript
 import * as kplus from 'cdk8s-plus';
@@ -82,6 +82,38 @@ container.mount('/path/to/mount', volume);
 ```
 
 ### Volume
+
+Volume represents a named volume in a pod that may be accessed by any container in the pod.
+
+> Full API reference: [Volume](./API.md#cdk8s-plus-volume)
+
+#### Create from a ConfigMap
+
+A very useful operation is to create a volume from a `ConfigMap`. Kubernetes will translate every key in the config map to a file, who's content is the value of the key.
+
+```typescript
+import * as kplus from 'cdk8s-plus';
+
+const configMap = kplus.ConfigMap.fromConfigMapName('redis-config');
+const configVolume = kplus.Volume.fromConfigMap(configMap);
+```
+
+#### Create from an EmptyDir
+
+The easiest way to allocate some persistent storage to your container is to create a volume from an empty directory. This volume, as the name suggests, is initially empty, and can be written to by containers who mount it. The data in the volume is preserved throughout the lifecycle of the pod, but is deleted forever as soon as the pod itself is removed.
+
+```typescript
+import * as kplus from 'cdk8s-plus';
+
+const data = kplus.Volume.fromEmptyDir(configMap);
+
+const redis = new kplus.Container({
+  image: 'redis'
+})
+
+// mount to the redis container.
+redis.mount('/var/lib/redis', data);
+```
 
 ### Job
 
