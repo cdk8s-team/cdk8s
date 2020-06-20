@@ -191,9 +191,9 @@ const frontends = new kplus.Service(chart, 'FrontEnds');
 frontends.spec.selectByLabel('run', 'frontend')
 ```
 
-#### Service Ports
+#### Ports
 
-
+Ports that the service will listen and redirect to can be configured like so:
 
 ```typescript
 import * as k from 'cdk8s';
@@ -207,8 +207,12 @@ const frontends = new kplus.Service(chart, 'FrontEnds');
 frontends.spec.serve({port: 9000, targetPort: 80)
 ```
 
-
 ### Deployment
+
+
+#### Automatic pod selection
+
+#### Exposing via a service
 
 ### ConfigMap
 

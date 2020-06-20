@@ -125,21 +125,6 @@ describe('Pod', () => {
 
   test('Can instantiate with props', () => {
 
-    const app = new k.App();
-    const chart = new k.Chart(app, 'Chart');
-    const frontends = new kplus.Service(chart, 'FrontEnds', {
-      spec: new kplus.ServiceSpec({
-        port: {
-          port: 9000,
-          targetPort,
-        },
-      }),
-    });
-
-    // this will cause the service to select all pods with the 'run: frontend' label.
-    frontends.spec.selectByLabel('run', 'frontend')
-    frontends.spec.serve({ port: 9000, targetPort: 80 })
-
     const spec = new kplus.PodSpec({
       containers: [
         new kplus.Container({

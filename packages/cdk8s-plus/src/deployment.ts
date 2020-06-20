@@ -115,17 +115,17 @@ export class Deployment extends Resource {
 
     const service = new Service(this, 'Service', {
       spec: new ServiceSpec({
-        port: {
-          // just a PoC, we assume the first container is the main one.
-          // TODO: figure out what the correct thing to do here.
-          port: options.port,
-          targetPort: containers[0].port,
-        },
         type: options.serviceType ?? ServiceType.CLUSTER_IP,
       }),
     })
 
     service.spec.selectByLabel(selector, matcher);
+    service.spec.serve({
+      port: options.port,
+      // just a PoC, we assume the first container is the main one.
+      // TODO: figure out what the correct thing to do here.
+      targetPort: containers[0].port,
+    })
 
     return service;
   }

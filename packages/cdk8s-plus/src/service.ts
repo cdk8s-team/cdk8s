@@ -203,7 +203,7 @@ export class ServiceSpec {
   public serve(port: ServicePort) {
     this.ports.push({
       port: port.port,
-      targetPort: port.targetPort
+      targetPort: port.targetPort,
     })
   }
 
@@ -221,7 +221,7 @@ export class ServiceSpec {
     for (const port of this.ports) {
       ports.push({
         port: port.port,
-        targetPort: port.targetPort
+        targetPort: port.targetPort,
       })
     }
 
