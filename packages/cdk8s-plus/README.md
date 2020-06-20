@@ -12,8 +12,7 @@ likely to rapidly change in breaking ways. We therefore highly discourage from u
 ## Letter Of Intent
 
 We strive to develop this library with full transparency and as much community feedback and contributions as possible.
-To that end, we publish this development version. We acknowledge it might be lacking substantial capabilities, and is currently focused
-around experimentation and gathering feedback.
+To that end, we publish this development version. The lack of features/capabilities is intentional, we look forward to build and expand this framework with the help of the community.
 
 > If you are interested in contributing, see [Contribution Guide](./CONTRIBUTING.md).
 
