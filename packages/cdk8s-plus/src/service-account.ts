@@ -5,6 +5,10 @@ import { ApiObject } from 'cdk8s';
 import { ISecret } from './secret';
 import { lazy, undefinedIfEmpty } from './utils';
 
+
+/**
+ * Properties for initialization of `ServiceAccount`.
+ */
 export interface ServiceAccountProps extends ResourceProps {
 
 }
@@ -13,6 +17,9 @@ export interface IServiceAccount extends IResource {
 
 }
 
+/**
+ * Properties for initialization of `ServiceAccount`.
+ */
 export interface ServiceAccountProps {
   /**
    * List of secrets allowed to be used by pods running using this
