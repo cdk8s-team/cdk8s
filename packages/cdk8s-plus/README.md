@@ -396,7 +396,7 @@ container.mount('/data', storage);
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const pod = new new kplus.Pod(chart, 'Config');
+const pod = new new kplus.Pod(chart, 'Pod');
 
 // this will automatically add the volume as well.
 pod.spec.addContainer(container);
@@ -414,7 +414,7 @@ import * as kplus from 'cdk8s-plus';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const pod = new new kplus.Pod(chart, 'Config');
+const pod = new new kplus.Pod(chart, 'Pod');
 pod.spec.restartPolicy = kplus.RestartPolicy.NEVER;
 ```
 
@@ -426,11 +426,30 @@ import * as kplus from 'cdk8s-plus';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const pod = new new kplus.Pod(chart, 'Config');
+const pod = new new kplus.Pod(chart, 'Pod');
 pod.spec.serviceAccount = kplus.ServiceAccount.fromServiceAccountName('aws');
 ```
 
 ### `PodTemplate`
+
+A pod template is essentially the same as pod, except it only serves as a template. Its configuration properties are exactly the same, but when you provision it, no pods are actually created.
+Other resources (such as a deployment) can later reference this pod template to dynamically create templates.
+
+> API Reference: [Secret](./API.md#cdk8s-plus-secret)
+
+```typescript
+import * as kplus from 'cdk8s-plus';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const template = new new kplus.PodTemplate(chart, 'PodTemplate');
+
+// access the underlying pod spec and apply mutations
+template.spec.podSpec.addContainer(new kplus.Container({
+  image: 'node',
+}))
+```
 
 ### `Secret`
 

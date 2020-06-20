@@ -16,7 +16,10 @@ export interface PodTemplateProps extends ResourceProps {
 }
 
 /**
- * PodTemplate describes a template for creating copies of a predefined pod.
+ * Controllers for workload resources create Pods from a pod template and manage those Pods on your behalf.
+ * PodTemplates are specifications for creating Pods, and are included in workload resources such as Deployments, Jobs, and DaemonSets.
+ * Each controller for a workload resource uses the PodTemplate inside the workload object to make actual Pods.
+ * The PodTemplate is part of the desired state of whatever workload resource you used to run your app.
  */
 export class PodTemplate extends Resource {
 
