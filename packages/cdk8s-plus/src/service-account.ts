@@ -52,7 +52,7 @@ export class ServiceAccount extends Resource implements IServiceAccount {
     return { name: name }
   }
 
-  public readonly apiObject: ApiObject;
+  protected readonly apiObject: ApiObject;
 
   /**
    * List of secrets allowed to be used by pods running using this
