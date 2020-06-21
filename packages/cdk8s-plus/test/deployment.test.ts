@@ -1,5 +1,5 @@
 import * as kplus from '../src';
-import * as k8s from '../imports/k8s';
+import * as k8s from '../src/imports/k8s';
 import { Testing } from 'cdk8s';
 import { Node } from 'constructs';
 
