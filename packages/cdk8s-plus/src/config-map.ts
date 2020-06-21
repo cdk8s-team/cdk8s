@@ -56,7 +56,7 @@ export class ConfigMap extends Resource implements IConfigMap {
     return { name };
   }
 
-  public readonly apiObject: cdk8s.ApiObject;
+  protected readonly apiObject: cdk8s.ApiObject;
 
   private readonly binaryData: { [key: string]: string } = { };
   private readonly data: { [key: string]: string } = { };

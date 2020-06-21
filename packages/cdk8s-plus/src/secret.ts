@@ -29,7 +29,7 @@ export class Secret extends Resource implements ISecret {
     return { name };
   }
 
-  public readonly apiObject: cdk8s.ApiObject;
+  protected readonly apiObject: cdk8s.ApiObject;
 
   private readonly stringData: { [key: string]: string };
 

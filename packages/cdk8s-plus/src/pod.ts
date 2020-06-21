@@ -30,7 +30,7 @@ export class Pod extends Resource {
   /**
    * @see base.Resource.apiObject
    */
-  public readonly apiObject: cdk8s.ApiObject;
+  protected readonly apiObject: cdk8s.ApiObject;
 
   /**
    * Provides access to the underlying spec.

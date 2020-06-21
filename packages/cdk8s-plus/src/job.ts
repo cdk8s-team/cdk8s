@@ -31,7 +31,7 @@ export interface JobProps extends ResourceProps {
  */
 export class Job extends Resource {
 
-  public readonly apiObject: ApiObject;
+  protected readonly apiObject: ApiObject;
   public readonly spec: JobSpec;
 
   constructor(scope: Construct, id: string, props: JobProps = {}) {
