@@ -89,7 +89,7 @@ export class Deployment extends Resource {
     this.spec = props.spec ?? new DeploymentSpec();
 
     this.apiObject = new k8s.Deployment(this, 'Pod', {
-      metadata: this.metadata._toKube(),
+      metadata: props.metadata,
       spec: lazy(() => this.spec._toKube(this)),
     })
   }

@@ -1,13 +1,12 @@
-import * as kplus from '../src';
-import * as k8s from '../src/imports/k8s';
+import { ApiObjectMetadataDefinition } from "../lib";
 
 test('Can add a label', () => {
 
-  const meta = new kplus.ObjectMeta();
+  const meta = new ApiObjectMetadataDefinition();
 
   meta.addLabel('key', 'value');
 
-  const actual: k8s.ObjectMeta = meta._toKube();
+  const actual: any = meta.toJson();
 
   expect(actual.labels).toEqual({
     key: 'value',
@@ -17,11 +16,11 @@ test('Can add a label', () => {
 
 test('Can add an annotation', () => {
 
-  const meta = new kplus.ObjectMeta();
+  const meta = new ApiObjectMetadataDefinition();
 
   meta.addAnnotation('key', 'value');
 
-  const actual: k8s.ObjectMeta = meta._toKube();
+  const actual = meta.toJson();
 
   expect(actual.annotations).toEqual({
     key: 'value',
@@ -31,16 +30,16 @@ test('Can add an annotation', () => {
 
 test('Instantiation properties are all respected', () => {
 
-  const meta = new kplus.ObjectMeta({
+  const meta = new ApiObjectMetadataDefinition({
     labels: {key: 'value'},
     annotations: {key: 'value'},
     name: 'name',
     namespace: 'namespace',
   });
 
-  const actual: k8s.ObjectMeta = meta._toKube();
+  const actual = meta.toJson();
 
-  const expected: k8s.ObjectMeta = {
+  const expected = {
     name: 'name',
     namespace: 'namespace',
     annotations: {
@@ -54,3 +53,19 @@ test('Instantiation properties are all respected', () => {
   expect(actual).toStrictEqual(expected);
 
 });
+
+test('Can include arbirary key/value options', () => {
+  const meta = new ApiObjectMetadataDefinition({
+    foo: 123,
+    bar: {
+      helloL: 'world'
+    }
+  });
+
+  meta.add('bar', 'baz');
+
+  expect(meta.toJson()).toStrictEqual({
+    bar: 'baz',
+    foo: 123,
+  });
+})

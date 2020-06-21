@@ -9,8 +9,6 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "annotations": Object {},
-      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
     },
   },
@@ -27,8 +25,6 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "annotations": Object {},
-      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
     },
   },
@@ -45,8 +41,6 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "annotations": Object {},
-      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
     },
   },
@@ -62,8 +56,6 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "annotations": Object {},
-      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
     },
   },
@@ -80,23 +72,7 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "annotations": Object {},
-      "labels": Object {},
       "name": "test-my-config-map-configmap-d0fa5644",
-    },
-  },
-]
-`;
-
-exports[`metadata is synthesized 1`] = `
-Array [
-  Object {
-    "apiVersion": "v1",
-    "kind": "ConfigMap",
-    "metadata": Object {
-      "annotations": Object {},
-      "labels": Object {},
-      "name": "my-name",
     },
   },
 ]

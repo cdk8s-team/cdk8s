@@ -1,6 +1,5 @@
 import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
-import { ObjectMeta } from './object-meta';
 
 /**
  * Initialization properties for resources.
@@ -10,7 +9,7 @@ export interface ResourceProps {
    * Metadata that all persisted resources must have, which includes all objects
    * users must create.
    */
-  readonly metadata?: ObjectMeta
+  readonly metadata?: cdk8s.ApiObjectMetadata
 }
 
 /**
@@ -29,21 +28,18 @@ export interface IResource {
  */
 export abstract class Resource extends Construct implements IResource {
 
-  /**
-   * The metadata associated with this resource.
-   */
-  public readonly metadata: ObjectMeta;
-
-  constructor(scope: Construct, id: string, props: ResourceProps) {
+  constructor(scope: Construct, id: string, _: ResourceProps) {
     super(scope, id);
-
-    this.metadata = props.metadata ?? new ObjectMeta();
   }
 
   /**
    * The underlying cdk8s API object.
    */
   protected abstract readonly apiObject: cdk8s.ApiObject;
+
+  public get metadata(): cdk8s.ApiObjectMetadataDefinition {
+    return this.apiObject.metadata;
+  }
 
   /**
    * The name of this API object.

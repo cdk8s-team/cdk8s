@@ -16,8 +16,6 @@ test('minimal definition', () => {
         "apiVersion": "v1",
         "kind": "ServiceAccount",
         "metadata": Object {
-          "annotations": Object {},
-          "labels": Object {},
           "name": "test-my-service-account-resource-a5be5a3b",
         },
       },
@@ -39,7 +37,7 @@ test('secrets can be added to the service account', () => {
   sa.addSecret(secret2);
 
   // THEN
-  const manifest = Testing.synth(chart)
+  const manifest = Testing.synth(chart);
   expect(manifest[0]?.secrets[0]).toStrictEqual({ name: 'my-secret-1' });
   expect(manifest[0]?.secrets[1]).toStrictEqual({ name: 'my-secret-2' });
 });

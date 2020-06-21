@@ -46,9 +46,9 @@ export class Pod extends Resource {
     this.spec = props.spec ?? new PodSpec();
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
-      metadata: this.metadata._toKube(),
+      metadata: props.metadata,
       spec: lazy(() => this.spec._toKube()),
-    })
+    });
   }
 
 }

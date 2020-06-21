@@ -23,7 +23,6 @@ describe('JobSpec', () => {
   });
 
   test('Does not modify existing restart policy of pod spec', () => {
-
     const podTemplateSpec = new kplus.PodTemplateSpec();
     podTemplateSpec.podSpec.addContainer(
       new kplus.Container({
@@ -40,7 +39,6 @@ describe('JobSpec', () => {
     const actual: k.JobSpec = spec._toKube();
 
     expect(actual.template.spec?.restartPolicy).toEqual('Always');
-
   });
 
   test('Applies default restart policy to pod spec', () => {
@@ -63,19 +61,16 @@ describe('JobSpec', () => {
 });
 
 describe('Pod', () => {
-
   test('Can provide existing spec', () => {
-
     const chart = Testing.chart();
 
     const jobSpec = new kplus.JobSpec();
 
     const job = new kplus.Job(chart, 'Job', {
       spec: jobSpec,
-    })
+    });
 
     expect(job.spec).toBe(jobSpec);
-
   });
 
   test('Generates spec lazily', () => {
@@ -94,16 +89,10 @@ describe('Pod', () => {
           "apiVersion": "batch/v1",
           "kind": "Job",
           "metadata": Object {
-            "annotations": Object {},
-            "labels": Object {},
             "name": "test-job-default-e0180087",
           },
           "spec": Object {
             "template": Object {
-              "metadata": Object {
-                "annotations": Object {},
-                "labels": Object {},
-              },
               "spec": Object {
                 "containers": Array [
                   Object {

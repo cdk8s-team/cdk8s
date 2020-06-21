@@ -12,7 +12,6 @@ Name|Description
 [EnvValue](#cdk8s-plus-envvalue)|Utility class for creating reading env values from various sources.
 [Job](#cdk8s-plus-job)|A Job creates one or more Pods and ensures that a specified number of them successfully terminate.
 [JobSpec](#cdk8s-plus-jobspec)|*No description*
-[ObjectMeta](#cdk8s-plus-objectmeta)|*No description*
 [Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
 [PodSpec](#cdk8s-plus-podspec)|A description of a pod.
 [PodTemplate](#cdk8s-plus-podtemplate)|Controllers for workload resources create Pods from a pod template and manage those Pods on your behalf.
@@ -44,7 +43,6 @@ Name|Description
 [JobProps](#cdk8s-plus-jobprops)|Properties for initialization of `Job`.
 [JobSpecProps](#cdk8s-plus-jobspecprops)|Properties for initialization of `JobSpec`.
 [MountOptions](#cdk8s-plus-mountoptions)|Options for mounts.
-[ObjectMetaProps](#cdk8s-plus-objectmetaprops)|Properties to create an ObjectMeta.
 [PathMapping](#cdk8s-plus-pathmapping)|Maps a string key to a path within a volume.
 [PodProps](#cdk8s-plus-podprops)|Properties for initialization of `Pod`.
 [PodSpecProps](#cdk8s-plus-podspecprops)|Properties for initialization of `PodSpec`.
@@ -105,7 +103,7 @@ new ConfigMap(scope: Construct, id: string, props?: ConfigMapProps)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[ConfigMapProps](#cdk8s-plus-configmapprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
   * **binaryData** (<code>Map<string, string></code>)  BinaryData contains the binary data. <span style="text-decoration: underline">*Optional*</span>
   * **data** (<code>Map<string, string></code>)  Data contains the configuration data. <span style="text-decoration: underline">*Optional*</span>
 
@@ -342,7 +340,7 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[DeploymentProps](#cdk8s-plus-deploymentprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
   * **spec** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  The spec of the deployment. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -813,7 +811,7 @@ new Job(scope: Construct, id: string, props?: JobProps)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[JobProps](#cdk8s-plus-jobprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
   * **spec** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  The spec of the job. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -861,77 +859,6 @@ Name | Type | Description
 
 
 
-## class ObjectMeta 🔹 <a id="cdk8s-plus-objectmeta"></a>
-
-
-
-
-### Initializer
-
-
-
-
-<span style="text-decoration: underline">Usage:</span>
-
-```ts
-new ObjectMeta(props?: ObjectMetaProps)
-```
-
-<span style="text-decoration: underline">Parameters:</span>
-* **props** (<code>[ObjectMetaProps](#cdk8s-plus-objectmetaprops)</code>)  *No description*
-  * **annotations** (<code>Map<string, string></code>)  Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. <span style="text-decoration: underline">*Default*</span>: No annotations.
-  * **labels** (<code>Map<string, string></code>)  Map of string keys and values that can be used to organize and categorize (scope and select) objects. <span style="text-decoration: underline">*Default*</span>: No labels.
-  * **name** (<code>string</code>)  The name to assign to the resource that is bound to this metadata object. <span style="text-decoration: underline">*Default*</span>: undefined
-  * **namespace** (<code>string</code>)  Namespace defines the space within each name must be unique. <span style="text-decoration: underline">*Default*</span>: undefined (will be assigned to the 'default' namespace)
-
-
-
-### Properties
-
-
-Name | Type | Description 
------|------|-------------
-**name**?🔹 | <code>string</code> | The name configured for this metadata object.<br/><span style="text-decoration: underline">*Optional*</span>
-
-### Methods
-
-
-#### addAnnotation(key, value)🔹 <a id="cdk8s-plus-objectmeta-addannotation"></a>
-
-Add an annotation.
-
-<span style="text-decoration: underline">Usage:</span>
-
-```ts
-addAnnotation(key: string, value: string): void
-```
-
-<span style="text-decoration: underline">Parameters:</span>
-* **key** (<code>string</code>)  - The key.
-* **value** (<code>string</code>)  - The value.
-
-
-
-
-#### addLabel(key, value)🔹 <a id="cdk8s-plus-objectmeta-addlabel"></a>
-
-Add a label.
-
-<span style="text-decoration: underline">Usage:</span>
-
-```ts
-addLabel(key: string, value: string): void
-```
-
-<span style="text-decoration: underline">Parameters:</span>
-* **key** (<code>string</code>)  - The key.
-* **value** (<code>string</code>)  - The value.
-
-
-
-
-
-
 ## class Pod 🔹 <a id="cdk8s-plus-pod"></a>
 
 Pod is a collection of containers that can run on a host.
@@ -957,7 +884,7 @@ new Pod(scope: Construct, id: string, props?: PodProps)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[PodProps](#cdk8s-plus-podprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
   * **spec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of the pod. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -1070,7 +997,7 @@ new PodTemplate(scope: Construct, name: string, props?: PodTemplateProps)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **name** (<code>string</code>)  *No description*
 * **props** (<code>[PodTemplateProps](#cdk8s-plus-podtemplateprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
   * **spec** (<code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
 
 
@@ -1103,7 +1030,7 @@ new PodTemplateSpec(props?: PodTemplateSpecProps)
 
 <span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[PodTemplateSpecProps](#cdk8s-plus-podtemplatespecprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  The metadata of the pod that will be created based on the template. <span style="text-decoration: underline">*Default*</span>: No metadata.
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The metadata of the pod that will be created based on the template. <span style="text-decoration: underline">*Default*</span>: No metadata.
   * **podSpec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of the pod that will be created based on the template. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -1113,7 +1040,7 @@ new PodTemplateSpec(props?: PodTemplateSpecProps)
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Provides access to the pod metadata this template uses.
+**metadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides access to the pod metadata this template uses.
 **podSpec**🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Provides access to the pod spec this template uses.
 
 
@@ -1137,14 +1064,14 @@ resource.
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-new Resource(scope: Construct, id: string, props: ResourceProps)
+new Resource(scope: Construct, id: string, _: ResourceProps)
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[ResourceProps](#cdk8s-plus-resourceprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+* **_** (<code>[ResourceProps](#cdk8s-plus-resourceprops)</code>)  *No description*
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1154,7 +1081,7 @@ new Resource(scope: Construct, id: string, props: ResourceProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**metadata**🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | The metadata associated with this resource.
+**metadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
 **name**🔹 | <code>string</code> | The name of this API object.
 
 
@@ -1185,6 +1112,7 @@ new Secret(scope: Construct, id: string, props?: SecretProps)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[SecretProps](#cdk8s-plus-secretprops)</code>)  *No description*
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1267,7 +1195,7 @@ new Service(scope: Construct, id: string, props?: ServiceProps)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[ServiceProps](#cdk8s-plus-serviceprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
   * **spec** (<code>[ServiceSpec](#cdk8s-plus-servicespec)</code>)  The spec of the service. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -1311,7 +1239,7 @@ new ServiceAccount(scope: Construct, id: string, props?: ServiceAccountProps)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[ServiceAccountProps](#cdk8s-plus-serviceaccountprops)</code>)  *No description*
-  * **metadata** (<code>[ObjectMeta](#cdk8s-plus-objectmeta)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
   * **secrets** (<code>Array<[ISecret](#cdk8s-plus-isecret)></code>)  List of secrets allowed to be used by pods running using this ServiceAccount. <span style="text-decoration: underline">*Optional*</span>
 
 
@@ -1760,7 +1688,7 @@ Name | Type | Description
 -----|------|-------------
 **binaryData**?🔹 | <code>Map<string, string></code> | BinaryData contains the binary data.<br/><span style="text-decoration: underline">*Optional*</span>
 **data**?🔹 | <code>Map<string, string></code> | Data contains the configuration data.<br/><span style="text-decoration: underline">*Optional*</span>
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1808,7 +1736,7 @@ Properties for initialization of `Deployment`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 **spec**?🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | The spec of the deployment.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -1966,7 +1894,7 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 **spec**?🔹 | <code>[JobSpec](#cdk8s-plus-jobspec)</code> | The spec of the job.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -2001,22 +1929,6 @@ Name | Type | Description
 
 
 
-## struct ObjectMetaProps 🔹 <a id="cdk8s-plus-objectmetaprops"></a>
-
-
-Properties to create an ObjectMeta.
-
-
-
-Name | Type | Description 
------|------|-------------
-**annotations**?🔹 | <code>Map<string, string></code> | Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.<br/><span style="text-decoration: underline">*Default*</span>: No annotations.
-**labels**?🔹 | <code>Map<string, string></code> | Map of string keys and values that can be used to organize and categorize (scope and select) objects.<br/><span style="text-decoration: underline">*Default*</span>: No labels.
-**name**?🔹 | <code>string</code> | The name to assign to the resource that is bound to this metadata object.<br/><span style="text-decoration: underline">*Default*</span>: undefined
-**namespace**?🔹 | <code>string</code> | Namespace defines the space within each name must be unique.<br/><span style="text-decoration: underline">*Default*</span>: undefined (will be assigned to the 'default' namespace)
-
-
-
 ## struct PathMapping 🔹 <a id="cdk8s-plus-pathmapping"></a>
 
 
@@ -2040,7 +1952,7 @@ Properties for initialization of `Pod`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 **spec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of the pod.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -2070,7 +1982,7 @@ Properties for initialization of `PodTemplate`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 **spec**?🔹 | <code>[PodTemplateSpec](#cdk8s-plus-podtemplatespec)</code> | <span style="text-decoration: underline">*Optional*</span>
 
 
@@ -2084,7 +1996,7 @@ Properties for initialization of `PodTemplateSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | The metadata of the pod that will be created based on the template.<br/><span style="text-decoration: underline">*Default*</span>: No metadata.
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The metadata of the pod that will be created based on the template.<br/><span style="text-decoration: underline">*Default*</span>: No metadata.
 **podSpec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of the pod that will be created based on the template.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 
@@ -2098,13 +2010,20 @@ Initialization properties for resources.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
 ## struct SecretProps 🔹 <a id="cdk8s-plus-secretprops"></a>
 
 
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -2119,7 +2038,7 @@ Properties for initialization of `ServiceAccount`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 **secrets**?🔹 | <code>Array<[ISecret](#cdk8s-plus-isecret)></code> | List of secrets allowed to be used by pods running using this ServiceAccount.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
@@ -2147,7 +2066,7 @@ Properties for initialization of `Service`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ObjectMeta](#cdk8s-plus-objectmeta)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
 **spec**?🔹 | <code>[ServiceSpec](#cdk8s-plus-servicespec)</code> | The spec of the service.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
 
 

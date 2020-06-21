@@ -40,7 +40,7 @@ export class Job extends Resource {
     this.spec = props.spec ?? new JobSpec();
 
     this.apiObject = new k8s.Job(this, 'Default', {
-      metadata: this.metadata._toKube(),
+      metadata: props.metadata,
       spec: lazy(() => this.spec._toKube()),
     });
   }

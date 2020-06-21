@@ -3,8 +3,8 @@ import { Construct } from 'constructs';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { lazy } from './utils';
-import { ObjectMeta } from './object-meta';
 import { PodSpec } from './pod';
+import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 
 /**
  * Properties for initialization of `PodTemplate`.
@@ -42,7 +42,7 @@ export class PodTemplate extends Resource {
     this.spec = props.spec ?? new PodTemplateSpec();
 
     this.apiObject = new k8s.PodTemplate(this, 'Pod', {
-      metadata: this.metadata._toKube(),
+      metadata: props.metadata,
       template: lazy(() => this.spec._toKube()),
     })
   }
@@ -59,7 +59,7 @@ export interface PodTemplateSpecProps {
    *
    * @default - No metadata.
    */
-  readonly metadata?: ObjectMeta;
+  readonly metadata?: ApiObjectMetadata;
 
   /**
    * The spec of the pod that will be created based on the template.
@@ -92,10 +92,10 @@ export class PodTemplateSpec {
    * You can use this field to apply post instantiation mutations
    * to the metadata.
    */
-  public readonly metadata: ObjectMeta;
+  public readonly metadata: ApiObjectMetadataDefinition;
 
   constructor(props: PodTemplateSpecProps = {}) {
-    this.metadata = props.metadata ?? new ObjectMeta();
+    this.metadata = new ApiObjectMetadataDefinition(props.metadata),
     this.podSpec = props.podSpec ?? new PodSpec();
   }
 
@@ -104,7 +104,7 @@ export class PodTemplateSpec {
    */
   public _toKube(): k8s.PodTemplateSpec {
     return {
-      metadata: this.metadata._toKube(),
+      metadata: this.metadata.toJson(),
       spec: this.podSpec._toKube(),
     };
   }

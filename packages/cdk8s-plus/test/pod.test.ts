@@ -124,7 +124,6 @@ describe('Pod', () => {
   });
 
   test('Can instantiate with props', () => {
-
     const spec = new kplus.PodSpec({
       containers: [
         new kplus.Container({
@@ -133,20 +132,15 @@ describe('Pod', () => {
       ],
     });
 
-    const metadata = new kplus.ObjectMeta({
-      name: 'name',
-    });
-
     const chart = Testing.chart();
 
     const pod = new kplus.Pod(chart, 'Pod', {
-      metadata: metadata,
+      metadata: { name: 'name' },
       spec: spec,
     });
 
     expect(pod.spec).toBeDefined();
     expect(pod.name).toEqual('name');
-
   });
 
   test('Generates spec lazily', () => {
@@ -172,8 +166,6 @@ describe('Pod', () => {
           "apiVersion": "v1",
           "kind": "Pod",
           "metadata": Object {
-            "annotations": Object {},
-            "labels": Object {},
             "name": "test-pod-pod-cc5a4f6a",
           },
           "spec": Object {

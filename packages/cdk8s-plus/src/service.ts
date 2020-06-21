@@ -93,7 +93,7 @@ export class Service extends Resource {
     this.spec = props.spec ?? new ServiceSpec();
 
     this.apiObject = new k8s.Service(this, 'Pod', {
-      metadata: this.metadata._toKube(),
+      metadata: props.metadata,
       spec: lazy(() => this.spec._toKube()),
     })
   }

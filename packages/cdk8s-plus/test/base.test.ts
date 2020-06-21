@@ -17,7 +17,7 @@ test('Can mutate metadata', () => {
       super(scope, id, props);
 
       this.apiObject = new ConfigMap(this, 'ConfigMap', {
-        metadata: this.metadata._toKube(),
+        metadata: props.metadata,
       });
     }
   }
@@ -35,7 +35,6 @@ test('Can mutate metadata', () => {
       labels: {
         key: 'value',
       },
-      annotations: {},
       name: 'test-custom-configmap-4cfa97cc',
     },
   }]);

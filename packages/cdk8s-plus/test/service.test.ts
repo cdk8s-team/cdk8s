@@ -22,10 +22,11 @@ describe('ServiceSpec', () => {
   });
 
   test('Must be configured with at least one port', () => {
-
     const spec = new kplus.ServiceSpec();
 
-    expect(() => spec._toKube()).toThrowError('A service must be configured with a port');
+    expect(() => spec._toKube()).toThrowError(
+      'A service must be configured with a port',
+    );
   });
 
   test('Can select by label', () => {
@@ -76,8 +77,6 @@ describe('Service', () => {
           "apiVersion": "v1",
           "kind": "Service",
           "metadata": Object {
-            "annotations": Object {},
-            "labels": Object {},
             "name": "test-service-pod-9164a1e2",
           },
           "spec": Object {

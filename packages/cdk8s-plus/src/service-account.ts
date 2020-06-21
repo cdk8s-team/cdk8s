@@ -66,7 +66,7 @@ export class ServiceAccount extends Resource implements IServiceAccount {
     this.secrets = props.secrets ?? [];
 
     this.apiObject = new k8s.ServiceAccount(this, 'Resource', {
-      metadata: this.metadata._toKube(),
+      metadata: props.metadata,
       secrets: lazy(() => undefinedIfEmpty(this.secrets.map(s => ({ name: s.name })))),
     });
   }
