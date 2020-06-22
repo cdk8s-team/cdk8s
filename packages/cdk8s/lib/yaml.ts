@@ -71,8 +71,8 @@ export class Yaml {
  * Loads a url (or file) and returns the contents.
  * This method spawns a child process in order to perform an http call synchronously.
  */
-function loadurl(url: string) {
+function loadurl(url: string): string {
   const loadurl = path.join(__dirname, '_loadurl.js');
-  return execFileSync(process.execPath, [ loadurl, url ], { encoding: 'utf-8' })
+  return execFileSync(process.execPath, [ loadurl, url ], { encoding: 'utf-8' }).toString()
 }
 

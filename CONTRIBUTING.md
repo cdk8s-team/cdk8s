@@ -190,8 +190,8 @@ This section includes information that is relevant for the maintainers of the pr
 
 ### Version
 
-The current version of the project is mastered in the root `package.json` file. All other 
-package.json files (and lerna.json) files use `0.0.0`. This allows bumping a new version without
+The current version of the project is mastered in the root `lerna.json` file. All other
+package.json files use `0.0.0`. This allows bumping a new version without
 needing to modify multiple files and avoid merge conflicts in post-release rebases.
 
 ### Release Protocol
@@ -202,7 +202,7 @@ To release a new version of cdk8s following these steps:
 $ yarn bump
 ```
 
-This will create a new CHANGELOG entry (from conventional commits), bump the version in 
+This will create a new CHANGELOG entry (from conventional commits), bump the version in
 `package.json` and create a bump commit.
 
 Now, push to `master` (in the future we will release from a release branch, but in the meantime we release directly from master):
