@@ -8,9 +8,6 @@ const marker = require('./get-version-marker');
 const repoVersion = process.argv[2]
 const files = process.argv.splice(3);
 
-console.log(`version: ${repoVersion}`)
-console.log(`files: ${files}`)
-
 for (const file of files) {
   const pkg = JSON.parse(fs.readFileSync(file).toString());
 
