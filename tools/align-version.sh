@@ -10,8 +10,10 @@ scriptdir=$(cd $(dirname $0) && pwd)
 cd ${scriptdir}/..
 
 suffix="${1:-}"
+
+version = $(node -p "require('./get-version')");
 files="./package.json $(npx lerna ls -p -a | xargs -n1 -I@ echo @/package.json)"
-${scriptdir}/align-version.js ${suffix} ${files}
+${scriptdir}/align-version.js ${version}${suffix} ${files}
 
 # validation
 marker=$(node -p "require('./tools/get-version-marker').replace(/\./g, '\\\.')")

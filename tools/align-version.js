@@ -5,8 +5,7 @@
 const fs = require('fs');
 
 const marker = require('./get-version-marker');
-const repoVersion = require('./get-version');
-const versionSuffix = process.argv[2]
+const repoVersion = process.argv[2]
 const files = process.argv.splice(3);
 
 console.log(`suffix: ${versionSuffix}`)
@@ -19,21 +18,20 @@ for (const file of files) {
     throw new Error(`unexpected - all package.json files in this repo should have a version of ${marker}: ${file}`);
   }
 
-  const newVersion = `${repoVersion}${versionSuffix}`;
-  pkg.version = newVersion;
+  pkg.version = repoVersion;
 
-  processSection(pkg.dependencies || { }, newVersion);
-  processSection(pkg.devDependencies || { }, newVersion);
-  processSection(pkg.peerDependencies || { }, newVersion);
+  processSection(pkg.dependencies || { });
+  processSection(pkg.devDependencies || { });
+  processSection(pkg.peerDependencies || { });
 
-  console.error(`${file} => ${newVersion}`);
+  console.error(`${file} => ${repoVersion}`);
   fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
 }
 
-function processSection(section, newVersion) {
+function processSection(section) {
   for (const [ name, version ] of Object.entries(section)) {
     if (version === marker || version === '^' + marker) {
-      section[name] = version.replace(marker, newVersion);
+      section[name] = version.replace(marker, repoVersion);
     }
   }
 }
