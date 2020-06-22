@@ -19,20 +19,21 @@ for (const file of files) {
     throw new Error(`unexpected - all package.json files in this repo should have a version of ${marker}: ${file}`);
   }
 
-  pkg.version = `${repoVersion}${versionSuffix}`;
+  const newVersion = `${repoVersion}${versionSuffix}`;
+  pkg.version = newVersion;
 
-  processSection(pkg.dependencies || { }, file);
-  processSection(pkg.devDependencies || { }, file);
-  processSection(pkg.peerDependencies || { }, file);
+  processSection(pkg.dependencies || { }, newVersion);
+  processSection(pkg.devDependencies || { }, newVersion);
+  processSection(pkg.peerDependencies || { }, newVersion);
 
-  console.error(`${file} => ${repoVersion}`);
+  console.error(`${file} => ${newVersion}`);
   fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
 }
 
-function processSection(section, file) {
+function processSection(section, version) {
   for (const [ name, version ] of Object.entries(section)) {
     if (version === marker || version === '^' + marker) {
-      section[name] = version.replace(marker, repoVersion);
+      section[name] = version.replace(marker, version);
     }
   }
 }
