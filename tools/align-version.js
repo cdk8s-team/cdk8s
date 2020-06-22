@@ -5,9 +5,10 @@
 const fs = require('fs');
 
 const marker = require('./get-version-marker');
-const repoVersion = require('./get-version');
+const repoVersion = process.argv[2]
+const files = process.argv.splice(3);
 
-for (const file of process.argv.splice(2)) {
+for (const file of files) {
   const pkg = JSON.parse(fs.readFileSync(file).toString());
 
   if (pkg.version !== marker) {
@@ -16,15 +17,15 @@ for (const file of process.argv.splice(2)) {
 
   pkg.version = repoVersion;
 
-  processSection(pkg.dependencies || { }, file);
-  processSection(pkg.devDependencies || { }, file);
-  processSection(pkg.peerDependencies || { }, file);
+  processSection(pkg.dependencies || { });
+  processSection(pkg.devDependencies || { });
+  processSection(pkg.peerDependencies || { });
 
   console.error(`${file} => ${repoVersion}`);
   fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
 }
 
-function processSection(section, file) {
+function processSection(section) {
   for (const [ name, version ] of Object.entries(section)) {
     if (version === marker || version === '^' + marker) {
       section[name] = version.replace(marker, repoVersion);
