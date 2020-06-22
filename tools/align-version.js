@@ -30,10 +30,10 @@ for (const file of files) {
   fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
 }
 
-function processSection(section, version) {
+function processSection(section, newVersion) {
   for (const [ name, version ] of Object.entries(section)) {
     if (version === marker || version === '^' + marker) {
-      section[name] = version.replace(marker, version);
+      section[name] = version.replace(marker, newVersion);
     }
   }
 }
