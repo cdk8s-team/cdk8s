@@ -8,7 +8,7 @@ const marker = require('./get-version-marker');
 const repoVersion = process.argv[2]
 const files = process.argv.splice(3);
 
-console.log(`suffix: ${versionSuffix}`)
+console.log(`version: ${repoVersion}`)
 console.log(`files: ${files}`)
 
 for (const file of files) {

@@ -11,7 +11,7 @@ cd ${scriptdir}/..
 
 suffix="${1:-}"
 
-version = $(node -p "require('./get-version')");
+version=$(node -p "require('./tools/get-version')")
 files="./package.json $(npx lerna ls -p -a | xargs -n1 -I@ echo @/package.json)"
 ${scriptdir}/align-version.js ${version}${suffix} ${files}
 
