@@ -6,15 +6,20 @@ const fs = require('fs');
 
 const marker = require('./get-version-marker');
 const repoVersion = require('./get-version');
+const versionSuffix = process.argv[2]
+const files = process.argv.splice(3);
 
-for (const file of process.argv.splice(2)) {
+console.log(`suffix: ${versionSuffix}`)
+console.log(`files: ${files}`)
+
+for (const file of files) {
   const pkg = JSON.parse(fs.readFileSync(file).toString());
 
   if (pkg.version !== marker) {
     throw new Error(`unexpected - all package.json files in this repo should have a version of ${marker}: ${file}`);
   }
 
-  pkg.version = repoVersion;
+  pkg.version = `${repoVersion}${versionSuffix}`;
 
   processSection(pkg.dependencies || { }, file);
   processSection(pkg.devDependencies || { }, file);
