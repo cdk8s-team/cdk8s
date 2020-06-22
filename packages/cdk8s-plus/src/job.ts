@@ -1,10 +1,9 @@
 import { Resource, ResourceProps } from './base';
-import { ApiObject } from 'cdk8s';
+import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 import { Construct } from 'constructs';
 
 import * as k8s from './imports/k8s';
-import { PodTemplateSpec } from './pod-template';
-import { RestartPolicy } from './pod';
+import { RestartPolicy, PodSpecProps, PodSpec } from './pod';
 import { Duration } from './duration';
 import { lazy } from './utils';
 
@@ -51,7 +50,8 @@ export class Job extends Resource {
  */
 export interface JobSpecProps {
 
-  readonly template?: PodTemplateSpec;
+  readonly podSpecTemplate?: PodSpecProps;
+  readonly podMetadataTemplate?: ApiObjectMetadata;
 
   /**
    * Limits the lifetime of a Job that has finished execution (either Complete
@@ -67,16 +67,18 @@ export interface JobSpecProps {
   readonly ttlAfterFinished?: Duration;
 }
 export class JobSpec {
+  public readonly podSpecTemplate: PodSpec;
+  public readonly podMetadataTemplate: ApiObjectMetadataDefinition;
 
-  public readonly template: PodTemplateSpec;
   public readonly ttlAfterFinished?: Duration;
 
   constructor(props: JobSpecProps = {}) {
-    this.template = props.template ?? new PodTemplateSpec();
+    this.podSpecTemplate = new PodSpec(props.podSpecTemplate),
+    this.podMetadataTemplate = new ApiObjectMetadataDefinition(props.podMetadataTemplate);
     this.ttlAfterFinished = props.ttlAfterFinished;
 
-    if (!this.template.podSpec.restartPolicy) {
-      this.template.podSpec.restartPolicy = RestartPolicy.NEVER;
+    if (!this.podSpecTemplate.restartPolicy) {
+      this.podSpecTemplate.restartPolicy = RestartPolicy.NEVER;
     }
   }
 
@@ -85,7 +87,10 @@ export class JobSpec {
    */
   public _toKube(): k8s.JobSpec {
     return {
-      template: this.template._toKube(),
+      template: {
+        metadata: this.podMetadataTemplate.toJson(),
+        spec: this.podSpecTemplate._toKube(),
+      },
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };
   }

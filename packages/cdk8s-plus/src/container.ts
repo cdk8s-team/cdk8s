@@ -187,8 +187,13 @@ export class Container {
    */
   public readonly mounts: VolumeMount[];
 
+
+  /**
+   * The container image.
+   */
+  public readonly image: string;
+
   private readonly name: string;
-  private readonly image: string;
   private readonly command?: string[];
   private readonly workingDir?: string;
   private readonly env: { [name: string]: EnvValue };

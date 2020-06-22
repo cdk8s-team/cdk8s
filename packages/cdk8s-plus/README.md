@@ -1,6 +1,6 @@
 # cdk8s+ (cdk8s-plus)
 
-**cdk8s+** is a software development framework that provides high level abstractions for authoring kuberenetes applications.
+**cdk8s+** is a software development framework that provides high level abstractions for authoring Kubernetes applications.
 Built on top of the auto generated building blocks provided by [cdk8s](../cdk8s), this library includes a hand crafted *construct*
 for each native kubernetes object, exposing richer API's with reduced complexity.
 
@@ -53,11 +53,9 @@ container.mount(appPath, appVolume);
 const deployment = new kplus.Deployment(chart, 'Deployment', {
   spec: new kplus.DeploymentSpec({
     replicas: 3,
-    template: new kplus.PodTemplateSpec({
-      podSpec: new kplus.PodSpec({
-        containers: [container],
-      }),
-    }),
+    podSpecTemplate: {
+      containers: [ container ]
+    }
   }),
 });
 
@@ -272,17 +270,15 @@ You can configure a TTL for the job after it finished its execution successfully
 import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus';
 
-// lets first create our pod template. this part if the same as configuring a pod.
-const podTemplateSpec = new kplus.PodTemplateSpec();
-podTemplateSpec.podSpec.addContainer(new kplus.Container({
-  image: 'loader'
-}))
-
-// now we use the pod template to define a job spec, and set a 1 second TTL.
+// let's define a job spec, and set a 1 second TTL.
 const jobSpec = new kplus.JobSpec({
-  template: podTemplateSpec,
   ttlAfterFinished: kplus.Duration.seconds(1),
-})
+});
+
+// now add a container to all the pods created by this job
+jobSpec.podSpecTemplate.addContainer(new kplus.Container({
+  image: 'loader'
+}));
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -349,16 +345,11 @@ import * as kplus from 'cdk8s-plus';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const podSpec = new kplus.PodSpec({
-  containers: [new kplus.Container({
-    image: 'node',
-  })],
-})
 new kplus.Deployment(chart, 'FrontEnds', {
   spec: new kplus.DeploymentSpec({
-    template: new kplus.PodTemplateSpec({
-      podSpec: podSpec,
-    }),
+    podSpecTemplate: {
+      containers: [ new kplus.Container({ image: 'node' }) ],
+    }
   }),
 });
 ```
@@ -392,13 +383,7 @@ Following up on pod selection, you can also easily create a service that will se
 ```typescript
 
 // store the deployment to created in a constant
-const frontends = new kplus.Deployment(chart, 'FrontEnds', {
-  spec: new kplus.DeploymentSpec({
-    template: new kplus.PodTemplateSpec({
-      podSpec: podSpec,
-    }),
-  }),
-});
+const frontends = new kplus.Deployment(chart, 'FrontEnds');
 
 // create a ClusterIP service that listens on port 9000 and redirects to port 9000 on the containers.
 frontends.expose({port: 9000})
@@ -548,27 +533,6 @@ const chart = new k.Chart(app, 'Chart');
 
 const pod = new new kplus.Pod(chart, 'Pod');
 pod.spec.serviceAccount = kplus.ServiceAccount.fromServiceAccountName('aws');
-```
-
-### `PodTemplate`
-
-A pod template is essentially the same as pod, except it only serves as a template. Its configuration properties are exactly the same, but when you provision it, no pods are actually created.
-Other resources (such as a deployment) can later reference this pod template to dynamically create templates.
-
-> API Reference: [Secret](./API.md#cdk8s-plus-secret)
-
-```typescript
-import * as kplus from 'cdk8s-plus';
-
-const app = new k.App();
-const chart = new k.Chart(app, 'Chart');
-
-const template = new new kplus.PodTemplate(chart, 'PodTemplate');
-
-// access the underlying pod spec and apply mutations
-template.spec.podSpec.addContainer(new kplus.Container({
-  image: 'node',
-}))
 ```
 
 ### `Secret`

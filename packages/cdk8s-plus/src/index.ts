@@ -4,7 +4,6 @@ export * from './container';
 export * from './deployment';
 export * from './duration';
 export * from './job';
-export * from './pod-template';
 export * from './pod';
 export * from './secret';
 export * from './service-account';

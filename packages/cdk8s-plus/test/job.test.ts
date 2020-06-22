@@ -4,15 +4,14 @@ import { Testing } from 'cdk8s';
 
 describe('JobSpec', () => {
   test('Instantiation properties are all respected', () => {
-    const podTemplateSpec = new kplus.PodTemplateSpec();
-    podTemplateSpec.podSpec.addContainer(
-      new kplus.Container({
-        image: 'image',
-      }),
-    );
-
     const spec = new kplus.JobSpec({
-      template: podTemplateSpec,
+      podSpecTemplate: {
+        containers: [
+          new kplus.Container({
+            image: 'image',
+          }),
+        ],
+      },
       ttlAfterFinished: kplus.Duration.seconds(1),
     });
 
@@ -23,16 +22,11 @@ describe('JobSpec', () => {
   });
 
   test('Does not modify existing restart policy of pod spec', () => {
-    const podTemplateSpec = new kplus.PodTemplateSpec();
-    podTemplateSpec.podSpec.addContainer(
-      new kplus.Container({
-        image: 'image',
-      }),
-    );
-    podTemplateSpec.podSpec.restartPolicy = kplus.RestartPolicy.ALWAYS;
-
     const spec = new kplus.JobSpec({
-      template: podTemplateSpec,
+      podSpecTemplate: {
+        containers: [ new kplus.Container({ image: 'image' }) ],
+        restartPolicy: kplus.RestartPolicy.ALWAYS,
+      },
       ttlAfterFinished: kplus.Duration.seconds(1),
     });
 
@@ -42,15 +36,10 @@ describe('JobSpec', () => {
   });
 
   test('Applies default restart policy to pod spec', () => {
-    const podTemplateSpec = new kplus.PodTemplateSpec();
-    podTemplateSpec.podSpec.addContainer(
-      new kplus.Container({
-        image: 'image',
-      }),
-    );
-
     const spec = new kplus.JobSpec({
-      template: podTemplateSpec,
+      podSpecTemplate: {
+        containers: [ new kplus.Container({ image: 'image' }) ],
+      },
       ttlAfterFinished: kplus.Duration.seconds(1),
     });
 
@@ -77,7 +66,7 @@ describe('Pod', () => {
     const chart = Testing.chart();
     const job = new kplus.Job(chart, 'Job');
 
-    job.spec.template.podSpec.addContainer(
+    job.spec.podSpecTemplate.addContainer(
       new kplus.Container({
         image: 'image',
       }),
