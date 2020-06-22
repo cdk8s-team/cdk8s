@@ -24,6 +24,7 @@ describe('DeploymentSpec', () => {
     expect(spec.podSpecTemplate.serviceAccount?.name).toBe('my-service-account');
     expect(spec.podSpecTemplate.containers[0].image).toBe('my-image');
   });
+
   test('Can select labels', () => {
     const spec = new kplus.DeploymentSpec();
 
@@ -83,6 +84,7 @@ describe('Deployment', () => {
     const chart = Testing.chart();
 
     const deployment = new kplus.Deployment(chart, 'Deployment');
+
     deployment.spec.podSpecTemplate.addContainer(
       new kplus.Container({
         image: 'image',

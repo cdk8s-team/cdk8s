@@ -58,8 +58,8 @@ export class ConfigMap extends Resource implements IConfigMap {
 
   protected readonly apiObject: cdk8s.ApiObject;
 
-  private readonly binaryData: { [key: string]: string } = { };
-  private readonly data: { [key: string]: string } = { };
+  private readonly _binaryData: { [key: string]: string } = { };
+  private readonly _data: { [key: string]: string } = { };
 
   public constructor(scope: Construct, id: string, props: ConfigMapProps = { }) {
     super(scope, id, props);
@@ -91,7 +91,16 @@ export class ConfigMap extends Resource implements IConfigMap {
   public addData(key: string, value: string) {
     this.verifyKeyAvailable(key);
 
-    this.data[key] = value;
+    this._data[key] = value;
+  }
+
+  /**
+   * The data associated with this config map.
+   *
+   * Returns an copy. To add data records, use `addData()` or `addBinaryData()`.
+   */
+  public get data(): Record<string, string> {
+    return { ...this._data };
   }
 
   /**
@@ -105,7 +114,16 @@ export class ConfigMap extends Resource implements IConfigMap {
   public addBinaryData(key: string, value: string) {
     this.verifyKeyAvailable(key);
 
-    this.binaryData[key] = value;
+    this._binaryData[key] = value;
+  }
+
+  /**
+   * The binary data associated with this config map.
+   *
+   * Returns a copy. To add data records, use `addBinaryData()` or `addData()`.
+   */
+  public get binaryData(): Record<string, string> {
+    return { ...this._binaryData };
   }
 
   /**
@@ -126,7 +144,6 @@ export class ConfigMap extends Resource implements IConfigMap {
    * @param options Options
    */
   public addDirectory(localDir: string, options: AddDirectoryOptions = { }) {
-
     const exclude = options.exclude ?? [];
     const shouldInclude = (file: string) => {
       for (const pattern of exclude) {
@@ -156,21 +173,19 @@ export class ConfigMap extends Resource implements IConfigMap {
   }
 
   private verifyKeyAvailable(key: string) {
-    if (key in this.data || key in this.binaryData) {
+    if (key in this._data || key in this._binaryData) {
       throw new Error(`unable to add a ConfigMap entry with key "${key}". It is already used`);
     }
   }
 
   private synthesizeData() {
-    return undefinedIfEmpty(this.data);
+    return undefinedIfEmpty(this._data);
   }
 
   private synthesizeBinaryData() {
-    return undefinedIfEmpty(this.binaryData);
+    return undefinedIfEmpty(this._binaryData);
   }
-
 }
-
 
 /**
  * Options for `configmap.addDirectory()`

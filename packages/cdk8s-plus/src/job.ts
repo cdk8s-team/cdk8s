@@ -49,8 +49,14 @@ export class Job extends Resource {
  * Properties for initialization of `JobSpec`.
  */
 export interface JobSpecProps {
-
+  /**
+   * The spec of pods created by this job.
+   */
   readonly podSpecTemplate?: PodSpecProps;
+
+  /**
+   * The metadata of pods created by this job.
+   */
   readonly podMetadataTemplate?: ApiObjectMetadata;
 
   /**
@@ -66,20 +72,30 @@ export interface JobSpecProps {
    */
   readonly ttlAfterFinished?: Duration;
 }
+
 export class JobSpec {
+  /**
+   * The spec for pods created by this job.
+   */
   public readonly podSpecTemplate: PodSpec;
+
+  /**
+   * The metadata for pods created by this job.
+   */
   public readonly podMetadataTemplate: ApiObjectMetadataDefinition;
 
+  /**
+   * TTL before the job is deleted after it is finished.
+   */
   public readonly ttlAfterFinished?: Duration;
 
   constructor(props: JobSpecProps = {}) {
-    this.podSpecTemplate = new PodSpec(props.podSpecTemplate),
+    this.podSpecTemplate = new PodSpec({
+      restartPolicy: props.podSpecTemplate?.restartPolicy ?? RestartPolicy.NEVER,
+      ...props.podSpecTemplate,
+    });
     this.podMetadataTemplate = new ApiObjectMetadataDefinition(props.podMetadataTemplate);
     this.ttlAfterFinished = props.ttlAfterFinished;
-
-    if (!this.podSpecTemplate.restartPolicy) {
-      this.podSpecTemplate.restartPolicy = RestartPolicy.NEVER;
-    }
   }
 
   /**

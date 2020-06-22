@@ -34,7 +34,7 @@ describe('ServiceSpec', () => {
       ports: [{ port: 9000, targetPort: 80 }],
     });
 
-    spec.selectByLabel('key', 'value');
+    spec.addSelector('key', 'value');
 
     const actual: k.ServiceSpec = spec._toKube();
 
@@ -44,12 +44,11 @@ describe('ServiceSpec', () => {
   test('Can serve by port', () => {
     const spec = new kplus.ServiceSpec();
 
-    const port = { port: 9000, targetPort: 80 };
-    spec.serve(port);
+    spec.serve(9000, { targetPort: 80 });
 
     const actual: k.ServiceSpec = spec._toKube();
 
-    expect(actual.ports).toEqual([port]);
+    expect(actual.ports).toEqual([ { port: 9000, targetPort: 80 } ]);
   });
 });
 
@@ -68,8 +67,8 @@ describe('Service', () => {
     const chart = Testing.chart();
     const service = new kplus.Service(chart, 'Service');
 
-    service.spec.selectByLabel('key', 'value');
-    service.spec.serve({ port: 9000 });
+    service.spec.addSelector('key', 'value');
+    service.spec.serve(9000);
 
     expect(Testing.synth(chart)).toMatchInlineSnapshot(`
       Array [

@@ -22,7 +22,7 @@ describe('EnvValue', () => {
         key: 'key',
         name: 'ConfigMap',
       },
-    })
+    });
 
   });
 
@@ -42,14 +42,14 @@ describe('EnvValue', () => {
 
   test('Cannot be created from missing required process env', () => {
 
-    const key = 'cdk8s-plus.tests.container.env.fromProcess'
+    const key = 'cdk8s-plus.tests.container.env.fromProcess';
     expect(() => kplus.EnvValue.fromProcess(key, {required: true})).toThrowError(`Missing ${key} env variable`);
 
   });
 
   test('Can be created from missing optional process env', () => {
 
-    const key = 'cdk8s-plus.tests.container.env.fromProcess'
+    const key = 'cdk8s-plus.tests.container.env.fromProcess';
     const actual = kplus.EnvValue.fromProcess(key);
 
     expect(actual.value).toBeUndefined();
@@ -59,7 +59,7 @@ describe('EnvValue', () => {
 
   test('Can be created from existing process env', () => {
 
-    const key = 'cdk8s-plus.tests.container.env.fromProcess'
+    const key = 'cdk8s-plus.tests.container.env.fromProcess';
     try {
       process.env[key] = 'value';
       const actual = kplus.EnvValue.fromProcess(key);
@@ -68,7 +68,7 @@ describe('EnvValue', () => {
       expect(actual.valueFrom).toBeUndefined();
 
     } finally {
-      delete process.env[key]
+      delete process.env[key];
     }
 
   });
@@ -106,7 +106,7 @@ describe('Container', () => {
         valueFrom: undefined,
       }],
       volumeMounts: [],
-    }
+    };
 
     expect(actual).toEqual(expected);
 
@@ -116,7 +116,7 @@ describe('Container', () => {
 
     const container = new kplus.Container({
       image: 'image',
-    })
+    });
 
     container.addEnv('key', kplus.EnvValue.fromValue('value'));
 
@@ -125,7 +125,7 @@ describe('Container', () => {
       name: 'key',
       value: 'value',
       valueFrom: undefined,
-    }]
+    }];
 
     expect(actual).toEqual(expected);
 
@@ -135,7 +135,7 @@ describe('Container', () => {
 
     const container = new kplus.Container({
       image: 'image',
-    })
+    });
 
     const volume = kplus.Volume.fromConfigMap(kplus.ConfigMap.fromConfigMapName('ConfigMap'));
 
@@ -144,9 +144,9 @@ describe('Container', () => {
     const expected: k8s.VolumeMount = {
       mountPath: '/path/to/mount',
       name: volume.name,
-    }
+    };
 
-    expect(container._toKube().volumeMounts).toEqual([expected])
+    expect(container._toKube().volumeMounts).toEqual([expected]);
   });
 
   test('mount options', () => {

@@ -48,6 +48,7 @@ Name|Description
 [SecretProps](#cdk8s-plus-secretprops)|*No description*
 [ServiceAccountProps](#cdk8s-plus-serviceaccountprops)|Properties for initialization of `ServiceAccount`.
 [ServicePort](#cdk8s-plus-serviceport)|Definition of a service port.
+[ServicePortOptions](#cdk8s-plus-serviceportoptions)|*No description*
 [ServiceProps](#cdk8s-plus-serviceprops)|Properties for initialization of `Service`.
 [ServiceSpecProps](#cdk8s-plus-servicespecprops)|Properties for initialization of `ServiceSpec`.
 [SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)|Options for how to convert time to a different unit.
@@ -71,6 +72,7 @@ Name|Description
 ----|-----------
 [EmptyDirMedium](#cdk8s-plus-emptydirmedium)|The medium on which to store the volume.
 [MountPropagation](#cdk8s-plus-mountpropagation)|*No description*
+[Protocol](#cdk8s-plus-protocol)|*No description*
 [RestartPolicy](#cdk8s-plus-restartpolicy)|Restart policy for all containers within the pod.
 [ServiceType](#cdk8s-plus-servicetype)|For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that's outside of your cluster.
 [SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)|Rounding behaviour when converting between units of `Size`.
@@ -111,6 +113,8 @@ new ConfigMap(scope: Construct, id: string, props?: ConfigMapProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
+**binaryData**🔹 | <code>Map<string, string></code> | The binary data associated with this config map.
+**data**🔹 | <code>Map<string, string></code> | The data associated with this config map.
 
 ### Methods
 
@@ -239,9 +243,13 @@ new Container(props: ContainerProps)
 
 Name | Type | Description 
 -----|------|-------------
+**env**🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | The environment variables for this container.
 **image**🔹 | <code>string</code> | The container image.
 **mounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Volume mounts configured for this container.
+**name**🔹 | <code>string</code> | The name of the container.
+**command**?🔹 | <code>Array<string></code> | Entrypoint array (the command to execute when the container starts).<br/><span style="text-decoration: underline">*Optional*</span>
 **port**?🔹 | <code>number</code> | The port this container exposes.<br/><span style="text-decoration: underline">*Optional*</span>
+**workingDir**?🔹 | <code>string</code> | The working directory inside the container.<br/><span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
@@ -404,8 +412,10 @@ new DeploymentSpec(props?: DeploymentSpecProps)
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadataTemplate**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**labelSelector**🔹 | <code>Map<string, string></code> | The labels this deployment will match against in order to select pods.
+**podMetadataTemplate**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Template for pod metadata.
 **podSpecTemplate**🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Provides access to the underlying pod template spec.
+**replicas**?🔹 | <code>number</code> | Number of desired pods.<br/><span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
@@ -843,8 +853,8 @@ new JobSpec(props?: JobSpecProps)
 
 <span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[JobSpecProps](#cdk8s-plus-jobspecprops)</code>)  *No description*
-  * **podMetadataTemplate** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
-  * **podSpecTemplate** (<code>[PodSpecProps](#cdk8s-plus-podspecprops)</code>)  *No description* <span style="text-decoration: underline">*Optional*</span>
+  * **podMetadataTemplate** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The metadata of pods created by this job. <span style="text-decoration: underline">*Optional*</span>
+  * **podSpecTemplate** (<code>[PodSpecProps](#cdk8s-plus-podspecprops)</code>)  The spec of pods created by this job. <span style="text-decoration: underline">*Optional*</span>
   * **ttlAfterFinished** (<code>[Duration](#cdk8s-plus-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). <span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
 
 
@@ -854,9 +864,9 @@ new JobSpec(props?: JobSpecProps)
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadataTemplate**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
-**podSpecTemplate**🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | <span></span>
-**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | <span style="text-decoration: underline">*Optional*</span>
+**podMetadataTemplate**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | The metadata for pods created by this job.
+**podSpecTemplate**🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec for pods created by this job.
+**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | TTL before the job is deleted after it is finished.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1040,6 +1050,7 @@ new Secret(scope: Construct, id: string, props?: SecretProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[SecretProps](#cdk8s-plus-secretprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **stringData** (<code>Map<string, string></code>)  stringData allows specifying non-binary secret data in string form. <span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1055,7 +1066,7 @@ Name | Type | Description
 
 #### addStringData(key, value)🔹 <a id="cdk8s-plus-secret-addstringdata"></a>
 
-
+Adds a string data field to the secert.
 
 <span style="text-decoration: underline">Usage:</span>
 
@@ -1064,11 +1075,27 @@ addStringData(key: string, value: string): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **key** (<code>string</code>)  *No description*
-* **value** (<code>string</code>)  *No description*
+* **key** (<code>string</code>)  Key.
+* **value** (<code>string</code>)  Value.
 
 
 
+
+#### getStringData(key)🔹 <a id="cdk8s-plus-secret-getstringdata"></a>
+
+Gets a string data by key or undefined.
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+getStringData(key: string): string
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **key** (<code>string</code>)  Key.
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>string</code>
 
 #### *static* fromSecretName(name)🔹 <a id="cdk8s-plus-secret-fromsecretname"></a>
 
@@ -1177,7 +1204,7 @@ new ServiceAccount(scope: Construct, id: string, props?: ServiceAccountProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**secrets**🔹 | <code>Array<[ISecret](#cdk8s-plus-isecret)></code> | List of secrets allowed to be used by pods running using this ServiceAccount.
+**secrets**🔹 | <code>Array<[ISecret](#cdk8s-plus-isecret)></code> | List of secrets allowed to be used by pods running using this service account.
 
 ### Methods
 
@@ -1234,33 +1261,43 @@ new ServiceSpec(props?: ServiceSpecProps)
 
 <span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[ServiceSpecProps](#cdk8s-plus-servicespecprops)</code>)  *No description*
-  * **clusterIP** (<code>string</code>)  clusterIP is the IP address of the service and is usually assigned randomly by the master. <span style="text-decoration: underline">*Default*</span>: Automatically assigned.
-  * **externalIPs** (<code>Array<string></code>)  externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service. <span style="text-decoration: underline">*Default*</span>: No external IPs.
+  * **clusterIP** (<code>string</code>)  The IP address of the service and is usually assigned randomly by the master. <span style="text-decoration: underline">*Default*</span>: Automatically assigned.
+  * **externalIPs** (<code>Array<string></code>)  A list of IP addresses for which nodes in the cluster will also accept traffic for this service. <span style="text-decoration: underline">*Default*</span>: No external IPs.
   * **ports** (<code>Array<[ServicePort](#cdk8s-plus-serviceport)></code>)  The port exposed by this service. <span style="text-decoration: underline">*Optional*</span>
-  * **type** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  type determines how the Service is exposed. <span style="text-decoration: underline">*Default*</span>: 'ClusterIP'.
+  * **type** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  Determines how the Service is exposed. <span style="text-decoration: underline">*Default*</span>: ServiceType.ClusterIP
 
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**selector**🔹 | <code>Map<string, string></code> | Returns the labels which are used to select pods for this service.
+**type**🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | Determines how the Service is exposed.
+**clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/><span style="text-decoration: underline">*Optional*</span>
 
 ### Methods
 
 
-#### selectByLabel(key, value)🔹 <a id="cdk8s-plus-servicespec-selectbylabel"></a>
+#### addSelector(label, value)🔹 <a id="cdk8s-plus-servicespec-addselector"></a>
 
 Services defined using this spec will select pods according the provided label.
 
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-selectByLabel(key: string, value: string): void
+addSelector(label: string, value: string): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **key** (<code>string</code>)  The label key.
+* **label** (<code>string</code>)  The label key.
 * **value** (<code>string</code>)  The label value.
 
 
 
 
-#### serve(port)🔹 <a id="cdk8s-plus-servicespec-serve"></a>
+#### serve(port, options?)🔹 <a id="cdk8s-plus-servicespec-serve"></a>
 
 Configure a port the service will bind to.
 
@@ -1269,12 +1306,15 @@ This method can be called multiple times.
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-serve(port: ServicePort): void
+serve(port: number, options?: ServicePortOptions): void
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
-* **port** (<code>[ServicePort](#cdk8s-plus-serviceport)</code>)  The port definition.
-  * **port** (<code>number</code>)  The port number the service will bind to. 
+* **port** (<code>number</code>)  The port definition.
+* **options** (<code>[ServicePortOptions](#cdk8s-plus-serviceportoptions)</code>)  *No description*
+  * **name** (<code>string</code>)  The name of this port within the service. <span style="text-decoration: underline">*Optional*</span>
+  * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. <span style="text-decoration: underline">*Default*</span>: to auto-allocate a port if the ServiceType of this Service requires one.
+  * **protocol** (<code>[Protocol](#cdk8s-plus-protocol)</code>)  The IP protocol for this port. <span style="text-decoration: underline">*Default*</span>: Protocol.TCP
   * **targetPort** (<code>number</code>)  The port number the service will redirect to. <span style="text-decoration: underline">*Default*</span>: The value of `port` will be used.
 
 
@@ -1836,8 +1876,8 @@ Properties for initialization of `JobSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadataTemplate**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | <span style="text-decoration: underline">*Optional*</span>
-**podSpecTemplate**?🔹 | <code>[PodSpecProps](#cdk8s-plus-podspecprops)</code> | <span style="text-decoration: underline">*Optional*</span>
+**podMetadataTemplate**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The metadata of pods created by this job.<br/><span style="text-decoration: underline">*Optional*</span>
+**podSpecTemplate**?🔹 | <code>[PodSpecProps](#cdk8s-plus-podspecprops)</code> | The spec of pods created by this job.<br/><span style="text-decoration: underline">*Optional*</span>
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/><span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
 
 
@@ -1925,6 +1965,7 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**stringData**?🔹 | <code>Map<string, string></code> | stringData allows specifying non-binary secret data in string form.<br/><span style="text-decoration: underline">*Optional*</span>
 
 
 
@@ -1954,6 +1995,25 @@ Definition of a service port.
 Name | Type | Description 
 -----|------|-------------
 **port**🔹 | <code>number</code> | The port number the service will bind to.
+**name**?🔹 | <code>string</code> | The name of this port within the service.<br/><span style="text-decoration: underline">*Optional*</span>
+**nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/><span style="text-decoration: underline">*Default*</span>: to auto-allocate a port if the ServiceType of this Service requires one.
+**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-protocol)</code> | The IP protocol for this port.<br/><span style="text-decoration: underline">*Default*</span>: Protocol.TCP
+**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/><span style="text-decoration: underline">*Default*</span>: The value of `port` will be used.
+
+
+
+## struct ServicePortOptions 🔹 <a id="cdk8s-plus-serviceportoptions"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**name**?🔹 | <code>string</code> | The name of this port within the service.<br/><span style="text-decoration: underline">*Optional*</span>
+**nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/><span style="text-decoration: underline">*Default*</span>: to auto-allocate a port if the ServiceType of this Service requires one.
+**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-protocol)</code> | The IP protocol for this port.<br/><span style="text-decoration: underline">*Default*</span>: Protocol.TCP
 **targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/><span style="text-decoration: underline">*Default*</span>: The value of `port` will be used.
 
 
@@ -1981,10 +2041,10 @@ Properties for initialization of `ServiceSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**clusterIP**?🔹 | <code>string</code> | clusterIP is the IP address of the service and is usually assigned randomly by the master.<br/><span style="text-decoration: underline">*Default*</span>: Automatically assigned.
-**externalIPs**?🔹 | <code>Array<string></code> | externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.<br/><span style="text-decoration: underline">*Default*</span>: No external IPs.
+**clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/><span style="text-decoration: underline">*Default*</span>: Automatically assigned.
+**externalIPs**?🔹 | <code>Array<string></code> | A list of IP addresses for which nodes in the cluster will also accept traffic for this service.<br/><span style="text-decoration: underline">*Default*</span>: No external IPs.
 **ports**?🔹 | <code>Array<[ServicePort](#cdk8s-plus-serviceport)></code> | The port exposed by this service.<br/><span style="text-decoration: underline">*Optional*</span>
-**type**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | type determines how the Service is exposed.<br/><span style="text-decoration: underline">*Default*</span>: 'ClusterIP'.
+**type**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | Determines how the Service is exposed.<br/><span style="text-decoration: underline">*Default*</span>: ServiceType.ClusterIP
 
 
 
@@ -2051,6 +2111,17 @@ Name | Description
 **NONE** 🔹|This volume mount will not receive any subsequent mounts that are mounted to this volume or any of its subdirectories by the host.
 **HOST_TO_CONTAINER** 🔹|This volume mount will receive all subsequent mounts that are mounted to this volume or any of its subdirectories.
 **BIDIRECTIONAL** 🔹|This volume mount behaves the same the HostToContainer mount.
+
+
+## enum Protocol 🔹 <a id="cdk8s-plus-protocol"></a>
+
+
+
+Name | Description
+-----|-----
+**TCP** 🔹|
+**UDP** 🔹|
+**SCTP** 🔹|
 
 
 ## enum RestartPolicy 🔹 <a id="cdk8s-plus-restartpolicy"></a>

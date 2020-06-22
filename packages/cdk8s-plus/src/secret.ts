@@ -4,7 +4,13 @@ import { Construct } from 'constructs';
 import * as k8s from './imports/k8s';
 
 export interface SecretProps extends ResourceProps {
-
+  /**
+   * stringData allows specifying non-binary secret data in string form. It is
+   * provided as a write-only convenience method. All keys and values are merged
+   * into the data field on write, overwriting any existing values. It is never
+   * output when reading from the API.
+   */
+  readonly stringData?: { [key: string]: string };
 }
 
 export interface ISecret extends IResource {
@@ -36,18 +42,28 @@ export class Secret extends Resource implements ISecret {
   public constructor(scope: Construct, id: string, props: SecretProps = { }) {
     super(scope, id, props);
 
-    this.stringData = {};
+    this.stringData = props.stringData ?? {};
 
     this.apiObject = new k8s.Secret(this, 'Secret', {
       metadata: props.metadata,
       stringData: this.stringData,
-    })
+    });
   }
 
+  /**
+   * Adds a string data field to the secert.
+   * @param key Key
+   * @param value Value
+   */
   public addStringData(key: string, value: string) {
     this.stringData[key] = value;
   }
 
+  /**
+   * Gets a string data by key or undefined
+   * @param key Key
+   */
+  public getStringData(key: string): string | undefined {
+    return this.stringData[key];
+  }
 }
-
-

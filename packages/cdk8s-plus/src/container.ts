@@ -65,7 +65,7 @@ export class EnvValue {
         key,
         optional: options.optional,
       },
-    }
+    };
     return new EnvValue(undefined, source);
   }
 
@@ -84,7 +84,7 @@ export class EnvValue {
         key,
         optional: options.optional,
       },
-    }
+    };
 
     return new EnvValue(undefined, source);
   }
@@ -187,25 +187,40 @@ export class Container {
    */
   public readonly mounts: VolumeMount[];
 
-
   /**
    * The container image.
    */
   public readonly image: string;
 
-  private readonly name: string;
-  private readonly command?: string[];
-  private readonly workingDir?: string;
-  private readonly env: { [name: string]: EnvValue };
+  /**
+   * The name of the container.
+   */
+  public readonly name: string;
+
+  /**
+   * The working directory inside the container.
+   */
+  public readonly workingDir?: string;
+
+  private readonly _command?: readonly string[];
+  private readonly _env: { [name: string]: EnvValue };
 
   constructor(props: ContainerProps) {
     this.name = props.name ?? 'main';
     this.image = props.image;
     this.port = props.port;
-    this.command = props.command;
-    this.env = props.env ?? { };
+    this._command = props.command;
+    this._env = props.env ?? { };
     this.workingDir = props.workingDir;
     this.mounts = props.volumeMounts ?? [];
+  }
+
+  /**
+   * Entrypoint array (the command to execute when the container starts).
+   * @returns a copy of the entrypoint array, cannot be modified
+   */
+  public get command(): string[] | undefined {
+    return this._command ? [ ...this._command ] : undefined;
   }
 
   /**
@@ -218,7 +233,16 @@ export class Container {
    * @param value - The variable value.
    */
   public addEnv(name: string, value: EnvValue) {
-    this.env[name] = value;
+    this._env[name] = value;
+  }
+
+  /**
+   * The environment variables for this container.
+   *
+   * Returns a copy. To add environment variables use `addEnv()`.
+   */
+  public get env(): Record<string, EnvValue> {
+    return { ...this._env };
   }
 
   /**
@@ -264,10 +288,9 @@ export class Container {
       volumeMounts,
       command: this.command,
       workingDir: this.workingDir,
-      env: renderEnv(this.env),
-    }
+      env: renderEnv(this._env),
+    };
   }
-
 }
 
 /**

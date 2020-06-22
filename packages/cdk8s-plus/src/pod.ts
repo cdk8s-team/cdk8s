@@ -26,10 +26,6 @@ export interface PodProps extends ResourceProps {
  * created by clients and scheduled onto hosts.
  */
 export class Pod extends Resource {
-
-  /**
-   * @see base.Resource.apiObject
-   */
   protected readonly apiObject: cdk8s.ApiObject;
 
   /**
@@ -50,7 +46,6 @@ export class Pod extends Resource {
       spec: lazy(() => this.spec._toKube()),
     });
   }
-
 }
 
 /**
@@ -129,32 +124,33 @@ export enum RestartPolicy {
  * A description of a pod.
  */
 export class PodSpec {
-
-  /**
-   * List of containers belonging to the pod.
-   */
-  public readonly containers: Container[];
-
-  /**
-   * List of volumes that can be mounted by containers belonging to the pod.
-   */
-  public readonly volumes: Volume[];
-
   /**
    * Restart policy for all containers within the pod.
    */
-  public restartPolicy?: RestartPolicy;
+  public readonly restartPolicy?: RestartPolicy;
 
   /**
    * The service account used to run this pod.
    */
-  public serviceAccount?: IServiceAccount;
+  public readonly serviceAccount?: IServiceAccount;
+
+  private readonly _containers: Container[];
+  private readonly _volumes: Volume[];
 
   constructor(props: PodSpecProps = {}) {
-    this.containers = props.containers ?? [];
-    this.volumes = props.volumes ?? [];
+    this._containers = props.containers ?? [];
+    this._volumes = props.volumes ?? [];
     this.restartPolicy = props.restartPolicy;
     this.serviceAccount = props.serviceAccount;
+  }
+
+  /**
+   * List of containers belonging to the pod.
+   *
+   * @returns a copy - do not modify
+   */
+  public get containers(): Container[] {
+    return [ ...this._containers ];
   }
 
   /**
@@ -163,7 +159,7 @@ export class PodSpec {
    * @param container The container to add
    */
   public addContainer(container: Container): void {
-    this.containers.push(container);
+    this._containers.push(container);
   }
 
   /**
@@ -172,7 +168,16 @@ export class PodSpec {
    * @param volume The volume to add
    */
   public addVolume(volume: Volume): void {
-    this.volumes.push(volume);
+    this._volumes.push(volume);
+  }
+
+  /**
+   * List of volumes that can be mounted by containers belonging to the pod.
+   *
+   * Returns a copy. To add volumes, use `addVolume()`.
+   */
+  public get volumes() {
+    return [ ...this._volumes ];
   }
 
   /**
@@ -198,7 +203,7 @@ export class PodSpec {
       containers.push(container._toKube());
     }
 
-    for (const volume of this.volumes) {
+    for (const volume of this._volumes) {
       volumes.push(volume._toKube());
     }
 

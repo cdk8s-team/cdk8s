@@ -49,25 +49,21 @@ export class ServiceAccount extends Resource implements IServiceAccount {
    * @param name The name of the service account resource.
    */
   public static fromServiceAccountName(name: string): IServiceAccount {
-    return { name: name }
+    return { name: name };
   }
 
   protected readonly apiObject: ApiObject;
 
-  /**
-   * List of secrets allowed to be used by pods running using this
-   * ServiceAccount.
-   */
-  public readonly secrets: ISecret[];
+  private readonly _secrets: ISecret[];
 
   constructor(scope: Construct, id: string, props: ServiceAccountProps = { }) {
     super(scope, id, props);
 
-    this.secrets = props.secrets ?? [];
+    this._secrets = props.secrets ?? [];
 
     this.apiObject = new k8s.ServiceAccount(this, 'Resource', {
       metadata: props.metadata,
-      secrets: lazy(() => undefinedIfEmpty(this.secrets.map(s => ({ name: s.name })))),
+      secrets: lazy(() => undefinedIfEmpty(this._secrets.map(s => ({ name: s.name })))),
     });
   }
 
@@ -76,6 +72,16 @@ export class ServiceAccount extends Resource implements IServiceAccount {
    * @param secret The secret
    */
   public addSecret(secret: ISecret) {
-    this.secrets.push(secret);
+    this._secrets.push(secret);
+  }
+
+  /**
+   * List of secrets allowed to be used by pods running using this service
+   * account.
+   *
+   * Returns a copy. To add a secret, use `addSecret()`.
+   */
+  public get secrets() {
+    return [ ...this._secrets ];
   }
 }

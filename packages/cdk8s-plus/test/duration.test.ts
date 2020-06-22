@@ -19,7 +19,7 @@ test('Duration in minutes', () => {
 
   expect(duration.toSeconds()).toBe(300);
   expect(duration.toMinutes()).toBe(5);
-  expect(() => duration.toDays()).toThrow(/'5 minutes' cannot be converted into a whole number of days/)
+  expect(() => duration.toDays()).toThrow(/'5 minutes' cannot be converted into a whole number of days/);
   expect(duration.toDays({ integral: false })).toBeCloseTo(300 / 86_400);
   expect(Duration.minutes(60 * 24).toDays()).toBe(1);
 });
