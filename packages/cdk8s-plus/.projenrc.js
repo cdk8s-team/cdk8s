@@ -48,10 +48,4 @@ project.addScripts({
   build: 'jsii --silence-warnings=reserved-word && yarn docgen'
 });
 
-// this has to be done so because otherwise its gets overridden
-// by the jsii-release version configured in projen.
-project.addDevDependencies({
-  'jsii-release': Semver.caret('0.1.8'),
-})
-
 project.synth();

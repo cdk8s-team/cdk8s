@@ -37,7 +37,7 @@
     "jsii": "^1.7.0",
     "jsii-diff": "^1.7.0",
     "jsii-pacmak": "^1.7.0",
-    "jsii-release": "^0.1.8",
+    "jsii-release": "^0.1.6",
     "@types/node": "^10.17.0",
     "typescript": "^3.8.3",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
