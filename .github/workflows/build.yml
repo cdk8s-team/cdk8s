@@ -17,14 +17,10 @@ jobs:
         run: |
           tools/align-version.sh
           yarn build
-      - name: unit tests
-        run: yarn test
       - name: create bundle
         run: yarn package
-      - name: integration tests
-        run: yarn integ
       - name: debug-nuget-release
-        run: npx -p jsii-release jsii-release-nuget
+        run: find . -name *.nupkg -not -iname *.symbols.nupkg
         env:
           NUGET_API_KEY: dummy
 
