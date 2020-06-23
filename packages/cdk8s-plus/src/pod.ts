@@ -34,12 +34,12 @@ export class Pod extends Resource {
    * You can use this field to apply post instantiation mutations
    * to the spec.
    */
-  public readonly spec: PodSpec;
+  public readonly spec: PodSpecDefinition;
 
   constructor(scope: Construct, id: string, props: PodProps = {}) {
     super(scope, id, props);
 
-    this.spec = props.spec ?? new PodSpec();
+    this.spec = new PodSpecDefinition(props.spec);
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,
@@ -51,7 +51,7 @@ export class Pod extends Resource {
 /**
  * Properties for initialization of `PodSpec`.
  */
-export interface PodSpecProps {
+export interface PodSpec {
 
   /**
    * List of containers belonging to the pod. Containers cannot currently be
@@ -123,7 +123,7 @@ export enum RestartPolicy {
 /**
  * A description of a pod.
  */
-export class PodSpec {
+export class PodSpecDefinition {
   /**
    * Restart policy for all containers within the pod.
    */
@@ -137,7 +137,7 @@ export class PodSpec {
   private readonly _containers: Container[];
   private readonly _volumes: Volume[];
 
-  constructor(props: PodSpecProps = {}) {
+  constructor(props: PodSpec = {}) {
     this._containers = props.containers ?? [];
     this._volumes = props.volumes ?? [];
     this.restartPolicy = props.restartPolicy;

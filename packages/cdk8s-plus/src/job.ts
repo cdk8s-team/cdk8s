@@ -3,7 +3,7 @@ import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s
 import { Construct } from 'constructs';
 
 import * as k8s from './imports/k8s';
-import { RestartPolicy, PodSpecProps, PodSpec } from './pod';
+import { RestartPolicy, PodSpec, PodSpecDefinition } from './pod';
 import { Duration } from './duration';
 import { lazy } from './utils';
 
@@ -31,12 +31,12 @@ export interface JobProps extends ResourceProps {
 export class Job extends Resource {
 
   protected readonly apiObject: ApiObject;
-  public readonly spec: JobSpec;
+  public readonly spec: JobSpecDefinition;
 
   constructor(scope: Construct, id: string, props: JobProps = {}) {
     super(scope, id, props);
 
-    this.spec = props.spec ?? new JobSpec();
+    this.spec = new JobSpecDefinition(props.spec);
 
     this.apiObject = new k8s.Job(this, 'Default', {
       metadata: props.metadata,
@@ -48,11 +48,11 @@ export class Job extends Resource {
 /**
  * Properties for initialization of `JobSpec`.
  */
-export interface JobSpecProps {
+export interface JobSpec {
   /**
    * The spec of pods created by this job.
    */
-  readonly podSpecTemplate?: PodSpecProps;
+  readonly podSpecTemplate?: PodSpec;
 
   /**
    * The metadata of pods created by this job.
@@ -73,11 +73,11 @@ export interface JobSpecProps {
   readonly ttlAfterFinished?: Duration;
 }
 
-export class JobSpec {
+export class JobSpecDefinition {
   /**
    * The spec for pods created by this job.
    */
-  public readonly podSpecTemplate: PodSpec;
+  public readonly podSpecTemplate: PodSpecDefinition;
 
   /**
    * The metadata for pods created by this job.
@@ -89,8 +89,8 @@ export class JobSpec {
    */
   public readonly ttlAfterFinished?: Duration;
 
-  constructor(props: JobSpecProps = {}) {
-    this.podSpecTemplate = new PodSpec({
+  constructor(props: JobSpec = {}) {
+    this.podSpecTemplate = new PodSpecDefinition({
       restartPolicy: props.podSpecTemplate?.restartPolicy ?? RestartPolicy.NEVER,
       ...props.podSpecTemplate,
     });

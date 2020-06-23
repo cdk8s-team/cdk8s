@@ -1,10 +1,10 @@
 import * as k8s from './imports/k8s';
 import { Construct, Node } from 'constructs';
-import { Service, ServiceSpec, ServiceType } from './service';
+import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { lazy } from './utils';
-import { PodSpec, PodSpecProps } from './pod';
+import { PodSpecDefinition, PodSpec } from './pod';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 
 /**
@@ -76,12 +76,12 @@ export class Deployment extends Resource {
    * You can use this field to apply post instantiation mutations
    * to the spec.
    */
-  public readonly spec: DeploymentSpec;
+  public readonly spec: DeploymentSpecDefinition;
 
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
     super(scope, id, props);
 
-    this.spec = props.spec ?? new DeploymentSpec();
+    this.spec = new DeploymentSpecDefinition(props.spec);
 
     this.apiObject = new k8s.Deployment(this, 'Pod', {
       metadata: props.metadata,
@@ -107,9 +107,9 @@ export class Deployment extends Resource {
     const matcher = Node.of(this).uniqueId;
 
     const service = new Service(this, 'Service', {
-      spec: new ServiceSpec({
+      spec: {
         type: options.serviceType ?? ServiceType.CLUSTER_IP,
-      }),
+      },
     });
 
     service.spec.addSelector(selector, matcher);
@@ -126,7 +126,7 @@ export class Deployment extends Resource {
 /**
  * Properties for initialization of `DeploymentSpec`.
  */
-export interface DeploymentSpecProps {
+export interface DeploymentSpec {
 
   /**
    * Number of desired pods.
@@ -137,7 +137,7 @@ export interface DeploymentSpecProps {
   /**
    * Template for pod specs.
    */
-  readonly podSpecTemplate?: PodSpecProps;
+  readonly podSpecTemplate?: PodSpec;
 
   /**
    * Template for pod metadata.
@@ -148,7 +148,7 @@ export interface DeploymentSpecProps {
 /**
  * DeploymentSpec is the specification of the desired behavior of the Deployment.
  */
-export class DeploymentSpec {
+export class DeploymentSpecDefinition {
   /**
    * Number of desired pods.
    */
@@ -160,7 +160,7 @@ export class DeploymentSpec {
    * You can use this field to apply post instatiation mutations
    * to the spec.
    */
-  public readonly podSpecTemplate: PodSpec;
+  public readonly podSpecTemplate: PodSpecDefinition;
 
   /**
    * Template for pod metadata.
@@ -169,9 +169,9 @@ export class DeploymentSpec {
 
   private readonly _labelSelector: Record<string, string>;
 
-  constructor(props: DeploymentSpecProps = {}) {
+  constructor(props: DeploymentSpec = {}) {
     this.replicas = props.replicas ?? 1;
-    this.podSpecTemplate = new PodSpec(props.podSpecTemplate);
+    this.podSpecTemplate = new PodSpecDefinition(props.podSpecTemplate);
     this.podMetadataTemplate = new ApiObjectMetadataDefinition(props.podMetadataTemplate);
 
     this._labelSelector = {};

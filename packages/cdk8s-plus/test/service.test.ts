@@ -2,11 +2,11 @@ import * as kplus from '../src';
 import * as k from '../src/imports/k8s';
 import { Testing } from 'cdk8s';
 
-describe('ServiceSpec', () => {
+describe('ServiceSpecDefinition', () => {
   test('Instantiation properties are all accepted', () => {
     const ports = [{ port: 9000, targetPort: 80 }];
     const externalIPs = ['ExternalIP'];
-    const spec = new kplus.ServiceSpec({
+    const spec = new kplus.ServiceSpecDefinition({
       clusterIP: 'IP',
       externalIPs: externalIPs,
       ports: ports,
@@ -22,7 +22,7 @@ describe('ServiceSpec', () => {
   });
 
   test('Must be configured with at least one port', () => {
-    const spec = new kplus.ServiceSpec();
+    const spec = new kplus.ServiceSpecDefinition();
 
     expect(() => spec._toKube()).toThrowError(
       'A service must be configured with a port',
@@ -30,7 +30,7 @@ describe('ServiceSpec', () => {
   });
 
   test('Can select by label', () => {
-    const spec = new kplus.ServiceSpec({
+    const spec = new kplus.ServiceSpecDefinition({
       ports: [{ port: 9000, targetPort: 80 }],
     });
 
@@ -42,7 +42,7 @@ describe('ServiceSpec', () => {
   });
 
   test('Can serve by port', () => {
-    const spec = new kplus.ServiceSpec();
+    const spec = new kplus.ServiceSpecDefinition();
 
     spec.serve(9000, { targetPort: 80 });
 
@@ -55,12 +55,14 @@ describe('ServiceSpec', () => {
 describe('Service', () => {
   test('Can accept an existing spec', () => {
     const chart = Testing.chart();
-    const spec = new kplus.ServiceSpec();
+    const spec: kplus.ServiceSpec = {
+      clusterIP: 'cluster-ip',
+    }
     const service = new kplus.Service(chart, 'Service', {
       spec: spec,
     });
 
-    expect(service.spec).toBe(spec);
+    expect(service.spec.clusterIP).toEqual('cluster-ip');
   });
 
   test('Generates spec lazily', () => {

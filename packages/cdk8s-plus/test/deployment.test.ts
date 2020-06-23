@@ -3,12 +3,12 @@ import * as k8s from '../src/imports/k8s';
 import { Testing } from 'cdk8s';
 import { Node } from 'constructs';
 
-describe('DeploymentSpec', () => {
+describe('DeploymentSpecDefinition', () => {
 
   test('Instantiation properties are all respected', () => {
     const chart = Testing.chart();
     const deployment = new kplus.Deployment(chart, 'Deployment');
-    const spec = new kplus.DeploymentSpec({
+    const spec = new kplus.DeploymentSpecDefinition({
       replicas: 3,
       podSpecTemplate: {
         serviceAccount: kplus.ServiceAccount.fromServiceAccountName('my-service-account'),
@@ -26,7 +26,7 @@ describe('DeploymentSpec', () => {
   });
 
   test('Can select labels', () => {
-    const spec = new kplus.DeploymentSpec();
+    const spec = new kplus.DeploymentSpecDefinition();
 
     spec.podSpecTemplate.addContainer(
       new kplus.Container({
@@ -138,14 +138,14 @@ describe('Deployment', () => {
 
   test('Can be instantiated with an existing spec', () => {
 
-    const spec = new kplus.DeploymentSpec({
+    const spec = {
       podSpecTemplate: {
         containers: [new kplus.Container({
           image: 'image',
           port: 9300,
         })],
       },
-    });
+    };
 
     const chart = Testing.chart();
     new kplus.Deployment(chart, 'Deployment', {
