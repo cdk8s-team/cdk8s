@@ -49,4 +49,7 @@ project.addScripts({
   test: 'yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn run compile'
 });
 
+// jsii-release is declared at the root level, we don't need it here.
+delete project.devDependencies['jsii-release']
+
 project.synth();
