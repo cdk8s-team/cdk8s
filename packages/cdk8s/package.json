@@ -85,6 +85,7 @@
     "jsii": "1.7.0",
     "jsii-pacmak": "1.7.0",
     "jsii-docgen": "^1.3.2",
+    "jsii-release": "^0.1.8",
     "json-schema-to-typescript": "^8.0.1",
     "typescript": "^3.7.5"
   },

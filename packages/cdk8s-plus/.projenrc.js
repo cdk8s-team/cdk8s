@@ -4,12 +4,12 @@ const constructsDependency = Semver.caret('2.0.1')
 const cdk8sDependency = Semver.caret('0.0.0')
 
 const project = new JsiiProject({
+  jsiiVersion: Semver.caret('1.7.0'),
   name: 'cdk8s-plus',
   buildWorkflow: false,
   releaseWorkflow: false,
   mergify: false,
   commitPackageJson: true,
-  jsiiVersion: Semver.caret('1.6.0'),
   description: 'High level abstractions on top of cdk8s',
   repository: 'https://github.com/awslabs/cdk8s.git',
   authorName: 'Amazon Web Services',
@@ -47,5 +47,11 @@ const project = new JsiiProject({
 project.addScripts({
   build: 'jsii --silence-warnings=reserved-word && yarn docgen'
 });
+
+// this has to be done so because otherwise its gets overridden
+// by the jsii-release version configured in projen.
+project.addDevDependencies({
+  'jsii-release': Semver.caret('0.1.8'),
+})
 
 project.synth();
