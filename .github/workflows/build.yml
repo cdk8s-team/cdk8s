@@ -20,7 +20,7 @@ jobs:
       - name: create bundle
         run: yarn package
       - name: debug-nuget-release
-        run: find . -name *.nupkg -not -iname *.symbols.nupkg
+        run: npx -p jsii-release jsii-release-nuget
         env:
           NUGET_API_KEY: dummy
 
