@@ -2758,7 +2758,7 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs@2.0.1, constructs@^2.0.1:
+constructs@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-2.0.1.tgz#274d6b8ce6a698813495c444466b0c745349ddb5"
   integrity sha512-edR85YFGI9TBT9byAo5vAfI0PRi+jFGzinwN3RAJwKfv6Yc9x9kALYfoEmgotp95qT7/k/iUQWHrH9BMJeqpdg==
@@ -6035,10 +6035,10 @@ jsii-reflect@^1.6.0:
     oo-ascii-tree "^1.6.0"
     yargs "^15.3.1"
 
-jsii-release@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.1.7.tgz#2e58aa6e9ee2743aeb7f9944c52311eaaf785498"
-  integrity sha512-wWoYpDikr2QhLfuefRRHfJK03D46M5YUJVlgSShEqgh9MRimnNMgRBxSGzZLxNMp3ink6+M3qIrC5PhvWLrH4Q==
+jsii-release@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.1.8.tgz#5433b139577eae342bb537f9e48434214122a6b2"
+  integrity sha512-3+8afEanKi2pttf1QtApPa6xMDrBKgRk1OIWdF1s0lP8tQBcBe2cntps0HRnPfkPOAjr1r3/ngv4A8wp9J2tPw==
 
 jsii-rosetta@^1.1.0, jsii-rosetta@^1.5.0:
   version "1.5.0"
