@@ -27,7 +27,8 @@ exports.post = options => {
   }
 
   execSync(`${cli} import k8s -l java`);
-  execSync(`mvn compile exec:java -Dexec.mainClass="com.mycompany.app.Main"`);
+  execSync(`mvn compile`);
+  execSync(`mvn exec:java -Dexec.mainClass="com.mycompany.app.Main"`);
 
   console.log(readFileSync('./help', 'utf-8'));
 };
