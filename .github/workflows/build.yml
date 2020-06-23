@@ -23,4 +23,8 @@ jobs:
         run: yarn package
       - name: integration tests
         run: yarn integ
+      - name: debug-nuget-release
+        run: npx -p jsii-release jsii-release-nuget
+        env:
+          NUGET_API_KEY: dummy
 
