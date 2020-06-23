@@ -3,9 +3,9 @@ import * as k8s from '../src/imports/k8s';
 import { RestartPolicy } from '../src';
 import { Testing } from 'cdk8s';
 
-describe('PodSpec', () => {
+describe('PodSpecDefinition', () => {
   test('Can add container post instantiation', () => {
-    const spec = new kplus.PodSpec();
+    const spec = new kplus.PodSpecDefinition();
 
     const container = new kplus.Container({
       image: 'image',
@@ -19,7 +19,7 @@ describe('PodSpec', () => {
   });
 
   test('Must have at least one container', () => {
-    const spec = new kplus.PodSpec();
+    const spec = new kplus.PodSpecDefinition();
 
     expect(() => spec._toKube()).toThrow(
       'PodSpec must have at least 1 container',
@@ -27,7 +27,7 @@ describe('PodSpec', () => {
   });
 
   test('Can add volume post instantiation', () => {
-    const spec = new kplus.PodSpec();
+    const spec = new kplus.PodSpecDefinition();
 
     const volume = kplus.Volume.fromEmptyDir('volume');
 
@@ -47,7 +47,7 @@ describe('PodSpec', () => {
   });
 
   test('Instantiation properties are all respected', () => {
-    const spec = new kplus.PodSpec({
+    const spec = new kplus.PodSpecDefinition({
       containers: [
         new kplus.Container({
           image: 'image',
@@ -92,7 +92,7 @@ describe('PodSpec', () => {
   });
 
   test('Automatically adds volumes from container mounts', () => {
-    const spec = new kplus.PodSpec();
+    const spec = new kplus.PodSpecDefinition();
 
     const volume = kplus.Volume.fromEmptyDir('volume');
 
@@ -124,13 +124,13 @@ describe('Pod', () => {
   });
 
   test('Can instantiate with props', () => {
-    const spec = new kplus.PodSpec({
+    const spec = {
       containers: [
         new kplus.Container({
           image: 'image',
         }),
       ],
-    });
+    };
 
     const chart = Testing.chart();
 
@@ -139,7 +139,7 @@ describe('Pod', () => {
       spec: spec,
     });
 
-    expect(pod.spec).toBeDefined();
+    expect(pod.spec.containers[0].image).toEqual('image');
     expect(pod.name).toEqual('name');
   });
 

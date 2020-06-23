@@ -82,12 +82,12 @@ export class Service extends Resource {
    * You can use this field to apply post instantiation mutations
    * to the spec.
    */
-  public readonly spec: ServiceSpec;
+  public readonly spec: ServiceSpecDefinition;
 
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
     super(scope, id, props);
 
-    this.spec = props.spec ?? new ServiceSpec();
+    this.spec = new ServiceSpecDefinition(props.spec);
 
     this.apiObject = new k8s.Service(this, 'Pod', {
       metadata: props.metadata,
@@ -155,7 +155,7 @@ export interface ServicePort extends ServicePortOptions {
 /**
  * Properties for initialization of `ServiceSpec`.
  */
-export interface ServiceSpecProps {
+export interface ServiceSpec {
 
   /**
    * The IP address of the service and is usually assigned randomly by the
@@ -203,7 +203,7 @@ export interface ServiceSpecProps {
 /**
  * A description of a service.
  */
-export class ServiceSpec {
+export class ServiceSpecDefinition {
   /**
    * The IP address of the service and is usually assigned randomly by the
    * master.
@@ -225,7 +225,7 @@ export class ServiceSpec {
 
   private readonly _ports: ServicePort[];
 
-  constructor(props: ServiceSpecProps = {}) {
+  constructor(props: ServiceSpec = {}) {
     this.clusterIP = props.clusterIP;
     this.externalIPs = props.externalIPs ?? [];
     this.type = props.type ?? ServiceType.CLUSTER_IP;
