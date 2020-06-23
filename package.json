@@ -31,7 +31,8 @@
     "changelog-parser": "^2.8.0",
     "lerna": "^3.20.2",
     "standard-version": "^7.1.0",
-    "semver": "7.3.2"
+    "semver": "7.3.2",
+    "jsii-release": "^0.1.8"
   },
   "jest": {
     "clearMocks": true,

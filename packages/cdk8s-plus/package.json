@@ -37,7 +37,6 @@
     "jsii": "^1.6.0",
     "jsii-diff": "^1.6.0",
     "jsii-pacmak": "^1.6.0",
-    "jsii-release": "^0.1.7",
     "@types/node": "^10.17.0",
     "typescript": "^3.8.3",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
@@ -53,7 +52,7 @@
     "ts-jest": "^26.1.0"
   },
   "peerDependencies": {
-    "constructs": "^2.0.1",
+    "constructs": "2.0.1",
     "cdk8s": "^0.0.0"
   },
   "dependencies": {
