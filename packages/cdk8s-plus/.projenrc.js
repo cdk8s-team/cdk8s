@@ -1,6 +1,6 @@
 const { JsiiProject, Semver } = require('projen');
 
-const constructsDependency = Semver.caret('2.0.1')
+const constructsDependency = Semver.pinned('2.0.1')
 const cdk8sDependency = Semver.caret('0.0.0')
 
 const project = new JsiiProject({

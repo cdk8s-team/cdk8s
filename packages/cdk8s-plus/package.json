@@ -52,7 +52,7 @@
     "ts-jest": "^26.1.0"
   },
   "peerDependencies": {
-    "constructs": "^2.0.1",
+    "constructs": "2.0.1",
     "cdk8s": "^0.0.0"
   },
   "dependencies": {

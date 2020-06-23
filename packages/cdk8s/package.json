@@ -105,7 +105,7 @@
     "yaml": "^1.7.2"
   },
   "peerDependencies": {
-    "constructs": "^2.0.1"
+    "constructs": "2.0.1"
   },
   "stability": "experimental"
 }
