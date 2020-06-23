@@ -20,9 +20,8 @@ jobs:
       - name: create bundle
         run: yarn package
       - name: debug-nuget-release
-        shell: bash
         run: |
-          curl -o release.sh https://raw.githubusercontent.com/eladb/jsii-release/master/bin/jsii-release-nuget
+          curl -o release.sh https://raw.githubusercontent.com/iliapolo/jsii-release/epolon/quote-query/bin/jsii-release-nuget
           chmod +x release.sh
           ./release.sh
         env:
