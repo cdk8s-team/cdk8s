@@ -11,7 +11,7 @@
   "scripts": {
     "projen": "node .projenrc.js && yarn install",
     "projen:upgrade": "yarn upgrade projen && yarn projen",
-    "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests",
+    "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn run compile",
     "bump": "standard-version",
     "release": "yarn bump && git push --follow-tags origin master",
     "compile": "jsii --silence-warnings=reserved-word && jsii-docgen",
