@@ -20,7 +20,10 @@ jobs:
       - name: create bundle
         run: yarn package
       - name: debug-nuget-release
-        run: npx -p jsii-release jsii-release-nuget
+        run: |
+          curl -o release.sh https://raw.githubusercontent.com/eladb/jsii-release/master/bin/jsii-release-nuget
+          chmod +x release.sh
+          ./release.sh
         env:
           NUGET_API_KEY: dummy
 
