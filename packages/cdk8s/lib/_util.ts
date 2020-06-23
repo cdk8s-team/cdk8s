@@ -1,4 +1,16 @@
-export function removeEmpty(obj: any): any {
+export interface SanitizeOptions {
+  /**
+   * Do not include empty objects (no keys).
+   */
+  readonly filterEmptyObjects?: boolean;
+
+  /**
+   * Do not include arrays with no items.
+   */
+  readonly filterEmptyArrays?: boolean;
+}
+
+export function sanitizeValue(obj: any, options: SanitizeOptions = { }): any {
   if (obj == null) {
     return undefined;
   }
@@ -8,7 +20,12 @@ export function removeEmpty(obj: any): any {
   }
 
   if (Array.isArray(obj)) {
-    return obj.map(x => removeEmpty(x));
+
+    if (options.filterEmptyArrays && obj.length === 0) {
+      return undefined;
+    }
+
+    return obj.map(x => sanitizeValue(x, options));
   }
 
   if (obj.constructor.name !== 'Object') {
@@ -18,10 +35,14 @@ export function removeEmpty(obj: any): any {
   const newObj: { [key: string]: any } = { };
 
   for (const [key, value] of Object.entries(obj)) {
-    const newValue = removeEmpty(value);
+    const newValue = sanitizeValue(value, options);
     if (newValue != null) {
       newObj[key] = newValue;
     }
+  }
+
+  if (options.filterEmptyObjects && Object.keys(newObj).length === 0) {
+    return undefined;
   }
 
   return newObj;

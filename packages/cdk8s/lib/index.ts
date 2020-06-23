@@ -4,3 +4,4 @@ export * from './testing';
 export * from './app';
 export * from './include';
 export * from './yaml';
+export * from './metadata';
