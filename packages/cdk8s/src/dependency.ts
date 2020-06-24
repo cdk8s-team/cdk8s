@@ -1,4 +1,4 @@
-import { Node, IConstruct } from "constructs";
+import { Node, IConstruct } from 'constructs';
 
 /**
  * Represents the dependency graph for a given Node.

@@ -1,4 +1,4 @@
-import { Chart, ApiObject, Testing } from '../lib';
+import { Chart, ApiObject, Testing } from '../src';
 import { Construct, Lazy, Node, Dependency } from 'constructs';
 
 test('empty stack', () => {
@@ -43,8 +43,8 @@ test('tokens are resolved during synth', () => {
     apiVersion: 'v1',
     spec: {
       foo: Lazy.numberValue({ produce: () => 123 }),
-      implicitToken: createImplictToken({ foo: 'bar' })
-    }
+      implicitToken: createImplictToken({ foo: 'bar' }),
+    },
   });
 
   // THEN
@@ -107,12 +107,12 @@ test('addDependency', () => {
   expect(dependencies).toEqual(new Set<Dependency>([
     {
       source: chart1,
-      target: chart2
+      target: chart2,
     },
     {
       source: chart1,
-      target: chart3
-    }
+      target: chart3,
+    },
   ]))
 
 });
@@ -160,7 +160,7 @@ describe('toJson', () => {
     expect(chart1.toJson()).toEqual([
       obj3.toJson(),
       obj2.toJson(),
-      obj1.toJson()
+      obj1.toJson(),
     ]);
 
   });
@@ -177,7 +177,7 @@ describe('toJson', () => {
     obj1.addDependency(obj2);
 
     expect(chart1.toJson()).toEqual([
-      obj1.toJson()
+      obj1.toJson(),
     ]);
 
   });
@@ -195,7 +195,7 @@ describe('toJson', () => {
     chart1.addDependency(chart2);
 
     expect(chart1.toJson()).toEqual([
-      obj1.toJson()
+      obj1.toJson(),
     ]);
 
   });
@@ -212,7 +212,7 @@ describe('toJson', () => {
 
     expect(chart.toJson()).toEqual([
       dataBase.obj.toJson(),
-      microService.obj.toJson()
+      microService.obj.toJson(),
     ])
 
   });
@@ -229,7 +229,7 @@ describe('toJson', () => {
 
     expect(chart.toJson()).toEqual([
       dataBase.obj.obj.toJson(),
-      microService.obj.toJson()
+      microService.obj.toJson(),
     ])
 
   });
@@ -246,7 +246,7 @@ describe('toJson', () => {
 
     expect(chart.toJson()).toEqual([
       dataBase.obj.toJson(),
-      microService.toJson()
+      microService.toJson(),
     ])
 
   });
@@ -263,7 +263,7 @@ describe('toJson', () => {
 
     expect(chart.toJson()).toEqual([
       database.toJson(),
-      microService.obj.toJson()
+      microService.obj.toJson(),
     ])
 
   });

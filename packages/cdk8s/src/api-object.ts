@@ -84,7 +84,7 @@ export class ApiObject extends Construct {
       namespace: options.metadata?.namespace ?? this.chart.namespace,
 
       // override user defined values
-      ...options.metadata
+      ...options.metadata,
     });
   }
 
@@ -104,7 +104,7 @@ export class ApiObject extends Construct {
   public toJson(): any {
     const data = {
       ...this.options,
-      metadata: this.metadata.toJson()
+      metadata: this.metadata.toJson(),
     };
 
     // convert to "pure data" so, for example, when we convert to yaml these

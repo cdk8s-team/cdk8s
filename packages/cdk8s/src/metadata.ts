@@ -1,4 +1,4 @@
-import { sanitizeValue } from "./_util";
+import { sanitizeValue } from './_util';
 
 /**
  * Metadata associated with this object.
@@ -25,7 +25,7 @@ export interface ApiObjectMetadata {
    */
   readonly name?: string;
 
-    /**
+  /**
    * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be
    * preserved when modifying objects.
    *

@@ -27,7 +27,7 @@ export class Chart extends Construct {
 
     const parent = Node.of(c).scope as Construct;
     if (!parent) {
-      throw new Error(`cannot find a parent chart (directly or indirectly)`);
+      throw new Error('cannot find a parent chart (directly or indirectly)');
     }
 
     return Chart.of(parent);

@@ -1,7 +1,8 @@
-import fs = require('fs');
-import path = require('path');
-import os = require('os');
-import { App, Chart } from '../lib';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as os from 'os';
+import { Chart } from './chart';
+import { App } from './app';
 
 /**
  * Testing utilities for cdk8s applications.

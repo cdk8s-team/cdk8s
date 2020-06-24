@@ -11,14 +11,12 @@
   "scripts": {
     "projen": "node .projenrc.js && yarn install",
     "projen:upgrade": "yarn upgrade projen && yarn projen",
-    "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn run compile",
-    "bump": "standard-version",
-    "release": "yarn bump && git push --follow-tags origin master",
+    "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn compile",
     "compile": "jsii --silence-warnings=reserved-word && jsii-docgen",
     "watch": "jsii -w --silence-warnings=reserved-word",
     "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\")",
     "package": "jsii-pacmak",
-    "build": "jsii --silence-warnings=reserved-word && yarn docgen",
+    "build": "yarn compile",
     "eslint": "eslint . --ext .ts",
     "docgen": "jsii-docgen",
     "test:watch": "jest --watch",
@@ -61,6 +59,12 @@
   },
   "bundledDependencies": [
     "minimatch"
+  ],
+  "keywords": [
+    "cdk",
+    "kubernetes",
+    "k8s",
+    "constructs"
   ],
   "engines": {
     "node": ">= 10.17.0"

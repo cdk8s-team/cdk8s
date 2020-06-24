@@ -1,4 +1,4 @@
-import { ApiObjectMetadataDefinition } from "../lib";
+import { ApiObjectMetadataDefinition } from '../src';
 
 test('Can add a label', () => {
 
@@ -58,8 +58,8 @@ test('Can include arbirary key/value options', () => {
   const meta = new ApiObjectMetadataDefinition({
     foo: 123,
     bar: {
-      helloL: 'world'
-    }
+      helloL: 'world',
+    },
   });
 
   meta.add('bar', 'baz');
