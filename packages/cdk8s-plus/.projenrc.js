@@ -1,6 +1,6 @@
 const { JsiiProject, Semver } = require('projen');
 
-const constructsDependency = Semver.caret('2.0.1')
+const constructsDependency = Semver.pinned('2.0.1')
 const cdk8sDependency = Semver.caret('0.0.0')
 
 const project = new JsiiProject({
@@ -45,7 +45,11 @@ const project = new JsiiProject({
 // override the default "build" from projen because currently in this
 // repo it means "compile"
 project.addScripts({
-  build: 'jsii --silence-warnings=reserved-word && yarn docgen'
+  build: 'jsii --silence-warnings=reserved-word && yarn docgen',
+  test: 'yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn run compile'
 });
+
+// jsii-release is declared at the root level, we don't need it here.
+delete project.devDependencies['jsii-release']
 
 project.synth();
