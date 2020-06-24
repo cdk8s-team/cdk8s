@@ -2,8 +2,8 @@ import * as yargs from 'yargs';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { sscaff } from 'sscaff';
-const constructs_version = require('../../package.json').dependencies.constructs;
-const jsii_runtime_version = '1.5.0'
+const constructsVersion = require('../../package.json').dependencies.constructs;
+const jsiiRuntimeVersion = '1.5.0'
 
 const templatesDir = path.join(__dirname, '..', '..', 'templates');
 const availableTemplates = fs.readdirSync(templatesDir).filter(x => !x.startsWith('.'));
@@ -55,8 +55,8 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
 
     const versions = {
       'cdk8s_version': version,
-      'constructs_version': constructs_version,
-      'jsii_runtime_version': jsii_runtime_version,
+      'constructs_version': constructsVersion,
+      'jsii_runtime_version': jsiiRuntimeVersion,
     }
 
     return Object.assign(ret, versions);
@@ -78,8 +78,8 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     'pypi_cdk8s': `cdk8s~=${version}`, // no support for pre-release
     'mvn_cdk8s': version,
     'cdk8s_version': version,
-    'constructs_version': constructs_version,
-    'jsii_runtime_version': jsii_runtime_version,
+    'constructs_version': constructsVersion,
+    'jsii_runtime_version': jsiiRuntimeVersion,
   };
 }
 
