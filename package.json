@@ -32,7 +32,7 @@
     "lerna": "^3.20.2",
     "standard-version": "^7.1.0",
     "semver": "7.3.2",
-    "jsii-release": "^0.1.8"
+    "jsii-release": "^0.1.9"
   },
   "jest": {
     "clearMocks": true,

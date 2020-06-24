@@ -6035,10 +6035,10 @@ jsii-reflect@^1.6.0:
     oo-ascii-tree "^1.6.0"
     yargs "^15.3.1"
 
-jsii-release@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.1.8.tgz#5433b139577eae342bb537f9e48434214122a6b2"
-  integrity sha512-3+8afEanKi2pttf1QtApPa6xMDrBKgRk1OIWdF1s0lP8tQBcBe2cntps0HRnPfkPOAjr1r3/ngv4A8wp9J2tPw==
+jsii-release@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.1.9.tgz#da139e68da8841d3f8ed5c0c64301dc3c326363b"
+  integrity sha512-aV6qHRjDr41ETEwtXm6cgxQ5rzbRdQ3iNvQ+gzayJT8Ke2UvRHrduY5XkdJ3ZZ5FWqRyxHpY/RCVW7DysT+9Xw==
 
 jsii-rosetta@^1.1.0, jsii-rosetta@^1.5.0:
   version "1.5.0"
