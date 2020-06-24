@@ -1,6 +1,6 @@
 exports.versions = {
   constructs: '2.0.2',
-  jsii: '1.6.0',
+  jsii: '1.7.0',
 };
 
 exports.options = {
