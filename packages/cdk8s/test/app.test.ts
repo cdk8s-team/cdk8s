@@ -1,4 +1,4 @@
-import { Testing, Chart, App, ApiObject } from '../lib';
+import { Testing, Chart, App, ApiObject } from '../src';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
@@ -27,7 +27,7 @@ test('app with two charts', () => {
   // THEN
   expect(fs.readdirSync(app.outdir)).toEqual([
     'chart1.k8s.yaml',
-    'chart2.k8s.yaml'
+    'chart2.k8s.yaml',
   ]);
 });
 
@@ -50,7 +50,7 @@ test('app with charts directly dependant', () => {
   expect(fs.readdirSync(app.outdir)).toEqual([
     '0000-chart3.k8s.yaml',
     '0001-chart2.k8s.yaml',
-    '0002-chart1.k8s.yaml'
+    '0002-chart1.k8s.yaml',
   ]);
 
 });
@@ -78,7 +78,7 @@ test('app with charts indirectly dependant', () => {
   expect(fs.readdirSync(app.outdir)).toEqual([
     '0000-chart3.k8s.yaml',
     '0001-chart2.k8s.yaml',
-    '0002-chart1.k8s.yaml'
+    '0002-chart1.k8s.yaml',
   ]);
 
 });
@@ -89,7 +89,6 @@ test('default output directory is "dist"', () => {
   const workdir = fs.mkdtempSync(path.join(os.tmpdir()));
 
   try {
-    console.log(workdir);
     process.chdir(workdir);
 
     // WHEN
@@ -128,7 +127,7 @@ test('app with dependent and independent charts', () => {
     '0000-chart3.k8s.yaml',
     '0001-chart1.k8s.yaml',
     '0002-chart2.k8s.yaml',
-    '0003-chart4.k8s.yaml'
+    '0003-chart4.k8s.yaml',
   ]);
 
 });
@@ -159,7 +158,7 @@ test('app with chart dependencies via custom constructs', () => {
 
   expect(fs.readdirSync(app.outdir)).toEqual([
     '0000-chart2.k8s.yaml',
-    '0001-chart1.k8s.yaml'
+    '0001-chart1.k8s.yaml',
   ]);
 
 });

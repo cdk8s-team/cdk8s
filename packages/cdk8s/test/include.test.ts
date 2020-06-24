@@ -1,7 +1,7 @@
-import { Testing, Include, Yaml } from "../lib";
+import { Testing, Include, Yaml } from '../src';
 import * as yaml from 'yaml';
 import * as fs from 'fs';
-import { Node } from "constructs";
+import { Node } from 'constructs';
 
 test('Include can be used to load from YAML', () => {
   // GIVEN
@@ -39,17 +39,17 @@ test('multiple resources with the same k8s name can be included so long as their
       apiVersion: 'v1',
       kind: 'Foo',
       metadata: {
-        name: 'resource1'
-      }
+        name: 'resource1',
+      },
     },
     { },
     {
       apiVersion: 'v1',
       kind: 'Bar',
       metadata: {
-        name: 'resource1'
-      }
-    }
+        name: 'resource1',
+      },
+    },
   ]);
   
   const inc = new Include(chart, 'foo', { url: file });

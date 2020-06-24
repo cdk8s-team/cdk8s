@@ -1,4 +1,4 @@
-import { sanitizeValue } from "../lib/_util";
+import { sanitizeValue } from '../src/_util';
 
 describe('sanitizeValue', () => {
 
@@ -20,7 +20,7 @@ describe('sanitizeValue', () => {
 
   test('filterEmptyArrays', () => {
     const options = {
-      filterEmptyArrays: true
+      filterEmptyArrays: true,
     };
 
     expect(sanitizeValue([], options)).toBe(undefined);
@@ -30,7 +30,7 @@ describe('sanitizeValue', () => {
 
   test('filterEmptyObjects', () => {
     const options = {
-      filterEmptyObjects: true
+      filterEmptyObjects: true,
     };
 
     expect(sanitizeValue({ }, options)).toBe(undefined);

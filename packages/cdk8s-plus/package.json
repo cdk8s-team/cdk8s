@@ -11,14 +11,12 @@
   "scripts": {
     "projen": "node .projenrc.js && yarn install",
     "projen:upgrade": "yarn upgrade projen && yarn projen",
-    "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn run compile",
-    "bump": "standard-version",
-    "release": "yarn bump && git push --follow-tags origin master",
+    "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn compile",
     "compile": "jsii --silence-warnings=reserved-word && jsii-docgen",
     "watch": "jsii -w --silence-warnings=reserved-word",
     "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\")",
     "package": "jsii-pacmak",
-    "build": "jsii --silence-warnings=reserved-word && yarn docgen",
+    "build": "yarn compile",
     "eslint": "eslint . --ext .ts",
     "docgen": "jsii-docgen",
     "test:watch": "jest --watch",
@@ -29,14 +27,14 @@
     "url": "https://aws.amazon.com"
   },
   "devDependencies": {
-    "constructs": "2.0.1",
+    "constructs": "2.0.2",
     "cdk8s": "0.0.0",
     "@types/minimatch": "^3.0.3",
     "projen": "^0.2.2",
     "standard-version": "^8.0.0",
-    "jsii": "^1.6.0",
-    "jsii-diff": "^1.6.0",
-    "jsii-pacmak": "^1.6.0",
+    "jsii": "^1.7.0",
+    "jsii-diff": "^1.7.0",
+    "jsii-pacmak": "^1.7.0",
     "@types/node": "^10.17.0",
     "typescript": "^3.8.3",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
@@ -52,7 +50,7 @@
     "ts-jest": "^26.1.0"
   },
   "peerDependencies": {
-    "constructs": "2.0.1",
+    "constructs": "^2.0.2",
     "cdk8s": "^0.0.0"
   },
   "dependencies": {
@@ -61,6 +59,12 @@
   },
   "bundledDependencies": [
     "minimatch"
+  ],
+  "keywords": [
+    "cdk",
+    "kubernetes",
+    "k8s",
+    "constructs"
   ],
   "engines": {
     "node": ">= 10.17.0"

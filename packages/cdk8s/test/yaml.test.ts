@@ -1,4 +1,4 @@
-import { Yaml } from "../lib/yaml";
+import { Yaml } from '../src/yaml';
 import * as fs from 'fs';
 
 describe('load', () => {
@@ -7,7 +7,7 @@ describe('load', () => {
   });
 
   test('from url', () => {
-    expect(Yaml.load(`https://raw.githubusercontent.com/kubernetes/examples/52158f68ddc508eac9f15a9bb7260b838e644c9f/guestbook/all-in-one/guestbook-all-in-one.yaml`)).toMatchSnapshot();
+    expect(Yaml.load('https://raw.githubusercontent.com/kubernetes/examples/52158f68ddc508eac9f15a9bb7260b838e644c9f/guestbook/all-in-one/guestbook-all-in-one.yaml')).toMatchSnapshot();
   });
 
   test('empty documents are filtered out', () => {
@@ -20,7 +20,7 @@ describe('load', () => {
       undefined, // filtered
       0,         // not filtered
       [],        // filtered
-      { doc: 2 }
+      { doc: 2 },
     ])
 
     expect(Yaml.load(file)).toMatchSnapshot();
@@ -36,7 +36,7 @@ describe('save', () => {
   test('multiple documents', () => {
     const outputFile = Yaml.tmp([
       { foo: 'bar', hello: [ 1, 2, 3 ] },
-      { number: 2 }
+      { number: 2 },
     ]);
 
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
@@ -45,10 +45,10 @@ describe('save', () => {
   test('empty values are preserved', () => {
     const temp = Yaml.tmp([
       {
-        'i_am_undefined': undefined, // converted to "null"
-        'i_am_null': null,
-        'empty_array': [],
-        'empty_object': {}
+        i_am_undefined: undefined, // converted to "null"
+        i_am_null: null,
+        empty_array: [],
+        empty_object: {},
       },
     ]);
 
@@ -61,7 +61,7 @@ describe('save', () => {
       {},
       undefined,
       {empty: true},
-      {}
+      {},
     ]);
 
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();

@@ -1,4 +1,4 @@
-import { Names } from "../lib/names";
+import { Names } from '../src/names';
 
 const toDnsName = Names.toDnsLabel;
 
