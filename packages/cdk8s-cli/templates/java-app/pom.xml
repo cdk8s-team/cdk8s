@@ -11,12 +11,12 @@
     <dependency>
       <groupId>org.cdk8s</groupId>
       <artifactId>cdk8s</artifactId>
-      <version>{{ CDK8S_VERSION }}</version>
+      <version>{{ cdk8s_version }}</version>
     </dependency>
     <dependency>
       <groupId>software.constructs</groupId>
       <artifactId>constructs</artifactId>
-      <version>{{ CONSTRUCTS_VERSION }}</version>
+      <version>{{ constructs_version }}</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -26,7 +26,7 @@
     <dependency>
       <groupId>software.amazon.jsii</groupId>
       <artifactId>jsii-runtime</artifactId>
-      <version>{{ JSII_RUNTIME_VERSION }}</version>
+      <version>{{ jsii_runtime_version }}</version>
     </dependency>
   </dependencies>
   <properties>
