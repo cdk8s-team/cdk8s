@@ -27,7 +27,7 @@ const project = new JsiiProject({
     "@types/follow-redirects": Semver.caret("1.8.0"),
     "@types/json-stable-stringify": Semver.caret("1.0.32"),
     "@types/yaml": Semver.caret("1.2.0"),
-    "constructs": Semver.pinned(common.versions.constructs),
+    "constructs": Semver.caret(common.versions.constructs),
     "json-schema-to-typescript": Semver.caret("8.0.1"),
   },
 

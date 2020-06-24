@@ -13,7 +13,7 @@ const project = new JsiiProject({
   // dependencies
   jsiiVersion: Semver.caret(common.versions.jsii),
   peerDependencies: {
-    constructs: Semver.pinned(common.versions.constructs),
+    constructs: Semver.caret(common.versions.constructs),
     cdk8s: cdk8sDependency,
   },
   dependencies: {

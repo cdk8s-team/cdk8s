@@ -27,7 +27,7 @@
     "url": "https://aws.amazon.com"
   },
   "devDependencies": {
-    "constructs": "2.0.1",
+    "constructs": "^2.0.2",
     "@types/follow-redirects": "^1.8.0",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/yaml": "^1.2.0",
@@ -52,7 +52,7 @@
     "ts-jest": "^26.1.0"
   },
   "peerDependencies": {
-    "constructs": "2.0.1"
+    "constructs": "2.0.2"
   },
   "dependencies": {
     "follow-redirects": "^1.11.0",

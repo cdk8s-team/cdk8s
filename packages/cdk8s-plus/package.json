@@ -27,7 +27,7 @@
     "url": "https://aws.amazon.com"
   },
   "devDependencies": {
-    "constructs": "2.0.1",
+    "constructs": "2.0.2",
     "cdk8s": "0.0.0",
     "@types/minimatch": "^3.0.3",
     "projen": "^0.2.2",
@@ -50,7 +50,7 @@
     "ts-jest": "^26.1.0"
   },
   "peerDependencies": {
-    "constructs": "2.0.1",
+    "constructs": "^2.0.2",
     "cdk8s": "^0.0.0"
   },
   "dependencies": {

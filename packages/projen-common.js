@@ -1,5 +1,5 @@
 exports.versions = {
-  constructs: '2.0.1',
+  constructs: '2.0.2',
   jsii: '1.6.0',
 };
 
@@ -26,7 +26,6 @@ exports.fixup = project => {
 
   // // add "compile" after test because the test command deletes lib/ and we run tests *after* build in this repo.
   project.addTestCommands('yarn compile');
-  project.addTestCommands('yarn compat');
 
   // jsii-release is declared at the root level, we don't need it here.
   delete project.devDependencies['jsii-release']

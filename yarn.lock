@@ -2758,6 +2758,11 @@ constructs@2.0.1:
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-2.0.1.tgz#274d6b8ce6a698813495c444466b0c745349ddb5"
   integrity sha512-edR85YFGI9TBT9byAo5vAfI0PRi+jFGzinwN3RAJwKfv6Yc9x9kALYfoEmgotp95qT7/k/iUQWHrH9BMJeqpdg==
 
+constructs@2.0.2, constructs@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-2.0.2.tgz#a731a3bc7e1b7b71b6e8af25c6571cf8615000fb"
+  integrity sha512-I9sc+Nx72ZmTa+4gp8L6s7ELKO6x6AfUoZA/79Fpmq59TaTokdV+ZWrST/E4QH/At/5UuGbevGXeP7kErJlISA==
+
 contains-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/contains-path/-/contains-path-0.1.0.tgz#fe8cf184ff6670b6baef01a9d4861a5cbec4120a"
