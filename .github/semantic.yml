@@ -5,6 +5,7 @@ titleOnly: true
 scopes:
   - lib
   - cli
+  - plus
   - examples
   - readme
   - docs

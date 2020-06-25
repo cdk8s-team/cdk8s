@@ -1,6 +1,6 @@
-import { Construct } from "constructs";
-import { ApiObject } from "./api-object";
-import { Yaml } from "./yaml";
+import { Construct } from 'constructs';
+import { ApiObject } from './api-object';
+import { Yaml } from './yaml';
 
 export interface IncludeOptions {
   /**
