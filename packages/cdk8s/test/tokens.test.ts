@@ -1,6 +1,6 @@
-import { Lazy } from "constructs";
-import { resolve } from "../lib/_tokens";
-import { Testing } from '../lib';
+import { Lazy } from 'constructs';
+import { resolve } from '../src/_tokens';
+import { Testing } from '../src';
 
 test('lazy', () => {
   // GIVEN
@@ -15,13 +15,13 @@ test('lazy', () => {
   expect(hello).toStrictEqual({
     number: -1.8881545897087498e+289,
     string: '${Token[TOKEN.1]}',
-    implicit: { }
+    implicit: { },
   });
 
   expect(resolve(app, hello)).toStrictEqual({
     number: 1234,
     string: 'hello',
-    implicit: 908
+    implicit: 908,
   });
 });
 

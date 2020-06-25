@@ -1,4 +1,4 @@
-import { ApiObject, Chart, Testing } from '../lib';
+import { ApiObject, Chart, Testing } from '../src';
 import { Construct, Node, Dependency } from 'constructs';
 
 test('minimal configuration', () => {
@@ -7,7 +7,7 @@ test('minimal configuration', () => {
 
   new ApiObject(stack, 'my-resource', {
     apiVersion: 'v1',
-    kind: 'MyResource'
+    kind: 'MyResource',
   });
 
   expect(Testing.synth(stack)).toMatchSnapshot();
@@ -24,10 +24,10 @@ test('printed yaml is alphabetical', () => {
     spec: {
       secondProperty: {
         innerThirdProperty: '!',
-        beforeThirdProperty: 'world'
+        beforeThirdProperty: 'world',
       },
-      firstProperty: 'hello'
-    }
+      firstProperty: 'hello',
+    },
   });
 
   // Should match alphabetically-ordered snapshot
@@ -50,12 +50,12 @@ test('addDependency', () => {
   expect(dependencies).toEqual(new Set<Dependency>([
     {
       source: obj1,
-      target: obj2
+      target: obj2,
     },
     {
       source: obj1,
-      target: obj3
-    }
+      target: obj3,
+    },
   ]))
 
 });
@@ -66,7 +66,7 @@ test('synthesized resource name is based on path', () => {
   const stack = new Chart(app, 'test');
   new ApiObject(stack, 'my-resource', {
     apiVersion: 'v1',
-    kind: 'MyResource'
+    kind: 'MyResource',
   });
 
   // WHEN
@@ -74,7 +74,7 @@ test('synthesized resource name is based on path', () => {
   const scope = new Construct(stack, 'scope');
   new ApiObject(scope, 'my-resource', {
     apiVersion: 'v1',
-    kind: 'MyResource'
+    kind: 'MyResource',
   });
 
   // THEN
@@ -91,8 +91,8 @@ test('if name is explicitly specified it will be respected', () => {
     kind: 'MyResource',
     apiVersion: 'v1',
     metadata: {
-      name: 'boom'
-    }
+      name: 'boom',
+    },
   });
 
   // THEN
@@ -111,9 +111,9 @@ test('"spec" is synthesized as-is', () => {
     spec: {
       prop1: 'hello',
       prop2: {
-        world: 123
-      }
-    }
+        world: 123,
+      },
+    },
   });
 
   // THEN
@@ -130,8 +130,8 @@ test('"data" can be used to specify resource data', () => {
     kind: 'ResourceType',
     apiVersion: 'v1',
     data: {
-      boom: 123
-    }
+      boom: 123,
+    },
   });
 
   // THEN
@@ -152,15 +152,15 @@ test('object naming logic can be overridden at the chart level', () => {
   // WHEN
   const object = new ApiObject(chart, 'my-object', {
     apiVersion: 'v1',
-    kind: 'MyKind'
+    kind: 'MyKind',
   });
 
   // THEN
   expect(object.name).toEqual('fixed!');
   expect(Testing.synth(chart)).toStrictEqual([{
-    "apiVersion": "v1",
-    "kind": "MyKind",
-    "metadata": { "name": "fixed!" }
+    apiVersion: 'v1',
+    kind: 'MyKind',
+    metadata: { name: 'fixed!' },
   }]);
 });
 
@@ -176,19 +176,19 @@ test('default namespace can be defined at the chart level', () => {
 
   // THEN
   expect(Testing.synth(chart)).toStrictEqual([{
-    "apiVersion": "v1",
-    "kind":
-    "Kind1",
-    "metadata": {
-      "name": "chart-group1-obj1-b4b7a9d0",
-      "namespace": "ns1"
-    }
+    apiVersion: 'v1',
+    kind:
+    'Kind1',
+    metadata: {
+      name: 'chart-group1-obj1-b4b7a9d0',
+      namespace: 'ns1',
+    },
   }, {
-    "apiVersion": "v2",
-    "kind": "Kind2",
-    "metadata": {
-      "name": "chart-group1-obj2-3cdc9d22",
-      "namespace": "foobar"
-    }
+    apiVersion: 'v2',
+    kind: 'Kind2',
+    metadata: {
+      name: 'chart-group1-obj2-3cdc9d22',
+      namespace: 'foobar',
+    },
   }]);
 });

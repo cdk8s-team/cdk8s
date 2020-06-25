@@ -1,8 +1,7 @@
 import { Node, IConstruct, Construct } from 'constructs';
-import { DependencyGraph } from '../lib/dependency';
+import { DependencyGraph } from '../src/dependency';
 
 test('topology returns correct order', () => {
-
   const root = new Construct(undefined as any, 'App')
   const group = new Construct(root, 'chart1');
 

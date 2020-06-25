@@ -1,21 +1,19 @@
 const { JsiiProject, Semver } = require('projen');
+const common = require('../projen-common');
 
-const constructsDependency = Semver.pinned('2.0.1')
 const cdk8sDependency = Semver.caret('0.0.0')
 
 const project = new JsiiProject({
   name: 'cdk8s-plus',
-  buildWorkflow: false,
-  releaseWorkflow: false,
-  mergify: false,
-  commitPackageJson: true,
-  jsiiVersion: Semver.caret('1.6.0'),
   description: 'High level abstractions on top of cdk8s',
-  repository: 'https://github.com/awslabs/cdk8s.git',
-  authorName: 'Amazon Web Services',
-  authorUrl: 'https://aws.amazon.com',
+  stability: 'experimental',
+
+  ...common.options,
+
+  // dependencies
+  jsiiVersion: Semver.caret(common.versions.jsii),
   peerDependencies: {
-    constructs: constructsDependency,
+    constructs: Semver.caret(common.versions.constructs),
     cdk8s: cdk8sDependency,
   },
   dependencies: {
@@ -26,7 +24,8 @@ const project = new JsiiProject({
   devDependencies: {
     '@types/minimatch': Semver.caret('3.0.3'),
   },
-  stability: 'experimental',
+
+  // jsii configuration
   java: {
     javaPackage: 'org.cdk8s.plus',
     mavenGroupId: 'org.cdk8s',
@@ -42,14 +41,6 @@ const project = new JsiiProject({
   }
 });
 
-// override the default "build" from projen because currently in this
-// repo it means "compile"
-project.addScripts({
-  build: 'jsii --silence-warnings=reserved-word && yarn docgen',
-  test: 'yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn run compile'
-});
-
-// jsii-release is declared at the root level, we don't need it here.
-delete project.devDependencies['jsii-release']
+common.fixup(project);
 
 project.synth();
