@@ -2,6 +2,7 @@ import * as yargs from 'yargs';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { sscaff } from 'sscaff';
+const constructsVersion = require('../../package.json').dependencies.constructs;
 
 const templatesDir = path.join(__dirname, '..', '..', 'templates');
 const availableTemplates = fs.readdirSync(templatesDir).filter(x => !x.startsWith('.'));
@@ -41,7 +42,8 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     const ret = {
       'npm_cdk8s': path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
       'npm_cdk8s_cli': path.resolve(dist, 'js', `cdk8s-cli-${version}.tgz`),
-      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`)
+      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`),
+      'mvn_cdk8s': path.resolve(dist, 'java', `org/cdk8s/cdk8s/${version}/cdk8s-${version}.jar`),
     };
 
     for (const file of Object.values(ret)) {
@@ -50,7 +52,15 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
       }
     }
 
-    return ret;
+    const versions = {
+      'cdk8s_version': version,
+      'constructs_version': constructsVersion,
+    }
+
+    return {
+      ...ret,
+      ...versions,
+    };
   }
   
   if (version === '0.0.0') {
@@ -67,6 +77,9 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     'npm_cdk8s': `cdk8s@${ver}`,
     'npm_cdk8s_cli': `cdk8s-cli@${ver}`,
     'pypi_cdk8s': `cdk8s~=${version}`, // no support for pre-release
+    'mvn_cdk8s': version,
+    'cdk8s_version': version,
+    'constructs_version': constructsVersion,
   };
 }
 
@@ -74,6 +87,9 @@ interface Deps {
   npm_cdk8s: string;
   npm_cdk8s_cli: string;
   pypi_cdk8s: string;
+  mvn_cdk8s: string;
+  cdk8s_version: string;
+  constructs_version: string;
 }
 
 module.exports = new Command();
