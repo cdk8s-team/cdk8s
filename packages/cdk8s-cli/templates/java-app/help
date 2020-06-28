@@ -1,0 +1,13 @@
+========================================================================================================
+
+ Your cdk8s Java project is ready!
+
+   cat help      Prints this message  
+   cdk8s synth   Synthesize k8s manifests to dist/
+   cdk8s import  Imports k8s API objects to "src/main/java/imports/"
+   mvn compile   Compiles your java packages
+
+  Deploy:
+   kubectl apply -f dist/*.k8s.yaml
+
+========================================================================================================
