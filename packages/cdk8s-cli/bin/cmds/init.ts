@@ -3,7 +3,6 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { sscaff } from 'sscaff';
 const constructsVersion = require('../../package.json').dependencies.constructs;
-const jsiiRuntimeVersion = '1.5.0'
 
 const templatesDir = path.join(__dirname, '..', '..', 'templates');
 const availableTemplates = fs.readdirSync(templatesDir).filter(x => !x.startsWith('.'));
@@ -56,10 +55,12 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     const versions = {
       'cdk8s_version': version,
       'constructs_version': constructsVersion,
-      'jsii_runtime_version': jsiiRuntimeVersion,
     }
 
-    return Object.assign(ret, versions);
+    return {
+      ...ret,
+      ...versions,
+    };
   }
   
   if (version === '0.0.0') {
@@ -79,7 +80,6 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     'mvn_cdk8s': version,
     'cdk8s_version': version,
     'constructs_version': constructsVersion,
-    'jsii_runtime_version': jsiiRuntimeVersion,
   };
 }
 
@@ -90,7 +90,6 @@ interface Deps {
   mvn_cdk8s: string;
   cdk8s_version: string;
   constructs_version: string;
-  jsii_runtime_version: string;
 }
 
 module.exports = new Command();

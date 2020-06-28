@@ -23,11 +23,6 @@
       <artifactId>guava</artifactId>
       <version>29.0-jre</version>
     </dependency>  
-    <dependency>
-      <groupId>software.amazon.jsii</groupId>
-      <artifactId>jsii-runtime</artifactId>
-      <version>{{ jsii_runtime_version }}</version>
-    </dependency>
   </dependencies>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
