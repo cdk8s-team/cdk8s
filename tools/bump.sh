@@ -7,4 +7,4 @@ cd ${repo_root}
 version="${1:-minor}"
 
 yarn install
-npx standard-version --release-as ${version} --skip.tag --bumpFiles package.json
+npx standard-version --release-as ${version}
