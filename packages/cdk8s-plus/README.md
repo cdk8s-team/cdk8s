@@ -137,6 +137,54 @@ spec:
   type: LoadBalancer
 ```
 
+## Installation and Usage
+
+We currently support both Python and TypeScript/JavaScript. More languages are coming soon.
+
+> We would love to hear which languages you want to see next: [Languages Support](https://github.com/awslabs/cdk8s/issues/134)
+
+### TypeScript/JavaScript
+
+`npm install cdk8s-plus cdk8s`
+
+```typescript
+import * as kplus from 'cdk8s-plus';
+import * as cdk8s from 'cdk8s';
+
+const app = new cdk8s.App();
+const chart = new cdk8s.Chart(app, 'Chart');
+
+new kplus.Deployment(chart, 'Deployment', {
+  spec: {
+    replicas: 3,
+    podSpecTemplate: {
+      containers: [new kplus.Container({
+        image: 'ubuntu',
+      })],
+    },
+  },
+})
+```
+
+### Python
+
+`pip install cdk8s-plus cdk8s`
+
+```python
+import cdk8s_plus as kplus
+import cdk8s
+
+app = cdk8s.App()
+chart = cdk8s.Chart(app, 'Chart')
+
+kplus.Deployment(chart, 'Deployment',
+    spec=kplus.DeploymentSpec(
+      replicas=1,
+      pod_spec_template=kplus.PodSpec(containers=[kplus.Container(image='ubuntu')])
+    ))
+```
+
+
 ## In Depth
 
 Following are excerpts for the usage of every *construct* provided by this library. It details the commonly used patterns and configuration properties.
