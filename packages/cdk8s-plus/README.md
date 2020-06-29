@@ -145,7 +145,7 @@ We currently support both Python and TypeScript/JavaScript. More languages are c
 
 ### TypeScript/JavaScript
 
-`npm install cdk8s-plus cdk8s`
+`❯ npm install cdk8s-plus cdk8s`
 
 ```typescript
 import * as kplus from 'cdk8s-plus';
@@ -163,12 +163,12 @@ new kplus.Deployment(chart, 'Deployment', {
       })],
     },
   },
-})
+});
 ```
 
 ### Python
 
-`pip install cdk8s-plus cdk8s`
+`❯ pip install cdk8s-plus cdk8s`
 
 ```python
 import cdk8s_plus as kplus
