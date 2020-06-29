@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.26.0](https://github.com/awslabs/cdk8s/compare/v0.25.0...v0.26.0) (2020-06-29)
+
+
+### Features
+
+* **cli:** cdk8s init template for java ([#245](https://github.com/awslabs/cdk8s/issues/245)) ([2bec62a](https://github.com/awslabs/cdk8s/commit/2bec62afac55fc8fe0c34ed6cfbb508977c43815))
+* Introducing "cdk8s+": high-level APIs for Kubernetes ([#239](https://github.com/awslabs/cdk8s/issues/239)) ([1b991f6](https://github.com/awslabs/cdk8s/commit/1b991f691bd214e9aaac66e90e3b065d0c31b9aa))
+
+
+### Bug Fixes
+
+* move output of java imports into /src/main/java ([#240](https://github.com/awslabs/cdk8s/issues/240)) ([9445358](https://github.com/awslabs/cdk8s/commit/94453588a504fe35dd4da7b7c6d9b92a1d93c4f3))
+
 ## [0.25.0](https://github.com/awslabs/cdk8s/compare/v0.24.0...v0.25.0) (2020-06-09)
 
 
