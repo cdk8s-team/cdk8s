@@ -178,10 +178,11 @@ app = cdk8s.App()
 chart = cdk8s.Chart(app, 'Chart')
 
 kplus.Deployment(chart, 'Deployment',
-    spec=kplus.DeploymentSpec(
-      replicas=1,
-      pod_spec_template=kplus.PodSpec(containers=[kplus.Container(image='ubuntu')])
-    ))
+  spec=kplus.DeploymentSpec(
+    replicas=1,
+    pod_spec_template=kplus.PodSpec(containers=[kplus.Container(image='ubuntu')])
+  )
+)
 ```
 
 
