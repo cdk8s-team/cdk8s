@@ -44,7 +44,7 @@ export abstract class ImportBase {
 
     for (const name of this.moduleNames) {
       // output the name of the imported resource
-      console.error(name);
+      console.log(name);
 
       const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${name}.ts` : `${name}.ts`;
       code.openFile(fileName);
@@ -87,9 +87,10 @@ export abstract class ImportBase {
 
           // java!
           if (options.targetLanguage === Language.JAVA) {
+            const javaName = name.replace('/', '.')
             opts.java = {
               outdir: '.',
-              package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + name : name}`
+              package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + javaName : javaName}`
             };
           }
 
