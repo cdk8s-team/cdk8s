@@ -53,6 +53,7 @@ export class Names {
 
     return components
       .reverse()
+      .filter(((value, index, components) => value !== components[index-1]))
       .join('/')
       .slice(0, maxLen)
       .split('/')

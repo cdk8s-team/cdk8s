@@ -23,7 +23,9 @@ test('single term is not decorated with a hash', () => {
 
 test('multiple terms are separated by "." and a hash is appended', () => {
   expect(toDnsName('hello-foo-world')).toEqual('hello-foo-world'); // this is actually a single term
+  expect(toDnsName('hello-hello-foo-world')).toEqual('hello-hello-foo-world'); // intentionally duplicated
   expect(toDnsName('hello-foo/world')).toEqual('hello-foo-world-54700203'); // two terms
+  expect(toDnsName('hello-foo/foo')).toEqual('hello-foo-foo-e078a973'); // two terms, intentionally duplicated
   expect(toDnsName('hello/foo/world')).toEqual('hello-foo-world-4f6e4fd8'); // three terms
 });
 
@@ -37,10 +39,20 @@ test('invalid max length (minimum is 8 - for hash)', () => {
   expect(toDnsName('foo', 9)).toEqual('foo');
 });
 
+test('omit duplicate components in names', () => {
+  expect(toDnsName('hello/hello/foo/world')).toEqual('hello-foo-world-1d4999d0');
+  expect(toDnsName('hello/hello/hello/foo/world')).toEqual('hello-foo-world-d3ebcda3');
+  expect(toDnsName('hello/hello/hello/hello/hello')).toEqual('hello-456bb9d7');
+  expect(toDnsName('hello/cool/cool/cool/cool')).toEqual('hello-cool-83150e81');
+  expect(toDnsName('hello/world/world/world/cool')).toEqual('hello-world-cool-0148a798');
+})
+
 test('trimming (prioritize last component)', () => {
   expect(toDnsName('hello/world', 8)).toEqual('761e91eb');
   expect(toDnsName('hello/world/this/is/cool', 8)).toEqual('a7c39f00');
   expect(toDnsName('hello/world/this/is/cool', 12)).toEqual('coo-a7c39f00');
+  expect(toDnsName('hello/hello/this/is/cool', 12)).toEqual('coo-8751188b');
+  expect(toDnsName('hello/cool/cool/cool/cool', 15)).toEqual('h-cool-83150e81');
   expect(toDnsName('hello/world/this/is/cool', 14)).toEqual('cool-a7c39f00');
   expect(toDnsName('hello/world/this/is/cool', 15)).toEqual('i-cool-a7c39f00');
   expect(toDnsName('hello/world/this/is/cool', 25)).toEqual('wor-this-is-cool-a7c39f00');
