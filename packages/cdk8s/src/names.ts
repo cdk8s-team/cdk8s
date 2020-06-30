@@ -51,9 +51,9 @@ export class Names {
 
     components.push(calcHash(path, HASH_LEN));
 
+    components = omitDuplicates(components);
+
     return components
-      .reverse()
-      .filter(((value, index, components) => value !== components[index-1]))
       .join('/')
       .slice(0, maxLen)
       .split('/')
@@ -66,6 +66,10 @@ export class Names {
   private constructor() {
     return;
   }
+}
+
+function omitDuplicates(components: string[]) {
+  return components.reverse().filter((value, index, components) => value !== components[index-1])
 }
 
 function normalizeToDnsName(c: string, maxLen: number) {
