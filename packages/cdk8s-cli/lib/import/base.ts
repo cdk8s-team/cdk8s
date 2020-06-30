@@ -87,7 +87,7 @@ export abstract class ImportBase {
 
           // java!
           if (options.targetLanguage === Language.JAVA) {
-            const javaName = name.replace('/', '.')
+            const javaName = name.replace(/\//g, '.')
             opts.java = {
               outdir: '.',
               package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + javaName : javaName}`
