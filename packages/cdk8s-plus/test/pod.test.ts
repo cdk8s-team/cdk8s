@@ -166,7 +166,7 @@ describe('Pod', () => {
           "apiVersion": "v1",
           "kind": "Pod",
           "metadata": Object {
-            "name": "test-pod-pod-cc5a4f6a",
+            "name": "test-pod-cc5a4f6a",
           },
           "spec": Object {
             "containers": Array [

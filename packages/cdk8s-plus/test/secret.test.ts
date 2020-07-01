@@ -19,7 +19,7 @@ test('Can add data to new secrets', () => {
         "apiVersion": "v1",
         "kind": "Secret",
         "metadata": Object {
-          "name": "test-secret-secret-081177f7",
+          "name": "test-secret-081177f7",
         },
         "stringData": Object {
           "key": "value",
