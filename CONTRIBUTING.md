@@ -107,6 +107,24 @@ Prepare your environment:
 2. Install all dependencies: `yarn install`
 3. Run `yarn build` to build all modules.
 
+### Linking against this repository
+
+The script `./tools/link-all.sh` can be used to generate symlinks to all modules in this repository under some `node_module`
+directory. This can be used to develop against this repo as a local dependency.
+
+One can use the `postinstall` script to symlink this repo:
+
+```json
+{
+  "scripts": {
+    "postinstall": "../cdk8s/tools/link-all.sh"
+  }
+}
+```
+
+This assumes this repo is a sibling of the target repo and will install the CDK as a linked dependency during
+__yarn install__.
+
 ### Testing
 
 This project includes per-module unit tests and project-wide integration tests.

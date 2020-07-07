@@ -14,13 +14,23 @@ import cdk8s
 import constructs
 
 
-class ClusterInstallation(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallation"):
+class ClusterInstallation(
+    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallation"
+):
     """ClusterInstallation is the Schema for the clusterinstallations API.
 
     schema:
     :schema:: ClusterInstallation
     """
-    def __init__(self, scope: constructs.Construct, name: str, *, spec: "ClusterInstallationSpec", metadata: typing.Any=None) -> None:
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: str,
+        *,
+        spec: "ClusterInstallationSpec",
+        metadata: typing.Any = None,
+    ) -> None:
         """Defines a "ClusterInstallation" API object.
 
         :param scope: the scope in which to define this object.
@@ -33,9 +43,15 @@ class ClusterInstallation(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="g
         jsii.create(ClusterInstallation, self, [scope, name, options])
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationOptions", jsii_struct_bases=[], name_mapping={'spec': 'spec', 'metadata': 'metadata'})
-class ClusterInstallationOptions():
-    def __init__(self, *, spec: "ClusterInstallationSpec", metadata: typing.Any=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationOptions",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class ClusterInstallationOptions:
+    def __init__(
+        self, *, spec: "ClusterInstallationSpec", metadata: typing.Any = None
+    ) -> None:
         """ClusterInstallation is the Schema for the clusterinstallations API.
 
         :param spec: Specification of the desired behavior of the Mattermost cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
@@ -44,11 +60,13 @@ class ClusterInstallationOptions():
         schema:
         :schema:: ClusterInstallation
         """
-        if isinstance(spec, dict): spec = ClusterInstallationSpec(**spec)
+        if isinstance(spec, dict):
+            spec = ClusterInstallationSpec(**spec)
         self._values = {
-            'spec': spec,
+            "spec": spec,
         }
-        if metadata is not None: self._values["metadata"] = metadata
+        if metadata is not None:
+            self._values["metadata"] = metadata
 
     @builtins.property
     def spec(self) -> "ClusterInstallationSpec":
@@ -59,7 +77,7 @@ class ClusterInstallationOptions():
         schema:
         :schema:: ClusterInstallation#spec
         """
-        return self._values.get('spec')
+        return self._values.get("spec")
 
     @builtins.property
     def metadata(self) -> typing.Any:
@@ -67,7 +85,7 @@ class ClusterInstallationOptions():
         schema:
         :schema:: ClusterInstallation#metadata
         """
-        return self._values.get('metadata')
+        return self._values.get("metadata")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -76,12 +94,66 @@ class ClusterInstallationOptions():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationOptions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpec", jsii_struct_bases=[], name_mapping={'ingress_name': 'ingressName', 'affinity': 'affinity', 'blue_green': 'blueGreen', 'canary': 'canary', 'database': 'database', 'elastic_search': 'elasticSearch', 'image': 'image', 'ingress_annotations': 'ingressAnnotations', 'liveness_probe': 'livenessProbe', 'mattermost_env': 'mattermostEnv', 'mattermost_license_secret': 'mattermostLicenseSecret', 'minio': 'minio', 'node_selector': 'nodeSelector', 'readiness_probe': 'readinessProbe', 'replicas': 'replicas', 'resources': 'resources', 'service_annotations': 'serviceAnnotations', 'size': 'size', 'use_service_load_balancer': 'useServiceLoadBalancer', 'version': 'version'})
-class ClusterInstallationSpec():
-    def __init__(self, *, ingress_name: str, affinity: typing.Optional["ClusterInstallationSpecAffinity"]=None, blue_green: typing.Optional["ClusterInstallationSpecBlueGreen"]=None, canary: typing.Optional["ClusterInstallationSpecCanary"]=None, database: typing.Optional["ClusterInstallationSpecDatabase"]=None, elastic_search: typing.Optional["ClusterInstallationSpecElasticSearch"]=None, image: typing.Optional[str]=None, ingress_annotations: typing.Optional[typing.Mapping[str, str]]=None, liveness_probe: typing.Optional["ClusterInstallationSpecLivenessProbe"]=None, mattermost_env: typing.Optional[typing.List["ClusterInstallationSpecMattermostEnv"]]=None, mattermost_license_secret: typing.Optional[str]=None, minio: typing.Optional["ClusterInstallationSpecMinio"]=None, node_selector: typing.Optional[typing.Mapping[str, str]]=None, readiness_probe: typing.Optional["ClusterInstallationSpecReadinessProbe"]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecResources"]=None, service_annotations: typing.Optional[typing.Mapping[str, str]]=None, size: typing.Optional[str]=None, use_service_load_balancer: typing.Optional[bool]=None, version: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpec",
+    jsii_struct_bases=[],
+    name_mapping={
+        "ingress_name": "ingressName",
+        "affinity": "affinity",
+        "blue_green": "blueGreen",
+        "canary": "canary",
+        "database": "database",
+        "elastic_search": "elasticSearch",
+        "image": "image",
+        "ingress_annotations": "ingressAnnotations",
+        "liveness_probe": "livenessProbe",
+        "mattermost_env": "mattermostEnv",
+        "mattermost_license_secret": "mattermostLicenseSecret",
+        "minio": "minio",
+        "node_selector": "nodeSelector",
+        "readiness_probe": "readinessProbe",
+        "replicas": "replicas",
+        "resources": "resources",
+        "service_annotations": "serviceAnnotations",
+        "size": "size",
+        "use_service_load_balancer": "useServiceLoadBalancer",
+        "version": "version",
+    },
+)
+class ClusterInstallationSpec:
+    def __init__(
+        self,
+        *,
+        ingress_name: str,
+        affinity: typing.Optional["ClusterInstallationSpecAffinity"] = None,
+        blue_green: typing.Optional["ClusterInstallationSpecBlueGreen"] = None,
+        canary: typing.Optional["ClusterInstallationSpecCanary"] = None,
+        database: typing.Optional["ClusterInstallationSpecDatabase"] = None,
+        elastic_search: typing.Optional["ClusterInstallationSpecElasticSearch"] = None,
+        image: typing.Optional[str] = None,
+        ingress_annotations: typing.Optional[typing.Mapping[str, str]] = None,
+        liveness_probe: typing.Optional["ClusterInstallationSpecLivenessProbe"] = None,
+        mattermost_env: typing.Optional[
+            typing.List["ClusterInstallationSpecMattermostEnv"]
+        ] = None,
+        mattermost_license_secret: typing.Optional[str] = None,
+        minio: typing.Optional["ClusterInstallationSpecMinio"] = None,
+        node_selector: typing.Optional[typing.Mapping[str, str]] = None,
+        readiness_probe: typing.Optional[
+            "ClusterInstallationSpecReadinessProbe"
+        ] = None,
+        replicas: typing.Optional[jsii.Number] = None,
+        resources: typing.Optional["ClusterInstallationSpecResources"] = None,
+        service_annotations: typing.Optional[typing.Mapping[str, str]] = None,
+        size: typing.Optional[str] = None,
+        use_service_load_balancer: typing.Optional[bool] = None,
+        version: typing.Optional[str] = None,
+    ) -> None:
         """Specification of the desired behavior of the Mattermost cluster.
 
         More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
@@ -110,37 +182,65 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec
         """
-        if isinstance(affinity, dict): affinity = ClusterInstallationSpecAffinity(**affinity)
-        if isinstance(blue_green, dict): blue_green = ClusterInstallationSpecBlueGreen(**blue_green)
-        if isinstance(canary, dict): canary = ClusterInstallationSpecCanary(**canary)
-        if isinstance(database, dict): database = ClusterInstallationSpecDatabase(**database)
-        if isinstance(elastic_search, dict): elastic_search = ClusterInstallationSpecElasticSearch(**elastic_search)
-        if isinstance(liveness_probe, dict): liveness_probe = ClusterInstallationSpecLivenessProbe(**liveness_probe)
-        if isinstance(minio, dict): minio = ClusterInstallationSpecMinio(**minio)
-        if isinstance(readiness_probe, dict): readiness_probe = ClusterInstallationSpecReadinessProbe(**readiness_probe)
-        if isinstance(resources, dict): resources = ClusterInstallationSpecResources(**resources)
+        if isinstance(affinity, dict):
+            affinity = ClusterInstallationSpecAffinity(**affinity)
+        if isinstance(blue_green, dict):
+            blue_green = ClusterInstallationSpecBlueGreen(**blue_green)
+        if isinstance(canary, dict):
+            canary = ClusterInstallationSpecCanary(**canary)
+        if isinstance(database, dict):
+            database = ClusterInstallationSpecDatabase(**database)
+        if isinstance(elastic_search, dict):
+            elastic_search = ClusterInstallationSpecElasticSearch(**elastic_search)
+        if isinstance(liveness_probe, dict):
+            liveness_probe = ClusterInstallationSpecLivenessProbe(**liveness_probe)
+        if isinstance(minio, dict):
+            minio = ClusterInstallationSpecMinio(**minio)
+        if isinstance(readiness_probe, dict):
+            readiness_probe = ClusterInstallationSpecReadinessProbe(**readiness_probe)
+        if isinstance(resources, dict):
+            resources = ClusterInstallationSpecResources(**resources)
         self._values = {
-            'ingress_name': ingress_name,
+            "ingress_name": ingress_name,
         }
-        if affinity is not None: self._values["affinity"] = affinity
-        if blue_green is not None: self._values["blue_green"] = blue_green
-        if canary is not None: self._values["canary"] = canary
-        if database is not None: self._values["database"] = database
-        if elastic_search is not None: self._values["elastic_search"] = elastic_search
-        if image is not None: self._values["image"] = image
-        if ingress_annotations is not None: self._values["ingress_annotations"] = ingress_annotations
-        if liveness_probe is not None: self._values["liveness_probe"] = liveness_probe
-        if mattermost_env is not None: self._values["mattermost_env"] = mattermost_env
-        if mattermost_license_secret is not None: self._values["mattermost_license_secret"] = mattermost_license_secret
-        if minio is not None: self._values["minio"] = minio
-        if node_selector is not None: self._values["node_selector"] = node_selector
-        if readiness_probe is not None: self._values["readiness_probe"] = readiness_probe
-        if replicas is not None: self._values["replicas"] = replicas
-        if resources is not None: self._values["resources"] = resources
-        if service_annotations is not None: self._values["service_annotations"] = service_annotations
-        if size is not None: self._values["size"] = size
-        if use_service_load_balancer is not None: self._values["use_service_load_balancer"] = use_service_load_balancer
-        if version is not None: self._values["version"] = version
+        if affinity is not None:
+            self._values["affinity"] = affinity
+        if blue_green is not None:
+            self._values["blue_green"] = blue_green
+        if canary is not None:
+            self._values["canary"] = canary
+        if database is not None:
+            self._values["database"] = database
+        if elastic_search is not None:
+            self._values["elastic_search"] = elastic_search
+        if image is not None:
+            self._values["image"] = image
+        if ingress_annotations is not None:
+            self._values["ingress_annotations"] = ingress_annotations
+        if liveness_probe is not None:
+            self._values["liveness_probe"] = liveness_probe
+        if mattermost_env is not None:
+            self._values["mattermost_env"] = mattermost_env
+        if mattermost_license_secret is not None:
+            self._values["mattermost_license_secret"] = mattermost_license_secret
+        if minio is not None:
+            self._values["minio"] = minio
+        if node_selector is not None:
+            self._values["node_selector"] = node_selector
+        if readiness_probe is not None:
+            self._values["readiness_probe"] = readiness_probe
+        if replicas is not None:
+            self._values["replicas"] = replicas
+        if resources is not None:
+            self._values["resources"] = resources
+        if service_annotations is not None:
+            self._values["service_annotations"] = service_annotations
+        if size is not None:
+            self._values["size"] = size
+        if use_service_load_balancer is not None:
+            self._values["use_service_load_balancer"] = use_service_load_balancer
+        if version is not None:
+            self._values["version"] = version
 
     @builtins.property
     def ingress_name(self) -> str:
@@ -149,7 +249,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#ingressName
         """
-        return self._values.get('ingress_name')
+        return self._values.get("ingress_name")
 
     @builtins.property
     def affinity(self) -> typing.Optional["ClusterInstallationSpecAffinity"]:
@@ -158,7 +258,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#affinity
         """
-        return self._values.get('affinity')
+        return self._values.get("affinity")
 
     @builtins.property
     def blue_green(self) -> typing.Optional["ClusterInstallationSpecBlueGreen"]:
@@ -167,7 +267,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#blueGreen
         """
-        return self._values.get('blue_green')
+        return self._values.get("blue_green")
 
     @builtins.property
     def canary(self) -> typing.Optional["ClusterInstallationSpecCanary"]:
@@ -176,7 +276,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#canary
         """
-        return self._values.get('canary')
+        return self._values.get("canary")
 
     @builtins.property
     def database(self) -> typing.Optional["ClusterInstallationSpecDatabase"]:
@@ -185,7 +285,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#database
         """
-        return self._values.get('database')
+        return self._values.get("database")
 
     @builtins.property
     def elastic_search(self) -> typing.Optional["ClusterInstallationSpecElasticSearch"]:
@@ -194,7 +294,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#elasticSearch
         """
-        return self._values.get('elastic_search')
+        return self._values.get("elastic_search")
 
     @builtins.property
     def image(self) -> typing.Optional[str]:
@@ -203,7 +303,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#image
         """
-        return self._values.get('image')
+        return self._values.get("image")
 
     @builtins.property
     def ingress_annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -211,7 +311,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#ingressAnnotations
         """
-        return self._values.get('ingress_annotations')
+        return self._values.get("ingress_annotations")
 
     @builtins.property
     def liveness_probe(self) -> typing.Optional["ClusterInstallationSpecLivenessProbe"]:
@@ -220,16 +320,18 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#livenessProbe
         """
-        return self._values.get('liveness_probe')
+        return self._values.get("liveness_probe")
 
     @builtins.property
-    def mattermost_env(self) -> typing.Optional[typing.List["ClusterInstallationSpecMattermostEnv"]]:
+    def mattermost_env(
+        self,
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecMattermostEnv"]]:
         """Optional environment variables to set in the Mattermost application pods.
 
         schema:
         :schema:: ClusterInstallationSpec#mattermostEnv
         """
-        return self._values.get('mattermost_env')
+        return self._values.get("mattermost_env")
 
     @builtins.property
     def mattermost_license_secret(self) -> typing.Optional[str]:
@@ -238,7 +340,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#mattermostLicenseSecret
         """
-        return self._values.get('mattermost_license_secret')
+        return self._values.get("mattermost_license_secret")
 
     @builtins.property
     def minio(self) -> typing.Optional["ClusterInstallationSpecMinio"]:
@@ -247,7 +349,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#minio
         """
-        return self._values.get('minio')
+        return self._values.get("minio")
 
     @builtins.property
     def node_selector(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -258,16 +360,18 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#nodeSelector
         """
-        return self._values.get('node_selector')
+        return self._values.get("node_selector")
 
     @builtins.property
-    def readiness_probe(self) -> typing.Optional["ClusterInstallationSpecReadinessProbe"]:
+    def readiness_probe(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecReadinessProbe"]:
         """Defines the probe to check if the application is ready to accept traffic.
 
         schema:
         :schema:: ClusterInstallationSpec#readinessProbe
         """
-        return self._values.get('readiness_probe')
+        return self._values.get("readiness_probe")
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -278,7 +382,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#replicas
         """
-        return self._values.get('replicas')
+        return self._values.get("replicas")
 
     @builtins.property
     def resources(self) -> typing.Optional["ClusterInstallationSpecResources"]:
@@ -287,7 +391,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#resources
         """
-        return self._values.get('resources')
+        return self._values.get("resources")
 
     @builtins.property
     def service_annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -295,7 +399,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#serviceAnnotations
         """
-        return self._values.get('service_annotations')
+        return self._values.get("service_annotations")
 
     @builtins.property
     def size(self) -> typing.Optional[str]:
@@ -309,7 +413,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#size
         """
-        return self._values.get('size')
+        return self._values.get("size")
 
     @builtins.property
     def use_service_load_balancer(self) -> typing.Optional[bool]:
@@ -317,7 +421,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#useServiceLoadBalancer
         """
-        return self._values.get('use_service_load_balancer')
+        return self._values.get("use_service_load_balancer")
 
     @builtins.property
     def version(self) -> typing.Optional[str]:
@@ -326,7 +430,7 @@ class ClusterInstallationSpec():
         schema:
         :schema:: ClusterInstallationSpec#version
         """
-        return self._values.get('version')
+        return self._values.get("version")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -335,12 +439,34 @@ class ClusterInstallationSpec():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinity", jsii_struct_bases=[], name_mapping={'node_affinity': 'nodeAffinity', 'pod_affinity': 'podAffinity', 'pod_anti_affinity': 'podAntiAffinity'})
-class ClusterInstallationSpecAffinity():
-    def __init__(self, *, node_affinity: typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"]=None, pod_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAffinity"]=None, pod_anti_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinity",
+    jsii_struct_bases=[],
+    name_mapping={
+        "node_affinity": "nodeAffinity",
+        "pod_affinity": "podAffinity",
+        "pod_anti_affinity": "podAntiAffinity",
+    },
+)
+class ClusterInstallationSpecAffinity:
+    def __init__(
+        self,
+        *,
+        node_affinity: typing.Optional[
+            "ClusterInstallationSpecAffinityNodeAffinity"
+        ] = None,
+        pod_affinity: typing.Optional[
+            "ClusterInstallationSpecAffinityPodAffinity"
+        ] = None,
+        pod_anti_affinity: typing.Optional[
+            "ClusterInstallationSpecAffinityPodAntiAffinity"
+        ] = None,
+    ) -> None:
         """If specified, affinity will define the pod's scheduling constraints.
 
         :param node_affinity: Describes node affinity scheduling rules for the pod.
@@ -350,41 +476,54 @@ class ClusterInstallationSpecAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinity
         """
-        if isinstance(node_affinity, dict): node_affinity = ClusterInstallationSpecAffinityNodeAffinity(**node_affinity)
-        if isinstance(pod_affinity, dict): pod_affinity = ClusterInstallationSpecAffinityPodAffinity(**pod_affinity)
-        if isinstance(pod_anti_affinity, dict): pod_anti_affinity = ClusterInstallationSpecAffinityPodAntiAffinity(**pod_anti_affinity)
-        self._values = {
-        }
-        if node_affinity is not None: self._values["node_affinity"] = node_affinity
-        if pod_affinity is not None: self._values["pod_affinity"] = pod_affinity
-        if pod_anti_affinity is not None: self._values["pod_anti_affinity"] = pod_anti_affinity
+        if isinstance(node_affinity, dict):
+            node_affinity = ClusterInstallationSpecAffinityNodeAffinity(**node_affinity)
+        if isinstance(pod_affinity, dict):
+            pod_affinity = ClusterInstallationSpecAffinityPodAffinity(**pod_affinity)
+        if isinstance(pod_anti_affinity, dict):
+            pod_anti_affinity = ClusterInstallationSpecAffinityPodAntiAffinity(
+                **pod_anti_affinity
+            )
+        self._values = {}
+        if node_affinity is not None:
+            self._values["node_affinity"] = node_affinity
+        if pod_affinity is not None:
+            self._values["pod_affinity"] = pod_affinity
+        if pod_anti_affinity is not None:
+            self._values["pod_anti_affinity"] = pod_anti_affinity
 
     @builtins.property
-    def node_affinity(self) -> typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"]:
+    def node_affinity(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"]:
         """Describes node affinity scheduling rules for the pod.
 
         schema:
         :schema:: ClusterInstallationSpecAffinity#nodeAffinity
         """
-        return self._values.get('node_affinity')
+        return self._values.get("node_affinity")
 
     @builtins.property
-    def pod_affinity(self) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinity"]:
+    def pod_affinity(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinity"]:
         """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
 
         schema:
         :schema:: ClusterInstallationSpecAffinity#podAffinity
         """
-        return self._values.get('pod_affinity')
+        return self._values.get("pod_affinity")
 
     @builtins.property
-    def pod_anti_affinity(self) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"]:
+    def pod_anti_affinity(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"]:
         """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 
         schema:
         :schema:: ClusterInstallationSpecAffinity#podAntiAffinity
         """
-        return self._values.get('pod_anti_affinity')
+        return self._values.get("pod_anti_affinity")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -393,12 +532,32 @@ class ClusterInstallationSpecAffinity():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinity(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
-class ClusterInstallationSpecAffinityNodeAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinity",
+    jsii_struct_bases=[],
+    name_mapping={
+        "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
+        "required_during_scheduling_ignored_during_execution": "requiredDuringSchedulingIgnoredDuringExecution",
+    },
+)
+class ClusterInstallationSpecAffinityNodeAffinity:
+    def __init__(
+        self,
+        *,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"
+            ]
+        ] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[
+            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"
+        ] = None,
+    ) -> None:
         """Describes node affinity scheduling rules for the pod.
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
@@ -407,14 +566,28 @@ class ClusterInstallationSpecAffinityNodeAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinity
         """
-        if isinstance(required_during_scheduling_ignored_during_execution, dict): required_during_scheduling_ignored_during_execution = ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(**required_during_scheduling_ignored_during_execution)
-        self._values = {
-        }
-        if preferred_during_scheduling_ignored_during_execution is not None: self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
-        if required_during_scheduling_ignored_during_execution is not None: self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
+        if isinstance(required_during_scheduling_ignored_during_execution, dict):
+            required_during_scheduling_ignored_during_execution = ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(
+                **required_during_scheduling_ignored_during_execution
+            )
+        self._values = {}
+        if preferred_during_scheduling_ignored_during_execution is not None:
+            self._values[
+                "preferred_during_scheduling_ignored_during_execution"
+            ] = preferred_during_scheduling_ignored_during_execution
+        if required_during_scheduling_ignored_during_execution is not None:
+            self._values[
+                "required_during_scheduling_ignored_during_execution"
+            ] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
-    def preferred_during_scheduling_ignored_during_execution(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]:
+    def preferred_during_scheduling_ignored_during_execution(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"
+        ]
+    ]:
         """The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
@@ -422,10 +595,14 @@ class ClusterInstallationSpecAffinityNodeAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
-        return self._values.get('preferred_during_scheduling_ignored_during_execution')
+        return self._values.get("preferred_during_scheduling_ignored_during_execution")
 
     @builtins.property
-    def required_during_scheduling_ignored_during_execution(self) -> typing.Optional["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"]:
+    def required_during_scheduling_ignored_during_execution(
+        self,
+    ) -> typing.Optional[
+        "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"
+    ]:
         """If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
         If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
@@ -433,7 +610,7 @@ class ClusterInstallationSpecAffinityNodeAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
-        return self._values.get('required_during_scheduling_ignored_during_execution')
+        return self._values.get("required_during_scheduling_ignored_during_execution")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -442,12 +619,23 @@ class ClusterInstallationSpecAffinityNodeAffinity():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinity(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'preference': 'preference', 'weight': 'weight'})
-class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, preference: "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", weight: jsii.Number) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_struct_bases=[],
+    name_mapping={"preference": "preference", "weight": "weight"},
+)
+class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution:
+    def __init__(
+        self,
+        *,
+        preference: "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
+        weight: jsii.Number,
+    ) -> None:
         """An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
 
         :param preference: A node selector term, associated with the corresponding weight.
@@ -456,20 +644,25 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
-        if isinstance(preference, dict): preference = ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(**preference)
+        if isinstance(preference, dict):
+            preference = ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(
+                **preference
+            )
         self._values = {
-            'preference': preference,
-            'weight': weight,
+            "preference": preference,
+            "weight": weight,
         }
 
     @builtins.property
-    def preference(self) -> "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference":
+    def preference(
+        self,
+    ) -> "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference":
         """A node selector term, associated with the corresponding weight.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution#preference
         """
-        return self._values.get('preference')
+        return self._values.get("preference")
 
     @builtins.property
     def weight(self) -> jsii.Number:
@@ -478,7 +671,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
         """
-        return self._values.get('weight')
+        return self._values.get("weight")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -487,12 +680,35 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_fields': 'matchFields'})
-class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]]=None, match_fields: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
+    jsii_struct_bases=[],
+    name_mapping={
+        "match_expressions": "matchExpressions",
+        "match_fields": "matchFields",
+    },
+)
+class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference:
+    def __init__(
+        self,
+        *,
+        match_expressions: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"
+            ]
+        ] = None,
+        match_fields: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"
+            ]
+        ] = None,
+    ) -> None:
         """A node selector term, associated with the corresponding weight.
 
         :param match_expressions: A list of node selector requirements by node's labels.
@@ -501,28 +717,41 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference
         """
-        self._values = {
-        }
-        if match_expressions is not None: self._values["match_expressions"] = match_expressions
-        if match_fields is not None: self._values["match_fields"] = match_fields
+        self._values = {}
+        if match_expressions is not None:
+            self._values["match_expressions"] = match_expressions
+        if match_fields is not None:
+            self._values["match_fields"] = match_fields
 
     @builtins.property
-    def match_expressions(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]]:
+    def match_expressions(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"
+        ]
+    ]:
         """A list of node selector requirements by node's labels.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchExpressions
         """
-        return self._values.get('match_expressions')
+        return self._values.get("match_expressions")
 
     @builtins.property
-    def match_fields(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]]:
+    def match_fields(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"
+        ]
+    ]:
         """A list of node selector requirements by node's fields.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchFields
         """
-        return self._values.get('match_fields')
+        return self._values.get("match_fields")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -531,12 +760,25 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
-class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "operator": "operator", "values": "values"},
+)
+class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions:
+    def __init__(
+        self,
+        *,
+        key: str,
+        operator: str,
+        values: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -547,10 +789,11 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions
         """
         self._values = {
-            'key': key,
-            'operator': operator,
+            "key": key,
+            "operator": operator,
         }
-        if values is not None: self._values["values"] = values
+        if values is not None:
+            self._values["values"] = values
 
     @builtins.property
     def key(self) -> str:
@@ -559,7 +802,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def operator(self) -> str:
@@ -570,7 +813,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#operator
         """
-        return self._values.get('operator')
+        return self._values.get("operator")
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[str]]:
@@ -581,7 +824,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#values
         """
-        return self._values.get('values')
+        return self._values.get("values")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -590,12 +833,25 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
-class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "operator": "operator", "values": "values"},
+)
+class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields:
+    def __init__(
+        self,
+        *,
+        key: str,
+        operator: str,
+        values: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -606,10 +862,11 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields
         """
         self._values = {
-            'key': key,
-            'operator': operator,
+            "key": key,
+            "operator": operator,
         }
-        if values is not None: self._values["values"] = values
+        if values is not None:
+            self._values["values"] = values
 
     @builtins.property
     def key(self) -> str:
@@ -618,7 +875,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def operator(self) -> str:
@@ -629,7 +886,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#operator
         """
-        return self._values.get('operator')
+        return self._values.get("operator")
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[str]]:
@@ -640,7 +897,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#values
         """
-        return self._values.get('values')
+        return self._values.get("values")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -649,12 +906,25 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'node_selector_terms': 'nodeSelectorTerms'})
-class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, node_selector_terms: typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"]) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_struct_bases=[],
+    name_mapping={"node_selector_terms": "nodeSelectorTerms"},
+)
+class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution:
+    def __init__(
+        self,
+        *,
+        node_selector_terms: typing.List[
+            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"
+        ],
+    ) -> None:
         """If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
         If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
@@ -665,11 +935,15 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution
         """
         self._values = {
-            'node_selector_terms': node_selector_terms,
+            "node_selector_terms": node_selector_terms,
         }
 
     @builtins.property
-    def node_selector_terms(self) -> typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"]:
+    def node_selector_terms(
+        self,
+    ) -> typing.List[
+        "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"
+    ]:
         """Required.
 
         A list of node selector terms. The terms are ORed.
@@ -677,7 +951,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution#nodeSelectorTerms
         """
-        return self._values.get('node_selector_terms')
+        return self._values.get("node_selector_terms")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -686,12 +960,35 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_fields': 'matchFields'})
-class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]]=None, match_fields: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms",
+    jsii_struct_bases=[],
+    name_mapping={
+        "match_expressions": "matchExpressions",
+        "match_fields": "matchFields",
+    },
+)
+class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms:
+    def __init__(
+        self,
+        *,
+        match_expressions: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"
+            ]
+        ] = None,
+        match_fields: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"
+            ]
+        ] = None,
+    ) -> None:
         """A null or empty node selector term matches no objects.
 
         The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
@@ -702,28 +999,41 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms
         """
-        self._values = {
-        }
-        if match_expressions is not None: self._values["match_expressions"] = match_expressions
-        if match_fields is not None: self._values["match_fields"] = match_fields
+        self._values = {}
+        if match_expressions is not None:
+            self._values["match_expressions"] = match_expressions
+        if match_fields is not None:
+            self._values["match_fields"] = match_fields
 
     @builtins.property
-    def match_expressions(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]]:
+    def match_expressions(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"
+        ]
+    ]:
         """A list of node selector requirements by node's labels.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchExpressions
         """
-        return self._values.get('match_expressions')
+        return self._values.get("match_expressions")
 
     @builtins.property
-    def match_fields(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]]:
+    def match_fields(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"
+        ]
+    ]:
         """A list of node selector requirements by node's fields.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchFields
         """
-        return self._values.get('match_fields')
+        return self._values.get("match_fields")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -732,12 +1042,25 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
-class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "operator": "operator", "values": "values"},
+)
+class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions:
+    def __init__(
+        self,
+        *,
+        key: str,
+        operator: str,
+        values: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -748,10 +1071,11 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions
         """
         self._values = {
-            'key': key,
-            'operator': operator,
+            "key": key,
+            "operator": operator,
         }
-        if values is not None: self._values["values"] = values
+        if values is not None:
+            self._values["values"] = values
 
     @builtins.property
     def key(self) -> str:
@@ -760,7 +1084,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def operator(self) -> str:
@@ -771,7 +1095,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#operator
         """
-        return self._values.get('operator')
+        return self._values.get("operator")
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[str]]:
@@ -782,7 +1106,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#values
         """
-        return self._values.get('values')
+        return self._values.get("values")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -791,12 +1115,25 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
-class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "operator": "operator", "values": "values"},
+)
+class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields:
+    def __init__(
+        self,
+        *,
+        key: str,
+        operator: str,
+        values: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: The label key that the selector applies to.
@@ -807,10 +1144,11 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields
         """
         self._values = {
-            'key': key,
-            'operator': operator,
+            "key": key,
+            "operator": operator,
         }
-        if values is not None: self._values["values"] = values
+        if values is not None:
+            self._values["values"] = values
 
     @builtins.property
     def key(self) -> str:
@@ -819,7 +1157,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def operator(self) -> str:
@@ -830,7 +1168,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#operator
         """
-        return self._values.get('operator')
+        return self._values.get("operator")
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[str]]:
@@ -841,7 +1179,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#values
         """
-        return self._values.get('values')
+        return self._values.get("values")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -850,12 +1188,35 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
-class ClusterInstallationSpecAffinityPodAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinity",
+    jsii_struct_bases=[],
+    name_mapping={
+        "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
+        "required_during_scheduling_ignored_during_execution": "requiredDuringSchedulingIgnoredDuringExecution",
+    },
+)
+class ClusterInstallationSpecAffinityPodAffinity:
+    def __init__(
+        self,
+        *,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"
+            ]
+        ] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"
+            ]
+        ] = None,
+    ) -> None:
         """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -864,13 +1225,24 @@ class ClusterInstallationSpecAffinityPodAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinity
         """
-        self._values = {
-        }
-        if preferred_during_scheduling_ignored_during_execution is not None: self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
-        if required_during_scheduling_ignored_during_execution is not None: self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
+        self._values = {}
+        if preferred_during_scheduling_ignored_during_execution is not None:
+            self._values[
+                "preferred_during_scheduling_ignored_during_execution"
+            ] = preferred_during_scheduling_ignored_during_execution
+        if required_during_scheduling_ignored_during_execution is not None:
+            self._values[
+                "required_during_scheduling_ignored_during_execution"
+            ] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
-    def preferred_during_scheduling_ignored_during_execution(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]:
+    def preferred_during_scheduling_ignored_during_execution(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"
+        ]
+    ]:
         """The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -878,10 +1250,16 @@ class ClusterInstallationSpecAffinityPodAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
-        return self._values.get('preferred_during_scheduling_ignored_during_execution')
+        return self._values.get("preferred_during_scheduling_ignored_during_execution")
 
     @builtins.property
-    def required_during_scheduling_ignored_during_execution(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]:
+    def required_during_scheduling_ignored_during_execution(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"
+        ]
+    ]:
         """If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
         If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
@@ -889,7 +1267,7 @@ class ClusterInstallationSpecAffinityPodAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
-        return self._values.get('required_during_scheduling_ignored_during_execution')
+        return self._values.get("required_during_scheduling_ignored_during_execution")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -898,12 +1276,23 @@ class ClusterInstallationSpecAffinityPodAffinity():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAffinity(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'pod_affinity_term': 'podAffinityTerm', 'weight': 'weight'})
-class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, pod_affinity_term: "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", weight: jsii.Number) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_struct_bases=[],
+    name_mapping={"pod_affinity_term": "podAffinityTerm", "weight": "weight"},
+)
+class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution:
+    def __init__(
+        self,
+        *,
+        pod_affinity_term: "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+        weight: jsii.Number,
+    ) -> None:
         """The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
 
         :param pod_affinity_term: Required. A pod affinity term, associated with the corresponding weight.
@@ -912,14 +1301,19 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
-        if isinstance(pod_affinity_term, dict): pod_affinity_term = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(**pod_affinity_term)
+        if isinstance(pod_affinity_term, dict):
+            pod_affinity_term = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(
+                **pod_affinity_term
+            )
         self._values = {
-            'pod_affinity_term': pod_affinity_term,
-            'weight': weight,
+            "pod_affinity_term": pod_affinity_term,
+            "weight": weight,
         }
 
     @builtins.property
-    def pod_affinity_term(self) -> "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm":
+    def pod_affinity_term(
+        self,
+    ) -> "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm":
         """Required.
 
         A pod affinity term, associated with the corresponding weight.
@@ -927,7 +1321,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution#podAffinityTerm
         """
-        return self._values.get('pod_affinity_term')
+        return self._values.get("pod_affinity_term")
 
     @builtins.property
     def weight(self) -> jsii.Number:
@@ -936,7 +1330,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
         """
-        return self._values.get('weight')
+        return self._values.get("weight")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -945,12 +1339,31 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
-class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+    jsii_struct_bases=[],
+    name_mapping={
+        "topology_key": "topologyKey",
+        "label_selector": "labelSelector",
+        "namespaces": "namespaces",
+    },
+)
+class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm:
+    def __init__(
+        self,
+        *,
+        topology_key: str,
+        label_selector: typing.Optional[
+            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"
+        ] = None,
+        namespaces: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """Required.
 
         A pod affinity term, associated with the corresponding weight.
@@ -962,12 +1375,17 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
         """
-        if isinstance(label_selector, dict): label_selector = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(**label_selector)
+        if isinstance(label_selector, dict):
+            label_selector = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(
+                **label_selector
+            )
         self._values = {
-            'topology_key': topology_key,
+            "topology_key": topology_key,
         }
-        if label_selector is not None: self._values["label_selector"] = label_selector
-        if namespaces is not None: self._values["namespaces"] = namespaces
+        if label_selector is not None:
+            self._values["label_selector"] = label_selector
+        if namespaces is not None:
+            self._values["namespaces"] = namespaces
 
     @builtins.property
     def topology_key(self) -> str:
@@ -978,16 +1396,20 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#topologyKey
         """
-        return self._values.get('topology_key')
+        return self._values.get("topology_key")
 
     @builtins.property
-    def label_selector(self) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]:
+    def label_selector(
+        self,
+    ) -> typing.Optional[
+        "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"
+    ]:
         """A label query over a set of resources, in this case pods.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
         """
-        return self._values.get('label_selector')
+        return self._values.get("label_selector")
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[str]]:
@@ -998,7 +1420,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaces
         """
-        return self._values.get('namespaces')
+        return self._values.get("namespaces")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1007,12 +1429,31 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
-class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+    jsii_struct_bases=[],
+    name_mapping={
+        "match_expressions": "matchExpressions",
+        "match_labels": "matchLabels",
+    },
+)
+class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector:
+    def __init__(
+        self,
+        *,
+        match_expressions: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"
+            ]
+        ] = None,
+        match_labels: typing.Optional[typing.Mapping[str, str]] = None,
+    ) -> None:
         """A label query over a set of resources, in this case pods.
 
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
@@ -1021,13 +1462,20 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
         """
-        self._values = {
-        }
-        if match_expressions is not None: self._values["match_expressions"] = match_expressions
-        if match_labels is not None: self._values["match_labels"] = match_labels
+        self._values = {}
+        if match_expressions is not None:
+            self._values["match_expressions"] = match_expressions
+        if match_labels is not None:
+            self._values["match_labels"] = match_labels
 
     @builtins.property
-    def match_expressions(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]:
+    def match_expressions(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"
+        ]
+    ]:
         """matchExpressions is a list of label selector requirements.
 
         The requirements are ANDed.
@@ -1035,7 +1483,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
         """
-        return self._values.get('match_expressions')
+        return self._values.get("match_expressions")
 
     @builtins.property
     def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -1046,7 +1494,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchLabels
         """
-        return self._values.get('match_labels')
+        return self._values.get("match_labels")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1055,12 +1503,25 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
-class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "operator": "operator", "values": "values"},
+)
+class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions:
+    def __init__(
+        self,
+        *,
+        key: str,
+        operator: str,
+        values: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -1071,10 +1532,11 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
         """
         self._values = {
-            'key': key,
-            'operator': operator,
+            "key": key,
+            "operator": operator,
         }
-        if values is not None: self._values["values"] = values
+        if values is not None:
+            self._values["values"] = values
 
     @builtins.property
     def key(self) -> str:
@@ -1083,7 +1545,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def operator(self) -> str:
@@ -1094,7 +1556,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#operator
         """
-        return self._values.get('operator')
+        return self._values.get("operator")
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[str]]:
@@ -1105,7 +1567,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#values
         """
-        return self._values.get('values')
+        return self._values.get("values")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1114,12 +1576,31 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
-class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_struct_bases=[],
+    name_mapping={
+        "topology_key": "topologyKey",
+        "label_selector": "labelSelector",
+        "namespaces": "namespaces",
+    },
+)
+class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution:
+    def __init__(
+        self,
+        *,
+        topology_key: str,
+        label_selector: typing.Optional[
+            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"
+        ] = None,
+        namespaces: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
 
         :param topology_key: This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
@@ -1129,12 +1610,17 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution
         """
-        if isinstance(label_selector, dict): label_selector = ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(**label_selector)
+        if isinstance(label_selector, dict):
+            label_selector = ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(
+                **label_selector
+            )
         self._values = {
-            'topology_key': topology_key,
+            "topology_key": topology_key,
         }
-        if label_selector is not None: self._values["label_selector"] = label_selector
-        if namespaces is not None: self._values["namespaces"] = namespaces
+        if label_selector is not None:
+            self._values["label_selector"] = label_selector
+        if namespaces is not None:
+            self._values["namespaces"] = namespaces
 
     @builtins.property
     def topology_key(self) -> str:
@@ -1145,16 +1631,20 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#topologyKey
         """
-        return self._values.get('topology_key')
+        return self._values.get("topology_key")
 
     @builtins.property
-    def label_selector(self) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]:
+    def label_selector(
+        self,
+    ) -> typing.Optional[
+        "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"
+    ]:
         """A label query over a set of resources, in this case pods.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
         """
-        return self._values.get('label_selector')
+        return self._values.get("label_selector")
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[str]]:
@@ -1165,7 +1655,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaces
         """
-        return self._values.get('namespaces')
+        return self._values.get("namespaces")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1174,12 +1664,31 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
-class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+    jsii_struct_bases=[],
+    name_mapping={
+        "match_expressions": "matchExpressions",
+        "match_labels": "matchLabels",
+    },
+)
+class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector:
+    def __init__(
+        self,
+        *,
+        match_expressions: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"
+            ]
+        ] = None,
+        match_labels: typing.Optional[typing.Mapping[str, str]] = None,
+    ) -> None:
         """A label query over a set of resources, in this case pods.
 
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
@@ -1188,13 +1697,20 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
         """
-        self._values = {
-        }
-        if match_expressions is not None: self._values["match_expressions"] = match_expressions
-        if match_labels is not None: self._values["match_labels"] = match_labels
+        self._values = {}
+        if match_expressions is not None:
+            self._values["match_expressions"] = match_expressions
+        if match_labels is not None:
+            self._values["match_labels"] = match_labels
 
     @builtins.property
-    def match_expressions(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]:
+    def match_expressions(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"
+        ]
+    ]:
         """matchExpressions is a list of label selector requirements.
 
         The requirements are ANDed.
@@ -1202,7 +1718,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
         """
-        return self._values.get('match_expressions')
+        return self._values.get("match_expressions")
 
     @builtins.property
     def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -1213,7 +1729,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchLabels
         """
-        return self._values.get('match_labels')
+        return self._values.get("match_labels")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1222,12 +1738,25 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
-class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "operator": "operator", "values": "values"},
+)
+class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions:
+    def __init__(
+        self,
+        *,
+        key: str,
+        operator: str,
+        values: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -1238,10 +1767,11 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
         """
         self._values = {
-            'key': key,
-            'operator': operator,
+            "key": key,
+            "operator": operator,
         }
-        if values is not None: self._values["values"] = values
+        if values is not None:
+            self._values["values"] = values
 
     @builtins.property
     def key(self) -> str:
@@ -1250,7 +1780,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def operator(self) -> str:
@@ -1261,7 +1791,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#operator
         """
-        return self._values.get('operator')
+        return self._values.get("operator")
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[str]]:
@@ -1272,7 +1802,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#values
         """
-        return self._values.get('values')
+        return self._values.get("values")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1281,12 +1811,35 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinity", jsii_struct_bases=[], name_mapping={'preferred_during_scheduling_ignored_during_execution': 'preferredDuringSchedulingIgnoredDuringExecution', 'required_during_scheduling_ignored_during_execution': 'requiredDuringSchedulingIgnoredDuringExecution'})
-class ClusterInstallationSpecAffinityPodAntiAffinity():
-    def __init__(self, *, preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]=None, required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinity",
+    jsii_struct_bases=[],
+    name_mapping={
+        "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
+        "required_during_scheduling_ignored_during_execution": "requiredDuringSchedulingIgnoredDuringExecution",
+    },
+)
+class ClusterInstallationSpecAffinityPodAntiAffinity:
+    def __init__(
+        self,
+        *,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"
+            ]
+        ] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"
+            ]
+        ] = None,
+    ) -> None:
         """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -1295,13 +1848,24 @@ class ClusterInstallationSpecAffinityPodAntiAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinity
         """
-        self._values = {
-        }
-        if preferred_during_scheduling_ignored_during_execution is not None: self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
-        if required_during_scheduling_ignored_during_execution is not None: self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
+        self._values = {}
+        if preferred_during_scheduling_ignored_during_execution is not None:
+            self._values[
+                "preferred_during_scheduling_ignored_during_execution"
+            ] = preferred_during_scheduling_ignored_during_execution
+        if required_during_scheduling_ignored_during_execution is not None:
+            self._values[
+                "required_during_scheduling_ignored_during_execution"
+            ] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
-    def preferred_during_scheduling_ignored_during_execution(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]:
+    def preferred_during_scheduling_ignored_during_execution(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"
+        ]
+    ]:
         """The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -1309,10 +1873,16 @@ class ClusterInstallationSpecAffinityPodAntiAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
-        return self._values.get('preferred_during_scheduling_ignored_during_execution')
+        return self._values.get("preferred_during_scheduling_ignored_during_execution")
 
     @builtins.property
-    def required_during_scheduling_ignored_during_execution(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]:
+    def required_during_scheduling_ignored_during_execution(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"
+        ]
+    ]:
         """If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
         If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
@@ -1320,7 +1890,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity():
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
-        return self._values.get('required_during_scheduling_ignored_during_execution')
+        return self._values.get("required_during_scheduling_ignored_during_execution")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1329,12 +1899,23 @@ class ClusterInstallationSpecAffinityPodAntiAffinity():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAntiAffinity(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAntiAffinity(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'pod_affinity_term': 'podAffinityTerm', 'weight': 'weight'})
-class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, pod_affinity_term: "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", weight: jsii.Number) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_struct_bases=[],
+    name_mapping={"pod_affinity_term": "podAffinityTerm", "weight": "weight"},
+)
+class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution:
+    def __init__(
+        self,
+        *,
+        pod_affinity_term: "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+        weight: jsii.Number,
+    ) -> None:
         """The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
 
         :param pod_affinity_term: Required. A pod affinity term, associated with the corresponding weight.
@@ -1343,14 +1924,19 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
-        if isinstance(pod_affinity_term, dict): pod_affinity_term = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(**pod_affinity_term)
+        if isinstance(pod_affinity_term, dict):
+            pod_affinity_term = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(
+                **pod_affinity_term
+            )
         self._values = {
-            'pod_affinity_term': pod_affinity_term,
-            'weight': weight,
+            "pod_affinity_term": pod_affinity_term,
+            "weight": weight,
         }
 
     @builtins.property
-    def pod_affinity_term(self) -> "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm":
+    def pod_affinity_term(
+        self,
+    ) -> "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm":
         """Required.
 
         A pod affinity term, associated with the corresponding weight.
@@ -1358,7 +1944,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution#podAffinityTerm
         """
-        return self._values.get('pod_affinity_term')
+        return self._values.get("pod_affinity_term")
 
     @builtins.property
     def weight(self) -> jsii.Number:
@@ -1367,7 +1953,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
         """
-        return self._values.get('weight')
+        return self._values.get("weight")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1376,12 +1962,31 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
-class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+    jsii_struct_bases=[],
+    name_mapping={
+        "topology_key": "topologyKey",
+        "label_selector": "labelSelector",
+        "namespaces": "namespaces",
+    },
+)
+class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm:
+    def __init__(
+        self,
+        *,
+        topology_key: str,
+        label_selector: typing.Optional[
+            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"
+        ] = None,
+        namespaces: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """Required.
 
         A pod affinity term, associated with the corresponding weight.
@@ -1393,12 +1998,17 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
         """
-        if isinstance(label_selector, dict): label_selector = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(**label_selector)
+        if isinstance(label_selector, dict):
+            label_selector = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(
+                **label_selector
+            )
         self._values = {
-            'topology_key': topology_key,
+            "topology_key": topology_key,
         }
-        if label_selector is not None: self._values["label_selector"] = label_selector
-        if namespaces is not None: self._values["namespaces"] = namespaces
+        if label_selector is not None:
+            self._values["label_selector"] = label_selector
+        if namespaces is not None:
+            self._values["namespaces"] = namespaces
 
     @builtins.property
     def topology_key(self) -> str:
@@ -1409,16 +2019,20 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#topologyKey
         """
-        return self._values.get('topology_key')
+        return self._values.get("topology_key")
 
     @builtins.property
-    def label_selector(self) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]:
+    def label_selector(
+        self,
+    ) -> typing.Optional[
+        "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"
+    ]:
         """A label query over a set of resources, in this case pods.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
         """
-        return self._values.get('label_selector')
+        return self._values.get("label_selector")
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[str]]:
@@ -1429,7 +2043,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaces
         """
-        return self._values.get('namespaces')
+        return self._values.get("namespaces")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1438,12 +2052,31 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
-class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+    jsii_struct_bases=[],
+    name_mapping={
+        "match_expressions": "matchExpressions",
+        "match_labels": "matchLabels",
+    },
+)
+class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector:
+    def __init__(
+        self,
+        *,
+        match_expressions: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"
+            ]
+        ] = None,
+        match_labels: typing.Optional[typing.Mapping[str, str]] = None,
+    ) -> None:
         """A label query over a set of resources, in this case pods.
 
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
@@ -1452,13 +2085,20 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
         """
-        self._values = {
-        }
-        if match_expressions is not None: self._values["match_expressions"] = match_expressions
-        if match_labels is not None: self._values["match_labels"] = match_labels
+        self._values = {}
+        if match_expressions is not None:
+            self._values["match_expressions"] = match_expressions
+        if match_labels is not None:
+            self._values["match_labels"] = match_labels
 
     @builtins.property
-    def match_expressions(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]:
+    def match_expressions(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"
+        ]
+    ]:
         """matchExpressions is a list of label selector requirements.
 
         The requirements are ANDed.
@@ -1466,7 +2106,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
         """
-        return self._values.get('match_expressions')
+        return self._values.get("match_expressions")
 
     @builtins.property
     def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -1477,7 +2117,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchLabels
         """
-        return self._values.get('match_labels')
+        return self._values.get("match_labels")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1486,12 +2126,25 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
-class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "operator": "operator", "values": "values"},
+)
+class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions:
+    def __init__(
+        self,
+        *,
+        key: str,
+        operator: str,
+        values: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -1502,10 +2155,11 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
         """
         self._values = {
-            'key': key,
-            'operator': operator,
+            "key": key,
+            "operator": operator,
         }
-        if values is not None: self._values["values"] = values
+        if values is not None:
+            self._values["values"] = values
 
     @builtins.property
     def key(self) -> str:
@@ -1514,7 +2168,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def operator(self) -> str:
@@ -1525,7 +2179,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#operator
         """
-        return self._values.get('operator')
+        return self._values.get("operator")
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[str]]:
@@ -1536,7 +2190,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#values
         """
-        return self._values.get('values')
+        return self._values.get("values")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1545,12 +2199,31 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution", jsii_struct_bases=[], name_mapping={'topology_key': 'topologyKey', 'label_selector': 'labelSelector', 'namespaces': 'namespaces'})
-class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution():
-    def __init__(self, *, topology_key: str, label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]=None, namespaces: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_struct_bases=[],
+    name_mapping={
+        "topology_key": "topologyKey",
+        "label_selector": "labelSelector",
+        "namespaces": "namespaces",
+    },
+)
+class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution:
+    def __init__(
+        self,
+        *,
+        topology_key: str,
+        label_selector: typing.Optional[
+            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"
+        ] = None,
+        namespaces: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
 
         :param topology_key: This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
@@ -1560,12 +2233,17 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution
         """
-        if isinstance(label_selector, dict): label_selector = ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(**label_selector)
+        if isinstance(label_selector, dict):
+            label_selector = ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(
+                **label_selector
+            )
         self._values = {
-            'topology_key': topology_key,
+            "topology_key": topology_key,
         }
-        if label_selector is not None: self._values["label_selector"] = label_selector
-        if namespaces is not None: self._values["namespaces"] = namespaces
+        if label_selector is not None:
+            self._values["label_selector"] = label_selector
+        if namespaces is not None:
+            self._values["namespaces"] = namespaces
 
     @builtins.property
     def topology_key(self) -> str:
@@ -1576,16 +2254,20 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#topologyKey
         """
-        return self._values.get('topology_key')
+        return self._values.get("topology_key")
 
     @builtins.property
-    def label_selector(self) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]:
+    def label_selector(
+        self,
+    ) -> typing.Optional[
+        "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"
+    ]:
         """A label query over a set of resources, in this case pods.
 
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
         """
-        return self._values.get('label_selector')
+        return self._values.get("label_selector")
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[str]]:
@@ -1596,7 +2278,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaces
         """
-        return self._values.get('namespaces')
+        return self._values.get("namespaces")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1605,12 +2287,31 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", jsii_struct_bases=[], name_mapping={'match_expressions': 'matchExpressions', 'match_labels': 'matchLabels'})
-class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector():
-    def __init__(self, *, match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]=None, match_labels: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+    jsii_struct_bases=[],
+    name_mapping={
+        "match_expressions": "matchExpressions",
+        "match_labels": "matchLabels",
+    },
+)
+class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector:
+    def __init__(
+        self,
+        *,
+        match_expressions: typing.Optional[
+            typing.List[
+                "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"
+            ]
+        ] = None,
+        match_labels: typing.Optional[typing.Mapping[str, str]] = None,
+    ) -> None:
         """A label query over a set of resources, in this case pods.
 
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
@@ -1619,13 +2320,20 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
         """
-        self._values = {
-        }
-        if match_expressions is not None: self._values["match_expressions"] = match_expressions
-        if match_labels is not None: self._values["match_labels"] = match_labels
+        self._values = {}
+        if match_expressions is not None:
+            self._values["match_expressions"] = match_expressions
+        if match_labels is not None:
+            self._values["match_labels"] = match_labels
 
     @builtins.property
-    def match_expressions(self) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]:
+    def match_expressions(
+        self,
+    ) -> typing.Optional[
+        typing.List[
+            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"
+        ]
+    ]:
         """matchExpressions is a list of label selector requirements.
 
         The requirements are ANDed.
@@ -1633,7 +2341,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
         """
-        return self._values.get('match_expressions')
+        return self._values.get("match_expressions")
 
     @builtins.property
     def match_labels(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -1644,7 +2352,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchLabels
         """
-        return self._values.get('match_labels')
+        return self._values.get("match_labels")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1653,12 +2361,25 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", jsii_struct_bases=[], name_mapping={'key': 'key', 'operator': 'operator', 'values': 'values'})
-class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions():
-    def __init__(self, *, key: str, operator: str, values: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "operator": "operator", "values": "values"},
+)
+class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions:
+    def __init__(
+        self,
+        *,
+        key: str,
+        operator: str,
+        values: typing.Optional[typing.List[str]] = None,
+    ) -> None:
         """A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
         :param key: key is the label key that the selector applies to.
@@ -1669,10 +2390,11 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
         """
         self._values = {
-            'key': key,
-            'operator': operator,
+            "key": key,
+            "operator": operator,
         }
-        if values is not None: self._values["values"] = values
+        if values is not None:
+            self._values["values"] = values
 
     @builtins.property
     def key(self) -> str:
@@ -1681,7 +2403,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def operator(self) -> str:
@@ -1692,7 +2414,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#operator
         """
-        return self._values.get('operator')
+        return self._values.get("operator")
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[str]]:
@@ -1703,7 +2425,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         schema:
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#values
         """
-        return self._values.get('values')
+        return self._values.get("values")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1712,12 +2434,31 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecBlueGreen", jsii_struct_bases=[], name_mapping={'blue': 'blue', 'enable': 'enable', 'green': 'green', 'production_deployment': 'productionDeployment'})
-class ClusterInstallationSpecBlueGreen():
-    def __init__(self, *, blue: typing.Optional["ClusterInstallationSpecBlueGreenBlue"]=None, enable: typing.Optional[bool]=None, green: typing.Optional["ClusterInstallationSpecBlueGreenGreen"]=None, production_deployment: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecBlueGreen",
+    jsii_struct_bases=[],
+    name_mapping={
+        "blue": "blue",
+        "enable": "enable",
+        "green": "green",
+        "production_deployment": "productionDeployment",
+    },
+)
+class ClusterInstallationSpecBlueGreen:
+    def __init__(
+        self,
+        *,
+        blue: typing.Optional["ClusterInstallationSpecBlueGreenBlue"] = None,
+        enable: typing.Optional[bool] = None,
+        green: typing.Optional["ClusterInstallationSpecBlueGreenGreen"] = None,
+        production_deployment: typing.Optional[str] = None,
+    ) -> None:
         """BlueGreen defines the configuration of BlueGreen deployment for a ClusterInstallation.
 
         :param blue: Blue defines the blue deployment.
@@ -1728,14 +2469,19 @@ class ClusterInstallationSpecBlueGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreen
         """
-        if isinstance(blue, dict): blue = ClusterInstallationSpecBlueGreenBlue(**blue)
-        if isinstance(green, dict): green = ClusterInstallationSpecBlueGreenGreen(**green)
-        self._values = {
-        }
-        if blue is not None: self._values["blue"] = blue
-        if enable is not None: self._values["enable"] = enable
-        if green is not None: self._values["green"] = green
-        if production_deployment is not None: self._values["production_deployment"] = production_deployment
+        if isinstance(blue, dict):
+            blue = ClusterInstallationSpecBlueGreenBlue(**blue)
+        if isinstance(green, dict):
+            green = ClusterInstallationSpecBlueGreenGreen(**green)
+        self._values = {}
+        if blue is not None:
+            self._values["blue"] = blue
+        if enable is not None:
+            self._values["enable"] = enable
+        if green is not None:
+            self._values["green"] = green
+        if production_deployment is not None:
+            self._values["production_deployment"] = production_deployment
 
     @builtins.property
     def blue(self) -> typing.Optional["ClusterInstallationSpecBlueGreenBlue"]:
@@ -1744,7 +2490,7 @@ class ClusterInstallationSpecBlueGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreen#blue
         """
-        return self._values.get('blue')
+        return self._values.get("blue")
 
     @builtins.property
     def enable(self) -> typing.Optional[bool]:
@@ -1753,7 +2499,7 @@ class ClusterInstallationSpecBlueGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreen#enable
         """
-        return self._values.get('enable')
+        return self._values.get("enable")
 
     @builtins.property
     def green(self) -> typing.Optional["ClusterInstallationSpecBlueGreenGreen"]:
@@ -1762,7 +2508,7 @@ class ClusterInstallationSpecBlueGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreen#green
         """
-        return self._values.get('green')
+        return self._values.get("green")
 
     @builtins.property
     def production_deployment(self) -> typing.Optional[str]:
@@ -1771,7 +2517,7 @@ class ClusterInstallationSpecBlueGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreen#productionDeployment
         """
-        return self._values.get('production_deployment')
+        return self._values.get("production_deployment")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1780,12 +2526,30 @@ class ClusterInstallationSpecBlueGreen():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecBlueGreen(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecBlueGreen(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecBlueGreenBlue", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
-class ClusterInstallationSpecBlueGreenBlue():
-    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecBlueGreenBlue",
+    jsii_struct_bases=[],
+    name_mapping={
+        "image": "image",
+        "ingress_name": "ingressName",
+        "name": "name",
+        "version": "version",
+    },
+)
+class ClusterInstallationSpecBlueGreenBlue:
+    def __init__(
+        self,
+        *,
+        image: typing.Optional[str] = None,
+        ingress_name: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        version: typing.Optional[str] = None,
+    ) -> None:
         """Blue defines the blue deployment.
 
         :param image: Image defines the base Docker image that will be used for the deployment. Required when BlueGreen or Canary is enabled.
@@ -1796,12 +2560,15 @@ class ClusterInstallationSpecBlueGreenBlue():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenBlue
         """
-        self._values = {
-        }
-        if image is not None: self._values["image"] = image
-        if ingress_name is not None: self._values["ingress_name"] = ingress_name
-        if name is not None: self._values["name"] = name
-        if version is not None: self._values["version"] = version
+        self._values = {}
+        if image is not None:
+            self._values["image"] = image
+        if ingress_name is not None:
+            self._values["ingress_name"] = ingress_name
+        if name is not None:
+            self._values["name"] = name
+        if version is not None:
+            self._values["version"] = version
 
     @builtins.property
     def image(self) -> typing.Optional[str]:
@@ -1812,7 +2579,7 @@ class ClusterInstallationSpecBlueGreenBlue():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenBlue#image
         """
-        return self._values.get('image')
+        return self._values.get("image")
 
     @builtins.property
     def ingress_name(self) -> typing.Optional[str]:
@@ -1823,7 +2590,7 @@ class ClusterInstallationSpecBlueGreenBlue():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenBlue#ingressName
         """
-        return self._values.get('ingress_name')
+        return self._values.get("ingress_name")
 
     @builtins.property
     def name(self) -> typing.Optional[str]:
@@ -1832,7 +2599,7 @@ class ClusterInstallationSpecBlueGreenBlue():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenBlue#name
         """
-        return self._values.get('name')
+        return self._values.get("name")
 
     @builtins.property
     def version(self) -> typing.Optional[str]:
@@ -1843,7 +2610,7 @@ class ClusterInstallationSpecBlueGreenBlue():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenBlue#version
         """
-        return self._values.get('version')
+        return self._values.get("version")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1852,12 +2619,30 @@ class ClusterInstallationSpecBlueGreenBlue():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecBlueGreenBlue(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecBlueGreenBlue(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecBlueGreenGreen", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
-class ClusterInstallationSpecBlueGreenGreen():
-    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecBlueGreenGreen",
+    jsii_struct_bases=[],
+    name_mapping={
+        "image": "image",
+        "ingress_name": "ingressName",
+        "name": "name",
+        "version": "version",
+    },
+)
+class ClusterInstallationSpecBlueGreenGreen:
+    def __init__(
+        self,
+        *,
+        image: typing.Optional[str] = None,
+        ingress_name: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        version: typing.Optional[str] = None,
+    ) -> None:
         """Green defines the green deployment.
 
         :param image: Image defines the base Docker image that will be used for the deployment. Required when BlueGreen or Canary is enabled.
@@ -1868,12 +2653,15 @@ class ClusterInstallationSpecBlueGreenGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenGreen
         """
-        self._values = {
-        }
-        if image is not None: self._values["image"] = image
-        if ingress_name is not None: self._values["ingress_name"] = ingress_name
-        if name is not None: self._values["name"] = name
-        if version is not None: self._values["version"] = version
+        self._values = {}
+        if image is not None:
+            self._values["image"] = image
+        if ingress_name is not None:
+            self._values["ingress_name"] = ingress_name
+        if name is not None:
+            self._values["name"] = name
+        if version is not None:
+            self._values["version"] = version
 
     @builtins.property
     def image(self) -> typing.Optional[str]:
@@ -1884,7 +2672,7 @@ class ClusterInstallationSpecBlueGreenGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenGreen#image
         """
-        return self._values.get('image')
+        return self._values.get("image")
 
     @builtins.property
     def ingress_name(self) -> typing.Optional[str]:
@@ -1895,7 +2683,7 @@ class ClusterInstallationSpecBlueGreenGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenGreen#ingressName
         """
-        return self._values.get('ingress_name')
+        return self._values.get("ingress_name")
 
     @builtins.property
     def name(self) -> typing.Optional[str]:
@@ -1904,7 +2692,7 @@ class ClusterInstallationSpecBlueGreenGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenGreen#name
         """
-        return self._values.get('name')
+        return self._values.get("name")
 
     @builtins.property
     def version(self) -> typing.Optional[str]:
@@ -1915,7 +2703,7 @@ class ClusterInstallationSpecBlueGreenGreen():
         schema:
         :schema:: ClusterInstallationSpecBlueGreenGreen#version
         """
-        return self._values.get('version')
+        return self._values.get("version")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1924,12 +2712,23 @@ class ClusterInstallationSpecBlueGreenGreen():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecBlueGreenGreen(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecBlueGreenGreen(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecCanary", jsii_struct_bases=[], name_mapping={'deployment': 'deployment', 'enable': 'enable'})
-class ClusterInstallationSpecCanary():
-    def __init__(self, *, deployment: typing.Optional["ClusterInstallationSpecCanaryDeployment"]=None, enable: typing.Optional[bool]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecCanary",
+    jsii_struct_bases=[],
+    name_mapping={"deployment": "deployment", "enable": "enable"},
+)
+class ClusterInstallationSpecCanary:
+    def __init__(
+        self,
+        *,
+        deployment: typing.Optional["ClusterInstallationSpecCanaryDeployment"] = None,
+        enable: typing.Optional[bool] = None,
+    ) -> None:
         """Canary defines the configuration of Canary deployment for a ClusterInstallation.
 
         :param deployment: Deployment defines the canary deployment.
@@ -1938,11 +2737,13 @@ class ClusterInstallationSpecCanary():
         schema:
         :schema:: ClusterInstallationSpecCanary
         """
-        if isinstance(deployment, dict): deployment = ClusterInstallationSpecCanaryDeployment(**deployment)
-        self._values = {
-        }
-        if deployment is not None: self._values["deployment"] = deployment
-        if enable is not None: self._values["enable"] = enable
+        if isinstance(deployment, dict):
+            deployment = ClusterInstallationSpecCanaryDeployment(**deployment)
+        self._values = {}
+        if deployment is not None:
+            self._values["deployment"] = deployment
+        if enable is not None:
+            self._values["enable"] = enable
 
     @builtins.property
     def deployment(self) -> typing.Optional["ClusterInstallationSpecCanaryDeployment"]:
@@ -1951,7 +2752,7 @@ class ClusterInstallationSpecCanary():
         schema:
         :schema:: ClusterInstallationSpecCanary#deployment
         """
-        return self._values.get('deployment')
+        return self._values.get("deployment")
 
     @builtins.property
     def enable(self) -> typing.Optional[bool]:
@@ -1960,7 +2761,7 @@ class ClusterInstallationSpecCanary():
         schema:
         :schema:: ClusterInstallationSpecCanary#enable
         """
-        return self._values.get('enable')
+        return self._values.get("enable")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1969,12 +2770,30 @@ class ClusterInstallationSpecCanary():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecCanary(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecCanary(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecCanaryDeployment", jsii_struct_bases=[], name_mapping={'image': 'image', 'ingress_name': 'ingressName', 'name': 'name', 'version': 'version'})
-class ClusterInstallationSpecCanaryDeployment():
-    def __init__(self, *, image: typing.Optional[str]=None, ingress_name: typing.Optional[str]=None, name: typing.Optional[str]=None, version: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecCanaryDeployment",
+    jsii_struct_bases=[],
+    name_mapping={
+        "image": "image",
+        "ingress_name": "ingressName",
+        "name": "name",
+        "version": "version",
+    },
+)
+class ClusterInstallationSpecCanaryDeployment:
+    def __init__(
+        self,
+        *,
+        image: typing.Optional[str] = None,
+        ingress_name: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        version: typing.Optional[str] = None,
+    ) -> None:
         """Deployment defines the canary deployment.
 
         :param image: Image defines the base Docker image that will be used for the deployment. Required when BlueGreen or Canary is enabled.
@@ -1985,12 +2804,15 @@ class ClusterInstallationSpecCanaryDeployment():
         schema:
         :schema:: ClusterInstallationSpecCanaryDeployment
         """
-        self._values = {
-        }
-        if image is not None: self._values["image"] = image
-        if ingress_name is not None: self._values["ingress_name"] = ingress_name
-        if name is not None: self._values["name"] = name
-        if version is not None: self._values["version"] = version
+        self._values = {}
+        if image is not None:
+            self._values["image"] = image
+        if ingress_name is not None:
+            self._values["ingress_name"] = ingress_name
+        if name is not None:
+            self._values["name"] = name
+        if version is not None:
+            self._values["version"] = version
 
     @builtins.property
     def image(self) -> typing.Optional[str]:
@@ -2001,7 +2823,7 @@ class ClusterInstallationSpecCanaryDeployment():
         schema:
         :schema:: ClusterInstallationSpecCanaryDeployment#image
         """
-        return self._values.get('image')
+        return self._values.get("image")
 
     @builtins.property
     def ingress_name(self) -> typing.Optional[str]:
@@ -2012,7 +2834,7 @@ class ClusterInstallationSpecCanaryDeployment():
         schema:
         :schema:: ClusterInstallationSpecCanaryDeployment#ingressName
         """
-        return self._values.get('ingress_name')
+        return self._values.get("ingress_name")
 
     @builtins.property
     def name(self) -> typing.Optional[str]:
@@ -2021,7 +2843,7 @@ class ClusterInstallationSpecCanaryDeployment():
         schema:
         :schema:: ClusterInstallationSpecCanaryDeployment#name
         """
-        return self._values.get('name')
+        return self._values.get("name")
 
     @builtins.property
     def version(self) -> typing.Optional[str]:
@@ -2032,7 +2854,7 @@ class ClusterInstallationSpecCanaryDeployment():
         schema:
         :schema:: ClusterInstallationSpecCanaryDeployment#version
         """
-        return self._values.get('version')
+        return self._values.get("version")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2041,12 +2863,44 @@ class ClusterInstallationSpecCanaryDeployment():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecCanaryDeployment(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecCanaryDeployment(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecDatabase", jsii_struct_bases=[], name_mapping={'backup_remote_delete_policy': 'backupRemoteDeletePolicy', 'backup_restore_secret_name': 'backupRestoreSecretName', 'backup_schedule': 'backupSchedule', 'backup_secret_name': 'backupSecretName', 'backup_url': 'backupURL', 'init_bucket_url': 'initBucketURL', 'replicas': 'replicas', 'resources': 'resources', 'secret': 'secret', 'storage_size': 'storageSize', 'type': 'type'})
-class ClusterInstallationSpecDatabase():
-    def __init__(self, *, backup_remote_delete_policy: typing.Optional[str]=None, backup_restore_secret_name: typing.Optional[str]=None, backup_schedule: typing.Optional[str]=None, backup_secret_name: typing.Optional[str]=None, backup_url: typing.Optional[str]=None, init_bucket_url: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecDatabaseResources"]=None, secret: typing.Optional[str]=None, storage_size: typing.Optional[str]=None, type: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecDatabase",
+    jsii_struct_bases=[],
+    name_mapping={
+        "backup_remote_delete_policy": "backupRemoteDeletePolicy",
+        "backup_restore_secret_name": "backupRestoreSecretName",
+        "backup_schedule": "backupSchedule",
+        "backup_secret_name": "backupSecretName",
+        "backup_url": "backupURL",
+        "init_bucket_url": "initBucketURL",
+        "replicas": "replicas",
+        "resources": "resources",
+        "secret": "secret",
+        "storage_size": "storageSize",
+        "type": "type",
+    },
+)
+class ClusterInstallationSpecDatabase:
+    def __init__(
+        self,
+        *,
+        backup_remote_delete_policy: typing.Optional[str] = None,
+        backup_restore_secret_name: typing.Optional[str] = None,
+        backup_schedule: typing.Optional[str] = None,
+        backup_secret_name: typing.Optional[str] = None,
+        backup_url: typing.Optional[str] = None,
+        init_bucket_url: typing.Optional[str] = None,
+        replicas: typing.Optional[jsii.Number] = None,
+        resources: typing.Optional["ClusterInstallationSpecDatabaseResources"] = None,
+        secret: typing.Optional[str] = None,
+        storage_size: typing.Optional[str] = None,
+        type: typing.Optional[str] = None,
+    ) -> None:
         """Database defines the database configuration for a ClusterInstallation.
 
         :param backup_remote_delete_policy: Defines the backup retention policy.
@@ -2064,20 +2918,31 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase
         """
-        if isinstance(resources, dict): resources = ClusterInstallationSpecDatabaseResources(**resources)
-        self._values = {
-        }
-        if backup_remote_delete_policy is not None: self._values["backup_remote_delete_policy"] = backup_remote_delete_policy
-        if backup_restore_secret_name is not None: self._values["backup_restore_secret_name"] = backup_restore_secret_name
-        if backup_schedule is not None: self._values["backup_schedule"] = backup_schedule
-        if backup_secret_name is not None: self._values["backup_secret_name"] = backup_secret_name
-        if backup_url is not None: self._values["backup_url"] = backup_url
-        if init_bucket_url is not None: self._values["init_bucket_url"] = init_bucket_url
-        if replicas is not None: self._values["replicas"] = replicas
-        if resources is not None: self._values["resources"] = resources
-        if secret is not None: self._values["secret"] = secret
-        if storage_size is not None: self._values["storage_size"] = storage_size
-        if type is not None: self._values["type"] = type
+        if isinstance(resources, dict):
+            resources = ClusterInstallationSpecDatabaseResources(**resources)
+        self._values = {}
+        if backup_remote_delete_policy is not None:
+            self._values["backup_remote_delete_policy"] = backup_remote_delete_policy
+        if backup_restore_secret_name is not None:
+            self._values["backup_restore_secret_name"] = backup_restore_secret_name
+        if backup_schedule is not None:
+            self._values["backup_schedule"] = backup_schedule
+        if backup_secret_name is not None:
+            self._values["backup_secret_name"] = backup_secret_name
+        if backup_url is not None:
+            self._values["backup_url"] = backup_url
+        if init_bucket_url is not None:
+            self._values["init_bucket_url"] = init_bucket_url
+        if replicas is not None:
+            self._values["replicas"] = replicas
+        if resources is not None:
+            self._values["resources"] = resources
+        if secret is not None:
+            self._values["secret"] = secret
+        if storage_size is not None:
+            self._values["storage_size"] = storage_size
+        if type is not None:
+            self._values["type"] = type
 
     @builtins.property
     def backup_remote_delete_policy(self) -> typing.Optional[str]:
@@ -2086,7 +2951,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#backupRemoteDeletePolicy
         """
-        return self._values.get('backup_remote_delete_policy')
+        return self._values.get("backup_remote_delete_policy")
 
     @builtins.property
     def backup_restore_secret_name(self) -> typing.Optional[str]:
@@ -2095,7 +2960,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#backupRestoreSecretName
         """
-        return self._values.get('backup_restore_secret_name')
+        return self._values.get("backup_restore_secret_name")
 
     @builtins.property
     def backup_schedule(self) -> typing.Optional[str]:
@@ -2104,7 +2969,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#backupSchedule
         """
-        return self._values.get('backup_schedule')
+        return self._values.get("backup_schedule")
 
     @builtins.property
     def backup_secret_name(self) -> typing.Optional[str]:
@@ -2113,7 +2978,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#backupSecretName
         """
-        return self._values.get('backup_secret_name')
+        return self._values.get("backup_secret_name")
 
     @builtins.property
     def backup_url(self) -> typing.Optional[str]:
@@ -2122,7 +2987,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#backupURL
         """
-        return self._values.get('backup_url')
+        return self._values.get("backup_url")
 
     @builtins.property
     def init_bucket_url(self) -> typing.Optional[str]:
@@ -2133,7 +2998,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#initBucketURL
         """
-        return self._values.get('init_bucket_url')
+        return self._values.get("init_bucket_url")
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -2144,7 +3009,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#replicas
         """
-        return self._values.get('replicas')
+        return self._values.get("replicas")
 
     @builtins.property
     def resources(self) -> typing.Optional["ClusterInstallationSpecDatabaseResources"]:
@@ -2153,7 +3018,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#resources
         """
-        return self._values.get('resources')
+        return self._values.get("resources")
 
     @builtins.property
     def secret(self) -> typing.Optional[str]:
@@ -2166,7 +3031,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#secret
         """
-        return self._values.get('secret')
+        return self._values.get("secret")
 
     @builtins.property
     def storage_size(self) -> typing.Optional[str]:
@@ -2177,7 +3042,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#storageSize
         """
-        return self._values.get('storage_size')
+        return self._values.get("storage_size")
 
     @builtins.property
     def type(self) -> typing.Optional[str]:
@@ -2185,7 +3050,7 @@ class ClusterInstallationSpecDatabase():
         schema:
         :schema:: ClusterInstallationSpecDatabase#type
         """
-        return self._values.get('type')
+        return self._values.get("type")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2194,12 +3059,23 @@ class ClusterInstallationSpecDatabase():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecDatabase(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecDatabase(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecDatabaseResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
-class ClusterInstallationSpecDatabaseResources():
-    def __init__(self, *, limits: typing.Optional[typing.Mapping[str, str]]=None, requests: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecDatabaseResources",
+    jsii_struct_bases=[],
+    name_mapping={"limits": "limits", "requests": "requests"},
+)
+class ClusterInstallationSpecDatabaseResources:
+    def __init__(
+        self,
+        *,
+        limits: typing.Optional[typing.Mapping[str, str]] = None,
+        requests: typing.Optional[typing.Mapping[str, str]] = None,
+    ) -> None:
         """Defines the resource requests and limits for the database pods.
 
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -2208,10 +3084,11 @@ class ClusterInstallationSpecDatabaseResources():
         schema:
         :schema:: ClusterInstallationSpecDatabaseResources
         """
-        self._values = {
-        }
-        if limits is not None: self._values["limits"] = limits
-        if requests is not None: self._values["requests"] = requests
+        self._values = {}
+        if limits is not None:
+            self._values["limits"] = limits
+        if requests is not None:
+            self._values["requests"] = requests
 
     @builtins.property
     def limits(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -2222,7 +3099,7 @@ class ClusterInstallationSpecDatabaseResources():
         schema:
         :schema:: ClusterInstallationSpecDatabaseResources#limits
         """
-        return self._values.get('limits')
+        return self._values.get("limits")
 
     @builtins.property
     def requests(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -2233,7 +3110,7 @@ class ClusterInstallationSpecDatabaseResources():
         schema:
         :schema:: ClusterInstallationSpecDatabaseResources#requests
         """
-        return self._values.get('requests')
+        return self._values.get("requests")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2242,12 +3119,24 @@ class ClusterInstallationSpecDatabaseResources():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecDatabaseResources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecDatabaseResources(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecElasticSearch", jsii_struct_bases=[], name_mapping={'host': 'host', 'password': 'password', 'username': 'username'})
-class ClusterInstallationSpecElasticSearch():
-    def __init__(self, *, host: typing.Optional[str]=None, password: typing.Optional[str]=None, username: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecElasticSearch",
+    jsii_struct_bases=[],
+    name_mapping={"host": "host", "password": "password", "username": "username"},
+)
+class ClusterInstallationSpecElasticSearch:
+    def __init__(
+        self,
+        *,
+        host: typing.Optional[str] = None,
+        password: typing.Optional[str] = None,
+        username: typing.Optional[str] = None,
+    ) -> None:
         """ElasticSearch defines the ElasticSearch configuration for a ClusterInstallation.
 
         :param host: 
@@ -2257,11 +3146,13 @@ class ClusterInstallationSpecElasticSearch():
         schema:
         :schema:: ClusterInstallationSpecElasticSearch
         """
-        self._values = {
-        }
-        if host is not None: self._values["host"] = host
-        if password is not None: self._values["password"] = password
-        if username is not None: self._values["username"] = username
+        self._values = {}
+        if host is not None:
+            self._values["host"] = host
+        if password is not None:
+            self._values["password"] = password
+        if username is not None:
+            self._values["username"] = username
 
     @builtins.property
     def host(self) -> typing.Optional[str]:
@@ -2269,7 +3160,7 @@ class ClusterInstallationSpecElasticSearch():
         schema:
         :schema:: ClusterInstallationSpecElasticSearch#host
         """
-        return self._values.get('host')
+        return self._values.get("host")
 
     @builtins.property
     def password(self) -> typing.Optional[str]:
@@ -2277,7 +3168,7 @@ class ClusterInstallationSpecElasticSearch():
         schema:
         :schema:: ClusterInstallationSpecElasticSearch#password
         """
-        return self._values.get('password')
+        return self._values.get("password")
 
     @builtins.property
     def username(self) -> typing.Optional[str]:
@@ -2285,7 +3176,7 @@ class ClusterInstallationSpecElasticSearch():
         schema:
         :schema:: ClusterInstallationSpecElasticSearch#username
         """
-        return self._values.get('username')
+        return self._values.get("username")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2294,12 +3185,40 @@ class ClusterInstallationSpecElasticSearch():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecElasticSearch(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecElasticSearch(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
-class ClusterInstallationSpecLivenessProbe():
-    def __init__(self, *, exec: typing.Optional["ClusterInstallationSpecLivenessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["ClusterInstallationSpecLivenessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecLivenessProbe",
+    jsii_struct_bases=[],
+    name_mapping={
+        "exec": "exec",
+        "failure_threshold": "failureThreshold",
+        "http_get": "httpGet",
+        "initial_delay_seconds": "initialDelaySeconds",
+        "period_seconds": "periodSeconds",
+        "success_threshold": "successThreshold",
+        "tcp_socket": "tcpSocket",
+        "timeout_seconds": "timeoutSeconds",
+    },
+)
+class ClusterInstallationSpecLivenessProbe:
+    def __init__(
+        self,
+        *,
+        exec: typing.Optional["ClusterInstallationSpecLivenessProbeExec"] = None,
+        failure_threshold: typing.Optional[jsii.Number] = None,
+        http_get: typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"] = None,
+        initial_delay_seconds: typing.Optional[jsii.Number] = None,
+        period_seconds: typing.Optional[jsii.Number] = None,
+        success_threshold: typing.Optional[jsii.Number] = None,
+        tcp_socket: typing.Optional[
+            "ClusterInstallationSpecLivenessProbeTcpSocket"
+        ] = None,
+        timeout_seconds: typing.Optional[jsii.Number] = None,
+    ) -> None:
         """Defines the probe to check if the application is up and running.
 
         :param exec: One and only one of the following should be specified. Exec specifies the action to take.
@@ -2314,19 +3233,29 @@ class ClusterInstallationSpecLivenessProbe():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe
         """
-        if isinstance(exec, dict): exec = ClusterInstallationSpecLivenessProbeExec(**exec)
-        if isinstance(http_get, dict): http_get = ClusterInstallationSpecLivenessProbeHttpGet(**http_get)
-        if isinstance(tcp_socket, dict): tcp_socket = ClusterInstallationSpecLivenessProbeTcpSocket(**tcp_socket)
-        self._values = {
-        }
-        if exec is not None: self._values["exec"] = exec
-        if failure_threshold is not None: self._values["failure_threshold"] = failure_threshold
-        if http_get is not None: self._values["http_get"] = http_get
-        if initial_delay_seconds is not None: self._values["initial_delay_seconds"] = initial_delay_seconds
-        if period_seconds is not None: self._values["period_seconds"] = period_seconds
-        if success_threshold is not None: self._values["success_threshold"] = success_threshold
-        if tcp_socket is not None: self._values["tcp_socket"] = tcp_socket
-        if timeout_seconds is not None: self._values["timeout_seconds"] = timeout_seconds
+        if isinstance(exec, dict):
+            exec = ClusterInstallationSpecLivenessProbeExec(**exec)
+        if isinstance(http_get, dict):
+            http_get = ClusterInstallationSpecLivenessProbeHttpGet(**http_get)
+        if isinstance(tcp_socket, dict):
+            tcp_socket = ClusterInstallationSpecLivenessProbeTcpSocket(**tcp_socket)
+        self._values = {}
+        if exec is not None:
+            self._values["exec"] = exec
+        if failure_threshold is not None:
+            self._values["failure_threshold"] = failure_threshold
+        if http_get is not None:
+            self._values["http_get"] = http_get
+        if initial_delay_seconds is not None:
+            self._values["initial_delay_seconds"] = initial_delay_seconds
+        if period_seconds is not None:
+            self._values["period_seconds"] = period_seconds
+        if success_threshold is not None:
+            self._values["success_threshold"] = success_threshold
+        if tcp_socket is not None:
+            self._values["tcp_socket"] = tcp_socket
+        if timeout_seconds is not None:
+            self._values["timeout_seconds"] = timeout_seconds
 
     @builtins.property
     def exec(self) -> typing.Optional["ClusterInstallationSpecLivenessProbeExec"]:
@@ -2337,7 +3266,7 @@ class ClusterInstallationSpecLivenessProbe():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe#exec
         """
-        return self._values.get('exec')
+        return self._values.get("exec")
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -2351,16 +3280,18 @@ class ClusterInstallationSpecLivenessProbe():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe#failureThreshold
         """
-        return self._values.get('failure_threshold')
+        return self._values.get("failure_threshold")
 
     @builtins.property
-    def http_get(self) -> typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"]:
+    def http_get(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"]:
         """HTTPGet specifies the http request to perform.
 
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe#httpGet
         """
-        return self._values.get('http_get')
+        return self._values.get("http_get")
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -2371,7 +3302,7 @@ class ClusterInstallationSpecLivenessProbe():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe#initialDelaySeconds
         """
-        return self._values.get('initial_delay_seconds')
+        return self._values.get("initial_delay_seconds")
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -2385,7 +3316,7 @@ class ClusterInstallationSpecLivenessProbe():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe#periodSeconds
         """
-        return self._values.get('period_seconds')
+        return self._values.get("period_seconds")
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -2399,10 +3330,12 @@ class ClusterInstallationSpecLivenessProbe():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe#successThreshold
         """
-        return self._values.get('success_threshold')
+        return self._values.get("success_threshold")
 
     @builtins.property
-    def tcp_socket(self) -> typing.Optional["ClusterInstallationSpecLivenessProbeTcpSocket"]:
+    def tcp_socket(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecLivenessProbeTcpSocket"]:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -2410,7 +3343,7 @@ class ClusterInstallationSpecLivenessProbe():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe#tcpSocket
         """
-        return self._values.get('tcp_socket')
+        return self._values.get("tcp_socket")
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -2424,7 +3357,7 @@ class ClusterInstallationSpecLivenessProbe():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbe#timeoutSeconds
         """
-        return self._values.get('timeout_seconds')
+        return self._values.get("timeout_seconds")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2433,12 +3366,18 @@ class ClusterInstallationSpecLivenessProbe():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecLivenessProbe(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecLivenessProbe(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
-class ClusterInstallationSpecLivenessProbeExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecLivenessProbeExec",
+    jsii_struct_bases=[],
+    name_mapping={"command": "command"},
+)
+class ClusterInstallationSpecLivenessProbeExec:
+    def __init__(self, *, command: typing.Optional[typing.List[str]] = None) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -2448,9 +3387,9 @@ class ClusterInstallationSpecLivenessProbeExec():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeExec
         """
-        self._values = {
-        }
-        if command is not None: self._values["command"] = command
+        self._values = {}
+        if command is not None:
+            self._values["command"] = command
 
     @builtins.property
     def command(self) -> typing.Optional[typing.List[str]]:
@@ -2461,7 +3400,7 @@ class ClusterInstallationSpecLivenessProbeExec():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeExec#command
         """
-        return self._values.get('command')
+        return self._values.get("command")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2470,12 +3409,34 @@ class ClusterInstallationSpecLivenessProbeExec():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecLivenessProbeExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecLivenessProbeExec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
-class ClusterInstallationSpecLivenessProbeHttpGet():
-    def __init__(self, *, port: "ClusterInstallationSpecLivenessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGet",
+    jsii_struct_bases=[],
+    name_mapping={
+        "port": "port",
+        "host": "host",
+        "http_headers": "httpHeaders",
+        "path": "path",
+        "scheme": "scheme",
+    },
+)
+class ClusterInstallationSpecLivenessProbeHttpGet:
+    def __init__(
+        self,
+        *,
+        port: "ClusterInstallationSpecLivenessProbeHttpGetPort",
+        host: typing.Optional[str] = None,
+        http_headers: typing.Optional[
+            typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]
+        ] = None,
+        path: typing.Optional[str] = None,
+        scheme: typing.Optional[str] = None,
+    ) -> None:
         """HTTPGet specifies the http request to perform.
 
         :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2488,12 +3449,16 @@ class ClusterInstallationSpecLivenessProbeHttpGet():
         :schema:: ClusterInstallationSpecLivenessProbeHttpGet
         """
         self._values = {
-            'port': port,
+            "port": port,
         }
-        if host is not None: self._values["host"] = host
-        if http_headers is not None: self._values["http_headers"] = http_headers
-        if path is not None: self._values["path"] = path
-        if scheme is not None: self._values["scheme"] = scheme
+        if host is not None:
+            self._values["host"] = host
+        if http_headers is not None:
+            self._values["http_headers"] = http_headers
+        if path is not None:
+            self._values["path"] = path
+        if scheme is not None:
+            self._values["scheme"] = scheme
 
     @builtins.property
     def port(self) -> "ClusterInstallationSpecLivenessProbeHttpGetPort":
@@ -2504,7 +3469,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeHttpGet#port
         """
-        return self._values.get('port')
+        return self._values.get("port")
 
     @builtins.property
     def host(self) -> typing.Optional[str]:
@@ -2515,10 +3480,14 @@ class ClusterInstallationSpecLivenessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeHttpGet#host
         """
-        return self._values.get('host')
+        return self._values.get("host")
 
     @builtins.property
-    def http_headers(self) -> typing.Optional[typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]]:
+    def http_headers(
+        self,
+    ) -> typing.Optional[
+        typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]
+    ]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -2526,7 +3495,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeHttpGet#httpHeaders
         """
-        return self._values.get('http_headers')
+        return self._values.get("http_headers")
 
     @builtins.property
     def path(self) -> typing.Optional[str]:
@@ -2535,7 +3504,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeHttpGet#path
         """
-        return self._values.get('path')
+        return self._values.get("path")
 
     @builtins.property
     def scheme(self) -> typing.Optional[str]:
@@ -2549,7 +3518,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeHttpGet#scheme
         """
-        return self._values.get('scheme')
+        return self._values.get("scheme")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2558,11 +3527,17 @@ class ClusterInstallationSpecLivenessProbeHttpGet():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecLivenessProbeHttpGet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecLivenessProbeHttpGet(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
-class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders():
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders",
+    jsii_struct_bases=[],
+    name_mapping={"name": "name", "value": "value"},
+)
+class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
     def __init__(self, *, name: str, value: str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
@@ -2573,8 +3548,8 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders():
         :schema:: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders
         """
         self._values = {
-            'name': name,
-            'value': value,
+            "name": name,
+            "value": value,
         }
 
     @builtins.property
@@ -2584,7 +3559,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders#name
         """
-        return self._values.get('name')
+        return self._values.get("name")
 
     @builtins.property
     def value(self) -> str:
@@ -2593,7 +3568,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders#value
         """
-        return self._values.get('value')
+        return self._values.get("value")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2602,10 +3577,15 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-class ClusterInstallationSpecLivenessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGetPort"):
+class ClusterInstallationSpecLivenessProbeHttpGetPort(
+    metaclass=jsii.JSIIMeta,
+    jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGetPort",
+):
     """Name or number of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2613,9 +3593,12 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(metaclass=jsii.JSIIMeta, j
     schema:
     :schema:: ClusterInstallationSpecLivenessProbeHttpGetPort
     """
+
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
-    def from_number(cls, value: jsii.Number) -> "ClusterInstallationSpecLivenessProbeHttpGetPort":
+    def from_number(
+        cls, value: jsii.Number
+    ) -> "ClusterInstallationSpecLivenessProbeHttpGetPort":
         """
         :param value: -
         """
@@ -2623,16 +3606,27 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(metaclass=jsii.JSIIMeta, j
 
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
-    def from_string(cls, value: str) -> "ClusterInstallationSpecLivenessProbeHttpGetPort":
+    def from_string(
+        cls, value: str
+    ) -> "ClusterInstallationSpecLivenessProbeHttpGetPort":
         """
         :param value: -
         """
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecLivenessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
-class ClusterInstallationSpecLivenessProbeTcpSocket():
-    def __init__(self, *, port: "ClusterInstallationSpecLivenessProbeTcpSocketPort", host: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecLivenessProbeTcpSocket",
+    jsii_struct_bases=[],
+    name_mapping={"port": "port", "host": "host"},
+)
+class ClusterInstallationSpecLivenessProbeTcpSocket:
+    def __init__(
+        self,
+        *,
+        port: "ClusterInstallationSpecLivenessProbeTcpSocketPort",
+        host: typing.Optional[str] = None,
+    ) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -2644,9 +3638,10 @@ class ClusterInstallationSpecLivenessProbeTcpSocket():
         :schema:: ClusterInstallationSpecLivenessProbeTcpSocket
         """
         self._values = {
-            'port': port,
+            "port": port,
         }
-        if host is not None: self._values["host"] = host
+        if host is not None:
+            self._values["host"] = host
 
     @builtins.property
     def port(self) -> "ClusterInstallationSpecLivenessProbeTcpSocketPort":
@@ -2657,7 +3652,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeTcpSocket#port
         """
-        return self._values.get('port')
+        return self._values.get("port")
 
     @builtins.property
     def host(self) -> typing.Optional[str]:
@@ -2666,7 +3661,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket():
         schema:
         :schema:: ClusterInstallationSpecLivenessProbeTcpSocket#host
         """
-        return self._values.get('host')
+        return self._values.get("host")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2675,10 +3670,15 @@ class ClusterInstallationSpecLivenessProbeTcpSocket():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecLivenessProbeTcpSocket(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecLivenessProbeTcpSocket(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-class ClusterInstallationSpecLivenessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallationSpecLivenessProbeTcpSocketPort"):
+class ClusterInstallationSpecLivenessProbeTcpSocketPort(
+    metaclass=jsii.JSIIMeta,
+    jsii_type="generated.ClusterInstallationSpecLivenessProbeTcpSocketPort",
+):
     """Number or name of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -2686,9 +3686,12 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(metaclass=jsii.JSIIMeta,
     schema:
     :schema:: ClusterInstallationSpecLivenessProbeTcpSocketPort
     """
+
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
-    def from_number(cls, value: jsii.Number) -> "ClusterInstallationSpecLivenessProbeTcpSocketPort":
+    def from_number(
+        cls, value: jsii.Number
+    ) -> "ClusterInstallationSpecLivenessProbeTcpSocketPort":
         """
         :param value: -
         """
@@ -2696,16 +3699,30 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(metaclass=jsii.JSIIMeta,
 
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
-    def from_string(cls, value: str) -> "ClusterInstallationSpecLivenessProbeTcpSocketPort":
+    def from_string(
+        cls, value: str
+    ) -> "ClusterInstallationSpecLivenessProbeTcpSocketPort":
         """
         :param value: -
         """
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnv", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value', 'value_from': 'valueFrom'})
-class ClusterInstallationSpecMattermostEnv():
-    def __init__(self, *, name: str, value: typing.Optional[str]=None, value_from: typing.Optional["ClusterInstallationSpecMattermostEnvValueFrom"]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecMattermostEnv",
+    jsii_struct_bases=[],
+    name_mapping={"name": "name", "value": "value", "value_from": "valueFrom"},
+)
+class ClusterInstallationSpecMattermostEnv:
+    def __init__(
+        self,
+        *,
+        name: str,
+        value: typing.Optional[str] = None,
+        value_from: typing.Optional[
+            "ClusterInstallationSpecMattermostEnvValueFrom"
+        ] = None,
+    ) -> None:
         """EnvVar represents an environment variable present in a Container.
 
         :param name: Name of the environment variable. Must be a C_IDENTIFIER.
@@ -2715,12 +3732,15 @@ class ClusterInstallationSpecMattermostEnv():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnv
         """
-        if isinstance(value_from, dict): value_from = ClusterInstallationSpecMattermostEnvValueFrom(**value_from)
+        if isinstance(value_from, dict):
+            value_from = ClusterInstallationSpecMattermostEnvValueFrom(**value_from)
         self._values = {
-            'name': name,
+            "name": name,
         }
-        if value is not None: self._values["value"] = value
-        if value_from is not None: self._values["value_from"] = value_from
+        if value is not None:
+            self._values["value"] = value
+        if value_from is not None:
+            self._values["value_from"] = value_from
 
     @builtins.property
     def name(self) -> str:
@@ -2731,7 +3751,7 @@ class ClusterInstallationSpecMattermostEnv():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnv#name
         """
-        return self._values.get('name')
+        return self._values.get("name")
 
     @builtins.property
     def value(self) -> typing.Optional[str]:
@@ -2745,10 +3765,12 @@ class ClusterInstallationSpecMattermostEnv():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnv#value
         """
-        return self._values.get('value')
+        return self._values.get("value")
 
     @builtins.property
-    def value_from(self) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFrom"]:
+    def value_from(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFrom"]:
         """Source for the environment variable's value.
 
         Cannot be used if value is not empty.
@@ -2756,7 +3778,7 @@ class ClusterInstallationSpecMattermostEnv():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnv#valueFrom
         """
-        return self._values.get('value_from')
+        return self._values.get("value_from")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2765,12 +3787,38 @@ class ClusterInstallationSpecMattermostEnv():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecMattermostEnv(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecMattermostEnv(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFrom", jsii_struct_bases=[], name_mapping={'config_map_key_ref': 'configMapKeyRef', 'field_ref': 'fieldRef', 'resource_field_ref': 'resourceFieldRef', 'secret_key_ref': 'secretKeyRef'})
-class ClusterInstallationSpecMattermostEnvValueFrom():
-    def __init__(self, *, config_map_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"]=None, field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"]=None, resource_field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"]=None, secret_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFrom",
+    jsii_struct_bases=[],
+    name_mapping={
+        "config_map_key_ref": "configMapKeyRef",
+        "field_ref": "fieldRef",
+        "resource_field_ref": "resourceFieldRef",
+        "secret_key_ref": "secretKeyRef",
+    },
+)
+class ClusterInstallationSpecMattermostEnvValueFrom:
+    def __init__(
+        self,
+        *,
+        config_map_key_ref: typing.Optional[
+            "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"
+        ] = None,
+        field_ref: typing.Optional[
+            "ClusterInstallationSpecMattermostEnvValueFromFieldRef"
+        ] = None,
+        resource_field_ref: typing.Optional[
+            "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"
+        ] = None,
+        secret_key_ref: typing.Optional[
+            "ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"
+        ] = None,
+    ) -> None:
         """Source for the environment variable's value.
 
         Cannot be used if value is not empty.
@@ -2783,52 +3831,79 @@ class ClusterInstallationSpecMattermostEnvValueFrom():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFrom
         """
-        if isinstance(config_map_key_ref, dict): config_map_key_ref = ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(**config_map_key_ref)
-        if isinstance(field_ref, dict): field_ref = ClusterInstallationSpecMattermostEnvValueFromFieldRef(**field_ref)
-        if isinstance(resource_field_ref, dict): resource_field_ref = ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(**resource_field_ref)
-        if isinstance(secret_key_ref, dict): secret_key_ref = ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(**secret_key_ref)
-        self._values = {
-        }
-        if config_map_key_ref is not None: self._values["config_map_key_ref"] = config_map_key_ref
-        if field_ref is not None: self._values["field_ref"] = field_ref
-        if resource_field_ref is not None: self._values["resource_field_ref"] = resource_field_ref
-        if secret_key_ref is not None: self._values["secret_key_ref"] = secret_key_ref
+        if isinstance(config_map_key_ref, dict):
+            config_map_key_ref = ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(
+                **config_map_key_ref
+            )
+        if isinstance(field_ref, dict):
+            field_ref = ClusterInstallationSpecMattermostEnvValueFromFieldRef(
+                **field_ref
+            )
+        if isinstance(resource_field_ref, dict):
+            resource_field_ref = ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(
+                **resource_field_ref
+            )
+        if isinstance(secret_key_ref, dict):
+            secret_key_ref = ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(
+                **secret_key_ref
+            )
+        self._values = {}
+        if config_map_key_ref is not None:
+            self._values["config_map_key_ref"] = config_map_key_ref
+        if field_ref is not None:
+            self._values["field_ref"] = field_ref
+        if resource_field_ref is not None:
+            self._values["resource_field_ref"] = resource_field_ref
+        if secret_key_ref is not None:
+            self._values["secret_key_ref"] = secret_key_ref
 
     @builtins.property
-    def config_map_key_ref(self) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"]:
+    def config_map_key_ref(
+        self,
+    ) -> typing.Optional[
+        "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"
+    ]:
         """Selects a key of a ConfigMap.
 
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFrom#configMapKeyRef
         """
-        return self._values.get('config_map_key_ref')
+        return self._values.get("config_map_key_ref")
 
     @builtins.property
-    def field_ref(self) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"]:
+    def field_ref(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"]:
         """Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
 
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFrom#fieldRef
         """
-        return self._values.get('field_ref')
+        return self._values.get("field_ref")
 
     @builtins.property
-    def resource_field_ref(self) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"]:
+    def resource_field_ref(
+        self,
+    ) -> typing.Optional[
+        "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"
+    ]:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFrom#resourceFieldRef
         """
-        return self._values.get('resource_field_ref')
+        return self._values.get("resource_field_ref")
 
     @builtins.property
-    def secret_key_ref(self) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"]:
+    def secret_key_ref(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"]:
         """Selects a key of a secret in the pod's namespace.
 
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFrom#secretKeyRef
         """
-        return self._values.get('secret_key_ref')
+        return self._values.get("secret_key_ref")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2837,12 +3912,24 @@ class ClusterInstallationSpecMattermostEnvValueFrom():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecMattermostEnvValueFrom(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecMattermostEnvValueFrom(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
-class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef():
-    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "name": "name", "optional": "optional"},
+)
+class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
+    def __init__(
+        self,
+        *,
+        key: str,
+        name: typing.Optional[str] = None,
+        optional: typing.Optional[bool] = None,
+    ) -> None:
         """Selects a key of a ConfigMap.
 
         :param key: The key to select.
@@ -2853,10 +3940,12 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef():
         :schema:: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef
         """
         self._values = {
-            'key': key,
+            "key": key,
         }
-        if name is not None: self._values["name"] = name
-        if optional is not None: self._values["optional"] = optional
+        if name is not None:
+            self._values["name"] = name
+        if optional is not None:
+            self._values["optional"] = optional
 
     @builtins.property
     def key(self) -> str:
@@ -2865,7 +3954,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def name(self) -> typing.Optional[str]:
@@ -2876,7 +3965,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#name
         """
-        return self._values.get('name')
+        return self._values.get("name")
 
     @builtins.property
     def optional(self) -> typing.Optional[bool]:
@@ -2885,7 +3974,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#optional
         """
-        return self._values.get('optional')
+        return self._values.get("optional")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2894,12 +3983,21 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromFieldRef", jsii_struct_bases=[], name_mapping={'field_path': 'fieldPath', 'api_version': 'apiVersion'})
-class ClusterInstallationSpecMattermostEnvValueFromFieldRef():
-    def __init__(self, *, field_path: str, api_version: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromFieldRef",
+    jsii_struct_bases=[],
+    name_mapping={"field_path": "fieldPath", "api_version": "apiVersion"},
+)
+class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
+    def __init__(
+        self, *, field_path: str, api_version: typing.Optional[str] = None
+    ) -> None:
         """Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
 
         :param field_path: Path of the field to select in the specified API version.
@@ -2909,9 +4007,10 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef():
         :schema:: ClusterInstallationSpecMattermostEnvValueFromFieldRef
         """
         self._values = {
-            'field_path': field_path,
+            "field_path": field_path,
         }
-        if api_version is not None: self._values["api_version"] = api_version
+        if api_version is not None:
+            self._values["api_version"] = api_version
 
     @builtins.property
     def field_path(self) -> str:
@@ -2920,7 +4019,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromFieldRef#fieldPath
         """
-        return self._values.get('field_path')
+        return self._values.get("field_path")
 
     @builtins.property
     def api_version(self) -> typing.Optional[str]:
@@ -2929,7 +4028,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromFieldRef#apiVersion
         """
-        return self._values.get('api_version')
+        return self._values.get("api_version")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2938,12 +4037,28 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecMattermostEnvValueFromFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecMattermostEnvValueFromFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef", jsii_struct_bases=[], name_mapping={'resource': 'resource', 'container_name': 'containerName', 'divisor': 'divisor'})
-class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef():
-    def __init__(self, *, resource: str, container_name: typing.Optional[str]=None, divisor: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef",
+    jsii_struct_bases=[],
+    name_mapping={
+        "resource": "resource",
+        "container_name": "containerName",
+        "divisor": "divisor",
+    },
+)
+class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
+    def __init__(
+        self,
+        *,
+        resource: str,
+        container_name: typing.Optional[str] = None,
+        divisor: typing.Optional[str] = None,
+    ) -> None:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 
         :param resource: Required: resource to select.
@@ -2954,10 +4069,12 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef():
         :schema:: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef
         """
         self._values = {
-            'resource': resource,
+            "resource": resource,
         }
-        if container_name is not None: self._values["container_name"] = container_name
-        if divisor is not None: self._values["divisor"] = divisor
+        if container_name is not None:
+            self._values["container_name"] = container_name
+        if divisor is not None:
+            self._values["divisor"] = divisor
 
     @builtins.property
     def resource(self) -> str:
@@ -2966,7 +4083,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#resource
         """
-        return self._values.get('resource')
+        return self._values.get("resource")
 
     @builtins.property
     def container_name(self) -> typing.Optional[str]:
@@ -2975,7 +4092,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#containerName
         """
-        return self._values.get('container_name')
+        return self._values.get("container_name")
 
     @builtins.property
     def divisor(self) -> typing.Optional[str]:
@@ -2984,7 +4101,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#divisor
         """
-        return self._values.get('divisor')
+        return self._values.get("divisor")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2993,12 +4110,25 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef", jsii_struct_bases=[], name_mapping={'key': 'key', 'name': 'name', 'optional': 'optional'})
-class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef():
-    def __init__(self, *, key: str, name: typing.Optional[str]=None, optional: typing.Optional[bool]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef",
+    jsii_struct_bases=[],
+    name_mapping={"key": "key", "name": "name", "optional": "optional"},
+)
+class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
+    def __init__(
+        self,
+        *,
+        key: str,
+        name: typing.Optional[str] = None,
+        optional: typing.Optional[bool] = None,
+    ) -> None:
         """Selects a key of a secret in the pod's namespace.
 
         :param key: The key of the secret to select from. Must be a valid secret key.
@@ -3009,10 +4139,12 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef():
         :schema:: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef
         """
         self._values = {
-            'key': key,
+            "key": key,
         }
-        if name is not None: self._values["name"] = name
-        if optional is not None: self._values["optional"] = optional
+        if name is not None:
+            self._values["name"] = name
+        if optional is not None:
+            self._values["optional"] = optional
 
     @builtins.property
     def key(self) -> str:
@@ -3023,7 +4155,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#key
         """
-        return self._values.get('key')
+        return self._values.get("key")
 
     @builtins.property
     def name(self) -> typing.Optional[str]:
@@ -3034,7 +4166,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#name
         """
-        return self._values.get('name')
+        return self._values.get("name")
 
     @builtins.property
     def optional(self) -> typing.Optional[bool]:
@@ -3043,7 +4175,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef():
         schema:
         :schema:: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#optional
         """
-        return self._values.get('optional')
+        return self._values.get("optional")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3052,12 +4184,35 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMinio", jsii_struct_bases=[], name_mapping={'external_bucket': 'externalBucket', 'external_url': 'externalURL', 'replicas': 'replicas', 'resources': 'resources', 'secret': 'secret', 'storage_size': 'storageSize'})
-class ClusterInstallationSpecMinio():
-    def __init__(self, *, external_bucket: typing.Optional[str]=None, external_url: typing.Optional[str]=None, replicas: typing.Optional[jsii.Number]=None, resources: typing.Optional["ClusterInstallationSpecMinioResources"]=None, secret: typing.Optional[str]=None, storage_size: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecMinio",
+    jsii_struct_bases=[],
+    name_mapping={
+        "external_bucket": "externalBucket",
+        "external_url": "externalURL",
+        "replicas": "replicas",
+        "resources": "resources",
+        "secret": "secret",
+        "storage_size": "storageSize",
+    },
+)
+class ClusterInstallationSpecMinio:
+    def __init__(
+        self,
+        *,
+        external_bucket: typing.Optional[str] = None,
+        external_url: typing.Optional[str] = None,
+        replicas: typing.Optional[jsii.Number] = None,
+        resources: typing.Optional["ClusterInstallationSpecMinioResources"] = None,
+        secret: typing.Optional[str] = None,
+        storage_size: typing.Optional[str] = None,
+    ) -> None:
         """Minio defines the configuration of Minio for a ClusterInstallation.
 
         :param external_bucket: Set to the bucket name of your external MinIO or S3.
@@ -3070,15 +4225,21 @@ class ClusterInstallationSpecMinio():
         schema:
         :schema:: ClusterInstallationSpecMinio
         """
-        if isinstance(resources, dict): resources = ClusterInstallationSpecMinioResources(**resources)
-        self._values = {
-        }
-        if external_bucket is not None: self._values["external_bucket"] = external_bucket
-        if external_url is not None: self._values["external_url"] = external_url
-        if replicas is not None: self._values["replicas"] = replicas
-        if resources is not None: self._values["resources"] = resources
-        if secret is not None: self._values["secret"] = secret
-        if storage_size is not None: self._values["storage_size"] = storage_size
+        if isinstance(resources, dict):
+            resources = ClusterInstallationSpecMinioResources(**resources)
+        self._values = {}
+        if external_bucket is not None:
+            self._values["external_bucket"] = external_bucket
+        if external_url is not None:
+            self._values["external_url"] = external_url
+        if replicas is not None:
+            self._values["replicas"] = replicas
+        if resources is not None:
+            self._values["resources"] = resources
+        if secret is not None:
+            self._values["secret"] = secret
+        if storage_size is not None:
+            self._values["storage_size"] = storage_size
 
     @builtins.property
     def external_bucket(self) -> typing.Optional[str]:
@@ -3087,7 +4248,7 @@ class ClusterInstallationSpecMinio():
         schema:
         :schema:: ClusterInstallationSpecMinio#externalBucket
         """
-        return self._values.get('external_bucket')
+        return self._values.get("external_bucket")
 
     @builtins.property
     def external_url(self) -> typing.Optional[str]:
@@ -3098,7 +4259,7 @@ class ClusterInstallationSpecMinio():
         schema:
         :schema:: ClusterInstallationSpecMinio#externalURL
         """
-        return self._values.get('external_url')
+        return self._values.get("external_url")
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -3109,7 +4270,7 @@ class ClusterInstallationSpecMinio():
         schema:
         :schema:: ClusterInstallationSpecMinio#replicas
         """
-        return self._values.get('replicas')
+        return self._values.get("replicas")
 
     @builtins.property
     def resources(self) -> typing.Optional["ClusterInstallationSpecMinioResources"]:
@@ -3118,7 +4279,7 @@ class ClusterInstallationSpecMinio():
         schema:
         :schema:: ClusterInstallationSpecMinio#resources
         """
-        return self._values.get('resources')
+        return self._values.get("resources")
 
     @builtins.property
     def secret(self) -> typing.Optional[str]:
@@ -3129,7 +4290,7 @@ class ClusterInstallationSpecMinio():
         schema:
         :schema:: ClusterInstallationSpecMinio#secret
         """
-        return self._values.get('secret')
+        return self._values.get("secret")
 
     @builtins.property
     def storage_size(self) -> typing.Optional[str]:
@@ -3140,7 +4301,7 @@ class ClusterInstallationSpecMinio():
         schema:
         :schema:: ClusterInstallationSpecMinio#storageSize
         """
-        return self._values.get('storage_size')
+        return self._values.get("storage_size")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3149,12 +4310,23 @@ class ClusterInstallationSpecMinio():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecMinio(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecMinio(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecMinioResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
-class ClusterInstallationSpecMinioResources():
-    def __init__(self, *, limits: typing.Optional[typing.Mapping[str, str]]=None, requests: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecMinioResources",
+    jsii_struct_bases=[],
+    name_mapping={"limits": "limits", "requests": "requests"},
+)
+class ClusterInstallationSpecMinioResources:
+    def __init__(
+        self,
+        *,
+        limits: typing.Optional[typing.Mapping[str, str]] = None,
+        requests: typing.Optional[typing.Mapping[str, str]] = None,
+    ) -> None:
         """Defines the resource requests and limits for the Minio pods.
 
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3163,10 +4335,11 @@ class ClusterInstallationSpecMinioResources():
         schema:
         :schema:: ClusterInstallationSpecMinioResources
         """
-        self._values = {
-        }
-        if limits is not None: self._values["limits"] = limits
-        if requests is not None: self._values["requests"] = requests
+        self._values = {}
+        if limits is not None:
+            self._values["limits"] = limits
+        if requests is not None:
+            self._values["requests"] = requests
 
     @builtins.property
     def limits(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -3177,7 +4350,7 @@ class ClusterInstallationSpecMinioResources():
         schema:
         :schema:: ClusterInstallationSpecMinioResources#limits
         """
-        return self._values.get('limits')
+        return self._values.get("limits")
 
     @builtins.property
     def requests(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -3188,7 +4361,7 @@ class ClusterInstallationSpecMinioResources():
         schema:
         :schema:: ClusterInstallationSpecMinioResources#requests
         """
-        return self._values.get('requests')
+        return self._values.get("requests")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3197,12 +4370,42 @@ class ClusterInstallationSpecMinioResources():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecMinioResources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecMinioResources(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbe", jsii_struct_bases=[], name_mapping={'exec': 'exec', 'failure_threshold': 'failureThreshold', 'http_get': 'httpGet', 'initial_delay_seconds': 'initialDelaySeconds', 'period_seconds': 'periodSeconds', 'success_threshold': 'successThreshold', 'tcp_socket': 'tcpSocket', 'timeout_seconds': 'timeoutSeconds'})
-class ClusterInstallationSpecReadinessProbe():
-    def __init__(self, *, exec: typing.Optional["ClusterInstallationSpecReadinessProbeExec"]=None, failure_threshold: typing.Optional[jsii.Number]=None, http_get: typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"]=None, initial_delay_seconds: typing.Optional[jsii.Number]=None, period_seconds: typing.Optional[jsii.Number]=None, success_threshold: typing.Optional[jsii.Number]=None, tcp_socket: typing.Optional["ClusterInstallationSpecReadinessProbeTcpSocket"]=None, timeout_seconds: typing.Optional[jsii.Number]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecReadinessProbe",
+    jsii_struct_bases=[],
+    name_mapping={
+        "exec": "exec",
+        "failure_threshold": "failureThreshold",
+        "http_get": "httpGet",
+        "initial_delay_seconds": "initialDelaySeconds",
+        "period_seconds": "periodSeconds",
+        "success_threshold": "successThreshold",
+        "tcp_socket": "tcpSocket",
+        "timeout_seconds": "timeoutSeconds",
+    },
+)
+class ClusterInstallationSpecReadinessProbe:
+    def __init__(
+        self,
+        *,
+        exec: typing.Optional["ClusterInstallationSpecReadinessProbeExec"] = None,
+        failure_threshold: typing.Optional[jsii.Number] = None,
+        http_get: typing.Optional[
+            "ClusterInstallationSpecReadinessProbeHttpGet"
+        ] = None,
+        initial_delay_seconds: typing.Optional[jsii.Number] = None,
+        period_seconds: typing.Optional[jsii.Number] = None,
+        success_threshold: typing.Optional[jsii.Number] = None,
+        tcp_socket: typing.Optional[
+            "ClusterInstallationSpecReadinessProbeTcpSocket"
+        ] = None,
+        timeout_seconds: typing.Optional[jsii.Number] = None,
+    ) -> None:
         """Defines the probe to check if the application is ready to accept traffic.
 
         :param exec: One and only one of the following should be specified. Exec specifies the action to take.
@@ -3217,19 +4420,29 @@ class ClusterInstallationSpecReadinessProbe():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe
         """
-        if isinstance(exec, dict): exec = ClusterInstallationSpecReadinessProbeExec(**exec)
-        if isinstance(http_get, dict): http_get = ClusterInstallationSpecReadinessProbeHttpGet(**http_get)
-        if isinstance(tcp_socket, dict): tcp_socket = ClusterInstallationSpecReadinessProbeTcpSocket(**tcp_socket)
-        self._values = {
-        }
-        if exec is not None: self._values["exec"] = exec
-        if failure_threshold is not None: self._values["failure_threshold"] = failure_threshold
-        if http_get is not None: self._values["http_get"] = http_get
-        if initial_delay_seconds is not None: self._values["initial_delay_seconds"] = initial_delay_seconds
-        if period_seconds is not None: self._values["period_seconds"] = period_seconds
-        if success_threshold is not None: self._values["success_threshold"] = success_threshold
-        if tcp_socket is not None: self._values["tcp_socket"] = tcp_socket
-        if timeout_seconds is not None: self._values["timeout_seconds"] = timeout_seconds
+        if isinstance(exec, dict):
+            exec = ClusterInstallationSpecReadinessProbeExec(**exec)
+        if isinstance(http_get, dict):
+            http_get = ClusterInstallationSpecReadinessProbeHttpGet(**http_get)
+        if isinstance(tcp_socket, dict):
+            tcp_socket = ClusterInstallationSpecReadinessProbeTcpSocket(**tcp_socket)
+        self._values = {}
+        if exec is not None:
+            self._values["exec"] = exec
+        if failure_threshold is not None:
+            self._values["failure_threshold"] = failure_threshold
+        if http_get is not None:
+            self._values["http_get"] = http_get
+        if initial_delay_seconds is not None:
+            self._values["initial_delay_seconds"] = initial_delay_seconds
+        if period_seconds is not None:
+            self._values["period_seconds"] = period_seconds
+        if success_threshold is not None:
+            self._values["success_threshold"] = success_threshold
+        if tcp_socket is not None:
+            self._values["tcp_socket"] = tcp_socket
+        if timeout_seconds is not None:
+            self._values["timeout_seconds"] = timeout_seconds
 
     @builtins.property
     def exec(self) -> typing.Optional["ClusterInstallationSpecReadinessProbeExec"]:
@@ -3240,7 +4453,7 @@ class ClusterInstallationSpecReadinessProbe():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe#exec
         """
-        return self._values.get('exec')
+        return self._values.get("exec")
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3254,16 +4467,18 @@ class ClusterInstallationSpecReadinessProbe():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe#failureThreshold
         """
-        return self._values.get('failure_threshold')
+        return self._values.get("failure_threshold")
 
     @builtins.property
-    def http_get(self) -> typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"]:
+    def http_get(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"]:
         """HTTPGet specifies the http request to perform.
 
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe#httpGet
         """
-        return self._values.get('http_get')
+        return self._values.get("http_get")
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3274,7 +4489,7 @@ class ClusterInstallationSpecReadinessProbe():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe#initialDelaySeconds
         """
-        return self._values.get('initial_delay_seconds')
+        return self._values.get("initial_delay_seconds")
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3288,7 +4503,7 @@ class ClusterInstallationSpecReadinessProbe():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe#periodSeconds
         """
-        return self._values.get('period_seconds')
+        return self._values.get("period_seconds")
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3302,10 +4517,12 @@ class ClusterInstallationSpecReadinessProbe():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe#successThreshold
         """
-        return self._values.get('success_threshold')
+        return self._values.get("success_threshold")
 
     @builtins.property
-    def tcp_socket(self) -> typing.Optional["ClusterInstallationSpecReadinessProbeTcpSocket"]:
+    def tcp_socket(
+        self,
+    ) -> typing.Optional["ClusterInstallationSpecReadinessProbeTcpSocket"]:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -3313,7 +4530,7 @@ class ClusterInstallationSpecReadinessProbe():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe#tcpSocket
         """
-        return self._values.get('tcp_socket')
+        return self._values.get("tcp_socket")
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3327,7 +4544,7 @@ class ClusterInstallationSpecReadinessProbe():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbe#timeoutSeconds
         """
-        return self._values.get('timeout_seconds')
+        return self._values.get("timeout_seconds")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3336,12 +4553,18 @@ class ClusterInstallationSpecReadinessProbe():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecReadinessProbe(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecReadinessProbe(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbeExec", jsii_struct_bases=[], name_mapping={'command': 'command'})
-class ClusterInstallationSpecReadinessProbeExec():
-    def __init__(self, *, command: typing.Optional[typing.List[str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecReadinessProbeExec",
+    jsii_struct_bases=[],
+    name_mapping={"command": "command"},
+)
+class ClusterInstallationSpecReadinessProbeExec:
+    def __init__(self, *, command: typing.Optional[typing.List[str]] = None) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -3351,9 +4574,9 @@ class ClusterInstallationSpecReadinessProbeExec():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeExec
         """
-        self._values = {
-        }
-        if command is not None: self._values["command"] = command
+        self._values = {}
+        if command is not None:
+            self._values["command"] = command
 
     @builtins.property
     def command(self) -> typing.Optional[typing.List[str]]:
@@ -3364,7 +4587,7 @@ class ClusterInstallationSpecReadinessProbeExec():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeExec#command
         """
-        return self._values.get('command')
+        return self._values.get("command")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3373,12 +4596,34 @@ class ClusterInstallationSpecReadinessProbeExec():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecReadinessProbeExec(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecReadinessProbeExec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGet", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host', 'http_headers': 'httpHeaders', 'path': 'path', 'scheme': 'scheme'})
-class ClusterInstallationSpecReadinessProbeHttpGet():
-    def __init__(self, *, port: "ClusterInstallationSpecReadinessProbeHttpGetPort", host: typing.Optional[str]=None, http_headers: typing.Optional[typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]]=None, path: typing.Optional[str]=None, scheme: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGet",
+    jsii_struct_bases=[],
+    name_mapping={
+        "port": "port",
+        "host": "host",
+        "http_headers": "httpHeaders",
+        "path": "path",
+        "scheme": "scheme",
+    },
+)
+class ClusterInstallationSpecReadinessProbeHttpGet:
+    def __init__(
+        self,
+        *,
+        port: "ClusterInstallationSpecReadinessProbeHttpGetPort",
+        host: typing.Optional[str] = None,
+        http_headers: typing.Optional[
+            typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]
+        ] = None,
+        path: typing.Optional[str] = None,
+        scheme: typing.Optional[str] = None,
+    ) -> None:
         """HTTPGet specifies the http request to perform.
 
         :param port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3391,12 +4636,16 @@ class ClusterInstallationSpecReadinessProbeHttpGet():
         :schema:: ClusterInstallationSpecReadinessProbeHttpGet
         """
         self._values = {
-            'port': port,
+            "port": port,
         }
-        if host is not None: self._values["host"] = host
-        if http_headers is not None: self._values["http_headers"] = http_headers
-        if path is not None: self._values["path"] = path
-        if scheme is not None: self._values["scheme"] = scheme
+        if host is not None:
+            self._values["host"] = host
+        if http_headers is not None:
+            self._values["http_headers"] = http_headers
+        if path is not None:
+            self._values["path"] = path
+        if scheme is not None:
+            self._values["scheme"] = scheme
 
     @builtins.property
     def port(self) -> "ClusterInstallationSpecReadinessProbeHttpGetPort":
@@ -3407,7 +4656,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeHttpGet#port
         """
-        return self._values.get('port')
+        return self._values.get("port")
 
     @builtins.property
     def host(self) -> typing.Optional[str]:
@@ -3418,10 +4667,14 @@ class ClusterInstallationSpecReadinessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeHttpGet#host
         """
-        return self._values.get('host')
+        return self._values.get("host")
 
     @builtins.property
-    def http_headers(self) -> typing.Optional[typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]]:
+    def http_headers(
+        self,
+    ) -> typing.Optional[
+        typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]
+    ]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -3429,7 +4682,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeHttpGet#httpHeaders
         """
-        return self._values.get('http_headers')
+        return self._values.get("http_headers")
 
     @builtins.property
     def path(self) -> typing.Optional[str]:
@@ -3438,7 +4691,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeHttpGet#path
         """
-        return self._values.get('path')
+        return self._values.get("path")
 
     @builtins.property
     def scheme(self) -> typing.Optional[str]:
@@ -3452,7 +4705,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeHttpGet#scheme
         """
-        return self._values.get('scheme')
+        return self._values.get("scheme")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3461,11 +4714,17 @@ class ClusterInstallationSpecReadinessProbeHttpGet():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecReadinessProbeHttpGet(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecReadinessProbeHttpGet(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders", jsii_struct_bases=[], name_mapping={'name': 'name', 'value': 'value'})
-class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders():
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders",
+    jsii_struct_bases=[],
+    name_mapping={"name": "name", "value": "value"},
+)
+class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
     def __init__(self, *, name: str, value: str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
@@ -3476,8 +4735,8 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders():
         :schema:: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders
         """
         self._values = {
-            'name': name,
-            'value': value,
+            "name": name,
+            "value": value,
         }
 
     @builtins.property
@@ -3487,7 +4746,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders#name
         """
-        return self._values.get('name')
+        return self._values.get("name")
 
     @builtins.property
     def value(self) -> str:
@@ -3496,7 +4755,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders#value
         """
-        return self._values.get('value')
+        return self._values.get("value")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3505,10 +4764,16 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return (
+            "ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders(%s)"
+            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        )
 
 
-class ClusterInstallationSpecReadinessProbeHttpGetPort(metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGetPort"):
+class ClusterInstallationSpecReadinessProbeHttpGetPort(
+    metaclass=jsii.JSIIMeta,
+    jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGetPort",
+):
     """Name or number of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3516,9 +4781,12 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(metaclass=jsii.JSIIMeta, 
     schema:
     :schema:: ClusterInstallationSpecReadinessProbeHttpGetPort
     """
+
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
-    def from_number(cls, value: jsii.Number) -> "ClusterInstallationSpecReadinessProbeHttpGetPort":
+    def from_number(
+        cls, value: jsii.Number
+    ) -> "ClusterInstallationSpecReadinessProbeHttpGetPort":
         """
         :param value: -
         """
@@ -3526,16 +4794,27 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(metaclass=jsii.JSIIMeta, 
 
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
-    def from_string(cls, value: str) -> "ClusterInstallationSpecReadinessProbeHttpGetPort":
+    def from_string(
+        cls, value: str
+    ) -> "ClusterInstallationSpecReadinessProbeHttpGetPort":
         """
         :param value: -
         """
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecReadinessProbeTcpSocket", jsii_struct_bases=[], name_mapping={'port': 'port', 'host': 'host'})
-class ClusterInstallationSpecReadinessProbeTcpSocket():
-    def __init__(self, *, port: "ClusterInstallationSpecReadinessProbeTcpSocketPort", host: typing.Optional[str]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecReadinessProbeTcpSocket",
+    jsii_struct_bases=[],
+    name_mapping={"port": "port", "host": "host"},
+)
+class ClusterInstallationSpecReadinessProbeTcpSocket:
+    def __init__(
+        self,
+        *,
+        port: "ClusterInstallationSpecReadinessProbeTcpSocketPort",
+        host: typing.Optional[str] = None,
+    ) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
@@ -3547,9 +4826,10 @@ class ClusterInstallationSpecReadinessProbeTcpSocket():
         :schema:: ClusterInstallationSpecReadinessProbeTcpSocket
         """
         self._values = {
-            'port': port,
+            "port": port,
         }
-        if host is not None: self._values["host"] = host
+        if host is not None:
+            self._values["host"] = host
 
     @builtins.property
     def port(self) -> "ClusterInstallationSpecReadinessProbeTcpSocketPort":
@@ -3560,7 +4840,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeTcpSocket#port
         """
-        return self._values.get('port')
+        return self._values.get("port")
 
     @builtins.property
     def host(self) -> typing.Optional[str]:
@@ -3569,7 +4849,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket():
         schema:
         :schema:: ClusterInstallationSpecReadinessProbeTcpSocket#host
         """
-        return self._values.get('host')
+        return self._values.get("host")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3578,10 +4858,15 @@ class ClusterInstallationSpecReadinessProbeTcpSocket():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecReadinessProbeTcpSocket(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecReadinessProbeTcpSocket(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-class ClusterInstallationSpecReadinessProbeTcpSocketPort(metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallationSpecReadinessProbeTcpSocketPort"):
+class ClusterInstallationSpecReadinessProbeTcpSocketPort(
+    metaclass=jsii.JSIIMeta,
+    jsii_type="generated.ClusterInstallationSpecReadinessProbeTcpSocketPort",
+):
     """Number or name of the port to access on the container.
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
@@ -3589,9 +4874,12 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(metaclass=jsii.JSIIMeta
     schema:
     :schema:: ClusterInstallationSpecReadinessProbeTcpSocketPort
     """
+
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
-    def from_number(cls, value: jsii.Number) -> "ClusterInstallationSpecReadinessProbeTcpSocketPort":
+    def from_number(
+        cls, value: jsii.Number
+    ) -> "ClusterInstallationSpecReadinessProbeTcpSocketPort":
         """
         :param value: -
         """
@@ -3599,16 +4887,27 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(metaclass=jsii.JSIIMeta
 
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
-    def from_string(cls, value: str) -> "ClusterInstallationSpecReadinessProbeTcpSocketPort":
+    def from_string(
+        cls, value: str
+    ) -> "ClusterInstallationSpecReadinessProbeTcpSocketPort":
         """
         :param value: -
         """
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.data_type(jsii_type="generated.ClusterInstallationSpecResources", jsii_struct_bases=[], name_mapping={'limits': 'limits', 'requests': 'requests'})
-class ClusterInstallationSpecResources():
-    def __init__(self, *, limits: typing.Optional[typing.Mapping[str, str]]=None, requests: typing.Optional[typing.Mapping[str, str]]=None) -> None:
+@jsii.data_type(
+    jsii_type="generated.ClusterInstallationSpecResources",
+    jsii_struct_bases=[],
+    name_mapping={"limits": "limits", "requests": "requests"},
+)
+class ClusterInstallationSpecResources:
+    def __init__(
+        self,
+        *,
+        limits: typing.Optional[typing.Mapping[str, str]] = None,
+        requests: typing.Optional[typing.Mapping[str, str]] = None,
+    ) -> None:
         """Defines the resource requests and limits for the Mattermost app server pods.
 
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -3617,10 +4916,11 @@ class ClusterInstallationSpecResources():
         schema:
         :schema:: ClusterInstallationSpecResources
         """
-        self._values = {
-        }
-        if limits is not None: self._values["limits"] = limits
-        if requests is not None: self._values["requests"] = requests
+        self._values = {}
+        if limits is not None:
+            self._values["limits"] = limits
+        if requests is not None:
+            self._values["requests"] = requests
 
     @builtins.property
     def limits(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -3631,7 +4931,7 @@ class ClusterInstallationSpecResources():
         schema:
         :schema:: ClusterInstallationSpecResources#limits
         """
-        return self._values.get('limits')
+        return self._values.get("limits")
 
     @builtins.property
     def requests(self) -> typing.Optional[typing.Mapping[str, str]]:
@@ -3642,7 +4942,7 @@ class ClusterInstallationSpecResources():
         schema:
         :schema:: ClusterInstallationSpecResources#requests
         """
-        return self._values.get('requests')
+        return self._values.get("requests")
 
     def __eq__(self, rhs) -> bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3651,7 +4951,9 @@ class ClusterInstallationSpecResources():
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return 'ClusterInstallationSpecResources(%s)' % ', '.join(k + '=' + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecResources(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
 __all__ = [
