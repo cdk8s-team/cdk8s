@@ -7,9 +7,11 @@ exports.options = {
   repository: 'https://github.com/awslabs/cdk8s.git',
   authorName: 'Amazon Web Services',
   authorUrl: 'https://aws.amazon.com',
+  authorOrganization: true,
   buildWorkflow: false,
   releaseWorkflow: false,
   mergify: false,
+  compat: false,
   keywords: [
     "cdk",
     "kubernetes",

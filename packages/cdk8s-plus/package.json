@@ -14,29 +14,26 @@
     "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn compile",
     "compile": "jsii --silence-warnings=reserved-word && jsii-docgen",
     "watch": "jsii -w --silence-warnings=reserved-word",
-    "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\")",
     "package": "jsii-pacmak",
     "build": "yarn compile",
     "eslint": "eslint . --ext .ts",
-    "docgen": "jsii-docgen",
     "test:watch": "jest --watch",
-    "test:update": "jest -u"
+    "test:update": "jest -u",
+    "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\") -k --ignore-file .compatignore || (echo \"\nUNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .compatignore to skip.\n\" && exit 1)",
+    "docgen": "jsii-docgen"
   },
   "author": {
     "name": "Amazon Web Services",
-    "url": "https://aws.amazon.com"
+    "url": "https://aws.amazon.com",
+    "organization": true
   },
   "devDependencies": {
     "constructs": "2.0.2",
     "cdk8s": "0.0.0",
     "@types/minimatch": "^3.0.3",
-    "projen": "^0.2.2",
-    "standard-version": "^8.0.0",
-    "jsii": "^1.7.0",
-    "jsii-diff": "^1.7.0",
-    "jsii-pacmak": "^1.7.0",
-    "@types/node": "^10.17.0",
-    "typescript": "^3.8.3",
+    "projen": "^0.3.1",
+    "standard-version": "^8.0.1",
+    "typescript": "^3.9.5",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.19.2",
     "eslint": "^6.8.0",
@@ -44,10 +41,14 @@
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.20.2",
     "json-schema": "^0.2.5",
-    "jsii-docgen": "^1.3.2",
     "jest": "^26.0.1",
     "@types/jest": "^25.2.1",
-    "ts-jest": "^26.1.0"
+    "ts-jest": "^26.1.0",
+    "@types/node": "^10.17.0",
+    "jsii": "^1.7.0",
+    "jsii-diff": "^1.7.0",
+    "jsii-pacmak": "^1.7.0",
+    "jsii-docgen": "^1.3.2"
   },
   "peerDependencies": {
     "constructs": "^2.0.2",
@@ -72,6 +73,26 @@
   "license": "Apache-2.0",
   "version": "0.0.0",
   "types": "lib/index.d.ts",
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "preset": "ts-jest",
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.jest.json"
+      }
+    }
+  },
   "stability": "experimental",
   "jsii": {
     "outdir": "dist",
@@ -95,26 +116,6 @@
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"
-    }
-  },
-  "jest": {
-    "clearMocks": true,
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "preset": "ts-jest",
-    "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.jest.json"
-      }
     }
   }
 }

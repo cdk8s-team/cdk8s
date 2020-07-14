@@ -5,18 +5,16 @@
 # standard-version configuration
 /.versionrc.json
 /src
-/test
-/coverage
-/.eslintrc.json
-# exclude typescript sources and configuration
-*.ts
-tsconfig.json
-# exclude jsii outdir
 dist
+/tsconfig.json
+/.github
+/.vscode
+/.projenrc.js
+/.eslintrc.json
 /tsconfig.jest.json
+/coverage
+/test
 !/lib
-!# include javascript files and typescript declarations
-!*.js
-!*.d.ts
-!# include .jsii manifest
+!/lib/**/*.js
+!/lib/**/*.d.ts
 !.jsii
