@@ -9,7 +9,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "2018",
+    "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "extends": [
@@ -34,7 +34,8 @@
     "*.d.ts",
     "node_modules/",
     "*.generated.ts",
-    "coverage"
+    "coverage",
+    "/templates/"
   ],
   "rules": {
     "@typescript-eslint/no-require-imports": [

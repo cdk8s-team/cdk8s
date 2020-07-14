@@ -31,7 +31,7 @@
     "constructs": "2.0.2",
     "cdk8s": "0.0.0",
     "@types/minimatch": "^3.0.3",
-    "projen": "^0.3.1",
+    "projen": "^0.3.3",
     "standard-version": "^8.0.1",
     "typescript": "^3.9.5",
     "@typescript-eslint/eslint-plugin": "^2.31.0",

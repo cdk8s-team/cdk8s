@@ -26,7 +26,8 @@ const project = new TypeScriptLibraryProject({
   ...common.options,
 });
 
-project.manifest.jest.testPathIgnorePatterns.push('/templates/');
+project.eslint.addIgnorePattern('/templates/');
+project.jest.addIgnorePattern('/templates/');
 
 common.fixup(project);
 
