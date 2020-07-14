@@ -2,13 +2,15 @@ import * as yargs from 'yargs';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { sscaff } from 'sscaff';
-const constructsVersion = require('../../package.json').dependencies.constructs;
 
-const templatesDir = path.join(__dirname, '..', '..', 'templates');
+const pkgroot = path.join(__dirname, '..', '..', '..');
+
+const pkg = fs.readJsonSync(path.join(pkgroot, 'package.json'));
+const constructsVersion = pkg.dependencies.constructs;
+
+const templatesDir = path.join(pkgroot, 'templates');
 const availableTemplates = fs.readdirSync(templatesDir).filter(x => !x.startsWith('.'));
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg = require('../../package.json');
 
 class Command implements yargs.CommandModule {
   public readonly command = 'init TYPE';
@@ -22,7 +24,7 @@ class Command implements yargs.CommandModule {
 
   public async handler(argv: any) {
     if (fs.readdirSync('.').filter(f => !f.startsWith('.')).length > 0) {
-      console.error(`Cannot initialize a project in a non-empty directory`);
+      console.error('Cannot initialize a project in a non-empty directory');
       process.exit(1);
     }
   
@@ -32,7 +34,7 @@ class Command implements yargs.CommandModule {
     const deps: any = await determineDeps(argv.cdk8SVersion, argv.dist);
 
     await sscaff(templatePath, '.', {
-      ...deps
+      ...deps,
     });
   }
 }
@@ -40,10 +42,10 @@ class Command implements yargs.CommandModule {
 async function determineDeps(version: string, dist?: string): Promise<Deps> {
   if (dist) {
     const ret = {
-      'npm_cdk8s': path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
-      'npm_cdk8s_cli': path.resolve(dist, 'js', `cdk8s-cli-${version}.tgz`),
-      'pypi_cdk8s': path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`),
-      'mvn_cdk8s': path.resolve(dist, 'java', `org/cdk8s/cdk8s/${version}/cdk8s-${version}.jar`),
+      npm_cdk8s: path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
+      npm_cdk8s_cli: path.resolve(dist, 'js', `cdk8s-cli-${version}.tgz`),
+      pypi_cdk8s: path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`),
+      mvn_cdk8s: path.resolve(dist, 'java', `org/cdk8s/cdk8s/${version}/cdk8s-${version}.jar`),
     };
 
     for (const file of Object.values(ret)) {
@@ -53,8 +55,8 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     }
 
     const versions = {
-      'cdk8s_version': version,
-      'constructs_version': constructsVersion,
+      cdk8s_version: version,
+      constructs_version: constructsVersion,
     }
 
     return {
@@ -64,7 +66,7 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
   }
   
   if (version === '0.0.0') {
-    throw new Error(`cannot use version 0.0.0, use --cdk8s-version, --dist or CDK8S_DIST to install from a "dist" directory`);
+    throw new Error('cannot use version 0.0.0, use --cdk8s-version, --dist or CDK8S_DIST to install from a "dist" directory');
   }
 
   // determine if we want a specific pinned version or a version range we take
@@ -74,12 +76,12 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
   const ver = version.includes('-') ? version : `^${version}`;
 
   return {
-    'npm_cdk8s': `cdk8s@${ver}`,
-    'npm_cdk8s_cli': `cdk8s-cli@${ver}`,
-    'pypi_cdk8s': `cdk8s~=${version}`, // no support for pre-release
-    'mvn_cdk8s': version,
-    'cdk8s_version': version,
-    'constructs_version': constructsVersion,
+    npm_cdk8s: `cdk8s@${ver}`,
+    npm_cdk8s_cli: `cdk8s-cli@${ver}`,
+    pypi_cdk8s: `cdk8s~=${version}`, // no support for pre-release
+    mvn_cdk8s: version,
+    cdk8s_version: version,
+    constructs_version: constructsVersion,
   };
 }
 

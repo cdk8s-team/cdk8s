@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "lib",
     "alwaysStrict": true,
     "declaration": true,
     "experimentalDecorators": true,
@@ -26,10 +24,10 @@
     "target": "ES2018"
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "test/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "lib"
+    "node_modules"
   ]
 }

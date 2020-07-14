@@ -1,5 +1,5 @@
-import { expectImportMatchSnapshot } from "./util";
-import { ImportKubernetesApi } from "../../lib/import/k8s";
+import { expectImportMatchSnapshot } from './util';
+import { ImportKubernetesApi } from '../../src/import/k8s';
 
 const k8s = (v: string) => 
   expectImportMatchSnapshot(`k8s@${v}`, () => new ImportKubernetesApi({ apiVersion: v }));
