@@ -66,6 +66,80 @@ Choose your weapon:
 - [TypeScript](./docs/getting-started/typescript.md)
 - [Python](./docs/getting-started/python.md)
 
+## Advanced
+
+### Escape Hatches
+
+In the case where `cdk8s+` doesn't satisfy your needs or importing a custom resource doesn't work, you can always fall back to `cdk8s` escape hatches. Escape hatches can also help you migrate your infrastructure to `cdk8s` by providing a way to mix your legacy YAML with `cdk8s` constructs.
+
+`cdk8s` offers two ways for you to use escape hatches:
+
+#### Overrides
+
+Overrides are great when you want _most_ of what a `cdk8s+` (or other) construct offers, but you want to change some property. Here's an example:
+
+Perhaps you are creating a `kplus.Deployment`
+
+```ts
+import * as kplus from 'cdk8s-plus';
+
+const deployment = new kplus.Deployment(chart, 'Deployment', {
+  spec: {
+    replicas: 3,
+    podSpecTemplate: {
+      containers: [ container ]
+    }
+  },
+});
+```
+
+`cdk8s+` lets you set set replicas and the pod spec, but does not have an option for `strategy`. It leaves it to the default `RollingUpdate`. If you want to specify this, but still want to use `cdk8s+` constructs, you can use an override like so:
+
+```ts
+deployment.addOverride('spec.strategy', 'Recreate')
+```
+
+#### Raw k8s Template Insertion
+
+Let's now say that you're in the middle of migrating your infrastructure to `cdk8s`. You can mix YAML or JSON into your `cdk8s` app like so:
+
+```ts
+import { Construct } from 'constructs';
+import { Chart, Raw } from 'cdk8s';
+
+class MyChart extends Chart {
+ constructor(scope: Construct, name: string) {
+    super(scope, name);
+
+    new Raw(this, 'raw', {
+      apiVersion: 'apps/v1',
+      kind: 'Deployment',
+      .
+      .
+      .
+    })
+  }
+}
+```
+
+You can also mix raw YAML or JSON from a file:
+
+```ts
+import { Construct } from 'constructs';
+import { Chart, Raw, RawOptions } from 'cdk8s';
+
+class MyChart extends Chart {
+ constructor(scope: Construct, name: string) {
+    super(scope, name);
+
+    const options = new RawOptions({ file: './example.yaml' })
+
+    new Raw(this, 'raw', options)
+  }
+}
+```
+
+
 ## Help & Feedback
 
 Interacting with the community and the development team is a great way to
