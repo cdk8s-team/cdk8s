@@ -55,11 +55,8 @@ describe('ServiceSpecDefinition', () => {
 describe('Service', () => {
   test('Can accept an existing spec', () => {
     const chart = Testing.chart();
-    const spec: kplus.ServiceSpec = {
-      clusterIP: 'cluster-ip',
-    }
     const service = new kplus.Service(chart, 'Service', {
-      spec: spec,
+      clusterIP: 'cluster-ip',
     });
 
     expect(service.spec.clusterIP).toEqual('cluster-ip');

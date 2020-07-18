@@ -10,16 +10,7 @@ import { lazy } from './utils';
 /**
  * Properties for initialization of `Pod`.
  */
-export interface PodProps extends ResourceProps {
-
-  /**
-   * The spec of the pod. Use `pod.spec` to apply post instantiation mutations.
-   *
-   * @default - An empty spec will be created.
-   */
-  readonly spec?: PodSpec;
-
-}
+export interface PodProps extends ResourceProps, PodSpec {}
 
 /**
  * Pod is a collection of containers that can run on a host. This resource is
@@ -39,7 +30,7 @@ export class Pod extends Resource {
   constructor(scope: Construct, id: string, props: PodProps = {}) {
     super(scope, id, props);
 
-    this.spec = new PodSpecDefinition(props.spec);
+    this.spec = new PodSpecDefinition(props);
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,

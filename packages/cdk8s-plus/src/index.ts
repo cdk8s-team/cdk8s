@@ -10,3 +10,4 @@ export * from './service-account';
 export * from './service';
 export * from './volume';
 export * from './size';
+export * from './pod-template';

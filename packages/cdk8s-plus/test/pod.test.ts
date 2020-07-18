@@ -124,19 +124,16 @@ describe('Pod', () => {
   });
 
   test('Can instantiate with props', () => {
-    const spec = {
-      containers: [
-        new kplus.Container({
-          image: 'image',
-        }),
-      ],
-    };
 
     const chart = Testing.chart();
 
     const pod = new kplus.Pod(chart, 'Pod', {
       metadata: { name: 'name' },
-      spec: spec,
+      containers: [
+        new kplus.Container({
+          image: 'image',
+        }),
+      ],
     });
 
     expect(pod.spec.containers[0].image).toEqual('image');

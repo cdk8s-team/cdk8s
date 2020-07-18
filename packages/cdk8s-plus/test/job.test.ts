@@ -53,12 +53,8 @@ describe('Job', () => {
   test('Can provide existing spec', () => {
     const chart = Testing.chart();
 
-    const jobSpec: kplus.JobSpec = {
-      ttlAfterFinished: kplus.Duration.seconds(5),
-    };
-
     const job = new kplus.Job(chart, 'Job', {
-      spec: jobSpec,
+      ttlAfterFinished: kplus.Duration.seconds(5),
     });
 
     expect(job.spec.ttlAfterFinished?.toSeconds()).toEqual(5);

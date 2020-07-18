@@ -4,20 +4,12 @@ import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { lazy } from './utils';
-import { PodSpecDefinition, PodSpec } from './pod';
-import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
+import { PodTemplateSpec, PodTemplateSpecDefinition } from './pod-template';
 
 /**
  * Properties for initialization of `Deployment`.
  */
-export interface DeploymentProps extends ResourceProps {
-  /**
-   * The spec of the deployment. Use `deployment.spec` to apply post instatiation mutations.
-   *
-   * @default - An empty spec will be created.
-   */
-  readonly spec?: DeploymentSpec;
-}
+export interface DeploymentProps extends ResourceProps, DeploymentSpec {}
 
 /**
  * Options for exposing a deployment via a service.
@@ -81,7 +73,7 @@ export class Deployment extends Resource {
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
     super(scope, id, props);
 
-    this.spec = new DeploymentSpecDefinition(props.spec);
+    this.spec = new DeploymentSpecDefinition(props);
 
     this.apiObject = new k8s.Deployment(this, 'Pod', {
       metadata: props.metadata,
@@ -97,7 +89,7 @@ export class Deployment extends Resource {
    * @param options - Options.
    */
   public expose(options: ExposeOptions): Service {
-    const containers = this.spec.podSpecTemplate.containers;
+    const containers = this.spec.template.spec.containers;
     if (containers.length === 0) {
       throw new Error('Cannot expose a deployment without containers');
     }
@@ -107,9 +99,7 @@ export class Deployment extends Resource {
     const matcher = Node.of(this).uniqueId;
 
     const service = new Service(this, 'Service', {
-      spec: {
-        type: options.serviceType ?? ServiceType.CLUSTER_IP,
-      },
+      type: options.serviceType ?? ServiceType.CLUSTER_IP,
     });
 
     service.spec.addSelector(selector, matcher);
@@ -130,19 +120,15 @@ export interface DeploymentSpec {
 
   /**
    * Number of desired pods.
+   *
    * @default 1
    */
   readonly replicas?: number;
 
   /**
-   * Template for pod specs.
+   * Template for pods creation.
    */
-  readonly podSpecTemplate?: PodSpec;
-
-  /**
-   * Template for pod metadata.
-   */
-  readonly podMetadataTemplate?: ApiObjectMetadata;
+  readonly template?: PodTemplateSpec;
 }
 
 /**
@@ -155,24 +141,18 @@ export class DeploymentSpecDefinition {
   public readonly replicas?: number;
 
   /**
-   * Provides access to the underlying pod template spec.
+   * Provides access to the underlying pod template.
    *
    * You can use this field to apply post instatiation mutations
-   * to the spec.
+   * to the template.
    */
-  public readonly podSpecTemplate: PodSpecDefinition;
-
-  /**
-   * Template for pod metadata.
-   */
-  public readonly podMetadataTemplate: ApiObjectMetadataDefinition;
+  public readonly template: PodTemplateSpecDefinition;
 
   private readonly _labelSelector: Record<string, string>;
 
   constructor(props: DeploymentSpec = {}) {
     this.replicas = props.replicas ?? 1;
-    this.podSpecTemplate = new PodSpecDefinition(props.podSpecTemplate);
-    this.podMetadataTemplate = new ApiObjectMetadataDefinition(props.podMetadataTemplate);
+    this.template = new PodTemplateSpecDefinition(props.template)
 
     this._labelSelector = {};
   }
@@ -207,15 +187,15 @@ export class DeploymentSpecDefinition {
     const selector = 'cdk8s.deployment';
     const matcher = Node.of(deployment).uniqueId;
 
-    this.podMetadataTemplate.addLabel(selector, matcher);
+    this.template.metadata.addLabel(selector, matcher);
 
     this.selectByLabel(selector, matcher);
 
     return {
       replicas: this.replicas,
       template: {
-        metadata: this.podMetadataTemplate.toJson(),
-        spec: this.podSpecTemplate._toKube(),
+        metadata: this.template.metadata.toJson(),
+        spec: this.template.spec._toKube(),
       },
       selector: {
         matchLabels: this._labelSelector,

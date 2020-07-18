@@ -8,16 +8,7 @@ import { lazy } from './utils';
 /**
  * Properties for initialization of `Service`.
  */
-export interface ServiceProps extends ResourceProps {
-
-  /**
-   * The spec of the service. Use `service.spec` to apply post instantiation mutations.
-   *
-   * @default - An empty spec will be created.
-   */
-  readonly spec?: ServiceSpec;
-
-}
+export interface ServiceProps extends ResourceProps, ServiceSpec {}
 
 /**
  * For some parts of your application (for example, frontends) you may want to expose a Service onto an
@@ -87,7 +78,7 @@ export class Service extends Resource {
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
     super(scope, id, props);
 
-    this.spec = new ServiceSpecDefinition(props.spec);
+    this.spec = new ServiceSpecDefinition(props);
 
     this.apiObject = new k8s.Service(this, 'Pod', {
       metadata: props.metadata,

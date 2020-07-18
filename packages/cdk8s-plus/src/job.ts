@@ -11,15 +11,7 @@ import { lazy } from './utils';
 /**
  * Properties for initialization of `Job`.
  */
-export interface JobProps extends ResourceProps {
-
-  /**
-   * The spec of the job. Use `job.spec` to apply post instantiation mutations.
-   *
-   * @default - An empty spec will be created.
-   */
-  readonly spec?: JobSpec;
-}
+export interface JobProps extends ResourceProps, JobSpec {}
 
 /**
  * A Job creates one or more Pods and ensures that a specified number of them successfully terminate. As pods successfully complete,
@@ -36,7 +28,7 @@ export class Job extends Resource {
   constructor(scope: Construct, id: string, props: JobProps = {}) {
     super(scope, id, props);
 
-    this.spec = new JobSpecDefinition(props.spec);
+    this.spec = new JobSpecDefinition(props);
 
     this.apiObject = new k8s.Job(this, 'Default', {
       metadata: props.metadata,
