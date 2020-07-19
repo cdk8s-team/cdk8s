@@ -14,11 +14,10 @@ export interface PodTemplateProps extends ResourceProps {
 
 }
 
-export interface PodTemplateSpec {
+export interface PodTemplateSpec extends PodSpec {
 
   readonly metadata?: cdk8s.ApiObjectMetadata;
 
-  readonly spec?: PodSpec;
 }
 
 /**
@@ -63,7 +62,7 @@ export class PodTemplateSpecDefinition {
   public readonly metadata: cdk8s.ApiObjectMetadataDefinition;
 
   constructor(props: PodTemplateSpec = {}) {
-    this.spec = new PodSpecDefinition(props.spec);
+    this.spec = new PodSpecDefinition(props);
     this.metadata = new cdk8s.ApiObjectMetadataDefinition(props.metadata);
   }
 
