@@ -93,52 +93,33 @@ const deployment = new kplus.Deployment(chart, 'Deployment', {
 });
 ```
 
-`cdk8s+` lets you set set replicas and the pod spec, but does not have an option for `strategy`. It leaves it to the default `RollingUpdate`. If you want to specify this, but still want to use `cdk8s+` constructs, you can use an override like so:
+At the moment, `cdk8s+` lets you define replicas and the pod spec, but does not have an option for `strategy`. It leaves it to the default `RollingUpdate`. If you want to specify this, but still want to use `cdk8s+` constructs, you can use an override like so:
 
 ```ts
-deployment.addOverride('spec.strategy', 'Recreate')
+import * as k8s from 'k8s'
+
+// Get the L1 construct behind the `cdk8s+` Deployment
+const childDeployment = deployment.node.defaultChild as k8s.Deployment
+
+// Set the DeploymentStrategy type
+childDeployment.spec.strategy.type = 'Recreate'
+
+// Alternatively, using a JSON path
+childDeployment.addOverride('spec.strategy.type', 'Recreate')
 ```
 
-#### Raw k8s Template Insertion
+In this case, your resulting spec might look like this:
 
-Let's now say that you're in the middle of migrating your infrastructure to `cdk8s`. You can mix YAML or JSON into your `cdk8s` app like so:
-
-```ts
-import { Construct } from 'constructs';
-import { Chart, Raw } from 'cdk8s';
-
-class MyChart extends Chart {
- constructor(scope: Construct, name: string) {
-    super(scope, name);
-
-    new Raw(this, 'raw', {
-      apiVersion: 'apps/v1',
-      kind: 'Deployment',
-      .
-      .
-      .
-    })
-  }
-}
+```yaml
+.
+.
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+.
+.
 ```
-
-You can also mix raw YAML or JSON from a file:
-
-```ts
-import { Construct } from 'constructs';
-import { Chart, Raw, RawOptions } from 'cdk8s';
-
-class MyChart extends Chart {
- constructor(scope: Construct, name: string) {
-    super(scope, name);
-
-    const options = new RawOptions({ file: './example.yaml' })
-
-    new Raw(this, 'raw', options)
-  }
-}
-```
-
 
 ## Help & Feedback
 
