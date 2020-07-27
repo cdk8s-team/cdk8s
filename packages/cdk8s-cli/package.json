@@ -12,7 +12,7 @@
   },
   "scripts": {
     "projen": "node .projenrc.js && yarn install",
-    "projen:upgrade": "yarn upgrade projen && yarn projen",
+    "projen:upgrade": "yarn upgrade -L projen && yarn projen",
     "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests && yarn compile",
     "compile": "tsc",
     "watch": "tsc -w",
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",
     "@types/json-schema": "^7.0.5",
-    "projen": "^0.3.3",
+    "projen": "^0.3.5",
     "standard-version": "^8.0.1",
     "typescript": "^3.9.5",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
@@ -55,7 +55,7 @@
     "sscaff": "^1.2.0",
     "yaml": "^1.7.2",
     "yargs": "^15.1.0",
-    "json2jsii": "^0.1.2"
+    "json2jsii": "^0.1.4"
   },
   "bundledDependencies": [],
   "keywords": [

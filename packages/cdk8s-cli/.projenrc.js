@@ -17,7 +17,7 @@ const project = new TypeScriptLibraryProject({
     "sscaff": Semver.caret('1.2.0'),
     "yaml": Semver.caret('1.7.2'),
     "yargs": Semver.caret('15.1.0'),
-    "json2jsii": Semver.caret('0.1.2'),
+    "json2jsii": Semver.caret('0.1.4'),
   },
   devDependencies: {
     "@types/fs-extra": Semver.caret('8.1.0'),
