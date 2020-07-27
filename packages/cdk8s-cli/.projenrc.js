@@ -26,6 +26,12 @@ const project = new TypeScriptLibraryProject({
   ...common.options,
 });
 
+// add @types/node as a regular dependency since it's needed to during "import"
+// to compile the generated jsii code.
+project.addDependencies({
+  '@types/node': Semver.caret(project.manifest.devDependencies['@types/node'].replace(/^\^/, ''))
+});
+
 project.eslint.addIgnorePattern('/templates/');
 project.jest.addIgnorePattern('/templates/');
 

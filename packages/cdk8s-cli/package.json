@@ -55,7 +55,8 @@
     "sscaff": "^1.2.0",
     "yaml": "^1.7.2",
     "yargs": "^15.1.0",
-    "json2jsii": "^0.1.4"
+    "json2jsii": "^0.1.4",
+    "@types/node": "^10.17.0"
   },
   "bundledDependencies": [],
   "keywords": [
