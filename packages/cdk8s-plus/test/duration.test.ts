@@ -1,5 +1,5 @@
 import { Duration } from '../src';
-import { Lazy } from 'constructs';
+import { Lazy } from 'constructs-tokens-staging';
 
 test('negative amount', () => {
   expect(() => Duration.seconds(-1)).toThrow(/negative/);

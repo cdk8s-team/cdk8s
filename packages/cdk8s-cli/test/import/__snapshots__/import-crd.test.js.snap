@@ -10,7 +10,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -54,6 +54,13 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
+        },
+      },
+    },
+    "constructs-tokens-staging": Object {
+      "targets": Object {
+        "js": Object {
+          "npm": "constructs-tokens-staging",
         },
       },
     },
@@ -4071,7 +4078,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -4115,6 +4122,13 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
+        },
+      },
+    },
+    "constructs-tokens-staging": Object {
+      "targets": Object {
+        "js": Object {
+          "npm": "constructs-tokens-staging",
         },
       },
     },
@@ -16835,7 +16849,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -16879,6 +16893,13 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
+        },
+      },
+    },
+    "constructs-tokens-staging": Object {
+      "targets": Object {
+        "js": Object {
+          "npm": "constructs-tokens-staging",
         },
       },
     },
@@ -17074,7 +17095,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17118,6 +17139,13 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
+        },
+      },
+    },
+    "constructs-tokens-staging": Object {
+      "targets": Object {
+        "js": Object {
+          "npm": "constructs-tokens-staging",
         },
       },
     },
@@ -17313,7 +17341,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17357,6 +17385,13 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
+        },
+      },
+    },
+    "constructs-tokens-staging": Object {
+      "targets": Object {
+        "js": Object {
+          "npm": "constructs-tokens-staging",
         },
       },
     },

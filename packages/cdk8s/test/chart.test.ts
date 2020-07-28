@@ -1,5 +1,6 @@
 import { Chart, ApiObject, Testing } from '../src';
-import { Construct, Lazy, Node, Dependency } from 'constructs';
+import { Construct, Node, Dependency } from 'constructs';
+import { Lazy } from 'constructs-tokens-staging';
 
 test('empty stack', () => {
   // GIVEN

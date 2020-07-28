@@ -1,4 +1,4 @@
-import { Lazy } from 'constructs';
+import { Lazy } from 'constructs-tokens-staging';
 import { resolve } from '../src/_tokens';
 import { Testing } from '../src';
 
