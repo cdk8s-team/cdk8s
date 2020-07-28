@@ -43,7 +43,7 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
   if (dist) {
     const ret = {
       npm_cdk8s: path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
-      npm_cdk8s_cli: path.resolve(dist, 'js', `cdk8s-cli-${version}.tgz`),
+      npm_cdk8s_cli: path.resolve(dist, 'js', `cdk8s-cli-v${version}.tgz`), // yarn pack adds a "v" before the version
       pypi_cdk8s: path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`),
       mvn_cdk8s: path.resolve(dist, 'java', `org/cdk8s/cdk8s/${version}/cdk8s-${version}.jar`),
     };
