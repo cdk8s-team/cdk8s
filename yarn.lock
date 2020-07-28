@@ -2768,10 +2768,10 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs-tokens-staging@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/constructs-tokens-staging/-/constructs-tokens-staging-0.0.1.tgz#13cbd1e75cc36fe37cfafa856aa5aa2aace3140e"
-  integrity sha512-u0ouN/6Uir5Wx8t5Rdd2B70aIQoGO0oI1qMOi4nega8oWB09hPCAkpaKZQEeXkngQrmzoiuelmsxepxGtBliLQ==
+constructs-tokens-staging@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/constructs-tokens-staging/-/constructs-tokens-staging-0.0.3.tgz#ed7fe26b7b896b00b7251bf6cc54396919e7d318"
+  integrity sha512-Nwink9JBw1nA8RFvB8+qGt7JWwcv+KfX9KUHkZ8fglUJL66pywHlmQsyHOLCrSAqPdDgZIO1ZHXCW5Swzc4/pw==
   dependencies:
     constructs "^3.0.4"
 
@@ -2780,7 +2780,7 @@ constructs@2.0.1:
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-2.0.1.tgz#274d6b8ce6a698813495c444466b0c745349ddb5"
   integrity sha512-edR85YFGI9TBT9byAo5vAfI0PRi+jFGzinwN3RAJwKfv6Yc9x9kALYfoEmgotp95qT7/k/iUQWHrH9BMJeqpdg==
 
-constructs@3.0.4, constructs@^3.0.4:
+constructs@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.0.4.tgz#eb1ed5b80f6600b8d50de83971357ae0fe8e29a2"
   integrity sha512-CDvg7gMjphE3DFX4pzkF6j73NREbR8npPFW8Mx/CLRnMR035+Y1o1HrXIsNSss/dq3ZUnNTU9jKyd3fL9EOlfw==

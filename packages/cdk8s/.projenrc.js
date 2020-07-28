@@ -1,8 +1,6 @@
 const { JsiiProject, Semver } = require('projen');
 const common = require('../projen-common');
 
-const tokensDepenedency = Semver.caret(common.versions.tokens)
-
 const project = new JsiiProject({
   name: 'cdk8s',
   description: 'Cloud Development Kit for Kubernetes',
@@ -14,14 +12,13 @@ const project = new JsiiProject({
   // dependencies
   jsiiVersion: Semver.caret(common.versions.jsii),
   peerDependencies: {
-    "constructs": Semver.pinned(common.versions.constructs),
-    "constructs-tokens-staging": tokensDepenedency
+    "constructs": Semver.caret(common.versions.constructs),
+    "constructs-tokens-staging": Semver.caret(common.versions.tokens)
   },
   dependencies: {
     "follow-redirects": Semver.caret("1.11.0"),
     "json-stable-stringify": Semver.caret("1.0.1"),
     "yaml": Semver.caret("1.7.2"),
-    "constructs-tokens-staging": tokensDepenedency
   },
   bundledDependencies: [
     "yaml",
@@ -33,6 +30,7 @@ const project = new JsiiProject({
     "@types/json-stable-stringify": Semver.caret("1.0.32"),
     "@types/yaml": Semver.caret("1.2.0"),
     "constructs": Semver.caret(common.versions.constructs),
+    "constructs-tokens-staging": Semver.caret(common.versions.tokens),
     "json-schema-to-typescript": Semver.caret("8.0.1"),
   },
 
