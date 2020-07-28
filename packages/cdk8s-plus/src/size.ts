@@ -1,4 +1,4 @@
-import { Token } from 'constructs';
+import { Token } from 'constructs-tokens-staging';
 
 /**
  * Represents the amount of digital storage.

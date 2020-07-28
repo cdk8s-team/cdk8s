@@ -1,5 +1,6 @@
 exports.versions = {
-  constructs: '2.0.2',
+  constructs: '3.0.4',
+  tokens: '0.0.1',
   jsii: '1.7.0',
 };
 

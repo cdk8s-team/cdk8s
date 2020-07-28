@@ -1634,10 +1634,18 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^25.1.2", "@types/jest@^25.2.1":
+"@types/jest@^25.1.2":
   version "25.2.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-25.2.3.tgz#33d27e4c4716caae4eced355097a47ad363fdcaf"
   integrity sha512-JXc1nK/tXHiDhV55dvfzqtmP4S3sy3T3ouV2tkViZgxY/zeUkcpQcQPGRlgF4KmWzWW5oiWYSZwtCB+2RsE4Fw==
+  dependencies:
+    jest-diff "^25.2.1"
+    pretty-format "^25.2.1"
+
+"@types/jest@^26.0.7":
+  version "26.0.7"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.7.tgz#495cb1d1818c1699dbc3b8b046baf1c86ef5e324"
+  integrity sha512-+x0077/LoN6MjqBcVOe1y9dpryWnfDZ+Xfo3EqGeBcfPRJlQp3Lw62RvNlWxuGv7kOEwlHriAa54updi3Jvvwg==
   dependencies:
     jest-diff "^25.2.1"
     pretty-format "^25.2.1"
@@ -2760,15 +2768,22 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
+constructs-tokens-staging@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/constructs-tokens-staging/-/constructs-tokens-staging-0.0.1.tgz#13cbd1e75cc36fe37cfafa856aa5aa2aace3140e"
+  integrity sha512-u0ouN/6Uir5Wx8t5Rdd2B70aIQoGO0oI1qMOi4nega8oWB09hPCAkpaKZQEeXkngQrmzoiuelmsxepxGtBliLQ==
+  dependencies:
+    constructs "^3.0.4"
+
 constructs@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-2.0.1.tgz#274d6b8ce6a698813495c444466b0c745349ddb5"
   integrity sha512-edR85YFGI9TBT9byAo5vAfI0PRi+jFGzinwN3RAJwKfv6Yc9x9kALYfoEmgotp95qT7/k/iUQWHrH9BMJeqpdg==
 
-constructs@2.0.2, constructs@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-2.0.2.tgz#a731a3bc7e1b7b71b6e8af25c6571cf8615000fb"
-  integrity sha512-I9sc+Nx72ZmTa+4gp8L6s7ELKO6x6AfUoZA/79Fpmq59TaTokdV+ZWrST/E4QH/At/5UuGbevGXeP7kErJlISA==
+constructs@3.0.4, constructs@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.0.4.tgz#eb1ed5b80f6600b8d50de83971357ae0fe8e29a2"
+  integrity sha512-CDvg7gMjphE3DFX4pzkF6j73NREbR8npPFW8Mx/CLRnMR035+Y1o1HrXIsNSss/dq3ZUnNTU9jKyd3fL9EOlfw==
 
 contains-path@^0.1.0:
   version "0.1.0"
@@ -3162,6 +3177,11 @@ decamelize@^1.1.0, decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
+
+decamelize@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-4.0.0.tgz#aa472d7bf660eb15f3494efd531cab7f2a709837"
+  integrity sha512-9iE1PgSik9HeIIw2JO94IidnE3eBoQrFJ3w7sFuzSX4DpmZ3v5sZpUiV5Swcf6mQEF+Y0ru8Neo+p+nyh2J+hQ==
 
 decimal.js@^10.2.0:
   version "10.2.0"
@@ -7616,12 +7636,13 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.3.1.tgz#f0e1761dbd8bba201109c64d07eeb82db9b7ffb0"
-  integrity sha512-eoz2QUArCCNMKuckFMDrbrsaWay2mAe1OZKEDhG8VA1L9bLVXN7HH3guvfPE+e3QntuhraiU8/wDyOm4TcIvPg==
+projen@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.3.7.tgz#12a090c4b4258f06b05177044b96851cecc45f1b"
+  integrity sha512-QR3Y7BX8CCP0ovexVE5xRMCHeGHXaEccUcvn8T8wrJUbXcsyZkaex2xwMFKIu+ixP2mmaN9tGNUgMfx8rl8fAA==
   dependencies:
     constructs "2.0.1"
+    decamelize "^4.0.0"
     fs-extra "^9.0.1"
     yaml "^1.9.2"
     yargs "^15.4.0"
