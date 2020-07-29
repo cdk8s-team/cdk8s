@@ -2775,6 +2775,11 @@ constructs-tokens-staging@^0.0.3:
   dependencies:
     constructs "^3.0.4"
 
+constructs-tokens-staging@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/constructs-tokens-staging/-/constructs-tokens-staging-0.0.4.tgz#9387808946f68bd7b0662cb8fcd6a41ea90842cf"
+  integrity sha512-HXgy6Qv6QzutRKSW8424KTeN7oR9kDqRR/HDgNgQXiW+HkgTrHej6c+NKmnzwUyH0qlS+sIjHcWlCZ7Y1xWJzQ==
+
 constructs@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-2.0.1.tgz#274d6b8ce6a698813495c444466b0c745349ddb5"

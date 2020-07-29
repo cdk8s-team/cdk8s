@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "constructs": "^3.0.4",
-    "constructs-tokens-staging": "^0.0.3",
+    "constructs-tokens-staging": "^0.0.4",
     "@types/follow-redirects": "^1.8.0",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/yaml": "^1.2.0",
@@ -55,7 +55,7 @@
   },
   "peerDependencies": {
     "constructs": "^3.0.4",
-    "constructs-tokens-staging": "^0.0.3"
+    "constructs-tokens-staging": "^0.0.4"
   },
   "dependencies": {
     "follow-redirects": "^1.11.0",

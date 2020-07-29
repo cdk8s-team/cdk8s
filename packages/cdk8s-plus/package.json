@@ -30,7 +30,7 @@
   "devDependencies": {
     "cdk8s": "^0.0.0",
     "constructs": "^3.0.4",
-    "constructs-tokens-staging": "^0.0.3",
+    "constructs-tokens-staging": "^0.0.4",
     "@types/minimatch": "^3.0.3",
     "projen": "^0.3.7",
     "standard-version": "^8.0.1",
@@ -54,7 +54,7 @@
   "peerDependencies": {
     "cdk8s": "^0.0.0",
     "constructs": "^3.0.4",
-    "constructs-tokens-staging": "^0.0.3"
+    "constructs-tokens-staging": "^0.0.4"
   },
   "dependencies": {
     "minimatch": "^3.0.4"
