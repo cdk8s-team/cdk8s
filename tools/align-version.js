@@ -4,6 +4,7 @@
 //
 const fs = require('fs');
 const semver = require('semver');
+const path = require('path');
 
 const marker = require('./get-version-marker');
 const repoVersion = process.argv[2]
@@ -17,6 +18,21 @@ for (const file of files) {
   if (pkg.version !== marker) {
     throw new Error(`unexpected - all package.json files in this repo should have a version of ${marker}: ${file}`);
   }
+
+  fs.access(file, fs.constants.W_OK, err => {
+    console.log('asdasdasd')
+    if (err) {
+      throw err;
+    }
+    // if (err) {
+    //   // file is not writable. its ok if this is a projen managed project.
+    //   if (fs.existsSync(path.join(path.dirname(file), '.projenrc.js'))) {
+
+    //   } else {
+    //     throw err;
+    //   }
+    // }
+  });
 
   pkg.version = repoVersion;
 
