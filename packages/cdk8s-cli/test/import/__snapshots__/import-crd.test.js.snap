@@ -59,8 +59,23 @@ Object {
     },
     "constructs-tokens-staging": Object {
       "targets": Object {
+        "dotnet": Object {
+          "namespace": "Org.ConstructsTokensStaging",
+          "packageId": "Org.ConstructsTokensStaging",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs-tokens-staging",
+            "groupId": "io.github.iliapolo",
+          },
+          "package": "io.github.iliapolo.constructstokensstaging",
+        },
         "js": Object {
           "npm": "constructs-tokens-staging",
+        },
+        "python": Object {
+          "distName": "constructs-tokens-staging",
+          "module": "constructs_tokens_staging",
         },
       },
     },
@@ -4127,8 +4142,23 @@ Object {
     },
     "constructs-tokens-staging": Object {
       "targets": Object {
+        "dotnet": Object {
+          "namespace": "Org.ConstructsTokensStaging",
+          "packageId": "Org.ConstructsTokensStaging",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs-tokens-staging",
+            "groupId": "io.github.iliapolo",
+          },
+          "package": "io.github.iliapolo.constructstokensstaging",
+        },
         "js": Object {
           "npm": "constructs-tokens-staging",
+        },
+        "python": Object {
+          "distName": "constructs-tokens-staging",
+          "module": "constructs_tokens_staging",
         },
       },
     },
@@ -16898,8 +16928,23 @@ Object {
     },
     "constructs-tokens-staging": Object {
       "targets": Object {
+        "dotnet": Object {
+          "namespace": "Org.ConstructsTokensStaging",
+          "packageId": "Org.ConstructsTokensStaging",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs-tokens-staging",
+            "groupId": "io.github.iliapolo",
+          },
+          "package": "io.github.iliapolo.constructstokensstaging",
+        },
         "js": Object {
           "npm": "constructs-tokens-staging",
+        },
+        "python": Object {
+          "distName": "constructs-tokens-staging",
+          "module": "constructs_tokens_staging",
         },
       },
     },
@@ -17144,8 +17189,23 @@ Object {
     },
     "constructs-tokens-staging": Object {
       "targets": Object {
+        "dotnet": Object {
+          "namespace": "Org.ConstructsTokensStaging",
+          "packageId": "Org.ConstructsTokensStaging",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs-tokens-staging",
+            "groupId": "io.github.iliapolo",
+          },
+          "package": "io.github.iliapolo.constructstokensstaging",
+        },
         "js": Object {
           "npm": "constructs-tokens-staging",
+        },
+        "python": Object {
+          "distName": "constructs-tokens-staging",
+          "module": "constructs_tokens_staging",
         },
       },
     },
@@ -17390,8 +17450,23 @@ Object {
     },
     "constructs-tokens-staging": Object {
       "targets": Object {
+        "dotnet": Object {
+          "namespace": "Org.ConstructsTokensStaging",
+          "packageId": "Org.ConstructsTokensStaging",
+        },
+        "java": Object {
+          "maven": Object {
+            "artifactId": "constructs-tokens-staging",
+            "groupId": "io.github.iliapolo",
+          },
+          "package": "io.github.iliapolo.constructstokensstaging",
+        },
         "js": Object {
           "npm": "constructs-tokens-staging",
+        },
+        "python": Object {
+          "distName": "constructs-tokens-staging",
+          "module": "constructs_tokens_staging",
         },
       },
     },
