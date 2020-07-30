@@ -27,7 +27,7 @@ for (const file of files) {
 
   console.error(`${file} => ${repoVersion}`);
 
-  const permissions = fs.statSync(file);
+  const permissions = fs.statSync(file).mode;
   try {
     fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
   } catch (err) {
