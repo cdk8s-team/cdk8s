@@ -1,7 +1,7 @@
 exports.versions = {
   constructs: '3.0.4',
   tokens: '0.0.4',
-  jsii: '1.7.0',
+  jsii: '1.9.0',
 };
 
 exports.options = {
