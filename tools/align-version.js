@@ -19,21 +19,6 @@ for (const file of files) {
     throw new Error(`unexpected - all package.json files in this repo should have a version of ${marker}: ${file}`);
   }
 
-  fs.access(file, fs.constants.W_OK, err => {
-    console.log('asdasdasd')
-    if (err) {
-      throw err;
-    }
-    // if (err) {
-    //   // file is not writable. its ok if this is a projen managed project.
-    //   if (fs.existsSync(path.join(path.dirname(file), '.projenrc.js'))) {
-
-    //   } else {
-    //     throw err;
-    //   }
-    // }
-  });
-
   pkg.version = repoVersion;
 
   processSection(pkg.dependencies || { });
@@ -41,7 +26,21 @@ for (const file of files) {
   processSection(pkg.peerDependencies || { });
 
   console.error(`${file} => ${repoVersion}`);
-  fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
+
+  const permissions = fs.statSync(file);
+  try {
+    fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
+  } catch (err) {
+    const isProjen = fs.existsSync(path.join(path.dirname(file), '.projenrc.js'));
+    if (isProjen && err.message.includes('permission denied')) {
+      fs.chmodSync(file, '600');
+      fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
+    } else {
+      throw err;
+    }
+  } finally {
+    fs.chmodSync(file, permissions)
+  }
 }
 
 function processSection(section) {
