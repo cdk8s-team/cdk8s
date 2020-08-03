@@ -8,8 +8,7 @@
     "url": "https://github.com/awslabs/cdk8s.git"
   },
   "bin": {
-    "cdk8s": "bin/cdk8s",
-    "cmds": "bin/cmds"
+    "cdk8s": "bin/cdk8s"
   },
   "scripts": {
     "projen": "node .projenrc.js && yarn install",
