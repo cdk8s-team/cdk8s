@@ -106,7 +106,7 @@ export function parseApiTypeName(fullname: string): ApiObjectName {
     basename: type,
     version: parseInt(version), 
     level, 
-    subversion
+    subversion,
   };
 }
 

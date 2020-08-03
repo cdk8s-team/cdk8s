@@ -1,5 +1,8 @@
-import { JSONSchema4 } from 'json-schema';
 import { TypeGenerator } from 'json2jsii';
+
+// we just need the types from json-schema
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { JSONSchema4 } from 'json-schema';
 
 export interface GeneratedConstruct {
   readonly fqn: string;
@@ -38,9 +41,9 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
     function emitConstruct() {
       code.line('/**');
       code.line(` * ${def.schema?.description ?? ''}`);
-      code.line(` *`);
+      code.line(' *');
       code.line(` * @schema ${def.fqn}`)
-      code.line(` */`);
+      code.line(' */');
       code.openBlock(`export class ${constructName} extends ApiObject`);
   
       emitInitializer();
@@ -50,12 +53,12 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
   
     function emitInitializer() {
 
-      code.line(`/**`);
+      code.line('/**');
       code.line(` * Defines a "${def.fqn}" API object`);
-      code.line(` * @param scope the scope in which to define this object`);
-      code.line(` * @param name a scope-local name for the object`);
-      code.line(` * @param options configuration options`);
-      code.line(` */`);
+      code.line(' * @param scope the scope in which to define this object');
+      code.line(' * @param name a scope-local name for the object');
+      code.line(' * @param options configuration options');
+      code.line(' */');
   
       const hasRequired = schema?.required && Array.isArray(schema.required) && schema.required.length > 0;
       const defaultOptions = hasRequired ? '' : ' = {}';
@@ -67,11 +70,11 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
   
     function emitInitializerSuper() {
       const groupPrefix = def.group ? `${def.group}/` : '';
-      code.open(`super(scope, name, {`);
-      code.line(`...options,`);
+      code.open('super(scope, name, {');
+      code.line('...options,');
       code.line(`kind: '${def.kind}',`);
       code.line(`apiVersion: '${groupPrefix}${def.version}',`);
-      code.close(`});`);    
+      code.close('});');
     }
   });
 }

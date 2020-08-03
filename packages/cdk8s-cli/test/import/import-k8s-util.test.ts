@@ -1,4 +1,4 @@
-import { parseApiTypeName, compareApiVersions } from "../../lib/import/k8s-util";
+import { parseApiTypeName, compareApiVersions } from '../../src/import/k8s-util';
 
 const tests: Array<[ string, '>' | '<' | '=', string ]> = [
   [ 'v1',       '<', 'v2'       ],

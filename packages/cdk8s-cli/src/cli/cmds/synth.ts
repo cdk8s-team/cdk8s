@@ -1,7 +1,7 @@
 import * as yargs from 'yargs';
-import { shell } from '../../lib/util';
+import { shell } from '../../util';
 import * as fs from 'fs-extra';
-import { readConfigSync } from '../../lib/config';
+import { readConfigSync } from '../../config';
 
 const config = readConfigSync();
 
@@ -24,8 +24,8 @@ class Command implements yargs.CommandModule {
       shell: true,
       env: {
         ...process.env,
-        CDK8S_OUTDIR: outdir 
-      }
+        CDK8S_OUTDIR: outdir,
+      },
     });
 
     if (!await fs.pathExists(outdir)) {

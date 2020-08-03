@@ -39,7 +39,7 @@ export abstract class ImportBase {
     const { moduleNamePrefix } = options;
 
     if (this.moduleNames.length === 0) {
-      console.error(`warning: no definitions to import`);
+      console.error('warning: no definitions to import');
     }
 
     for (const name of this.moduleNames) {
@@ -81,7 +81,7 @@ export abstract class ImportBase {
           if (options.targetLanguage === Language.PYTHON) {
             opts.python = {
               outdir: outdir,
-              moduleName: moduleNamePrefix ? `${moduleNamePrefix}.${name}` : name
+              moduleName: moduleNamePrefix ? `${moduleNamePrefix}.${name}` : name,
             };
           }
 
@@ -90,7 +90,7 @@ export abstract class ImportBase {
             const javaName = name.replace(/\//g, '.')
             opts.java = {
               outdir: '.',
-              package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + javaName : javaName}`
+              package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + javaName : javaName}`,
             };
           }
 

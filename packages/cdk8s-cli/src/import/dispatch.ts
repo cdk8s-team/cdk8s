@@ -1,5 +1,5 @@
-import { ImportOptions } from "./base";
-import { ImportKubernetesApi } from "./k8s";
+import { ImportOptions } from './base';
+import { ImportKubernetesApi } from './k8s';
 import { ImportCustomResourceDefinition } from './crd';
 import { ImportSpec } from '../config';
 
@@ -13,7 +13,7 @@ export async function importDispatch(imports: ImportSpec[], argv: any, options: 
 
     await importer.import({
       moduleNamePrefix: importSpec.moduleNamePrefix,
-      ...options
+      ...options,
     });
   }
 }

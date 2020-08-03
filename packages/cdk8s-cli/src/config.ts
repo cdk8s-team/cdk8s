@@ -17,7 +17,7 @@ export interface Config {
 }
 
 const DEFAULTS: Config = {
-  output: 'dist'
+  output: 'dist',
 };
 
 export function readConfigSync(): Config {
@@ -25,7 +25,7 @@ export function readConfigSync(): Config {
   if (fs.existsSync(CONFIG_FILE)) {
     config = {
       ...config,
-      ...yaml.parse(fs.readFileSync(CONFIG_FILE, 'utf-8'))
+      ...yaml.parse(fs.readFileSync(CONFIG_FILE, 'utf-8')),
     };
   }
 

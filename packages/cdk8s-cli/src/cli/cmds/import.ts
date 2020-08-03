@@ -1,6 +1,6 @@
 import * as yargs from 'yargs';
-import { readConfigSync, ImportSpec } from '../../lib/config';
-import { importDispatch } from '../../lib/import/dispatch';
+import { readConfigSync, ImportSpec } from '../../config';
+import { importDispatch } from '../../import/dispatch';
 
 const config = readConfigSync();
 
@@ -13,11 +13,11 @@ class Command implements yargs.CommandModule {
   public readonly aliases = [ 'gen', 'import', 'generate' ];
 
   public readonly builder = (args: yargs.Argv) => args
-    .positional('SPEC', { default: config.imports, desc: `import spec with the syntax [NAME:=]SPEC where NAME is an optional module name and supported SPEC are: k8s, crd.yaml, https://domain/crd.yaml).`, array: true })
-    .example(`cdk8s import k8s`, `Imports Kubernetes API objects to imports/k8s.ts`)
-    .example(`cdk8s import k8s@1.13.0`, `Imports a specific version of the Kubernetes API`)
-    .example(`cdk8s import jenkins.io_jenkins_crd.yaml`, 'Imports constructs for the Jenkins custom resource definition from a file')
-    .example(`cdk8s import mattermost:=mattermost_crd.yaml`, 'Imports constructs for the mattermost cluster custom resource definition using a custom module name')
+    .positional('SPEC', { default: config.imports, desc: 'import spec with the syntax [NAME:=]SPEC where NAME is an optional module name and supported SPEC are: k8s, crd.yaml, https://domain/crd.yaml).', array: true })
+    .example('cdk8s import k8s', 'Imports Kubernetes API objects to imports/k8s.ts')
+    .example('cdk8s import k8s@1.13.0', 'Imports a specific version of the Kubernetes API')
+    .example('cdk8s import jenkins.io_jenkins_crd.yaml', 'Imports constructs for the Jenkins custom resource definition from a file')
+    .example('cdk8s import mattermost:=mattermost_crd.yaml', 'Imports constructs for the mattermost cluster custom resource definition using a custom module name')
 
     .option('output', { default: DEFAULT_OUTDIR, type: 'string', desc: 'Output directory', alias: 'o' })
     .option('include', { type: 'array', desc: 'Types to select instead of the default which is latest stable version (only for "k8s")' })
@@ -43,7 +43,7 @@ function parseImports(spec: string): ImportSpec {
   // url.com/crd.yaml
   if (splitImport.length === 1) {
     return {
-      source: spec
+      source: spec,
     }
   }
 
@@ -52,11 +52,11 @@ function parseImports(spec: string): ImportSpec {
   if (splitImport.length === 2) {
     return {
       moduleNamePrefix: splitImport[0],
-      source: splitImport[1]
+      source: splitImport[1],
     }
   }
 
-  throw new Error(`Unable to parse import specification. Syntax is [NAME:=]SPEC`);
+  throw new Error('Unable to parse import specification. Syntax is [NAME:=]SPEC');
 }
 
 module.exports = new Command();
