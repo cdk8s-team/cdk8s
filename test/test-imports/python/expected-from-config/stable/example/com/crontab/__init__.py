@@ -14,7 +14,11 @@ import cdk8s
 import constructs
 
 
-class CronTab(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CronTab"):
+class CronTab(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="58aaa869a6720b158943dddef60e516061aeb4379d33c3ec001c5bcbfe7fa720.CronTab",
+):
     """
     schema:
     :schema:: CronTab
@@ -39,7 +43,7 @@ class CronTab(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Cro
 
 
 @jsii.data_type(
-    jsii_type="generated.CronTabOptions",
+    jsii_type="58aaa869a6720b158943dddef60e516061aeb4379d33c3ec001c5bcbfe7fa720.CronTabOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec"},
 )
@@ -78,7 +82,7 @@ class CronTabOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CronTabSpec",
+    jsii_type="58aaa869a6720b158943dddef60e516061aeb4379d33c3ec001c5bcbfe7fa720.CronTabSpec",
     jsii_struct_bases=[],
     name_mapping={"cron_spec": "cronSpec", "image": "image", "replicas": "replicas"},
 )
