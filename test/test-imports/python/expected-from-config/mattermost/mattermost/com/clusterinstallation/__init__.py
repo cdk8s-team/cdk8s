@@ -15,7 +15,9 @@ import constructs
 
 
 class ClusterInstallation(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterInstallation"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallation",
 ):
     """ClusterInstallation is the Schema for the clusterinstallations API.
 
@@ -44,7 +46,7 @@ class ClusterInstallation(
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationOptions",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -100,7 +102,7 @@ class ClusterInstallationOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpec",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpec",
     jsii_struct_bases=[],
     name_mapping={
         "ingress_name": "ingressName",
@@ -445,7 +447,7 @@ class ClusterInstallationSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinity",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "node_affinity": "nodeAffinity",
@@ -538,7 +540,7 @@ class ClusterInstallationSpecAffinity:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinity",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -625,7 +627,7 @@ class ClusterInstallationSpecAffinityNodeAffinity:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={"preference": "preference", "weight": "weight"},
 )
@@ -687,7 +689,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -767,7 +769,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -840,7 +842,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -913,7 +915,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={"node_selector_terms": "nodeSelectorTerms"},
 )
@@ -967,7 +969,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -1049,7 +1051,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -1122,7 +1124,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -1195,7 +1197,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinity",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -1282,7 +1284,7 @@ class ClusterInstallationSpecAffinityPodAffinity:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={"pod_affinity_term": "podAffinityTerm", "weight": "weight"},
 )
@@ -1346,7 +1348,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -1436,7 +1438,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -1510,7 +1512,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -1583,7 +1585,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -1671,7 +1673,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -1745,7 +1747,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -1818,7 +1820,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinity",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAntiAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -1905,7 +1907,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={"pod_affinity_term": "podAffinityTerm", "weight": "weight"},
 )
@@ -1969,7 +1971,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -2059,7 +2061,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -2133,7 +2135,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -2206,7 +2208,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -2294,7 +2296,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -2368,7 +2370,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -2441,7 +2443,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecBlueGreen",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecBlueGreen",
     jsii_struct_bases=[],
     name_mapping={
         "blue": "blue",
@@ -2532,7 +2534,7 @@ class ClusterInstallationSpecBlueGreen:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecBlueGreenBlue",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecBlueGreenBlue",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -2625,7 +2627,7 @@ class ClusterInstallationSpecBlueGreenBlue:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecBlueGreenGreen",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecBlueGreenGreen",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -2718,7 +2720,7 @@ class ClusterInstallationSpecBlueGreenGreen:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecCanary",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecCanary",
     jsii_struct_bases=[],
     name_mapping={"deployment": "deployment", "enable": "enable"},
 )
@@ -2776,7 +2778,7 @@ class ClusterInstallationSpecCanary:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecCanaryDeployment",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecCanaryDeployment",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -2869,7 +2871,7 @@ class ClusterInstallationSpecCanaryDeployment:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecDatabase",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecDatabase",
     jsii_struct_bases=[],
     name_mapping={
         "backup_remote_delete_policy": "backupRemoteDeletePolicy",
@@ -3065,7 +3067,7 @@ class ClusterInstallationSpecDatabase:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecDatabaseResources",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecDatabaseResources",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits", "requests": "requests"},
 )
@@ -3125,7 +3127,7 @@ class ClusterInstallationSpecDatabaseResources:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecElasticSearch",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecElasticSearch",
     jsii_struct_bases=[],
     name_mapping={"host": "host", "password": "password", "username": "username"},
 )
@@ -3191,7 +3193,7 @@ class ClusterInstallationSpecElasticSearch:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecLivenessProbe",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecLivenessProbe",
     jsii_struct_bases=[],
     name_mapping={
         "exec": "exec",
@@ -3372,7 +3374,7 @@ class ClusterInstallationSpecLivenessProbe:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecLivenessProbeExec",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecLivenessProbeExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -3415,7 +3417,7 @@ class ClusterInstallationSpecLivenessProbeExec:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGet",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecLivenessProbeHttpGet",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -3533,7 +3535,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -3584,7 +3586,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
 
 class ClusterInstallationSpecLivenessProbeHttpGetPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ClusterInstallationSpecLivenessProbeHttpGetPort",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecLivenessProbeHttpGetPort",
 ):
     """Name or number of the port to access on the container.
 
@@ -3616,7 +3618,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecLivenessProbeTcpSocket",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecLivenessProbeTcpSocket",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -3677,7 +3679,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
 
 class ClusterInstallationSpecLivenessProbeTcpSocketPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ClusterInstallationSpecLivenessProbeTcpSocketPort",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecLivenessProbeTcpSocketPort",
 ):
     """Number or name of the port to access on the container.
 
@@ -3709,7 +3711,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecMattermostEnv",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecMattermostEnv",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value", "value_from": "valueFrom"},
 )
@@ -3793,7 +3795,7 @@ class ClusterInstallationSpecMattermostEnv:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFrom",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecMattermostEnvValueFrom",
     jsii_struct_bases=[],
     name_mapping={
         "config_map_key_ref": "configMapKeyRef",
@@ -3918,7 +3920,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "name": "name", "optional": "optional"},
 )
@@ -3990,7 +3992,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromFieldRef",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecMattermostEnvValueFromFieldRef",
     jsii_struct_bases=[],
     name_mapping={"field_path": "fieldPath", "api_version": "apiVersion"},
 )
@@ -4043,7 +4045,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef",
     jsii_struct_bases=[],
     name_mapping={
         "resource": "resource",
@@ -4117,7 +4119,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "name": "name", "optional": "optional"},
 )
@@ -4191,7 +4193,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecMinio",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecMinio",
     jsii_struct_bases=[],
     name_mapping={
         "external_bucket": "externalBucket",
@@ -4316,7 +4318,7 @@ class ClusterInstallationSpecMinio:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecMinioResources",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecMinioResources",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits", "requests": "requests"},
 )
@@ -4376,7 +4378,7 @@ class ClusterInstallationSpecMinioResources:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecReadinessProbe",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecReadinessProbe",
     jsii_struct_bases=[],
     name_mapping={
         "exec": "exec",
@@ -4559,7 +4561,7 @@ class ClusterInstallationSpecReadinessProbe:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecReadinessProbeExec",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecReadinessProbeExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -4602,7 +4604,7 @@ class ClusterInstallationSpecReadinessProbeExec:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGet",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecReadinessProbeHttpGet",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -4720,7 +4722,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -4772,7 +4774,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
 
 class ClusterInstallationSpecReadinessProbeHttpGetPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ClusterInstallationSpecReadinessProbeHttpGetPort",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecReadinessProbeHttpGetPort",
 ):
     """Name or number of the port to access on the container.
 
@@ -4804,7 +4806,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecReadinessProbeTcpSocket",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecReadinessProbeTcpSocket",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -4865,7 +4867,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
 
 class ClusterInstallationSpecReadinessProbeTcpSocketPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ClusterInstallationSpecReadinessProbeTcpSocketPort",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecReadinessProbeTcpSocketPort",
 ):
     """Number or name of the port to access on the container.
 
@@ -4897,7 +4899,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterInstallationSpecResources",
+    jsii_type="970d0d00f047327f1a86e192215f5590b2bbfe43ed26ef38426894a89f5ea885.ClusterInstallationSpecResources",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits", "requests": "requests"},
 )
