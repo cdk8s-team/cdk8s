@@ -2,8 +2,8 @@
 from constructs import Construct
 from cdk8s import App, Chart
 
-from imports import jenkins
-from imports import clusterinstallation
+from imports.jenkins.io import jenkins
+from imports.mattermost.com import clusterinstallation
 
 class MyChart(Chart):
     def __init__(self, scope: Construct, ns: str):
