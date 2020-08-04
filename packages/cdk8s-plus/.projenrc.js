@@ -5,7 +5,6 @@ const project = new JsiiProject({
   name: 'cdk8s-plus',
   description: 'High level abstractions on top of cdk8s',
   stability: 'experimental',
-  dependabot: false,
 
   ...common.options,
 

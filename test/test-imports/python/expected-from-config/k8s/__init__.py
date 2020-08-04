@@ -15,7 +15,7 @@ import constructs
 
 
 @jsii.data_type(
-    jsii_type="generated.Affinity",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Affinity",
     jsii_struct_bases=[],
     name_mapping={
         "node_affinity": "nodeAffinity",
@@ -94,7 +94,7 @@ class Affinity:
 
 
 @jsii.data_type(
-    jsii_type="generated.AggregationRule",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AggregationRule",
     jsii_struct_bases=[],
     name_mapping={"cluster_role_selectors": "clusterRoleSelectors"},
 )
@@ -139,7 +139,7 @@ class AggregationRule:
 
 
 @jsii.data_type(
-    jsii_type="generated.AllowedCsiDriver",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AllowedCsiDriver",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -178,7 +178,7 @@ class AllowedCsiDriver:
 
 
 @jsii.data_type(
-    jsii_type="generated.AllowedFlexVolume",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AllowedFlexVolume",
     jsii_struct_bases=[],
     name_mapping={"driver": "driver"},
 )
@@ -217,7 +217,7 @@ class AllowedFlexVolume:
 
 
 @jsii.data_type(
-    jsii_type="generated.AllowedHostPath",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AllowedHostPath",
     jsii_struct_bases=[],
     name_mapping={"path_prefix": "pathPrefix", "read_only": "readOnly"},
 )
@@ -279,7 +279,9 @@ class AllowedHostPath:
 
 
 class ApiService(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ApiService"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ApiService",
 ):
     """APIService represents a server for a particular GroupVersion.
 
@@ -310,7 +312,9 @@ class ApiService(
 
 
 class ApiServiceList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ApiServiceList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ApiServiceList",
 ):
     """APIServiceList is a list of APIService objects.
 
@@ -339,7 +343,7 @@ class ApiServiceList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ApiServiceListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ApiServiceListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -395,7 +399,7 @@ class ApiServiceListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ApiServiceOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ApiServiceOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -456,7 +460,7 @@ class ApiServiceOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ApiServiceSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ApiServiceSpec",
     jsii_struct_bases=[],
     name_mapping={
         "group_priority_minimum": "groupPriorityMinimum",
@@ -599,7 +603,9 @@ class ApiServiceSpec:
 
 
 class AuditSink(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.AuditSink"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AuditSink",
 ):
     """AuditSink represents a cluster level audit sink.
 
@@ -628,7 +634,9 @@ class AuditSink(
 
 
 class AuditSinkList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.AuditSinkList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AuditSinkList",
 ):
     """AuditSinkList is a list of AuditSink items.
 
@@ -657,7 +665,7 @@ class AuditSinkList(
 
 
 @jsii.data_type(
-    jsii_type="generated.AuditSinkListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AuditSinkListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -714,7 +722,7 @@ class AuditSinkListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.AuditSinkOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AuditSinkOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -773,7 +781,7 @@ class AuditSinkOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.AuditSinkSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AuditSinkSpec",
     jsii_struct_bases=[],
     name_mapping={"policy": "policy", "webhook": "webhook"},
 )
@@ -827,7 +835,7 @@ class AuditSinkSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.AwsElasticBlockStoreVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AwsElasticBlockStoreVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "volume_id": "volumeID",
@@ -924,7 +932,7 @@ class AwsElasticBlockStoreVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.AzureDiskVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AzureDiskVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "disk_name": "diskName",
@@ -1047,7 +1055,7 @@ class AzureDiskVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.AzureFilePersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AzureFilePersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "secret_name": "secretName",
@@ -1138,7 +1146,7 @@ class AzureFilePersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.AzureFileVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.AzureFileVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "secret_name": "secretName",
@@ -1214,7 +1222,11 @@ class AzureFileVolumeSource:
         )
 
 
-class Binding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Binding"):
+class Binding(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Binding",
+):
     """Binding ties one object to another;
 
     for example, a pod is bound to a node by a scheduler. Deprecated in 1.7, please use the bindings subresource of pods instead.
@@ -1244,7 +1256,7 @@ class Binding(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Bin
 
 
 @jsii.data_type(
-    jsii_type="generated.BindingOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.BindingOptions",
     jsii_struct_bases=[],
     name_mapping={"target": "target", "metadata": "metadata"},
 )
@@ -1308,7 +1320,7 @@ class BindingOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.BoundObjectReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.BoundObjectReference",
     jsii_struct_bases=[],
     name_mapping={
         "api_version": "apiVersion",
@@ -1397,7 +1409,7 @@ class BoundObjectReference:
 
 
 @jsii.data_type(
-    jsii_type="generated.Capabilities",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Capabilities",
     jsii_struct_bases=[],
     name_mapping={"add": "add", "drop": "drop"},
 )
@@ -1453,7 +1465,7 @@ class Capabilities:
 
 
 @jsii.data_type(
-    jsii_type="generated.CephFsPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CephFsPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "monitors": "monitors",
@@ -1577,7 +1589,7 @@ class CephFsPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.CephFsVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CephFsVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "monitors": "monitors",
@@ -1703,7 +1715,7 @@ class CephFsVolumeSource:
 class CertificateSigningRequest(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.CertificateSigningRequest",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CertificateSigningRequest",
 ):
     """Describes a certificate signing request.
 
@@ -1734,7 +1746,7 @@ class CertificateSigningRequest(
 class CertificateSigningRequestList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.CertificateSigningRequestList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CertificateSigningRequestList",
 ):
     """
     schema:
@@ -1762,7 +1774,7 @@ class CertificateSigningRequestList(
 
 
 @jsii.data_type(
-    jsii_type="generated.CertificateSigningRequestListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CertificateSigningRequestListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -1817,7 +1829,7 @@ class CertificateSigningRequestListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CertificateSigningRequestOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CertificateSigningRequestOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -1876,7 +1888,7 @@ class CertificateSigningRequestOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CertificateSigningRequestSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CertificateSigningRequestSpec",
     jsii_struct_bases=[],
     name_mapping={
         "request": "request",
@@ -2004,7 +2016,7 @@ class CertificateSigningRequestSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.CinderPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CinderPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "volume_id": "volumeID",
@@ -2104,7 +2116,7 @@ class CinderPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.CinderVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CinderVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "volume_id": "volumeID",
@@ -2204,7 +2216,7 @@ class CinderVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClientIpConfig",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClientIpConfig",
     jsii_struct_bases=[],
     name_mapping={"timeout_seconds": "timeoutSeconds"},
 )
@@ -2245,7 +2257,9 @@ class ClientIpConfig:
 
 
 class ClusterRole(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterRole"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClusterRole",
 ):
     """ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
 
@@ -2278,7 +2292,9 @@ class ClusterRole(
 
 
 class ClusterRoleBinding(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterRoleBinding"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClusterRoleBinding",
 ):
     """ClusterRoleBinding references a ClusterRole, but not contain it.
 
@@ -2315,7 +2331,7 @@ class ClusterRoleBinding(
 class ClusterRoleBindingList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ClusterRoleBindingList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClusterRoleBindingList",
 ):
     """ClusterRoleBindingList is a collection of ClusterRoleBindings.
 
@@ -2344,7 +2360,7 @@ class ClusterRoleBindingList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterRoleBindingListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClusterRoleBindingListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -2402,7 +2418,7 @@ class ClusterRoleBindingListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterRoleBindingOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClusterRoleBindingOptions",
     jsii_struct_bases=[],
     name_mapping={
         "role_ref": "roleRef",
@@ -2483,7 +2499,9 @@ class ClusterRoleBindingOptions:
 
 
 class ClusterRoleList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ClusterRoleList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClusterRoleList",
 ):
     """ClusterRoleList is a collection of ClusterRoles.
 
@@ -2512,7 +2530,7 @@ class ClusterRoleList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterRoleListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClusterRoleListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -2570,7 +2588,7 @@ class ClusterRoleListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ClusterRoleOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ClusterRoleOptions",
     jsii_struct_bases=[],
     name_mapping={
         "aggregation_rule": "aggregationRule",
@@ -2649,7 +2667,7 @@ class ClusterRoleOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ComponentCondition",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ComponentCondition",
     jsii_struct_bases=[],
     name_mapping={
         "status": "status",
@@ -2743,7 +2761,9 @@ class ComponentCondition:
 
 
 class ComponentStatus(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ComponentStatus"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ComponentStatus",
 ):
     """ComponentStatus (and ComponentStatusList) holds the cluster validation info.
 
@@ -2772,7 +2792,9 @@ class ComponentStatus(
 
 
 class ComponentStatusList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ComponentStatusList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ComponentStatusList",
 ):
     """Status of all the conditions for the component as a list of ComponentStatus objects.
 
@@ -2801,7 +2823,7 @@ class ComponentStatusList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ComponentStatusListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ComponentStatusListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -2861,7 +2883,7 @@ class ComponentStatusListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ComponentStatusOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ComponentStatusOptions",
     jsii_struct_bases=[],
     name_mapping={"conditions": "conditions", "metadata": "metadata"},
 )
@@ -2921,7 +2943,9 @@ class ComponentStatusOptions:
 
 
 class ConfigMap(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ConfigMap"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMap",
 ):
     """ConfigMap holds configuration data for pods to consume.
 
@@ -2954,7 +2978,7 @@ class ConfigMap(
 
 
 @jsii.data_type(
-    jsii_type="generated.ConfigMapEnvSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMapEnvSource",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "optional": "optional"},
 )
@@ -3014,7 +3038,7 @@ class ConfigMapEnvSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.ConfigMapKeySelector",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMapKeySelector",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "name": "name", "optional": "optional"},
 )
@@ -3085,7 +3109,9 @@ class ConfigMapKeySelector:
 
 
 class ConfigMapList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ConfigMapList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMapList",
 ):
     """ConfigMapList is a resource containing a list of ConfigMap objects.
 
@@ -3114,7 +3140,7 @@ class ConfigMapList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ConfigMapListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMapListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -3172,7 +3198,7 @@ class ConfigMapListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ConfigMapNodeConfigSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMapNodeConfigSource",
     jsii_struct_bases=[],
     name_mapping={
         "kubelet_config_key": "kubeletConfigKey",
@@ -3271,7 +3297,7 @@ class ConfigMapNodeConfigSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.ConfigMapOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMapOptions",
     jsii_struct_bases=[],
     name_mapping={"binary_data": "binaryData", "data": "data", "metadata": "metadata"},
 )
@@ -3348,7 +3374,7 @@ class ConfigMapOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ConfigMapProjection",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMapProjection",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "name": "name", "optional": "optional"},
 )
@@ -3423,7 +3449,7 @@ class ConfigMapProjection:
 
 
 @jsii.data_type(
-    jsii_type="generated.ConfigMapVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ConfigMapVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "default_mode": "defaultMode",
@@ -3521,7 +3547,7 @@ class ConfigMapVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.Container",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Container",
     jsii_struct_bases=[],
     name_mapping={
         "name": "name",
@@ -3934,7 +3960,7 @@ class Container:
 
 
 @jsii.data_type(
-    jsii_type="generated.ContainerPort",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ContainerPort",
     jsii_struct_bases=[],
     name_mapping={
         "container_port": "containerPort",
@@ -4046,7 +4072,9 @@ class ContainerPort:
 
 
 class ControllerRevision(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ControllerRevision"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ControllerRevision",
 ):
     """ControllerRevision implements an immutable snapshot of state data.
 
@@ -4083,7 +4111,7 @@ class ControllerRevision(
 class ControllerRevisionList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ControllerRevisionList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ControllerRevisionList",
 ):
     """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
 
@@ -4112,7 +4140,7 @@ class ControllerRevisionList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ControllerRevisionListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ControllerRevisionListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -4170,7 +4198,7 @@ class ControllerRevisionListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ControllerRevisionOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ControllerRevisionOptions",
     jsii_struct_bases=[],
     name_mapping={"revision": "revision", "data": "data", "metadata": "metadata"},
 )
@@ -4244,7 +4272,11 @@ class ControllerRevisionOptions:
         )
 
 
-class CronJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CronJob"):
+class CronJob(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CronJob",
+):
     """CronJob represents the configuration of a single cron job.
 
     schema:
@@ -4272,7 +4304,9 @@ class CronJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Cro
 
 
 class CronJobList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CronJobList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CronJobList",
 ):
     """CronJobList is a collection of cron jobs.
 
@@ -4301,7 +4335,7 @@ class CronJobList(
 
 
 @jsii.data_type(
-    jsii_type="generated.CronJobListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CronJobListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -4361,7 +4395,7 @@ class CronJobListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CronJobOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CronJobOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -4425,7 +4459,7 @@ class CronJobOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CronJobSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CronJobSpec",
     jsii_struct_bases=[],
     name_mapping={
         "job_template": "jobTemplate",
@@ -4576,7 +4610,7 @@ class CronJobSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.CrossVersionObjectReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CrossVersionObjectReference",
     jsii_struct_bases=[],
     name_mapping={"kind": "kind", "name": "name", "api_version": "apiVersion"},
 )
@@ -4644,7 +4678,9 @@ class CrossVersionObjectReference:
 
 
 class CsiDriver(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiDriver"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiDriver",
 ):
     """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
 
@@ -4675,7 +4711,9 @@ class CsiDriver(
 
 
 class CsiDriverList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiDriverList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiDriverList",
 ):
     """CSIDriverList is a collection of CSIDriver objects.
 
@@ -4704,7 +4742,7 @@ class CsiDriverList(
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiDriverListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiDriverListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -4762,7 +4800,7 @@ class CsiDriverListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiDriverOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiDriverOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -4823,7 +4861,7 @@ class CsiDriverOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiDriverSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiDriverSpec",
     jsii_struct_bases=[],
     name_mapping={
         "attach_required": "attachRequired",
@@ -4904,7 +4942,11 @@ class CsiDriverSpec:
         )
 
 
-class CsiNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiNode"):
+class CsiNode(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiNode",
+):
     """CSINode holds information about all CSI drivers installed on a node.
 
     CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
@@ -4934,7 +4976,7 @@ class CsiNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Csi
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiNodeDriver",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiNodeDriver",
     jsii_struct_bases=[],
     name_mapping={
         "name": "name",
@@ -5030,7 +5072,9 @@ class CsiNodeDriver:
 
 
 class CsiNodeList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.CsiNodeList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiNodeList",
 ):
     """CSINodeList is a collection of CSINode objects.
 
@@ -5059,7 +5103,7 @@ class CsiNodeList(
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiNodeListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiNodeListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -5117,7 +5161,7 @@ class CsiNodeListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiNodeOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiNodeOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -5176,7 +5220,7 @@ class CsiNodeOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiNodeSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiNodeSpec",
     jsii_struct_bases=[],
     name_mapping={"drivers": "drivers"},
 )
@@ -5217,7 +5261,7 @@ class CsiNodeSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "driver": "driver",
@@ -5406,7 +5450,7 @@ class CsiPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.CsiVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CsiVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "driver": "driver",
@@ -5522,7 +5566,7 @@ class CsiVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceColumnDefinition",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceColumnDefinition",
     jsii_struct_bases=[],
     name_mapping={
         "json_path": "jsonPath",
@@ -5641,7 +5685,7 @@ class CustomResourceColumnDefinition:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceConversion",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceConversion",
     jsii_struct_bases=[],
     name_mapping={"strategy": "strategy", "webhook": "webhook"},
 )
@@ -5703,7 +5747,7 @@ class CustomResourceConversion:
 class CustomResourceDefinition(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.CustomResourceDefinition",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceDefinition",
 ):
     """CustomResourceDefinition represents a resource that should be exposed on the API server.
 
@@ -5736,7 +5780,7 @@ class CustomResourceDefinition(
 class CustomResourceDefinitionList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.CustomResourceDefinitionList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceDefinitionList",
 ):
     """CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
 
@@ -5765,7 +5809,7 @@ class CustomResourceDefinitionList(
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceDefinitionListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceDefinitionListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -5822,7 +5866,7 @@ class CustomResourceDefinitionListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceDefinitionNames",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceDefinitionNames",
     jsii_struct_bases=[],
     name_mapping={
         "kind": "kind",
@@ -5952,7 +5996,7 @@ class CustomResourceDefinitionNames:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceDefinitionOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceDefinitionOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -6013,7 +6057,7 @@ class CustomResourceDefinitionOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceDefinitionSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceDefinitionSpec",
     jsii_struct_bases=[],
     name_mapping={
         "group": "group",
@@ -6137,7 +6181,7 @@ class CustomResourceDefinitionSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceDefinitionVersion",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceDefinitionVersion",
     jsii_struct_bases=[],
     name_mapping={
         "name": "name",
@@ -6262,7 +6306,7 @@ class CustomResourceDefinitionVersion:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceSubresourceScale",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceSubresourceScale",
     jsii_struct_bases=[],
     name_mapping={
         "spec_replicas_path": "specReplicasPath",
@@ -6334,7 +6378,7 @@ class CustomResourceSubresourceScale:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceSubresources",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceSubresources",
     jsii_struct_bases=[],
     name_mapping={"scale": "scale", "status": "status"},
 )
@@ -6394,7 +6438,7 @@ class CustomResourceSubresources:
 
 
 @jsii.data_type(
-    jsii_type="generated.CustomResourceValidation",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.CustomResourceValidation",
     jsii_struct_bases=[],
     name_mapping={"open_apiv3_schema": "openAPIV3Schema"},
 )
@@ -6437,7 +6481,9 @@ class CustomResourceValidation:
 
 
 class DaemonSet(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.DaemonSet"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DaemonSet",
 ):
     """DaemonSet represents the configuration of a daemon set.
 
@@ -6466,7 +6512,9 @@ class DaemonSet(
 
 
 class DaemonSetList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.DaemonSetList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DaemonSetList",
 ):
     """DaemonSetList is a collection of daemon sets.
 
@@ -6495,7 +6543,7 @@ class DaemonSetList(
 
 
 @jsii.data_type(
-    jsii_type="generated.DaemonSetListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DaemonSetListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -6555,7 +6603,7 @@ class DaemonSetListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.DaemonSetOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DaemonSetOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -6619,7 +6667,7 @@ class DaemonSetOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.DaemonSetSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DaemonSetSpec",
     jsii_struct_bases=[],
     name_mapping={
         "selector": "selector",
@@ -6739,7 +6787,7 @@ class DaemonSetSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.DaemonSetUpdateStrategy",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DaemonSetUpdateStrategy",
     jsii_struct_bases=[],
     name_mapping={"rolling_update": "rollingUpdate", "type": "type"},
 )
@@ -6804,7 +6852,7 @@ class DaemonSetUpdateStrategy:
 
 
 @jsii.data_type(
-    jsii_type="generated.DeleteOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DeleteOptions",
     jsii_struct_bases=[],
     name_mapping={
         "api_version": "apiVersion",
@@ -6952,7 +7000,9 @@ class DeleteOptions:
 
 
 class Deployment(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Deployment"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Deployment",
 ):
     """Deployment enables declarative updates for Pods and ReplicaSets.
 
@@ -6981,7 +7031,9 @@ class Deployment(
 
 
 class DeploymentList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.DeploymentList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DeploymentList",
 ):
     """DeploymentList is a list of Deployments.
 
@@ -7010,7 +7062,7 @@ class DeploymentList(
 
 
 @jsii.data_type(
-    jsii_type="generated.DeploymentListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DeploymentListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -7068,7 +7120,7 @@ class DeploymentListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.DeploymentOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DeploymentOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -7128,7 +7180,7 @@ class DeploymentOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.DeploymentSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DeploymentSpec",
     jsii_struct_bases=[],
     name_mapping={
         "selector": "selector",
@@ -7298,7 +7350,7 @@ class DeploymentSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.DeploymentStrategy",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DeploymentStrategy",
     jsii_struct_bases=[],
     name_mapping={"rolling_update": "rollingUpdate", "type": "type"},
 )
@@ -7363,7 +7415,7 @@ class DeploymentStrategy:
 
 
 @jsii.data_type(
-    jsii_type="generated.DownwardApiProjection",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DownwardApiProjection",
     jsii_struct_bases=[],
     name_mapping={"items": "items"},
 )
@@ -7406,7 +7458,7 @@ class DownwardApiProjection:
 
 
 @jsii.data_type(
-    jsii_type="generated.DownwardApiVolumeFile",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DownwardApiVolumeFile",
     jsii_struct_bases=[],
     name_mapping={
         "path": "path",
@@ -7501,7 +7553,7 @@ class DownwardApiVolumeFile:
 
 
 @jsii.data_type(
-    jsii_type="generated.DownwardApiVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.DownwardApiVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"default_mode": "defaultMode", "items": "items"},
 )
@@ -7564,7 +7616,7 @@ class DownwardApiVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.EmptyDirVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EmptyDirVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"medium": "medium", "size_limit": "sizeLimit"},
 )
@@ -7626,7 +7678,7 @@ class EmptyDirVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.Endpoint",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Endpoint",
     jsii_struct_bases=[],
     name_mapping={
         "addresses": "addresses",
@@ -7743,7 +7795,7 @@ class Endpoint:
 
 
 @jsii.data_type(
-    jsii_type="generated.EndpointAddress",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointAddress",
     jsii_struct_bases=[],
     name_mapping={
         "ip": "ip",
@@ -7836,7 +7888,7 @@ class EndpointAddress:
 
 
 @jsii.data_type(
-    jsii_type="generated.EndpointConditions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointConditions",
     jsii_struct_bases=[],
     name_mapping={"ready": "ready"},
 )
@@ -7877,7 +7929,7 @@ class EndpointConditions:
 
 
 @jsii.data_type(
-    jsii_type="generated.EndpointPort",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointPort",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "name": "name", "protocol": "protocol"},
 )
@@ -7953,7 +8005,9 @@ class EndpointPort:
 
 
 class EndpointSlice(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.EndpointSlice"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointSlice",
 ):
     """EndpointSlice represents a subset of the endpoints that implement a service.
 
@@ -7993,7 +8047,9 @@ class EndpointSlice(
 
 
 class EndpointSliceList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.EndpointSliceList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointSliceList",
 ):
     """EndpointSliceList represents a list of endpoint slices.
 
@@ -8022,7 +8078,7 @@ class EndpointSliceList(
 
 
 @jsii.data_type(
-    jsii_type="generated.EndpointSliceListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointSliceListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -8080,7 +8136,7 @@ class EndpointSliceListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.EndpointSliceOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointSliceOptions",
     jsii_struct_bases=[],
     name_mapping={
         "address_type": "addressType",
@@ -8176,7 +8232,7 @@ class EndpointSliceOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.EndpointSubset",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointSubset",
     jsii_struct_bases=[],
     name_mapping={
         "addresses": "addresses",
@@ -8260,7 +8316,9 @@ class EndpointSubset:
 
 
 class Endpoints(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Endpoints"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Endpoints",
 ):
     """Endpoints is a collection of endpoints that implement the actual service.
 
@@ -8302,7 +8360,9 @@ class Endpoints(
 
 
 class EndpointsList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.EndpointsList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointsList",
 ):
     """EndpointsList is a list of endpoints.
 
@@ -8331,7 +8391,7 @@ class EndpointsList(
 
 
 @jsii.data_type(
-    jsii_type="generated.EndpointsListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointsListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -8391,7 +8451,7 @@ class EndpointsListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.EndpointsOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EndpointsOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "subsets": "subsets"},
 )
@@ -8466,7 +8526,7 @@ class EndpointsOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.EnvFromSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EnvFromSource",
     jsii_struct_bases=[],
     name_mapping={
         "config_map_ref": "configMapRef",
@@ -8545,7 +8605,7 @@ class EnvFromSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.EnvVar",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EnvVar",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value", "value_from": "valueFrom"},
 )
@@ -8625,7 +8685,7 @@ class EnvVar:
 
 
 @jsii.data_type(
-    jsii_type="generated.EnvVarSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EnvVarSource",
     jsii_struct_bases=[],
     name_mapping={
         "config_map_key_ref": "configMapKeyRef",
@@ -8720,7 +8780,7 @@ class EnvVarSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.EphemeralContainer",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EphemeralContainer",
     jsii_struct_bases=[],
     name_mapping={
         "name": "name",
@@ -9138,7 +9198,11 @@ class EphemeralContainer:
         )
 
 
-class Event(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Event"):
+class Event(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Event",
+):
     """Event is a report of an event somewhere in the cluster.
 
     schema:
@@ -9208,7 +9272,9 @@ class Event(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Event
 
 
 class EventList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.EventList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EventList",
 ):
     """EventList is a list of events.
 
@@ -9237,7 +9303,7 @@ class EventList(
 
 
 @jsii.data_type(
-    jsii_type="generated.EventListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EventListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -9297,7 +9363,7 @@ class EventListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.EventOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EventOptions",
     jsii_struct_bases=[],
     name_mapping={
         "involved_object": "involvedObject",
@@ -9553,7 +9619,7 @@ class EventOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.EventSeries",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EventSeries",
     jsii_struct_bases=[],
     name_mapping={
         "count": "count",
@@ -9628,7 +9694,7 @@ class EventSeries:
 
 
 @jsii.data_type(
-    jsii_type="generated.EventSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EventSource",
     jsii_struct_bases=[],
     name_mapping={"component": "component", "host": "host"},
 )
@@ -9684,7 +9750,9 @@ class EventSource:
 
 
 class Eviction(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Eviction"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Eviction",
 ):
     """Eviction evicts a pod from its node subject to certain policies and safety constraints.
 
@@ -9715,7 +9783,7 @@ class Eviction(
 
 
 @jsii.data_type(
-    jsii_type="generated.EvictionOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.EvictionOptions",
     jsii_struct_bases=[],
     name_mapping={"delete_options": "deleteOptions", "metadata": "metadata"},
 )
@@ -9777,7 +9845,7 @@ class EvictionOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ExecAction",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ExecAction",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -9818,7 +9886,7 @@ class ExecAction:
 
 
 @jsii.data_type(
-    jsii_type="generated.ExternalDocumentation",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ExternalDocumentation",
     jsii_struct_bases=[],
     name_mapping={"description": "description", "url": "url"},
 )
@@ -9872,7 +9940,7 @@ class ExternalDocumentation:
 
 
 @jsii.data_type(
-    jsii_type="generated.FcVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FcVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "fs_type": "fsType",
@@ -9982,7 +10050,7 @@ class FcVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.FlexPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlexPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "driver": "driver",
@@ -10094,7 +10162,7 @@ class FlexPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.FlexVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlexVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "driver": "driver",
@@ -10206,7 +10274,7 @@ class FlexVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.FlockerVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlockerVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"dataset_name": "datasetName", "dataset_uuid": "datasetUUID"},
 )
@@ -10266,7 +10334,7 @@ class FlockerVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.FlowDistinguisherMethod",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlowDistinguisherMethod",
     jsii_struct_bases=[],
     name_mapping={"type": "type"},
 )
@@ -10307,7 +10375,9 @@ class FlowDistinguisherMethod:
 
 
 class FlowSchema(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.FlowSchema"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlowSchema",
 ):
     """FlowSchema defines the schema of a group of flows.
 
@@ -10338,7 +10408,9 @@ class FlowSchema(
 
 
 class FlowSchemaList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.FlowSchemaList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlowSchemaList",
 ):
     """FlowSchemaList is a list of FlowSchema objects.
 
@@ -10367,7 +10439,7 @@ class FlowSchemaList(
 
 
 @jsii.data_type(
-    jsii_type="generated.FlowSchemaListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlowSchemaListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -10427,7 +10499,7 @@ class FlowSchemaListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.FlowSchemaOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlowSchemaOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -10493,7 +10565,7 @@ class FlowSchemaOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.FlowSchemaSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FlowSchemaSpec",
     jsii_struct_bases=[],
     name_mapping={
         "priority_level_configuration": "priorityLevelConfiguration",
@@ -10594,7 +10666,7 @@ class FlowSchemaSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.FsGroupStrategyOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.FsGroupStrategyOptions",
     jsii_struct_bases=[],
     name_mapping={"ranges": "ranges", "rule": "rule"},
 )
@@ -10652,7 +10724,7 @@ class FsGroupStrategyOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.GcePersistentDiskVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.GcePersistentDiskVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "pd_name": "pdName",
@@ -10752,7 +10824,7 @@ class GcePersistentDiskVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.GitRepoVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.GitRepoVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "repository": "repository",
@@ -10831,7 +10903,7 @@ class GitRepoVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.GlusterfsPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.GlusterfsPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "endpoints": "endpoints",
@@ -10930,7 +11002,7 @@ class GlusterfsPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.GlusterfsVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.GlusterfsVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"endpoints": "endpoints", "path": "path", "read_only": "readOnly"},
 )
@@ -11005,7 +11077,7 @@ class GlusterfsVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.Handler",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Handler",
     jsii_struct_bases=[],
     name_mapping={"exec": "exec", "http_get": "httpGet", "tcp_socket": "tcpSocket"},
 )
@@ -11086,7 +11158,7 @@ class Handler:
 class HorizontalPodAutoscaler(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.HorizontalPodAutoscaler",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HorizontalPodAutoscaler",
 ):
     """configuration of a horizontal pod autoscaler.
 
@@ -11117,7 +11189,7 @@ class HorizontalPodAutoscaler(
 class HorizontalPodAutoscalerList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.HorizontalPodAutoscalerList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HorizontalPodAutoscalerList",
 ):
     """list of horizontal pod autoscaler objects.
 
@@ -11146,7 +11218,7 @@ class HorizontalPodAutoscalerList(
 
 
 @jsii.data_type(
-    jsii_type="generated.HorizontalPodAutoscalerListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HorizontalPodAutoscalerListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -11204,7 +11276,7 @@ class HorizontalPodAutoscalerListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.HorizontalPodAutoscalerOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HorizontalPodAutoscalerOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -11268,7 +11340,7 @@ class HorizontalPodAutoscalerOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.HorizontalPodAutoscalerSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HorizontalPodAutoscalerSpec",
     jsii_struct_bases=[],
     name_mapping={
         "max_replicas": "maxReplicas",
@@ -11366,7 +11438,7 @@ class HorizontalPodAutoscalerSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.HostAlias",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HostAlias",
     jsii_struct_bases=[],
     name_mapping={"hostnames": "hostnames", "ip": "ip"},
 )
@@ -11422,7 +11494,7 @@ class HostAlias:
 
 
 @jsii.data_type(
-    jsii_type="generated.HostPathVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HostPathVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"path": "path", "type": "type"},
 )
@@ -11480,7 +11552,7 @@ class HostPathVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.HostPortRange",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HostPortRange",
     jsii_struct_bases=[],
     name_mapping={"max": "max", "min": "min"},
 )
@@ -11532,7 +11604,7 @@ class HostPortRange:
 
 
 @jsii.data_type(
-    jsii_type="generated.HttpGetAction",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HttpGetAction",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -11644,7 +11716,7 @@ class HttpGetAction:
 
 
 @jsii.data_type(
-    jsii_type="generated.HttpHeader",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HttpHeader",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -11694,7 +11766,7 @@ class HttpHeader:
 
 
 @jsii.data_type(
-    jsii_type="generated.HttpIngressPath",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HttpIngressPath",
     jsii_struct_bases=[],
     name_mapping={"backend": "backend", "path": "path"},
 )
@@ -11751,7 +11823,7 @@ class HttpIngressPath:
 
 
 @jsii.data_type(
-    jsii_type="generated.HttpIngressRuleValue",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.HttpIngressRuleValue",
     jsii_struct_bases=[],
     name_mapping={"paths": "paths"},
 )
@@ -11792,7 +11864,7 @@ class HttpIngressRuleValue:
 
 
 @jsii.data_type(
-    jsii_type="generated.IdRange",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IdRange",
     jsii_struct_bases=[],
     name_mapping={"max": "max", "min": "min"},
 )
@@ -11841,7 +11913,11 @@ class IdRange:
         )
 
 
-class Ingress(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Ingress"):
+class Ingress(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Ingress",
+):
     """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
 
     An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
@@ -11871,7 +11947,7 @@ class Ingress(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Ing
 
 
 @jsii.data_type(
-    jsii_type="generated.IngressBackend",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IngressBackend",
     jsii_struct_bases=[],
     name_mapping={"service_name": "serviceName", "service_port": "servicePort"},
 )
@@ -11921,7 +11997,9 @@ class IngressBackend:
 
 
 class IngressList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.IngressList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IngressList",
 ):
     """IngressList is a collection of Ingress.
 
@@ -11950,7 +12028,7 @@ class IngressList(
 
 
 @jsii.data_type(
-    jsii_type="generated.IngressListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IngressListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -12010,7 +12088,7 @@ class IngressListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.IngressOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IngressOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -12076,7 +12154,7 @@ class IngressOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.IngressRule",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IngressRule",
     jsii_struct_bases=[],
     name_mapping={"host": "host", "http": "http"},
 )
@@ -12142,7 +12220,7 @@ class IngressRule:
 
 
 @jsii.data_type(
-    jsii_type="generated.IngressSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IngressSpec",
     jsii_struct_bases=[],
     name_mapping={"backend": "backend", "rules": "rules", "tls": "tls"},
 )
@@ -12219,7 +12297,7 @@ class IngressSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.IngressTls",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IngressTls",
     jsii_struct_bases=[],
     name_mapping={"hosts": "hosts", "secret_name": "secretName"},
 )
@@ -12281,7 +12359,10 @@ class IngressTls:
         )
 
 
-class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="generated.IntOrString"):
+class IntOrString(
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IntOrString",
+):
     """
     schema:
     :schema:: io.k8s.apimachinery.pkg.util.intstr.IntOrString
@@ -12304,7 +12385,9 @@ class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="generated.IntOrString"):
         return jsii.sinvoke(cls, "fromString", [value])
 
 
-@jsii.enum(jsii_type="generated.IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind")
+@jsii.enum(
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"
+)
 class IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind(enum.Enum):
     """Kind is a string value representing the REST resource this object represents.
 
@@ -12319,7 +12402,7 @@ class IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind(enum.Enum):
 
 
 @jsii.data_type(
-    jsii_type="generated.IpBlock",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IpBlock",
     jsii_struct_bases=[],
     name_mapping={"cidr": "cidr", "except_": "except"},
 )
@@ -12374,7 +12457,7 @@ class IpBlock:
 
 
 @jsii.data_type(
-    jsii_type="generated.IscsiPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IscsiPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "iqn": "iqn",
@@ -12579,7 +12662,7 @@ class IscsiPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.IscsiVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.IscsiVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "iqn": "iqn",
@@ -12783,7 +12866,11 @@ class IscsiVolumeSource:
         )
 
 
-class Job(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Job"):
+class Job(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Job",
+):
     """Job represents the configuration of a single job.
 
     schema:
@@ -12810,7 +12897,11 @@ class Job(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Job"):
         jsii.create(Job, self, [scope, name, options])
 
 
-class JobList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.JobList"):
+class JobList(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.JobList",
+):
     """JobList is a collection of jobs.
 
     schema:
@@ -12838,7 +12929,7 @@ class JobList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Job
 
 
 @jsii.data_type(
-    jsii_type="generated.JobListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.JobListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -12895,7 +12986,7 @@ class JobListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.JobOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.JobOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -12959,7 +13050,7 @@ class JobOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.JobSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.JobSpec",
     jsii_struct_bases=[],
     name_mapping={
         "template": "template",
@@ -13125,7 +13216,7 @@ class JobSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.JobTemplateSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.JobTemplateSpec",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -13189,7 +13280,7 @@ class JobTemplateSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.JsonSchemaProps",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.JsonSchemaProps",
     jsii_struct_bases=[],
     name_mapping={
         "additional_items": "additionalItems",
@@ -13715,7 +13806,7 @@ class JsonSchemaProps:
 
 
 @jsii.data_type(
-    jsii_type="generated.KeyToPath",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.KeyToPath",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "path": "path", "mode": "mode"},
 )
@@ -13783,7 +13874,7 @@ class KeyToPath:
 
 
 @jsii.data_type(
-    jsii_type="generated.LabelSelector",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -13852,7 +13943,7 @@ class LabelSelector:
 
 
 @jsii.data_type(
-    jsii_type="generated.LabelSelectorRequirement",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LabelSelectorRequirement",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -13923,7 +14014,11 @@ class LabelSelectorRequirement:
         )
 
 
-class Lease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Lease"):
+class Lease(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Lease",
+):
     """Lease defines a lease concept.
 
     schema:
@@ -13951,7 +14046,9 @@ class Lease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Lease
 
 
 class LeaseList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.LeaseList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LeaseList",
 ):
     """LeaseList is a list of Lease objects.
 
@@ -13980,7 +14077,7 @@ class LeaseList(
 
 
 @jsii.data_type(
-    jsii_type="generated.LeaseListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LeaseListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -14040,7 +14137,7 @@ class LeaseListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.LeaseOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LeaseOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -14102,7 +14199,7 @@ class LeaseOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.LeaseSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LeaseSpec",
     jsii_struct_bases=[],
     name_mapping={
         "acquire_time": "acquireTime",
@@ -14205,7 +14302,7 @@ class LeaseSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.Lifecycle",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Lifecycle",
     jsii_struct_bases=[],
     name_mapping={"post_start": "postStart", "pre_stop": "preStop"},
 )
@@ -14271,7 +14368,9 @@ class Lifecycle:
 
 
 class LimitRange(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.LimitRange"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LimitRange",
 ):
     """LimitRange sets resource usage limits for each kind of resource in a Namespace.
 
@@ -14300,7 +14399,7 @@ class LimitRange(
 
 
 @jsii.data_type(
-    jsii_type="generated.LimitRangeItem",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LimitRangeItem",
     jsii_struct_bases=[],
     name_mapping={
         "default": "default",
@@ -14421,7 +14520,9 @@ class LimitRangeItem:
 
 
 class LimitRangeList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.LimitRangeList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LimitRangeList",
 ):
     """LimitRangeList is a list of LimitRange items.
 
@@ -14450,7 +14551,7 @@ class LimitRangeList(
 
 
 @jsii.data_type(
-    jsii_type="generated.LimitRangeListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LimitRangeListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -14512,7 +14613,7 @@ class LimitRangeListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.LimitRangeOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LimitRangeOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -14576,7 +14677,7 @@ class LimitRangeOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.LimitRangeSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LimitRangeSpec",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits"},
 )
@@ -14615,7 +14716,7 @@ class LimitRangeSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.LimitResponse",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LimitResponse",
     jsii_struct_bases=[],
     name_mapping={"type": "type", "queuing": "queuing"},
 )
@@ -14674,7 +14775,7 @@ class LimitResponse:
 
 
 @jsii.data_type(
-    jsii_type="generated.LimitedPriorityLevelConfiguration",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LimitedPriorityLevelConfiguration",
     jsii_struct_bases=[],
     name_mapping={
         "assured_concurrency_shares": "assuredConcurrencyShares",
@@ -14745,7 +14846,7 @@ class LimitedPriorityLevelConfiguration:
 
 
 @jsii.data_type(
-    jsii_type="generated.ListMeta",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ListMeta",
     jsii_struct_bases=[],
     name_mapping={
         "continue_": "continue",
@@ -14842,7 +14943,7 @@ class ListMeta:
 
 
 @jsii.data_type(
-    jsii_type="generated.LocalObjectReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LocalObjectReference",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -14885,7 +14986,7 @@ class LocalObjectReference:
 class LocalSubjectAccessReview(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.LocalSubjectAccessReview",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LocalSubjectAccessReview",
 ):
     """LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
 
@@ -14916,7 +15017,7 @@ class LocalSubjectAccessReview(
 
 
 @jsii.data_type(
-    jsii_type="generated.LocalSubjectAccessReviewOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LocalSubjectAccessReviewOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -14979,7 +15080,7 @@ class LocalSubjectAccessReviewOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.LocalVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.LocalVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"path": "path", "fs_type": "fsType"},
 )
@@ -15034,7 +15135,7 @@ class LocalVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.ManagedFieldsEntry",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ManagedFieldsEntry",
     jsii_struct_bases=[],
     name_mapping={
         "api_version": "apiVersion",
@@ -15157,7 +15258,7 @@ class ManagedFieldsEntry:
 
 
 @jsii.data_type(
-    jsii_type="generated.MutatingWebhook",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.MutatingWebhook",
     jsii_struct_bases=[],
     name_mapping={
         "admission_review_versions": "admissionReviewVersions",
@@ -15426,7 +15527,7 @@ class MutatingWebhook:
 class MutatingWebhookConfiguration(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.MutatingWebhookConfiguration",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.MutatingWebhookConfiguration",
 ):
     """MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
 
@@ -15459,7 +15560,7 @@ class MutatingWebhookConfiguration(
 class MutatingWebhookConfigurationList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.MutatingWebhookConfigurationList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.MutatingWebhookConfigurationList",
 ):
     """MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
 
@@ -15490,7 +15591,7 @@ class MutatingWebhookConfigurationList(
 
 
 @jsii.data_type(
-    jsii_type="generated.MutatingWebhookConfigurationListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.MutatingWebhookConfigurationListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -15550,7 +15651,7 @@ class MutatingWebhookConfigurationListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.MutatingWebhookConfigurationOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.MutatingWebhookConfigurationOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
 )
@@ -15610,7 +15711,9 @@ class MutatingWebhookConfigurationOptions:
 
 
 class Namespace(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Namespace"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Namespace",
 ):
     """Namespace provides a scope for Names.
 
@@ -15641,7 +15744,9 @@ class Namespace(
 
 
 class NamespaceList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.NamespaceList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NamespaceList",
 ):
     """NamespaceList is a list of Namespaces.
 
@@ -15670,7 +15775,7 @@ class NamespaceList(
 
 
 @jsii.data_type(
-    jsii_type="generated.NamespaceListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NamespaceListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -15732,7 +15837,7 @@ class NamespaceListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.NamespaceOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NamespaceOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -15798,7 +15903,7 @@ class NamespaceOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.NamespaceSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NamespaceSpec",
     jsii_struct_bases=[],
     name_mapping={"finalizers": "finalizers"},
 )
@@ -15839,7 +15944,9 @@ class NamespaceSpec:
 
 
 class NetworkPolicy(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.NetworkPolicy"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicy",
 ):
     """NetworkPolicy describes what network traffic is allowed for a set of Pods.
 
@@ -15868,7 +15975,7 @@ class NetworkPolicy(
 
 
 @jsii.data_type(
-    jsii_type="generated.NetworkPolicyEgressRule",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicyEgressRule",
     jsii_struct_bases=[],
     name_mapping={"ports": "ports", "to": "to"},
 )
@@ -15930,7 +16037,7 @@ class NetworkPolicyEgressRule:
 
 
 @jsii.data_type(
-    jsii_type="generated.NetworkPolicyIngressRule",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicyIngressRule",
     jsii_struct_bases=[],
     name_mapping={"from_": "from", "ports": "ports"},
 )
@@ -15992,7 +16099,9 @@ class NetworkPolicyIngressRule:
 
 
 class NetworkPolicyList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.NetworkPolicyList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicyList",
 ):
     """NetworkPolicyList is a list of NetworkPolicy objects.
 
@@ -16021,7 +16130,7 @@ class NetworkPolicyList(
 
 
 @jsii.data_type(
-    jsii_type="generated.NetworkPolicyListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicyListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -16081,7 +16190,7 @@ class NetworkPolicyListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.NetworkPolicyOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicyOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -16143,7 +16252,7 @@ class NetworkPolicyOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.NetworkPolicyPeer",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicyPeer",
     jsii_struct_bases=[],
     name_mapping={
         "ip_block": "ipBlock",
@@ -16234,7 +16343,7 @@ class NetworkPolicyPeer:
 
 
 @jsii.data_type(
-    jsii_type="generated.NetworkPolicyPort",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicyPort",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "protocol": "protocol"},
 )
@@ -16294,7 +16403,7 @@ class NetworkPolicyPort:
 
 
 @jsii.data_type(
-    jsii_type="generated.NetworkPolicySpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NetworkPolicySpec",
     jsii_struct_bases=[],
     name_mapping={
         "pod_selector": "podSelector",
@@ -16391,7 +16500,7 @@ class NetworkPolicySpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.NfsVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NfsVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"path": "path", "server": "server", "read_only": "readOnly"},
 )
@@ -16465,7 +16574,11 @@ class NfsVolumeSource:
         )
 
 
-class Node(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Node"):
+class Node(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Node",
+):
     """Node is a worker node in Kubernetes.
 
     Each node will have a unique identifier in the cache (i.e. in etcd).
@@ -16495,7 +16608,7 @@ class Node(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Node")
 
 
 @jsii.data_type(
-    jsii_type="generated.NodeAffinity",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -16574,7 +16687,7 @@ class NodeAffinity:
 
 
 @jsii.data_type(
-    jsii_type="generated.NodeConfigSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeConfigSource",
     jsii_struct_bases=[],
     name_mapping={"config_map": "configMap"},
 )
@@ -16619,7 +16732,9 @@ class NodeConfigSource:
 
 
 class NodeList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.NodeList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeList",
 ):
     """NodeList is the whole list of all Nodes which have been registered with master.
 
@@ -16648,7 +16763,7 @@ class NodeList(
 
 
 @jsii.data_type(
-    jsii_type="generated.NodeListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -16708,7 +16823,7 @@ class NodeListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.NodeOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -16774,7 +16889,7 @@ class NodeOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.NodeSelector",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeSelector",
     jsii_struct_bases=[],
     name_mapping={"node_selector_terms": "nodeSelectorTerms"},
 )
@@ -16817,7 +16932,7 @@ class NodeSelector:
 
 
 @jsii.data_type(
-    jsii_type="generated.NodeSelectorRequirement",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeSelectorRequirement",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -16889,7 +17004,7 @@ class NodeSelectorRequirement:
 
 
 @jsii.data_type(
-    jsii_type="generated.NodeSelectorTerm",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeSelectorTerm",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -16954,7 +17069,7 @@ class NodeSelectorTerm:
 
 
 @jsii.data_type(
-    jsii_type="generated.NodeSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NodeSpec",
     jsii_struct_bases=[],
     name_mapping={
         "config_source": "configSource",
@@ -17091,7 +17206,7 @@ class NodeSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.NonResourceAttributes",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NonResourceAttributes",
     jsii_struct_bases=[],
     name_mapping={"path": "path", "verb": "verb"},
 )
@@ -17144,7 +17259,7 @@ class NonResourceAttributes:
 
 
 @jsii.data_type(
-    jsii_type="generated.NonResourcePolicyRule",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.NonResourcePolicyRule",
     jsii_struct_bases=[],
     name_mapping={"non_resource_ur_ls": "nonResourceURLs", "verbs": "verbs"},
 )
@@ -17209,7 +17324,7 @@ class NonResourcePolicyRule:
 
 
 @jsii.data_type(
-    jsii_type="generated.ObjectFieldSelector",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ObjectFieldSelector",
     jsii_struct_bases=[],
     name_mapping={"field_path": "fieldPath", "api_version": "apiVersion"},
 )
@@ -17262,7 +17377,7 @@ class ObjectFieldSelector:
 
 
 @jsii.data_type(
-    jsii_type="generated.ObjectMeta",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ObjectMeta",
     jsii_struct_bases=[],
     name_mapping={
         "annotations": "annotations",
@@ -17565,7 +17680,7 @@ class ObjectMeta:
 
 
 @jsii.data_type(
-    jsii_type="generated.ObjectReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ObjectReference",
     jsii_struct_bases=[],
     name_mapping={
         "api_version": "apiVersion",
@@ -17704,7 +17819,7 @@ class ObjectReference:
 
 
 @jsii.data_type(
-    jsii_type="generated.Overhead",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Overhead",
     jsii_struct_bases=[],
     name_mapping={"pod_fixed": "podFixed"},
 )
@@ -17745,7 +17860,7 @@ class Overhead:
 
 
 @jsii.data_type(
-    jsii_type="generated.OwnerReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.OwnerReference",
     jsii_struct_bases=[],
     name_mapping={
         "api_version": "apiVersion",
@@ -17870,7 +17985,9 @@ class OwnerReference:
 
 
 class PersistentVolume(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PersistentVolume"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolume",
 ):
     """PersistentVolume (PV) is a storage resource provisioned by an administrator.
 
@@ -17903,7 +18020,7 @@ class PersistentVolume(
 class PersistentVolumeClaim(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.PersistentVolumeClaim",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeClaim",
 ):
     """PersistentVolumeClaim is a user's request for and claim to a persistent volume.
 
@@ -17934,7 +18051,7 @@ class PersistentVolumeClaim(
 class PersistentVolumeClaimList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.PersistentVolumeClaimList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeClaimList",
 ):
     """PersistentVolumeClaimList is a list of PersistentVolumeClaim items.
 
@@ -17963,7 +18080,7 @@ class PersistentVolumeClaimList(
 
 
 @jsii.data_type(
-    jsii_type="generated.PersistentVolumeClaimListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeClaimListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -18025,7 +18142,7 @@ class PersistentVolumeClaimListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PersistentVolumeClaimOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeClaimOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -18089,7 +18206,7 @@ class PersistentVolumeClaimOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PersistentVolumeClaimSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeClaimSpec",
     jsii_struct_bases=[],
     name_mapping={
         "access_modes": "accessModes",
@@ -18234,7 +18351,7 @@ class PersistentVolumeClaimSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.PersistentVolumeClaimVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeClaimVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"claim_name": "claimName", "read_only": "readOnly"},
 )
@@ -18293,7 +18410,9 @@ class PersistentVolumeClaimVolumeSource:
 
 
 class PersistentVolumeList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PersistentVolumeList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeList",
 ):
     """PersistentVolumeList is a list of PersistentVolume items.
 
@@ -18322,7 +18441,7 @@ class PersistentVolumeList(
 
 
 @jsii.data_type(
-    jsii_type="generated.PersistentVolumeListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -18384,7 +18503,7 @@ class PersistentVolumeListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PersistentVolumeOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -18450,7 +18569,7 @@ class PersistentVolumeOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PersistentVolumeSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PersistentVolumeSpec",
     jsii_struct_bases=[],
     name_mapping={
         "access_modes": "accessModes",
@@ -18995,7 +19114,7 @@ class PersistentVolumeSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.PhotonPersistentDiskVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PhotonPersistentDiskVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"pd_id": "pdID", "fs_type": "fsType"},
 )
@@ -19047,7 +19166,11 @@ class PhotonPersistentDiskVolumeSource:
         )
 
 
-class Pod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Pod"):
+class Pod(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Pod",
+):
     """Pod is a collection of containers that can run on a host.
 
     This resource is created by clients and scheduled onto hosts.
@@ -19077,7 +19200,7 @@ class Pod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Pod"):
 
 
 @jsii.data_type(
-    jsii_type="generated.PodAffinity",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -19152,7 +19275,7 @@ class PodAffinity:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodAffinityTerm",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodAffinityTerm",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -19231,7 +19354,7 @@ class PodAffinityTerm:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodAntiAffinity",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodAntiAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -19306,7 +19429,9 @@ class PodAntiAffinity:
 
 
 class PodDisruptionBudget(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodDisruptionBudget"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodDisruptionBudget",
 ):
     """PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
 
@@ -19337,7 +19462,7 @@ class PodDisruptionBudget(
 class PodDisruptionBudgetList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.PodDisruptionBudgetList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodDisruptionBudgetList",
 ):
     """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
 
@@ -19366,7 +19491,7 @@ class PodDisruptionBudgetList(
 
 
 @jsii.data_type(
-    jsii_type="generated.PodDisruptionBudgetListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodDisruptionBudgetListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -19422,7 +19547,7 @@ class PodDisruptionBudgetListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodDisruptionBudgetOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodDisruptionBudgetOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -19481,7 +19606,7 @@ class PodDisruptionBudgetOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodDisruptionBudgetSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodDisruptionBudgetSpec",
     jsii_struct_bases=[],
     name_mapping={
         "max_unavailable": "maxUnavailable",
@@ -19556,7 +19681,7 @@ class PodDisruptionBudgetSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodDnsConfig",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodDnsConfig",
     jsii_struct_bases=[],
     name_mapping={
         "nameservers": "nameservers",
@@ -19635,7 +19760,7 @@ class PodDnsConfig:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodDnsConfigOption",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodDnsConfigOption",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -19686,7 +19811,11 @@ class PodDnsConfigOption:
         )
 
 
-class PodList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodList"):
+class PodList(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodList",
+):
     """PodList is a list of Pods.
 
     schema:
@@ -19714,7 +19843,7 @@ class PodList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Pod
 
 
 @jsii.data_type(
-    jsii_type="generated.PodListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -19773,7 +19902,7 @@ class PodListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -19839,7 +19968,9 @@ class PodOptions:
 
 
 class PodPreset(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodPreset"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodPreset",
 ):
     """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
 
@@ -19868,7 +19999,9 @@ class PodPreset(
 
 
 class PodPresetList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodPresetList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodPresetList",
 ):
     """PodPresetList is a list of PodPreset objects.
 
@@ -19897,7 +20030,7 @@ class PodPresetList(
 
 
 @jsii.data_type(
-    jsii_type="generated.PodPresetListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodPresetListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -19957,7 +20090,7 @@ class PodPresetListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodPresetOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodPresetOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -20015,7 +20148,7 @@ class PodPresetOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodPresetSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodPresetSpec",
     jsii_struct_bases=[],
     name_mapping={
         "env": "env",
@@ -20120,7 +20253,7 @@ class PodPresetSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodReadinessGate",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodReadinessGate",
     jsii_struct_bases=[],
     name_mapping={"condition_type": "conditionType"},
 )
@@ -20159,7 +20292,7 @@ class PodReadinessGate:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodSecurityContext",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodSecurityContext",
     jsii_struct_bases=[],
     name_mapping={
         "fs_group": "fsGroup",
@@ -20331,7 +20464,9 @@ class PodSecurityContext:
 
 
 class PodSecurityPolicy(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodSecurityPolicy"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodSecurityPolicy",
 ):
     """PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
 
@@ -20362,7 +20497,7 @@ class PodSecurityPolicy(
 class PodSecurityPolicyList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.PodSecurityPolicyList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodSecurityPolicyList",
 ):
     """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
 
@@ -20391,7 +20526,7 @@ class PodSecurityPolicyList(
 
 
 @jsii.data_type(
-    jsii_type="generated.PodSecurityPolicyListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodSecurityPolicyListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -20451,7 +20586,7 @@ class PodSecurityPolicyListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodSecurityPolicyOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodSecurityPolicyOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -20513,7 +20648,7 @@ class PodSecurityPolicyOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodSecurityPolicySpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodSecurityPolicySpec",
     jsii_struct_bases=[],
     name_mapping={
         "fs_group": "fsGroup",
@@ -20925,7 +21060,7 @@ class PodSecurityPolicySpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodSpec",
     jsii_struct_bases=[],
     name_mapping={
         "containers": "containers",
@@ -21536,7 +21671,9 @@ class PodSpec:
 
 
 class PodTemplate(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodTemplate"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodTemplate",
 ):
     """PodTemplate describes a template for creating copies of a predefined pod.
 
@@ -21565,7 +21702,9 @@ class PodTemplate(
 
 
 class PodTemplateList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PodTemplateList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodTemplateList",
 ):
     """PodTemplateList is a list of PodTemplates.
 
@@ -21594,7 +21733,7 @@ class PodTemplateList(
 
 
 @jsii.data_type(
-    jsii_type="generated.PodTemplateListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodTemplateListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -21654,7 +21793,7 @@ class PodTemplateListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodTemplateOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodTemplateOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "template": "template"},
 )
@@ -21718,7 +21857,7 @@ class PodTemplateOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PodTemplateSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PodTemplateSpec",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -21782,7 +21921,7 @@ class PodTemplateSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.Policy",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Policy",
     jsii_struct_bases=[],
     name_mapping={"level": "level", "stages": "stages"},
 )
@@ -21837,7 +21976,7 @@ class Policy:
 
 
 @jsii.data_type(
-    jsii_type="generated.PolicyRule",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PolicyRule",
     jsii_struct_bases=[],
     name_mapping={
         "verbs": "verbs",
@@ -21948,7 +22087,7 @@ class PolicyRule:
 
 
 @jsii.data_type(
-    jsii_type="generated.PolicyRulesWithSubjects",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PolicyRulesWithSubjects",
     jsii_struct_bases=[],
     name_mapping={
         "subjects": "subjects",
@@ -22031,7 +22170,7 @@ class PolicyRulesWithSubjects:
 
 
 @jsii.data_type(
-    jsii_type="generated.PortworxVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PortworxVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "volume_id": "volumeID",
@@ -22111,7 +22250,7 @@ class PortworxVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.Preconditions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Preconditions",
     jsii_struct_bases=[],
     name_mapping={"resource_version": "resourceVersion", "uid": "uid"},
 )
@@ -22167,7 +22306,7 @@ class Preconditions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PreferredSchedulingTerm",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PreferredSchedulingTerm",
     jsii_struct_bases=[],
     name_mapping={"preference": "preference", "weight": "weight"},
 )
@@ -22219,7 +22358,9 @@ class PreferredSchedulingTerm:
 
 
 class PriorityClass(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PriorityClass"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityClass",
 ):
     """PriorityClass defines mapping from a priority class name to the priority integer value.
 
@@ -22262,7 +22403,9 @@ class PriorityClass(
 
 
 class PriorityClassList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.PriorityClassList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityClassList",
 ):
     """PriorityClassList is a collection of priority classes.
 
@@ -22291,7 +22434,7 @@ class PriorityClassList(
 
 
 @jsii.data_type(
-    jsii_type="generated.PriorityClassListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityClassListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -22349,7 +22492,7 @@ class PriorityClassListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PriorityClassOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityClassOptions",
     jsii_struct_bases=[],
     name_mapping={
         "value": "value",
@@ -22467,7 +22610,7 @@ class PriorityClassOptions:
 class PriorityLevelConfiguration(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.PriorityLevelConfiguration",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityLevelConfiguration",
 ):
     """PriorityLevelConfiguration represents the configuration of a priority level.
 
@@ -22498,7 +22641,7 @@ class PriorityLevelConfiguration(
 class PriorityLevelConfigurationList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.PriorityLevelConfigurationList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityLevelConfigurationList",
 ):
     """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
 
@@ -22527,7 +22670,7 @@ class PriorityLevelConfigurationList(
 
 
 @jsii.data_type(
-    jsii_type="generated.PriorityLevelConfigurationListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityLevelConfigurationListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -22587,7 +22730,7 @@ class PriorityLevelConfigurationListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PriorityLevelConfigurationOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityLevelConfigurationOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -22651,7 +22794,7 @@ class PriorityLevelConfigurationOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.PriorityLevelConfigurationReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityLevelConfigurationReference",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -22690,7 +22833,7 @@ class PriorityLevelConfigurationReference:
 
 
 @jsii.data_type(
-    jsii_type="generated.PriorityLevelConfigurationSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.PriorityLevelConfigurationSpec",
     jsii_struct_bases=[],
     name_mapping={"type": "type", "limited": "limited"},
 )
@@ -22752,7 +22895,7 @@ class PriorityLevelConfigurationSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.Probe",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Probe",
     jsii_struct_bases=[],
     name_mapping={
         "exec": "exec",
@@ -22927,7 +23070,7 @@ class Probe:
 
 
 @jsii.data_type(
-    jsii_type="generated.ProjectedVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ProjectedVolumeSource",
     jsii_struct_bases=[],
     name_mapping={"sources": "sources", "default_mode": "defaultMode"},
 )
@@ -22984,7 +23127,10 @@ class ProjectedVolumeSource:
         )
 
 
-class Quantity(metaclass=jsii.JSIIMeta, jsii_type="generated.Quantity"):
+class Quantity(
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Quantity",
+):
     """
     schema:
     :schema:: io.k8s.apimachinery.pkg.api.resource.Quantity
@@ -23008,7 +23154,7 @@ class Quantity(metaclass=jsii.JSIIMeta, jsii_type="generated.Quantity"):
 
 
 @jsii.data_type(
-    jsii_type="generated.QueuingConfiguration",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.QueuingConfiguration",
     jsii_struct_bases=[],
     name_mapping={
         "hand_size": "handSize",
@@ -23087,7 +23233,7 @@ class QueuingConfiguration:
 
 
 @jsii.data_type(
-    jsii_type="generated.QuobyteVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.QuobyteVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "registry": "registry",
@@ -23214,7 +23360,7 @@ class QuobyteVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.RbdPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RbdPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -23391,7 +23537,7 @@ class RbdPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.RbdVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RbdVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -23568,7 +23714,9 @@ class RbdVolumeSource:
 
 
 class ReplicaSet(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ReplicaSet"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicaSet",
 ):
     """ReplicaSet ensures that a specified number of pod replicas are running at any given time.
 
@@ -23597,7 +23745,9 @@ class ReplicaSet(
 
 
 class ReplicaSetList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ReplicaSetList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicaSetList",
 ):
     """ReplicaSetList is a collection of ReplicaSets.
 
@@ -23626,7 +23776,7 @@ class ReplicaSetList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ReplicaSetListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicaSetListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -23688,7 +23838,7 @@ class ReplicaSetListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ReplicaSetOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicaSetOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -23752,7 +23902,7 @@ class ReplicaSetOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ReplicaSetSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicaSetSpec",
     jsii_struct_bases=[],
     name_mapping={
         "selector": "selector",
@@ -23859,7 +24009,7 @@ class ReplicaSetSpec:
 class ReplicationController(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ReplicationController",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicationController",
 ):
     """ReplicationController represents the configuration of a replication controller.
 
@@ -23890,7 +24040,7 @@ class ReplicationController(
 class ReplicationControllerList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ReplicationControllerList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicationControllerList",
 ):
     """ReplicationControllerList is a collection of replication controllers.
 
@@ -23919,7 +24069,7 @@ class ReplicationControllerList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ReplicationControllerListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicationControllerListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -23981,7 +24131,7 @@ class ReplicationControllerListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ReplicationControllerOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicationControllerOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -24045,7 +24195,7 @@ class ReplicationControllerOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ReplicationControllerSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ReplicationControllerSpec",
     jsii_struct_bases=[],
     name_mapping={
         "min_ready_seconds": "minReadySeconds",
@@ -24148,7 +24298,7 @@ class ReplicationControllerSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.ResourceAttributes",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourceAttributes",
     jsii_struct_bases=[],
     name_mapping={
         "group": "group",
@@ -24291,7 +24441,7 @@ class ResourceAttributes:
 
 
 @jsii.data_type(
-    jsii_type="generated.ResourceFieldSelector",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourceFieldSelector",
     jsii_struct_bases=[],
     name_mapping={
         "resource": "resource",
@@ -24364,7 +24514,7 @@ class ResourceFieldSelector:
 
 
 @jsii.data_type(
-    jsii_type="generated.ResourcePolicyRule",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourcePolicyRule",
     jsii_struct_bases=[],
     name_mapping={
         "api_groups": "apiGroups",
@@ -24473,7 +24623,9 @@ class ResourcePolicyRule:
 
 
 class ResourceQuota(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ResourceQuota"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourceQuota",
 ):
     """ResourceQuota sets aggregate quota restrictions enforced per namespace.
 
@@ -24502,7 +24654,9 @@ class ResourceQuota(
 
 
 class ResourceQuotaList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ResourceQuotaList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourceQuotaList",
 ):
     """ResourceQuotaList is a list of ResourceQuota items.
 
@@ -24531,7 +24685,7 @@ class ResourceQuotaList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ResourceQuotaListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourceQuotaListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -24593,7 +24747,7 @@ class ResourceQuotaListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ResourceQuotaOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourceQuotaOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -24657,7 +24811,7 @@ class ResourceQuotaOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ResourceQuotaSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourceQuotaSpec",
     jsii_struct_bases=[],
     name_mapping={
         "hard": "hard",
@@ -24738,7 +24892,7 @@ class ResourceQuotaSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.ResourceRequirements",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ResourceRequirements",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits", "requests": "requests"},
 )
@@ -24797,7 +24951,11 @@ class ResourceRequirements:
         )
 
 
-class Role(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Role"):
+class Role(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Role",
+):
     """Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 
     schema:
@@ -24825,7 +24983,9 @@ class Role(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Role")
 
 
 class RoleBinding(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RoleBinding"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RoleBinding",
 ):
     """RoleBinding references a role, but does not contain it.
 
@@ -24860,7 +25020,9 @@ class RoleBinding(
 
 
 class RoleBindingList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RoleBindingList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RoleBindingList",
 ):
     """RoleBindingList is a collection of RoleBindings.
 
@@ -24889,7 +25051,7 @@ class RoleBindingList(
 
 
 @jsii.data_type(
-    jsii_type="generated.RoleBindingListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RoleBindingListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -24947,7 +25109,7 @@ class RoleBindingListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.RoleBindingOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RoleBindingOptions",
     jsii_struct_bases=[],
     name_mapping={
         "role_ref": "roleRef",
@@ -25028,7 +25190,9 @@ class RoleBindingOptions:
 
 
 class RoleList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RoleList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RoleList",
 ):
     """RoleList is a collection of Roles.
 
@@ -25057,7 +25221,7 @@ class RoleList(
 
 
 @jsii.data_type(
-    jsii_type="generated.RoleListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RoleListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -25115,7 +25279,7 @@ class RoleListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.RoleOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RoleOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "rules": "rules"},
 )
@@ -25173,7 +25337,7 @@ class RoleOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.RoleRef",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RoleRef",
     jsii_struct_bases=[],
     name_mapping={"api_group": "apiGroup", "kind": "kind", "name": "name"},
 )
@@ -25234,7 +25398,7 @@ class RoleRef:
 
 
 @jsii.data_type(
-    jsii_type="generated.RollingUpdateDaemonSet",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RollingUpdateDaemonSet",
     jsii_struct_bases=[],
     name_mapping={"max_unavailable": "maxUnavailable"},
 )
@@ -25277,7 +25441,7 @@ class RollingUpdateDaemonSet:
 
 
 @jsii.data_type(
-    jsii_type="generated.RollingUpdateDeployment",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RollingUpdateDeployment",
     jsii_struct_bases=[],
     name_mapping={"max_surge": "maxSurge", "max_unavailable": "maxUnavailable"},
 )
@@ -25343,7 +25507,7 @@ class RollingUpdateDeployment:
 
 
 @jsii.data_type(
-    jsii_type="generated.RollingUpdateStatefulSetStrategy",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RollingUpdateStatefulSetStrategy",
     jsii_struct_bases=[],
     name_mapping={"partition": "partition"},
 )
@@ -25384,7 +25548,7 @@ class RollingUpdateStatefulSetStrategy:
 
 
 @jsii.data_type(
-    jsii_type="generated.RuleWithOperations",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RuleWithOperations",
     jsii_struct_bases=[],
     name_mapping={
         "api_groups": "apiGroups",
@@ -25504,7 +25668,7 @@ class RuleWithOperations:
 
 
 @jsii.data_type(
-    jsii_type="generated.RunAsGroupStrategyOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RunAsGroupStrategyOptions",
     jsii_struct_bases=[],
     name_mapping={"rule": "rule", "ranges": "ranges"},
 )
@@ -25559,7 +25723,7 @@ class RunAsGroupStrategyOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.RunAsUserStrategyOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RunAsUserStrategyOptions",
     jsii_struct_bases=[],
     name_mapping={"rule": "rule", "ranges": "ranges"},
 )
@@ -25614,7 +25778,9 @@ class RunAsUserStrategyOptions:
 
 
 class RuntimeClass(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RuntimeClass"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RuntimeClass",
 ):
     """RuntimeClass defines a class of container runtime supported in the cluster.
 
@@ -25651,7 +25817,9 @@ class RuntimeClass(
 
 
 class RuntimeClassList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.RuntimeClassList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RuntimeClassList",
 ):
     """RuntimeClassList is a list of RuntimeClass objects.
 
@@ -25680,7 +25848,7 @@ class RuntimeClassList(
 
 
 @jsii.data_type(
-    jsii_type="generated.RuntimeClassListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RuntimeClassListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -25740,7 +25908,7 @@ class RuntimeClassListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.RuntimeClassOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RuntimeClassOptions",
     jsii_struct_bases=[],
     name_mapping={
         "handler": "handler",
@@ -25841,7 +26009,7 @@ class RuntimeClassOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.RuntimeClassStrategyOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.RuntimeClassStrategyOptions",
     jsii_struct_bases=[],
     name_mapping={
         "allowed_runtime_class_names": "allowedRuntimeClassNames",
@@ -25903,7 +26071,11 @@ class RuntimeClassStrategyOptions:
         )
 
 
-class Scale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Scale"):
+class Scale(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Scale",
+):
     """Scale represents a scaling request for a resource.
 
     schema:
@@ -25931,7 +26103,7 @@ class Scale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Scale
 
 
 @jsii.data_type(
-    jsii_type="generated.ScaleIoPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ScaleIoPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "gateway": "gateway",
@@ -26119,7 +26291,7 @@ class ScaleIoPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.ScaleIoVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ScaleIoVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "gateway": "gateway",
@@ -26307,7 +26479,7 @@ class ScaleIoVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.ScaleOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ScaleOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -26371,7 +26543,7 @@ class ScaleOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ScaleSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ScaleSpec",
     jsii_struct_bases=[],
     name_mapping={"replicas": "replicas"},
 )
@@ -26410,7 +26582,7 @@ class ScaleSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.Scheduling",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Scheduling",
     jsii_struct_bases=[],
     name_mapping={"node_selector": "nodeSelector", "tolerations": "tolerations"},
 )
@@ -26468,7 +26640,7 @@ class Scheduling:
 
 
 @jsii.data_type(
-    jsii_type="generated.ScopeSelector",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ScopeSelector",
     jsii_struct_bases=[],
     name_mapping={"match_expressions": "matchExpressions"},
 )
@@ -26515,7 +26687,7 @@ class ScopeSelector:
 
 
 @jsii.data_type(
-    jsii_type="generated.ScopedResourceSelectorRequirement",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ScopedResourceSelectorRequirement",
     jsii_struct_bases=[],
     name_mapping={
         "operator": "operator",
@@ -26591,7 +26763,7 @@ class ScopedResourceSelectorRequirement:
 
 
 @jsii.data_type(
-    jsii_type="generated.SeLinuxOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SeLinuxOptions",
     jsii_struct_bases=[],
     name_mapping={"level": "level", "role": "role", "type": "type", "user": "user"},
 )
@@ -26673,7 +26845,7 @@ class SeLinuxOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.SeLinuxStrategyOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SeLinuxStrategyOptions",
     jsii_struct_bases=[],
     name_mapping={"rule": "rule", "se_linux_options": "seLinuxOptions"},
 )
@@ -26729,7 +26901,11 @@ class SeLinuxStrategyOptions:
         )
 
 
-class Secret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Secret"):
+class Secret(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Secret",
+):
     """Secret holds secret data of a certain type.
 
     The total bytes of the values in the Data field must be less than MaxSecretSize bytes.
@@ -26765,7 +26941,7 @@ class Secret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Secr
 
 
 @jsii.data_type(
-    jsii_type="generated.SecretEnvSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecretEnvSource",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "optional": "optional"},
 )
@@ -26825,7 +27001,7 @@ class SecretEnvSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.SecretKeySelector",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecretKeySelector",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "name": "name", "optional": "optional"},
 )
@@ -26898,7 +27074,9 @@ class SecretKeySelector:
 
 
 class SecretList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.SecretList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecretList",
 ):
     """SecretList is a list of Secret.
 
@@ -26927,7 +27105,7 @@ class SecretList(
 
 
 @jsii.data_type(
-    jsii_type="generated.SecretListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecretListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -26989,7 +27167,7 @@ class SecretListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.SecretOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecretOptions",
     jsii_struct_bases=[],
     name_mapping={
         "data": "data",
@@ -27086,7 +27264,7 @@ class SecretOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.SecretProjection",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecretProjection",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "name": "name", "optional": "optional"},
 )
@@ -27161,7 +27339,7 @@ class SecretProjection:
 
 
 @jsii.data_type(
-    jsii_type="generated.SecretReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecretReference",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "namespace": "namespace"},
 )
@@ -27219,7 +27397,7 @@ class SecretReference:
 
 
 @jsii.data_type(
-    jsii_type="generated.SecretVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecretVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "default_mode": "defaultMode",
@@ -27317,7 +27495,7 @@ class SecretVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.SecurityContext",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SecurityContext",
     jsii_struct_bases=[],
     name_mapping={
         "allow_privilege_escalation": "allowPrivilegeEscalation",
@@ -27530,7 +27708,7 @@ class SecurityContext:
 class SelfSubjectAccessReview(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.SelfSubjectAccessReview",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SelfSubjectAccessReview",
 ):
     """SelfSubjectAccessReview checks whether or the current user can perform an action.
 
@@ -27561,7 +27739,7 @@ class SelfSubjectAccessReview(
 
 
 @jsii.data_type(
-    jsii_type="generated.SelfSubjectAccessReviewOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SelfSubjectAccessReviewOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -27624,7 +27802,7 @@ class SelfSubjectAccessReviewOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.SelfSubjectAccessReviewSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SelfSubjectAccessReviewSpec",
     jsii_struct_bases=[],
     name_mapping={
         "non_resource_attributes": "nonResourceAttributes",
@@ -27691,7 +27869,7 @@ class SelfSubjectAccessReviewSpec:
 class SelfSubjectRulesReview(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.SelfSubjectRulesReview",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SelfSubjectRulesReview",
 ):
     """SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace.
 
@@ -27722,7 +27900,7 @@ class SelfSubjectRulesReview(
 
 
 @jsii.data_type(
-    jsii_type="generated.SelfSubjectRulesReviewOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SelfSubjectRulesReviewOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -27783,7 +27961,7 @@ class SelfSubjectRulesReviewOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.SelfSubjectRulesReviewSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SelfSubjectRulesReviewSpec",
     jsii_struct_bases=[],
     name_mapping={"namespace": "namespace"},
 )
@@ -27822,7 +28000,11 @@ class SelfSubjectRulesReviewSpec:
         )
 
 
-class Service(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Service"):
+class Service(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Service",
+):
     """Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
 
     schema:
@@ -27850,7 +28032,9 @@ class Service(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Ser
 
 
 class ServiceAccount(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ServiceAccount"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceAccount",
 ):
     """ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets.
 
@@ -27888,7 +28072,9 @@ class ServiceAccount(
 
 
 class ServiceAccountList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ServiceAccountList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceAccountList",
 ):
     """ServiceAccountList is a list of ServiceAccount objects.
 
@@ -27917,7 +28103,7 @@ class ServiceAccountList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ServiceAccountListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceAccountListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -27979,7 +28165,7 @@ class ServiceAccountListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ServiceAccountOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceAccountOptions",
     jsii_struct_bases=[],
     name_mapping={
         "automount_service_account_token": "automountServiceAccountToken",
@@ -28080,7 +28266,7 @@ class ServiceAccountOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ServiceAccountTokenProjection",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceAccountTokenProjection",
     jsii_struct_bases=[],
     name_mapping={
         "path": "path",
@@ -28162,7 +28348,9 @@ class ServiceAccountTokenProjection:
 
 
 class ServiceList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.ServiceList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceList",
 ):
     """ServiceList holds a list of services.
 
@@ -28191,7 +28379,7 @@ class ServiceList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ServiceListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -28251,7 +28439,7 @@ class ServiceListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ServiceOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -28315,7 +28503,7 @@ class ServiceOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ServicePort",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServicePort",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -28430,7 +28618,7 @@ class ServicePort:
 
 
 @jsii.data_type(
-    jsii_type="generated.ServiceReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceReference",
     jsii_struct_bases=[],
     name_mapping={
         "name": "name",
@@ -28525,7 +28713,7 @@ class ServiceReference:
 
 
 @jsii.data_type(
-    jsii_type="generated.ServiceSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ServiceSpec",
     jsii_struct_bases=[],
     name_mapping={
         "cluster_ip": "clusterIP",
@@ -28800,7 +28988,7 @@ class ServiceSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.SessionAffinityConfig",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SessionAffinityConfig",
     jsii_struct_bases=[],
     name_mapping={"client_ip": "clientIP"},
 )
@@ -28841,7 +29029,9 @@ class SessionAffinityConfig:
 
 
 class StatefulSet(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.StatefulSet"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatefulSet",
 ):
     """StatefulSet represents a set of pods with consistent identities.
 
@@ -28876,7 +29066,9 @@ class StatefulSet(
 
 
 class StatefulSetList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.StatefulSetList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatefulSetList",
 ):
     """StatefulSetList is a collection of StatefulSets.
 
@@ -28905,7 +29097,7 @@ class StatefulSetList(
 
 
 @jsii.data_type(
-    jsii_type="generated.StatefulSetListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatefulSetListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -28961,7 +29153,7 @@ class StatefulSetListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.StatefulSetOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatefulSetOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -29026,7 +29218,7 @@ class StatefulSetOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.StatefulSetSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatefulSetSpec",
     jsii_struct_bases=[],
     name_mapping={
         "selector": "selector",
@@ -29191,7 +29383,7 @@ class StatefulSetSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.StatefulSetUpdateStrategy",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatefulSetUpdateStrategy",
     jsii_struct_bases=[],
     name_mapping={"rolling_update": "rollingUpdate", "type": "type"},
 )
@@ -29255,7 +29447,11 @@ class StatefulSetUpdateStrategy:
         )
 
 
-class Status(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Status"):
+class Status(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Status",
+):
     """Status is a return value for calls that don't return other objects.
 
     schema:
@@ -29295,7 +29491,7 @@ class Status(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.Stat
 
 
 @jsii.data_type(
-    jsii_type="generated.StatusCause",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatusCause",
     jsii_struct_bases=[],
     name_mapping={"field": "field", "message": "message", "reason": "reason"},
 )
@@ -29374,7 +29570,7 @@ class StatusCause:
 
 
 @jsii.data_type(
-    jsii_type="generated.StatusDetails",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatusDetails",
     jsii_struct_bases=[],
     name_mapping={
         "causes": "causes",
@@ -29499,7 +29695,7 @@ class StatusDetails:
 
 
 @jsii.data_type(
-    jsii_type="generated.StatusOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StatusOptions",
     jsii_struct_bases=[],
     name_mapping={
         "code": "code",
@@ -29610,7 +29806,9 @@ class StatusOptions:
 
 
 class StorageClass(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.StorageClass"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StorageClass",
 ):
     """StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
 
@@ -29662,7 +29860,9 @@ class StorageClass(
 
 
 class StorageClassList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.StorageClassList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StorageClassList",
 ):
     """StorageClassList is a collection of storage classes.
 
@@ -29691,7 +29891,7 @@ class StorageClassList(
 
 
 @jsii.data_type(
-    jsii_type="generated.StorageClassListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StorageClassListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -29749,7 +29949,7 @@ class StorageClassListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.StorageClassOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StorageClassOptions",
     jsii_struct_bases=[],
     name_mapping={
         "provisioner": "provisioner",
@@ -29909,7 +30109,7 @@ class StorageClassOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.StorageOsPersistentVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StorageOsPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "fs_type": "fsType",
@@ -30025,7 +30225,7 @@ class StorageOsPersistentVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.StorageOsVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.StorageOsVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "fs_type": "fsType",
@@ -30141,7 +30341,7 @@ class StorageOsVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.Subject",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Subject",
     jsii_struct_bases=[],
     name_mapping={
         "kind": "kind",
@@ -30238,7 +30438,9 @@ class Subject:
 
 
 class SubjectAccessReview(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.SubjectAccessReview"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SubjectAccessReview",
 ):
     """SubjectAccessReview checks whether or not a user or group can perform an action.
 
@@ -30267,7 +30469,7 @@ class SubjectAccessReview(
 
 
 @jsii.data_type(
-    jsii_type="generated.SubjectAccessReviewOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SubjectAccessReviewOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -30326,7 +30528,7 @@ class SubjectAccessReviewOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.SubjectAccessReviewSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SubjectAccessReviewSpec",
     jsii_struct_bases=[],
     name_mapping={
         "extra": "extra",
@@ -30449,7 +30651,7 @@ class SubjectAccessReviewSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.SupplementalGroupsStrategyOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.SupplementalGroupsStrategyOptions",
     jsii_struct_bases=[],
     name_mapping={"ranges": "ranges", "rule": "rule"},
 )
@@ -30507,7 +30709,7 @@ class SupplementalGroupsStrategyOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.Sysctl",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Sysctl",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -30557,7 +30759,7 @@ class Sysctl:
 
 
 @jsii.data_type(
-    jsii_type="generated.Taint",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Taint",
     jsii_struct_bases=[],
     name_mapping={
         "effect": "effect",
@@ -30651,7 +30853,7 @@ class Taint:
 
 
 @jsii.data_type(
-    jsii_type="generated.TcpSocketAction",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TcpSocketAction",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -30706,7 +30908,9 @@ class TcpSocketAction:
 
 
 class TokenRequest(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.TokenRequest"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TokenRequest",
 ):
     """TokenRequest requests a token for a given service account.
 
@@ -30735,7 +30939,7 @@ class TokenRequest(
 
 
 @jsii.data_type(
-    jsii_type="generated.TokenRequestOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TokenRequestOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -30793,7 +30997,7 @@ class TokenRequestOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.TokenRequestSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TokenRequestSpec",
     jsii_struct_bases=[],
     name_mapping={
         "audiences": "audiences",
@@ -30874,7 +31078,9 @@ class TokenRequestSpec:
 
 
 class TokenReview(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.TokenReview"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TokenReview",
 ):
     """TokenReview attempts to authenticate a token to a known user.
 
@@ -30905,7 +31111,7 @@ class TokenReview(
 
 
 @jsii.data_type(
-    jsii_type="generated.TokenReviewOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TokenReviewOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -30963,7 +31169,7 @@ class TokenReviewOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.TokenReviewSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TokenReviewSpec",
     jsii_struct_bases=[],
     name_mapping={"audiences": "audiences", "token": "token"},
 )
@@ -31021,7 +31227,7 @@ class TokenReviewSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.Toleration",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Toleration",
     jsii_struct_bases=[],
     name_mapping={
         "effect": "effect",
@@ -31135,7 +31341,7 @@ class Toleration:
 
 
 @jsii.data_type(
-    jsii_type="generated.TopologySelectorLabelRequirement",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TopologySelectorLabelRequirement",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "values": "values"},
 )
@@ -31189,7 +31395,7 @@ class TopologySelectorLabelRequirement:
 
 
 @jsii.data_type(
-    jsii_type="generated.TopologySelectorTerm",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TopologySelectorTerm",
     jsii_struct_bases=[],
     name_mapping={"match_label_expressions": "matchLabelExpressions"},
 )
@@ -31238,7 +31444,7 @@ class TopologySelectorTerm:
 
 
 @jsii.data_type(
-    jsii_type="generated.TopologySpreadConstraint",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TopologySpreadConstraint",
     jsii_struct_bases=[],
     name_mapping={
         "max_skew": "maxSkew",
@@ -31333,7 +31539,7 @@ class TopologySpreadConstraint:
 
 
 @jsii.data_type(
-    jsii_type="generated.TypedLocalObjectReference",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.TypedLocalObjectReference",
     jsii_struct_bases=[],
     name_mapping={"kind": "kind", "name": "name", "api_group": "apiGroup"},
 )
@@ -31399,7 +31605,7 @@ class TypedLocalObjectReference:
 
 
 @jsii.data_type(
-    jsii_type="generated.ValidatingWebhook",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ValidatingWebhook",
     jsii_struct_bases=[],
     name_mapping={
         "admission_review_versions": "admissionReviewVersions",
@@ -31643,7 +31849,7 @@ class ValidatingWebhook:
 class ValidatingWebhookConfiguration(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ValidatingWebhookConfiguration",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ValidatingWebhookConfiguration",
 ):
     """ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
 
@@ -31676,7 +31882,7 @@ class ValidatingWebhookConfiguration(
 class ValidatingWebhookConfigurationList(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="generated.ValidatingWebhookConfigurationList",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ValidatingWebhookConfigurationList",
 ):
     """ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
 
@@ -31707,7 +31913,7 @@ class ValidatingWebhookConfigurationList(
 
 
 @jsii.data_type(
-    jsii_type="generated.ValidatingWebhookConfigurationListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ValidatingWebhookConfigurationListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -31767,7 +31973,7 @@ class ValidatingWebhookConfigurationListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.ValidatingWebhookConfigurationOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.ValidatingWebhookConfigurationOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
 )
@@ -31827,7 +32033,7 @@ class ValidatingWebhookConfigurationOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.Volume",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Volume",
     jsii_struct_bases=[],
     name_mapping={
         "name": "name",
@@ -32364,7 +32570,9 @@ class Volume:
 
 
 class VolumeAttachment(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.VolumeAttachment"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeAttachment",
 ):
     """VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
 
@@ -32395,7 +32603,9 @@ class VolumeAttachment(
 
 
 class VolumeAttachmentList(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="generated.VolumeAttachmentList"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeAttachmentList",
 ):
     """VolumeAttachmentList is a collection of VolumeAttachment objects.
 
@@ -32424,7 +32634,7 @@ class VolumeAttachmentList(
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeAttachmentListOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeAttachmentListOptions",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
@@ -32482,7 +32692,7 @@ class VolumeAttachmentListOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeAttachmentOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeAttachmentOptions",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -32548,7 +32758,7 @@ class VolumeAttachmentOptions:
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeAttachmentSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeAttachmentSource",
     jsii_struct_bases=[],
     name_mapping={
         "inline_volume_spec": "inlineVolumeSpec",
@@ -32613,7 +32823,7 @@ class VolumeAttachmentSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeAttachmentSpec",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeAttachmentSpec",
     jsii_struct_bases=[],
     name_mapping={"attacher": "attacher", "node_name": "nodeName", "source": "source"},
 )
@@ -32680,7 +32890,7 @@ class VolumeAttachmentSpec:
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeDevice",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeDevice",
     jsii_struct_bases=[],
     name_mapping={"device_path": "devicePath", "name": "name"},
 )
@@ -32730,7 +32940,7 @@ class VolumeDevice:
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeMount",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeMount",
     jsii_struct_bases=[],
     name_mapping={
         "mount_path": "mountPath",
@@ -32863,7 +33073,7 @@ class VolumeMount:
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeNodeAffinity",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeNodeAffinity",
     jsii_struct_bases=[],
     name_mapping={"required": "required"},
 )
@@ -32904,7 +33114,7 @@ class VolumeNodeAffinity:
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeNodeResources",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeNodeResources",
     jsii_struct_bases=[],
     name_mapping={"count": "count"},
 )
@@ -32945,7 +33155,7 @@ class VolumeNodeResources:
 
 
 @jsii.data_type(
-    jsii_type="generated.VolumeProjection",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VolumeProjection",
     jsii_struct_bases=[],
     name_mapping={
         "config_map": "configMap",
@@ -33042,7 +33252,7 @@ class VolumeProjection:
 
 
 @jsii.data_type(
-    jsii_type="generated.VsphereVirtualDiskVolumeSource",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.VsphereVirtualDiskVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
         "volume_path": "volumePath",
@@ -33131,7 +33341,7 @@ class VsphereVirtualDiskVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="generated.Webhook",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.Webhook",
     jsii_struct_bases=[],
     name_mapping={"client_config": "clientConfig", "throttle": "throttle"},
 )
@@ -33191,7 +33401,7 @@ class Webhook:
 
 
 @jsii.data_type(
-    jsii_type="generated.WebhookClientConfig",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.WebhookClientConfig",
     jsii_struct_bases=[],
     name_mapping={"ca_bundle": "caBundle", "service": "service", "url": "url"},
 )
@@ -33278,7 +33488,7 @@ class WebhookClientConfig:
 
 
 @jsii.data_type(
-    jsii_type="generated.WebhookConversion",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.WebhookConversion",
     jsii_struct_bases=[],
     name_mapping={
         "conversion_review_versions": "conversionReviewVersions",
@@ -33341,7 +33551,7 @@ class WebhookConversion:
 
 
 @jsii.data_type(
-    jsii_type="generated.WebhookThrottleConfig",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.WebhookThrottleConfig",
     jsii_struct_bases=[],
     name_mapping={"burst": "burst", "qps": "qps"},
 )
@@ -33397,7 +33607,7 @@ class WebhookThrottleConfig:
 
 
 @jsii.data_type(
-    jsii_type="generated.WeightedPodAffinityTerm",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.WeightedPodAffinityTerm",
     jsii_struct_bases=[],
     name_mapping={"pod_affinity_term": "podAffinityTerm", "weight": "weight"},
 )
@@ -33453,7 +33663,7 @@ class WeightedPodAffinityTerm:
 
 
 @jsii.data_type(
-    jsii_type="generated.WindowsSecurityContextOptions",
+    jsii_type="17c132990e8e8523ccd403287b6ae761c1cd57f764df278bce7ed310bbddd7f1.WindowsSecurityContextOptions",
     jsii_struct_bases=[],
     name_mapping={
         "gmsa_credential_spec": "gmsaCredentialSpec",

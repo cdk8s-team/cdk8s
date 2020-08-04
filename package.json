@@ -6,7 +6,7 @@
     "bump": "tools/bump.sh",
     "build": "lerna run build",
     "test": "lerna run test",
-    "projen": "cd packages/cdk8s && yarn projen && cd ../cdk8s-plus && yarn projen",
+    "projen": "lerna run projen",
     "package": "lerna run package && tools/collect-dist.sh",
     "integ": "test/run-against-dist test/test-all.sh",
     "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ",

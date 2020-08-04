@@ -5,7 +5,6 @@ const project = new JsiiProject({
   name: 'cdk8s',
   description: 'Cloud Development Kit for Kubernetes',
   stability: 'experimental',
-  dependabot: false,
 
   ...common.options,
 

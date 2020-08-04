@@ -12,7 +12,10 @@ import cdk8s._jsii
 import constructs._jsii
 
 __jsii_assembly__ = jsii.JSIIAssembly.load(
-    "generated", "0.0.0", __name__[0:-6], "generated@0.0.0.jsii.tgz"
+    "404987be5d9cf583074bb3bc6e46a777f73452d5f704cd061aca9ae49f3aa37f",
+    "0.0.0",
+    __name__[0:-6],
+    "404987be5d9cf583074bb3bc6e46a777f73452d5f704cd061aca9ae49f3aa37f@0.0.0.jsii.tgz",
 )
 
 __all__ = [

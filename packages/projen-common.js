@@ -11,6 +11,7 @@ exports.options = {
   authorOrganization: true,
   buildWorkflow: false,
   releaseWorkflow: false,
+  dependabot: false,
   mergify: false,
   compat: false,
   keywords: [
