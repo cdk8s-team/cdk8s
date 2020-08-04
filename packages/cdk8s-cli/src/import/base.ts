@@ -11,8 +11,6 @@ export enum Language {
   JAVA = 'java',
 }
 
-export const LANGUAGES = [ Language.TYPESCRIPT, Language.PYTHON ];
-
 export interface ImportOptions {
   readonly moduleNamePrefix?: string;
   readonly targetLanguage: Language;
