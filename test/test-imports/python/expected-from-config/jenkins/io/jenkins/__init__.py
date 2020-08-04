@@ -15,9 +15,7 @@ import constructs
 
 
 class Jenkins(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.Jenkins",
+    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="jenkinsiojenkins.Jenkins"
 ):
     """Jenkins is the Schema for the jenkins API.
 
@@ -46,7 +44,7 @@ class Jenkins(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsOptions",
+    jsii_type="jenkinsiojenkins.JenkinsOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
@@ -103,7 +101,7 @@ class JenkinsOptions:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpec",
+    jsii_type="jenkinsiojenkins.JenkinsSpec",
     jsii_struct_bases=[],
     name_mapping={
         "jenkins_api_settings": "jenkinsAPISettings",
@@ -331,7 +329,7 @@ class JenkinsSpec:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecBackup",
+    jsii_type="jenkinsiojenkins.JenkinsSpecBackup",
     jsii_struct_bases=[],
     name_mapping={
         "action": "action",
@@ -420,7 +418,7 @@ class JenkinsSpecBackup:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecBackupAction",
+    jsii_type="jenkinsiojenkins.JenkinsSpecBackupAction",
     jsii_struct_bases=[],
     name_mapping={"exec": "exec"},
 )
@@ -463,7 +461,7 @@ class JenkinsSpecBackupAction:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecBackupActionExec",
+    jsii_type="jenkinsiojenkins.JenkinsSpecBackupActionExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -504,7 +502,7 @@ class JenkinsSpecBackupActionExec:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecConfigurationAsCode",
+    jsii_type="jenkinsiojenkins.JenkinsSpecConfigurationAsCode",
     jsii_struct_bases=[],
     name_mapping={"configurations": "configurations", "secret": "secret"},
 )
@@ -562,7 +560,7 @@ class JenkinsSpecConfigurationAsCode:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecConfigurationAsCodeConfigurations",
+    jsii_type="jenkinsiojenkins.JenkinsSpecConfigurationAsCodeConfigurations",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -600,7 +598,7 @@ class JenkinsSpecConfigurationAsCodeConfigurations:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecConfigurationAsCodeSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecConfigurationAsCodeSecret",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -638,7 +636,7 @@ class JenkinsSpecConfigurationAsCodeSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecGroovyScripts",
+    jsii_type="jenkinsiojenkins.JenkinsSpecGroovyScripts",
     jsii_struct_bases=[],
     name_mapping={"configurations": "configurations", "secret": "secret"},
 )
@@ -694,7 +692,7 @@ class JenkinsSpecGroovyScripts:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecGroovyScriptsConfigurations",
+    jsii_type="jenkinsiojenkins.JenkinsSpecGroovyScriptsConfigurations",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -732,7 +730,7 @@ class JenkinsSpecGroovyScriptsConfigurations:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecGroovyScriptsSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecGroovyScriptsSecret",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -770,7 +768,7 @@ class JenkinsSpecGroovyScriptsSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecJenkinsApiSettings",
+    jsii_type="jenkinsiojenkins.JenkinsSpecJenkinsApiSettings",
     jsii_struct_bases=[],
     name_mapping={"authorization_strategy": "authorizationStrategy"},
 )
@@ -809,7 +807,7 @@ class JenkinsSpecJenkinsApiSettings:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMaster",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMaster",
     jsii_struct_bases=[],
     name_mapping={
         "disable_csrf_protection": "disableCSRFProtection",
@@ -1049,7 +1047,7 @@ class JenkinsSpecMaster:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterBasePlugins",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterBasePlugins",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "version": "version"},
 )
@@ -1099,7 +1097,7 @@ class JenkinsSpecMasterBasePlugins:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainers",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainers",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -1398,7 +1396,7 @@ class JenkinsSpecMasterContainers:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnv",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnv",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value", "value_from": "valueFrom"},
 )
@@ -1478,7 +1476,7 @@ class JenkinsSpecMasterContainersEnv:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnvFrom",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnvFrom",
     jsii_struct_bases=[],
     name_mapping={
         "config_map_ref": "configMapRef",
@@ -1567,7 +1565,7 @@ class JenkinsSpecMasterContainersEnvFrom:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnvFromConfigMapRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnvFromConfigMapRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "optional": "optional"},
 )
@@ -1625,7 +1623,7 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnvFromSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnvFromSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "optional": "optional"},
 )
@@ -1683,7 +1681,7 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnvValueFrom",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnvValueFrom",
     jsii_struct_bases=[],
     name_mapping={
         "config_map_key_ref": "configMapKeyRef",
@@ -1802,7 +1800,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "name": "name", "optional": "optional"},
 )
@@ -1873,7 +1871,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnvValueFromFieldRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnvValueFromFieldRef",
     jsii_struct_bases=[],
     name_mapping={"field_path": "fieldPath", "api_version": "apiVersion"},
 )
@@ -1926,7 +1924,7 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnvValueFromResourceFieldRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnvValueFromResourceFieldRef",
     jsii_struct_bases=[],
     name_mapping={
         "resource": "resource",
@@ -2000,7 +1998,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersEnvValueFromSecretKeyRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersEnvValueFromSecretKeyRef",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "name": "name", "optional": "optional"},
 )
@@ -2073,7 +2071,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecycle",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecycle",
     jsii_struct_bases=[],
     name_mapping={"post_start": "postStart", "pre_stop": "preStop"},
 )
@@ -2143,7 +2141,7 @@ class JenkinsSpecMasterContainersLifecycle:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePostStart",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePostStart",
     jsii_struct_bases=[],
     name_mapping={"exec": "exec", "http_get": "httpGet", "tcp_socket": "tcpSocket"},
 )
@@ -2238,7 +2236,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePostStartExec",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePostStartExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -2281,7 +2279,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePostStartHttpGet",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePostStartHttpGet",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -2401,7 +2399,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -2453,7 +2451,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
 
 class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort",
 ):
     """Name or number of the port to access on the container.
 
@@ -2485,7 +2483,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePostStartTcpSocket",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePostStartTcpSocket",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -2546,7 +2544,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
 
 class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort",
 ):
     """Number or name of the port to access on the container.
 
@@ -2578,7 +2576,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePreStop",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePreStop",
     jsii_struct_bases=[],
     name_mapping={"exec": "exec", "http_get": "httpGet", "tcp_socket": "tcpSocket"},
 )
@@ -2671,7 +2669,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePreStopExec",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePreStopExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -2714,7 +2712,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePreStopHttpGet",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePreStopHttpGet",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -2832,7 +2830,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -2884,7 +2882,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
 
 class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort",
 ):
     """Name or number of the port to access on the container.
 
@@ -2916,7 +2914,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePreStopTcpSocket",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePreStopTcpSocket",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -2977,7 +2975,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
 
 class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort",
 ):
     """Number or name of the port to access on the container.
 
@@ -3009,7 +3007,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLivenessProbe",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLivenessProbe",
     jsii_struct_bases=[],
     name_mapping={
         "exec": "exec",
@@ -3194,7 +3192,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLivenessProbeExec",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLivenessProbeExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -3237,7 +3235,7 @@ class JenkinsSpecMasterContainersLivenessProbeExec:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLivenessProbeHttpGet",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLivenessProbeHttpGet",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -3355,7 +3353,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -3407,7 +3405,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
 
 class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLivenessProbeHttpGetPort",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLivenessProbeHttpGetPort",
 ):
     """Name or number of the port to access on the container.
 
@@ -3439,7 +3437,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLivenessProbeTcpSocket",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLivenessProbeTcpSocket",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -3500,7 +3498,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
 
 class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersLivenessProbeTcpSocketPort",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersLivenessProbeTcpSocketPort",
 ):
     """Number or name of the port to access on the container.
 
@@ -3532,7 +3530,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersPorts",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersPorts",
     jsii_struct_bases=[],
     name_mapping={
         "container_port": "containerPort",
@@ -3644,7 +3642,7 @@ class JenkinsSpecMasterContainersPorts:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersReadinessProbe",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersReadinessProbe",
     jsii_struct_bases=[],
     name_mapping={
         "exec": "exec",
@@ -3831,7 +3829,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersReadinessProbeExec",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersReadinessProbeExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -3874,7 +3872,7 @@ class JenkinsSpecMasterContainersReadinessProbeExec:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersReadinessProbeHttpGet",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersReadinessProbeHttpGet",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -3992,7 +3990,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -4044,7 +4042,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
 
 class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersReadinessProbeHttpGetPort",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersReadinessProbeHttpGetPort",
 ):
     """Name or number of the port to access on the container.
 
@@ -4076,7 +4074,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersReadinessProbeTcpSocket",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersReadinessProbeTcpSocket",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -4137,7 +4135,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
 
 class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersReadinessProbeTcpSocketPort",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersReadinessProbeTcpSocketPort",
 ):
     """Number or name of the port to access on the container.
 
@@ -4169,7 +4167,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersResources",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersResources",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits", "requests": "requests"},
 )
@@ -4231,7 +4229,7 @@ class JenkinsSpecMasterContainersResources:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersSecurityContext",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersSecurityContext",
     jsii_struct_bases=[],
     name_mapping={
         "allow_privilege_escalation": "allowPrivilegeEscalation",
@@ -4460,7 +4458,7 @@ class JenkinsSpecMasterContainersSecurityContext:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersSecurityContextCapabilities",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersSecurityContextCapabilities",
     jsii_struct_bases=[],
     name_mapping={"add": "add", "drop": "drop"},
 )
@@ -4521,7 +4519,7 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersSecurityContextSeLinuxOptions",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersSecurityContextSeLinuxOptions",
     jsii_struct_bases=[],
     name_mapping={"level": "level", "role": "role", "type": "type", "user": "user"},
 )
@@ -4606,7 +4604,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersSecurityContextWindowsOptions",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersSecurityContextWindowsOptions",
     jsii_struct_bases=[],
     name_mapping={
         "gmsa_credential_spec": "gmsaCredentialSpec",
@@ -4689,7 +4687,7 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterContainersVolumeMounts",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterContainersVolumeMounts",
     jsii_struct_bases=[],
     name_mapping={
         "mount_path": "mountPath",
@@ -4822,7 +4820,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterImagePullSecrets",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterImagePullSecrets",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -4863,7 +4861,7 @@ class JenkinsSpecMasterImagePullSecrets:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterPlugins",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterPlugins",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "version": "version"},
 )
@@ -4913,7 +4911,7 @@ class JenkinsSpecMasterPlugins:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterSecurityContext",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterSecurityContext",
     jsii_struct_bases=[],
     name_mapping={
         "fs_group": "fsGroup",
@@ -5103,7 +5101,7 @@ class JenkinsSpecMasterSecurityContext:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterSecurityContextSeLinuxOptions",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterSecurityContextSeLinuxOptions",
     jsii_struct_bases=[],
     name_mapping={"level": "level", "role": "role", "type": "type", "user": "user"},
 )
@@ -5187,7 +5185,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterSecurityContextSysctls",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterSecurityContextSysctls",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -5237,7 +5235,7 @@ class JenkinsSpecMasterSecurityContextSysctls:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterSecurityContextWindowsOptions",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterSecurityContextWindowsOptions",
     jsii_struct_bases=[],
     name_mapping={
         "gmsa_credential_spec": "gmsaCredentialSpec",
@@ -5319,7 +5317,7 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterTolerations",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterTolerations",
     jsii_struct_bases=[],
     name_mapping={
         "effect": "effect",
@@ -5433,7 +5431,7 @@ class JenkinsSpecMasterTolerations:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumes",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumes",
     jsii_struct_bases=[],
     name_mapping={
         "name": "name",
@@ -5982,7 +5980,7 @@ class JenkinsSpecMasterVolumes:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesAwsElasticBlockStore",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesAwsElasticBlockStore",
     jsii_struct_bases=[],
     name_mapping={
         "volume_id": "volumeID",
@@ -6079,7 +6077,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesAzureDisk",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesAzureDisk",
     jsii_struct_bases=[],
     name_mapping={
         "disk_name": "diskName",
@@ -6202,7 +6200,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesAzureFile",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesAzureFile",
     jsii_struct_bases=[],
     name_mapping={
         "secret_name": "secretName",
@@ -6279,7 +6277,7 @@ class JenkinsSpecMasterVolumesAzureFile:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesCephfs",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesCephfs",
     jsii_struct_bases=[],
     name_mapping={
         "monitors": "monitors",
@@ -6403,7 +6401,7 @@ class JenkinsSpecMasterVolumesCephfs:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesCephfsSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesCephfsSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -6446,7 +6444,7 @@ class JenkinsSpecMasterVolumesCephfsSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesCinder",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesCinder",
     jsii_struct_bases=[],
     name_mapping={
         "volume_id": "volumeID",
@@ -6546,7 +6544,7 @@ class JenkinsSpecMasterVolumesCinder:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesCinderSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesCinderSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -6587,7 +6585,7 @@ class JenkinsSpecMasterVolumesCinderSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesConfigMap",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesConfigMap",
     jsii_struct_bases=[],
     name_mapping={
         "default_mode": "defaultMode",
@@ -6687,7 +6685,7 @@ class JenkinsSpecMasterVolumesConfigMap:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesConfigMapItems",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesConfigMapItems",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "path": "path", "mode": "mode"},
 )
@@ -6755,7 +6753,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesCsi",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesCsi",
     jsii_struct_bases=[],
     name_mapping={
         "driver": "driver",
@@ -6877,7 +6875,7 @@ class JenkinsSpecMasterVolumesCsi:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesCsiNodePublishSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesCsiNodePublishSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -6920,7 +6918,7 @@ class JenkinsSpecMasterVolumesCsiNodePublishSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesDownwardApi",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesDownwardApi",
     jsii_struct_bases=[],
     name_mapping={"default_mode": "defaultMode", "items": "items"},
 )
@@ -6985,7 +6983,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesDownwardApiItems",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesDownwardApiItems",
     jsii_struct_bases=[],
     name_mapping={
         "path": "path",
@@ -7090,7 +7088,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesDownwardApiItemsFieldRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesDownwardApiItemsFieldRef",
     jsii_struct_bases=[],
     name_mapping={"field_path": "fieldPath", "api_version": "apiVersion"},
 )
@@ -7143,7 +7141,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef",
     jsii_struct_bases=[],
     name_mapping={
         "resource": "resource",
@@ -7217,7 +7215,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesEmptyDir",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesEmptyDir",
     jsii_struct_bases=[],
     name_mapping={"medium": "medium", "size_limit": "sizeLimit"},
 )
@@ -7279,7 +7277,7 @@ class JenkinsSpecMasterVolumesEmptyDir:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesFc",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesFc",
     jsii_struct_bases=[],
     name_mapping={
         "fs_type": "fsType",
@@ -7387,7 +7385,7 @@ class JenkinsSpecMasterVolumesFc:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesFlexVolume",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesFlexVolume",
     jsii_struct_bases=[],
     name_mapping={
         "driver": "driver",
@@ -7503,7 +7501,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesFlexVolumeSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesFlexVolumeSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -7546,7 +7544,7 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesFlocker",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesFlocker",
     jsii_struct_bases=[],
     name_mapping={"dataset_name": "datasetName", "dataset_uuid": "datasetUUID"},
 )
@@ -7606,7 +7604,7 @@ class JenkinsSpecMasterVolumesFlocker:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesGcePersistentDisk",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesGcePersistentDisk",
     jsii_struct_bases=[],
     name_mapping={
         "pd_name": "pdName",
@@ -7706,7 +7704,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesGitRepo",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesGitRepo",
     jsii_struct_bases=[],
     name_mapping={
         "repository": "repository",
@@ -7783,7 +7781,7 @@ class JenkinsSpecMasterVolumesGitRepo:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesGlusterfs",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesGlusterfs",
     jsii_struct_bases=[],
     name_mapping={"endpoints": "endpoints", "path": "path", "read_only": "readOnly"},
 )
@@ -7858,7 +7856,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesHostPath",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesHostPath",
     jsii_struct_bases=[],
     name_mapping={"path": "path", "type": "type"},
 )
@@ -7916,7 +7914,7 @@ class JenkinsSpecMasterVolumesHostPath:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesIscsi",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesIscsi",
     jsii_struct_bases=[],
     name_mapping={
         "iqn": "iqn",
@@ -8121,7 +8119,7 @@ class JenkinsSpecMasterVolumesIscsi:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesIscsiSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesIscsiSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -8162,7 +8160,7 @@ class JenkinsSpecMasterVolumesIscsiSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesNfs",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesNfs",
     jsii_struct_bases=[],
     name_mapping={"path": "path", "server": "server", "read_only": "readOnly"},
 )
@@ -8235,7 +8233,7 @@ class JenkinsSpecMasterVolumesNfs:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesPersistentVolumeClaim",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesPersistentVolumeClaim",
     jsii_struct_bases=[],
     name_mapping={"claim_name": "claimName", "read_only": "readOnly"},
 )
@@ -8294,7 +8292,7 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesPhotonPersistentDisk",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesPhotonPersistentDisk",
     jsii_struct_bases=[],
     name_mapping={"pd_id": "pdID", "fs_type": "fsType"},
 )
@@ -8347,7 +8345,7 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesPortworxVolume",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesPortworxVolume",
     jsii_struct_bases=[],
     name_mapping={
         "volume_id": "volumeID",
@@ -8427,7 +8425,7 @@ class JenkinsSpecMasterVolumesPortworxVolume:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjected",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjected",
     jsii_struct_bases=[],
     name_mapping={"sources": "sources", "default_mode": "defaultMode"},
 )
@@ -8485,7 +8483,7 @@ class JenkinsSpecMasterVolumesProjected:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSources",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSources",
     jsii_struct_bases=[],
     name_mapping={
         "config_map": "configMap",
@@ -8600,7 +8598,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesConfigMap",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesConfigMap",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "name": "name", "optional": "optional"},
 )
@@ -8679,7 +8677,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "path": "path", "mode": "mode"},
 )
@@ -8747,7 +8745,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesDownwardApi",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesDownwardApi",
     jsii_struct_bases=[],
     name_mapping={"items": "items"},
 )
@@ -8796,7 +8794,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems",
     jsii_struct_bases=[],
     name_mapping={
         "path": "path",
@@ -8908,7 +8906,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef",
     jsii_struct_bases=[],
     name_mapping={"field_path": "fieldPath", "api_version": "apiVersion"},
 )
@@ -8962,7 +8960,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef",
     jsii_struct_bases=[],
     name_mapping={
         "resource": "resource",
@@ -9036,7 +9034,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesSecret",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "name": "name", "optional": "optional"},
 )
@@ -9115,7 +9113,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesSecretItems",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesSecretItems",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "path": "path", "mode": "mode"},
 )
@@ -9183,7 +9181,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken",
     jsii_struct_bases=[],
     name_mapping={
         "path": "path",
@@ -9264,7 +9262,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesQuobyte",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesQuobyte",
     jsii_struct_bases=[],
     name_mapping={
         "registry": "registry",
@@ -9389,7 +9387,7 @@ class JenkinsSpecMasterVolumesQuobyte:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesRbd",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesRbd",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -9566,7 +9564,7 @@ class JenkinsSpecMasterVolumesRbd:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesRbdSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesRbdSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -9612,7 +9610,7 @@ class JenkinsSpecMasterVolumesRbdSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesScaleIo",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesScaleIo",
     jsii_struct_bases=[],
     name_mapping={
         "gateway": "gateway",
@@ -9800,7 +9798,7 @@ class JenkinsSpecMasterVolumesScaleIo:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesScaleIoSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesScaleIoSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -9843,7 +9841,7 @@ class JenkinsSpecMasterVolumesScaleIoSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesSecret",
     jsii_struct_bases=[],
     name_mapping={
         "default_mode": "defaultMode",
@@ -9945,7 +9943,7 @@ class JenkinsSpecMasterVolumesSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesSecretItems",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesSecretItems",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "path": "path", "mode": "mode"},
 )
@@ -10013,7 +10011,7 @@ class JenkinsSpecMasterVolumesSecretItems:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesStorageos",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesStorageos",
     jsii_struct_bases=[],
     name_mapping={
         "fs_type": "fsType",
@@ -10133,7 +10131,7 @@ class JenkinsSpecMasterVolumesStorageos:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesStorageosSecretRef",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesStorageosSecretRef",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -10176,7 +10174,7 @@ class JenkinsSpecMasterVolumesStorageosSecretRef:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecMasterVolumesVsphereVolume",
+    jsii_type="jenkinsiojenkins.JenkinsSpecMasterVolumesVsphereVolume",
     jsii_struct_bases=[],
     name_mapping={
         "volume_path": "volumePath",
@@ -10265,7 +10263,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotifications",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotifications",
     jsii_struct_bases=[],
     name_mapping={
         "level": "level",
@@ -10398,7 +10396,7 @@ class JenkinsSpecNotifications:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsMailgun",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsMailgun",
     jsii_struct_bases=[],
     name_mapping={
         "api_key_secret_key_selector": "apiKeySecretKeySelector",
@@ -10485,7 +10483,7 @@ class JenkinsSpecNotificationsMailgun:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsMailgunApiKeySecretKeySelector",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsMailgunApiKeySecretKeySelector",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "secret": "secret"},
 )
@@ -10546,7 +10544,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -10588,7 +10586,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsSlack",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsSlack",
     jsii_struct_bases=[],
     name_mapping={"web_hook_url_secret_key_selector": "webHookURLSecretKeySelector"},
 )
@@ -10637,7 +10635,7 @@ class JenkinsSpecNotificationsSlack:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "secret": "secret"},
 )
@@ -10701,7 +10699,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -10743,7 +10741,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsSmtp",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsSmtp",
     jsii_struct_bases=[],
     name_mapping={
         "from_": "from",
@@ -10874,7 +10872,7 @@ class JenkinsSpecNotificationsSmtp:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsSmtpPasswordSecretKeySelector",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsSmtpPasswordSecretKeySelector",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "secret": "secret"},
 )
@@ -10935,7 +10933,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -10977,7 +10975,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsSmtpUsernameSecretKeySelector",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsSmtpUsernameSecretKeySelector",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "secret": "secret"},
 )
@@ -11038,7 +11036,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -11080,7 +11078,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsTeams",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsTeams",
     jsii_struct_bases=[],
     name_mapping={"web_hook_url_secret_key_selector": "webHookURLSecretKeySelector"},
 )
@@ -11129,7 +11127,7 @@ class JenkinsSpecNotificationsTeams:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "secret": "secret"},
 )
@@ -11193,7 +11191,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret",
+    jsii_type="jenkinsiojenkins.JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret",
     jsii_struct_bases=[],
     name_mapping={"name": "name"},
 )
@@ -11235,7 +11233,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecRestore",
+    jsii_type="jenkinsiojenkins.JenkinsSpecRestore",
     jsii_struct_bases=[],
     name_mapping={
         "action": "action",
@@ -11309,7 +11307,7 @@ class JenkinsSpecRestore:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecRestoreAction",
+    jsii_type="jenkinsiojenkins.JenkinsSpecRestoreAction",
     jsii_struct_bases=[],
     name_mapping={"exec": "exec"},
 )
@@ -11352,7 +11350,7 @@ class JenkinsSpecRestoreAction:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecRestoreActionExec",
+    jsii_type="jenkinsiojenkins.JenkinsSpecRestoreActionExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -11393,7 +11391,7 @@ class JenkinsSpecRestoreActionExec:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecRoles",
+    jsii_type="jenkinsiojenkins.JenkinsSpecRoles",
     jsii_struct_bases=[],
     name_mapping={"api_group": "apiGroup", "kind": "kind", "name": "name"},
 )
@@ -11454,7 +11452,7 @@ class JenkinsSpecRoles:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecSeedJobs",
+    jsii_type="jenkinsiojenkins.JenkinsSpecSeedJobs",
     jsii_struct_bases=[],
     name_mapping={
         "additional_classpath": "additionalClasspath",
@@ -11697,7 +11695,7 @@ class JenkinsSpecSeedJobs:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecService",
+    jsii_type="jenkinsiojenkins.JenkinsSpecService",
     jsii_struct_bases=[],
     name_mapping={
         "annotations": "annotations",
@@ -11849,7 +11847,7 @@ class JenkinsSpecService:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecServiceAccount",
+    jsii_type="jenkinsiojenkins.JenkinsSpecServiceAccount",
     jsii_struct_bases=[],
     name_mapping={"annotations": "annotations"},
 )
@@ -11892,7 +11890,7 @@ class JenkinsSpecServiceAccount:
 
 
 @jsii.data_type(
-    jsii_type="de6f67853a60f88a5e105a28a47f88bd9fe5b3eeb297e175be18cafbaf0bd645.JenkinsSpecSlaveService",
+    jsii_type="jenkinsiojenkins.JenkinsSpecSlaveService",
     jsii_struct_bases=[],
     name_mapping={
         "annotations": "annotations",
