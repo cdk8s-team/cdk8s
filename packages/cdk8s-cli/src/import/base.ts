@@ -69,6 +69,7 @@ export abstract class ImportBase {
 
           const opts: srcmak.Options = {
             entrypoint: fileName,
+            moduleKey: name,
             deps: deps.map(dep => path.dirname(require.resolve(`${dep}/package.json`))),
           };
 
@@ -79,15 +80,16 @@ export abstract class ImportBase {
 
           // python!
           if (options.targetLanguage === Language.PYTHON) {
+            const moduleName = `${moduleNamePrefix ? `${moduleNamePrefix}.${name}` : name}`.replace(/-/g, '_');
             opts.python = {
               outdir: outdir,
-              moduleName: moduleNamePrefix ? `${moduleNamePrefix}.${name}` : name,
+              moduleName,
             };
           }
 
           // java!
           if (options.targetLanguage === Language.JAVA) {
-            const javaName = name.replace(/\//g, '.')
+            const javaName = name.replace(/\//g, '.').replace(/-/g, '_');
             opts.java = {
               outdir: '.',
               package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + javaName : javaName}`,

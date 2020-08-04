@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   name: foos.samplecontroller.k8s.io
 spec:
-  group: samplecontroller.k8s.io
+  group: sample-controller.k8s.io
   version: v1alpha1
   names:
     kind: Foo
