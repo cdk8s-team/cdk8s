@@ -53,6 +53,7 @@
     "cdk8s": "0.0.0",
     "codemaker": "^0.22.0",
     "constructs": "^3.0.4",
+    "constructs-tokens-staging": "^0.0.4",
     "fs-extra": "^8.1.0",
     "jsii-srcmak": "^0.1.10",
     "sscaff": "^1.2.0",
