@@ -33,6 +33,7 @@ for (const file of files) {
   } catch (err) {
     const isProjen = fs.existsSync(path.join(path.dirname(file), '.projenrc.js'));
     if (isProjen && err.message.includes('permission denied')) {
+      // temporary change file permissions if projen
       fs.chmodSync(file, '600');
       fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
     } else {
