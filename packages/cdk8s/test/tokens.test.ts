@@ -1,10 +1,8 @@
 import { Lazy } from 'constructs-tokens-staging';
 import { resolve } from '../src/_tokens';
-import { Testing } from '../src';
 
 test('lazy', () => {
   // GIVEN
-  const app = Testing.app();
   const hello = {
     number: Lazy.numberValue({ produce: () => 1234 }),
     string: Lazy.stringValue({ produce: () => 'hello' }),
@@ -18,7 +16,7 @@ test('lazy', () => {
     implicit: { },
   });
 
-  expect(resolve(app, hello)).toStrictEqual({
+  expect(resolve(hello)).toStrictEqual({
     number: 1234,
     string: 'hello',
     implicit: 908,

@@ -1,11 +1,30 @@
-import { Construct } from 'constructs';
-import { Tokenization, DefaultTokenResolver, StringConcat } from 'constructs-tokens-staging';
+export function resolve(value: any): any {
 
-const TOKEN_RESOLVER = new DefaultTokenResolver(new StringConcat());
+  if (value == null) {
+    return value;
+  }
 
-export function resolve<T>(scope: Construct, obj: T): T {
-  return Tokenization.resolve(obj, {
-    scope,
-    resolver: TOKEN_RESOLVER,
-  });
+  // if value is a function, call it and resolve the result.
+  if (typeof(value) === 'function') {
+    const resolved = value.apply(undefined);
+    return resolve(resolved);
+  }
+
+  if (typeof(value) !== 'object') {
+    return value;
+  }
+
+  if (Array.isArray(value)) {
+    return value.map(x => resolve(x));
+  }
+
+  const result: any = {};
+
+  for (const [k,v] of Object.entries(value)) {
+    result[k] = resolve(v);
+  }
+
+  return result;
+
 }
+

@@ -109,6 +109,6 @@ export class ApiObject extends Construct {
 
     // convert to "pure data" so, for example, when we convert to yaml these
     // references are not converted to anchors.
-    return JSON.parse(stringify(sanitizeValue(resolve(this, data))));
+    return JSON.parse(stringify(sanitizeValue(resolve(data))));
   }
 }

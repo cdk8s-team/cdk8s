@@ -1,7 +1,5 @@
-import { Lazy } from 'constructs-tokens-staging';
-
 export function lazy<T>(producer: () => T): T {
-  return Lazy.anyValue({ produce: () => producer() }) as unknown as T;
+  return producer as unknown as T;
 }
 
 

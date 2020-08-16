@@ -23,7 +23,10 @@ const project = new JsiiProject({
     '@types/minimatch': Semver.caret('3.0.3'),
     "cdk8s": Semver.caret('0.0.0'),
     "constructs": Semver.caret(common.versions.constructs),
-    "constructs-tokens-staging": Semver.caret(common.versions.tokens)
+    "constructs-tokens-staging": Semver.caret(common.versions.tokens),
+    "@aws-cdk/aws-eks": Semver.caret('1.58.0'),
+    "@aws-cdk/core": Semver.caret('1.58.0'),
+    "@aws-cdk/assert": Semver.caret('1.58.0'),
   },
 
   // jsii configuration
