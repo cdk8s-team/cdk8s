@@ -1,11 +1,11 @@
 import { Resource, ResourceProps } from './base';
 import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 import { Construct } from 'constructs';
+import * as cdk8s from 'cdk8s';
 
 import * as k8s from './imports/k8s';
 import { RestartPolicy, PodSpec, PodSpecDefinition } from './pod';
 import { Duration } from './duration';
-import { lazy } from './utils';
 
 
 /**
@@ -40,7 +40,7 @@ export class Job extends Resource {
 
     this.apiObject = new k8s.Job(this, 'Default', {
       metadata: props.metadata,
-      spec: lazy(() => this.spec._toKube()),
+      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
     });
   }
 }

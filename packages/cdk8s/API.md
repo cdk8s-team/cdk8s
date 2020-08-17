@@ -9,6 +9,7 @@ Name|Description
 [App](#cdk8s-app)|Represents a cdk8s application.
 [Chart](#cdk8s-chart)|*No description*
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
+[Lazy](#cdk8s-lazy)|*No description*
 [Testing](#cdk8s-testing)|Testing utilities for cdk8s applications.
 [Yaml](#cdk8s-yaml)|YAML utilities.
 
@@ -22,6 +23,16 @@ Name|Description
 [AppOptions](#cdk8s-appoptions)|*No description*
 [ChartOptions](#cdk8s-chartoptions)|*No description*
 [IncludeOptions](#cdk8s-includeoptions)|*No description*
+
+
+**Interfaces**
+
+Name|Description
+----|-----------
+[IAnyProducer](#cdk8s-ianyproducer)|*No description*
+[INumberProducer](#cdk8s-inumberproducer)|*No description*
+[IStringListProducer](#cdk8s-istringlistproducer)|*No description*
+[IStringProducer](#cdk8s-istringproducer)|*No description*
 
 
 
@@ -421,6 +432,95 @@ new Include(scope: Construct, name: string, options: IncludeOptions)
 
 
 
+## class Lazy 🔹 <a id="cdk8s-lazy"></a>
+
+
+
+
+### Methods
+
+
+#### apply()🔹 <a id="cdk8s-lazy-apply"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+apply(): any
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>any</code>
+
+#### *static* any(producer)🔹 <a id="cdk8s-lazy-any"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static any(producer: IAnyProducer): any
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **producer** (<code>[IAnyProducer](#cdk8s-ianyproducer)</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>any</code>
+
+#### *static* number(producer)🔹 <a id="cdk8s-lazy-number"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static number(producer: INumberProducer): number
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **producer** (<code>[INumberProducer](#cdk8s-inumberproducer)</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>number</code>
+
+#### *static* string(producer)🔹 <a id="cdk8s-lazy-string"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static string(producer: IStringProducer): string
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **producer** (<code>[IStringProducer](#cdk8s-istringproducer)</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>string</code>
+
+#### *static* stringList(producer)🔹 <a id="cdk8s-lazy-stringlist"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+static stringList(producer: IStringListProducer): Array<string>
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+* **producer** (<code>[IStringListProducer](#cdk8s-istringlistproducer)</code>)  *No description*
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>Array<string></code>
+
+
+
 ## class Testing 🔹 <a id="cdk8s-testing"></a>
 
 Testing utilities for cdk8s applications.
@@ -592,6 +692,102 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **namespace**?🔹 | <code>string</code> | The default namespace for all objects defined in this chart (directly or indirectly).<br/><span style="text-decoration: underline">*Default*</span>: no namespace is synthesized (usually this implies "default")
+
+
+
+## interface IAnyProducer 🔹 <a id="cdk8s-ianyproducer"></a>
+
+
+
+### Methods
+
+
+#### produce()🔹 <a id="cdk8s-ianyproducer-produce"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+produce(): any
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>any</code>
+
+
+
+## interface INumberProducer 🔹 <a id="cdk8s-inumberproducer"></a>
+
+
+
+### Methods
+
+
+#### produce()🔹 <a id="cdk8s-inumberproducer-produce"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+produce(): number
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>number</code>
+
+
+
+## interface IStringListProducer 🔹 <a id="cdk8s-istringlistproducer"></a>
+
+
+
+### Methods
+
+
+#### produce()🔹 <a id="cdk8s-istringlistproducer-produce"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+produce(): Array<string>
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>Array<string></code>
+
+
+
+## interface IStringProducer 🔹 <a id="cdk8s-istringproducer"></a>
+
+
+
+### Methods
+
+
+#### produce()🔹 <a id="cdk8s-istringproducer-produce"></a>
+
+
+
+<span style="text-decoration: underline">Usage:</span>
+
+```ts
+produce(): string
+```
+
+<span style="text-decoration: underline">Parameters:</span>
+
+<span style="text-decoration: underline">Returns</span>:
+* <code>string</code>
 
 
 

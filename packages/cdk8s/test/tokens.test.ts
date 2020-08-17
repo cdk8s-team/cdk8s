@@ -4,12 +4,16 @@ import { resolve } from '../src/_tokens';
 test('lazy', () => {
 
   const hello = {
-    number: Lazy.numberValue(() => 1234),
-    string: Lazy.stringValue(() => 'hello'),
+    number: Lazy.number({ produce: () => 1234 }),
+    string: Lazy.string({ produce: () => 'hello' }),
+    stringList: Lazy.stringList({ produce: () => ['1', '2'] }),
+    any: Lazy.any({ produce: () => { return {foo: 'bar'}} }),
   };
 
   expect(resolve(hello)).toStrictEqual({
     number: 1234,
     string: 'hello',
+    stringList: ['1', '2'],
+    any: { foo: 'bar' },
   });
 });

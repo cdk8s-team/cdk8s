@@ -1,12 +1,14 @@
+import { Lazy } from './lazy';
+
 export function resolve(value: any): any {
 
   if (value == null) {
     return value;
   }
 
-  // if value is a function, call it and resolve the result.
-  if (typeof(value) === 'function') {
-    const resolved = value.apply(undefined);
+  if (value instanceof Lazy) {
+    // we only resolve tokens created by the Lazy class.
+    const resolved = value.apply();
     return resolve(resolved);
   }
 
