@@ -1,5 +1,5 @@
 import { Lazy } from '../src';
-import { resolve } from '../src/_tokens';
+import { resolve } from '../src/lazy';
 
 test('lazy', () => {
 

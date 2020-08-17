@@ -440,14 +440,14 @@ new Include(scope: Construct, name: string, options: IncludeOptions)
 ### Methods
 
 
-#### apply()🔹 <a id="cdk8s-lazy-apply"></a>
+#### resolve()🔹 <a id="cdk8s-lazy-resolve"></a>
 
 
 
 <span style="text-decoration: underline">Usage:</span>
 
 ```ts
-apply(): any
+resolve(): any
 ```
 
 <span style="text-decoration: underline">Parameters:</span>
