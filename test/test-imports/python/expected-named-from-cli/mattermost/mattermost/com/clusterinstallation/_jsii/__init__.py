@@ -10,6 +10,7 @@ import publication
 
 import cdk8s._jsii
 import constructs._jsii
+import constructs_tokens_staging._jsii
 
 __jsii_assembly__ = jsii.JSIIAssembly.load(
     "mattermostcomclusterinstallation",

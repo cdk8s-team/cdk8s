@@ -10,6 +10,7 @@ import publication
 
 import cdk8s._jsii
 import constructs._jsii
+import constructs_tokens_staging._jsii
 
 __jsii_assembly__ = jsii.JSIIAssembly.load(
     "k8s", "0.0.0", __name__[0:-6], "k8s@0.0.0.jsii.tgz"
