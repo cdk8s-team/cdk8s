@@ -7,4 +7,4 @@ verify_ssl = true
 python_version = "3.7"
 
 [packages]
-constructs = "==4.0.1"
+constructs = "==4.1.0"
