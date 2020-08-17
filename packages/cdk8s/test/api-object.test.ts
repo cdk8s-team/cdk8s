@@ -1,5 +1,34 @@
-import { ApiObject, Chart, Testing } from '../src';
+import { ApiObject, Chart, Testing, Lazy } from '../src';
 import { Construct, Node, Dependency } from 'constructs';
+
+test('can use lazy tokens', () => {
+
+  const app = Testing.app();
+  const chart = new Chart(app, 'test');
+
+  new ApiObject(chart, 'my-resource', {
+    apiVersion: 'v1',
+    kind: 'MyResource',
+    number: Lazy.numberValue(() => 42),
+    string: Lazy.stringValue(() => 'hello'),
+    stringList: Lazy.stringListValue(() => ['1', '2']),
+    any: Lazy.anyValue(() => { return {foo: 'bar'} }),
+  });
+
+  const syntheisized = Testing.synth(chart)[0];
+
+  expect(syntheisized.number).toEqual(42);
+  expect(syntheisized.string).toEqual('hello');
+  expect(syntheisized.stringList).toEqual(['1', '2']);
+  expect(syntheisized.any).toEqual({foo: 'bar'});
+
+});
+
+test('can perform token operations', () => {
+
+  
+
+});
 
 test('minimal configuration', () => {
   const app = Testing.app();

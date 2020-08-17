@@ -3,6 +3,7 @@ import * as cdk from '@aws-cdk/core';
 import * as eks from '@aws-cdk/aws-eks';
 import { Testing } from 'cdk8s';
 import '@aws-cdk/assert/jest';
+import { Lazy } from 'constructs-tokens-staging';
 
 test('ignores aws-cdk tokens during synth', () => {
 
@@ -14,13 +15,12 @@ test('ignores aws-cdk tokens during synth', () => {
   })
 
   const kubeChart = Testing.chart();
-  new kplus.ConfigMap(kubeChart, 'ConfigMap', {
-    data: {
-      clusterArn: eksCluster.clusterArn,
-    },
-  });
+  const configMap = new kplus.ConfigMap(kubeChart, 'ConfigMap');
+  configMap.addData('clusterArn', eksCluster.clusterArn)
+  configMap.addData('tokenAsString', Lazy.stringValue({ produce: () => 'hello' }))
 
   const manifest = kubeChart.toJson();
+  console.log(JSON.stringify(manifest));
 
   eksCluster.addManifest('Configuration', manifest);
 
