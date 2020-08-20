@@ -7,10 +7,10 @@ This is a working document to outline responses to request for CNCF sandbox subm
 
 ### responses
 1. **email address**
-*****
+*
 
-2. Project Name
-**Cloud Development Kit for Kubernetes (cdk8s)**
+2. **Project Name**
+Cloud Development Kit for Kubernetes (cdk8s)
 
 3. **Project Description**
 The Cloud Development Kit for Kubernetes (cdk8s) is a software development framework for defining Kubernetes applications and reusable abstractions using familiar programming languages and rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use cdk8s to define applications for any Kubernetes cluster running anywhere.
