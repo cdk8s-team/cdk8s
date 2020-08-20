@@ -19,6 +19,7 @@ exports.post = options => {
     throw new Error(`missing context "pypi_cdk8s"`);
   }
 
+  execSync('pipenv lock --clear')
   execSync('pipenv install', { stdio: 'inherit' });
   execSync(`pipenv install ${pypi_cdk8s}`, { stdio: 'inherit' });
   chmodSync('main.py', '700');
