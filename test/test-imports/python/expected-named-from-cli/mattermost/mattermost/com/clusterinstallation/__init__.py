@@ -140,15 +140,11 @@ class ClusterInstallationSpec:
         image: typing.Optional[str] = None,
         ingress_annotations: typing.Optional[typing.Mapping[str, str]] = None,
         liveness_probe: typing.Optional["ClusterInstallationSpecLivenessProbe"] = None,
-        mattermost_env: typing.Optional[
-            typing.List["ClusterInstallationSpecMattermostEnv"]
-        ] = None,
+        mattermost_env: typing.Optional[typing.List["ClusterInstallationSpecMattermostEnv"]] = None,
         mattermost_license_secret: typing.Optional[str] = None,
         minio: typing.Optional["ClusterInstallationSpecMinio"] = None,
         node_selector: typing.Optional[typing.Mapping[str, str]] = None,
-        readiness_probe: typing.Optional[
-            "ClusterInstallationSpecReadinessProbe"
-        ] = None,
+        readiness_probe: typing.Optional["ClusterInstallationSpecReadinessProbe"] = None,
         replicas: typing.Optional[jsii.Number] = None,
         resources: typing.Optional["ClusterInstallationSpecResources"] = None,
         service_annotations: typing.Optional[typing.Mapping[str, str]] = None,
@@ -459,15 +455,9 @@ class ClusterInstallationSpecAffinity:
     def __init__(
         self,
         *,
-        node_affinity: typing.Optional[
-            "ClusterInstallationSpecAffinityNodeAffinity"
-        ] = None,
-        pod_affinity: typing.Optional[
-            "ClusterInstallationSpecAffinityPodAffinity"
-        ] = None,
-        pod_anti_affinity: typing.Optional[
-            "ClusterInstallationSpecAffinityPodAntiAffinity"
-        ] = None,
+        node_affinity: typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"] = None,
+        pod_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAffinity"] = None,
+        pod_anti_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"] = None,
     ) -> None:
         """If specified, affinity will define the pod's scheduling constraints.
 
@@ -483,9 +473,7 @@ class ClusterInstallationSpecAffinity:
         if isinstance(pod_affinity, dict):
             pod_affinity = ClusterInstallationSpecAffinityPodAffinity(**pod_affinity)
         if isinstance(pod_anti_affinity, dict):
-            pod_anti_affinity = ClusterInstallationSpecAffinityPodAntiAffinity(
-                **pod_anti_affinity
-            )
+            pod_anti_affinity = ClusterInstallationSpecAffinityPodAntiAffinity(**pod_anti_affinity)
         self._values = {}
         if node_affinity is not None:
             self._values["node_affinity"] = node_affinity
@@ -551,14 +539,8 @@ class ClusterInstallationSpecAffinityNodeAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"
-            ]
-        ] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[
-            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"
-        ] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"] = None,
     ) -> None:
         """Describes node affinity scheduling rules for the pod.
 
@@ -569,27 +551,17 @@ class ClusterInstallationSpecAffinityNodeAffinity:
         :schema:: ClusterInstallationSpecAffinityNodeAffinity
         """
         if isinstance(required_during_scheduling_ignored_during_execution, dict):
-            required_during_scheduling_ignored_during_execution = ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(
-                **required_during_scheduling_ignored_during_execution
-            )
+            required_during_scheduling_ignored_during_execution = ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(**required_during_scheduling_ignored_during_execution)
         self._values = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "preferred_during_scheduling_ignored_during_execution"
-            ] = preferred_during_scheduling_ignored_during_execution
+            self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
         if required_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "required_during_scheduling_ignored_during_execution"
-            ] = required_during_scheduling_ignored_during_execution
+            self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
     def preferred_during_scheduling_ignored_during_execution(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]:
         """The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
@@ -602,9 +574,7 @@ class ClusterInstallationSpecAffinityNodeAffinity:
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
         self,
-    ) -> typing.Optional[
-        "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"
-    ]:
+    ) -> typing.Optional["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"]:
         """If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
         If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
@@ -647,9 +617,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(preference, dict):
-            preference = ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(
-                **preference
-            )
+            preference = ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(**preference)
         self._values = {
             "preference": preference,
             "weight": weight,
@@ -682,9 +650,8 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -700,16 +667,8 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"
-            ]
-        ] = None,
-        match_fields: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"
-            ]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]] = None,
+        match_fields: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]] = None,
     ) -> None:
         """A node selector term, associated with the corresponding weight.
 
@@ -728,11 +687,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     @builtins.property
     def match_expressions(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]]:
         """A list of node selector requirements by node's labels.
 
         schema:
@@ -743,11 +698,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     @builtins.property
     def match_fields(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]]:
         """A list of node selector requirements by node's fields.
 
         schema:
@@ -762,9 +713,8 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -835,9 +785,8 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -908,9 +857,8 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -923,9 +871,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     def __init__(
         self,
         *,
-        node_selector_terms: typing.List[
-            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"
-        ],
+        node_selector_terms: typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"],
     ) -> None:
         """If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
@@ -943,9 +889,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     @builtins.property
     def node_selector_terms(
         self,
-    ) -> typing.List[
-        "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"
-    ]:
+    ) -> typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"]:
         """Required.
 
         A list of node selector terms. The terms are ORed.
@@ -962,9 +906,8 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -980,16 +923,8 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"
-            ]
-        ] = None,
-        match_fields: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"
-            ]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]] = None,
+        match_fields: typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]] = None,
     ) -> None:
         """A null or empty node selector term matches no objects.
 
@@ -1010,11 +945,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     @builtins.property
     def match_expressions(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]]:
         """A list of node selector requirements by node's labels.
 
         schema:
@@ -1025,11 +956,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     @builtins.property
     def match_fields(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]]:
         """A list of node selector requirements by node's fields.
 
         schema:
@@ -1044,9 +971,8 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1117,9 +1043,8 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1190,9 +1115,8 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1208,16 +1132,8 @@ class ClusterInstallationSpecAffinityPodAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"
-            ]
-        ] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"
-            ]
-        ] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"]] = None,
     ) -> None:
         """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
 
@@ -1229,22 +1145,14 @@ class ClusterInstallationSpecAffinityPodAffinity:
         """
         self._values = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "preferred_during_scheduling_ignored_during_execution"
-            ] = preferred_during_scheduling_ignored_during_execution
+            self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
         if required_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "required_during_scheduling_ignored_during_execution"
-            ] = required_during_scheduling_ignored_during_execution
+            self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
     def preferred_during_scheduling_ignored_during_execution(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]:
         """The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -1257,11 +1165,7 @@ class ClusterInstallationSpecAffinityPodAffinity:
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]:
         """If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
         If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
@@ -1304,9 +1208,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(pod_affinity_term, dict):
-            pod_affinity_term = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(
-                **pod_affinity_term
-            )
+            pod_affinity_term = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(**pod_affinity_term)
         self._values = {
             "pod_affinity_term": pod_affinity_term,
             "weight": weight,
@@ -1341,9 +1243,8 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1361,9 +1262,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         self,
         *,
         topology_key: str,
-        label_selector: typing.Optional[
-            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"
-        ] = None,
+        label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"] = None,
         namespaces: typing.Optional[typing.List[str]] = None,
     ) -> None:
         """Required.
@@ -1378,9 +1277,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
         """
         if isinstance(label_selector, dict):
-            label_selector = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(
-                **label_selector
-            )
+            label_selector = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(**label_selector)
         self._values = {
             "topology_key": topology_key,
         }
@@ -1403,9 +1300,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
     @builtins.property
     def label_selector(
         self,
-    ) -> typing.Optional[
-        "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"
-    ]:
+    ) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]:
         """A label query over a set of resources, in this case pods.
 
         schema:
@@ -1431,9 +1326,8 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1449,11 +1343,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"
-            ]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]] = None,
         match_labels: typing.Optional[typing.Mapping[str, str]] = None,
     ) -> None:
         """A label query over a set of resources, in this case pods.
@@ -1473,11 +1363,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
     @builtins.property
     def match_expressions(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]:
         """matchExpressions is a list of label selector requirements.
 
         The requirements are ANDed.
@@ -1505,9 +1391,8 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1578,9 +1463,8 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1598,9 +1482,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         self,
         *,
         topology_key: str,
-        label_selector: typing.Optional[
-            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"
-        ] = None,
+        label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"] = None,
         namespaces: typing.Optional[typing.List[str]] = None,
     ) -> None:
         """Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
@@ -1613,9 +1495,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(label_selector, dict):
-            label_selector = ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(
-                **label_selector
-            )
+            label_selector = ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(**label_selector)
         self._values = {
             "topology_key": topology_key,
         }
@@ -1638,9 +1518,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
     @builtins.property
     def label_selector(
         self,
-    ) -> typing.Optional[
-        "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"
-    ]:
+    ) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]:
         """A label query over a set of resources, in this case pods.
 
         schema:
@@ -1666,9 +1544,8 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1684,11 +1561,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"
-            ]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]] = None,
         match_labels: typing.Optional[typing.Mapping[str, str]] = None,
     ) -> None:
         """A label query over a set of resources, in this case pods.
@@ -1708,11 +1581,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
     @builtins.property
     def match_expressions(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]:
         """matchExpressions is a list of label selector requirements.
 
         The requirements are ANDed.
@@ -1740,9 +1609,8 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1813,9 +1681,8 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1831,16 +1698,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"
-            ]
-        ] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"
-            ]
-        ] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"]] = None,
     ) -> None:
         """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 
@@ -1852,22 +1711,14 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
         """
         self._values = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "preferred_during_scheduling_ignored_during_execution"
-            ] = preferred_during_scheduling_ignored_during_execution
+            self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
         if required_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "required_during_scheduling_ignored_during_execution"
-            ] = required_during_scheduling_ignored_during_execution
+            self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
     def preferred_during_scheduling_ignored_during_execution(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"]]:
         """The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
@@ -1880,11 +1731,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"]]:
         """If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
         If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
@@ -1927,9 +1774,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(pod_affinity_term, dict):
-            pod_affinity_term = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(
-                **pod_affinity_term
-            )
+            pod_affinity_term = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(**pod_affinity_term)
         self._values = {
             "pod_affinity_term": pod_affinity_term,
             "weight": weight,
@@ -1964,9 +1809,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -1984,9 +1828,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         self,
         *,
         topology_key: str,
-        label_selector: typing.Optional[
-            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"
-        ] = None,
+        label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"] = None,
         namespaces: typing.Optional[typing.List[str]] = None,
     ) -> None:
         """Required.
@@ -2001,9 +1843,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
         """
         if isinstance(label_selector, dict):
-            label_selector = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(
-                **label_selector
-            )
+            label_selector = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(**label_selector)
         self._values = {
             "topology_key": topology_key,
         }
@@ -2026,9 +1866,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
     @builtins.property
     def label_selector(
         self,
-    ) -> typing.Optional[
-        "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"
-    ]:
+    ) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]:
         """A label query over a set of resources, in this case pods.
 
         schema:
@@ -2054,9 +1892,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2072,11 +1909,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"
-            ]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]] = None,
         match_labels: typing.Optional[typing.Mapping[str, str]] = None,
     ) -> None:
         """A label query over a set of resources, in this case pods.
@@ -2096,11 +1929,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
     @builtins.property
     def match_expressions(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]]:
         """matchExpressions is a list of label selector requirements.
 
         The requirements are ANDed.
@@ -2128,9 +1957,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2201,9 +2029,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2221,9 +2048,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         self,
         *,
         topology_key: str,
-        label_selector: typing.Optional[
-            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"
-        ] = None,
+        label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"] = None,
         namespaces: typing.Optional[typing.List[str]] = None,
     ) -> None:
         """Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
@@ -2236,9 +2061,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(label_selector, dict):
-            label_selector = ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(
-                **label_selector
-            )
+            label_selector = ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(**label_selector)
         self._values = {
             "topology_key": topology_key,
         }
@@ -2261,9 +2084,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
     @builtins.property
     def label_selector(
         self,
-    ) -> typing.Optional[
-        "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"
-    ]:
+    ) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]:
         """A label query over a set of resources, in this case pods.
 
         schema:
@@ -2289,9 +2110,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2307,11 +2127,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List[
-                "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"
-            ]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]] = None,
         match_labels: typing.Optional[typing.Mapping[str, str]] = None,
     ) -> None:
         """A label query over a set of resources, in this case pods.
@@ -2331,11 +2147,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
     @builtins.property
     def match_expressions(
         self,
-    ) -> typing.Optional[
-        typing.List[
-            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"
-        ]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]]:
         """matchExpressions is a list of label selector requirements.
 
         The requirements are ANDed.
@@ -2363,9 +2175,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2436,9 +2247,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -3216,9 +3026,7 @@ class ClusterInstallationSpecLivenessProbe:
         initial_delay_seconds: typing.Optional[jsii.Number] = None,
         period_seconds: typing.Optional[jsii.Number] = None,
         success_threshold: typing.Optional[jsii.Number] = None,
-        tcp_socket: typing.Optional[
-            "ClusterInstallationSpecLivenessProbeTcpSocket"
-        ] = None,
+        tcp_socket: typing.Optional["ClusterInstallationSpecLivenessProbeTcpSocket"] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Defines the probe to check if the application is up and running.
@@ -3433,9 +3241,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         *,
         port: "ClusterInstallationSpecLivenessProbeHttpGetPort",
         host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]
-        ] = None,
+        http_headers: typing.Optional[typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]] = None,
         path: typing.Optional[str] = None,
         scheme: typing.Optional[str] = None,
     ) -> None:
@@ -3487,9 +3293,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -3721,9 +3525,7 @@ class ClusterInstallationSpecMattermostEnv:
         *,
         name: str,
         value: typing.Optional[str] = None,
-        value_from: typing.Optional[
-            "ClusterInstallationSpecMattermostEnvValueFrom"
-        ] = None,
+        value_from: typing.Optional["ClusterInstallationSpecMattermostEnvValueFrom"] = None,
     ) -> None:
         """EnvVar represents an environment variable present in a Container.
 
@@ -3808,18 +3610,10 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
     def __init__(
         self,
         *,
-        config_map_key_ref: typing.Optional[
-            "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"
-        ] = None,
-        field_ref: typing.Optional[
-            "ClusterInstallationSpecMattermostEnvValueFromFieldRef"
-        ] = None,
-        resource_field_ref: typing.Optional[
-            "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"
-        ] = None,
-        secret_key_ref: typing.Optional[
-            "ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"
-        ] = None,
+        config_map_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"] = None,
+        field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"] = None,
+        resource_field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"] = None,
+        secret_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"] = None,
     ) -> None:
         """Source for the environment variable's value.
 
@@ -3834,21 +3628,13 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
         :schema:: ClusterInstallationSpecMattermostEnvValueFrom
         """
         if isinstance(config_map_key_ref, dict):
-            config_map_key_ref = ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(
-                **config_map_key_ref
-            )
+            config_map_key_ref = ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(**config_map_key_ref)
         if isinstance(field_ref, dict):
-            field_ref = ClusterInstallationSpecMattermostEnvValueFromFieldRef(
-                **field_ref
-            )
+            field_ref = ClusterInstallationSpecMattermostEnvValueFromFieldRef(**field_ref)
         if isinstance(resource_field_ref, dict):
-            resource_field_ref = ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(
-                **resource_field_ref
-            )
+            resource_field_ref = ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(**resource_field_ref)
         if isinstance(secret_key_ref, dict):
-            secret_key_ref = ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(
-                **secret_key_ref
-            )
+            secret_key_ref = ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(**secret_key_ref)
         self._values = {}
         if config_map_key_ref is not None:
             self._values["config_map_key_ref"] = config_map_key_ref
@@ -3862,9 +3648,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
     @builtins.property
     def config_map_key_ref(
         self,
-    ) -> typing.Optional[
-        "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"
-    ]:
+    ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"]:
         """Selects a key of a ConfigMap.
 
         schema:
@@ -3886,9 +3670,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
     @builtins.property
     def resource_field_ref(
         self,
-    ) -> typing.Optional[
-        "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"
-    ]:
+    ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"]:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 
         schema:
@@ -3985,9 +3767,8 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4112,9 +3893,8 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4186,9 +3966,8 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4397,15 +4176,11 @@ class ClusterInstallationSpecReadinessProbe:
         *,
         exec: typing.Optional["ClusterInstallationSpecReadinessProbeExec"] = None,
         failure_threshold: typing.Optional[jsii.Number] = None,
-        http_get: typing.Optional[
-            "ClusterInstallationSpecReadinessProbeHttpGet"
-        ] = None,
+        http_get: typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"] = None,
         initial_delay_seconds: typing.Optional[jsii.Number] = None,
         period_seconds: typing.Optional[jsii.Number] = None,
         success_threshold: typing.Optional[jsii.Number] = None,
-        tcp_socket: typing.Optional[
-            "ClusterInstallationSpecReadinessProbeTcpSocket"
-        ] = None,
+        tcp_socket: typing.Optional["ClusterInstallationSpecReadinessProbeTcpSocket"] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Defines the probe to check if the application is ready to accept traffic.
@@ -4620,9 +4395,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         *,
         port: "ClusterInstallationSpecReadinessProbeHttpGetPort",
         host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]
-        ] = None,
+        http_headers: typing.Optional[typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]] = None,
         path: typing.Optional[str] = None,
         scheme: typing.Optional[str] = None,
     ) -> None:
@@ -4674,9 +4447,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -4766,9 +4537,8 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 

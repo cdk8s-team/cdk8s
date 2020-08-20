@@ -4463,9 +4463,7 @@ class CronJobSpec:
         if starting_deadline_seconds is not None:
             self._values["starting_deadline_seconds"] = starting_deadline_seconds
         if successful_jobs_history_limit is not None:
-            self._values[
-                "successful_jobs_history_limit"
-            ] = successful_jobs_history_limit
+            self._values["successful_jobs_history_limit"] = successful_jobs_history_limit
         if suspend is not None:
             self._values["suspend"] = suspend
 
@@ -5247,13 +5245,9 @@ class CsiPersistentVolumeSource:
         :schema:: io.k8s.api.core.v1.CSIPersistentVolumeSource
         """
         if isinstance(controller_expand_secret_ref, dict):
-            controller_expand_secret_ref = SecretReference(
-                **controller_expand_secret_ref
-            )
+            controller_expand_secret_ref = SecretReference(**controller_expand_secret_ref)
         if isinstance(controller_publish_secret_ref, dict):
-            controller_publish_secret_ref = SecretReference(
-                **controller_publish_secret_ref
-            )
+            controller_publish_secret_ref = SecretReference(**controller_publish_secret_ref)
         if isinstance(node_publish_secret_ref, dict):
             node_publish_secret_ref = SecretReference(**node_publish_secret_ref)
         if isinstance(node_stage_secret_ref, dict):
@@ -5265,9 +5259,7 @@ class CsiPersistentVolumeSource:
         if controller_expand_secret_ref is not None:
             self._values["controller_expand_secret_ref"] = controller_expand_secret_ref
         if controller_publish_secret_ref is not None:
-            self._values[
-                "controller_publish_secret_ref"
-            ] = controller_publish_secret_ref
+            self._values["controller_publish_secret_ref"] = controller_publish_secret_ref
         if fs_type is not None:
             self._values["fs_type"] = fs_type
         if node_publish_secret_ref is not None:
@@ -6139,9 +6131,7 @@ class CustomResourceDefinitionVersion:
         name: str,
         served: bool,
         storage: bool,
-        additional_printer_columns: typing.Optional[
-            typing.List["CustomResourceColumnDefinition"]
-        ] = None,
+        additional_printer_columns: typing.Optional[typing.List["CustomResourceColumnDefinition"]] = None,
         schema: typing.Optional["CustomResourceValidation"] = None,
         subresources: typing.Optional["CustomResourceSubresources"] = None,
     ) -> None:
@@ -10494,9 +10484,7 @@ class FlowSchemaSpec:
         :schema:: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaSpec
         """
         if isinstance(priority_level_configuration, dict):
-            priority_level_configuration = PriorityLevelConfigurationReference(
-                **priority_level_configuration
-            )
+            priority_level_configuration = PriorityLevelConfigurationReference(**priority_level_configuration)
         if isinstance(distinguisher_method, dict):
             distinguisher_method = FlowDistinguisherMethod(**distinguisher_method)
         self._values = {
@@ -11275,9 +11263,7 @@ class HorizontalPodAutoscalerSpec:
         if min_replicas is not None:
             self._values["min_replicas"] = min_replicas
         if target_cpu_utilization_percentage is not None:
-            self._values[
-                "target_cpu_utilization_percentage"
-            ] = target_cpu_utilization_percentage
+            self._values["target_cpu_utilization_percentage"] = target_cpu_utilization_percentage
 
     @builtins.property
     def max_replicas(self) -> jsii.Number:
@@ -12814,7 +12800,10 @@ class JobList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.JobList")
 )
 class JobListOptions:
     def __init__(
-        self, *, items: typing.List["Job"], metadata: typing.Optional["ListMeta"] = None
+        self,
+        *,
+        items: typing.List["Job"],
+        metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """JobList is a collection of jobs.
 
@@ -13234,9 +13223,7 @@ class JsonSchemaProps:
         nullable: typing.Optional[bool] = None,
         one_of: typing.Optional[typing.List["JsonSchemaProps"]] = None,
         pattern: typing.Optional[str] = None,
-        pattern_properties: typing.Optional[
-            typing.Mapping[str, "JsonSchemaProps"]
-        ] = None,
+        pattern_properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]] = None,
         properties: typing.Optional[typing.Mapping[str, "JsonSchemaProps"]] = None,
         ref: typing.Optional[str] = None,
         required: typing.Optional[typing.List[str]] = None,
@@ -13764,9 +13751,7 @@ class LabelSelector:
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List["LabelSelectorRequirement"]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["LabelSelectorRequirement"]] = None,
         match_labels: typing.Optional[typing.Mapping[str, str]] = None,
     ) -> None:
         """A label selector is a label query over a set of resources.
@@ -14284,9 +14269,7 @@ class LimitRangeItem:
         default: typing.Optional[typing.Mapping[str, "Quantity"]] = None,
         default_request: typing.Optional[typing.Mapping[str, "Quantity"]] = None,
         max: typing.Optional[typing.Mapping[str, "Quantity"]] = None,
-        max_limit_request_ratio: typing.Optional[
-            typing.Mapping[str, "Quantity"]
-        ] = None,
+        max_limit_request_ratio: typing.Optional[typing.Mapping[str, "Quantity"]] = None,
         min: typing.Optional[typing.Mapping[str, "Quantity"]] = None,
         type: typing.Optional[str] = None,
     ) -> None:
@@ -16468,12 +16451,8 @@ class NodeAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List["PreferredSchedulingTerm"]
-        ] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[
-            "NodeSelector"
-        ] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PreferredSchedulingTerm"]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional["NodeSelector"] = None,
     ) -> None:
         """Node affinity is a group of node affinity scheduling rules.
 
@@ -16484,18 +16463,12 @@ class NodeAffinity:
         :schema:: io.k8s.api.core.v1.NodeAffinity
         """
         if isinstance(required_during_scheduling_ignored_during_execution, dict):
-            required_during_scheduling_ignored_during_execution = NodeSelector(
-                **required_during_scheduling_ignored_during_execution
-            )
+            required_during_scheduling_ignored_during_execution = NodeSelector(**required_during_scheduling_ignored_during_execution)
         self._values = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "preferred_during_scheduling_ignored_during_execution"
-            ] = preferred_during_scheduling_ignored_during_execution
+            self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
         if required_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "required_during_scheduling_ignored_during_execution"
-            ] = required_during_scheduling_ignored_during_execution
+            self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
     def preferred_during_scheduling_ignored_during_execution(
@@ -16860,9 +16833,7 @@ class NodeSelectorTerm:
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List["NodeSelectorRequirement"]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["NodeSelectorRequirement"]] = None,
         match_fields: typing.Optional[typing.List["NodeSelectorRequirement"]] = None,
     ) -> None:
         """A null or empty node selector term matches no objects.
@@ -17294,9 +17265,7 @@ class ObjectMeta:
         if creation_timestamp is not None:
             self._values["creation_timestamp"] = creation_timestamp
         if deletion_grace_period_seconds is not None:
-            self._values[
-                "deletion_grace_period_seconds"
-            ] = deletion_grace_period_seconds
+            self._values["deletion_grace_period_seconds"] = deletion_grace_period_seconds
         if deletion_timestamp is not None:
             self._values["deletion_timestamp"] = deletion_timestamp
         if finalizers is not None:
@@ -18446,9 +18415,7 @@ class PersistentVolumeSpec:
         self,
         *,
         access_modes: typing.Optional[typing.List[str]] = None,
-        aws_elastic_block_store: typing.Optional[
-            "AwsElasticBlockStoreVolumeSource"
-        ] = None,
+        aws_elastic_block_store: typing.Optional["AwsElasticBlockStoreVolumeSource"] = None,
         azure_disk: typing.Optional["AzureDiskVolumeSource"] = None,
         azure_file: typing.Optional["AzureFilePersistentVolumeSource"] = None,
         capacity: typing.Optional[typing.Mapping[str, "Quantity"]] = None,
@@ -18468,9 +18435,7 @@ class PersistentVolumeSpec:
         nfs: typing.Optional["NfsVolumeSource"] = None,
         node_affinity: typing.Optional["VolumeNodeAffinity"] = None,
         persistent_volume_reclaim_policy: typing.Optional[str] = None,
-        photon_persistent_disk: typing.Optional[
-            "PhotonPersistentDiskVolumeSource"
-        ] = None,
+        photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"] = None,
         portworx_volume: typing.Optional["PortworxVolumeSource"] = None,
         quobyte: typing.Optional["QuobyteVolumeSource"] = None,
         rbd: typing.Optional["RbdPersistentVolumeSource"] = None,
@@ -18517,9 +18482,7 @@ class PersistentVolumeSpec:
         :schema:: io.k8s.api.core.v1.PersistentVolumeSpec
         """
         if isinstance(aws_elastic_block_store, dict):
-            aws_elastic_block_store = AwsElasticBlockStoreVolumeSource(
-                **aws_elastic_block_store
-            )
+            aws_elastic_block_store = AwsElasticBlockStoreVolumeSource(**aws_elastic_block_store)
         if isinstance(azure_disk, dict):
             azure_disk = AzureDiskVolumeSource(**azure_disk)
         if isinstance(azure_file, dict):
@@ -18553,9 +18516,7 @@ class PersistentVolumeSpec:
         if isinstance(node_affinity, dict):
             node_affinity = VolumeNodeAffinity(**node_affinity)
         if isinstance(photon_persistent_disk, dict):
-            photon_persistent_disk = PhotonPersistentDiskVolumeSource(
-                **photon_persistent_disk
-            )
+            photon_persistent_disk = PhotonPersistentDiskVolumeSource(**photon_persistent_disk)
         if isinstance(portworx_volume, dict):
             portworx_volume = PortworxVolumeSource(**portworx_volume)
         if isinstance(quobyte, dict):
@@ -18610,9 +18571,7 @@ class PersistentVolumeSpec:
         if node_affinity is not None:
             self._values["node_affinity"] = node_affinity
         if persistent_volume_reclaim_policy is not None:
-            self._values[
-                "persistent_volume_reclaim_policy"
-            ] = persistent_volume_reclaim_policy
+            self._values["persistent_volume_reclaim_policy"] = persistent_volume_reclaim_policy
         if photon_persistent_disk is not None:
             self._values["photon_persistent_disk"] = photon_persistent_disk
         if portworx_volume is not None:
@@ -19044,12 +19003,8 @@ class PodAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List["WeightedPodAffinityTerm"]
-        ] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List["PodAffinityTerm"]
-        ] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["WeightedPodAffinityTerm"]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PodAffinityTerm"]] = None,
     ) -> None:
         """Pod affinity is a group of inter pod affinity scheduling rules.
 
@@ -19061,13 +19016,9 @@ class PodAffinity:
         """
         self._values = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "preferred_during_scheduling_ignored_during_execution"
-            ] = preferred_during_scheduling_ignored_during_execution
+            self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
         if required_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "required_during_scheduling_ignored_during_execution"
-            ] = required_during_scheduling_ignored_during_execution
+            self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
     def preferred_during_scheduling_ignored_during_execution(
@@ -19198,12 +19149,8 @@ class PodAntiAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List["WeightedPodAffinityTerm"]
-        ] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[
-            typing.List["PodAffinityTerm"]
-        ] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["WeightedPodAffinityTerm"]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PodAffinityTerm"]] = None,
     ) -> None:
         """Pod anti affinity is a group of inter pod anti affinity scheduling rules.
 
@@ -19215,13 +19162,9 @@ class PodAntiAffinity:
         """
         self._values = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "preferred_during_scheduling_ignored_during_execution"
-            ] = preferred_during_scheduling_ignored_during_execution
+            self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
         if required_during_scheduling_ignored_during_execution is not None:
-            self._values[
-                "required_during_scheduling_ignored_during_execution"
-            ] = required_during_scheduling_ignored_during_execution
+            self._values["required_during_scheduling_ignored_during_execution"] = required_during_scheduling_ignored_during_execution
 
     @builtins.property
     def preferred_during_scheduling_ignored_during_execution(
@@ -19674,7 +19617,10 @@ class PodList(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodList")
 )
 class PodListOptions:
     def __init__(
-        self, *, items: typing.List["Pod"], metadata: typing.Optional["ListMeta"] = None
+        self,
+        *,
+        items: typing.List["Pod"],
+        metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodList is a list of Pods.
 
@@ -20558,9 +20504,7 @@ class PodSecurityPolicySpec:
         if isinstance(se_linux, dict):
             se_linux = SeLinuxStrategyOptions(**se_linux)
         if isinstance(supplemental_groups, dict):
-            supplemental_groups = SupplementalGroupsStrategyOptions(
-                **supplemental_groups
-            )
+            supplemental_groups = SupplementalGroupsStrategyOptions(**supplemental_groups)
         if isinstance(run_as_group, dict):
             run_as_group = RunAsGroupStrategyOptions(**run_as_group)
         if isinstance(runtime_class, dict):
@@ -20588,9 +20532,7 @@ class PodSecurityPolicySpec:
         if default_add_capabilities is not None:
             self._values["default_add_capabilities"] = default_add_capabilities
         if default_allow_privilege_escalation is not None:
-            self._values[
-                "default_allow_privilege_escalation"
-            ] = default_allow_privilege_escalation
+            self._values["default_allow_privilege_escalation"] = default_allow_privilege_escalation
         if forbidden_sysctls is not None:
             self._values["forbidden_sysctls"] = forbidden_sysctls
         if host_ipc is not None:
@@ -20950,9 +20892,7 @@ class PodSpec:
         subdomain: typing.Optional[str] = None,
         termination_grace_period_seconds: typing.Optional[jsii.Number] = None,
         tolerations: typing.Optional[typing.List["Toleration"]] = None,
-        topology_spread_constraints: typing.Optional[
-            typing.List["TopologySpreadConstraint"]
-        ] = None,
+        topology_spread_constraints: typing.Optional[typing.List["TopologySpreadConstraint"]] = None,
         volumes: typing.Optional[typing.List["Volume"]] = None,
     ) -> None:
         """PodSpec is a description of a pod.
@@ -21009,9 +20949,7 @@ class PodSpec:
         if affinity is not None:
             self._values["affinity"] = affinity
         if automount_service_account_token is not None:
-            self._values[
-                "automount_service_account_token"
-            ] = automount_service_account_token
+            self._values["automount_service_account_token"] = automount_service_account_token
         if dns_config is not None:
             self._values["dns_config"] = dns_config
         if dns_policy is not None:
@@ -21065,9 +21003,7 @@ class PodSpec:
         if subdomain is not None:
             self._values["subdomain"] = subdomain
         if termination_grace_period_seconds is not None:
-            self._values[
-                "termination_grace_period_seconds"
-            ] = termination_grace_period_seconds
+            self._values["termination_grace_period_seconds"] = termination_grace_period_seconds
         if tolerations is not None:
             self._values["tolerations"] = tolerations
         if topology_spread_constraints is not None:
@@ -21911,9 +21847,7 @@ class PolicyRulesWithSubjects:
         self,
         *,
         subjects: typing.List["Subject"],
-        non_resource_rules: typing.Optional[
-            typing.List["NonResourcePolicyRule"]
-        ] = None,
+        non_resource_rules: typing.Optional[typing.List["NonResourcePolicyRule"]] = None,
         resource_rules: typing.Optional[typing.List["ResourcePolicyRule"]] = None,
     ) -> None:
         """PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver.
@@ -22415,7 +22349,9 @@ class PriorityClassOptions:
 
 
 class PriorityLevelConfiguration(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PriorityLevelConfiguration"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PriorityLevelConfiguration",
 ):
     """PriorityLevelConfiguration represents the configuration of a priority level.
 
@@ -25584,7 +25520,10 @@ class RuntimeClass(
         :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
         """
         options = RuntimeClassOptions(
-            handler=handler, metadata=metadata, overhead=overhead, scheduling=scheduling
+            handler=handler,
+            metadata=metadata,
+            overhead=overhead,
+            scheduling=scheduling,
         )
 
         jsii.create(RuntimeClass, self, [scope, name, options])
@@ -26416,9 +26355,7 @@ class ScopeSelector:
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[
-            typing.List["ScopedResourceSelectorRequirement"]
-        ] = None,
+        match_expressions: typing.Optional[typing.List["ScopedResourceSelectorRequirement"]] = None,
     ) -> None:
         """A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.
 
@@ -27945,9 +27882,7 @@ class ServiceAccountOptions:
             metadata = ObjectMeta(**metadata)
         self._values = {}
         if automount_service_account_token is not None:
-            self._values[
-                "automount_service_account_token"
-            ] = automount_service_account_token
+            self._values["automount_service_account_token"] = automount_service_account_token
         if image_pull_secrets is not None:
             self._values["image_pull_secrets"] = image_pull_secrets
         if metadata is not None:
@@ -28984,9 +28919,7 @@ class StatefulSetSpec:
         replicas: typing.Optional[jsii.Number] = None,
         revision_history_limit: typing.Optional[jsii.Number] = None,
         update_strategy: typing.Optional["StatefulSetUpdateStrategy"] = None,
-        volume_claim_templates: typing.Optional[
-            typing.List["PersistentVolumeClaim"]
-        ] = None,
+        volume_claim_templates: typing.Optional[typing.List["PersistentVolumeClaim"]] = None,
     ) -> None:
         """A StatefulSetSpec is the specification of a StatefulSet.
 
@@ -30845,7 +30778,10 @@ class TokenReview(
 )
 class TokenReviewOptions:
     def __init__(
-        self, *, spec: "TokenReviewSpec", metadata: typing.Optional["ObjectMeta"] = None
+        self,
+        *,
+        spec: "TokenReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
     ) -> None:
         """TokenReview attempts to authenticate a token to a known user.
 
@@ -31131,9 +31067,7 @@ class TopologySelectorTerm:
     def __init__(
         self,
         *,
-        match_label_expressions: typing.Optional[
-            typing.List["TopologySelectorLabelRequirement"]
-        ] = None,
+        match_label_expressions: typing.Optional[typing.List["TopologySelectorLabelRequirement"]] = None,
     ) -> None:
         """A topology selector term represents the result of label queries.
 
@@ -31800,9 +31734,7 @@ class Volume:
         self,
         *,
         name: str,
-        aws_elastic_block_store: typing.Optional[
-            "AwsElasticBlockStoreVolumeSource"
-        ] = None,
+        aws_elastic_block_store: typing.Optional["AwsElasticBlockStoreVolumeSource"] = None,
         azure_disk: typing.Optional["AzureDiskVolumeSource"] = None,
         azure_file: typing.Optional["AzureFileVolumeSource"] = None,
         cephfs: typing.Optional["CephFsVolumeSource"] = None,
@@ -31820,12 +31752,8 @@ class Volume:
         host_path: typing.Optional["HostPathVolumeSource"] = None,
         iscsi: typing.Optional["IscsiVolumeSource"] = None,
         nfs: typing.Optional["NfsVolumeSource"] = None,
-        persistent_volume_claim: typing.Optional[
-            "PersistentVolumeClaimVolumeSource"
-        ] = None,
-        photon_persistent_disk: typing.Optional[
-            "PhotonPersistentDiskVolumeSource"
-        ] = None,
+        persistent_volume_claim: typing.Optional["PersistentVolumeClaimVolumeSource"] = None,
+        photon_persistent_disk: typing.Optional["PhotonPersistentDiskVolumeSource"] = None,
         portworx_volume: typing.Optional["PortworxVolumeSource"] = None,
         projected: typing.Optional["ProjectedVolumeSource"] = None,
         quobyte: typing.Optional["QuobyteVolumeSource"] = None,
@@ -31871,9 +31799,7 @@ class Volume:
         :schema:: io.k8s.api.core.v1.Volume
         """
         if isinstance(aws_elastic_block_store, dict):
-            aws_elastic_block_store = AwsElasticBlockStoreVolumeSource(
-                **aws_elastic_block_store
-            )
+            aws_elastic_block_store = AwsElasticBlockStoreVolumeSource(**aws_elastic_block_store)
         if isinstance(azure_disk, dict):
             azure_disk = AzureDiskVolumeSource(**azure_disk)
         if isinstance(azure_file, dict):
@@ -31909,13 +31835,9 @@ class Volume:
         if isinstance(nfs, dict):
             nfs = NfsVolumeSource(**nfs)
         if isinstance(persistent_volume_claim, dict):
-            persistent_volume_claim = PersistentVolumeClaimVolumeSource(
-                **persistent_volume_claim
-            )
+            persistent_volume_claim = PersistentVolumeClaimVolumeSource(**persistent_volume_claim)
         if isinstance(photon_persistent_disk, dict):
-            photon_persistent_disk = PhotonPersistentDiskVolumeSource(
-                **photon_persistent_disk
-            )
+            photon_persistent_disk = PhotonPersistentDiskVolumeSource(**photon_persistent_disk)
         if isinstance(portworx_volume, dict):
             portworx_volume = PortworxVolumeSource(**portworx_volume)
         if isinstance(projected, dict):
@@ -32914,9 +32836,7 @@ class VolumeProjection:
         if isinstance(secret, dict):
             secret = SecretProjection(**secret)
         if isinstance(service_account_token, dict):
-            service_account_token = ServiceAccountTokenProjection(
-                **service_account_token
-            )
+            service_account_token = ServiceAccountTokenProjection(**service_account_token)
         self._values = {}
         if config_map is not None:
             self._values["config_map"] = config_map
