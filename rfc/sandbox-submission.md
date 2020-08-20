@@ -1,7 +1,7 @@
 This is a working document to outline responses to request for CNCF sandbox submission.
 
 ### links
-* [issue](/issues/#280)
+* [issue](/issues/280)
 * [process](https://github.com/cncf/toc/blob/master/process/project_proposals.adoc#sandbox-process)
 * [form](https://docs.google.com/forms/d/1bJhG1MuM981uQXcnBMv4Mj9yfV5_q5Kwk3qhBCLa_5A/viewform?edit_requested=true)
 
