@@ -160,9 +160,7 @@ class JenkinsSpec:
         if isinstance(backup, dict):
             backup = JenkinsSpecBackup(**backup)
         if isinstance(configuration_as_code, dict):
-            configuration_as_code = JenkinsSpecConfigurationAsCode(
-                **configuration_as_code
-            )
+            configuration_as_code = JenkinsSpecConfigurationAsCode(**configuration_as_code)
         if isinstance(groovy_scripts, dict):
             groovy_scripts = JenkinsSpecGroovyScripts(**groovy_scripts)
         if isinstance(restore, dict):
@@ -830,21 +828,15 @@ class JenkinsSpecMaster:
         *,
         disable_csrf_protection: bool,
         annotations: typing.Optional[typing.Mapping[str, str]] = None,
-        base_plugins: typing.Optional[
-            typing.List["JenkinsSpecMasterBasePlugins"]
-        ] = None,
+        base_plugins: typing.Optional[typing.List["JenkinsSpecMasterBasePlugins"]] = None,
         containers: typing.Optional[typing.List["JenkinsSpecMasterContainers"]] = None,
-        image_pull_secrets: typing.Optional[
-            typing.List["JenkinsSpecMasterImagePullSecrets"]
-        ] = None,
+        image_pull_secrets: typing.Optional[typing.List["JenkinsSpecMasterImagePullSecrets"]] = None,
         labels: typing.Optional[typing.Mapping[str, str]] = None,
         master_annotations: typing.Optional[typing.Mapping[str, str]] = None,
         node_selector: typing.Optional[typing.Mapping[str, str]] = None,
         plugins: typing.Optional[typing.List["JenkinsSpecMasterPlugins"]] = None,
         security_context: typing.Optional["JenkinsSpecMasterSecurityContext"] = None,
-        tolerations: typing.Optional[
-            typing.List["JenkinsSpecMasterTolerations"]
-        ] = None,
+        tolerations: typing.Optional[typing.List["JenkinsSpecMasterTolerations"]] = None,
         volumes: typing.Optional[typing.List["JenkinsSpecMasterVolumes"]] = None,
     ) -> None:
         """Master represents Jenkins master pod properties and Jenkins plugins.
@@ -1128,23 +1120,13 @@ class JenkinsSpecMasterContainers:
         args: typing.Optional[typing.List[str]] = None,
         command: typing.Optional[typing.List[str]] = None,
         env: typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]] = None,
-        env_from: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersEnvFrom"]
-        ] = None,
+        env_from: typing.Optional[typing.List["JenkinsSpecMasterContainersEnvFrom"]] = None,
         lifecycle: typing.Optional["JenkinsSpecMasterContainersLifecycle"] = None,
-        liveness_probe: typing.Optional[
-            "JenkinsSpecMasterContainersLivenessProbe"
-        ] = None,
+        liveness_probe: typing.Optional["JenkinsSpecMasterContainersLivenessProbe"] = None,
         ports: typing.Optional[typing.List["JenkinsSpecMasterContainersPorts"]] = None,
-        readiness_probe: typing.Optional[
-            "JenkinsSpecMasterContainersReadinessProbe"
-        ] = None,
-        security_context: typing.Optional[
-            "JenkinsSpecMasterContainersSecurityContext"
-        ] = None,
-        volume_mounts: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersVolumeMounts"]
-        ] = None,
+        readiness_probe: typing.Optional["JenkinsSpecMasterContainersReadinessProbe"] = None,
+        security_context: typing.Optional["JenkinsSpecMasterContainersSecurityContext"] = None,
+        volume_mounts: typing.Optional[typing.List["JenkinsSpecMasterContainersVolumeMounts"]] = None,
         working_dir: typing.Optional[str] = None,
     ) -> None:
         """Container defines Kubernetes container attributes.
@@ -1175,13 +1157,9 @@ class JenkinsSpecMasterContainers:
         if isinstance(liveness_probe, dict):
             liveness_probe = JenkinsSpecMasterContainersLivenessProbe(**liveness_probe)
         if isinstance(readiness_probe, dict):
-            readiness_probe = JenkinsSpecMasterContainersReadinessProbe(
-                **readiness_probe
-            )
+            readiness_probe = JenkinsSpecMasterContainersReadinessProbe(**readiness_probe)
         if isinstance(security_context, dict):
-            security_context = JenkinsSpecMasterContainersSecurityContext(
-                **security_context
-            )
+            security_context = JenkinsSpecMasterContainersSecurityContext(**security_context)
         self._values = {
             "image": image,
             "image_pull_policy": image_pull_policy,
@@ -1488,13 +1466,9 @@ class JenkinsSpecMasterContainersEnvFrom:
     def __init__(
         self,
         *,
-        config_map_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvFromConfigMapRef"
-        ] = None,
+        config_map_ref: typing.Optional["JenkinsSpecMasterContainersEnvFromConfigMapRef"] = None,
         prefix: typing.Optional[str] = None,
-        secret_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvFromSecretRef"
-        ] = None,
+        secret_ref: typing.Optional["JenkinsSpecMasterContainersEnvFromSecretRef"] = None,
     ) -> None:
         """EnvFromSource represents the source of a set of ConfigMaps.
 
@@ -1506,9 +1480,7 @@ class JenkinsSpecMasterContainersEnvFrom:
         :schema:: JenkinsSpecMasterContainersEnvFrom
         """
         if isinstance(config_map_ref, dict):
-            config_map_ref = JenkinsSpecMasterContainersEnvFromConfigMapRef(
-                **config_map_ref
-            )
+            config_map_ref = JenkinsSpecMasterContainersEnvFromConfigMapRef(**config_map_ref)
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterContainersEnvFromSecretRef(**secret_ref)
         self._values = {}
@@ -1694,18 +1666,10 @@ class JenkinsSpecMasterContainersEnvValueFrom:
     def __init__(
         self,
         *,
-        config_map_key_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef"
-        ] = None,
-        field_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvValueFromFieldRef"
-        ] = None,
-        resource_field_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvValueFromResourceFieldRef"
-        ] = None,
-        secret_key_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvValueFromSecretKeyRef"
-        ] = None,
+        config_map_key_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef"] = None,
+        field_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromFieldRef"] = None,
+        resource_field_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromResourceFieldRef"] = None,
+        secret_key_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromSecretKeyRef"] = None,
     ) -> None:
         """Source for the environment variable's value.
 
@@ -1720,19 +1684,13 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         :schema:: JenkinsSpecMasterContainersEnvValueFrom
         """
         if isinstance(config_map_key_ref, dict):
-            config_map_key_ref = JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef(
-                **config_map_key_ref
-            )
+            config_map_key_ref = JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef(**config_map_key_ref)
         if isinstance(field_ref, dict):
             field_ref = JenkinsSpecMasterContainersEnvValueFromFieldRef(**field_ref)
         if isinstance(resource_field_ref, dict):
-            resource_field_ref = JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(
-                **resource_field_ref
-            )
+            resource_field_ref = JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(**resource_field_ref)
         if isinstance(secret_key_ref, dict):
-            secret_key_ref = JenkinsSpecMasterContainersEnvValueFromSecretKeyRef(
-                **secret_key_ref
-            )
+            secret_key_ref = JenkinsSpecMasterContainersEnvValueFromSecretKeyRef(**secret_key_ref)
         self._values = {}
         if config_map_key_ref is not None:
             self._values["config_map_key_ref"] = config_map_key_ref
@@ -1991,9 +1949,8 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2079,9 +2036,7 @@ class JenkinsSpecMasterContainersLifecycle:
     def __init__(
         self,
         *,
-        post_start: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePostStart"
-        ] = None,
+        post_start: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStart"] = None,
         pre_stop: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStop"] = None,
     ) -> None:
         """Actions that the management system should take in response to container lifecycle events.
@@ -2149,15 +2104,9 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
     def __init__(
         self,
         *,
-        exec: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePostStartExec"
-        ] = None,
-        http_get: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePostStartHttpGet"
-        ] = None,
-        tcp_socket: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePostStartTcpSocket"
-        ] = None,
+        exec: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartExec"] = None,
+        http_get: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartHttpGet"] = None,
+        tcp_socket: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartTcpSocket"] = None,
     ) -> None:
         """PostStart is called immediately after a container is created.
 
@@ -2175,9 +2124,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         if isinstance(http_get, dict):
             http_get = JenkinsSpecMasterContainersLifecyclePostStartHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
-            tcp_socket = JenkinsSpecMasterContainersLifecyclePostStartTcpSocket(
-                **tcp_socket
-            )
+            tcp_socket = JenkinsSpecMasterContainersLifecyclePostStartTcpSocket(**tcp_socket)
         self._values = {}
         if exec is not None:
             self._values["exec"] = exec
@@ -2295,11 +2242,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         *,
         port: "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort",
         host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List[
-                "JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"
-            ]
-        ] = None,
+        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]] = None,
         path: typing.Optional[str] = None,
         scheme: typing.Optional[str] = None,
     ) -> None:
@@ -2351,9 +2294,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -2443,9 +2384,8 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2585,12 +2525,8 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         self,
         *,
         exec: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopExec"] = None,
-        http_get: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePreStopHttpGet"
-        ] = None,
-        tcp_socket: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePreStopTcpSocket"
-        ] = None,
+        http_get: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopHttpGet"] = None,
+        tcp_socket: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopTcpSocket"] = None,
     ) -> None:
         """PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc.
 
@@ -2608,9 +2544,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         if isinstance(http_get, dict):
             http_get = JenkinsSpecMasterContainersLifecyclePreStopHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
-            tcp_socket = JenkinsSpecMasterContainersLifecyclePreStopTcpSocket(
-                **tcp_socket
-            )
+            tcp_socket = JenkinsSpecMasterContainersLifecyclePreStopTcpSocket(**tcp_socket)
         self._values = {}
         if exec is not None:
             self._values["exec"] = exec
@@ -2728,9 +2662,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         *,
         port: "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort",
         host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]
-        ] = None,
+        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]] = None,
         path: typing.Optional[str] = None,
         scheme: typing.Optional[str] = None,
     ) -> None:
@@ -2782,9 +2714,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -2874,9 +2804,8 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -3026,15 +2955,11 @@ class JenkinsSpecMasterContainersLivenessProbe:
         *,
         exec: typing.Optional["JenkinsSpecMasterContainersLivenessProbeExec"] = None,
         failure_threshold: typing.Optional[jsii.Number] = None,
-        http_get: typing.Optional[
-            "JenkinsSpecMasterContainersLivenessProbeHttpGet"
-        ] = None,
+        http_get: typing.Optional["JenkinsSpecMasterContainersLivenessProbeHttpGet"] = None,
         initial_delay_seconds: typing.Optional[jsii.Number] = None,
         period_seconds: typing.Optional[jsii.Number] = None,
         success_threshold: typing.Optional[jsii.Number] = None,
-        tcp_socket: typing.Optional[
-            "JenkinsSpecMasterContainersLivenessProbeTcpSocket"
-        ] = None,
+        tcp_socket: typing.Optional["JenkinsSpecMasterContainersLivenessProbeTcpSocket"] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Periodic probe of container liveness.
@@ -3251,9 +3176,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         *,
         port: "JenkinsSpecMasterContainersLivenessProbeHttpGetPort",
         host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]
-        ] = None,
+        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]] = None,
         path: typing.Optional[str] = None,
         scheme: typing.Optional[str] = None,
     ) -> None:
@@ -3305,9 +3228,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -3397,9 +3318,8 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -3661,15 +3581,11 @@ class JenkinsSpecMasterContainersReadinessProbe:
         *,
         exec: typing.Optional["JenkinsSpecMasterContainersReadinessProbeExec"] = None,
         failure_threshold: typing.Optional[jsii.Number] = None,
-        http_get: typing.Optional[
-            "JenkinsSpecMasterContainersReadinessProbeHttpGet"
-        ] = None,
+        http_get: typing.Optional["JenkinsSpecMasterContainersReadinessProbeHttpGet"] = None,
         initial_delay_seconds: typing.Optional[jsii.Number] = None,
         period_seconds: typing.Optional[jsii.Number] = None,
         success_threshold: typing.Optional[jsii.Number] = None,
-        tcp_socket: typing.Optional[
-            "JenkinsSpecMasterContainersReadinessProbeTcpSocket"
-        ] = None,
+        tcp_socket: typing.Optional["JenkinsSpecMasterContainersReadinessProbeTcpSocket"] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Periodic probe of container service readiness.
@@ -3693,9 +3609,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         if isinstance(http_get, dict):
             http_get = JenkinsSpecMasterContainersReadinessProbeHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
-            tcp_socket = JenkinsSpecMasterContainersReadinessProbeTcpSocket(
-                **tcp_socket
-            )
+            tcp_socket = JenkinsSpecMasterContainersReadinessProbeTcpSocket(**tcp_socket)
         self._values = {}
         if exec is not None:
             self._values["exec"] = exec
@@ -3888,9 +3802,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         *,
         port: "JenkinsSpecMasterContainersReadinessProbeHttpGetPort",
         host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]
-        ] = None,
+        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]] = None,
         path: typing.Optional[str] = None,
         scheme: typing.Optional[str] = None,
     ) -> None:
@@ -3942,9 +3854,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -4034,9 +3944,8 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4249,21 +4158,15 @@ class JenkinsSpecMasterContainersSecurityContext:
         self,
         *,
         allow_privilege_escalation: typing.Optional[bool] = None,
-        capabilities: typing.Optional[
-            "JenkinsSpecMasterContainersSecurityContextCapabilities"
-        ] = None,
+        capabilities: typing.Optional["JenkinsSpecMasterContainersSecurityContextCapabilities"] = None,
         privileged: typing.Optional[bool] = None,
         proc_mount: typing.Optional[str] = None,
         read_only_root_filesystem: typing.Optional[bool] = None,
         run_as_group: typing.Optional[jsii.Number] = None,
         run_as_non_root: typing.Optional[bool] = None,
         run_as_user: typing.Optional[jsii.Number] = None,
-        se_linux_options: typing.Optional[
-            "JenkinsSpecMasterContainersSecurityContextSeLinuxOptions"
-        ] = None,
-        windows_options: typing.Optional[
-            "JenkinsSpecMasterContainersSecurityContextWindowsOptions"
-        ] = None,
+        se_linux_options: typing.Optional["JenkinsSpecMasterContainersSecurityContextSeLinuxOptions"] = None,
+        windows_options: typing.Optional["JenkinsSpecMasterContainersSecurityContextWindowsOptions"] = None,
     ) -> None:
         """Security options the pod should run with.
 
@@ -4284,17 +4187,11 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema:: JenkinsSpecMasterContainersSecurityContext
         """
         if isinstance(capabilities, dict):
-            capabilities = JenkinsSpecMasterContainersSecurityContextCapabilities(
-                **capabilities
-            )
+            capabilities = JenkinsSpecMasterContainersSecurityContextCapabilities(**capabilities)
         if isinstance(se_linux_options, dict):
-            se_linux_options = JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(
-                **se_linux_options
-            )
+            se_linux_options = JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(**se_linux_options)
         if isinstance(windows_options, dict):
-            windows_options = JenkinsSpecMasterContainersSecurityContextWindowsOptions(
-                **windows_options
-            )
+            windows_options = JenkinsSpecMasterContainersSecurityContextWindowsOptions(**windows_options)
         self._values = {}
         if allow_privilege_escalation is not None:
             self._values["allow_privilege_escalation"] = allow_privilege_escalation
@@ -4597,9 +4494,8 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4680,9 +4576,8 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersSecurityContextWindowsOptions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersSecurityContextWindowsOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4932,16 +4827,10 @@ class JenkinsSpecMasterSecurityContext:
         run_as_group: typing.Optional[jsii.Number] = None,
         run_as_non_root: typing.Optional[bool] = None,
         run_as_user: typing.Optional[jsii.Number] = None,
-        se_linux_options: typing.Optional[
-            "JenkinsSpecMasterSecurityContextSeLinuxOptions"
-        ] = None,
+        se_linux_options: typing.Optional["JenkinsSpecMasterSecurityContextSeLinuxOptions"] = None,
         supplemental_groups: typing.Optional[typing.List[jsii.Number]] = None,
-        sysctls: typing.Optional[
-            typing.List["JenkinsSpecMasterSecurityContextSysctls"]
-        ] = None,
-        windows_options: typing.Optional[
-            "JenkinsSpecMasterSecurityContextWindowsOptions"
-        ] = None,
+        sysctls: typing.Optional[typing.List["JenkinsSpecMasterSecurityContextSysctls"]] = None,
+        windows_options: typing.Optional["JenkinsSpecMasterSecurityContextWindowsOptions"] = None,
     ) -> None:
         """SecurityContext that applies to all the containers of the Jenkins Master.
 
@@ -4963,13 +4852,9 @@ class JenkinsSpecMasterSecurityContext:
         :schema:: JenkinsSpecMasterSecurityContext
         """
         if isinstance(se_linux_options, dict):
-            se_linux_options = JenkinsSpecMasterSecurityContextSeLinuxOptions(
-                **se_linux_options
-            )
+            se_linux_options = JenkinsSpecMasterSecurityContextSeLinuxOptions(**se_linux_options)
         if isinstance(windows_options, dict):
-            windows_options = JenkinsSpecMasterSecurityContextWindowsOptions(
-                **windows_options
-            )
+            windows_options = JenkinsSpecMasterSecurityContextWindowsOptions(**windows_options)
         self._values = {}
         if fs_group is not None:
             self._values["fs_group"] = fs_group
@@ -5470,9 +5355,7 @@ class JenkinsSpecMasterVolumes:
         self,
         *,
         name: str,
-        aws_elastic_block_store: typing.Optional[
-            "JenkinsSpecMasterVolumesAwsElasticBlockStore"
-        ] = None,
+        aws_elastic_block_store: typing.Optional["JenkinsSpecMasterVolumesAwsElasticBlockStore"] = None,
         azure_disk: typing.Optional["JenkinsSpecMasterVolumesAzureDisk"] = None,
         azure_file: typing.Optional["JenkinsSpecMasterVolumesAzureFile"] = None,
         cephfs: typing.Optional["JenkinsSpecMasterVolumesCephfs"] = None,
@@ -5484,23 +5367,15 @@ class JenkinsSpecMasterVolumes:
         fc: typing.Optional["JenkinsSpecMasterVolumesFc"] = None,
         flex_volume: typing.Optional["JenkinsSpecMasterVolumesFlexVolume"] = None,
         flocker: typing.Optional["JenkinsSpecMasterVolumesFlocker"] = None,
-        gce_persistent_disk: typing.Optional[
-            "JenkinsSpecMasterVolumesGcePersistentDisk"
-        ] = None,
+        gce_persistent_disk: typing.Optional["JenkinsSpecMasterVolumesGcePersistentDisk"] = None,
         git_repo: typing.Optional["JenkinsSpecMasterVolumesGitRepo"] = None,
         glusterfs: typing.Optional["JenkinsSpecMasterVolumesGlusterfs"] = None,
         host_path: typing.Optional["JenkinsSpecMasterVolumesHostPath"] = None,
         iscsi: typing.Optional["JenkinsSpecMasterVolumesIscsi"] = None,
         nfs: typing.Optional["JenkinsSpecMasterVolumesNfs"] = None,
-        persistent_volume_claim: typing.Optional[
-            "JenkinsSpecMasterVolumesPersistentVolumeClaim"
-        ] = None,
-        photon_persistent_disk: typing.Optional[
-            "JenkinsSpecMasterVolumesPhotonPersistentDisk"
-        ] = None,
-        portworx_volume: typing.Optional[
-            "JenkinsSpecMasterVolumesPortworxVolume"
-        ] = None,
+        persistent_volume_claim: typing.Optional["JenkinsSpecMasterVolumesPersistentVolumeClaim"] = None,
+        photon_persistent_disk: typing.Optional["JenkinsSpecMasterVolumesPhotonPersistentDisk"] = None,
+        portworx_volume: typing.Optional["JenkinsSpecMasterVolumesPortworxVolume"] = None,
         projected: typing.Optional["JenkinsSpecMasterVolumesProjected"] = None,
         quobyte: typing.Optional["JenkinsSpecMasterVolumesQuobyte"] = None,
         rbd: typing.Optional["JenkinsSpecMasterVolumesRbd"] = None,
@@ -5545,9 +5420,7 @@ class JenkinsSpecMasterVolumes:
         :schema:: JenkinsSpecMasterVolumes
         """
         if isinstance(aws_elastic_block_store, dict):
-            aws_elastic_block_store = JenkinsSpecMasterVolumesAwsElasticBlockStore(
-                **aws_elastic_block_store
-            )
+            aws_elastic_block_store = JenkinsSpecMasterVolumesAwsElasticBlockStore(**aws_elastic_block_store)
         if isinstance(azure_disk, dict):
             azure_disk = JenkinsSpecMasterVolumesAzureDisk(**azure_disk)
         if isinstance(azure_file, dict):
@@ -5571,9 +5444,7 @@ class JenkinsSpecMasterVolumes:
         if isinstance(flocker, dict):
             flocker = JenkinsSpecMasterVolumesFlocker(**flocker)
         if isinstance(gce_persistent_disk, dict):
-            gce_persistent_disk = JenkinsSpecMasterVolumesGcePersistentDisk(
-                **gce_persistent_disk
-            )
+            gce_persistent_disk = JenkinsSpecMasterVolumesGcePersistentDisk(**gce_persistent_disk)
         if isinstance(git_repo, dict):
             git_repo = JenkinsSpecMasterVolumesGitRepo(**git_repo)
         if isinstance(glusterfs, dict):
@@ -5585,13 +5456,9 @@ class JenkinsSpecMasterVolumes:
         if isinstance(nfs, dict):
             nfs = JenkinsSpecMasterVolumesNfs(**nfs)
         if isinstance(persistent_volume_claim, dict):
-            persistent_volume_claim = JenkinsSpecMasterVolumesPersistentVolumeClaim(
-                **persistent_volume_claim
-            )
+            persistent_volume_claim = JenkinsSpecMasterVolumesPersistentVolumeClaim(**persistent_volume_claim)
         if isinstance(photon_persistent_disk, dict):
-            photon_persistent_disk = JenkinsSpecMasterVolumesPhotonPersistentDisk(
-                **photon_persistent_disk
-            )
+            photon_persistent_disk = JenkinsSpecMasterVolumesPhotonPersistentDisk(**photon_persistent_disk)
         if isinstance(portworx_volume, dict):
             portworx_volume = JenkinsSpecMasterVolumesPortworxVolume(**portworx_volume)
         if isinstance(projected, dict):
@@ -6599,9 +6466,7 @@ class JenkinsSpecMasterVolumesConfigMap:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesConfigMapItems"]
-        ] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesConfigMapItems"]] = None,
         name: typing.Optional[str] = None,
         optional: typing.Optional[bool] = None,
     ) -> None:
@@ -6769,9 +6634,7 @@ class JenkinsSpecMasterVolumesCsi:
         *,
         driver: str,
         fs_type: typing.Optional[str] = None,
-        node_publish_secret_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesCsiNodePublishSecretRef"
-        ] = None,
+        node_publish_secret_ref: typing.Optional["JenkinsSpecMasterVolumesCsiNodePublishSecretRef"] = None,
         read_only: typing.Optional[bool] = None,
         volume_attributes: typing.Optional[typing.Mapping[str, str]] = None,
     ) -> None:
@@ -6787,9 +6650,7 @@ class JenkinsSpecMasterVolumesCsi:
         :schema:: JenkinsSpecMasterVolumesCsi
         """
         if isinstance(node_publish_secret_ref, dict):
-            node_publish_secret_ref = JenkinsSpecMasterVolumesCsiNodePublishSecretRef(
-                **node_publish_secret_ref
-            )
+            node_publish_secret_ref = JenkinsSpecMasterVolumesCsiNodePublishSecretRef(**node_publish_secret_ref)
         self._values = {
             "driver": driver,
         }
@@ -6927,9 +6788,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]
-        ] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]] = None,
     ) -> None:
         """DownwardAPI represents downward API about the pod that should populate this volume.
 
@@ -6997,13 +6856,9 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         self,
         *,
         path: str,
-        field_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesDownwardApiItemsFieldRef"
-        ] = None,
+        field_ref: typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsFieldRef"] = None,
         mode: typing.Optional[jsii.Number] = None,
-        resource_field_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef"
-        ] = None,
+        resource_field_ref: typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef"] = None,
     ) -> None:
         """DownwardAPIVolumeFile represents information to create the file containing the pod field.
 
@@ -7018,9 +6873,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         if isinstance(field_ref, dict):
             field_ref = JenkinsSpecMasterVolumesDownwardApiItemsFieldRef(**field_ref)
         if isinstance(resource_field_ref, dict):
-            resource_field_ref = JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(
-                **resource_field_ref
-            )
+            resource_field_ref = JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(**resource_field_ref)
         self._values = {
             "path": path,
         }
@@ -7208,9 +7061,8 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -7403,9 +7255,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
         fs_type: typing.Optional[str] = None,
         options: typing.Optional[typing.Mapping[str, str]] = None,
         read_only: typing.Optional[bool] = None,
-        secret_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesFlexVolumeSecretRef"
-        ] = None,
+        secret_ref: typing.Optional["JenkinsSpecMasterVolumesFlexVolumeSecretRef"] = None,
     ) -> None:
         """FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
 
@@ -8496,18 +8346,10 @@ class JenkinsSpecMasterVolumesProjectedSources:
     def __init__(
         self,
         *,
-        config_map: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesConfigMap"
-        ] = None,
-        downward_api: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApi"
-        ] = None,
-        secret: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesSecret"
-        ] = None,
-        service_account_token: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken"
-        ] = None,
+        config_map: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesConfigMap"] = None,
+        downward_api: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApi"] = None,
+        secret: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesSecret"] = None,
+        service_account_token: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken"] = None,
     ) -> None:
         """Projection that may be projected along with other supported volume types.
 
@@ -8522,15 +8364,11 @@ class JenkinsSpecMasterVolumesProjectedSources:
         if isinstance(config_map, dict):
             config_map = JenkinsSpecMasterVolumesProjectedSourcesConfigMap(**config_map)
         if isinstance(downward_api, dict):
-            downward_api = JenkinsSpecMasterVolumesProjectedSourcesDownwardApi(
-                **downward_api
-            )
+            downward_api = JenkinsSpecMasterVolumesProjectedSourcesDownwardApi(**downward_api)
         if isinstance(secret, dict):
             secret = JenkinsSpecMasterVolumesProjectedSourcesSecret(**secret)
         if isinstance(service_account_token, dict):
-            service_account_token = JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(
-                **service_account_token
-            )
+            service_account_token = JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(**service_account_token)
         self._values = {}
         if config_map is not None:
             self._values["config_map"] = config_map
@@ -8606,9 +8444,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
     def __init__(
         self,
         *,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]
-        ] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]] = None,
         name: typing.Optional[str] = None,
         optional: typing.Optional[bool] = None,
     ) -> None:
@@ -8632,9 +8468,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
     @builtins.property
     def items(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]]:
         """If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.
 
         If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
@@ -8753,9 +8587,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
     def __init__(
         self,
         *,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]
-        ] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]] = None,
     ) -> None:
         """information about the downwardAPI data to project.
 
@@ -8771,9 +8603,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
     @builtins.property
     def items(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]]:
         """Items is a list of DownwardAPIVolume file.
 
         schema:
@@ -8808,13 +8638,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         self,
         *,
         path: str,
-        field_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"
-        ] = None,
+        field_ref: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"] = None,
         mode: typing.Optional[jsii.Number] = None,
-        resource_field_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"
-        ] = None,
+        resource_field_ref: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"] = None,
     ) -> None:
         """DownwardAPIVolumeFile represents information to create the file containing the pod field.
 
@@ -8827,13 +8653,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems
         """
         if isinstance(field_ref, dict):
-            field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(
-                **field_ref
-            )
+            field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(**field_ref)
         if isinstance(resource_field_ref, dict):
-            resource_field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(
-                **resource_field_ref
-            )
+            resource_field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(**resource_field_ref)
         self._values = {
             "path": path,
         }
@@ -8858,9 +8680,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
     @builtins.property
     def field_ref(
         self,
-    ) -> typing.Optional[
-        "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"
-    ]:
+    ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"]:
         """Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
 
         schema:
@@ -8882,9 +8702,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
     @builtins.property
     def resource_field_ref(
         self,
-    ) -> typing.Optional[
-        "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"
-    ]:
+    ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"]:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
         schema:
@@ -8899,9 +8717,8 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -8953,9 +8770,8 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -9027,9 +8843,8 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -9042,9 +8857,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
     def __init__(
         self,
         *,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]
-        ] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]] = None,
         name: typing.Optional[str] = None,
         optional: typing.Optional[bool] = None,
     ) -> None:
@@ -9068,9 +8881,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
     @builtins.property
     def items(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]]:
         """If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value.
 
         If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
@@ -9255,9 +9066,8 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -9855,9 +9665,7 @@ class JenkinsSpecMasterVolumesSecret:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesSecretItems"]
-        ] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesSecretItems"]] = None,
         optional: typing.Optional[bool] = None,
         secret_name: typing.Optional[str] = None,
     ) -> None:
@@ -10027,9 +9835,7 @@ class JenkinsSpecMasterVolumesStorageos:
         *,
         fs_type: typing.Optional[str] = None,
         read_only: typing.Optional[bool] = None,
-        secret_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesStorageosSecretRef"
-        ] = None,
+        secret_ref: typing.Optional["JenkinsSpecMasterVolumesStorageosSecretRef"] = None,
         volume_name: typing.Optional[str] = None,
         volume_namespace: typing.Optional[str] = None,
     ) -> None:
@@ -10425,9 +10231,7 @@ class JenkinsSpecNotificationsMailgun:
         :schema:: JenkinsSpecNotificationsMailgun
         """
         if isinstance(api_key_secret_key_selector, dict):
-            api_key_secret_key_selector = JenkinsSpecNotificationsMailgunApiKeySecretKeySelector(
-                **api_key_secret_key_selector
-            )
+            api_key_secret_key_selector = JenkinsSpecNotificationsMailgunApiKeySecretKeySelector(**api_key_secret_key_selector)
         self._values = {
             "api_key_secret_key_selector": api_key_secret_key_selector,
             "domain": domain,
@@ -10503,9 +10307,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
         :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(
-                **secret
-            )
+            secret = JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(**secret)
         self._values = {
             "key": key,
             "secret": secret,
@@ -10579,9 +10381,8 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -10604,9 +10405,7 @@ class JenkinsSpecNotificationsSlack:
         :schema:: JenkinsSpecNotificationsSlack
         """
         if isinstance(web_hook_url_secret_key_selector, dict):
-            web_hook_url_secret_key_selector = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(
-                **web_hook_url_secret_key_selector
-            )
+            web_hook_url_secret_key_selector = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(**web_hook_url_secret_key_selector)
         self._values = {
             "web_hook_url_secret_key_selector": web_hook_url_secret_key_selector,
         }
@@ -10655,9 +10454,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(
-                **secret
-            )
+            secret = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(**secret)
         self._values = {
             "key": key,
             "secret": secret,
@@ -10692,9 +10489,8 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -10734,9 +10530,8 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -10779,13 +10574,9 @@ class JenkinsSpecNotificationsSmtp:
         :schema:: JenkinsSpecNotificationsSmtp
         """
         if isinstance(password_secret_key_selector, dict):
-            password_secret_key_selector = JenkinsSpecNotificationsSmtpPasswordSecretKeySelector(
-                **password_secret_key_selector
-            )
+            password_secret_key_selector = JenkinsSpecNotificationsSmtpPasswordSecretKeySelector(**password_secret_key_selector)
         if isinstance(username_secret_key_selector, dict):
-            username_secret_key_selector = JenkinsSpecNotificationsSmtpUsernameSecretKeySelector(
-                **username_secret_key_selector
-            )
+            username_secret_key_selector = JenkinsSpecNotificationsSmtpUsernameSecretKeySelector(**username_secret_key_selector)
         self._values = {
             "from_": from_,
             "password_secret_key_selector": password_secret_key_selector,
@@ -10892,9 +10683,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
         :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(
-                **secret
-            )
+            secret = JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(**secret)
         self._values = {
             "key": key,
             "secret": secret,
@@ -10968,9 +10757,8 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -10995,9 +10783,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
         :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(
-                **secret
-            )
+            secret = JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(**secret)
         self._values = {
             "key": key,
             "secret": secret,
@@ -11071,9 +10857,8 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -11096,9 +10881,7 @@ class JenkinsSpecNotificationsTeams:
         :schema:: JenkinsSpecNotificationsTeams
         """
         if isinstance(web_hook_url_secret_key_selector, dict):
-            web_hook_url_secret_key_selector = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(
-                **web_hook_url_secret_key_selector
-            )
+            web_hook_url_secret_key_selector = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(**web_hook_url_secret_key_selector)
         self._values = {
             "web_hook_url_secret_key_selector": web_hook_url_secret_key_selector,
         }
@@ -11147,9 +10930,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(
-                **secret
-            )
+            secret = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(**secret)
         self._values = {
             "key": key,
             "secret": secret,
@@ -11184,9 +10965,8 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -11226,9 +11006,8 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
