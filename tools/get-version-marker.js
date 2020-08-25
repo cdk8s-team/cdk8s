@@ -10,4 +10,4 @@
  *    node -p require('./get-version-marker')
  *
  */
-module.exports = "0.27.0";
+module.exports = '0.0.0';
