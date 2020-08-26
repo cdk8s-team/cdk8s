@@ -29,10 +29,10 @@
   },
   "devDependencies": {
     "changelog-parser": "^2.8.0",
-    "lerna": "^3.20.2",
-    "standard-version": "^8.0.1",
+    "jsii-release": "^0.1.9",
+    "lerna": "^3.22.1",
     "semver": "7.3.2",
-    "jsii-release": "^0.1.9"
+    "standard-version": "^9.0.0"
   },
   "jest": {
     "clearMocks": true,

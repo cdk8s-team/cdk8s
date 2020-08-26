@@ -31,7 +31,7 @@
     "@types/fs-extra": "^8.1.0",
     "@types/json-schema": "^7.0.5",
     "projen": "^0.3.5",
-    "standard-version": "^8.0.1",
+    "standard-version": "^9.0.0",
     "typescript": "^3.9.5",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.19.2",
