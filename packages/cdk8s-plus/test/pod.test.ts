@@ -68,6 +68,7 @@ describe('PodSpecDefinition', () => {
         {
           name: 'container',
           image: 'image',
+          imagePullPolicy: 'Always',
           env: [],
           command: undefined,
           ports: [],
@@ -173,6 +174,7 @@ describe('Pod', () => {
               Object {
                 "env": Array [],
                 "image": "image",
+                "imagePullPolicy": "Always",
                 "name": "main",
                 "ports": Array [],
                 "volumeMounts": Array [
