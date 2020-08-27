@@ -83,27 +83,24 @@ Name|Description
 
 ConfigMap holds configuration data for pods to consume.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IConfigMap](#cdk8s-plus-iconfigmap), [IResource](#cdk8s-plus-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IConfigMap](#cdk8s-plus-iconfigmap), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new ConfigMap(scope: Construct, id: string, props?: ConfigMapProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[ConfigMapProps](#cdk8s-plus-configmapprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **binaryData** (<code>Map<string, string></code>)  BinaryData contains the binary data. <span style="text-decoration: underline">*Optional*</span>
-  * **data** (<code>Map<string, string></code>)  Data contains the configuration data. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **binaryData** (<code>Map<string, string></code>)  BinaryData contains the binary data. __*Optional*__
+  * **data** (<code>Map<string, string></code>)  Data contains the configuration data. __*Optional*__
 
 
 
@@ -126,13 +123,10 @@ Adds a binary data entry to the config map.
 BinaryData can contain byte
 sequences that are not in the UTF-8 range.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addBinaryData(key: string, value: string): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **key** (<code>string</code>)  The key.
 * **value** (<code>string</code>)  The value.
 
@@ -143,13 +137,10 @@ addBinaryData(key: string, value: string): void
 
 Adds a data entry to the config map.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addData(key: string, value: string): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **key** (<code>string</code>)  The key.
 * **value** (<code>string</code>)  The value.
 
@@ -160,17 +151,14 @@ addData(key: string, value: string): void
 
 Adds a directory to the ConfigMap.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addDirectory(localDir: string, options?: AddDirectoryOptions): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **localDir** (<code>string</code>)  A path to a local directory.
 * **options** (<code>[AddDirectoryOptions](#cdk8s-plus-adddirectoryoptions)</code>)  Options.
-  * **exclude** (<code>Array<string></code>)  Glob patterns to exclude when adding files. <span style="text-decoration: underline">*Default*</span>: include all files
-  * **keyPrefix** (<code>string</code>)  A prefix to add to all keys in the config map. <span style="text-decoration: underline">*Default*</span>: ""
+  * **exclude** (<code>Array<string></code>)  Glob patterns to exclude when adding files. __*Default*__: include all files
+  * **keyPrefix** (<code>string</code>)  A prefix to add to all keys in the config map. __*Default*__: ""
 
 
 
@@ -179,13 +167,10 @@ addDirectory(localDir: string, options?: AddDirectoryOptions): void
 
 Adds a file to the ConfigMap.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addFile(localFile: string, key?: string): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **localFile** (<code>string</code>)  The path to the local file.
 * **key** (<code>string</code>)  The ConfigMap key (default to the file name).
 
@@ -196,16 +181,13 @@ addFile(localFile: string, key?: string): void
 
 Represents a ConfigMap created elsewhere.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromConfigMapName(name: string): IConfigMap
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **name** (<code>string</code>)  The name of the config map to import.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>
 
 
@@ -220,21 +202,18 @@ A single application container that you want to run within a pod.
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new Container(props: ContainerProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
   * **image** (<code>string</code>)  Docker image name. 
-  * **command** (<code>Array<string></code>)  Entrypoint array. <span style="text-decoration: underline">*Default*</span>: The docker image's ENTRYPOINT.
-  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. <span style="text-decoration: underline">*Default*</span>: No environment variables.
-  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. <span style="text-decoration: underline">*Default*</span>: 'main'
-  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. <span style="text-decoration: underline">*Default*</span>: No port is exposed.
-  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. <span style="text-decoration: underline">*Optional*</span>
-  * **workingDir** (<code>string</code>)  Container's working directory. <span style="text-decoration: underline">*Default*</span>: The container runtime's default.
+  * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
+  * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
 
 
@@ -247,9 +226,9 @@ Name | Type | Description
 **image**🔹 | <code>string</code> | The container image.
 **mounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Volume mounts configured for this container.
 **name**🔹 | <code>string</code> | The name of the container.
-**command**?🔹 | <code>Array<string></code> | Entrypoint array (the command to execute when the container starts).<br/><span style="text-decoration: underline">*Optional*</span>
-**port**?🔹 | <code>number</code> | The port this container exposes.<br/><span style="text-decoration: underline">*Optional*</span>
-**workingDir**?🔹 | <code>string</code> | The working directory inside the container.<br/><span style="text-decoration: underline">*Optional*</span>
+**command**?🔹 | <code>Array<string></code> | Entrypoint array (the command to execute when the container starts).<br/>__*Optional*__
+**port**?🔹 | <code>number</code> | The port this container exposes.<br/>__*Optional*__
+**workingDir**?🔹 | <code>string</code> | The working directory inside the container.<br/>__*Optional*__
 
 ### Methods
 
@@ -261,13 +240,10 @@ Add an environment value to the container.
 The variable value can come
 from various dynamic sources such a secrets of config maps.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addEnv(name: string, value: EnvValue): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **name** (<code>string</code>)  - The variable name.
 * **value** (<code>[EnvValue](#cdk8s-plus-envvalue)</code>)  - The variable value.
 
@@ -280,20 +256,17 @@ Mount a volume to a specific path so that it is accessible by the container.
 
 Every pod that is configured to use this container will autmoatically have access to the volume.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 mount(path: string, volume: Volume, options?: MountOptions): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **path** (<code>string</code>)  - The desired path in the container.
 * **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  - The volume to mount.
 * **options** (<code>[MountOptions](#cdk8s-plus-mountoptions)</code>)  *No description*
-  * **propagation** (<code>[MountPropagation](#cdk8s-plus-mountpropagation)</code>)  Determines how mounts are propagated from the host to container and the other way around. <span style="text-decoration: underline">*Default*</span>: MountPropagation.NONE
-  * **readOnly** (<code>boolean</code>)  Mounted read-only if true, read-write otherwise (false or unspecified). <span style="text-decoration: underline">*Default*</span>: false
-  * **subPath** (<code>string</code>)  Path within the volume from which the container's volume should be mounted.). <span style="text-decoration: underline">*Default*</span>: "" the volume's root
-  * **subPathExpr** (<code>string</code>)  Expanded path within the volume from which the container's volume should be mounted. <span style="text-decoration: underline">*Default*</span>: "" volume's root.
+  * **propagation** (<code>[MountPropagation](#cdk8s-plus-mountpropagation)</code>)  Determines how mounts are propagated from the host to container and the other way around. __*Default*__: MountPropagation.NONE
+  * **readOnly** (<code>boolean</code>)  Mounted read-only if true, read-write otherwise (false or unspecified). __*Default*__: false
+  * **subPath** (<code>string</code>)  Path within the volume from which the container's volume should be mounted.). __*Default*__: "" the volume's root
+  * **subPathExpr** (<code>string</code>)  Expanded path within the volume from which the container's volume should be mounted. __*Default*__: "" volume's root.
 
 
 
@@ -327,26 +300,23 @@ The following are typical use cases for Deployments:
 - Use the status of the Deployment as an indicator that a rollout has stuck.
 - Clean up older ReplicaSets that you don't need anymore.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[DeploymentProps](#cdk8s-plus-deploymentprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  The spec of the deployment. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **spec** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  The spec of the deployment. __*Default*__: An empty spec will be created.
 
 
 
@@ -367,18 +337,15 @@ Expose a deployment via a service.
 
 This is equivalent to running `kubectl expose deployment <deployment-name>`.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 expose(options: ExposeOptions): Service
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  - Options.
   * **port** (<code>number</code>)  The port number the service will bind to. 
-  * **serviceType** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  The type of the exposed service. <span style="text-decoration: underline">*Default*</span>: ClusterIP.
+  * **serviceType** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  The type of the exposed service. __*Default*__: ClusterIP.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Service](#cdk8s-plus-service)</code>
 
 
@@ -393,17 +360,14 @@ DeploymentSpec is the specification of the desired behavior of the Deployment.
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new DeploymentSpecDefinition(props?: DeploymentSpec)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  *No description*
-  * **podMetadataTemplate** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Template for pod metadata. <span style="text-decoration: underline">*Optional*</span>
-  * **podSpecTemplate** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  Template for pod specs. <span style="text-decoration: underline">*Optional*</span>
-  * **replicas** (<code>number</code>)  Number of desired pods. <span style="text-decoration: underline">*Default*</span>: 1
+  * **podMetadataTemplate** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Template for pod metadata. __*Optional*__
+  * **podSpecTemplate** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  Template for pod specs. __*Optional*__
+  * **replicas** (<code>number</code>)  Number of desired pods. __*Default*__: 1
 
 
 
@@ -415,7 +379,7 @@ Name | Type | Description
 **labelSelector**🔹 | <code>Map<string, string></code> | The labels this deployment will match against in order to select pods.
 **podMetadataTemplate**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Template for pod metadata.
 **podSpecTemplate**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | Provides access to the underlying pod template spec.
-**replicas**?🔹 | <code>number</code> | Number of desired pods.<br/><span style="text-decoration: underline">*Optional*</span>
+**replicas**?🔹 | <code>number</code> | Number of desired pods.<br/>__*Optional*__
 
 ### Methods
 
@@ -426,13 +390,10 @@ Configure a label selector to this deployment.
 
 Pods that have the label will be selected by deployments configured with this spec.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 selectByLabel(key: string, value: string): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **key** (<code>string</code>)  - The label key.
 * **value** (<code>string</code>)  - The label value.
 
@@ -458,130 +419,106 @@ When the amount is passed as a token, unit conversion is not possible.
 
 Return the total number of days in this Duration.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toDays(opts?: TimeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
-  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toHours(opts?)🔹 <a id="cdk8s-plus-duration-tohours"></a>
 
 Return the total number of hours in this Duration.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toHours(opts?: TimeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
-  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toHumanString()🔹 <a id="cdk8s-plus-duration-tohumanstring"></a>
 
 Turn this duration into a human-readable string.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toHumanString(): string
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>string</code>
 
 #### toISOString()⚠️ <a id="cdk8s-plus-duration-toisostring"></a>
 
 Return an ISO 8601 representation of this period.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toISOString(): string
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>string</code>
 
 #### toIsoString()🔹 <a id="cdk8s-plus-duration-toisostring"></a>
 
 Return an ISO 8601 representation of this period.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toIsoString(): string
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>string</code>
 
 #### toMilliseconds(opts?)🔹 <a id="cdk8s-plus-duration-tomilliseconds"></a>
 
 Return the total number of milliseconds in this Duration.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toMilliseconds(opts?: TimeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
-  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toMinutes(opts?)🔹 <a id="cdk8s-plus-duration-tominutes"></a>
 
 Return the total number of minutes in this Duration.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toMinutes(opts?: TimeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
-  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toSeconds(opts?)🔹 <a id="cdk8s-plus-duration-toseconds"></a>
 
 Return the total number of seconds in this Duration.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toSeconds(opts?: TimeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[TimeConversionOptions](#cdk8s-plus-timeconversionoptions)</code>)  *No description*
-  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. <span style="text-decoration: underline">*Default*</span>: true
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toString()🔹 <a id="cdk8s-plus-duration-tostring"></a>
@@ -592,111 +529,90 @@ This
 protects users against inadvertently stringifying a `Duration` object, when they should have called one of the
 `to*` methods instead.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toString(): string
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>string</code>
 
 #### *static* days(amount)🔹 <a id="cdk8s-plus-duration-days"></a>
 
 Create a Duration representing an amount of days.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static days(amount: number): Duration
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  the amount of Days the `Duration` will represent.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Duration](#cdk8s-plus-duration)</code>
 
 #### *static* hours(amount)🔹 <a id="cdk8s-plus-duration-hours"></a>
 
 Create a Duration representing an amount of hours.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static hours(amount: number): Duration
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  the amount of Hours the `Duration` will represent.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Duration](#cdk8s-plus-duration)</code>
 
 #### *static* millis(amount)🔹 <a id="cdk8s-plus-duration-millis"></a>
 
 Create a Duration representing an amount of milliseconds.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static millis(amount: number): Duration
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  the amount of Milliseconds the `Duration` will represent.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Duration](#cdk8s-plus-duration)</code>
 
 #### *static* minutes(amount)🔹 <a id="cdk8s-plus-duration-minutes"></a>
 
 Create a Duration representing an amount of minutes.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static minutes(amount: number): Duration
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  the amount of Minutes the `Duration` will represent.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Duration](#cdk8s-plus-duration)</code>
 
 #### *static* parse(duration)🔹 <a id="cdk8s-plus-duration-parse"></a>
 
 Parse a period formatted according to the ISO 8601 standard.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static parse(duration: string): Duration
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **duration** (<code>string</code>)  an ISO-formtted duration to be parsed.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Duration](#cdk8s-plus-duration)</code>
 
 #### *static* seconds(amount)🔹 <a id="cdk8s-plus-duration-seconds"></a>
 
 Create a Duration representing an amount of seconds.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static seconds(amount: number): Duration
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  the amount of Seconds the `Duration` will represent.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Duration](#cdk8s-plus-duration)</code>
 
 
@@ -712,8 +628,8 @@ Utility class for creating reading env values from various sources.
 
 Name | Type | Description 
 -----|------|-------------
-**value**?🔹 | <code>any</code> | <span style="text-decoration: underline">*Optional*</span>
-**valueFrom**?🔹 | <code>any</code> | <span style="text-decoration: underline">*Optional*</span>
+**value**?🔹 | <code>any</code> | __*Optional*__
+**valueFrom**?🔹 | <code>any</code> | __*Optional*__
 
 ### Methods
 
@@ -722,72 +638,60 @@ Name | Type | Description
 
 Create a value by reading a specific key inside a config map.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromConfigMap(configMap: IConfigMap, key: string, options?: EnvValueFromConfigMapOptions): EnvValue
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  - The config map.
 * **key** (<code>string</code>)  - The key to extract the value from.
 * **options** (<code>[EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)</code>)  - Additional options.
-  * **optional** (<code>boolean</code>)  Specify whether the ConfigMap or its key must be defined. <span style="text-decoration: underline">*Default*</span>: false
+  * **optional** (<code>boolean</code>)  Specify whether the ConfigMap or its key must be defined. __*Default*__: false
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
 #### *static* fromProcess(key, options?)🔹 <a id="cdk8s-plus-envvalue-fromprocess"></a>
 
 Create a value from a key in the current process environment.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromProcess(key: string, options?: EnvValueFromProcessOptions): EnvValue
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **key** (<code>string</code>)  - The key to read.
 * **options** (<code>[EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)</code>)  - Additional options.
-  * **required** (<code>boolean</code>)  Specify whether the key must exist in the environment. <span style="text-decoration: underline">*Default*</span>: false
+  * **required** (<code>boolean</code>)  Specify whether the key must exist in the environment. __*Default*__: false
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
 #### *static* fromSecret(secret, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromsecret"></a>
 
 Create a by reading a specific key inside a secret.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOptions): EnvValue
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  - The secret.
 * **key** (<code>string</code>)  - The key.
 * **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  - Additional options.
-  * **optional** (<code>boolean</code>)  Specify whether the Secret or its key must be defined. <span style="text-decoration: underline">*Default*</span>: false
+  * **optional** (<code>boolean</code>)  Specify whether the Secret or its key must be defined. __*Default*__: false
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
 #### *static* fromValue(value)🔹 <a id="cdk8s-plus-envvalue-fromvalue"></a>
 
 Create a value from the given argument.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromValue(value: string): EnvValue
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **value** (<code>string</code>)  - The value.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
 
@@ -802,26 +706,23 @@ Deleting a Job will clean up the Pods it created. A simple case is to create one
 The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
 You can also use a Job to run multiple Pods in parallel.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new Job(scope: Construct, id: string, props?: JobProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[JobProps](#cdk8s-plus-jobprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  The spec of the job. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **spec** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  The spec of the job. __*Default*__: An empty spec will be created.
 
 
 
@@ -845,17 +746,14 @@ Name | Type | Description
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new JobSpecDefinition(props?: JobSpec)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  *No description*
-  * **podMetadataTemplate** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The metadata of pods created by this job. <span style="text-decoration: underline">*Optional*</span>
-  * **podSpecTemplate** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of pods created by this job. <span style="text-decoration: underline">*Optional*</span>
-  * **ttlAfterFinished** (<code>[Duration](#cdk8s-plus-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). <span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
+  * **podMetadataTemplate** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The metadata of pods created by this job. __*Optional*__
+  * **podSpecTemplate** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of pods created by this job. __*Optional*__
+  * **ttlAfterFinished** (<code>[Duration](#cdk8s-plus-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). __*Default*__: If this field is unset, the Job won't be automatically deleted.
 
 
 
@@ -866,7 +764,7 @@ Name | Type | Description
 -----|------|-------------
 **podMetadataTemplate**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | The metadata for pods created by this job.
 **podSpecTemplate**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | The spec for pods created by this job.
-**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | TTL before the job is deleted after it is finished.<br/><span style="text-decoration: underline">*Optional*</span>
+**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | TTL before the job is deleted after it is finished.<br/>__*Optional*__
 
 
 
@@ -877,26 +775,23 @@ Pod is a collection of containers that can run on a host.
 This resource is
 created by clients and scheduled onto hosts.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new Pod(scope: Construct, id: string, props?: PodProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[PodProps](#cdk8s-plus-podprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of the pod. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **spec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of the pod. __*Default*__: An empty spec will be created.
 
 
 
@@ -920,18 +815,15 @@ A description of a pod.
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new PodSpecDefinition(props?: PodSpec)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  *No description*
-  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. <span style="text-decoration: underline">*Default*</span>: No containers. Note that a pod spec must include at least one container.
-  * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. <span style="text-decoration: underline">*Default*</span>: RestartPolicy.ALWAYS
-  * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. <span style="text-decoration: underline">*Default*</span>: No service account.
-  * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. <span style="text-decoration: underline">*Default*</span>: No volumes.
+  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
+  * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
+  * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
 
 
 
@@ -942,8 +834,8 @@ Name | Type | Description
 -----|------|-------------
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.
 **volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.
-**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/><span style="text-decoration: underline">*Optional*</span>
-**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/><span style="text-decoration: underline">*Optional*</span>
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
 
 ### Methods
 
@@ -952,13 +844,10 @@ Name | Type | Description
 
 Adds a container to this pod.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addContainer(container: Container): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **container** (<code>[Container](#cdk8s-plus-container)</code>)  The container to add.
 
 
@@ -968,13 +857,10 @@ addContainer(container: Container): void
 
 Adds a volume to this pod.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addVolume(volume: Volume): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  The volume to add.
 
 
@@ -989,26 +875,23 @@ Base class for all Kubernetes objects in stdk8s.
 Represents a single
 resource.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
-<span style="text-decoration: underline">Extends</span>: [Construct](#constructs-construct)
-<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Construct](#constructs-construct)
+__Implemented by__: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
 
 ### Initializer
 
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new Resource(scope: Construct, id: string, _: ResourceProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **_** (<code>[ResourceProps](#cdk8s-plus-resourceprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
 
 
 
@@ -1031,26 +914,23 @@ Storing confidential information in a
 Secret is safer and more flexible than putting it verbatim in a Pod
 definition or in a container image.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [ISecret](#cdk8s-plus-isecret), [IResource](#cdk8s-plus-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [ISecret](#cdk8s-plus-isecret), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new Secret(scope: Construct, id: string, props?: SecretProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[SecretProps](#cdk8s-plus-secretprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **stringData** (<code>Map<string, string></code>)  stringData allows specifying non-binary secret data in string form. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **stringData** (<code>Map<string, string></code>)  stringData allows specifying non-binary secret data in string form. __*Optional*__
 
 
 
@@ -1068,13 +948,10 @@ Name | Type | Description
 
 Adds a string data field to the secert.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addStringData(key: string, value: string): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **key** (<code>string</code>)  Key.
 * **value** (<code>string</code>)  Value.
 
@@ -1085,32 +962,26 @@ addStringData(key: string, value: string): void
 
 Gets a string data by key or undefined.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 getStringData(key: string): string
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **key** (<code>string</code>)  Key.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>string</code>
 
 #### *static* fromSecretName(name)🔹 <a id="cdk8s-plus-secret-fromsecretname"></a>
 
 Imports a secret from the cluster as a reference.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromSecretName(name: string): ISecret
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **name** (<code>string</code>)  The name of the secret to reference.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[ISecret](#cdk8s-plus-isecret)</code>
 
 
@@ -1131,26 +1002,23 @@ If you're able to use Kubernetes APIs for service discovery in your application,
 that get updated whenever the set of Pods in a Service changes. For non-native applications, Kubernetes offers ways to place a network port
 or load balancer in between your application and the backend Pods.
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new Service(scope: Construct, id: string, props?: ServiceProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[ServiceProps](#cdk8s-plus-serviceprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **spec** (<code>[ServiceSpec](#cdk8s-plus-servicespec)</code>)  The spec of the service. <span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **spec** (<code>[ServiceSpec](#cdk8s-plus-servicespec)</code>)  The spec of the service. __*Default*__: An empty spec will be created.
 
 
 
@@ -1175,26 +1043,23 @@ cluster). Processes in containers inside pods can also contact the apiserver.
 When they do, they are authenticated as a particular Service Account (for
 example, default).
 
-<span style="text-decoration: underline">Implements</span>: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IServiceAccount](#cdk8s-plus-iserviceaccount), [IResource](#cdk8s-plus-iresource)
-<span style="text-decoration: underline">Extends</span>: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IServiceAccount](#cdk8s-plus-iserviceaccount), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new ServiceAccount(scope: Construct, id: string, props?: ServiceAccountProps)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[ServiceAccountProps](#cdk8s-plus-serviceaccountprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. <span style="text-decoration: underline">*Optional*</span>
-  * **secrets** (<code>Array<[ISecret](#cdk8s-plus-isecret)></code>)  List of secrets allowed to be used by pods running using this ServiceAccount. <span style="text-decoration: underline">*Optional*</span>
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **secrets** (<code>Array<[ISecret](#cdk8s-plus-isecret)></code>)  List of secrets allowed to be used by pods running using this ServiceAccount. __*Optional*__
 
 
 
@@ -1213,13 +1078,10 @@ Name | Type | Description
 
 Allow a secret to be accessed by pods using this service account.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addSecret(secret: ISecret): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  The secret.
 
 
@@ -1229,16 +1091,13 @@ addSecret(secret: ISecret): void
 
 Imports a service account from the cluster as a reference.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromServiceAccountName(name: string): IServiceAccount
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **name** (<code>string</code>)  The name of the service account resource.
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>
 
 
@@ -1253,18 +1112,15 @@ A description of a service.
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new ServiceSpecDefinition(props?: ServiceSpec)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **props** (<code>[ServiceSpec](#cdk8s-plus-servicespec)</code>)  *No description*
-  * **clusterIP** (<code>string</code>)  The IP address of the service and is usually assigned randomly by the master. <span style="text-decoration: underline">*Default*</span>: Automatically assigned.
-  * **externalIPs** (<code>Array<string></code>)  A list of IP addresses for which nodes in the cluster will also accept traffic for this service. <span style="text-decoration: underline">*Default*</span>: No external IPs.
-  * **ports** (<code>Array<[ServicePort](#cdk8s-plus-serviceport)></code>)  The port exposed by this service. <span style="text-decoration: underline">*Optional*</span>
-  * **type** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  Determines how the Service is exposed. <span style="text-decoration: underline">*Default*</span>: ServiceType.ClusterIP
+  * **clusterIP** (<code>string</code>)  The IP address of the service and is usually assigned randomly by the master. __*Default*__: Automatically assigned.
+  * **externalIPs** (<code>Array<string></code>)  A list of IP addresses for which nodes in the cluster will also accept traffic for this service. __*Default*__: No external IPs.
+  * **ports** (<code>Array<[ServicePort](#cdk8s-plus-serviceport)></code>)  The port exposed by this service. __*Optional*__
+  * **type** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  Determines how the Service is exposed. __*Default*__: ServiceType.ClusterIP
 
 
 
@@ -1275,7 +1131,7 @@ Name | Type | Description
 -----|------|-------------
 **selector**🔹 | <code>Map<string, string></code> | Returns the labels which are used to select pods for this service.
 **type**🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | Determines how the Service is exposed.
-**clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/><span style="text-decoration: underline">*Optional*</span>
+**clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/>__*Optional*__
 
 ### Methods
 
@@ -1284,13 +1140,10 @@ Name | Type | Description
 
 Services defined using this spec will select pods according the provided label.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 addSelector(label: string, value: string): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **label** (<code>string</code>)  The label key.
 * **value** (<code>string</code>)  The label value.
 
@@ -1303,19 +1156,16 @@ Configure a port the service will bind to.
 
 This method can be called multiple times.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 serve(port: number, options?: ServicePortOptions): void
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **port** (<code>number</code>)  The port definition.
 * **options** (<code>[ServicePortOptions](#cdk8s-plus-serviceportoptions)</code>)  *No description*
-  * **name** (<code>string</code>)  The name of this port within the service. <span style="text-decoration: underline">*Optional*</span>
-  * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. <span style="text-decoration: underline">*Default*</span>: to auto-allocate a port if the ServiceType of this Service requires one.
-  * **protocol** (<code>[Protocol](#cdk8s-plus-protocol)</code>)  The IP protocol for this port. <span style="text-decoration: underline">*Default*</span>: Protocol.TCP
-  * **targetPort** (<code>number</code>)  The port number the service will redirect to. <span style="text-decoration: underline">*Default*</span>: The value of `port` will be used.
+  * **name** (<code>string</code>)  The name of this port within the service. __*Optional*__
+  * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. __*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
+  * **protocol** (<code>[Protocol](#cdk8s-plus-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
+  * **targetPort** (<code>number</code>)  The port number the service will redirect to. __*Default*__: The value of `port` will be used.
 
 
 
@@ -1339,85 +1189,70 @@ When the amount is passed as a token, unit conversion is not possible.
 
 Return this storage as a total number of gibibytes.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toGibibytes(opts?: SizeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
-  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toKibibytes(opts?)🔹 <a id="cdk8s-plus-size-tokibibytes"></a>
 
 Return this storage as a total number of kibibytes.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toKibibytes(opts?: SizeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
-  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toMebibytes(opts?)🔹 <a id="cdk8s-plus-size-tomebibytes"></a>
 
 Return this storage as a total number of mebibytes.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toMebibytes(opts?: SizeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
-  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toPebibytes(opts?)🔹 <a id="cdk8s-plus-size-topebibytes"></a>
 
 Return this storage as a total number of pebibytes.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toPebibytes(opts?: SizeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
-  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### toTebibytes(opts?)🔹 <a id="cdk8s-plus-size-totebibytes"></a>
 
 Return this storage as a total number of tebibytes.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 toTebibytes(opts?: SizeConversionOptions): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **opts** (<code>[SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)</code>)  *No description*
-  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. <span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### *static* gibibytes(amount)🔹 <a id="cdk8s-plus-size-gibibytes"></a>
@@ -1426,16 +1261,13 @@ Create a Storage representing an amount gibibytes.
 
 1 GiB = 1024 MiB
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static gibibytes(amount: number): Size
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Size](#cdk8s-plus-size)</code>
 
 #### *static* kibibytes(amount)🔹 <a id="cdk8s-plus-size-kibibytes"></a>
@@ -1444,16 +1276,13 @@ Create a Storage representing an amount kibibytes.
 
 1 KiB = 1024 bytes
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static kibibytes(amount: number): Size
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Size](#cdk8s-plus-size)</code>
 
 #### *static* mebibytes(amount)🔹 <a id="cdk8s-plus-size-mebibytes"></a>
@@ -1462,16 +1291,13 @@ Create a Storage representing an amount mebibytes.
 
 1 MiB = 1024 KiB
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static mebibytes(amount: number): Size
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Size](#cdk8s-plus-size)</code>
 
 #### *static* pebibyte(amount)🔹 <a id="cdk8s-plus-size-pebibyte"></a>
@@ -1480,16 +1306,13 @@ Create a Storage representing an amount pebibytes.
 
 1 PiB = 1024 TiB
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static pebibyte(amount: number): Size
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Size](#cdk8s-plus-size)</code>
 
 #### *static* tebibytes(amount)🔹 <a id="cdk8s-plus-size-tebibytes"></a>
@@ -1498,16 +1321,13 @@ Create a Storage representing an amount tebibytes.
 
 1 TiB = 1024 GiB
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static tebibytes(amount: number): Size
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **amount** (<code>number</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Size](#cdk8s-plus-size)</code>
 
 
@@ -1551,13 +1371,10 @@ image. Volumes can not mount onto other volumes
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 new Volume(name: string, config: any)
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **name** (<code>string</code>)  *No description*
 * **config** (<code>any</code>)  *No description*
 
@@ -1586,21 +1403,18 @@ When referencing a configMap object, you can simply provide its name in the
 volume to reference it. You can also customize the path to use for a
 specific entry in the ConfigMap.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromConfigMap(configMap: IConfigMap, options?: ConfigMapVolumeOptions): Volume
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **configMap** (<code>[IConfigMap](#cdk8s-plus-iconfigmap)</code>)  The config map to use to populate the volume.
 * **options** (<code>[ConfigMapVolumeOptions](#cdk8s-plus-configmapvolumeoptions)</code>)  Options.
-  * **defaultMode** (<code>number</code>)  Mode bits to use on created files by default. <span style="text-decoration: underline">*Default*</span>: 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * **items** (<code>Map<string, [PathMapping](#cdk8s-plus-pathmapping)></code>)  If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. <span style="text-decoration: underline">*Default*</span>: no mapping
-  * **name** (<code>string</code>)  The volume name. <span style="text-decoration: underline">*Default*</span>: auto-generated
-  * **optional** (<code>boolean</code>)  Specify whether the ConfigMap or its keys must be defined. <span style="text-decoration: underline">*Default*</span>: undocumented
+  * **defaultMode** (<code>number</code>)  Mode bits to use on created files by default. __*Default*__: 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+  * **items** (<code>Map<string, [PathMapping](#cdk8s-plus-pathmapping)></code>)  If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. __*Default*__: no mapping
+  * **name** (<code>string</code>)  The volume name. __*Default*__: auto-generated
+  * **optional** (<code>boolean</code>)  Specify whether the ConfigMap or its keys must be defined. __*Default*__: undocumented
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Volume](#cdk8s-plus-volume)</code>
 
 #### *static* fromEmptyDir(name, options?)🔹 <a id="cdk8s-plus-volume-fromemptydir"></a>
@@ -1613,19 +1427,16 @@ files in the emptyDir volume, though that volume can be mounted at the same
 or different paths in each Container. When a Pod is removed from a node for
 any reason, the data in the emptyDir is deleted forever.
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static fromEmptyDir(name: string, options?: EmptyDirVolumeOptions): Volume
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **name** (<code>string</code>)  *No description*
 * **options** (<code>[EmptyDirVolumeOptions](#cdk8s-plus-emptydirvolumeoptions)</code>)  - Additional options.
-  * **medium** (<code>[EmptyDirMedium](#cdk8s-plus-emptydirmedium)</code>)  By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment. <span style="text-decoration: underline">*Default*</span>: EmptyDirMedium.DEFAULT
-  * **sizeLimit** (<code>[Size](#cdk8s-plus-size)</code>)  Total amount of local storage required for this EmptyDir volume. <span style="text-decoration: underline">*Default*</span>: limit is undefined
+  * **medium** (<code>[EmptyDirMedium](#cdk8s-plus-emptydirmedium)</code>)  By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment. __*Default*__: EmptyDirMedium.DEFAULT
+  * **sizeLimit** (<code>[Size](#cdk8s-plus-size)</code>)  Total amount of local storage required for this EmptyDir volume. __*Default*__: limit is undefined
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>[Volume](#cdk8s-plus-volume)</code>
 
 
@@ -1639,8 +1450,8 @@ Options for `configmap.addDirectory()`.
 
 Name | Type | Description 
 -----|------|-------------
-**exclude**?🔹 | <code>Array<string></code> | Glob patterns to exclude when adding files.<br/><span style="text-decoration: underline">*Default*</span>: include all files
-**keyPrefix**?🔹 | <code>string</code> | A prefix to add to all keys in the config map.<br/><span style="text-decoration: underline">*Default*</span>: ""
+**exclude**?🔹 | <code>Array<string></code> | Glob patterns to exclude when adding files.<br/>__*Default*__: include all files
+**keyPrefix**?🔹 | <code>string</code> | A prefix to add to all keys in the config map.<br/>__*Default*__: ""
 
 
 
@@ -1653,9 +1464,9 @@ Properties for initialization of `ConfigMap`.
 
 Name | Type | Description 
 -----|------|-------------
-**binaryData**?🔹 | <code>Map<string, string></code> | BinaryData contains the binary data.<br/><span style="text-decoration: underline">*Optional*</span>
-**data**?🔹 | <code>Map<string, string></code> | Data contains the configuration data.<br/><span style="text-decoration: underline">*Optional*</span>
-**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**binaryData**?🔹 | <code>Map<string, string></code> | BinaryData contains the binary data.<br/>__*Optional*__
+**data**?🔹 | <code>Map<string, string></code> | Data contains the configuration data.<br/>__*Optional*__
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 
 
 
@@ -1668,10 +1479,10 @@ Options for the ConfigMap-based volume.
 
 Name | Type | Description 
 -----|------|-------------
-**defaultMode**?🔹 | <code>number</code> | Mode bits to use on created files by default.<br/><span style="text-decoration: underline">*Default*</span>: 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-**items**?🔹 | <code>Map<string, [PathMapping](#cdk8s-plus-pathmapping)></code> | If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.<br/><span style="text-decoration: underline">*Default*</span>: no mapping
-**name**?🔹 | <code>string</code> | The volume name.<br/><span style="text-decoration: underline">*Default*</span>: auto-generated
-**optional**?🔹 | <code>boolean</code> | Specify whether the ConfigMap or its keys must be defined.<br/><span style="text-decoration: underline">*Default*</span>: undocumented
+**defaultMode**?🔹 | <code>number</code> | Mode bits to use on created files by default.<br/>__*Default*__: 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+**items**?🔹 | <code>Map<string, [PathMapping](#cdk8s-plus-pathmapping)></code> | If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.<br/>__*Default*__: no mapping
+**name**?🔹 | <code>string</code> | The volume name.<br/>__*Default*__: auto-generated
+**optional**?🔹 | <code>boolean</code> | Specify whether the ConfigMap or its keys must be defined.<br/>__*Default*__: undocumented
 
 
 
@@ -1685,12 +1496,12 @@ Properties for creating a container.
 Name | Type | Description 
 -----|------|-------------
 **image**🔹 | <code>string</code> | Docker image name.
-**command**?🔹 | <code>Array<string></code> | Entrypoint array.<br/><span style="text-decoration: underline">*Default*</span>: The docker image's ENTRYPOINT.
-**env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/><span style="text-decoration: underline">*Default*</span>: No environment variables.
-**name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/><span style="text-decoration: underline">*Default*</span>: 'main'
-**port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/><span style="text-decoration: underline">*Default*</span>: No port is exposed.
-**volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/><span style="text-decoration: underline">*Optional*</span>
-**workingDir**?🔹 | <code>string</code> | Container's working directory.<br/><span style="text-decoration: underline">*Default*</span>: The container runtime's default.
+**command**?🔹 | <code>Array<string></code> | Entrypoint array.<br/>__*Default*__: The docker image's ENTRYPOINT.
+**env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/>__*Default*__: No environment variables.
+**name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/>__*Default*__: 'main'
+**port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/>__*Default*__: No port is exposed.
+**volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/>__*Optional*__
+**workingDir**?🔹 | <code>string</code> | Container's working directory.<br/>__*Default*__: The container runtime's default.
 
 
 
@@ -1703,8 +1514,8 @@ Properties for initialization of `Deployment`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | The spec of the deployment.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+**spec**?🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | The spec of the deployment.<br/>__*Default*__: An empty spec will be created.
 
 
 
@@ -1717,9 +1528,9 @@ Properties for initialization of `DeploymentSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadataTemplate**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Template for pod metadata.<br/><span style="text-decoration: underline">*Optional*</span>
-**podSpecTemplate**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Template for pod specs.<br/><span style="text-decoration: underline">*Optional*</span>
-**replicas**?🔹 | <code>number</code> | Number of desired pods.<br/><span style="text-decoration: underline">*Default*</span>: 1
+**podMetadataTemplate**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Template for pod metadata.<br/>__*Optional*__
+**podSpecTemplate**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Template for pod specs.<br/>__*Optional*__
+**replicas**?🔹 | <code>number</code> | Number of desired pods.<br/>__*Default*__: 1
 
 
 
@@ -1732,8 +1543,8 @@ Options for volumes populated with an empty directory.
 
 Name | Type | Description 
 -----|------|-------------
-**medium**?🔹 | <code>[EmptyDirMedium](#cdk8s-plus-emptydirmedium)</code> | By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment.<br/><span style="text-decoration: underline">*Default*</span>: EmptyDirMedium.DEFAULT
-**sizeLimit**?🔹 | <code>[Size](#cdk8s-plus-size)</code> | Total amount of local storage required for this EmptyDir volume.<br/><span style="text-decoration: underline">*Default*</span>: limit is undefined
+**medium**?🔹 | <code>[EmptyDirMedium](#cdk8s-plus-emptydirmedium)</code> | By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment.<br/>__*Default*__: EmptyDirMedium.DEFAULT
+**sizeLimit**?🔹 | <code>[Size](#cdk8s-plus-size)</code> | Total amount of local storage required for this EmptyDir volume.<br/>__*Default*__: limit is undefined
 
 
 
@@ -1746,7 +1557,7 @@ Options to specify an envionment variable value from a ConfigMap key.
 
 Name | Type | Description 
 -----|------|-------------
-**optional**?🔹 | <code>boolean</code> | Specify whether the ConfigMap or its key must be defined.<br/><span style="text-decoration: underline">*Default*</span>: false
+**optional**?🔹 | <code>boolean</code> | Specify whether the ConfigMap or its key must be defined.<br/>__*Default*__: false
 
 
 
@@ -1759,7 +1570,7 @@ Options to specify an environment variable value from the process environment.
 
 Name | Type | Description 
 -----|------|-------------
-**required**?🔹 | <code>boolean</code> | Specify whether the key must exist in the environment.<br/><span style="text-decoration: underline">*Default*</span>: false
+**required**?🔹 | <code>boolean</code> | Specify whether the key must exist in the environment.<br/>__*Default*__: false
 
 
 
@@ -1772,7 +1583,7 @@ Options to specify an environment variable value from a Secret.
 
 Name | Type | Description 
 -----|------|-------------
-**optional**?🔹 | <code>boolean</code> | Specify whether the Secret or its key must be defined.<br/><span style="text-decoration: underline">*Default*</span>: false
+**optional**?🔹 | <code>boolean</code> | Specify whether the Secret or its key must be defined.<br/>__*Default*__: false
 
 
 
@@ -1786,14 +1597,14 @@ Options for exposing a deployment via a service.
 Name | Type | Description 
 -----|------|-------------
 **port**🔹 | <code>number</code> | The port number the service will bind to.
-**serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | The type of the exposed service.<br/><span style="text-decoration: underline">*Default*</span>: ClusterIP.
+**serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | The type of the exposed service.<br/>__*Default*__: ClusterIP.
 
 
 
 ## interface IConfigMap 🔹 <a id="cdk8s-plus-iconfigmap"></a>
 
-<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#cdk8s-plus-configmap)
-<span style="text-decoration: underline">Obtainable from</span>: [ConfigMap](#cdk8s-plus-configmap).[fromConfigMapName](#cdk8s-plus-configmap#cdk8s-plus-configmap-fromconfigmapname)()
+__Implemented by__: [ConfigMap](#cdk8s-plus-configmap)
+__Obtainable from__: [ConfigMap](#cdk8s-plus-configmap).[fromConfigMapName](#cdk8s-plus-configmap#cdk8s-plus-configmap-fromconfigmapname)()
 
 Represents a config map.
 
@@ -1808,7 +1619,7 @@ Name | Type | Description
 
 ## interface IResource 🔹 <a id="cdk8s-plus-iresource"></a>
 
-<span style="text-decoration: underline">Implemented by</span>: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
+__Implemented by__: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
 
 Represents a resource.
 
@@ -1823,8 +1634,8 @@ Name | Type | Description
 
 ## interface ISecret 🔹 <a id="cdk8s-plus-isecret"></a>
 
-<span style="text-decoration: underline">Implemented by</span>: [Secret](#cdk8s-plus-secret)
-<span style="text-decoration: underline">Obtainable from</span>: [Secret](#cdk8s-plus-secret).[fromSecretName](#cdk8s-plus-secret#cdk8s-plus-secret-fromsecretname)()
+__Implemented by__: [Secret](#cdk8s-plus-secret)
+__Obtainable from__: [Secret](#cdk8s-plus-secret).[fromSecretName](#cdk8s-plus-secret#cdk8s-plus-secret-fromsecretname)()
 
 
 
@@ -1839,8 +1650,8 @@ Name | Type | Description
 
 ## interface IServiceAccount 🔹 <a id="cdk8s-plus-iserviceaccount"></a>
 
-<span style="text-decoration: underline">Implemented by</span>: [ServiceAccount](#cdk8s-plus-serviceaccount)
-<span style="text-decoration: underline">Obtainable from</span>: [ServiceAccount](#cdk8s-plus-serviceaccount).[fromServiceAccountName](#cdk8s-plus-serviceaccount#cdk8s-plus-serviceaccount-fromserviceaccountname)()
+__Implemented by__: [ServiceAccount](#cdk8s-plus-serviceaccount)
+__Obtainable from__: [ServiceAccount](#cdk8s-plus-serviceaccount).[fromServiceAccountName](#cdk8s-plus-serviceaccount#cdk8s-plus-serviceaccount-fromserviceaccountname)()
 
 
 
@@ -1862,8 +1673,8 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[JobSpec](#cdk8s-plus-jobspec)</code> | The spec of the job.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+**spec**?🔹 | <code>[JobSpec](#cdk8s-plus-jobspec)</code> | The spec of the job.<br/>__*Default*__: An empty spec will be created.
 
 
 
@@ -1876,9 +1687,9 @@ Properties for initialization of `JobSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadataTemplate**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The metadata of pods created by this job.<br/><span style="text-decoration: underline">*Optional*</span>
-**podSpecTemplate**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of pods created by this job.<br/><span style="text-decoration: underline">*Optional*</span>
-**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/><span style="text-decoration: underline">*Default*</span>: If this field is unset, the Job won't be automatically deleted.
+**podMetadataTemplate**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The metadata of pods created by this job.<br/>__*Optional*__
+**podSpecTemplate**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of pods created by this job.<br/>__*Optional*__
+**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/>__*Default*__: If this field is unset, the Job won't be automatically deleted.
 
 
 
@@ -1891,10 +1702,10 @@ Options for mounts.
 
 Name | Type | Description 
 -----|------|-------------
-**propagation**?🔹 | <code>[MountPropagation](#cdk8s-plus-mountpropagation)</code> | Determines how mounts are propagated from the host to container and the other way around.<br/><span style="text-decoration: underline">*Default*</span>: MountPropagation.NONE
-**readOnly**?🔹 | <code>boolean</code> | Mounted read-only if true, read-write otherwise (false or unspecified).<br/><span style="text-decoration: underline">*Default*</span>: false
-**subPath**?🔹 | <code>string</code> | Path within the volume from which the container's volume should be mounted.).<br/><span style="text-decoration: underline">*Default*</span>: "" the volume's root
-**subPathExpr**?🔹 | <code>string</code> | Expanded path within the volume from which the container's volume should be mounted.<br/><span style="text-decoration: underline">*Default*</span>: "" volume's root.
+**propagation**?🔹 | <code>[MountPropagation](#cdk8s-plus-mountpropagation)</code> | Determines how mounts are propagated from the host to container and the other way around.<br/>__*Default*__: MountPropagation.NONE
+**readOnly**?🔹 | <code>boolean</code> | Mounted read-only if true, read-write otherwise (false or unspecified).<br/>__*Default*__: false
+**subPath**?🔹 | <code>string</code> | Path within the volume from which the container's volume should be mounted.).<br/>__*Default*__: "" the volume's root
+**subPathExpr**?🔹 | <code>string</code> | Expanded path within the volume from which the container's volume should be mounted.<br/>__*Default*__: "" volume's root.
 
 
 
@@ -1908,7 +1719,7 @@ Maps a string key to a path within a volume.
 Name | Type | Description 
 -----|------|-------------
 **path**🔹 | <code>string</code> | The relative path of the file to map the key to.
-**mode**?🔹 | <code>number</code> | Optional: mode bits to use on this file, must be a value between 0 and 0777.<br/><span style="text-decoration: underline">*Optional*</span>
+**mode**?🔹 | <code>number</code> | Optional: mode bits to use on this file, must be a value between 0 and 0777.<br/>__*Optional*__
 
 
 
@@ -1921,8 +1732,8 @@ Properties for initialization of `Pod`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of the pod.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+**spec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of the pod.<br/>__*Default*__: An empty spec will be created.
 
 
 
@@ -1935,10 +1746,10 @@ Properties for initialization of `PodSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/><span style="text-decoration: underline">*Default*</span>: No containers. Note that a pod spec must include at least one container.
-**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/><span style="text-decoration: underline">*Default*</span>: RestartPolicy.ALWAYS
-**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/><span style="text-decoration: underline">*Default*</span>: No service account.
-**volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/><span style="text-decoration: underline">*Default*</span>: No volumes.
+**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
+**volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/>__*Default*__: No volumes.
 
 
 
@@ -1951,7 +1762,7 @@ Initialization properties for resources.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 
 
 
@@ -1964,8 +1775,8 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**stringData**?🔹 | <code>Map<string, string></code> | stringData allows specifying non-binary secret data in string form.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+**stringData**?🔹 | <code>Map<string, string></code> | stringData allows specifying non-binary secret data in string form.<br/>__*Optional*__
 
 
 
@@ -1980,8 +1791,8 @@ Properties for initialization of `ServiceAccount`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**secrets**?🔹 | <code>Array<[ISecret](#cdk8s-plus-isecret)></code> | List of secrets allowed to be used by pods running using this ServiceAccount.<br/><span style="text-decoration: underline">*Optional*</span>
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+**secrets**?🔹 | <code>Array<[ISecret](#cdk8s-plus-isecret)></code> | List of secrets allowed to be used by pods running using this ServiceAccount.<br/>__*Optional*__
 
 
 
@@ -1995,10 +1806,10 @@ Definition of a service port.
 Name | Type | Description 
 -----|------|-------------
 **port**🔹 | <code>number</code> | The port number the service will bind to.
-**name**?🔹 | <code>string</code> | The name of this port within the service.<br/><span style="text-decoration: underline">*Optional*</span>
-**nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/><span style="text-decoration: underline">*Default*</span>: to auto-allocate a port if the ServiceType of this Service requires one.
-**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-protocol)</code> | The IP protocol for this port.<br/><span style="text-decoration: underline">*Default*</span>: Protocol.TCP
-**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/><span style="text-decoration: underline">*Default*</span>: The value of `port` will be used.
+**name**?🔹 | <code>string</code> | The name of this port within the service.<br/>__*Optional*__
+**nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/>__*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
+**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
+**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
 
 
 
@@ -2011,10 +1822,10 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**name**?🔹 | <code>string</code> | The name of this port within the service.<br/><span style="text-decoration: underline">*Optional*</span>
-**nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/><span style="text-decoration: underline">*Default*</span>: to auto-allocate a port if the ServiceType of this Service requires one.
-**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-protocol)</code> | The IP protocol for this port.<br/><span style="text-decoration: underline">*Default*</span>: Protocol.TCP
-**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/><span style="text-decoration: underline">*Default*</span>: The value of `port` will be used.
+**name**?🔹 | <code>string</code> | The name of this port within the service.<br/>__*Optional*__
+**nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/>__*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
+**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
+**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
 
 
 
@@ -2027,8 +1838,8 @@ Properties for initialization of `Service`.
 
 Name | Type | Description 
 -----|------|-------------
-**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/><span style="text-decoration: underline">*Optional*</span>
-**spec**?🔹 | <code>[ServiceSpec](#cdk8s-plus-servicespec)</code> | The spec of the service.<br/><span style="text-decoration: underline">*Default*</span>: An empty spec will be created.
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+**spec**?🔹 | <code>[ServiceSpec](#cdk8s-plus-servicespec)</code> | The spec of the service.<br/>__*Default*__: An empty spec will be created.
 
 
 
@@ -2041,10 +1852,10 @@ Properties for initialization of `ServiceSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/><span style="text-decoration: underline">*Default*</span>: Automatically assigned.
-**externalIPs**?🔹 | <code>Array<string></code> | A list of IP addresses for which nodes in the cluster will also accept traffic for this service.<br/><span style="text-decoration: underline">*Default*</span>: No external IPs.
-**ports**?🔹 | <code>Array<[ServicePort](#cdk8s-plus-serviceport)></code> | The port exposed by this service.<br/><span style="text-decoration: underline">*Optional*</span>
-**type**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | Determines how the Service is exposed.<br/><span style="text-decoration: underline">*Default*</span>: ServiceType.ClusterIP
+**clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/>__*Default*__: Automatically assigned.
+**externalIPs**?🔹 | <code>Array<string></code> | A list of IP addresses for which nodes in the cluster will also accept traffic for this service.<br/>__*Default*__: No external IPs.
+**ports**?🔹 | <code>Array<[ServicePort](#cdk8s-plus-serviceport)></code> | The port exposed by this service.<br/>__*Optional*__
+**type**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | Determines how the Service is exposed.<br/>__*Default*__: ServiceType.ClusterIP
 
 
 
@@ -2057,7 +1868,7 @@ Options for how to convert time to a different unit.
 
 Name | Type | Description 
 -----|------|-------------
-**rounding**?🔹 | <code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code> | How conversions should behave when it encounters a non-integer result.<br/><span style="text-decoration: underline">*Default*</span>: SizeRoundingBehavior.FAIL
+**rounding**?🔹 | <code>[SizeRoundingBehavior](#cdk8s-plus-sizeroundingbehavior)</code> | How conversions should behave when it encounters a non-integer result.<br/>__*Default*__: SizeRoundingBehavior.FAIL
 
 
 
@@ -2070,7 +1881,7 @@ Options for how to convert time to a different unit.
 
 Name | Type | Description 
 -----|------|-------------
-**integral**?🔹 | <code>boolean</code> | If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer.<br/><span style="text-decoration: underline">*Default*</span>: true
+**integral**?🔹 | <code>boolean</code> | If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer.<br/>__*Default*__: true
 
 
 
@@ -2085,10 +1896,10 @@ Name | Type | Description
 -----|------|-------------
 **path**🔹 | <code>string</code> | Path within the container at which the volume should be mounted.
 **volume**🔹 | <code>[Volume](#cdk8s-plus-volume)</code> | The volume to mount.
-**propagation**?🔹 | <code>[MountPropagation](#cdk8s-plus-mountpropagation)</code> | Determines how mounts are propagated from the host to container and the other way around.<br/><span style="text-decoration: underline">*Default*</span>: MountPropagation.NONE
-**readOnly**?🔹 | <code>boolean</code> | Mounted read-only if true, read-write otherwise (false or unspecified).<br/><span style="text-decoration: underline">*Default*</span>: false
-**subPath**?🔹 | <code>string</code> | Path within the volume from which the container's volume should be mounted.).<br/><span style="text-decoration: underline">*Default*</span>: "" the volume's root
-**subPathExpr**?🔹 | <code>string</code> | Expanded path within the volume from which the container's volume should be mounted.<br/><span style="text-decoration: underline">*Default*</span>: "" volume's root.
+**propagation**?🔹 | <code>[MountPropagation](#cdk8s-plus-mountpropagation)</code> | Determines how mounts are propagated from the host to container and the other way around.<br/>__*Default*__: MountPropagation.NONE
+**readOnly**?🔹 | <code>boolean</code> | Mounted read-only if true, read-write otherwise (false or unspecified).<br/>__*Default*__: false
+**subPath**?🔹 | <code>string</code> | Path within the volume from which the container's volume should be mounted.).<br/>__*Default*__: "" the volume's root
+**subPathExpr**?🔹 | <code>string</code> | Expanded path within the volume from which the container's volume should be mounted.<br/>__*Default*__: "" volume's root.
 
 
 
