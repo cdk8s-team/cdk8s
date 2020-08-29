@@ -68,7 +68,7 @@ describe('PodSpecDefinition', () => {
         {
           name: 'container',
           image: 'image',
-          imagePullPolicy: 'Always',
+          imagePullPolicy: kplus.ImagePullPolicy.ALWAYS,
           env: [],
           command: undefined,
           ports: [],
