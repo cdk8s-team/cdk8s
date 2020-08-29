@@ -71,6 +71,7 @@ Name|Description
 Name|Description
 ----|-----------
 [EmptyDirMedium](#cdk8s-plus-emptydirmedium)|The medium on which to store the volume.
+[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)|*No description*
 [MountPropagation](#cdk8s-plus-mountpropagation)|*No description*
 [Protocol](#cdk8s-plus-protocol)|*No description*
 [RestartPolicy](#cdk8s-plus-restartpolicy)|Restart policy for all containers within the pod.
@@ -210,7 +211,7 @@ new Container(props: ContainerProps)
   * **image** (<code>string</code>)  Docker image name. 
   * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
   * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
-  * **imagePullPolicy** (<code>string</code>)  Image pull policy for this container. __*Default*__: 'Always'
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.NEVER
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -225,7 +226,7 @@ Name | Type | Description
 -----|------|-------------
 **env**🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | The environment variables for this container.
 **image**🔹 | <code>string</code> | The container image.
-**imagePullPolicy**🔹 | <code>string</code> | Image pull policy for this container.
+**imagePullPolicy**🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.
 **mounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Volume mounts configured for this container.
 **name**🔹 | <code>string</code> | The name of the container.
 **command**?🔹 | <code>Array<string></code> | Entrypoint array (the command to execute when the container starts).<br/>__*Optional*__
@@ -1500,7 +1501,7 @@ Name | Type | Description
 **image**🔹 | <code>string</code> | Docker image name.
 **command**?🔹 | <code>Array<string></code> | Entrypoint array.<br/>__*Default*__: The docker image's ENTRYPOINT.
 **env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/>__*Default*__: No environment variables.
-**imagePullPolicy**?🔹 | <code>string</code> | Image pull policy for this container.<br/>__*Default*__: 'Always'
+**imagePullPolicy**?🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.<br/>__*Default*__: ImagePullPolicy.NEVER
 **name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/>__*Default*__: 'main'
 **port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/>__*Default*__: No port is exposed.
 **volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/>__*Optional*__
@@ -1914,6 +1915,17 @@ Name | Description
 -----|-----
 **DEFAULT** 🔹|The default volume of the backing node.
 **MEMORY** 🔹|Mount a tmpfs (RAM-backed filesystem) for you instead.
+
+
+## enum ImagePullPolicy 🔹 <a id="cdk8s-plus-imagepullpolicy"></a>
+
+
+
+Name | Description
+-----|-----
+**ALWAYS** 🔹|Every time the kubelet launches a container, the kubelet queries the container image registry to resolve the name to an image digest.
+**IF_NOT_PRESENT** 🔹|The image is pulled only if it is not already present locally.
+**NEVER** 🔹|The image is assumed to exist locally.
 
 
 ## enum MountPropagation 🔹 <a id="cdk8s-plus-mountpropagation"></a>
