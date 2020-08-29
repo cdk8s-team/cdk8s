@@ -211,7 +211,7 @@ new Container(props: ContainerProps)
   * **image** (<code>string</code>)  Docker image name. 
   * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
   * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
-  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.NEVER
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -1501,7 +1501,7 @@ Name | Type | Description
 **image**🔹 | <code>string</code> | Docker image name.
 **command**?🔹 | <code>Array<string></code> | Entrypoint array.<br/>__*Default*__: The docker image's ENTRYPOINT.
 **env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/>__*Default*__: No environment variables.
-**imagePullPolicy**?🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.<br/>__*Default*__: ImagePullPolicy.NEVER
+**imagePullPolicy**?🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.<br/>__*Default*__: ImagePullPolicy.ALWAYS
 **name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/>__*Default*__: 'main'
 **port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/>__*Default*__: No port is exposed.
 **volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/>__*Optional*__

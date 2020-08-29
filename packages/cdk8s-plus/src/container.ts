@@ -199,7 +199,7 @@ export interface ContainerProps {
 
   /**
    * Image pull policy for this container
-   * @default ImagePullPolicy.NEVER
+   * @default ImagePullPolicy.ALWAYS
    */
   readonly imagePullPolicy?: ImagePullPolicy
 }
