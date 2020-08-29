@@ -5,8 +5,8 @@ import enum
 import typing
 
 import jsii
-import jsii.compat
 import publication
+import typing_extensions
 
 from ._jsii import *
 
@@ -27,7 +27,7 @@ class CronTab(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: str,
+        name: builtins.str,
         *,
         spec: typing.Optional["CronTabSpec"] = None,
     ) -> None:
@@ -57,7 +57,7 @@ class CronTabOptions:
         """
         if isinstance(spec, dict):
             spec = CronTabSpec(**spec)
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if spec is not None:
             self._values["spec"] = spec
 
@@ -67,12 +67,13 @@ class CronTabOptions:
         schema:
         :schema:: CronTab#spec
         """
-        return self._values.get("spec")
+        result = self._values.get("spec")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -90,8 +91,8 @@ class CronTabSpec:
     def __init__(
         self,
         *,
-        cron_spec: typing.Optional[str] = None,
-        image: typing.Optional[str] = None,
+        cron_spec: typing.Optional[builtins.str] = None,
+        image: typing.Optional[builtins.str] = None,
         replicas: typing.Optional[jsii.Number] = None,
     ) -> None:
         """
@@ -102,7 +103,7 @@ class CronTabSpec:
         schema:
         :schema:: CronTabSpec
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if cron_spec is not None:
             self._values["cron_spec"] = cron_spec
         if image is not None:
@@ -111,20 +112,22 @@ class CronTabSpec:
             self._values["replicas"] = replicas
 
     @builtins.property
-    def cron_spec(self) -> typing.Optional[str]:
+    def cron_spec(self) -> typing.Optional[builtins.str]:
         """
         schema:
         :schema:: CronTabSpec#cronSpec
         """
-        return self._values.get("cron_spec")
+        result = self._values.get("cron_spec")
+        return result
 
     @builtins.property
-    def image(self) -> typing.Optional[str]:
+    def image(self) -> typing.Optional[builtins.str]:
         """
         schema:
         :schema:: CronTabSpec#image
         """
-        return self._values.get("image")
+        result = self._values.get("image")
+        return result
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -132,12 +135,13 @@ class CronTabSpec:
         schema:
         :schema:: CronTabSpec#replicas
         """
-        return self._values.get("replicas")
+        result = self._values.get("replicas")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
