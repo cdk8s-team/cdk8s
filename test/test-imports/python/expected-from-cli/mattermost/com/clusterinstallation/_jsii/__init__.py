@@ -5,8 +5,8 @@ import enum
 import typing
 
 import jsii
-import jsii.compat
 import publication
+import typing_extensions
 
 import cdk8s._jsii
 import constructs._jsii
