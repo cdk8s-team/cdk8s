@@ -19,6 +19,10 @@ exports.post = options => {
     throw new Error(`missing context "mvn_cdk8s"`);
   }
 
+  if (!mvn_cdk8s_plus) {
+    throw new Error(`missing context "mvn_cdk8s_plus"`);
+  }
+
   // This is used for installing artifacts that are local (not from Maven)
   // https://maven.apache.org/plugins/maven-install-plugin/usage.html
   if (mvn_cdk8s.endsWith('.jar')) {

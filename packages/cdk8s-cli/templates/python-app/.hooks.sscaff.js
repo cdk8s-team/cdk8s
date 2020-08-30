@@ -11,6 +11,12 @@ exports.pre = () => {
     console.error(`Unable to find "pipenv". Install from https://pipenv.kennethreitz.org`)
     process.exit(1);
   }
+  try {
+    execSync('which pip3')
+  } catch {
+    console.error(`Unable to find "pip3". Install from https://pip.pypa.io`)
+    process.exit(1);
+  }
 };
 
 exports.post = options => {
@@ -27,13 +33,14 @@ exports.post = options => {
   execSync(`pipenv install ${pypi_cdk8s}`, { stdio: 'inherit' });
   /**
    * Using --no-deps flag here to ignore subdependencies. For cdk8s_plus, that's
+   * these dependencies:
    * 
-   * Requires-Dist: jsii (<2.0.0,>=1.7.0)
-   * Requires-Dist: publication (>=0.0.3)
-   * Requires-Dist: cdk8s (==0.0.0)
-   * Requires-Dist: constructs (<3.0.0,>=2.0.2)
+   * jsii (<2.0.0,>=1.7.0)
+   * publication (>=0.0.3)
+   * cdk8s (==0.0.0)
+   * constructs (<3.0.0,>=2.0.2)
    * 
-   * Even when install locally, with this command:
+   * Even when installing locally, with this command:
    * 
    * pipenv install dist/python/cdk8s_plus-0.0.0-py3-none-any.whl
    * 
