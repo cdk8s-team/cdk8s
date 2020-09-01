@@ -393,79 +393,64 @@ new Include(scope: Construct, name: string, options: IncludeOptions)
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 resolve(): any
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>any</code>
 
 #### *static* any(producer)🔹 <a id="cdk8s-lazy-any"></a>
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static any(producer: IAnyProducer): any
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **producer** (<code>[IAnyProducer](#cdk8s-ianyproducer)</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>any</code>
 
 #### *static* number(producer)🔹 <a id="cdk8s-lazy-number"></a>
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static number(producer: INumberProducer): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **producer** (<code>[INumberProducer](#cdk8s-inumberproducer)</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 #### *static* string(producer)🔹 <a id="cdk8s-lazy-string"></a>
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static string(producer: IStringProducer): string
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **producer** (<code>[IStringProducer](#cdk8s-istringproducer)</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>string</code>
 
 #### *static* stringList(producer)🔹 <a id="cdk8s-lazy-stringlist"></a>
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 static stringList(producer: IStringListProducer): Array<string>
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 * **producer** (<code>[IStringListProducer](#cdk8s-istringlistproducer)</code>)  *No description*
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>Array<string></code>
 
 
@@ -637,15 +622,12 @@ Name | Type | Description
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 produce(): any
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>any</code>
 
 
@@ -661,15 +643,12 @@ produce(): any
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 produce(): number
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>number</code>
 
 
@@ -685,15 +664,12 @@ produce(): number
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 produce(): Array<string>
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>Array<string></code>
 
 
@@ -709,15 +685,12 @@ produce(): Array<string>
 
 
 
-<span style="text-decoration: underline">Usage:</span>
-
 ```ts
 produce(): string
 ```
 
-<span style="text-decoration: underline">Parameters:</span>
 
-<span style="text-decoration: underline">Returns</span>:
+__Returns__:
 * <code>string</code>
 
 
