@@ -5,8 +5,8 @@ import enum
 import typing
 
 import jsii
-import jsii.compat
 import publication
+import typing_extensions
 
 from ._jsii import *
 
@@ -15,7 +15,9 @@ import constructs
 
 
 class Jenkins(
-    cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="jenkinsiojenkins.Jenkins"
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="jenkinsiojenkins.Jenkins",
 ):
     """Jenkins is the Schema for the jenkins API.
 
@@ -26,7 +28,7 @@ class Jenkins(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: str,
+        name: builtins.str,
         *,
         metadata: typing.Any = None,
         spec: typing.Optional["JenkinsSpec"] = None,
@@ -65,7 +67,7 @@ class JenkinsOptions:
         """
         if isinstance(spec, dict):
             spec = JenkinsSpec(**spec)
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if metadata is not None:
             self._values["metadata"] = metadata
         if spec is not None:
@@ -77,7 +79,8 @@ class JenkinsOptions:
         schema:
         :schema:: Jenkins#metadata
         """
-        return self._values.get("metadata")
+        result = self._values.get("metadata")
+        return result
 
     @builtins.property
     def spec(self) -> typing.Optional["JenkinsSpec"]:
@@ -86,12 +89,13 @@ class JenkinsOptions:
         schema:
         :schema:: Jenkins#spec
         """
-        return self._values.get("spec")
+        result = self._values.get("spec")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -160,9 +164,7 @@ class JenkinsSpec:
         if isinstance(backup, dict):
             backup = JenkinsSpecBackup(**backup)
         if isinstance(configuration_as_code, dict):
-            configuration_as_code = JenkinsSpecConfigurationAsCode(
-                **configuration_as_code
-            )
+            configuration_as_code = JenkinsSpecConfigurationAsCode(**configuration_as_code)
         if isinstance(groovy_scripts, dict):
             groovy_scripts = JenkinsSpecGroovyScripts(**groovy_scripts)
         if isinstance(restore, dict):
@@ -173,7 +175,7 @@ class JenkinsSpec:
             service_account = JenkinsSpecServiceAccount(**service_account)
         if isinstance(slave_service, dict):
             slave_service = JenkinsSpecSlaveService(**slave_service)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "jenkins_api_settings": jenkins_api_settings,
             "master": master,
         }
@@ -205,7 +207,9 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#jenkinsAPISettings
         """
-        return self._values.get("jenkins_api_settings")
+        result = self._values.get("jenkins_api_settings")
+        assert result is not None, "Required property 'jenkins_api_settings' is missing"
+        return result
 
     @builtins.property
     def master(self) -> "JenkinsSpecMaster":
@@ -216,7 +220,9 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#master
         """
-        return self._values.get("master")
+        result = self._values.get("master")
+        assert result is not None, "Required property 'master' is missing"
+        return result
 
     @builtins.property
     def backup(self) -> typing.Optional["JenkinsSpecBackup"]:
@@ -225,7 +231,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#backup
         """
-        return self._values.get("backup")
+        result = self._values.get("backup")
+        return result
 
     @builtins.property
     def configuration_as_code(
@@ -236,7 +243,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#configurationAsCode
         """
-        return self._values.get("configuration_as_code")
+        result = self._values.get("configuration_as_code")
+        return result
 
     @builtins.property
     def groovy_scripts(self) -> typing.Optional["JenkinsSpecGroovyScripts"]:
@@ -245,7 +253,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#groovyScripts
         """
-        return self._values.get("groovy_scripts")
+        result = self._values.get("groovy_scripts")
+        return result
 
     @builtins.property
     def notifications(self) -> typing.Optional[typing.List["JenkinsSpecNotifications"]]:
@@ -254,7 +263,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#notifications
         """
-        return self._values.get("notifications")
+        result = self._values.get("notifications")
+        return result
 
     @builtins.property
     def restore(self) -> typing.Optional["JenkinsSpecRestore"]:
@@ -263,7 +273,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#restore
         """
-        return self._values.get("restore")
+        result = self._values.get("restore")
+        return result
 
     @builtins.property
     def roles(self) -> typing.Optional[typing.List["JenkinsSpecRoles"]]:
@@ -272,7 +283,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#roles
         """
-        return self._values.get("roles")
+        result = self._values.get("roles")
+        return result
 
     @builtins.property
     def seed_jobs(self) -> typing.Optional[typing.List["JenkinsSpecSeedJobs"]]:
@@ -281,7 +293,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#seedJobs
         """
-        return self._values.get("seed_jobs")
+        result = self._values.get("seed_jobs")
+        return result
 
     @builtins.property
     def service(self) -> typing.Optional["JenkinsSpecService"]:
@@ -293,7 +306,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#service
         """
-        return self._values.get("service")
+        result = self._values.get("service")
+        return result
 
     @builtins.property
     def service_account(self) -> typing.Optional["JenkinsSpecServiceAccount"]:
@@ -302,7 +316,8 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#serviceAccount
         """
-        return self._values.get("service_account")
+        result = self._values.get("service_account")
+        return result
 
     @builtins.property
     def slave_service(self) -> typing.Optional["JenkinsSpecSlaveService"]:
@@ -314,12 +329,13 @@ class JenkinsSpec:
         schema:
         :schema:: JenkinsSpec#slaveService
         """
-        return self._values.get("slave_service")
+        result = self._values.get("slave_service")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -343,9 +359,9 @@ class JenkinsSpecBackup:
         self,
         *,
         action: "JenkinsSpecBackupAction",
-        container_name: str,
+        container_name: builtins.str,
         interval: jsii.Number,
-        make_backup_before_pod_deletion: bool,
+        make_backup_before_pod_deletion: builtins.bool,
     ) -> None:
         """Backup defines configuration of Jenkins backup More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-backup-and-restore.
 
@@ -359,7 +375,7 @@ class JenkinsSpecBackup:
         """
         if isinstance(action, dict):
             action = JenkinsSpecBackupAction(**action)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "action": action,
             "container_name": container_name,
             "interval": interval,
@@ -373,16 +389,20 @@ class JenkinsSpecBackup:
         schema:
         :schema:: JenkinsSpecBackup#action
         """
-        return self._values.get("action")
+        result = self._values.get("action")
+        assert result is not None, "Required property 'action' is missing"
+        return result
 
     @builtins.property
-    def container_name(self) -> str:
+    def container_name(self) -> builtins.str:
         """ContainerName is the container name responsible for backup operation.
 
         schema:
         :schema:: JenkinsSpecBackup#containerName
         """
-        return self._values.get("container_name")
+        result = self._values.get("container_name")
+        assert result is not None, "Required property 'container_name' is missing"
+        return result
 
     @builtins.property
     def interval(self) -> jsii.Number:
@@ -394,21 +414,25 @@ class JenkinsSpecBackup:
         schema:
         :schema:: JenkinsSpecBackup#interval
         """
-        return self._values.get("interval")
+        result = self._values.get("interval")
+        assert result is not None, "Required property 'interval' is missing"
+        return result
 
     @builtins.property
-    def make_backup_before_pod_deletion(self) -> bool:
+    def make_backup_before_pod_deletion(self) -> builtins.bool:
         """MakeBackupBeforePodDeletion tells operator to make backup before Jenkins master pod deletion.
 
         schema:
         :schema:: JenkinsSpecBackup#makeBackupBeforePodDeletion
         """
-        return self._values.get("make_backup_before_pod_deletion")
+        result = self._values.get("make_backup_before_pod_deletion")
+        assert result is not None, "Required property 'make_backup_before_pod_deletion' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -424,7 +448,9 @@ class JenkinsSpecBackup:
 )
 class JenkinsSpecBackupAction:
     def __init__(
-        self, *, exec: typing.Optional["JenkinsSpecBackupActionExec"] = None
+        self,
+        *,
+        exec: typing.Optional["JenkinsSpecBackupActionExec"] = None,
     ) -> None:
         """Action defines action which performs backup in backup container sidecar.
 
@@ -435,7 +461,7 @@ class JenkinsSpecBackupAction:
         """
         if isinstance(exec, dict):
             exec = JenkinsSpecBackupActionExec(**exec)
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
             self._values["exec"] = exec
 
@@ -446,12 +472,13 @@ class JenkinsSpecBackupAction:
         schema:
         :schema:: JenkinsSpecBackupAction#exec
         """
-        return self._values.get("exec")
+        result = self._values.get("exec")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -466,7 +493,11 @@ class JenkinsSpecBackupAction:
     name_mapping={"command": "command"},
 )
 class JenkinsSpecBackupActionExec:
-    def __init__(self, *, command: typing.Optional[typing.List[str]] = None) -> None:
+    def __init__(
+        self,
+        *,
+        command: typing.Optional[typing.List[builtins.str]] = None,
+    ) -> None:
         """Exec specifies the action to take.
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -474,12 +505,12 @@ class JenkinsSpecBackupActionExec:
         schema:
         :schema:: JenkinsSpecBackupActionExec
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
             self._values["command"] = command
 
     @builtins.property
-    def command(self) -> typing.Optional[typing.List[str]]:
+    def command(self) -> typing.Optional[typing.List[builtins.str]]:
         """Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -487,12 +518,13 @@ class JenkinsSpecBackupActionExec:
         schema:
         :schema:: JenkinsSpecBackupActionExec#command
         """
-        return self._values.get("command")
+        result = self._values.get("command")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -523,7 +555,7 @@ class JenkinsSpecConfigurationAsCode:
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecConfigurationAsCodeSecret(**secret)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "configurations": configurations,
             "secret": secret,
         }
@@ -536,7 +568,9 @@ class JenkinsSpecConfigurationAsCode:
         schema:
         :schema:: JenkinsSpecConfigurationAsCode#configurations
         """
-        return self._values.get("configurations")
+        result = self._values.get("configurations")
+        assert result is not None, "Required property 'configurations' is missing"
+        return result
 
     @builtins.property
     def secret(self) -> "JenkinsSpecConfigurationAsCodeSecret":
@@ -545,12 +579,14 @@ class JenkinsSpecConfigurationAsCode:
         schema:
         :schema:: JenkinsSpecConfigurationAsCode#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        assert result is not None, "Required property 'secret' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -565,7 +601,7 @@ class JenkinsSpecConfigurationAsCode:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecConfigurationAsCodeConfigurations:
-    def __init__(self, *, name: str) -> None:
+    def __init__(self, *, name: builtins.str) -> None:
         """ConfigMapRef is reference to Kubernetes ConfigMap.
 
         :param name: 
@@ -573,22 +609,24 @@ class JenkinsSpecConfigurationAsCodeConfigurations:
         schema:
         :schema:: JenkinsSpecConfigurationAsCodeConfigurations
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecConfigurationAsCodeConfigurations#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -603,7 +641,7 @@ class JenkinsSpecConfigurationAsCodeConfigurations:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecConfigurationAsCodeSecret:
-    def __init__(self, *, name: str) -> None:
+    def __init__(self, *, name: builtins.str) -> None:
         """SecretRef is reference to Kubernetes secret.
 
         :param name: 
@@ -611,22 +649,24 @@ class JenkinsSpecConfigurationAsCodeSecret:
         schema:
         :schema:: JenkinsSpecConfigurationAsCodeSecret
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecConfigurationAsCodeSecret#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -657,7 +697,7 @@ class JenkinsSpecGroovyScripts:
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecGroovyScriptsSecret(**secret)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "configurations": configurations,
             "secret": secret,
         }
@@ -668,7 +708,9 @@ class JenkinsSpecGroovyScripts:
         schema:
         :schema:: JenkinsSpecGroovyScripts#configurations
         """
-        return self._values.get("configurations")
+        result = self._values.get("configurations")
+        assert result is not None, "Required property 'configurations' is missing"
+        return result
 
     @builtins.property
     def secret(self) -> "JenkinsSpecGroovyScriptsSecret":
@@ -677,12 +719,14 @@ class JenkinsSpecGroovyScripts:
         schema:
         :schema:: JenkinsSpecGroovyScripts#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        assert result is not None, "Required property 'secret' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -697,7 +741,7 @@ class JenkinsSpecGroovyScripts:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecGroovyScriptsConfigurations:
-    def __init__(self, *, name: str) -> None:
+    def __init__(self, *, name: builtins.str) -> None:
         """ConfigMapRef is reference to Kubernetes ConfigMap.
 
         :param name: 
@@ -705,22 +749,24 @@ class JenkinsSpecGroovyScriptsConfigurations:
         schema:
         :schema:: JenkinsSpecGroovyScriptsConfigurations
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecGroovyScriptsConfigurations#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -735,7 +781,7 @@ class JenkinsSpecGroovyScriptsConfigurations:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecGroovyScriptsSecret:
-    def __init__(self, *, name: str) -> None:
+    def __init__(self, *, name: builtins.str) -> None:
         """SecretRef is reference to Kubernetes secret.
 
         :param name: 
@@ -743,22 +789,24 @@ class JenkinsSpecGroovyScriptsSecret:
         schema:
         :schema:: JenkinsSpecGroovyScriptsSecret
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecGroovyScriptsSecret#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -773,7 +821,7 @@ class JenkinsSpecGroovyScriptsSecret:
     name_mapping={"authorization_strategy": "authorizationStrategy"},
 )
 class JenkinsSpecJenkinsApiSettings:
-    def __init__(self, *, authorization_strategy: str) -> None:
+    def __init__(self, *, authorization_strategy: builtins.str) -> None:
         """JenkinsAPISettings defines configuration used by the operator to gain admin access to the Jenkins API.
 
         :param authorization_strategy: AuthorizationStrategy defines authorization strategy of the operator for the Jenkins API.
@@ -781,23 +829,25 @@ class JenkinsSpecJenkinsApiSettings:
         schema:
         :schema:: JenkinsSpecJenkinsApiSettings
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "authorization_strategy": authorization_strategy,
         }
 
     @builtins.property
-    def authorization_strategy(self) -> str:
+    def authorization_strategy(self) -> builtins.str:
         """AuthorizationStrategy defines authorization strategy of the operator for the Jenkins API.
 
         schema:
         :schema:: JenkinsSpecJenkinsApiSettings#authorizationStrategy
         """
-        return self._values.get("authorization_strategy")
+        result = self._values.get("authorization_strategy")
+        assert result is not None, "Required property 'authorization_strategy' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -828,23 +878,17 @@ class JenkinsSpecMaster:
     def __init__(
         self,
         *,
-        disable_csrf_protection: bool,
-        annotations: typing.Optional[typing.Mapping[str, str]] = None,
-        base_plugins: typing.Optional[
-            typing.List["JenkinsSpecMasterBasePlugins"]
-        ] = None,
+        disable_csrf_protection: builtins.bool,
+        annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        base_plugins: typing.Optional[typing.List["JenkinsSpecMasterBasePlugins"]] = None,
         containers: typing.Optional[typing.List["JenkinsSpecMasterContainers"]] = None,
-        image_pull_secrets: typing.Optional[
-            typing.List["JenkinsSpecMasterImagePullSecrets"]
-        ] = None,
-        labels: typing.Optional[typing.Mapping[str, str]] = None,
-        master_annotations: typing.Optional[typing.Mapping[str, str]] = None,
-        node_selector: typing.Optional[typing.Mapping[str, str]] = None,
+        image_pull_secrets: typing.Optional[typing.List["JenkinsSpecMasterImagePullSecrets"]] = None,
+        labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        master_annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         plugins: typing.Optional[typing.List["JenkinsSpecMasterPlugins"]] = None,
         security_context: typing.Optional["JenkinsSpecMasterSecurityContext"] = None,
-        tolerations: typing.Optional[
-            typing.List["JenkinsSpecMasterTolerations"]
-        ] = None,
+        tolerations: typing.Optional[typing.List["JenkinsSpecMasterTolerations"]] = None,
         volumes: typing.Optional[typing.List["JenkinsSpecMasterVolumes"]] = None,
     ) -> None:
         """Master represents Jenkins master pod properties and Jenkins plugins.
@@ -869,7 +913,7 @@ class JenkinsSpecMaster:
         """
         if isinstance(security_context, dict):
             security_context = JenkinsSpecMasterSecurityContext(**security_context)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "disable_csrf_protection": disable_csrf_protection,
         }
         if annotations is not None:
@@ -896,16 +940,20 @@ class JenkinsSpecMaster:
             self._values["volumes"] = volumes
 
     @builtins.property
-    def disable_csrf_protection(self) -> bool:
+    def disable_csrf_protection(self) -> builtins.bool:
         """DisableCSRFProtection allows you to toggle CSRF Protection on Jenkins.
 
         schema:
         :schema:: JenkinsSpecMaster#disableCSRFProtection
         """
-        return self._values.get("disable_csrf_protection")
+        result = self._values.get("disable_csrf_protection")
+        assert result is not None, "Required property 'disable_csrf_protection' is missing"
+        return result
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def annotations(
+        self,
+    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -913,7 +961,8 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#annotations
         """
-        return self._values.get("annotations")
+        result = self._values.get("annotations")
+        return result
 
     @builtins.property
     def base_plugins(
@@ -927,7 +976,8 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#basePlugins
         """
-        return self._values.get("base_plugins")
+        result = self._values.get("base_plugins")
+        return result
 
     @builtins.property
     def containers(self) -> typing.Optional[typing.List["JenkinsSpecMasterContainers"]]:
@@ -941,7 +991,8 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#containers
         """
-        return self._values.get("containers")
+        result = self._values.get("containers")
+        return result
 
     @builtins.property
     def image_pull_secrets(
@@ -954,10 +1005,11 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#imagePullSecrets
         """
-        return self._values.get("image_pull_secrets")
+        result = self._values.get("image_pull_secrets")
+        return result
 
     @builtins.property
-    def labels(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def labels(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Map of string keys and values that can be used to organize and categorize (scope and select) objects.
 
         May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
@@ -965,10 +1017,13 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#labels
         """
-        return self._values.get("labels")
+        result = self._values.get("labels")
+        return result
 
     @builtins.property
-    def master_annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def master_annotations(
+        self,
+    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations Deprecated: will be removed in the future, please use Annotations(annotations)
@@ -976,10 +1031,13 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#masterAnnotations
         """
-        return self._values.get("master_annotations")
+        result = self._values.get("master_annotations")
+        return result
 
     @builtins.property
-    def node_selector(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def node_selector(
+        self,
+    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """NodeSelector is a selector which must be true for the pod to fit on a node.
 
         Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
@@ -987,7 +1045,8 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#nodeSelector
         """
-        return self._values.get("node_selector")
+        result = self._values.get("node_selector")
+        return result
 
     @builtins.property
     def plugins(self) -> typing.Optional[typing.List["JenkinsSpecMasterPlugins"]]:
@@ -996,7 +1055,8 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#plugins
         """
-        return self._values.get("plugins")
+        result = self._values.get("plugins")
+        return result
 
     @builtins.property
     def security_context(self) -> typing.Optional["JenkinsSpecMasterSecurityContext"]:
@@ -1010,7 +1070,8 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#securityContext
         """
-        return self._values.get("security_context")
+        result = self._values.get("security_context")
+        return result
 
     @builtins.property
     def tolerations(
@@ -1021,7 +1082,8 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#tolerations
         """
-        return self._values.get("tolerations")
+        result = self._values.get("tolerations")
+        return result
 
     @builtins.property
     def volumes(self) -> typing.Optional[typing.List["JenkinsSpecMasterVolumes"]]:
@@ -1032,12 +1094,13 @@ class JenkinsSpecMaster:
         schema:
         :schema:: JenkinsSpecMaster#volumes
         """
-        return self._values.get("volumes")
+        result = self._values.get("volumes")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1052,7 +1115,7 @@ class JenkinsSpecMaster:
     name_mapping={"name": "name", "version": "version"},
 )
 class JenkinsSpecMasterBasePlugins:
-    def __init__(self, *, name: str, version: str) -> None:
+    def __init__(self, *, name: builtins.str, version: builtins.str) -> None:
         """Plugin defines Jenkins plugin.
 
         :param name: Name is the name of Jenkins plugin.
@@ -1061,33 +1124,37 @@ class JenkinsSpecMasterBasePlugins:
         schema:
         :schema:: JenkinsSpecMasterBasePlugins
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "version": version,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """Name is the name of Jenkins plugin.
 
         schema:
         :schema:: JenkinsSpecMasterBasePlugins#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def version(self) -> str:
+    def version(self) -> builtins.str:
         """Version is the version of Jenkins plugin.
 
         schema:
         :schema:: JenkinsSpecMasterBasePlugins#version
         """
-        return self._values.get("version")
+        result = self._values.get("version")
+        assert result is not None, "Required property 'version' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1121,31 +1188,21 @@ class JenkinsSpecMasterContainers:
     def __init__(
         self,
         *,
-        image: str,
-        image_pull_policy: str,
-        name: str,
+        image: builtins.str,
+        image_pull_policy: builtins.str,
+        name: builtins.str,
         resources: "JenkinsSpecMasterContainersResources",
-        args: typing.Optional[typing.List[str]] = None,
-        command: typing.Optional[typing.List[str]] = None,
+        args: typing.Optional[typing.List[builtins.str]] = None,
+        command: typing.Optional[typing.List[builtins.str]] = None,
         env: typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]] = None,
-        env_from: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersEnvFrom"]
-        ] = None,
+        env_from: typing.Optional[typing.List["JenkinsSpecMasterContainersEnvFrom"]] = None,
         lifecycle: typing.Optional["JenkinsSpecMasterContainersLifecycle"] = None,
-        liveness_probe: typing.Optional[
-            "JenkinsSpecMasterContainersLivenessProbe"
-        ] = None,
+        liveness_probe: typing.Optional["JenkinsSpecMasterContainersLivenessProbe"] = None,
         ports: typing.Optional[typing.List["JenkinsSpecMasterContainersPorts"]] = None,
-        readiness_probe: typing.Optional[
-            "JenkinsSpecMasterContainersReadinessProbe"
-        ] = None,
-        security_context: typing.Optional[
-            "JenkinsSpecMasterContainersSecurityContext"
-        ] = None,
-        volume_mounts: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersVolumeMounts"]
-        ] = None,
-        working_dir: typing.Optional[str] = None,
+        readiness_probe: typing.Optional["JenkinsSpecMasterContainersReadinessProbe"] = None,
+        security_context: typing.Optional["JenkinsSpecMasterContainersSecurityContext"] = None,
+        volume_mounts: typing.Optional[typing.List["JenkinsSpecMasterContainersVolumeMounts"]] = None,
+        working_dir: typing.Optional[builtins.str] = None,
     ) -> None:
         """Container defines Kubernetes container attributes.
 
@@ -1175,14 +1232,10 @@ class JenkinsSpecMasterContainers:
         if isinstance(liveness_probe, dict):
             liveness_probe = JenkinsSpecMasterContainersLivenessProbe(**liveness_probe)
         if isinstance(readiness_probe, dict):
-            readiness_probe = JenkinsSpecMasterContainersReadinessProbe(
-                **readiness_probe
-            )
+            readiness_probe = JenkinsSpecMasterContainersReadinessProbe(**readiness_probe)
         if isinstance(security_context, dict):
-            security_context = JenkinsSpecMasterContainersSecurityContext(
-                **security_context
-            )
-        self._values = {
+            security_context = JenkinsSpecMasterContainersSecurityContext(**security_context)
+        self._values: typing.Dict[str, typing.Any] = {
             "image": image,
             "image_pull_policy": image_pull_policy,
             "name": name,
@@ -1212,7 +1265,7 @@ class JenkinsSpecMasterContainers:
             self._values["working_dir"] = working_dir
 
     @builtins.property
-    def image(self) -> str:
+    def image(self) -> builtins.str:
         """Docker image name.
 
         More info: https://kubernetes.io/docs/concepts/containers/images
@@ -1220,10 +1273,12 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#image
         """
-        return self._values.get("image")
+        result = self._values.get("image")
+        assert result is not None, "Required property 'image' is missing"
+        return result
 
     @builtins.property
-    def image_pull_policy(self) -> str:
+    def image_pull_policy(self) -> builtins.str:
         """Image pull policy.
 
         One of Always, Never, IfNotPresent. Defaults to Always.
@@ -1234,10 +1289,12 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#imagePullPolicy
         """
-        return self._values.get("image_pull_policy")
+        result = self._values.get("image_pull_policy")
+        assert result is not None, "Required property 'image_pull_policy' is missing"
+        return result
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """Name of the container specified as a DNS_LABEL.
 
         Each container in a pod must have a unique name (DNS_LABEL).
@@ -1245,7 +1302,9 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
     def resources(self) -> "JenkinsSpecMasterContainersResources":
@@ -1256,10 +1315,12 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#resources
         """
-        return self._values.get("resources")
+        result = self._values.get("resources")
+        assert result is not None, "Required property 'resources' is missing"
+        return result
 
     @builtins.property
-    def args(self) -> typing.Optional[typing.List[str]]:
+    def args(self) -> typing.Optional[typing.List[builtins.str]]:
         """Arguments to the entrypoint.
 
         The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
@@ -1267,10 +1328,11 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#args
         """
-        return self._values.get("args")
+        result = self._values.get("args")
+        return result
 
     @builtins.property
-    def command(self) -> typing.Optional[typing.List[str]]:
+    def command(self) -> typing.Optional[typing.List[builtins.str]]:
         """Entrypoint array.
 
         Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
@@ -1278,7 +1340,8 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#command
         """
-        return self._values.get("command")
+        result = self._values.get("command")
+        return result
 
     @builtins.property
     def env(self) -> typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]]:
@@ -1287,7 +1350,8 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#env
         """
-        return self._values.get("env")
+        result = self._values.get("env")
+        return result
 
     @builtins.property
     def env_from(
@@ -1300,7 +1364,8 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#envFrom
         """
-        return self._values.get("env_from")
+        result = self._values.get("env_from")
+        return result
 
     @builtins.property
     def lifecycle(self) -> typing.Optional["JenkinsSpecMasterContainersLifecycle"]:
@@ -1309,7 +1374,8 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#lifecycle
         """
-        return self._values.get("lifecycle")
+        result = self._values.get("lifecycle")
+        return result
 
     @builtins.property
     def liveness_probe(
@@ -1322,7 +1388,8 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#livenessProbe
         """
-        return self._values.get("liveness_probe")
+        result = self._values.get("liveness_probe")
+        return result
 
     @builtins.property
     def ports(self) -> typing.Optional[typing.List["JenkinsSpecMasterContainersPorts"]]:
@@ -1333,7 +1400,8 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#ports
         """
-        return self._values.get("ports")
+        result = self._values.get("ports")
+        return result
 
     @builtins.property
     def readiness_probe(
@@ -1346,7 +1414,8 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#readinessProbe
         """
-        return self._values.get("readiness_probe")
+        result = self._values.get("readiness_probe")
+        return result
 
     @builtins.property
     def security_context(
@@ -1359,7 +1428,8 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#securityContext
         """
-        return self._values.get("security_context")
+        result = self._values.get("security_context")
+        return result
 
     @builtins.property
     def volume_mounts(
@@ -1370,10 +1440,11 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#volumeMounts
         """
-        return self._values.get("volume_mounts")
+        result = self._values.get("volume_mounts")
+        return result
 
     @builtins.property
-    def working_dir(self) -> typing.Optional[str]:
+    def working_dir(self) -> typing.Optional[builtins.str]:
         """Container's working directory.
 
         If not specified, the container runtime's default will be used, which might be configured in the container image.
@@ -1381,12 +1452,13 @@ class JenkinsSpecMasterContainers:
         schema:
         :schema:: JenkinsSpecMasterContainers#workingDir
         """
-        return self._values.get("working_dir")
+        result = self._values.get("working_dir")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1404,8 +1476,8 @@ class JenkinsSpecMasterContainersEnv:
     def __init__(
         self,
         *,
-        name: str,
-        value: typing.Optional[str] = None,
+        name: builtins.str,
+        value: typing.Optional[builtins.str] = None,
         value_from: typing.Optional["JenkinsSpecMasterContainersEnvValueFrom"] = None,
     ) -> None:
         """EnvVar represents an environment variable present in a Container.
@@ -1419,7 +1491,7 @@ class JenkinsSpecMasterContainersEnv:
         """
         if isinstance(value_from, dict):
             value_from = JenkinsSpecMasterContainersEnvValueFrom(**value_from)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
         }
         if value is not None:
@@ -1428,7 +1500,7 @@ class JenkinsSpecMasterContainersEnv:
             self._values["value_from"] = value_from
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """Name of the environment variable.
 
         Must be a C_IDENTIFIER.
@@ -1436,10 +1508,12 @@ class JenkinsSpecMasterContainersEnv:
         schema:
         :schema:: JenkinsSpecMasterContainersEnv#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def value(self) -> typing.Optional[str]:
+    def value(self) -> typing.Optional[builtins.str]:
         """Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables.
 
         If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
@@ -1450,7 +1524,8 @@ class JenkinsSpecMasterContainersEnv:
         schema:
         :schema:: JenkinsSpecMasterContainersEnv#value
         """
-        return self._values.get("value")
+        result = self._values.get("value")
+        return result
 
     @builtins.property
     def value_from(self) -> typing.Optional["JenkinsSpecMasterContainersEnvValueFrom"]:
@@ -1461,12 +1536,13 @@ class JenkinsSpecMasterContainersEnv:
         schema:
         :schema:: JenkinsSpecMasterContainersEnv#valueFrom
         """
-        return self._values.get("value_from")
+        result = self._values.get("value_from")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1488,13 +1564,9 @@ class JenkinsSpecMasterContainersEnvFrom:
     def __init__(
         self,
         *,
-        config_map_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvFromConfigMapRef"
-        ] = None,
-        prefix: typing.Optional[str] = None,
-        secret_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvFromSecretRef"
-        ] = None,
+        config_map_ref: typing.Optional["JenkinsSpecMasterContainersEnvFromConfigMapRef"] = None,
+        prefix: typing.Optional[builtins.str] = None,
+        secret_ref: typing.Optional["JenkinsSpecMasterContainersEnvFromSecretRef"] = None,
     ) -> None:
         """EnvFromSource represents the source of a set of ConfigMaps.
 
@@ -1506,12 +1578,10 @@ class JenkinsSpecMasterContainersEnvFrom:
         :schema:: JenkinsSpecMasterContainersEnvFrom
         """
         if isinstance(config_map_ref, dict):
-            config_map_ref = JenkinsSpecMasterContainersEnvFromConfigMapRef(
-                **config_map_ref
-            )
+            config_map_ref = JenkinsSpecMasterContainersEnvFromConfigMapRef(**config_map_ref)
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterContainersEnvFromSecretRef(**secret_ref)
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if config_map_ref is not None:
             self._values["config_map_ref"] = config_map_ref
         if prefix is not None:
@@ -1528,10 +1598,11 @@ class JenkinsSpecMasterContainersEnvFrom:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFrom#configMapRef
         """
-        return self._values.get("config_map_ref")
+        result = self._values.get("config_map_ref")
+        return result
 
     @builtins.property
-    def prefix(self) -> typing.Optional[str]:
+    def prefix(self) -> typing.Optional[builtins.str]:
         """An optional identifier to prepend to each key in the ConfigMap.
 
         Must be a C_IDENTIFIER.
@@ -1539,7 +1610,8 @@ class JenkinsSpecMasterContainersEnvFrom:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFrom#prefix
         """
-        return self._values.get("prefix")
+        result = self._values.get("prefix")
+        return result
 
     @builtins.property
     def secret_ref(
@@ -1550,12 +1622,13 @@ class JenkinsSpecMasterContainersEnvFrom:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFrom#secretRef
         """
-        return self._values.get("secret_ref")
+        result = self._values.get("secret_ref")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1573,8 +1646,8 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
     def __init__(
         self,
         *,
-        name: typing.Optional[str] = None,
-        optional: typing.Optional[bool] = None,
+        name: typing.Optional[builtins.str] = None,
+        optional: typing.Optional[builtins.bool] = None,
     ) -> None:
         """The ConfigMap to select from.
 
@@ -1584,14 +1657,14 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFromConfigMapRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
         if optional is not None:
             self._values["optional"] = optional
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -1599,21 +1672,23 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFromConfigMapRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
     @builtins.property
-    def optional(self) -> typing.Optional[bool]:
+    def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap must be defined.
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFromConfigMapRef#optional
         """
-        return self._values.get("optional")
+        result = self._values.get("optional")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1631,8 +1706,8 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
     def __init__(
         self,
         *,
-        name: typing.Optional[str] = None,
-        optional: typing.Optional[bool] = None,
+        name: typing.Optional[builtins.str] = None,
+        optional: typing.Optional[builtins.bool] = None,
     ) -> None:
         """The Secret to select from.
 
@@ -1642,14 +1717,14 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFromSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
         if optional is not None:
             self._values["optional"] = optional
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -1657,21 +1732,23 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFromSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
     @builtins.property
-    def optional(self) -> typing.Optional[bool]:
+    def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret must be defined.
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvFromSecretRef#optional
         """
-        return self._values.get("optional")
+        result = self._values.get("optional")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1694,18 +1771,10 @@ class JenkinsSpecMasterContainersEnvValueFrom:
     def __init__(
         self,
         *,
-        config_map_key_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef"
-        ] = None,
-        field_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvValueFromFieldRef"
-        ] = None,
-        resource_field_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvValueFromResourceFieldRef"
-        ] = None,
-        secret_key_ref: typing.Optional[
-            "JenkinsSpecMasterContainersEnvValueFromSecretKeyRef"
-        ] = None,
+        config_map_key_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef"] = None,
+        field_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromFieldRef"] = None,
+        resource_field_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromResourceFieldRef"] = None,
+        secret_key_ref: typing.Optional["JenkinsSpecMasterContainersEnvValueFromSecretKeyRef"] = None,
     ) -> None:
         """Source for the environment variable's value.
 
@@ -1720,20 +1789,14 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         :schema:: JenkinsSpecMasterContainersEnvValueFrom
         """
         if isinstance(config_map_key_ref, dict):
-            config_map_key_ref = JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef(
-                **config_map_key_ref
-            )
+            config_map_key_ref = JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef(**config_map_key_ref)
         if isinstance(field_ref, dict):
             field_ref = JenkinsSpecMasterContainersEnvValueFromFieldRef(**field_ref)
         if isinstance(resource_field_ref, dict):
-            resource_field_ref = JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(
-                **resource_field_ref
-            )
+            resource_field_ref = JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(**resource_field_ref)
         if isinstance(secret_key_ref, dict):
-            secret_key_ref = JenkinsSpecMasterContainersEnvValueFromSecretKeyRef(
-                **secret_key_ref
-            )
-        self._values = {}
+            secret_key_ref = JenkinsSpecMasterContainersEnvValueFromSecretKeyRef(**secret_key_ref)
+        self._values: typing.Dict[str, typing.Any] = {}
         if config_map_key_ref is not None:
             self._values["config_map_key_ref"] = config_map_key_ref
         if field_ref is not None:
@@ -1752,7 +1815,8 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFrom#configMapKeyRef
         """
-        return self._values.get("config_map_key_ref")
+        result = self._values.get("config_map_key_ref")
+        return result
 
     @builtins.property
     def field_ref(
@@ -1763,7 +1827,8 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFrom#fieldRef
         """
-        return self._values.get("field_ref")
+        result = self._values.get("field_ref")
+        return result
 
     @builtins.property
     def resource_field_ref(
@@ -1774,7 +1839,8 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFrom#resourceFieldRef
         """
-        return self._values.get("resource_field_ref")
+        result = self._values.get("resource_field_ref")
+        return result
 
     @builtins.property
     def secret_key_ref(
@@ -1785,12 +1851,13 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFrom#secretKeyRef
         """
-        return self._values.get("secret_key_ref")
+        result = self._values.get("secret_key_ref")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1808,9 +1875,9 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
     def __init__(
         self,
         *,
-        key: str,
-        name: typing.Optional[str] = None,
-        optional: typing.Optional[bool] = None,
+        key: builtins.str,
+        name: typing.Optional[builtins.str] = None,
+        optional: typing.Optional[builtins.bool] = None,
     ) -> None:
         """Selects a key of a ConfigMap.
 
@@ -1821,7 +1888,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
         }
         if name is not None:
@@ -1830,16 +1897,18 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
             self._values["optional"] = optional
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key to select.
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -1847,21 +1916,23 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
     @builtins.property
-    def optional(self) -> typing.Optional[bool]:
+    def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap or its key must be defined.
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#optional
         """
-        return self._values.get("optional")
+        result = self._values.get("optional")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1877,7 +1948,10 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
 )
 class JenkinsSpecMasterContainersEnvValueFromFieldRef:
     def __init__(
-        self, *, field_path: str, api_version: typing.Optional[str] = None
+        self,
+        *,
+        field_path: builtins.str,
+        api_version: typing.Optional[builtins.str] = None,
     ) -> None:
         """Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP.
 
@@ -1887,34 +1961,37 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromFieldRef
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "field_path": field_path,
         }
         if api_version is not None:
             self._values["api_version"] = api_version
 
     @builtins.property
-    def field_path(self) -> str:
+    def field_path(self) -> builtins.str:
         """Path of the field to select in the specified API version.
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromFieldRef#fieldPath
         """
-        return self._values.get("field_path")
+        result = self._values.get("field_path")
+        assert result is not None, "Required property 'field_path' is missing"
+        return result
 
     @builtins.property
-    def api_version(self) -> typing.Optional[str]:
+    def api_version(self) -> typing.Optional[builtins.str]:
         """Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromFieldRef#apiVersion
         """
-        return self._values.get("api_version")
+        result = self._values.get("api_version")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -1936,9 +2013,9 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
     def __init__(
         self,
         *,
-        resource: str,
-        container_name: typing.Optional[str] = None,
-        divisor: typing.Optional[str] = None,
+        resource: builtins.str,
+        container_name: typing.Optional[builtins.str] = None,
+        divisor: typing.Optional[builtins.str] = None,
     ) -> None:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 
@@ -1949,7 +2026,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "resource": resource,
         }
         if container_name is not None:
@@ -1958,42 +2035,45 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
             self._values["divisor"] = divisor
 
     @builtins.property
-    def resource(self) -> str:
+    def resource(self) -> builtins.str:
         """Required: resource to select.
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#resource
         """
-        return self._values.get("resource")
+        result = self._values.get("resource")
+        assert result is not None, "Required property 'resource' is missing"
+        return result
 
     @builtins.property
-    def container_name(self) -> typing.Optional[str]:
+    def container_name(self) -> typing.Optional[builtins.str]:
         """Container name: required for volumes, optional for env vars.
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#containerName
         """
-        return self._values.get("container_name")
+        result = self._values.get("container_name")
+        return result
 
     @builtins.property
-    def divisor(self) -> typing.Optional[str]:
+    def divisor(self) -> typing.Optional[builtins.str]:
         """Specifies the output format of the exposed resources, defaults to "1".
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#divisor
         """
-        return self._values.get("divisor")
+        result = self._values.get("divisor")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersEnvValueFromResourceFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2006,9 +2086,9 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
     def __init__(
         self,
         *,
-        key: str,
-        name: typing.Optional[str] = None,
-        optional: typing.Optional[bool] = None,
+        key: builtins.str,
+        name: typing.Optional[builtins.str] = None,
+        optional: typing.Optional[builtins.bool] = None,
     ) -> None:
         """Selects a key of a secret in the pod's namespace.
 
@@ -2019,7 +2099,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
         }
         if name is not None:
@@ -2028,7 +2108,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
             self._values["optional"] = optional
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key of the secret to select from.
 
         Must be a valid secret key.
@@ -2036,10 +2116,12 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -2047,21 +2129,23 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
     @builtins.property
-    def optional(self) -> typing.Optional[bool]:
+    def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret or its key must be defined.
 
         schema:
         :schema:: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#optional
         """
-        return self._values.get("optional")
+        result = self._values.get("optional")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2079,9 +2163,7 @@ class JenkinsSpecMasterContainersLifecycle:
     def __init__(
         self,
         *,
-        post_start: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePostStart"
-        ] = None,
+        post_start: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStart"] = None,
         pre_stop: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStop"] = None,
     ) -> None:
         """Actions that the management system should take in response to container lifecycle events.
@@ -2096,7 +2178,7 @@ class JenkinsSpecMasterContainersLifecycle:
             post_start = JenkinsSpecMasterContainersLifecyclePostStart(**post_start)
         if isinstance(pre_stop, dict):
             pre_stop = JenkinsSpecMasterContainersLifecyclePreStop(**pre_stop)
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if post_start is not None:
             self._values["post_start"] = post_start
         if pre_stop is not None:
@@ -2113,7 +2195,8 @@ class JenkinsSpecMasterContainersLifecycle:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecycle#postStart
         """
-        return self._values.get("post_start")
+        result = self._values.get("post_start")
+        return result
 
     @builtins.property
     def pre_stop(
@@ -2126,12 +2209,13 @@ class JenkinsSpecMasterContainersLifecycle:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecycle#preStop
         """
-        return self._values.get("pre_stop")
+        result = self._values.get("pre_stop")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2149,15 +2233,9 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
     def __init__(
         self,
         *,
-        exec: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePostStartExec"
-        ] = None,
-        http_get: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePostStartHttpGet"
-        ] = None,
-        tcp_socket: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePostStartTcpSocket"
-        ] = None,
+        exec: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartExec"] = None,
+        http_get: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartHttpGet"] = None,
+        tcp_socket: typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartTcpSocket"] = None,
     ) -> None:
         """PostStart is called immediately after a container is created.
 
@@ -2175,10 +2253,8 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         if isinstance(http_get, dict):
             http_get = JenkinsSpecMasterContainersLifecyclePostStartHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
-            tcp_socket = JenkinsSpecMasterContainersLifecyclePostStartTcpSocket(
-                **tcp_socket
-            )
-        self._values = {}
+            tcp_socket = JenkinsSpecMasterContainersLifecyclePostStartTcpSocket(**tcp_socket)
+        self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
             self._values["exec"] = exec
         if http_get is not None:
@@ -2197,7 +2273,8 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStart#exec
         """
-        return self._values.get("exec")
+        result = self._values.get("exec")
+        return result
 
     @builtins.property
     def http_get(
@@ -2208,7 +2285,8 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStart#httpGet
         """
-        return self._values.get("http_get")
+        result = self._values.get("http_get")
+        return result
 
     @builtins.property
     def tcp_socket(
@@ -2221,12 +2299,13 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStart#tcpSocket
         """
-        return self._values.get("tcp_socket")
+        result = self._values.get("tcp_socket")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2241,7 +2320,11 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
     name_mapping={"command": "command"},
 )
 class JenkinsSpecMasterContainersLifecyclePostStartExec:
-    def __init__(self, *, command: typing.Optional[typing.List[str]] = None) -> None:
+    def __init__(
+        self,
+        *,
+        command: typing.Optional[typing.List[builtins.str]] = None,
+    ) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -2251,12 +2334,12 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartExec
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
             self._values["command"] = command
 
     @builtins.property
-    def command(self) -> typing.Optional[typing.List[str]]:
+    def command(self) -> typing.Optional[typing.List[builtins.str]]:
         """Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -2264,12 +2347,13 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartExec#command
         """
-        return self._values.get("command")
+        result = self._values.get("command")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2294,14 +2378,10 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         self,
         *,
         port: "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort",
-        host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List[
-                "JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"
-            ]
-        ] = None,
-        path: typing.Optional[str] = None,
-        scheme: typing.Optional[str] = None,
+        host: typing.Optional[builtins.str] = None,
+        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]] = None,
+        path: typing.Optional[builtins.str] = None,
+        scheme: typing.Optional[builtins.str] = None,
     ) -> None:
         """HTTPGet specifies the http request to perform.
 
@@ -2314,7 +2394,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
         if host is not None:
@@ -2335,10 +2415,12 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def host(self) -> typing.Optional[str]:
+    def host(self) -> typing.Optional[builtins.str]:
         """Host name to connect to, defaults to the pod IP.
 
         You probably want to set "Host" in httpHeaders instead.
@@ -2346,14 +2428,13 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#host
         """
-        return self._values.get("host")
+        result = self._values.get("host")
+        return result
 
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -2361,19 +2442,21 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#httpHeaders
         """
-        return self._values.get("http_headers")
+        result = self._values.get("http_headers")
+        return result
 
     @builtins.property
-    def path(self) -> typing.Optional[str]:
+    def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        return result
 
     @builtins.property
-    def scheme(self) -> typing.Optional[str]:
+    def scheme(self) -> typing.Optional[builtins.str]:
         """Scheme to use for connecting to the host.
 
         Defaults to HTTP.
@@ -2384,12 +2467,13 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#scheme
         """
-        return self._values.get("scheme")
+        result = self._values.get("scheme")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2404,7 +2488,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
     name_mapping={"name": "name", "value": "value"},
 )
 class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
-    def __init__(self, *, name: str, value: str) -> None:
+    def __init__(self, *, name: builtins.str, value: builtins.str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -2413,39 +2497,42 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "value": value,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """The header field name.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def value(self) -> str:
+    def value(self) -> builtins.str:
         """The header field value.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders#value
         """
-        return self._values.get("value")
+        result = self._values.get("value")
+        assert result is not None, "Required property 'value' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2464,7 +2551,8 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
-        cls, value: jsii.Number
+        cls,
+        value: jsii.Number,
     ) -> "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort":
         """
         :param value: -
@@ -2474,7 +2562,8 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
-        cls, value: str
+        cls,
+        value: builtins.str,
     ) -> "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort":
         """
         :param value: -
@@ -2492,7 +2581,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
         self,
         *,
         port: "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort",
-        host: typing.Optional[str] = None,
+        host: typing.Optional[builtins.str] = None,
     ) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
@@ -2504,7 +2593,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
         if host is not None:
@@ -2519,21 +2608,24 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def host(self) -> typing.Optional[str]:
+    def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket#host
         """
-        return self._values.get("host")
+        result = self._values.get("host")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2557,7 +2649,8 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
-        cls, value: jsii.Number
+        cls,
+        value: jsii.Number,
     ) -> "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort":
         """
         :param value: -
@@ -2567,7 +2660,8 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
-        cls, value: str
+        cls,
+        value: builtins.str,
     ) -> "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort":
         """
         :param value: -
@@ -2585,12 +2679,8 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         self,
         *,
         exec: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopExec"] = None,
-        http_get: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePreStopHttpGet"
-        ] = None,
-        tcp_socket: typing.Optional[
-            "JenkinsSpecMasterContainersLifecyclePreStopTcpSocket"
-        ] = None,
+        http_get: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopHttpGet"] = None,
+        tcp_socket: typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopTcpSocket"] = None,
     ) -> None:
         """PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc.
 
@@ -2608,10 +2698,8 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         if isinstance(http_get, dict):
             http_get = JenkinsSpecMasterContainersLifecyclePreStopHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
-            tcp_socket = JenkinsSpecMasterContainersLifecyclePreStopTcpSocket(
-                **tcp_socket
-            )
-        self._values = {}
+            tcp_socket = JenkinsSpecMasterContainersLifecyclePreStopTcpSocket(**tcp_socket)
+        self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
             self._values["exec"] = exec
         if http_get is not None:
@@ -2630,7 +2718,8 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStop#exec
         """
-        return self._values.get("exec")
+        result = self._values.get("exec")
+        return result
 
     @builtins.property
     def http_get(
@@ -2641,7 +2730,8 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStop#httpGet
         """
-        return self._values.get("http_get")
+        result = self._values.get("http_get")
+        return result
 
     @builtins.property
     def tcp_socket(
@@ -2654,12 +2744,13 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStop#tcpSocket
         """
-        return self._values.get("tcp_socket")
+        result = self._values.get("tcp_socket")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2674,7 +2765,11 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
     name_mapping={"command": "command"},
 )
 class JenkinsSpecMasterContainersLifecyclePreStopExec:
-    def __init__(self, *, command: typing.Optional[typing.List[str]] = None) -> None:
+    def __init__(
+        self,
+        *,
+        command: typing.Optional[typing.List[builtins.str]] = None,
+    ) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -2684,12 +2779,12 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopExec
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
             self._values["command"] = command
 
     @builtins.property
-    def command(self) -> typing.Optional[typing.List[str]]:
+    def command(self) -> typing.Optional[typing.List[builtins.str]]:
         """Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -2697,12 +2792,13 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopExec#command
         """
-        return self._values.get("command")
+        result = self._values.get("command")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2727,12 +2823,10 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         self,
         *,
         port: "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort",
-        host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]
-        ] = None,
-        path: typing.Optional[str] = None,
-        scheme: typing.Optional[str] = None,
+        host: typing.Optional[builtins.str] = None,
+        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]] = None,
+        path: typing.Optional[builtins.str] = None,
+        scheme: typing.Optional[builtins.str] = None,
     ) -> None:
         """HTTPGet specifies the http request to perform.
 
@@ -2745,7 +2839,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
         if host is not None:
@@ -2766,10 +2860,12 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def host(self) -> typing.Optional[str]:
+    def host(self) -> typing.Optional[builtins.str]:
         """Host name to connect to, defaults to the pod IP.
 
         You probably want to set "Host" in httpHeaders instead.
@@ -2777,14 +2873,13 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#host
         """
-        return self._values.get("host")
+        result = self._values.get("host")
+        return result
 
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -2792,19 +2887,21 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#httpHeaders
         """
-        return self._values.get("http_headers")
+        result = self._values.get("http_headers")
+        return result
 
     @builtins.property
-    def path(self) -> typing.Optional[str]:
+    def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        return result
 
     @builtins.property
-    def scheme(self) -> typing.Optional[str]:
+    def scheme(self) -> typing.Optional[builtins.str]:
         """Scheme to use for connecting to the host.
 
         Defaults to HTTP.
@@ -2815,12 +2912,13 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#scheme
         """
-        return self._values.get("scheme")
+        result = self._values.get("scheme")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2835,7 +2933,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
     name_mapping={"name": "name", "value": "value"},
 )
 class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
-    def __init__(self, *, name: str, value: str) -> None:
+    def __init__(self, *, name: builtins.str, value: builtins.str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -2844,39 +2942,42 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "value": value,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """The header field name.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def value(self) -> str:
+    def value(self) -> builtins.str:
         """The header field value.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders#value
         """
-        return self._values.get("value")
+        result = self._values.get("value")
+        assert result is not None, "Required property 'value' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -2895,7 +2996,8 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
-        cls, value: jsii.Number
+        cls,
+        value: jsii.Number,
     ) -> "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort":
         """
         :param value: -
@@ -2905,7 +3007,8 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
-        cls, value: str
+        cls,
+        value: builtins.str,
     ) -> "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort":
         """
         :param value: -
@@ -2923,7 +3026,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
         self,
         *,
         port: "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort",
-        host: typing.Optional[str] = None,
+        host: typing.Optional[builtins.str] = None,
     ) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
@@ -2935,7 +3038,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
         if host is not None:
@@ -2950,21 +3053,24 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def host(self) -> typing.Optional[str]:
+    def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket#host
         """
-        return self._values.get("host")
+        result = self._values.get("host")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -2988,7 +3094,8 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
-        cls, value: jsii.Number
+        cls,
+        value: jsii.Number,
     ) -> "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort":
         """
         :param value: -
@@ -2998,7 +3105,8 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
-        cls, value: str
+        cls,
+        value: builtins.str,
     ) -> "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort":
         """
         :param value: -
@@ -3026,15 +3134,11 @@ class JenkinsSpecMasterContainersLivenessProbe:
         *,
         exec: typing.Optional["JenkinsSpecMasterContainersLivenessProbeExec"] = None,
         failure_threshold: typing.Optional[jsii.Number] = None,
-        http_get: typing.Optional[
-            "JenkinsSpecMasterContainersLivenessProbeHttpGet"
-        ] = None,
+        http_get: typing.Optional["JenkinsSpecMasterContainersLivenessProbeHttpGet"] = None,
         initial_delay_seconds: typing.Optional[jsii.Number] = None,
         period_seconds: typing.Optional[jsii.Number] = None,
         success_threshold: typing.Optional[jsii.Number] = None,
-        tcp_socket: typing.Optional[
-            "JenkinsSpecMasterContainersLivenessProbeTcpSocket"
-        ] = None,
+        tcp_socket: typing.Optional["JenkinsSpecMasterContainersLivenessProbeTcpSocket"] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Periodic probe of container liveness.
@@ -3059,7 +3163,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
             http_get = JenkinsSpecMasterContainersLivenessProbeHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
             tcp_socket = JenkinsSpecMasterContainersLivenessProbeTcpSocket(**tcp_socket)
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
             self._values["exec"] = exec
         if failure_threshold is not None:
@@ -3086,7 +3190,8 @@ class JenkinsSpecMasterContainersLivenessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbe#exec
         """
-        return self._values.get("exec")
+        result = self._values.get("exec")
+        return result
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3100,7 +3205,8 @@ class JenkinsSpecMasterContainersLivenessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbe#failureThreshold
         """
-        return self._values.get("failure_threshold")
+        result = self._values.get("failure_threshold")
+        return result
 
     @builtins.property
     def http_get(
@@ -3111,7 +3217,8 @@ class JenkinsSpecMasterContainersLivenessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbe#httpGet
         """
-        return self._values.get("http_get")
+        result = self._values.get("http_get")
+        return result
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3122,7 +3229,8 @@ class JenkinsSpecMasterContainersLivenessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbe#initialDelaySeconds
         """
-        return self._values.get("initial_delay_seconds")
+        result = self._values.get("initial_delay_seconds")
+        return result
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3136,7 +3244,8 @@ class JenkinsSpecMasterContainersLivenessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbe#periodSeconds
         """
-        return self._values.get("period_seconds")
+        result = self._values.get("period_seconds")
+        return result
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3150,7 +3259,8 @@ class JenkinsSpecMasterContainersLivenessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbe#successThreshold
         """
-        return self._values.get("success_threshold")
+        result = self._values.get("success_threshold")
+        return result
 
     @builtins.property
     def tcp_socket(
@@ -3163,7 +3273,8 @@ class JenkinsSpecMasterContainersLivenessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbe#tcpSocket
         """
-        return self._values.get("tcp_socket")
+        result = self._values.get("tcp_socket")
+        return result
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3177,12 +3288,13 @@ class JenkinsSpecMasterContainersLivenessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbe#timeoutSeconds
         """
-        return self._values.get("timeout_seconds")
+        result = self._values.get("timeout_seconds")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -3197,7 +3309,11 @@ class JenkinsSpecMasterContainersLivenessProbe:
     name_mapping={"command": "command"},
 )
 class JenkinsSpecMasterContainersLivenessProbeExec:
-    def __init__(self, *, command: typing.Optional[typing.List[str]] = None) -> None:
+    def __init__(
+        self,
+        *,
+        command: typing.Optional[typing.List[builtins.str]] = None,
+    ) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -3207,12 +3323,12 @@ class JenkinsSpecMasterContainersLivenessProbeExec:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeExec
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
             self._values["command"] = command
 
     @builtins.property
-    def command(self) -> typing.Optional[typing.List[str]]:
+    def command(self) -> typing.Optional[typing.List[builtins.str]]:
         """Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -3220,12 +3336,13 @@ class JenkinsSpecMasterContainersLivenessProbeExec:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeExec#command
         """
-        return self._values.get("command")
+        result = self._values.get("command")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -3250,12 +3367,10 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         self,
         *,
         port: "JenkinsSpecMasterContainersLivenessProbeHttpGetPort",
-        host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]
-        ] = None,
-        path: typing.Optional[str] = None,
-        scheme: typing.Optional[str] = None,
+        host: typing.Optional[builtins.str] = None,
+        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]] = None,
+        path: typing.Optional[builtins.str] = None,
+        scheme: typing.Optional[builtins.str] = None,
     ) -> None:
         """HTTPGet specifies the http request to perform.
 
@@ -3268,7 +3383,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
         if host is not None:
@@ -3289,10 +3404,12 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def host(self) -> typing.Optional[str]:
+    def host(self) -> typing.Optional[builtins.str]:
         """Host name to connect to, defaults to the pod IP.
 
         You probably want to set "Host" in httpHeaders instead.
@@ -3300,14 +3417,13 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#host
         """
-        return self._values.get("host")
+        result = self._values.get("host")
+        return result
 
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -3315,19 +3431,21 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#httpHeaders
         """
-        return self._values.get("http_headers")
+        result = self._values.get("http_headers")
+        return result
 
     @builtins.property
-    def path(self) -> typing.Optional[str]:
+    def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        return result
 
     @builtins.property
-    def scheme(self) -> typing.Optional[str]:
+    def scheme(self) -> typing.Optional[builtins.str]:
         """Scheme to use for connecting to the host.
 
         Defaults to HTTP.
@@ -3338,12 +3456,13 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#scheme
         """
-        return self._values.get("scheme")
+        result = self._values.get("scheme")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -3358,7 +3477,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
     name_mapping={"name": "name", "value": "value"},
 )
 class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
-    def __init__(self, *, name: str, value: str) -> None:
+    def __init__(self, *, name: builtins.str, value: builtins.str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -3367,39 +3486,42 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "value": value,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """The header field name.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def value(self) -> str:
+    def value(self) -> builtins.str:
         """The header field value.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders#value
         """
-        return self._values.get("value")
+        result = self._values.get("value")
+        assert result is not None, "Required property 'value' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -3418,7 +3540,8 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
-        cls, value: jsii.Number
+        cls,
+        value: jsii.Number,
     ) -> "JenkinsSpecMasterContainersLivenessProbeHttpGetPort":
         """
         :param value: -
@@ -3428,7 +3551,8 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
-        cls, value: str
+        cls,
+        value: builtins.str,
     ) -> "JenkinsSpecMasterContainersLivenessProbeHttpGetPort":
         """
         :param value: -
@@ -3446,7 +3570,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
         self,
         *,
         port: "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort",
-        host: typing.Optional[str] = None,
+        host: typing.Optional[builtins.str] = None,
     ) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
@@ -3458,7 +3582,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeTcpSocket
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
         if host is not None:
@@ -3473,21 +3597,24 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeTcpSocket#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def host(self) -> typing.Optional[str]:
+    def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
         schema:
         :schema:: JenkinsSpecMasterContainersLivenessProbeTcpSocket#host
         """
-        return self._values.get("host")
+        result = self._values.get("host")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -3511,7 +3638,8 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
-        cls, value: jsii.Number
+        cls,
+        value: jsii.Number,
     ) -> "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort":
         """
         :param value: -
@@ -3521,7 +3649,8 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
-        cls, value: str
+        cls,
+        value: builtins.str,
     ) -> "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort":
         """
         :param value: -
@@ -3545,10 +3674,10 @@ class JenkinsSpecMasterContainersPorts:
         self,
         *,
         container_port: jsii.Number,
-        host_ip: typing.Optional[str] = None,
+        host_ip: typing.Optional[builtins.str] = None,
         host_port: typing.Optional[jsii.Number] = None,
-        name: typing.Optional[str] = None,
-        protocol: typing.Optional[str] = None,
+        name: typing.Optional[builtins.str] = None,
+        protocol: typing.Optional[builtins.str] = None,
     ) -> None:
         """ContainerPort represents a network port in a single container.
 
@@ -3561,7 +3690,7 @@ class JenkinsSpecMasterContainersPorts:
         schema:
         :schema:: JenkinsSpecMasterContainersPorts
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "container_port": container_port,
         }
         if host_ip is not None:
@@ -3582,16 +3711,19 @@ class JenkinsSpecMasterContainersPorts:
         schema:
         :schema:: JenkinsSpecMasterContainersPorts#containerPort
         """
-        return self._values.get("container_port")
+        result = self._values.get("container_port")
+        assert result is not None, "Required property 'container_port' is missing"
+        return result
 
     @builtins.property
-    def host_ip(self) -> typing.Optional[str]:
+    def host_ip(self) -> typing.Optional[builtins.str]:
         """What host IP to bind the external port to.
 
         schema:
         :schema:: JenkinsSpecMasterContainersPorts#hostIP
         """
-        return self._values.get("host_ip")
+        result = self._values.get("host_ip")
+        return result
 
     @builtins.property
     def host_port(self) -> typing.Optional[jsii.Number]:
@@ -3602,10 +3734,11 @@ class JenkinsSpecMasterContainersPorts:
         schema:
         :schema:: JenkinsSpecMasterContainersPorts#hostPort
         """
-        return self._values.get("host_port")
+        result = self._values.get("host_port")
+        return result
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """If specified, this must be an IANA_SVC_NAME and unique within the pod.
 
         Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
@@ -3613,10 +3746,11 @@ class JenkinsSpecMasterContainersPorts:
         schema:
         :schema:: JenkinsSpecMasterContainersPorts#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
     @builtins.property
-    def protocol(self) -> typing.Optional[str]:
+    def protocol(self) -> typing.Optional[builtins.str]:
         """Protocol for port.
 
         Must be UDP, TCP, or SCTP. Defaults to "TCP".
@@ -3627,12 +3761,13 @@ class JenkinsSpecMasterContainersPorts:
         schema:
         :schema:: JenkinsSpecMasterContainersPorts#protocol
         """
-        return self._values.get("protocol")
+        result = self._values.get("protocol")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -3661,15 +3796,11 @@ class JenkinsSpecMasterContainersReadinessProbe:
         *,
         exec: typing.Optional["JenkinsSpecMasterContainersReadinessProbeExec"] = None,
         failure_threshold: typing.Optional[jsii.Number] = None,
-        http_get: typing.Optional[
-            "JenkinsSpecMasterContainersReadinessProbeHttpGet"
-        ] = None,
+        http_get: typing.Optional["JenkinsSpecMasterContainersReadinessProbeHttpGet"] = None,
         initial_delay_seconds: typing.Optional[jsii.Number] = None,
         period_seconds: typing.Optional[jsii.Number] = None,
         success_threshold: typing.Optional[jsii.Number] = None,
-        tcp_socket: typing.Optional[
-            "JenkinsSpecMasterContainersReadinessProbeTcpSocket"
-        ] = None,
+        tcp_socket: typing.Optional["JenkinsSpecMasterContainersReadinessProbeTcpSocket"] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Periodic probe of container service readiness.
@@ -3693,10 +3824,8 @@ class JenkinsSpecMasterContainersReadinessProbe:
         if isinstance(http_get, dict):
             http_get = JenkinsSpecMasterContainersReadinessProbeHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
-            tcp_socket = JenkinsSpecMasterContainersReadinessProbeTcpSocket(
-                **tcp_socket
-            )
-        self._values = {}
+            tcp_socket = JenkinsSpecMasterContainersReadinessProbeTcpSocket(**tcp_socket)
+        self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
             self._values["exec"] = exec
         if failure_threshold is not None:
@@ -3723,7 +3852,8 @@ class JenkinsSpecMasterContainersReadinessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbe#exec
         """
-        return self._values.get("exec")
+        result = self._values.get("exec")
+        return result
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3737,7 +3867,8 @@ class JenkinsSpecMasterContainersReadinessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbe#failureThreshold
         """
-        return self._values.get("failure_threshold")
+        result = self._values.get("failure_threshold")
+        return result
 
     @builtins.property
     def http_get(
@@ -3748,7 +3879,8 @@ class JenkinsSpecMasterContainersReadinessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbe#httpGet
         """
-        return self._values.get("http_get")
+        result = self._values.get("http_get")
+        return result
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3759,7 +3891,8 @@ class JenkinsSpecMasterContainersReadinessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbe#initialDelaySeconds
         """
-        return self._values.get("initial_delay_seconds")
+        result = self._values.get("initial_delay_seconds")
+        return result
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3773,7 +3906,8 @@ class JenkinsSpecMasterContainersReadinessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbe#periodSeconds
         """
-        return self._values.get("period_seconds")
+        result = self._values.get("period_seconds")
+        return result
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3787,7 +3921,8 @@ class JenkinsSpecMasterContainersReadinessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbe#successThreshold
         """
-        return self._values.get("success_threshold")
+        result = self._values.get("success_threshold")
+        return result
 
     @builtins.property
     def tcp_socket(
@@ -3800,7 +3935,8 @@ class JenkinsSpecMasterContainersReadinessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbe#tcpSocket
         """
-        return self._values.get("tcp_socket")
+        result = self._values.get("tcp_socket")
+        return result
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3814,12 +3950,13 @@ class JenkinsSpecMasterContainersReadinessProbe:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbe#timeoutSeconds
         """
-        return self._values.get("timeout_seconds")
+        result = self._values.get("timeout_seconds")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -3834,7 +3971,11 @@ class JenkinsSpecMasterContainersReadinessProbe:
     name_mapping={"command": "command"},
 )
 class JenkinsSpecMasterContainersReadinessProbeExec:
-    def __init__(self, *, command: typing.Optional[typing.List[str]] = None) -> None:
+    def __init__(
+        self,
+        *,
+        command: typing.Optional[typing.List[builtins.str]] = None,
+    ) -> None:
         """One and only one of the following should be specified.
 
         Exec specifies the action to take.
@@ -3844,12 +3985,12 @@ class JenkinsSpecMasterContainersReadinessProbeExec:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeExec
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
             self._values["command"] = command
 
     @builtins.property
-    def command(self) -> typing.Optional[typing.List[str]]:
+    def command(self) -> typing.Optional[typing.List[builtins.str]]:
         """Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -3857,12 +3998,13 @@ class JenkinsSpecMasterContainersReadinessProbeExec:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeExec#command
         """
-        return self._values.get("command")
+        result = self._values.get("command")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -3887,12 +4029,10 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         self,
         *,
         port: "JenkinsSpecMasterContainersReadinessProbeHttpGetPort",
-        host: typing.Optional[str] = None,
-        http_headers: typing.Optional[
-            typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]
-        ] = None,
-        path: typing.Optional[str] = None,
-        scheme: typing.Optional[str] = None,
+        host: typing.Optional[builtins.str] = None,
+        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]] = None,
+        path: typing.Optional[builtins.str] = None,
+        scheme: typing.Optional[builtins.str] = None,
     ) -> None:
         """HTTPGet specifies the http request to perform.
 
@@ -3905,7 +4045,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
         if host is not None:
@@ -3926,10 +4066,12 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def host(self) -> typing.Optional[str]:
+    def host(self) -> typing.Optional[builtins.str]:
         """Host name to connect to, defaults to the pod IP.
 
         You probably want to set "Host" in httpHeaders instead.
@@ -3937,14 +4079,13 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#host
         """
-        return self._values.get("host")
+        result = self._values.get("host")
+        return result
 
     @builtins.property
     def http_headers(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]]:
         """Custom headers to set in the request.
 
         HTTP allows repeated headers.
@@ -3952,19 +4093,21 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#httpHeaders
         """
-        return self._values.get("http_headers")
+        result = self._values.get("http_headers")
+        return result
 
     @builtins.property
-    def path(self) -> typing.Optional[str]:
+    def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        return result
 
     @builtins.property
-    def scheme(self) -> typing.Optional[str]:
+    def scheme(self) -> typing.Optional[builtins.str]:
         """Scheme to use for connecting to the host.
 
         Defaults to HTTP.
@@ -3975,12 +4118,13 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#scheme
         """
-        return self._values.get("scheme")
+        result = self._values.get("scheme")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -3995,7 +4139,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
     name_mapping={"name": "name", "value": "value"},
 )
 class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
-    def __init__(self, *, name: str, value: str) -> None:
+    def __init__(self, *, name: builtins.str, value: builtins.str) -> None:
         """HTTPHeader describes a custom header to be used in HTTP probes.
 
         :param name: The header field name.
@@ -4004,39 +4148,42 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "value": value,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """The header field name.
 
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def value(self) -> str:
+    def value(self) -> builtins.str:
         """The header field value.
 
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders#value
         """
-        return self._values.get("value")
+        result = self._values.get("value")
+        assert result is not None, "Required property 'value' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4055,7 +4202,8 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
-        cls, value: jsii.Number
+        cls,
+        value: jsii.Number,
     ) -> "JenkinsSpecMasterContainersReadinessProbeHttpGetPort":
         """
         :param value: -
@@ -4065,7 +4213,8 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
-        cls, value: str
+        cls,
+        value: builtins.str,
     ) -> "JenkinsSpecMasterContainersReadinessProbeHttpGetPort":
         """
         :param value: -
@@ -4083,7 +4232,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
         self,
         *,
         port: "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort",
-        host: typing.Optional[str] = None,
+        host: typing.Optional[builtins.str] = None,
     ) -> None:
         """TCPSocket specifies an action involving a TCP port.
 
@@ -4095,7 +4244,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeTcpSocket
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
         if host is not None:
@@ -4110,21 +4259,24 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeTcpSocket#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def host(self) -> typing.Optional[str]:
+    def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
         schema:
         :schema:: JenkinsSpecMasterContainersReadinessProbeTcpSocket#host
         """
-        return self._values.get("host")
+        result = self._values.get("host")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -4148,7 +4300,8 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
     @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
-        cls, value: jsii.Number
+        cls,
+        value: jsii.Number,
     ) -> "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort":
         """
         :param value: -
@@ -4158,7 +4311,8 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
     @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
-        cls, value: str
+        cls,
+        value: builtins.str,
     ) -> "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort":
         """
         :param value: -
@@ -4175,8 +4329,8 @@ class JenkinsSpecMasterContainersResources:
     def __init__(
         self,
         *,
-        limits: typing.Optional[typing.Mapping[str, str]] = None,
-        requests: typing.Optional[typing.Mapping[str, str]] = None,
+        limits: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        requests: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
     ) -> None:
         """Compute Resources required by this container.
 
@@ -4188,14 +4342,14 @@ class JenkinsSpecMasterContainersResources:
         schema:
         :schema:: JenkinsSpecMasterContainersResources
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if limits is not None:
             self._values["limits"] = limits
         if requests is not None:
             self._values["requests"] = requests
 
     @builtins.property
-    def limits(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def limits(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Limits describes the maximum amount of compute resources allowed.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -4203,10 +4357,11 @@ class JenkinsSpecMasterContainersResources:
         schema:
         :schema:: JenkinsSpecMasterContainersResources#limits
         """
-        return self._values.get("limits")
+        result = self._values.get("limits")
+        return result
 
     @builtins.property
-    def requests(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def requests(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Requests describes the minimum amount of compute resources required.
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -4214,12 +4369,13 @@ class JenkinsSpecMasterContainersResources:
         schema:
         :schema:: JenkinsSpecMasterContainersResources#requests
         """
-        return self._values.get("requests")
+        result = self._values.get("requests")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -4248,22 +4404,16 @@ class JenkinsSpecMasterContainersSecurityContext:
     def __init__(
         self,
         *,
-        allow_privilege_escalation: typing.Optional[bool] = None,
-        capabilities: typing.Optional[
-            "JenkinsSpecMasterContainersSecurityContextCapabilities"
-        ] = None,
-        privileged: typing.Optional[bool] = None,
-        proc_mount: typing.Optional[str] = None,
-        read_only_root_filesystem: typing.Optional[bool] = None,
+        allow_privilege_escalation: typing.Optional[builtins.bool] = None,
+        capabilities: typing.Optional["JenkinsSpecMasterContainersSecurityContextCapabilities"] = None,
+        privileged: typing.Optional[builtins.bool] = None,
+        proc_mount: typing.Optional[builtins.str] = None,
+        read_only_root_filesystem: typing.Optional[builtins.bool] = None,
         run_as_group: typing.Optional[jsii.Number] = None,
-        run_as_non_root: typing.Optional[bool] = None,
+        run_as_non_root: typing.Optional[builtins.bool] = None,
         run_as_user: typing.Optional[jsii.Number] = None,
-        se_linux_options: typing.Optional[
-            "JenkinsSpecMasterContainersSecurityContextSeLinuxOptions"
-        ] = None,
-        windows_options: typing.Optional[
-            "JenkinsSpecMasterContainersSecurityContextWindowsOptions"
-        ] = None,
+        se_linux_options: typing.Optional["JenkinsSpecMasterContainersSecurityContextSeLinuxOptions"] = None,
+        windows_options: typing.Optional["JenkinsSpecMasterContainersSecurityContextWindowsOptions"] = None,
     ) -> None:
         """Security options the pod should run with.
 
@@ -4284,18 +4434,12 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema:: JenkinsSpecMasterContainersSecurityContext
         """
         if isinstance(capabilities, dict):
-            capabilities = JenkinsSpecMasterContainersSecurityContextCapabilities(
-                **capabilities
-            )
+            capabilities = JenkinsSpecMasterContainersSecurityContextCapabilities(**capabilities)
         if isinstance(se_linux_options, dict):
-            se_linux_options = JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(
-                **se_linux_options
-            )
+            se_linux_options = JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(**se_linux_options)
         if isinstance(windows_options, dict):
-            windows_options = JenkinsSpecMasterContainersSecurityContextWindowsOptions(
-                **windows_options
-            )
-        self._values = {}
+            windows_options = JenkinsSpecMasterContainersSecurityContextWindowsOptions(**windows_options)
+        self._values: typing.Dict[str, typing.Any] = {}
         if allow_privilege_escalation is not None:
             self._values["allow_privilege_escalation"] = allow_privilege_escalation
         if capabilities is not None:
@@ -4318,7 +4462,7 @@ class JenkinsSpecMasterContainersSecurityContext:
             self._values["windows_options"] = windows_options
 
     @builtins.property
-    def allow_privilege_escalation(self) -> typing.Optional[bool]:
+    def allow_privilege_escalation(self) -> typing.Optional[builtins.bool]:
         """AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process.
 
         This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
@@ -4326,7 +4470,8 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#allowPrivilegeEscalation
         """
-        return self._values.get("allow_privilege_escalation")
+        result = self._values.get("allow_privilege_escalation")
+        return result
 
     @builtins.property
     def capabilities(
@@ -4342,10 +4487,11 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#capabilities
         """
-        return self._values.get("capabilities")
+        result = self._values.get("capabilities")
+        return result
 
     @builtins.property
-    def privileged(self) -> typing.Optional[bool]:
+    def privileged(self) -> typing.Optional[builtins.bool]:
         """Run container in privileged mode.
 
         Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
@@ -4356,10 +4502,11 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#privileged
         """
-        return self._values.get("privileged")
+        result = self._values.get("privileged")
+        return result
 
     @builtins.property
-    def proc_mount(self) -> typing.Optional[str]:
+    def proc_mount(self) -> typing.Optional[builtins.str]:
         """procMount denotes the type of proc mount to use for the containers.
 
         The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled.
@@ -4367,10 +4514,11 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#procMount
         """
-        return self._values.get("proc_mount")
+        result = self._values.get("proc_mount")
+        return result
 
     @builtins.property
-    def read_only_root_filesystem(self) -> typing.Optional[bool]:
+    def read_only_root_filesystem(self) -> typing.Optional[builtins.bool]:
         """Whether this container has a read-only root filesystem.
 
         Default is false.
@@ -4381,7 +4529,8 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#readOnlyRootFilesystem
         """
-        return self._values.get("read_only_root_filesystem")
+        result = self._values.get("read_only_root_filesystem")
+        return result
 
     @builtins.property
     def run_as_group(self) -> typing.Optional[jsii.Number]:
@@ -4392,10 +4541,11 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#runAsGroup
         """
-        return self._values.get("run_as_group")
+        result = self._values.get("run_as_group")
+        return result
 
     @builtins.property
-    def run_as_non_root(self) -> typing.Optional[bool]:
+    def run_as_non_root(self) -> typing.Optional[builtins.bool]:
         """Indicates that the container must run as a non-root user.
 
         If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
@@ -4403,7 +4553,8 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#runAsNonRoot
         """
-        return self._values.get("run_as_non_root")
+        result = self._values.get("run_as_non_root")
+        return result
 
     @builtins.property
     def run_as_user(self) -> typing.Optional[jsii.Number]:
@@ -4417,7 +4568,8 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#runAsUser
         """
-        return self._values.get("run_as_user")
+        result = self._values.get("run_as_user")
+        return result
 
     @builtins.property
     def se_linux_options(
@@ -4430,7 +4582,8 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#seLinuxOptions
         """
-        return self._values.get("se_linux_options")
+        result = self._values.get("se_linux_options")
+        return result
 
     @builtins.property
     def windows_options(
@@ -4443,12 +4596,13 @@ class JenkinsSpecMasterContainersSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContext#windowsOptions
         """
-        return self._values.get("windows_options")
+        result = self._values.get("windows_options")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -4466,8 +4620,8 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
     def __init__(
         self,
         *,
-        add: typing.Optional[typing.List[str]] = None,
-        drop: typing.Optional[typing.List[str]] = None,
+        add: typing.Optional[typing.List[builtins.str]] = None,
+        drop: typing.Optional[typing.List[builtins.str]] = None,
     ) -> None:
         """The capabilities to add/drop when running containers.
 
@@ -4482,34 +4636,36 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextCapabilities
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if add is not None:
             self._values["add"] = add
         if drop is not None:
             self._values["drop"] = drop
 
     @builtins.property
-    def add(self) -> typing.Optional[typing.List[str]]:
+    def add(self) -> typing.Optional[typing.List[builtins.str]]:
         """Added capabilities.
 
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextCapabilities#add
         """
-        return self._values.get("add")
+        result = self._values.get("add")
+        return result
 
     @builtins.property
-    def drop(self) -> typing.Optional[typing.List[str]]:
+    def drop(self) -> typing.Optional[typing.List[builtins.str]]:
         """Removed capabilities.
 
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextCapabilities#drop
         """
-        return self._values.get("drop")
+        result = self._values.get("drop")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -4527,10 +4683,10 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
     def __init__(
         self,
         *,
-        level: typing.Optional[str] = None,
-        role: typing.Optional[str] = None,
-        type: typing.Optional[str] = None,
-        user: typing.Optional[str] = None,
+        level: typing.Optional[builtins.str] = None,
+        role: typing.Optional[builtins.str] = None,
+        type: typing.Optional[builtins.str] = None,
+        user: typing.Optional[builtins.str] = None,
     ) -> None:
         """The SELinux context to be applied to the container.
 
@@ -4544,7 +4700,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if level is not None:
             self._values["level"] = level
         if role is not None:
@@ -4555,51 +4711,54 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
             self._values["user"] = user
 
     @builtins.property
-    def level(self) -> typing.Optional[str]:
+    def level(self) -> typing.Optional[builtins.str]:
         """Level is SELinux level label that applies to the container.
 
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#level
         """
-        return self._values.get("level")
+        result = self._values.get("level")
+        return result
 
     @builtins.property
-    def role(self) -> typing.Optional[str]:
+    def role(self) -> typing.Optional[builtins.str]:
         """Role is a SELinux role label that applies to the container.
 
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#role
         """
-        return self._values.get("role")
+        result = self._values.get("role")
+        return result
 
     @builtins.property
-    def type(self) -> typing.Optional[str]:
+    def type(self) -> typing.Optional[builtins.str]:
         """Type is a SELinux type label that applies to the container.
 
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#type
         """
-        return self._values.get("type")
+        result = self._values.get("type")
+        return result
 
     @builtins.property
-    def user(self) -> typing.Optional[str]:
+    def user(self) -> typing.Optional[builtins.str]:
         """User is a SELinux user label that applies to the container.
 
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#user
         """
-        return self._values.get("user")
+        result = self._values.get("user")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersSecurityContextSeLinuxOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4616,9 +4775,9 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
     def __init__(
         self,
         *,
-        gmsa_credential_spec: typing.Optional[str] = None,
-        gmsa_credential_spec_name: typing.Optional[str] = None,
-        run_as_user_name: typing.Optional[str] = None,
+        gmsa_credential_spec: typing.Optional[builtins.str] = None,
+        gmsa_credential_spec_name: typing.Optional[builtins.str] = None,
+        run_as_user_name: typing.Optional[builtins.str] = None,
     ) -> None:
         """The Windows specific settings applied to all containers.
 
@@ -4631,7 +4790,7 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextWindowsOptions
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if gmsa_credential_spec is not None:
             self._values["gmsa_credential_spec"] = gmsa_credential_spec
         if gmsa_credential_spec_name is not None:
@@ -4640,16 +4799,17 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
             self._values["run_as_user_name"] = run_as_user_name
 
     @builtins.property
-    def gmsa_credential_spec(self) -> typing.Optional[str]:
+    def gmsa_credential_spec(self) -> typing.Optional[builtins.str]:
         """GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
 
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextWindowsOptions#gmsaCredentialSpec
         """
-        return self._values.get("gmsa_credential_spec")
+        result = self._values.get("gmsa_credential_spec")
+        return result
 
     @builtins.property
-    def gmsa_credential_spec_name(self) -> typing.Optional[str]:
+    def gmsa_credential_spec_name(self) -> typing.Optional[builtins.str]:
         """GMSACredentialSpecName is the name of the GMSA credential spec to use.
 
         This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
@@ -4657,10 +4817,11 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextWindowsOptions#gmsaCredentialSpecName
         """
-        return self._values.get("gmsa_credential_spec_name")
+        result = self._values.get("gmsa_credential_spec_name")
+        return result
 
     @builtins.property
-    def run_as_user_name(self) -> typing.Optional[str]:
+    def run_as_user_name(self) -> typing.Optional[builtins.str]:
         """The UserName in Windows to run the entrypoint of the container process.
 
         Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag.
@@ -4671,18 +4832,18 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         schema:
         :schema:: JenkinsSpecMasterContainersSecurityContextWindowsOptions#runAsUserName
         """
-        return self._values.get("run_as_user_name")
+        result = self._values.get("run_as_user_name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterContainersSecurityContextWindowsOptions(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterContainersSecurityContextWindowsOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -4702,12 +4863,12 @@ class JenkinsSpecMasterContainersVolumeMounts:
     def __init__(
         self,
         *,
-        mount_path: str,
-        name: str,
-        mount_propagation: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
-        sub_path: typing.Optional[str] = None,
-        sub_path_expr: typing.Optional[str] = None,
+        mount_path: builtins.str,
+        name: builtins.str,
+        mount_propagation: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
+        sub_path: typing.Optional[builtins.str] = None,
+        sub_path_expr: typing.Optional[builtins.str] = None,
     ) -> None:
         """VolumeMount describes a mounting of a Volume within a container.
 
@@ -4721,7 +4882,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
         schema:
         :schema:: JenkinsSpecMasterContainersVolumeMounts
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "mount_path": mount_path,
             "name": name,
         }
@@ -4735,7 +4896,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
             self._values["sub_path_expr"] = sub_path_expr
 
     @builtins.property
-    def mount_path(self) -> str:
+    def mount_path(self) -> builtins.str:
         """Path within the container at which the volume should be mounted.
 
         Must not contain ':'.
@@ -4743,19 +4904,23 @@ class JenkinsSpecMasterContainersVolumeMounts:
         schema:
         :schema:: JenkinsSpecMasterContainersVolumeMounts#mountPath
         """
-        return self._values.get("mount_path")
+        result = self._values.get("mount_path")
+        assert result is not None, "Required property 'mount_path' is missing"
+        return result
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """This must match the Name of a Volume.
 
         schema:
         :schema:: JenkinsSpecMasterContainersVolumeMounts#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def mount_propagation(self) -> typing.Optional[str]:
+    def mount_propagation(self) -> typing.Optional[builtins.str]:
         """mountPropagation determines how mounts are propagated from the host to container and the other way around.
 
         When not set, MountPropagationNone is used. This field is beta in 1.10.
@@ -4763,10 +4928,11 @@ class JenkinsSpecMasterContainersVolumeMounts:
         schema:
         :schema:: JenkinsSpecMasterContainersVolumeMounts#mountPropagation
         """
-        return self._values.get("mount_propagation")
+        result = self._values.get("mount_propagation")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Mounted read-only if true, read-write otherwise (false or unspecified).
 
         Defaults to false.
@@ -4777,10 +4943,11 @@ class JenkinsSpecMasterContainersVolumeMounts:
         schema:
         :schema:: JenkinsSpecMasterContainersVolumeMounts#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
-    def sub_path(self) -> typing.Optional[str]:
+    def sub_path(self) -> typing.Optional[builtins.str]:
         """Path within the volume from which the container's volume should be mounted.
 
         Defaults to "" (volume's root).
@@ -4791,10 +4958,11 @@ class JenkinsSpecMasterContainersVolumeMounts:
         schema:
         :schema:: JenkinsSpecMasterContainersVolumeMounts#subPath
         """
-        return self._values.get("sub_path")
+        result = self._values.get("sub_path")
+        return result
 
     @builtins.property
-    def sub_path_expr(self) -> typing.Optional[str]:
+    def sub_path_expr(self) -> typing.Optional[builtins.str]:
         """Expanded path within the volume from which the container's volume should be mounted.
 
         Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive. This field is beta in 1.15.
@@ -4805,12 +4973,13 @@ class JenkinsSpecMasterContainersVolumeMounts:
         schema:
         :schema:: JenkinsSpecMasterContainersVolumeMounts#subPathExpr
         """
-        return self._values.get("sub_path_expr")
+        result = self._values.get("sub_path_expr")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -4825,7 +4994,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterImagePullSecrets:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -4833,12 +5002,12 @@ class JenkinsSpecMasterImagePullSecrets:
         schema:
         :schema:: JenkinsSpecMasterImagePullSecrets
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -4846,12 +5015,13 @@ class JenkinsSpecMasterImagePullSecrets:
         schema:
         :schema:: JenkinsSpecMasterImagePullSecrets#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -4866,7 +5036,7 @@ class JenkinsSpecMasterImagePullSecrets:
     name_mapping={"name": "name", "version": "version"},
 )
 class JenkinsSpecMasterPlugins:
-    def __init__(self, *, name: str, version: str) -> None:
+    def __init__(self, *, name: builtins.str, version: builtins.str) -> None:
         """Plugin defines Jenkins plugin.
 
         :param name: Name is the name of Jenkins plugin.
@@ -4875,33 +5045,37 @@ class JenkinsSpecMasterPlugins:
         schema:
         :schema:: JenkinsSpecMasterPlugins
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "version": version,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """Name is the name of Jenkins plugin.
 
         schema:
         :schema:: JenkinsSpecMasterPlugins#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def version(self) -> str:
+    def version(self) -> builtins.str:
         """Version is the version of Jenkins plugin.
 
         schema:
         :schema:: JenkinsSpecMasterPlugins#version
         """
-        return self._values.get("version")
+        result = self._values.get("version")
+        assert result is not None, "Required property 'version' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -4930,18 +5104,12 @@ class JenkinsSpecMasterSecurityContext:
         *,
         fs_group: typing.Optional[jsii.Number] = None,
         run_as_group: typing.Optional[jsii.Number] = None,
-        run_as_non_root: typing.Optional[bool] = None,
+        run_as_non_root: typing.Optional[builtins.bool] = None,
         run_as_user: typing.Optional[jsii.Number] = None,
-        se_linux_options: typing.Optional[
-            "JenkinsSpecMasterSecurityContextSeLinuxOptions"
-        ] = None,
+        se_linux_options: typing.Optional["JenkinsSpecMasterSecurityContextSeLinuxOptions"] = None,
         supplemental_groups: typing.Optional[typing.List[jsii.Number]] = None,
-        sysctls: typing.Optional[
-            typing.List["JenkinsSpecMasterSecurityContextSysctls"]
-        ] = None,
-        windows_options: typing.Optional[
-            "JenkinsSpecMasterSecurityContextWindowsOptions"
-        ] = None,
+        sysctls: typing.Optional[typing.List["JenkinsSpecMasterSecurityContextSysctls"]] = None,
+        windows_options: typing.Optional["JenkinsSpecMasterSecurityContextWindowsOptions"] = None,
     ) -> None:
         """SecurityContext that applies to all the containers of the Jenkins Master.
 
@@ -4963,14 +5131,10 @@ class JenkinsSpecMasterSecurityContext:
         :schema:: JenkinsSpecMasterSecurityContext
         """
         if isinstance(se_linux_options, dict):
-            se_linux_options = JenkinsSpecMasterSecurityContextSeLinuxOptions(
-                **se_linux_options
-            )
+            se_linux_options = JenkinsSpecMasterSecurityContextSeLinuxOptions(**se_linux_options)
         if isinstance(windows_options, dict):
-            windows_options = JenkinsSpecMasterSecurityContextWindowsOptions(
-                **windows_options
-            )
-        self._values = {}
+            windows_options = JenkinsSpecMasterSecurityContextWindowsOptions(**windows_options)
+        self._values: typing.Dict[str, typing.Any] = {}
         if fs_group is not None:
             self._values["fs_group"] = fs_group
         if run_as_group is not None:
@@ -5000,7 +5164,8 @@ class JenkinsSpecMasterSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterSecurityContext#fsGroup
         """
-        return self._values.get("fs_group")
+        result = self._values.get("fs_group")
+        return result
 
     @builtins.property
     def run_as_group(self) -> typing.Optional[jsii.Number]:
@@ -5011,10 +5176,11 @@ class JenkinsSpecMasterSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterSecurityContext#runAsGroup
         """
-        return self._values.get("run_as_group")
+        result = self._values.get("run_as_group")
+        return result
 
     @builtins.property
-    def run_as_non_root(self) -> typing.Optional[bool]:
+    def run_as_non_root(self) -> typing.Optional[builtins.bool]:
         """Indicates that the container must run as a non-root user.
 
         If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
@@ -5022,7 +5188,8 @@ class JenkinsSpecMasterSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterSecurityContext#runAsNonRoot
         """
-        return self._values.get("run_as_non_root")
+        result = self._values.get("run_as_non_root")
+        return result
 
     @builtins.property
     def run_as_user(self) -> typing.Optional[jsii.Number]:
@@ -5036,7 +5203,8 @@ class JenkinsSpecMasterSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterSecurityContext#runAsUser
         """
-        return self._values.get("run_as_user")
+        result = self._values.get("run_as_user")
+        return result
 
     @builtins.property
     def se_linux_options(
@@ -5049,7 +5217,8 @@ class JenkinsSpecMasterSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterSecurityContext#seLinuxOptions
         """
-        return self._values.get("se_linux_options")
+        result = self._values.get("se_linux_options")
+        return result
 
     @builtins.property
     def supplemental_groups(self) -> typing.Optional[typing.List[jsii.Number]]:
@@ -5060,7 +5229,8 @@ class JenkinsSpecMasterSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterSecurityContext#supplementalGroups
         """
-        return self._values.get("supplemental_groups")
+        result = self._values.get("supplemental_groups")
+        return result
 
     @builtins.property
     def sysctls(
@@ -5073,7 +5243,8 @@ class JenkinsSpecMasterSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterSecurityContext#sysctls
         """
-        return self._values.get("sysctls")
+        result = self._values.get("sysctls")
+        return result
 
     @builtins.property
     def windows_options(
@@ -5086,12 +5257,13 @@ class JenkinsSpecMasterSecurityContext:
         schema:
         :schema:: JenkinsSpecMasterSecurityContext#windowsOptions
         """
-        return self._values.get("windows_options")
+        result = self._values.get("windows_options")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -5109,10 +5281,10 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
     def __init__(
         self,
         *,
-        level: typing.Optional[str] = None,
-        role: typing.Optional[str] = None,
-        type: typing.Optional[str] = None,
-        user: typing.Optional[str] = None,
+        level: typing.Optional[builtins.str] = None,
+        role: typing.Optional[builtins.str] = None,
+        type: typing.Optional[builtins.str] = None,
+        user: typing.Optional[builtins.str] = None,
     ) -> None:
         """The SELinux context to be applied to all containers.
 
@@ -5126,7 +5298,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
         schema:
         :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if level is not None:
             self._values["level"] = level
         if role is not None:
@@ -5137,45 +5309,49 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
             self._values["user"] = user
 
     @builtins.property
-    def level(self) -> typing.Optional[str]:
+    def level(self) -> typing.Optional[builtins.str]:
         """Level is SELinux level label that applies to the container.
 
         schema:
         :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions#level
         """
-        return self._values.get("level")
+        result = self._values.get("level")
+        return result
 
     @builtins.property
-    def role(self) -> typing.Optional[str]:
+    def role(self) -> typing.Optional[builtins.str]:
         """Role is a SELinux role label that applies to the container.
 
         schema:
         :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions#role
         """
-        return self._values.get("role")
+        result = self._values.get("role")
+        return result
 
     @builtins.property
-    def type(self) -> typing.Optional[str]:
+    def type(self) -> typing.Optional[builtins.str]:
         """Type is a SELinux type label that applies to the container.
 
         schema:
         :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions#type
         """
-        return self._values.get("type")
+        result = self._values.get("type")
+        return result
 
     @builtins.property
-    def user(self) -> typing.Optional[str]:
+    def user(self) -> typing.Optional[builtins.str]:
         """User is a SELinux user label that applies to the container.
 
         schema:
         :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions#user
         """
-        return self._values.get("user")
+        result = self._values.get("user")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -5190,7 +5366,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
     name_mapping={"name": "name", "value": "value"},
 )
 class JenkinsSpecMasterSecurityContextSysctls:
-    def __init__(self, *, name: str, value: str) -> None:
+    def __init__(self, *, name: builtins.str, value: builtins.str) -> None:
         """Sysctl defines a kernel parameter to be set.
 
         :param name: Name of a property to set.
@@ -5199,33 +5375,37 @@ class JenkinsSpecMasterSecurityContextSysctls:
         schema:
         :schema:: JenkinsSpecMasterSecurityContextSysctls
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "value": value,
         }
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """Name of a property to set.
 
         schema:
         :schema:: JenkinsSpecMasterSecurityContextSysctls#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def value(self) -> str:
+    def value(self) -> builtins.str:
         """Value of a property to set.
 
         schema:
         :schema:: JenkinsSpecMasterSecurityContextSysctls#value
         """
-        return self._values.get("value")
+        result = self._values.get("value")
+        assert result is not None, "Required property 'value' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -5247,9 +5427,9 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
     def __init__(
         self,
         *,
-        gmsa_credential_spec: typing.Optional[str] = None,
-        gmsa_credential_spec_name: typing.Optional[str] = None,
-        run_as_user_name: typing.Optional[str] = None,
+        gmsa_credential_spec: typing.Optional[builtins.str] = None,
+        gmsa_credential_spec_name: typing.Optional[builtins.str] = None,
+        run_as_user_name: typing.Optional[builtins.str] = None,
     ) -> None:
         """The Windows specific settings applied to all containers.
 
@@ -5262,7 +5442,7 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
         schema:
         :schema:: JenkinsSpecMasterSecurityContextWindowsOptions
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if gmsa_credential_spec is not None:
             self._values["gmsa_credential_spec"] = gmsa_credential_spec
         if gmsa_credential_spec_name is not None:
@@ -5271,16 +5451,17 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
             self._values["run_as_user_name"] = run_as_user_name
 
     @builtins.property
-    def gmsa_credential_spec(self) -> typing.Optional[str]:
+    def gmsa_credential_spec(self) -> typing.Optional[builtins.str]:
         """GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
 
         schema:
         :schema:: JenkinsSpecMasterSecurityContextWindowsOptions#gmsaCredentialSpec
         """
-        return self._values.get("gmsa_credential_spec")
+        result = self._values.get("gmsa_credential_spec")
+        return result
 
     @builtins.property
-    def gmsa_credential_spec_name(self) -> typing.Optional[str]:
+    def gmsa_credential_spec_name(self) -> typing.Optional[builtins.str]:
         """GMSACredentialSpecName is the name of the GMSA credential spec to use.
 
         This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
@@ -5288,10 +5469,11 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
         schema:
         :schema:: JenkinsSpecMasterSecurityContextWindowsOptions#gmsaCredentialSpecName
         """
-        return self._values.get("gmsa_credential_spec_name")
+        result = self._values.get("gmsa_credential_spec_name")
+        return result
 
     @builtins.property
-    def run_as_user_name(self) -> typing.Optional[str]:
+    def run_as_user_name(self) -> typing.Optional[builtins.str]:
         """The UserName in Windows to run the entrypoint of the container process.
 
         Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag.
@@ -5302,12 +5484,13 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
         schema:
         :schema:: JenkinsSpecMasterSecurityContextWindowsOptions#runAsUserName
         """
-        return self._values.get("run_as_user_name")
+        result = self._values.get("run_as_user_name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -5331,11 +5514,11 @@ class JenkinsSpecMasterTolerations:
     def __init__(
         self,
         *,
-        effect: typing.Optional[str] = None,
-        key: typing.Optional[str] = None,
-        operator: typing.Optional[str] = None,
+        effect: typing.Optional[builtins.str] = None,
+        key: typing.Optional[builtins.str] = None,
+        operator: typing.Optional[builtins.str] = None,
         toleration_seconds: typing.Optional[jsii.Number] = None,
-        value: typing.Optional[str] = None,
+        value: typing.Optional[builtins.str] = None,
     ) -> None:
         """The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator .
 
@@ -5348,7 +5531,7 @@ class JenkinsSpecMasterTolerations:
         schema:
         :schema:: JenkinsSpecMasterTolerations
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if effect is not None:
             self._values["effect"] = effect
         if key is not None:
@@ -5361,7 +5544,7 @@ class JenkinsSpecMasterTolerations:
             self._values["value"] = value
 
     @builtins.property
-    def effect(self) -> typing.Optional[str]:
+    def effect(self) -> typing.Optional[builtins.str]:
         """Effect indicates the taint effect to match.
 
         Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
@@ -5369,10 +5552,11 @@ class JenkinsSpecMasterTolerations:
         schema:
         :schema:: JenkinsSpecMasterTolerations#effect
         """
-        return self._values.get("effect")
+        result = self._values.get("effect")
+        return result
 
     @builtins.property
-    def key(self) -> typing.Optional[str]:
+    def key(self) -> typing.Optional[builtins.str]:
         """Key is the taint key that the toleration applies to.
 
         Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
@@ -5380,10 +5564,11 @@ class JenkinsSpecMasterTolerations:
         schema:
         :schema:: JenkinsSpecMasterTolerations#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        return result
 
     @builtins.property
-    def operator(self) -> typing.Optional[str]:
+    def operator(self) -> typing.Optional[builtins.str]:
         """Operator represents a key's relationship to the value.
 
         Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
@@ -5394,7 +5579,8 @@ class JenkinsSpecMasterTolerations:
         schema:
         :schema:: JenkinsSpecMasterTolerations#operator
         """
-        return self._values.get("operator")
+        result = self._values.get("operator")
+        return result
 
     @builtins.property
     def toleration_seconds(self) -> typing.Optional[jsii.Number]:
@@ -5405,10 +5591,11 @@ class JenkinsSpecMasterTolerations:
         schema:
         :schema:: JenkinsSpecMasterTolerations#tolerationSeconds
         """
-        return self._values.get("toleration_seconds")
+        result = self._values.get("toleration_seconds")
+        return result
 
     @builtins.property
-    def value(self) -> typing.Optional[str]:
+    def value(self) -> typing.Optional[builtins.str]:
         """Value is the taint value the toleration matches to.
 
         If the operator is Exists, the value should be empty, otherwise just a regular string.
@@ -5416,12 +5603,13 @@ class JenkinsSpecMasterTolerations:
         schema:
         :schema:: JenkinsSpecMasterTolerations#value
         """
-        return self._values.get("value")
+        result = self._values.get("value")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -5469,10 +5657,8 @@ class JenkinsSpecMasterVolumes:
     def __init__(
         self,
         *,
-        name: str,
-        aws_elastic_block_store: typing.Optional[
-            "JenkinsSpecMasterVolumesAwsElasticBlockStore"
-        ] = None,
+        name: builtins.str,
+        aws_elastic_block_store: typing.Optional["JenkinsSpecMasterVolumesAwsElasticBlockStore"] = None,
         azure_disk: typing.Optional["JenkinsSpecMasterVolumesAzureDisk"] = None,
         azure_file: typing.Optional["JenkinsSpecMasterVolumesAzureFile"] = None,
         cephfs: typing.Optional["JenkinsSpecMasterVolumesCephfs"] = None,
@@ -5484,23 +5670,15 @@ class JenkinsSpecMasterVolumes:
         fc: typing.Optional["JenkinsSpecMasterVolumesFc"] = None,
         flex_volume: typing.Optional["JenkinsSpecMasterVolumesFlexVolume"] = None,
         flocker: typing.Optional["JenkinsSpecMasterVolumesFlocker"] = None,
-        gce_persistent_disk: typing.Optional[
-            "JenkinsSpecMasterVolumesGcePersistentDisk"
-        ] = None,
+        gce_persistent_disk: typing.Optional["JenkinsSpecMasterVolumesGcePersistentDisk"] = None,
         git_repo: typing.Optional["JenkinsSpecMasterVolumesGitRepo"] = None,
         glusterfs: typing.Optional["JenkinsSpecMasterVolumesGlusterfs"] = None,
         host_path: typing.Optional["JenkinsSpecMasterVolumesHostPath"] = None,
         iscsi: typing.Optional["JenkinsSpecMasterVolumesIscsi"] = None,
         nfs: typing.Optional["JenkinsSpecMasterVolumesNfs"] = None,
-        persistent_volume_claim: typing.Optional[
-            "JenkinsSpecMasterVolumesPersistentVolumeClaim"
-        ] = None,
-        photon_persistent_disk: typing.Optional[
-            "JenkinsSpecMasterVolumesPhotonPersistentDisk"
-        ] = None,
-        portworx_volume: typing.Optional[
-            "JenkinsSpecMasterVolumesPortworxVolume"
-        ] = None,
+        persistent_volume_claim: typing.Optional["JenkinsSpecMasterVolumesPersistentVolumeClaim"] = None,
+        photon_persistent_disk: typing.Optional["JenkinsSpecMasterVolumesPhotonPersistentDisk"] = None,
+        portworx_volume: typing.Optional["JenkinsSpecMasterVolumesPortworxVolume"] = None,
         projected: typing.Optional["JenkinsSpecMasterVolumesProjected"] = None,
         quobyte: typing.Optional["JenkinsSpecMasterVolumesQuobyte"] = None,
         rbd: typing.Optional["JenkinsSpecMasterVolumesRbd"] = None,
@@ -5545,9 +5723,7 @@ class JenkinsSpecMasterVolumes:
         :schema:: JenkinsSpecMasterVolumes
         """
         if isinstance(aws_elastic_block_store, dict):
-            aws_elastic_block_store = JenkinsSpecMasterVolumesAwsElasticBlockStore(
-                **aws_elastic_block_store
-            )
+            aws_elastic_block_store = JenkinsSpecMasterVolumesAwsElasticBlockStore(**aws_elastic_block_store)
         if isinstance(azure_disk, dict):
             azure_disk = JenkinsSpecMasterVolumesAzureDisk(**azure_disk)
         if isinstance(azure_file, dict):
@@ -5571,9 +5747,7 @@ class JenkinsSpecMasterVolumes:
         if isinstance(flocker, dict):
             flocker = JenkinsSpecMasterVolumesFlocker(**flocker)
         if isinstance(gce_persistent_disk, dict):
-            gce_persistent_disk = JenkinsSpecMasterVolumesGcePersistentDisk(
-                **gce_persistent_disk
-            )
+            gce_persistent_disk = JenkinsSpecMasterVolumesGcePersistentDisk(**gce_persistent_disk)
         if isinstance(git_repo, dict):
             git_repo = JenkinsSpecMasterVolumesGitRepo(**git_repo)
         if isinstance(glusterfs, dict):
@@ -5585,13 +5759,9 @@ class JenkinsSpecMasterVolumes:
         if isinstance(nfs, dict):
             nfs = JenkinsSpecMasterVolumesNfs(**nfs)
         if isinstance(persistent_volume_claim, dict):
-            persistent_volume_claim = JenkinsSpecMasterVolumesPersistentVolumeClaim(
-                **persistent_volume_claim
-            )
+            persistent_volume_claim = JenkinsSpecMasterVolumesPersistentVolumeClaim(**persistent_volume_claim)
         if isinstance(photon_persistent_disk, dict):
-            photon_persistent_disk = JenkinsSpecMasterVolumesPhotonPersistentDisk(
-                **photon_persistent_disk
-            )
+            photon_persistent_disk = JenkinsSpecMasterVolumesPhotonPersistentDisk(**photon_persistent_disk)
         if isinstance(portworx_volume, dict):
             portworx_volume = JenkinsSpecMasterVolumesPortworxVolume(**portworx_volume)
         if isinstance(projected, dict):
@@ -5608,7 +5778,7 @@ class JenkinsSpecMasterVolumes:
             storageos = JenkinsSpecMasterVolumesStorageos(**storageos)
         if isinstance(vsphere_volume, dict):
             vsphere_volume = JenkinsSpecMasterVolumesVsphereVolume(**vsphere_volume)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "name": name,
         }
         if aws_elastic_block_store is not None:
@@ -5669,7 +5839,7 @@ class JenkinsSpecMasterVolumes:
             self._values["vsphere_volume"] = vsphere_volume
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """Volume's name.
 
         Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -5677,7 +5847,9 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
     def aws_elastic_block_store(
@@ -5690,7 +5862,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#awsElasticBlockStore
         """
-        return self._values.get("aws_elastic_block_store")
+        result = self._values.get("aws_elastic_block_store")
+        return result
 
     @builtins.property
     def azure_disk(self) -> typing.Optional["JenkinsSpecMasterVolumesAzureDisk"]:
@@ -5699,7 +5872,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#azureDisk
         """
-        return self._values.get("azure_disk")
+        result = self._values.get("azure_disk")
+        return result
 
     @builtins.property
     def azure_file(self) -> typing.Optional["JenkinsSpecMasterVolumesAzureFile"]:
@@ -5708,7 +5882,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#azureFile
         """
-        return self._values.get("azure_file")
+        result = self._values.get("azure_file")
+        return result
 
     @builtins.property
     def cephfs(self) -> typing.Optional["JenkinsSpecMasterVolumesCephfs"]:
@@ -5717,7 +5892,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#cephfs
         """
-        return self._values.get("cephfs")
+        result = self._values.get("cephfs")
+        return result
 
     @builtins.property
     def cinder(self) -> typing.Optional["JenkinsSpecMasterVolumesCinder"]:
@@ -5728,7 +5904,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#cinder
         """
-        return self._values.get("cinder")
+        result = self._values.get("cinder")
+        return result
 
     @builtins.property
     def config_map(self) -> typing.Optional["JenkinsSpecMasterVolumesConfigMap"]:
@@ -5737,7 +5914,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#configMap
         """
-        return self._values.get("config_map")
+        result = self._values.get("config_map")
+        return result
 
     @builtins.property
     def csi(self) -> typing.Optional["JenkinsSpecMasterVolumesCsi"]:
@@ -5746,7 +5924,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#csi
         """
-        return self._values.get("csi")
+        result = self._values.get("csi")
+        return result
 
     @builtins.property
     def downward_api(self) -> typing.Optional["JenkinsSpecMasterVolumesDownwardApi"]:
@@ -5755,7 +5934,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#downwardAPI
         """
-        return self._values.get("downward_api")
+        result = self._values.get("downward_api")
+        return result
 
     @builtins.property
     def empty_dir(self) -> typing.Optional["JenkinsSpecMasterVolumesEmptyDir"]:
@@ -5766,7 +5946,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#emptyDir
         """
-        return self._values.get("empty_dir")
+        result = self._values.get("empty_dir")
+        return result
 
     @builtins.property
     def fc(self) -> typing.Optional["JenkinsSpecMasterVolumesFc"]:
@@ -5775,7 +5956,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#fc
         """
-        return self._values.get("fc")
+        result = self._values.get("fc")
+        return result
 
     @builtins.property
     def flex_volume(self) -> typing.Optional["JenkinsSpecMasterVolumesFlexVolume"]:
@@ -5784,7 +5966,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#flexVolume
         """
-        return self._values.get("flex_volume")
+        result = self._values.get("flex_volume")
+        return result
 
     @builtins.property
     def flocker(self) -> typing.Optional["JenkinsSpecMasterVolumesFlocker"]:
@@ -5795,7 +5978,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#flocker
         """
-        return self._values.get("flocker")
+        result = self._values.get("flocker")
+        return result
 
     @builtins.property
     def gce_persistent_disk(
@@ -5808,7 +5992,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#gcePersistentDisk
         """
-        return self._values.get("gce_persistent_disk")
+        result = self._values.get("gce_persistent_disk")
+        return result
 
     @builtins.property
     def git_repo(self) -> typing.Optional["JenkinsSpecMasterVolumesGitRepo"]:
@@ -5819,7 +6004,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#gitRepo
         """
-        return self._values.get("git_repo")
+        result = self._values.get("git_repo")
+        return result
 
     @builtins.property
     def glusterfs(self) -> typing.Optional["JenkinsSpecMasterVolumesGlusterfs"]:
@@ -5830,7 +6016,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#glusterfs
         """
-        return self._values.get("glusterfs")
+        result = self._values.get("glusterfs")
+        return result
 
     @builtins.property
     def host_path(self) -> typing.Optional["JenkinsSpecMasterVolumesHostPath"]:
@@ -5841,7 +6028,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#hostPath
         """
-        return self._values.get("host_path")
+        result = self._values.get("host_path")
+        return result
 
     @builtins.property
     def iscsi(self) -> typing.Optional["JenkinsSpecMasterVolumesIscsi"]:
@@ -5852,7 +6040,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#iscsi
         """
-        return self._values.get("iscsi")
+        result = self._values.get("iscsi")
+        return result
 
     @builtins.property
     def nfs(self) -> typing.Optional["JenkinsSpecMasterVolumesNfs"]:
@@ -5861,7 +6050,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#nfs
         """
-        return self._values.get("nfs")
+        result = self._values.get("nfs")
+        return result
 
     @builtins.property
     def persistent_volume_claim(
@@ -5874,7 +6064,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#persistentVolumeClaim
         """
-        return self._values.get("persistent_volume_claim")
+        result = self._values.get("persistent_volume_claim")
+        return result
 
     @builtins.property
     def photon_persistent_disk(
@@ -5885,7 +6076,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#photonPersistentDisk
         """
-        return self._values.get("photon_persistent_disk")
+        result = self._values.get("photon_persistent_disk")
+        return result
 
     @builtins.property
     def portworx_volume(
@@ -5896,7 +6088,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#portworxVolume
         """
-        return self._values.get("portworx_volume")
+        result = self._values.get("portworx_volume")
+        return result
 
     @builtins.property
     def projected(self) -> typing.Optional["JenkinsSpecMasterVolumesProjected"]:
@@ -5905,7 +6098,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#projected
         """
-        return self._values.get("projected")
+        result = self._values.get("projected")
+        return result
 
     @builtins.property
     def quobyte(self) -> typing.Optional["JenkinsSpecMasterVolumesQuobyte"]:
@@ -5914,7 +6108,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#quobyte
         """
-        return self._values.get("quobyte")
+        result = self._values.get("quobyte")
+        return result
 
     @builtins.property
     def rbd(self) -> typing.Optional["JenkinsSpecMasterVolumesRbd"]:
@@ -5925,7 +6120,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#rbd
         """
-        return self._values.get("rbd")
+        result = self._values.get("rbd")
+        return result
 
     @builtins.property
     def scale_io(self) -> typing.Optional["JenkinsSpecMasterVolumesScaleIo"]:
@@ -5934,7 +6130,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#scaleIO
         """
-        return self._values.get("scale_io")
+        result = self._values.get("scale_io")
+        return result
 
     @builtins.property
     def secret(self) -> typing.Optional["JenkinsSpecMasterVolumesSecret"]:
@@ -5945,7 +6142,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        return result
 
     @builtins.property
     def storageos(self) -> typing.Optional["JenkinsSpecMasterVolumesStorageos"]:
@@ -5954,7 +6152,8 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#storageos
         """
-        return self._values.get("storageos")
+        result = self._values.get("storageos")
+        return result
 
     @builtins.property
     def vsphere_volume(
@@ -5965,12 +6164,13 @@ class JenkinsSpecMasterVolumes:
         schema:
         :schema:: JenkinsSpecMasterVolumes#vsphereVolume
         """
-        return self._values.get("vsphere_volume")
+        result = self._values.get("vsphere_volume")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -5993,10 +6193,10 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
     def __init__(
         self,
         *,
-        volume_id: str,
-        fs_type: typing.Optional[str] = None,
+        volume_id: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
         partition: typing.Optional[jsii.Number] = None,
-        read_only: typing.Optional[bool] = None,
+        read_only: typing.Optional[builtins.bool] = None,
     ) -> None:
         """AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
@@ -6010,7 +6210,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         schema:
         :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "volume_id": volume_id,
         }
         if fs_type is not None:
@@ -6021,7 +6221,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
             self._values["read_only"] = read_only
 
     @builtins.property
-    def volume_id(self) -> str:
+    def volume_id(self) -> builtins.str:
         """Unique ID of the persistent disk resource in AWS (Amazon EBS volume).
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
@@ -6029,10 +6229,12 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         schema:
         :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore#volumeID
         """
-        return self._values.get("volume_id")
+        result = self._values.get("volume_id")
+        assert result is not None, "Required property 'volume_id' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type of the volume that you want to mount.
 
         Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore TODO: how do we prevent errors in the filesystem from compromising the machine
@@ -6040,7 +6242,8 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         schema:
         :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
     def partition(self) -> typing.Optional[jsii.Number]:
@@ -6051,10 +6254,11 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         schema:
         :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore#partition
         """
-        return self._values.get("partition")
+        result = self._values.get("partition")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Specify "true" to force and set the ReadOnly property in VolumeMounts to "true".
 
         If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
@@ -6062,12 +6266,13 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         schema:
         :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6092,12 +6297,12 @@ class JenkinsSpecMasterVolumesAzureDisk:
     def __init__(
         self,
         *,
-        disk_name: str,
-        disk_uri: str,
-        caching_mode: typing.Optional[str] = None,
-        fs_type: typing.Optional[str] = None,
-        kind: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
+        disk_name: builtins.str,
+        disk_uri: builtins.str,
+        caching_mode: typing.Optional[builtins.str] = None,
+        fs_type: typing.Optional[builtins.str] = None,
+        kind: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
     ) -> None:
         """AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
 
@@ -6111,7 +6316,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureDisk
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "disk_name": disk_name,
             "disk_uri": disk_uri,
         }
@@ -6125,34 +6330,39 @@ class JenkinsSpecMasterVolumesAzureDisk:
             self._values["read_only"] = read_only
 
     @builtins.property
-    def disk_name(self) -> str:
+    def disk_name(self) -> builtins.str:
         """The Name of the data disk in the blob storage.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureDisk#diskName
         """
-        return self._values.get("disk_name")
+        result = self._values.get("disk_name")
+        assert result is not None, "Required property 'disk_name' is missing"
+        return result
 
     @builtins.property
-    def disk_uri(self) -> str:
+    def disk_uri(self) -> builtins.str:
         """The URI the data disk in the blob storage.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureDisk#diskURI
         """
-        return self._values.get("disk_uri")
+        result = self._values.get("disk_uri")
+        assert result is not None, "Required property 'disk_uri' is missing"
+        return result
 
     @builtins.property
-    def caching_mode(self) -> typing.Optional[str]:
+    def caching_mode(self) -> typing.Optional[builtins.str]:
         """Host Caching mode: None, Read Only, Read Write.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureDisk#cachingMode
         """
-        return self._values.get("caching_mode")
+        result = self._values.get("caching_mode")
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
@@ -6160,10 +6370,11 @@ class JenkinsSpecMasterVolumesAzureDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureDisk#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def kind(self) -> typing.Optional[str]:
+    def kind(self) -> typing.Optional[builtins.str]:
         """Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set).
 
         defaults to shared
@@ -6171,10 +6382,11 @@ class JenkinsSpecMasterVolumesAzureDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureDisk#kind
         """
-        return self._values.get("kind")
+        result = self._values.get("kind")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
@@ -6185,12 +6397,13 @@ class JenkinsSpecMasterVolumesAzureDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureDisk#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6212,9 +6425,9 @@ class JenkinsSpecMasterVolumesAzureFile:
     def __init__(
         self,
         *,
-        secret_name: str,
-        share_name: str,
-        read_only: typing.Optional[bool] = None,
+        secret_name: builtins.str,
+        share_name: builtins.str,
+        read_only: typing.Optional[builtins.bool] = None,
     ) -> None:
         """AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
 
@@ -6225,7 +6438,7 @@ class JenkinsSpecMasterVolumesAzureFile:
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureFile
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "secret_name": secret_name,
             "share_name": share_name,
         }
@@ -6233,25 +6446,29 @@ class JenkinsSpecMasterVolumesAzureFile:
             self._values["read_only"] = read_only
 
     @builtins.property
-    def secret_name(self) -> str:
+    def secret_name(self) -> builtins.str:
         """the name of secret that contains Azure Storage Account Name and Key.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureFile#secretName
         """
-        return self._values.get("secret_name")
+        result = self._values.get("secret_name")
+        assert result is not None, "Required property 'secret_name' is missing"
+        return result
 
     @builtins.property
-    def share_name(self) -> str:
+    def share_name(self) -> builtins.str:
         """Share Name.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureFile#shareName
         """
-        return self._values.get("share_name")
+        result = self._values.get("share_name")
+        assert result is not None, "Required property 'share_name' is missing"
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
@@ -6262,12 +6479,13 @@ class JenkinsSpecMasterVolumesAzureFile:
         schema:
         :schema:: JenkinsSpecMasterVolumesAzureFile#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6292,12 +6510,12 @@ class JenkinsSpecMasterVolumesCephfs:
     def __init__(
         self,
         *,
-        monitors: typing.List[str],
-        path: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
-        secret_file: typing.Optional[str] = None,
+        monitors: typing.List[builtins.str],
+        path: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
+        secret_file: typing.Optional[builtins.str] = None,
         secret_ref: typing.Optional["JenkinsSpecMasterVolumesCephfsSecretRef"] = None,
-        user: typing.Optional[str] = None,
+        user: typing.Optional[builtins.str] = None,
     ) -> None:
         """CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
 
@@ -6313,7 +6531,7 @@ class JenkinsSpecMasterVolumesCephfs:
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesCephfsSecretRef(**secret_ref)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "monitors": monitors,
         }
         if path is not None:
@@ -6328,25 +6546,28 @@ class JenkinsSpecMasterVolumesCephfs:
             self._values["user"] = user
 
     @builtins.property
-    def monitors(self) -> typing.List[str]:
+    def monitors(self) -> typing.List[builtins.str]:
         """Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesCephfs#monitors
         """
-        return self._values.get("monitors")
+        result = self._values.get("monitors")
+        assert result is not None, "Required property 'monitors' is missing"
+        return result
 
     @builtins.property
-    def path(self) -> typing.Optional[str]:
+    def path(self) -> typing.Optional[builtins.str]:
         """Optional: Used as the mounted root, rather than the full Ceph tree, default is /.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesCephfs#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Optional: Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
@@ -6357,16 +6578,18 @@ class JenkinsSpecMasterVolumesCephfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesCephfs#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
-    def secret_file(self) -> typing.Optional[str]:
+    def secret_file(self) -> typing.Optional[builtins.str]:
         """Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesCephfs#secretFile
         """
-        return self._values.get("secret_file")
+        result = self._values.get("secret_file")
+        return result
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesCephfsSecretRef"]:
@@ -6377,21 +6600,23 @@ class JenkinsSpecMasterVolumesCephfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesCephfs#secretRef
         """
-        return self._values.get("secret_ref")
+        result = self._values.get("secret_ref")
+        return result
 
     @builtins.property
-    def user(self) -> typing.Optional[str]:
+    def user(self) -> typing.Optional[builtins.str]:
         """Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesCephfs#user
         """
-        return self._values.get("user")
+        result = self._values.get("user")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6406,7 +6631,7 @@ class JenkinsSpecMasterVolumesCephfs:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterVolumesCephfsSecretRef:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """Optional: SecretRef is reference to the authentication secret for User, default is empty.
 
         More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
@@ -6416,12 +6641,12 @@ class JenkinsSpecMasterVolumesCephfsSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesCephfsSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -6429,12 +6654,13 @@ class JenkinsSpecMasterVolumesCephfsSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesCephfsSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6457,9 +6683,9 @@ class JenkinsSpecMasterVolumesCinder:
     def __init__(
         self,
         *,
-        volume_id: str,
-        fs_type: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
+        volume_id: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
         secret_ref: typing.Optional["JenkinsSpecMasterVolumesCinderSecretRef"] = None,
     ) -> None:
         """Cinder represents a cinder volume attached and mounted on kubelets host machine.
@@ -6476,7 +6702,7 @@ class JenkinsSpecMasterVolumesCinder:
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesCinderSecretRef(**secret_ref)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "volume_id": volume_id,
         }
         if fs_type is not None:
@@ -6487,7 +6713,7 @@ class JenkinsSpecMasterVolumesCinder:
             self._values["secret_ref"] = secret_ref
 
     @builtins.property
-    def volume_id(self) -> str:
+    def volume_id(self) -> builtins.str:
         """volume id used to identify the volume in cinder.
 
         More info: https://examples.k8s.io/mysql-cinder-pd/README.md
@@ -6495,10 +6721,12 @@ class JenkinsSpecMasterVolumesCinder:
         schema:
         :schema:: JenkinsSpecMasterVolumesCinder#volumeID
         """
-        return self._values.get("volume_id")
+        result = self._values.get("volume_id")
+        assert result is not None, "Required property 'volume_id' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
@@ -6506,10 +6734,11 @@ class JenkinsSpecMasterVolumesCinder:
         schema:
         :schema:: JenkinsSpecMasterVolumesCinder#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Optional: Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
@@ -6520,7 +6749,8 @@ class JenkinsSpecMasterVolumesCinder:
         schema:
         :schema:: JenkinsSpecMasterVolumesCinder#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesCinderSecretRef"]:
@@ -6529,12 +6759,13 @@ class JenkinsSpecMasterVolumesCinder:
         schema:
         :schema:: JenkinsSpecMasterVolumesCinder#secretRef
         """
-        return self._values.get("secret_ref")
+        result = self._values.get("secret_ref")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6549,7 +6780,7 @@ class JenkinsSpecMasterVolumesCinder:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterVolumesCinderSecretRef:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """Optional: points to a secret object containing parameters used to connect to OpenStack.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -6557,12 +6788,12 @@ class JenkinsSpecMasterVolumesCinderSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesCinderSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -6570,12 +6801,13 @@ class JenkinsSpecMasterVolumesCinderSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesCinderSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6599,11 +6831,9 @@ class JenkinsSpecMasterVolumesConfigMap:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesConfigMapItems"]
-        ] = None,
-        name: typing.Optional[str] = None,
-        optional: typing.Optional[bool] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesConfigMapItems"]] = None,
+        name: typing.Optional[builtins.str] = None,
+        optional: typing.Optional[builtins.bool] = None,
     ) -> None:
         """ConfigMap represents a configMap that should populate this volume.
 
@@ -6615,7 +6845,7 @@ class JenkinsSpecMasterVolumesConfigMap:
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMap
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if default_mode is not None:
             self._values["default_mode"] = default_mode
         if items is not None:
@@ -6637,7 +6867,8 @@ class JenkinsSpecMasterVolumesConfigMap:
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMap#defaultMode
         """
-        return self._values.get("default_mode")
+        result = self._values.get("default_mode")
+        return result
 
     @builtins.property
     def items(
@@ -6650,10 +6881,11 @@ class JenkinsSpecMasterVolumesConfigMap:
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMap#items
         """
-        return self._values.get("items")
+        result = self._values.get("items")
+        return result
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -6661,21 +6893,23 @@ class JenkinsSpecMasterVolumesConfigMap:
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMap#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
     @builtins.property
-    def optional(self) -> typing.Optional[bool]:
+    def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap or its keys must be defined.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMap#optional
         """
-        return self._values.get("optional")
+        result = self._values.get("optional")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6691,7 +6925,11 @@ class JenkinsSpecMasterVolumesConfigMap:
 )
 class JenkinsSpecMasterVolumesConfigMapItems:
     def __init__(
-        self, *, key: str, path: str, mode: typing.Optional[jsii.Number] = None
+        self,
+        *,
+        key: builtins.str,
+        path: builtins.str,
+        mode: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Maps a string key to a path within a volume.
 
@@ -6702,7 +6940,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMapItems
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "path": path,
         }
@@ -6710,16 +6948,18 @@ class JenkinsSpecMasterVolumesConfigMapItems:
             self._values["mode"] = mode
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key to project.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMapItems#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """The relative path of the file to map the key to.
 
         May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
@@ -6727,7 +6967,9 @@ class JenkinsSpecMasterVolumesConfigMapItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMapItems#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -6738,12 +6980,13 @@ class JenkinsSpecMasterVolumesConfigMapItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesConfigMapItems#mode
         """
-        return self._values.get("mode")
+        result = self._values.get("mode")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6767,13 +7010,11 @@ class JenkinsSpecMasterVolumesCsi:
     def __init__(
         self,
         *,
-        driver: str,
-        fs_type: typing.Optional[str] = None,
-        node_publish_secret_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesCsiNodePublishSecretRef"
-        ] = None,
-        read_only: typing.Optional[bool] = None,
-        volume_attributes: typing.Optional[typing.Mapping[str, str]] = None,
+        driver: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
+        node_publish_secret_ref: typing.Optional["JenkinsSpecMasterVolumesCsiNodePublishSecretRef"] = None,
+        read_only: typing.Optional[builtins.bool] = None,
+        volume_attributes: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
     ) -> None:
         """CSI (Container Storage Interface) represents storage that is handled by an external CSI driver (Alpha feature).
 
@@ -6787,10 +7028,8 @@ class JenkinsSpecMasterVolumesCsi:
         :schema:: JenkinsSpecMasterVolumesCsi
         """
         if isinstance(node_publish_secret_ref, dict):
-            node_publish_secret_ref = JenkinsSpecMasterVolumesCsiNodePublishSecretRef(
-                **node_publish_secret_ref
-            )
-        self._values = {
+            node_publish_secret_ref = JenkinsSpecMasterVolumesCsiNodePublishSecretRef(**node_publish_secret_ref)
+        self._values: typing.Dict[str, typing.Any] = {
             "driver": driver,
         }
         if fs_type is not None:
@@ -6803,7 +7042,7 @@ class JenkinsSpecMasterVolumesCsi:
             self._values["volume_attributes"] = volume_attributes
 
     @builtins.property
-    def driver(self) -> str:
+    def driver(self) -> builtins.str:
         """Driver is the name of the CSI driver that handles this volume.
 
         Consult with your admin for the correct name as registered in the cluster.
@@ -6811,10 +7050,12 @@ class JenkinsSpecMasterVolumesCsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesCsi#driver
         """
-        return self._values.get("driver")
+        result = self._values.get("driver")
+        assert result is not None, "Required property 'driver' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
@@ -6822,7 +7063,8 @@ class JenkinsSpecMasterVolumesCsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesCsi#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
     def node_publish_secret_ref(
@@ -6835,10 +7077,11 @@ class JenkinsSpecMasterVolumesCsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesCsi#nodePublishSecretRef
         """
-        return self._values.get("node_publish_secret_ref")
+        result = self._values.get("node_publish_secret_ref")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Specifies a read-only configuration for the volume.
 
         Defaults to false (read/write).
@@ -6849,10 +7092,13 @@ class JenkinsSpecMasterVolumesCsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesCsi#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
-    def volume_attributes(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def volume_attributes(
+        self,
+    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """VolumeAttributes stores driver-specific properties that are passed to the CSI driver.
 
         Consult your driver's documentation for supported values.
@@ -6860,12 +7106,13 @@ class JenkinsSpecMasterVolumesCsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesCsi#volumeAttributes
         """
-        return self._values.get("volume_attributes")
+        result = self._values.get("volume_attributes")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6880,7 +7127,7 @@ class JenkinsSpecMasterVolumesCsi:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterVolumesCsiNodePublishSecretRef:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
 
         This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
@@ -6890,12 +7137,12 @@ class JenkinsSpecMasterVolumesCsiNodePublishSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesCsiNodePublishSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -6903,12 +7150,13 @@ class JenkinsSpecMasterVolumesCsiNodePublishSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesCsiNodePublishSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6927,9 +7175,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]
-        ] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]] = None,
     ) -> None:
         """DownwardAPI represents downward API about the pod that should populate this volume.
 
@@ -6939,7 +7185,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApi
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if default_mode is not None:
             self._values["default_mode"] = default_mode
         if items is not None:
@@ -6957,7 +7203,8 @@ class JenkinsSpecMasterVolumesDownwardApi:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApi#defaultMode
         """
-        return self._values.get("default_mode")
+        result = self._values.get("default_mode")
+        return result
 
     @builtins.property
     def items(
@@ -6968,12 +7215,13 @@ class JenkinsSpecMasterVolumesDownwardApi:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApi#items
         """
-        return self._values.get("items")
+        result = self._values.get("items")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -6996,14 +7244,10 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
     def __init__(
         self,
         *,
-        path: str,
-        field_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesDownwardApiItemsFieldRef"
-        ] = None,
+        path: builtins.str,
+        field_ref: typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsFieldRef"] = None,
         mode: typing.Optional[jsii.Number] = None,
-        resource_field_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef"
-        ] = None,
+        resource_field_ref: typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef"] = None,
     ) -> None:
         """DownwardAPIVolumeFile represents information to create the file containing the pod field.
 
@@ -7018,10 +7262,8 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         if isinstance(field_ref, dict):
             field_ref = JenkinsSpecMasterVolumesDownwardApiItemsFieldRef(**field_ref)
         if isinstance(resource_field_ref, dict):
-            resource_field_ref = JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(
-                **resource_field_ref
-            )
-        self._values = {
+            resource_field_ref = JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(**resource_field_ref)
+        self._values: typing.Dict[str, typing.Any] = {
             "path": path,
         }
         if field_ref is not None:
@@ -7032,7 +7274,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
             self._values["resource_field_ref"] = resource_field_ref
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """Required: Path is  the relative path name of the file to be created.
 
         Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
@@ -7040,7 +7282,9 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItems#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
     def field_ref(
@@ -7051,7 +7295,8 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItems#fieldRef
         """
-        return self._values.get("field_ref")
+        result = self._values.get("field_ref")
+        return result
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -7062,7 +7307,8 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItems#mode
         """
-        return self._values.get("mode")
+        result = self._values.get("mode")
+        return result
 
     @builtins.property
     def resource_field_ref(
@@ -7073,12 +7319,13 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItems#resourceFieldRef
         """
-        return self._values.get("resource_field_ref")
+        result = self._values.get("resource_field_ref")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7094,7 +7341,10 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
 )
 class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
     def __init__(
-        self, *, field_path: str, api_version: typing.Optional[str] = None
+        self,
+        *,
+        field_path: builtins.str,
+        api_version: typing.Optional[builtins.str] = None,
     ) -> None:
         """Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
 
@@ -7104,34 +7354,37 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "field_path": field_path,
         }
         if api_version is not None:
             self._values["api_version"] = api_version
 
     @builtins.property
-    def field_path(self) -> str:
+    def field_path(self) -> builtins.str:
         """Path of the field to select in the specified API version.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef#fieldPath
         """
-        return self._values.get("field_path")
+        result = self._values.get("field_path")
+        assert result is not None, "Required property 'field_path' is missing"
+        return result
 
     @builtins.property
-    def api_version(self) -> typing.Optional[str]:
+    def api_version(self) -> typing.Optional[builtins.str]:
         """Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef#apiVersion
         """
-        return self._values.get("api_version")
+        result = self._values.get("api_version")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7153,9 +7406,9 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
     def __init__(
         self,
         *,
-        resource: str,
-        container_name: typing.Optional[str] = None,
-        divisor: typing.Optional[str] = None,
+        resource: builtins.str,
+        container_name: typing.Optional[builtins.str] = None,
+        divisor: typing.Optional[builtins.str] = None,
     ) -> None:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
@@ -7166,7 +7419,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "resource": resource,
         }
         if container_name is not None:
@@ -7175,42 +7428,45 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
             self._values["divisor"] = divisor
 
     @builtins.property
-    def resource(self) -> str:
+    def resource(self) -> builtins.str:
         """Required: resource to select.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#resource
         """
-        return self._values.get("resource")
+        result = self._values.get("resource")
+        assert result is not None, "Required property 'resource' is missing"
+        return result
 
     @builtins.property
-    def container_name(self) -> typing.Optional[str]:
+    def container_name(self) -> typing.Optional[builtins.str]:
         """Container name: required for volumes, optional for env vars.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#containerName
         """
-        return self._values.get("container_name")
+        result = self._values.get("container_name")
+        return result
 
     @builtins.property
-    def divisor(self) -> typing.Optional[str]:
+    def divisor(self) -> typing.Optional[builtins.str]:
         """Specifies the output format of the exposed resources, defaults to "1".
 
         schema:
         :schema:: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#divisor
         """
-        return self._values.get("divisor")
+        result = self._values.get("divisor")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -7223,8 +7479,8 @@ class JenkinsSpecMasterVolumesEmptyDir:
     def __init__(
         self,
         *,
-        medium: typing.Optional[str] = None,
-        size_limit: typing.Optional[str] = None,
+        medium: typing.Optional[builtins.str] = None,
+        size_limit: typing.Optional[builtins.str] = None,
     ) -> None:
         """EmptyDir represents a temporary directory that shares a pod's lifetime.
 
@@ -7236,14 +7492,14 @@ class JenkinsSpecMasterVolumesEmptyDir:
         schema:
         :schema:: JenkinsSpecMasterVolumesEmptyDir
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if medium is not None:
             self._values["medium"] = medium
         if size_limit is not None:
             self._values["size_limit"] = size_limit
 
     @builtins.property
-    def medium(self) -> typing.Optional[str]:
+    def medium(self) -> typing.Optional[builtins.str]:
         """What type of storage medium should back this directory.
 
         The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
@@ -7251,10 +7507,11 @@ class JenkinsSpecMasterVolumesEmptyDir:
         schema:
         :schema:: JenkinsSpecMasterVolumesEmptyDir#medium
         """
-        return self._values.get("medium")
+        result = self._values.get("medium")
+        return result
 
     @builtins.property
-    def size_limit(self) -> typing.Optional[str]:
+    def size_limit(self) -> typing.Optional[builtins.str]:
         """Total amount of local storage required for this EmptyDir volume.
 
         The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
@@ -7262,12 +7519,13 @@ class JenkinsSpecMasterVolumesEmptyDir:
         schema:
         :schema:: JenkinsSpecMasterVolumesEmptyDir#sizeLimit
         """
-        return self._values.get("size_limit")
+        result = self._values.get("size_limit")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7291,11 +7549,11 @@ class JenkinsSpecMasterVolumesFc:
     def __init__(
         self,
         *,
-        fs_type: typing.Optional[str] = None,
+        fs_type: typing.Optional[builtins.str] = None,
         lun: typing.Optional[jsii.Number] = None,
-        read_only: typing.Optional[bool] = None,
-        target_ww_ns: typing.Optional[typing.List[str]] = None,
-        wwids: typing.Optional[typing.List[str]] = None,
+        read_only: typing.Optional[builtins.bool] = None,
+        target_ww_ns: typing.Optional[typing.List[builtins.str]] = None,
+        wwids: typing.Optional[typing.List[builtins.str]] = None,
     ) -> None:
         """FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
 
@@ -7308,7 +7566,7 @@ class JenkinsSpecMasterVolumesFc:
         schema:
         :schema:: JenkinsSpecMasterVolumesFc
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if fs_type is not None:
             self._values["fs_type"] = fs_type
         if lun is not None:
@@ -7321,7 +7579,7 @@ class JenkinsSpecMasterVolumesFc:
             self._values["wwids"] = wwids
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. TODO: how do we prevent errors in the filesystem from compromising the machine
@@ -7329,7 +7587,8 @@ class JenkinsSpecMasterVolumesFc:
         schema:
         :schema:: JenkinsSpecMasterVolumesFc#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
     def lun(self) -> typing.Optional[jsii.Number]:
@@ -7338,10 +7597,11 @@ class JenkinsSpecMasterVolumesFc:
         schema:
         :schema:: JenkinsSpecMasterVolumesFc#lun
         """
-        return self._values.get("lun")
+        result = self._values.get("lun")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Optional: Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
@@ -7352,30 +7612,33 @@ class JenkinsSpecMasterVolumesFc:
         schema:
         :schema:: JenkinsSpecMasterVolumesFc#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
-    def target_ww_ns(self) -> typing.Optional[typing.List[str]]:
+    def target_ww_ns(self) -> typing.Optional[typing.List[builtins.str]]:
         """Optional: FC target worldwide names (WWNs).
 
         schema:
         :schema:: JenkinsSpecMasterVolumesFc#targetWWNs
         """
-        return self._values.get("target_ww_ns")
+        result = self._values.get("target_ww_ns")
+        return result
 
     @builtins.property
-    def wwids(self) -> typing.Optional[typing.List[str]]:
+    def wwids(self) -> typing.Optional[typing.List[builtins.str]]:
         """Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesFc#wwids
         """
-        return self._values.get("wwids")
+        result = self._values.get("wwids")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7399,13 +7662,11 @@ class JenkinsSpecMasterVolumesFlexVolume:
     def __init__(
         self,
         *,
-        driver: str,
-        fs_type: typing.Optional[str] = None,
-        options: typing.Optional[typing.Mapping[str, str]] = None,
-        read_only: typing.Optional[bool] = None,
-        secret_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesFlexVolumeSecretRef"
-        ] = None,
+        driver: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
+        options: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        read_only: typing.Optional[builtins.bool] = None,
+        secret_ref: typing.Optional["JenkinsSpecMasterVolumesFlexVolumeSecretRef"] = None,
     ) -> None:
         """FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
 
@@ -7420,7 +7681,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesFlexVolumeSecretRef(**secret_ref)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "driver": driver,
         }
         if fs_type is not None:
@@ -7433,16 +7694,18 @@ class JenkinsSpecMasterVolumesFlexVolume:
             self._values["secret_ref"] = secret_ref
 
     @builtins.property
-    def driver(self) -> str:
+    def driver(self) -> builtins.str:
         """Driver is the name of the driver to use for this volume.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesFlexVolume#driver
         """
-        return self._values.get("driver")
+        result = self._values.get("driver")
+        assert result is not None, "Required property 'driver' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
@@ -7450,19 +7713,21 @@ class JenkinsSpecMasterVolumesFlexVolume:
         schema:
         :schema:: JenkinsSpecMasterVolumesFlexVolume#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def options(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def options(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Optional: Extra command options if any.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesFlexVolume#options
         """
-        return self._values.get("options")
+        result = self._values.get("options")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Optional: Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
@@ -7473,7 +7738,8 @@ class JenkinsSpecMasterVolumesFlexVolume:
         schema:
         :schema:: JenkinsSpecMasterVolumesFlexVolume#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
     def secret_ref(
@@ -7486,12 +7752,13 @@ class JenkinsSpecMasterVolumesFlexVolume:
         schema:
         :schema:: JenkinsSpecMasterVolumesFlexVolume#secretRef
         """
-        return self._values.get("secret_ref")
+        result = self._values.get("secret_ref")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7506,7 +7773,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts.
 
         This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
@@ -7516,12 +7783,12 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesFlexVolumeSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -7529,12 +7796,13 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesFlexVolumeSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7552,8 +7820,8 @@ class JenkinsSpecMasterVolumesFlocker:
     def __init__(
         self,
         *,
-        dataset_name: typing.Optional[str] = None,
-        dataset_uuid: typing.Optional[str] = None,
+        dataset_name: typing.Optional[builtins.str] = None,
+        dataset_uuid: typing.Optional[builtins.str] = None,
     ) -> None:
         """Flocker represents a Flocker volume attached to a kubelet's host machine.
 
@@ -7565,23 +7833,24 @@ class JenkinsSpecMasterVolumesFlocker:
         schema:
         :schema:: JenkinsSpecMasterVolumesFlocker
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if dataset_name is not None:
             self._values["dataset_name"] = dataset_name
         if dataset_uuid is not None:
             self._values["dataset_uuid"] = dataset_uuid
 
     @builtins.property
-    def dataset_name(self) -> typing.Optional[str]:
+    def dataset_name(self) -> typing.Optional[builtins.str]:
         """Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesFlocker#datasetName
         """
-        return self._values.get("dataset_name")
+        result = self._values.get("dataset_name")
+        return result
 
     @builtins.property
-    def dataset_uuid(self) -> typing.Optional[str]:
+    def dataset_uuid(self) -> typing.Optional[builtins.str]:
         """UUID of the dataset.
 
         This is unique identifier of a Flocker dataset
@@ -7589,12 +7858,13 @@ class JenkinsSpecMasterVolumesFlocker:
         schema:
         :schema:: JenkinsSpecMasterVolumesFlocker#datasetUUID
         """
-        return self._values.get("dataset_uuid")
+        result = self._values.get("dataset_uuid")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7617,10 +7887,10 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
     def __init__(
         self,
         *,
-        pd_name: str,
-        fs_type: typing.Optional[str] = None,
+        pd_name: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
         partition: typing.Optional[jsii.Number] = None,
-        read_only: typing.Optional[bool] = None,
+        read_only: typing.Optional[builtins.bool] = None,
     ) -> None:
         """GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 
@@ -7634,7 +7904,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesGcePersistentDisk
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "pd_name": pd_name,
         }
         if fs_type is not None:
@@ -7645,7 +7915,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
             self._values["read_only"] = read_only
 
     @builtins.property
-    def pd_name(self) -> str:
+    def pd_name(self) -> builtins.str:
         """Unique name of the PD resource in GCE.
 
         Used to identify the disk in GCE. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
@@ -7653,10 +7923,12 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesGcePersistentDisk#pdName
         """
-        return self._values.get("pd_name")
+        result = self._values.get("pd_name")
+        assert result is not None, "Required property 'pd_name' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type of the volume that you want to mount.
 
         Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk TODO: how do we prevent errors in the filesystem from compromising the machine
@@ -7664,7 +7936,8 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesGcePersistentDisk#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
     def partition(self) -> typing.Optional[jsii.Number]:
@@ -7675,10 +7948,11 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesGcePersistentDisk#partition
         """
-        return self._values.get("partition")
+        result = self._values.get("partition")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
         Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
@@ -7689,12 +7963,13 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesGcePersistentDisk#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7716,9 +7991,9 @@ class JenkinsSpecMasterVolumesGitRepo:
     def __init__(
         self,
         *,
-        repository: str,
-        directory: typing.Optional[str] = None,
-        revision: typing.Optional[str] = None,
+        repository: builtins.str,
+        directory: typing.Optional[builtins.str] = None,
+        revision: typing.Optional[builtins.str] = None,
     ) -> None:
         """GitRepo represents a git repository at a particular revision.
 
@@ -7731,7 +8006,7 @@ class JenkinsSpecMasterVolumesGitRepo:
         schema:
         :schema:: JenkinsSpecMasterVolumesGitRepo
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "repository": repository,
         }
         if directory is not None:
@@ -7740,16 +8015,18 @@ class JenkinsSpecMasterVolumesGitRepo:
             self._values["revision"] = revision
 
     @builtins.property
-    def repository(self) -> str:
+    def repository(self) -> builtins.str:
         """Repository URL.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesGitRepo#repository
         """
-        return self._values.get("repository")
+        result = self._values.get("repository")
+        assert result is not None, "Required property 'repository' is missing"
+        return result
 
     @builtins.property
-    def directory(self) -> typing.Optional[str]:
+    def directory(self) -> typing.Optional[builtins.str]:
         """Target directory name.
 
         Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
@@ -7757,21 +8034,23 @@ class JenkinsSpecMasterVolumesGitRepo:
         schema:
         :schema:: JenkinsSpecMasterVolumesGitRepo#directory
         """
-        return self._values.get("directory")
+        result = self._values.get("directory")
+        return result
 
     @builtins.property
-    def revision(self) -> typing.Optional[str]:
+    def revision(self) -> typing.Optional[builtins.str]:
         """Commit hash for the specified revision.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesGitRepo#revision
         """
-        return self._values.get("revision")
+        result = self._values.get("revision")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7787,7 +8066,11 @@ class JenkinsSpecMasterVolumesGitRepo:
 )
 class JenkinsSpecMasterVolumesGlusterfs:
     def __init__(
-        self, *, endpoints: str, path: str, read_only: typing.Optional[bool] = None
+        self,
+        *,
+        endpoints: builtins.str,
+        path: builtins.str,
+        read_only: typing.Optional[builtins.bool] = None,
     ) -> None:
         """Glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime.
 
@@ -7800,7 +8083,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesGlusterfs
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "endpoints": endpoints,
             "path": path,
         }
@@ -7808,7 +8091,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
             self._values["read_only"] = read_only
 
     @builtins.property
-    def endpoints(self) -> str:
+    def endpoints(self) -> builtins.str:
         """EndpointsName is the endpoint name that details Glusterfs topology.
 
         More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
@@ -7816,10 +8099,12 @@ class JenkinsSpecMasterVolumesGlusterfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesGlusterfs#endpoints
         """
-        return self._values.get("endpoints")
+        result = self._values.get("endpoints")
+        assert result is not None, "Required property 'endpoints' is missing"
+        return result
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """Path is the Glusterfs volume path.
 
         More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
@@ -7827,10 +8112,12 @@ class JenkinsSpecMasterVolumesGlusterfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesGlusterfs#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions.
 
         Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
@@ -7841,12 +8128,13 @@ class JenkinsSpecMasterVolumesGlusterfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesGlusterfs#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7861,7 +8149,12 @@ class JenkinsSpecMasterVolumesGlusterfs:
     name_mapping={"path": "path", "type": "type"},
 )
 class JenkinsSpecMasterVolumesHostPath:
-    def __init__(self, *, path: str, type: typing.Optional[str] = None) -> None:
+    def __init__(
+        self,
+        *,
+        path: builtins.str,
+        type: typing.Optional[builtins.str] = None,
+    ) -> None:
         """HostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container.
 
         This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath --- TODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not mount host directories as read/write.
@@ -7872,14 +8165,14 @@ class JenkinsSpecMasterVolumesHostPath:
         schema:
         :schema:: JenkinsSpecMasterVolumesHostPath
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "path": path,
         }
         if type is not None:
             self._values["type"] = type
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """Path of the directory on the host.
 
         If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
@@ -7887,10 +8180,12 @@ class JenkinsSpecMasterVolumesHostPath:
         schema:
         :schema:: JenkinsSpecMasterVolumesHostPath#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
-    def type(self) -> typing.Optional[str]:
+    def type(self) -> typing.Optional[builtins.str]:
         """Type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath.
 
         default
@@ -7899,12 +8194,13 @@ class JenkinsSpecMasterVolumesHostPath:
         schema:
         :schema:: JenkinsSpecMasterVolumesHostPath#type
         """
-        return self._values.get("type")
+        result = self._values.get("type")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -7934,16 +8230,16 @@ class JenkinsSpecMasterVolumesIscsi:
     def __init__(
         self,
         *,
-        iqn: str,
+        iqn: builtins.str,
         lun: jsii.Number,
-        target_portal: str,
-        chap_auth_discovery: typing.Optional[bool] = None,
-        chap_auth_session: typing.Optional[bool] = None,
-        fs_type: typing.Optional[str] = None,
-        initiator_name: typing.Optional[str] = None,
-        iscsi_interface: typing.Optional[str] = None,
-        portals: typing.Optional[typing.List[str]] = None,
-        read_only: typing.Optional[bool] = None,
+        target_portal: builtins.str,
+        chap_auth_discovery: typing.Optional[builtins.bool] = None,
+        chap_auth_session: typing.Optional[builtins.bool] = None,
+        fs_type: typing.Optional[builtins.str] = None,
+        initiator_name: typing.Optional[builtins.str] = None,
+        iscsi_interface: typing.Optional[builtins.str] = None,
+        portals: typing.Optional[typing.List[builtins.str]] = None,
+        read_only: typing.Optional[builtins.bool] = None,
         secret_ref: typing.Optional["JenkinsSpecMasterVolumesIscsiSecretRef"] = None,
     ) -> None:
         """ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
@@ -7967,7 +8263,7 @@ class JenkinsSpecMasterVolumesIscsi:
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesIscsiSecretRef(**secret_ref)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "iqn": iqn,
             "lun": lun,
             "target_portal": target_portal,
@@ -7990,13 +8286,15 @@ class JenkinsSpecMasterVolumesIscsi:
             self._values["secret_ref"] = secret_ref
 
     @builtins.property
-    def iqn(self) -> str:
+    def iqn(self) -> builtins.str:
         """Target iSCSI Qualified Name.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#iqn
         """
-        return self._values.get("iqn")
+        result = self._values.get("iqn")
+        assert result is not None, "Required property 'iqn' is missing"
+        return result
 
     @builtins.property
     def lun(self) -> jsii.Number:
@@ -8005,10 +8303,12 @@ class JenkinsSpecMasterVolumesIscsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#lun
         """
-        return self._values.get("lun")
+        result = self._values.get("lun")
+        assert result is not None, "Required property 'lun' is missing"
+        return result
 
     @builtins.property
-    def target_portal(self) -> str:
+    def target_portal(self) -> builtins.str:
         """iSCSI Target Portal.
 
         The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
@@ -8016,28 +8316,32 @@ class JenkinsSpecMasterVolumesIscsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#targetPortal
         """
-        return self._values.get("target_portal")
+        result = self._values.get("target_portal")
+        assert result is not None, "Required property 'target_portal' is missing"
+        return result
 
     @builtins.property
-    def chap_auth_discovery(self) -> typing.Optional[bool]:
+    def chap_auth_discovery(self) -> typing.Optional[builtins.bool]:
         """whether support iSCSI Discovery CHAP authentication.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#chapAuthDiscovery
         """
-        return self._values.get("chap_auth_discovery")
+        result = self._values.get("chap_auth_discovery")
+        return result
 
     @builtins.property
-    def chap_auth_session(self) -> typing.Optional[bool]:
+    def chap_auth_session(self) -> typing.Optional[builtins.bool]:
         """whether support iSCSI Session CHAP authentication.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#chapAuthSession
         """
-        return self._values.get("chap_auth_session")
+        result = self._values.get("chap_auth_session")
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type of the volume that you want to mount.
 
         Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi TODO: how do we prevent errors in the filesystem from compromising the machine
@@ -8045,10 +8349,11 @@ class JenkinsSpecMasterVolumesIscsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def initiator_name(self) -> typing.Optional[str]:
+    def initiator_name(self) -> typing.Optional[builtins.str]:
         """Custom iSCSI Initiator Name.
 
         If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface : will be created for the connection.
@@ -8056,10 +8361,11 @@ class JenkinsSpecMasterVolumesIscsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#initiatorName
         """
-        return self._values.get("initiator_name")
+        result = self._values.get("initiator_name")
+        return result
 
     @builtins.property
-    def iscsi_interface(self) -> typing.Optional[str]:
+    def iscsi_interface(self) -> typing.Optional[builtins.str]:
         """iSCSI Interface Name that uses an iSCSI transport.
 
         Defaults to 'default' (tcp).
@@ -8070,10 +8376,11 @@ class JenkinsSpecMasterVolumesIscsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#iscsiInterface
         """
-        return self._values.get("iscsi_interface")
+        result = self._values.get("iscsi_interface")
+        return result
 
     @builtins.property
-    def portals(self) -> typing.Optional[typing.List[str]]:
+    def portals(self) -> typing.Optional[typing.List[builtins.str]]:
         """iSCSI Target Portal List.
 
         The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
@@ -8081,10 +8388,11 @@ class JenkinsSpecMasterVolumesIscsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#portals
         """
-        return self._values.get("portals")
+        result = self._values.get("portals")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
         Defaults to false.
@@ -8095,7 +8403,8 @@ class JenkinsSpecMasterVolumesIscsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesIscsiSecretRef"]:
@@ -8104,12 +8413,13 @@ class JenkinsSpecMasterVolumesIscsi:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsi#secretRef
         """
-        return self._values.get("secret_ref")
+        result = self._values.get("secret_ref")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8124,7 +8434,7 @@ class JenkinsSpecMasterVolumesIscsi:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterVolumesIscsiSecretRef:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """CHAP Secret for iSCSI target and initiator authentication.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -8132,12 +8442,12 @@ class JenkinsSpecMasterVolumesIscsiSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsiSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -8145,12 +8455,13 @@ class JenkinsSpecMasterVolumesIscsiSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesIscsiSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8166,7 +8477,11 @@ class JenkinsSpecMasterVolumesIscsiSecretRef:
 )
 class JenkinsSpecMasterVolumesNfs:
     def __init__(
-        self, *, path: str, server: str, read_only: typing.Optional[bool] = None
+        self,
+        *,
+        path: builtins.str,
+        server: builtins.str,
+        read_only: typing.Optional[builtins.bool] = None,
     ) -> None:
         """NFS represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs.
 
@@ -8177,7 +8492,7 @@ class JenkinsSpecMasterVolumesNfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesNfs
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "path": path,
             "server": server,
         }
@@ -8185,7 +8500,7 @@ class JenkinsSpecMasterVolumesNfs:
             self._values["read_only"] = read_only
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """Path that is exported by the NFS server.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
@@ -8193,10 +8508,12 @@ class JenkinsSpecMasterVolumesNfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesNfs#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
-    def server(self) -> str:
+    def server(self) -> builtins.str:
         """Server is the hostname or IP address of the NFS server.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
@@ -8204,10 +8521,12 @@ class JenkinsSpecMasterVolumesNfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesNfs#server
         """
-        return self._values.get("server")
+        result = self._values.get("server")
+        assert result is not None, "Required property 'server' is missing"
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """ReadOnly here will force the NFS export to be mounted with read-only permissions.
 
         Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
@@ -8218,12 +8537,13 @@ class JenkinsSpecMasterVolumesNfs:
         schema:
         :schema:: JenkinsSpecMasterVolumesNfs#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8239,7 +8559,10 @@ class JenkinsSpecMasterVolumesNfs:
 )
 class JenkinsSpecMasterVolumesPersistentVolumeClaim:
     def __init__(
-        self, *, claim_name: str, read_only: typing.Optional[bool] = None
+        self,
+        *,
+        claim_name: builtins.str,
+        read_only: typing.Optional[builtins.bool] = None,
     ) -> None:
         """PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace.
 
@@ -8251,14 +8574,14 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
         schema:
         :schema:: JenkinsSpecMasterVolumesPersistentVolumeClaim
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "claim_name": claim_name,
         }
         if read_only is not None:
             self._values["read_only"] = read_only
 
     @builtins.property
-    def claim_name(self) -> str:
+    def claim_name(self) -> builtins.str:
         """ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume.
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
@@ -8266,10 +8589,12 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
         schema:
         :schema:: JenkinsSpecMasterVolumesPersistentVolumeClaim#claimName
         """
-        return self._values.get("claim_name")
+        result = self._values.get("claim_name")
+        assert result is not None, "Required property 'claim_name' is missing"
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Will force the ReadOnly setting in VolumeMounts.
 
         Default false.
@@ -8277,12 +8602,13 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
         schema:
         :schema:: JenkinsSpecMasterVolumesPersistentVolumeClaim#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8297,7 +8623,12 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
     name_mapping={"pd_id": "pdID", "fs_type": "fsType"},
 )
 class JenkinsSpecMasterVolumesPhotonPersistentDisk:
-    def __init__(self, *, pd_id: str, fs_type: typing.Optional[str] = None) -> None:
+    def __init__(
+        self,
+        *,
+        pd_id: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
+    ) -> None:
         """PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine.
 
         :param pd_id: ID that identifies Photon Controller persistent disk.
@@ -8306,23 +8637,25 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesPhotonPersistentDisk
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "pd_id": pd_id,
         }
         if fs_type is not None:
             self._values["fs_type"] = fs_type
 
     @builtins.property
-    def pd_id(self) -> str:
+    def pd_id(self) -> builtins.str:
         """ID that identifies Photon Controller persistent disk.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesPhotonPersistentDisk#pdID
         """
-        return self._values.get("pd_id")
+        result = self._values.get("pd_id")
+        assert result is not None, "Required property 'pd_id' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
@@ -8330,12 +8663,13 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
         schema:
         :schema:: JenkinsSpecMasterVolumesPhotonPersistentDisk#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8357,9 +8691,9 @@ class JenkinsSpecMasterVolumesPortworxVolume:
     def __init__(
         self,
         *,
-        volume_id: str,
-        fs_type: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
+        volume_id: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
     ) -> None:
         """PortworxVolume represents a portworx volume attached and mounted on kubelets host machine.
 
@@ -8370,7 +8704,7 @@ class JenkinsSpecMasterVolumesPortworxVolume:
         schema:
         :schema:: JenkinsSpecMasterVolumesPortworxVolume
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "volume_id": volume_id,
         }
         if fs_type is not None:
@@ -8379,16 +8713,18 @@ class JenkinsSpecMasterVolumesPortworxVolume:
             self._values["read_only"] = read_only
 
     @builtins.property
-    def volume_id(self) -> str:
+    def volume_id(self) -> builtins.str:
         """VolumeID uniquely identifies a Portworx volume.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesPortworxVolume#volumeID
         """
-        return self._values.get("volume_id")
+        result = self._values.get("volume_id")
+        assert result is not None, "Required property 'volume_id' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """FSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system.
 
         Ex. "ext4", "xfs". Implicitly inferred to be "ext4" if unspecified.
@@ -8396,10 +8732,11 @@ class JenkinsSpecMasterVolumesPortworxVolume:
         schema:
         :schema:: JenkinsSpecMasterVolumesPortworxVolume#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
@@ -8410,12 +8747,13 @@ class JenkinsSpecMasterVolumesPortworxVolume:
         schema:
         :schema:: JenkinsSpecMasterVolumesPortworxVolume#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8444,7 +8782,7 @@ class JenkinsSpecMasterVolumesProjected:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjected
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "sources": sources,
         }
         if default_mode is not None:
@@ -8457,7 +8795,9 @@ class JenkinsSpecMasterVolumesProjected:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjected#sources
         """
-        return self._values.get("sources")
+        result = self._values.get("sources")
+        assert result is not None, "Required property 'sources' is missing"
+        return result
 
     @builtins.property
     def default_mode(self) -> typing.Optional[jsii.Number]:
@@ -8468,12 +8808,13 @@ class JenkinsSpecMasterVolumesProjected:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjected#defaultMode
         """
-        return self._values.get("default_mode")
+        result = self._values.get("default_mode")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8496,18 +8837,10 @@ class JenkinsSpecMasterVolumesProjectedSources:
     def __init__(
         self,
         *,
-        config_map: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesConfigMap"
-        ] = None,
-        downward_api: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApi"
-        ] = None,
-        secret: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesSecret"
-        ] = None,
-        service_account_token: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken"
-        ] = None,
+        config_map: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesConfigMap"] = None,
+        downward_api: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApi"] = None,
+        secret: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesSecret"] = None,
+        service_account_token: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken"] = None,
     ) -> None:
         """Projection that may be projected along with other supported volume types.
 
@@ -8522,16 +8855,12 @@ class JenkinsSpecMasterVolumesProjectedSources:
         if isinstance(config_map, dict):
             config_map = JenkinsSpecMasterVolumesProjectedSourcesConfigMap(**config_map)
         if isinstance(downward_api, dict):
-            downward_api = JenkinsSpecMasterVolumesProjectedSourcesDownwardApi(
-                **downward_api
-            )
+            downward_api = JenkinsSpecMasterVolumesProjectedSourcesDownwardApi(**downward_api)
         if isinstance(secret, dict):
             secret = JenkinsSpecMasterVolumesProjectedSourcesSecret(**secret)
         if isinstance(service_account_token, dict):
-            service_account_token = JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(
-                **service_account_token
-            )
-        self._values = {}
+            service_account_token = JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(**service_account_token)
+        self._values: typing.Dict[str, typing.Any] = {}
         if config_map is not None:
             self._values["config_map"] = config_map
         if downward_api is not None:
@@ -8550,7 +8879,8 @@ class JenkinsSpecMasterVolumesProjectedSources:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSources#configMap
         """
-        return self._values.get("config_map")
+        result = self._values.get("config_map")
+        return result
 
     @builtins.property
     def downward_api(
@@ -8561,7 +8891,8 @@ class JenkinsSpecMasterVolumesProjectedSources:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSources#downwardAPI
         """
-        return self._values.get("downward_api")
+        result = self._values.get("downward_api")
+        return result
 
     @builtins.property
     def secret(
@@ -8572,7 +8903,8 @@ class JenkinsSpecMasterVolumesProjectedSources:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSources#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        return result
 
     @builtins.property
     def service_account_token(
@@ -8583,12 +8915,13 @@ class JenkinsSpecMasterVolumesProjectedSources:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSources#serviceAccountToken
         """
-        return self._values.get("service_account_token")
+        result = self._values.get("service_account_token")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8606,11 +8939,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
     def __init__(
         self,
         *,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]
-        ] = None,
-        name: typing.Optional[str] = None,
-        optional: typing.Optional[bool] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]] = None,
+        name: typing.Optional[builtins.str] = None,
+        optional: typing.Optional[builtins.bool] = None,
     ) -> None:
         """information about the configMap data to project.
 
@@ -8621,7 +8952,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMap
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if items is not None:
             self._values["items"] = items
         if name is not None:
@@ -8632,9 +8963,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
     @builtins.property
     def items(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]]:
         """If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.
 
         If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
@@ -8642,10 +8971,11 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#items
         """
-        return self._values.get("items")
+        result = self._values.get("items")
+        return result
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -8653,21 +8983,23 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
     @builtins.property
-    def optional(self) -> typing.Optional[bool]:
+    def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap or its keys must be defined.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#optional
         """
-        return self._values.get("optional")
+        result = self._values.get("optional")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8683,7 +9015,11 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
 )
 class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
     def __init__(
-        self, *, key: str, path: str, mode: typing.Optional[jsii.Number] = None
+        self,
+        *,
+        key: builtins.str,
+        path: builtins.str,
+        mode: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Maps a string key to a path within a volume.
 
@@ -8694,7 +9030,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "path": path,
         }
@@ -8702,16 +9038,18 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
             self._values["mode"] = mode
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key to project.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """The relative path of the file to map the key to.
 
         May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
@@ -8719,7 +9057,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -8730,12 +9070,13 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#mode
         """
-        return self._values.get("mode")
+        result = self._values.get("mode")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8753,9 +9094,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
     def __init__(
         self,
         *,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]
-        ] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]] = None,
     ) -> None:
         """information about the downwardAPI data to project.
 
@@ -8764,27 +9103,26 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApi
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if items is not None:
             self._values["items"] = items
 
     @builtins.property
     def items(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]]:
         """Items is a list of DownwardAPIVolume file.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApi#items
         """
-        return self._values.get("items")
+        result = self._values.get("items")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -8807,14 +9145,10 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
     def __init__(
         self,
         *,
-        path: str,
-        field_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"
-        ] = None,
+        path: builtins.str,
+        field_ref: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"] = None,
         mode: typing.Optional[jsii.Number] = None,
-        resource_field_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"
-        ] = None,
+        resource_field_ref: typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"] = None,
     ) -> None:
         """DownwardAPIVolumeFile represents information to create the file containing the pod field.
 
@@ -8827,14 +9161,10 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems
         """
         if isinstance(field_ref, dict):
-            field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(
-                **field_ref
-            )
+            field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(**field_ref)
         if isinstance(resource_field_ref, dict):
-            resource_field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(
-                **resource_field_ref
-            )
-        self._values = {
+            resource_field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(**resource_field_ref)
+        self._values: typing.Dict[str, typing.Any] = {
             "path": path,
         }
         if field_ref is not None:
@@ -8845,7 +9175,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
             self._values["resource_field_ref"] = resource_field_ref
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """Required: Path is  the relative path name of the file to be created.
 
         Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
@@ -8853,20 +9183,21 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
     def field_ref(
         self,
-    ) -> typing.Optional[
-        "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"
-    ]:
+    ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"]:
         """Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#fieldRef
         """
-        return self._values.get("field_ref")
+        result = self._values.get("field_ref")
+        return result
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -8877,31 +9208,30 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#mode
         """
-        return self._values.get("mode")
+        result = self._values.get("mode")
+        return result
 
     @builtins.property
     def resource_field_ref(
         self,
-    ) -> typing.Optional[
-        "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"
-    ]:
+    ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"]:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#resourceFieldRef
         """
-        return self._values.get("resource_field_ref")
+        result = self._values.get("resource_field_ref")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -8912,7 +9242,10 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
 )
 class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
     def __init__(
-        self, *, field_path: str, api_version: typing.Optional[str] = None
+        self,
+        *,
+        field_path: builtins.str,
+        api_version: typing.Optional[builtins.str] = None,
     ) -> None:
         """Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
 
@@ -8922,40 +9255,42 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "field_path": field_path,
         }
         if api_version is not None:
             self._values["api_version"] = api_version
 
     @builtins.property
-    def field_path(self) -> str:
+    def field_path(self) -> builtins.str:
         """Path of the field to select in the specified API version.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef#fieldPath
         """
-        return self._values.get("field_path")
+        result = self._values.get("field_path")
+        assert result is not None, "Required property 'field_path' is missing"
+        return result
 
     @builtins.property
-    def api_version(self) -> typing.Optional[str]:
+    def api_version(self) -> typing.Optional[builtins.str]:
         """Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef#apiVersion
         """
-        return self._values.get("api_version")
+        result = self._values.get("api_version")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -8972,9 +9307,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
     def __init__(
         self,
         *,
-        resource: str,
-        container_name: typing.Optional[str] = None,
-        divisor: typing.Optional[str] = None,
+        resource: builtins.str,
+        container_name: typing.Optional[builtins.str] = None,
+        divisor: typing.Optional[builtins.str] = None,
     ) -> None:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
@@ -8985,7 +9320,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "resource": resource,
         }
         if container_name is not None:
@@ -8994,42 +9329,45 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
             self._values["divisor"] = divisor
 
     @builtins.property
-    def resource(self) -> str:
+    def resource(self) -> builtins.str:
         """Required: resource to select.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#resource
         """
-        return self._values.get("resource")
+        result = self._values.get("resource")
+        assert result is not None, "Required property 'resource' is missing"
+        return result
 
     @builtins.property
-    def container_name(self) -> typing.Optional[str]:
+    def container_name(self) -> typing.Optional[builtins.str]:
         """Container name: required for volumes, optional for env vars.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#containerName
         """
-        return self._values.get("container_name")
+        result = self._values.get("container_name")
+        return result
 
     @builtins.property
-    def divisor(self) -> typing.Optional[str]:
+    def divisor(self) -> typing.Optional[builtins.str]:
         """Specifies the output format of the exposed resources, defaults to "1".
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#divisor
         """
-        return self._values.get("divisor")
+        result = self._values.get("divisor")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -9042,11 +9380,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
     def __init__(
         self,
         *,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]
-        ] = None,
-        name: typing.Optional[str] = None,
-        optional: typing.Optional[bool] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]] = None,
+        name: typing.Optional[builtins.str] = None,
+        optional: typing.Optional[builtins.bool] = None,
     ) -> None:
         """information about the secret data to project.
 
@@ -9057,7 +9393,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecret
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if items is not None:
             self._values["items"] = items
         if name is not None:
@@ -9068,9 +9404,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
     @builtins.property
     def items(
         self,
-    ) -> typing.Optional[
-        typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]
-    ]:
+    ) -> typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]]:
         """If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value.
 
         If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
@@ -9078,10 +9412,11 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecret#items
         """
-        return self._values.get("items")
+        result = self._values.get("items")
+        return result
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -9089,21 +9424,23 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecret#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
     @builtins.property
-    def optional(self) -> typing.Optional[bool]:
+    def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret or its key must be defined.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecret#optional
         """
-        return self._values.get("optional")
+        result = self._values.get("optional")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -9119,7 +9456,11 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
 )
 class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
     def __init__(
-        self, *, key: str, path: str, mode: typing.Optional[jsii.Number] = None
+        self,
+        *,
+        key: builtins.str,
+        path: builtins.str,
+        mode: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Maps a string key to a path within a volume.
 
@@ -9130,7 +9471,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecretItems
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "path": path,
         }
@@ -9138,16 +9479,18 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
             self._values["mode"] = mode
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key to project.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """The relative path of the file to map the key to.
 
         May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
@@ -9155,7 +9498,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -9166,12 +9511,13 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#mode
         """
-        return self._values.get("mode")
+        result = self._values.get("mode")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -9193,8 +9539,8 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
     def __init__(
         self,
         *,
-        path: str,
-        audience: typing.Optional[str] = None,
+        path: builtins.str,
+        audience: typing.Optional[builtins.str] = None,
         expiration_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """information about the serviceAccountToken data to project.
@@ -9206,7 +9552,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "path": path,
         }
         if audience is not None:
@@ -9215,16 +9561,18 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
             self._values["expiration_seconds"] = expiration_seconds
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """Path is the path relative to the mount point of the file to project the token into.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
-    def audience(self) -> typing.Optional[str]:
+    def audience(self) -> typing.Optional[builtins.str]:
         """Audience is the intended audience of the token.
 
         A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
@@ -9232,7 +9580,8 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#audience
         """
-        return self._values.get("audience")
+        result = self._values.get("audience")
+        return result
 
     @builtins.property
     def expiration_seconds(self) -> typing.Optional[jsii.Number]:
@@ -9246,18 +9595,18 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         schema:
         :schema:: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#expirationSeconds
         """
-        return self._values.get("expiration_seconds")
+        result = self._values.get("expiration_seconds")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -9277,12 +9626,12 @@ class JenkinsSpecMasterVolumesQuobyte:
     def __init__(
         self,
         *,
-        registry: str,
-        volume: str,
-        group: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
-        tenant: typing.Optional[str] = None,
-        user: typing.Optional[str] = None,
+        registry: builtins.str,
+        volume: builtins.str,
+        group: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
+        tenant: typing.Optional[builtins.str] = None,
+        user: typing.Optional[builtins.str] = None,
     ) -> None:
         """Quobyte represents a Quobyte mount on the host that shares a pod's lifetime.
 
@@ -9296,7 +9645,7 @@ class JenkinsSpecMasterVolumesQuobyte:
         schema:
         :schema:: JenkinsSpecMasterVolumesQuobyte
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "registry": registry,
             "volume": volume,
         }
@@ -9310,25 +9659,29 @@ class JenkinsSpecMasterVolumesQuobyte:
             self._values["user"] = user
 
     @builtins.property
-    def registry(self) -> str:
+    def registry(self) -> builtins.str:
         """Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesQuobyte#registry
         """
-        return self._values.get("registry")
+        result = self._values.get("registry")
+        assert result is not None, "Required property 'registry' is missing"
+        return result
 
     @builtins.property
-    def volume(self) -> str:
+    def volume(self) -> builtins.str:
         """Volume is a string that references an already created Quobyte volume by name.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesQuobyte#volume
         """
-        return self._values.get("volume")
+        result = self._values.get("volume")
+        assert result is not None, "Required property 'volume' is missing"
+        return result
 
     @builtins.property
-    def group(self) -> typing.Optional[str]:
+    def group(self) -> typing.Optional[builtins.str]:
         """Group to map volume access to Default is no group.
 
         default
@@ -9337,10 +9690,11 @@ class JenkinsSpecMasterVolumesQuobyte:
         schema:
         :schema:: JenkinsSpecMasterVolumesQuobyte#group
         """
-        return self._values.get("group")
+        result = self._values.get("group")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """ReadOnly here will force the Quobyte volume to be mounted with read-only permissions.
 
         Defaults to false.
@@ -9351,19 +9705,21 @@ class JenkinsSpecMasterVolumesQuobyte:
         schema:
         :schema:: JenkinsSpecMasterVolumesQuobyte#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
-    def tenant(self) -> typing.Optional[str]:
+    def tenant(self) -> typing.Optional[builtins.str]:
         """Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesQuobyte#tenant
         """
-        return self._values.get("tenant")
+        result = self._values.get("tenant")
+        return result
 
     @builtins.property
-    def user(self) -> typing.Optional[str]:
+    def user(self) -> typing.Optional[builtins.str]:
         """User to map volume access to Defaults to serivceaccount user.
 
         default
@@ -9372,12 +9728,13 @@ class JenkinsSpecMasterVolumesQuobyte:
         schema:
         :schema:: JenkinsSpecMasterVolumesQuobyte#user
         """
-        return self._values.get("user")
+        result = self._values.get("user")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -9404,14 +9761,14 @@ class JenkinsSpecMasterVolumesRbd:
     def __init__(
         self,
         *,
-        image: str,
-        monitors: typing.List[str],
-        fs_type: typing.Optional[str] = None,
-        keyring: typing.Optional[str] = None,
-        pool: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
+        image: builtins.str,
+        monitors: typing.List[builtins.str],
+        fs_type: typing.Optional[builtins.str] = None,
+        keyring: typing.Optional[builtins.str] = None,
+        pool: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
         secret_ref: typing.Optional["JenkinsSpecMasterVolumesRbdSecretRef"] = None,
-        user: typing.Optional[str] = None,
+        user: typing.Optional[builtins.str] = None,
     ) -> None:
         """RBD represents a Rados Block Device mount on the host that shares a pod's lifetime.
 
@@ -9431,7 +9788,7 @@ class JenkinsSpecMasterVolumesRbd:
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesRbdSecretRef(**secret_ref)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "image": image,
             "monitors": monitors,
         }
@@ -9449,7 +9806,7 @@ class JenkinsSpecMasterVolumesRbd:
             self._values["user"] = user
 
     @builtins.property
-    def image(self) -> str:
+    def image(self) -> builtins.str:
         """The rados image name.
 
         More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -9457,10 +9814,12 @@ class JenkinsSpecMasterVolumesRbd:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbd#image
         """
-        return self._values.get("image")
+        result = self._values.get("image")
+        assert result is not None, "Required property 'image' is missing"
+        return result
 
     @builtins.property
-    def monitors(self) -> typing.List[str]:
+    def monitors(self) -> typing.List[builtins.str]:
         """A collection of Ceph monitors.
 
         More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -9468,10 +9827,12 @@ class JenkinsSpecMasterVolumesRbd:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbd#monitors
         """
-        return self._values.get("monitors")
+        result = self._values.get("monitors")
+        assert result is not None, "Required property 'monitors' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type of the volume that you want to mount.
 
         Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd TODO: how do we prevent errors in the filesystem from compromising the machine
@@ -9479,10 +9840,11 @@ class JenkinsSpecMasterVolumesRbd:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbd#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def keyring(self) -> typing.Optional[str]:
+    def keyring(self) -> typing.Optional[builtins.str]:
         """Keyring is the path to key ring for RBDUser.
 
         Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -9493,10 +9855,11 @@ class JenkinsSpecMasterVolumesRbd:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbd#keyring
         """
-        return self._values.get("keyring")
+        result = self._values.get("keyring")
+        return result
 
     @builtins.property
-    def pool(self) -> typing.Optional[str]:
+    def pool(self) -> typing.Optional[builtins.str]:
         """The rados pool name.
 
         Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -9507,10 +9870,11 @@ class JenkinsSpecMasterVolumesRbd:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbd#pool
         """
-        return self._values.get("pool")
+        result = self._values.get("pool")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
         Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -9521,7 +9885,8 @@ class JenkinsSpecMasterVolumesRbd:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbd#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesRbdSecretRef"]:
@@ -9535,10 +9900,11 @@ class JenkinsSpecMasterVolumesRbd:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbd#secretRef
         """
-        return self._values.get("secret_ref")
+        result = self._values.get("secret_ref")
+        return result
 
     @builtins.property
-    def user(self) -> typing.Optional[str]:
+    def user(self) -> typing.Optional[builtins.str]:
         """The rados user name.
 
         Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -9549,12 +9915,13 @@ class JenkinsSpecMasterVolumesRbd:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbd#user
         """
-        return self._values.get("user")
+        result = self._values.get("user")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -9569,7 +9936,7 @@ class JenkinsSpecMasterVolumesRbd:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterVolumesRbdSecretRef:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """SecretRef is name of the authentication secret for RBDUser.
 
         If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -9582,12 +9949,12 @@ class JenkinsSpecMasterVolumesRbdSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbdSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -9595,12 +9962,13 @@ class JenkinsSpecMasterVolumesRbdSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesRbdSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -9629,16 +9997,16 @@ class JenkinsSpecMasterVolumesScaleIo:
     def __init__(
         self,
         *,
-        gateway: str,
+        gateway: builtins.str,
         secret_ref: "JenkinsSpecMasterVolumesScaleIoSecretRef",
-        system: str,
-        fs_type: typing.Optional[str] = None,
-        protection_domain: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
-        ssl_enabled: typing.Optional[bool] = None,
-        storage_mode: typing.Optional[str] = None,
-        storage_pool: typing.Optional[str] = None,
-        volume_name: typing.Optional[str] = None,
+        system: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
+        protection_domain: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
+        ssl_enabled: typing.Optional[builtins.bool] = None,
+        storage_mode: typing.Optional[builtins.str] = None,
+        storage_pool: typing.Optional[builtins.str] = None,
+        volume_name: typing.Optional[builtins.str] = None,
     ) -> None:
         """ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
 
@@ -9658,7 +10026,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesScaleIoSecretRef(**secret_ref)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "gateway": gateway,
             "secret_ref": secret_ref,
             "system": system,
@@ -9679,13 +10047,15 @@ class JenkinsSpecMasterVolumesScaleIo:
             self._values["volume_name"] = volume_name
 
     @builtins.property
-    def gateway(self) -> str:
+    def gateway(self) -> builtins.str:
         """The host address of the ScaleIO API Gateway.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#gateway
         """
-        return self._values.get("gateway")
+        result = self._values.get("gateway")
+        assert result is not None, "Required property 'gateway' is missing"
+        return result
 
     @builtins.property
     def secret_ref(self) -> "JenkinsSpecMasterVolumesScaleIoSecretRef":
@@ -9696,19 +10066,23 @@ class JenkinsSpecMasterVolumesScaleIo:
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#secretRef
         """
-        return self._values.get("secret_ref")
+        result = self._values.get("secret_ref")
+        assert result is not None, "Required property 'secret_ref' is missing"
+        return result
 
     @builtins.property
-    def system(self) -> str:
+    def system(self) -> builtins.str:
         """The name of the storage system as configured in ScaleIO.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#system
         """
-        return self._values.get("system")
+        result = self._values.get("system")
+        assert result is not None, "Required property 'system' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs".
@@ -9719,19 +10093,21 @@ class JenkinsSpecMasterVolumesScaleIo:
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def protection_domain(self) -> typing.Optional[str]:
+    def protection_domain(self) -> typing.Optional[builtins.str]:
         """The name of the ScaleIO Protection Domain for the configured storage.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#protectionDomain
         """
-        return self._values.get("protection_domain")
+        result = self._values.get("protection_domain")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
@@ -9742,19 +10118,21 @@ class JenkinsSpecMasterVolumesScaleIo:
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
-    def ssl_enabled(self) -> typing.Optional[bool]:
+    def ssl_enabled(self) -> typing.Optional[builtins.bool]:
         """Flag to enable/disable SSL communication with Gateway, default false.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#sslEnabled
         """
-        return self._values.get("ssl_enabled")
+        result = self._values.get("ssl_enabled")
+        return result
 
     @builtins.property
-    def storage_mode(self) -> typing.Optional[str]:
+    def storage_mode(self) -> typing.Optional[builtins.str]:
         """Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned.
 
         Default is ThinProvisioned.
@@ -9765,30 +10143,33 @@ class JenkinsSpecMasterVolumesScaleIo:
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#storageMode
         """
-        return self._values.get("storage_mode")
+        result = self._values.get("storage_mode")
+        return result
 
     @builtins.property
-    def storage_pool(self) -> typing.Optional[str]:
+    def storage_pool(self) -> typing.Optional[builtins.str]:
         """The ScaleIO Storage Pool associated with the protection domain.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#storagePool
         """
-        return self._values.get("storage_pool")
+        result = self._values.get("storage_pool")
+        return result
 
     @builtins.property
-    def volume_name(self) -> typing.Optional[str]:
+    def volume_name(self) -> typing.Optional[builtins.str]:
         """The name of a volume already created in the ScaleIO system that is associated with this volume source.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIo#volumeName
         """
-        return self._values.get("volume_name")
+        result = self._values.get("volume_name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -9803,7 +10184,7 @@ class JenkinsSpecMasterVolumesScaleIo:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterVolumesScaleIoSecretRef:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """SecretRef references to the secret for ScaleIO user and other sensitive information.
 
         If this is not provided, Login operation will fail.
@@ -9813,12 +10194,12 @@ class JenkinsSpecMasterVolumesScaleIoSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIoSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -9826,12 +10207,13 @@ class JenkinsSpecMasterVolumesScaleIoSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesScaleIoSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -9855,11 +10237,9 @@ class JenkinsSpecMasterVolumesSecret:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[
-            typing.List["JenkinsSpecMasterVolumesSecretItems"]
-        ] = None,
-        optional: typing.Optional[bool] = None,
-        secret_name: typing.Optional[str] = None,
+        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesSecretItems"]] = None,
+        optional: typing.Optional[builtins.bool] = None,
+        secret_name: typing.Optional[builtins.str] = None,
     ) -> None:
         """Secret represents a secret that should populate this volume.
 
@@ -9873,7 +10253,7 @@ class JenkinsSpecMasterVolumesSecret:
         schema:
         :schema:: JenkinsSpecMasterVolumesSecret
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if default_mode is not None:
             self._values["default_mode"] = default_mode
         if items is not None:
@@ -9895,7 +10275,8 @@ class JenkinsSpecMasterVolumesSecret:
         schema:
         :schema:: JenkinsSpecMasterVolumesSecret#defaultMode
         """
-        return self._values.get("default_mode")
+        result = self._values.get("default_mode")
+        return result
 
     @builtins.property
     def items(
@@ -9908,19 +10289,21 @@ class JenkinsSpecMasterVolumesSecret:
         schema:
         :schema:: JenkinsSpecMasterVolumesSecret#items
         """
-        return self._values.get("items")
+        result = self._values.get("items")
+        return result
 
     @builtins.property
-    def optional(self) -> typing.Optional[bool]:
+    def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret or its keys must be defined.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesSecret#optional
         """
-        return self._values.get("optional")
+        result = self._values.get("optional")
+        return result
 
     @builtins.property
-    def secret_name(self) -> typing.Optional[str]:
+    def secret_name(self) -> typing.Optional[builtins.str]:
         """Name of the secret in the pod's namespace to use.
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
@@ -9928,12 +10311,13 @@ class JenkinsSpecMasterVolumesSecret:
         schema:
         :schema:: JenkinsSpecMasterVolumesSecret#secretName
         """
-        return self._values.get("secret_name")
+        result = self._values.get("secret_name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -9949,7 +10333,11 @@ class JenkinsSpecMasterVolumesSecret:
 )
 class JenkinsSpecMasterVolumesSecretItems:
     def __init__(
-        self, *, key: str, path: str, mode: typing.Optional[jsii.Number] = None
+        self,
+        *,
+        key: builtins.str,
+        path: builtins.str,
+        mode: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Maps a string key to a path within a volume.
 
@@ -9960,7 +10348,7 @@ class JenkinsSpecMasterVolumesSecretItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesSecretItems
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "path": path,
         }
@@ -9968,16 +10356,18 @@ class JenkinsSpecMasterVolumesSecretItems:
             self._values["mode"] = mode
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key to project.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesSecretItems#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
-    def path(self) -> str:
+    def path(self) -> builtins.str:
         """The relative path of the file to map the key to.
 
         May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
@@ -9985,7 +10375,9 @@ class JenkinsSpecMasterVolumesSecretItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesSecretItems#path
         """
-        return self._values.get("path")
+        result = self._values.get("path")
+        assert result is not None, "Required property 'path' is missing"
+        return result
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -9996,12 +10388,13 @@ class JenkinsSpecMasterVolumesSecretItems:
         schema:
         :schema:: JenkinsSpecMasterVolumesSecretItems#mode
         """
-        return self._values.get("mode")
+        result = self._values.get("mode")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10025,13 +10418,11 @@ class JenkinsSpecMasterVolumesStorageos:
     def __init__(
         self,
         *,
-        fs_type: typing.Optional[str] = None,
-        read_only: typing.Optional[bool] = None,
-        secret_ref: typing.Optional[
-            "JenkinsSpecMasterVolumesStorageosSecretRef"
-        ] = None,
-        volume_name: typing.Optional[str] = None,
-        volume_namespace: typing.Optional[str] = None,
+        fs_type: typing.Optional[builtins.str] = None,
+        read_only: typing.Optional[builtins.bool] = None,
+        secret_ref: typing.Optional["JenkinsSpecMasterVolumesStorageosSecretRef"] = None,
+        volume_name: typing.Optional[builtins.str] = None,
+        volume_namespace: typing.Optional[builtins.str] = None,
     ) -> None:
         """StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
 
@@ -10046,7 +10437,7 @@ class JenkinsSpecMasterVolumesStorageos:
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesStorageosSecretRef(**secret_ref)
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if fs_type is not None:
             self._values["fs_type"] = fs_type
         if read_only is not None:
@@ -10059,7 +10450,7 @@ class JenkinsSpecMasterVolumesStorageos:
             self._values["volume_namespace"] = volume_namespace
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
@@ -10067,10 +10458,11 @@ class JenkinsSpecMasterVolumesStorageos:
         schema:
         :schema:: JenkinsSpecMasterVolumesStorageos#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def read_only(self) -> typing.Optional[bool]:
+    def read_only(self) -> typing.Optional[builtins.bool]:
         """Defaults to false (read/write).
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
@@ -10081,7 +10473,8 @@ class JenkinsSpecMasterVolumesStorageos:
         schema:
         :schema:: JenkinsSpecMasterVolumesStorageos#readOnly
         """
-        return self._values.get("read_only")
+        result = self._values.get("read_only")
+        return result
 
     @builtins.property
     def secret_ref(
@@ -10094,10 +10487,11 @@ class JenkinsSpecMasterVolumesStorageos:
         schema:
         :schema:: JenkinsSpecMasterVolumesStorageos#secretRef
         """
-        return self._values.get("secret_ref")
+        result = self._values.get("secret_ref")
+        return result
 
     @builtins.property
-    def volume_name(self) -> typing.Optional[str]:
+    def volume_name(self) -> typing.Optional[builtins.str]:
         """VolumeName is the human-readable name of the StorageOS volume.
 
         Volume names are only unique within a namespace.
@@ -10105,10 +10499,11 @@ class JenkinsSpecMasterVolumesStorageos:
         schema:
         :schema:: JenkinsSpecMasterVolumesStorageos#volumeName
         """
-        return self._values.get("volume_name")
+        result = self._values.get("volume_name")
+        return result
 
     @builtins.property
-    def volume_namespace(self) -> typing.Optional[str]:
+    def volume_namespace(self) -> typing.Optional[builtins.str]:
         """VolumeNamespace specifies the scope of the volume within StorageOS.
 
         If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
@@ -10116,12 +10511,13 @@ class JenkinsSpecMasterVolumesStorageos:
         schema:
         :schema:: JenkinsSpecMasterVolumesStorageos#volumeNamespace
         """
-        return self._values.get("volume_namespace")
+        result = self._values.get("volume_namespace")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10136,7 +10532,7 @@ class JenkinsSpecMasterVolumesStorageos:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecMasterVolumesStorageosSecretRef:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """SecretRef specifies the secret to use for obtaining the StorageOS API credentials.
 
         If not specified, default values will be attempted.
@@ -10146,12 +10542,12 @@ class JenkinsSpecMasterVolumesStorageosSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesStorageosSecretRef
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -10159,12 +10555,13 @@ class JenkinsSpecMasterVolumesStorageosSecretRef:
         schema:
         :schema:: JenkinsSpecMasterVolumesStorageosSecretRef#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10187,10 +10584,10 @@ class JenkinsSpecMasterVolumesVsphereVolume:
     def __init__(
         self,
         *,
-        volume_path: str,
-        fs_type: typing.Optional[str] = None,
-        storage_policy_id: typing.Optional[str] = None,
-        storage_policy_name: typing.Optional[str] = None,
+        volume_path: builtins.str,
+        fs_type: typing.Optional[builtins.str] = None,
+        storage_policy_id: typing.Optional[builtins.str] = None,
+        storage_policy_name: typing.Optional[builtins.str] = None,
     ) -> None:
         """VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine.
 
@@ -10202,7 +10599,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
         schema:
         :schema:: JenkinsSpecMasterVolumesVsphereVolume
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "volume_path": volume_path,
         }
         if fs_type is not None:
@@ -10213,16 +10610,18 @@ class JenkinsSpecMasterVolumesVsphereVolume:
             self._values["storage_policy_name"] = storage_policy_name
 
     @builtins.property
-    def volume_path(self) -> str:
+    def volume_path(self) -> builtins.str:
         """Path that identifies vSphere volume vmdk.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesVsphereVolume#volumePath
         """
-        return self._values.get("volume_path")
+        result = self._values.get("volume_path")
+        assert result is not None, "Required property 'volume_path' is missing"
+        return result
 
     @builtins.property
-    def fs_type(self) -> typing.Optional[str]:
+    def fs_type(self) -> typing.Optional[builtins.str]:
         """Filesystem type to mount.
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
@@ -10230,30 +10629,33 @@ class JenkinsSpecMasterVolumesVsphereVolume:
         schema:
         :schema:: JenkinsSpecMasterVolumesVsphereVolume#fsType
         """
-        return self._values.get("fs_type")
+        result = self._values.get("fs_type")
+        return result
 
     @builtins.property
-    def storage_policy_id(self) -> typing.Optional[str]:
+    def storage_policy_id(self) -> typing.Optional[builtins.str]:
         """Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesVsphereVolume#storagePolicyID
         """
-        return self._values.get("storage_policy_id")
+        result = self._values.get("storage_policy_id")
+        return result
 
     @builtins.property
-    def storage_policy_name(self) -> typing.Optional[str]:
+    def storage_policy_name(self) -> typing.Optional[builtins.str]:
         """Storage Policy Based Management (SPBM) profile name.
 
         schema:
         :schema:: JenkinsSpecMasterVolumesVsphereVolume#storagePolicyName
         """
-        return self._values.get("storage_policy_name")
+        result = self._values.get("storage_policy_name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10279,9 +10681,9 @@ class JenkinsSpecNotifications:
     def __init__(
         self,
         *,
-        level: str,
-        name: str,
-        verbose: bool,
+        level: builtins.str,
+        name: builtins.str,
+        verbose: builtins.bool,
         mailgun: typing.Optional["JenkinsSpecNotificationsMailgun"] = None,
         slack: typing.Optional["JenkinsSpecNotificationsSlack"] = None,
         smtp: typing.Optional["JenkinsSpecNotificationsSmtp"] = None,
@@ -10308,7 +10710,7 @@ class JenkinsSpecNotifications:
             smtp = JenkinsSpecNotificationsSmtp(**smtp)
         if isinstance(teams, dict):
             teams = JenkinsSpecNotificationsTeams(**teams)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "level": level,
             "name": name,
             "verbose": verbose,
@@ -10323,29 +10725,35 @@ class JenkinsSpecNotifications:
             self._values["teams"] = teams
 
     @builtins.property
-    def level(self) -> str:
+    def level(self) -> builtins.str:
         """NotificationLevel defines the level of a Notification.
 
         schema:
         :schema:: JenkinsSpecNotifications#level
         """
-        return self._values.get("level")
+        result = self._values.get("level")
+        assert result is not None, "Required property 'level' is missing"
+        return result
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecNotifications#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
     @builtins.property
-    def verbose(self) -> bool:
+    def verbose(self) -> builtins.bool:
         """
         schema:
         :schema:: JenkinsSpecNotifications#verbose
         """
-        return self._values.get("verbose")
+        result = self._values.get("verbose")
+        assert result is not None, "Required property 'verbose' is missing"
+        return result
 
     @builtins.property
     def mailgun(self) -> typing.Optional["JenkinsSpecNotificationsMailgun"]:
@@ -10354,7 +10762,8 @@ class JenkinsSpecNotifications:
         schema:
         :schema:: JenkinsSpecNotifications#mailgun
         """
-        return self._values.get("mailgun")
+        result = self._values.get("mailgun")
+        return result
 
     @builtins.property
     def slack(self) -> typing.Optional["JenkinsSpecNotificationsSlack"]:
@@ -10363,7 +10772,8 @@ class JenkinsSpecNotifications:
         schema:
         :schema:: JenkinsSpecNotifications#slack
         """
-        return self._values.get("slack")
+        result = self._values.get("slack")
+        return result
 
     @builtins.property
     def smtp(self) -> typing.Optional["JenkinsSpecNotificationsSmtp"]:
@@ -10372,7 +10782,8 @@ class JenkinsSpecNotifications:
         schema:
         :schema:: JenkinsSpecNotifications#smtp
         """
-        return self._values.get("smtp")
+        result = self._values.get("smtp")
+        return result
 
     @builtins.property
     def teams(self) -> typing.Optional["JenkinsSpecNotificationsTeams"]:
@@ -10381,12 +10792,13 @@ class JenkinsSpecNotifications:
         schema:
         :schema:: JenkinsSpecNotifications#teams
         """
-        return self._values.get("teams")
+        result = self._values.get("teams")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10410,9 +10822,9 @@ class JenkinsSpecNotificationsMailgun:
         self,
         *,
         api_key_secret_key_selector: "JenkinsSpecNotificationsMailgunApiKeySecretKeySelector",
-        domain: str,
-        from_: str,
-        recipient: str,
+        domain: builtins.str,
+        from_: builtins.str,
+        recipient: builtins.str,
     ) -> None:
         """Mailgun is handler for Mailgun email service notification channel.
 
@@ -10425,10 +10837,8 @@ class JenkinsSpecNotificationsMailgun:
         :schema:: JenkinsSpecNotificationsMailgun
         """
         if isinstance(api_key_secret_key_selector, dict):
-            api_key_secret_key_selector = JenkinsSpecNotificationsMailgunApiKeySecretKeySelector(
-                **api_key_secret_key_selector
-            )
-        self._values = {
+            api_key_secret_key_selector = JenkinsSpecNotificationsMailgunApiKeySecretKeySelector(**api_key_secret_key_selector)
+        self._values: typing.Dict[str, typing.Any] = {
             "api_key_secret_key_selector": api_key_secret_key_selector,
             "domain": domain,
             "from_": from_,
@@ -10444,36 +10854,44 @@ class JenkinsSpecNotificationsMailgun:
         schema:
         :schema:: JenkinsSpecNotificationsMailgun#apiKeySecretKeySelector
         """
-        return self._values.get("api_key_secret_key_selector")
+        result = self._values.get("api_key_secret_key_selector")
+        assert result is not None, "Required property 'api_key_secret_key_selector' is missing"
+        return result
 
     @builtins.property
-    def domain(self) -> str:
+    def domain(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecNotificationsMailgun#domain
         """
-        return self._values.get("domain")
+        result = self._values.get("domain")
+        assert result is not None, "Required property 'domain' is missing"
+        return result
 
     @builtins.property
-    def from_(self) -> str:
+    def from_(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecNotificationsMailgun#from
         """
-        return self._values.get("from_")
+        result = self._values.get("from_")
+        assert result is not None, "Required property 'from_' is missing"
+        return result
 
     @builtins.property
-    def recipient(self) -> str:
+    def recipient(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecNotificationsMailgun#recipient
         """
-        return self._values.get("recipient")
+        result = self._values.get("recipient")
+        assert result is not None, "Required property 'recipient' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10491,7 +10909,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
     def __init__(
         self,
         *,
-        key: str,
+        key: builtins.str,
         secret: "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret",
     ) -> None:
         """SecretKeySelector selects a key of a Secret.
@@ -10503,16 +10921,14 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
         :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(
-                **secret
-            )
-        self._values = {
+            secret = JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(**secret)
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "secret": secret,
         }
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key of the secret to select from.
 
         Must be a valid secret key.
@@ -10520,7 +10936,9 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
     def secret(self) -> "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret":
@@ -10529,12 +10947,14 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        assert result is not None, "Required property 'secret' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10549,7 +10969,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -10557,12 +10977,12 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -10570,18 +10990,18 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -10604,10 +11024,8 @@ class JenkinsSpecNotificationsSlack:
         :schema:: JenkinsSpecNotificationsSlack
         """
         if isinstance(web_hook_url_secret_key_selector, dict):
-            web_hook_url_secret_key_selector = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(
-                **web_hook_url_secret_key_selector
-            )
-        self._values = {
+            web_hook_url_secret_key_selector = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(**web_hook_url_secret_key_selector)
+        self._values: typing.Dict[str, typing.Any] = {
             "web_hook_url_secret_key_selector": web_hook_url_secret_key_selector,
         }
 
@@ -10620,12 +11038,14 @@ class JenkinsSpecNotificationsSlack:
         schema:
         :schema:: JenkinsSpecNotificationsSlack#webHookURLSecretKeySelector
         """
-        return self._values.get("web_hook_url_secret_key_selector")
+        result = self._values.get("web_hook_url_secret_key_selector")
+        assert result is not None, "Required property 'web_hook_url_secret_key_selector' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10643,7 +11063,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
     def __init__(
         self,
         *,
-        key: str,
+        key: builtins.str,
         secret: "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret",
     ) -> None:
         """The web hook URL to Slack App.
@@ -10655,16 +11075,14 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(
-                **secret
-            )
-        self._values = {
+            secret = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(**secret)
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "secret": secret,
         }
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key of the secret to select from.
 
         Must be a valid secret key.
@@ -10672,7 +11090,9 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
     def secret(
@@ -10683,18 +11103,19 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        assert result is not None, "Required property 'secret' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -10704,7 +11125,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -10712,12 +11133,12 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -10725,18 +11146,18 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -10757,13 +11178,13 @@ class JenkinsSpecNotificationsSmtp:
     def __init__(
         self,
         *,
-        from_: str,
+        from_: builtins.str,
         password_secret_key_selector: "JenkinsSpecNotificationsSmtpPasswordSecretKeySelector",
         port: jsii.Number,
-        server: str,
-        to: str,
+        server: builtins.str,
+        to: builtins.str,
         username_secret_key_selector: "JenkinsSpecNotificationsSmtpUsernameSecretKeySelector",
-        tls_insecure_skip_verify: typing.Optional[bool] = None,
+        tls_insecure_skip_verify: typing.Optional[builtins.bool] = None,
     ) -> None:
         """SMTP is handler for sending emails via this protocol.
 
@@ -10779,14 +11200,10 @@ class JenkinsSpecNotificationsSmtp:
         :schema:: JenkinsSpecNotificationsSmtp
         """
         if isinstance(password_secret_key_selector, dict):
-            password_secret_key_selector = JenkinsSpecNotificationsSmtpPasswordSecretKeySelector(
-                **password_secret_key_selector
-            )
+            password_secret_key_selector = JenkinsSpecNotificationsSmtpPasswordSecretKeySelector(**password_secret_key_selector)
         if isinstance(username_secret_key_selector, dict):
-            username_secret_key_selector = JenkinsSpecNotificationsSmtpUsernameSecretKeySelector(
-                **username_secret_key_selector
-            )
-        self._values = {
+            username_secret_key_selector = JenkinsSpecNotificationsSmtpUsernameSecretKeySelector(**username_secret_key_selector)
+        self._values: typing.Dict[str, typing.Any] = {
             "from_": from_,
             "password_secret_key_selector": password_secret_key_selector,
             "port": port,
@@ -10798,12 +11215,14 @@ class JenkinsSpecNotificationsSmtp:
             self._values["tls_insecure_skip_verify"] = tls_insecure_skip_verify
 
     @builtins.property
-    def from_(self) -> str:
+    def from_(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecNotificationsSmtp#from
         """
-        return self._values.get("from_")
+        result = self._values.get("from_")
+        assert result is not None, "Required property 'from_' is missing"
+        return result
 
     @builtins.property
     def password_secret_key_selector(
@@ -10814,7 +11233,9 @@ class JenkinsSpecNotificationsSmtp:
         schema:
         :schema:: JenkinsSpecNotificationsSmtp#passwordSecretKeySelector
         """
-        return self._values.get("password_secret_key_selector")
+        result = self._values.get("password_secret_key_selector")
+        assert result is not None, "Required property 'password_secret_key_selector' is missing"
+        return result
 
     @builtins.property
     def port(self) -> jsii.Number:
@@ -10822,23 +11243,29 @@ class JenkinsSpecNotificationsSmtp:
         schema:
         :schema:: JenkinsSpecNotificationsSmtp#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        assert result is not None, "Required property 'port' is missing"
+        return result
 
     @builtins.property
-    def server(self) -> str:
+    def server(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecNotificationsSmtp#server
         """
-        return self._values.get("server")
+        result = self._values.get("server")
+        assert result is not None, "Required property 'server' is missing"
+        return result
 
     @builtins.property
-    def to(self) -> str:
+    def to(self) -> builtins.str:
         """
         schema:
         :schema:: JenkinsSpecNotificationsSmtp#to
         """
-        return self._values.get("to")
+        result = self._values.get("to")
+        assert result is not None, "Required property 'to' is missing"
+        return result
 
     @builtins.property
     def username_secret_key_selector(
@@ -10849,20 +11276,23 @@ class JenkinsSpecNotificationsSmtp:
         schema:
         :schema:: JenkinsSpecNotificationsSmtp#usernameSecretKeySelector
         """
-        return self._values.get("username_secret_key_selector")
+        result = self._values.get("username_secret_key_selector")
+        assert result is not None, "Required property 'username_secret_key_selector' is missing"
+        return result
 
     @builtins.property
-    def tls_insecure_skip_verify(self) -> typing.Optional[bool]:
+    def tls_insecure_skip_verify(self) -> typing.Optional[builtins.bool]:
         """
         schema:
         :schema:: JenkinsSpecNotificationsSmtp#tlsInsecureSkipVerify
         """
-        return self._values.get("tls_insecure_skip_verify")
+        result = self._values.get("tls_insecure_skip_verify")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10880,7 +11310,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
     def __init__(
         self,
         *,
-        key: str,
+        key: builtins.str,
         secret: "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret",
     ) -> None:
         """SecretKeySelector selects a key of a Secret.
@@ -10892,16 +11322,14 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
         :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(
-                **secret
-            )
-        self._values = {
+            secret = JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(**secret)
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "secret": secret,
         }
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key of the secret to select from.
 
         Must be a valid secret key.
@@ -10909,7 +11337,9 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
     def secret(self) -> "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret":
@@ -10918,12 +11348,14 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        assert result is not None, "Required property 'secret' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -10938,7 +11370,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -10946,12 +11378,12 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -10959,18 +11391,18 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -10983,7 +11415,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
     def __init__(
         self,
         *,
-        key: str,
+        key: builtins.str,
         secret: "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret",
     ) -> None:
         """SecretKeySelector selects a key of a Secret.
@@ -10995,16 +11427,14 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
         :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(
-                **secret
-            )
-        self._values = {
+            secret = JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(**secret)
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "secret": secret,
         }
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key of the secret to select from.
 
         Must be a valid secret key.
@@ -11012,7 +11442,9 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
     def secret(self) -> "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret":
@@ -11021,12 +11453,14 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        assert result is not None, "Required property 'secret' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11041,7 +11475,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -11049,12 +11483,12 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -11062,18 +11496,18 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -11096,10 +11530,8 @@ class JenkinsSpecNotificationsTeams:
         :schema:: JenkinsSpecNotificationsTeams
         """
         if isinstance(web_hook_url_secret_key_selector, dict):
-            web_hook_url_secret_key_selector = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(
-                **web_hook_url_secret_key_selector
-            )
-        self._values = {
+            web_hook_url_secret_key_selector = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(**web_hook_url_secret_key_selector)
+        self._values: typing.Dict[str, typing.Any] = {
             "web_hook_url_secret_key_selector": web_hook_url_secret_key_selector,
         }
 
@@ -11112,12 +11544,14 @@ class JenkinsSpecNotificationsTeams:
         schema:
         :schema:: JenkinsSpecNotificationsTeams#webHookURLSecretKeySelector
         """
-        return self._values.get("web_hook_url_secret_key_selector")
+        result = self._values.get("web_hook_url_secret_key_selector")
+        assert result is not None, "Required property 'web_hook_url_secret_key_selector' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11135,7 +11569,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
     def __init__(
         self,
         *,
-        key: str,
+        key: builtins.str,
         secret: "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret",
     ) -> None:
         """The web hook URL to MicrosoftTeams App.
@@ -11147,16 +11581,14 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector
         """
         if isinstance(secret, dict):
-            secret = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(
-                **secret
-            )
-        self._values = {
+            secret = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(**secret)
+        self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "secret": secret,
         }
 
     @builtins.property
-    def key(self) -> str:
+    def key(self) -> builtins.str:
         """The key of the secret to select from.
 
         Must be a valid secret key.
@@ -11164,7 +11596,9 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector#key
         """
-        return self._values.get("key")
+        result = self._values.get("key")
+        assert result is not None, "Required property 'key' is missing"
+        return result
 
     @builtins.property
     def secret(
@@ -11175,18 +11609,19 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         schema:
         :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector#secret
         """
-        return self._values.get("secret")
+        result = self._values.get("secret")
+        assert result is not None, "Required property 'secret' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -11196,7 +11631,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
     name_mapping={"name": "name"},
 )
 class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
-    def __init__(self, *, name: typing.Optional[str] = None) -> None:
+    def __init__(self, *, name: typing.Optional[builtins.str] = None) -> None:
         """The name of the secret in the pod's namespace to select from.
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -11204,12 +11639,12 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
             self._values["name"] = name
 
     @builtins.property
-    def name(self) -> typing.Optional[str]:
+    def name(self) -> typing.Optional[builtins.str]:
         """Name of the referent.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
@@ -11217,18 +11652,18 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
         schema:
         :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return (
-            "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(%s)"
-            % ", ".join(k + "=" + repr(v) for k, v in self._values.items())
+        return "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
@@ -11246,7 +11681,7 @@ class JenkinsSpecRestore:
         self,
         *,
         action: "JenkinsSpecRestoreAction",
-        container_name: str,
+        container_name: builtins.str,
         recovery_once: typing.Optional[jsii.Number] = None,
     ) -> None:
         """Backup defines configuration of Jenkins backup restore More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-backup-and-restore.
@@ -11260,7 +11695,7 @@ class JenkinsSpecRestore:
         """
         if isinstance(action, dict):
             action = JenkinsSpecRestoreAction(**action)
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "action": action,
             "container_name": container_name,
         }
@@ -11274,16 +11709,20 @@ class JenkinsSpecRestore:
         schema:
         :schema:: JenkinsSpecRestore#action
         """
-        return self._values.get("action")
+        result = self._values.get("action")
+        assert result is not None, "Required property 'action' is missing"
+        return result
 
     @builtins.property
-    def container_name(self) -> str:
+    def container_name(self) -> builtins.str:
         """ContainerName is the container name responsible for restore backup operation.
 
         schema:
         :schema:: JenkinsSpecRestore#containerName
         """
-        return self._values.get("container_name")
+        result = self._values.get("container_name")
+        assert result is not None, "Required property 'container_name' is missing"
+        return result
 
     @builtins.property
     def recovery_once(self) -> typing.Optional[jsii.Number]:
@@ -11292,12 +11731,13 @@ class JenkinsSpecRestore:
         schema:
         :schema:: JenkinsSpecRestore#recoveryOnce
         """
-        return self._values.get("recovery_once")
+        result = self._values.get("recovery_once")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11313,7 +11753,9 @@ class JenkinsSpecRestore:
 )
 class JenkinsSpecRestoreAction:
     def __init__(
-        self, *, exec: typing.Optional["JenkinsSpecRestoreActionExec"] = None
+        self,
+        *,
+        exec: typing.Optional["JenkinsSpecRestoreActionExec"] = None,
     ) -> None:
         """Action defines action which performs restore backup in restore container sidecar.
 
@@ -11324,7 +11766,7 @@ class JenkinsSpecRestoreAction:
         """
         if isinstance(exec, dict):
             exec = JenkinsSpecRestoreActionExec(**exec)
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
             self._values["exec"] = exec
 
@@ -11335,12 +11777,13 @@ class JenkinsSpecRestoreAction:
         schema:
         :schema:: JenkinsSpecRestoreAction#exec
         """
-        return self._values.get("exec")
+        result = self._values.get("exec")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11355,7 +11798,11 @@ class JenkinsSpecRestoreAction:
     name_mapping={"command": "command"},
 )
 class JenkinsSpecRestoreActionExec:
-    def __init__(self, *, command: typing.Optional[typing.List[str]] = None) -> None:
+    def __init__(
+        self,
+        *,
+        command: typing.Optional[typing.List[builtins.str]] = None,
+    ) -> None:
         """Exec specifies the action to take.
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -11363,12 +11810,12 @@ class JenkinsSpecRestoreActionExec:
         schema:
         :schema:: JenkinsSpecRestoreActionExec
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
             self._values["command"] = command
 
     @builtins.property
-    def command(self) -> typing.Optional[typing.List[str]]:
+    def command(self) -> typing.Optional[typing.List[builtins.str]]:
         """Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -11376,12 +11823,13 @@ class JenkinsSpecRestoreActionExec:
         schema:
         :schema:: JenkinsSpecRestoreActionExec#command
         """
-        return self._values.get("command")
+        result = self._values.get("command")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11396,7 +11844,13 @@ class JenkinsSpecRestoreActionExec:
     name_mapping={"api_group": "apiGroup", "kind": "kind", "name": "name"},
 )
 class JenkinsSpecRoles:
-    def __init__(self, *, api_group: str, kind: str, name: str) -> None:
+    def __init__(
+        self,
+        *,
+        api_group: builtins.str,
+        kind: builtins.str,
+        name: builtins.str,
+    ) -> None:
         """RoleRef contains information that points to the role being used.
 
         :param api_group: APIGroup is the group for the resource being referenced.
@@ -11406,43 +11860,49 @@ class JenkinsSpecRoles:
         schema:
         :schema:: JenkinsSpecRoles
         """
-        self._values = {
+        self._values: typing.Dict[str, typing.Any] = {
             "api_group": api_group,
             "kind": kind,
             "name": name,
         }
 
     @builtins.property
-    def api_group(self) -> str:
+    def api_group(self) -> builtins.str:
         """APIGroup is the group for the resource being referenced.
 
         schema:
         :schema:: JenkinsSpecRoles#apiGroup
         """
-        return self._values.get("api_group")
+        result = self._values.get("api_group")
+        assert result is not None, "Required property 'api_group' is missing"
+        return result
 
     @builtins.property
-    def kind(self) -> str:
+    def kind(self) -> builtins.str:
         """Kind is the type of resource being referenced.
 
         schema:
         :schema:: JenkinsSpecRoles#kind
         """
-        return self._values.get("kind")
+        result = self._values.get("kind")
+        assert result is not None, "Required property 'kind' is missing"
+        return result
 
     @builtins.property
-    def name(self) -> str:
+    def name(self) -> builtins.str:
         """Name is the name of resource being referenced.
 
         schema:
         :schema:: JenkinsSpecRoles#name
         """
-        return self._values.get("name")
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11476,21 +11936,21 @@ class JenkinsSpecSeedJobs:
     def __init__(
         self,
         *,
-        additional_classpath: typing.Optional[str] = None,
-        bitbucket_push_trigger: typing.Optional[bool] = None,
-        build_periodically: typing.Optional[str] = None,
-        credential_id: typing.Optional[str] = None,
-        credential_type: typing.Optional[str] = None,
-        description: typing.Optional[str] = None,
-        fail_on_missing_plugin: typing.Optional[bool] = None,
-        github_push_trigger: typing.Optional[bool] = None,
-        id: typing.Optional[str] = None,
-        ignore_missing_files: typing.Optional[bool] = None,
-        poll_scm: typing.Optional[str] = None,
-        repository_branch: typing.Optional[str] = None,
-        repository_url: typing.Optional[str] = None,
-        targets: typing.Optional[str] = None,
-        unstable_on_deprecation: typing.Optional[bool] = None,
+        additional_classpath: typing.Optional[builtins.str] = None,
+        bitbucket_push_trigger: typing.Optional[builtins.bool] = None,
+        build_periodically: typing.Optional[builtins.str] = None,
+        credential_id: typing.Optional[builtins.str] = None,
+        credential_type: typing.Optional[builtins.str] = None,
+        description: typing.Optional[builtins.str] = None,
+        fail_on_missing_plugin: typing.Optional[builtins.bool] = None,
+        github_push_trigger: typing.Optional[builtins.bool] = None,
+        id: typing.Optional[builtins.str] = None,
+        ignore_missing_files: typing.Optional[builtins.bool] = None,
+        poll_scm: typing.Optional[builtins.str] = None,
+        repository_branch: typing.Optional[builtins.str] = None,
+        repository_url: typing.Optional[builtins.str] = None,
+        targets: typing.Optional[builtins.str] = None,
+        unstable_on_deprecation: typing.Optional[builtins.bool] = None,
     ) -> None:
         """SeedJob defines configuration for seed job More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-seed-jobs-and-pipelines.
 
@@ -11513,7 +11973,7 @@ class JenkinsSpecSeedJobs:
         schema:
         :schema:: JenkinsSpecSeedJobs
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if additional_classpath is not None:
             self._values["additional_classpath"] = additional_classpath
         if bitbucket_push_trigger is not None:
@@ -11546,115 +12006,127 @@ class JenkinsSpecSeedJobs:
             self._values["unstable_on_deprecation"] = unstable_on_deprecation
 
     @builtins.property
-    def additional_classpath(self) -> typing.Optional[str]:
+    def additional_classpath(self) -> typing.Optional[builtins.str]:
         """AdditionalClasspath is setting for Job DSL API plugin to set Additional Classpath.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#additionalClasspath
         """
-        return self._values.get("additional_classpath")
+        result = self._values.get("additional_classpath")
+        return result
 
     @builtins.property
-    def bitbucket_push_trigger(self) -> typing.Optional[bool]:
+    def bitbucket_push_trigger(self) -> typing.Optional[builtins.bool]:
         """BitbucketPushTrigger is used for Bitbucket web hooks.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#bitbucketPushTrigger
         """
-        return self._values.get("bitbucket_push_trigger")
+        result = self._values.get("bitbucket_push_trigger")
+        return result
 
     @builtins.property
-    def build_periodically(self) -> typing.Optional[str]:
+    def build_periodically(self) -> typing.Optional[builtins.str]:
         """BuildPeriodically is setting for scheduled trigger.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#buildPeriodically
         """
-        return self._values.get("build_periodically")
+        result = self._values.get("build_periodically")
+        return result
 
     @builtins.property
-    def credential_id(self) -> typing.Optional[str]:
+    def credential_id(self) -> typing.Optional[builtins.str]:
         """CredentialID is the Kubernetes secret name which stores repository access credentials.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#credentialID
         """
-        return self._values.get("credential_id")
+        result = self._values.get("credential_id")
+        return result
 
     @builtins.property
-    def credential_type(self) -> typing.Optional[str]:
+    def credential_type(self) -> typing.Optional[builtins.str]:
         """JenkinsCredentialType is the https://jenkinsci.github.io/kubernetes-credentials-provider-plugin/ credential type.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#credentialType
         """
-        return self._values.get("credential_type")
+        result = self._values.get("credential_type")
+        return result
 
     @builtins.property
-    def description(self) -> typing.Optional[str]:
+    def description(self) -> typing.Optional[builtins.str]:
         """Description is the description of the seed job.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#description
         """
-        return self._values.get("description")
+        result = self._values.get("description")
+        return result
 
     @builtins.property
-    def fail_on_missing_plugin(self) -> typing.Optional[bool]:
+    def fail_on_missing_plugin(self) -> typing.Optional[builtins.bool]:
         """FailOnMissingPlugin is setting for Job DSL API plugin that fails job if required plugin is missing.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#failOnMissingPlugin
         """
-        return self._values.get("fail_on_missing_plugin")
+        result = self._values.get("fail_on_missing_plugin")
+        return result
 
     @builtins.property
-    def github_push_trigger(self) -> typing.Optional[bool]:
+    def github_push_trigger(self) -> typing.Optional[builtins.bool]:
         """GitHubPushTrigger is used for GitHub web hooks.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#githubPushTrigger
         """
-        return self._values.get("github_push_trigger")
+        result = self._values.get("github_push_trigger")
+        return result
 
     @builtins.property
-    def id(self) -> typing.Optional[str]:
+    def id(self) -> typing.Optional[builtins.str]:
         """ID is the unique seed job name.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#id
         """
-        return self._values.get("id")
+        result = self._values.get("id")
+        return result
 
     @builtins.property
-    def ignore_missing_files(self) -> typing.Optional[bool]:
+    def ignore_missing_files(self) -> typing.Optional[builtins.bool]:
         """IgnoreMissingFiles is setting for Job DSL API plugin to ignore files that miss.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#ignoreMissingFiles
         """
-        return self._values.get("ignore_missing_files")
+        result = self._values.get("ignore_missing_files")
+        return result
 
     @builtins.property
-    def poll_scm(self) -> typing.Optional[str]:
+    def poll_scm(self) -> typing.Optional[builtins.str]:
         """PollSCM is setting for polling changes in SCM.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#pollSCM
         """
-        return self._values.get("poll_scm")
+        result = self._values.get("poll_scm")
+        return result
 
     @builtins.property
-    def repository_branch(self) -> typing.Optional[str]:
+    def repository_branch(self) -> typing.Optional[builtins.str]:
         """RepositoryBranch is the repository branch where are seed job definitions.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#repositoryBranch
         """
-        return self._values.get("repository_branch")
+        result = self._values.get("repository_branch")
+        return result
 
     @builtins.property
-    def repository_url(self) -> typing.Optional[str]:
+    def repository_url(self) -> typing.Optional[builtins.str]:
         """RepositoryURL is the repository access URL.
 
         Can be SSH or HTTPS.
@@ -11662,30 +12134,33 @@ class JenkinsSpecSeedJobs:
         schema:
         :schema:: JenkinsSpecSeedJobs#repositoryUrl
         """
-        return self._values.get("repository_url")
+        result = self._values.get("repository_url")
+        return result
 
     @builtins.property
-    def targets(self) -> typing.Optional[str]:
+    def targets(self) -> typing.Optional[builtins.str]:
         """Targets is the repository path where are seed job definitions.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#targets
         """
-        return self._values.get("targets")
+        result = self._values.get("targets")
+        return result
 
     @builtins.property
-    def unstable_on_deprecation(self) -> typing.Optional[bool]:
+    def unstable_on_deprecation(self) -> typing.Optional[builtins.bool]:
         """UnstableOnDeprecation is setting for Job DSL API plugin that sets build status as unstable if build using deprecated features.
 
         schema:
         :schema:: JenkinsSpecSeedJobs#unstableOnDeprecation
         """
-        return self._values.get("unstable_on_deprecation")
+        result = self._values.get("unstable_on_deprecation")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11711,13 +12186,13 @@ class JenkinsSpecService:
     def __init__(
         self,
         *,
-        annotations: typing.Optional[typing.Mapping[str, str]] = None,
-        labels: typing.Optional[typing.Mapping[str, str]] = None,
-        load_balancer_ip: typing.Optional[str] = None,
-        load_balancer_source_ranges: typing.Optional[typing.List[str]] = None,
+        annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        load_balancer_ip: typing.Optional[builtins.str] = None,
+        load_balancer_source_ranges: typing.Optional[typing.List[builtins.str]] = None,
         node_port: typing.Optional[jsii.Number] = None,
         port: typing.Optional[jsii.Number] = None,
-        type: typing.Optional[str] = None,
+        type: typing.Optional[builtins.str] = None,
     ) -> None:
         """Service is Kubernetes service of Jenkins master HTTP pod Defaults to : port: 8080 type: ClusterIP.
 
@@ -11735,7 +12210,7 @@ class JenkinsSpecService:
         schema:
         :schema:: JenkinsSpecService
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if annotations is not None:
             self._values["annotations"] = annotations
         if labels is not None:
@@ -11752,7 +12227,9 @@ class JenkinsSpecService:
             self._values["type"] = type
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def annotations(
+        self,
+    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -11760,10 +12237,11 @@ class JenkinsSpecService:
         schema:
         :schema:: JenkinsSpecService#annotations
         """
-        return self._values.get("annotations")
+        result = self._values.get("annotations")
+        return result
 
     @builtins.property
-    def labels(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def labels(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Route service traffic to pods with label keys and values matching this selector.
 
         If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
@@ -11771,10 +12249,11 @@ class JenkinsSpecService:
         schema:
         :schema:: JenkinsSpecService#labels
         """
-        return self._values.get("labels")
+        result = self._values.get("labels")
+        return result
 
     @builtins.property
-    def load_balancer_ip(self) -> typing.Optional[str]:
+    def load_balancer_ip(self) -> typing.Optional[builtins.str]:
         """Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field.
 
         This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
@@ -11782,10 +12261,11 @@ class JenkinsSpecService:
         schema:
         :schema:: JenkinsSpecService#loadBalancerIP
         """
-        return self._values.get("load_balancer_ip")
+        result = self._values.get("load_balancer_ip")
+        return result
 
     @builtins.property
-    def load_balancer_source_ranges(self) -> typing.Optional[typing.List[str]]:
+    def load_balancer_source_ranges(self) -> typing.Optional[typing.List[builtins.str]]:
         """If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs.
 
         This field will be ignored if the cloud-provider does not support the feature." More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/
@@ -11793,7 +12273,8 @@ class JenkinsSpecService:
         schema:
         :schema:: JenkinsSpecService#loadBalancerSourceRanges
         """
-        return self._values.get("load_balancer_source_ranges")
+        result = self._values.get("load_balancer_source_ranges")
+        return result
 
     @builtins.property
     def node_port(self) -> typing.Optional[jsii.Number]:
@@ -11807,7 +12288,8 @@ class JenkinsSpecService:
         schema:
         :schema:: JenkinsSpecService#nodePort
         """
-        return self._values.get("node_port")
+        result = self._values.get("node_port")
+        return result
 
     @builtins.property
     def port(self) -> typing.Optional[jsii.Number]:
@@ -11818,10 +12300,11 @@ class JenkinsSpecService:
         schema:
         :schema:: JenkinsSpecService#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        return result
 
     @builtins.property
-    def type(self) -> typing.Optional[str]:
+    def type(self) -> typing.Optional[builtins.str]:
         """Type determines how the Service is exposed.
 
         Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
@@ -11832,12 +12315,13 @@ class JenkinsSpecService:
         schema:
         :schema:: JenkinsSpecService#type
         """
-        return self._values.get("type")
+        result = self._values.get("type")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11853,7 +12337,9 @@ class JenkinsSpecService:
 )
 class JenkinsSpecServiceAccount:
     def __init__(
-        self, *, annotations: typing.Optional[typing.Mapping[str, str]] = None
+        self,
+        *,
+        annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
     ) -> None:
         """ServiceAccount defines Jenkins master service account attributes.
 
@@ -11862,12 +12348,14 @@ class JenkinsSpecServiceAccount:
         schema:
         :schema:: JenkinsSpecServiceAccount
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if annotations is not None:
             self._values["annotations"] = annotations
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def annotations(
+        self,
+    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -11875,12 +12363,13 @@ class JenkinsSpecServiceAccount:
         schema:
         :schema:: JenkinsSpecServiceAccount#annotations
         """
-        return self._values.get("annotations")
+        result = self._values.get("annotations")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:
@@ -11906,13 +12395,13 @@ class JenkinsSpecSlaveService:
     def __init__(
         self,
         *,
-        annotations: typing.Optional[typing.Mapping[str, str]] = None,
-        labels: typing.Optional[typing.Mapping[str, str]] = None,
-        load_balancer_ip: typing.Optional[str] = None,
-        load_balancer_source_ranges: typing.Optional[typing.List[str]] = None,
+        annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        load_balancer_ip: typing.Optional[builtins.str] = None,
+        load_balancer_source_ranges: typing.Optional[typing.List[builtins.str]] = None,
         node_port: typing.Optional[jsii.Number] = None,
         port: typing.Optional[jsii.Number] = None,
-        type: typing.Optional[str] = None,
+        type: typing.Optional[builtins.str] = None,
     ) -> None:
         """Service is Kubernetes service of Jenkins slave pods Defaults to : port: 50000 type: ClusterIP.
 
@@ -11930,7 +12419,7 @@ class JenkinsSpecSlaveService:
         schema:
         :schema:: JenkinsSpecSlaveService
         """
-        self._values = {}
+        self._values: typing.Dict[str, typing.Any] = {}
         if annotations is not None:
             self._values["annotations"] = annotations
         if labels is not None:
@@ -11947,7 +12436,9 @@ class JenkinsSpecSlaveService:
             self._values["type"] = type
 
     @builtins.property
-    def annotations(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def annotations(
+        self,
+    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
@@ -11955,10 +12446,11 @@ class JenkinsSpecSlaveService:
         schema:
         :schema:: JenkinsSpecSlaveService#annotations
         """
-        return self._values.get("annotations")
+        result = self._values.get("annotations")
+        return result
 
     @builtins.property
-    def labels(self) -> typing.Optional[typing.Mapping[str, str]]:
+    def labels(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Route service traffic to pods with label keys and values matching this selector.
 
         If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
@@ -11966,10 +12458,11 @@ class JenkinsSpecSlaveService:
         schema:
         :schema:: JenkinsSpecSlaveService#labels
         """
-        return self._values.get("labels")
+        result = self._values.get("labels")
+        return result
 
     @builtins.property
-    def load_balancer_ip(self) -> typing.Optional[str]:
+    def load_balancer_ip(self) -> typing.Optional[builtins.str]:
         """Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field.
 
         This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
@@ -11977,10 +12470,11 @@ class JenkinsSpecSlaveService:
         schema:
         :schema:: JenkinsSpecSlaveService#loadBalancerIP
         """
-        return self._values.get("load_balancer_ip")
+        result = self._values.get("load_balancer_ip")
+        return result
 
     @builtins.property
-    def load_balancer_source_ranges(self) -> typing.Optional[typing.List[str]]:
+    def load_balancer_source_ranges(self) -> typing.Optional[typing.List[builtins.str]]:
         """If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs.
 
         This field will be ignored if the cloud-provider does not support the feature." More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/
@@ -11988,7 +12482,8 @@ class JenkinsSpecSlaveService:
         schema:
         :schema:: JenkinsSpecSlaveService#loadBalancerSourceRanges
         """
-        return self._values.get("load_balancer_source_ranges")
+        result = self._values.get("load_balancer_source_ranges")
+        return result
 
     @builtins.property
     def node_port(self) -> typing.Optional[jsii.Number]:
@@ -12002,7 +12497,8 @@ class JenkinsSpecSlaveService:
         schema:
         :schema:: JenkinsSpecSlaveService#nodePort
         """
-        return self._values.get("node_port")
+        result = self._values.get("node_port")
+        return result
 
     @builtins.property
     def port(self) -> typing.Optional[jsii.Number]:
@@ -12013,10 +12509,11 @@ class JenkinsSpecSlaveService:
         schema:
         :schema:: JenkinsSpecSlaveService#port
         """
-        return self._values.get("port")
+        result = self._values.get("port")
+        return result
 
     @builtins.property
-    def type(self) -> typing.Optional[str]:
+    def type(self) -> typing.Optional[builtins.str]:
         """Type determines how the Service is exposed.
 
         Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
@@ -12027,12 +12524,13 @@ class JenkinsSpecSlaveService:
         schema:
         :schema:: JenkinsSpecSlaveService#type
         """
-        return self._values.get("type")
+        result = self._values.get("type")
+        return result
 
-    def __eq__(self, rhs) -> bool:
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
 
-    def __ne__(self, rhs) -> bool:
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
         return not (rhs == self)
 
     def __repr__(self) -> str:

@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.27.0](https://github.com/awslabs/cdk8s/compare/v0.26.0...v0.27.0) (2020-08-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **lib:** resource names will now be rendered differently, omitting adjacent duplicate components.
+
+### Features
+
+* **examples:** Elasticsearch query using CDK8s+ and CRD ([#281](https://github.com/awslabs/cdk8s/issues/281)) ([3be1a96](https://github.com/awslabs/cdk8s/commit/3be1a96b1801f2e23673b454e0a0b59cf7f1b6e5))
+* **lib:** omit duplicate components in generated names ([#258](https://github.com/awslabs/cdk8s/issues/258)) ([473b5ef](https://github.com/awslabs/cdk8s/commit/473b5ef7f442b932e9c4c4356945b91e8e1bc4e4))
+
+
+### Bug Fixes
+
+* **cli:** Conform python and java package names to language standards (no hyphens) ([#283](https://github.com/awslabs/cdk8s/issues/283)) ([f0b33c0](https://github.com/awslabs/cdk8s/commit/f0b33c09e3f75cfc7e230605a9bb11d506ea4018))
+* **cli:** java importing crd fails ([#257](https://github.com/awslabs/cdk8s/issues/257)) ([f0ef3b4](https://github.com/awslabs/cdk8s/commit/f0ef3b467969a90efcbfc663353565c8639bb5bd))
+
 ## [0.26.0](https://github.com/awslabs/cdk8s/compare/v0.25.0...v0.26.0) (2020-06-29)
 
 

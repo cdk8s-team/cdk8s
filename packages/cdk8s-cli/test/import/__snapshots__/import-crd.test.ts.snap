@@ -84,7 +84,7 @@ Object {
   "description": "elasticsearchk8selasticcoelasticsearch",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.5.0 (build 46538f8)",
+  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
   "license": "Apache-2.0",
   "name": "elasticsearchk8selasticcoelasticsearch",
   "repository": Object {
@@ -111,6 +111,10 @@ Object {
       "initializer": Object {
         "docs": Object {
           "summary": "Defines a \\"Elasticsearch\\" API object.",
+        },
+        "locationInModule": Object {
+          "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
+          "line": 17,
         },
         "parameters": Array [
           Object {
@@ -4168,7 +4172,7 @@ Object {
   "description": "jenkinsiojenkins",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.5.0 (build 46538f8)",
+  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
   "license": "Apache-2.0",
   "name": "jenkinsiojenkins",
   "repository": Object {
@@ -4195,6 +4199,10 @@ Object {
       "initializer": Object {
         "docs": Object {
           "summary": "Defines a \\"Jenkins\\" API object.",
+        },
+        "locationInModule": Object {
+          "filename": "jenkins.io/jenkins.ts",
+          "line": 17,
         },
         "parameters": Array [
           Object {
@@ -16955,7 +16963,7 @@ Object {
   "description": "stableexamplecomcrontab",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.5.0 (build 46538f8)",
+  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
   "license": "Apache-2.0",
   "name": "stableexamplecomcrontab",
   "repository": Object {
@@ -16981,6 +16989,10 @@ Object {
       "initializer": Object {
         "docs": Object {
           "summary": "Defines a \\"CronTab\\" API object.",
+        },
+        "locationInModule": Object {
+          "filename": "stable.example.com/crontab.ts",
+          "line": 17,
         },
         "parameters": Array [
           Object {
@@ -17217,7 +17229,7 @@ Object {
   "description": "stableexamplecomothercrontab",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.5.0 (build 46538f8)",
+  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
   "license": "Apache-2.0",
   "name": "stableexamplecomothercrontab",
   "repository": Object {
@@ -17243,6 +17255,10 @@ Object {
       "initializer": Object {
         "docs": Object {
           "summary": "Defines a \\"OtherCronTab\\" API object.",
+        },
+        "locationInModule": Object {
+          "filename": "stable.example.com/othercrontab.ts",
+          "line": 17,
         },
         "parameters": Array [
           Object {
@@ -17479,7 +17495,7 @@ Object {
   "description": "monitoringcoreoscomthanosruler",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.5.0 (build 46538f8)",
+  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
   "license": "Apache-2.0",
   "name": "monitoringcoreoscomthanosruler",
   "repository": Object {
@@ -17506,6 +17522,10 @@ Object {
       "initializer": Object {
         "docs": Object {
           "summary": "Defines a \\"ThanosRuler\\" API object.",
+        },
+        "locationInModule": Object {
+          "filename": "monitoring.coreos.com/thanosruler.ts",
+          "line": 17,
         },
         "parameters": Array [
           Object {

@@ -14,6 +14,7 @@ exports.options = {
   dependabot: false,
   mergify: false,
   compat: false,
+  dependabot: false,
   keywords: [
     "cdk",
     "kubernetes",

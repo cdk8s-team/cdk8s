@@ -36,7 +36,7 @@ jobs:
       shell: bash
       run: |
         cd packages/cdk8s-cli/templates/java-app
-        sed -i 's/{{ cdk8s_version }}/0.25.0/g' pom.xml
+        sed -i 's/{{ cdk8s_version }}/0.26.0/g' pom.xml
         sed -i 's/{{ constructs_version }}/2.0.2/g' pom.xml
         mvn install
         mvn compile
