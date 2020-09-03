@@ -4,7 +4,7 @@ import { Testing } from 'cdk8s';
 
 describe('ServiceSpecDefinition', () => {
   test('Instantiation properties are all accepted', () => {
-    const ports = [{ port: 9000, targetPort: 80 }];
+    const ports = [{ port: 9000, targetPort: 80, nodePort: 30080 }];
     const externalIPs = ['ExternalIP'];
     const spec = new kplus.ServiceSpecDefinition({
       clusterIP: 'IP',
@@ -31,7 +31,7 @@ describe('ServiceSpecDefinition', () => {
 
   test('Can select by label', () => {
     const spec = new kplus.ServiceSpecDefinition({
-      ports: [{ port: 9000, targetPort: 80 }],
+      ports: [{ port: 9000, targetPort: 80, nodePort: 30080 }],
     });
 
     spec.addSelector('key', 'value');
@@ -44,11 +44,11 @@ describe('ServiceSpecDefinition', () => {
   test('Can serve by port', () => {
     const spec = new kplus.ServiceSpecDefinition();
 
-    spec.serve(9000, { targetPort: 80 });
+    spec.serve(9000, { targetPort: 80, nodePort: 30080 });
 
     const actual: k.ServiceSpec = spec._toKube();
 
-    expect(actual.ports).toEqual([ { port: 9000, targetPort: 80 } ]);
+    expect(actual.ports).toEqual([ { port: 9000, targetPort: 80, nodePort: 30080 } ]);
   });
 });
 
