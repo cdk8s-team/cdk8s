@@ -89,6 +89,7 @@ describe('Job', () => {
                   Object {
                     "env": Array [],
                     "image": "image",
+                    "imagePullPolicy": "Always",
                     "name": "main",
                     "ports": Array [],
                     "volumeMounts": Array [],
