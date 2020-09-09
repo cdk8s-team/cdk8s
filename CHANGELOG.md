@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.28.0](https://github.com/awslabs/cdk8s/compare/v0.27.0...v0.28.0) (2020-09-09)
+
+
+### Features
+
+* ImagePullPolicy support for cdk8s-plus Container ([#313](https://github.com/awslabs/cdk8s/issues/313)) ([8307757](https://github.com/awslabs/cdk8s/commit/8307757deb9b70db4fda716d4a4afb7cef522dc9))
+
+
+### Bug Fixes
+
+* **examples:** Add missing dependencies on python examples. ([#290](https://github.com/awslabs/cdk8s/issues/290)) ([36e6fab](https://github.com/awslabs/cdk8s/commit/36e6fab9c4c0f30f6f49c93c1f284d8054955fcd)), closes [#289](https://github.com/awslabs/cdk8s/issues/289)
+* **plus:** support node ports for cdk8s-plus service ([#315](https://github.com/awslabs/cdk8s/issues/315)) ([85ec225](https://github.com/awslabs/cdk8s/commit/85ec225bcdbab3631ffebbf6c93c3ac70937b4b9)), closes [#296](https://github.com/awslabs/cdk8s/issues/296)
+* **website:** doc links are broken due to wrong version number ([#312](https://github.com/awslabs/cdk8s/issues/312)) ([f2f9402](https://github.com/awslabs/cdk8s/commit/f2f9402d975aa9a2b8bab6db68fc8bccb74a6772)), closes [#307](https://github.com/awslabs/cdk8s/issues/307)
+
 ## [0.27.0](https://github.com/awslabs/cdk8s/compare/v0.26.0...v0.27.0) (2020-08-05)
 
 
