@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* ImagePullPolicy support for cdk8s-plus Container ([#313](https://github.com/awslabs/cdk8s/issues/313)) ([8307757](https://github.com/awslabs/cdk8s/commit/8307757deb9b70db4fda716d4a4afb7cef522dc9))
+* **plus:** ImagePullPolicy support for cdk8s-plus Container ([#313](https://github.com/awslabs/cdk8s/issues/313)) ([8307757](https://github.com/awslabs/cdk8s/commit/8307757deb9b70db4fda716d4a4afb7cef522dc9))
 
 
 ### Bug Fixes
