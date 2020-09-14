@@ -32,8 +32,8 @@ params:
     languages:
       title: Language support
       details: |
-        cdk8s lets you define applications using Typescript, JavaScript, and
-        Python. Support for more languages is coming soon.
+        cdk8s lets you define applications using Typescript, JavaScript, Python,
+        and Java. Support for more languages is coming soon.
     imports:
       title: Supports core Kubernetes objects and custom resources
       details: |
@@ -62,4 +62,5 @@ params:
     getting_started: https://github.com/awslabs/cdk8s/blob/master/README.md#getting-started
     getting_started_python: https://github.com/awslabs/cdk8s/blob/master/docs/getting-started/python.md
     getting_started_typescript: https://github.com/awslabs/cdk8s/blob/master/docs/getting-started/typescript.md
+    getting_started_java: https://github.com/awslabs/cdk8s/blob/master/docs/getting-started/java.md
     license: https://github.com/awslabs/cdk8s/blob/master/LICENSE
