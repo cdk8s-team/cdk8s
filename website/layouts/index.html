@@ -6,6 +6,7 @@
 {{- $getting_started := .Site.Params.links.getting_started }}
 {{- $python_link := .Site.Params.links.getting_started_python }}
 {{- $typescript_link := .Site.Params.links.getting_started_typescript }}
+{{- $java_link := .Site.Params.links.getting_started_java }}
 
 {{- $lib_docs := (print "https://awscdk.io/packages/cdk8s@" $version) }}
 {{- $cli_docs := (print "https://github.com/awslabs/cdk8s/blob/v" $version "/packages/cdk8s-cli/README.md") }}
@@ -86,7 +87,7 @@
                             <div class="w-icon-dropdown-toggle"></div>
                             <div>Getting started</div>
                         </div>
-                        <nav class="dropdown-list w-dropdown-list"><a href="{{ $python_link }}" class="dropdown-link w-dropdown-link">Python</a><a href="{{ $typescript_link }}" class="dropdown-link w-dropdown-link">TypeScript</a></nav>
+                        <nav class="dropdown-list w-dropdown-list"><a href="{{ $python_link }}" class="dropdown-link w-dropdown-link">Python</a><a href="{{ $typescript_link }}" class="dropdown-link w-dropdown-link">TypeScript</a><a href="{{ $java_link }}" class="dropdown-link w-dropdown-link">Java</a></nav>
                     </div>
                     <div data-hover="" data-delay="0" class="w-dropdown">
                         <div class="dropdown w-dropdown-toggle">
@@ -213,6 +214,7 @@
                 <h1 class="footer-title">DOCS</h1>
                 <a href="{{ $python_link }}" class="footer-link">Start with Python</a>
                 <a href="{{ $typescript_link }}" class="footer-link">Start with TypeScript</a>
+                <a href="{{ $java_link }}" class="footer-link">Start with Java</a>
                 <a href="{{ $cli_docs }}" class="footer-link">cdk8s CLI ({{ $version }})</a>
                 <a href="{{ $lib_docs }}" class="footer-link">cdk8s Library ({{ $version }})</a>
             </div>
