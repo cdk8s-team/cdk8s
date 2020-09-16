@@ -23,18 +23,6 @@
 
 <head>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166333129-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', '{{ .Site.GoogleAnalytics }}');
-    </script>
-
     <meta charset="utf-8">
 
     <title>cdk8s</title>
@@ -243,7 +231,9 @@
                 Made with 💙 by Amazon Web Services and distributed under the <a href="{{ .Site.Params.links.license }}" class="link">the Apache 2.0 License‍</a>
                 <br> Contributors and maintainers are governed by the <a href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md" class="link">CNCF Code of Conduct</a>
             </div>
-            <div class="text-block-3">© cdk8s project authors. all rights reserved</div>
+            <div class="text-block-3">
+              <a class="footer-link" href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a class="footer-link" href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
+            </div>
         </div>
     </div>
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js?site=5eb123ae928e7b1c2d221701" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
