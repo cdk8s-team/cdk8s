@@ -10,7 +10,7 @@ const marker = require('./get-version-marker');
 const repoVersion = process.argv[2]
 const files = process.argv.splice(3);
 
-const preRelease = semver.prerelease(repoVersion) ? true : false
+const PRE_RELEASE = semver.prerelease(repoVersion) ? true : false
 
 for (const file of files) {
   const pkg = JSON.parse(fs.readFileSync(file).toString());
@@ -48,7 +48,7 @@ function processSection(section) {
   for (const [ name, version ] of Object.entries(section)) {
     if (version === marker || version === '^' + marker) {
 
-      if (preRelease) {
+      if (PRE_RELEASE) {
         // pre-release doesn't work with caret dependencies.
         // so we forcefully use pinned versions.
         section[name] = repoVersion;

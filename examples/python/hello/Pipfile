@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-constructs = "==2.0.2"
+constructs = "==3.0.4"
 cdk8s = "~=0.26.0"
 
 [requires]
