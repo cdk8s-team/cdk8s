@@ -277,6 +277,7 @@ export class ServiceSpecDefinition {
       ports.push({
         port: port.port,
         targetPort: port.targetPort,
+        nodePort: port.nodePort,
       });
     }
 

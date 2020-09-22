@@ -65,6 +65,7 @@ Choose your weapon:
 
 - [TypeScript](./docs/getting-started/typescript.md)
 - [Python](./docs/getting-started/python.md)
+- [Java](./docs/getting-started/java.md)
 
 ## Help & Feedback
 

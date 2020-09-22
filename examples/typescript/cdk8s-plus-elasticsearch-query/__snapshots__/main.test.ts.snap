@@ -165,6 +165,7 @@ function doSearch(uri, callback) {
                 },
               ],
               "image": "node:12.18.0-stretch",
+              "imagePullPolicy": "Always",
               "name": "main",
               "ports": Array [
                 Object {

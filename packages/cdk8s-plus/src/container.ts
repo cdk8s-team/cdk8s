@@ -118,6 +118,32 @@ export class EnvValue {
   private constructor(public readonly value?: any, public readonly valueFrom?: any) {}
 }
 
+export enum ImagePullPolicy {
+  /**
+   * Every time the kubelet launches a container, the kubelet queries the container image registry
+   * to resolve the name to an image digest. If the kubelet has a container image with that exact
+   * digest cached locally, the kubelet uses its cached image; otherwise, the kubelet downloads
+   * (pulls) the image with the resolved digest, and uses that image to launch the container.
+   * 
+   * Default is Always if ImagePullPolicy is omitted and either the image tag is :latest or
+   * the image tag is omitted.
+   */
+  ALWAYS = 'Always',
+
+  /**
+   * The image is pulled only if it is not already present locally.
+   * 
+   * Default is IfNotPresent if ImagePullPolicy is omitted and the image tag is present but
+   * not :latest
+   */
+  IF_NOT_PRESENT = 'IfNotPresent',
+
+  /**
+   * The image is assumed to exist locally. No attempt is made to pull the image.
+   */
+  NEVER = 'Never',
+}
+
 /**
  * Properties for creating a container.
  */
@@ -170,6 +196,12 @@ export interface ContainerProps {
    * Pod volumes to mount into the container's filesystem. Cannot be updated.
    */
   readonly volumeMounts?: VolumeMount[];
+
+  /**
+   * Image pull policy for this container
+   * @default ImagePullPolicy.ALWAYS
+   */
+  readonly imagePullPolicy?: ImagePullPolicy
 }
 
 /**
@@ -186,6 +218,11 @@ export class Container {
    * Volume mounts configured for this container.
    */
   public readonly mounts: VolumeMount[];
+
+  /**
+   * Image pull policy for this container
+   */
+  public readonly imagePullPolicy: ImagePullPolicy;
 
   /**
    * The container image.
@@ -213,6 +250,7 @@ export class Container {
     this._env = props.env ?? { };
     this.workingDir = props.workingDir;
     this.mounts = props.volumeMounts ?? [];
+    this.imagePullPolicy = props.imagePullPolicy ?? ImagePullPolicy.ALWAYS;
   }
 
   /**
@@ -284,6 +322,7 @@ export class Container {
     return {
       name: this.name,
       image: this.image,
+      imagePullPolicy: this.imagePullPolicy,
       ports,
       volumeMounts,
       command: this.command,
