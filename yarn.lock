@@ -3123,11 +3123,6 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs-tokens-staging@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/constructs-tokens-staging/-/constructs-tokens-staging-0.0.4.tgz#9387808946f68bd7b0662cb8fcd6a41ea90842cf"
-  integrity sha512-HXgy6Qv6QzutRKSW8424KTeN7oR9kDqRR/HDgNgQXiW+HkgTrHej6c+NKmnzwUyH0qlS+sIjHcWlCZ7Y1xWJzQ==
-
 constructs@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.0.4.tgz#eb1ed5b80f6600b8d50de83971357ae0fe8e29a2"
@@ -6329,10 +6324,10 @@ jsii-rosetta@^1.12.0:
     xmldom "^0.3.0"
     yargs "^15.4.1"
 
-jsii-srcmak@^0.1.36:
-  version "0.1.36"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.36.tgz#b151939778dd845df78d1ad185f7f4f1c530f349"
-  integrity sha512-zQmEZpxB6LPYTZygUTo0M3YiuRlSRqz/EGJFszx7Gqs0XZ4UQSHjwxs04xqUqqUbMIuSzvqclWB1Uiv3WbspEg==
+jsii-srcmak@^0.1.10:
+  version "0.1.38"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.38.tgz#698f87c8e49e8f38f74a5600fb410fa402eae3af"
+  integrity sha512-D124RQ1cEph0ctKeOfGTLEGqWBOx/v+nRIEex0rVtHOkp0ydeKH/SV2/m4eWhiq9HPVLjTnHblInDOSn5/X4Mg==
   dependencies:
     fs-extra "^9.0.1"
     jsii "^1.12.0"

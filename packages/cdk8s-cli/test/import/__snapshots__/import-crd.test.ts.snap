@@ -11,7 +11,6 @@ Object {
   "dependencies": Object {
     "cdk8s": "999.999.999",
     "constructs": "3.0.4",
-    "constructs-tokens-staging": "0.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -55,28 +54,6 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
-        },
-      },
-    },
-    "constructs-tokens-staging": Object {
-      "targets": Object {
-        "dotnet": Object {
-          "namespace": "Org.ConstructsTokensStaging",
-          "packageId": "Org.ConstructsTokensStaging",
-        },
-        "java": Object {
-          "maven": Object {
-            "artifactId": "constructs-tokens-staging",
-            "groupId": "io.github.iliapolo",
-          },
-          "package": "io.github.iliapolo.constructstokensstaging",
-        },
-        "js": Object {
-          "npm": "constructs-tokens-staging",
-        },
-        "python": Object {
-          "distName": "constructs-tokens-staging",
-          "module": "constructs_tokens_staging",
         },
       },
     },
@@ -4099,7 +4076,6 @@ Object {
   "dependencies": Object {
     "cdk8s": "999.999.999",
     "constructs": "3.0.4",
-    "constructs-tokens-staging": "0.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -4143,28 +4119,6 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
-        },
-      },
-    },
-    "constructs-tokens-staging": Object {
-      "targets": Object {
-        "dotnet": Object {
-          "namespace": "Org.ConstructsTokensStaging",
-          "packageId": "Org.ConstructsTokensStaging",
-        },
-        "java": Object {
-          "maven": Object {
-            "artifactId": "constructs-tokens-staging",
-            "groupId": "io.github.iliapolo",
-          },
-          "package": "io.github.iliapolo.constructstokensstaging",
-        },
-        "js": Object {
-          "npm": "constructs-tokens-staging",
-        },
-        "python": Object {
-          "distName": "constructs-tokens-staging",
-          "module": "constructs_tokens_staging",
         },
       },
     },
@@ -16890,7 +16844,6 @@ Object {
   "dependencies": Object {
     "cdk8s": "999.999.999",
     "constructs": "3.0.4",
-    "constructs-tokens-staging": "0.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -16934,28 +16887,6 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
-        },
-      },
-    },
-    "constructs-tokens-staging": Object {
-      "targets": Object {
-        "dotnet": Object {
-          "namespace": "Org.ConstructsTokensStaging",
-          "packageId": "Org.ConstructsTokensStaging",
-        },
-        "java": Object {
-          "maven": Object {
-            "artifactId": "constructs-tokens-staging",
-            "groupId": "io.github.iliapolo",
-          },
-          "package": "io.github.iliapolo.constructstokensstaging",
-        },
-        "js": Object {
-          "npm": "constructs-tokens-staging",
-        },
-        "python": Object {
-          "distName": "constructs-tokens-staging",
-          "module": "constructs_tokens_staging",
         },
       },
     },
@@ -17156,7 +17087,6 @@ Object {
   "dependencies": Object {
     "cdk8s": "999.999.999",
     "constructs": "3.0.4",
-    "constructs-tokens-staging": "0.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17200,28 +17130,6 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
-        },
-      },
-    },
-    "constructs-tokens-staging": Object {
-      "targets": Object {
-        "dotnet": Object {
-          "namespace": "Org.ConstructsTokensStaging",
-          "packageId": "Org.ConstructsTokensStaging",
-        },
-        "java": Object {
-          "maven": Object {
-            "artifactId": "constructs-tokens-staging",
-            "groupId": "io.github.iliapolo",
-          },
-          "package": "io.github.iliapolo.constructstokensstaging",
-        },
-        "js": Object {
-          "npm": "constructs-tokens-staging",
-        },
-        "python": Object {
-          "distName": "constructs-tokens-staging",
-          "module": "constructs_tokens_staging",
         },
       },
     },
@@ -17422,7 +17330,6 @@ Object {
   "dependencies": Object {
     "cdk8s": "999.999.999",
     "constructs": "3.0.4",
-    "constructs-tokens-staging": "0.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17466,28 +17373,6 @@ Object {
         "python": Object {
           "distName": "constructs",
           "module": "constructs",
-        },
-      },
-    },
-    "constructs-tokens-staging": Object {
-      "targets": Object {
-        "dotnet": Object {
-          "namespace": "Org.ConstructsTokensStaging",
-          "packageId": "Org.ConstructsTokensStaging",
-        },
-        "java": Object {
-          "maven": Object {
-            "artifactId": "constructs-tokens-staging",
-            "groupId": "io.github.iliapolo",
-          },
-          "package": "io.github.iliapolo.constructstokensstaging",
-        },
-        "js": Object {
-          "npm": "constructs-tokens-staging",
-        },
-        "python": Object {
-          "distName": "constructs-tokens-staging",
-          "module": "constructs_tokens_staging",
         },
       },
     },

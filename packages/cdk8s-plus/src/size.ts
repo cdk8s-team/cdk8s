@@ -1,10 +1,8 @@
-import { Token } from 'constructs-tokens-staging';
-
 /**
  * Represents the amount of digital storage.
  *
  * The amount can be specified either as a literal value (e.g: `10`) which
- * cannot be negative, or as an unresolved number token.
+ * cannot be negative.
  *
  * When the amount is passed as a token, unit conversion is not possible.
  */
@@ -53,7 +51,7 @@ export class Size {
   private readonly unit: StorageUnit;
 
   private constructor(amount: number, unit: StorageUnit) {
-    if (!Token.isUnresolved(amount) && amount < 0) {
+    if (amount < 0) {
       throw new Error(`Storage amounts cannot be negative. Received: ${amount}`);
     }
     this.amount = amount;
@@ -140,9 +138,6 @@ class StorageUnit {
 function convert(amount: number, fromUnit: StorageUnit, toUnit: StorageUnit, options: SizeConversionOptions = {}) {
   const rounding = options.rounding ?? SizeRoundingBehavior.FAIL;
   if (fromUnit.inKibiBytes === toUnit.inKibiBytes) { return amount; }
-  if (Token.isUnresolved(amount)) {
-    throw new Error(`Unable to perform time unit conversion on un-resolved token ${amount}.`);
-  }
 
   const multiplier = fromUnit.inKibiBytes / toUnit.inKibiBytes;
   const value = amount * multiplier;

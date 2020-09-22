@@ -1,12 +1,9 @@
-import { Token } from 'constructs-tokens-staging';
-
 /**
  * Represents a length of time.
  *
  * The amount can be specified either as a literal value (e.g: `10`) which
- * cannot be negative, or as an unresolved number token.
+ * cannot be negative.
  *
- * When the amount is passed as a token, unit conversion is not possible.
  */
 export class Duration {
   /**
@@ -92,7 +89,7 @@ export class Duration {
   private readonly unit: TimeUnit;
 
   private constructor(amount: number, unit: TimeUnit) {
-    if (!Token.isUnresolved(amount) && amount < 0) {
+    if (amount < 0) {
       throw new Error(`Duration amounts cannot be negative. Received: ${amount}`);
     }
 
@@ -179,7 +176,6 @@ export class Duration {
    */
   public toHumanString(): string {
     if (this.amount === 0) { return fmtUnit(0, this.unit); }
-    if (Token.isUnresolved(this.amount)) { return `<token> ${this.unit.label}`; }
 
     let millis = convert(this.amount, this.unit, TimeUnit.Milliseconds, { integral: false });
     const parts = new Array<string>();
@@ -207,20 +203,6 @@ export class Duration {
       }
       return `${amount} ${unit.label}`;
     }
-  }
-
-  /**
-   * Returns a string representation of this `Duration` that is also a Token that cannot be successfully resolved. This
-   * protects users against inadvertently stringifying a `Duration` object, when they should have called one of the
-   * `to*` methods instead.
-   */
-  public toString(): string {
-    return Token.asString(
-      () => {
-        throw new Error('Duration.toString() was used, but .toSeconds, .toMinutes or .toDays should have been called instead');
-      },
-      { displayHint: `${this.amount} ${this.unit.label}` },
-    );
   }
 
   private fractionDuration(symbol: string, modulus: number, next: (amount: number) => Duration): string {
@@ -270,9 +252,6 @@ function convert(amount: number, fromUnit: TimeUnit, toUnit: TimeUnit, { integra
   if (fromUnit.inMillis === toUnit.inMillis) { return amount; }
   const multiplier = fromUnit.inMillis / toUnit.inMillis;
 
-  if (Token.isUnresolved(amount)) {
-    throw new Error(`Unable to perform time unit conversion on un-resolved token ${amount}.`);
-  }
   const value = amount * multiplier;
   if (!Number.isInteger(value) && integral) {
     throw new Error(`'${amount} ${fromUnit}' cannot be converted into a whole number of ${toUnit}.`);

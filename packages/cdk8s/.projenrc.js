@@ -12,7 +12,6 @@ const project = new JsiiProject({
   jsiiVersion: Semver.caret(common.versions.jsii),
   peerDependencies: {
     "constructs": Semver.caret(common.versions.constructs),
-    "constructs-tokens-staging": Semver.caret(common.versions.tokens)
   },
   dependencies: {
     "follow-redirects": Semver.caret("1.11.0"),
@@ -29,7 +28,6 @@ const project = new JsiiProject({
     "@types/json-stable-stringify": Semver.caret("1.0.32"),
     "@types/yaml": Semver.caret("1.2.0"),
     "constructs": Semver.caret(common.versions.constructs),
-    "constructs-tokens-staging": Semver.caret(common.versions.tokens),
     "json-schema-to-typescript": Semver.caret("8.0.1"),
   },
 

@@ -33,7 +33,6 @@
   "devDependencies": {
     "cdk8s": "^0.0.0",
     "constructs": "^3.0.4",
-    "constructs-tokens-staging": "^0.0.4",
     "@types/minimatch": "^3.0.3",
     "@aws-cdk/aws-eks": "^1.58.0",
     "@aws-cdk/core": "^1.58.0",
@@ -59,8 +58,7 @@
   },
   "peerDependencies": {
     "cdk8s": "^0.0.0",
-    "constructs": "^3.0.4",
-    "constructs-tokens-staging": "^0.0.4"
+    "constructs": "^3.0.4"
   },
   "dependencies": {
     "minimatch": "^3.0.4"
