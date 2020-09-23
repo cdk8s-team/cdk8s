@@ -43,7 +43,7 @@ test('tokens are resolved during synth', () => {
     kind: 'Resource1',
     apiVersion: 'v1',
     spec: {
-      foo: Lazy.number({ produce: () => 123 }),
+      foo: Lazy.any({ produce: () => 123 }),
       implicitToken: createImplictToken({ foo: 'bar' }),
     },
   });

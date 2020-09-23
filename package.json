@@ -25,9 +25,7 @@
       "cdk8s/follow-redirects",
       "cdk8s/follow-redirects/**",
       "cdk8s-plus/minimatch",
-      "cdk8s-plus/minimatch/**",
-      "projen/constructs",
-      "projen/constructs/**"
+      "cdk8s-plus/minimatch/**"
     ]
   },
   "devDependencies": {

@@ -30,9 +30,6 @@ Name|Description
 Name|Description
 ----|-----------
 [IAnyProducer](#cdk8s-ianyproducer)|*No description*
-[INumberProducer](#cdk8s-inumberproducer)|*No description*
-[IStringListProducer](#cdk8s-istringlistproducer)|*No description*
-[IStringProducer](#cdk8s-istringproducer)|*No description*
 
 
 
@@ -414,45 +411,6 @@ static any(producer: IAnyProducer): any
 __Returns__:
 * <code>any</code>
 
-#### *static* number(producer)🔹 <a id="cdk8s-lazy-number"></a>
-
-
-
-```ts
-static number(producer: INumberProducer): number
-```
-
-* **producer** (<code>[INumberProducer](#cdk8s-inumberproducer)</code>)  *No description*
-
-__Returns__:
-* <code>number</code>
-
-#### *static* string(producer)🔹 <a id="cdk8s-lazy-string"></a>
-
-
-
-```ts
-static string(producer: IStringProducer): string
-```
-
-* **producer** (<code>[IStringProducer](#cdk8s-istringproducer)</code>)  *No description*
-
-__Returns__:
-* <code>string</code>
-
-#### *static* stringList(producer)🔹 <a id="cdk8s-lazy-stringlist"></a>
-
-
-
-```ts
-static stringList(producer: IStringListProducer): Array<string>
-```
-
-* **producer** (<code>[IStringListProducer](#cdk8s-istringlistproducer)</code>)  *No description*
-
-__Returns__:
-* <code>Array<string></code>
-
 
 
 ## class Testing 🔹 <a id="cdk8s-testing"></a>
@@ -629,69 +587,6 @@ produce(): any
 
 __Returns__:
 * <code>any</code>
-
-
-
-## interface INumberProducer 🔹 <a id="cdk8s-inumberproducer"></a>
-
-
-
-### Methods
-
-
-#### produce()🔹 <a id="cdk8s-inumberproducer-produce"></a>
-
-
-
-```ts
-produce(): number
-```
-
-
-__Returns__:
-* <code>number</code>
-
-
-
-## interface IStringListProducer 🔹 <a id="cdk8s-istringlistproducer"></a>
-
-
-
-### Methods
-
-
-#### produce()🔹 <a id="cdk8s-istringlistproducer-produce"></a>
-
-
-
-```ts
-produce(): Array<string>
-```
-
-
-__Returns__:
-* <code>Array<string></code>
-
-
-
-## interface IStringProducer 🔹 <a id="cdk8s-istringproducer"></a>
-
-
-
-### Methods
-
-
-#### produce()🔹 <a id="cdk8s-istringproducer-produce"></a>
-
-
-
-```ts
-produce(): string
-```
-
-
-__Returns__:
-* <code>string</code>
 
 
 
