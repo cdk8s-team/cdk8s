@@ -389,12 +389,12 @@ new Include(scope: Construct, name: string, options: IncludeOptions)
 ### Methods
 
 
-#### resolve()🔹 <a id="cdk8s-lazy-resolve"></a>
+#### produce()🔹 <a id="cdk8s-lazy-produce"></a>
 
 
 
 ```ts
-resolve(): any
+produce(): any
 ```
 
 

@@ -71,7 +71,9 @@ Array [
     },
     "spec": Object {
       "foo": 123,
-      "implicitToken": Object {},
+      "implicitToken": Object {
+        "foo": "bar",
+      },
     },
   },
 ]

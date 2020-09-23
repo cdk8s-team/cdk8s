@@ -12,7 +12,7 @@ Array [
       "ports": Array [
         Object {
           "port": 80,
-          "targetPort": Object {},
+          "targetPort": 8080,
         },
       ],
       "selector": Object {
