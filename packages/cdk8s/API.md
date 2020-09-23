@@ -12,6 +12,7 @@ Name|Description
 [DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
 [Lazy](#cdk8s-lazy)|*No description*
+[Names](#cdk8s-names)|Utilities for generating unique and stable names.
 [Testing](#cdk8s-testing)|Testing utilities for cdk8s applications.
 [Yaml](#cdk8s-yaml)|YAML utilities.
 
@@ -526,6 +527,45 @@ static any(producer: IAnyProducer): any
 
 __Returns__:
 * <code>any</code>
+
+
+
+## class Names 🔹 <a id="cdk8s-names"></a>
+
+Utilities for generating unique and stable names.
+
+
+### Methods
+
+
+#### *static* toDnsLabel(path, maxLen?)🔹 <a id="cdk8s-names-todnslabel"></a>
+
+Generates a unique and stable name compatible DNS_LABEL from RFC-1123 from a path.
+
+The generated name will:
+  - contain at most 63 characters
+  - contain only lowercase alphanumeric characters or ‘-’
+  - start with an alphanumeric character
+  - end with an alphanumeric character
+
+The generated name will have the form:
+  <comp0>-<comp1>-..-<compN>-<short-hash>
+
+Where <comp> are the path components (assuming they are is separated by
+"/").
+
+Note that if the total length is longer than 63 characters, we will trim
+the first components since the last components usually encode more meaning.
+
+```ts
+static toDnsLabel(path: string, maxLen?: number): string
+```
+
+* **path** (<code>string</code>)  a path to a node (components separated by "/").
+* **maxLen** (<code>number</code>)  maximum allowed length for name.
+
+__Returns__:
+* <code>string</code>
 
 
 
