@@ -4,7 +4,7 @@ import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { PodSpecDefinition, PodSpec } from './pod';
-import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
+import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
 
 /**
  * Properties for initialization of `Deployment`.
@@ -103,7 +103,7 @@ export class Deployment extends Resource {
 
     // create a label and attach it to the deployment pods
     const selector = 'cdk8s.deployment';
-    const matcher = Node.of(this).uniqueId;
+    const matcher = Names.toDnsLabel(Node.of(this).path);
 
     const service = new Service(this, 'Service', {
       spec: {
@@ -204,7 +204,7 @@ export class DeploymentSpecDefinition {
     // automatically select pods in this deployment
 
     const selector = 'cdk8s.deployment';
-    const matcher = Node.of(deployment).uniqueId;
+    const matcher = Names.toDnsLabel(Node.of(deployment).path);
 
     this.podMetadataTemplate.addLabel(selector, matcher);
 
