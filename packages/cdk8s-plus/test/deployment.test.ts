@@ -44,7 +44,7 @@ describe('DeploymentSpecDefinition', () => {
     const expected: k8s.LabelSelector = {
       matchLabels: {
         'key': 'value',
-        'cdk8s.deployment': Names.toDnsLabel(Node.of(deployment).path),
+        'cdk8s.deployment': Names.toLabelValue(Node.of(deployment).path),
       },
     };
 
@@ -73,7 +73,7 @@ describe('Deployment', () => {
 
     expect(actual.type).toEqual('LoadBalancer');
     expect(actual.selector).toEqual({
-      'cdk8s.deployment': Names.toDnsLabel(Node.of(deployment).path),
+      'cdk8s.deployment': Names.toLabelValue(Node.of(deployment).path),
     });
     expect(actual.ports![0].port).toEqual(9200);
     expect(actual.ports![0].targetPort).toEqual(9300);
@@ -100,7 +100,7 @@ describe('Deployment', () => {
 
     expect(actual.type).toEqual('ClusterIP');
     expect(actual.selector).toEqual({
-      'cdk8s.deployment': Names.toDnsLabel(Node.of(deployment).path),
+      'cdk8s.deployment': Names.toLabelValue(Node.of(deployment).path),
     });
     expect(actual.ports![0].port).toEqual(9200);
     expect(actual.ports![0].targetPort).toEqual(9300);

@@ -31,7 +31,7 @@ export class WebService extends Construct {
 
     const port = options.port || 80;
     const containerPort = options.containerPort || 8080;
-    const label = { app: Names.toDnsLabel(Node.of(this).path) };
+    const label = { app: Names.toLabelValue(Node.of(this).path) };
     const replicas = options.replicas ?? 1;
 
     new Service(this, 'service', {

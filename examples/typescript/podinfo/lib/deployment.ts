@@ -90,7 +90,7 @@ export class Deployment extends Construct implements ISelector {
     // labels
 
     this.selector = { 
-      deploymentId: Names.toDnsLabel(Node.of(this).path),
+      deploymentId: Names.toLabelValue(Node.of(this).path),
       ...options.labels
     };
 

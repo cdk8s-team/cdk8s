@@ -567,6 +567,38 @@ static toDnsLabel(path: string, maxLen?: number): string
 __Returns__:
 * <code>string</code>
 
+#### *static* toLabelValue(path, delim?, maxLen?)🔹 <a id="cdk8s-names-tolabelvalue"></a>
+
+Generates a unique and stable name compatible label key name segment and label value from a path.
+
+The name segment is required and must be 63 characters or less, beginning
+and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-),
+underscores (_), dots (.), and alphanumerics between.
+
+Valid label values must be 63 characters or less and must be empty or
+begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes
+(-), underscores (_), dots (.), and alphanumerics between.
+
+The generated name will have the form:
+  <comp0><delim><comp1><delim>..<delim><compN><delim><short-hash>
+
+Where <comp> are the path components (assuming they are is separated by
+"/").
+
+Note that if the total length is longer than 63 characters, we will trim
+the first components since the last components usually encode more meaning.
+
+```ts
+static toLabelValue(path: string, delim?: string, maxLen?: number): string
+```
+
+* **path** (<code>string</code>)  a path to a node (components separated by "/").
+* **delim** (<code>string</code>)  a delimiter to separates components.
+* **maxLen** (<code>number</code>)  maximum allowed length for name.
+
+__Returns__:
+* <code>string</code>
+
 
 
 ## class Testing 🔹 <a id="cdk8s-testing"></a>

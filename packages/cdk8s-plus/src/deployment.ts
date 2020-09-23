@@ -103,7 +103,7 @@ export class Deployment extends Resource {
 
     // create a label and attach it to the deployment pods
     const selector = 'cdk8s.deployment';
-    const matcher = Names.toDnsLabel(Node.of(this).path);
+    const matcher = Names.toLabelValue(Node.of(this).path);
 
     const service = new Service(this, 'Service', {
       spec: {
@@ -204,7 +204,7 @@ export class DeploymentSpecDefinition {
     // automatically select pods in this deployment
 
     const selector = 'cdk8s.deployment';
-    const matcher = Names.toDnsLabel(Node.of(deployment).path);
+    const matcher = Names.toLabelValue(Node.of(deployment).path);
 
     this.podMetadataTemplate.addLabel(selector, matcher);
 
