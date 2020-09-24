@@ -8,6 +8,8 @@ Name|Description
 [ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)|Object metadata.
 [App](#cdk8s-app)|Represents a cdk8s application.
 [Chart](#cdk8s-chart)|*No description*
+[DependencyGraph](#cdk8s-dependencygraph)|Represents the dependency graph for a given Node.
+[DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
 [Testing](#cdk8s-testing)|Testing utilities for cdk8s applications.
 [Yaml](#cdk8s-yaml)|YAML utilities.
@@ -340,6 +342,120 @@ static of(c: IConstruct): Chart
 
 __Returns__:
 * <code>[Chart](#cdk8s-chart)</code>
+
+
+
+## class DependencyGraph 🔹 <a id="cdk8s-dependencygraph"></a>
+
+Represents the dependency graph for a given Node.
+
+This graph includes the dependency relationships between all nodes in the
+node (construct) sub-tree who's root is this Node.
+
+Note that this means that lonely nodes (no dependencies and no dependants) are also included in this graph as
+childless children of the root node of the graph.
+
+The graph does not include cross-scope dependencies. That is, if a child on the current scope depends on a node
+from a different scope, that relationship is not represented in this graph.
+
+
+### Initializer
+
+
+
+
+```ts
+new DependencyGraph(node: Node)
+```
+
+* **node** (<code>[Node](#constructs-node)</code>)  *No description*
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**root**🔹 | <code>[DependencyVertex](#cdk8s-dependencyvertex)</code> | Returns the root of the graph.
+
+### Methods
+
+
+#### topology()🔹 <a id="cdk8s-dependencygraph-topology"></a>
+
+
+
+```ts
+topology(): Array<IConstruct>
+```
+
+
+__Returns__:
+* <code>Array<[IConstruct](#constructs-iconstruct)></code>
+
+
+
+## class DependencyVertex 🔹 <a id="cdk8s-dependencyvertex"></a>
+
+Represents a vertex in the graph.
+
+The value of each vertex is an `IConstruct` that is accessible via the `.value` getter.
+
+
+### Initializer
+
+
+
+
+```ts
+new DependencyVertex(value?: IConstruct)
+```
+
+* **value** (<code>[IConstruct](#constructs-iconstruct)</code>)  *No description*
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**inbound**🔹 | <code>Array<[DependencyVertex](#cdk8s-dependencyvertex)></code> | Returns the parents of the vertex (i.e dependants).
+**outbound**🔹 | <code>Array<[DependencyVertex](#cdk8s-dependencyvertex)></code> | Returns the children of the vertex (i.e dependencies).
+**value**?🔹 | <code>[IConstruct](#constructs-iconstruct)</code> | Returns the IConstruct this graph vertex represents.<br/>__*Optional*__
+
+### Methods
+
+
+#### addChild(dep)🔹 <a id="cdk8s-dependencyvertex-addchild"></a>
+
+Adds a vertex as a dependency of the current node.
+
+Also updates the parents of `dep`, so that it contains this node as a parent.
+
+This operation will fail in case it creates a cycle in the graph.
+
+```ts
+addChild(dep: DependencyVertex): void
+```
+
+* **dep** (<code>[DependencyVertex](#cdk8s-dependencyvertex)</code>)  The dependency.
+
+
+
+
+#### topology()🔹 <a id="cdk8s-dependencyvertex-topology"></a>
+
+Returns a topologically sorted array of the constructs in the sub-graph.
+
+```ts
+topology(): Array<IConstruct>
+```
+
+
+__Returns__:
+* <code>Array<[IConstruct](#constructs-iconstruct)></code>
 
 
 
