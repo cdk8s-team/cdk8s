@@ -13,7 +13,7 @@ const project = new TypeScriptLibraryProject({
     "codemaker": Semver.caret('0.22.0'),
     "constructs": Semver.caret(common.versions.constructs),
     "fs-extra": Semver.caret('8.1.0'),
-    "jsii-srcmak": Semver.caret('0.1.10'),
+    "jsii-srcmak": Semver.caret('0.1.36'),
     "sscaff": Semver.caret('1.2.0'),
     "yaml": Semver.caret('1.7.2'),
     "yargs": Semver.caret('15.1.0'),
