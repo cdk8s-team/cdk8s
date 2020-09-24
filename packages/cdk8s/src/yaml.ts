@@ -1,8 +1,13 @@
 import * as fs from 'fs';
 import * as YAML from 'yaml';
+import { Type } from 'yaml/util';
 import { execFileSync } from 'child_process';
 import * as os from 'os';
 import * as path from 'path';
+
+// Ensure that all strings are quoted when written to yaml to avoid unquoted
+// primitive types in the output yaml in fields that require strings.
+YAML.scalarOptions.str.defaultType = Type.QUOTE_DOUBLE;
 
 /**
  * YAML utilities.
