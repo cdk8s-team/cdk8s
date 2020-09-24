@@ -1,5 +1,6 @@
-import { Lazy } from '../src';
+import { ApiObject, Lazy, Testing } from '../src';
 import { resolve } from '../src/lazy';
+
 
 test('lazy', () => {
   // GIVEN
@@ -22,3 +23,37 @@ function createImplictToken(value: any) {
   Object.defineProperty(implicit, 'resolve', { value: () => value });
   return implicit;
 }
+
+test('does not resolve aws-cdk tokens', () => {
+
+  const chart = Testing.chart();
+
+  new ApiObject(chart, 'Pod', {
+    apiVersion: 'v1',
+    kind: 'Pod',
+    metadata: {
+      name: 'mypod',
+    },
+    spec: {
+      // this is how an aws-cdk token looks like in string form
+      bucketName: '${Token[TOKEN.61]}',
+      someLazyProperty: Lazy.any({ produce: () => 'lazyValue' }),
+    },
+  });
+
+  const manifest = chart.toJson();
+
+  expect(manifest).toEqual([{
+    apiVersion: 'v1',
+    kind: 'Pod',
+    metadata: {
+      name: 'mypod',
+    },
+    spec: {
+      // aws-cdk token left untouched on chart synth.
+      bucketName: '${Token[TOKEN.61]}',
+      someLazyProperty: 'lazyValue',
+    },
+  }]);
+
+});
