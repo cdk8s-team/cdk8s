@@ -45,6 +45,7 @@ describe('save', () => {
   test('empty values are preserved', () => {
     const temp = Yaml.tmp([
       {
+        // NOTE: With yaml 2.0.0-0, this is currently broken!
         i_am_undefined: undefined, // converted to "null"
         i_am_null: null,
         empty_array: [],
