@@ -15,7 +15,7 @@ export class Yaml {
    */
   public static save(filePath: string, docs: any[]) {
     // convert each resource to yaml and separate with a '---' line
-    const data = docs.map(r => YAML.stringify(r)).join('---\n');
+    const data = docs.map(r => YAML.stringify(r, {keepUndefined: true})).join('---\n');
     fs.writeFileSync(filePath, data, { encoding: 'utf-8' });
   }
 
@@ -75,4 +75,3 @@ function loadurl(url: string): string {
   const loadurl = path.join(__dirname, '_loadurl.js');
   return execFileSync(process.execPath, [ loadurl, url ], { encoding: 'utf-8' }).toString()
 }
-
