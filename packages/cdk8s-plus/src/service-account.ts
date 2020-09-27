@@ -3,7 +3,8 @@ import { Construct } from 'constructs';
 import * as k8s from './imports/k8s';
 import { ApiObject } from 'cdk8s';
 import { ISecret } from './secret';
-import { lazy, undefinedIfEmpty } from './utils';
+import * as cdk8s from 'cdk8s';
+import { undefinedIfEmpty } from './utils';
 
 
 /**
@@ -63,7 +64,7 @@ export class ServiceAccount extends Resource implements IServiceAccount {
 
     this.apiObject = new k8s.ServiceAccount(this, 'Resource', {
       metadata: props.metadata,
-      secrets: lazy(() => undefinedIfEmpty(this._secrets.map(s => ({ name: s.name })))),
+      secrets: cdk8s.Lazy.any({ produce: () => undefinedIfEmpty(this._secrets.map(s => ({ name: s.name }))) }),
     });
   }
 

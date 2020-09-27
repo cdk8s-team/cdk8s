@@ -3,7 +3,6 @@ import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
-import { lazy } from './utils';
 import { PodSpecDefinition, PodSpec } from './pod';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 
@@ -85,7 +84,7 @@ export class Deployment extends Resource {
 
     this.apiObject = new k8s.Deployment(this, 'Pod', {
       metadata: props.metadata,
-      spec: lazy(() => this.spec._toKube(this)),
+      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube(this) }),
     });
   }
 

@@ -6,7 +6,8 @@
     "bump": "tools/bump.sh",
     "build": "lerna run build",
     "test": "lerna run test",
-    "package": "lerna run package && tools/collect-dist.sh",
+    "projen": "lerna run projen",
+    "package": "tools/pack.sh && tools/collect-dist.sh",
     "integ": "test/run-against-dist test/test-all.sh",
     "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ",
     "release-github": "tools/release-github.sh"

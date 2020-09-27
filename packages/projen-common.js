@@ -1,6 +1,6 @@
 exports.versions = {
-  constructs: '2.0.2',
-  jsii: '1.7.0',
+  constructs: '3.0.4',
+  jsii: '1.9.0',
 };
 
 exports.options = {
@@ -10,6 +10,7 @@ exports.options = {
   authorOrganization: true,
   buildWorkflow: false,
   releaseWorkflow: false,
+  dependabot: false,
   mergify: false,
   compat: false,
   dependabot: false,

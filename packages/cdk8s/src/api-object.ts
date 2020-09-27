@@ -1,7 +1,7 @@
 import { Construct, IConstruct, Node } from 'constructs';
 import { Chart } from './chart';
 import { sanitizeValue } from './_util';
-import { resolve } from './_tokens';
+import { resolve } from './lazy';
 import * as stringify from 'json-stable-stringify';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition } from './metadata';
 
@@ -109,6 +109,6 @@ export class ApiObject extends Construct {
 
     // convert to "pure data" so, for example, when we convert to yaml these
     // references are not converted to anchors.
-    return JSON.parse(stringify(sanitizeValue(resolve(this, data))));
+    return JSON.parse(stringify(sanitizeValue(resolve(data))));
   }
 }

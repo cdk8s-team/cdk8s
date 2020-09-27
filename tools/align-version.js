@@ -4,12 +4,13 @@
 //
 const fs = require('fs');
 const semver = require('semver');
+const path = require('path');
 
 const marker = require('./get-version-marker');
 const repoVersion = process.argv[2]
 const files = process.argv.splice(3);
 
-const preRelease = semver.prerelease(repoVersion) ? true : false
+const PRE_RELEASE = semver.prerelease(repoVersion) ? true : false
 
 for (const file of files) {
   const pkg = JSON.parse(fs.readFileSync(file).toString());
@@ -25,14 +26,29 @@ for (const file of files) {
   processSection(pkg.peerDependencies || { });
 
   console.error(`${file} => ${repoVersion}`);
-  fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
+
+  const permissions = fs.statSync(file).mode;
+  try {
+    fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
+  } catch (err) {
+    const isProjen = fs.existsSync(path.join(path.dirname(file), '.projenrc.js'));
+    if (isProjen && err.message.includes('permission denied')) {
+      // temporary change file permissions if projen
+      fs.chmodSync(file, '600');
+      fs.writeFileSync(file, JSON.stringify(pkg, undefined, 2));
+    } else {
+      throw err;
+    }
+  } finally {
+    fs.chmodSync(file, permissions)
+  }
 }
 
 function processSection(section) {
   for (const [ name, version ] of Object.entries(section)) {
     if (version === marker || version === '^' + marker) {
 
-      if (preRelease) {
+      if (PRE_RELEASE) {
         // pre-release doesn't work with caret dependencies.
         // so we forcefully use pinned versions.
         section[name] = repoVersion;
