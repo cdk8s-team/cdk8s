@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.29.0](https://github.com/awslabs/cdk8s/compare/v0.28.0...v0.29.0) (2020-09-27)
 
+### Features
+
+* **lib:** Upgrade constructs ([#324](https://github.com/awslabs/cdk8s/issues/324)) ([070b600](https://github.com/awslabs/cdk8s/commit/070b60093bcf626deb75e8ae0f192e24797d39d8))
+
 ## [0.28.0](https://github.com/awslabs/cdk8s/compare/v0.27.0...v0.28.0) (2020-09-14)
 
 
