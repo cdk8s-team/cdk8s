@@ -11,6 +11,7 @@ Name|Description
 [DependencyGraph](#cdk8s-dependencygraph)|Represents the dependency graph for a given Node.
 [DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
+[Lazy](#cdk8s-lazy)|*No description*
 [Testing](#cdk8s-testing)|Testing utilities for cdk8s applications.
 [Yaml](#cdk8s-yaml)|YAML utilities.
 
@@ -24,6 +25,13 @@ Name|Description
 [AppOptions](#cdk8s-appoptions)|*No description*
 [ChartOptions](#cdk8s-chartoptions)|*No description*
 [IncludeOptions](#cdk8s-includeoptions)|*No description*
+
+
+**Interfaces**
+
+Name|Description
+----|-----------
+[IAnyProducer](#cdk8s-ianyproducer)|*No description*
 
 
 
@@ -486,6 +494,41 @@ new Include(scope: Construct, name: string, options: IncludeOptions)
 
 
 
+## class Lazy 🔹 <a id="cdk8s-lazy"></a>
+
+
+
+
+### Methods
+
+
+#### produce()🔹 <a id="cdk8s-lazy-produce"></a>
+
+
+
+```ts
+produce(): any
+```
+
+
+__Returns__:
+* <code>any</code>
+
+#### *static* any(producer)🔹 <a id="cdk8s-lazy-any"></a>
+
+
+
+```ts
+static any(producer: IAnyProducer): any
+```
+
+* **producer** (<code>[IAnyProducer](#cdk8s-ianyproducer)</code>)  *No description*
+
+__Returns__:
+* <code>any</code>
+
+
+
 ## class Testing 🔹 <a id="cdk8s-testing"></a>
 
 Testing utilities for cdk8s applications.
@@ -639,6 +682,27 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **namespace**?🔹 | <code>string</code> | The default namespace for all objects defined in this chart (directly or indirectly).<br/>__*Default*__: no namespace is synthesized (usually this implies "default")
+
+
+
+## interface IAnyProducer 🔹 <a id="cdk8s-ianyproducer"></a>
+
+
+
+### Methods
+
+
+#### produce()🔹 <a id="cdk8s-ianyproducer-produce"></a>
+
+
+
+```ts
+produce(): any
+```
+
+
+__Returns__:
+* <code>any</code>
 
 
 

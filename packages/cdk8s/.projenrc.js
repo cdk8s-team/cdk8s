@@ -11,7 +11,7 @@ const project = new JsiiProject({
   // dependencies
   jsiiVersion: Semver.caret(common.versions.jsii),
   peerDependencies: {
-    "constructs": Semver.pinned(common.versions.constructs),
+    "constructs": Semver.caret(common.versions.constructs),
   },
   dependencies: {
     "follow-redirects": Semver.caret("1.11.0"),

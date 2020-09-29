@@ -410,9 +410,7 @@ selectByLabel(key: string, value: string): void
 Represents a length of time.
 
 The amount can be specified either as a literal value (e.g: `10`) which
-cannot be negative, or as an unresolved number token.
-
-When the amount is passed as a token, unit conversion is not possible.
+cannot be negative.
 
 
 ### Methods
@@ -523,22 +521,6 @@ toSeconds(opts?: TimeConversionOptions): number
 
 __Returns__:
 * <code>number</code>
-
-#### toString()🔹 <a id="cdk8s-plus-duration-tostring"></a>
-
-Returns a string representation of this `Duration` that is also a Token that cannot be successfully resolved.
-
-This
-protects users against inadvertently stringifying a `Duration` object, when they should have called one of the
-`to*` methods instead.
-
-```ts
-toString(): string
-```
-
-
-__Returns__:
-* <code>string</code>
 
 #### *static* days(amount)🔹 <a id="cdk8s-plus-duration-days"></a>
 
@@ -1180,7 +1162,7 @@ serve(port: number, options?: ServicePortOptions): void
 Represents the amount of digital storage.
 
 The amount can be specified either as a literal value (e.g: `10`) which
-cannot be negative, or as an unresolved number token.
+cannot be negative.
 
 When the amount is passed as a token, unit conversion is not possible.
 

@@ -6,3 +6,4 @@ export * from './app';
 export * from './include';
 export * from './yaml';
 export * from './metadata';
+export * from './lazy';
