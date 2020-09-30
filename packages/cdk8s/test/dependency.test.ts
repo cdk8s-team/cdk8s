@@ -49,7 +49,7 @@ test('value of root is null', () => {
   Node.of(obj1).addDependency(obj2);
   Node.of(obj2).addDependency(obj3);
 
-  expect(new DependencyGraph(Node.of(group)).root.value).toBeNull();
+  expect(new DependencyGraph(Node.of(group)).root.value).toBeUndefined();
 
 });
 

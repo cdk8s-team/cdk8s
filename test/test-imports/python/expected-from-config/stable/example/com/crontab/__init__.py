@@ -20,8 +20,7 @@ class CronTab(
     jsii_type="stableexamplecomcrontab.CronTab",
 ):
     """
-    schema:
-    :schema:: CronTab
+    :schema: CronTab
     """
 
     def __init__(
@@ -52,8 +51,7 @@ class CronTabOptions:
         """
         :param spec: 
 
-        schema:
-        :schema:: CronTab
+        :schema: CronTab
         """
         if isinstance(spec, dict):
             spec = CronTabSpec(**spec)
@@ -64,8 +62,7 @@ class CronTabOptions:
     @builtins.property
     def spec(self) -> typing.Optional["CronTabSpec"]:
         """
-        schema:
-        :schema:: CronTab#spec
+        :schema: CronTab#spec
         """
         result = self._values.get("spec")
         return result
@@ -100,8 +97,7 @@ class CronTabSpec:
         :param image: 
         :param replicas: 
 
-        schema:
-        :schema:: CronTabSpec
+        :schema: CronTabSpec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if cron_spec is not None:
@@ -114,8 +110,7 @@ class CronTabSpec:
     @builtins.property
     def cron_spec(self) -> typing.Optional[builtins.str]:
         """
-        schema:
-        :schema:: CronTabSpec#cronSpec
+        :schema: CronTabSpec#cronSpec
         """
         result = self._values.get("cron_spec")
         return result
@@ -123,8 +118,7 @@ class CronTabSpec:
     @builtins.property
     def image(self) -> typing.Optional[builtins.str]:
         """
-        schema:
-        :schema:: CronTabSpec#image
+        :schema: CronTabSpec#image
         """
         result = self._values.get("image")
         return result
@@ -132,8 +126,7 @@ class CronTabSpec:
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
         """
-        schema:
-        :schema:: CronTabSpec#replicas
+        :schema: CronTabSpec#replicas
         """
         result = self._values.get("replicas")
         return result
