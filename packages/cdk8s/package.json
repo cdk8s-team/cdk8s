@@ -61,7 +61,7 @@
   "dependencies": {
     "follow-redirects": "^1.11.0",
     "json-stable-stringify": "^1.0.1",
-    "yaml": "^2.0.0-0"
+    "yaml": "2.0.0-0"
   },
   "bundledDependencies": [
     "yaml",
