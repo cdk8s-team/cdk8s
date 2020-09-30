@@ -21,8 +21,7 @@ class ClusterInstallation(
 ):
     """ClusterInstallation is the Schema for the clusterinstallations API.
 
-    schema:
-    :schema:: ClusterInstallation
+    :schema: ClusterInstallation
     """
 
     def __init__(
@@ -62,8 +61,7 @@ class ClusterInstallationOptions:
         :param spec: Specification of the desired behavior of the Mattermost cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
         :param metadata: 
 
-        schema:
-        :schema:: ClusterInstallation
+        :schema: ClusterInstallation
         """
         if isinstance(spec, dict):
             spec = ClusterInstallationSpec(**spec)
@@ -79,8 +77,7 @@ class ClusterInstallationOptions:
 
         More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
 
-        schema:
-        :schema:: ClusterInstallation#spec
+        :schema: ClusterInstallation#spec
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
@@ -89,8 +86,7 @@ class ClusterInstallationOptions:
     @builtins.property
     def metadata(self) -> typing.Any:
         """
-        schema:
-        :schema:: ClusterInstallation#metadata
+        :schema: ClusterInstallation#metadata
         """
         result = self._values.get("metadata")
         return result
@@ -183,8 +179,7 @@ class ClusterInstallationSpec:
         :param use_service_load_balancer: 
         :param version: Version defines the ClusterInstallation Docker image version.
 
-        schema:
-        :schema:: ClusterInstallationSpec
+        :schema: ClusterInstallationSpec
         """
         if isinstance(affinity, dict):
             affinity = ClusterInstallationSpecAffinity(**affinity)
@@ -250,8 +245,7 @@ class ClusterInstallationSpec:
     def ingress_name(self) -> builtins.str:
         """IngressName defines the name to be used when creating the ingress rules.
 
-        schema:
-        :schema:: ClusterInstallationSpec#ingressName
+        :schema: ClusterInstallationSpec#ingressName
         """
         result = self._values.get("ingress_name")
         assert result is not None, "Required property 'ingress_name' is missing"
@@ -261,8 +255,7 @@ class ClusterInstallationSpec:
     def affinity(self) -> typing.Optional["ClusterInstallationSpecAffinity"]:
         """If specified, affinity will define the pod's scheduling constraints.
 
-        schema:
-        :schema:: ClusterInstallationSpec#affinity
+        :schema: ClusterInstallationSpec#affinity
         """
         result = self._values.get("affinity")
         return result
@@ -271,8 +264,7 @@ class ClusterInstallationSpec:
     def blue_green(self) -> typing.Optional["ClusterInstallationSpecBlueGreen"]:
         """BlueGreen defines the configuration of BlueGreen deployment for a ClusterInstallation.
 
-        schema:
-        :schema:: ClusterInstallationSpec#blueGreen
+        :schema: ClusterInstallationSpec#blueGreen
         """
         result = self._values.get("blue_green")
         return result
@@ -281,8 +273,7 @@ class ClusterInstallationSpec:
     def canary(self) -> typing.Optional["ClusterInstallationSpecCanary"]:
         """Canary defines the configuration of Canary deployment for a ClusterInstallation.
 
-        schema:
-        :schema:: ClusterInstallationSpec#canary
+        :schema: ClusterInstallationSpec#canary
         """
         result = self._values.get("canary")
         return result
@@ -291,8 +282,7 @@ class ClusterInstallationSpec:
     def database(self) -> typing.Optional["ClusterInstallationSpecDatabase"]:
         """Database defines the database configuration for a ClusterInstallation.
 
-        schema:
-        :schema:: ClusterInstallationSpec#database
+        :schema: ClusterInstallationSpec#database
         """
         result = self._values.get("database")
         return result
@@ -301,8 +291,7 @@ class ClusterInstallationSpec:
     def elastic_search(self) -> typing.Optional["ClusterInstallationSpecElasticSearch"]:
         """ElasticSearch defines the ElasticSearch configuration for a ClusterInstallation.
 
-        schema:
-        :schema:: ClusterInstallationSpec#elasticSearch
+        :schema: ClusterInstallationSpec#elasticSearch
         """
         result = self._values.get("elastic_search")
         return result
@@ -311,8 +300,7 @@ class ClusterInstallationSpec:
     def image(self) -> typing.Optional[builtins.str]:
         """Image defines the ClusterInstallation Docker image.
 
-        schema:
-        :schema:: ClusterInstallationSpec#image
+        :schema: ClusterInstallationSpec#image
         """
         result = self._values.get("image")
         return result
@@ -322,8 +310,7 @@ class ClusterInstallationSpec:
         self,
     ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """
-        schema:
-        :schema:: ClusterInstallationSpec#ingressAnnotations
+        :schema: ClusterInstallationSpec#ingressAnnotations
         """
         result = self._values.get("ingress_annotations")
         return result
@@ -332,8 +319,7 @@ class ClusterInstallationSpec:
     def liveness_probe(self) -> typing.Optional["ClusterInstallationSpecLivenessProbe"]:
         """Defines the probe to check if the application is up and running.
 
-        schema:
-        :schema:: ClusterInstallationSpec#livenessProbe
+        :schema: ClusterInstallationSpec#livenessProbe
         """
         result = self._values.get("liveness_probe")
         return result
@@ -344,8 +330,7 @@ class ClusterInstallationSpec:
     ) -> typing.Optional[typing.List["ClusterInstallationSpecMattermostEnv"]]:
         """Optional environment variables to set in the Mattermost application pods.
 
-        schema:
-        :schema:: ClusterInstallationSpec#mattermostEnv
+        :schema: ClusterInstallationSpec#mattermostEnv
         """
         result = self._values.get("mattermost_env")
         return result
@@ -354,8 +339,7 @@ class ClusterInstallationSpec:
     def mattermost_license_secret(self) -> typing.Optional[builtins.str]:
         """Secret that contains the mattermost license.
 
-        schema:
-        :schema:: ClusterInstallationSpec#mattermostLicenseSecret
+        :schema: ClusterInstallationSpec#mattermostLicenseSecret
         """
         result = self._values.get("mattermost_license_secret")
         return result
@@ -364,8 +348,7 @@ class ClusterInstallationSpec:
     def minio(self) -> typing.Optional["ClusterInstallationSpecMinio"]:
         """Minio defines the configuration of Minio for a ClusterInstallation.
 
-        schema:
-        :schema:: ClusterInstallationSpec#minio
+        :schema: ClusterInstallationSpec#minio
         """
         result = self._values.get("minio")
         return result
@@ -378,8 +361,7 @@ class ClusterInstallationSpec:
 
         Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 
-        schema:
-        :schema:: ClusterInstallationSpec#nodeSelector
+        :schema: ClusterInstallationSpec#nodeSelector
         """
         result = self._values.get("node_selector")
         return result
@@ -390,8 +372,7 @@ class ClusterInstallationSpec:
     ) -> typing.Optional["ClusterInstallationSpecReadinessProbe"]:
         """Defines the probe to check if the application is ready to accept traffic.
 
-        schema:
-        :schema:: ClusterInstallationSpec#readinessProbe
+        :schema: ClusterInstallationSpec#readinessProbe
         """
         result = self._values.get("readiness_probe")
         return result
@@ -402,8 +383,7 @@ class ClusterInstallationSpec:
 
         Setting this will override the number of replicas set by 'Size'.
 
-        schema:
-        :schema:: ClusterInstallationSpec#replicas
+        :schema: ClusterInstallationSpec#replicas
         """
         result = self._values.get("replicas")
         return result
@@ -412,8 +392,7 @@ class ClusterInstallationSpec:
     def resources(self) -> typing.Optional["ClusterInstallationSpecResources"]:
         """Defines the resource requests and limits for the Mattermost app server pods.
 
-        schema:
-        :schema:: ClusterInstallationSpec#resources
+        :schema: ClusterInstallationSpec#resources
         """
         result = self._values.get("resources")
         return result
@@ -423,8 +402,7 @@ class ClusterInstallationSpec:
         self,
     ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """
-        schema:
-        :schema:: ClusterInstallationSpec#serviceAnnotations
+        :schema: ClusterInstallationSpec#serviceAnnotations
         """
         result = self._values.get("service_annotations")
         return result
@@ -435,11 +413,9 @@ class ClusterInstallationSpec:
 
         This is typically specified in number of users. This will set replica and resource requests/limits appropriately for the provided number of users. Accepted values are: 100users, 1000users, 5000users, 10000users, 250000users. Defaults to 5000users. Setting 'Replicas', 'Resources', 'Minio.Replicas', 'Minio.Resource', 'Database.Replicas', or 'Database.Resources' will override the values set by Size.
 
-        default
         :default: 5000users. Setting 'Replicas', 'Resources', 'Minio.Replicas', 'Minio.Resource', 'Database.Replicas', or 'Database.Resources' will override the values set by Size.
 
-        schema:
-        :schema:: ClusterInstallationSpec#size
+        :schema: ClusterInstallationSpec#size
         """
         result = self._values.get("size")
         return result
@@ -447,8 +423,7 @@ class ClusterInstallationSpec:
     @builtins.property
     def use_service_load_balancer(self) -> typing.Optional[builtins.bool]:
         """
-        schema:
-        :schema:: ClusterInstallationSpec#useServiceLoadBalancer
+        :schema: ClusterInstallationSpec#useServiceLoadBalancer
         """
         result = self._values.get("use_service_load_balancer")
         return result
@@ -457,8 +432,7 @@ class ClusterInstallationSpec:
     def version(self) -> typing.Optional[builtins.str]:
         """Version defines the ClusterInstallation Docker image version.
 
-        schema:
-        :schema:: ClusterInstallationSpec#version
+        :schema: ClusterInstallationSpec#version
         """
         result = self._values.get("version")
         return result
@@ -498,8 +472,7 @@ class ClusterInstallationSpecAffinity:
         :param pod_affinity: Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
         :param pod_anti_affinity: Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinity
+        :schema: ClusterInstallationSpecAffinity
         """
         if isinstance(node_affinity, dict):
             node_affinity = ClusterInstallationSpecAffinityNodeAffinity(**node_affinity)
@@ -521,8 +494,7 @@ class ClusterInstallationSpecAffinity:
     ) -> typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"]:
         """Describes node affinity scheduling rules for the pod.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinity#nodeAffinity
+        :schema: ClusterInstallationSpecAffinity#nodeAffinity
         """
         result = self._values.get("node_affinity")
         return result
@@ -533,8 +505,7 @@ class ClusterInstallationSpecAffinity:
     ) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinity"]:
         """Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinity#podAffinity
+        :schema: ClusterInstallationSpecAffinity#podAffinity
         """
         result = self._values.get("pod_affinity")
         return result
@@ -545,8 +516,7 @@ class ClusterInstallationSpecAffinity:
     ) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"]:
         """Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinity#podAntiAffinity
+        :schema: ClusterInstallationSpecAffinity#podAntiAffinity
         """
         result = self._values.get("pod_anti_affinity")
         return result
@@ -583,8 +553,7 @@ class ClusterInstallationSpecAffinityNodeAffinity:
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
         :param required_during_scheduling_ignored_during_execution: If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinity
+        :schema: ClusterInstallationSpecAffinityNodeAffinity
         """
         if isinstance(required_during_scheduling_ignored_during_execution, dict):
             required_during_scheduling_ignored_during_execution = ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(**required_during_scheduling_ignored_during_execution)
@@ -602,8 +571,7 @@ class ClusterInstallationSpecAffinityNodeAffinity:
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinity#preferredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityNodeAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
         return result
@@ -616,8 +584,7 @@ class ClusterInstallationSpecAffinityNodeAffinity:
 
         If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinity#requiredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityNodeAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
         return result
@@ -651,8 +618,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :param preference: A node selector term, associated with the corresponding weight.
         :param weight: Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(preference, dict):
             preference = ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(**preference)
@@ -667,8 +633,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     ) -> "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference":
         """A node selector term, associated with the corresponding weight.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution#preference
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution#preference
         """
         result = self._values.get("preference")
         assert result is not None, "Required property 'preference' is missing"
@@ -678,8 +643,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     def weight(self) -> jsii.Number:
         """Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
         """
         result = self._values.get("weight")
         assert result is not None, "Required property 'weight' is missing"
@@ -717,8 +681,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :param match_expressions: A list of node selector requirements by node's labels.
         :param match_fields: A list of node selector requirements by node's fields.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
@@ -732,8 +695,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]]:
         """A list of node selector requirements by node's labels.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchExpressions
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchExpressions
         """
         result = self._values.get("match_expressions")
         return result
@@ -744,8 +706,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]]:
         """A list of node selector requirements by node's fields.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchFields
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchFields
         """
         result = self._values.get("match_fields")
         return result
@@ -781,8 +742,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :param operator: Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
         :param values: An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -795,8 +755,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     def key(self) -> builtins.str:
         """The label key that the selector applies to.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#key
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -808,8 +767,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
         Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#operator
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#operator
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
@@ -821,8 +779,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
         If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#values
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#values
         """
         result = self._values.get("values")
         return result
@@ -858,8 +815,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :param operator: Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
         :param values: An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -872,8 +828,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     def key(self) -> builtins.str:
         """The label key that the selector applies to.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#key
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -885,8 +840,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
         Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#operator
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#operator
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
@@ -898,8 +852,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
         If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#values
+        :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#values
         """
         result = self._values.get("values")
         return result
@@ -933,8 +886,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         :param node_selector_terms: Required. A list of node selector terms. The terms are ORed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution
         """
         self._values: typing.Dict[str, typing.Any] = {
             "node_selector_terms": node_selector_terms,
@@ -948,8 +900,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         A list of node selector terms. The terms are ORed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution#nodeSelectorTerms
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution#nodeSelectorTerms
         """
         result = self._values.get("node_selector_terms")
         assert result is not None, "Required property 'node_selector_terms' is missing"
@@ -989,8 +940,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :param match_expressions: A list of node selector requirements by node's labels.
         :param match_fields: A list of node selector requirements by node's fields.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
@@ -1004,8 +954,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]]:
         """A list of node selector requirements by node's labels.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchExpressions
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchExpressions
         """
         result = self._values.get("match_expressions")
         return result
@@ -1016,8 +965,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     ) -> typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]]:
         """A list of node selector requirements by node's fields.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchFields
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchFields
         """
         result = self._values.get("match_fields")
         return result
@@ -1053,8 +1001,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :param operator: Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
         :param values: An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -1067,8 +1014,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     def key(self) -> builtins.str:
         """The label key that the selector applies to.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#key
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -1080,8 +1026,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#operator
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#operator
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
@@ -1093,8 +1038,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#values
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#values
         """
         result = self._values.get("values")
         return result
@@ -1130,8 +1074,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :param operator: Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
         :param values: An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -1144,8 +1087,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     def key(self) -> builtins.str:
         """The label key that the selector applies to.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#key
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -1157,8 +1099,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#operator
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#operator
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
@@ -1170,8 +1111,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#values
+        :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#values
         """
         result = self._values.get("values")
         return result
@@ -1208,8 +1148,7 @@ class ClusterInstallationSpecAffinityPodAffinity:
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
         :param required_during_scheduling_ignored_during_execution: If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinity
+        :schema: ClusterInstallationSpecAffinityPodAffinity
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
@@ -1225,8 +1164,7 @@ class ClusterInstallationSpecAffinityPodAffinity:
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinity#preferredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityPodAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
         return result
@@ -1239,8 +1177,7 @@ class ClusterInstallationSpecAffinityPodAffinity:
 
         If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinity#requiredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityPodAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
         return result
@@ -1274,8 +1211,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :param pod_affinity_term: Required. A pod affinity term, associated with the corresponding weight.
         :param weight: weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(pod_affinity_term, dict):
             pod_affinity_term = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(**pod_affinity_term)
@@ -1292,8 +1228,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         A pod affinity term, associated with the corresponding weight.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution#podAffinityTerm
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution#podAffinityTerm
         """
         result = self._values.get("pod_affinity_term")
         assert result is not None, "Required property 'pod_affinity_term' is missing"
@@ -1303,8 +1238,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
     def weight(self) -> jsii.Number:
         """weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
         """
         result = self._values.get("weight")
         assert result is not None, "Required property 'weight' is missing"
@@ -1347,8 +1281,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :param label_selector: A label query over a set of resources, in this case pods.
         :param namespaces: namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means "this pod's namespace"
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
         """
         if isinstance(label_selector, dict):
             label_selector = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(**label_selector)
@@ -1366,8 +1299,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         Empty topologyKey is not allowed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#topologyKey
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#topologyKey
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
@@ -1379,8 +1311,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
     ) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]:
         """A label query over a set of resources, in this case pods.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
         """
         result = self._values.get("label_selector")
         return result
@@ -1391,8 +1322,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         null or empty list means "this pod's namespace"
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaces
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaces
         """
         result = self._values.get("namespaces")
         return result
@@ -1429,8 +1359,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
         :param match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
@@ -1446,8 +1375,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
         return result
@@ -1460,8 +1388,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchLabels
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
         return result
@@ -1497,8 +1424,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :param operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
         :param values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -1511,8 +1437,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
     def key(self) -> builtins.str:
         """key is the label key that the selector applies to.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#key
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -1524,8 +1449,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         Valid operators are In, NotIn, Exists and DoesNotExist.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#operator
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#operator
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
@@ -1537,8 +1461,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#values
+        :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#values
         """
         result = self._values.get("values")
         return result
@@ -1578,8 +1501,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :param label_selector: A label query over a set of resources, in this case pods.
         :param namespaces: namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means "this pod's namespace"
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(label_selector, dict):
             label_selector = ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(**label_selector)
@@ -1597,8 +1519,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
         Empty topologyKey is not allowed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#topologyKey
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#topologyKey
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
@@ -1610,8 +1531,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
     ) -> typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]:
         """A label query over a set of resources, in this case pods.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
         """
         result = self._values.get("label_selector")
         return result
@@ -1622,8 +1542,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
         null or empty list means "this pod's namespace"
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaces
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaces
         """
         result = self._values.get("namespaces")
         return result
@@ -1660,8 +1579,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
         :param match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
@@ -1677,8 +1595,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
         The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
         return result
@@ -1691,8 +1608,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchLabels
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
         return result
@@ -1728,8 +1644,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :param operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
         :param values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -1742,8 +1657,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
     def key(self) -> builtins.str:
         """key is the label key that the selector applies to.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#key
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -1755,8 +1669,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
         Valid operators are In, NotIn, Exists and DoesNotExist.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#operator
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#operator
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
@@ -1768,8 +1681,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
         If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#values
+        :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#values
         """
         result = self._values.get("values")
         return result
@@ -1806,8 +1718,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
         :param preferred_during_scheduling_ignored_during_execution: The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
         :param required_during_scheduling_ignored_during_execution: If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinity
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinity
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
@@ -1823,8 +1734,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
 
         The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinity#preferredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
         return result
@@ -1837,8 +1747,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
 
         If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinity#requiredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
         return result
@@ -1872,8 +1781,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :param pod_affinity_term: Required. A pod affinity term, associated with the corresponding weight.
         :param weight: weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(pod_affinity_term, dict):
             pod_affinity_term = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(**pod_affinity_term)
@@ -1890,8 +1798,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         A pod affinity term, associated with the corresponding weight.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution#podAffinityTerm
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution#podAffinityTerm
         """
         result = self._values.get("pod_affinity_term")
         assert result is not None, "Required property 'pod_affinity_term' is missing"
@@ -1901,8 +1808,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
     def weight(self) -> jsii.Number:
         """weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution#weight
         """
         result = self._values.get("weight")
         assert result is not None, "Required property 'weight' is missing"
@@ -1945,8 +1851,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :param label_selector: A label query over a set of resources, in this case pods.
         :param namespaces: namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means "this pod's namespace"
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
         """
         if isinstance(label_selector, dict):
             label_selector = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(**label_selector)
@@ -1964,8 +1869,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         Empty topologyKey is not allowed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#topologyKey
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#topologyKey
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
@@ -1977,8 +1881,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
     ) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"]:
         """A label query over a set of resources, in this case pods.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
         """
         result = self._values.get("label_selector")
         return result
@@ -1989,8 +1892,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         null or empty list means "this pod's namespace"
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaces
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaces
         """
         result = self._values.get("namespaces")
         return result
@@ -2027,8 +1929,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
         :param match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
@@ -2044,8 +1945,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
         return result
@@ -2058,8 +1958,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchLabels
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
         return result
@@ -2095,8 +1994,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :param operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
         :param values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -2109,8 +2007,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
     def key(self) -> builtins.str:
         """key is the label key that the selector applies to.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#key
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -2122,8 +2019,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         Valid operators are In, NotIn, Exists and DoesNotExist.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#operator
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#operator
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
@@ -2135,8 +2031,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#values
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#values
         """
         result = self._values.get("values")
         return result
@@ -2176,8 +2071,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :param label_selector: A label query over a set of resources, in this case pods.
         :param namespaces: namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means "this pod's namespace"
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution
         """
         if isinstance(label_selector, dict):
             label_selector = ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(**label_selector)
@@ -2195,8 +2089,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
         Empty topologyKey is not allowed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#topologyKey
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#topologyKey
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
@@ -2208,8 +2101,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
     ) -> typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"]:
         """A label query over a set of resources, in this case pods.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
         """
         result = self._values.get("label_selector")
         return result
@@ -2220,8 +2112,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
         null or empty list means "this pod's namespace"
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaces
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaces
         """
         result = self._values.get("namespaces")
         return result
@@ -2258,8 +2149,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :param match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
         :param match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
@@ -2275,8 +2165,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
         The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
         return result
@@ -2289,8 +2178,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
         A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchLabels
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
         return result
@@ -2326,8 +2214,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :param operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
         :param values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -2340,8 +2227,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
     def key(self) -> builtins.str:
         """key is the label key that the selector applies to.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#key
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -2353,8 +2239,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
         Valid operators are In, NotIn, Exists and DoesNotExist.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#operator
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#operator
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
@@ -2366,8 +2251,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
         If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
 
-        schema:
-        :schema:: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#values
+        :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#values
         """
         result = self._values.get("values")
         return result
@@ -2410,8 +2294,7 @@ class ClusterInstallationSpecBlueGreen:
         :param green: Green defines the green deployment.
         :param production_deployment: ProductionDeployment defines if the current production is blue or green.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreen
+        :schema: ClusterInstallationSpecBlueGreen
         """
         if isinstance(blue, dict):
             blue = ClusterInstallationSpecBlueGreenBlue(**blue)
@@ -2431,8 +2314,7 @@ class ClusterInstallationSpecBlueGreen:
     def blue(self) -> typing.Optional["ClusterInstallationSpecBlueGreenBlue"]:
         """Blue defines the blue deployment.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreen#blue
+        :schema: ClusterInstallationSpecBlueGreen#blue
         """
         result = self._values.get("blue")
         return result
@@ -2441,8 +2323,7 @@ class ClusterInstallationSpecBlueGreen:
     def enable(self) -> typing.Optional[builtins.bool]:
         """Enable defines if BlueGreen deployment will be applied.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreen#enable
+        :schema: ClusterInstallationSpecBlueGreen#enable
         """
         result = self._values.get("enable")
         return result
@@ -2451,8 +2332,7 @@ class ClusterInstallationSpecBlueGreen:
     def green(self) -> typing.Optional["ClusterInstallationSpecBlueGreenGreen"]:
         """Green defines the green deployment.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreen#green
+        :schema: ClusterInstallationSpecBlueGreen#green
         """
         result = self._values.get("green")
         return result
@@ -2461,8 +2341,7 @@ class ClusterInstallationSpecBlueGreen:
     def production_deployment(self) -> typing.Optional[builtins.str]:
         """ProductionDeployment defines if the current production is blue or green.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreen#productionDeployment
+        :schema: ClusterInstallationSpecBlueGreen#productionDeployment
         """
         result = self._values.get("production_deployment")
         return result
@@ -2505,8 +2384,7 @@ class ClusterInstallationSpecBlueGreenBlue:
         :param name: Name defines the name of the deployment.
         :param version: Version defines the Docker image version that will be used for the deployment. Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenBlue
+        :schema: ClusterInstallationSpecBlueGreenBlue
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if image is not None:
@@ -2524,8 +2402,7 @@ class ClusterInstallationSpecBlueGreenBlue:
 
         Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenBlue#image
+        :schema: ClusterInstallationSpecBlueGreenBlue#image
         """
         result = self._values.get("image")
         return result
@@ -2536,8 +2413,7 @@ class ClusterInstallationSpecBlueGreenBlue:
 
         This option is not used for Canary builds.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenBlue#ingressName
+        :schema: ClusterInstallationSpecBlueGreenBlue#ingressName
         """
         result = self._values.get("ingress_name")
         return result
@@ -2546,8 +2422,7 @@ class ClusterInstallationSpecBlueGreenBlue:
     def name(self) -> typing.Optional[builtins.str]:
         """Name defines the name of the deployment.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenBlue#name
+        :schema: ClusterInstallationSpecBlueGreenBlue#name
         """
         result = self._values.get("name")
         return result
@@ -2558,8 +2433,7 @@ class ClusterInstallationSpecBlueGreenBlue:
 
         Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenBlue#version
+        :schema: ClusterInstallationSpecBlueGreenBlue#version
         """
         result = self._values.get("version")
         return result
@@ -2602,8 +2476,7 @@ class ClusterInstallationSpecBlueGreenGreen:
         :param name: Name defines the name of the deployment.
         :param version: Version defines the Docker image version that will be used for the deployment. Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenGreen
+        :schema: ClusterInstallationSpecBlueGreenGreen
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if image is not None:
@@ -2621,8 +2494,7 @@ class ClusterInstallationSpecBlueGreenGreen:
 
         Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenGreen#image
+        :schema: ClusterInstallationSpecBlueGreenGreen#image
         """
         result = self._values.get("image")
         return result
@@ -2633,8 +2505,7 @@ class ClusterInstallationSpecBlueGreenGreen:
 
         This option is not used for Canary builds.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenGreen#ingressName
+        :schema: ClusterInstallationSpecBlueGreenGreen#ingressName
         """
         result = self._values.get("ingress_name")
         return result
@@ -2643,8 +2514,7 @@ class ClusterInstallationSpecBlueGreenGreen:
     def name(self) -> typing.Optional[builtins.str]:
         """Name defines the name of the deployment.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenGreen#name
+        :schema: ClusterInstallationSpecBlueGreenGreen#name
         """
         result = self._values.get("name")
         return result
@@ -2655,8 +2525,7 @@ class ClusterInstallationSpecBlueGreenGreen:
 
         Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecBlueGreenGreen#version
+        :schema: ClusterInstallationSpecBlueGreenGreen#version
         """
         result = self._values.get("version")
         return result
@@ -2690,8 +2559,7 @@ class ClusterInstallationSpecCanary:
         :param deployment: Deployment defines the canary deployment.
         :param enable: Enable defines if a canary build will be deployed.
 
-        schema:
-        :schema:: ClusterInstallationSpecCanary
+        :schema: ClusterInstallationSpecCanary
         """
         if isinstance(deployment, dict):
             deployment = ClusterInstallationSpecCanaryDeployment(**deployment)
@@ -2705,8 +2573,7 @@ class ClusterInstallationSpecCanary:
     def deployment(self) -> typing.Optional["ClusterInstallationSpecCanaryDeployment"]:
         """Deployment defines the canary deployment.
 
-        schema:
-        :schema:: ClusterInstallationSpecCanary#deployment
+        :schema: ClusterInstallationSpecCanary#deployment
         """
         result = self._values.get("deployment")
         return result
@@ -2715,8 +2582,7 @@ class ClusterInstallationSpecCanary:
     def enable(self) -> typing.Optional[builtins.bool]:
         """Enable defines if a canary build will be deployed.
 
-        schema:
-        :schema:: ClusterInstallationSpecCanary#enable
+        :schema: ClusterInstallationSpecCanary#enable
         """
         result = self._values.get("enable")
         return result
@@ -2759,8 +2625,7 @@ class ClusterInstallationSpecCanaryDeployment:
         :param name: Name defines the name of the deployment.
         :param version: Version defines the Docker image version that will be used for the deployment. Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecCanaryDeployment
+        :schema: ClusterInstallationSpecCanaryDeployment
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if image is not None:
@@ -2778,8 +2643,7 @@ class ClusterInstallationSpecCanaryDeployment:
 
         Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecCanaryDeployment#image
+        :schema: ClusterInstallationSpecCanaryDeployment#image
         """
         result = self._values.get("image")
         return result
@@ -2790,8 +2654,7 @@ class ClusterInstallationSpecCanaryDeployment:
 
         This option is not used for Canary builds.
 
-        schema:
-        :schema:: ClusterInstallationSpecCanaryDeployment#ingressName
+        :schema: ClusterInstallationSpecCanaryDeployment#ingressName
         """
         result = self._values.get("ingress_name")
         return result
@@ -2800,8 +2663,7 @@ class ClusterInstallationSpecCanaryDeployment:
     def name(self) -> typing.Optional[builtins.str]:
         """Name defines the name of the deployment.
 
-        schema:
-        :schema:: ClusterInstallationSpecCanaryDeployment#name
+        :schema: ClusterInstallationSpecCanaryDeployment#name
         """
         result = self._values.get("name")
         return result
@@ -2812,8 +2674,7 @@ class ClusterInstallationSpecCanaryDeployment:
 
         Required when BlueGreen or Canary is enabled.
 
-        schema:
-        :schema:: ClusterInstallationSpecCanaryDeployment#version
+        :schema: ClusterInstallationSpecCanaryDeployment#version
         """
         result = self._values.get("version")
         return result
@@ -2877,8 +2738,7 @@ class ClusterInstallationSpecDatabase:
         :param storage_size: Defines the storage size for the database. ie 50Gi
         :param type: 
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase
+        :schema: ClusterInstallationSpecDatabase
         """
         if isinstance(resources, dict):
             resources = ClusterInstallationSpecDatabaseResources(**resources)
@@ -2910,8 +2770,7 @@ class ClusterInstallationSpecDatabase:
     def backup_remote_delete_policy(self) -> typing.Optional[builtins.str]:
         """Defines the backup retention policy.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#backupRemoteDeletePolicy
+        :schema: ClusterInstallationSpecDatabase#backupRemoteDeletePolicy
         """
         result = self._values.get("backup_remote_delete_policy")
         return result
@@ -2920,8 +2779,7 @@ class ClusterInstallationSpecDatabase:
     def backup_restore_secret_name(self) -> typing.Optional[builtins.str]:
         """Defines the secret to be used when performing a database restore.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#backupRestoreSecretName
+        :schema: ClusterInstallationSpecDatabase#backupRestoreSecretName
         """
         result = self._values.get("backup_restore_secret_name")
         return result
@@ -2930,8 +2788,7 @@ class ClusterInstallationSpecDatabase:
     def backup_schedule(self) -> typing.Optional[builtins.str]:
         """Defines the interval for backups in cron expression format.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#backupSchedule
+        :schema: ClusterInstallationSpecDatabase#backupSchedule
         """
         result = self._values.get("backup_schedule")
         return result
@@ -2940,8 +2797,7 @@ class ClusterInstallationSpecDatabase:
     def backup_secret_name(self) -> typing.Optional[builtins.str]:
         """Defines the secret to be used for uploading/restoring backup.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#backupSecretName
+        :schema: ClusterInstallationSpecDatabase#backupSecretName
         """
         result = self._values.get("backup_secret_name")
         return result
@@ -2950,8 +2806,7 @@ class ClusterInstallationSpecDatabase:
     def backup_url(self) -> typing.Optional[builtins.str]:
         """Defines the object storage url for uploading backups.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#backupURL
+        :schema: ClusterInstallationSpecDatabase#backupURL
         """
         result = self._values.get("backup_url")
         return result
@@ -2962,8 +2817,7 @@ class ClusterInstallationSpecDatabase:
 
         The operator will download the file to restore the data.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#initBucketURL
+        :schema: ClusterInstallationSpecDatabase#initBucketURL
         """
         result = self._values.get("init_bucket_url")
         return result
@@ -2974,8 +2828,7 @@ class ClusterInstallationSpecDatabase:
 
         For redundancy use at least 2 replicas. Setting this will override the number of replicas set by 'Size'.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#replicas
+        :schema: ClusterInstallationSpecDatabase#replicas
         """
         result = self._values.get("replicas")
         return result
@@ -2984,8 +2837,7 @@ class ClusterInstallationSpecDatabase:
     def resources(self) -> typing.Optional["ClusterInstallationSpecDatabaseResources"]:
         """Defines the resource requests and limits for the database pods.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#resources
+        :schema: ClusterInstallationSpecDatabase#resources
         """
         result = self._values.get("resources")
         return result
@@ -2998,8 +2850,7 @@ class ClusterInstallationSpecDatabase:
         User-Managed Database   - Key: DB_CONNECTION_STRING | Value: <FULL_DATABASE_CONNECTION_STRING> Operator-Managed Database   - Key: ROOT_PASSWORD | Value: <ROOT_DATABASE_PASSWORD>   - Key: USER | Value: <USER_NAME>   - Key: PASSWORD | Value: <USER_PASSWORD>   - Key: DATABASE Value: <DATABASE_NAME>
         Notes:   If you define all secret values for both User-Managed and   Operator-Managed database types, the User-Managed connection string will   take precedence and the Operator-Managed values will be ignored. If the   secret is left blank, the default behavior is to use an Operator-Managed   database with strong randomly-generated database credentials.
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#secret
+        :schema: ClusterInstallationSpecDatabase#secret
         """
         result = self._values.get("secret")
         return result
@@ -3010,8 +2861,7 @@ class ClusterInstallationSpecDatabase:
 
         ie 50Gi
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#storageSize
+        :schema: ClusterInstallationSpecDatabase#storageSize
         """
         result = self._values.get("storage_size")
         return result
@@ -3019,8 +2869,7 @@ class ClusterInstallationSpecDatabase:
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
         """
-        schema:
-        :schema:: ClusterInstallationSpecDatabase#type
+        :schema: ClusterInstallationSpecDatabase#type
         """
         result = self._values.get("type")
         return result
@@ -3054,8 +2903,7 @@ class ClusterInstallationSpecDatabaseResources:
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         :param requests: Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabaseResources
+        :schema: ClusterInstallationSpecDatabaseResources
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if limits is not None:
@@ -3069,8 +2917,7 @@ class ClusterInstallationSpecDatabaseResources:
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabaseResources#limits
+        :schema: ClusterInstallationSpecDatabaseResources#limits
         """
         result = self._values.get("limits")
         return result
@@ -3081,8 +2928,7 @@ class ClusterInstallationSpecDatabaseResources:
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecDatabaseResources#requests
+        :schema: ClusterInstallationSpecDatabaseResources#requests
         """
         result = self._values.get("requests")
         return result
@@ -3118,8 +2964,7 @@ class ClusterInstallationSpecElasticSearch:
         :param password: 
         :param username: 
 
-        schema:
-        :schema:: ClusterInstallationSpecElasticSearch
+        :schema: ClusterInstallationSpecElasticSearch
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if host is not None:
@@ -3132,8 +2977,7 @@ class ClusterInstallationSpecElasticSearch:
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
         """
-        schema:
-        :schema:: ClusterInstallationSpecElasticSearch#host
+        :schema: ClusterInstallationSpecElasticSearch#host
         """
         result = self._values.get("host")
         return result
@@ -3141,8 +2985,7 @@ class ClusterInstallationSpecElasticSearch:
     @builtins.property
     def password(self) -> typing.Optional[builtins.str]:
         """
-        schema:
-        :schema:: ClusterInstallationSpecElasticSearch#password
+        :schema: ClusterInstallationSpecElasticSearch#password
         """
         result = self._values.get("password")
         return result
@@ -3150,8 +2993,7 @@ class ClusterInstallationSpecElasticSearch:
     @builtins.property
     def username(self) -> typing.Optional[builtins.str]:
         """
-        schema:
-        :schema:: ClusterInstallationSpecElasticSearch#username
+        :schema: ClusterInstallationSpecElasticSearch#username
         """
         result = self._values.get("username")
         return result
@@ -3206,8 +3048,7 @@ class ClusterInstallationSpecLivenessProbe:
         :param tcp_socket: TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
         :param timeout_seconds: Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes Default: 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe
+        :schema: ClusterInstallationSpecLivenessProbe
         """
         if isinstance(exec, dict):
             exec = ClusterInstallationSpecLivenessProbeExec(**exec)
@@ -3239,8 +3080,7 @@ class ClusterInstallationSpecLivenessProbe:
 
         Exec specifies the action to take.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe#exec
+        :schema: ClusterInstallationSpecLivenessProbe#exec
         """
         result = self._values.get("exec")
         return result
@@ -3251,11 +3091,9 @@ class ClusterInstallationSpecLivenessProbe:
 
         Defaults to 3. Minimum value is 1.
 
-        default
         :default: 3. Minimum value is 1.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe#failureThreshold
+        :schema: ClusterInstallationSpecLivenessProbe#failureThreshold
         """
         result = self._values.get("failure_threshold")
         return result
@@ -3266,8 +3104,7 @@ class ClusterInstallationSpecLivenessProbe:
     ) -> typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"]:
         """HTTPGet specifies the http request to perform.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe#httpGet
+        :schema: ClusterInstallationSpecLivenessProbe#httpGet
         """
         result = self._values.get("http_get")
         return result
@@ -3278,8 +3115,7 @@ class ClusterInstallationSpecLivenessProbe:
 
         More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe#initialDelaySeconds
+        :schema: ClusterInstallationSpecLivenessProbe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
         return result
@@ -3290,11 +3126,9 @@ class ClusterInstallationSpecLivenessProbe:
 
         Default to 10 seconds. Minimum value is 1.
 
-        default
         :default: 10 seconds. Minimum value is 1.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe#periodSeconds
+        :schema: ClusterInstallationSpecLivenessProbe#periodSeconds
         """
         result = self._values.get("period_seconds")
         return result
@@ -3305,11 +3139,9 @@ class ClusterInstallationSpecLivenessProbe:
 
         Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
 
-        default
         :default: 1. Must be 1 for liveness and startup. Minimum value is 1.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe#successThreshold
+        :schema: ClusterInstallationSpecLivenessProbe#successThreshold
         """
         result = self._values.get("success_threshold")
         return result
@@ -3322,8 +3154,7 @@ class ClusterInstallationSpecLivenessProbe:
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe#tcpSocket
+        :schema: ClusterInstallationSpecLivenessProbe#tcpSocket
         """
         result = self._values.get("tcp_socket")
         return result
@@ -3334,11 +3165,9 @@ class ClusterInstallationSpecLivenessProbe:
 
         Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        default
         :default: 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbe#timeoutSeconds
+        :schema: ClusterInstallationSpecLivenessProbe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
         return result
@@ -3372,8 +3201,7 @@ class ClusterInstallationSpecLivenessProbeExec:
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeExec
+        :schema: ClusterInstallationSpecLivenessProbeExec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -3385,8 +3213,7 @@ class ClusterInstallationSpecLivenessProbeExec:
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeExec#command
+        :schema: ClusterInstallationSpecLivenessProbeExec#command
         """
         result = self._values.get("command")
         return result
@@ -3432,8 +3259,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         :param path: Path to access on the HTTP server.
         :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGet
+        :schema: ClusterInstallationSpecLivenessProbeHttpGet
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -3453,8 +3279,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGet#port
+        :schema: ClusterInstallationSpecLivenessProbeHttpGet#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -3466,8 +3291,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
 
         You probably want to set "Host" in httpHeaders instead.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGet#host
+        :schema: ClusterInstallationSpecLivenessProbeHttpGet#host
         """
         result = self._values.get("host")
         return result
@@ -3480,8 +3304,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
 
         HTTP allows repeated headers.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGet#httpHeaders
+        :schema: ClusterInstallationSpecLivenessProbeHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
         return result
@@ -3490,8 +3313,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
     def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGet#path
+        :schema: ClusterInstallationSpecLivenessProbeHttpGet#path
         """
         result = self._values.get("path")
         return result
@@ -3502,11 +3324,9 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
 
         Defaults to HTTP.
 
-        default
         :default: HTTP.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGet#scheme
+        :schema: ClusterInstallationSpecLivenessProbeHttpGet#scheme
         """
         result = self._values.get("scheme")
         return result
@@ -3535,8 +3355,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
         :param name: The header field name.
         :param value: The header field value.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders
+        :schema: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -3547,8 +3366,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
     def name(self) -> builtins.str:
         """The header field name.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders#name
+        :schema: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -3558,8 +3376,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
     def value(self) -> builtins.str:
         """The header field value.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders#value
+        :schema: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders#value
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
@@ -3585,8 +3402,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: ClusterInstallationSpecLivenessProbeHttpGetPort
+    :schema: ClusterInstallationSpecLivenessProbeHttpGetPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -3631,8 +3447,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
         :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
         :param host: Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeTcpSocket
+        :schema: ClusterInstallationSpecLivenessProbeTcpSocket
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -3646,8 +3461,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeTcpSocket#port
+        :schema: ClusterInstallationSpecLivenessProbeTcpSocket#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -3657,8 +3471,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
     def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: ClusterInstallationSpecLivenessProbeTcpSocket#host
+        :schema: ClusterInstallationSpecLivenessProbeTcpSocket#host
         """
         result = self._values.get("host")
         return result
@@ -3683,8 +3496,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: ClusterInstallationSpecLivenessProbeTcpSocketPort
+    :schema: ClusterInstallationSpecLivenessProbeTcpSocketPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -3729,8 +3541,7 @@ class ClusterInstallationSpecMattermostEnv:
         :param value: Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "". Default: .
         :param value_from: Source for the environment variable's value. Cannot be used if value is not empty.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnv
+        :schema: ClusterInstallationSpecMattermostEnv
         """
         if isinstance(value_from, dict):
             value_from = ClusterInstallationSpecMattermostEnvValueFrom(**value_from)
@@ -3748,8 +3559,7 @@ class ClusterInstallationSpecMattermostEnv:
 
         Must be a C_IDENTIFIER.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnv#name
+        :schema: ClusterInstallationSpecMattermostEnv#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -3761,11 +3571,9 @@ class ClusterInstallationSpecMattermostEnv:
 
         If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
 
-        default
         :default: .
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnv#value
+        :schema: ClusterInstallationSpecMattermostEnv#value
         """
         result = self._values.get("value")
         return result
@@ -3778,8 +3586,7 @@ class ClusterInstallationSpecMattermostEnv:
 
         Cannot be used if value is not empty.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnv#valueFrom
+        :schema: ClusterInstallationSpecMattermostEnv#valueFrom
         """
         result = self._values.get("value_from")
         return result
@@ -3824,8 +3631,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
         :param resource_field_ref: Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
         :param secret_key_ref: Selects a key of a secret in the pod's namespace.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFrom
+        :schema: ClusterInstallationSpecMattermostEnvValueFrom
         """
         if isinstance(config_map_key_ref, dict):
             config_map_key_ref = ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef(**config_map_key_ref)
@@ -3851,8 +3657,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
     ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"]:
         """Selects a key of a ConfigMap.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFrom#configMapKeyRef
+        :schema: ClusterInstallationSpecMattermostEnvValueFrom#configMapKeyRef
         """
         result = self._values.get("config_map_key_ref")
         return result
@@ -3863,8 +3668,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
     ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"]:
         """Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFrom#fieldRef
+        :schema: ClusterInstallationSpecMattermostEnvValueFrom#fieldRef
         """
         result = self._values.get("field_ref")
         return result
@@ -3875,8 +3679,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
     ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"]:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFrom#resourceFieldRef
+        :schema: ClusterInstallationSpecMattermostEnvValueFrom#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
         return result
@@ -3887,8 +3690,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
     ) -> typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"]:
         """Selects a key of a secret in the pod's namespace.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFrom#secretKeyRef
+        :schema: ClusterInstallationSpecMattermostEnvValueFrom#secretKeyRef
         """
         result = self._values.get("secret_key_ref")
         return result
@@ -3924,8 +3726,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the ConfigMap or its key must be defined.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef
+        :schema: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -3939,8 +3740,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
     def key(self) -> builtins.str:
         """The key to select.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#key
+        :schema: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -3952,8 +3752,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#name
+        :schema: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#name
         """
         result = self._values.get("name")
         return result
@@ -3962,8 +3761,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap or its key must be defined.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#optional
+        :schema: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#optional
         """
         result = self._values.get("optional")
         return result
@@ -3997,8 +3795,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
         :param field_path: Path of the field to select in the specified API version.
         :param api_version: Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromFieldRef
+        :schema: ClusterInstallationSpecMattermostEnvValueFromFieldRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "field_path": field_path,
@@ -4010,8 +3807,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
     def field_path(self) -> builtins.str:
         """Path of the field to select in the specified API version.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromFieldRef#fieldPath
+        :schema: ClusterInstallationSpecMattermostEnvValueFromFieldRef#fieldPath
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
@@ -4021,8 +3817,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
     def api_version(self) -> typing.Optional[builtins.str]:
         """Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromFieldRef#apiVersion
+        :schema: ClusterInstallationSpecMattermostEnvValueFromFieldRef#apiVersion
         """
         result = self._values.get("api_version")
         return result
@@ -4062,8 +3857,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
         :param container_name: Container name: required for volumes, optional for env vars.
         :param divisor: Specifies the output format of the exposed resources, defaults to "1".
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef
+        :schema: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "resource": resource,
@@ -4077,8 +3871,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
     def resource(self) -> builtins.str:
         """Required: resource to select.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#resource
+        :schema: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#resource
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
@@ -4088,8 +3881,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
     def container_name(self) -> typing.Optional[builtins.str]:
         """Container name: required for volumes, optional for env vars.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#containerName
+        :schema: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#containerName
         """
         result = self._values.get("container_name")
         return result
@@ -4098,8 +3890,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
     def divisor(self) -> typing.Optional[builtins.str]:
         """Specifies the output format of the exposed resources, defaults to "1".
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#divisor
+        :schema: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#divisor
         """
         result = self._values.get("divisor")
         return result
@@ -4135,8 +3926,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the Secret or its key must be defined.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef
+        :schema: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -4152,8 +3942,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
 
         Must be a valid secret key.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#key
+        :schema: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -4165,8 +3954,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#name
+        :schema: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#name
         """
         result = self._values.get("name")
         return result
@@ -4175,8 +3963,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret or its key must be defined.
 
-        schema:
-        :schema:: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#optional
+        :schema: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#optional
         """
         result = self._values.get("optional")
         return result
@@ -4225,8 +4012,7 @@ class ClusterInstallationSpecMinio:
         :param secret: Optionally enter the name of already existing secret. Secret should have two values: "accesskey" and "secretkey". Required when "ExternalURL" is set.
         :param storage_size: Defines the storage size for Minio. ie 50Gi
 
-        schema:
-        :schema:: ClusterInstallationSpecMinio
+        :schema: ClusterInstallationSpecMinio
         """
         if isinstance(resources, dict):
             resources = ClusterInstallationSpecMinioResources(**resources)
@@ -4248,8 +4034,7 @@ class ClusterInstallationSpecMinio:
     def external_bucket(self) -> typing.Optional[builtins.str]:
         """Set to the bucket name of your external MinIO or S3.
 
-        schema:
-        :schema:: ClusterInstallationSpecMinio#externalBucket
+        :schema: ClusterInstallationSpecMinio#externalBucket
         """
         result = self._values.get("external_bucket")
         return result
@@ -4260,8 +4045,7 @@ class ClusterInstallationSpecMinio:
 
         Must also set 'Secret' and 'ExternalBucket'.
 
-        schema:
-        :schema:: ClusterInstallationSpecMinio#externalURL
+        :schema: ClusterInstallationSpecMinio#externalURL
         """
         result = self._values.get("external_url")
         return result
@@ -4272,8 +4056,7 @@ class ClusterInstallationSpecMinio:
 
         Supply 1 to run Minio in standalone mode with no redundancy. Supply 4 or more to run Minio in distributed mode. Note that it is not possible to upgrade Minio from standalone to distributed mode. Setting this will override the number of replicas set by 'Size'. More info: https://docs.min.io/docs/distributed-minio-quickstart-guide.html
 
-        schema:
-        :schema:: ClusterInstallationSpecMinio#replicas
+        :schema: ClusterInstallationSpecMinio#replicas
         """
         result = self._values.get("replicas")
         return result
@@ -4282,8 +4065,7 @@ class ClusterInstallationSpecMinio:
     def resources(self) -> typing.Optional["ClusterInstallationSpecMinioResources"]:
         """Defines the resource requests and limits for the Minio pods.
 
-        schema:
-        :schema:: ClusterInstallationSpecMinio#resources
+        :schema: ClusterInstallationSpecMinio#resources
         """
         result = self._values.get("resources")
         return result
@@ -4294,8 +4076,7 @@ class ClusterInstallationSpecMinio:
 
         Secret should have two values: "accesskey" and "secretkey". Required when "ExternalURL" is set.
 
-        schema:
-        :schema:: ClusterInstallationSpecMinio#secret
+        :schema: ClusterInstallationSpecMinio#secret
         """
         result = self._values.get("secret")
         return result
@@ -4306,8 +4087,7 @@ class ClusterInstallationSpecMinio:
 
         ie 50Gi
 
-        schema:
-        :schema:: ClusterInstallationSpecMinio#storageSize
+        :schema: ClusterInstallationSpecMinio#storageSize
         """
         result = self._values.get("storage_size")
         return result
@@ -4341,8 +4121,7 @@ class ClusterInstallationSpecMinioResources:
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         :param requests: Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecMinioResources
+        :schema: ClusterInstallationSpecMinioResources
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if limits is not None:
@@ -4356,8 +4135,7 @@ class ClusterInstallationSpecMinioResources:
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecMinioResources#limits
+        :schema: ClusterInstallationSpecMinioResources#limits
         """
         result = self._values.get("limits")
         return result
@@ -4368,8 +4146,7 @@ class ClusterInstallationSpecMinioResources:
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecMinioResources#requests
+        :schema: ClusterInstallationSpecMinioResources#requests
         """
         result = self._values.get("requests")
         return result
@@ -4424,8 +4201,7 @@ class ClusterInstallationSpecReadinessProbe:
         :param tcp_socket: TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
         :param timeout_seconds: Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes Default: 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe
+        :schema: ClusterInstallationSpecReadinessProbe
         """
         if isinstance(exec, dict):
             exec = ClusterInstallationSpecReadinessProbeExec(**exec)
@@ -4457,8 +4233,7 @@ class ClusterInstallationSpecReadinessProbe:
 
         Exec specifies the action to take.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe#exec
+        :schema: ClusterInstallationSpecReadinessProbe#exec
         """
         result = self._values.get("exec")
         return result
@@ -4469,11 +4244,9 @@ class ClusterInstallationSpecReadinessProbe:
 
         Defaults to 3. Minimum value is 1.
 
-        default
         :default: 3. Minimum value is 1.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe#failureThreshold
+        :schema: ClusterInstallationSpecReadinessProbe#failureThreshold
         """
         result = self._values.get("failure_threshold")
         return result
@@ -4484,8 +4257,7 @@ class ClusterInstallationSpecReadinessProbe:
     ) -> typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"]:
         """HTTPGet specifies the http request to perform.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe#httpGet
+        :schema: ClusterInstallationSpecReadinessProbe#httpGet
         """
         result = self._values.get("http_get")
         return result
@@ -4496,8 +4268,7 @@ class ClusterInstallationSpecReadinessProbe:
 
         More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe#initialDelaySeconds
+        :schema: ClusterInstallationSpecReadinessProbe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
         return result
@@ -4508,11 +4279,9 @@ class ClusterInstallationSpecReadinessProbe:
 
         Default to 10 seconds. Minimum value is 1.
 
-        default
         :default: 10 seconds. Minimum value is 1.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe#periodSeconds
+        :schema: ClusterInstallationSpecReadinessProbe#periodSeconds
         """
         result = self._values.get("period_seconds")
         return result
@@ -4523,11 +4292,9 @@ class ClusterInstallationSpecReadinessProbe:
 
         Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
 
-        default
         :default: 1. Must be 1 for liveness and startup. Minimum value is 1.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe#successThreshold
+        :schema: ClusterInstallationSpecReadinessProbe#successThreshold
         """
         result = self._values.get("success_threshold")
         return result
@@ -4540,8 +4307,7 @@ class ClusterInstallationSpecReadinessProbe:
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe#tcpSocket
+        :schema: ClusterInstallationSpecReadinessProbe#tcpSocket
         """
         result = self._values.get("tcp_socket")
         return result
@@ -4552,11 +4318,9 @@ class ClusterInstallationSpecReadinessProbe:
 
         Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        default
         :default: 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbe#timeoutSeconds
+        :schema: ClusterInstallationSpecReadinessProbe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
         return result
@@ -4590,8 +4354,7 @@ class ClusterInstallationSpecReadinessProbeExec:
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeExec
+        :schema: ClusterInstallationSpecReadinessProbeExec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -4603,8 +4366,7 @@ class ClusterInstallationSpecReadinessProbeExec:
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeExec#command
+        :schema: ClusterInstallationSpecReadinessProbeExec#command
         """
         result = self._values.get("command")
         return result
@@ -4650,8 +4412,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         :param path: Path to access on the HTTP server.
         :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGet
+        :schema: ClusterInstallationSpecReadinessProbeHttpGet
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -4671,8 +4432,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGet#port
+        :schema: ClusterInstallationSpecReadinessProbeHttpGet#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -4684,8 +4444,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
 
         You probably want to set "Host" in httpHeaders instead.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGet#host
+        :schema: ClusterInstallationSpecReadinessProbeHttpGet#host
         """
         result = self._values.get("host")
         return result
@@ -4698,8 +4457,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
 
         HTTP allows repeated headers.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGet#httpHeaders
+        :schema: ClusterInstallationSpecReadinessProbeHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
         return result
@@ -4708,8 +4466,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
     def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGet#path
+        :schema: ClusterInstallationSpecReadinessProbeHttpGet#path
         """
         result = self._values.get("path")
         return result
@@ -4720,11 +4477,9 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
 
         Defaults to HTTP.
 
-        default
         :default: HTTP.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGet#scheme
+        :schema: ClusterInstallationSpecReadinessProbeHttpGet#scheme
         """
         result = self._values.get("scheme")
         return result
@@ -4753,8 +4508,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
         :param name: The header field name.
         :param value: The header field value.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders
+        :schema: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -4765,8 +4519,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
     def name(self) -> builtins.str:
         """The header field name.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders#name
+        :schema: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -4776,8 +4529,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
     def value(self) -> builtins.str:
         """The header field value.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders#value
+        :schema: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders#value
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
@@ -4803,8 +4555,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: ClusterInstallationSpecReadinessProbeHttpGetPort
+    :schema: ClusterInstallationSpecReadinessProbeHttpGetPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -4849,8 +4600,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
         :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
         :param host: Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeTcpSocket
+        :schema: ClusterInstallationSpecReadinessProbeTcpSocket
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -4864,8 +4614,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeTcpSocket#port
+        :schema: ClusterInstallationSpecReadinessProbeTcpSocket#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -4875,8 +4624,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
     def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: ClusterInstallationSpecReadinessProbeTcpSocket#host
+        :schema: ClusterInstallationSpecReadinessProbeTcpSocket#host
         """
         result = self._values.get("host")
         return result
@@ -4901,8 +4649,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: ClusterInstallationSpecReadinessProbeTcpSocketPort
+    :schema: ClusterInstallationSpecReadinessProbeTcpSocketPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -4945,8 +4692,7 @@ class ClusterInstallationSpecResources:
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         :param requests: Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecResources
+        :schema: ClusterInstallationSpecResources
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if limits is not None:
@@ -4960,8 +4706,7 @@ class ClusterInstallationSpecResources:
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecResources#limits
+        :schema: ClusterInstallationSpecResources#limits
         """
         result = self._values.get("limits")
         return result
@@ -4972,8 +4717,7 @@ class ClusterInstallationSpecResources:
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: ClusterInstallationSpecResources#requests
+        :schema: ClusterInstallationSpecResources#requests
         """
         result = self._values.get("requests")
         return result
