@@ -1,5 +1,6 @@
 import { Chart, ApiObject, Testing } from '../src';
-import { Construct, Lazy, Node, Dependency } from 'constructs';
+import { Construct, Node, Dependency } from 'constructs';
+import { Lazy } from '../src/lazy';
 
 test('empty stack', () => {
   // GIVEN
@@ -42,7 +43,7 @@ test('tokens are resolved during synth', () => {
     kind: 'Resource1',
     apiVersion: 'v1',
     spec: {
-      foo: Lazy.numberValue({ produce: () => 123 }),
+      foo: Lazy.any({ produce: () => 123 }),
       implicitToken: createImplictToken({ foo: 'bar' }),
     },
   });
