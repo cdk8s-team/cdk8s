@@ -9440,7 +9440,7 @@ yaml@*, yaml@^1.7.2, yaml@^1.9.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
 
-yaml@^2.0.0-0:
+yaml@2.0.0-0:
   version "2.0.0-0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.0.0-0.tgz#432108d836b6715fd33af2e324a8d3980e96f7fe"
   integrity sha512-+n+AwzE2hK2j21p36UB2foND6RYQU4PQkdPCK4YF2OKz8BbiNI+NvKS79CpyDChw3k/0L9jnChkjEzKoiu2C7w==
