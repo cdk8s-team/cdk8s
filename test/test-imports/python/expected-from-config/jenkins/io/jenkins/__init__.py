@@ -21,8 +21,7 @@ class Jenkins(
 ):
     """Jenkins is the Schema for the jenkins API.
 
-    schema:
-    :schema:: Jenkins
+    :schema: Jenkins
     """
 
     def __init__(
@@ -62,8 +61,7 @@ class JenkinsOptions:
         :param metadata: 
         :param spec: Spec defines the desired state of the Jenkins.
 
-        schema:
-        :schema:: Jenkins
+        :schema: Jenkins
         """
         if isinstance(spec, dict):
             spec = JenkinsSpec(**spec)
@@ -76,8 +74,7 @@ class JenkinsOptions:
     @builtins.property
     def metadata(self) -> typing.Any:
         """
-        schema:
-        :schema:: Jenkins#metadata
+        :schema: Jenkins#metadata
         """
         result = self._values.get("metadata")
         return result
@@ -86,8 +83,7 @@ class JenkinsOptions:
     def spec(self) -> typing.Optional["JenkinsSpec"]:
         """Spec defines the desired state of the Jenkins.
 
-        schema:
-        :schema:: Jenkins#spec
+        :schema: Jenkins#spec
         """
         result = self._values.get("spec")
         return result
@@ -154,8 +150,7 @@ class JenkinsSpec:
         :param service_account: ServiceAccount defines Jenkins master service account attributes.
         :param slave_service: Service is Kubernetes service of Jenkins slave pods Defaults to : port: 50000 type: ClusterIP. Default: port: 50000 type: ClusterIP
 
-        schema:
-        :schema:: JenkinsSpec
+        :schema: JenkinsSpec
         """
         if isinstance(jenkins_api_settings, dict):
             jenkins_api_settings = JenkinsSpecJenkinsApiSettings(**jenkins_api_settings)
@@ -204,8 +199,7 @@ class JenkinsSpec:
     def jenkins_api_settings(self) -> "JenkinsSpecJenkinsApiSettings":
         """JenkinsAPISettings defines configuration used by the operator to gain admin access to the Jenkins API.
 
-        schema:
-        :schema:: JenkinsSpec#jenkinsAPISettings
+        :schema: JenkinsSpec#jenkinsAPISettings
         """
         result = self._values.get("jenkins_api_settings")
         assert result is not None, "Required property 'jenkins_api_settings' is missing"
@@ -217,8 +211,7 @@ class JenkinsSpec:
 
         Every single change here requires a pod restart.
 
-        schema:
-        :schema:: JenkinsSpec#master
+        :schema: JenkinsSpec#master
         """
         result = self._values.get("master")
         assert result is not None, "Required property 'master' is missing"
@@ -228,8 +221,7 @@ class JenkinsSpec:
     def backup(self) -> typing.Optional["JenkinsSpecBackup"]:
         """Backup defines configuration of Jenkins backup More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-backup-and-restore.
 
-        schema:
-        :schema:: JenkinsSpec#backup
+        :schema: JenkinsSpec#backup
         """
         result = self._values.get("backup")
         return result
@@ -240,8 +232,7 @@ class JenkinsSpec:
     ) -> typing.Optional["JenkinsSpecConfigurationAsCode"]:
         """ConfigurationAsCode defines configuration of Jenkins customization via Configuration as Code Jenkins plugin.
 
-        schema:
-        :schema:: JenkinsSpec#configurationAsCode
+        :schema: JenkinsSpec#configurationAsCode
         """
         result = self._values.get("configuration_as_code")
         return result
@@ -250,8 +241,7 @@ class JenkinsSpec:
     def groovy_scripts(self) -> typing.Optional["JenkinsSpecGroovyScripts"]:
         """GroovyScripts defines configuration of Jenkins customization via groovy scripts.
 
-        schema:
-        :schema:: JenkinsSpec#groovyScripts
+        :schema: JenkinsSpec#groovyScripts
         """
         result = self._values.get("groovy_scripts")
         return result
@@ -260,8 +250,7 @@ class JenkinsSpec:
     def notifications(self) -> typing.Optional[typing.List["JenkinsSpecNotifications"]]:
         """Notifications defines list of a services which are used to inform about Jenkins status Can be used to integrate chat services like Slack, Microsoft Teams or Mailgun.
 
-        schema:
-        :schema:: JenkinsSpec#notifications
+        :schema: JenkinsSpec#notifications
         """
         result = self._values.get("notifications")
         return result
@@ -270,8 +259,7 @@ class JenkinsSpec:
     def restore(self) -> typing.Optional["JenkinsSpecRestore"]:
         """Backup defines configuration of Jenkins backup restore More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-backup-and-restore.
 
-        schema:
-        :schema:: JenkinsSpec#restore
+        :schema: JenkinsSpec#restore
         """
         result = self._values.get("restore")
         return result
@@ -280,8 +268,7 @@ class JenkinsSpec:
     def roles(self) -> typing.Optional[typing.List["JenkinsSpecRoles"]]:
         """Roles defines list of extra RBAC roles for the Jenkins Master pod service account.
 
-        schema:
-        :schema:: JenkinsSpec#roles
+        :schema: JenkinsSpec#roles
         """
         result = self._values.get("roles")
         return result
@@ -290,8 +277,7 @@ class JenkinsSpec:
     def seed_jobs(self) -> typing.Optional[typing.List["JenkinsSpecSeedJobs"]]:
         """SeedJobs defines list of Jenkins Seed Job configurations More info: https://github.com/jenkinsci/kubernetes-operator/blob/master/docs/getting-started.md#configure-seed-jobs-and-pipelines.
 
-        schema:
-        :schema:: JenkinsSpec#seedJobs
+        :schema: JenkinsSpec#seedJobs
         """
         result = self._values.get("seed_jobs")
         return result
@@ -300,11 +286,9 @@ class JenkinsSpec:
     def service(self) -> typing.Optional["JenkinsSpecService"]:
         """Service is Kubernetes service of Jenkins master HTTP pod Defaults to : port: 8080 type: ClusterIP.
 
-        default
         :default: port: 8080 type: ClusterIP
 
-        schema:
-        :schema:: JenkinsSpec#service
+        :schema: JenkinsSpec#service
         """
         result = self._values.get("service")
         return result
@@ -313,8 +297,7 @@ class JenkinsSpec:
     def service_account(self) -> typing.Optional["JenkinsSpecServiceAccount"]:
         """ServiceAccount defines Jenkins master service account attributes.
 
-        schema:
-        :schema:: JenkinsSpec#serviceAccount
+        :schema: JenkinsSpec#serviceAccount
         """
         result = self._values.get("service_account")
         return result
@@ -323,11 +306,9 @@ class JenkinsSpec:
     def slave_service(self) -> typing.Optional["JenkinsSpecSlaveService"]:
         """Service is Kubernetes service of Jenkins slave pods Defaults to : port: 50000 type: ClusterIP.
 
-        default
         :default: port: 50000 type: ClusterIP
 
-        schema:
-        :schema:: JenkinsSpec#slaveService
+        :schema: JenkinsSpec#slaveService
         """
         result = self._values.get("slave_service")
         return result
@@ -370,8 +351,7 @@ class JenkinsSpecBackup:
         :param interval: Interval tells how often make backup in seconds Defaults to 30. Default: 30.
         :param make_backup_before_pod_deletion: MakeBackupBeforePodDeletion tells operator to make backup before Jenkins master pod deletion.
 
-        schema:
-        :schema:: JenkinsSpecBackup
+        :schema: JenkinsSpecBackup
         """
         if isinstance(action, dict):
             action = JenkinsSpecBackupAction(**action)
@@ -386,8 +366,7 @@ class JenkinsSpecBackup:
     def action(self) -> "JenkinsSpecBackupAction":
         """Action defines action which performs backup in backup container sidecar.
 
-        schema:
-        :schema:: JenkinsSpecBackup#action
+        :schema: JenkinsSpecBackup#action
         """
         result = self._values.get("action")
         assert result is not None, "Required property 'action' is missing"
@@ -397,8 +376,7 @@ class JenkinsSpecBackup:
     def container_name(self) -> builtins.str:
         """ContainerName is the container name responsible for backup operation.
 
-        schema:
-        :schema:: JenkinsSpecBackup#containerName
+        :schema: JenkinsSpecBackup#containerName
         """
         result = self._values.get("container_name")
         assert result is not None, "Required property 'container_name' is missing"
@@ -408,11 +386,9 @@ class JenkinsSpecBackup:
     def interval(self) -> jsii.Number:
         """Interval tells how often make backup in seconds Defaults to 30.
 
-        default
         :default: 30.
 
-        schema:
-        :schema:: JenkinsSpecBackup#interval
+        :schema: JenkinsSpecBackup#interval
         """
         result = self._values.get("interval")
         assert result is not None, "Required property 'interval' is missing"
@@ -422,8 +398,7 @@ class JenkinsSpecBackup:
     def make_backup_before_pod_deletion(self) -> builtins.bool:
         """MakeBackupBeforePodDeletion tells operator to make backup before Jenkins master pod deletion.
 
-        schema:
-        :schema:: JenkinsSpecBackup#makeBackupBeforePodDeletion
+        :schema: JenkinsSpecBackup#makeBackupBeforePodDeletion
         """
         result = self._values.get("make_backup_before_pod_deletion")
         assert result is not None, "Required property 'make_backup_before_pod_deletion' is missing"
@@ -456,8 +431,7 @@ class JenkinsSpecBackupAction:
 
         :param exec: Exec specifies the action to take.
 
-        schema:
-        :schema:: JenkinsSpecBackupAction
+        :schema: JenkinsSpecBackupAction
         """
         if isinstance(exec, dict):
             exec = JenkinsSpecBackupActionExec(**exec)
@@ -469,8 +443,7 @@ class JenkinsSpecBackupAction:
     def exec(self) -> typing.Optional["JenkinsSpecBackupActionExec"]:
         """Exec specifies the action to take.
 
-        schema:
-        :schema:: JenkinsSpecBackupAction#exec
+        :schema: JenkinsSpecBackupAction#exec
         """
         result = self._values.get("exec")
         return result
@@ -502,8 +475,7 @@ class JenkinsSpecBackupActionExec:
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecBackupActionExec
+        :schema: JenkinsSpecBackupActionExec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -515,8 +487,7 @@ class JenkinsSpecBackupActionExec:
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecBackupActionExec#command
+        :schema: JenkinsSpecBackupActionExec#command
         """
         result = self._values.get("command")
         return result
@@ -550,8 +521,7 @@ class JenkinsSpecConfigurationAsCode:
         :param configurations: 
         :param secret: SecretRef is reference to Kubernetes secret.
 
-        schema:
-        :schema:: JenkinsSpecConfigurationAsCode
+        :schema: JenkinsSpecConfigurationAsCode
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecConfigurationAsCodeSecret(**secret)
@@ -565,8 +535,7 @@ class JenkinsSpecConfigurationAsCode:
         self,
     ) -> typing.List["JenkinsSpecConfigurationAsCodeConfigurations"]:
         """
-        schema:
-        :schema:: JenkinsSpecConfigurationAsCode#configurations
+        :schema: JenkinsSpecConfigurationAsCode#configurations
         """
         result = self._values.get("configurations")
         assert result is not None, "Required property 'configurations' is missing"
@@ -576,8 +545,7 @@ class JenkinsSpecConfigurationAsCode:
     def secret(self) -> "JenkinsSpecConfigurationAsCodeSecret":
         """SecretRef is reference to Kubernetes secret.
 
-        schema:
-        :schema:: JenkinsSpecConfigurationAsCode#secret
+        :schema: JenkinsSpecConfigurationAsCode#secret
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
@@ -606,8 +574,7 @@ class JenkinsSpecConfigurationAsCodeConfigurations:
 
         :param name: 
 
-        schema:
-        :schema:: JenkinsSpecConfigurationAsCodeConfigurations
+        :schema: JenkinsSpecConfigurationAsCodeConfigurations
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -616,8 +583,7 @@ class JenkinsSpecConfigurationAsCodeConfigurations:
     @builtins.property
     def name(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecConfigurationAsCodeConfigurations#name
+        :schema: JenkinsSpecConfigurationAsCodeConfigurations#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -646,8 +612,7 @@ class JenkinsSpecConfigurationAsCodeSecret:
 
         :param name: 
 
-        schema:
-        :schema:: JenkinsSpecConfigurationAsCodeSecret
+        :schema: JenkinsSpecConfigurationAsCodeSecret
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -656,8 +621,7 @@ class JenkinsSpecConfigurationAsCodeSecret:
     @builtins.property
     def name(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecConfigurationAsCodeSecret#name
+        :schema: JenkinsSpecConfigurationAsCodeSecret#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -692,8 +656,7 @@ class JenkinsSpecGroovyScripts:
         :param configurations: 
         :param secret: SecretRef is reference to Kubernetes secret.
 
-        schema:
-        :schema:: JenkinsSpecGroovyScripts
+        :schema: JenkinsSpecGroovyScripts
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecGroovyScriptsSecret(**secret)
@@ -705,8 +668,7 @@ class JenkinsSpecGroovyScripts:
     @builtins.property
     def configurations(self) -> typing.List["JenkinsSpecGroovyScriptsConfigurations"]:
         """
-        schema:
-        :schema:: JenkinsSpecGroovyScripts#configurations
+        :schema: JenkinsSpecGroovyScripts#configurations
         """
         result = self._values.get("configurations")
         assert result is not None, "Required property 'configurations' is missing"
@@ -716,8 +678,7 @@ class JenkinsSpecGroovyScripts:
     def secret(self) -> "JenkinsSpecGroovyScriptsSecret":
         """SecretRef is reference to Kubernetes secret.
 
-        schema:
-        :schema:: JenkinsSpecGroovyScripts#secret
+        :schema: JenkinsSpecGroovyScripts#secret
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
@@ -746,8 +707,7 @@ class JenkinsSpecGroovyScriptsConfigurations:
 
         :param name: 
 
-        schema:
-        :schema:: JenkinsSpecGroovyScriptsConfigurations
+        :schema: JenkinsSpecGroovyScriptsConfigurations
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -756,8 +716,7 @@ class JenkinsSpecGroovyScriptsConfigurations:
     @builtins.property
     def name(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecGroovyScriptsConfigurations#name
+        :schema: JenkinsSpecGroovyScriptsConfigurations#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -786,8 +745,7 @@ class JenkinsSpecGroovyScriptsSecret:
 
         :param name: 
 
-        schema:
-        :schema:: JenkinsSpecGroovyScriptsSecret
+        :schema: JenkinsSpecGroovyScriptsSecret
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -796,8 +754,7 @@ class JenkinsSpecGroovyScriptsSecret:
     @builtins.property
     def name(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecGroovyScriptsSecret#name
+        :schema: JenkinsSpecGroovyScriptsSecret#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -826,8 +783,7 @@ class JenkinsSpecJenkinsApiSettings:
 
         :param authorization_strategy: AuthorizationStrategy defines authorization strategy of the operator for the Jenkins API.
 
-        schema:
-        :schema:: JenkinsSpecJenkinsApiSettings
+        :schema: JenkinsSpecJenkinsApiSettings
         """
         self._values: typing.Dict[str, typing.Any] = {
             "authorization_strategy": authorization_strategy,
@@ -837,8 +793,7 @@ class JenkinsSpecJenkinsApiSettings:
     def authorization_strategy(self) -> builtins.str:
         """AuthorizationStrategy defines authorization strategy of the operator for the Jenkins API.
 
-        schema:
-        :schema:: JenkinsSpecJenkinsApiSettings#authorizationStrategy
+        :schema: JenkinsSpecJenkinsApiSettings#authorizationStrategy
         """
         result = self._values.get("authorization_strategy")
         assert result is not None, "Required property 'authorization_strategy' is missing"
@@ -908,8 +863,7 @@ class JenkinsSpecMaster:
         :param tolerations: If specified, the pod's tolerations.
         :param volumes: List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes
 
-        schema:
-        :schema:: JenkinsSpecMaster
+        :schema: JenkinsSpecMaster
         """
         if isinstance(security_context, dict):
             security_context = JenkinsSpecMasterSecurityContext(**security_context)
@@ -943,8 +897,7 @@ class JenkinsSpecMaster:
     def disable_csrf_protection(self) -> builtins.bool:
         """DisableCSRFProtection allows you to toggle CSRF Protection on Jenkins.
 
-        schema:
-        :schema:: JenkinsSpecMaster#disableCSRFProtection
+        :schema: JenkinsSpecMaster#disableCSRFProtection
         """
         result = self._values.get("disable_csrf_protection")
         assert result is not None, "Required property 'disable_csrf_protection' is missing"
@@ -958,8 +911,7 @@ class JenkinsSpecMaster:
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
 
-        schema:
-        :schema:: JenkinsSpecMaster#annotations
+        :schema: JenkinsSpecMaster#annotations
         """
         result = self._values.get("annotations")
         return result
@@ -970,11 +922,9 @@ class JenkinsSpecMaster:
     ) -> typing.Optional[typing.List["JenkinsSpecMasterBasePlugins"]]:
         """BasePlugins contains plugins required by operator Defaults to : - name: kubernetes version: 1.15.7 - name: workflow-job version: "2.32" - name: workflow-aggregator version: "2.6" - name: git version: 3.10.0 - name: job-dsl version: "1.74" - name: configuration-as-code version: "1.19" - name: configuration-as-code-support version: "1.19" - name: kubernetes-credentials-provider version: 0.12.1.
 
-        default
         :default: name: kubernetes version: 1.15.7 - name: workflow-job version: "2.32" - name: workflow-aggregator version: "2.6" - name: git version: 3.10.0 - name: job-dsl version: "1.74" - name: configuration-as-code version: "1.19" - name: configuration-as-code-support version: "1.19" - name: kubernetes-credentials-provider version: 0.12.1
 
-        schema:
-        :schema:: JenkinsSpecMaster#basePlugins
+        :schema: JenkinsSpecMaster#basePlugins
         """
         result = self._values.get("base_plugins")
         return result
@@ -985,11 +935,9 @@ class JenkinsSpecMaster:
 
         Containers cannot currently be added or removed. There must be at least one container in a Pod. Defaults to: - image: jenkins/jenkins:lts   imagePullPolicy: Always   livenessProbe:     failureThreshold: 12     httpGet:       path: /login       port: http       scheme: HTTP     initialDelaySeconds: 80     periodSeconds: 10     successThreshold: 1     timeoutSeconds: 5   name: jenkins-master   readinessProbe:     failureThreshold: 3     httpGet:       path: /login       port: http       scheme: HTTP     initialDelaySeconds: 30     periodSeconds: 10     successThreshold: 1     timeoutSeconds: 1   resources:     limits:       cpu: 1500m       memory: 3Gi     requests:       cpu: "1"       memory: 600Mi
 
-        default
         :default: image: jenkins/jenkins:lts   imagePullPolicy: Always   livenessProbe:     failureThreshold: 12     httpGet:       path: /login       port: http       scheme: HTTP     initialDelaySeconds: 80     periodSeconds: 10     successThreshold: 1     timeoutSeconds: 5   name: jenkins-master   readinessProbe:     failureThreshold: 3     httpGet:       path: /login       port: http       scheme: HTTP     initialDelaySeconds: 30     periodSeconds: 10     successThreshold: 1     timeoutSeconds: 1   resources:     limits:       cpu: 1500m       memory: 3Gi     requests:       cpu: "1"       memory: 600Mi
 
-        schema:
-        :schema:: JenkinsSpecMaster#containers
+        :schema: JenkinsSpecMaster#containers
         """
         result = self._values.get("containers")
         return result
@@ -1002,8 +950,7 @@ class JenkinsSpecMaster:
 
         If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
 
-        schema:
-        :schema:: JenkinsSpecMaster#imagePullSecrets
+        :schema: JenkinsSpecMaster#imagePullSecrets
         """
         result = self._values.get("image_pull_secrets")
         return result
@@ -1014,8 +961,7 @@ class JenkinsSpecMaster:
 
         May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
 
-        schema:
-        :schema:: JenkinsSpecMaster#labels
+        :schema: JenkinsSpecMaster#labels
         """
         result = self._values.get("labels")
         return result
@@ -1028,8 +974,7 @@ class JenkinsSpecMaster:
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations Deprecated: will be removed in the future, please use Annotations(annotations)
 
-        schema:
-        :schema:: JenkinsSpecMaster#masterAnnotations
+        :schema: JenkinsSpecMaster#masterAnnotations
         """
         result = self._values.get("master_annotations")
         return result
@@ -1042,8 +987,7 @@ class JenkinsSpecMaster:
 
         Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 
-        schema:
-        :schema:: JenkinsSpecMaster#nodeSelector
+        :schema: JenkinsSpecMaster#nodeSelector
         """
         result = self._values.get("node_selector")
         return result
@@ -1052,8 +996,7 @@ class JenkinsSpecMaster:
     def plugins(self) -> typing.Optional[typing.List["JenkinsSpecMasterPlugins"]]:
         """Plugins contains plugins required by user.
 
-        schema:
-        :schema:: JenkinsSpecMaster#plugins
+        :schema: JenkinsSpecMaster#plugins
         """
         result = self._values.get("plugins")
         return result
@@ -1064,11 +1007,9 @@ class JenkinsSpecMaster:
 
         As per kubernetes specification, it can be overridden for each container individually. Defaults to: runAsUser: 1000 fsGroup: 1000
 
-        default
         :default: runAsUser: 1000 fsGroup: 1000
 
-        schema:
-        :schema:: JenkinsSpecMaster#securityContext
+        :schema: JenkinsSpecMaster#securityContext
         """
         result = self._values.get("security_context")
         return result
@@ -1079,8 +1020,7 @@ class JenkinsSpecMaster:
     ) -> typing.Optional[typing.List["JenkinsSpecMasterTolerations"]]:
         """If specified, the pod's tolerations.
 
-        schema:
-        :schema:: JenkinsSpecMaster#tolerations
+        :schema: JenkinsSpecMaster#tolerations
         """
         result = self._values.get("tolerations")
         return result
@@ -1091,8 +1031,7 @@ class JenkinsSpecMaster:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes
 
-        schema:
-        :schema:: JenkinsSpecMaster#volumes
+        :schema: JenkinsSpecMaster#volumes
         """
         result = self._values.get("volumes")
         return result
@@ -1121,8 +1060,7 @@ class JenkinsSpecMasterBasePlugins:
         :param name: Name is the name of Jenkins plugin.
         :param version: Version is the version of Jenkins plugin.
 
-        schema:
-        :schema:: JenkinsSpecMasterBasePlugins
+        :schema: JenkinsSpecMasterBasePlugins
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -1133,8 +1071,7 @@ class JenkinsSpecMasterBasePlugins:
     def name(self) -> builtins.str:
         """Name is the name of Jenkins plugin.
 
-        schema:
-        :schema:: JenkinsSpecMasterBasePlugins#name
+        :schema: JenkinsSpecMasterBasePlugins#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -1144,8 +1081,7 @@ class JenkinsSpecMasterBasePlugins:
     def version(self) -> builtins.str:
         """Version is the version of Jenkins plugin.
 
-        schema:
-        :schema:: JenkinsSpecMasterBasePlugins#version
+        :schema: JenkinsSpecMasterBasePlugins#version
         """
         result = self._values.get("version")
         assert result is not None, "Required property 'version' is missing"
@@ -1222,8 +1158,7 @@ class JenkinsSpecMasterContainers:
         :param volume_mounts: Pod volumes to mount into the container's filesystem.
         :param working_dir: Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers
+        :schema: JenkinsSpecMasterContainers
         """
         if isinstance(resources, dict):
             resources = JenkinsSpecMasterContainersResources(**resources)
@@ -1270,8 +1205,7 @@ class JenkinsSpecMasterContainers:
 
         More info: https://kubernetes.io/docs/concepts/containers/images
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#image
+        :schema: JenkinsSpecMasterContainers#image
         """
         result = self._values.get("image")
         assert result is not None, "Required property 'image' is missing"
@@ -1283,11 +1217,9 @@ class JenkinsSpecMasterContainers:
 
         One of Always, Never, IfNotPresent. Defaults to Always.
 
-        default
         :default: Always.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#imagePullPolicy
+        :schema: JenkinsSpecMasterContainers#imagePullPolicy
         """
         result = self._values.get("image_pull_policy")
         assert result is not None, "Required property 'image_pull_policy' is missing"
@@ -1299,8 +1231,7 @@ class JenkinsSpecMasterContainers:
 
         Each container in a pod must have a unique name (DNS_LABEL).
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#name
+        :schema: JenkinsSpecMasterContainers#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -1312,8 +1243,7 @@ class JenkinsSpecMasterContainers:
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#resources
+        :schema: JenkinsSpecMasterContainers#resources
         """
         result = self._values.get("resources")
         assert result is not None, "Required property 'resources' is missing"
@@ -1325,8 +1255,7 @@ class JenkinsSpecMasterContainers:
 
         The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#args
+        :schema: JenkinsSpecMasterContainers#args
         """
         result = self._values.get("args")
         return result
@@ -1337,8 +1266,7 @@ class JenkinsSpecMasterContainers:
 
         Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#command
+        :schema: JenkinsSpecMasterContainers#command
         """
         result = self._values.get("command")
         return result
@@ -1347,8 +1275,7 @@ class JenkinsSpecMasterContainers:
     def env(self) -> typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]]:
         """List of environment variables to set in the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#env
+        :schema: JenkinsSpecMasterContainers#env
         """
         result = self._values.get("env")
         return result
@@ -1361,8 +1288,7 @@ class JenkinsSpecMasterContainers:
 
         The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#envFrom
+        :schema: JenkinsSpecMasterContainers#envFrom
         """
         result = self._values.get("env_from")
         return result
@@ -1371,8 +1297,7 @@ class JenkinsSpecMasterContainers:
     def lifecycle(self) -> typing.Optional["JenkinsSpecMasterContainersLifecycle"]:
         """Actions that the management system should take in response to container lifecycle events.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#lifecycle
+        :schema: JenkinsSpecMasterContainers#lifecycle
         """
         result = self._values.get("lifecycle")
         return result
@@ -1385,8 +1310,7 @@ class JenkinsSpecMasterContainers:
 
         Container will be restarted if the probe fails.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#livenessProbe
+        :schema: JenkinsSpecMasterContainers#livenessProbe
         """
         result = self._values.get("liveness_probe")
         return result
@@ -1397,8 +1321,7 @@ class JenkinsSpecMasterContainers:
 
         Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#ports
+        :schema: JenkinsSpecMasterContainers#ports
         """
         result = self._values.get("ports")
         return result
@@ -1411,8 +1334,7 @@ class JenkinsSpecMasterContainers:
 
         Container will be removed from service endpoints if the probe fails.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#readinessProbe
+        :schema: JenkinsSpecMasterContainers#readinessProbe
         """
         result = self._values.get("readiness_probe")
         return result
@@ -1425,8 +1347,7 @@ class JenkinsSpecMasterContainers:
 
         More info: https://kubernetes.io/docs/concepts/policy/security-context/ More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#securityContext
+        :schema: JenkinsSpecMasterContainers#securityContext
         """
         result = self._values.get("security_context")
         return result
@@ -1437,8 +1358,7 @@ class JenkinsSpecMasterContainers:
     ) -> typing.Optional[typing.List["JenkinsSpecMasterContainersVolumeMounts"]]:
         """Pod volumes to mount into the container's filesystem.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#volumeMounts
+        :schema: JenkinsSpecMasterContainers#volumeMounts
         """
         result = self._values.get("volume_mounts")
         return result
@@ -1449,8 +1369,7 @@ class JenkinsSpecMasterContainers:
 
         If not specified, the container runtime's default will be used, which might be configured in the container image.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainers#workingDir
+        :schema: JenkinsSpecMasterContainers#workingDir
         """
         result = self._values.get("working_dir")
         return result
@@ -1486,8 +1405,7 @@ class JenkinsSpecMasterContainersEnv:
         :param value: Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "". Default: .
         :param value_from: Source for the environment variable's value. Cannot be used if value is not empty.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnv
+        :schema: JenkinsSpecMasterContainersEnv
         """
         if isinstance(value_from, dict):
             value_from = JenkinsSpecMasterContainersEnvValueFrom(**value_from)
@@ -1505,8 +1423,7 @@ class JenkinsSpecMasterContainersEnv:
 
         Must be a C_IDENTIFIER.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnv#name
+        :schema: JenkinsSpecMasterContainersEnv#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -1518,11 +1435,9 @@ class JenkinsSpecMasterContainersEnv:
 
         If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
 
-        default
         :default: .
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnv#value
+        :schema: JenkinsSpecMasterContainersEnv#value
         """
         result = self._values.get("value")
         return result
@@ -1533,8 +1448,7 @@ class JenkinsSpecMasterContainersEnv:
 
         Cannot be used if value is not empty.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnv#valueFrom
+        :schema: JenkinsSpecMasterContainersEnv#valueFrom
         """
         result = self._values.get("value_from")
         return result
@@ -1574,8 +1488,7 @@ class JenkinsSpecMasterContainersEnvFrom:
         :param prefix: An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
         :param secret_ref: The Secret to select from.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFrom
+        :schema: JenkinsSpecMasterContainersEnvFrom
         """
         if isinstance(config_map_ref, dict):
             config_map_ref = JenkinsSpecMasterContainersEnvFromConfigMapRef(**config_map_ref)
@@ -1595,8 +1508,7 @@ class JenkinsSpecMasterContainersEnvFrom:
     ) -> typing.Optional["JenkinsSpecMasterContainersEnvFromConfigMapRef"]:
         """The ConfigMap to select from.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFrom#configMapRef
+        :schema: JenkinsSpecMasterContainersEnvFrom#configMapRef
         """
         result = self._values.get("config_map_ref")
         return result
@@ -1607,8 +1519,7 @@ class JenkinsSpecMasterContainersEnvFrom:
 
         Must be a C_IDENTIFIER.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFrom#prefix
+        :schema: JenkinsSpecMasterContainersEnvFrom#prefix
         """
         result = self._values.get("prefix")
         return result
@@ -1619,8 +1530,7 @@ class JenkinsSpecMasterContainersEnvFrom:
     ) -> typing.Optional["JenkinsSpecMasterContainersEnvFromSecretRef"]:
         """The Secret to select from.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFrom#secretRef
+        :schema: JenkinsSpecMasterContainersEnvFrom#secretRef
         """
         result = self._values.get("secret_ref")
         return result
@@ -1654,8 +1564,7 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the ConfigMap must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFromConfigMapRef
+        :schema: JenkinsSpecMasterContainersEnvFromConfigMapRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -1669,8 +1578,7 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFromConfigMapRef#name
+        :schema: JenkinsSpecMasterContainersEnvFromConfigMapRef#name
         """
         result = self._values.get("name")
         return result
@@ -1679,8 +1587,7 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFromConfigMapRef#optional
+        :schema: JenkinsSpecMasterContainersEnvFromConfigMapRef#optional
         """
         result = self._values.get("optional")
         return result
@@ -1714,8 +1621,7 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the Secret must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFromSecretRef
+        :schema: JenkinsSpecMasterContainersEnvFromSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -1729,8 +1635,7 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFromSecretRef#name
+        :schema: JenkinsSpecMasterContainersEnvFromSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -1739,8 +1644,7 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvFromSecretRef#optional
+        :schema: JenkinsSpecMasterContainersEnvFromSecretRef#optional
         """
         result = self._values.get("optional")
         return result
@@ -1785,8 +1689,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         :param resource_field_ref: Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
         :param secret_key_ref: Selects a key of a secret in the pod's namespace.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFrom
+        :schema: JenkinsSpecMasterContainersEnvValueFrom
         """
         if isinstance(config_map_key_ref, dict):
             config_map_key_ref = JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef(**config_map_key_ref)
@@ -1812,8 +1715,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
     ) -> typing.Optional["JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef"]:
         """Selects a key of a ConfigMap.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFrom#configMapKeyRef
+        :schema: JenkinsSpecMasterContainersEnvValueFrom#configMapKeyRef
         """
         result = self._values.get("config_map_key_ref")
         return result
@@ -1824,8 +1726,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
     ) -> typing.Optional["JenkinsSpecMasterContainersEnvValueFromFieldRef"]:
         """Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFrom#fieldRef
+        :schema: JenkinsSpecMasterContainersEnvValueFrom#fieldRef
         """
         result = self._values.get("field_ref")
         return result
@@ -1836,8 +1737,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
     ) -> typing.Optional["JenkinsSpecMasterContainersEnvValueFromResourceFieldRef"]:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFrom#resourceFieldRef
+        :schema: JenkinsSpecMasterContainersEnvValueFrom#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
         return result
@@ -1848,8 +1748,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
     ) -> typing.Optional["JenkinsSpecMasterContainersEnvValueFromSecretKeyRef"]:
         """Selects a key of a secret in the pod's namespace.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFrom#secretKeyRef
+        :schema: JenkinsSpecMasterContainersEnvValueFrom#secretKeyRef
         """
         result = self._values.get("secret_key_ref")
         return result
@@ -1885,8 +1784,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the ConfigMap or its key must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef
+        :schema: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -1900,8 +1798,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
     def key(self) -> builtins.str:
         """The key to select.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#key
+        :schema: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -1913,8 +1810,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#name
+        :schema: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#name
         """
         result = self._values.get("name")
         return result
@@ -1923,8 +1819,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap or its key must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#optional
+        :schema: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#optional
         """
         result = self._values.get("optional")
         return result
@@ -1958,8 +1853,7 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef:
         :param field_path: Path of the field to select in the specified API version.
         :param api_version: Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromFieldRef
+        :schema: JenkinsSpecMasterContainersEnvValueFromFieldRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "field_path": field_path,
@@ -1971,8 +1865,7 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef:
     def field_path(self) -> builtins.str:
         """Path of the field to select in the specified API version.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromFieldRef#fieldPath
+        :schema: JenkinsSpecMasterContainersEnvValueFromFieldRef#fieldPath
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
@@ -1982,8 +1875,7 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef:
     def api_version(self) -> typing.Optional[builtins.str]:
         """Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromFieldRef#apiVersion
+        :schema: JenkinsSpecMasterContainersEnvValueFromFieldRef#apiVersion
         """
         result = self._values.get("api_version")
         return result
@@ -2023,8 +1915,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
         :param container_name: Container name: required for volumes, optional for env vars.
         :param divisor: Specifies the output format of the exposed resources, defaults to "1".
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef
+        :schema: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "resource": resource,
@@ -2038,8 +1929,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
     def resource(self) -> builtins.str:
         """Required: resource to select.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#resource
+        :schema: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#resource
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
@@ -2049,8 +1939,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
     def container_name(self) -> typing.Optional[builtins.str]:
         """Container name: required for volumes, optional for env vars.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#containerName
+        :schema: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#containerName
         """
         result = self._values.get("container_name")
         return result
@@ -2059,8 +1948,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
     def divisor(self) -> typing.Optional[builtins.str]:
         """Specifies the output format of the exposed resources, defaults to "1".
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#divisor
+        :schema: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#divisor
         """
         result = self._values.get("divisor")
         return result
@@ -2096,8 +1984,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the Secret or its key must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef
+        :schema: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -2113,8 +2000,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
 
         Must be a valid secret key.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#key
+        :schema: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -2126,8 +2012,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#name
+        :schema: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#name
         """
         result = self._values.get("name")
         return result
@@ -2136,8 +2021,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret or its key must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#optional
+        :schema: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#optional
         """
         result = self._values.get("optional")
         return result
@@ -2171,8 +2055,7 @@ class JenkinsSpecMasterContainersLifecycle:
         :param post_start: PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
         :param pre_stop: PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The reason for termination is passed to the handler. The Pod's termination grace period countdown begins before the PreStop hooked is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period. Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecycle
+        :schema: JenkinsSpecMasterContainersLifecycle
         """
         if isinstance(post_start, dict):
             post_start = JenkinsSpecMasterContainersLifecyclePostStart(**post_start)
@@ -2192,8 +2075,7 @@ class JenkinsSpecMasterContainersLifecycle:
 
         If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecycle#postStart
+        :schema: JenkinsSpecMasterContainersLifecycle#postStart
         """
         result = self._values.get("post_start")
         return result
@@ -2206,8 +2088,7 @@ class JenkinsSpecMasterContainersLifecycle:
 
         The handler is not called if the container crashes or exits. The reason for termination is passed to the handler. The Pod's termination grace period countdown begins before the PreStop hooked is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period. Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecycle#preStop
+        :schema: JenkinsSpecMasterContainersLifecycle#preStop
         """
         result = self._values.get("pre_stop")
         return result
@@ -2245,8 +2126,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         :param http_get: HTTPGet specifies the http request to perform.
         :param tcp_socket: TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStart
+        :schema: JenkinsSpecMasterContainersLifecyclePostStart
         """
         if isinstance(exec, dict):
             exec = JenkinsSpecMasterContainersLifecyclePostStartExec(**exec)
@@ -2270,8 +2150,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
 
         Exec specifies the action to take.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStart#exec
+        :schema: JenkinsSpecMasterContainersLifecyclePostStart#exec
         """
         result = self._values.get("exec")
         return result
@@ -2282,8 +2161,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
     ) -> typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartHttpGet"]:
         """HTTPGet specifies the http request to perform.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStart#httpGet
+        :schema: JenkinsSpecMasterContainersLifecyclePostStart#httpGet
         """
         result = self._values.get("http_get")
         return result
@@ -2296,8 +2174,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStart#tcpSocket
+        :schema: JenkinsSpecMasterContainersLifecyclePostStart#tcpSocket
         """
         result = self._values.get("tcp_socket")
         return result
@@ -2331,8 +2208,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec:
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartExec
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartExec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -2344,8 +2220,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec:
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartExec#command
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartExec#command
         """
         result = self._values.get("command")
         return result
@@ -2391,8 +2266,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         :param path: Path to access on the HTTP server.
         :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -2412,8 +2286,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#port
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -2425,8 +2298,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
 
         You probably want to set "Host" in httpHeaders instead.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#host
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#host
         """
         result = self._values.get("host")
         return result
@@ -2439,8 +2311,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
 
         HTTP allows repeated headers.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#httpHeaders
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
         return result
@@ -2449,8 +2320,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
     def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#path
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#path
         """
         result = self._values.get("path")
         return result
@@ -2461,11 +2331,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
 
         Defaults to HTTP.
 
-        default
         :default: HTTP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#scheme
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#scheme
         """
         result = self._values.get("scheme")
         return result
@@ -2494,8 +2362,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
         :param name: The header field name.
         :param value: The header field value.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -2506,8 +2373,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
     def name(self) -> builtins.str:
         """The header field name.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders#name
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -2517,8 +2383,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
     def value(self) -> builtins.str:
         """The header field value.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders#value
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders#value
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
@@ -2544,8 +2409,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort
+    :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -2590,8 +2454,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
         :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
         :param host: Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -2605,8 +2468,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket#port
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -2616,8 +2478,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
     def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket#host
+        :schema: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket#host
         """
         result = self._values.get("host")
         return result
@@ -2642,8 +2503,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort
+    :schema: JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -2690,8 +2550,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         :param http_get: HTTPGet specifies the http request to perform.
         :param tcp_socket: TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStop
+        :schema: JenkinsSpecMasterContainersLifecyclePreStop
         """
         if isinstance(exec, dict):
             exec = JenkinsSpecMasterContainersLifecyclePreStopExec(**exec)
@@ -2715,8 +2574,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
 
         Exec specifies the action to take.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStop#exec
+        :schema: JenkinsSpecMasterContainersLifecyclePreStop#exec
         """
         result = self._values.get("exec")
         return result
@@ -2727,8 +2585,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
     ) -> typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopHttpGet"]:
         """HTTPGet specifies the http request to perform.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStop#httpGet
+        :schema: JenkinsSpecMasterContainersLifecyclePreStop#httpGet
         """
         result = self._values.get("http_get")
         return result
@@ -2741,8 +2598,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStop#tcpSocket
+        :schema: JenkinsSpecMasterContainersLifecyclePreStop#tcpSocket
         """
         result = self._values.get("tcp_socket")
         return result
@@ -2776,8 +2632,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec:
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopExec
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopExec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -2789,8 +2644,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec:
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopExec#command
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopExec#command
         """
         result = self._values.get("command")
         return result
@@ -2836,8 +2690,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         :param path: Path to access on the HTTP server.
         :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -2857,8 +2710,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#port
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -2870,8 +2722,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
 
         You probably want to set "Host" in httpHeaders instead.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#host
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#host
         """
         result = self._values.get("host")
         return result
@@ -2884,8 +2735,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
 
         HTTP allows repeated headers.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#httpHeaders
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
         return result
@@ -2894,8 +2744,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
     def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#path
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#path
         """
         result = self._values.get("path")
         return result
@@ -2906,11 +2755,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
 
         Defaults to HTTP.
 
-        default
         :default: HTTP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#scheme
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#scheme
         """
         result = self._values.get("scheme")
         return result
@@ -2939,8 +2786,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
         :param name: The header field name.
         :param value: The header field value.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -2951,8 +2797,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
     def name(self) -> builtins.str:
         """The header field name.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders#name
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -2962,8 +2807,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
     def value(self) -> builtins.str:
         """The header field value.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders#value
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders#value
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
@@ -2989,8 +2833,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort
+    :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -3035,8 +2878,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
         :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
         :param host: Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -3050,8 +2892,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket#port
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -3061,8 +2902,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
     def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket#host
+        :schema: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket#host
         """
         result = self._values.get("host")
         return result
@@ -3087,8 +2927,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort
+    :schema: JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -3154,8 +2993,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :param tcp_socket: TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
         :param timeout_seconds: Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes Default: 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe
+        :schema: JenkinsSpecMasterContainersLivenessProbe
         """
         if isinstance(exec, dict):
             exec = JenkinsSpecMasterContainersLivenessProbeExec(**exec)
@@ -3187,8 +3025,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
 
         Exec specifies the action to take.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe#exec
+        :schema: JenkinsSpecMasterContainersLivenessProbe#exec
         """
         result = self._values.get("exec")
         return result
@@ -3199,11 +3036,9 @@ class JenkinsSpecMasterContainersLivenessProbe:
 
         Defaults to 3. Minimum value is 1.
 
-        default
         :default: 3. Minimum value is 1.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe#failureThreshold
+        :schema: JenkinsSpecMasterContainersLivenessProbe#failureThreshold
         """
         result = self._values.get("failure_threshold")
         return result
@@ -3214,8 +3049,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
     ) -> typing.Optional["JenkinsSpecMasterContainersLivenessProbeHttpGet"]:
         """HTTPGet specifies the http request to perform.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe#httpGet
+        :schema: JenkinsSpecMasterContainersLivenessProbe#httpGet
         """
         result = self._values.get("http_get")
         return result
@@ -3226,8 +3060,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
 
         More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe#initialDelaySeconds
+        :schema: JenkinsSpecMasterContainersLivenessProbe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
         return result
@@ -3238,11 +3071,9 @@ class JenkinsSpecMasterContainersLivenessProbe:
 
         Default to 10 seconds. Minimum value is 1.
 
-        default
         :default: 10 seconds. Minimum value is 1.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe#periodSeconds
+        :schema: JenkinsSpecMasterContainersLivenessProbe#periodSeconds
         """
         result = self._values.get("period_seconds")
         return result
@@ -3253,11 +3084,9 @@ class JenkinsSpecMasterContainersLivenessProbe:
 
         Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
 
-        default
         :default: 1. Must be 1 for liveness and startup. Minimum value is 1.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe#successThreshold
+        :schema: JenkinsSpecMasterContainersLivenessProbe#successThreshold
         """
         result = self._values.get("success_threshold")
         return result
@@ -3270,8 +3099,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe#tcpSocket
+        :schema: JenkinsSpecMasterContainersLivenessProbe#tcpSocket
         """
         result = self._values.get("tcp_socket")
         return result
@@ -3282,11 +3110,9 @@ class JenkinsSpecMasterContainersLivenessProbe:
 
         Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        default
         :default: 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbe#timeoutSeconds
+        :schema: JenkinsSpecMasterContainersLivenessProbe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
         return result
@@ -3320,8 +3146,7 @@ class JenkinsSpecMasterContainersLivenessProbeExec:
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeExec
+        :schema: JenkinsSpecMasterContainersLivenessProbeExec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -3333,8 +3158,7 @@ class JenkinsSpecMasterContainersLivenessProbeExec:
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeExec#command
+        :schema: JenkinsSpecMasterContainersLivenessProbeExec#command
         """
         result = self._values.get("command")
         return result
@@ -3380,8 +3204,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         :param path: Path to access on the HTTP server.
         :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -3401,8 +3224,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#port
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -3414,8 +3236,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
 
         You probably want to set "Host" in httpHeaders instead.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#host
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#host
         """
         result = self._values.get("host")
         return result
@@ -3428,8 +3249,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
 
         HTTP allows repeated headers.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#httpHeaders
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
         return result
@@ -3438,8 +3258,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
     def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#path
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#path
         """
         result = self._values.get("path")
         return result
@@ -3450,11 +3269,9 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
 
         Defaults to HTTP.
 
-        default
         :default: HTTP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGet#scheme
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#scheme
         """
         result = self._values.get("scheme")
         return result
@@ -3483,8 +3300,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
         :param name: The header field name.
         :param value: The header field value.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -3495,8 +3311,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
     def name(self) -> builtins.str:
         """The header field name.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders#name
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -3506,8 +3321,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
     def value(self) -> builtins.str:
         """The header field value.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders#value
+        :schema: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders#value
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
@@ -3533,8 +3347,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: JenkinsSpecMasterContainersLivenessProbeHttpGetPort
+    :schema: JenkinsSpecMasterContainersLivenessProbeHttpGetPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -3579,8 +3392,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
         :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
         :param host: Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeTcpSocket
+        :schema: JenkinsSpecMasterContainersLivenessProbeTcpSocket
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -3594,8 +3406,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeTcpSocket#port
+        :schema: JenkinsSpecMasterContainersLivenessProbeTcpSocket#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -3605,8 +3416,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
     def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersLivenessProbeTcpSocket#host
+        :schema: JenkinsSpecMasterContainersLivenessProbeTcpSocket#host
         """
         result = self._values.get("host")
         return result
@@ -3631,8 +3441,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: JenkinsSpecMasterContainersLivenessProbeTcpSocketPort
+    :schema: JenkinsSpecMasterContainersLivenessProbeTcpSocketPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -3687,8 +3496,7 @@ class JenkinsSpecMasterContainersPorts:
         :param name: If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
         :param protocol: Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP". Default: TCP".
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersPorts
+        :schema: JenkinsSpecMasterContainersPorts
         """
         self._values: typing.Dict[str, typing.Any] = {
             "container_port": container_port,
@@ -3708,8 +3516,7 @@ class JenkinsSpecMasterContainersPorts:
 
         This must be a valid port number, 0 < x < 65536.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersPorts#containerPort
+        :schema: JenkinsSpecMasterContainersPorts#containerPort
         """
         result = self._values.get("container_port")
         assert result is not None, "Required property 'container_port' is missing"
@@ -3719,8 +3526,7 @@ class JenkinsSpecMasterContainersPorts:
     def host_ip(self) -> typing.Optional[builtins.str]:
         """What host IP to bind the external port to.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersPorts#hostIP
+        :schema: JenkinsSpecMasterContainersPorts#hostIP
         """
         result = self._values.get("host_ip")
         return result
@@ -3731,8 +3537,7 @@ class JenkinsSpecMasterContainersPorts:
 
         If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersPorts#hostPort
+        :schema: JenkinsSpecMasterContainersPorts#hostPort
         """
         result = self._values.get("host_port")
         return result
@@ -3743,8 +3548,7 @@ class JenkinsSpecMasterContainersPorts:
 
         Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersPorts#name
+        :schema: JenkinsSpecMasterContainersPorts#name
         """
         result = self._values.get("name")
         return result
@@ -3755,11 +3559,9 @@ class JenkinsSpecMasterContainersPorts:
 
         Must be UDP, TCP, or SCTP. Defaults to "TCP".
 
-        default
         :default: TCP".
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersPorts#protocol
+        :schema: JenkinsSpecMasterContainersPorts#protocol
         """
         result = self._values.get("protocol")
         return result
@@ -3816,8 +3618,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :param tcp_socket: TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
         :param timeout_seconds: Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes Default: 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe
+        :schema: JenkinsSpecMasterContainersReadinessProbe
         """
         if isinstance(exec, dict):
             exec = JenkinsSpecMasterContainersReadinessProbeExec(**exec)
@@ -3849,8 +3650,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
 
         Exec specifies the action to take.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe#exec
+        :schema: JenkinsSpecMasterContainersReadinessProbe#exec
         """
         result = self._values.get("exec")
         return result
@@ -3861,11 +3661,9 @@ class JenkinsSpecMasterContainersReadinessProbe:
 
         Defaults to 3. Minimum value is 1.
 
-        default
         :default: 3. Minimum value is 1.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe#failureThreshold
+        :schema: JenkinsSpecMasterContainersReadinessProbe#failureThreshold
         """
         result = self._values.get("failure_threshold")
         return result
@@ -3876,8 +3674,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
     ) -> typing.Optional["JenkinsSpecMasterContainersReadinessProbeHttpGet"]:
         """HTTPGet specifies the http request to perform.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe#httpGet
+        :schema: JenkinsSpecMasterContainersReadinessProbe#httpGet
         """
         result = self._values.get("http_get")
         return result
@@ -3888,8 +3685,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
 
         More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe#initialDelaySeconds
+        :schema: JenkinsSpecMasterContainersReadinessProbe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
         return result
@@ -3900,11 +3696,9 @@ class JenkinsSpecMasterContainersReadinessProbe:
 
         Default to 10 seconds. Minimum value is 1.
 
-        default
         :default: 10 seconds. Minimum value is 1.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe#periodSeconds
+        :schema: JenkinsSpecMasterContainersReadinessProbe#periodSeconds
         """
         result = self._values.get("period_seconds")
         return result
@@ -3915,11 +3709,9 @@ class JenkinsSpecMasterContainersReadinessProbe:
 
         Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
 
-        default
         :default: 1. Must be 1 for liveness and startup. Minimum value is 1.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe#successThreshold
+        :schema: JenkinsSpecMasterContainersReadinessProbe#successThreshold
         """
         result = self._values.get("success_threshold")
         return result
@@ -3932,8 +3724,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
 
         TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe#tcpSocket
+        :schema: JenkinsSpecMasterContainersReadinessProbe#tcpSocket
         """
         result = self._values.get("tcp_socket")
         return result
@@ -3944,11 +3735,9 @@ class JenkinsSpecMasterContainersReadinessProbe:
 
         Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        default
         :default: 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbe#timeoutSeconds
+        :schema: JenkinsSpecMasterContainersReadinessProbe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
         return result
@@ -3982,8 +3771,7 @@ class JenkinsSpecMasterContainersReadinessProbeExec:
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeExec
+        :schema: JenkinsSpecMasterContainersReadinessProbeExec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -3995,8 +3783,7 @@ class JenkinsSpecMasterContainersReadinessProbeExec:
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeExec#command
+        :schema: JenkinsSpecMasterContainersReadinessProbeExec#command
         """
         result = self._values.get("command")
         return result
@@ -4042,8 +3829,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         :param path: Path to access on the HTTP server.
         :param scheme: Scheme to use for connecting to the host. Defaults to HTTP. Default: HTTP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -4063,8 +3849,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#port
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -4076,8 +3861,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
 
         You probably want to set "Host" in httpHeaders instead.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#host
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#host
         """
         result = self._values.get("host")
         return result
@@ -4090,8 +3874,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
 
         HTTP allows repeated headers.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#httpHeaders
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
         return result
@@ -4100,8 +3883,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
     def path(self) -> typing.Optional[builtins.str]:
         """Path to access on the HTTP server.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#path
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#path
         """
         result = self._values.get("path")
         return result
@@ -4112,11 +3894,9 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
 
         Defaults to HTTP.
 
-        default
         :default: HTTP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGet#scheme
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#scheme
         """
         result = self._values.get("scheme")
         return result
@@ -4145,8 +3925,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
         :param name: The header field name.
         :param value: The header field value.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -4157,8 +3936,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
     def name(self) -> builtins.str:
         """The header field name.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders#name
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -4168,8 +3946,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
     def value(self) -> builtins.str:
         """The header field value.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders#value
+        :schema: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders#value
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
@@ -4195,8 +3972,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: JenkinsSpecMasterContainersReadinessProbeHttpGetPort
+    :schema: JenkinsSpecMasterContainersReadinessProbeHttpGetPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -4241,8 +4017,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
         :param port: Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
         :param host: Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeTcpSocket
+        :schema: JenkinsSpecMasterContainersReadinessProbeTcpSocket
         """
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
@@ -4256,8 +4031,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
 
         Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeTcpSocket#port
+        :schema: JenkinsSpecMasterContainersReadinessProbeTcpSocket#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -4267,8 +4041,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
     def host(self) -> typing.Optional[builtins.str]:
         """Optional: Host name to connect to, defaults to the pod IP.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersReadinessProbeTcpSocket#host
+        :schema: JenkinsSpecMasterContainersReadinessProbeTcpSocket#host
         """
         result = self._values.get("host")
         return result
@@ -4293,8 +4066,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
 
     Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
-    schema:
-    :schema:: JenkinsSpecMasterContainersReadinessProbeTcpSocketPort
+    :schema: JenkinsSpecMasterContainersReadinessProbeTcpSocketPort
     """
 
     @jsii.member(jsii_name="fromNumber")
@@ -4339,8 +4111,7 @@ class JenkinsSpecMasterContainersResources:
         :param limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         :param requests: Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersResources
+        :schema: JenkinsSpecMasterContainersResources
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if limits is not None:
@@ -4354,8 +4125,7 @@ class JenkinsSpecMasterContainersResources:
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersResources#limits
+        :schema: JenkinsSpecMasterContainersResources#limits
         """
         result = self._values.get("limits")
         return result
@@ -4366,8 +4136,7 @@ class JenkinsSpecMasterContainersResources:
 
         If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersResources#requests
+        :schema: JenkinsSpecMasterContainersResources#requests
         """
         result = self._values.get("requests")
         return result
@@ -4430,8 +4199,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :param se_linux_options: The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
         :param windows_options: The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext
+        :schema: JenkinsSpecMasterContainersSecurityContext
         """
         if isinstance(capabilities, dict):
             capabilities = JenkinsSpecMasterContainersSecurityContextCapabilities(**capabilities)
@@ -4467,8 +4235,7 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#allowPrivilegeEscalation
+        :schema: JenkinsSpecMasterContainersSecurityContext#allowPrivilegeEscalation
         """
         result = self._values.get("allow_privilege_escalation")
         return result
@@ -4481,11 +4248,9 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         Defaults to the default set of capabilities granted by the container runtime.
 
-        default
         :default: the default set of capabilities granted by the container runtime.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#capabilities
+        :schema: JenkinsSpecMasterContainersSecurityContext#capabilities
         """
         result = self._values.get("capabilities")
         return result
@@ -4496,11 +4261,9 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
 
-        default
         :default: false.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#privileged
+        :schema: JenkinsSpecMasterContainersSecurityContext#privileged
         """
         result = self._values.get("privileged")
         return result
@@ -4511,8 +4274,7 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#procMount
+        :schema: JenkinsSpecMasterContainersSecurityContext#procMount
         """
         result = self._values.get("proc_mount")
         return result
@@ -4523,11 +4285,9 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         Default is false.
 
-        default
         :default: false.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#readOnlyRootFilesystem
+        :schema: JenkinsSpecMasterContainersSecurityContext#readOnlyRootFilesystem
         """
         result = self._values.get("read_only_root_filesystem")
         return result
@@ -4538,8 +4298,7 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#runAsGroup
+        :schema: JenkinsSpecMasterContainersSecurityContext#runAsGroup
         """
         result = self._values.get("run_as_group")
         return result
@@ -4550,8 +4309,7 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#runAsNonRoot
+        :schema: JenkinsSpecMasterContainersSecurityContext#runAsNonRoot
         """
         result = self._values.get("run_as_non_root")
         return result
@@ -4562,11 +4320,9 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        default
         :default: user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#runAsUser
+        :schema: JenkinsSpecMasterContainersSecurityContext#runAsUser
         """
         result = self._values.get("run_as_user")
         return result
@@ -4579,8 +4335,7 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#seLinuxOptions
+        :schema: JenkinsSpecMasterContainersSecurityContext#seLinuxOptions
         """
         result = self._values.get("se_linux_options")
         return result
@@ -4593,8 +4348,7 @@ class JenkinsSpecMasterContainersSecurityContext:
 
         If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContext#windowsOptions
+        :schema: JenkinsSpecMasterContainersSecurityContext#windowsOptions
         """
         result = self._values.get("windows_options")
         return result
@@ -4630,11 +4384,9 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
         :param add: Added capabilities.
         :param drop: Removed capabilities.
 
-        default
         :default: the default set of capabilities granted by the container runtime.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextCapabilities
+        :schema: JenkinsSpecMasterContainersSecurityContextCapabilities
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if add is not None:
@@ -4646,8 +4398,7 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
     def add(self) -> typing.Optional[typing.List[builtins.str]]:
         """Added capabilities.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextCapabilities#add
+        :schema: JenkinsSpecMasterContainersSecurityContextCapabilities#add
         """
         result = self._values.get("add")
         return result
@@ -4656,8 +4407,7 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
     def drop(self) -> typing.Optional[typing.List[builtins.str]]:
         """Removed capabilities.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextCapabilities#drop
+        :schema: JenkinsSpecMasterContainersSecurityContextCapabilities#drop
         """
         result = self._values.get("drop")
         return result
@@ -4697,8 +4447,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
         :param type: Type is a SELinux type label that applies to the container.
         :param user: User is a SELinux user label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions
+        :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if level is not None:
@@ -4714,8 +4463,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
     def level(self) -> typing.Optional[builtins.str]:
         """Level is SELinux level label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#level
+        :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#level
         """
         result = self._values.get("level")
         return result
@@ -4724,8 +4472,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
     def role(self) -> typing.Optional[builtins.str]:
         """Role is a SELinux role label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#role
+        :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#role
         """
         result = self._values.get("role")
         return result
@@ -4734,8 +4481,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
     def type(self) -> typing.Optional[builtins.str]:
         """Type is a SELinux type label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#type
+        :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#type
         """
         result = self._values.get("type")
         return result
@@ -4744,8 +4490,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
     def user(self) -> typing.Optional[builtins.str]:
         """User is a SELinux user label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#user
+        :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#user
         """
         result = self._values.get("user")
         return result
@@ -4787,8 +4532,7 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         :param gmsa_credential_spec_name: GMSACredentialSpecName is the name of the GMSA credential spec to use. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
         :param run_as_user_name: The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag. Default: the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextWindowsOptions
+        :schema: JenkinsSpecMasterContainersSecurityContextWindowsOptions
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if gmsa_credential_spec is not None:
@@ -4802,8 +4546,7 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
     def gmsa_credential_spec(self) -> typing.Optional[builtins.str]:
         """GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextWindowsOptions#gmsaCredentialSpec
+        :schema: JenkinsSpecMasterContainersSecurityContextWindowsOptions#gmsaCredentialSpec
         """
         result = self._values.get("gmsa_credential_spec")
         return result
@@ -4814,8 +4557,7 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
 
         This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextWindowsOptions#gmsaCredentialSpecName
+        :schema: JenkinsSpecMasterContainersSecurityContextWindowsOptions#gmsaCredentialSpecName
         """
         result = self._values.get("gmsa_credential_spec_name")
         return result
@@ -4826,11 +4568,9 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
 
         Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag.
 
-        default
         :default: the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersSecurityContextWindowsOptions#runAsUserName
+        :schema: JenkinsSpecMasterContainersSecurityContextWindowsOptions#runAsUserName
         """
         result = self._values.get("run_as_user_name")
         return result
@@ -4879,8 +4619,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
         :param sub_path: Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root). Default: volume's root).
         :param sub_path_expr: Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive. This field is beta in 1.15. Default: volume's root). SubPathExpr and SubPath are mutually exclusive. This field is beta in 1.15.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersVolumeMounts
+        :schema: JenkinsSpecMasterContainersVolumeMounts
         """
         self._values: typing.Dict[str, typing.Any] = {
             "mount_path": mount_path,
@@ -4901,8 +4640,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
 
         Must not contain ':'.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersVolumeMounts#mountPath
+        :schema: JenkinsSpecMasterContainersVolumeMounts#mountPath
         """
         result = self._values.get("mount_path")
         assert result is not None, "Required property 'mount_path' is missing"
@@ -4912,8 +4650,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
     def name(self) -> builtins.str:
         """This must match the Name of a Volume.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersVolumeMounts#name
+        :schema: JenkinsSpecMasterContainersVolumeMounts#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -4925,8 +4662,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
 
         When not set, MountPropagationNone is used. This field is beta in 1.10.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersVolumeMounts#mountPropagation
+        :schema: JenkinsSpecMasterContainersVolumeMounts#mountPropagation
         """
         result = self._values.get("mount_propagation")
         return result
@@ -4937,11 +4673,9 @@ class JenkinsSpecMasterContainersVolumeMounts:
 
         Defaults to false.
 
-        default
         :default: false.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersVolumeMounts#readOnly
+        :schema: JenkinsSpecMasterContainersVolumeMounts#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -4952,11 +4686,9 @@ class JenkinsSpecMasterContainersVolumeMounts:
 
         Defaults to "" (volume's root).
 
-        default
         :default: volume's root).
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersVolumeMounts#subPath
+        :schema: JenkinsSpecMasterContainersVolumeMounts#subPath
         """
         result = self._values.get("sub_path")
         return result
@@ -4967,11 +4699,9 @@ class JenkinsSpecMasterContainersVolumeMounts:
 
         Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive. This field is beta in 1.15.
 
-        default
         :default: volume's root). SubPathExpr and SubPath are mutually exclusive. This field is beta in 1.15.
 
-        schema:
-        :schema:: JenkinsSpecMasterContainersVolumeMounts#subPathExpr
+        :schema: JenkinsSpecMasterContainersVolumeMounts#subPathExpr
         """
         result = self._values.get("sub_path_expr")
         return result
@@ -4999,8 +4729,7 @@ class JenkinsSpecMasterImagePullSecrets:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterImagePullSecrets
+        :schema: JenkinsSpecMasterImagePullSecrets
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -5012,8 +4741,7 @@ class JenkinsSpecMasterImagePullSecrets:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterImagePullSecrets#name
+        :schema: JenkinsSpecMasterImagePullSecrets#name
         """
         result = self._values.get("name")
         return result
@@ -5042,8 +4770,7 @@ class JenkinsSpecMasterPlugins:
         :param name: Name is the name of Jenkins plugin.
         :param version: Version is the version of Jenkins plugin.
 
-        schema:
-        :schema:: JenkinsSpecMasterPlugins
+        :schema: JenkinsSpecMasterPlugins
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -5054,8 +4781,7 @@ class JenkinsSpecMasterPlugins:
     def name(self) -> builtins.str:
         """Name is the name of Jenkins plugin.
 
-        schema:
-        :schema:: JenkinsSpecMasterPlugins#name
+        :schema: JenkinsSpecMasterPlugins#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -5065,8 +4791,7 @@ class JenkinsSpecMasterPlugins:
     def version(self) -> builtins.str:
         """Version is the version of Jenkins plugin.
 
-        schema:
-        :schema:: JenkinsSpecMasterPlugins#version
+        :schema: JenkinsSpecMasterPlugins#version
         """
         result = self._values.get("version")
         assert result is not None, "Required property 'version' is missing"
@@ -5124,11 +4849,9 @@ class JenkinsSpecMasterSecurityContext:
         :param sysctls: Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch.
         :param windows_options: The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        default
         :default: runAsUser: 1000 fsGroup: 1000
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext
+        :schema: JenkinsSpecMasterSecurityContext
         """
         if isinstance(se_linux_options, dict):
             se_linux_options = JenkinsSpecMasterSecurityContextSeLinuxOptions(**se_linux_options)
@@ -5161,8 +4884,7 @@ class JenkinsSpecMasterSecurityContext:
         1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----
            If unset, the Kubelet will not modify the ownership and permissions of any volume.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext#fsGroup
+        :schema: JenkinsSpecMasterSecurityContext#fsGroup
         """
         result = self._values.get("fs_group")
         return result
@@ -5173,8 +4895,7 @@ class JenkinsSpecMasterSecurityContext:
 
         Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext#runAsGroup
+        :schema: JenkinsSpecMasterSecurityContext#runAsGroup
         """
         result = self._values.get("run_as_group")
         return result
@@ -5185,8 +4906,7 @@ class JenkinsSpecMasterSecurityContext:
 
         If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext#runAsNonRoot
+        :schema: JenkinsSpecMasterSecurityContext#runAsNonRoot
         """
         result = self._values.get("run_as_non_root")
         return result
@@ -5197,11 +4917,9 @@ class JenkinsSpecMasterSecurityContext:
 
         Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
 
-        default
         :default: user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext#runAsUser
+        :schema: JenkinsSpecMasterSecurityContext#runAsUser
         """
         result = self._values.get("run_as_user")
         return result
@@ -5214,8 +4932,7 @@ class JenkinsSpecMasterSecurityContext:
 
         If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext#seLinuxOptions
+        :schema: JenkinsSpecMasterSecurityContext#seLinuxOptions
         """
         result = self._values.get("se_linux_options")
         return result
@@ -5226,8 +4943,7 @@ class JenkinsSpecMasterSecurityContext:
 
         If unspecified, no groups will be added to any container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext#supplementalGroups
+        :schema: JenkinsSpecMasterSecurityContext#supplementalGroups
         """
         result = self._values.get("supplemental_groups")
         return result
@@ -5240,8 +4956,7 @@ class JenkinsSpecMasterSecurityContext:
 
         Pods with unsupported sysctls (by the container runtime) might fail to launch.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext#sysctls
+        :schema: JenkinsSpecMasterSecurityContext#sysctls
         """
         result = self._values.get("sysctls")
         return result
@@ -5254,8 +4969,7 @@ class JenkinsSpecMasterSecurityContext:
 
         If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContext#windowsOptions
+        :schema: JenkinsSpecMasterSecurityContext#windowsOptions
         """
         result = self._values.get("windows_options")
         return result
@@ -5295,8 +5009,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
         :param type: Type is a SELinux type label that applies to the container.
         :param user: User is a SELinux user label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions
+        :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if level is not None:
@@ -5312,8 +5025,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
     def level(self) -> typing.Optional[builtins.str]:
         """Level is SELinux level label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions#level
+        :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions#level
         """
         result = self._values.get("level")
         return result
@@ -5322,8 +5034,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
     def role(self) -> typing.Optional[builtins.str]:
         """Role is a SELinux role label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions#role
+        :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions#role
         """
         result = self._values.get("role")
         return result
@@ -5332,8 +5043,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
     def type(self) -> typing.Optional[builtins.str]:
         """Type is a SELinux type label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions#type
+        :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions#type
         """
         result = self._values.get("type")
         return result
@@ -5342,8 +5052,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
     def user(self) -> typing.Optional[builtins.str]:
         """User is a SELinux user label that applies to the container.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextSeLinuxOptions#user
+        :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions#user
         """
         result = self._values.get("user")
         return result
@@ -5372,8 +5081,7 @@ class JenkinsSpecMasterSecurityContextSysctls:
         :param name: Name of a property to set.
         :param value: Value of a property to set.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextSysctls
+        :schema: JenkinsSpecMasterSecurityContextSysctls
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -5384,8 +5092,7 @@ class JenkinsSpecMasterSecurityContextSysctls:
     def name(self) -> builtins.str:
         """Name of a property to set.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextSysctls#name
+        :schema: JenkinsSpecMasterSecurityContextSysctls#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -5395,8 +5102,7 @@ class JenkinsSpecMasterSecurityContextSysctls:
     def value(self) -> builtins.str:
         """Value of a property to set.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextSysctls#value
+        :schema: JenkinsSpecMasterSecurityContextSysctls#value
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
@@ -5439,8 +5145,7 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
         :param gmsa_credential_spec_name: GMSACredentialSpecName is the name of the GMSA credential spec to use. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
         :param run_as_user_name: The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag. Default: the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextWindowsOptions
+        :schema: JenkinsSpecMasterSecurityContextWindowsOptions
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if gmsa_credential_spec is not None:
@@ -5454,8 +5159,7 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
     def gmsa_credential_spec(self) -> typing.Optional[builtins.str]:
         """GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextWindowsOptions#gmsaCredentialSpec
+        :schema: JenkinsSpecMasterSecurityContextWindowsOptions#gmsaCredentialSpec
         """
         result = self._values.get("gmsa_credential_spec")
         return result
@@ -5466,8 +5170,7 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
 
         This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextWindowsOptions#gmsaCredentialSpecName
+        :schema: JenkinsSpecMasterSecurityContextWindowsOptions#gmsaCredentialSpecName
         """
         result = self._values.get("gmsa_credential_spec_name")
         return result
@@ -5478,11 +5181,9 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
 
         Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag.
 
-        default
         :default: the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is alpha-level and it is only honored by servers that enable the WindowsRunAsUserName feature flag.
 
-        schema:
-        :schema:: JenkinsSpecMasterSecurityContextWindowsOptions#runAsUserName
+        :schema: JenkinsSpecMasterSecurityContextWindowsOptions#runAsUserName
         """
         result = self._values.get("run_as_user_name")
         return result
@@ -5528,8 +5229,7 @@ class JenkinsSpecMasterTolerations:
         :param toleration_seconds: TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
         :param value: Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
 
-        schema:
-        :schema:: JenkinsSpecMasterTolerations
+        :schema: JenkinsSpecMasterTolerations
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if effect is not None:
@@ -5549,8 +5249,7 @@ class JenkinsSpecMasterTolerations:
 
         Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
 
-        schema:
-        :schema:: JenkinsSpecMasterTolerations#effect
+        :schema: JenkinsSpecMasterTolerations#effect
         """
         result = self._values.get("effect")
         return result
@@ -5561,8 +5260,7 @@ class JenkinsSpecMasterTolerations:
 
         Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
 
-        schema:
-        :schema:: JenkinsSpecMasterTolerations#key
+        :schema: JenkinsSpecMasterTolerations#key
         """
         result = self._values.get("key")
         return result
@@ -5573,11 +5271,9 @@ class JenkinsSpecMasterTolerations:
 
         Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
 
-        default
         :default: Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
 
-        schema:
-        :schema:: JenkinsSpecMasterTolerations#operator
+        :schema: JenkinsSpecMasterTolerations#operator
         """
         result = self._values.get("operator")
         return result
@@ -5588,8 +5284,7 @@ class JenkinsSpecMasterTolerations:
 
         By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
 
-        schema:
-        :schema:: JenkinsSpecMasterTolerations#tolerationSeconds
+        :schema: JenkinsSpecMasterTolerations#tolerationSeconds
         """
         result = self._values.get("toleration_seconds")
         return result
@@ -5600,8 +5295,7 @@ class JenkinsSpecMasterTolerations:
 
         If the operator is Exists, the value should be empty, otherwise just a regular string.
 
-        schema:
-        :schema:: JenkinsSpecMasterTolerations#value
+        :schema: JenkinsSpecMasterTolerations#value
         """
         result = self._values.get("value")
         return result
@@ -5719,8 +5413,7 @@ class JenkinsSpecMasterVolumes:
         :param storageos: StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
         :param vsphere_volume: VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes
+        :schema: JenkinsSpecMasterVolumes
         """
         if isinstance(aws_elastic_block_store, dict):
             aws_elastic_block_store = JenkinsSpecMasterVolumesAwsElasticBlockStore(**aws_elastic_block_store)
@@ -5844,8 +5537,7 @@ class JenkinsSpecMasterVolumes:
 
         Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#name
+        :schema: JenkinsSpecMasterVolumes#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -5859,8 +5551,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#awsElasticBlockStore
+        :schema: JenkinsSpecMasterVolumes#awsElasticBlockStore
         """
         result = self._values.get("aws_elastic_block_store")
         return result
@@ -5869,8 +5560,7 @@ class JenkinsSpecMasterVolumes:
     def azure_disk(self) -> typing.Optional["JenkinsSpecMasterVolumesAzureDisk"]:
         """AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#azureDisk
+        :schema: JenkinsSpecMasterVolumes#azureDisk
         """
         result = self._values.get("azure_disk")
         return result
@@ -5879,8 +5569,7 @@ class JenkinsSpecMasterVolumes:
     def azure_file(self) -> typing.Optional["JenkinsSpecMasterVolumesAzureFile"]:
         """AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#azureFile
+        :schema: JenkinsSpecMasterVolumes#azureFile
         """
         result = self._values.get("azure_file")
         return result
@@ -5889,8 +5578,7 @@ class JenkinsSpecMasterVolumes:
     def cephfs(self) -> typing.Optional["JenkinsSpecMasterVolumesCephfs"]:
         """CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#cephfs
+        :schema: JenkinsSpecMasterVolumes#cephfs
         """
         result = self._values.get("cephfs")
         return result
@@ -5901,8 +5589,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://examples.k8s.io/mysql-cinder-pd/README.md
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#cinder
+        :schema: JenkinsSpecMasterVolumes#cinder
         """
         result = self._values.get("cinder")
         return result
@@ -5911,8 +5598,7 @@ class JenkinsSpecMasterVolumes:
     def config_map(self) -> typing.Optional["JenkinsSpecMasterVolumesConfigMap"]:
         """ConfigMap represents a configMap that should populate this volume.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#configMap
+        :schema: JenkinsSpecMasterVolumes#configMap
         """
         result = self._values.get("config_map")
         return result
@@ -5921,8 +5607,7 @@ class JenkinsSpecMasterVolumes:
     def csi(self) -> typing.Optional["JenkinsSpecMasterVolumesCsi"]:
         """CSI (Container Storage Interface) represents storage that is handled by an external CSI driver (Alpha feature).
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#csi
+        :schema: JenkinsSpecMasterVolumes#csi
         """
         result = self._values.get("csi")
         return result
@@ -5931,8 +5616,7 @@ class JenkinsSpecMasterVolumes:
     def downward_api(self) -> typing.Optional["JenkinsSpecMasterVolumesDownwardApi"]:
         """DownwardAPI represents downward API about the pod that should populate this volume.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#downwardAPI
+        :schema: JenkinsSpecMasterVolumes#downwardAPI
         """
         result = self._values.get("downward_api")
         return result
@@ -5943,8 +5627,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#emptyDir
+        :schema: JenkinsSpecMasterVolumes#emptyDir
         """
         result = self._values.get("empty_dir")
         return result
@@ -5953,8 +5636,7 @@ class JenkinsSpecMasterVolumes:
     def fc(self) -> typing.Optional["JenkinsSpecMasterVolumesFc"]:
         """FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#fc
+        :schema: JenkinsSpecMasterVolumes#fc
         """
         result = self._values.get("fc")
         return result
@@ -5963,8 +5645,7 @@ class JenkinsSpecMasterVolumes:
     def flex_volume(self) -> typing.Optional["JenkinsSpecMasterVolumesFlexVolume"]:
         """FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#flexVolume
+        :schema: JenkinsSpecMasterVolumes#flexVolume
         """
         result = self._values.get("flex_volume")
         return result
@@ -5975,8 +5656,7 @@ class JenkinsSpecMasterVolumes:
 
         This depends on the Flocker control service being running
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#flocker
+        :schema: JenkinsSpecMasterVolumes#flocker
         """
         result = self._values.get("flocker")
         return result
@@ -5989,8 +5669,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#gcePersistentDisk
+        :schema: JenkinsSpecMasterVolumes#gcePersistentDisk
         """
         result = self._values.get("gce_persistent_disk")
         return result
@@ -6001,8 +5680,7 @@ class JenkinsSpecMasterVolumes:
 
         DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#gitRepo
+        :schema: JenkinsSpecMasterVolumes#gitRepo
         """
         result = self._values.get("git_repo")
         return result
@@ -6013,8 +5691,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://examples.k8s.io/volumes/glusterfs/README.md
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#glusterfs
+        :schema: JenkinsSpecMasterVolumes#glusterfs
         """
         result = self._values.get("glusterfs")
         return result
@@ -6025,8 +5702,7 @@ class JenkinsSpecMasterVolumes:
 
         This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath --- TODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not mount host directories as read/write.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#hostPath
+        :schema: JenkinsSpecMasterVolumes#hostPath
         """
         result = self._values.get("host_path")
         return result
@@ -6037,8 +5713,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://examples.k8s.io/volumes/iscsi/README.md
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#iscsi
+        :schema: JenkinsSpecMasterVolumes#iscsi
         """
         result = self._values.get("iscsi")
         return result
@@ -6047,8 +5722,7 @@ class JenkinsSpecMasterVolumes:
     def nfs(self) -> typing.Optional["JenkinsSpecMasterVolumesNfs"]:
         """NFS represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#nfs
+        :schema: JenkinsSpecMasterVolumes#nfs
         """
         result = self._values.get("nfs")
         return result
@@ -6061,8 +5735,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#persistentVolumeClaim
+        :schema: JenkinsSpecMasterVolumes#persistentVolumeClaim
         """
         result = self._values.get("persistent_volume_claim")
         return result
@@ -6073,8 +5746,7 @@ class JenkinsSpecMasterVolumes:
     ) -> typing.Optional["JenkinsSpecMasterVolumesPhotonPersistentDisk"]:
         """PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#photonPersistentDisk
+        :schema: JenkinsSpecMasterVolumes#photonPersistentDisk
         """
         result = self._values.get("photon_persistent_disk")
         return result
@@ -6085,8 +5757,7 @@ class JenkinsSpecMasterVolumes:
     ) -> typing.Optional["JenkinsSpecMasterVolumesPortworxVolume"]:
         """PortworxVolume represents a portworx volume attached and mounted on kubelets host machine.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#portworxVolume
+        :schema: JenkinsSpecMasterVolumes#portworxVolume
         """
         result = self._values.get("portworx_volume")
         return result
@@ -6095,8 +5766,7 @@ class JenkinsSpecMasterVolumes:
     def projected(self) -> typing.Optional["JenkinsSpecMasterVolumesProjected"]:
         """Items for all in one resources secrets, configmaps, and downward API.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#projected
+        :schema: JenkinsSpecMasterVolumes#projected
         """
         result = self._values.get("projected")
         return result
@@ -6105,8 +5775,7 @@ class JenkinsSpecMasterVolumes:
     def quobyte(self) -> typing.Optional["JenkinsSpecMasterVolumesQuobyte"]:
         """Quobyte represents a Quobyte mount on the host that shares a pod's lifetime.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#quobyte
+        :schema: JenkinsSpecMasterVolumes#quobyte
         """
         result = self._values.get("quobyte")
         return result
@@ -6117,8 +5786,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://examples.k8s.io/volumes/rbd/README.md
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#rbd
+        :schema: JenkinsSpecMasterVolumes#rbd
         """
         result = self._values.get("rbd")
         return result
@@ -6127,8 +5795,7 @@ class JenkinsSpecMasterVolumes:
     def scale_io(self) -> typing.Optional["JenkinsSpecMasterVolumesScaleIo"]:
         """ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#scaleIO
+        :schema: JenkinsSpecMasterVolumes#scaleIO
         """
         result = self._values.get("scale_io")
         return result
@@ -6139,8 +5806,7 @@ class JenkinsSpecMasterVolumes:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#secret
+        :schema: JenkinsSpecMasterVolumes#secret
         """
         result = self._values.get("secret")
         return result
@@ -6149,8 +5815,7 @@ class JenkinsSpecMasterVolumes:
     def storageos(self) -> typing.Optional["JenkinsSpecMasterVolumesStorageos"]:
         """StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#storageos
+        :schema: JenkinsSpecMasterVolumes#storageos
         """
         result = self._values.get("storageos")
         return result
@@ -6161,8 +5826,7 @@ class JenkinsSpecMasterVolumes:
     ) -> typing.Optional["JenkinsSpecMasterVolumesVsphereVolume"]:
         """VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumes#vsphereVolume
+        :schema: JenkinsSpecMasterVolumes#vsphereVolume
         """
         result = self._values.get("vsphere_volume")
         return result
@@ -6207,8 +5871,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         :param partition: The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
         :param read_only: Specify "true" to force and set the ReadOnly property in VolumeMounts to "true". If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore
+        :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore
         """
         self._values: typing.Dict[str, typing.Any] = {
             "volume_id": volume_id,
@@ -6226,8 +5889,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore#volumeID
+        :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore#volumeID
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
@@ -6239,8 +5901,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
 
         Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore TODO: how do we prevent errors in the filesystem from compromising the machine
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore#fsType
+        :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -6251,8 +5912,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
 
         If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore#partition
+        :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore#partition
         """
         result = self._values.get("partition")
         return result
@@ -6263,8 +5923,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
 
         If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAwsElasticBlockStore#readOnly
+        :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -6313,8 +5972,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
         :param kind: Expected values Shared: multiple blob disks per storage account Dedicated: single blob disk per storage account Managed: azure managed data disk (only in managed availability set). defaults to shared
         :param read_only: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. Default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureDisk
+        :schema: JenkinsSpecMasterVolumesAzureDisk
         """
         self._values: typing.Dict[str, typing.Any] = {
             "disk_name": disk_name,
@@ -6333,8 +5991,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
     def disk_name(self) -> builtins.str:
         """The Name of the data disk in the blob storage.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureDisk#diskName
+        :schema: JenkinsSpecMasterVolumesAzureDisk#diskName
         """
         result = self._values.get("disk_name")
         assert result is not None, "Required property 'disk_name' is missing"
@@ -6344,8 +6001,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
     def disk_uri(self) -> builtins.str:
         """The URI the data disk in the blob storage.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureDisk#diskURI
+        :schema: JenkinsSpecMasterVolumesAzureDisk#diskURI
         """
         result = self._values.get("disk_uri")
         assert result is not None, "Required property 'disk_uri' is missing"
@@ -6355,8 +6011,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
     def caching_mode(self) -> typing.Optional[builtins.str]:
         """Host Caching mode: None, Read Only, Read Write.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureDisk#cachingMode
+        :schema: JenkinsSpecMasterVolumesAzureDisk#cachingMode
         """
         result = self._values.get("caching_mode")
         return result
@@ -6367,8 +6022,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureDisk#fsType
+        :schema: JenkinsSpecMasterVolumesAzureDisk#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -6379,8 +6033,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
 
         defaults to shared
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureDisk#kind
+        :schema: JenkinsSpecMasterVolumesAzureDisk#kind
         """
         result = self._values.get("kind")
         return result
@@ -6391,11 +6044,9 @@ class JenkinsSpecMasterVolumesAzureDisk:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureDisk#readOnly
+        :schema: JenkinsSpecMasterVolumesAzureDisk#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -6435,8 +6086,7 @@ class JenkinsSpecMasterVolumesAzureFile:
         :param share_name: Share Name.
         :param read_only: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. Default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureFile
+        :schema: JenkinsSpecMasterVolumesAzureFile
         """
         self._values: typing.Dict[str, typing.Any] = {
             "secret_name": secret_name,
@@ -6449,8 +6099,7 @@ class JenkinsSpecMasterVolumesAzureFile:
     def secret_name(self) -> builtins.str:
         """the name of secret that contains Azure Storage Account Name and Key.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureFile#secretName
+        :schema: JenkinsSpecMasterVolumesAzureFile#secretName
         """
         result = self._values.get("secret_name")
         assert result is not None, "Required property 'secret_name' is missing"
@@ -6460,8 +6109,7 @@ class JenkinsSpecMasterVolumesAzureFile:
     def share_name(self) -> builtins.str:
         """Share Name.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureFile#shareName
+        :schema: JenkinsSpecMasterVolumesAzureFile#shareName
         """
         result = self._values.get("share_name")
         assert result is not None, "Required property 'share_name' is missing"
@@ -6473,11 +6121,9 @@ class JenkinsSpecMasterVolumesAzureFile:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesAzureFile#readOnly
+        :schema: JenkinsSpecMasterVolumesAzureFile#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -6526,8 +6172,7 @@ class JenkinsSpecMasterVolumesCephfs:
         :param secret_ref: Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
         :param user: Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfs
+        :schema: JenkinsSpecMasterVolumesCephfs
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesCephfsSecretRef(**secret_ref)
@@ -6549,8 +6194,7 @@ class JenkinsSpecMasterVolumesCephfs:
     def monitors(self) -> typing.List[builtins.str]:
         """Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfs#monitors
+        :schema: JenkinsSpecMasterVolumesCephfs#monitors
         """
         result = self._values.get("monitors")
         assert result is not None, "Required property 'monitors' is missing"
@@ -6560,8 +6204,7 @@ class JenkinsSpecMasterVolumesCephfs:
     def path(self) -> typing.Optional[builtins.str]:
         """Optional: Used as the mounted root, rather than the full Ceph tree, default is /.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfs#path
+        :schema: JenkinsSpecMasterVolumesCephfs#path
         """
         result = self._values.get("path")
         return result
@@ -6572,11 +6215,9 @@ class JenkinsSpecMasterVolumesCephfs:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfs#readOnly
+        :schema: JenkinsSpecMasterVolumesCephfs#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -6585,8 +6226,7 @@ class JenkinsSpecMasterVolumesCephfs:
     def secret_file(self) -> typing.Optional[builtins.str]:
         """Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfs#secretFile
+        :schema: JenkinsSpecMasterVolumesCephfs#secretFile
         """
         result = self._values.get("secret_file")
         return result
@@ -6597,8 +6237,7 @@ class JenkinsSpecMasterVolumesCephfs:
 
         More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfs#secretRef
+        :schema: JenkinsSpecMasterVolumesCephfs#secretRef
         """
         result = self._values.get("secret_ref")
         return result
@@ -6607,8 +6246,7 @@ class JenkinsSpecMasterVolumesCephfs:
     def user(self) -> typing.Optional[builtins.str]:
         """Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfs#user
+        :schema: JenkinsSpecMasterVolumesCephfs#user
         """
         result = self._values.get("user")
         return result
@@ -6638,8 +6276,7 @@ class JenkinsSpecMasterVolumesCephfsSecretRef:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfsSecretRef
+        :schema: JenkinsSpecMasterVolumesCephfsSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -6651,8 +6288,7 @@ class JenkinsSpecMasterVolumesCephfsSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCephfsSecretRef#name
+        :schema: JenkinsSpecMasterVolumesCephfsSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -6697,8 +6333,7 @@ class JenkinsSpecMasterVolumesCinder:
         :param read_only: Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md Default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
         :param secret_ref: Optional: points to a secret object containing parameters used to connect to OpenStack.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCinder
+        :schema: JenkinsSpecMasterVolumesCinder
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesCinderSecretRef(**secret_ref)
@@ -6718,8 +6353,7 @@ class JenkinsSpecMasterVolumesCinder:
 
         More info: https://examples.k8s.io/mysql-cinder-pd/README.md
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCinder#volumeID
+        :schema: JenkinsSpecMasterVolumesCinder#volumeID
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
@@ -6731,8 +6365,7 @@ class JenkinsSpecMasterVolumesCinder:
 
         Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCinder#fsType
+        :schema: JenkinsSpecMasterVolumesCinder#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -6743,11 +6376,9 @@ class JenkinsSpecMasterVolumesCinder:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCinder#readOnly
+        :schema: JenkinsSpecMasterVolumesCinder#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -6756,8 +6387,7 @@ class JenkinsSpecMasterVolumesCinder:
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesCinderSecretRef"]:
         """Optional: points to a secret object containing parameters used to connect to OpenStack.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCinder#secretRef
+        :schema: JenkinsSpecMasterVolumesCinder#secretRef
         """
         result = self._values.get("secret_ref")
         return result
@@ -6785,8 +6415,7 @@ class JenkinsSpecMasterVolumesCinderSecretRef:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCinderSecretRef
+        :schema: JenkinsSpecMasterVolumesCinderSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -6798,8 +6427,7 @@ class JenkinsSpecMasterVolumesCinderSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCinderSecretRef#name
+        :schema: JenkinsSpecMasterVolumesCinderSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -6842,8 +6470,7 @@ class JenkinsSpecMasterVolumesConfigMap:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the ConfigMap or its keys must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMap
+        :schema: JenkinsSpecMasterVolumesConfigMap
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if default_mode is not None:
@@ -6861,11 +6488,9 @@ class JenkinsSpecMasterVolumesConfigMap:
 
         Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        default
         :default: 644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMap#defaultMode
+        :schema: JenkinsSpecMasterVolumesConfigMap#defaultMode
         """
         result = self._values.get("default_mode")
         return result
@@ -6878,8 +6503,7 @@ class JenkinsSpecMasterVolumesConfigMap:
 
         If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMap#items
+        :schema: JenkinsSpecMasterVolumesConfigMap#items
         """
         result = self._values.get("items")
         return result
@@ -6890,8 +6514,7 @@ class JenkinsSpecMasterVolumesConfigMap:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMap#name
+        :schema: JenkinsSpecMasterVolumesConfigMap#name
         """
         result = self._values.get("name")
         return result
@@ -6900,8 +6523,7 @@ class JenkinsSpecMasterVolumesConfigMap:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap or its keys must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMap#optional
+        :schema: JenkinsSpecMasterVolumesConfigMap#optional
         """
         result = self._values.get("optional")
         return result
@@ -6937,8 +6559,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
         :param path: The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
         :param mode: Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMapItems
+        :schema: JenkinsSpecMasterVolumesConfigMapItems
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -6951,8 +6572,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
     def key(self) -> builtins.str:
         """The key to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMapItems#key
+        :schema: JenkinsSpecMasterVolumesConfigMapItems#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -6964,8 +6584,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
 
         May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMapItems#path
+        :schema: JenkinsSpecMasterVolumesConfigMapItems#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -6977,8 +6596,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
 
         If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesConfigMapItems#mode
+        :schema: JenkinsSpecMasterVolumesConfigMapItems#mode
         """
         result = self._values.get("mode")
         return result
@@ -7024,8 +6642,7 @@ class JenkinsSpecMasterVolumesCsi:
         :param read_only: Specifies a read-only configuration for the volume. Defaults to false (read/write). Default: false (read/write).
         :param volume_attributes: VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCsi
+        :schema: JenkinsSpecMasterVolumesCsi
         """
         if isinstance(node_publish_secret_ref, dict):
             node_publish_secret_ref = JenkinsSpecMasterVolumesCsiNodePublishSecretRef(**node_publish_secret_ref)
@@ -7047,8 +6664,7 @@ class JenkinsSpecMasterVolumesCsi:
 
         Consult with your admin for the correct name as registered in the cluster.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCsi#driver
+        :schema: JenkinsSpecMasterVolumesCsi#driver
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
@@ -7060,8 +6676,7 @@ class JenkinsSpecMasterVolumesCsi:
 
         Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCsi#fsType
+        :schema: JenkinsSpecMasterVolumesCsi#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -7074,8 +6689,7 @@ class JenkinsSpecMasterVolumesCsi:
 
         This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCsi#nodePublishSecretRef
+        :schema: JenkinsSpecMasterVolumesCsi#nodePublishSecretRef
         """
         result = self._values.get("node_publish_secret_ref")
         return result
@@ -7086,11 +6700,9 @@ class JenkinsSpecMasterVolumesCsi:
 
         Defaults to false (read/write).
 
-        default
         :default: false (read/write).
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCsi#readOnly
+        :schema: JenkinsSpecMasterVolumesCsi#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -7103,8 +6715,7 @@ class JenkinsSpecMasterVolumesCsi:
 
         Consult your driver's documentation for supported values.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCsi#volumeAttributes
+        :schema: JenkinsSpecMasterVolumesCsi#volumeAttributes
         """
         result = self._values.get("volume_attributes")
         return result
@@ -7134,8 +6745,7 @@ class JenkinsSpecMasterVolumesCsiNodePublishSecretRef:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCsiNodePublishSecretRef
+        :schema: JenkinsSpecMasterVolumesCsiNodePublishSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -7147,8 +6757,7 @@ class JenkinsSpecMasterVolumesCsiNodePublishSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesCsiNodePublishSecretRef#name
+        :schema: JenkinsSpecMasterVolumesCsiNodePublishSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -7182,8 +6791,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
         :param default_mode: Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set. Default: 644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
         :param items: Items is a list of downward API volume file.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApi
+        :schema: JenkinsSpecMasterVolumesDownwardApi
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if default_mode is not None:
@@ -7197,11 +6805,9 @@ class JenkinsSpecMasterVolumesDownwardApi:
 
         Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        default
         :default: 644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApi#defaultMode
+        :schema: JenkinsSpecMasterVolumesDownwardApi#defaultMode
         """
         result = self._values.get("default_mode")
         return result
@@ -7212,8 +6818,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
     ) -> typing.Optional[typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]]:
         """Items is a list of downward API volume file.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApi#items
+        :schema: JenkinsSpecMasterVolumesDownwardApi#items
         """
         result = self._values.get("items")
         return result
@@ -7256,8 +6861,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         :param mode: Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
         :param resource_field_ref: Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItems
+        :schema: JenkinsSpecMasterVolumesDownwardApiItems
         """
         if isinstance(field_ref, dict):
             field_ref = JenkinsSpecMasterVolumesDownwardApiItemsFieldRef(**field_ref)
@@ -7279,8 +6883,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
 
         Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItems#path
+        :schema: JenkinsSpecMasterVolumesDownwardApiItems#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -7292,8 +6895,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
     ) -> typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsFieldRef"]:
         """Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItems#fieldRef
+        :schema: JenkinsSpecMasterVolumesDownwardApiItems#fieldRef
         """
         result = self._values.get("field_ref")
         return result
@@ -7304,8 +6906,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
 
         If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItems#mode
+        :schema: JenkinsSpecMasterVolumesDownwardApiItems#mode
         """
         result = self._values.get("mode")
         return result
@@ -7316,8 +6917,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
     ) -> typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef"]:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItems#resourceFieldRef
+        :schema: JenkinsSpecMasterVolumesDownwardApiItems#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
         return result
@@ -7351,8 +6951,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
         :param field_path: Path of the field to select in the specified API version.
         :param api_version: Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef
+        :schema: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "field_path": field_path,
@@ -7364,8 +6963,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
     def field_path(self) -> builtins.str:
         """Path of the field to select in the specified API version.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef#fieldPath
+        :schema: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef#fieldPath
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
@@ -7375,8 +6973,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
     def api_version(self) -> typing.Optional[builtins.str]:
         """Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef#apiVersion
+        :schema: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef#apiVersion
         """
         result = self._values.get("api_version")
         return result
@@ -7416,8 +7013,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
         :param container_name: Container name: required for volumes, optional for env vars.
         :param divisor: Specifies the output format of the exposed resources, defaults to "1".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef
+        :schema: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "resource": resource,
@@ -7431,8 +7027,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
     def resource(self) -> builtins.str:
         """Required: resource to select.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#resource
+        :schema: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#resource
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
@@ -7442,8 +7037,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
     def container_name(self) -> typing.Optional[builtins.str]:
         """Container name: required for volumes, optional for env vars.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#containerName
+        :schema: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#containerName
         """
         result = self._values.get("container_name")
         return result
@@ -7452,8 +7046,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
     def divisor(self) -> typing.Optional[builtins.str]:
         """Specifies the output format of the exposed resources, defaults to "1".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#divisor
+        :schema: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#divisor
         """
         result = self._values.get("divisor")
         return result
@@ -7489,8 +7082,7 @@ class JenkinsSpecMasterVolumesEmptyDir:
         :param medium: What type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
         :param size_limit: Total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesEmptyDir
+        :schema: JenkinsSpecMasterVolumesEmptyDir
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if medium is not None:
@@ -7504,8 +7096,7 @@ class JenkinsSpecMasterVolumesEmptyDir:
 
         The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesEmptyDir#medium
+        :schema: JenkinsSpecMasterVolumesEmptyDir#medium
         """
         result = self._values.get("medium")
         return result
@@ -7516,8 +7107,7 @@ class JenkinsSpecMasterVolumesEmptyDir:
 
         The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesEmptyDir#sizeLimit
+        :schema: JenkinsSpecMasterVolumesEmptyDir#sizeLimit
         """
         result = self._values.get("size_limit")
         return result
@@ -7563,8 +7153,7 @@ class JenkinsSpecMasterVolumesFc:
         :param target_ww_ns: Optional: FC target worldwide names (WWNs).
         :param wwids: Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFc
+        :schema: JenkinsSpecMasterVolumesFc
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if fs_type is not None:
@@ -7584,8 +7173,7 @@ class JenkinsSpecMasterVolumesFc:
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. TODO: how do we prevent errors in the filesystem from compromising the machine
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFc#fsType
+        :schema: JenkinsSpecMasterVolumesFc#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -7594,8 +7182,7 @@ class JenkinsSpecMasterVolumesFc:
     def lun(self) -> typing.Optional[jsii.Number]:
         """Optional: FC target lun number.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFc#lun
+        :schema: JenkinsSpecMasterVolumesFc#lun
         """
         result = self._values.get("lun")
         return result
@@ -7606,11 +7193,9 @@ class JenkinsSpecMasterVolumesFc:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFc#readOnly
+        :schema: JenkinsSpecMasterVolumesFc#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -7619,8 +7204,7 @@ class JenkinsSpecMasterVolumesFc:
     def target_ww_ns(self) -> typing.Optional[typing.List[builtins.str]]:
         """Optional: FC target worldwide names (WWNs).
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFc#targetWWNs
+        :schema: JenkinsSpecMasterVolumesFc#targetWWNs
         """
         result = self._values.get("target_ww_ns")
         return result
@@ -7629,8 +7213,7 @@ class JenkinsSpecMasterVolumesFc:
     def wwids(self) -> typing.Optional[typing.List[builtins.str]]:
         """Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFc#wwids
+        :schema: JenkinsSpecMasterVolumesFc#wwids
         """
         result = self._values.get("wwids")
         return result
@@ -7676,8 +7259,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
         :param read_only: Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. Default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
         :param secret_ref: Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlexVolume
+        :schema: JenkinsSpecMasterVolumesFlexVolume
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesFlexVolumeSecretRef(**secret_ref)
@@ -7697,8 +7279,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
     def driver(self) -> builtins.str:
         """Driver is the name of the driver to use for this volume.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlexVolume#driver
+        :schema: JenkinsSpecMasterVolumesFlexVolume#driver
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
@@ -7710,8 +7291,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlexVolume#fsType
+        :schema: JenkinsSpecMasterVolumesFlexVolume#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -7720,8 +7300,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
     def options(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
         """Optional: Extra command options if any.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlexVolume#options
+        :schema: JenkinsSpecMasterVolumesFlexVolume#options
         """
         result = self._values.get("options")
         return result
@@ -7732,11 +7311,9 @@ class JenkinsSpecMasterVolumesFlexVolume:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlexVolume#readOnly
+        :schema: JenkinsSpecMasterVolumesFlexVolume#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -7749,8 +7326,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
 
         This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlexVolume#secretRef
+        :schema: JenkinsSpecMasterVolumesFlexVolume#secretRef
         """
         result = self._values.get("secret_ref")
         return result
@@ -7780,8 +7356,7 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlexVolumeSecretRef
+        :schema: JenkinsSpecMasterVolumesFlexVolumeSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -7793,8 +7368,7 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlexVolumeSecretRef#name
+        :schema: JenkinsSpecMasterVolumesFlexVolumeSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -7830,8 +7404,7 @@ class JenkinsSpecMasterVolumesFlocker:
         :param dataset_name: Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated.
         :param dataset_uuid: UUID of the dataset. This is unique identifier of a Flocker dataset
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlocker
+        :schema: JenkinsSpecMasterVolumesFlocker
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if dataset_name is not None:
@@ -7843,8 +7416,7 @@ class JenkinsSpecMasterVolumesFlocker:
     def dataset_name(self) -> typing.Optional[builtins.str]:
         """Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlocker#datasetName
+        :schema: JenkinsSpecMasterVolumesFlocker#datasetName
         """
         result = self._values.get("dataset_name")
         return result
@@ -7855,8 +7427,7 @@ class JenkinsSpecMasterVolumesFlocker:
 
         This is unique identifier of a Flocker dataset
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesFlocker#datasetUUID
+        :schema: JenkinsSpecMasterVolumesFlocker#datasetUUID
         """
         result = self._values.get("dataset_uuid")
         return result
@@ -7901,8 +7472,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         :param partition: The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
         :param read_only: ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk Default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGcePersistentDisk
+        :schema: JenkinsSpecMasterVolumesGcePersistentDisk
         """
         self._values: typing.Dict[str, typing.Any] = {
             "pd_name": pd_name,
@@ -7920,8 +7490,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
 
         Used to identify the disk in GCE. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGcePersistentDisk#pdName
+        :schema: JenkinsSpecMasterVolumesGcePersistentDisk#pdName
         """
         result = self._values.get("pd_name")
         assert result is not None, "Required property 'pd_name' is missing"
@@ -7933,8 +7502,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
 
         Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk TODO: how do we prevent errors in the filesystem from compromising the machine
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGcePersistentDisk#fsType
+        :schema: JenkinsSpecMasterVolumesGcePersistentDisk#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -7945,8 +7513,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
 
         If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGcePersistentDisk#partition
+        :schema: JenkinsSpecMasterVolumesGcePersistentDisk#partition
         """
         result = self._values.get("partition")
         return result
@@ -7957,11 +7524,9 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
 
         Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
 
-        default
         :default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGcePersistentDisk#readOnly
+        :schema: JenkinsSpecMasterVolumesGcePersistentDisk#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -8003,8 +7568,7 @@ class JenkinsSpecMasterVolumesGitRepo:
         :param directory: Target directory name. Must not contain or start with '..'. If '.' is supplied, the volume directory will be the git repository. Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
         :param revision: Commit hash for the specified revision.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGitRepo
+        :schema: JenkinsSpecMasterVolumesGitRepo
         """
         self._values: typing.Dict[str, typing.Any] = {
             "repository": repository,
@@ -8018,8 +7582,7 @@ class JenkinsSpecMasterVolumesGitRepo:
     def repository(self) -> builtins.str:
         """Repository URL.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGitRepo#repository
+        :schema: JenkinsSpecMasterVolumesGitRepo#repository
         """
         result = self._values.get("repository")
         assert result is not None, "Required property 'repository' is missing"
@@ -8031,8 +7594,7 @@ class JenkinsSpecMasterVolumesGitRepo:
 
         Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGitRepo#directory
+        :schema: JenkinsSpecMasterVolumesGitRepo#directory
         """
         result = self._values.get("directory")
         return result
@@ -8041,8 +7603,7 @@ class JenkinsSpecMasterVolumesGitRepo:
     def revision(self) -> typing.Optional[builtins.str]:
         """Commit hash for the specified revision.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGitRepo#revision
+        :schema: JenkinsSpecMasterVolumesGitRepo#revision
         """
         result = self._values.get("revision")
         return result
@@ -8080,8 +7641,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
         :param path: Path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
         :param read_only: ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod Default: false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGlusterfs
+        :schema: JenkinsSpecMasterVolumesGlusterfs
         """
         self._values: typing.Dict[str, typing.Any] = {
             "endpoints": endpoints,
@@ -8096,8 +7656,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
 
         More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGlusterfs#endpoints
+        :schema: JenkinsSpecMasterVolumesGlusterfs#endpoints
         """
         result = self._values.get("endpoints")
         assert result is not None, "Required property 'endpoints' is missing"
@@ -8109,8 +7668,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
 
         More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGlusterfs#path
+        :schema: JenkinsSpecMasterVolumesGlusterfs#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -8122,11 +7680,9 @@ class JenkinsSpecMasterVolumesGlusterfs:
 
         Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 
-        default
         :default: false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesGlusterfs#readOnly
+        :schema: JenkinsSpecMasterVolumesGlusterfs#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -8162,8 +7718,7 @@ class JenkinsSpecMasterVolumesHostPath:
         :param path: Path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
         :param type: Type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath. Default: More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesHostPath
+        :schema: JenkinsSpecMasterVolumesHostPath
         """
         self._values: typing.Dict[str, typing.Any] = {
             "path": path,
@@ -8177,8 +7732,7 @@ class JenkinsSpecMasterVolumesHostPath:
 
         If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesHostPath#path
+        :schema: JenkinsSpecMasterVolumesHostPath#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -8188,11 +7742,9 @@ class JenkinsSpecMasterVolumesHostPath:
     def type(self) -> typing.Optional[builtins.str]:
         """Type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath.
 
-        default
         :default: More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesHostPath#type
+        :schema: JenkinsSpecMasterVolumesHostPath#type
         """
         result = self._values.get("type")
         return result
@@ -8258,8 +7810,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :param read_only: ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. Default: false.
         :param secret_ref: CHAP Secret for iSCSI target and initiator authentication.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi
+        :schema: JenkinsSpecMasterVolumesIscsi
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesIscsiSecretRef(**secret_ref)
@@ -8289,8 +7840,7 @@ class JenkinsSpecMasterVolumesIscsi:
     def iqn(self) -> builtins.str:
         """Target iSCSI Qualified Name.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#iqn
+        :schema: JenkinsSpecMasterVolumesIscsi#iqn
         """
         result = self._values.get("iqn")
         assert result is not None, "Required property 'iqn' is missing"
@@ -8300,8 +7850,7 @@ class JenkinsSpecMasterVolumesIscsi:
     def lun(self) -> jsii.Number:
         """iSCSI Target Lun number.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#lun
+        :schema: JenkinsSpecMasterVolumesIscsi#lun
         """
         result = self._values.get("lun")
         assert result is not None, "Required property 'lun' is missing"
@@ -8313,8 +7862,7 @@ class JenkinsSpecMasterVolumesIscsi:
 
         The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#targetPortal
+        :schema: JenkinsSpecMasterVolumesIscsi#targetPortal
         """
         result = self._values.get("target_portal")
         assert result is not None, "Required property 'target_portal' is missing"
@@ -8324,8 +7872,7 @@ class JenkinsSpecMasterVolumesIscsi:
     def chap_auth_discovery(self) -> typing.Optional[builtins.bool]:
         """whether support iSCSI Discovery CHAP authentication.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#chapAuthDiscovery
+        :schema: JenkinsSpecMasterVolumesIscsi#chapAuthDiscovery
         """
         result = self._values.get("chap_auth_discovery")
         return result
@@ -8334,8 +7881,7 @@ class JenkinsSpecMasterVolumesIscsi:
     def chap_auth_session(self) -> typing.Optional[builtins.bool]:
         """whether support iSCSI Session CHAP authentication.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#chapAuthSession
+        :schema: JenkinsSpecMasterVolumesIscsi#chapAuthSession
         """
         result = self._values.get("chap_auth_session")
         return result
@@ -8346,8 +7892,7 @@ class JenkinsSpecMasterVolumesIscsi:
 
         Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi TODO: how do we prevent errors in the filesystem from compromising the machine
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#fsType
+        :schema: JenkinsSpecMasterVolumesIscsi#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -8358,8 +7903,7 @@ class JenkinsSpecMasterVolumesIscsi:
 
         If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface : will be created for the connection.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#initiatorName
+        :schema: JenkinsSpecMasterVolumesIscsi#initiatorName
         """
         result = self._values.get("initiator_name")
         return result
@@ -8370,11 +7914,9 @@ class JenkinsSpecMasterVolumesIscsi:
 
         Defaults to 'default' (tcp).
 
-        default
         :default: default' (tcp).
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#iscsiInterface
+        :schema: JenkinsSpecMasterVolumesIscsi#iscsiInterface
         """
         result = self._values.get("iscsi_interface")
         return result
@@ -8385,8 +7927,7 @@ class JenkinsSpecMasterVolumesIscsi:
 
         The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#portals
+        :schema: JenkinsSpecMasterVolumesIscsi#portals
         """
         result = self._values.get("portals")
         return result
@@ -8397,11 +7938,9 @@ class JenkinsSpecMasterVolumesIscsi:
 
         Defaults to false.
 
-        default
         :default: false.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#readOnly
+        :schema: JenkinsSpecMasterVolumesIscsi#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -8410,8 +7949,7 @@ class JenkinsSpecMasterVolumesIscsi:
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesIscsiSecretRef"]:
         """CHAP Secret for iSCSI target and initiator authentication.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsi#secretRef
+        :schema: JenkinsSpecMasterVolumesIscsi#secretRef
         """
         result = self._values.get("secret_ref")
         return result
@@ -8439,8 +7977,7 @@ class JenkinsSpecMasterVolumesIscsiSecretRef:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsiSecretRef
+        :schema: JenkinsSpecMasterVolumesIscsiSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -8452,8 +7989,7 @@ class JenkinsSpecMasterVolumesIscsiSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesIscsiSecretRef#name
+        :schema: JenkinsSpecMasterVolumesIscsiSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -8489,8 +8025,7 @@ class JenkinsSpecMasterVolumesNfs:
         :param server: Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
         :param read_only: ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs Default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesNfs
+        :schema: JenkinsSpecMasterVolumesNfs
         """
         self._values: typing.Dict[str, typing.Any] = {
             "path": path,
@@ -8505,8 +8040,7 @@ class JenkinsSpecMasterVolumesNfs:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesNfs#path
+        :schema: JenkinsSpecMasterVolumesNfs#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -8518,8 +8052,7 @@ class JenkinsSpecMasterVolumesNfs:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesNfs#server
+        :schema: JenkinsSpecMasterVolumesNfs#server
         """
         result = self._values.get("server")
         assert result is not None, "Required property 'server' is missing"
@@ -8531,11 +8064,9 @@ class JenkinsSpecMasterVolumesNfs:
 
         Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
 
-        default
         :default: false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesNfs#readOnly
+        :schema: JenkinsSpecMasterVolumesNfs#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -8571,8 +8102,7 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
         :param claim_name: ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
         :param read_only: Will force the ReadOnly setting in VolumeMounts. Default false.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPersistentVolumeClaim
+        :schema: JenkinsSpecMasterVolumesPersistentVolumeClaim
         """
         self._values: typing.Dict[str, typing.Any] = {
             "claim_name": claim_name,
@@ -8586,8 +8116,7 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPersistentVolumeClaim#claimName
+        :schema: JenkinsSpecMasterVolumesPersistentVolumeClaim#claimName
         """
         result = self._values.get("claim_name")
         assert result is not None, "Required property 'claim_name' is missing"
@@ -8599,8 +8128,7 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
 
         Default false.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPersistentVolumeClaim#readOnly
+        :schema: JenkinsSpecMasterVolumesPersistentVolumeClaim#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -8634,8 +8162,7 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
         :param pd_id: ID that identifies Photon Controller persistent disk.
         :param fs_type: Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPhotonPersistentDisk
+        :schema: JenkinsSpecMasterVolumesPhotonPersistentDisk
         """
         self._values: typing.Dict[str, typing.Any] = {
             "pd_id": pd_id,
@@ -8647,8 +8174,7 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
     def pd_id(self) -> builtins.str:
         """ID that identifies Photon Controller persistent disk.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPhotonPersistentDisk#pdID
+        :schema: JenkinsSpecMasterVolumesPhotonPersistentDisk#pdID
         """
         result = self._values.get("pd_id")
         assert result is not None, "Required property 'pd_id' is missing"
@@ -8660,8 +8186,7 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPhotonPersistentDisk#fsType
+        :schema: JenkinsSpecMasterVolumesPhotonPersistentDisk#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -8701,8 +8226,7 @@ class JenkinsSpecMasterVolumesPortworxVolume:
         :param fs_type: FSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs". Implicitly inferred to be "ext4" if unspecified.
         :param read_only: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. Default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPortworxVolume
+        :schema: JenkinsSpecMasterVolumesPortworxVolume
         """
         self._values: typing.Dict[str, typing.Any] = {
             "volume_id": volume_id,
@@ -8716,8 +8240,7 @@ class JenkinsSpecMasterVolumesPortworxVolume:
     def volume_id(self) -> builtins.str:
         """VolumeID uniquely identifies a Portworx volume.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPortworxVolume#volumeID
+        :schema: JenkinsSpecMasterVolumesPortworxVolume#volumeID
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
@@ -8729,8 +8252,7 @@ class JenkinsSpecMasterVolumesPortworxVolume:
 
         Ex. "ext4", "xfs". Implicitly inferred to be "ext4" if unspecified.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPortworxVolume#fsType
+        :schema: JenkinsSpecMasterVolumesPortworxVolume#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -8741,11 +8263,9 @@ class JenkinsSpecMasterVolumesPortworxVolume:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesPortworxVolume#readOnly
+        :schema: JenkinsSpecMasterVolumesPortworxVolume#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -8779,8 +8299,7 @@ class JenkinsSpecMasterVolumesProjected:
         :param sources: list of volume projections.
         :param default_mode: Mode bits to use on created files by default. Must be a value between 0 and 0777. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjected
+        :schema: JenkinsSpecMasterVolumesProjected
         """
         self._values: typing.Dict[str, typing.Any] = {
             "sources": sources,
@@ -8792,8 +8311,7 @@ class JenkinsSpecMasterVolumesProjected:
     def sources(self) -> typing.List["JenkinsSpecMasterVolumesProjectedSources"]:
         """list of volume projections.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjected#sources
+        :schema: JenkinsSpecMasterVolumesProjected#sources
         """
         result = self._values.get("sources")
         assert result is not None, "Required property 'sources' is missing"
@@ -8805,8 +8323,7 @@ class JenkinsSpecMasterVolumesProjected:
 
         Must be a value between 0 and 0777. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjected#defaultMode
+        :schema: JenkinsSpecMasterVolumesProjected#defaultMode
         """
         result = self._values.get("default_mode")
         return result
@@ -8849,8 +8366,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
         :param secret: information about the secret data to project.
         :param service_account_token: information about the serviceAccountToken data to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSources
+        :schema: JenkinsSpecMasterVolumesProjectedSources
         """
         if isinstance(config_map, dict):
             config_map = JenkinsSpecMasterVolumesProjectedSourcesConfigMap(**config_map)
@@ -8876,8 +8392,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
     ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesConfigMap"]:
         """information about the configMap data to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSources#configMap
+        :schema: JenkinsSpecMasterVolumesProjectedSources#configMap
         """
         result = self._values.get("config_map")
         return result
@@ -8888,8 +8403,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
     ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApi"]:
         """information about the downwardAPI data to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSources#downwardAPI
+        :schema: JenkinsSpecMasterVolumesProjectedSources#downwardAPI
         """
         result = self._values.get("downward_api")
         return result
@@ -8900,8 +8414,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
     ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesSecret"]:
         """information about the secret data to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSources#secret
+        :schema: JenkinsSpecMasterVolumesProjectedSources#secret
         """
         result = self._values.get("secret")
         return result
@@ -8912,8 +8425,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
     ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken"]:
         """information about the serviceAccountToken data to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSources#serviceAccountToken
+        :schema: JenkinsSpecMasterVolumesProjectedSources#serviceAccountToken
         """
         result = self._values.get("service_account_token")
         return result
@@ -8949,8 +8461,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the ConfigMap or its keys must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMap
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMap
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if items is not None:
@@ -8968,8 +8479,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
 
         If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#items
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#items
         """
         result = self._values.get("items")
         return result
@@ -8980,8 +8490,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#name
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#name
         """
         result = self._values.get("name")
         return result
@@ -8990,8 +8499,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the ConfigMap or its keys must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#optional
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#optional
         """
         result = self._values.get("optional")
         return result
@@ -9027,8 +8535,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
         :param path: The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
         :param mode: Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -9041,8 +8548,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
     def key(self) -> builtins.str:
         """The key to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#key
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -9054,8 +8560,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
 
         May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#path
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -9067,8 +8572,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
 
         If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#mode
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#mode
         """
         result = self._values.get("mode")
         return result
@@ -9100,8 +8604,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
 
         :param items: Items is a list of DownwardAPIVolume file.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApi
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApi
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if items is not None:
@@ -9113,8 +8616,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
     ) -> typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]]:
         """Items is a list of DownwardAPIVolume file.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApi#items
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApi#items
         """
         result = self._values.get("items")
         return result
@@ -9157,8 +8659,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         :param mode: Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
         :param resource_field_ref: Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems
         """
         if isinstance(field_ref, dict):
             field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef(**field_ref)
@@ -9180,8 +8681,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
 
         Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#path
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -9193,8 +8693,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
     ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"]:
         """Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#fieldRef
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#fieldRef
         """
         result = self._values.get("field_ref")
         return result
@@ -9205,8 +8704,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
 
         If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#mode
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#mode
         """
         result = self._values.get("mode")
         return result
@@ -9217,8 +8715,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
     ) -> typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"]:
         """Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#resourceFieldRef
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
         return result
@@ -9252,8 +8749,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
         :param field_path: Path of the field to select in the specified API version.
         :param api_version: Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "field_path": field_path,
@@ -9265,8 +8761,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
     def field_path(self) -> builtins.str:
         """Path of the field to select in the specified API version.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef#fieldPath
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef#fieldPath
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
@@ -9276,8 +8771,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
     def api_version(self) -> typing.Optional[builtins.str]:
         """Version of the schema the FieldPath is written in terms of, defaults to "v1".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef#apiVersion
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef#apiVersion
         """
         result = self._values.get("api_version")
         return result
@@ -9317,8 +8811,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
         :param container_name: Container name: required for volumes, optional for env vars.
         :param divisor: Specifies the output format of the exposed resources, defaults to "1".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "resource": resource,
@@ -9332,8 +8825,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
     def resource(self) -> builtins.str:
         """Required: resource to select.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#resource
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#resource
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
@@ -9343,8 +8835,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
     def container_name(self) -> typing.Optional[builtins.str]:
         """Container name: required for volumes, optional for env vars.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#containerName
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#containerName
         """
         result = self._values.get("container_name")
         return result
@@ -9353,8 +8844,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
     def divisor(self) -> typing.Optional[builtins.str]:
         """Specifies the output format of the exposed resources, defaults to "1".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#divisor
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#divisor
         """
         result = self._values.get("divisor")
         return result
@@ -9390,8 +8880,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
         :param optional: Specify whether the Secret or its key must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecret
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesSecret
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if items is not None:
@@ -9409,8 +8898,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
 
         If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecret#items
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesSecret#items
         """
         result = self._values.get("items")
         return result
@@ -9421,8 +8909,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecret#name
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesSecret#name
         """
         result = self._values.get("name")
         return result
@@ -9431,8 +8918,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret or its key must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecret#optional
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesSecret#optional
         """
         result = self._values.get("optional")
         return result
@@ -9468,8 +8954,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
         :param path: The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
         :param mode: Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecretItems
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesSecretItems
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -9482,8 +8967,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
     def key(self) -> builtins.str:
         """The key to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#key
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -9495,8 +8979,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
 
         May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#path
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -9508,8 +8991,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
 
         If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#mode
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#mode
         """
         result = self._values.get("mode")
         return result
@@ -9549,8 +9031,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         :param audience: Audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
         :param expiration_seconds: ExpirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes. Default: 1 hour and must be at least 10 minutes.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken
         """
         self._values: typing.Dict[str, typing.Any] = {
             "path": path,
@@ -9564,8 +9045,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
     def path(self) -> builtins.str:
         """Path is the path relative to the mount point of the file to project the token into.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#path
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -9577,8 +9057,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
 
         A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#audience
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#audience
         """
         result = self._values.get("audience")
         return result
@@ -9589,11 +9068,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
 
         As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
 
-        default
         :default: 1 hour and must be at least 10 minutes.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#expirationSeconds
+        :schema: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#expirationSeconds
         """
         result = self._values.get("expiration_seconds")
         return result
@@ -9642,8 +9119,7 @@ class JenkinsSpecMasterVolumesQuobyte:
         :param tenant: Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin.
         :param user: User to map volume access to Defaults to serivceaccount user. Default: serivceaccount user
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesQuobyte
+        :schema: JenkinsSpecMasterVolumesQuobyte
         """
         self._values: typing.Dict[str, typing.Any] = {
             "registry": registry,
@@ -9662,8 +9138,7 @@ class JenkinsSpecMasterVolumesQuobyte:
     def registry(self) -> builtins.str:
         """Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesQuobyte#registry
+        :schema: JenkinsSpecMasterVolumesQuobyte#registry
         """
         result = self._values.get("registry")
         assert result is not None, "Required property 'registry' is missing"
@@ -9673,8 +9148,7 @@ class JenkinsSpecMasterVolumesQuobyte:
     def volume(self) -> builtins.str:
         """Volume is a string that references an already created Quobyte volume by name.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesQuobyte#volume
+        :schema: JenkinsSpecMasterVolumesQuobyte#volume
         """
         result = self._values.get("volume")
         assert result is not None, "Required property 'volume' is missing"
@@ -9684,11 +9158,9 @@ class JenkinsSpecMasterVolumesQuobyte:
     def group(self) -> typing.Optional[builtins.str]:
         """Group to map volume access to Default is no group.
 
-        default
         :default: no group
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesQuobyte#group
+        :schema: JenkinsSpecMasterVolumesQuobyte#group
         """
         result = self._values.get("group")
         return result
@@ -9699,11 +9171,9 @@ class JenkinsSpecMasterVolumesQuobyte:
 
         Defaults to false.
 
-        default
         :default: false.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesQuobyte#readOnly
+        :schema: JenkinsSpecMasterVolumesQuobyte#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -9712,8 +9182,7 @@ class JenkinsSpecMasterVolumesQuobyte:
     def tenant(self) -> typing.Optional[builtins.str]:
         """Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesQuobyte#tenant
+        :schema: JenkinsSpecMasterVolumesQuobyte#tenant
         """
         result = self._values.get("tenant")
         return result
@@ -9722,11 +9191,9 @@ class JenkinsSpecMasterVolumesQuobyte:
     def user(self) -> typing.Optional[builtins.str]:
         """User to map volume access to Defaults to serivceaccount user.
 
-        default
         :default: serivceaccount user
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesQuobyte#user
+        :schema: JenkinsSpecMasterVolumesQuobyte#user
         """
         result = self._values.get("user")
         return result
@@ -9783,8 +9250,7 @@ class JenkinsSpecMasterVolumesRbd:
         :param secret_ref: SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it Default: nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
         :param user: The rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it Default: admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd
+        :schema: JenkinsSpecMasterVolumesRbd
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesRbdSecretRef(**secret_ref)
@@ -9811,8 +9277,7 @@ class JenkinsSpecMasterVolumesRbd:
 
         More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd#image
+        :schema: JenkinsSpecMasterVolumesRbd#image
         """
         result = self._values.get("image")
         assert result is not None, "Required property 'image' is missing"
@@ -9824,8 +9289,7 @@ class JenkinsSpecMasterVolumesRbd:
 
         More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd#monitors
+        :schema: JenkinsSpecMasterVolumesRbd#monitors
         """
         result = self._values.get("monitors")
         assert result is not None, "Required property 'monitors' is missing"
@@ -9837,8 +9301,7 @@ class JenkinsSpecMasterVolumesRbd:
 
         Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd TODO: how do we prevent errors in the filesystem from compromising the machine
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd#fsType
+        :schema: JenkinsSpecMasterVolumesRbd#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -9849,11 +9312,9 @@ class JenkinsSpecMasterVolumesRbd:
 
         Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        default
         :default: etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd#keyring
+        :schema: JenkinsSpecMasterVolumesRbd#keyring
         """
         result = self._values.get("keyring")
         return result
@@ -9864,11 +9325,9 @@ class JenkinsSpecMasterVolumesRbd:
 
         Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        default
         :default: rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd#pool
+        :schema: JenkinsSpecMasterVolumesRbd#pool
         """
         result = self._values.get("pool")
         return result
@@ -9879,11 +9338,9 @@ class JenkinsSpecMasterVolumesRbd:
 
         Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        default
         :default: false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd#readOnly
+        :schema: JenkinsSpecMasterVolumesRbd#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -9894,11 +9351,9 @@ class JenkinsSpecMasterVolumesRbd:
 
         If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        default
         :default: nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd#secretRef
+        :schema: JenkinsSpecMasterVolumesRbd#secretRef
         """
         result = self._values.get("secret_ref")
         return result
@@ -9909,11 +9364,9 @@ class JenkinsSpecMasterVolumesRbd:
 
         Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        default
         :default: admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbd#user
+        :schema: JenkinsSpecMasterVolumesRbd#user
         """
         result = self._values.get("user")
         return result
@@ -9943,11 +9396,9 @@ class JenkinsSpecMasterVolumesRbdSecretRef:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        default
         :default: nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbdSecretRef
+        :schema: JenkinsSpecMasterVolumesRbdSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -9959,8 +9410,7 @@ class JenkinsSpecMasterVolumesRbdSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesRbdSecretRef#name
+        :schema: JenkinsSpecMasterVolumesRbdSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -10021,8 +9471,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         :param storage_pool: The ScaleIO Storage Pool associated with the protection domain.
         :param volume_name: The name of a volume already created in the ScaleIO system that is associated with this volume source.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo
+        :schema: JenkinsSpecMasterVolumesScaleIo
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesScaleIoSecretRef(**secret_ref)
@@ -10050,8 +9499,7 @@ class JenkinsSpecMasterVolumesScaleIo:
     def gateway(self) -> builtins.str:
         """The host address of the ScaleIO API Gateway.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#gateway
+        :schema: JenkinsSpecMasterVolumesScaleIo#gateway
         """
         result = self._values.get("gateway")
         assert result is not None, "Required property 'gateway' is missing"
@@ -10063,8 +9511,7 @@ class JenkinsSpecMasterVolumesScaleIo:
 
         If this is not provided, Login operation will fail.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#secretRef
+        :schema: JenkinsSpecMasterVolumesScaleIo#secretRef
         """
         result = self._values.get("secret_ref")
         assert result is not None, "Required property 'secret_ref' is missing"
@@ -10074,8 +9521,7 @@ class JenkinsSpecMasterVolumesScaleIo:
     def system(self) -> builtins.str:
         """The name of the storage system as configured in ScaleIO.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#system
+        :schema: JenkinsSpecMasterVolumesScaleIo#system
         """
         result = self._values.get("system")
         assert result is not None, "Required property 'system' is missing"
@@ -10087,11 +9533,9 @@ class JenkinsSpecMasterVolumesScaleIo:
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs".
 
-        default
         :default: xfs".
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#fsType
+        :schema: JenkinsSpecMasterVolumesScaleIo#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -10100,8 +9544,7 @@ class JenkinsSpecMasterVolumesScaleIo:
     def protection_domain(self) -> typing.Optional[builtins.str]:
         """The name of the ScaleIO Protection Domain for the configured storage.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#protectionDomain
+        :schema: JenkinsSpecMasterVolumesScaleIo#protectionDomain
         """
         result = self._values.get("protection_domain")
         return result
@@ -10112,11 +9555,9 @@ class JenkinsSpecMasterVolumesScaleIo:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#readOnly
+        :schema: JenkinsSpecMasterVolumesScaleIo#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -10125,8 +9566,7 @@ class JenkinsSpecMasterVolumesScaleIo:
     def ssl_enabled(self) -> typing.Optional[builtins.bool]:
         """Flag to enable/disable SSL communication with Gateway, default false.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#sslEnabled
+        :schema: JenkinsSpecMasterVolumesScaleIo#sslEnabled
         """
         result = self._values.get("ssl_enabled")
         return result
@@ -10137,11 +9577,9 @@ class JenkinsSpecMasterVolumesScaleIo:
 
         Default is ThinProvisioned.
 
-        default
         :default: ThinProvisioned.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#storageMode
+        :schema: JenkinsSpecMasterVolumesScaleIo#storageMode
         """
         result = self._values.get("storage_mode")
         return result
@@ -10150,8 +9588,7 @@ class JenkinsSpecMasterVolumesScaleIo:
     def storage_pool(self) -> typing.Optional[builtins.str]:
         """The ScaleIO Storage Pool associated with the protection domain.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#storagePool
+        :schema: JenkinsSpecMasterVolumesScaleIo#storagePool
         """
         result = self._values.get("storage_pool")
         return result
@@ -10160,8 +9597,7 @@ class JenkinsSpecMasterVolumesScaleIo:
     def volume_name(self) -> typing.Optional[builtins.str]:
         """The name of a volume already created in the ScaleIO system that is associated with this volume source.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIo#volumeName
+        :schema: JenkinsSpecMasterVolumesScaleIo#volumeName
         """
         result = self._values.get("volume_name")
         return result
@@ -10191,8 +9627,7 @@ class JenkinsSpecMasterVolumesScaleIoSecretRef:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIoSecretRef
+        :schema: JenkinsSpecMasterVolumesScaleIoSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -10204,8 +9639,7 @@ class JenkinsSpecMasterVolumesScaleIoSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesScaleIoSecretRef#name
+        :schema: JenkinsSpecMasterVolumesScaleIoSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -10250,8 +9684,7 @@ class JenkinsSpecMasterVolumesSecret:
         :param optional: Specify whether the Secret or its keys must be defined.
         :param secret_name: Name of the secret in the pod's namespace to use. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecret
+        :schema: JenkinsSpecMasterVolumesSecret
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if default_mode is not None:
@@ -10269,11 +9702,9 @@ class JenkinsSpecMasterVolumesSecret:
 
         Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        default
         :default: 644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecret#defaultMode
+        :schema: JenkinsSpecMasterVolumesSecret#defaultMode
         """
         result = self._values.get("default_mode")
         return result
@@ -10286,8 +9717,7 @@ class JenkinsSpecMasterVolumesSecret:
 
         If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecret#items
+        :schema: JenkinsSpecMasterVolumesSecret#items
         """
         result = self._values.get("items")
         return result
@@ -10296,8 +9726,7 @@ class JenkinsSpecMasterVolumesSecret:
     def optional(self) -> typing.Optional[builtins.bool]:
         """Specify whether the Secret or its keys must be defined.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecret#optional
+        :schema: JenkinsSpecMasterVolumesSecret#optional
         """
         result = self._values.get("optional")
         return result
@@ -10308,8 +9737,7 @@ class JenkinsSpecMasterVolumesSecret:
 
         More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecret#secretName
+        :schema: JenkinsSpecMasterVolumesSecret#secretName
         """
         result = self._values.get("secret_name")
         return result
@@ -10345,8 +9773,7 @@ class JenkinsSpecMasterVolumesSecretItems:
         :param path: The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
         :param mode: Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecretItems
+        :schema: JenkinsSpecMasterVolumesSecretItems
         """
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
@@ -10359,8 +9786,7 @@ class JenkinsSpecMasterVolumesSecretItems:
     def key(self) -> builtins.str:
         """The key to project.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecretItems#key
+        :schema: JenkinsSpecMasterVolumesSecretItems#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -10372,8 +9798,7 @@ class JenkinsSpecMasterVolumesSecretItems:
 
         May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecretItems#path
+        :schema: JenkinsSpecMasterVolumesSecretItems#path
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
@@ -10385,8 +9810,7 @@ class JenkinsSpecMasterVolumesSecretItems:
 
         If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesSecretItems#mode
+        :schema: JenkinsSpecMasterVolumesSecretItems#mode
         """
         result = self._values.get("mode")
         return result
@@ -10432,8 +9856,7 @@ class JenkinsSpecMasterVolumesStorageos:
         :param volume_name: VolumeName is the human-readable name of the StorageOS volume. Volume names are only unique within a namespace.
         :param volume_namespace: VolumeNamespace specifies the scope of the volume within StorageOS. If no namespace is specified then the Pod's namespace will be used. This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesStorageos
+        :schema: JenkinsSpecMasterVolumesStorageos
         """
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesStorageosSecretRef(**secret_ref)
@@ -10455,8 +9878,7 @@ class JenkinsSpecMasterVolumesStorageos:
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesStorageos#fsType
+        :schema: JenkinsSpecMasterVolumesStorageos#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -10467,11 +9889,9 @@ class JenkinsSpecMasterVolumesStorageos:
 
         ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        default
         :default: false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesStorageos#readOnly
+        :schema: JenkinsSpecMasterVolumesStorageos#readOnly
         """
         result = self._values.get("read_only")
         return result
@@ -10484,8 +9904,7 @@ class JenkinsSpecMasterVolumesStorageos:
 
         If not specified, default values will be attempted.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesStorageos#secretRef
+        :schema: JenkinsSpecMasterVolumesStorageos#secretRef
         """
         result = self._values.get("secret_ref")
         return result
@@ -10496,8 +9915,7 @@ class JenkinsSpecMasterVolumesStorageos:
 
         Volume names are only unique within a namespace.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesStorageos#volumeName
+        :schema: JenkinsSpecMasterVolumesStorageos#volumeName
         """
         result = self._values.get("volume_name")
         return result
@@ -10508,8 +9926,7 @@ class JenkinsSpecMasterVolumesStorageos:
 
         If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesStorageos#volumeNamespace
+        :schema: JenkinsSpecMasterVolumesStorageos#volumeNamespace
         """
         result = self._values.get("volume_namespace")
         return result
@@ -10539,8 +9956,7 @@ class JenkinsSpecMasterVolumesStorageosSecretRef:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesStorageosSecretRef
+        :schema: JenkinsSpecMasterVolumesStorageosSecretRef
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -10552,8 +9968,7 @@ class JenkinsSpecMasterVolumesStorageosSecretRef:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesStorageosSecretRef#name
+        :schema: JenkinsSpecMasterVolumesStorageosSecretRef#name
         """
         result = self._values.get("name")
         return result
@@ -10596,8 +10011,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
         :param storage_policy_id: Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
         :param storage_policy_name: Storage Policy Based Management (SPBM) profile name.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesVsphereVolume
+        :schema: JenkinsSpecMasterVolumesVsphereVolume
         """
         self._values: typing.Dict[str, typing.Any] = {
             "volume_path": volume_path,
@@ -10613,8 +10027,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
     def volume_path(self) -> builtins.str:
         """Path that identifies vSphere volume vmdk.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesVsphereVolume#volumePath
+        :schema: JenkinsSpecMasterVolumesVsphereVolume#volumePath
         """
         result = self._values.get("volume_path")
         assert result is not None, "Required property 'volume_path' is missing"
@@ -10626,8 +10039,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
 
         Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesVsphereVolume#fsType
+        :schema: JenkinsSpecMasterVolumesVsphereVolume#fsType
         """
         result = self._values.get("fs_type")
         return result
@@ -10636,8 +10048,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
     def storage_policy_id(self) -> typing.Optional[builtins.str]:
         """Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesVsphereVolume#storagePolicyID
+        :schema: JenkinsSpecMasterVolumesVsphereVolume#storagePolicyID
         """
         result = self._values.get("storage_policy_id")
         return result
@@ -10646,8 +10057,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
     def storage_policy_name(self) -> typing.Optional[builtins.str]:
         """Storage Policy Based Management (SPBM) profile name.
 
-        schema:
-        :schema:: JenkinsSpecMasterVolumesVsphereVolume#storagePolicyName
+        :schema: JenkinsSpecMasterVolumesVsphereVolume#storagePolicyName
         """
         result = self._values.get("storage_policy_name")
         return result
@@ -10699,8 +10109,7 @@ class JenkinsSpecNotifications:
         :param smtp: SMTP is handler for sending emails via this protocol.
         :param teams: MicrosoftTeams is handler for Microsoft MicrosoftTeams notification channel.
 
-        schema:
-        :schema:: JenkinsSpecNotifications
+        :schema: JenkinsSpecNotifications
         """
         if isinstance(mailgun, dict):
             mailgun = JenkinsSpecNotificationsMailgun(**mailgun)
@@ -10728,8 +10137,7 @@ class JenkinsSpecNotifications:
     def level(self) -> builtins.str:
         """NotificationLevel defines the level of a Notification.
 
-        schema:
-        :schema:: JenkinsSpecNotifications#level
+        :schema: JenkinsSpecNotifications#level
         """
         result = self._values.get("level")
         assert result is not None, "Required property 'level' is missing"
@@ -10738,8 +10146,7 @@ class JenkinsSpecNotifications:
     @builtins.property
     def name(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecNotifications#name
+        :schema: JenkinsSpecNotifications#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -10748,8 +10155,7 @@ class JenkinsSpecNotifications:
     @builtins.property
     def verbose(self) -> builtins.bool:
         """
-        schema:
-        :schema:: JenkinsSpecNotifications#verbose
+        :schema: JenkinsSpecNotifications#verbose
         """
         result = self._values.get("verbose")
         assert result is not None, "Required property 'verbose' is missing"
@@ -10759,8 +10165,7 @@ class JenkinsSpecNotifications:
     def mailgun(self) -> typing.Optional["JenkinsSpecNotificationsMailgun"]:
         """Mailgun is handler for Mailgun email service notification channel.
 
-        schema:
-        :schema:: JenkinsSpecNotifications#mailgun
+        :schema: JenkinsSpecNotifications#mailgun
         """
         result = self._values.get("mailgun")
         return result
@@ -10769,8 +10174,7 @@ class JenkinsSpecNotifications:
     def slack(self) -> typing.Optional["JenkinsSpecNotificationsSlack"]:
         """Slack is handler for Slack notification channel.
 
-        schema:
-        :schema:: JenkinsSpecNotifications#slack
+        :schema: JenkinsSpecNotifications#slack
         """
         result = self._values.get("slack")
         return result
@@ -10779,8 +10183,7 @@ class JenkinsSpecNotifications:
     def smtp(self) -> typing.Optional["JenkinsSpecNotificationsSmtp"]:
         """SMTP is handler for sending emails via this protocol.
 
-        schema:
-        :schema:: JenkinsSpecNotifications#smtp
+        :schema: JenkinsSpecNotifications#smtp
         """
         result = self._values.get("smtp")
         return result
@@ -10789,8 +10192,7 @@ class JenkinsSpecNotifications:
     def teams(self) -> typing.Optional["JenkinsSpecNotificationsTeams"]:
         """MicrosoftTeams is handler for Microsoft MicrosoftTeams notification channel.
 
-        schema:
-        :schema:: JenkinsSpecNotifications#teams
+        :schema: JenkinsSpecNotifications#teams
         """
         result = self._values.get("teams")
         return result
@@ -10833,8 +10235,7 @@ class JenkinsSpecNotificationsMailgun:
         :param from_: 
         :param recipient: 
 
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgun
+        :schema: JenkinsSpecNotificationsMailgun
         """
         if isinstance(api_key_secret_key_selector, dict):
             api_key_secret_key_selector = JenkinsSpecNotificationsMailgunApiKeySecretKeySelector(**api_key_secret_key_selector)
@@ -10851,8 +10252,7 @@ class JenkinsSpecNotificationsMailgun:
     ) -> "JenkinsSpecNotificationsMailgunApiKeySecretKeySelector":
         """SecretKeySelector selects a key of a Secret.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgun#apiKeySecretKeySelector
+        :schema: JenkinsSpecNotificationsMailgun#apiKeySecretKeySelector
         """
         result = self._values.get("api_key_secret_key_selector")
         assert result is not None, "Required property 'api_key_secret_key_selector' is missing"
@@ -10861,8 +10261,7 @@ class JenkinsSpecNotificationsMailgun:
     @builtins.property
     def domain(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgun#domain
+        :schema: JenkinsSpecNotificationsMailgun#domain
         """
         result = self._values.get("domain")
         assert result is not None, "Required property 'domain' is missing"
@@ -10871,8 +10270,7 @@ class JenkinsSpecNotificationsMailgun:
     @builtins.property
     def from_(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgun#from
+        :schema: JenkinsSpecNotificationsMailgun#from
         """
         result = self._values.get("from_")
         assert result is not None, "Required property 'from_' is missing"
@@ -10881,8 +10279,7 @@ class JenkinsSpecNotificationsMailgun:
     @builtins.property
     def recipient(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgun#recipient
+        :schema: JenkinsSpecNotificationsMailgun#recipient
         """
         result = self._values.get("recipient")
         assert result is not None, "Required property 'recipient' is missing"
@@ -10917,8 +10314,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
         :param key: The key of the secret to select from. Must be a valid secret key.
         :param secret: The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector
+        :schema: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(**secret)
@@ -10933,8 +10329,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
 
         Must be a valid secret key.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector#key
+        :schema: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -10944,8 +10339,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
     def secret(self) -> "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret":
         """The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector#secret
+        :schema: JenkinsSpecNotificationsMailgunApiKeySecretKeySelector#secret
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
@@ -10974,8 +10368,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret
+        :schema: JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -10987,8 +10380,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret#name
+        :schema: JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret#name
         """
         result = self._values.get("name")
         return result
@@ -11020,8 +10412,7 @@ class JenkinsSpecNotificationsSlack:
 
         :param web_hook_url_secret_key_selector: The web hook URL to Slack App.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSlack
+        :schema: JenkinsSpecNotificationsSlack
         """
         if isinstance(web_hook_url_secret_key_selector, dict):
             web_hook_url_secret_key_selector = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(**web_hook_url_secret_key_selector)
@@ -11035,8 +10426,7 @@ class JenkinsSpecNotificationsSlack:
     ) -> "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector":
         """The web hook URL to Slack App.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSlack#webHookURLSecretKeySelector
+        :schema: JenkinsSpecNotificationsSlack#webHookURLSecretKeySelector
         """
         result = self._values.get("web_hook_url_secret_key_selector")
         assert result is not None, "Required property 'web_hook_url_secret_key_selector' is missing"
@@ -11071,8 +10461,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         :param key: The key of the secret to select from. Must be a valid secret key.
         :param secret: The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector
+        :schema: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(**secret)
@@ -11087,8 +10476,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
 
         Must be a valid secret key.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector#key
+        :schema: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -11100,8 +10488,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
     ) -> "JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret":
         """The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector#secret
+        :schema: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector#secret
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
@@ -11130,8 +10517,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret
+        :schema: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11143,8 +10529,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret#name
+        :schema: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret#name
         """
         result = self._values.get("name")
         return result
@@ -11196,8 +10581,7 @@ class JenkinsSpecNotificationsSmtp:
         :param username_secret_key_selector: SecretKeySelector selects a key of a Secret.
         :param tls_insecure_skip_verify: 
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtp
+        :schema: JenkinsSpecNotificationsSmtp
         """
         if isinstance(password_secret_key_selector, dict):
             password_secret_key_selector = JenkinsSpecNotificationsSmtpPasswordSecretKeySelector(**password_secret_key_selector)
@@ -11217,8 +10601,7 @@ class JenkinsSpecNotificationsSmtp:
     @builtins.property
     def from_(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtp#from
+        :schema: JenkinsSpecNotificationsSmtp#from
         """
         result = self._values.get("from_")
         assert result is not None, "Required property 'from_' is missing"
@@ -11230,8 +10613,7 @@ class JenkinsSpecNotificationsSmtp:
     ) -> "JenkinsSpecNotificationsSmtpPasswordSecretKeySelector":
         """SecretKeySelector selects a key of a Secret.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtp#passwordSecretKeySelector
+        :schema: JenkinsSpecNotificationsSmtp#passwordSecretKeySelector
         """
         result = self._values.get("password_secret_key_selector")
         assert result is not None, "Required property 'password_secret_key_selector' is missing"
@@ -11240,8 +10622,7 @@ class JenkinsSpecNotificationsSmtp:
     @builtins.property
     def port(self) -> jsii.Number:
         """
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtp#port
+        :schema: JenkinsSpecNotificationsSmtp#port
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
@@ -11250,8 +10631,7 @@ class JenkinsSpecNotificationsSmtp:
     @builtins.property
     def server(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtp#server
+        :schema: JenkinsSpecNotificationsSmtp#server
         """
         result = self._values.get("server")
         assert result is not None, "Required property 'server' is missing"
@@ -11260,8 +10640,7 @@ class JenkinsSpecNotificationsSmtp:
     @builtins.property
     def to(self) -> builtins.str:
         """
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtp#to
+        :schema: JenkinsSpecNotificationsSmtp#to
         """
         result = self._values.get("to")
         assert result is not None, "Required property 'to' is missing"
@@ -11273,8 +10652,7 @@ class JenkinsSpecNotificationsSmtp:
     ) -> "JenkinsSpecNotificationsSmtpUsernameSecretKeySelector":
         """SecretKeySelector selects a key of a Secret.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtp#usernameSecretKeySelector
+        :schema: JenkinsSpecNotificationsSmtp#usernameSecretKeySelector
         """
         result = self._values.get("username_secret_key_selector")
         assert result is not None, "Required property 'username_secret_key_selector' is missing"
@@ -11283,8 +10661,7 @@ class JenkinsSpecNotificationsSmtp:
     @builtins.property
     def tls_insecure_skip_verify(self) -> typing.Optional[builtins.bool]:
         """
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtp#tlsInsecureSkipVerify
+        :schema: JenkinsSpecNotificationsSmtp#tlsInsecureSkipVerify
         """
         result = self._values.get("tls_insecure_skip_verify")
         return result
@@ -11318,8 +10695,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
         :param key: The key of the secret to select from. Must be a valid secret key.
         :param secret: The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector
+        :schema: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(**secret)
@@ -11334,8 +10710,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
 
         Must be a valid secret key.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector#key
+        :schema: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -11345,8 +10720,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
     def secret(self) -> "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret":
         """The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector#secret
+        :schema: JenkinsSpecNotificationsSmtpPasswordSecretKeySelector#secret
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
@@ -11375,8 +10749,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret
+        :schema: JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11388,8 +10761,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret#name
+        :schema: JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret#name
         """
         result = self._values.get("name")
         return result
@@ -11423,8 +10795,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
         :param key: The key of the secret to select from. Must be a valid secret key.
         :param secret: The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector
+        :schema: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(**secret)
@@ -11439,8 +10810,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
 
         Must be a valid secret key.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector#key
+        :schema: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -11450,8 +10820,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
     def secret(self) -> "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret":
         """The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector#secret
+        :schema: JenkinsSpecNotificationsSmtpUsernameSecretKeySelector#secret
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
@@ -11480,8 +10849,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret
+        :schema: JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11493,8 +10861,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret#name
+        :schema: JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret#name
         """
         result = self._values.get("name")
         return result
@@ -11526,8 +10893,7 @@ class JenkinsSpecNotificationsTeams:
 
         :param web_hook_url_secret_key_selector: The web hook URL to MicrosoftTeams App.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsTeams
+        :schema: JenkinsSpecNotificationsTeams
         """
         if isinstance(web_hook_url_secret_key_selector, dict):
             web_hook_url_secret_key_selector = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(**web_hook_url_secret_key_selector)
@@ -11541,8 +10907,7 @@ class JenkinsSpecNotificationsTeams:
     ) -> "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector":
         """The web hook URL to MicrosoftTeams App.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsTeams#webHookURLSecretKeySelector
+        :schema: JenkinsSpecNotificationsTeams#webHookURLSecretKeySelector
         """
         result = self._values.get("web_hook_url_secret_key_selector")
         assert result is not None, "Required property 'web_hook_url_secret_key_selector' is missing"
@@ -11577,8 +10942,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         :param key: The key of the secret to select from. Must be a valid secret key.
         :param secret: The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector
+        :schema: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector
         """
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(**secret)
@@ -11593,8 +10957,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
 
         Must be a valid secret key.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector#key
+        :schema: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector#key
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
@@ -11606,8 +10969,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
     ) -> "JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret":
         """The name of the secret in the pod's namespace to select from.
 
-        schema:
-        :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector#secret
+        :schema: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector#secret
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
@@ -11636,8 +10998,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
 
         :param name: Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret
+        :schema: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11649,8 +11010,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
 
-        schema:
-        :schema:: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret#name
+        :schema: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret#name
         """
         result = self._values.get("name")
         return result
@@ -11690,8 +11050,7 @@ class JenkinsSpecRestore:
         :param container_name: ContainerName is the container name responsible for restore backup operation.
         :param recovery_once: RecoveryOnce if want to restore specific backup set this field and then Jenkins will be restarted and desired backup will be restored.
 
-        schema:
-        :schema:: JenkinsSpecRestore
+        :schema: JenkinsSpecRestore
         """
         if isinstance(action, dict):
             action = JenkinsSpecRestoreAction(**action)
@@ -11706,8 +11065,7 @@ class JenkinsSpecRestore:
     def action(self) -> "JenkinsSpecRestoreAction":
         """Action defines action which performs restore backup in restore container sidecar.
 
-        schema:
-        :schema:: JenkinsSpecRestore#action
+        :schema: JenkinsSpecRestore#action
         """
         result = self._values.get("action")
         assert result is not None, "Required property 'action' is missing"
@@ -11717,8 +11075,7 @@ class JenkinsSpecRestore:
     def container_name(self) -> builtins.str:
         """ContainerName is the container name responsible for restore backup operation.
 
-        schema:
-        :schema:: JenkinsSpecRestore#containerName
+        :schema: JenkinsSpecRestore#containerName
         """
         result = self._values.get("container_name")
         assert result is not None, "Required property 'container_name' is missing"
@@ -11728,8 +11085,7 @@ class JenkinsSpecRestore:
     def recovery_once(self) -> typing.Optional[jsii.Number]:
         """RecoveryOnce if want to restore specific backup set this field and then Jenkins will be restarted and desired backup will be restored.
 
-        schema:
-        :schema:: JenkinsSpecRestore#recoveryOnce
+        :schema: JenkinsSpecRestore#recoveryOnce
         """
         result = self._values.get("recovery_once")
         return result
@@ -11761,8 +11117,7 @@ class JenkinsSpecRestoreAction:
 
         :param exec: Exec specifies the action to take.
 
-        schema:
-        :schema:: JenkinsSpecRestoreAction
+        :schema: JenkinsSpecRestoreAction
         """
         if isinstance(exec, dict):
             exec = JenkinsSpecRestoreActionExec(**exec)
@@ -11774,8 +11129,7 @@ class JenkinsSpecRestoreAction:
     def exec(self) -> typing.Optional["JenkinsSpecRestoreActionExec"]:
         """Exec specifies the action to take.
 
-        schema:
-        :schema:: JenkinsSpecRestoreAction#exec
+        :schema: JenkinsSpecRestoreAction#exec
         """
         result = self._values.get("exec")
         return result
@@ -11807,8 +11161,7 @@ class JenkinsSpecRestoreActionExec:
 
         :param command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecRestoreActionExec
+        :schema: JenkinsSpecRestoreActionExec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -11820,8 +11173,7 @@ class JenkinsSpecRestoreActionExec:
 
         The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
-        schema:
-        :schema:: JenkinsSpecRestoreActionExec#command
+        :schema: JenkinsSpecRestoreActionExec#command
         """
         result = self._values.get("command")
         return result
@@ -11857,8 +11209,7 @@ class JenkinsSpecRoles:
         :param kind: Kind is the type of resource being referenced.
         :param name: Name is the name of resource being referenced.
 
-        schema:
-        :schema:: JenkinsSpecRoles
+        :schema: JenkinsSpecRoles
         """
         self._values: typing.Dict[str, typing.Any] = {
             "api_group": api_group,
@@ -11870,8 +11221,7 @@ class JenkinsSpecRoles:
     def api_group(self) -> builtins.str:
         """APIGroup is the group for the resource being referenced.
 
-        schema:
-        :schema:: JenkinsSpecRoles#apiGroup
+        :schema: JenkinsSpecRoles#apiGroup
         """
         result = self._values.get("api_group")
         assert result is not None, "Required property 'api_group' is missing"
@@ -11881,8 +11231,7 @@ class JenkinsSpecRoles:
     def kind(self) -> builtins.str:
         """Kind is the type of resource being referenced.
 
-        schema:
-        :schema:: JenkinsSpecRoles#kind
+        :schema: JenkinsSpecRoles#kind
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
@@ -11892,8 +11241,7 @@ class JenkinsSpecRoles:
     def name(self) -> builtins.str:
         """Name is the name of resource being referenced.
 
-        schema:
-        :schema:: JenkinsSpecRoles#name
+        :schema: JenkinsSpecRoles#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -11970,8 +11318,7 @@ class JenkinsSpecSeedJobs:
         :param targets: Targets is the repository path where are seed job definitions.
         :param unstable_on_deprecation: UnstableOnDeprecation is setting for Job DSL API plugin that sets build status as unstable if build using deprecated features.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs
+        :schema: JenkinsSpecSeedJobs
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if additional_classpath is not None:
@@ -12009,8 +11356,7 @@ class JenkinsSpecSeedJobs:
     def additional_classpath(self) -> typing.Optional[builtins.str]:
         """AdditionalClasspath is setting for Job DSL API plugin to set Additional Classpath.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#additionalClasspath
+        :schema: JenkinsSpecSeedJobs#additionalClasspath
         """
         result = self._values.get("additional_classpath")
         return result
@@ -12019,8 +11365,7 @@ class JenkinsSpecSeedJobs:
     def bitbucket_push_trigger(self) -> typing.Optional[builtins.bool]:
         """BitbucketPushTrigger is used for Bitbucket web hooks.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#bitbucketPushTrigger
+        :schema: JenkinsSpecSeedJobs#bitbucketPushTrigger
         """
         result = self._values.get("bitbucket_push_trigger")
         return result
@@ -12029,8 +11374,7 @@ class JenkinsSpecSeedJobs:
     def build_periodically(self) -> typing.Optional[builtins.str]:
         """BuildPeriodically is setting for scheduled trigger.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#buildPeriodically
+        :schema: JenkinsSpecSeedJobs#buildPeriodically
         """
         result = self._values.get("build_periodically")
         return result
@@ -12039,8 +11383,7 @@ class JenkinsSpecSeedJobs:
     def credential_id(self) -> typing.Optional[builtins.str]:
         """CredentialID is the Kubernetes secret name which stores repository access credentials.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#credentialID
+        :schema: JenkinsSpecSeedJobs#credentialID
         """
         result = self._values.get("credential_id")
         return result
@@ -12049,8 +11392,7 @@ class JenkinsSpecSeedJobs:
     def credential_type(self) -> typing.Optional[builtins.str]:
         """JenkinsCredentialType is the https://jenkinsci.github.io/kubernetes-credentials-provider-plugin/ credential type.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#credentialType
+        :schema: JenkinsSpecSeedJobs#credentialType
         """
         result = self._values.get("credential_type")
         return result
@@ -12059,8 +11401,7 @@ class JenkinsSpecSeedJobs:
     def description(self) -> typing.Optional[builtins.str]:
         """Description is the description of the seed job.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#description
+        :schema: JenkinsSpecSeedJobs#description
         """
         result = self._values.get("description")
         return result
@@ -12069,8 +11410,7 @@ class JenkinsSpecSeedJobs:
     def fail_on_missing_plugin(self) -> typing.Optional[builtins.bool]:
         """FailOnMissingPlugin is setting for Job DSL API plugin that fails job if required plugin is missing.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#failOnMissingPlugin
+        :schema: JenkinsSpecSeedJobs#failOnMissingPlugin
         """
         result = self._values.get("fail_on_missing_plugin")
         return result
@@ -12079,8 +11419,7 @@ class JenkinsSpecSeedJobs:
     def github_push_trigger(self) -> typing.Optional[builtins.bool]:
         """GitHubPushTrigger is used for GitHub web hooks.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#githubPushTrigger
+        :schema: JenkinsSpecSeedJobs#githubPushTrigger
         """
         result = self._values.get("github_push_trigger")
         return result
@@ -12089,8 +11428,7 @@ class JenkinsSpecSeedJobs:
     def id(self) -> typing.Optional[builtins.str]:
         """ID is the unique seed job name.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#id
+        :schema: JenkinsSpecSeedJobs#id
         """
         result = self._values.get("id")
         return result
@@ -12099,8 +11437,7 @@ class JenkinsSpecSeedJobs:
     def ignore_missing_files(self) -> typing.Optional[builtins.bool]:
         """IgnoreMissingFiles is setting for Job DSL API plugin to ignore files that miss.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#ignoreMissingFiles
+        :schema: JenkinsSpecSeedJobs#ignoreMissingFiles
         """
         result = self._values.get("ignore_missing_files")
         return result
@@ -12109,8 +11446,7 @@ class JenkinsSpecSeedJobs:
     def poll_scm(self) -> typing.Optional[builtins.str]:
         """PollSCM is setting for polling changes in SCM.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#pollSCM
+        :schema: JenkinsSpecSeedJobs#pollSCM
         """
         result = self._values.get("poll_scm")
         return result
@@ -12119,8 +11455,7 @@ class JenkinsSpecSeedJobs:
     def repository_branch(self) -> typing.Optional[builtins.str]:
         """RepositoryBranch is the repository branch where are seed job definitions.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#repositoryBranch
+        :schema: JenkinsSpecSeedJobs#repositoryBranch
         """
         result = self._values.get("repository_branch")
         return result
@@ -12131,8 +11466,7 @@ class JenkinsSpecSeedJobs:
 
         Can be SSH or HTTPS.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#repositoryUrl
+        :schema: JenkinsSpecSeedJobs#repositoryUrl
         """
         result = self._values.get("repository_url")
         return result
@@ -12141,8 +11475,7 @@ class JenkinsSpecSeedJobs:
     def targets(self) -> typing.Optional[builtins.str]:
         """Targets is the repository path where are seed job definitions.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#targets
+        :schema: JenkinsSpecSeedJobs#targets
         """
         result = self._values.get("targets")
         return result
@@ -12151,8 +11484,7 @@ class JenkinsSpecSeedJobs:
     def unstable_on_deprecation(self) -> typing.Optional[builtins.bool]:
         """UnstableOnDeprecation is setting for Job DSL API plugin that sets build status as unstable if build using deprecated features.
 
-        schema:
-        :schema:: JenkinsSpecSeedJobs#unstableOnDeprecation
+        :schema: JenkinsSpecSeedJobs#unstableOnDeprecation
         """
         result = self._values.get("unstable_on_deprecation")
         return result
@@ -12204,11 +11536,9 @@ class JenkinsSpecService:
         :param port: The port that are exposed by this service. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
         :param type: Type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types Default: ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
 
-        default
         :default: port: 8080 type: ClusterIP
 
-        schema:
-        :schema:: JenkinsSpecService
+        :schema: JenkinsSpecService
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if annotations is not None:
@@ -12234,8 +11564,7 @@ class JenkinsSpecService:
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
 
-        schema:
-        :schema:: JenkinsSpecService#annotations
+        :schema: JenkinsSpecService#annotations
         """
         result = self._values.get("annotations")
         return result
@@ -12246,8 +11575,7 @@ class JenkinsSpecService:
 
         If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
 
-        schema:
-        :schema:: JenkinsSpecService#labels
+        :schema: JenkinsSpecService#labels
         """
         result = self._values.get("labels")
         return result
@@ -12258,8 +11586,7 @@ class JenkinsSpecService:
 
         This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
 
-        schema:
-        :schema:: JenkinsSpecService#loadBalancerIP
+        :schema: JenkinsSpecService#loadBalancerIP
         """
         result = self._values.get("load_balancer_ip")
         return result
@@ -12270,8 +11597,7 @@ class JenkinsSpecService:
 
         This field will be ignored if the cloud-provider does not support the feature." More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/
 
-        schema:
-        :schema:: JenkinsSpecService#loadBalancerSourceRanges
+        :schema: JenkinsSpecService#loadBalancerSourceRanges
         """
         result = self._values.get("load_balancer_source_ranges")
         return result
@@ -12282,11 +11608,9 @@ class JenkinsSpecService:
 
         Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
 
-        default
         :default: to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
 
-        schema:
-        :schema:: JenkinsSpecService#nodePort
+        :schema: JenkinsSpecService#nodePort
         """
         result = self._values.get("node_port")
         return result
@@ -12297,8 +11621,7 @@ class JenkinsSpecService:
 
         More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
 
-        schema:
-        :schema:: JenkinsSpecService#port
+        :schema: JenkinsSpecService#port
         """
         result = self._values.get("port")
         return result
@@ -12309,11 +11632,9 @@ class JenkinsSpecService:
 
         Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
 
-        default
         :default: ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
 
-        schema:
-        :schema:: JenkinsSpecService#type
+        :schema: JenkinsSpecService#type
         """
         result = self._values.get("type")
         return result
@@ -12345,8 +11666,7 @@ class JenkinsSpecServiceAccount:
 
         :param annotations: Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
 
-        schema:
-        :schema:: JenkinsSpecServiceAccount
+        :schema: JenkinsSpecServiceAccount
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if annotations is not None:
@@ -12360,8 +11680,7 @@ class JenkinsSpecServiceAccount:
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
 
-        schema:
-        :schema:: JenkinsSpecServiceAccount#annotations
+        :schema: JenkinsSpecServiceAccount#annotations
         """
         result = self._values.get("annotations")
         return result
@@ -12413,11 +11732,9 @@ class JenkinsSpecSlaveService:
         :param port: The port that are exposed by this service. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
         :param type: Type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types Default: ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
 
-        default
         :default: port: 50000 type: ClusterIP
 
-        schema:
-        :schema:: JenkinsSpecSlaveService
+        :schema: JenkinsSpecSlaveService
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if annotations is not None:
@@ -12443,8 +11760,7 @@ class JenkinsSpecSlaveService:
 
         They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
 
-        schema:
-        :schema:: JenkinsSpecSlaveService#annotations
+        :schema: JenkinsSpecSlaveService#annotations
         """
         result = self._values.get("annotations")
         return result
@@ -12455,8 +11771,7 @@ class JenkinsSpecSlaveService:
 
         If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
 
-        schema:
-        :schema:: JenkinsSpecSlaveService#labels
+        :schema: JenkinsSpecSlaveService#labels
         """
         result = self._values.get("labels")
         return result
@@ -12467,8 +11782,7 @@ class JenkinsSpecSlaveService:
 
         This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
 
-        schema:
-        :schema:: JenkinsSpecSlaveService#loadBalancerIP
+        :schema: JenkinsSpecSlaveService#loadBalancerIP
         """
         result = self._values.get("load_balancer_ip")
         return result
@@ -12479,8 +11793,7 @@ class JenkinsSpecSlaveService:
 
         This field will be ignored if the cloud-provider does not support the feature." More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/
 
-        schema:
-        :schema:: JenkinsSpecSlaveService#loadBalancerSourceRanges
+        :schema: JenkinsSpecSlaveService#loadBalancerSourceRanges
         """
         result = self._values.get("load_balancer_source_ranges")
         return result
@@ -12491,11 +11804,9 @@ class JenkinsSpecSlaveService:
 
         Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
 
-        default
         :default: to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
 
-        schema:
-        :schema:: JenkinsSpecSlaveService#nodePort
+        :schema: JenkinsSpecSlaveService#nodePort
         """
         result = self._values.get("node_port")
         return result
@@ -12506,8 +11817,7 @@ class JenkinsSpecSlaveService:
 
         More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
 
-        schema:
-        :schema:: JenkinsSpecSlaveService#port
+        :schema: JenkinsSpecSlaveService#port
         """
         result = self._values.get("port")
         return result
@@ -12518,11 +11828,9 @@ class JenkinsSpecSlaveService:
 
         Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
 
-        default
         :default: ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
 
-        schema:
-        :schema:: JenkinsSpecSlaveService#type
+        :schema: JenkinsSpecSlaveService#type
         """
         result = self._values.get("type")
         return result
