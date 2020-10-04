@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.30.0](https://github.com/awslabs/cdk8s/compare/v0.28.0...v0.30.0) (2020-10-04)
+
+
+### Features
+
+* **lib:** Expose DependecyGraph for upstream use ([#329](https://github.com/awslabs/cdk8s/issues/329)) ([ee88402](https://github.com/awslabs/cdk8s/commit/ee884023a313fae44e69124da9e37a9e52611845)), closes [#328](https://github.com/awslabs/cdk8s/issues/328)
+
 ## [0.29.0](https://github.com/awslabs/cdk8s/compare/v0.28.0...v0.29.0) (2020-09-27)
 
 ### Features
