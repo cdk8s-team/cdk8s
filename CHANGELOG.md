@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.30.0](https://github.com/awslabs/cdk8s/compare/v0.28.0...v0.30.0) (2020-10-04)
 
+### Features
+
+* **plus:** Bump k8s imports to use spec version 1.17.0 ([#331](https://github.com/awslabs/cdk8s/pull/331))
 
 ### Features
 
