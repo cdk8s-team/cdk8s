@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **plus:** Bump k8s imports to use spec version 1.17.0 ([#331](https://github.com/awslabs/cdk8s/pull/331))
+* **plus:** Bump k8s imports to use spec version 1.17.0 ([#331](https://github.com/awslabs/cdk8s/pull/331)) ([23fea73](https://github.com/awslabs/cdk8s/commit/23fea73c443c5a0d6ded1519fb3f6edf8d8fc80b))
 
 ### Features
 
