@@ -1,8 +1,13 @@
 import * as fs from 'fs';
 import * as YAML from 'yaml';
+import { Type } from 'yaml/util';
 import { execFileSync } from 'child_process';
 import * as os from 'os';
 import * as path from 'path';
+
+// Ensure that all strings are quoted when written to yaml to avoid unquoted
+// primitive types in the output yaml in fields that require strings.
+YAML.scalarOptions.str.defaultType = Type.QUOTE_DOUBLE;
 
 /**
  * YAML utilities.
@@ -15,7 +20,11 @@ export class Yaml {
    */
   public static save(filePath: string, docs: any[]) {
     // convert each resource to yaml and separate with a '---' line
-    const data = docs.map(r => YAML.stringify(r)).join('---\n');
+    // NOTE: we convert undefined values to null, but ignore any documents that
+    //  are undefined
+    const data = docs.map(
+      r => r === undefined ? '\n' : YAML.stringify(r, {keepUndefined: true}),
+    ).join('---\n');
     fs.writeFileSync(filePath, data, { encoding: 'utf-8' });
   }
 
@@ -75,4 +84,3 @@ function loadurl(url: string): string {
   const loadurl = path.join(__dirname, '_loadurl.js');
   return execFileSync(process.execPath, [ loadurl, url ], { encoding: 'utf-8' }).toString()
 }
-
