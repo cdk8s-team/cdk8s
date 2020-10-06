@@ -11,7 +11,7 @@ for each native kubernetes object, exposing richer API's with reduced complexity
 ## Kubernetes Spec
 
 **cdk8s+** is currently built on top of version [1.17.0](https://github.com/instrumenta/kubernetes-json-schema/tree/master/v1.17.0) of the kubernetes API specifications.
-If you are deploying manifests produced by `cdk8s+` onto clusters of a lower versio, you might encounter some unsupported spec properties or invalid manifests.
+If you are deploying manifests produced by `cdk8s+` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
 
 > See [Supporting various k8s API specs](https://github.com/awslabs/cdk8s/issues/299) for more details and progress on this issue.
 
