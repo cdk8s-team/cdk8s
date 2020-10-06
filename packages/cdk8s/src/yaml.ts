@@ -20,13 +20,11 @@ export class Yaml {
    */
   public static save(filePath: string, docs: any[]) {
     // convert each resource to yaml and separate with a '---' line
-    //
-    // NOTE: the `keepUndefined` flag is not supported in the release of yaml
-    //  but is present on the tip of the `master` branch, so this does not work
-    //  currently, but it will when the next release of the yaml package is
-    //  out.
-    // const data = docs.map(r => YAML.stringify(r, {keepUndefined: true})).join('---\n');
-    const data = docs.map(r => YAML.stringify(r)).join('---\n');
+    // NOTE: we convert undefined values to null, but ignore any documents that
+    //  are undefined
+    const data = docs.map(
+      r => r === undefined ? '\n' : YAML.stringify(r, {keepUndefined: true}),
+    ).join('---\n');
     fs.writeFileSync(filePath, data, { encoding: 'utf-8' });
   }
 
