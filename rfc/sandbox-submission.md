@@ -8,7 +8,7 @@ This is a working document to outline responses to request for CNCF sandbox subm
 ### responses
 1. **Email address**
 
-...
+cdk8s-team@amazon.com
 
 2. **Project Name**
 Cloud Development Kit for Kubernetes (cdk8s)
