@@ -10,7 +10,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -61,7 +61,7 @@ Object {
   "description": "elasticsearchk8selasticcoelasticsearch",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
+  "jsiiVersion": "1.12.0 (build 5ddc9f2)",
   "license": "Apache-2.0",
   "name": "elasticsearchk8selasticcoelasticsearch",
   "repository": Object {
@@ -4075,7 +4075,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -4126,7 +4126,7 @@ Object {
   "description": "jenkinsiojenkins",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
+  "jsiiVersion": "1.12.0 (build 5ddc9f2)",
   "license": "Apache-2.0",
   "name": "jenkinsiojenkins",
   "repository": Object {
@@ -16843,7 +16843,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -16894,7 +16894,7 @@ Object {
   "description": "stableexamplecomcrontab",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
+  "jsiiVersion": "1.12.0 (build 5ddc9f2)",
   "license": "Apache-2.0",
   "name": "stableexamplecomcrontab",
   "repository": Object {
@@ -17086,7 +17086,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17137,7 +17137,7 @@ Object {
   "description": "stableexamplecomothercrontab",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
+  "jsiiVersion": "1.12.0 (build 5ddc9f2)",
   "license": "Apache-2.0",
   "name": "stableexamplecomothercrontab",
   "repository": Object {
@@ -17329,7 +17329,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "2.0.2",
+    "constructs": "3.0.4",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17380,7 +17380,7 @@ Object {
   "description": "monitoringcoreoscomthanosruler",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.11.0 (build 1e9b8e1)",
+  "jsiiVersion": "1.12.0 (build 5ddc9f2)",
   "license": "Apache-2.0",
   "name": "monitoringcoreoscomthanosruler",
   "repository": Object {

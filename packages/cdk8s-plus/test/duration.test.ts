@@ -1,5 +1,4 @@
 import { Duration } from '../src';
-import { Lazy } from 'constructs';
 
 test('negative amount', () => {
   expect(() => Duration.seconds(-1)).toThrow(/negative/);
@@ -90,7 +89,6 @@ test('parse', () => {
 
 test('to human string', () => {
   expect(Duration.minutes(0).toHumanString()).toBe('0 minutes');
-  expect(Duration.minutes(Lazy.numberValue({ produce: () => 5 })).toHumanString()).toBe('<token> minutes');
 
   expect(Duration.minutes(10).toHumanString()).toBe('10 minutes');
   expect(Duration.minutes(1).toHumanString()).toBe('1 minute');

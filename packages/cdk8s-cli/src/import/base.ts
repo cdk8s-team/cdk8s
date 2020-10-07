@@ -63,7 +63,7 @@ export abstract class ImportBase {
           await code.save(staging);
 
           // these are the module dependencies we compile against
-          const deps = [ '@types/node', 'constructs', 'cdk8s' ];
+          const deps = [ '@types/node', 'constructs', 'cdk8s'];
 
           const opts: srcmak.Options = {
             entrypoint: fileName,

@@ -1,13 +1,19 @@
 # cdk8s+ (cdk8s-plus)
 
+> ![Experimental](https://img.shields.io/badge/experimental-important.svg?style=for-the-badge)<br><br>
+> This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is
+likely to rapidly change in breaking ways. It is therefore not recommended to use library for production workloads.
+
 **cdk8s+** is a software development framework that provides high level abstractions for authoring Kubernetes applications.
 Built on top of the auto generated building blocks provided by [cdk8s](../cdk8s), this library includes a hand crafted *construct*
 for each native kubernetes object, exposing richer API's with reduced complexity.
 
-> **You should not use this library in production environments.**<br><br>
-> ![Experimental](https://img.shields.io/badge/experimental-important.svg?style=for-the-badge)<br><br>
-> This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is
-likely to rapidly change in breaking ways. We therefore highly discourage from using this library in production workloads.
+## Kubernetes Spec
+
+**cdk8s+** is currently built on top of version [1.17.0](https://github.com/instrumenta/kubernetes-json-schema/tree/master/v1.17.0) of the kubernetes API specifications.
+If you are deploying manifests produced by `cdk8s+` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
+
+> See [Supporting various k8s API specs](https://github.com/awslabs/cdk8s/issues/299) for more details and progress on this issue.
 
 ## Letter Of Intent
 

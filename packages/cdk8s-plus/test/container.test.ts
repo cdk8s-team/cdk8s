@@ -82,6 +82,7 @@ describe('Container', () => {
     const container = new kplus.Container({
       image: 'image',
       name: 'name',
+      imagePullPolicy: kplus.ImagePullPolicy.NEVER,
       workingDir: 'workingDir',
       port: 9000,
       command: ['command'],
@@ -94,6 +95,7 @@ describe('Container', () => {
 
     const expected: k8s.Container = {
       name: 'name',
+      imagePullPolicy: kplus.ImagePullPolicy.NEVER,
       image: 'image',
       workingDir: 'workingDir',
       ports: [{

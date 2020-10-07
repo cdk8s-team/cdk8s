@@ -1,8 +1,6 @@
 const { JsiiProject, Semver } = require('projen');
 const common = require('../projen-common');
 
-const cdk8sDependency = Semver.caret('0.0.0')
-
 const project = new JsiiProject({
   name: 'cdk8s-plus',
   description: 'High level abstractions on top of cdk8s',
@@ -13,16 +11,17 @@ const project = new JsiiProject({
   // dependencies
   jsiiVersion: Semver.caret(common.versions.jsii),
   peerDependencies: {
-    constructs: Semver.caret(common.versions.constructs),
-    cdk8s: cdk8sDependency,
+    "cdk8s": Semver.caret('0.0.0'),
+    "constructs": Semver.caret(common.versions.constructs),
   },
   dependencies: {
     minimatch: Semver.caret('3.0.4'),
-    cdk8s: cdk8sDependency
   },
   bundledDependencies: [ 'minimatch' ],
   devDependencies: {
     '@types/minimatch': Semver.caret('3.0.3'),
+    "cdk8s": Semver.caret('0.0.0'),
+    "constructs": Semver.caret(common.versions.constructs),
   },
 
   // jsii configuration
