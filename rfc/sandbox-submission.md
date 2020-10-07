@@ -41,7 +41,7 @@ cdk8s lets you import both core Kubernetes API objects and Custom Resources (CRD
 
 Using cdk8s you can publish common Kubernetes patterns as code libraries, then reference these libraries in any application. This simplifies defining and maintaining applications for all Kubernetes users and builds on top of the Kubernetes declarative API approach while fundamentally respecting its capabilities and flexibility. It also means that you can author Kubernetes applications using the languages, IDEs, tools, and techniques you are familiar with.
 
-cdk8s is environment agnostic and works for with Kubernetes cluster running anywhere, including on-premises and the cloud. We built cdk8s for the entire Kubernetes community, not just AWS customers. This forms the core of our motivation to move cdk8s into the CNCF sanbox.
+Since cdk8s can work with any Kubernetes cluster running anywhere, including on-premises and the cloud, we believe the project and the Kubernetes community will benefit from establishing it as a CNCF sandbox project, with the goal of collaborating tightly with the community and becoming another powerful tool in the cloud native space.
 
 11. **Please list similar projects in the CNCF or elsewhere**
 There are similar projects in the Kubernetes ecosystem (kustomize, jsonnet, jkcfg, kubecfg, kubegen, Pulumi, etc.) which attempt to address these gaps in various ways. Pulumi is the most similar project, but has a different focus and implementation to cdk8s.
