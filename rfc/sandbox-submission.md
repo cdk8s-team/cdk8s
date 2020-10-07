@@ -1,7 +1,7 @@
 This is a working document to outline responses to request for CNCF sandbox submission.
 
 ### links
-* [issue](https://github.com/awslabs/cdk8s/issues/280) 
+* [issue](https://github.com/awslabs/cdk8s/issues/280)
 * [process](https://github.com/cncf/toc/blob/master/process/project_proposals.adoc#sandbox-process)
 * [form](https://docs.google.com/forms/d/1bJhG1MuM981uQXcnBMv4Mj9yfV5_q5Kwk3qhBCLa_5A/viewform?edit_requested=true)
 
@@ -54,4 +54,5 @@ Existing CNCF projects (kustomize, jsonnet, jkcfg, etc) are focused on object ge
 
 
 14. **Existing project overview presentation (optional)**
-https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/
+* https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/
+* https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/
