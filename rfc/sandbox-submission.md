@@ -33,7 +33,7 @@ https://github.com/awslabs/cdk8s/blob/master/CODE_OF_CONDUCT.md
 10. **Please explain how your project is aligned with the cloud native computing ecosystem**
 Traditionally, Kubernetes applications are defined with human-readable, static YAML data files which developers write and maintain. Building new applications requires writing a good amount of boilerplate config, copying code from other projects, and applying manual tweaks and customizations. As applications evolve and teams grow, these YAML files become harder to manage. Sharing best practices or making updates involves manual changes and complex migrations.
 
-YAML is an excellent format for describing the desired state of your cluster, but it is does not have primitives for expressing logic and reusable abstractions.
+YAML is an excellent format for describing the desired state of your cluster, but it does not have primitives for expressing logic and reusable abstractions.
 
 We realized this was exactly the same problem our customers had faced when defining their applications through CloudFormation templates, a problem solved by the AWS Cloud Development Kit (AWS CDK), and that we could apply the same design concepts from the AWS CDK to help all Kubernetes users.
 
