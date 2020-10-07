@@ -20,7 +20,7 @@ The Cloud Development Kit for Kubernetes (cdk8s) is a software development frame
 https://github.com/awslabs/cdk8s
 
 5. **website (URL)**
-cdk8s.io
+https://cdk8s.io
 
 6. **project roadmap**
 https://github.com/awslabs/cdk8s/projects/1
