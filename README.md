@@ -76,7 +76,7 @@ contribute to the project. Please consider the following venues (in order):
 * Stack Overflow: [cdk8s](https://stackoverflow.com/questions/tagged/cdk8s)
 * File a [new issue](https://github.com/awslabs/cdk8s/issues/new/choose)
 * Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
-* Slack: [cdk8s.slack.com](https://join.slack.com/t/cdk8s/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU)
+* Slack: #cdk8s channel in [cdk.dev](https://cdk.dev)
 
 ## Examples
 
