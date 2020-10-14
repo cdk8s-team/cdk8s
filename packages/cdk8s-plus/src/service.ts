@@ -1,8 +1,9 @@
 import * as k8s from './imports/k8s';
-import { Construct } from 'constructs';
+import { Construct, Node } from 'constructs';
 import { ResourceProps, Resource } from './base';
 import * as cdk8s from 'cdk8s';
-
+import { Deployment } from './deployment';
+import { Names } from 'cdk8s';
 
 /**
  * Properties for initialization of `Service`.
@@ -72,7 +73,6 @@ export enum ServiceType {
  * or load balancer in between your application and the backend Pods.
  */
 export class Service extends Resource {
-
   protected readonly apiObject: cdk8s.ApiObject;
 
   /**
@@ -270,6 +270,37 @@ export class ServiceSpecDefinition {
    */
   public get ports() {
     return [...this._ports];
+  }
+
+  /**
+   * Exposes a deployment through this service.
+   *
+   * Requests will be routed to the port exposed by the first container in the
+   * deployment's pods. The label `cdk8s.deployment` will be added to pods in
+   * the deployment and used to select pods by this service.
+   *
+   * @param deployment The deployment to expose
+   * @param port The external port
+   */
+  public addDeployment(deployment: Deployment, port: number) {
+    const containers = deployment.spec.podSpecTemplate.containers;
+    if (containers.length === 0) {
+      throw new Error('Cannot expose a deployment without containers');
+    }
+
+    // create a label and attach it to the deployment pods
+    const selector = 'cdk8s.deployment';
+    const matcher = Names.toLabelValue(Node.of(deployment).path);
+
+    deployment.spec.podMetadataTemplate.addLabel(selector, matcher);
+    deployment.spec.selectByLabel(selector, matcher);
+
+    this.addSelector(selector, matcher);
+    this.serve(port, {
+      // just a PoC, we assume the first container is the main one.
+      // TODO: figure out what the correct thing to do here.
+      targetPort: containers[0].port,
+    });
   }
 
   /**

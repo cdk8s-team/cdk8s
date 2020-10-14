@@ -748,7 +748,7 @@ addDefaultBackend(backend: IngressBackend): void
 Specify a default backend for a specific host name.
 
 This backend will be used as a catch-all for requests
-originating from the specified host name.
+targeted to this host name (the `Host` header matches this value).
 
 ```ts
 addHostDefaultBackend(host: string, backend: IngressBackend): void
@@ -762,7 +762,7 @@ addHostDefaultBackend(host: string, backend: IngressBackend): void
 
 #### addHostRule(host, path, backend)🔹 <a id="cdk8s-plus-ingress-addhostrule"></a>
 
-Adds an ingress rule applied to requests to a specific host and a specific HTTP path.
+Adds an ingress rule applied to requests to a specific host and a specific HTTP path (the `Host` header matches this value).
 
 ```ts
 addHostRule(host: string, path: string, backend: IngressBackend): void
@@ -804,6 +804,21 @@ addRules(...rules: IngressRule[]): void
 
 
 
+
+#### protected onValidate()🔹 <a id="cdk8s-plus-ingress-onvalidate"></a>
+
+Validate the current construct.
+
+This method can be implemented by derived constructs in order to perform
+validation logic. It is called on all constructs before synthesis.
+
+```ts
+protected onValidate(): Array<string>
+```
+
+
+__Returns__:
+* <code>Array<string></code>
 
 
 
