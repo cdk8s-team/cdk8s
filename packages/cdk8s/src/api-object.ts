@@ -45,9 +45,14 @@ export class ApiObject extends Construct {
   public readonly name: string;
 
   /**
-   * The object's API version.
+   * The object's API version (e.g. `authorization.k8s.io/v1`)
    */
   public readonly apiVersion: string;
+
+  /**
+   * The group portion of the API version (e.g. `authorization.k8s.io`)
+   */
+  public readonly apiGroup: string;
 
   /**
    * The object kind.
@@ -76,6 +81,7 @@ export class ApiObject extends Construct {
     this.chart = Chart.of(this);
     this.kind = options.kind;
     this.apiVersion = options.apiVersion;
+    this.apiGroup = parseApiGroup(this.apiVersion);
 
     this.name = options.metadata?.name ?? this.chart.generateObjectName(this);
 
@@ -111,4 +117,20 @@ export class ApiObject extends Construct {
     // references are not converted to anchors.
     return JSON.parse(stringify(sanitizeValue(resolve(data))));
   }
+}
+
+function parseApiGroup(apiVersion: string) {
+  const v = apiVersion.split('/');
+
+  // no group means "core"
+  // https://kubernetes.io/docs/reference/using-api/api-overview/#api-groups
+  if (v.length === 1) {
+    return 'core';
+  }
+
+  if (v.length === 2) {
+    return v[0];
+  }
+
+  throw new Error(`invalid apiVersion ${apiVersion}, expecting GROUP/VERSION. See https://kubernetes.io/docs/reference/using-api/api-overview/#api-groups`);
 }

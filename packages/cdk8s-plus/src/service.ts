@@ -264,6 +264,15 @@ export class ServiceSpecDefinition {
   }
 
   /**
+   * Ports for this service.
+   * 
+   * Use `serve()` to expose additional service ports.
+   */
+  public get ports() {
+    return [...this._ports];
+  }
+
+  /**
    * @internal
    */
   public _toKube(): k8s.ServiceSpec {

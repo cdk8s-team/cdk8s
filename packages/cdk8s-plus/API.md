@@ -10,6 +10,8 @@ Name|Description
 [DeploymentSpecDefinition](#cdk8s-plus-deploymentspecdefinition)|DeploymentSpec is the specification of the desired behavior of the Deployment.
 [Duration](#cdk8s-plus-duration)|Represents a length of time.
 [EnvValue](#cdk8s-plus-envvalue)|Utility class for creating reading env values from various sources.
+[Ingress](#cdk8s-plus-ingress)|Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
+[IngressBackend](#cdk8s-plus-ingressbackend)|The backend for an ingress path.
 [Job](#cdk8s-plus-job)|A Job creates one or more Pods and ensures that a specified number of them successfully terminate.
 [JobSpecDefinition](#cdk8s-plus-jobspecdefinition)|*No description*
 [Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
@@ -38,6 +40,8 @@ Name|Description
 [EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|Options to specify an environment variable value from the process environment.
 [EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|Options to specify an environment variable value from a Secret.
 [ExposeOptions](#cdk8s-plus-exposeoptions)|Options for exposing a deployment via a service.
+[IngressProps](#cdk8s-plus-ingressprops)|Properties for `Ingress`.
+[IngressRule](#cdk8s-plus-ingressrule)|Represents the rules mapping the paths under a specified host to the related backend services.
 [JobProps](#cdk8s-plus-jobprops)|Properties for initialization of `Job`.
 [JobSpec](#cdk8s-plus-jobspec)|Properties for initialization of `JobSpec`.
 [MountOptions](#cdk8s-plus-mountoptions)|Options for mounts.
@@ -47,6 +51,7 @@ Name|Description
 [ResourceProps](#cdk8s-plus-resourceprops)|Initialization properties for resources.
 [SecretProps](#cdk8s-plus-secretprops)|*No description*
 [ServiceAccountProps](#cdk8s-plus-serviceaccountprops)|Properties for initialization of `ServiceAccount`.
+[ServiceIngressBackendOptions](#cdk8s-plus-serviceingressbackendoptions)|Options for setting up backends for ingress rules.
 [ServicePort](#cdk8s-plus-serviceport)|Definition of a service port.
 [ServicePortOptions](#cdk8s-plus-serviceportoptions)|*No description*
 [ServiceProps](#cdk8s-plus-serviceprops)|Properties for initialization of `Service`.
@@ -209,6 +214,7 @@ new Container(props: ContainerProps)
 
 * **props** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
   * **image** (<code>string</code>)  Docker image name. 
+  * **args** (<code>Array<string></code>)  Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided. __*Default*__: []
   * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
   * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
   * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
@@ -229,6 +235,7 @@ Name | Type | Description
 **imagePullPolicy**🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.
 **mounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Volume mounts configured for this container.
 **name**🔹 | <code>string</code> | The name of the container.
+**args**?🔹 | <code>Array<string></code> | Arguments to the entrypoint.<br/>__*Optional*__
 **command**?🔹 | <code>Array<string></code> | Entrypoint array (the command to execute when the container starts).<br/>__*Optional*__
 **port**?🔹 | <code>number</code> | The port this container exposes.<br/>__*Optional*__
 **workingDir**?🔹 | <code>string</code> | The working directory inside the container.<br/>__*Optional*__
@@ -681,6 +688,150 @@ __Returns__:
 
 
 
+## class Ingress 🔹 <a id="cdk8s-plus-ingress"></a>
+
+Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
+
+An Ingress can be configured to give services
+externally-reachable urls, load balance traffic, terminate SSL, offer name
+based virtual hosting etc.
+
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
+
+### Initializer
+
+
+
+
+```ts
+new Ingress(scope: Construct, id: string, props?: IngressProps)
+```
+
+* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
+* **id** (<code>string</code>)  *No description*
+* **props** (<code>[IngressProps](#cdk8s-plus-ingressprops)</code>)  *No description*
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **defaultBackend** (<code>[IngressBackend](#cdk8s-plus-ingressbackend)</code>)  The default backend services requests that do not match any rule. __*Optional*__
+  * **rules** (<code>Array<[IngressRule](#cdk8s-plus-ingressrule)></code>)  Routing rules for this ingress. __*Optional*__
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
+
+### Methods
+
+
+#### addDefaultBackend(backend)🔹 <a id="cdk8s-plus-ingress-adddefaultbackend"></a>
+
+Defines the default backend for this ingress.
+
+A default backend capable of
+servicing requests that don't match any rule.
+
+```ts
+addDefaultBackend(backend: IngressBackend): void
+```
+
+* **backend** (<code>[IngressBackend](#cdk8s-plus-ingressbackend)</code>)  The backend to use for requests that do not match any rule.
+
+
+
+
+#### addHostDefaultBackend(host, backend)🔹 <a id="cdk8s-plus-ingress-addhostdefaultbackend"></a>
+
+Specify a default backend for a specific host name.
+
+This backend will be used as a catch-all for requests
+originating from the specified host name.
+
+```ts
+addHostDefaultBackend(host: string, backend: IngressBackend): void
+```
+
+* **host** (<code>string</code>)  The host name to match.
+* **backend** (<code>[IngressBackend](#cdk8s-plus-ingressbackend)</code>)  The backend to route to.
+
+
+
+
+#### addHostRule(host, path, backend)🔹 <a id="cdk8s-plus-ingress-addhostrule"></a>
+
+Adds an ingress rule applied to requests to a specific host and a specific HTTP path.
+
+```ts
+addHostRule(host: string, path: string, backend: IngressBackend): void
+```
+
+* **host** (<code>string</code>)  The host name.
+* **path** (<code>string</code>)  The HTTP path.
+* **backend** (<code>[IngressBackend](#cdk8s-plus-ingressbackend)</code>)  The backend to route requests to.
+
+
+
+
+#### addRule(path, backend)🔹 <a id="cdk8s-plus-ingress-addrule"></a>
+
+Adds an ingress rule applied to requests sent to a specific HTTP path.
+
+```ts
+addRule(path: string, backend: IngressBackend): void
+```
+
+* **path** (<code>string</code>)  The HTTP path.
+* **backend** (<code>[IngressBackend](#cdk8s-plus-ingressbackend)</code>)  The backend to route requests to.
+
+
+
+
+#### addRules(...rules)🔹 <a id="cdk8s-plus-ingress-addrules"></a>
+
+Adds rules to this ingress.
+
+```ts
+addRules(...rules: IngressRule[]): void
+```
+
+* **rules** (<code>[IngressRule](#cdk8s-plus-ingressrule)</code>)  The rules to add.
+  * **backend** (<code>[IngressBackend](#cdk8s-plus-ingressbackend)</code>)  Backend defines the referenced service endpoint to which the traffic will be forwarded to. 
+  * **host** (<code>string</code>)  Host is the fully qualified domain name of a network host, as defined by RFC 3986. __*Default*__: If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
+  * **path** (<code>string</code>)  Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. __*Default*__: If unspecified, the path defaults to a catch all sending traffic to the backend.
+
+
+
+
+
+
+## class IngressBackend 🔹 <a id="cdk8s-plus-ingressbackend"></a>
+
+The backend for an ingress path.
+
+
+### Methods
+
+
+#### *static* fromService(service, options?)🔹 <a id="cdk8s-plus-ingressbackend-fromservice"></a>
+
+A Kubernetes `Service` to use as the backend for this path.
+
+```ts
+static fromService(service: Service, options?: ServiceIngressBackendOptions): IngressBackend
+```
+
+* **service** (<code>[Service](#cdk8s-plus-service)</code>)  The service object.
+* **options** (<code>[ServiceIngressBackendOptions](#cdk8s-plus-serviceingressbackendoptions)</code>)  *No description*
+  * **port** (<code>number</code>)  The port to use to access the service. __*Default*__: if the service exposes a single port, this port will be used.
+
+__Returns__:
+* <code>[IngressBackend](#cdk8s-plus-ingressbackend)</code>
+
+
+
 ## class Job 🔹 <a id="cdk8s-plus-job"></a>
 
 A Job creates one or more Pods and ensures that a specified number of them successfully terminate.
@@ -862,7 +1013,7 @@ resource.
 
 __Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
 __Extends__: [Construct](#constructs-construct)
-__Implemented by__: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
+__Implemented by__: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Ingress](#cdk8s-plus-ingress), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
 
 ### Initializer
 
@@ -1114,6 +1265,7 @@ new ServiceSpecDefinition(props?: ServiceSpec)
 
 Name | Type | Description 
 -----|------|-------------
+**ports**🔹 | <code>Array<[ServicePort](#cdk8s-plus-serviceport)></code> | Ports for this service.
 **selector**🔹 | <code>Map<string, string></code> | Returns the labels which are used to select pods for this service.
 **type**🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | Determines how the Service is exposed.
 **clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/>__*Optional*__
@@ -1481,6 +1633,7 @@ Properties for creating a container.
 Name | Type | Description 
 -----|------|-------------
 **image**🔹 | <code>string</code> | Docker image name.
+**args**?🔹 | <code>Array<string></code> | Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided.<br/>__*Default*__: []
 **command**?🔹 | <code>Array<string></code> | Entrypoint array.<br/>__*Default*__: The docker image's ENTRYPOINT.
 **env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/>__*Default*__: No environment variables.
 **imagePullPolicy**?🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.<br/>__*Default*__: ImagePullPolicy.ALWAYS
@@ -1605,7 +1758,7 @@ Name | Type | Description
 
 ## interface IResource 🔹 <a id="cdk8s-plus-iresource"></a>
 
-__Implemented by__: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
+__Implemented by__: [ConfigMap](#cdk8s-plus-configmap), [Deployment](#cdk8s-plus-deployment), [Ingress](#cdk8s-plus-ingress), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod), [Secret](#cdk8s-plus-secret), [Service](#cdk8s-plus-service), [ServiceAccount](#cdk8s-plus-serviceaccount)
 
 Represents a resource.
 
@@ -1647,6 +1800,39 @@ __Obtainable from__: [ServiceAccount](#cdk8s-plus-serviceaccount).[fromServiceAc
 Name | Type | Description 
 -----|------|-------------
 **name**🔹 | <code>string</code> | The Kubernetes name of this resource.
+
+
+
+## struct IngressProps 🔹 <a id="cdk8s-plus-ingressprops"></a>
+
+
+Properties for `Ingress`.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**defaultBackend**?🔹 | <code>[IngressBackend](#cdk8s-plus-ingressbackend)</code> | The default backend services requests that do not match any rule.<br/>__*Optional*__
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+**rules**?🔹 | <code>Array<[IngressRule](#cdk8s-plus-ingressrule)></code> | Routing rules for this ingress.<br/>__*Optional*__
+
+
+
+## struct IngressRule 🔹 <a id="cdk8s-plus-ingressrule"></a>
+
+
+Represents the rules mapping the paths under a specified host to the related backend services.
+
+Incoming requests are first evaluated for a host match,
+then routed to the backend associated with the matching path.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**backend**🔹 | <code>[IngressBackend](#cdk8s-plus-ingressbackend)</code> | Backend defines the referenced service endpoint to which the traffic will be forwarded to.
+**host**?🔹 | <code>string</code> | Host is the fully qualified domain name of a network host, as defined by RFC 3986.<br/>__*Default*__: If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
+**path**?🔹 | <code>string</code> | Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'.<br/>__*Default*__: If unspecified, the path defaults to a catch all sending traffic to the backend.
 
 
 
@@ -1779,6 +1965,19 @@ Name | Type | Description
 -----|------|-------------
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **secrets**?🔹 | <code>Array<[ISecret](#cdk8s-plus-isecret)></code> | List of secrets allowed to be used by pods running using this ServiceAccount.<br/>__*Optional*__
+
+
+
+## struct ServiceIngressBackendOptions 🔹 <a id="cdk8s-plus-serviceingressbackendoptions"></a>
+
+
+Options for setting up backends for ingress rules.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**port**?🔹 | <code>number</code> | The port to use to access the service.<br/>__*Default*__: if the service exposes a single port, this port will be used.
 
 
 
