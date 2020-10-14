@@ -29,7 +29,6 @@ export interface IngressProps extends ResourceProps {
   readonly rules?: IngressRule[];
 }
 
-
 /**
  * Ingress is a collection of rules that allow inbound connections to reach the
  * endpoints defined by a backend. An Ingress can be configured to give services
@@ -39,7 +38,7 @@ export interface IngressProps extends ResourceProps {
 export class Ingress extends Resource {
   protected readonly apiObject: ApiObject;
 
-  private readonly rulesPerHost: { [host: string]: k8s.HttpIngressPath[] } = {};
+  private readonly _rulesPerHost: { [host: string]: k8s.HttpIngressPath[] } = {};
   private _defaultBackend?: IngressBackend;
 
   constructor(scope: Construct, id: string, props: IngressProps = {}) {
@@ -60,6 +59,13 @@ export class Ingress extends Resource {
     this.addRules(...props.rules ?? []);
   }
 
+  protected onValidate() {
+    if (!this._defaultBackend && Object.keys(this._rulesPerHost).length === 0) {
+      return [ 'ingress with no rules or default backend' ];
+    }
+    return [];
+  }
+
   /**
    * Defines the default backend for this ingress. A default backend capable of
    * servicing requests that don't match any rule.
@@ -72,7 +78,7 @@ export class Ingress extends Resource {
 
   /**
    * Specify a default backend for a specific host name. This backend will be used as a catch-all for requests
-   * originating from the specified host name.
+   * targeted to this host name (the `Host` header matches this value).
    * 
    * @param host The host name to match
    * @param backend The backend to route to
@@ -84,7 +90,7 @@ export class Ingress extends Resource {
 
   /**
    * Adds an ingress rule applied to requests to a specific host and a specific
-   * HTTP path.
+   * HTTP path (the `Host` header matches this value).
    *
    * @param host The host name
    * @param path The HTTP path
@@ -129,7 +135,7 @@ export class Ingress extends Resource {
         throw new Error(`ingress paths must begin with a "/": ${path}`);
       }
   
-      const routes = this.rulesPerHost[host] = this.rulesPerHost[host] ?? [];
+      const routes = this._rulesPerHost[host] = this._rulesPerHost[host] ?? [];
 
       // check if we already have a rule for this host/path
       if (routes.find(r => r.path === path)) {
@@ -143,7 +149,7 @@ export class Ingress extends Resource {
   private synthRules(): undefined | k8s.IngressRule[] {
     const rules = new Array<k8s.IngressRule>();
     
-    for (const [ host, paths ] of Object.entries(this.rulesPerHost)) {
+    for (const [ host, paths ] of Object.entries(this._rulesPerHost)) {
       rules.push({
         host: host ? host : undefined,
         http: { paths: paths.sort(sortByPath) },
