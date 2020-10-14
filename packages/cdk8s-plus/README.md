@@ -696,6 +696,7 @@ ingress.addRule('/hello', kplus.IngressBackend.fromService(helloService));
 
 Yo can use `addHostRule(host, path, backend)` to define a route that will only
 apply to requests sent to a specific host name. This can be used to implement
+virtual hosts.
 
 The `addDefaultBackend(backend)` and `addHostDefaultBackend(host, backend)`
 methods can be used to define backends that will accept all requests that do not
