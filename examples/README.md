@@ -12,3 +12,4 @@ web-service|Demonstrates how to make your first high-level construct which repre
 crd|Shows how to import and use [Custom Resource Definitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)|[TypeScript](./typescript/crd/README.md) [Python](./python/crd/README.md)
 cdk8s-plus-elasticsearch-query|Creating a query service on top of Elasticsearch with CDK8s+|[TypeScript](./typescript/cdk8s-plus-elasticsearch-query)
 podinfo|Exploration of high-level APIs for **Deployment**, **Service**, **AutoScaler** and **Ingress** based on the [podinfo project](https://hub.docker.com/r/stefanprodan/podinfo)|[TypeScript](./typscript/../typescript/podinfo/README.md)
+cdk8s-plus-ingress|Example of using cdk8s+ `Ingress` resource|[TypeScript](./typescript/cdk8s-plus-ingress/README.md)
