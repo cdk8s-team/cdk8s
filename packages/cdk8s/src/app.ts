@@ -5,6 +5,7 @@ import * as path from 'path';
 import { Yaml } from './yaml';
 import { DependencyGraph } from './dependency';
 import { ApiObject } from './api-object';
+import { Names } from './names';
 
 export interface AppOptions {
   /**
@@ -48,7 +49,7 @@ export class App extends Construct {
     // the necessary operations. We do however want to preserve the distributed validation.
     validate(this);
 
-    const simpleManifestNamer = (chart: Chart) => `${Node.of(chart).uniqueId}.k8s.yaml`;
+    const simpleManifestNamer = (chart: Chart) => `${Names.toDnsLabel(Node.of(chart).path)}.k8s.yaml`;
     const manifestNamer = hasDependantCharts ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
 
     const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);

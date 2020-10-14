@@ -128,13 +128,13 @@ function doSearch(uri, callback) {
       "replicas": 1,
       "selector": Object {
         "matchLabels": Object {
-          "cdk8s.deployment": "testchartDeploymentAAAF687B",
+          "cdk8s.deployment": "test-chart-Deployment-98e15317",
         },
       },
       "template": Object {
         "metadata": Object {
           "labels": Object {
-            "cdk8s.deployment": "testchartDeploymentAAAF687B",
+            "cdk8s.deployment": "test-chart-Deployment-98e15317",
           },
         },
         "spec": Object {
@@ -208,7 +208,7 @@ function doSearch(uri, callback) {
         },
       ],
       "selector": Object {
-        "cdk8s.deployment": "testchartDeploymentAAAF687B",
+        "cdk8s.deployment": "test-chart-Deployment-98e15317",
       },
       "type": "ClusterIP",
     },

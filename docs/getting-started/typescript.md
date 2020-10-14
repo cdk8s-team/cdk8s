@@ -246,6 +246,7 @@ to use `lib` for reusable components):
 
 ```ts
 import { Construct, Node } from 'constructs';
+import { Names } from 'cdk8s';
 import { Deployment, Service, IntOrString } from '../imports/k8s';
 
 export interface WebServiceOptions {
@@ -282,7 +283,7 @@ export class WebService extends Construct {
 
     const port = options.port || 80;
     const containerPort = options.containerPort || 8080;
-    const label = { app: Node.of(this).uniqueId };
+    const label = { app: Names.toDnsLabel(Node.of(this).path) };
     const replicas = options.replicas ?? 1;
 
     new Service(this, 'service', {
