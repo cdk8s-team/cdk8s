@@ -133,11 +133,7 @@ export class Ingress extends Resource {
 
       // check if we already have a rule for this host/path
       if (routes.find(r => r.path === path)) {
-        if (host === '') {
-          throw new Error(`there is already an ingress rule for ${path}`);
-        } else {
-          throw new Error(`there is already an ingress rule for ${host}${path}`);
-        }
+        throw new Error(`there is already an ingress rule for ${host}${path}`);
       }
 
       routes.push({ backend: backend._toKube(), path });
@@ -269,4 +265,3 @@ function sortByPath(lhs: k8s.HttpIngressPath, rhs: k8s.HttpIngressPath) {
   const p2 = rhs.path ?? '';
   return p1.localeCompare(p2);
 }
-
