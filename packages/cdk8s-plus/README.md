@@ -694,7 +694,7 @@ const ingress = new Ingress(this, 'ingress');
 ingress.addRule('/hello', kplus.IngressBackend.fromService(helloService));
 ```
 
-Yo can use `addHostRule(host, path, backend)` to define a route that will only
+You can use `addHostRule(host, path, backend)` to define a route that will only
 apply to requests with this `Host` header. This can be used to implement virtual
 hosts.
 
