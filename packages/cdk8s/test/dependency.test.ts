@@ -33,7 +33,7 @@ test('cycle detection', () => {
 
   expect(() => {
     new DependencyGraph(Node.of(group))
-  }).toThrowError(`Dependency cycle detected: ${Node.of(obj1).uniqueId} => ${Node.of(obj2).uniqueId} => ${Node.of(obj3).uniqueId} => ${Node.of(obj1).uniqueId}`);
+  }).toThrowError(`Dependency cycle detected: ${Node.of(obj1).path} => ${Node.of(obj2).path} => ${Node.of(obj3).path} => ${Node.of(obj1).path}`);
 
 });
 

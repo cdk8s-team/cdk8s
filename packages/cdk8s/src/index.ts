@@ -7,3 +7,4 @@ export * from './include';
 export * from './yaml';
 export * from './metadata';
 export * from './lazy';
+export * from './names';
