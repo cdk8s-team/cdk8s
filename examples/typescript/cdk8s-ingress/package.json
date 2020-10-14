@@ -1,0 +1,26 @@
+{
+  "name": "ingress-example",
+  "version": "0.0.0",
+  "main": "main.js",
+  "types": "main.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "import": "cdk8s import",
+    "synth": "cdk8s synth",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "build": "npm run compile && npm run test && npm run synth"
+  },
+  "dependencies": {
+    "cdk8s": "0.0.0",
+    "cdk8s-plus": "0.0.0",
+    "constructs": "^3.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "cdk8s-cli": "0.0.0",
+    "typescript": "^3.9.7"
+  }
+}

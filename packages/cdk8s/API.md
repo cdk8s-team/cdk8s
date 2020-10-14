@@ -65,7 +65,8 @@ new ApiObject(scope: Construct, ns: string, options: ApiObjectOptions)
 
 Name | Type | Description 
 -----|------|-------------
-**apiVersion**🔹 | <code>string</code> | The object's API version.
+**apiGroup**🔹 | <code>string</code> | The group portion of the API version (e.g. `authorization.k8s.io`).
+**apiVersion**🔹 | <code>string</code> | The object's API version (e.g. `authorization.k8s.io/v1`).
 **chart**🔹 | <code>[Chart](#cdk8s-chart)</code> | The chart in which this object is defined.
 **kind**🔹 | <code>string</code> | The object kind.
 **metadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Metadata associated with this API object.

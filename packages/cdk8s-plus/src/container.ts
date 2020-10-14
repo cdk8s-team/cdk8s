@@ -179,6 +179,23 @@ export interface ContainerProps {
   readonly command?: string[];
 
   /**
+   * Arguments to the entrypoint. The docker image's CMD is used if `command` is
+   * not provided. 
+   *
+   * Variable references $(VAR_NAME) are expanded using the container's
+   * environment. If a variable cannot be resolved, the reference in the input
+   * string will be unchanged. The $(VAR_NAME) syntax can be escaped with a
+   * double $$, ie: $$(VAR_NAME). Escaped references will never be expanded,
+   * regardless of whether the variable exists or not. 
+   *
+   * Cannot be updated. 
+   * 
+   * @see https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+   * @default []
+   */
+  readonly args?: string[];
+
+  /**
    * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
    *
    * @default - The container runtime's default.
@@ -240,6 +257,7 @@ export class Container {
   public readonly workingDir?: string;
 
   private readonly _command?: readonly string[];
+  private readonly _args?: readonly string[];
   private readonly _env: { [name: string]: EnvValue };
 
   constructor(props: ContainerProps) {
@@ -247,6 +265,7 @@ export class Container {
     this.image = props.image;
     this.port = props.port;
     this._command = props.command;
+    this._args = props.args;
     this._env = props.env ?? { };
     this.workingDir = props.workingDir;
     this.mounts = props.volumeMounts ?? [];
@@ -259,6 +278,15 @@ export class Container {
    */
   public get command(): string[] | undefined {
     return this._command ? [ ...this._command ] : undefined;
+  }
+
+  /**
+   * Arguments to the entrypoint.
+   * 
+   * @returns a copy of the arguments array, cannot be modified.
+   */
+  public get args(): string[] | undefined {
+    return this._args ? [ ...this._args ] : undefined;
   }
 
   /**
@@ -326,6 +354,7 @@ export class Container {
       ports,
       volumeMounts,
       command: this.command,
+      args: this.args,
       workingDir: this.workingDir,
       env: renderEnv(this._env),
     };
