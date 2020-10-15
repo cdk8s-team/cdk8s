@@ -61,7 +61,8 @@ export class Names {
       .split('/')
       .reverse()
       .filter(x => x)
-      .join('-');
+      .join('-')
+      .split('-').filter(x => x).join('-') // remove empty components between `-`s.
   }
 
   /**
@@ -121,6 +122,9 @@ export class Names {
       .slice(0, maxLen)
       .split('/')
       .reverse()
+      .filter(x => x)
+      .join(delim)
+      .split(delim)
       .filter(x => x)
       .join(delim);
 

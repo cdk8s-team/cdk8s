@@ -58,6 +58,12 @@ describe('toDnsLabel', () => {
     expect(toDnsName('hello/world/this/is/cool', 15)).toEqual('i-cool-a7c39f00');
     expect(toDnsName('hello/world/this/is/cool', 25)).toEqual('wor-this-is-cool-a7c39f00');
   });
+
+  test('filter empty components', () => {
+    expect(toDnsName('hello//world---this-is-cool---')).toEqual('hello-world-this-is-cool-52f679f4');
+    expect(toDnsName('hello-world-this-is-cool')).toEqual('hello-world-this-is-cool');
+    expect(toDnsName('hello/world-this//is-cool')).toEqual('hello-world-this-is-cool-b6e3e997');
+  });
 });
 
 describe('toLabel', () => {
@@ -117,5 +123,10 @@ describe('toLabel', () => {
     expect(toLabelValue('hello/world/this/is/cool', '-', 14)).toEqual('cool-a7c39f00');
     expect(toLabelValue('hello/world/this/is/cool', '-', 15)).toEqual('i-cool-a7c39f00');
     expect(toLabelValue('hello/world/this/is/cool', '-', 25)).toEqual('wor-this-is-cool-a7c39f00');
+  });
+
+  test('filter empty components', () => {
+    expect(toLabelValue('hello---this/is//cool//-')).toEqual('hello-this-is-cool-dfb4c573');
+    expect(toLabelValue('hello---this/is---//cool////-')).toEqual('hello-this-is-cool-84d02267');
   });
 });
