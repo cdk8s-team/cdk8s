@@ -50,6 +50,17 @@ describe('ServiceSpecDefinition', () => {
 
     expect(actual.ports).toEqual([ { port: 9000, targetPort: 80, nodePort: 30080 } ]);
   });
+
+  test('AddDeployment() fails if the deployment does not have any containers', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const service = new kplus.Service(chart, 'service');
+    const dep = new kplus.Deployment(chart, 'dep');
+
+    // THEN
+    expect(() => service.addDeployment(dep, 1122)).toThrow(/Cannot expose a deployment without containers/);
+  });
+
 });
 
 describe('Service', () => {
@@ -95,5 +106,66 @@ describe('Service', () => {
         },
       ]
     `);
+  });
+
+  test('AddDeployment() can be used to associate a deployment with a service', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const service = new kplus.Service(chart, 'service');
+    const dep = new kplus.Deployment(chart, 'dep');
+    dep.spec.podSpecTemplate.addContainer(new kplus.Container({ image: 'foo', port: 7777 }));
+
+    // WHEN
+    service.addDeployment(dep, 1122);
+
+    // THEN
+    const expectedSelector = {'cdk8s.deployment': 'test-dep-b18049c6'};
+    expect(dep.spec._toKube().selector.matchLabels).toEqual(expectedSelector);
+    expect(dep.spec._toKube().template.metadata?.labels).toEqual(expectedSelector);
+    expect(service.spec._toKube()).toEqual({
+      clusterIP: undefined, 
+      externalIPs: [], 
+      ports: [{
+        nodePort: undefined, 
+        port: 1122, 
+        targetPort: 7777,
+      }], 
+      selector: expectedSelector, 
+      type: 'ClusterIP',
+    });
+  });
+  
+  test('addDeployment() fails if the deployment dose not have a label selector', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const service = new kplus.Service(chart, 'service');
+    const dep = new kplus.Deployment(chart, 'dep', { 
+      defaultSelector: false,
+      spec: {
+        podSpecTemplate: {
+          containers: [ new kplus.Container({ image: 'foo' }) ],
+        },
+      },
+    });
+
+    // THEN
+    expect(() => service.addDeployment(dep, 1122)).toThrow(/deployment does not have a label selector/);
+  });
+
+  test('addDeployment() fails if a selector is already defined for this service', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const service = new kplus.Service(chart, 'service');
+    const dep1 = new kplus.Deployment(chart, 'dep1', {
+      spec: {
+        podSpecTemplate: {
+          containers: [ new kplus.Container({ image: 'foo' }) ],
+        },
+      },
+    });
+    service.spec.addSelector('random', 'selector');
+
+    // THEN
+    expect(() => service.addDeployment(dep1, 1010)).toThrow(/a selector is already defined for this service. cannot add a deployment/);
   });
 });

@@ -72,7 +72,7 @@ export class MyChart extends Chart {
       }
     })
 
-    deployment.expose({port: 9000});
+    deployment.expose(9000);
 
   }
 }

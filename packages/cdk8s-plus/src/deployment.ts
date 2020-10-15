@@ -16,17 +16,22 @@ export interface DeploymentProps extends ResourceProps {
    * @default - An empty spec will be created.
    */
   readonly spec?: DeploymentSpec;
+
+  /**
+   * Automatically allocates a pod selector for this deployment.
+   *
+   * If this is set to `false` you must define your selector through
+   * `podSepcTemplate.addLabel()` and `selectByLabel()`.
+   *
+   * @default true
+   */
+  readonly defaultSelector?: boolean;
 }
 
 /**
  * Options for exposing a deployment via a service.
  */
 export interface ExposeOptions {
-  /**
-   * The port number the service will bind to.
-   */
-  readonly port: number;
-
   /**
    * The type of the exposed service.
    *
@@ -84,8 +89,15 @@ export class Deployment extends Resource {
 
     this.apiObject = new k8s.Deployment(this, 'Pod', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube(this) }),
+      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
     });
+
+    if (props.defaultSelector ?? true) {
+      const selector = 'cdk8s.deployment';
+      const matcher = Names.toLabelValue(Node.of(this).path);
+      this.spec.podMetadataTemplate.addLabel(selector, matcher);
+      this.spec.selectByLabel(selector, matcher);
+    }
   }
 
   /**
@@ -93,31 +105,17 @@ export class Deployment extends Resource {
    *
    * This is equivalent to running `kubectl expose deployment <deployment-name>`.
    *
-   * @param options - Options.
+   * @param port The port number the service will bind to.
+   * @param options Options.
    */
-  public expose(options: ExposeOptions): Service {
-    const containers = this.spec.podSpecTemplate.containers;
-    if (containers.length === 0) {
-      throw new Error('Cannot expose a deployment without containers');
-    }
-
-    // create a label and attach it to the deployment pods
-    const selector = 'cdk8s.deployment';
-    const matcher = Names.toLabelValue(Node.of(this).path);
-
+  public expose(port: number, options: ExposeOptions = {}): Service {
     const service = new Service(this, 'Service', {
       spec: {
         type: options.serviceType ?? ServiceType.CLUSTER_IP,
       },
     });
 
-    service.spec.addSelector(selector, matcher);
-    service.spec.serve(options.port, {
-      // just a PoC, we assume the first container is the main one.
-      // TODO: figure out what the correct thing to do here.
-      targetPort: containers[0].port,
-    });
-
+    service.addDeployment(this, port);
     return service;
   }
 }
@@ -195,21 +193,11 @@ export class DeploymentSpecDefinition {
   public get labelSelector(): Record<string, string> {
     return { ...this._labelSelector };
   }
-
+  
   /**
    * @internal
    */
-  public _toKube(deployment: Deployment): k8s.DeploymentSpec {
-
-    // automatically select pods in this deployment
-
-    const selector = 'cdk8s.deployment';
-    const matcher = Names.toLabelValue(Node.of(deployment).path);
-
-    this.podMetadataTemplate.addLabel(selector, matcher);
-
-    this.selectByLabel(selector, matcher);
-
+  public _toKube(): k8s.DeploymentSpec {
     return {
       replicas: this.replicas,
       template: {

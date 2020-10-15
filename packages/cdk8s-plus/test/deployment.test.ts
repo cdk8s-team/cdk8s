@@ -7,7 +7,7 @@ describe('DeploymentSpecDefinition', () => {
 
   test('Instantiation properties are all respected', () => {
     const chart = Testing.chart();
-    const deployment = new kplus.Deployment(chart, 'Deployment');
+    new kplus.Deployment(chart, 'Deployment');
     const spec = new kplus.DeploymentSpecDefinition({
       replicas: 3,
       podSpecTemplate: {
@@ -18,11 +18,44 @@ describe('DeploymentSpecDefinition', () => {
       },
     });
 
-    const actual: k8s.DeploymentSpec = spec._toKube(deployment);
+    const actual: k8s.DeploymentSpec = spec._toKube();
 
     expect(actual.replicas).toEqual(3);
     expect(spec.podSpecTemplate.serviceAccount?.name).toBe('my-service-account');
     expect(spec.podSpecTemplate.containers[0].image).toBe('my-image');
+  });
+
+  test('A label selector is automatically allocated', () => {
+    // GIVEN
+    const chart = Testing.chart();
+
+    const d = new kplus.Deployment(chart, 'Deployment');
+    d.spec.podSpecTemplate.addContainer(new kplus.Container({ image: 'foobar' }));
+
+    const spec = d.spec._toKube();
+
+    const expectedSelector = { 'cdk8s.deployment': 'test-Deployment-9e0110cd' };
+    expect(spec.selector.matchLabels).toEqual(expectedSelector);
+    expect(spec.template.metadata?.labels).toEqual(expectedSelector);
+  });
+
+  test('No selector is generated if "defaultSelector" is false', () => {
+    // GIVEN
+    const chart = Testing.chart();
+
+    // WHEN
+    const d = new kplus.Deployment(chart, 'Deployment', { 
+      defaultSelector: false,
+      spec: {
+        podSpecTemplate: {
+          containers: [ new kplus.Container({ image: 'foobar' }) ],
+        },
+      },
+    });
+
+    const spec = d.spec._toKube();
+    expect(spec.selector.matchLabels).toEqual({});
+    expect(spec.template.metadata?.labels).toEqual(undefined);
   });
 
   test('Can select labels', () => {
@@ -35,16 +68,15 @@ describe('DeploymentSpecDefinition', () => {
     );
 
     const chart = Testing.chart();
-    const deployment = new kplus.Deployment(chart, 'Deployment');
+    new kplus.Deployment(chart, 'Deployment');
 
     spec.selectByLabel('key', 'value');
 
-    const actual: k8s.LabelSelector = spec._toKube(deployment).selector;
+    const actual: k8s.LabelSelector = spec._toKube().selector;
 
     const expected: k8s.LabelSelector = {
       matchLabels: {
-        'key': 'value',
-        'cdk8s.deployment': Names.toLabelValue(Node.of(deployment).path),
+        key: 'value',
       },
     };
 
@@ -64,8 +96,7 @@ describe('Deployment', () => {
       }),
     );
 
-    const service = deployment.expose({
-      port: 9200,
+    const service = deployment.expose(9200, {
       serviceType: kplus.ServiceType.LOAD_BALANCER,
     });
 
@@ -92,9 +123,7 @@ describe('Deployment', () => {
       }),
     );
 
-    const service = deployment.expose({
-      port: 9200,
-    });
+    const service = deployment.expose(9200);
 
     const actual = service.spec._toKube();
 
@@ -112,7 +141,7 @@ describe('Deployment', () => {
 
     const deployment = new kplus.Deployment(chart, 'Deployment');
 
-    expect(() => deployment.expose({ port: 9000 })).toThrowError(
+    expect(() => deployment.expose(9000)).toThrowError(
       'Cannot expose a deployment without containers',
     );
   });
