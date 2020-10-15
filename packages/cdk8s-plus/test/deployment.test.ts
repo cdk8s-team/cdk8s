@@ -39,6 +39,25 @@ describe('DeploymentSpecDefinition', () => {
     expect(spec.template.metadata?.labels).toEqual(expectedSelector);
   });
 
+  test('No selector is generated if "defaultSelector" is false', () => {
+    // GIVEN
+    const chart = Testing.chart();
+
+    // WHEN
+    const d = new kplus.Deployment(chart, 'Deployment', { 
+      defaultSelector: false,
+      spec: {
+        podSpecTemplate: {
+          containers: [ new kplus.Container({ image: 'foobar' }) ],
+        },
+      },
+    });
+
+    const spec = d.spec._toKube();
+    expect(spec.selector.matchLabels).toEqual({});
+    expect(spec.template.metadata?.labels).toEqual(undefined);
+  });
+
   test('Can select labels', () => {
     const spec = new kplus.DeploymentSpecDefinition();
 
