@@ -6,6 +6,7 @@
 {{- $getting_started := .Site.Params.links.getting_started }}
 {{- $python_link := .Site.Params.links.getting_started_python }}
 {{- $typescript_link := .Site.Params.links.getting_started_typescript }}
+{{- $java_link := .Site.Params.links.getting_started_java }}
 
 {{- $lib_docs := (print "https://awscdk.io/packages/cdk8s@" $version) }}
 {{- $cli_docs := (print "https://github.com/awslabs/cdk8s/blob/v" $version "/packages/cdk8s-cli/README.md") }}
@@ -21,18 +22,6 @@
 <html data-wf-page="5eb123ae928e7b2ea8221702" data-wf-site="5eb123ae928e7b1c2d221701">
 
 <head>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166333129-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', '{{ .Site.GoogleAnalytics }}');
-    </script>
 
     <meta charset="utf-8">
 
@@ -86,7 +75,7 @@
                             <div class="w-icon-dropdown-toggle"></div>
                             <div>Getting started</div>
                         </div>
-                        <nav class="dropdown-list w-dropdown-list"><a href="{{ $python_link }}" class="dropdown-link w-dropdown-link">Python</a><a href="{{ $typescript_link }}" class="dropdown-link w-dropdown-link">TypeScript</a></nav>
+                        <nav class="dropdown-list w-dropdown-list"><a href="{{ $python_link }}" class="dropdown-link w-dropdown-link">Python</a><a href="{{ $typescript_link }}" class="dropdown-link w-dropdown-link">TypeScript</a><a href="{{ $java_link }}" class="dropdown-link w-dropdown-link">Java</a></nav>
                     </div>
                     <div data-hover="" data-delay="0" class="w-dropdown">
                         <div class="dropdown w-dropdown-toggle">
@@ -213,6 +202,7 @@
                 <h1 class="footer-title">DOCS</h1>
                 <a href="{{ $python_link }}" class="footer-link">Start with Python</a>
                 <a href="{{ $typescript_link }}" class="footer-link">Start with TypeScript</a>
+                <a href="{{ $java_link }}" class="footer-link">Start with Java</a>
                 <a href="{{ $cli_docs }}" class="footer-link">cdk8s CLI ({{ $version }})</a>
                 <a href="{{ $lib_docs }}" class="footer-link">cdk8s Library ({{ $version }})</a>
             </div>
@@ -230,7 +220,7 @@
                     <a href="https://github.com/awslabs/cdk8s" target="_blank" class="footer-link"><img src="images/git-small.png" alt="" class="link-icon"> Github</a>
                 </div>
                 <div class="link-block">
-                    <a href="https://cdk8s.slack.com/join/shared_invite/enQtOTY0NTMzMzY4MjU3LWMyYzM2ZmQzOTAyZjAzY2E5MGNjNmJlMDgwZWQwM2M0YTAwMTE5MmE3ZGM3OWY2N2ZkYjQ3NjBkOWYwMDg0ZWU#/" target="_blank" class="footer-link">
+                    <a href="https://cdk.dev" target="_blank" class="footer-link">
                         <img src="images/slack.png" alt="" class="link-icon"> Slack
                     </a>
                 </div>
@@ -241,7 +231,9 @@
                 Made with 💙 by Amazon Web Services and distributed under the <a href="{{ .Site.Params.links.license }}" class="link">the Apache 2.0 License‍</a>
                 <br> Contributors and maintainers are governed by the <a href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md" class="link">CNCF Code of Conduct</a>
             </div>
-            <div class="text-block-3">© cdk8s project authors. all rights reserved</div>
+            <div class="text-block-3">
+              <a class="footer-link" href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a class="footer-link" href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
+            </div>
         </div>
     </div>
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js?site=5eb123ae928e7b1c2d221701" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

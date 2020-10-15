@@ -6,7 +6,8 @@
     "bump": "tools/bump.sh",
     "build": "lerna run build",
     "test": "lerna run test",
-    "package": "lerna run package && tools/collect-dist.sh",
+    "projen": "lerna run projen",
+    "package": "tools/pack.sh && tools/collect-dist.sh",
     "integ": "test/run-against-dist test/test-all.sh",
     "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ",
     "release-github": "tools/release-github.sh"
@@ -29,10 +30,10 @@
   },
   "devDependencies": {
     "changelog-parser": "^2.8.0",
-    "lerna": "^3.20.2",
-    "standard-version": "^8.0.1",
+    "jsii-release": "^0.1.9",
+    "lerna": "^3.22.1",
     "semver": "7.3.2",
-    "jsii-release": "^0.1.9"
+    "standard-version": "^9.0.0"
   },
   "jest": {
     "clearMocks": true,

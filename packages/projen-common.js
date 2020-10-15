@@ -1,6 +1,6 @@
 exports.versions = {
-  constructs: '2.0.2',
-  jsii: '1.7.0',
+  constructs: '3.0.4',
+  jsii: '1.9.0',
 };
 
 exports.options = {
@@ -10,8 +10,10 @@ exports.options = {
   authorOrganization: true,
   buildWorkflow: false,
   releaseWorkflow: false,
+  dependabot: false,
   mergify: false,
   compat: false,
+  dependabot: false,
   keywords: [
     "cdk",
     "kubernetes",
@@ -27,7 +29,7 @@ exports.fixup = project => {
   project.addScripts({ build: 'yarn compile' });
 
   // // add "compile" after test because the test command deletes lib/ and we run tests *after* build in this repo.
-  project.addTestCommands('yarn compile');
+  project.addTestCommand('yarn compile');
 
   // jsii-release is declared at the root level, we don't need it here.
   delete project.devDependencies['jsii-release']

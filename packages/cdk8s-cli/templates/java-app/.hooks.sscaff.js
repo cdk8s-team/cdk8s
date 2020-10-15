@@ -14,15 +14,23 @@ exports.pre = (variables) => {
 };
 
 exports.post = options => {
-  const { mvn_cdk8s, cdk8s_version } = options;
+  const { mvn_cdk8s, mvn_cdk8s_plus, cdk8s_version } = options;
   if (!mvn_cdk8s) {
     throw new Error(`missing context "mvn_cdk8s"`);
+  }
+
+  if (!mvn_cdk8s_plus) {
+    throw new Error(`missing context "mvn_cdk8s_plus"`);
   }
 
   // This is used for installing artifacts that are local (not from Maven)
   // https://maven.apache.org/plugins/maven-install-plugin/usage.html
   if (mvn_cdk8s.endsWith('.jar')) {
     execSync(`mvn install:install-file -Dfile=${mvn_cdk8s} -DgroupId=org.cdk8s -DartifactId=cdk8s -Dversion=${cdk8s_version} -Dpackaging=jar`)
+  }
+
+  if (mvn_cdk8s_plus.endsWith('.jar')) {
+    execSync(`mvn install:install-file -Dfile=${mvn_cdk8s_plus} -DgroupId=org.cdk8s -DartifactId=cdk8s-plus -Dversion=${cdk8s_version} -Dpackaging=jar`)
   }
 
   execSync(`mvn install`);

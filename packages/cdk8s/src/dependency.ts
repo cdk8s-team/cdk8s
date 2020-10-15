@@ -1,5 +1,7 @@
 import { Node, IConstruct } from 'constructs';
 
+
+
 /**
  * Represents the dependency graph for a given Node.
  *
@@ -19,16 +21,16 @@ export class DependencyGraph {
 
   constructor(node: Node) {
 
-    this._fosterParent = new DependencyVertex(null);
+    this._fosterParent = new DependencyVertex();
 
     const nodes: Record<string, DependencyVertex> = {};
 
     function putVertex(construct: IConstruct) {
-      nodes[Node.of(construct).uniqueId] = new DependencyVertex(construct);
+      nodes[Node.of(construct).path] = new DependencyVertex(construct);
     }
 
     function getVertex(construct: IConstruct): DependencyVertex {
-      return nodes[Node.of(construct).uniqueId];
+      return nodes[Node.of(construct).path];
     }
 
     // create all vertices of the graph.
@@ -56,7 +58,7 @@ export class DependencyGraph {
 
     // create the root.
     for (const n of Object.values(nodes)) {
-      if (n.inbound.size === 0) {
+      if (n.inbound.length === 0) {
         // orphans are dependency roots. lets adopt them!
         this._fosterParent.addChild(n);
       }
@@ -89,11 +91,11 @@ export class DependencyGraph {
  */
 export class DependencyVertex {
 
-  private readonly _value: IConstruct | null;
+  private readonly _value: IConstruct | undefined;
   private readonly _children: Set<DependencyVertex> = new Set<DependencyVertex>();
   private readonly _parents: Set<DependencyVertex> = new Set<DependencyVertex>();
 
-  constructor(value: IConstruct | null) {
+  constructor(value: IConstruct | undefined = undefined) {
     this._value = value;
   }
 
@@ -102,22 +104,22 @@ export class DependencyVertex {
    *
    * `null` in case this is the root of the graph.
    */
-  public get value(): IConstruct | null {
+  public get value(): IConstruct | undefined {
     return this._value;
   }
 
   /**
    * Returns the children of the vertex (i.e dependencies)
    */
-  public get outbound(): Set<DependencyVertex> {
-    return this._children;
+  public get outbound(): Array<DependencyVertex> {
+    return Array.from(this._children);
   }
 
   /**
    * Returns the parents of the vertex (i.e dependants)
    */
-  public get inbound(): Set<DependencyVertex> {
-    return this._parents;
+  public get inbound(): Array<DependencyVertex> {
+    return Array.from(this._parents);
   }
 
   /**
@@ -157,7 +159,7 @@ export class DependencyVertex {
     const cycle: DependencyVertex[] = dep.findRoute(this);
     if (cycle.length !== 0) {
       cycle.push(dep);
-      throw new Error(`Dependency cycle detected: ${cycle.filter(d => d.value).map(d => Node.of(d.value!).uniqueId).join(' => ')}`);
+      throw new Error(`Dependency cycle detected: ${cycle.filter(d => d.value).map(d => Node.of(d.value!).path).join(' => ')}`);
     }
 
     this._children.add(dep);
@@ -165,7 +167,7 @@ export class DependencyVertex {
   }
 
   private addParent(dep: DependencyVertex) {
-    this.inbound.add(dep);
+    this._parents.add(dep);
   }
 
   private findRoute(dst: DependencyVertex): DependencyVertex[] {

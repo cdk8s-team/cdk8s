@@ -2,7 +2,6 @@ import * as k8s from './imports/k8s';
 import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
 import * as cdk8s from 'cdk8s';
-import { lazy } from './utils';
 
 
 /**
@@ -82,7 +81,7 @@ export class Service extends Resource {
 
     this.apiObject = new k8s.Service(this, 'Pod', {
       metadata: props.metadata,
-      spec: lazy(() => this.spec._toKube()),
+      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
     });
   }
 
@@ -256,6 +255,15 @@ export class ServiceSpecDefinition {
   }
 
   /**
+   * Ports for this service.
+   * 
+   * Use `serve()` to expose additional service ports.
+   */
+  public get ports() {
+    return [...this._ports];
+  }
+
+  /**
    * @internal
    */
   public _toKube(): k8s.ServiceSpec {
@@ -269,6 +277,7 @@ export class ServiceSpecDefinition {
       ports.push({
         port: port.port,
         targetPort: port.targetPort,
+        nodePort: port.nodePort,
       });
     }
 

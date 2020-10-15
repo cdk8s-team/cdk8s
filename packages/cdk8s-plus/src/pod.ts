@@ -5,7 +5,6 @@ import * as cdk8s from 'cdk8s';
 import { IServiceAccount } from './service-account';
 import { Container } from './container';
 import { Volume } from './volume';
-import { lazy } from './utils';
 
 /**
  * Properties for initialization of `Pod`.
@@ -34,7 +33,7 @@ export class Pod extends Resource {
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,
-      spec: lazy(() => this.spec._toKube()),
+      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
     });
   }
 }

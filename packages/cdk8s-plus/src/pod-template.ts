@@ -2,7 +2,6 @@ import * as k8s from './imports/k8s';
 import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
 import * as cdk8s from 'cdk8s';
-import { lazy } from './utils';
 import { PodSpec, PodSpecDefinition } from './pod';
 
 /**
@@ -41,7 +40,7 @@ export class PodTemplate extends Resource {
 
     this.apiObject = new k8s.PodTemplate(this, 'Pod', {
       metadata: props.metadata,
-      template: lazy(() => this.spec._toKube()),
+      template: cdk8s.Lazy({ produce: () => this.spec._toKube() }),
     });
   }
 }

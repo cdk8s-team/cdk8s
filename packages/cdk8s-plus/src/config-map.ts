@@ -5,7 +5,7 @@ import * as cdk8s from 'cdk8s';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as minimatch from 'minimatch';
-import { undefinedIfEmpty, lazy } from './utils';
+import { undefinedIfEmpty } from './utils';
 
 /**
  * Properties for initialization of `ConfigMap`.
@@ -68,8 +68,8 @@ export class ConfigMap extends Resource implements IConfigMap {
       metadata: props.metadata,
 
       // we need lazy here because we filter empty
-      data: lazy(() => this.synthesizeData()),
-      binaryData: lazy(() => this.synthesizeBinaryData()),
+      data: cdk8s.Lazy.any({ produce: () => this.synthesizeData() }),
+      binaryData: cdk8s.Lazy.any({ produce: () => this.synthesizeBinaryData() }),
     });
 
     for (const [k,v] of Object.entries(props.data ?? { })) {

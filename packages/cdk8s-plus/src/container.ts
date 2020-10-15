@@ -118,6 +118,32 @@ export class EnvValue {
   private constructor(public readonly value?: any, public readonly valueFrom?: any) {}
 }
 
+export enum ImagePullPolicy {
+  /**
+   * Every time the kubelet launches a container, the kubelet queries the container image registry
+   * to resolve the name to an image digest. If the kubelet has a container image with that exact
+   * digest cached locally, the kubelet uses its cached image; otherwise, the kubelet downloads
+   * (pulls) the image with the resolved digest, and uses that image to launch the container.
+   * 
+   * Default is Always if ImagePullPolicy is omitted and either the image tag is :latest or
+   * the image tag is omitted.
+   */
+  ALWAYS = 'Always',
+
+  /**
+   * The image is pulled only if it is not already present locally.
+   * 
+   * Default is IfNotPresent if ImagePullPolicy is omitted and the image tag is present but
+   * not :latest
+   */
+  IF_NOT_PRESENT = 'IfNotPresent',
+
+  /**
+   * The image is assumed to exist locally. No attempt is made to pull the image.
+   */
+  NEVER = 'Never',
+}
+
 /**
  * Properties for creating a container.
  */
@@ -153,6 +179,23 @@ export interface ContainerProps {
   readonly command?: string[];
 
   /**
+   * Arguments to the entrypoint. The docker image's CMD is used if `command` is
+   * not provided. 
+   *
+   * Variable references $(VAR_NAME) are expanded using the container's
+   * environment. If a variable cannot be resolved, the reference in the input
+   * string will be unchanged. The $(VAR_NAME) syntax can be escaped with a
+   * double $$, ie: $$(VAR_NAME). Escaped references will never be expanded,
+   * regardless of whether the variable exists or not. 
+   *
+   * Cannot be updated. 
+   * 
+   * @see https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+   * @default []
+   */
+  readonly args?: string[];
+
+  /**
    * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
    *
    * @default - The container runtime's default.
@@ -170,6 +213,12 @@ export interface ContainerProps {
    * Pod volumes to mount into the container's filesystem. Cannot be updated.
    */
   readonly volumeMounts?: VolumeMount[];
+
+  /**
+   * Image pull policy for this container
+   * @default ImagePullPolicy.ALWAYS
+   */
+  readonly imagePullPolicy?: ImagePullPolicy
 }
 
 /**
@@ -188,6 +237,11 @@ export class Container {
   public readonly mounts: VolumeMount[];
 
   /**
+   * Image pull policy for this container
+   */
+  public readonly imagePullPolicy: ImagePullPolicy;
+
+  /**
    * The container image.
    */
   public readonly image: string;
@@ -203,6 +257,7 @@ export class Container {
   public readonly workingDir?: string;
 
   private readonly _command?: readonly string[];
+  private readonly _args?: readonly string[];
   private readonly _env: { [name: string]: EnvValue };
 
   constructor(props: ContainerProps) {
@@ -210,9 +265,11 @@ export class Container {
     this.image = props.image;
     this.port = props.port;
     this._command = props.command;
+    this._args = props.args;
     this._env = props.env ?? { };
     this.workingDir = props.workingDir;
     this.mounts = props.volumeMounts ?? [];
+    this.imagePullPolicy = props.imagePullPolicy ?? ImagePullPolicy.ALWAYS;
   }
 
   /**
@@ -221,6 +278,15 @@ export class Container {
    */
   public get command(): string[] | undefined {
     return this._command ? [ ...this._command ] : undefined;
+  }
+
+  /**
+   * Arguments to the entrypoint.
+   * 
+   * @returns a copy of the arguments array, cannot be modified.
+   */
+  public get args(): string[] | undefined {
+    return this._args ? [ ...this._args ] : undefined;
   }
 
   /**
@@ -284,9 +350,11 @@ export class Container {
     return {
       name: this.name,
       image: this.image,
+      imagePullPolicy: this.imagePullPolicy,
       ports,
       volumeMounts,
       command: this.command,
+      args: this.args,
       workingDir: this.workingDir,
       env: renderEnv(this._env),
     };

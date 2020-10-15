@@ -67,4 +67,14 @@ describe('save', () => {
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
   });
 
+  test('strings are quoted', () => {
+    const outputFile = Yaml.tmp([{
+      foo: 'on',
+      bar: 'this has a "big quote"',
+      not_a_string: true,
+    }]);
+
+    expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
+  });
+
 })

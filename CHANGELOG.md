@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.30.0](https://github.com/awslabs/cdk8s/compare/v0.28.0...v0.30.0) (2020-10-04)
+
+### Features
+
+* **plus:** Bump k8s imports to use spec version 1.17.0 ([#331](https://github.com/awslabs/cdk8s/pull/331)) ([23fea73](https://github.com/awslabs/cdk8s/commit/23fea73c443c5a0d6ded1519fb3f6edf8d8fc80b))
+
+### Features
+
+* **lib:** Expose DependecyGraph for upstream use ([#329](https://github.com/awslabs/cdk8s/issues/329)) ([ee88402](https://github.com/awslabs/cdk8s/commit/ee884023a313fae44e69124da9e37a9e52611845)), closes [#328](https://github.com/awslabs/cdk8s/issues/328)
+
+## [0.29.0](https://github.com/awslabs/cdk8s/compare/v0.28.0...v0.29.0) (2020-09-27)
+
+### Features
+
+* **lib:** Upgrade constructs ([#324](https://github.com/awslabs/cdk8s/issues/324)) ([070b600](https://github.com/awslabs/cdk8s/commit/070b60093bcf626deb75e8ae0f192e24797d39d8))
+
+## [0.28.0](https://github.com/awslabs/cdk8s/compare/v0.27.0...v0.28.0) (2020-09-14)
+
+
+### Features
+
+* **plus:** ImagePullPolicy support for cdk8s-plus Container ([#313](https://github.com/awslabs/cdk8s/issues/313)) ([8307757](https://github.com/awslabs/cdk8s/commit/8307757deb9b70db4fda716d4a4afb7cef522dc9))
+
+
+### Bug Fixes
+
+* **examples:** Add missing dependencies on python examples. ([#290](https://github.com/awslabs/cdk8s/issues/290)) ([36e6fab](https://github.com/awslabs/cdk8s/commit/36e6fab9c4c0f30f6f49c93c1f284d8054955fcd)), closes [#289](https://github.com/awslabs/cdk8s/issues/289)
+* **plus:** support node ports for cdk8s-plus service ([#315](https://github.com/awslabs/cdk8s/issues/315)) ([85ec225](https://github.com/awslabs/cdk8s/commit/85ec225bcdbab3631ffebbf6c93c3ac70937b4b9)), closes [#296](https://github.com/awslabs/cdk8s/issues/296)
+* **website:** doc links are broken due to wrong version number ([#312](https://github.com/awslabs/cdk8s/issues/312)) ([f2f9402](https://github.com/awslabs/cdk8s/commit/f2f9402d975aa9a2b8bab6db68fc8bccb74a6772)), closes [#307](https://github.com/awslabs/cdk8s/issues/307)
+
+## [0.27.0](https://github.com/awslabs/cdk8s/compare/v0.26.0...v0.27.0) (2020-08-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **lib:** resource names will now be rendered differently, omitting adjacent duplicate components.
+
+### Features
+
+* **examples:** Elasticsearch query using CDK8s+ and CRD ([#281](https://github.com/awslabs/cdk8s/issues/281)) ([3be1a96](https://github.com/awslabs/cdk8s/commit/3be1a96b1801f2e23673b454e0a0b59cf7f1b6e5))
+* **lib:** omit duplicate components in generated names ([#258](https://github.com/awslabs/cdk8s/issues/258)) ([473b5ef](https://github.com/awslabs/cdk8s/commit/473b5ef7f442b932e9c4c4356945b91e8e1bc4e4))
+
+
+### Bug Fixes
+
+* **cli:** Conform python and java package names to language standards (no hyphens) ([#283](https://github.com/awslabs/cdk8s/issues/283)) ([f0b33c0](https://github.com/awslabs/cdk8s/commit/f0b33c09e3f75cfc7e230605a9bb11d506ea4018))
+* **cli:** java importing crd fails ([#257](https://github.com/awslabs/cdk8s/issues/257)) ([f0ef3b4](https://github.com/awslabs/cdk8s/commit/f0ef3b467969a90efcbfc663353565c8639bb5bd))
+
 ## [0.26.0](https://github.com/awslabs/cdk8s/compare/v0.25.0...v0.26.0) (2020-06-29)
 
 

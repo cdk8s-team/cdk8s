@@ -86,7 +86,7 @@ test('app with charts indirectly dependant', () => {
 test('default output directory is "dist"', () => {
   // GIVEN
   const prev = process.cwd();
-  const workdir = fs.mkdtempSync(path.join(os.tmpdir()));
+  const workdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-'));
 
   try {
     process.chdir(workdir);

@@ -3,8 +3,8 @@ import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
-import { lazy } from './utils';
 import { PodTemplateSpec, PodTemplateSpecDefinition } from './pod-template';
+import { Names } from 'cdk8s';
 
 /**
  * Properties for initialization of `Deployment`.
@@ -77,7 +77,7 @@ export class Deployment extends Resource {
 
     this.apiObject = new k8s.Deployment(this, 'Pod', {
       metadata: props.metadata,
-      spec: lazy(() => this.spec._toKube(this)),
+      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube(this) }),
     });
   }
 
@@ -96,7 +96,7 @@ export class Deployment extends Resource {
 
     // create a label and attach it to the deployment pods
     const selector = 'cdk8s.deployment';
-    const matcher = Node.of(this).uniqueId;
+    const matcher = Names.toLabelValue(Node.of(this).path);
 
     const service = new Service(this, 'Service', {
       type: options.serviceType ?? ServiceType.CLUSTER_IP,
@@ -185,7 +185,7 @@ export class DeploymentSpecDefinition {
     // automatically select pods in this deployment
 
     const selector = 'cdk8s.deployment';
-    const matcher = Node.of(deployment).uniqueId;
+    const matcher = Names.toLabelValue(Node.of(deployment).path);
 
     this.template.metadata.addLabel(selector, matcher);
 
