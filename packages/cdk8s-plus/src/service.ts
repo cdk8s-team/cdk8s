@@ -1,9 +1,8 @@
 import * as k8s from './imports/k8s';
-import { Construct, Node } from 'constructs';
+import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
 import * as cdk8s from 'cdk8s';
 import { Deployment } from './deployment';
-import { Names } from 'cdk8s';
 
 /**
  * Properties for initialization of `Service`.
@@ -288,14 +287,10 @@ export class ServiceSpecDefinition {
       throw new Error('Cannot expose a deployment without containers');
     }
 
-    // create a label and attach it to the deployment pods
-    const selector = 'cdk8s.deployment';
-    const matcher = Names.toLabelValue(Node.of(deployment).path);
+    for (const [ k, v ] of Object.entries(deployment.spec.labelSelector)) {
+      this.addSelector(k, v);
+    }
 
-    deployment.spec.podMetadataTemplate.addLabel(selector, matcher);
-    deployment.spec.selectByLabel(selector, matcher);
-
-    this.addSelector(selector, matcher);
     this.serve(port, {
       // just a PoC, we assume the first container is the main one.
       // TODO: figure out what the correct thing to do here.

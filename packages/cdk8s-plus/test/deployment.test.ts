@@ -25,6 +25,20 @@ describe('DeploymentSpecDefinition', () => {
     expect(spec.podSpecTemplate.containers[0].image).toBe('my-image');
   });
 
+  test('A label selector is automatically allocated', () => {
+    // GIVEN
+    const chart = Testing.chart();
+
+    const d = new kplus.Deployment(chart, 'Deployment');
+    d.spec.podSpecTemplate.addContainer(new kplus.Container({ image: 'foobar' }));
+
+    const spec = d.spec._toKube();
+
+    const expectedSelector = { 'cdk8s.deployment': 'test-Deployment-9e0110cd' };
+    expect(spec.selector.matchLabels).toEqual(expectedSelector);
+    expect(spec.template.metadata?.labels).toEqual(expectedSelector);
+  });
+
   test('Can select labels', () => {
     const spec = new kplus.DeploymentSpecDefinition();
 

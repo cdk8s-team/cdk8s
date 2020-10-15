@@ -1,10 +1,10 @@
 import * as k8s from './imports/k8s';
-import { Construct } from 'constructs';
+import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { PodSpecDefinition, PodSpec } from './pod';
-import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
+import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
 
 /**
  * Properties for initialization of `Deployment`.
@@ -16,6 +16,16 @@ export interface DeploymentProps extends ResourceProps {
    * @default - An empty spec will be created.
    */
   readonly spec?: DeploymentSpec;
+
+  /**
+   * Automatically allocates a pod selector for this deployment.
+   *
+   * If this is set to `false` you must define your selector through
+   * `podSepcTemplate.addLabel()` and `selectByLabel()`.
+   *
+   * @default true
+   */
+  readonly defaultSelector?: boolean;
 }
 
 /**
@@ -81,6 +91,13 @@ export class Deployment extends Resource {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
     });
+
+    if (props.defaultSelector ?? true) {
+      const selector = 'cdk8s.deployment';
+      const matcher = Names.toLabelValue(Node.of(this).path);
+      this.spec.podMetadataTemplate.addLabel(selector, matcher);
+      this.spec.selectByLabel(selector, matcher);
+    }
   }
 
   /**

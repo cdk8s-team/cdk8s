@@ -326,6 +326,7 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[DeploymentProps](#cdk8s-plus-deploymentprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **defaultSelector** (<code>boolean</code>)  Automatically allocates a pod selector for this deployment. __*Default*__: true
   * **spec** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  The spec of the deployment. __*Default*__: An empty spec will be created.
 
 
@@ -341,18 +342,18 @@ Name | Type | Description
 ### Methods
 
 
-#### expose(options)🔹 <a id="cdk8s-plus-deployment-expose"></a>
+#### expose(port, options?)🔹 <a id="cdk8s-plus-deployment-expose"></a>
 
 Expose a deployment via a service.
 
 This is equivalent to running `kubectl expose deployment <deployment-name>`.
 
 ```ts
-expose(options: ExposeOptions): Service
+expose(port: number, options?: ExposeOptions): Service
 ```
 
-* **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  - Options.
-  * **port** (<code>number</code>)  The port number the service will bind to. 
+* **port** (<code>number</code>)  The port number the service will bind to.
+* **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  Options.
   * **serviceType** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  The type of the exposed service. __*Default*__: ClusterIP.
 
 __Returns__:
@@ -1288,6 +1289,24 @@ Name | Type | Description
 ### Methods
 
 
+#### addDeployment(deployment, port)🔹 <a id="cdk8s-plus-servicespecdefinition-adddeployment"></a>
+
+Exposes a deployment through this service.
+
+Requests will be routed to the port exposed by the first container in the
+deployment's pods. The label `cdk8s.deployment` will be added to pods in
+the deployment and used to select pods by this service.
+
+```ts
+addDeployment(deployment: Deployment, port: number): void
+```
+
+* **deployment** (<code>[Deployment](#cdk8s-plus-deployment)</code>)  The deployment to expose.
+* **port** (<code>number</code>)  The external port.
+
+
+
+
 #### addSelector(label, value)🔹 <a id="cdk8s-plus-servicespecdefinition-addselector"></a>
 
 Services defined using this spec will select pods according the provided label.
@@ -1668,6 +1687,7 @@ Properties for initialization of `Deployment`.
 
 Name | Type | Description 
 -----|------|-------------
+**defaultSelector**?🔹 | <code>boolean</code> | Automatically allocates a pod selector for this deployment.<br/>__*Default*__: true
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **spec**?🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | The spec of the deployment.<br/>__*Default*__: An empty spec will be created.
 
@@ -1750,7 +1770,6 @@ Options for exposing a deployment via a service.
 
 Name | Type | Description 
 -----|------|-------------
-**port**🔹 | <code>number</code> | The port number the service will bind to.
 **serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | The type of the exposed service.<br/>__*Default*__: ClusterIP.
 
 
