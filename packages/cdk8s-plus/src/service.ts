@@ -93,6 +93,41 @@ export class Service extends Resource {
     });
   }
 
+  /**
+   * Associate a deployment to this service.
+   *
+   * Requests will be routed to the port exposed by the first container in the
+   * deployment's pods. The deployment's `labelSelector` will be used to select
+   * pods.
+   *
+   * @param deployment The deployment to expose
+   * @param port The external port
+   */
+  public addDeployment(deployment: Deployment, port: number) {
+    const containers = deployment.spec.podSpecTemplate.containers;
+    if (containers.length === 0) {
+      throw new Error('Cannot expose a deployment without containers');
+    }
+
+    const selector = Object.entries(deployment.spec.labelSelector);
+    if (selector.length === 0) {
+      throw new Error('deployment does not have a label selector');
+    }
+
+    if (Object.keys(this.spec.selector).length > 0) {
+      throw new Error('a selector is already defined for this service. cannot add a deployment');
+    }
+
+    for (const [ k, v ] of selector) {
+      this.spec.addSelector(k, v);
+    }
+
+    this.spec.serve(port, {
+      // just a PoC, we assume the first container is the main one.
+      // TODO: figure out what the correct thing to do here.
+      targetPort: containers[0].port,
+    });
+  }  
 }
 
 export enum Protocol {
@@ -269,33 +304,6 @@ export class ServiceSpecDefinition {
    */
   public get ports() {
     return [...this._ports];
-  }
-
-  /**
-   * Exposes a deployment through this service.
-   *
-   * Requests will be routed to the port exposed by the first container in the
-   * deployment's pods. The label `cdk8s.deployment` will be added to pods in
-   * the deployment and used to select pods by this service.
-   *
-   * @param deployment The deployment to expose
-   * @param port The external port
-   */
-  public addDeployment(deployment: Deployment, port: number) {
-    const containers = deployment.spec.podSpecTemplate.containers;
-    if (containers.length === 0) {
-      throw new Error('Cannot expose a deployment without containers');
-    }
-
-    for (const [ k, v ] of Object.entries(deployment.spec.labelSelector)) {
-      this.addSelector(k, v);
-    }
-
-    this.serve(port, {
-      // just a PoC, we assume the first container is the main one.
-      // TODO: figure out what the correct thing to do here.
-      targetPort: containers[0].port,
-    });
   }
 
   /**

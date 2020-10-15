@@ -115,7 +115,7 @@ export class Deployment extends Resource {
       },
     });
 
-    service.spec.addDeployment(this, port);
+    service.addDeployment(this, port);
     return service;
   }
 }

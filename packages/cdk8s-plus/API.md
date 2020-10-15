@@ -1182,6 +1182,27 @@ Name | Type | Description
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **spec**🔹 | <code>[ServiceSpecDefinition](#cdk8s-plus-servicespecdefinition)</code> | Provides access to the underlying spec.
 
+### Methods
+
+
+#### addDeployment(deployment, port)🔹 <a id="cdk8s-plus-service-adddeployment"></a>
+
+Associate a deployment to this service.
+
+Requests will be routed to the port exposed by the first container in the
+deployment's pods. The deployment's `labelSelector` will be used to select
+pods.
+
+```ts
+addDeployment(deployment: Deployment, port: number): void
+```
+
+* **deployment** (<code>[Deployment](#cdk8s-plus-deployment)</code>)  The deployment to expose.
+* **port** (<code>number</code>)  The external port.
+
+
+
+
 
 
 ## class ServiceAccount 🔹 <a id="cdk8s-plus-serviceaccount"></a>
@@ -1287,24 +1308,6 @@ Name | Type | Description
 **clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/>__*Optional*__
 
 ### Methods
-
-
-#### addDeployment(deployment, port)🔹 <a id="cdk8s-plus-servicespecdefinition-adddeployment"></a>
-
-Exposes a deployment through this service.
-
-Requests will be routed to the port exposed by the first container in the
-deployment's pods. The label `cdk8s.deployment` will be added to pods in
-the deployment and used to select pods by this service.
-
-```ts
-addDeployment(deployment: Deployment, port: number): void
-```
-
-* **deployment** (<code>[Deployment](#cdk8s-plus-deployment)</code>)  The deployment to expose.
-* **port** (<code>number</code>)  The external port.
-
-
 
 
 #### addSelector(label, value)🔹 <a id="cdk8s-plus-servicespecdefinition-addselector"></a>
