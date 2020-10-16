@@ -10,7 +10,7 @@
     "synth": "cdk8s synth",
     "compile": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "build": "npm run compile && npm run test && npm run synth"
   },
   "jest": {
