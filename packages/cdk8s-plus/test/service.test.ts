@@ -83,7 +83,7 @@ test('Can associate a deployment with an existing service', () => {
 
   const service = new kplus.Service(chart, 'service');
   const deployment = new kplus.Deployment(chart, 'dep');
-  deployment.podSpec.addContainer(new kplus.Container({ image: 'foo', port: 7777 }));
+  deployment.addContainer(new kplus.Container({ image: 'foo', port: 7777 }));
 
   service.addDeployment(deployment, 1122);
 

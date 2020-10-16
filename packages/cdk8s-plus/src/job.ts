@@ -1,10 +1,10 @@
-import { Resource, ResourceProps } from './base';
+import { ResourceProps } from './base';
 import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
 
 import * as k8s from './imports/k8s';
-import { RestartPolicy, PodSpecDefinition, PodSpec } from './pod';
+import { RestartPolicy, PodSpecDefinition, PodSpec, PodResource } from './pod';
 import { Duration } from './duration';
 
 
@@ -49,21 +49,7 @@ export interface JobProps extends ResourceProps {
  * The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
  * You can also use a Job to run multiple Pods in parallel.
  */
-export class Job extends Resource {
-
-  /**
-   * Provides access to the underlying pod spec.
-   *
-   * You can use this field to apply post instatiation mutations to the pod spec.
-   */
-  public readonly podSpec: PodSpecDefinition;
-
-  /**
-   * Provides access to the underlying pod metadata.
-   *
-   * You can use this field to apply post instatiation mutations to the pod metadata.
-   */
-  public readonly podMetadata: ApiObjectMetadataDefinition;
+export class Job extends PodResource {
 
   /**
    * TTL before the job is deleted after it is finished.
@@ -76,6 +62,16 @@ export class Job extends Resource {
    */
   protected readonly apiObject: ApiObject;
 
+  /**
+   * @see pod.PodResource.podSpecDefinition
+   */
+  protected readonly podSpecDefinition: PodSpecDefinition;
+
+  /**
+   * @see pod.PodResource.podMetadataDefinition
+   */
+  protected readonly podMetadataDefinition: ApiObjectMetadataDefinition;
+
   constructor(scope: Construct, id: string, props: JobProps = {}) {
     super(scope, id, props);
 
@@ -84,11 +80,11 @@ export class Job extends Resource {
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
 
-    this.podSpec = new PodSpecDefinition({
+    this.podSpecDefinition = new PodSpecDefinition({
       restartPolicy: props.podSpec?.restartPolicy ?? RestartPolicy.NEVER,
       ...props.podSpec,
     });
-    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+    this.podMetadataDefinition = new ApiObjectMetadataDefinition(props.podMetadata);
     this.ttlAfterFinished = props.ttlAfterFinished;
 
   }
@@ -99,8 +95,8 @@ export class Job extends Resource {
   public _toKube(): k8s.JobSpec {
     return {
       template: {
-        metadata: this.podMetadata.toJson(),
-        spec: this.podSpec._toKube(),
+        metadata: this.podMetadataDefinition.toJson(),
+        spec: this.podSpecDefinition._toKube(),
       },
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };

@@ -1,10 +1,10 @@
 import * as k8s from './imports/k8s';
 import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
-import { Resource, ResourceProps } from './base';
+import { ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
-import { PodSpec, PodSpecDefinition } from './pod'
+import { PodResource, PodSpec, PodSpecDefinition } from './pod'
 
 /**
  * Properties for initialization of `Deployment`.
@@ -84,7 +84,7 @@ export interface ExposeOptions {
 * - Clean up older ReplicaSets that you don't need anymore.
 *
 **/
-export class Deployment extends Resource {
+export class Deployment extends PodResource {
 
   /**
    * Number of desired pods.
@@ -92,23 +92,19 @@ export class Deployment extends Resource {
   public readonly replicas: number;
 
   /**
-   * Provides access to the underlying pod spec.
-   *
-   * You can use this field to apply post instatiation mutations to the pod spec.
-   */
-  public readonly podSpec: PodSpecDefinition;
-
-  /**
-   * Provides access to the underlying pod metadata.
-   *
-   * You can use this field to apply post instatiation mutations to the pod metadata.
-   */
-  public readonly podMetadata: ApiObjectMetadataDefinition;
-
-  /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
+
+  /**
+   * @see pod.PodResource.podSpecDefinition
+   */
+  protected readonly podSpecDefinition: PodSpecDefinition;
+
+  /**
+   * @see pod.PodResource.podMetadataDefinition
+   */
+  protected readonly podMetadataDefinition: ApiObjectMetadataDefinition;
 
   private readonly _labelSelector: Record<string, string>;
 
@@ -119,16 +115,16 @@ export class Deployment extends Resource {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
+    this.podSpecDefinition = new PodSpecDefinition(props.podSpec)
+    this.podMetadataDefinition = new ApiObjectMetadataDefinition(props.podMetadata);
 
     this.replicas = props.replicas ?? 1;
-    this.podSpec = new PodSpecDefinition(props.podSpec)
-    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
     this._labelSelector = {};
 
     if (props.defaultSelector ?? true) {
       const selector = 'cdk8s.deployment';
       const matcher = Names.toLabelValue(Node.of(this).path);
-      this.podMetadata.addLabel(selector, matcher);
+      this.podMetadataDefinition.addLabel(selector, matcher);
       this.selectByLabel(selector, matcher);
     }
   }
@@ -177,8 +173,8 @@ export class Deployment extends Resource {
     return {
       replicas: this.replicas,
       template: {
-        metadata: this.podMetadata.toJson(),
-        spec: this.podSpec._toKube(),
+        metadata: this.podMetadataDefinition.toJson(),
+        spec: this.podSpecDefinition._toKube(),
       },
       selector: {
         matchLabels: this._labelSelector,

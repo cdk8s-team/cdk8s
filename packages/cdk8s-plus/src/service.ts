@@ -176,7 +176,7 @@ export class Service extends Resource {
    * @param port The external port
    */
   public addDeployment(deployment: Deployment, port: number) {
-    const containers = deployment.podSpec.containers;
+    const containers = deployment.containers;
     if (containers.length === 0) {
       throw new Error('Cannot expose a deployment without containers');
     }

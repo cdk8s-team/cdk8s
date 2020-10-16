@@ -6,7 +6,7 @@ test('A label selector is automatically allocated', () => {
   const chart = Testing.chart();
 
   const deployment = new kplus.Deployment(chart, 'Deployment');
-  deployment.podSpec.addContainer(new kplus.Container({ image: 'foobar' }));
+  deployment.addContainer(new kplus.Container({ image: 'foobar' }));
 
   const expectedValue = 'test-Deployment-9e0110cd'
   const expectedSelector = { 'cdk8s.deployment': expectedValue };
@@ -135,7 +135,7 @@ test('Synthesizes spec lazily', () => {
   const chart = Testing.chart();
 
   const deployment = new kplus.Deployment(chart, 'Deployment');
-  deployment.podSpec.addContainer(
+  deployment.addContainer(
     new kplus.Container({
       image: 'image',
       port: 9300,

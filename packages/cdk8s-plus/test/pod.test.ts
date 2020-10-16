@@ -119,7 +119,6 @@ describe('Pod', () => {
 
     const pod = new kplus.Pod(chart, 'Pod');
 
-    expect(pod.spec).toBeDefined();
     expect(pod.name).toBeDefined();
 
   });
@@ -137,7 +136,7 @@ describe('Pod', () => {
       ],
     });
 
-    expect(pod.spec.containers[0].image).toEqual('image');
+    expect(pod.containers[0].image).toEqual('image');
     expect(pod.name).toEqual('name');
   });
 
@@ -154,7 +153,7 @@ describe('Pod', () => {
 
     container.mount('/path/to/mount', volume);
 
-    pod.spec.addContainer(container);
+    pod.addContainer(container);
 
     // if the spec was created during instantiation of the pod
     // it would not have included the volume from the container.

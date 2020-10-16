@@ -18,7 +18,7 @@ test('Applies default restart policy to pod spec', () => {
   expect(spec.template.spec?.restartPolicy).toEqual('Never');
 
   // assert the job object has it.
-  expect(job.podSpec.restartPolicy).toEqual(RestartPolicy.NEVER);
+  expect(job.restartPolicy).toEqual(RestartPolicy.NEVER);
 
 });
 
@@ -39,7 +39,7 @@ test('Does not modify existing restart policy of pod spec', () => {
   expect(spec.template.spec?.restartPolicy).toEqual('Always');
 
   // assert the job object has it.
-  expect(job.podSpec.restartPolicy).toEqual(RestartPolicy.ALWAYS);
+  expect(job.restartPolicy).toEqual(RestartPolicy.ALWAYS);
 
 });
 
@@ -49,7 +49,7 @@ test('Synthesizes spec lazily', () => {
 
   const job = new kplus.Job(chart, 'Job');
 
-  job.podSpec.addContainer(
+  job.addContainer(
     new kplus.Container({
       image: 'image',
     }),

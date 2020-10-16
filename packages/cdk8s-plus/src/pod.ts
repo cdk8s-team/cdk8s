@@ -5,6 +5,44 @@ import * as cdk8s from 'cdk8s';
 import { IServiceAccount } from './service-account';
 import { Container } from './container';
 import { Volume } from './volume';
+import { ApiObjectMetadataDefinition } from 'cdk8s';
+
+export abstract class PodResource extends Resource implements IPod {
+
+  protected abstract readonly podMetadataDefinition: ApiObjectMetadataDefinition;
+
+  constructor(scope: Construct, id: string, props: PodProps = {}) {
+    super(scope, id, { metadata: props.metadata })
+  }
+
+  public get podMetadata(): ApiObjectMetadataDefinition {
+    return this.podMetadataDefinition;
+  }
+
+  public get serviceAccount(): IServiceAccount | undefined {
+    return this.podSpecDefinition.serviceAccount;
+  }
+
+  public get restartPolicy(): RestartPolicy | undefined {
+    return this.podSpecDefinition.restartPolicy;
+  }
+
+  public get containers(): Container[] {
+    return this.podSpecDefinition.containers;
+  }
+
+  public get volumes(): Volume[] {
+    return this.podSpecDefinition.volumes;
+  }
+
+  public addContainer(container: Container): void {
+    this.podSpecDefinition.addContainer(container);
+  }
+
+  public addVolume(volume: Volume): void {
+    this.podSpecDefinition.addVolume(volume);
+  }
+}
 
 /**
  * Properties for initialization of `Pod`.
@@ -68,26 +106,35 @@ export interface PodSpec {
  * Pod is a collection of containers that can run on a host. This resource is
  * created by clients and scheduled onto hosts.
  */
-export class Pod extends Resource {
+export class Pod extends PodResource {
+
+  /**
+   * @see base.Resource.apiObject
+   */
   protected readonly apiObject: cdk8s.ApiObject;
 
   /**
-   * Provides access to the underlying spec.
-   *
-   * You can use this field to apply post instantiation mutations
-   * to the spec.
+   * @see pod.PodResource.podSpecDefinition
    */
-  public readonly spec: PodSpecDefinition;
+  protected readonly podSpecDefinition: PodSpecDefinition;
+
+  /**
+   * @see pod.PodResource.podMetadataDefinition
+   */
+  protected readonly podMetadataDefinition: ApiObjectMetadataDefinition;
 
   constructor(scope: Construct, id: string, props: PodProps = {}) {
     super(scope, id, props);
 
-    this.spec = new PodSpecDefinition(props);
+    this.podSpecDefinition = new PodSpecDefinition(props);
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
+      spec: cdk8s.Lazy.any({ produce: () => this.podSpecDefinition._toKube() }),
     });
+
+    this.podMetadataDefinition = this.apiObject.metadata;
+
   }
 }
 
@@ -110,6 +157,23 @@ export enum RestartPolicy {
    */
   NEVER = 'Never'
 }
+
+export interface IPod {
+
+  readonly restartPolicy?: RestartPolicy;
+
+  readonly serviceAccount?: IServiceAccount;
+
+  readonly containers: Container[];
+
+  readonly volumes: Volume[];
+
+  addContainer(container: Container): void;
+
+  addVolume(volume: Volume): void
+
+}
+
 
 /**
  * A description of a pod.

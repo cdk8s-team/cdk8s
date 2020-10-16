@@ -13,6 +13,7 @@ Name|Description
 [IngressBackend](#cdk8s-plus-ingressbackend)|The backend for an ingress path.
 [Job](#cdk8s-plus-job)|A Job creates one or more Pods and ensures that a specified number of them successfully terminate.
 [Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
+[PodResource](#cdk8s-plus-podresource)|*No description*
 [PodSpecDefinition](#cdk8s-plus-podspecdefinition)|A description of a pod.
 [Resource](#cdk8s-plus-resource)|Base class for all Kubernetes objects in stdk8s.
 [Secret](#cdk8s-plus-secret)|Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
@@ -60,6 +61,7 @@ Name|Description
 Name|Description
 ----|-----------
 [IConfigMap](#cdk8s-plus-iconfigmap)|Represents a config map.
+[IPod](#cdk8s-plus-ipod)|*No description*
 [IResource](#cdk8s-plus-iresource)|Represents a resource.
 [ISecret](#cdk8s-plus-isecret)|*No description*
 [IServiceAccount](#cdk8s-plus-iserviceaccount)|*No description*
@@ -304,8 +306,8 @@ The following are typical use cases for Deployments:
 - Use the status of the Deployment as an indicator that a rollout has stuck.
 - Clean up older ReplicaSets that you don't need anymore.
 
-__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
-__Extends__: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IPod](#cdk8s-plus-ipod)
+__Extends__: [PodResource](#cdk8s-plus-podresource)
 
 ### Initializer
 
@@ -334,8 +336,8 @@ Name | Type | Description
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **labelSelector**🔹 | <code>Map<string, string></code> | The labels this deployment will match against in order to select pods.
-**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides access to the underlying pod metadata.
-**podSpec**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | Provides access to the underlying pod spec.
+**podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**podSpecDefinition**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | <span></span>
 **replicas**🔹 | <code>number</code> | Number of desired pods.
 
 ### Methods
@@ -821,8 +823,8 @@ Deleting a Job will clean up the Pods it created. A simple case is to create one
 The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
 You can also use a Job to run multiple Pods in parallel.
 
-__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
-__Extends__: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IPod](#cdk8s-plus-ipod)
+__Extends__: [PodResource](#cdk8s-plus-podresource)
 
 ### Initializer
 
@@ -849,8 +851,8 @@ new Job(scope: Construct, id: string, props?: JobProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides access to the underlying pod metadata.
-**podSpec**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | Provides access to the underlying pod spec.
+**podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**podSpecDefinition**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | <span></span>
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | TTL before the job is deleted after it is finished.<br/>__*Optional*__
 
 
@@ -862,8 +864,8 @@ Pod is a collection of containers that can run on a host.
 This resource is
 created by clients and scheduled onto hosts.
 
-__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource)
-__Extends__: [Resource](#cdk8s-plus-resource)
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IPod](#cdk8s-plus-ipod)
+__Extends__: [PodResource](#cdk8s-plus-podresource)
 
 ### Initializer
 
@@ -891,7 +893,76 @@ new Pod(scope: Construct, id: string, props?: PodProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**spec**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | Provides access to the underlying spec.
+**podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**podSpecDefinition**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | <span></span>
+
+
+
+## class PodResource 🔹 <a id="cdk8s-plus-podresource"></a>
+
+
+
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IPod](#cdk8s-plus-ipod)
+__Extends__: [Resource](#cdk8s-plus-resource)
+__Implemented by__: [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod)
+
+### Initializer
+
+
+
+
+```ts
+new PodResource(scope: Construct, id: string, _: ResourceProps)
+```
+
+* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
+* **id** (<code>string</code>)  *No description*
+* **_** (<code>[ResourceProps](#cdk8s-plus-resourceprops)</code>)  *No description*
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | <span></span>
+**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**podSpecDefinition**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | <span></span>
+**volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | <span></span>
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | __*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | __*Optional*__
+
+### Methods
+
+
+#### addContainer(container)🔹 <a id="cdk8s-plus-podresource-addcontainer"></a>
+
+
+
+```ts
+addContainer(container: Container): void
+```
+
+* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
+
+
+
+
+#### addVolume(volume)🔹 <a id="cdk8s-plus-podresource-addvolume"></a>
+
+
+
+```ts
+addVolume(volume: Volume): void
+```
+
+* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  *No description*
+
+
+
 
 
 
@@ -1684,6 +1755,53 @@ Represents a config map.
 Name | Type | Description 
 -----|------|-------------
 **name**🔹 | <code>string</code> | The Kubernetes name of this resource.
+
+
+
+## interface IPod 🔹 <a id="cdk8s-plus-ipod"></a>
+
+__Implemented by__: [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod)
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | <span></span>
+**volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | <span></span>
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | __*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | __*Optional*__
+
+### Methods
+
+
+#### addContainer(container)🔹 <a id="cdk8s-plus-ipod-addcontainer"></a>
+
+
+
+```ts
+addContainer(container: Container): void
+```
+
+* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
+
+
+
+
+#### addVolume(volume)🔹 <a id="cdk8s-plus-ipod-addvolume"></a>
+
+
+
+```ts
+addVolume(volume: Volume): void
+```
+
+* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  *No description*
+
+
+
 
 
 
