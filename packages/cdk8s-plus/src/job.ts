@@ -11,12 +11,7 @@ import { Duration } from './duration';
 /**
  * Properties for initialization of `Job`.
  */
-export interface JobProps extends ResourceProps, JobSpec {}
-
-/**
- * Specification of a `Job`.
- */
-export interface JobSpec {
+export interface JobProps extends ResourceProps {
 
   /**
    * Spec for the job pods.
@@ -56,23 +51,6 @@ export interface JobSpec {
  */
 export class Job extends Resource {
 
-  protected readonly apiObject: ApiObject;
-  public readonly spec: JobSpecDefinition;
-
-  constructor(scope: Construct, id: string, props: JobProps = {}) {
-    super(scope, id, props);
-
-    this.spec = new JobSpecDefinition(props);
-
-    this.apiObject = new k8s.Job(this, 'Default', {
-      metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
-    });
-  }
-}
-
-export class JobSpecDefinition {
-
   /**
    * Provides access to the underlying pod spec.
    *
@@ -92,13 +70,27 @@ export class JobSpecDefinition {
    */
   public readonly ttlAfterFinished?: Duration;
 
-  constructor(props: JobSpec = {}) {
+
+  /**
+   * @see base.Resource.apiObject
+   */
+  protected readonly apiObject: ApiObject;
+
+  constructor(scope: Construct, id: string, props: JobProps = {}) {
+    super(scope, id, props);
+
+    this.apiObject = new k8s.Job(this, 'Default', {
+      metadata: props.metadata,
+      spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
+    });
+
     this.podSpec = new PodSpecDefinition({
       restartPolicy: props.podSpec?.restartPolicy ?? RestartPolicy.NEVER,
       ...props.podSpec,
     });
     this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
     this.ttlAfterFinished = props.ttlAfterFinished;
+
   }
 
   /**
@@ -113,4 +105,5 @@ export class JobSpecDefinition {
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };
   }
+
 }

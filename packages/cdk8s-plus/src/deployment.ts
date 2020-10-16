@@ -9,12 +9,7 @@ import { PodSpec, PodSpecDefinition } from './pod'
 /**
  * Properties for initialization of `Deployment`.
  */
-export interface DeploymentProps extends ResourceProps, DeploymentSpec {}
-
-/**
- * Specification of a `Deployment`.
- */
-export interface DeploymentSpec {
+export interface DeploymentProps extends ResourceProps {
 
   /**
    * Number of desired pods.
@@ -90,35 +85,72 @@ export interface ExposeOptions {
 *
 **/
 export class Deployment extends Resource {
+
+  /**
+   * Number of desired pods.
+   */
+  public readonly replicas: number;
+
+  /**
+   * Provides access to the underlying pod spec.
+   *
+   * You can use this field to apply post instatiation mutations to the pod spec.
+   */
+  public readonly podSpec: PodSpecDefinition;
+
+  /**
+   * Provides access to the underlying pod metadata.
+   *
+   * You can use this field to apply post instatiation mutations to the pod metadata.
+   */
+  public readonly podMetadata: ApiObjectMetadataDefinition;
+
   /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
 
-  /**
-   * Provides access to the underlying spec.
-   *
-   * You can use this field to apply post instantiation mutations
-   * to the spec.
-   */
-  public readonly spec: DeploymentSpecDefinition;
+  private readonly _labelSelector: Record<string, string>;
 
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
     super(scope, id, props);
 
-    this.spec = new DeploymentSpecDefinition(props);
-
     this.apiObject = new k8s.Deployment(this, 'Deployment', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
+      spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
+
+    this.replicas = props.replicas ?? 1;
+    this.podSpec = new PodSpecDefinition(props.podSpec)
+    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+    this._labelSelector = {};
 
     if (props.defaultSelector ?? true) {
       const selector = 'cdk8s.deployment';
       const matcher = Names.toLabelValue(Node.of(this).path);
-      this.spec.podMetadata.addLabel(selector, matcher);
-      this.spec.selectByLabel(selector, matcher);
+      this.podMetadata.addLabel(selector, matcher);
+      this.selectByLabel(selector, matcher);
     }
+  }
+
+  /**
+   * The labels this deployment will match against in order to select pods.
+   *
+   * Returns a a copy. Use `selectByLabel()` to add labels.
+   */
+  public get labelSelector(): Record<string, string> {
+    return { ...this._labelSelector };
+  }
+
+  /**
+   * Configure a label selector to this deployment.
+   * Pods that have the label will be selected by deployments configured with this spec.
+   *
+   * @param key - The label key.
+   * @param value - The label value.
+   */
+  public selectByLabel(key: string, value: string) {
+    this._labelSelector[key] = value;
   }
 
   /**
@@ -137,60 +169,6 @@ export class Deployment extends Resource {
     service.addDeployment(this, port);
     return service;
   }
-}
-
-/**
- * DeploymentSpec is the specification of the desired behavior of the Deployment.
- */
-export class DeploymentSpecDefinition {
-  /**
-   * Number of desired pods.
-   */
-  public readonly replicas?: number;
-
-  /**
-   * Provides access to the underlying pod spec.
-   *
-   * You can use this field to apply post instatiation mutations to the pod spec.
-   */
-  public readonly podSpec: PodSpecDefinition;
-
-  /**
-   * Provides access to the underlying pod metadata.
-   *
-   * You can use this field to apply post instatiation mutations to the pod metadata.
-   */
-  public readonly podMetadata: ApiObjectMetadataDefinition;
-
-  private readonly _labelSelector: Record<string, string>;
-
-  constructor(props: DeploymentProps = {}) {
-    this.replicas = props.replicas ?? 1;
-    this.podSpec = new PodSpecDefinition(props.podSpec)
-    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
-
-    this._labelSelector = {};
-  }
-
-  /**
-   * Configure a label selector to this deployment.
-   * Pods that have the label will be selected by deployments configured with this spec.
-   *
-   * @param key - The label key.
-   * @param value - The label value.
-   */
-  public selectByLabel(key: string, value: string) {
-    this._labelSelector[key] = value;
-  }
-
-  /**
-   * The labels this deployment will match against in order to select pods.
-   *
-   * Returns a a copy. Use `selectByLabel()` to add labels.
-   */
-  public get labelSelector(): Record<string, string> {
-    return { ...this._labelSelector };
-  }
 
   /**
    * @internal
@@ -207,4 +185,5 @@ export class DeploymentSpecDefinition {
       },
     };
   }
+
 }
