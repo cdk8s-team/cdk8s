@@ -12,34 +12,7 @@ import { Volume } from './volume';
 export interface PodProps extends ResourceProps, PodSpec {}
 
 /**
- * Pod is a collection of containers that can run on a host. This resource is
- * created by clients and scheduled onto hosts.
- */
-export class Pod extends Resource {
-  protected readonly apiObject: cdk8s.ApiObject;
-
-  /**
-   * Provides access to the underlying spec.
-   *
-   * You can use this field to apply post instantiation mutations
-   * to the spec.
-   */
-  public readonly spec: PodSpecDefinition;
-
-  constructor(scope: Construct, id: string, props: PodProps = {}) {
-    super(scope, id, props);
-
-    this.spec = new PodSpecDefinition(props);
-
-    this.apiObject = new k8s.Pod(this, 'Pod', {
-      metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
-    });
-  }
-}
-
-/**
- * Properties for initialization of `PodSpec`.
+ * Specification of a `Pod`.
  */
 export interface PodSpec {
 
@@ -88,6 +61,34 @@ export interface PodSpec {
    * @default - No service account.
    */
   readonly serviceAccount?: IServiceAccount;
+
+}
+
+/**
+ * Pod is a collection of containers that can run on a host. This resource is
+ * created by clients and scheduled onto hosts.
+ */
+export class Pod extends Resource {
+  protected readonly apiObject: cdk8s.ApiObject;
+
+  /**
+   * Provides access to the underlying spec.
+   *
+   * You can use this field to apply post instantiation mutations
+   * to the spec.
+   */
+  public readonly spec: PodSpecDefinition;
+
+  constructor(scope: Construct, id: string, props: PodProps = {}) {
+    super(scope, id, props);
+
+    this.spec = new PodSpecDefinition(props);
+
+    this.apiObject = new k8s.Pod(this, 'Pod', {
+      metadata: props.metadata,
+      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
+    });
+  }
 }
 
 /**

@@ -3,19 +3,25 @@ import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
-import { PodTemplateSpec, PodTemplateSpecDefinition } from './pod-template';
-import { Names } from 'cdk8s';
+import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
+import { PodSpec, PodSpecDefinition } from './pod'
 
 /**
  * Properties for initialization of `Deployment`.
  */
-export interface DeploymentProps extends ResourceProps, DeploymentSpec {
+export interface DeploymentProps extends ResourceProps, DeploymentSpec {}
+
+/**
+ * Specification of a `Deployment`.
+ */
+export interface DeploymentSpec {
+
   /**
-   * The spec of the deployment. Use `deployment.spec` to apply post instatiation mutations.
+   * Number of desired pods.
    *
-   * @default - An empty spec will be created.
+   * @default 1
    */
-  readonly spec?: DeploymentSpec;
+  readonly replicas?: number;
 
   /**
    * Automatically allocates a pod selector for this deployment.
@@ -26,6 +32,21 @@ export interface DeploymentProps extends ResourceProps, DeploymentSpec {
    * @default true
    */
   readonly defaultSelector?: boolean;
+
+  /**
+   * Spec for the deployment pods.
+   *
+   * @default - Empty spec. Can be configured via the `deployment.spec.podSpec` field.
+   */
+  readonly podSpec?: PodSpec;
+
+  /**
+   * Metadata for the deployment pods.
+   *
+   * @default - Empty metadata. Can be configured via the `deployment.spec.podMetadata` field.
+   */
+  readonly podMetadata?: ApiObjectMetadata;
+
 }
 
 /**
@@ -87,7 +108,7 @@ export class Deployment extends Resource {
 
     this.spec = new DeploymentSpecDefinition(props);
 
-    this.apiObject = new k8s.Deployment(this, 'Pod', {
+    this.apiObject = new k8s.Deployment(this, 'Deployment', {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
     });
@@ -95,7 +116,7 @@ export class Deployment extends Resource {
     if (props.defaultSelector ?? true) {
       const selector = 'cdk8s.deployment';
       const matcher = Names.toLabelValue(Node.of(this).path);
-      this.spec.podMetadataTemplate.addLabel(selector, matcher);
+      this.spec.podMetadata.addLabel(selector, matcher);
       this.spec.selectByLabel(selector, matcher);
     }
   }
@@ -119,24 +140,6 @@ export class Deployment extends Resource {
 }
 
 /**
- * Properties for initialization of `DeploymentSpec`.
- */
-export interface DeploymentSpec {
-
-  /**
-   * Number of desired pods.
-   *
-   * @default 1
-   */
-  readonly replicas?: number;
-
-  /**
-   * Template for pods creation.
-   */
-  readonly template?: PodTemplateSpec;
-}
-
-/**
  * DeploymentSpec is the specification of the desired behavior of the Deployment.
  */
 export class DeploymentSpecDefinition {
@@ -146,18 +149,25 @@ export class DeploymentSpecDefinition {
   public readonly replicas?: number;
 
   /**
-   * Provides access to the underlying pod template.
+   * Provides access to the underlying pod spec.
    *
-   * You can use this field to apply post instatiation mutations
-   * to the template.
+   * You can use this field to apply post instatiation mutations to the pod spec.
    */
-  public readonly template: PodTemplateSpecDefinition;
+  public readonly podSpec: PodSpecDefinition;
+
+  /**
+   * Provides access to the underlying pod metadata.
+   *
+   * You can use this field to apply post instatiation mutations to the pod metadata.
+   */
+  public readonly podMetadata: ApiObjectMetadataDefinition;
 
   private readonly _labelSelector: Record<string, string>;
 
-  constructor(props: DeploymentSpec = {}) {
+  constructor(props: DeploymentProps = {}) {
     this.replicas = props.replicas ?? 1;
-    this.template = new PodTemplateSpecDefinition(props.template)
+    this.podSpec = new PodSpecDefinition(props.podSpec)
+    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
 
     this._labelSelector = {};
   }
@@ -189,8 +199,8 @@ export class DeploymentSpecDefinition {
     return {
       replicas: this.replicas,
       template: {
-        metadata: this.template.metadata.toJson(),
-        spec: this.template.spec._toKube(),
+        metadata: this.podMetadata.toJson(),
+        spec: this.podSpec._toKube(),
       },
       selector: {
         matchLabels: this._labelSelector,

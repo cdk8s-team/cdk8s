@@ -4,7 +4,7 @@ import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
 
 import * as k8s from './imports/k8s';
-import { RestartPolicy, PodSpec, PodSpecDefinition } from './pod';
+import { RestartPolicy, PodSpecDefinition, PodSpec } from './pod';
 import { Duration } from './duration';
 
 
@@ -12,6 +12,40 @@ import { Duration } from './duration';
  * Properties for initialization of `Job`.
  */
 export interface JobProps extends ResourceProps, JobSpec {}
+
+/**
+ * Specification of a `Job`.
+ */
+export interface JobSpec {
+
+  /**
+   * Spec for the job pods.
+   *
+   * @default - Empty spec. Can be configured via the `job.spec.podSpec` field.
+   */
+  readonly podSpec?: PodSpec;
+
+  /**
+   * Metadata for the job pods.
+   *
+   * @default - Empty metadata. Can be configured via the `job.spec.podMetadata` field.
+   */
+  readonly podMetadata?: ApiObjectMetadata;
+
+  /**
+   * Limits the lifetime of a Job that has finished execution (either Complete
+   * or Failed). If this field is set, after the Job finishes, it is eligible to
+   * be automatically deleted. When the Job is being deleted, its lifecycle
+   * guarantees (e.g. finalizers) will be honored. If this field is set to zero,
+   * the Job becomes eligible to be deleted immediately after it finishes. This
+   * field is alpha-level and is only honored by servers that enable the
+   * `TTLAfterFinished` feature.
+   *
+   * @default - If this field is unset, the Job won't be automatically deleted.
+   */
+  readonly ttlAfterFinished?: Duration;
+
+}
 
 /**
  * A Job creates one or more Pods and ensures that a specified number of them successfully terminate. As pods successfully complete,
@@ -37,44 +71,21 @@ export class Job extends Resource {
   }
 }
 
-/**
- * Properties for initialization of `JobSpec`.
- */
-export interface JobSpec {
-  /**
-   * The spec of pods created by this job.
-   */
-  readonly podSpecTemplate?: PodSpec;
-
-  /**
-   * The metadata of pods created by this job.
-   */
-  readonly podMetadataTemplate?: ApiObjectMetadata;
-
-  /**
-   * Limits the lifetime of a Job that has finished execution (either Complete
-   * or Failed). If this field is set, after the Job finishes, it is eligible to
-   * be automatically deleted. When the Job is being deleted, its lifecycle
-   * guarantees (e.g. finalizers) will be honored. If this field is set to zero,
-   * the Job becomes eligible to be deleted immediately after it finishes. This
-   * field is alpha-level and is only honored by servers that enable the
-   * `TTLAfterFinished` feature.
-   *
-   * @default - If this field is unset, the Job won't be automatically deleted.
-   */
-  readonly ttlAfterFinished?: Duration;
-}
-
 export class JobSpecDefinition {
-  /**
-   * The spec for pods created by this job.
-   */
-  public readonly podSpecTemplate: PodSpecDefinition;
 
   /**
-   * The metadata for pods created by this job.
+   * Provides access to the underlying pod spec.
+   *
+   * You can use this field to apply post instatiation mutations to the pod spec.
    */
-  public readonly podMetadataTemplate: ApiObjectMetadataDefinition;
+  public readonly podSpec: PodSpecDefinition;
+
+  /**
+   * Provides access to the underlying pod metadata.
+   *
+   * You can use this field to apply post instatiation mutations to the pod metadata.
+   */
+  public readonly podMetadata: ApiObjectMetadataDefinition;
 
   /**
    * TTL before the job is deleted after it is finished.
@@ -82,11 +93,11 @@ export class JobSpecDefinition {
   public readonly ttlAfterFinished?: Duration;
 
   constructor(props: JobSpec = {}) {
-    this.podSpecTemplate = new PodSpecDefinition({
-      restartPolicy: props.podSpecTemplate?.restartPolicy ?? RestartPolicy.NEVER,
-      ...props.podSpecTemplate,
+    this.podSpec = new PodSpecDefinition({
+      restartPolicy: props.podSpec?.restartPolicy ?? RestartPolicy.NEVER,
+      ...props.podSpec,
     });
-    this.podMetadataTemplate = new ApiObjectMetadataDefinition(props.podMetadataTemplate);
+    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
     this.ttlAfterFinished = props.ttlAfterFinished;
   }
 
@@ -96,8 +107,8 @@ export class JobSpecDefinition {
   public _toKube(): k8s.JobSpec {
     return {
       template: {
-        metadata: this.podMetadataTemplate.toJson(),
-        spec: this.podSpecTemplate._toKube(),
+        metadata: this.podMetadata.toJson(),
+        spec: this.podSpec._toKube(),
       },
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };

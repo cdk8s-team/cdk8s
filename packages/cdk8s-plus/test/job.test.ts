@@ -5,7 +5,7 @@ import { Testing } from 'cdk8s';
 describe('JobSpecDefinition', () => {
   test('Instantiation properties are all respected', () => {
     const spec = new kplus.JobSpecDefinition({
-      podSpecTemplate: {
+      podSpec: {
         containers: [
           new kplus.Container({
             image: 'image',
@@ -23,7 +23,7 @@ describe('JobSpecDefinition', () => {
 
   test('Does not modify existing restart policy of pod spec', () => {
     const spec = new kplus.JobSpecDefinition({
-      podSpecTemplate: {
+      podSpec: {
         containers: [ new kplus.Container({ image: 'image' }) ],
         restartPolicy: kplus.RestartPolicy.ALWAYS,
       },
@@ -37,7 +37,7 @@ describe('JobSpecDefinition', () => {
 
   test('Applies default restart policy to pod spec', () => {
     const spec = new kplus.JobSpecDefinition({
-      podSpecTemplate: {
+      podSpec: {
         containers: [ new kplus.Container({ image: 'image' }) ],
       },
       ttlAfterFinished: kplus.Duration.seconds(1),
@@ -64,7 +64,7 @@ describe('Job', () => {
     const chart = Testing.chart();
     const job = new kplus.Job(chart, 'Job');
 
-    job.spec.podSpecTemplate.addContainer(
+    job.spec.podSpec.addContainer(
       new kplus.Container({
         image: 'image',
       }),

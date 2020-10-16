@@ -10,6 +10,55 @@ import { Deployment } from './deployment';
 export interface ServiceProps extends ResourceProps, ServiceSpec {}
 
 /**
+ * Specification of a `Service`.
+ */
+export interface ServiceSpec {
+
+  /**
+   * The IP address of the service and is usually assigned randomly by the
+   * master. If an address is specified manually and is not in use by others, it
+   * will be allocated to the service; otherwise, creation of the service will
+   * fail. This field can not be changed through updates. Valid values are
+   * "None", empty string (""), or a valid IP address. "None" can be specified
+   * for headless services when proxying is not required. Only applies to types
+   * ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName.
+   *
+   * @see https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+   * @default - Automatically assigned.
+   *
+   */
+  readonly clusterIP?: string;
+
+  /**
+   * A list of IP addresses for which nodes in the cluster will also accept
+   * traffic for this service. These IPs are not managed by Kubernetes. The user
+   * is responsible for ensuring that traffic arrives at a node with this IP. A
+   * common example is external load-balancers that are not part of the
+   * Kubernetes system.
+   *
+   * @default - No external IPs.
+   */
+  readonly externalIPs?: string[];
+
+  /**
+   * Determines how the Service is exposed.
+   *
+   * More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+   *
+   * @default ServiceType.ClusterIP
+   */
+  readonly type?: ServiceType;
+
+  /**
+   * The port exposed by this service.
+   *
+   * More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+   */
+  readonly ports?: ServicePort[];
+
+}
+
+/**
  * For some parts of your application (for example, frontends) you may want to expose a Service onto an
  * external IP address, that's outside of your cluster.
  * Kubernetes ServiceTypes allow you to specify what kind of Service you want.
@@ -95,7 +144,7 @@ export class Service extends Resource {
    * @param port The external port
    */
   public addDeployment(deployment: Deployment, port: number) {
-    const containers = deployment.spec.podSpecTemplate.containers;
+    const containers = deployment.spec.podSpec.containers;
     if (containers.length === 0) {
       throw new Error('Cannot expose a deployment without containers');
     }
@@ -118,7 +167,7 @@ export class Service extends Resource {
       // TODO: figure out what the correct thing to do here.
       targetPort: containers[0].port,
     });
-  }  
+  }
 }
 
 export enum Protocol {
@@ -174,54 +223,6 @@ export interface ServicePort extends ServicePortOptions {
    * The port number the service will bind to.
    */
   readonly port: number;
-}
-
-/**
- * Properties for initialization of `ServiceSpec`.
- */
-export interface ServiceSpec {
-
-  /**
-   * The IP address of the service and is usually assigned randomly by the
-   * master. If an address is specified manually and is not in use by others, it
-   * will be allocated to the service; otherwise, creation of the service will
-   * fail. This field can not be changed through updates. Valid values are
-   * "None", empty string (""), or a valid IP address. "None" can be specified
-   * for headless services when proxying is not required. Only applies to types
-   * ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName.
-   *
-   * @see https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
-   * @default - Automatically assigned.
-   *
-   */
-  readonly clusterIP?: string;
-
-  /**
-   * A list of IP addresses for which nodes in the cluster will also accept
-   * traffic for this service. These IPs are not managed by Kubernetes. The user
-   * is responsible for ensuring that traffic arrives at a node with this IP. A
-   * common example is external load-balancers that are not part of the
-   * Kubernetes system.
-   *
-   * @default - No external IPs.
-   */
-  readonly externalIPs?: string[];
-
-  /**
-   * Determines how the Service is exposed.
-   *
-   * More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-   *
-   * @default ServiceType.ClusterIP
-   */
-  readonly type?: ServiceType;
-
-  /**
-   * The port exposed by this service.
-   *
-   * More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
-   */
-  readonly ports?: ServicePort[];
 }
 
 /**
@@ -290,7 +291,7 @@ export class ServiceSpecDefinition {
 
   /**
    * Ports for this service.
-   * 
+   *
    * Use `serve()` to expose additional service ports.
    */
   public get ports() {

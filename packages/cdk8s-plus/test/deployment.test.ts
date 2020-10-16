@@ -10,21 +10,19 @@ describe('DeploymentSpecDefinition', () => {
     new kplus.Deployment(chart, 'Deployment');
     const spec = new kplus.DeploymentSpecDefinition({
       replicas: 3,
-      template: {
-        spec: {
-          serviceAccount: kplus.ServiceAccount.fromServiceAccountName('my-service-account'),
-          containers: [
-            new kplus.Container({ image: 'my-image' }),
-          ],
-        },
+      podSpec: {
+        serviceAccount: kplus.ServiceAccount.fromServiceAccountName('my-service-account'),
+        containers: [
+          new kplus.Container({ image: 'my-image' }),
+        ],
       },
     });
 
     const actual: k8s.DeploymentSpec = spec._toKube();
 
     expect(actual.replicas).toEqual(3);
-    expect(spec.template.spec.serviceAccount?.name).toBe('my-service-account');
-    expect(spec.template.spec.containers[0].image).toBe('my-image');
+    expect(spec.podSpec.serviceAccount?.name).toBe('my-service-account');
+    expect(spec.podSpec.containers[0].image).toBe('my-image');
   });
 
   test('A label selector is automatically allocated', () => {
@@ -32,7 +30,7 @@ describe('DeploymentSpecDefinition', () => {
     const chart = Testing.chart();
 
     const d = new kplus.Deployment(chart, 'Deployment');
-    d.spec.podSpecTemplate.addContainer(new kplus.Container({ image: 'foobar' }));
+    d.spec.podSpec.addContainer(new kplus.Container({ image: 'foobar' }));
 
     const spec = d.spec._toKube();
 
@@ -46,12 +44,10 @@ describe('DeploymentSpecDefinition', () => {
     const chart = Testing.chart();
 
     // WHEN
-    const d = new kplus.Deployment(chart, 'Deployment', { 
+    const d = new kplus.Deployment(chart, 'Deployment', {
       defaultSelector: false,
-      spec: {
-        podSpecTemplate: {
-          containers: [ new kplus.Container({ image: 'foobar' }) ],
-        },
+      podSpec: {
+        containers: [ new kplus.Container({ image: 'foobar' }) ],
       },
     });
 
@@ -63,7 +59,7 @@ describe('DeploymentSpecDefinition', () => {
   test('Can select labels', () => {
     const spec = new kplus.DeploymentSpecDefinition();
 
-    spec.template.spec.addContainer(
+    spec.podSpec.addContainer(
       new kplus.Container({
         image: 'image',
       }),
@@ -91,7 +87,7 @@ describe('Deployment', () => {
     const chart = Testing.chart();
 
     const deployment = new kplus.Deployment(chart, 'Deployment');
-    deployment.spec.template.spec.addContainer(
+    deployment.spec.podSpec.addContainer(
       new kplus.Container({
         image: 'image',
         port: 9300,
@@ -118,7 +114,7 @@ describe('Deployment', () => {
 
     const deployment = new kplus.Deployment(chart, 'Deployment');
 
-    deployment.spec.template.spec.addContainer(
+    deployment.spec.podSpec.addContainer(
       new kplus.Container({
         image: 'image',
         port: 9300,
@@ -151,7 +147,7 @@ describe('Deployment', () => {
   test('Generates spec lazily', () => {
     const chart = Testing.chart();
     const deployment = new kplus.Deployment(chart, 'Deployment');
-    deployment.spec.template.spec.addContainer(
+    deployment.spec.podSpec.addContainer(
       new kplus.Container({
         image: 'image',
         port: 9300,
@@ -171,13 +167,11 @@ describe('Deployment', () => {
 
     const chart = Testing.chart();
     new kplus.Deployment(chart, 'Deployment', {
-      template: {
-        spec: {
-          containers: [new kplus.Container({
-            image: 'image',
-            port: 9300,
-          })],
-        },
+      podSpec: {
+        containers: [new kplus.Container({
+          image: 'image',
+          port: 9300,
+        })],
       },
     });
 

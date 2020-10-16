@@ -110,7 +110,7 @@ describe('Service', () => {
     const chart = Testing.chart();
     const service = new kplus.Service(chart, 'service');
     const dep = new kplus.Deployment(chart, 'dep');
-    dep.spec.podSpecTemplate.addContainer(new kplus.Container({ image: 'foo', port: 7777 }));
+    dep.spec.podSpec.addContainer(new kplus.Container({ image: 'foo', port: 7777 }));
 
     // WHEN
     service.addDeployment(dep, 1122);
@@ -120,28 +120,26 @@ describe('Service', () => {
     expect(dep.spec._toKube().selector.matchLabels).toEqual(expectedSelector);
     expect(dep.spec._toKube().template.metadata?.labels).toEqual(expectedSelector);
     expect(service.spec._toKube()).toEqual({
-      clusterIP: undefined, 
-      externalIPs: [], 
+      clusterIP: undefined,
+      externalIPs: [],
       ports: [{
-        nodePort: undefined, 
-        port: 1122, 
+        nodePort: undefined,
+        port: 1122,
         targetPort: 7777,
-      }], 
-      selector: expectedSelector, 
+      }],
+      selector: expectedSelector,
       type: 'ClusterIP',
     });
   });
-  
+
   test('addDeployment() fails if the deployment dose not have a label selector', () => {
     // GIVEN
     const chart = Testing.chart();
     const service = new kplus.Service(chart, 'service');
-    const dep = new kplus.Deployment(chart, 'dep', { 
+    const dep = new kplus.Deployment(chart, 'dep', {
       defaultSelector: false,
-      spec: {
-        podSpecTemplate: {
-          containers: [ new kplus.Container({ image: 'foo' }) ],
-        },
+      podSpec: {
+        containers: [ new kplus.Container({ image: 'foo' }) ],
       },
     });
 
@@ -154,10 +152,8 @@ describe('Service', () => {
     const chart = Testing.chart();
     const service = new kplus.Service(chart, 'service');
     const dep1 = new kplus.Deployment(chart, 'dep1', {
-      spec: {
-        podSpecTemplate: {
-          containers: [ new kplus.Container({ image: 'foo' }) ],
-        },
+      podSpec: {
+        containers: [ new kplus.Container({ image: 'foo' }) ],
       },
     });
     service.spec.addSelector('random', 'selector');

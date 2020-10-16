@@ -122,7 +122,7 @@ function doSearch(uri, callback) {
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": Object {
-      "name": "test-chart-deployment-pod-1ef542cf",
+      "name": "test-chart-deployment-c5d38cbe",
     },
     "spec": Object {
       "replicas": 1,

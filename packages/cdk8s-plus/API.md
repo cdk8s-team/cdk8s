@@ -34,7 +34,7 @@ Name|Description
 [ConfigMapVolumeOptions](#cdk8s-plus-configmapvolumeoptions)|Options for the ConfigMap-based volume.
 [ContainerProps](#cdk8s-plus-containerprops)|Properties for creating a container.
 [DeploymentProps](#cdk8s-plus-deploymentprops)|Properties for initialization of `Deployment`.
-[DeploymentSpec](#cdk8s-plus-deploymentspec)|Properties for initialization of `DeploymentSpec`.
+[DeploymentSpec](#cdk8s-plus-deploymentspec)|Specification of a `Deployment`.
 [EmptyDirVolumeOptions](#cdk8s-plus-emptydirvolumeoptions)|Options for volumes populated with an empty directory.
 [EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)|Options to specify an envionment variable value from a ConfigMap key.
 [EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|Options to specify an environment variable value from the process environment.
@@ -43,11 +43,11 @@ Name|Description
 [IngressProps](#cdk8s-plus-ingressprops)|Properties for `Ingress`.
 [IngressRule](#cdk8s-plus-ingressrule)|Represents the rules mapping the paths under a specified host to the related backend services.
 [JobProps](#cdk8s-plus-jobprops)|Properties for initialization of `Job`.
-[JobSpec](#cdk8s-plus-jobspec)|Properties for initialization of `JobSpec`.
+[JobSpec](#cdk8s-plus-jobspec)|Specification of a `Job`.
 [MountOptions](#cdk8s-plus-mountoptions)|Options for mounts.
 [PathMapping](#cdk8s-plus-pathmapping)|Maps a string key to a path within a volume.
 [PodProps](#cdk8s-plus-podprops)|Properties for initialization of `Pod`.
-[PodSpec](#cdk8s-plus-podspec)|Properties for initialization of `PodSpec`.
+[PodSpec](#cdk8s-plus-podspec)|Specification of a `Pod`.
 [ResourceProps](#cdk8s-plus-resourceprops)|Initialization properties for resources.
 [SecretProps](#cdk8s-plus-secretprops)|*No description*
 [ServiceAccountProps](#cdk8s-plus-serviceaccountprops)|Properties for initialization of `ServiceAccount`.
@@ -55,7 +55,7 @@ Name|Description
 [ServicePort](#cdk8s-plus-serviceport)|Definition of a service port.
 [ServicePortOptions](#cdk8s-plus-serviceportoptions)|*No description*
 [ServiceProps](#cdk8s-plus-serviceprops)|Properties for initialization of `Service`.
-[ServiceSpec](#cdk8s-plus-servicespec)|Properties for initialization of `ServiceSpec`.
+[ServiceSpec](#cdk8s-plus-servicespec)|Specification of a `Service`.
 [SizeConversionOptions](#cdk8s-plus-sizeconversionoptions)|Options for how to convert time to a different unit.
 [TimeConversionOptions](#cdk8s-plus-timeconversionoptions)|Options for how to convert time to a different unit.
 [VolumeMount](#cdk8s-plus-volumemount)|Mount a volume from the pod to the container.
@@ -327,7 +327,9 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 * **props** (<code>[DeploymentProps](#cdk8s-plus-deploymentprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
   * **defaultSelector** (<code>boolean</code>)  Automatically allocates a pod selector for this deployment. __*Default*__: true
-  * **spec** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  The spec of the deployment. __*Default*__: An empty spec will be created.
+  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata for the deployment pods. __*Default*__: Empty metadata. Can be configured via the `deployment.spec.podMetadata` field.
+  * **podSpec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  Spec for the deployment pods. __*Default*__: Empty spec. Can be configured via the `deployment.spec.podSpec` field.
+  * **replicas** (<code>number</code>)  Number of desired pods. __*Default*__: 1
 
 
 
@@ -372,12 +374,14 @@ DeploymentSpec is the specification of the desired behavior of the Deployment.
 
 
 ```ts
-new DeploymentSpecDefinition(props?: DeploymentSpec)
+new DeploymentSpecDefinition(props?: DeploymentProps)
 ```
 
-* **props** (<code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code>)  *No description*
-  * **podMetadataTemplate** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Template for pod metadata. __*Optional*__
-  * **podSpecTemplate** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  Template for pod specs. __*Optional*__
+* **props** (<code>[DeploymentProps](#cdk8s-plus-deploymentprops)</code>)  *No description*
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **defaultSelector** (<code>boolean</code>)  Automatically allocates a pod selector for this deployment. __*Default*__: true
+  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata for the deployment pods. __*Default*__: Empty metadata. Can be configured via the `deployment.spec.podMetadata` field.
+  * **podSpec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  Spec for the deployment pods. __*Default*__: Empty spec. Can be configured via the `deployment.spec.podSpec` field.
   * **replicas** (<code>number</code>)  Number of desired pods. __*Default*__: 1
 
 
@@ -388,8 +392,8 @@ new DeploymentSpecDefinition(props?: DeploymentSpec)
 Name | Type | Description 
 -----|------|-------------
 **labelSelector**🔹 | <code>Map<string, string></code> | The labels this deployment will match against in order to select pods.
-**podMetadataTemplate**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Template for pod metadata.
-**podSpecTemplate**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | Provides access to the underlying pod template spec.
+**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides access to the underlying pod metadata.
+**podSpec**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | Provides access to the underlying pod spec.
 **replicas**?🔹 | <code>number</code> | Number of desired pods.<br/>__*Optional*__
 
 ### Methods
@@ -874,7 +878,9 @@ new Job(scope: Construct, id: string, props?: JobProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[JobProps](#cdk8s-plus-jobprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
-  * **spec** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  The spec of the job. __*Default*__: An empty spec will be created.
+  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata for the job pods. __*Default*__: Empty metadata. Can be configured via the `job.spec.podMetadata` field.
+  * **podSpec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  Spec for the job pods. __*Default*__: Empty spec. Can be configured via the `job.spec.podSpec` field.
+  * **ttlAfterFinished** (<code>[Duration](#cdk8s-plus-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). __*Default*__: If this field is unset, the Job won't be automatically deleted.
 
 
 
@@ -903,8 +909,8 @@ new JobSpecDefinition(props?: JobSpec)
 ```
 
 * **props** (<code>[JobSpec](#cdk8s-plus-jobspec)</code>)  *No description*
-  * **podMetadataTemplate** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The metadata of pods created by this job. __*Optional*__
-  * **podSpecTemplate** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of pods created by this job. __*Optional*__
+  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata for the job pods. __*Default*__: Empty metadata. Can be configured via the `job.spec.podMetadata` field.
+  * **podSpec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  Spec for the job pods. __*Default*__: Empty spec. Can be configured via the `job.spec.podSpec` field.
   * **ttlAfterFinished** (<code>[Duration](#cdk8s-plus-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). __*Default*__: If this field is unset, the Job won't be automatically deleted.
 
 
@@ -914,8 +920,8 @@ new JobSpecDefinition(props?: JobSpec)
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadataTemplate**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | The metadata for pods created by this job.
-**podSpecTemplate**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | The spec for pods created by this job.
+**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides access to the underlying pod metadata.
+**podSpec**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | Provides access to the underlying pod spec.
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | TTL before the job is deleted after it is finished.<br/>__*Optional*__
 
 
@@ -943,7 +949,10 @@ new Pod(scope: Construct, id: string, props?: PodProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[PodProps](#cdk8s-plus-podprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
-  * **spec** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  The spec of the pod. __*Default*__: An empty spec will be created.
+  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
+  * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
+  * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
 
 
 
@@ -1170,7 +1179,10 @@ new Service(scope: Construct, id: string, props?: ServiceProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[ServiceProps](#cdk8s-plus-serviceprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
-  * **spec** (<code>[ServiceSpec](#cdk8s-plus-servicespec)</code>)  The spec of the service. __*Default*__: An empty spec will be created.
+  * **clusterIP** (<code>string</code>)  The IP address of the service and is usually assigned randomly by the master. __*Default*__: Automatically assigned.
+  * **externalIPs** (<code>Array<string></code>)  A list of IP addresses for which nodes in the cluster will also accept traffic for this service. __*Default*__: No external IPs.
+  * **ports** (<code>Array<[ServicePort](#cdk8s-plus-serviceport)></code>)  The port exposed by this service. __*Optional*__
+  * **type** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  Determines how the Service is exposed. __*Default*__: ServiceType.ClusterIP
 
 
 
@@ -1692,21 +1704,24 @@ Name | Type | Description
 -----|------|-------------
 **defaultSelector**?🔹 | <code>boolean</code> | Automatically allocates a pod selector for this deployment.<br/>__*Default*__: true
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
-**spec**?🔹 | <code>[DeploymentSpec](#cdk8s-plus-deploymentspec)</code> | The spec of the deployment.<br/>__*Default*__: An empty spec will be created.
+**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata for the deployment pods.<br/>__*Default*__: Empty metadata. Can be configured via the `deployment.spec.podMetadata` field.
+**podSpec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Spec for the deployment pods.<br/>__*Default*__: Empty spec. Can be configured via the `deployment.spec.podSpec` field.
+**replicas**?🔹 | <code>number</code> | Number of desired pods.<br/>__*Default*__: 1
 
 
 
 ## struct DeploymentSpec 🔹 <a id="cdk8s-plus-deploymentspec"></a>
 
 
-Properties for initialization of `DeploymentSpec`.
+Specification of a `Deployment`.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadataTemplate**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Template for pod metadata.<br/>__*Optional*__
-**podSpecTemplate**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Template for pod specs.<br/>__*Optional*__
+**defaultSelector**?🔹 | <code>boolean</code> | Automatically allocates a pod selector for this deployment.<br/>__*Default*__: true
+**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata for the deployment pods.<br/>__*Default*__: Empty metadata. Can be configured via the `deployment.spec.podMetadata` field.
+**podSpec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Spec for the deployment pods.<br/>__*Default*__: Empty spec. Can be configured via the `deployment.spec.podSpec` field.
 **replicas**?🔹 | <code>number</code> | Number of desired pods.<br/>__*Default*__: 1
 
 
@@ -1883,21 +1898,23 @@ Properties for initialization of `Job`.
 Name | Type | Description 
 -----|------|-------------
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
-**spec**?🔹 | <code>[JobSpec](#cdk8s-plus-jobspec)</code> | The spec of the job.<br/>__*Default*__: An empty spec will be created.
+**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata for the job pods.<br/>__*Default*__: Empty metadata. Can be configured via the `job.spec.podMetadata` field.
+**podSpec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Spec for the job pods.<br/>__*Default*__: Empty spec. Can be configured via the `job.spec.podSpec` field.
+**ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/>__*Default*__: If this field is unset, the Job won't be automatically deleted.
 
 
 
 ## struct JobSpec 🔹 <a id="cdk8s-plus-jobspec"></a>
 
 
-Properties for initialization of `JobSpec`.
+Specification of a `Job`.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadataTemplate**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The metadata of pods created by this job.<br/>__*Optional*__
-**podSpecTemplate**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of pods created by this job.<br/>__*Optional*__
+**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata for the job pods.<br/>__*Default*__: Empty metadata. Can be configured via the `job.spec.podMetadata` field.
+**podSpec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | Spec for the job pods.<br/>__*Default*__: Empty spec. Can be configured via the `job.spec.podSpec` field.
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/>__*Default*__: If this field is unset, the Job won't be automatically deleted.
 
 
@@ -1941,15 +1958,18 @@ Properties for initialization of `Pod`.
 
 Name | Type | Description 
 -----|------|-------------
+**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
-**spec**?🔹 | <code>[PodSpec](#cdk8s-plus-podspec)</code> | The spec of the pod.<br/>__*Default*__: An empty spec will be created.
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
+**volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/>__*Default*__: No volumes.
 
 
 
 ## struct PodSpec 🔹 <a id="cdk8s-plus-podspec"></a>
 
 
-Properties for initialization of `PodSpec`.
+Specification of a `Pod`.
 
 
 
@@ -2060,15 +2080,18 @@ Properties for initialization of `Service`.
 
 Name | Type | Description 
 -----|------|-------------
+**clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/>__*Default*__: Automatically assigned.
+**externalIPs**?🔹 | <code>Array<string></code> | A list of IP addresses for which nodes in the cluster will also accept traffic for this service.<br/>__*Default*__: No external IPs.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
-**spec**?🔹 | <code>[ServiceSpec](#cdk8s-plus-servicespec)</code> | The spec of the service.<br/>__*Default*__: An empty spec will be created.
+**ports**?🔹 | <code>Array<[ServicePort](#cdk8s-plus-serviceport)></code> | The port exposed by this service.<br/>__*Optional*__
+**type**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | Determines how the Service is exposed.<br/>__*Default*__: ServiceType.ClusterIP
 
 
 
 ## struct ServiceSpec 🔹 <a id="cdk8s-plus-servicespec"></a>
 
 
-Properties for initialization of `ServiceSpec`.
+Specification of a `Service`.
 
 
 
