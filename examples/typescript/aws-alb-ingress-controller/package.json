@@ -13,6 +13,11 @@
     "test": "jest",
     "build": "npm run compile && npm run test && npm run synth"
   },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
   "dependencies": {
     "cdk8s": "^0.30.0",
     "cdk8s-aws-alb-ingress-controller": "0.0.9",
