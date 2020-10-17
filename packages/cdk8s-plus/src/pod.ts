@@ -9,8 +9,7 @@ import { Volume } from './volume';
 /**
  * Represents a resource that controls pods. (e.g `Deployment`, `Job`, `Pod`...).
  *
- * Resources that deploy pods should implement this interface. Use the `PodSpecDefinition`
- * class as an implementation helper.
+ * Use the `PodSpecDefinition` class as an implementation helper.
  */
 export interface IPodController {
 

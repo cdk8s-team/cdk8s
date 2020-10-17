@@ -116,8 +116,8 @@ export class Deployment extends Resource implements IPodController {
     });
 
     this.replicas = props.replicas ?? 1;
-
     this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+
     this._podSpec = new PodSpecDefinition(props.podSpec);
     this._labelSelector = {};
 
