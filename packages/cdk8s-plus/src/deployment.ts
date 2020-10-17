@@ -1,10 +1,13 @@
 import * as k8s from './imports/k8s';
 import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
-import { ResourceProps } from './base';
+import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
-import { PodAwareResource, PodSpec } from './pod'
+import { RestartPolicy, IPod, PodSpec, PodSpecDefinition } from './pod'
+import { Volume } from './volume';
+import { Container } from './container';
+import { IServiceAccount } from './service-account';
 
 /**
  * Properties for initialization of `Deployment`.
@@ -84,7 +87,7 @@ export interface ExposeOptions {
 * - Clean up older ReplicaSets that you don't need anymore.
 *
 **/
-export class Deployment extends PodAwareResource {
+export class Deployment extends Resource implements IPod {
 
   /**
    * Number of desired pods.
@@ -96,11 +99,8 @@ export class Deployment extends PodAwareResource {
    */
   protected readonly apiObject: cdk8s.ApiObject;
 
-  /**
-   * @see pod.PodResource.podMetadataDefinition
-   */
-  protected readonly podMetadataDefinition: ApiObjectMetadataDefinition;
-
+  private readonly _podMetadata: ApiObjectMetadataDefinition;
+  private readonly _podSpec: PodSpecDefinition;
   private readonly _labelSelector: Record<string, string>;
 
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
@@ -110,15 +110,17 @@ export class Deployment extends PodAwareResource {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
-    this.podMetadataDefinition = new ApiObjectMetadataDefinition(props.podMetadata);
 
     this.replicas = props.replicas ?? 1;
+
+    this._podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+    this._podSpec = new PodSpecDefinition(props.podSpec);
     this._labelSelector = {};
 
     if (props.defaultSelector ?? true) {
       const selector = 'cdk8s.deployment';
       const matcher = Names.toLabelValue(Node.of(this).path);
-      this.podMetadataDefinition.addLabel(selector, matcher);
+      this._podMetadata.addLabel(selector, matcher);
       this.selectByLabel(selector, matcher);
     }
   }
@@ -130,6 +132,22 @@ export class Deployment extends PodAwareResource {
    */
   public get labelSelector(): Record<string, string> {
     return { ...this._labelSelector };
+  }
+
+  public get containers(): Container[] {
+    return this._podSpec.containers;
+  }
+
+  public get volumes(): Volume[] {
+    return this._podSpec.volumes;
+  }
+
+  public get restartPolicy(): RestartPolicy | undefined {
+    return this._podSpec.restartPolicy;
+  }
+
+  public get serviceAccount(): IServiceAccount | undefined {
+    return this._podSpec.serviceAccount;
   }
 
   /**
@@ -160,6 +178,15 @@ export class Deployment extends PodAwareResource {
     return service;
   }
 
+  public addContainer(container: Container): void {
+    return this._podSpec.addContainer(container);
+  }
+
+  public addVolume(volume: Volume): void {
+    return this._podSpec.addVolume(volume);
+  }
+
+
   /**
    * @internal
    */
@@ -167,8 +194,8 @@ export class Deployment extends PodAwareResource {
     return {
       replicas: this.replicas,
       template: {
-        metadata: this.podMetadataDefinition.toJson(),
-        spec: this.podSpecToKube(),
+        metadata: this._podMetadata.toJson(),
+        spec: this._podSpec._toKube(),
       },
       selector: {
         matchLabels: this._labelSelector,

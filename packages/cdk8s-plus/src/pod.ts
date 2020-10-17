@@ -5,38 +5,43 @@ import * as cdk8s from 'cdk8s';
 import { IServiceAccount } from './service-account';
 import { Container } from './container';
 import { Volume } from './volume';
-import { ApiObjectMetadataDefinition } from 'cdk8s';
 
-export abstract class PodAwareResource extends Resource {
+export interface IPod {
+
+  readonly containers: Container[];
+
+  readonly volumes: Volume[];
 
   /**
    * Restart policy for all containers within the pod.
    */
-  public readonly restartPolicy?: RestartPolicy;
+  readonly restartPolicy?: RestartPolicy;
 
   /**
    * The service account used to run this pod.
    */
+  readonly serviceAccount?: IServiceAccount;
+
+  addContainer(container: Container): void;
+
+  addVolume(volume: Volume): void;
+
+}
+
+export class PodSpecDefinition {
+
+  public readonly restartPolicy?: RestartPolicy;
   public readonly serviceAccount?: IServiceAccount;
 
   private readonly _containers: Container[];
   private readonly _volumes: Volume[];
 
-  protected abstract readonly podMetadataDefinition: ApiObjectMetadataDefinition;
-
-  constructor(scope: Construct, id: string, props: PodProps = {}) {
-    super(scope, id, { metadata: props.metadata })
-
+  constructor(props: PodSpec = {}) {
     this.restartPolicy = props.restartPolicy;
     this.serviceAccount = props.serviceAccount;
 
     this._containers = props.containers ?? [];
     this._volumes = props.volumes ?? [];
-
-  }
-
-  public get podMetadata(): ApiObjectMetadataDefinition {
-    return this.podMetadataDefinition;
   }
 
   public get containers(): Container[] {
@@ -55,7 +60,10 @@ export abstract class PodAwareResource extends Resource {
     this._volumes.push(volume);
   }
 
-  protected podSpecToKube(): k8s.PodSpec {
+  /**
+   * @internal
+   */
+  public _toKube(): k8s.PodSpec {
 
     if (this.containers.length === 0) {
       throw new Error('PodSpec must have at least 1 container');
@@ -152,29 +160,50 @@ export interface PodSpec {
  * Pod is a collection of containers that can run on a host. This resource is
  * created by clients and scheduled onto hosts.
  */
-export class Pod extends PodAwareResource {
+export class Pod extends Resource implements IPod {
 
   /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
 
-  /**
-   * @see pod.PodResource.podMetadataDefinition
-   */
-  protected readonly podMetadataDefinition: ApiObjectMetadataDefinition;
+  private readonly _spec: PodSpecDefinition;
 
   constructor(scope: Construct, id: string, props: PodProps = {}) {
     super(scope, id, props);
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.podSpecToKube() }),
+      spec: cdk8s.Lazy.any({ produce: () => this._spec._toKube() }),
     });
 
-    this.podMetadataDefinition = this.apiObject.metadata;
-
+    this._spec = new PodSpecDefinition(props);
   }
+
+  public get containers(): Container[] {
+    return this._spec.containers;
+  }
+
+  public get volumes(): Volume[] {
+    return this._spec.volumes;
+  }
+
+  public get restartPolicy(): RestartPolicy | undefined {
+    return this._spec.restartPolicy;
+  }
+
+  public get serviceAccount(): IServiceAccount | undefined {
+    return this._spec.serviceAccount;
+  }
+
+  public addContainer(container: Container): void {
+    return this._spec.addContainer(container);
+  }
+
+  public addVolume(volume: Volume): void {
+    return this._spec.addVolume(volume);
+  }
+
 }
 
 /**

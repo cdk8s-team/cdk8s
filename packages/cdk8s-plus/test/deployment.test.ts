@@ -18,7 +18,6 @@ test('A label selector is automatically allocated', () => {
 
   // assert the deployment object has it.
   expect(deployment.labelSelector).toEqual(expectedSelector);
-  expect(deployment.podMetadata.getLabel('cdk8s.deployment')).toEqual(expectedValue);
 
 });
 
@@ -40,7 +39,6 @@ test('No selector is generated if "defaultSelector" is false', () => {
 
   // assert the deployment object doesnt have it.
   expect(deployment.labelSelector).toEqual({});
-  expect(deployment.podMetadata.getLabel('cdk8s.deployment')).toEqual(undefined);
 
 });
 

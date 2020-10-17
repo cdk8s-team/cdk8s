@@ -1,11 +1,13 @@
-import { ResourceProps } from './base';
+import { Resource, ResourceProps } from './base';
 import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
-
 import * as k8s from './imports/k8s';
-import { RestartPolicy, PodSpec, PodAwareResource } from './pod';
+import { RestartPolicy, PodSpec, IPod, PodSpecDefinition } from './pod';
 import { Duration } from './duration';
+import { Container } from './container';
+import { IServiceAccount } from './service-account';
+import { Volume } from './volume';
 
 
 /**
@@ -49,7 +51,7 @@ export interface JobProps extends ResourceProps {
  * The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
  * You can also use a Job to run multiple Pods in parallel.
  */
-export class Job extends PodAwareResource {
+export class Job extends Resource implements IPod {
 
   /**
    * TTL before the job is deleted after it is finished.
@@ -62,26 +64,48 @@ export class Job extends PodAwareResource {
    */
   protected readonly apiObject: ApiObject;
 
-  /**
-   * @see pod.PodResource.podMetadataDefinition
-   */
-  protected readonly podMetadataDefinition: ApiObjectMetadataDefinition;
+  private readonly _podMetadata: ApiObjectMetadataDefinition;
+  private readonly _podSpec: PodSpecDefinition;
 
   constructor(scope: Construct, id: string, props: JobProps = {}) {
-    super(scope, id, {
-      metadata: props.podMetadata,
-      ...props.podSpec,
-      restartPolicy: props.podSpec?.restartPolicy ?? RestartPolicy.NEVER,
-    });
+    super(scope, id, props);
 
     this.apiObject = new k8s.Job(this, 'Default', {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
 
-    this.podMetadataDefinition = new ApiObjectMetadataDefinition(props.podMetadata);
+    this._podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+    this._podSpec = new PodSpecDefinition({
+      ...props.podSpec,
+      restartPolicy: props.podSpec?.restartPolicy ?? RestartPolicy.NEVER,
+    })
     this.ttlAfterFinished = props.ttlAfterFinished;
 
+  }
+
+  public get containers(): Container[] {
+    return this._podSpec.containers;
+  }
+
+  public get volumes(): Volume[] {
+    return this._podSpec.volumes;
+  }
+
+  public get restartPolicy(): RestartPolicy | undefined {
+    return this._podSpec.restartPolicy;
+  }
+
+  public get serviceAccount(): IServiceAccount | undefined {
+    return this._podSpec.serviceAccount;
+  }
+
+  public addContainer(container: Container): void {
+    return this._podSpec.addContainer(container);
+  }
+
+  public addVolume(volume: Volume): void {
+    return this._podSpec.addVolume(volume);
   }
 
   /**
@@ -90,8 +114,8 @@ export class Job extends PodAwareResource {
   public _toKube(): k8s.JobSpec {
     return {
       template: {
-        metadata: this.podMetadataDefinition.toJson(),
-        spec: this.podSpecToKube(),
+        metadata: this._podMetadata.toJson(),
+        spec: this._podSpec._toKube(),
       },
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };

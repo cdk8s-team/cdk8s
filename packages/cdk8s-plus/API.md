@@ -13,7 +13,7 @@ Name|Description
 [IngressBackend](#cdk8s-plus-ingressbackend)|The backend for an ingress path.
 [Job](#cdk8s-plus-job)|A Job creates one or more Pods and ensures that a specified number of them successfully terminate.
 [Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
-[PodResource](#cdk8s-plus-podresource)|*No description*
+[PodSpecDefinition](#cdk8s-plus-podspecdefinition)|*No description*
 [Resource](#cdk8s-plus-resource)|Base class for all Kubernetes objects in stdk8s.
 [Secret](#cdk8s-plus-secret)|Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
 [Service](#cdk8s-plus-service)|An abstract way to expose an application running on a set of Pods as a network service.
@@ -306,7 +306,7 @@ The following are typical use cases for Deployments:
 - Clean up older ReplicaSets that you don't need anymore.
 
 __Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IPod](#cdk8s-plus-ipod)
-__Extends__: [PodResource](#cdk8s-plus-podresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -334,11 +334,40 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
+**containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | <span></span>
 **labelSelector**🔹 | <code>Map<string, string></code> | The labels this deployment will match against in order to select pods.
-**podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
 **replicas**🔹 | <code>number</code> | Number of desired pods.
+**volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | <span></span>
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
 
 ### Methods
+
+
+#### addContainer(container)🔹 <a id="cdk8s-plus-deployment-addcontainer"></a>
+
+
+
+```ts
+addContainer(container: Container): void
+```
+
+* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
+
+
+
+
+#### addVolume(volume)🔹 <a id="cdk8s-plus-deployment-addvolume"></a>
+
+
+
+```ts
+addVolume(volume: Volume): void
+```
+
+* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  *No description*
+
+
 
 
 #### expose(port, options?)🔹 <a id="cdk8s-plus-deployment-expose"></a>
@@ -822,7 +851,7 @@ The Job object will start a new Pod if the first Pod fails or is deleted (for ex
 You can also use a Job to run multiple Pods in parallel.
 
 __Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IPod](#cdk8s-plus-ipod)
-__Extends__: [PodResource](#cdk8s-plus-podresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -849,8 +878,40 @@ new Job(scope: Construct, id: string, props?: JobProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | <span></span>
+**volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | <span></span>
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | TTL before the job is deleted after it is finished.<br/>__*Optional*__
+
+### Methods
+
+
+#### addContainer(container)🔹 <a id="cdk8s-plus-job-addcontainer"></a>
+
+
+
+```ts
+addContainer(container: Container): void
+```
+
+* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
+
+
+
+
+#### addVolume(volume)🔹 <a id="cdk8s-plus-job-addvolume"></a>
+
+
+
+```ts
+addVolume(volume: Volume): void
+```
+
+* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  *No description*
+
+
+
 
 
 
@@ -862,7 +923,7 @@ This resource is
 created by clients and scheduled onto hosts.
 
 __Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IPod](#cdk8s-plus-ipod)
-__Extends__: [PodResource](#cdk8s-plus-podresource)
+__Extends__: [Resource](#cdk8s-plus-resource)
 
 ### Initializer
 
@@ -890,17 +951,46 @@ new Pod(scope: Construct, id: string, props?: PodProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | <span></span>
+**volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | <span></span>
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
+
+### Methods
+
+
+#### addContainer(container)🔹 <a id="cdk8s-plus-pod-addcontainer"></a>
 
 
 
-## class PodResource 🔹 <a id="cdk8s-plus-podresource"></a>
+```ts
+addContainer(container: Container): void
+```
+
+* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
 
 
 
-__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-iresource), [IPod](#cdk8s-plus-ipod)
-__Extends__: [Resource](#cdk8s-plus-resource)
-__Implemented by__: [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job), [Pod](#cdk8s-plus-pod)
+
+#### addVolume(volume)🔹 <a id="cdk8s-plus-pod-addvolume"></a>
+
+
+
+```ts
+addVolume(volume: Volume): void
+```
+
+* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  *No description*
+
+
+
+
+
+
+## class PodSpecDefinition 🔹 <a id="cdk8s-plus-podspecdefinition"></a>
+
+
+
 
 ### Initializer
 
@@ -908,13 +998,10 @@ __Implemented by__: [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job)
 
 
 ```ts
-new PodResource(scope: Construct, id: string, props?: PodProps)
+new PodSpecDefinition(props?: PodSpec)
 ```
 
-* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **id** (<code>string</code>)  *No description*
-* **props** (<code>[PodProps](#cdk8s-plus-podprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+* **props** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  *No description*
   * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
@@ -928,16 +1015,14 @@ new PodResource(scope: Construct, id: string, props?: PodProps)
 Name | Type | Description 
 -----|------|-------------
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | <span></span>
-**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
-**podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
 **volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | <span></span>
-**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
-**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | __*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | __*Optional*__
 
 ### Methods
 
 
-#### addContainer(container)🔹 <a id="cdk8s-plus-podresource-addcontainer"></a>
+#### addContainer(container)🔹 <a id="cdk8s-plus-podspecdefinition-addcontainer"></a>
 
 
 
@@ -950,7 +1035,7 @@ addContainer(container: Container): void
 
 
 
-#### addVolume(volume)🔹 <a id="cdk8s-plus-podresource-addvolume"></a>
+#### addVolume(volume)🔹 <a id="cdk8s-plus-podspecdefinition-addvolume"></a>
 
 
 
@@ -962,18 +1047,6 @@ addVolume(volume: Volume): void
 
 
 
-
-#### protected podSpecToKube()🔹 <a id="cdk8s-plus-podresource-podspectokube"></a>
-
-
-
-```ts
-protected podSpecToKube(): PodSpec
-```
-
-
-__Returns__:
-* <code>[PodSpec](#cdk8s-plus-podspec)</code>
 
 
 
@@ -1719,8 +1792,8 @@ Name | Type | Description
 -----|------|-------------
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | <span></span>
 **volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | <span></span>
-**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | __*Optional*__
-**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | __*Optional*__
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
 
 ### Methods
 
@@ -1898,7 +1971,6 @@ Name | Type | Description
 
 ## struct PodSpec 🔹 <a id="cdk8s-plus-podspec"></a>
 
-__Obtainable from__: [PodResource](#cdk8s-plus-podresource).[podSpecToKube](#cdk8s-plus-podresource#cdk8s-plus-podresource-podspectokube)()
 
 Specification of a `Pod`.
 
