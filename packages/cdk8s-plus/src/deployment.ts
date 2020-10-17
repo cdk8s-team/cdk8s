@@ -4,7 +4,7 @@ import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
-import { RestartPolicy, IPod, PodSpec, PodSpecDefinition } from './pod'
+import { RestartPolicy, IPodController, PodSpec, PodSpecDefinition } from './pod'
 import { Volume } from './volume';
 import { Container } from './container';
 import { IServiceAccount } from './service-account';
@@ -25,7 +25,7 @@ export interface DeploymentProps extends ResourceProps {
    * Automatically allocates a pod selector for this deployment.
    *
    * If this is set to `false` you must define your selector through
-   * `podSepcTemplate.addLabel()` and `selectByLabel()`.
+   * `deployment.podMetadata.addLabel()` and `deployment.selectByLabel()`.
    *
    * @default true
    */
@@ -34,14 +34,14 @@ export interface DeploymentProps extends ResourceProps {
   /**
    * Spec for the deployment pods.
    *
-   * @default - Empty spec. Can be configured via the `deployment.spec.podSpec` field.
+   * @default - Empty spec.
    */
   readonly podSpec?: PodSpec;
 
   /**
    * Metadata for the deployment pods.
    *
-   * @default - Empty metadata. Can be configured via the `deployment.spec.podMetadata` field.
+   * @default - Empty metadata.
    */
   readonly podMetadata?: ApiObjectMetadata;
 
@@ -87,7 +87,7 @@ export interface ExposeOptions {
 * - Clean up older ReplicaSets that you don't need anymore.
 *
 **/
-export class Deployment extends Resource implements IPod {
+export class Deployment extends Resource implements IPodController {
 
   /**
    * Number of desired pods.
@@ -95,16 +95,20 @@ export class Deployment extends Resource implements IPod {
   public readonly replicas: number;
 
   /**
+   * Provides read/write access to the underlying pod metadata.
+   */
+  public readonly podMetadata: ApiObjectMetadataDefinition;
+
+  /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
 
-  private readonly _podMetadata: ApiObjectMetadataDefinition;
   private readonly _podSpec: PodSpecDefinition;
   private readonly _labelSelector: Record<string, string>;
 
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
-    super(scope, id, { metadata: props.podMetadata, ...props.podSpec});
+    super(scope, id, { metadata: props.metadata });
 
     this.apiObject = new k8s.Deployment(this, 'Deployment', {
       metadata: props.metadata,
@@ -113,14 +117,14 @@ export class Deployment extends Resource implements IPod {
 
     this.replicas = props.replicas ?? 1;
 
-    this._podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
     this._podSpec = new PodSpecDefinition(props.podSpec);
     this._labelSelector = {};
 
     if (props.defaultSelector ?? true) {
       const selector = 'cdk8s.deployment';
       const matcher = Names.toLabelValue(Node.of(this).path);
-      this._podMetadata.addLabel(selector, matcher);
+      this.podMetadata.addLabel(selector, matcher);
       this.selectByLabel(selector, matcher);
     }
   }
@@ -194,7 +198,7 @@ export class Deployment extends Resource implements IPod {
     return {
       replicas: this.replicas,
       template: {
-        metadata: this._podMetadata.toJson(),
+        metadata: this.podMetadata.toJson(),
         spec: this._podSpec._toKube(),
       },
       selector: {

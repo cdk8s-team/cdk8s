@@ -6,10 +6,26 @@ import { IServiceAccount } from './service-account';
 import { Container } from './container';
 import { Volume } from './volume';
 
-export interface IPod {
+/**
+ * Represents a resource that controls pods. (e.g `Deployment`, `Job`, `Pod`...).
+ *
+ * Resources that deploy pods should implement this interface. Use the `PodSpecDefinition`
+ * class as an implementation helper.
+ */
+export interface IPodController {
 
+  /**
+   * The containers belonging to the pod.
+   *
+   * Use `addContainer` to add containers.
+   */
   readonly containers: Container[];
 
+  /**
+   * The volumes associated with this pod.
+   *
+   * Use `addVolume` to add volumes.
+   */
   readonly volumes: Volume[];
 
   /**
@@ -22,12 +38,25 @@ export interface IPod {
    */
   readonly serviceAccount?: IServiceAccount;
 
+  /**
+   * Add a container to the pod.
+   *
+   * @param container The container.
+   */
   addContainer(container: Container): void;
 
+  /**
+   * Add a volume to the pod.
+   *
+   * @param volume The volume.
+   */
   addVolume(volume: Volume): void;
 
 }
 
+/**
+ * Provides read/write capabilities ontop of a `PodSpec`.
+ */
 export class PodSpecDefinition {
 
   public readonly restartPolicy?: RestartPolicy;
@@ -160,7 +189,7 @@ export interface PodSpec {
  * Pod is a collection of containers that can run on a host. This resource is
  * created by clients and scheduled onto hosts.
  */
-export class Pod extends Resource implements IPod {
+export class Pod extends Resource implements IPodController {
 
   /**
    * @see base.Resource.apiObject
@@ -170,7 +199,7 @@ export class Pod extends Resource implements IPod {
   private readonly _spec: PodSpecDefinition;
 
   constructor(scope: Construct, id: string, props: PodProps = {}) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,

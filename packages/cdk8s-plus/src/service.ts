@@ -129,7 +129,7 @@ export class Service extends Resource {
   private readonly _ports: ServicePort[];
 
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
     this.apiObject = new k8s.Service(this, 'Pod', {
       metadata: props.metadata,

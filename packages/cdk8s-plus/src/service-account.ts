@@ -53,12 +53,15 @@ export class ServiceAccount extends Resource implements IServiceAccount {
     return { name: name };
   }
 
+  /**
+   * @see base.Resource.apiObject
+   */
   protected readonly apiObject: ApiObject;
 
   private readonly _secrets: ISecret[];
 
   constructor(scope: Construct, id: string, props: ServiceAccountProps = { }) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
     this._secrets = props.secrets ?? [];
 

@@ -3,7 +3,7 @@ import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s
 import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
 import * as k8s from './imports/k8s';
-import { RestartPolicy, PodSpec, IPod, PodSpecDefinition } from './pod';
+import { RestartPolicy, PodSpec, IPodController, PodSpecDefinition } from './pod';
 import { Duration } from './duration';
 import { Container } from './container';
 import { IServiceAccount } from './service-account';
@@ -51,7 +51,7 @@ export interface JobProps extends ResourceProps {
  * The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
  * You can also use a Job to run multiple Pods in parallel.
  */
-export class Job extends Resource implements IPod {
+export class Job extends Resource implements IPodController {
 
   /**
    * TTL before the job is deleted after it is finished.
@@ -68,7 +68,7 @@ export class Job extends Resource implements IPod {
   private readonly _podSpec: PodSpecDefinition;
 
   constructor(scope: Construct, id: string, props: JobProps = {}) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
     this.apiObject = new k8s.Job(this, 'Default', {
       metadata: props.metadata,

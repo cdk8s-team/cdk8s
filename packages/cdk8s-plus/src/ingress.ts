@@ -36,13 +36,17 @@ export interface IngressProps extends ResourceProps {
  * based virtual hosting etc.
  */
 export class Ingress extends Resource {
+
+  /**
+   * @see base.Resource.apiObject
+   */
   protected readonly apiObject: ApiObject;
 
   private readonly _rulesPerHost: { [host: string]: k8s.HttpIngressPath[] } = {};
   private _defaultBackend?: IngressBackend;
 
   constructor(scope: Construct, id: string, props: IngressProps = {}) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
     this.apiObject = new k8s.Ingress(this, 'Ingress', {
       metadata: props.metadata,

@@ -56,13 +56,16 @@ export class ConfigMap extends Resource implements IConfigMap {
     return { name };
   }
 
+  /**
+   * @see base.Resource.apiObject
+   */
   protected readonly apiObject: cdk8s.ApiObject;
 
   private readonly _binaryData: { [key: string]: string } = { };
   private readonly _data: { [key: string]: string } = { };
 
   public constructor(scope: Construct, id: string, props: ConfigMapProps = { }) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
     this.apiObject = new k8s.ConfigMap(this, 'ConfigMap', {
       metadata: props.metadata,
