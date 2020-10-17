@@ -142,4 +142,55 @@ describe('uses local vs docker', () => {
       '.',
     ]);
   });
+
+  it('handles output correct', () => {
+    jest.spyOn(child_process, 'spawnSync')
+      .mockReturnValueOnce({
+        status: 0,
+        stderr: Buffer.from(''),
+        stdout: Buffer.from(''),
+        error: new Error('does not exist'),
+        pid: 123,
+        output: ['stdout', 'stderr'],
+        signal: null,
+      })
+      .mockReturnValueOnce({
+        status: 0,
+        stderr: Buffer.from(''),
+        stdout: Buffer.from(`---
+# Source: mysql/templates/tests/test-configmap.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: release-name-mysql-test
+  namespace: lbs
+  labels:
+    app: release-name-mysql
+    chart: "mysql-1.6.7"
+    heritage: "Tiller"
+    release: "release-name"
+data:
+  run.sh: |-
+
+---
+`),
+        pid: 123,
+        output: ['stdout', 'stderr'],
+        signal: null,
+      });
+
+
+    const app = Testing.app();
+    const chart = new Chart(app, 'test-chart');
+    new HelmChart(chart, 'test-helm-chart', {
+      chart: path.join(__dirname, './mysql'),
+    });
+
+    const results = Testing.synth(chart);
+
+    const configMap = results.find(x => x.kind === 'ConfigMap');
+    expect(configMap).toBeTruthy();
+    expect(configMap.metadata.name).toEqual('release-name-mysql-test');
+  });
 });
