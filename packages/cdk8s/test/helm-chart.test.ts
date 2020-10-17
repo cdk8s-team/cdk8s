@@ -90,7 +90,7 @@ describe('uses local vs docker', () => {
     const chart = new Chart(app, 'test-chart');
     new HelmChart(chart, 'test-helm-chart', {
       chart: path.join(__dirname, './mysql'),
-      values: 'dev-only.yaml'
+      values: 'dev-only.yaml',
     });
 
     Testing.synth(chart);
@@ -125,7 +125,7 @@ describe('uses local vs docker', () => {
     const chart = new Chart(app, 'test-chart');
     new HelmChart(chart, 'test-helm-chart', {
       chart: path.join(__dirname, './mysql'),
-      values: {one: 'two'}
+      values: {one: 'two'},
     });
 
     Testing.synth(chart);
@@ -139,7 +139,7 @@ describe('uses local vs docker', () => {
       '-w', '/app',
       'alpine/helm', 'template',
       '-f', '/props/overrides.yaml',
-      '.'
+      '.',
     ]);
   });
 });
