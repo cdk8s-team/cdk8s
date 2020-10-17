@@ -8,3 +8,4 @@ export * from './yaml';
 export * from './metadata';
 export * from './lazy';
 export * from './names';
+export * from './helm-chart';

@@ -10,6 +10,7 @@ Name|Description
 [Chart](#cdk8s-chart)|*No description*
 [DependencyGraph](#cdk8s-dependencygraph)|Represents the dependency graph for a given Node.
 [DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
+[HelmChart](#cdk8s-helmchart)|Represents a Helm chart.
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
 [Lazy](#cdk8s-lazy)|*No description*
 [Names](#cdk8s-names)|Utilities for generating unique and stable names.
@@ -25,6 +26,7 @@ Name|Description
 [ApiObjectOptions](#cdk8s-apiobjectoptions)|Options for defining API objects.
 [AppOptions](#cdk8s-appoptions)|*No description*
 [ChartOptions](#cdk8s-chartoptions)|*No description*
+[HelmChartProps](#cdk8s-helmchartprops)|*No description*
 [IncludeOptions](#cdk8s-includeoptions)|*No description*
 
 
@@ -469,6 +471,34 @@ __Returns__:
 
 
 
+## class HelmChart 🔹 <a id="cdk8s-helmchart"></a>
+
+Represents a Helm chart.
+
+Use this construct to import an existing Helm chart and incorporate it into your constructs.
+
+__Implements__: [IConstruct](#constructs-iconstruct)
+__Extends__: [Construct](#constructs-construct)
+
+### Initializer
+
+
+
+
+```ts
+new HelmChart(scope: Construct, id: string, props: HelmChartProps)
+```
+
+* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
+* **id** (<code>string</code>)  *No description*
+* **props** (<code>[HelmChartProps](#cdk8s-helmchartprops)</code>)  *No description*
+  * **chart** (<code>string</code>)  The absolute path to the chart that is being imported. 
+  * **helmCmd** (<code>string</code>)  A local 'helm' command to run. __*Default*__: "helm"
+  * **values** (<code>string &#124; Map<string, any></code>)  An optional string or object which provides all of the override values for the charts. __*Optional*__
+
+
+
+
 ## class Include 🔹 <a id="cdk8s-include"></a>
 
 Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
@@ -755,6 +785,21 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **namespace**?🔹 | <code>string</code> | The default namespace for all objects defined in this chart (directly or indirectly).<br/>__*Default*__: no namespace is synthesized (usually this implies "default")
+
+
+
+## struct HelmChartProps 🔹 <a id="cdk8s-helmchartprops"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**chart**🔹 | <code>string</code> | The absolute path to the chart that is being imported.
+**helmCmd**?🔹 | <code>string</code> | A local 'helm' command to run.<br/>__*Default*__: "helm"
+**values**?🔹 | <code>string &#124; Map<string, any></code> | An optional string or object which provides all of the override values for the charts.<br/>__*Optional*__
 
 
 
