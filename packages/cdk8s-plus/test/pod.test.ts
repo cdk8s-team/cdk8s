@@ -1,195 +1,81 @@
 import * as kplus from '../src';
-import * as k8s from '../src/imports/k8s';
-import { RestartPolicy } from '../src';
 import { Testing } from 'cdk8s';
 
-describe('PodSpecDefinition', () => {
-  test('Can add container post instantiation', () => {
-    const spec = new kplus.PodSpecDefinition();
+test('Can add container post instantiation', () => {
 
-    const container = new kplus.Container({
-      image: 'image',
-    });
+  const chart = Testing.chart();
 
-    spec.addContainer(container);
+  const pod = new kplus.Pod(chart, 'Pod');
+  pod.addContainer(new kplus.Container({ image: 'image' }));
 
-    const actual: k8s.Container[] = spec._toKube().containers;
+  const spec = Testing.synth(chart)[0].spec;
 
-    expect(actual[0].image).toEqual('image');
-  });
+  expect(spec.containers[0].image).toEqual('image');
 
-  test('Must have at least one container', () => {
-    const spec = new kplus.PodSpecDefinition();
-
-    expect(() => spec._toKube()).toThrow(
-      'PodSpec must have at least 1 container',
-    );
-  });
-
-  test('Can add volume post instantiation', () => {
-    const spec = new kplus.PodSpecDefinition();
-
-    const volume = kplus.Volume.fromEmptyDir('volume');
-
-    // spec must have at least container
-    spec.addContainer(
-      new kplus.Container({
-        image: 'image',
-      }),
-    );
-
-    spec.addVolume(volume);
-
-    const actual: k8s.Volume[] = spec._toKube().volumes!;
-
-    expect(actual[0].name).toEqual('volume');
-    expect(actual[0].emptyDir).toBeTruthy();
-  });
-
-  test('Instantiation properties are all respected', () => {
-    const spec = new kplus.PodSpecDefinition({
-      containers: [
-        new kplus.Container({
-          image: 'image',
-          name: 'container',
-        }),
-      ],
-      volumes: [kplus.Volume.fromEmptyDir('volume')],
-      restartPolicy: RestartPolicy.ALWAYS,
-      serviceAccount: kplus.ServiceAccount.fromServiceAccountName(
-        'serviceAccount',
-      ),
-    });
-
-    const actual: k8s.PodSpec = spec._toKube();
-
-    const expected: k8s.PodSpec = {
-      containers: [
-        {
-          name: 'container',
-          image: 'image',
-          imagePullPolicy: kplus.ImagePullPolicy.ALWAYS,
-          env: [],
-          command: undefined,
-          ports: [],
-          volumeMounts: [],
-          workingDir: undefined,
-        },
-      ],
-      volumes: [
-        {
-          name: 'volume',
-          emptyDir: {
-            medium: undefined,
-            sizeLimit: undefined,
-          },
-        },
-      ],
-      restartPolicy: 'Always',
-      serviceAccountName: 'serviceAccount',
-    };
-
-    expect(actual).toEqual(expected);
-  });
-
-  test('Automatically adds volumes from container mounts', () => {
-    const spec = new kplus.PodSpecDefinition();
-
-    const volume = kplus.Volume.fromEmptyDir('volume');
-
-    const container = new kplus.Container({
-      image: 'image',
-    });
-
-    container.mount('/path/to/mount', volume);
-
-    spec.addContainer(container);
-
-    // make sure the volume configured in the mount exist on the pod spec.
-    const actual: k8s.Volume[] = spec._toKube().volumes!;
-
-    expect(actual[0].name).toEqual('volume');
-    expect(actual[0].emptyDir).toBeTruthy();
-  });
 });
 
-describe('Pod', () => {
-  test('Can instantiate without props', () => {
-    const chart = Testing.chart();
+test('Must have at least one container', () => {
 
-    const pod = new kplus.Pod(chart, 'Pod');
+  const chart = Testing.chart();
 
-    expect(pod.name).toBeDefined();
+  new kplus.Pod(chart, 'Pod');
 
+  expect(() => Testing.synth(chart)).toThrow(
+    'PodSpec must have at least 1 container',
+  );
+
+});
+
+test('Can add volume post instantiation', () => {
+
+  const chart = Testing.chart();
+
+  const pod = new kplus.Pod(chart, 'Pod', {
+    containers: [
+      new kplus.Container({ image: 'image'}),
+    ],
   });
 
-  test('Can instantiate with props', () => {
+  const volume = kplus.Volume.fromEmptyDir('volume');
+  pod.addVolume(volume);
 
-    const chart = Testing.chart();
+  const spec = Testing.synth(chart)[0].spec;
 
-    const pod = new kplus.Pod(chart, 'Pod', {
-      metadata: { name: 'name' },
-      containers: [
-        new kplus.Container({
-          image: 'image',
-        }),
-      ],
-    });
+  expect(spec.volumes[0].name).toEqual('volume');
+  expect(spec.volumes[0].emptyDir).toBeTruthy();
+});
 
-    expect(pod.containers[0].image).toEqual('image');
-    expect(pod.name).toEqual('name');
-  });
+test('Automatically adds volumes from container mounts', () => {
 
-  test('Generates spec lazily', () => {
-    const chart = Testing.chart();
+  const chart = Testing.chart();
 
-    const pod = new kplus.Pod(chart, 'Pod', {});
+  const pod = new kplus.Pod(chart, 'Pod');
 
-    const volume = kplus.Volume.fromEmptyDir('volume');
+  const volume = kplus.Volume.fromEmptyDir('volume');
 
-    const container = new kplus.Container({
-      image: 'image',
-    });
+  const container = new kplus.Container({ image: 'image' });
+  container.mount('/path/to/mount', volume);
 
-    container.mount('/path/to/mount', volume);
+  pod.addContainer(container);
 
-    pod.addContainer(container);
+  const spec = Testing.synth(chart)[0].spec;
 
-    // if the spec was created during instantiation of the pod
-    // it would not have included the volume from the container.
-    expect(Testing.synth(chart)).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "apiVersion": "v1",
-          "kind": "Pod",
-          "metadata": Object {
-            "name": "test-pod-cc5a4f6a",
-          },
-          "spec": Object {
-            "containers": Array [
-              Object {
-                "env": Array [],
-                "image": "image",
-                "imagePullPolicy": "Always",
-                "name": "main",
-                "ports": Array [],
-                "volumeMounts": Array [
-                  Object {
-                    "mountPath": "/path/to/mount",
-                    "name": "volume",
-                  },
-                ],
-              },
-            ],
-            "volumes": Array [
-              Object {
-                "emptyDir": Object {},
-                "name": "volume",
-              },
-            ],
-          },
-        },
-      ]
-    `);
-  });
+  expect(spec.volumes[0].name).toEqual('volume');
+  expect(spec.volumes[0].emptyDir).toBeTruthy();
+
+});
+
+test('Synthesizes spec lazily', () => {
+
+  const chart = Testing.chart();
+
+  const pod = new kplus.Pod(chart, 'Pod', {});
+
+  const container = new kplus.Container({ image: 'image' });
+  pod.addContainer(container);
+
+  const spec = Testing.synth(chart)[0].spec;
+
+  expect(spec.containers[0].image).toEqual('image');
+
 });

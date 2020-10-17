@@ -4,7 +4,7 @@ import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
 
 import * as k8s from './imports/k8s';
-import { RestartPolicy, PodSpecDefinition, PodSpec, PodResource } from './pod';
+import { RestartPolicy, PodSpec, PodAwareResource } from './pod';
 import { Duration } from './duration';
 
 
@@ -49,7 +49,7 @@ export interface JobProps extends ResourceProps {
  * The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
  * You can also use a Job to run multiple Pods in parallel.
  */
-export class Job extends PodResource {
+export class Job extends PodAwareResource {
 
   /**
    * TTL before the job is deleted after it is finished.
@@ -63,27 +63,22 @@ export class Job extends PodResource {
   protected readonly apiObject: ApiObject;
 
   /**
-   * @see pod.PodResource.podSpecDefinition
-   */
-  protected readonly podSpecDefinition: PodSpecDefinition;
-
-  /**
    * @see pod.PodResource.podMetadataDefinition
    */
   protected readonly podMetadataDefinition: ApiObjectMetadataDefinition;
 
   constructor(scope: Construct, id: string, props: JobProps = {}) {
-    super(scope, id, props);
+    super(scope, id, {
+      metadata: props.podMetadata,
+      ...props.podSpec,
+      restartPolicy: props.podSpec?.restartPolicy ?? RestartPolicy.NEVER,
+    });
 
     this.apiObject = new k8s.Job(this, 'Default', {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
 
-    this.podSpecDefinition = new PodSpecDefinition({
-      restartPolicy: props.podSpec?.restartPolicy ?? RestartPolicy.NEVER,
-      ...props.podSpec,
-    });
     this.podMetadataDefinition = new ApiObjectMetadataDefinition(props.podMetadata);
     this.ttlAfterFinished = props.ttlAfterFinished;
 
@@ -96,7 +91,7 @@ export class Job extends PodResource {
     return {
       template: {
         metadata: this.podMetadataDefinition.toJson(),
-        spec: this.podSpecDefinition._toKube(),
+        spec: this.podSpecToKube(),
       },
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };

@@ -7,41 +7,87 @@ import { Container } from './container';
 import { Volume } from './volume';
 import { ApiObjectMetadataDefinition } from 'cdk8s';
 
-export abstract class PodResource extends Resource implements IPod {
+export abstract class PodAwareResource extends Resource {
+
+  /**
+   * Restart policy for all containers within the pod.
+   */
+  public readonly restartPolicy?: RestartPolicy;
+
+  /**
+   * The service account used to run this pod.
+   */
+  public readonly serviceAccount?: IServiceAccount;
+
+  private readonly _containers: Container[];
+  private readonly _volumes: Volume[];
 
   protected abstract readonly podMetadataDefinition: ApiObjectMetadataDefinition;
 
   constructor(scope: Construct, id: string, props: PodProps = {}) {
     super(scope, id, { metadata: props.metadata })
+
+    this.restartPolicy = props.restartPolicy;
+    this.serviceAccount = props.serviceAccount;
+
+    this._containers = props.containers ?? [];
+    this._volumes = props.volumes ?? [];
+
   }
 
   public get podMetadata(): ApiObjectMetadataDefinition {
     return this.podMetadataDefinition;
   }
 
-  public get serviceAccount(): IServiceAccount | undefined {
-    return this.podSpecDefinition.serviceAccount;
-  }
-
-  public get restartPolicy(): RestartPolicy | undefined {
-    return this.podSpecDefinition.restartPolicy;
-  }
-
   public get containers(): Container[] {
-    return this.podSpecDefinition.containers;
+    return [ ...this._containers ];
   }
 
   public get volumes(): Volume[] {
-    return this.podSpecDefinition.volumes;
+    return [ ...this._volumes ];
   }
 
   public addContainer(container: Container): void {
-    this.podSpecDefinition.addContainer(container);
+    this._containers.push(container);
   }
 
   public addVolume(volume: Volume): void {
-    this.podSpecDefinition.addVolume(volume);
+    this._volumes.push(volume);
   }
+
+  protected podSpecToKube(): k8s.PodSpec {
+
+    if (this.containers.length === 0) {
+      throw new Error('PodSpec must have at least 1 container');
+    }
+
+    const volumes: k8s.Volume[] = [];
+    const containers: k8s.Container[] = [];
+
+    for (const container of this.containers) {
+
+      // automatically add volume from the container mount
+      // to this pod so thats its available to the container.
+      for (const mount of container.mounts) {
+        volumes.push(mount.volume._toKube());
+      }
+
+      containers.push(container._toKube());
+    }
+
+    for (const volume of this._volumes) {
+      volumes.push(volume._toKube());
+    }
+
+    return {
+      restartPolicy: this.restartPolicy,
+      serviceAccountName: this.serviceAccount?.name,
+      containers: containers,
+      volumes: volumes,
+    };
+
+  }
+
 }
 
 /**
@@ -106,17 +152,12 @@ export interface PodSpec {
  * Pod is a collection of containers that can run on a host. This resource is
  * created by clients and scheduled onto hosts.
  */
-export class Pod extends PodResource {
+export class Pod extends PodAwareResource {
 
   /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
-
-  /**
-   * @see pod.PodResource.podSpecDefinition
-   */
-  protected readonly podSpecDefinition: PodSpecDefinition;
 
   /**
    * @see pod.PodResource.podMetadataDefinition
@@ -126,11 +167,9 @@ export class Pod extends PodResource {
   constructor(scope: Construct, id: string, props: PodProps = {}) {
     super(scope, id, props);
 
-    this.podSpecDefinition = new PodSpecDefinition(props);
-
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.podSpecDefinition._toKube() }),
+      spec: cdk8s.Lazy.any({ produce: () => this.podSpecToKube() }),
     });
 
     this.podMetadataDefinition = this.apiObject.metadata;
@@ -158,116 +197,3 @@ export enum RestartPolicy {
   NEVER = 'Never'
 }
 
-export interface IPod {
-
-  readonly restartPolicy?: RestartPolicy;
-
-  readonly serviceAccount?: IServiceAccount;
-
-  readonly containers: Container[];
-
-  readonly volumes: Volume[];
-
-  addContainer(container: Container): void;
-
-  addVolume(volume: Volume): void
-
-}
-
-
-/**
- * A description of a pod.
- */
-export class PodSpecDefinition {
-  /**
-   * Restart policy for all containers within the pod.
-   */
-  public readonly restartPolicy?: RestartPolicy;
-
-  /**
-   * The service account used to run this pod.
-   */
-  public readonly serviceAccount?: IServiceAccount;
-
-  private readonly _containers: Container[];
-  private readonly _volumes: Volume[];
-
-  constructor(props: PodSpec = {}) {
-    this._containers = props.containers ?? [];
-    this._volumes = props.volumes ?? [];
-    this.restartPolicy = props.restartPolicy;
-    this.serviceAccount = props.serviceAccount;
-  }
-
-  /**
-   * List of containers belonging to the pod.
-   *
-   * @returns a copy - do not modify
-   */
-  public get containers(): Container[] {
-    return [ ...this._containers ];
-  }
-
-  /**
-   * Adds a container to this pod.
-   *
-   * @param container The container to add
-   */
-  public addContainer(container: Container): void {
-    this._containers.push(container);
-  }
-
-  /**
-   * Adds a volume to this pod.
-   *
-   * @param volume The volume to add
-   */
-  public addVolume(volume: Volume): void {
-    this._volumes.push(volume);
-  }
-
-  /**
-   * List of volumes that can be mounted by containers belonging to the pod.
-   *
-   * Returns a copy. To add volumes, use `addVolume()`.
-   */
-  public get volumes() {
-    return [ ...this._volumes ];
-  }
-
-  /**
-   * @internal
-   */
-  public _toKube(): k8s.PodSpec {
-
-    if (this.containers.length === 0) {
-      throw new Error('PodSpec must have at least 1 container');
-    }
-
-    const volumes: k8s.Volume[] = [];
-    const containers: k8s.Container[] = [];
-
-    for (const container of this.containers) {
-
-      // automatically add volume from the container mount
-      // to this pod so thats its available to the container.
-      for (const mount of container.mounts) {
-        volumes.push(mount.volume._toKube());
-      }
-
-      containers.push(container._toKube());
-    }
-
-    for (const volume of this._volumes) {
-      volumes.push(volume._toKube());
-    }
-
-    return {
-      restartPolicy: this.restartPolicy,
-      serviceAccountName: this.serviceAccount?.name,
-      containers: containers,
-      volumes: volumes,
-    };
-
-  }
-}

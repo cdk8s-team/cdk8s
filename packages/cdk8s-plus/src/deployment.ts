@@ -4,7 +4,7 @@ import { Service, ServiceType } from './service';
 import { ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
-import { PodResource, PodSpec, PodSpecDefinition } from './pod'
+import { PodAwareResource, PodSpec } from './pod'
 
 /**
  * Properties for initialization of `Deployment`.
@@ -84,7 +84,7 @@ export interface ExposeOptions {
 * - Clean up older ReplicaSets that you don't need anymore.
 *
 **/
-export class Deployment extends PodResource {
+export class Deployment extends PodAwareResource {
 
   /**
    * Number of desired pods.
@@ -97,11 +97,6 @@ export class Deployment extends PodResource {
   protected readonly apiObject: cdk8s.ApiObject;
 
   /**
-   * @see pod.PodResource.podSpecDefinition
-   */
-  protected readonly podSpecDefinition: PodSpecDefinition;
-
-  /**
    * @see pod.PodResource.podMetadataDefinition
    */
   protected readonly podMetadataDefinition: ApiObjectMetadataDefinition;
@@ -109,13 +104,12 @@ export class Deployment extends PodResource {
   private readonly _labelSelector: Record<string, string>;
 
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.podMetadata, ...props.podSpec});
 
     this.apiObject = new k8s.Deployment(this, 'Deployment', {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
-    this.podSpecDefinition = new PodSpecDefinition(props.podSpec)
     this.podMetadataDefinition = new ApiObjectMetadataDefinition(props.podMetadata);
 
     this.replicas = props.replicas ?? 1;
@@ -174,7 +168,7 @@ export class Deployment extends PodResource {
       replicas: this.replicas,
       template: {
         metadata: this.podMetadataDefinition.toJson(),
-        spec: this.podSpecDefinition._toKube(),
+        spec: this.podSpecToKube(),
       },
       selector: {
         matchLabels: this._labelSelector,

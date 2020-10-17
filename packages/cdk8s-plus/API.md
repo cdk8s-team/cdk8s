@@ -14,7 +14,6 @@ Name|Description
 [Job](#cdk8s-plus-job)|A Job creates one or more Pods and ensures that a specified number of them successfully terminate.
 [Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
 [PodResource](#cdk8s-plus-podresource)|*No description*
-[PodSpecDefinition](#cdk8s-plus-podspecdefinition)|A description of a pod.
 [Resource](#cdk8s-plus-resource)|Base class for all Kubernetes objects in stdk8s.
 [Secret](#cdk8s-plus-secret)|Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
 [Service](#cdk8s-plus-service)|An abstract way to expose an application running on a set of Pods as a network service.
@@ -337,7 +336,6 @@ Name | Type | Description
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **labelSelector**🔹 | <code>Map<string, string></code> | The labels this deployment will match against in order to select pods.
 **podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
-**podSpecDefinition**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | <span></span>
 **replicas**🔹 | <code>number</code> | Number of desired pods.
 
 ### Methods
@@ -852,7 +850,6 @@ Name | Type | Description
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
-**podSpecDefinition**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | <span></span>
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | TTL before the job is deleted after it is finished.<br/>__*Optional*__
 
 
@@ -894,7 +891,6 @@ Name | Type | Description
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
-**podSpecDefinition**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | <span></span>
 
 
 
@@ -912,13 +908,17 @@ __Implemented by__: [Deployment](#cdk8s-plus-deployment), [Job](#cdk8s-plus-job)
 
 
 ```ts
-new PodResource(scope: Construct, id: string, _: ResourceProps)
+new PodResource(scope: Construct, id: string, props?: PodProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **_** (<code>[ResourceProps](#cdk8s-plus-resourceprops)</code>)  *No description*
+* **props** (<code>[PodProps](#cdk8s-plus-podprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
+  * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
+  * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
 
 
 
@@ -930,10 +930,9 @@ Name | Type | Description
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | <span></span>
 **podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
 **podMetadataDefinition**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
-**podSpecDefinition**🔹 | <code>[PodSpecDefinition](#cdk8s-plus-podspecdefinition)</code> | <span></span>
 **volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | <span></span>
-**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | __*Optional*__
-**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | __*Optional*__
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
 
 ### Methods
 
@@ -964,68 +963,17 @@ addVolume(volume: Volume): void
 
 
 
-
-
-## class PodSpecDefinition 🔹 <a id="cdk8s-plus-podspecdefinition"></a>
-
-A description of a pod.
-
-
-### Initializer
-
+#### protected podSpecToKube()🔹 <a id="cdk8s-plus-podresource-podspectokube"></a>
 
 
 
 ```ts
-new PodSpecDefinition(props?: PodSpec)
+protected podSpecToKube(): PodSpec
 ```
 
-* **props** (<code>[PodSpec](#cdk8s-plus-podspec)</code>)  *No description*
-  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
-  * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
-  * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
-  * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
 
-
-
-### Properties
-
-
-Name | Type | Description 
------|------|-------------
-**containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.
-**volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.
-**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
-**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
-
-### Methods
-
-
-#### addContainer(container)🔹 <a id="cdk8s-plus-podspecdefinition-addcontainer"></a>
-
-Adds a container to this pod.
-
-```ts
-addContainer(container: Container): void
-```
-
-* **container** (<code>[Container](#cdk8s-plus-container)</code>)  The container to add.
-
-
-
-
-#### addVolume(volume)🔹 <a id="cdk8s-plus-podspecdefinition-addvolume"></a>
-
-Adds a volume to this pod.
-
-```ts
-addVolume(volume: Volume): void
-```
-
-* **volume** (<code>[Volume](#cdk8s-plus-volume)</code>)  The volume to add.
-
-
-
+__Returns__:
+* <code>[PodSpec](#cdk8s-plus-podspec)</code>
 
 
 
@@ -1950,6 +1898,7 @@ Name | Type | Description
 
 ## struct PodSpec 🔹 <a id="cdk8s-plus-podspec"></a>
 
+__Obtainable from__: [PodResource](#cdk8s-plus-podresource).[podSpecToKube](#cdk8s-plus-podresource#cdk8s-plus-podresource-podspectokube)()
 
 Specification of a `Pod`.
 
