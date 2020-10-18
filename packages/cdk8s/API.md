@@ -26,7 +26,7 @@ Name|Description
 [ApiObjectOptions](#cdk8s-apiobjectoptions)|Options for defining API objects.
 [AppOptions](#cdk8s-appoptions)|*No description*
 [ChartOptions](#cdk8s-chartoptions)|*No description*
-[HelmChartProps](#cdk8s-helmchartprops)|*No description*
+[HelmChartOptions](#cdk8s-helmchartoptions)|Options for `HelmChart`.
 [IncludeOptions](#cdk8s-includeoptions)|*No description*
 
 
@@ -486,16 +486,25 @@ __Extends__: [Construct](#constructs-construct)
 
 
 ```ts
-new HelmChart(scope: Construct, id: string, props: HelmChartProps)
+new HelmChart(scope: Construct, id: string, opts: HelmChartOptions)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[HelmChartProps](#cdk8s-helmchartprops)</code>)  *No description*
-  * **chart** (<code>string</code>)  The absolute path to the chart that is being imported. 
-  * **helmCmd** (<code>string</code>)  A local 'helm' command to run. __*Default*__: "helm"
-  * **values** (<code>string &#124; Map<string, any></code>)  An optional string or object which provides all of the override values for the charts. __*Optional*__
+* **opts** (<code>[HelmChartOptions](#cdk8s-helmchartoptions)</code>)  *No description*
+  * **chart** (<code>string</code>)  The chart name to use. It can be a chart from a helm repository or a local directory. 
+  * **helmExecutable** (<code>string</code>)  The local helm executable to use in order to create the manifest the chart. __*Default*__: "helm"
+  * **name** (<code>string</code>)  The release name. __*Default*__: if unspecified, a name will be allocated based on the construct path
+  * **values** (<code>Map<string, any></code>)  Values to pass to the chart. __*Default*__: If no values are specified, chart will use the defaults.
 
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**name**🔹 | <code>string</code> | The helm release name.
 
 
 
@@ -788,18 +797,19 @@ Name | Type | Description
 
 
 
-## struct HelmChartProps 🔹 <a id="cdk8s-helmchartprops"></a>
+## struct HelmChartOptions 🔹 <a id="cdk8s-helmchartoptions"></a>
 
 
-
+Options for `HelmChart`.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**chart**🔹 | <code>string</code> | The absolute path to the chart that is being imported.
-**helmCmd**?🔹 | <code>string</code> | A local 'helm' command to run.<br/>__*Default*__: "helm"
-**values**?🔹 | <code>string &#124; Map<string, any></code> | An optional string or object which provides all of the override values for the charts.<br/>__*Optional*__
+**chart**🔹 | <code>string</code> | The chart name to use. It can be a chart from a helm repository or a local directory.
+**helmExecutable**?🔹 | <code>string</code> | The local helm executable to use in order to create the manifest the chart.<br/>__*Default*__: "helm"
+**name**?🔹 | <code>string</code> | The release name.<br/>__*Default*__: if unspecified, a name will be allocated based on the construct path
+**values**?🔹 | <code>Map<string, any></code> | Values to pass to the chart.<br/>__*Default*__: If no values are specified, chart will use the defaults.
 
 
 
