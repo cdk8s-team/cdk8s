@@ -214,7 +214,7 @@ In order to use this construct, you must have `helm` installed on your system.
 See [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm
 documentation for details.
 
-The following examples adds the
+The following example adds the
 [bitnami/redis](https://github.com/bitnami/charts/tree/master/bitnami/redis)
 Helm chart with sentinel containers enabled:
 
