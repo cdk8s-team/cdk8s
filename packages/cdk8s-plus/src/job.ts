@@ -1,9 +1,9 @@
 import { Resource, ResourceProps } from './base';
-import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
+import { ApiObject, ApiObjectMetadataDefinition } from 'cdk8s';
 import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
 import * as k8s from './imports/k8s';
-import { RestartPolicy, PodSpecProps, IPodSpec, PodSpec } from './pod';
+import { RestartPolicy, PodTemplateProps, IPodTemplate, PodTemplate } from './pod';
 import { Duration } from './duration';
 import { Container } from './container';
 import { IServiceAccount } from './service-account';
@@ -13,14 +13,7 @@ import { Volume } from './volume';
 /**
  * Properties for initialization of `Job`.
  */
-export interface JobProps extends ResourceProps, PodSpecProps {
-
-  /**
-   * Metadata for the job pods.
-   *
-   * @default - Empty metadata. Can be configured via the `job.spec.podMetadata` field.
-   */
-  readonly podMetadata?: ApiObjectMetadata;
+export interface JobProps extends ResourceProps, PodTemplateProps {
 
   /**
    * Limits the lifetime of a Job that has finished execution (either Complete
@@ -44,7 +37,7 @@ export interface JobProps extends ResourceProps, PodSpecProps {
  * The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
  * You can also use a Job to run multiple Pods in parallel.
  */
-export class Job extends Resource implements IPodSpec {
+export class Job extends Resource implements IPodTemplate {
 
   /**
    * TTL before the job is deleted after it is finished.
@@ -57,8 +50,7 @@ export class Job extends Resource implements IPodSpec {
    */
   protected readonly apiObject: ApiObject;
 
-  private readonly _podMetadata: ApiObjectMetadataDefinition;
-  private readonly _podSpec: PodSpec;
+  private readonly _podTemplate: PodTemplate;
 
   constructor(scope: Construct, id: string, props: JobProps = {}) {
     super(scope, id, { metadata: props.metadata });
@@ -68,8 +60,7 @@ export class Job extends Resource implements IPodSpec {
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
 
-    this._podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
-    this._podSpec = new PodSpec({
+    this._podTemplate = new PodTemplate({
       ...props,
       restartPolicy: props.restartPolicy ?? RestartPolicy.NEVER,
     })
@@ -77,28 +68,32 @@ export class Job extends Resource implements IPodSpec {
 
   }
 
+  public get podMetadata(): ApiObjectMetadataDefinition {
+    return this._podTemplate.podMetadata;
+  }
+
   public get containers(): Container[] {
-    return this._podSpec.containers;
+    return this._podTemplate.containers;
   }
 
   public get volumes(): Volume[] {
-    return this._podSpec.volumes;
+    return this._podTemplate.volumes;
   }
 
   public get restartPolicy(): RestartPolicy | undefined {
-    return this._podSpec.restartPolicy;
+    return this._podTemplate.restartPolicy;
   }
 
   public get serviceAccount(): IServiceAccount | undefined {
-    return this._podSpec.serviceAccount;
+    return this._podTemplate.serviceAccount;
   }
 
   public addContainer(container: Container): void {
-    return this._podSpec.addContainer(container);
+    return this._podTemplate.addContainer(container);
   }
 
   public addVolume(volume: Volume): void {
-    return this._podSpec.addVolume(volume);
+    return this._podTemplate.addVolume(volume);
   }
 
   /**
@@ -106,10 +101,7 @@ export class Job extends Resource implements IPodSpec {
    */
   public _toKube(): k8s.JobSpec {
     return {
-      template: {
-        metadata: this._podMetadata.toJson(),
-        spec: this._podSpec._toKube(),
-      },
+      template: this._podTemplate._toPodTemplateSpec(),
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };
   }

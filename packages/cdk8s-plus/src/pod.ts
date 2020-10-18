@@ -8,7 +8,7 @@ import { Volume } from './volume';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 
 /**
- * Represents a resource that deploys pods. (e.g `Deployment`, `Job`, `Pod`...).
+ * Represents a resource that can be configured with a kuberenets pod spec. (e.g `Deployment`, `Job`, `Pod`, ...).
  *
  * Use the `PodSpec` class as an implementation helper.
  */
@@ -54,13 +54,21 @@ export interface IPodSpec {
 
 }
 
+/**
+ * Represents a resource that can be configured with a kuberenets pod template. (e.g `Deployment`, `Job`, ...).
+ *
+ * Use the `PodTemplate` class as an implementation helper.
+ */
 export interface IPodTemplate extends IPodSpec {
 
+  /**
+   * Provides read/write access to the underlying pod metadata of the resource.
+   */
   readonly podMetadata: ApiObjectMetadataDefinition;
 }
 
 /**
- * Provides read/write capabilities ontop of a `PodSpec`.
+ * Provides read/write capabilities ontop of a `PodSpecProps`.
  */
 export class PodSpec implements IPodSpec {
 
@@ -97,7 +105,7 @@ export class PodSpec implements IPodSpec {
   /**
    * @internal
    */
-  public _toKube(): k8s.PodSpec {
+  public _toPodSpec(): k8s.PodSpec {
 
     if (this.containers.length === 0) {
       throw new Error('PodSpec must have at least 1 container');
@@ -132,6 +140,9 @@ export class PodSpec implements IPodSpec {
 
 }
 
+/**
+ * Provides read/write capabilities ontop of a `PodTemplateProps`.
+ */
 export class PodTemplate extends PodSpec implements IPodTemplate {
 
   public readonly podMetadata: ApiObjectMetadataDefinition;
@@ -139,6 +150,16 @@ export class PodTemplate extends PodSpec implements IPodTemplate {
   constructor(props: PodTemplateProps = {}) {
     super(props);
     this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+  }
+
+  /**
+   * @internal
+   */
+  public _toPodTemplateSpec(): k8s.PodTemplateSpec {
+    return {
+      metadata: this.podMetadata.toJson(),
+      spec: this._toPodSpec(),
+    }
   }
 }
 
@@ -223,7 +244,7 @@ export class Pod extends Resource implements IPodSpec {
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this._spec._toKube() }),
+      spec: cdk8s.Lazy.any({ produce: () => this._spec._toPodSpec() }),
     });
 
     this._spec = new PodSpec(props);

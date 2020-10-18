@@ -180,10 +180,7 @@ export class Deployment extends Resource implements IPodTemplate {
   public _toKube(): k8s.DeploymentSpec {
     return {
       replicas: this.replicas,
-      template: {
-        metadata: this.podMetadata.toJson(),
-        spec: this._podTemplate._toKube(),
-      },
+      template: this._podTemplate._toPodTemplateSpec(),
       selector: {
         matchLabels: this._labelSelector,
       },

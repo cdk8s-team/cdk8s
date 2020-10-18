@@ -27,9 +27,7 @@ test('No selector is generated if "defaultSelector" is false', () => {
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
     defaultSelector: false,
-    podSpec: {
-      containers: [ new kplus.Container({ image: 'foobar' }) ],
-    },
+    containers: [ new kplus.Container({ image: 'foobar' }) ],
   });
 
   // assert the k8s spec doesnt have it.
@@ -47,13 +45,11 @@ test('Can select by label', () => {
   const chart = Testing.chart();
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
-    podSpec: {
-      containers: [
-        new kplus.Container({
-          image: 'image',
-        }),
-      ],
-    },
+    containers: [
+      new kplus.Container({
+        image: 'image',
+      }),
+    ],
     defaultSelector: false,
   });
 
@@ -75,14 +71,12 @@ test('Can be exposed as via service', () => {
   const chart = Testing.chart();
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
-    podSpec: {
-      containers: [
-        new kplus.Container({
-          image: 'image',
-          port: 9300,
-        }),
-      ],
-    },
+    containers: [
+      new kplus.Container({
+        image: 'image',
+        port: 9300,
+      }),
+    ],
   });
 
   deployment.expose(9200, { serviceType: kplus.ServiceType.LOAD_BALANCER});
@@ -100,14 +94,12 @@ test('Expose uses the correct default values', () => {
   const chart = Testing.chart();
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
-    podSpec: {
-      containers: [
-        new kplus.Container({
-          image: 'image',
-          port: 9300,
-        }),
-      ],
-    },
+    containers: [
+      new kplus.Container({
+        image: 'image',
+        port: 9300,
+      }),
+    ],
   });
 
   deployment.expose(9200);

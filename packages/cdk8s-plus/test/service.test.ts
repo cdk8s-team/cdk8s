@@ -104,9 +104,7 @@ test('Cannot add a deployment if it does not have a label selector', () => {
   const service = new kplus.Service(chart, 'service');
   const deployment = new kplus.Deployment(chart, 'dep', {
     defaultSelector: false,
-    podSpec: {
-      containers: [ new kplus.Container({ image: 'foo' }) ],
-    },
+    containers: [ new kplus.Container({ image: 'foo' }) ],
   });
 
   expect(() => service.addDeployment(deployment, 1122))
@@ -120,9 +118,7 @@ test('Cannot add a deployment if a selector is already defined for this service'
   const service = new kplus.Service(chart, 'service');
 
   const deployment = new kplus.Deployment(chart, 'dep1', {
-    podSpec: {
-      containers: [ new kplus.Container({ image: 'foo' }) ],
-    },
+    containers: [ new kplus.Container({ image: 'foo' }) ],
   });
   service.addSelector('random', 'selector');
 

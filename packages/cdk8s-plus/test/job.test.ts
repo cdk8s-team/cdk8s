@@ -7,9 +7,7 @@ test('Applies default restart policy to pod spec', () => {
   const chart = Testing.chart();
 
   const job = new kplus.Job(chart, 'Job', {
-    podSpec: {
-      containers: [ new kplus.Container({ image: 'image' }) ],
-    },
+    containers: [ new kplus.Container({ image: 'image' }) ],
     ttlAfterFinished: kplus.Duration.seconds(1),
   });
 
