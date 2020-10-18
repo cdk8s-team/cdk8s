@@ -1,4 +1,4 @@
-import { Construct } from 'constructs';
+import { Construct, Node } from 'constructs';
 import { ApiObject } from './api-object';
 import { Yaml } from './yaml';
 
@@ -32,5 +32,12 @@ export class Include extends Construct {
       const id = [ name, obj.kind?.toLowerCase(), obj.metadata?.namespace ].filter(x => x).join('-');
       new ApiObject(this, id, obj);
     }
+  }
+
+  /**
+   * Returns all the included API objects.
+   */
+  public get apiObjects(): ApiObject[] {
+    return Node.of(this).children.filter(o => o instanceof ApiObject) as ApiObject[];
   }
 }

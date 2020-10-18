@@ -10,7 +10,7 @@ Name|Description
 [Chart](#cdk8s-chart)|*No description*
 [DependencyGraph](#cdk8s-dependencygraph)|Represents the dependency graph for a given Node.
 [DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
-[HelmChart](#cdk8s-helmchart)|Represents a Helm chart.
+[Helm](#cdk8s-helm)|Represents a Helm deployment.
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
 [Lazy](#cdk8s-lazy)|*No description*
 [Names](#cdk8s-names)|Utilities for generating unique and stable names.
@@ -26,7 +26,7 @@ Name|Description
 [ApiObjectOptions](#cdk8s-apiobjectoptions)|Options for defining API objects.
 [AppOptions](#cdk8s-appoptions)|*No description*
 [ChartOptions](#cdk8s-chartoptions)|*No description*
-[HelmChartProps](#cdk8s-helmchartprops)|*No description*
+[HelmOptions](#cdk8s-helmoptions)|Options for `Helm`.
 [IncludeOptions](#cdk8s-includeoptions)|*No description*
 
 
@@ -471,14 +471,14 @@ __Returns__:
 
 
 
-## class HelmChart 🔹 <a id="cdk8s-helmchart"></a>
+## class Helm 🔹 <a id="cdk8s-helm"></a>
 
-Represents a Helm chart.
+Represents a Helm deployment.
 
 Use this construct to import an existing Helm chart and incorporate it into your constructs.
 
 __Implements__: [IConstruct](#constructs-iconstruct)
-__Extends__: [Construct](#constructs-construct)
+__Extends__: [Include](#cdk8s-include)
 
 ### Initializer
 
@@ -486,16 +486,26 @@ __Extends__: [Construct](#constructs-construct)
 
 
 ```ts
-new HelmChart(scope: Construct, id: string, props: HelmChartProps)
+new Helm(scope: Construct, id: string, opts: HelmOptions)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[HelmChartProps](#cdk8s-helmchartprops)</code>)  *No description*
-  * **chart** (<code>string</code>)  The absolute path to the chart that is being imported. 
-  * **helmCmd** (<code>string</code>)  A local 'helm' command to run. __*Default*__: "helm"
-  * **values** (<code>string &#124; Map<string, any></code>)  An optional string or object which provides all of the override values for the charts. __*Optional*__
+* **opts** (<code>[HelmOptions](#cdk8s-helmoptions)</code>)  *No description*
+  * **chart** (<code>string</code>)  The chart name to use. It can be a chart from a helm repository or a local directory. 
+  * **helmExecutable** (<code>string</code>)  The local helm executable to use in order to create the manifest the chart. __*Default*__: "helm"
+  * **helmFlags** (<code>Array<string></code>)  Additional flags to add to the `helm` execution. __*Default*__: []
+  * **releaseName** (<code>string</code>)  The release name. __*Default*__: if unspecified, a name will be allocated based on the construct path
+  * **values** (<code>Map<string, any></code>)  Values to pass to the chart. __*Default*__: If no values are specified, chart will use the defaults.
 
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**releaseName**🔹 | <code>string</code> | The helm release name.
 
 
 
@@ -523,6 +533,14 @@ new Include(scope: Construct, name: string, options: IncludeOptions)
 * **options** (<code>[IncludeOptions](#cdk8s-includeoptions)</code>)  *No description*
   * **url** (<code>string</code>)  Local file path or URL which includes a Kubernetes YAML manifest. 
 
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**apiObjects**🔹 | <code>Array<[ApiObject](#cdk8s-apiobject)></code> | Returns all the included API objects.
 
 
 
@@ -788,18 +806,20 @@ Name | Type | Description
 
 
 
-## struct HelmChartProps 🔹 <a id="cdk8s-helmchartprops"></a>
+## struct HelmOptions 🔹 <a id="cdk8s-helmoptions"></a>
 
 
-
+Options for `Helm`.
 
 
 
 Name | Type | Description 
 -----|------|-------------
-**chart**🔹 | <code>string</code> | The absolute path to the chart that is being imported.
-**helmCmd**?🔹 | <code>string</code> | A local 'helm' command to run.<br/>__*Default*__: "helm"
-**values**?🔹 | <code>string &#124; Map<string, any></code> | An optional string or object which provides all of the override values for the charts.<br/>__*Optional*__
+**chart**🔹 | <code>string</code> | The chart name to use. It can be a chart from a helm repository or a local directory.
+**helmExecutable**?🔹 | <code>string</code> | The local helm executable to use in order to create the manifest the chart.<br/>__*Default*__: "helm"
+**helmFlags**?🔹 | <code>Array<string></code> | Additional flags to add to the `helm` execution.<br/>__*Default*__: []
+**releaseName**?🔹 | <code>string</code> | The release name.<br/>__*Default*__: if unspecified, a name will be allocated based on the construct path
+**values**?🔹 | <code>Map<string, any></code> | Values to pass to the chart.<br/>__*Default*__: If no values are specified, chart will use the defaults.
 
 
 
