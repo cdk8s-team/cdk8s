@@ -141,6 +141,20 @@ export class PodSpec implements IPodSpec {
 }
 
 /**
+ * Properties of a `PodTemplate`.
+ *
+ * Adds metadata information on top of the spec.
+ */
+export interface PodTemplateProps extends PodSpecProps {
+
+  /**
+   * The pod metadata.
+   */
+  readonly podMetadata?: ApiObjectMetadata;
+}
+
+
+/**
  * Provides read/write capabilities ontop of a `PodTemplateProps`.
  */
 export class PodTemplate extends PodSpec implements IPodTemplate {
@@ -169,7 +183,7 @@ export class PodTemplate extends PodSpec implements IPodTemplate {
 export interface PodProps extends ResourceProps, PodSpecProps {}
 
 /**
- * Specification of a `Pod`.
+ * Properties of a `PodSpec`.
  */
 export interface PodSpecProps {
 
@@ -219,11 +233,6 @@ export interface PodSpecProps {
    */
   readonly serviceAccount?: IServiceAccount;
 
-}
-
-export interface PodTemplateProps extends PodSpecProps {
-
-  readonly podMetadata?: ApiObjectMetadata;
 }
 
 /**
