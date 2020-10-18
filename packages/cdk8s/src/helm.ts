@@ -8,7 +8,7 @@ import { Include } from './include';
 import { Names } from './names';
 
 /**
- * Options for `HelmChart`.
+ * Options for `Helm`.
  */
 export interface HelmOptions {
   /**
@@ -24,6 +24,7 @@ export interface HelmOptions {
   /**
    * The release name.
    * 
+   * @see https://helm.sh/docs/intro/using_helm/#three-big-concepts
    * @default - if unspecified, a name will be allocated based on the construct path
    */
   readonly releaseName?: string;
@@ -41,8 +42,14 @@ export interface HelmOptions {
    * @default "helm"
    */
   readonly helmExecutable?: string;
-}
 
+  /**
+   * Additional flags to add to the `helm` execution.
+   * 
+   * @default []
+   */
+  readonly helmFlags?: string[];
+}
 
 /**
  * Represents a Helm deployment. 
@@ -50,7 +57,6 @@ export interface HelmOptions {
  * Use this construct to import an existing Helm chart and incorporate it into your constructs.
  */
 export class Helm extends Include {
-
   /**
    * The helm release name.
    */
@@ -58,22 +64,28 @@ export class Helm extends Include {
 
   constructor(scope: Construct, id: string, opts: HelmOptions) {
     const workdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-helm-'));
-
+    
     const args = new Array<string>();
-
     args.push('template');
     
+    // values
     if (opts.values && Object.keys(opts.values).length > 0) {
       const valuesPath = path.join(workdir, 'overrides.yaml');
       fs.writeFileSync(valuesPath, yaml.stringify(opts.values));
       args.push('-f', valuesPath);
     }
 
-    // release name constraints: https://github.com/helm/helm/issues/6006
-    const cpath = [ Node.of(scope).path, id ].join('/');
-    const releaseName = opts.releaseName ?? Names.toDnsLabel(cpath, 53);;
+    // custom flags
+    if (opts.helmFlags) {
+      args.push(...opts.helmFlags);
+    }
+
+    // release name
+    const cpath = [ Node.of(scope).path, id ].join(Node.PATH_SEP);
+    const releaseName = opts.releaseName ?? Names.toDnsLabel(cpath, 53); // constraints: https://github.com/helm/helm/issues/6006
     args.push(releaseName);
 
+    // chart
     args.push(opts.chart);
 
     const prog = opts.helmExecutable ?? 'helm';
@@ -85,18 +97,23 @@ export class Helm extends Include {
   }
 }
 
-
 function renderTemplate(workdir: string, prog: string, args: string[]) {
   const helm = cp.spawnSync(prog, args);
-  const err = helm.error?.message ?? helm.stderr.toString();
-  if (err?.includes('ENOENT')) {
-    throw new Error(`unable to execute '${prog}' to render Helm chart`);
+  if (helm.error) {
+    const err = helm.error.message;
+    if (err.includes('ENOENT')) {
+      throw new Error(`unable to execute '${prog}' to render Helm chart. Is it installed on your system?`);
+    }
+
+    throw new Error(`error while rendering a helm chart: ${err}`);
   }
-  if (err) {
-    throw new Error(`Error occurred while rendering a helm chart: ${err}`);
+
+  if (helm.status !== 0) {
+    throw new Error(helm.stderr.toString());
   }
 
   const outputFile = path.join(workdir, 'chart.yaml');
-  fs.writeFileSync(outputFile, helm.stdout);
+  const stdout = helm.stdout;
+  fs.writeFileSync(outputFile, stdout);
   return outputFile;
 }

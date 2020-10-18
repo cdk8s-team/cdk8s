@@ -108,38 +108,6 @@ Array [
       },
     },
   },
-  Object {
-    "apiVersion": "v1",
-    "kind": "Pod",
-    "metadata": Object {
-      "annotations": Object {
-        "helm.sh/hook": "test-success",
-      },
-      "labels": Object {
-        "app.kubernetes.io/instance": "test-sample-00742e24",
-        "app.kubernetes.io/managed-by": "Helm",
-        "app.kubernetes.io/name": "helm-sample",
-        "app.kubernetes.io/version": "1.16.0",
-        "helm.sh/chart": "helm-sample-0.1.0",
-      },
-      "name": "test-sample-00742e24-helm-sample-test-connection",
-    },
-    "spec": Object {
-      "containers": Array [
-        Object {
-          "args": Array [
-            "test-sample-00742e24-helm-sample:80",
-          ],
-          "command": Array [
-            "wget",
-          ],
-          "image": "busybox",
-          "name": "wget",
-        },
-      ],
-      "restartPolicy": "Never",
-    },
-  },
 ]
 `;
 
@@ -252,38 +220,6 @@ Array [
           "serviceAccountName": "test-sample-00742e24-helm-sample",
         },
       },
-    },
-  },
-  Object {
-    "apiVersion": "v1",
-    "kind": "Pod",
-    "metadata": Object {
-      "annotations": Object {
-        "helm.sh/hook": "test-success",
-      },
-      "labels": Object {
-        "app.kubernetes.io/instance": "test-sample-00742e24",
-        "app.kubernetes.io/managed-by": "Helm",
-        "app.kubernetes.io/name": "helm-sample",
-        "app.kubernetes.io/version": "1.16.0",
-        "helm.sh/chart": "helm-sample-0.1.0",
-      },
-      "name": "test-sample-00742e24-helm-sample-test-connection",
-    },
-    "spec": Object {
-      "containers": Array [
-        Object {
-          "args": Array [
-            "test-sample-00742e24-helm-sample:80",
-          ],
-          "command": Array [
-            "wget",
-          ],
-          "image": "busybox",
-          "name": "wget",
-        },
-      ],
-      "restartPolicy": "Never",
     },
   },
 ]

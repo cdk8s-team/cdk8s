@@ -1,8 +1,10 @@
-import { ApiObject, Helm, Testing } from '../src';
+import { Helm, Testing } from '../src';
 import * as path from 'path';
-import { Node } from 'constructs';
+import * as child_process from 'child_process';
 
 const SAMPLE_CHART_PATH = path.join(__dirname, 'fixtures', 'helm-sample');
+
+beforeEach(() => jest.restoreAllMocks());
 
 test('basic usage', () => {
   // GIVEN
@@ -10,7 +12,7 @@ test('basic usage', () => {
 
   // WHEN
   const helm = new Helm(chart, 'sample', {
-    chart: SAMPLE_CHART_PATH
+    chart: SAMPLE_CHART_PATH,
   });
 
   // THEN
@@ -43,9 +45,9 @@ test('values can be specified when defining the chart', () => {
         enabled: false,
       },
       nodeSelector: {
-        selectMe: 'boomboom'
+        selectMe: 'boomboom',
       },
-    }
+    },
   });
 
   // THEN
@@ -59,7 +61,7 @@ test('releaseName can be used to specify the release name', () => {
   // WHEN
   const helm = new Helm(chart, 'sample', {
     chart: SAMPLE_CHART_PATH,
-    releaseName: 'your-release'
+    releaseName: 'your-release',
   });
 
   // THEN - all names start with "your-release-"
@@ -80,31 +82,62 @@ test('it is possible to interact with api objects in the chart', () => {
   });
 
   const service = helm.apiObjects.find(o => o.kind === 'ServiceAccount' && o.name === 'test-sample-00742e24-helm-sample');
-  service.metadata.addAnnotation('my.annotation', 'hey-there');
+  service?.metadata.addAnnotation('my.annotation', 'hey-there');
 
   // THEN
   expect(helm.apiObjects.map(o => `${o.kind}/${o.name}`).sort()).toEqual([
     'Deployment/test-sample-00742e24-helm-sample',
-    'Pod/test-sample-00742e24-helm-sample-test-connection',
     'Service/test-sample-00742e24-helm-sample',
-    'ServiceAccount/test-sample-00742e24-helm-sample'
+    'ServiceAccount/test-sample-00742e24-helm-sample',
   ]);
 
-  expect(service.toJson().metadata.annotations).toEqual({
+  expect(service?.toJson().metadata.annotations).toEqual({
     'my.annotation': 'hey-there',
   });
 });
 
-test('temp', () => {
+test('helmFlags can be used to specify additional helm options', () => {
   // GIVEN
+  const spawnMock = jest.spyOn(child_process, 'spawnSync').mockReturnValue({
+    status: 0,
+    stderr: Buffer.from(''),
+    stdout: Buffer.from(''),
+    pid: 123,
+    output: ['stdout', 'stderr'],
+    signal: null,
+  });
+
   const chart = Testing.chart();
 
   // WHEN
-  const helm = new Helm(chart, 'sample', {
-    chart: 'bitnami/redis',
-    releaseName: 'foo'
+  new Helm(chart, 'sample', {
+    chart: SAMPLE_CHART_PATH,
+    helmFlags: [
+      '--description', 'my custom description',
+      '--no-hooks',
+    ],
   });
 
   // THEN
-  helm.apiObjects.find(o => o.name === 'foo-redis-master').metadata.addAnnotation('my.annotation', 'yours');
+  const expectedArgs: string[] = [
+    'template',
+    '--description', 'my custom description',
+    '--no-hooks',
+    'test-sample-00742e24',
+    SAMPLE_CHART_PATH,
+  ];
+
+  expect(spawnMock).toHaveBeenCalledTimes(1);
+  expect(spawnMock).toHaveBeenCalledWith('helm', expectedArgs);
+});
+
+test('propagates helm failures', () => {
+  // GIVEN
+  const chart = Testing.chart();
+
+  // THEN
+  expect(() => new Helm(chart, 'my-chart', {
+    chart: SAMPLE_CHART_PATH,
+    helmFlags: [ '--invalid-argument-not-found-boom-boom' ],
+  })).toThrow(/unknown flag/);
 });
