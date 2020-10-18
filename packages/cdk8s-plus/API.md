@@ -43,8 +43,8 @@ Name|Description
 [MountOptions](#cdk8s-plus-mountoptions)|Options for mounts.
 [PathMapping](#cdk8s-plus-pathmapping)|Maps a string key to a path within a volume.
 [PodProps](#cdk8s-plus-podprops)|Properties for initialization of `Pod`.
-[PodSpecProps](#cdk8s-plus-podspecprops)|Specification of a `Pod`.
-[PodTemplateProps](#cdk8s-plus-podtemplateprops)|*No description*
+[PodSpecProps](#cdk8s-plus-podspecprops)|Properties of a `PodSpec`.
+[PodTemplateProps](#cdk8s-plus-podtemplateprops)|Properties of a `PodTemplate`.
 [ResourceProps](#cdk8s-plus-resourceprops)|Initialization properties for resources.
 [SecretProps](#cdk8s-plus-secretprops)|*No description*
 [ServiceAccountProps](#cdk8s-plus-serviceaccountprops)|Properties for initialization of `ServiceAccount`.
@@ -328,7 +328,7 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
-  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  *No description* __*Optional*__
+  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The pod metadata. __*Optional*__
   * **defaultSelector** (<code>boolean</code>)  Automatically allocates a pod selector for this deployment. __*Default*__: true
   * **replicas** (<code>number</code>)  Number of desired pods. __*Default*__: 1
 
@@ -877,7 +877,7 @@ new Job(scope: Construct, id: string, props?: JobProps)
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
-  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  *No description* __*Optional*__
+  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The pod metadata. __*Optional*__
   * **ttlAfterFinished** (<code>[Duration](#cdk8s-plus-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). __*Default*__: If this field is unset, the Job won't be automatically deleted.
 
 
@@ -1083,7 +1083,7 @@ new PodTemplate(props?: PodTemplateProps)
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
-  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  *No description* __*Optional*__
+  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The pod metadata. __*Optional*__
 
 
 
@@ -1738,7 +1738,7 @@ Name | Type | Description
 **containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **defaultSelector**?🔹 | <code>boolean</code> | Automatically allocates a pod selector for this deployment.<br/>__*Default*__: true
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
-**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | __*Optional*__
+**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__
 **replicas**?🔹 | <code>number</code> | Number of desired pods.<br/>__*Default*__: 1
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
@@ -2018,7 +2018,7 @@ Name | Type | Description
 -----|------|-------------
 **containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
-**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | __*Optional*__
+**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Limits the lifetime of a Job that has finished execution (either Complete or Failed).<br/>__*Default*__: If this field is unset, the Job won't be automatically deleted.
@@ -2076,7 +2076,7 @@ Name | Type | Description
 ## struct PodSpecProps 🔹 <a id="cdk8s-plus-podspecprops"></a>
 
 
-Specification of a `Pod`.
+Properties of a `PodSpec`.
 
 
 
@@ -2092,14 +2092,16 @@ Name | Type | Description
 ## struct PodTemplateProps 🔹 <a id="cdk8s-plus-podtemplateprops"></a>
 
 
+Properties of a `PodTemplate`.
 
+Adds metadata information on top of the spec.
 
 
 
 Name | Type | Description 
 -----|------|-------------
 **containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
-**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | __*Optional*__
+**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
 **volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/>__*Default*__: No volumes.
