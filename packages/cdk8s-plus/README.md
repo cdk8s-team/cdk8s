@@ -324,6 +324,11 @@ You can configure a TTL for the job after it finished its execution successfully
 import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus';
 
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const load = new kplus.Job(chart, 'LoadData', { spec: jobSpec });
+
 // let's define a job spec, and set a 1 second TTL.
 const jobSpec = {
   ttlAfterFinished: kplus.Duration.seconds(1),
@@ -333,12 +338,6 @@ const jobSpec = {
 jobSpec.podSpecTemplate.addContainer(new kplus.Container({
   image: 'loader'
 }));
-
-const app = new k.App();
-const chart = new k.Chart(app, 'Chart');
-
-// now we create the job
-const load = new kplus.Job(chart, 'LoadData', { spec: jobSpec });
 ```
 
 ### `Service`

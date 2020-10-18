@@ -27,10 +27,8 @@ test('Does not modify existing restart policy of pod spec', () => {
   const chart = Testing.chart();
 
   const job = new kplus.Job(chart, 'Job', {
-    podSpec: {
-      containers: [ new kplus.Container({ image: 'image' }) ],
-      restartPolicy: RestartPolicy.ALWAYS,
-    },
+    containers: [ new kplus.Container({ image: 'image' }) ],
+    restartPolicy: RestartPolicy.ALWAYS,
     ttlAfterFinished: kplus.Duration.seconds(1),
   });
 

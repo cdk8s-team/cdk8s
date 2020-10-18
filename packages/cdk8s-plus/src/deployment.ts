@@ -3,8 +3,8 @@ import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
-import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
-import { RestartPolicy, IPodController, PodSpec, PodSpecDefinition } from './pod'
+import { ApiObjectMetadataDefinition, Names } from 'cdk8s';
+import { RestartPolicy, PodTemplate, IPodTemplate, PodTemplateProps } from './pod'
 import { Volume } from './volume';
 import { Container } from './container';
 import { IServiceAccount } from './service-account';
@@ -12,7 +12,7 @@ import { IServiceAccount } from './service-account';
 /**
  * Properties for initialization of `Deployment`.
  */
-export interface DeploymentProps extends ResourceProps {
+export interface DeploymentProps extends ResourceProps, PodTemplateProps {
 
   /**
    * Number of desired pods.
@@ -30,20 +30,6 @@ export interface DeploymentProps extends ResourceProps {
    * @default true
    */
   readonly defaultSelector?: boolean;
-
-  /**
-   * Spec for the deployment pods.
-   *
-   * @default - Empty spec.
-   */
-  readonly podSpec?: PodSpec;
-
-  /**
-   * Metadata for the deployment pods.
-   *
-   * @default - Empty metadata.
-   */
-  readonly podMetadata?: ApiObjectMetadata;
 
 }
 
@@ -87,7 +73,7 @@ export interface ExposeOptions {
 * - Clean up older ReplicaSets that you don't need anymore.
 *
 **/
-export class Deployment extends Resource implements IPodController {
+export class Deployment extends Resource implements IPodTemplate {
 
   /**
    * Number of desired pods.
@@ -95,16 +81,11 @@ export class Deployment extends Resource implements IPodController {
   public readonly replicas: number;
 
   /**
-   * Provides read/write access to the underlying pod metadata.
-   */
-  public readonly podMetadata: ApiObjectMetadataDefinition;
-
-  /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
 
-  private readonly _podSpec: PodSpecDefinition;
+  private readonly _podTemplate: PodTemplate;
   private readonly _labelSelector: Record<string, string>;
 
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
@@ -116,9 +97,7 @@ export class Deployment extends Resource implements IPodController {
     });
 
     this.replicas = props.replicas ?? 1;
-    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
-
-    this._podSpec = new PodSpecDefinition(props.podSpec);
+    this._podTemplate = new PodTemplate(props);
     this._labelSelector = {};
 
     if (props.defaultSelector ?? true) {
@@ -127,6 +106,10 @@ export class Deployment extends Resource implements IPodController {
       this.podMetadata.addLabel(selector, matcher);
       this.selectByLabel(selector, matcher);
     }
+  }
+
+  public get podMetadata(): ApiObjectMetadataDefinition {
+    return this._podTemplate.podMetadata;
   }
 
   /**
@@ -139,19 +122,19 @@ export class Deployment extends Resource implements IPodController {
   }
 
   public get containers(): Container[] {
-    return this._podSpec.containers;
+    return this._podTemplate.containers;
   }
 
   public get volumes(): Volume[] {
-    return this._podSpec.volumes;
+    return this._podTemplate.volumes;
   }
 
   public get restartPolicy(): RestartPolicy | undefined {
-    return this._podSpec.restartPolicy;
+    return this._podTemplate.restartPolicy;
   }
 
   public get serviceAccount(): IServiceAccount | undefined {
-    return this._podSpec.serviceAccount;
+    return this._podTemplate.serviceAccount;
   }
 
   /**
@@ -183,11 +166,11 @@ export class Deployment extends Resource implements IPodController {
   }
 
   public addContainer(container: Container): void {
-    return this._podSpec.addContainer(container);
+    return this._podTemplate.addContainer(container);
   }
 
   public addVolume(volume: Volume): void {
-    return this._podSpec.addVolume(volume);
+    return this._podTemplate.addVolume(volume);
   }
 
 
@@ -199,7 +182,7 @@ export class Deployment extends Resource implements IPodController {
       replicas: this.replicas,
       template: {
         metadata: this.podMetadata.toJson(),
-        spec: this._podSpec._toKube(),
+        spec: this._podTemplate._toKube(),
       },
       selector: {
         matchLabels: this._labelSelector,

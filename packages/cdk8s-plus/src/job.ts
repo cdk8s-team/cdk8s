@@ -3,7 +3,7 @@ import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s
 import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
 import * as k8s from './imports/k8s';
-import { RestartPolicy, PodSpec, IPodController, PodSpecDefinition } from './pod';
+import { RestartPolicy, PodSpecProps, IPodSpec, PodSpec } from './pod';
 import { Duration } from './duration';
 import { Container } from './container';
 import { IServiceAccount } from './service-account';
@@ -13,14 +13,7 @@ import { Volume } from './volume';
 /**
  * Properties for initialization of `Job`.
  */
-export interface JobProps extends ResourceProps {
-
-  /**
-   * Spec for the job pods.
-   *
-   * @default - Empty spec. Can be configured via the `job.spec.podSpec` field.
-   */
-  readonly podSpec?: PodSpec;
+export interface JobProps extends ResourceProps, PodSpecProps {
 
   /**
    * Metadata for the job pods.
@@ -51,7 +44,7 @@ export interface JobProps extends ResourceProps {
  * The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
  * You can also use a Job to run multiple Pods in parallel.
  */
-export class Job extends Resource implements IPodController {
+export class Job extends Resource implements IPodSpec {
 
   /**
    * TTL before the job is deleted after it is finished.
@@ -65,7 +58,7 @@ export class Job extends Resource implements IPodController {
   protected readonly apiObject: ApiObject;
 
   private readonly _podMetadata: ApiObjectMetadataDefinition;
-  private readonly _podSpec: PodSpecDefinition;
+  private readonly _podSpec: PodSpec;
 
   constructor(scope: Construct, id: string, props: JobProps = {}) {
     super(scope, id, { metadata: props.metadata });
@@ -76,9 +69,9 @@ export class Job extends Resource implements IPodController {
     });
 
     this._podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
-    this._podSpec = new PodSpecDefinition({
-      ...props.podSpec,
-      restartPolicy: props.podSpec?.restartPolicy ?? RestartPolicy.NEVER,
+    this._podSpec = new PodSpec({
+      ...props,
+      restartPolicy: props.restartPolicy ?? RestartPolicy.NEVER,
     })
     this.ttlAfterFinished = props.ttlAfterFinished;
 

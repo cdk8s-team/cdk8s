@@ -5,13 +5,14 @@ import * as cdk8s from 'cdk8s';
 import { IServiceAccount } from './service-account';
 import { Container } from './container';
 import { Volume } from './volume';
+import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 
 /**
- * Represents a resource that controls pods. (e.g `Deployment`, `Job`, `Pod`...).
+ * Represents a resource that deploys pods. (e.g `Deployment`, `Job`, `Pod`...).
  *
- * Use the `PodSpecDefinition` class as an implementation helper.
+ * Use the `PodSpec` class as an implementation helper.
  */
-export interface IPodController {
+export interface IPodSpec {
 
   /**
    * The containers belonging to the pod.
@@ -53,10 +54,15 @@ export interface IPodController {
 
 }
 
+export interface IPodTemplate extends IPodSpec {
+
+  readonly podMetadata: ApiObjectMetadataDefinition;
+}
+
 /**
  * Provides read/write capabilities ontop of a `PodSpec`.
  */
-export class PodSpecDefinition {
+export class PodSpec implements IPodSpec {
 
   public readonly restartPolicy?: RestartPolicy;
   public readonly serviceAccount?: IServiceAccount;
@@ -64,7 +70,7 @@ export class PodSpecDefinition {
   private readonly _containers: Container[];
   private readonly _volumes: Volume[];
 
-  constructor(props: PodSpec = {}) {
+  constructor(props: PodSpecProps = {}) {
     this.restartPolicy = props.restartPolicy;
     this.serviceAccount = props.serviceAccount;
 
@@ -126,15 +132,25 @@ export class PodSpecDefinition {
 
 }
 
+export class PodTemplate extends PodSpec implements IPodTemplate {
+
+  public readonly podMetadata: ApiObjectMetadataDefinition;
+
+  constructor(props: PodTemplateProps = {}) {
+    super(props);
+    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+  }
+}
+
 /**
  * Properties for initialization of `Pod`.
  */
-export interface PodProps extends ResourceProps, PodSpec {}
+export interface PodProps extends ResourceProps, PodSpecProps {}
 
 /**
  * Specification of a `Pod`.
  */
-export interface PodSpec {
+export interface PodSpecProps {
 
   /**
    * List of containers belonging to the pod. Containers cannot currently be
@@ -184,18 +200,23 @@ export interface PodSpec {
 
 }
 
+export interface PodTemplateProps extends PodSpecProps {
+
+  readonly podMetadata?: ApiObjectMetadata;
+}
+
 /**
  * Pod is a collection of containers that can run on a host. This resource is
  * created by clients and scheduled onto hosts.
  */
-export class Pod extends Resource implements IPodController {
+export class Pod extends Resource implements IPodSpec {
 
   /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
 
-  private readonly _spec: PodSpecDefinition;
+  private readonly _spec: PodSpec;
 
   constructor(scope: Construct, id: string, props: PodProps = {}) {
     super(scope, id, { metadata: props.metadata });
@@ -205,7 +226,7 @@ export class Pod extends Resource implements IPodController {
       spec: cdk8s.Lazy.any({ produce: () => this._spec._toKube() }),
     });
 
-    this._spec = new PodSpecDefinition(props);
+    this._spec = new PodSpec(props);
   }
 
   public get containers(): Container[] {
