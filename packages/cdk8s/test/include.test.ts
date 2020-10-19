@@ -57,3 +57,29 @@ test('multiple resources with the same k8s name can be included so long as their
   expect(ids).toStrictEqual([ 'resource1-foo', 'resource1-bar' ]);
 });
 
+test('apiObjects returns all the API objects', () => {
+  // GIVEN
+  const chart = Testing.chart();
+
+  // WHEN
+  const file = Yaml.tmp([
+    {
+      apiVersion: 'v1',
+      kind: 'Foo',
+      metadata: {
+        name: 'resource1',
+      },
+    },
+    { },
+    {
+      apiVersion: 'v1',
+      kind: 'Bar',
+      metadata: {
+        name: 'resource1',
+      },
+    },
+  ]);
+  
+  const inc = new Include(chart, 'foo', { url: file });
+  expect(inc.apiObjects.map(x => x.kind).sort()).toEqual([ 'Bar', 'Foo' ]);
+});

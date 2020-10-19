@@ -14,9 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: installing dependencies
-        run: |
-          pip3 install pipenv
-          yarn install
+        run: tools/install-workflow-deps.sh
       - run: tools/align-version.sh "-pre.${{ github.sha }}"
       - run: yarn build
       - run: yarn test
