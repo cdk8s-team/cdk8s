@@ -35,12 +35,15 @@ export class Secret extends Resource implements ISecret {
     return { name };
   }
 
+  /**
+   * @see base.Resource.apiObject
+   */
   protected readonly apiObject: cdk8s.ApiObject;
 
   private readonly stringData: { [key: string]: string };
 
   public constructor(scope: Construct, id: string, props: SecretProps = { }) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
     this.stringData = props.stringData ?? {};
 

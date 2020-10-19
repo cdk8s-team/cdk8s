@@ -9,7 +9,7 @@ describe('IngressBackend', () => {
       const service = new Service(chart, 'my-service');
 
       // WHEN
-      service.spec.serve(8899);
+      service.serve(8899);
 
       // THEN
       expect(IngressBackend.fromService(service)._toKube()).toEqual({
@@ -34,7 +34,7 @@ describe('IngressBackend', () => {
       const service = new Service(chart, 'my-service');
 
       // WHEN
-      service.spec.serve(6011);
+      service.serve(6011);
 
       // THEN
       expect(() => IngressBackend.fromService(service, { port: 7766 })).toThrow(/backend defines port 7766 but service exposes port 6011/);
@@ -46,7 +46,7 @@ describe('IngressBackend', () => {
       const service = new Service(chart, 'my-service');
 
       // WHEN
-      service.spec.serve(6011);
+      service.serve(6011);
 
       // THEN
       expect(IngressBackend.fromService(service, { port: 6011 })._toKube()).toEqual({
@@ -54,16 +54,16 @@ describe('IngressBackend', () => {
         servicePort: 6011,
       });
     });
-    
+
     test('service exposes multiple ports and the backend uses one of them', () => {
       // GIVEN
       const chart = Testing.chart();
       const service = new Service(chart, 'my-service');
 
       // WHEN
-      service.spec.serve(6011);
-      service.spec.serve(8899);
-      service.spec.serve(1011);
+      service.serve(6011);
+      service.serve(8899);
+      service.serve(1011);
 
       // THEN
       expect(IngressBackend.fromService(service, { port: 8899 })._toKube()).toEqual({
@@ -78,8 +78,8 @@ describe('IngressBackend', () => {
       const service = new Service(chart, 'my-service');
 
       // WHEN
-      service.spec.serve(6011);
-      service.spec.serve(1111);
+      service.serve(6011);
+      service.serve(1111);
 
       // THEN
       expect(() => IngressBackend.fromService(service)).toThrow(/unable to determine service port since service exposes multiple ports/);
@@ -91,8 +91,8 @@ describe('IngressBackend', () => {
       const service = new Service(chart, 'my-service');
 
       // WHEN
-      service.spec.serve(6011);
-      service.spec.serve(1111);
+      service.serve(6011);
+      service.serve(1111);
 
       // THEN
       expect(() => IngressBackend.fromService(service, { port: 1234 })).toThrow(/service exposes ports 6011,1111 but backend is defined to use port 1234/);
@@ -107,13 +107,13 @@ describe('Ingress', () => {
     test('defaultBackend property', () => {
       // GIVEN
       const chart = Testing.chart();
-      const service = new Service(chart, 'my-service', { spec: { ports: [{port: 80}]} });
-      
+      const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+
       // WHEN
       new Ingress(chart, 'my-ingress', {
         defaultBackend: IngressBackend.fromService(service),
       });
-  
+
       // THEN
       expect(Testing.synth(chart).filter(x => x.kind === 'Ingress')).toStrictEqual([
         {
@@ -133,12 +133,12 @@ describe('Ingress', () => {
     test('addDefaultBackend()', () => {
       // GIVEN
       const chart = Testing.chart();
-      const service = new Service(chart, 'my-service', { spec: { ports: [{port: 80}]} });
-      
+      const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+
       // WHEN
       const ingress = new Ingress(chart, 'my-ingress');;
       ingress.addDefaultBackend(IngressBackend.fromService(service));
-  
+
       // THEN
       expect(Testing.synth(chart).filter(x => x.kind === 'Ingress')).toStrictEqual([
         {
@@ -160,8 +160,8 @@ describe('Ingress', () => {
   test('addHostDefaultBackend()', () => {
     // GIVEN
     const chart = Testing.chart();
-    const service = new Service(chart, 'my-service', { spec: { ports: [{port: 80}]} });
-      
+    const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+
     // WHEN
     const ingress = new Ingress(chart, 'my-ingress');;
     ingress.addHostDefaultBackend('my.host', IngressBackend.fromService(service));
@@ -181,7 +181,7 @@ describe('Ingress', () => {
                   backend: {
                     serviceName: 'test-my-service-pod-1c817a88',
                     servicePort: 80,
-                  },  
+                  },
                 },
               ],
             },
@@ -194,8 +194,8 @@ describe('Ingress', () => {
   test('addHostRule()', () => {
     // GIVEN
     const chart = Testing.chart();
-    const service = new Service(chart, 'my-service', { spec: { ports: [{port: 80}]} });
-      
+    const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+
     // WHEN
     const ingress = new Ingress(chart, 'my-ingress');;
     ingress.addHostRule('my.host', '/foo', IngressBackend.fromService(service));
@@ -220,14 +220,14 @@ describe('Ingress', () => {
                     backend: {
                       serviceName: 'test-my-service-pod-1c817a88',
                       servicePort: 80,
-                    },  
+                    },
                   },
                   {
                     path: '/foo',
                     backend: {
                       serviceName: 'test-my-service-pod-1c817a88',
                       servicePort: 80,
-                    },  
+                    },
                   },
                 ],
               },
@@ -240,14 +240,14 @@ describe('Ingress', () => {
                     backend: {
                       serviceName: 'test-my-service-pod-1c817a88',
                       servicePort: 80,
-                    },  
+                    },
                   },
                   {
                     path: '/',
                     backend: {
                       serviceName: 'test-my-service-pod-1c817a88',
                       servicePort: 80,
-                    },  
+                    },
                   },
                 ],
               },
@@ -261,8 +261,8 @@ describe('Ingress', () => {
   test('addRule()', () => {
     // GIVEN
     const chart = Testing.chart();
-    const service = new Service(chart, 'my-service', { spec: { ports: [{port: 80}]} });
-      
+    const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+
     // WHEN
     const ingress = new Ingress(chart, 'my-ingress');
     ingress.addRule('/foo', IngressBackend.fromService(service));
@@ -284,14 +284,14 @@ describe('Ingress', () => {
                     backend: {
                       serviceName: 'test-my-service-pod-1c817a88',
                       servicePort: 80,
-                    },  
+                    },
                   },
                   {
                     path: '/foo/bar',
                     backend: {
                       serviceName: 'test-my-service-pod-1c817a88',
                       servicePort: 80,
-                    },  
+                    },
                   },
                 ],
               },
@@ -306,8 +306,8 @@ describe('Ingress', () => {
     // GIVEN
     const chart = Testing.chart();
     const service = new Service(chart, 'my-service');
-    service.spec.serve(4000);
-      
+    service.serve(4000);
+
     // WHEN
     new Ingress(chart, 'my-ingress', {
       rules: [
@@ -318,7 +318,7 @@ describe('Ingress', () => {
         { host: 'host.and', path: '/path/2', backend: IngressBackend.fromService(service) },
       ],
     });
-  
+
     // THEN
     const expectedBackend = { serviceName: 'test-my-service-pod-1c817a88', servicePort: 4000 };
     expect(Testing.synth(chart).filter(x => x.kind === 'Ingress')).toEqual([
@@ -333,7 +333,7 @@ describe('Ingress', () => {
           rules: [
             { host: 'foo.bar', http: { paths: [ { backend: expectedBackend } ] } },
             { http: { paths: [ { path: '/just/path', backend: expectedBackend } ] } },
-            { host: 'host.and', http: { paths: [ 
+            { host: 'host.and', http: { paths: [
               { path: '/path', backend: expectedBackend },
               { path: '/path/2', backend: expectedBackend },
             ] } },
@@ -349,7 +349,7 @@ describe('Ingress', () => {
       // GIVEN
       const chart = Testing.chart();
       const service = new Service(chart, 'my-service');
-      service.spec.serve(4000);
+      service.serve(4000);
 
       // WHEN
       const ingress = new Ingress(chart, 'ingress', {
@@ -365,7 +365,7 @@ describe('Ingress', () => {
       // GIVEN
       const chart = Testing.chart();
       const service = new Service(chart, 'my-service');
-      service.spec.serve(4000);
+      service.serve(4000);
 
       // THEN
       expect(() => new Ingress(chart, 'ingress', {
@@ -378,7 +378,7 @@ describe('Ingress', () => {
       // GIVEN
       const chart = Testing.chart();
       const service = new Service(chart, 'my-service');
-      service.spec.serve(4000);
+      service.serve(4000);
       const ingress = new Ingress(chart, 'ingress');
 
       // WHEN
@@ -390,7 +390,7 @@ describe('Ingress', () => {
       // GIVEN
       const chart = Testing.chart();
       const service = new Service(chart, 'my-service');
-      service.spec.serve(4000);
+      service.serve(4000);
       const ingress = new Ingress(chart, 'ingress');
 
       // WHEN
@@ -403,11 +403,11 @@ describe('Ingress', () => {
     // GIVEN
     const chart = Testing.chart();
     const service = new Service(chart, 'my-service');
-    service.spec.serve(4000);
+    service.serve(4000);
     const ingress = new Ingress(chart, 'ingress');
 
     // THEN
     expect(() => ingress.addRule('bad/path', IngressBackend.fromService(service))).toThrow(/ingress paths must begin with a "\/": bad\/path/);
   });
-  
+
 });

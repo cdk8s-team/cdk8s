@@ -64,12 +64,8 @@ export class MyChart extends Chart {
     container.mount(workingDir, volume);
 
     const deployment = new kplus.Deployment(this, 'Deployment', {
-      spec: {
-        replicas: 1,
-        podSpecTemplate: {
-          containers: [container]
-        }
-      }
+      replicas: 1,
+      containers: [container]
     })
 
     deployment.expose(9000);

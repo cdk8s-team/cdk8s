@@ -9,7 +9,7 @@ import { Service } from './service';
  */
 export interface IngressProps extends ResourceProps {
   /**
-   * The default backend services requests that do not match any rule. 
+   * The default backend services requests that do not match any rule.
    *
    * Using this option or the `addDefaultBackend()` method is equivalent to
    * adding a rule with both `path` and `host` undefined.
@@ -36,13 +36,17 @@ export interface IngressProps extends ResourceProps {
  * based virtual hosting etc.
  */
 export class Ingress extends Resource {
+
+  /**
+   * @see base.Resource.apiObject
+   */
   protected readonly apiObject: ApiObject;
 
   private readonly _rulesPerHost: { [host: string]: k8s.HttpIngressPath[] } = {};
   private _defaultBackend?: IngressBackend;
 
   constructor(scope: Construct, id: string, props: IngressProps = {}) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
     this.apiObject = new k8s.Ingress(this, 'Ingress', {
       metadata: props.metadata,
@@ -69,7 +73,7 @@ export class Ingress extends Resource {
   /**
    * Defines the default backend for this ingress. A default backend capable of
    * servicing requests that don't match any rule.
-   * 
+   *
    * @param backend The backend to use for requests that do not match any rule.
    */
   public addDefaultBackend(backend: IngressBackend) {
@@ -79,7 +83,7 @@ export class Ingress extends Resource {
   /**
    * Specify a default backend for a specific host name. This backend will be used as a catch-all for requests
    * targeted to this host name (the `Host` header matches this value).
-   * 
+   *
    * @param host The host name to match
    * @param backend The backend to route to
    */
@@ -117,7 +121,7 @@ export class Ingress extends Resource {
    */
   public addRules(...rules: IngressRule[]) {
     for (const rule of rules) {
-      
+
       // default backend is not really a rule
       if (!rule.host && !rule.path) {
         if (this._defaultBackend) {
@@ -134,7 +138,7 @@ export class Ingress extends Resource {
       if (path && !path.startsWith('/')) {
         throw new Error(`ingress paths must begin with a "/": ${path}`);
       }
-  
+
       const routes = this._rulesPerHost[host] = this._rulesPerHost[host] ?? [];
 
       // check if we already have a rule for this host/path
@@ -148,7 +152,7 @@ export class Ingress extends Resource {
 
   private synthRules(): undefined | k8s.IngressRule[] {
     const rules = new Array<k8s.IngressRule>();
-    
+
     for (const [ host, paths ] of Object.entries(this._rulesPerHost)) {
       rules.push({
         host: host ? host : undefined,
@@ -165,7 +169,7 @@ export class Ingress extends Resource {
  */
 export interface ServiceIngressBackendOptions {
   /**
-   * The port to use to access the service. 
+   * The port to use to access the service.
    *
    * - This option will fail if the service does not expose any ports.
    * - If the service exposes multiple ports, this option must be specified.
@@ -186,23 +190,23 @@ export class IngressBackend {
    * @param service The service object.
    */
   public static fromService(service: Service, options: ServiceIngressBackendOptions = {}) {
-    if (service.spec.ports.length === 0) {
+    if (service.ports.length === 0) {
       throw new Error('service does not expose any ports');
     }
 
     let servicePort;
-    if (service.spec.ports.length === 1) {
-      servicePort = service.spec.ports[0].port;
+    if (service.ports.length === 1) {
+      servicePort = service.ports[0].port;
     } else {
       if (options.port !== undefined) {
-        const found = service.spec.ports.find(p => p.port === options.port);
+        const found = service.ports.find(p => p.port === options.port);
         if (found) {
           servicePort = found.port;
         } else {
-          throw new Error(`service exposes ports ${service.spec.ports.map(p => p.port).join(',')} but backend is defined to use port ${options.port}`);
+          throw new Error(`service exposes ports ${service.ports.map(p => p.port).join(',')} but backend is defined to use port ${options.port}`);
         }
       } else {
-        throw new Error(`unable to determine service port since service exposes multiple ports: ${service.spec.ports.map(x => x.port).join(',')}`);
+        throw new Error(`unable to determine service port since service exposes multiple ports: ${service.ports.map(x => x.port).join(',')}`);
       }
     }
 
@@ -247,7 +251,7 @@ export interface IngressRule {
    * port of an Ingress is implicitly :80 for http and :443 for https. Both
    * these may change in the future. Incoming requests are matched against the
    * host before the IngressRuleValue.
-   * 
+   *
    * @default - If the host is unspecified, the Ingress routes all traffic based
    * on the specified IngressRuleValue.
    */

@@ -57,16 +57,12 @@ container.mount(appPath, appVolume);
 
 // now lets create a deployment to run a few instances of this container
 const deployment = new kplus.Deployment(chart, 'Deployment', {
-  spec: {
-    replicas: 3,
-    podSpecTemplate: {
-      containers: [ container ]
-    }
-  },
+  replicas: 3,
+  containers: [ container ]
 });
 
 // finally, we expose the deployment as a load balancer service and make it run
-deployment.expose({port: 8080, serviceType: kplus.ServiceType.LOAD_BALANCER})
+deployment.expose(8080, {serviceType: kplus.ServiceType.LOAD_BALANCER})
 
 // we are done, synth
 app.synth();
@@ -161,14 +157,10 @@ const app = new cdk8s.App();
 const chart = new cdk8s.Chart(app, 'Chart');
 
 new kplus.Deployment(chart, 'Deployment', {
-  spec: {
-    replicas: 3,
-    podSpecTemplate: {
-      containers: [new kplus.Container({
-        image: 'ubuntu',
-      })],
-    },
-  },
+  replicas: 3,
+  containers: [new kplus.Container({
+    image: 'ubuntu',
+  })],
 });
 ```
 
@@ -184,10 +176,8 @@ app = cdk8s.App()
 chart = cdk8s.Chart(app, 'Chart')
 
 kplus.Deployment(chart, 'Deployment',
-  spec=kplus.DeploymentSpec(
-    replicas=1,
-    pod_spec_template=kplus.PodSpec(containers=[kplus.Container(image='ubuntu')])
-  )
+  replicas=1,
+  containers=[kplus.Container(image='ubuntu')]
 )
 ```
 
@@ -324,21 +314,19 @@ You can configure a TTL for the job after it finished its execution successfully
 import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus';
 
-// let's define a job spec, and set a 1 second TTL.
-const jobSpec = {
-  ttlAfterFinished: kplus.Duration.seconds(1),
-};
-
-// now add a container to all the pods created by this job
-jobSpec.podSpecTemplate.addContainer(new kplus.Container({
-  image: 'loader'
-}));
-
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-// now we create the job
-const load = new kplus.Job(chart, 'LoadData', { spec: jobSpec });
+// let's define a job spec, and set a 1 second TTL.
+const load = new kplus.Job(chart, 'LoadData', {
+  ttlAfterFinished: kplus.Duration.seconds(1)
+ });
+
+
+// now add a container to all the pods created by this job
+job.addContainer(new kplus.Container({
+  image: 'loader'
+}));
 ```
 
 ### `Service`
@@ -362,7 +350,7 @@ const chart = new k.Chart(app, 'Chart');
 const frontends = new kplus.Service(chart, 'FrontEnds');
 
 // this will cause the service to select all pods with the 'run: frontend' label.
-frontends.spec.selectByLabel('run', 'frontend')
+frontends.selectByLabel('run', 'frontend')
 ```
 
 #### Ports
@@ -378,7 +366,7 @@ const chart = new k.Chart(app, 'Chart');
 const frontends = new kplus.Service(chart, 'FrontEnds');
 
 // make the service bind to port 9000 and redirect to port 80 on the associated containers.
-frontends.spec.serve({port: 9000, targetPort: 80)
+frontends.serve({port: 9000, targetPort: 80)
 ```
 
 ### `Deployment`
@@ -400,11 +388,7 @@ const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
 new kplus.Deployment(chart, 'FrontEnds', {
-  spec: {
-    podSpecTemplate: {
-      containers: [ new kplus.Container({ image: 'node' }) ],
-    }
-  },
+  containers: [ new kplus.Container({ image: 'node' }) ],
 });
 ```
 
@@ -440,7 +424,7 @@ Following up on pod selection, you can also easily create a service that will se
 const frontends = new kplus.Deployment(chart, 'FrontEnds');
 
 // create a ClusterIP service that listens on port 9000 and redirects to port 9000 on the containers.
-frontends.expose({port: 9000})
+frontends.expose(9000)
 ```
 
 Notice the resulting manifest, will have the same `cdk8s.deployment` magic label as the selector.
@@ -558,10 +542,10 @@ const chart = new k.Chart(app, 'Chart');
 const pod = new new kplus.Pod(chart, 'Pod');
 
 // this will automatically add the volume as well.
-pod.spec.addContainer(container);
+pod.addContainer(container);
 
 // but if you want to explicitly add it, simply use:
-pod.spec.addVolume(storage);
+pod.addVolume(storage);
 
 ```
 
@@ -573,8 +557,9 @@ import * as kplus from 'cdk8s-plus';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const pod = new new kplus.Pod(chart, 'Pod');
-pod.spec.restartPolicy = kplus.RestartPolicy.NEVER;
+const pod = new new kplus.Pod(chart, 'Pod', {
+  restartPolicy: kplus.RestartPolicy.NEVER,
+});
 ```
 
 #### Assigning a ServiceAccount
@@ -585,8 +570,9 @@ import * as kplus from 'cdk8s-plus';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const pod = new new kplus.Pod(chart, 'Pod');
-pod.spec.serviceAccount = kplus.ServiceAccount.fromServiceAccountName('aws');
+const pod = new new kplus.Pod(chart, 'Pod', {
+  serviceAccount: kplus.ServiceAccount.fromServiceAccountName('aws'),
+});
 ```
 
 ### `Secret`
@@ -676,19 +662,15 @@ to a service associated with a deployment of the
 
 ```ts
 const helloDeployment = new kplus.Deployment(this, text, {
-  spec: {
-    podSpecTemplate: {
-      containers: [
-        new kplus.Container({
-          image: 'hashicorp/http-echo',
-          args: [ '-text', 'hello ingress' ]
-        })
-      ]
-    }
-  }
+  containers: [
+    new kplus.Container({
+      image: 'hashicorp/http-echo',
+      args: [ '-text', 'hello ingress' ]
+    })
+  ]
 });
 
-const helloService = helloDeployment.expose({ port: 5678 });
+const helloService = helloDeployment.expose(5678);
 
 const ingress = new Ingress(this, 'ingress');
 ingress.addRule('/hello', kplus.IngressBackend.fromService(helloService));

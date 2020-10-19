@@ -3,29 +3,34 @@ import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
-import { PodSpecDefinition, PodSpec } from './pod';
-import { ApiObjectMetadata, ApiObjectMetadataDefinition, Names } from 'cdk8s';
+import { ApiObjectMetadataDefinition, Names } from 'cdk8s';
+import { RestartPolicy, PodTemplate, IPodTemplate, PodTemplateProps } from './pod'
+import { Volume } from './volume';
+import { Container } from './container';
+import { IServiceAccount } from './service-account';
 
 /**
  * Properties for initialization of `Deployment`.
  */
-export interface DeploymentProps extends ResourceProps {
+export interface DeploymentProps extends ResourceProps, PodTemplateProps {
+
   /**
-   * The spec of the deployment. Use `deployment.spec` to apply post instatiation mutations.
+   * Number of desired pods.
    *
-   * @default - An empty spec will be created.
+   * @default 1
    */
-  readonly spec?: DeploymentSpec;
+  readonly replicas?: number;
 
   /**
    * Automatically allocates a pod selector for this deployment.
    *
    * If this is set to `false` you must define your selector through
-   * `podSepcTemplate.addLabel()` and `selectByLabel()`.
+   * `deployment.podMetadata.addLabel()` and `deployment.selectByLabel()`.
    *
    * @default true
    */
   readonly defaultSelector?: boolean;
+
 }
 
 /**
@@ -68,110 +73,68 @@ export interface ExposeOptions {
 * - Clean up older ReplicaSets that you don't need anymore.
 *
 **/
-export class Deployment extends Resource {
+export class Deployment extends Resource implements IPodTemplate {
+
+  /**
+   * Number of desired pods.
+   */
+  public readonly replicas: number;
+
   /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
 
-  /**
-   * Provides access to the underlying spec.
-   *
-   * You can use this field to apply post instantiation mutations
-   * to the spec.
-   */
-  public readonly spec: DeploymentSpecDefinition;
+  private readonly _podTemplate: PodTemplate;
+  private readonly _labelSelector: Record<string, string>;
 
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
-    super(scope, id, props);
+    super(scope, id, { metadata: props.metadata });
 
-    this.spec = new DeploymentSpecDefinition(props.spec);
-
-    this.apiObject = new k8s.Deployment(this, 'Pod', {
+    this.apiObject = new k8s.Deployment(this, 'Deployment', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
+      spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
+
+    this.replicas = props.replicas ?? 1;
+    this._podTemplate = new PodTemplate(props);
+    this._labelSelector = {};
 
     if (props.defaultSelector ?? true) {
       const selector = 'cdk8s.deployment';
       const matcher = Names.toLabelValue(Node.of(this).path);
-      this.spec.podMetadataTemplate.addLabel(selector, matcher);
-      this.spec.selectByLabel(selector, matcher);
+      this.podMetadata.addLabel(selector, matcher);
+      this.selectByLabel(selector, matcher);
     }
   }
 
-  /**
-   * Expose a deployment via a service.
-   *
-   * This is equivalent to running `kubectl expose deployment <deployment-name>`.
-   *
-   * @param port The port number the service will bind to.
-   * @param options Options.
-   */
-  public expose(port: number, options: ExposeOptions = {}): Service {
-    const service = new Service(this, 'Service', {
-      spec: {
-        type: options.serviceType ?? ServiceType.CLUSTER_IP,
-      },
-    });
-
-    service.addDeployment(this, port);
-    return service;
+  public get podMetadata(): ApiObjectMetadataDefinition {
+    return this._podTemplate.podMetadata;
   }
-}
-
-/**
- * Properties for initialization of `DeploymentSpec`.
- */
-export interface DeploymentSpec {
 
   /**
-   * Number of desired pods.
-   * @default 1
-   */
-  readonly replicas?: number;
-
-  /**
-   * Template for pod specs.
-   */
-  readonly podSpecTemplate?: PodSpec;
-
-  /**
-   * Template for pod metadata.
-   */
-  readonly podMetadataTemplate?: ApiObjectMetadata;
-}
-
-/**
- * DeploymentSpec is the specification of the desired behavior of the Deployment.
- */
-export class DeploymentSpecDefinition {
-  /**
-   * Number of desired pods.
-   */
-  public readonly replicas?: number;
-
-  /**
-   * Provides access to the underlying pod template spec.
+   * The labels this deployment will match against in order to select pods.
    *
-   * You can use this field to apply post instatiation mutations
-   * to the spec.
+   * Returns a a copy. Use `selectByLabel()` to add labels.
    */
-  public readonly podSpecTemplate: PodSpecDefinition;
+  public get labelSelector(): Record<string, string> {
+    return { ...this._labelSelector };
+  }
 
-  /**
-   * Template for pod metadata.
-   */
-  public readonly podMetadataTemplate: ApiObjectMetadataDefinition;
+  public get containers(): Container[] {
+    return this._podTemplate.containers;
+  }
 
-  private readonly _labelSelector: Record<string, string>;
+  public get volumes(): Volume[] {
+    return this._podTemplate.volumes;
+  }
 
-  constructor(props: DeploymentSpec = {}) {
-    this.replicas = props.replicas ?? 1;
-    this.podSpecTemplate = new PodSpecDefinition(props.podSpecTemplate);
-    this.podMetadataTemplate = new ApiObjectMetadataDefinition(props.podMetadataTemplate);
+  public get restartPolicy(): RestartPolicy | undefined {
+    return this._podTemplate.restartPolicy;
+  }
 
-    this._labelSelector = {};
+  public get serviceAccount(): IServiceAccount | undefined {
+    return this._podTemplate.serviceAccount;
   }
 
   /**
@@ -186,27 +149,42 @@ export class DeploymentSpecDefinition {
   }
 
   /**
-   * The labels this deployment will match against in order to select pods.
+   * Expose a deployment via a service.
    *
-   * Returns a a copy. Use `selectByLabel()` to add labels.
+   * This is equivalent to running `kubectl expose deployment <deployment-name>`.
+   *
+   * @param port The port number the service will bind to.
+   * @param options Options.
    */
-  public get labelSelector(): Record<string, string> {
-    return { ...this._labelSelector };
+  public expose(port: number, options: ExposeOptions = {}): Service {
+    const service = new Service(this, 'Service', {
+      type: options.serviceType ?? ServiceType.CLUSTER_IP,
+    });
+
+    service.addDeployment(this, port);
+    return service;
   }
-  
+
+  public addContainer(container: Container): void {
+    return this._podTemplate.addContainer(container);
+  }
+
+  public addVolume(volume: Volume): void {
+    return this._podTemplate.addVolume(volume);
+  }
+
+
   /**
    * @internal
    */
   public _toKube(): k8s.DeploymentSpec {
     return {
       replicas: this.replicas,
-      template: {
-        metadata: this.podMetadataTemplate.toJson(),
-        spec: this.podSpecTemplate._toKube(),
-      },
+      template: this._podTemplate._toPodTemplateSpec(),
       selector: {
         matchLabels: this._labelSelector,
       },
     };
   }
+
 }

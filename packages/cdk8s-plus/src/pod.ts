@@ -5,52 +5,187 @@ import * as cdk8s from 'cdk8s';
 import { IServiceAccount } from './service-account';
 import { Container } from './container';
 import { Volume } from './volume';
+import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 
 /**
- * Properties for initialization of `Pod`.
+ * Represents a resource that can be configured with a kuberenets pod spec. (e.g `Deployment`, `Job`, `Pod`, ...).
+ *
+ * Use the `PodSpec` class as an implementation helper.
  */
-export interface PodProps extends ResourceProps {
+export interface IPodSpec {
 
   /**
-   * The spec of the pod. Use `pod.spec` to apply post instantiation mutations.
+   * The containers belonging to the pod.
    *
-   * @default - An empty spec will be created.
+   * Use `addContainer` to add containers.
    */
-  readonly spec?: PodSpec;
+  readonly containers: Container[];
+
+  /**
+   * The volumes associated with this pod.
+   *
+   * Use `addVolume` to add volumes.
+   */
+  readonly volumes: Volume[];
+
+  /**
+   * Restart policy for all containers within the pod.
+   */
+  readonly restartPolicy?: RestartPolicy;
+
+  /**
+   * The service account used to run this pod.
+   */
+  readonly serviceAccount?: IServiceAccount;
+
+  /**
+   * Add a container to the pod.
+   *
+   * @param container The container.
+   */
+  addContainer(container: Container): void;
+
+  /**
+   * Add a volume to the pod.
+   *
+   * @param volume The volume.
+   */
+  addVolume(volume: Volume): void;
 
 }
 
 /**
- * Pod is a collection of containers that can run on a host. This resource is
- * created by clients and scheduled onto hosts.
+ * Represents a resource that can be configured with a kuberenets pod template. (e.g `Deployment`, `Job`, ...).
+ *
+ * Use the `PodTemplate` class as an implementation helper.
  */
-export class Pod extends Resource {
-  protected readonly apiObject: cdk8s.ApiObject;
+export interface IPodTemplate extends IPodSpec {
 
   /**
-   * Provides access to the underlying spec.
-   *
-   * You can use this field to apply post instantiation mutations
-   * to the spec.
+   * Provides read/write access to the underlying pod metadata of the resource.
    */
-  public readonly spec: PodSpecDefinition;
+  readonly podMetadata: ApiObjectMetadataDefinition;
+}
 
-  constructor(scope: Construct, id: string, props: PodProps = {}) {
-    super(scope, id, props);
+/**
+ * Provides read/write capabilities ontop of a `PodSpecProps`.
+ */
+export class PodSpec implements IPodSpec {
 
-    this.spec = new PodSpecDefinition(props.spec);
+  public readonly restartPolicy?: RestartPolicy;
+  public readonly serviceAccount?: IServiceAccount;
 
-    this.apiObject = new k8s.Pod(this, 'Pod', {
-      metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this.spec._toKube() }),
-    });
+  private readonly _containers: Container[];
+  private readonly _volumes: Volume[];
+
+  constructor(props: PodSpecProps = {}) {
+    this.restartPolicy = props.restartPolicy;
+    this.serviceAccount = props.serviceAccount;
+
+    this._containers = props.containers ?? [];
+    this._volumes = props.volumes ?? [];
+  }
+
+  public get containers(): Container[] {
+    return [ ...this._containers ];
+  }
+
+  public get volumes(): Volume[] {
+    return [ ...this._volumes ];
+  }
+
+  public addContainer(container: Container): void {
+    this._containers.push(container);
+  }
+
+  public addVolume(volume: Volume): void {
+    this._volumes.push(volume);
+  }
+
+  /**
+   * @internal
+   */
+  public _toPodSpec(): k8s.PodSpec {
+
+    if (this.containers.length === 0) {
+      throw new Error('PodSpec must have at least 1 container');
+    }
+
+    const volumes: k8s.Volume[] = [];
+    const containers: k8s.Container[] = [];
+
+    for (const container of this.containers) {
+
+      // automatically add volume from the container mount
+      // to this pod so thats its available to the container.
+      for (const mount of container.mounts) {
+        volumes.push(mount.volume._toKube());
+      }
+
+      containers.push(container._toKube());
+    }
+
+    for (const volume of this._volumes) {
+      volumes.push(volume._toKube());
+    }
+
+    return {
+      restartPolicy: this.restartPolicy,
+      serviceAccountName: this.serviceAccount?.name,
+      containers: containers,
+      volumes: volumes,
+    };
+
+  }
+
+}
+
+/**
+ * Properties of a `PodTemplate`.
+ *
+ * Adds metadata information on top of the spec.
+ */
+export interface PodTemplateProps extends PodSpecProps {
+
+  /**
+   * The pod metadata.
+   */
+  readonly podMetadata?: ApiObjectMetadata;
+}
+
+
+/**
+ * Provides read/write capabilities ontop of a `PodTemplateProps`.
+ */
+export class PodTemplate extends PodSpec implements IPodTemplate {
+
+  public readonly podMetadata: ApiObjectMetadataDefinition;
+
+  constructor(props: PodTemplateProps = {}) {
+    super(props);
+    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+  }
+
+  /**
+   * @internal
+   */
+  public _toPodTemplateSpec(): k8s.PodTemplateSpec {
+    return {
+      metadata: this.podMetadata.toJson(),
+      spec: this._toPodSpec(),
+    }
   }
 }
 
 /**
- * Properties for initialization of `PodSpec`.
+ * Properties for initialization of `Pod`.
  */
-export interface PodSpec {
+export interface PodProps extends ResourceProps, PodSpecProps {}
+
+/**
+ * Properties of a `PodSpec`.
+ */
+export interface PodSpecProps {
 
   /**
    * List of containers belonging to the pod. Containers cannot currently be
@@ -97,6 +232,57 @@ export interface PodSpec {
    * @default - No service account.
    */
   readonly serviceAccount?: IServiceAccount;
+
+}
+
+/**
+ * Pod is a collection of containers that can run on a host. This resource is
+ * created by clients and scheduled onto hosts.
+ */
+export class Pod extends Resource implements IPodSpec {
+
+  /**
+   * @see base.Resource.apiObject
+   */
+  protected readonly apiObject: cdk8s.ApiObject;
+
+  private readonly _spec: PodSpec;
+
+  constructor(scope: Construct, id: string, props: PodProps = {}) {
+    super(scope, id, { metadata: props.metadata });
+
+    this.apiObject = new k8s.Pod(this, 'Pod', {
+      metadata: props.metadata,
+      spec: cdk8s.Lazy.any({ produce: () => this._spec._toPodSpec() }),
+    });
+
+    this._spec = new PodSpec(props);
+  }
+
+  public get containers(): Container[] {
+    return this._spec.containers;
+  }
+
+  public get volumes(): Volume[] {
+    return this._spec.volumes;
+  }
+
+  public get restartPolicy(): RestartPolicy | undefined {
+    return this._spec.restartPolicy;
+  }
+
+  public get serviceAccount(): IServiceAccount | undefined {
+    return this._spec.serviceAccount;
+  }
+
+  public addContainer(container: Container): void {
+    return this._spec.addContainer(container);
+  }
+
+  public addVolume(volume: Volume): void {
+    return this._spec.addVolume(volume);
+  }
+
 }
 
 /**
@@ -119,99 +305,3 @@ export enum RestartPolicy {
   NEVER = 'Never'
 }
 
-/**
- * A description of a pod.
- */
-export class PodSpecDefinition {
-  /**
-   * Restart policy for all containers within the pod.
-   */
-  public readonly restartPolicy?: RestartPolicy;
-
-  /**
-   * The service account used to run this pod.
-   */
-  public readonly serviceAccount?: IServiceAccount;
-
-  private readonly _containers: Container[];
-  private readonly _volumes: Volume[];
-
-  constructor(props: PodSpec = {}) {
-    this._containers = props.containers ?? [];
-    this._volumes = props.volumes ?? [];
-    this.restartPolicy = props.restartPolicy;
-    this.serviceAccount = props.serviceAccount;
-  }
-
-  /**
-   * List of containers belonging to the pod.
-   *
-   * @returns a copy - do not modify
-   */
-  public get containers(): Container[] {
-    return [ ...this._containers ];
-  }
-
-  /**
-   * Adds a container to this pod.
-   *
-   * @param container The container to add
-   */
-  public addContainer(container: Container): void {
-    this._containers.push(container);
-  }
-
-  /**
-   * Adds a volume to this pod.
-   *
-   * @param volume The volume to add
-   */
-  public addVolume(volume: Volume): void {
-    this._volumes.push(volume);
-  }
-
-  /**
-   * List of volumes that can be mounted by containers belonging to the pod.
-   *
-   * Returns a copy. To add volumes, use `addVolume()`.
-   */
-  public get volumes() {
-    return [ ...this._volumes ];
-  }
-
-  /**
-   * @internal
-   */
-  public _toKube(): k8s.PodSpec {
-
-    if (this.containers.length === 0) {
-      throw new Error('PodSpec must have at least 1 container');
-    }
-
-    const volumes: k8s.Volume[] = [];
-    const containers: k8s.Container[] = [];
-
-    for (const container of this.containers) {
-
-      // automatically add volume from the container mount
-      // to this pod so thats its available to the container.
-      for (const mount of container.mounts) {
-        volumes.push(mount.volume._toKube());
-      }
-
-      containers.push(container._toKube());
-    }
-
-    for (const volume of this._volumes) {
-      volumes.push(volume._toKube());
-    }
-
-    return {
-      restartPolicy: this.restartPolicy,
-      serviceAccountName: this.serviceAccount?.name,
-      containers: containers,
-      volumes: volumes,
-    };
-
-  }
-}
