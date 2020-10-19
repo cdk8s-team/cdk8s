@@ -20,6 +20,8 @@
     "nohoist": [
       "cdk8s/yaml",
       "cdk8s/yaml/**",
+      "cdk8s/js-yaml",
+      "cdk8s/js-yaml/**",
       "cdk8s/json-stable-stringify",
       "cdk8s/json-stable-stringify/**",
       "cdk8s/follow-redirects",
