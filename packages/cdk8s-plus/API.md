@@ -15,6 +15,7 @@ Name|Description
 [Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
 [PodSpec](#cdk8s-plus-podspec)|Provides read/write capabilities ontop of a `PodSpecProps`.
 [PodTemplate](#cdk8s-plus-podtemplate)|Provides read/write capabilities ontop of a `PodTemplateProps`.
+[Probe](#cdk8s-plus-probe)|*No description*
 [Resource](#cdk8s-plus-resource)|Base class for all Kubernetes objects in stdk8s.
 [Secret](#cdk8s-plus-secret)|Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
 [Service](#cdk8s-plus-service)|An abstract way to expose an application running on a set of Pods as a network service.
@@ -45,8 +46,10 @@ Name|Description
 [PodProps](#cdk8s-plus-podprops)|Properties for initialization of `Pod`.
 [PodSpecProps](#cdk8s-plus-podspecprops)|Properties of a `PodSpec`.
 [PodTemplateProps](#cdk8s-plus-podtemplateprops)|Properties of a `PodTemplate`.
+[ProbeOptions](#cdk8s-plus-probeoptions)|*No description*
 [ResourceProps](#cdk8s-plus-resourceprops)|Initialization properties for resources.
 [SecretProps](#cdk8s-plus-secretprops)|*No description*
+[SecretValue](#cdk8s-plus-secretvalue)|Represents a specific value in JSON secret.
 [ServiceAccountProps](#cdk8s-plus-serviceaccountprops)|Properties for initialization of `ServiceAccount`.
 [ServiceIngressBackendOptions](#cdk8s-plus-serviceingressbackendoptions)|Options for setting up backends for ingress rules.
 [ServicePort](#cdk8s-plus-serviceport)|Definition of a service port.
@@ -218,6 +221,7 @@ new Container(props: ContainerProps)
   * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
@@ -659,7 +663,7 @@ __Returns__:
 
 #### *static* fromSecret(secret, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromsecret"></a>
 
-Create a by reading a specific key inside a secret.
+Create an env value by reading a specific key inside a secret.
 
 ```ts
 static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOptions): EnvValue
@@ -668,6 +672,21 @@ static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOpti
 * **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  - The secret.
 * **key** (<code>string</code>)  - The key.
 * **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  - Additional options.
+  * **optional** (<code>boolean</code>)  Specify whether the Secret or its key must be defined. __*Default*__: false
+
+__Returns__:
+* <code>[EnvValue](#cdk8s-plus-envvalue)</code>
+
+#### *static* fromSecretValue(secretValue, options?)🔹 <a id="cdk8s-plus-envvalue-fromsecretvalue"></a>
+
+Defines an environment value from a secret JSON value.
+
+```ts
+static fromSecretValue(secretValue: SecretValue, options?: EnvValueFromSecretOptions): EnvValue
+```
+
+* **secretValue** (<code>[SecretValue](#cdk8s-plus-secretvalue)</code>)  The secret value (secrent + key).
+* **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  Additional options.
   * **optional** (<code>boolean</code>)  Specify whether the Secret or its key must be defined. __*Default*__: false
 
 __Returns__:
@@ -1093,6 +1112,58 @@ new PodTemplate(props?: PodTemplateProps)
 Name | Type | Description 
 -----|------|-------------
 **podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides read/write access to the underlying pod metadata of the resource.
+
+
+
+## class Probe 🔹 <a id="cdk8s-plus-probe"></a>
+
+
+
+
+### Initializer
+
+
+
+
+```ts
+new Probe()
+```
+
+
+
+### Methods
+
+
+#### *static* fromCommand(command, options?)🔹 <a id="cdk8s-plus-probe-fromcommand"></a>
+
+
+
+```ts
+static fromCommand(command: Array<string>, options?: ProbeOptions): Probe
+```
+
+* **command** (<code>Array<string></code>)  *No description*
+* **options** (<code>[ProbeOptions](#cdk8s-plus-probeoptions)</code>)  *No description*
+  * **failureThreshold** (<code>number</code>)  *No description* __*Default*__: 3
+
+__Returns__:
+* <code>[Probe](#cdk8s-plus-probe)</code>
+
+#### *static* fromHttpGet(path, port?, options?)🔹 <a id="cdk8s-plus-probe-fromhttpget"></a>
+
+
+
+```ts
+static fromHttpGet(path: string, port?: number, options?: ProbeOptions): Probe
+```
+
+* **path** (<code>string</code>)  *No description*
+* **port** (<code>number</code>)  *No description*
+* **options** (<code>[ProbeOptions](#cdk8s-plus-probeoptions)</code>)  *No description*
+  * **failureThreshold** (<code>number</code>)  *No description* __*Default*__: 3
+
+__Returns__:
+* <code>[Probe](#cdk8s-plus-probe)</code>
 
 
 
@@ -1721,6 +1792,7 @@ Name | Type | Description
 **imagePullPolicy**?🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.<br/>__*Default*__: ImagePullPolicy.ALWAYS
 **name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/>__*Default*__: 'main'
 **port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/>__*Default*__: No port is exposed.
+**readiness**?🔹 | <code>[Probe](#cdk8s-plus-probe)</code> | Determines when the container is ready to serve traffic.<br/>__*Default*__: no readiness probe is defined
 **volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/>__*Optional*__
 **workingDir**?🔹 | <code>string</code> | Container's working directory.<br/>__*Default*__: The container runtime's default.
 
@@ -2108,6 +2180,19 @@ Name | Type | Description
 
 
 
+## struct ProbeOptions 🔹 <a id="cdk8s-plus-probeoptions"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**failureThreshold**?🔹 | <code>number</code> | __*Default*__: 3
+
+
+
 ## struct ResourceProps 🔹 <a id="cdk8s-plus-resourceprops"></a>
 
 
@@ -2132,6 +2217,20 @@ Name | Type | Description
 -----|------|-------------
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **stringData**?🔹 | <code>Map<string, string></code> | stringData allows specifying non-binary secret data in string form.<br/>__*Optional*__
+
+
+
+## struct SecretValue 🔹 <a id="cdk8s-plus-secretvalue"></a>
+
+
+Represents a specific value in JSON secret.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**key**🔹 | <code>string</code> | The JSON key.
+**secret**🔹 | <code>[ISecret](#cdk8s-plus-isecret)</code> | The secret.
 
 
 

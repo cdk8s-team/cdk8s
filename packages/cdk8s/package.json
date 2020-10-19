@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "constructs": "^3.0.4",
+    "@types/js-yaml": "^3.12.5",
     "@types/follow-redirects": "^1.8.0",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/yaml": "^1.2.0",
@@ -61,10 +62,12 @@
   "dependencies": {
     "follow-redirects": "^1.11.0",
     "json-stable-stringify": "^1.0.1",
-    "yaml": "2.0.0-1"
+    "yaml": "2.0.0-1",
+    "js-yaml": "^3.14.0"
   },
   "bundledDependencies": [
     "yaml",
+    "js-yaml",
     "json-stable-stringify",
     "follow-redirects"
   ],

@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as YAMLParser from 'js-yaml';
 import * as YAML from 'yaml';
 import { Type } from 'yaml/util';
 import { execFileSync } from 'child_process';
@@ -52,10 +53,13 @@ export class Yaml {
    */
   public static load(urlOrFile: string): any[] {
     const body = loadurl(urlOrFile);
-    const objects = YAML.parseAllDocuments(body);
+
+    // we temporarily a different library for parsing due to:
+    // https://github.com/awslabs/cdk8s/issues/348
+    const objects = YAMLParser.loadAll(body);
     const result = new Array<any>();
 
-    for (const obj of objects.map(x => x.toJSON())) {
+    for (const obj of objects) {
       // skip empty documents
       if (obj === undefined) { continue; }
       if (obj === null) { continue; }

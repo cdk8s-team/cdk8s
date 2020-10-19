@@ -1,5 +1,5 @@
 import { Testing, Include, Yaml } from '../src';
-import * as yaml from 'yaml';
+import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 import { Node } from 'constructs';
 
@@ -12,7 +12,7 @@ test('Include can be used to load from YAML', () => {
   new Include(chart, 'guestbook', { url: source });
 
   // THEN
-  const expected = yaml.parseAllDocuments(fs.readFileSync(source, 'utf-8')).map(x => x.toJSON());
+  const expected = yaml.loadAll(fs.readFileSync(source, 'utf-8'));
   const actual = Testing.synth(chart);
   expect(actual).toStrictEqual(expected);
 });

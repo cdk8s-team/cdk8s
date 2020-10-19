@@ -2,7 +2,7 @@ import { Construct, Node } from 'constructs';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as cp from 'child_process';
-import * as yaml from 'yaml';
+import * as yaml from 'js-yaml';
 import * as os from 'os';
 import { Include } from './include';
 import { Names } from './names';
@@ -71,7 +71,7 @@ export class Helm extends Include {
     // values
     if (opts.values && Object.keys(opts.values).length > 0) {
       const valuesPath = path.join(workdir, 'overrides.yaml');
-      fs.writeFileSync(valuesPath, yaml.stringify(opts.values));
+      fs.writeFileSync(valuesPath, yaml.safeDump(opts.values));
       args.push('-f', valuesPath);
     }
 
