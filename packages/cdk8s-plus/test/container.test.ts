@@ -46,7 +46,7 @@ describe('EnvValue', () => {
       key: 'my-key',
     }
     
-    const actual = kplus.EnvValue.fromSecretValue(secretValue, 'key');
+    const actual = kplus.EnvValue.fromSecretValue(secretValue);
 
     expect(actual.value).toBeUndefined();
     expect(actual.valueFrom).toEqual({
