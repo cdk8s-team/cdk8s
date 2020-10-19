@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.31.0](https://github.com/awslabs/cdk8s/compare/v0.30.0...v0.31.0) (2020-10-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **plus:** `spec` was removed from all cdk8s+ constructs and that now have a flat structure. See [Example](https://github.com/awslabs/cdk8s/tree/master/packages/cdk8s-plus#at-a-glance) for new usage.
+
+* **plus**: Construct id's for deployment will change due to a latent bug that appended the word `pod` to them.
+
+*By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license*
+* **plus:** `deployment.expose()` now takes `port` as a positional argument (before: `deployment.expose({ port })`, now: `deployment.expose(port)`).
+
+*By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license*
+* **lib:** auto-generated resource names that included duplicate hyphens will change will be replaced when applied.
+
+*By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license*
+* **lib:** cdk8s-plus's value of a label `cdk8s.deployment` of Pods are changed
+
+*By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license*
+
+### Features
+
+* **lib:** helm construct ([#346](https://github.com/awslabs/cdk8s/issues/346)) ([6ee449f](https://github.com/awslabs/cdk8s/commit/6ee449fc1b82e2c59ec24d327044f828665df8b5)), closes [#65](https://github.com/awslabs/cdk8s/issues/65)
+* **plus:** Ingress ([#340](https://github.com/awslabs/cdk8s/issues/340)) ([14ac668](https://github.com/awslabs/cdk8s/commit/14ac668f5f88445f14864ac3d271f8a9afbd40c7)), closes [#125](https://github.com/awslabs/cdk8s/issues/125)
+* **plus:** service.addDeployment() ([#342](https://github.com/awslabs/cdk8s/issues/342)) ([5413b3b](https://github.com/awslabs/cdk8s/commit/5413b3bf6ca13f9839407d561b622e64a4de62e4))
+* migrate to cdk.dev slack workspace ([#336](https://github.com/awslabs/cdk8s/issues/336)) ([b203e5a](https://github.com/awslabs/cdk8s/commit/b203e5a897e297227c33442031ce3b0dcfefa486))
+
+
+### Bug Fixes
+
+* **lib:** `uniqueId` is not compatible with the k8s labels ([#326](https://github.com/awslabs/cdk8s/issues/326)) ([161f368](https://github.com/awslabs/cdk8s/commit/161f3682e9229cace25d3c283c98028f1e1ca0a6)), closes [#323](https://github.com/awslabs/cdk8s/issues/323)
+* **lib:** duplicate hyphens in generated resource names ([#341](https://github.com/awslabs/cdk8s/issues/341)) ([6f6366a](https://github.com/awslabs/cdk8s/commit/6f6366a55c31f6ec9af09f33effcfa52a1b23fe8))
+* allow tests to run without write access to os.tmpdir parent ([#338](https://github.com/awslabs/cdk8s/issues/338)) ([dc17022](https://github.com/awslabs/cdk8s/commit/dc1702207deb4367a1d05717a009851a7d3dac68))
+* Fix yaml quote serialization 325 ([#327](https://github.com/awslabs/cdk8s/issues/327)) ([6b1f662](https://github.com/awslabs/cdk8s/commit/6b1f66278446efd01cb3d0b61a5fca712725fefa)), closes [#325](https://github.com/awslabs/cdk8s/issues/325)
+
+
+* **plus:** Remove the `spec` nesting level on both input and output ([#347](https://github.com/awslabs/cdk8s/issues/347)) ([5e34850](https://github.com/awslabs/cdk8s/commit/5e34850f4b3cc9c80fda4f0df245afcaa29b1daf))
+
 ## [0.30.0](https://github.com/awslabs/cdk8s/compare/v0.28.0...v0.30.0) (2020-10-04)
 
 ### Features
