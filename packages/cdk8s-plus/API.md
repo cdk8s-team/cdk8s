@@ -1125,11 +1125,11 @@ new Probe()
 Defines a probe based on a command which is executed within the container.
 
 ```ts
-static fromCommand(command: Array<string>, options?: ProbeOptions): Probe
+static fromCommand(command: Array<string>, options?: CommandProbeOptions): Probe
 ```
 
 * **command** (<code>Array<string></code>)  The command to execute.
-* **options** (<code>[ProbeOptions](#cdk8s-plus-probeoptions)</code>)  Options.
+* **options** (<code>[CommandProbeOptions](#cdk8s-plus-commandprobeoptions)</code>)  Options.
   * **failureThreshold** (<code>number</code>)  Minimum consecutive failures for the probe to be considered failed after having succeeded. __*Default*__: 3
   * **initialDelaySeconds** (<code>[Duration](#cdk8s-plus-duration)</code>)  Number of seconds after the container has started before liveness probes are initiated. __*Default*__: immediate
   * **periodSeconds** (<code>[Duration](#cdk8s-plus-duration)</code>)  How often (in seconds) to perform the probe. __*Default*__: Duration.seconds(10) Minimum value is 1.
