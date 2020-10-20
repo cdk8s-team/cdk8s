@@ -1,4 +1,5 @@
 import * as kplus from '../src';
+import { Duration } from '../src';
 import * as k8s from '../src/imports/k8s';
 
 describe('EnvValue', () => {
@@ -195,6 +196,26 @@ describe('Container', () => {
     };
 
     expect(container._toKube().volumeMounts).toEqual([expected]);
+  });
+
+  test('"readiness" can be used to define readiness probes', () => {
+    // GIVEN
+    const container = new kplus.Container({ 
+      image: 'foo',
+      readiness: kplus.Probe.fromHttpGet('/ping', {
+        timeoutSeconds: Duration.minutes(2),
+      }),
+    });
+
+    // THEN
+    expect(container._toKube().readinessProbe).toEqual({
+      failureThreshold: 3, 
+      httpGet: {path: '/ping', port: 80}, 
+      initialDelaySeconds: undefined, 
+      periodSeconds: undefined, 
+      successThreshold: undefined, 
+      timeoutSeconds: 120,
+    });
   });
 
 });

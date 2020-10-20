@@ -15,6 +15,7 @@ Name|Description
 [Pod](#cdk8s-plus-pod)|Pod is a collection of containers that can run on a host.
 [PodSpec](#cdk8s-plus-podspec)|Provides read/write capabilities ontop of a `PodSpecProps`.
 [PodTemplate](#cdk8s-plus-podtemplate)|Provides read/write capabilities ontop of a `PodTemplateProps`.
+[Probe](#cdk8s-plus-probe)|Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
 [Resource](#cdk8s-plus-resource)|Base class for all Kubernetes objects in stdk8s.
 [Secret](#cdk8s-plus-secret)|Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
 [Service](#cdk8s-plus-service)|An abstract way to expose an application running on a set of Pods as a network service.
@@ -28,6 +29,7 @@ Name|Description
 Name|Description
 ----|-----------
 [AddDirectoryOptions](#cdk8s-plus-adddirectoryoptions)|Options for `configmap.addDirectory()`.
+[CommandProbeOptions](#cdk8s-plus-commandprobeoptions)|Options for `Probe.fromCommand()`.
 [ConfigMapProps](#cdk8s-plus-configmapprops)|Properties for initialization of `ConfigMap`.
 [ConfigMapVolumeOptions](#cdk8s-plus-configmapvolumeoptions)|Options for the ConfigMap-based volume.
 [ContainerProps](#cdk8s-plus-containerprops)|Properties for creating a container.
@@ -37,6 +39,7 @@ Name|Description
 [EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|Options to specify an environment variable value from the process environment.
 [EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|Options to specify an environment variable value from a Secret.
 [ExposeOptions](#cdk8s-plus-exposeoptions)|Options for exposing a deployment via a service.
+[HttpGetProbeOptions](#cdk8s-plus-httpgetprobeoptions)|Options for `Probe.fromHttpGet()`.
 [IngressProps](#cdk8s-plus-ingressprops)|Properties for `Ingress`.
 [IngressRule](#cdk8s-plus-ingressrule)|Represents the rules mapping the paths under a specified host to the related backend services.
 [JobProps](#cdk8s-plus-jobprops)|Properties for initialization of `Job`.
@@ -45,6 +48,7 @@ Name|Description
 [PodProps](#cdk8s-plus-podprops)|Properties for initialization of `Pod`.
 [PodSpecProps](#cdk8s-plus-podspecprops)|Properties of a `PodSpec`.
 [PodTemplateProps](#cdk8s-plus-podtemplateprops)|Properties of a `PodTemplate`.
+[ProbeOptions](#cdk8s-plus-probeoptions)|Probe options.
 [ResourceProps](#cdk8s-plus-resourceprops)|Initialization properties for resources.
 [SecretProps](#cdk8s-plus-secretprops)|*No description*
 [SecretValue](#cdk8s-plus-secretvalue)|Represents a specific value in JSON secret.
@@ -219,6 +223,7 @@ new Container(props: ContainerProps)
   * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
@@ -1096,6 +1101,66 @@ Name | Type | Description
 
 
 
+## class Probe 🔹 <a id="cdk8s-plus-probe"></a>
+
+Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
+
+
+### Initializer
+
+
+
+
+```ts
+new Probe()
+```
+
+
+
+### Methods
+
+
+#### *static* fromCommand(command, options?)🔹 <a id="cdk8s-plus-probe-fromcommand"></a>
+
+Defines a probe based on a command which is executed within the container.
+
+```ts
+static fromCommand(command: Array<string>, options?: ProbeOptions): Probe
+```
+
+* **command** (<code>Array<string></code>)  The command to execute.
+* **options** (<code>[ProbeOptions](#cdk8s-plus-probeoptions)</code>)  Options.
+  * **failureThreshold** (<code>number</code>)  Minimum consecutive failures for the probe to be considered failed after having succeeded. __*Default*__: 3
+  * **initialDelaySeconds** (<code>[Duration](#cdk8s-plus-duration)</code>)  Number of seconds after the container has started before liveness probes are initiated. __*Default*__: immediate
+  * **periodSeconds** (<code>[Duration](#cdk8s-plus-duration)</code>)  How often (in seconds) to perform the probe. __*Default*__: Duration.seconds(10) Minimum value is 1.
+  * **successThreshold** (<code>number</code>)  Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. __*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
+  * **timeoutSeconds** (<code>[Duration](#cdk8s-plus-duration)</code>)  Number of seconds after which the probe times out. __*Default*__: Duration.seconds(1)
+
+__Returns__:
+* <code>[Probe](#cdk8s-plus-probe)</code>
+
+#### *static* fromHttpGet(path, options?)🔹 <a id="cdk8s-plus-probe-fromhttpget"></a>
+
+Defines a probe based on an HTTP GET request to the IP address of the container.
+
+```ts
+static fromHttpGet(path: string, options?: HttpGetProbeOptions): Probe
+```
+
+* **path** (<code>string</code>)  The URL path to hit.
+* **options** (<code>[HttpGetProbeOptions](#cdk8s-plus-httpgetprobeoptions)</code>)  Options.
+  * **failureThreshold** (<code>number</code>)  Minimum consecutive failures for the probe to be considered failed after having succeeded. __*Default*__: 3
+  * **initialDelaySeconds** (<code>[Duration](#cdk8s-plus-duration)</code>)  Number of seconds after the container has started before liveness probes are initiated. __*Default*__: immediate
+  * **periodSeconds** (<code>[Duration](#cdk8s-plus-duration)</code>)  How often (in seconds) to perform the probe. __*Default*__: Duration.seconds(10) Minimum value is 1.
+  * **successThreshold** (<code>number</code>)  Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. __*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
+  * **timeoutSeconds** (<code>[Duration](#cdk8s-plus-duration)</code>)  Number of seconds after which the probe times out. __*Default*__: Duration.seconds(1)
+  * **port** (<code>number</code>)  The TCP port to use when sending the GET request. __*Default*__: defaults to `container.port`.
+
+__Returns__:
+* <code>[Probe](#cdk8s-plus-probe)</code>
+
+
+
 ## class Resource 🔹 <a id="cdk8s-plus-resource"></a>
 
 Base class for all Kubernetes objects in stdk8s.
@@ -1674,6 +1739,23 @@ Name | Type | Description
 
 
 
+## struct CommandProbeOptions 🔹 <a id="cdk8s-plus-commandprobeoptions"></a>
+
+
+Options for `Probe.fromCommand()`.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**failureThreshold**?🔹 | <code>number</code> | Minimum consecutive failures for the probe to be considered failed after having succeeded.<br/>__*Default*__: 3
+**initialDelaySeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Number of seconds after the container has started before liveness probes are initiated.<br/>__*Default*__: immediate
+**periodSeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | How often (in seconds) to perform the probe.<br/>__*Default*__: Duration.seconds(10) Minimum value is 1.
+**successThreshold**?🔹 | <code>number</code> | Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.<br/>__*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
+**timeoutSeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Number of seconds after which the probe times out.<br/>__*Default*__: Duration.seconds(1)
+
+
+
 ## struct ConfigMapProps 🔹 <a id="cdk8s-plus-configmapprops"></a>
 
 
@@ -1721,6 +1803,7 @@ Name | Type | Description
 **imagePullPolicy**?🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.<br/>__*Default*__: ImagePullPolicy.ALWAYS
 **name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/>__*Default*__: 'main'
 **port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/>__*Default*__: No port is exposed.
+**readiness**?🔹 | <code>[Probe](#cdk8s-plus-probe)</code> | Determines when the container is ready to serve traffic.<br/>__*Default*__: no readiness probe is defined
 **volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/>__*Optional*__
 **workingDir**?🔹 | <code>string</code> | Container's working directory.<br/>__*Default*__: The container runtime's default.
 
@@ -1809,6 +1892,24 @@ Options for exposing a deployment via a service.
 Name | Type | Description 
 -----|------|-------------
 **serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | The type of the exposed service.<br/>__*Default*__: ClusterIP.
+
+
+
+## struct HttpGetProbeOptions 🔹 <a id="cdk8s-plus-httpgetprobeoptions"></a>
+
+
+Options for `Probe.fromHttpGet()`.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**failureThreshold**?🔹 | <code>number</code> | Minimum consecutive failures for the probe to be considered failed after having succeeded.<br/>__*Default*__: 3
+**initialDelaySeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Number of seconds after the container has started before liveness probes are initiated.<br/>__*Default*__: immediate
+**periodSeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | How often (in seconds) to perform the probe.<br/>__*Default*__: Duration.seconds(10) Minimum value is 1.
+**port**?🔹 | <code>number</code> | The TCP port to use when sending the GET request.<br/>__*Default*__: defaults to `container.port`.
+**successThreshold**?🔹 | <code>number</code> | Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.<br/>__*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
+**timeoutSeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Number of seconds after which the probe times out.<br/>__*Default*__: Duration.seconds(1)
 
 
 
@@ -2105,6 +2206,23 @@ Name | Type | Description
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
 **volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/>__*Default*__: No volumes.
+
+
+
+## struct ProbeOptions 🔹 <a id="cdk8s-plus-probeoptions"></a>
+
+
+Probe options.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**failureThreshold**?🔹 | <code>number</code> | Minimum consecutive failures for the probe to be considered failed after having succeeded.<br/>__*Default*__: 3
+**initialDelaySeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Number of seconds after the container has started before liveness probes are initiated.<br/>__*Default*__: immediate
+**periodSeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | How often (in seconds) to perform the probe.<br/>__*Default*__: Duration.seconds(10) Minimum value is 1.
+**successThreshold**?🔹 | <code>number</code> | Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.<br/>__*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
+**timeoutSeconds**?🔹 | <code>[Duration](#cdk8s-plus-duration)</code> | Number of seconds after which the probe times out.<br/>__*Default*__: Duration.seconds(1)
 
 
 
