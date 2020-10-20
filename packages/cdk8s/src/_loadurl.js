@@ -22,23 +22,21 @@ if (!purl.protocol) {
     throw new Error(`unable to parse pathname from file url: ${url}`);
   }
 
-  process.stdout.write(fs.readFileSync(purl.pathname, 'utf-8'));
-  process.exit(0);
+  fs.createReadStream(purl.pathname).pipe(process.stdout);
+} else {
+  const client = getHttpClient();
+  const get = client.get(url, response => {
+    if (response.statusCode !== 200) {
+      throw new Error(`${response.statusCode} response from http get: ${response.statusMessage}`);
+    }
+  
+    response.on('data', chunk => process.stdout.write(chunk));
+  });
+  
+  get.once('error', err => {
+    throw new Error(`http error: ${err.message}`);
+  });
 }
-
-const client = getHttpClient();
-
-const get = client.get(url, response => {
-  if (response.statusCode !== 200) {
-    throw new Error(`${response.statusCode} response from http get: ${response.statusMessage}`);
-  }
-
-  response.on('data', chunk => process.stdout.write(chunk));
-});
-
-get.once('error', err => {
-  throw new Error(`http error: ${err.message}`);
-});
 
 function getHttpClient() {
   switch (purl.protocol) {
