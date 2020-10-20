@@ -2,6 +2,7 @@ import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
 import { Names } from './names';
 import { App } from './app';
+import { Metadata } from './metadata';
 
 export interface ChartOptions {
   /**
@@ -9,9 +10,30 @@ export interface ChartOptions {
    * indirectly). This namespace will only apply to objects that don't have a
    * `namespace` explicitly defined for them.
    *
+   * You can also define chart-scope namespace using
+   * `chart.metadata.addNamespace()`.
+   *
    * @default - no namespace is synthesized (usually this implies "default")
    */
   readonly namespace?: string;
+
+  /**
+   * Chart-scope labels which apply to all API objects within this chart.
+   *
+   * You can also add chart-scope labels using `chart.metadata.addLabels()`.
+   *
+   * @default - no chart-scope labels.
+   */
+  readonly labels?: { [name: string]: string };
+
+  /**
+   * Chart-scope annotations which apply to all API objects within this chart.
+   *
+   * You can also add chart-scope annotations using `chart.metadata.addAnnotations()`.
+   *
+   * @default - no chart-scope labels.
+   */
+  readonly annotations?: { [name: string]: string };
 }
 
 export class Chart extends Construct {
@@ -38,9 +60,30 @@ export class Chart extends Construct {
    */
   public readonly namespace?: string;
 
+  /**
+   * Chart-scope metadata. Metadata defined through this API is applied to all
+   * API objects within the chart.
+   */
+  public readonly metadata: Metadata;
+
   constructor(scope: Construct, ns: string, options: ChartOptions = { }) {
     super(scope, ns);
     this.namespace = options.namespace;
+
+    this.metadata = Metadata.of(this);
+
+    // apply the namespace through Metadata object
+    if (options.namespace) {
+      this.metadata.addNamespace(options.namespace);
+    }
+
+    if (options.labels) {
+      this.metadata.addLabels(options.labels);
+    }
+
+    if (options.annotations) {
+      this.metadata.addAnnotations(options.annotations);
+    }
   }
 
   /**

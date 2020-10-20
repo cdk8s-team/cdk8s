@@ -76,6 +76,46 @@ Array [
 ]
 `;
 
+exports[`respects scope-level metadata 1`] = `
+Array [
+  Object {
+    "apiVersion": "v1",
+    "kind": "K1",
+    "metadata": Object {
+      "labels": Object {
+        "chart": "chart-wide label",
+      },
+      "name": "test-obj1-10ac3864",
+    },
+  },
+  Object {
+    "apiVersion": "v2",
+    "kind": "K2",
+    "metadata": Object {
+      "labels": Object {
+        "chart": "chart-wide label",
+        "group": "group-wide label",
+      },
+      "name": "test-group-obj2-efa17a56",
+      "namespace": "obj2-namespace",
+    },
+  },
+  Object {
+    "apiVersion": "v2",
+    "kind": "K2",
+    "metadata": Object {
+      "labels": Object {
+        "chart": "chart-wide label",
+        "group": "group-wide label",
+        "obj3": "obj3 label",
+      },
+      "name": "test-group-obj3-57327ee4",
+      "namespace": "group-namespace",
+    },
+  },
+]
+`;
+
 exports[`synthesized resource name is based on path 1`] = `
 Array [
   Object {

@@ -3,7 +3,7 @@ import { Chart } from './chart';
 import { sanitizeValue } from './_util';
 import { resolve } from './lazy';
 import * as stringify from 'json-stable-stringify';
-import { ApiObjectMetadata, ApiObjectMetadataDefinition } from './metadata';
+import { ApiObjectMetadata, Metadata } from './metadata';
 
 /**
  * Options for defining API objects.
@@ -67,7 +67,7 @@ export class ApiObject extends Construct {
   /**
    * Metadata associated with this API object.
    */
-  public readonly metadata: ApiObjectMetadataDefinition;
+  public readonly metadata: Metadata;
 
   /**
    * Defines an API object.
@@ -85,13 +85,23 @@ export class ApiObject extends Construct {
 
     this.name = options.metadata?.name ?? this.chart.generateObjectName(this);
 
-    this.metadata = new ApiObjectMetadataDefinition({
-      name: this.name,
-      namespace: options.metadata?.namespace ?? this.chart.namespace,
+    this.metadata = Metadata.of(this);
+    
+    for (const [k, v] of Object.entries(options.metadata?.labels ?? {})) {
+      this.metadata.addLabel(k, v);
+    }
 
-      // override user defined values
-      ...options.metadata,
-    });
+    if (options.metadata?.labels) {
+      this.metadata.addLabels(options.metadata?.labels);
+    }
+
+    if (options.metadata?.annotations) {
+      this.metadata.addAnnotations(options.metadata?.annotations);
+    }
+
+    if (options.metadata?.namespace) {
+      this.metadata.addNamespace(options.metadata.name);
+    }
   }
 
   /**
@@ -109,8 +119,15 @@ export class ApiObject extends Construct {
    */
   public toJson(): any {
     const data = {
+      // start by splatting the resource as-is
       ...this.options,
-      metadata: this.metadata.toJson(),
+
+      // resolve metadata (which also includes the initialized resource metadata)
+      metadata: {
+        name: this.name,
+        ...this.options.metadata,
+        ...Metadata.resolve(this),
+      },
     };
 
     // convert to "pure data" so, for example, when we convert to yaml these

@@ -28,11 +28,101 @@ class MyChart extends Chart {
 During synthesis, charts collect all the `ApiObject` nodes (recursively) and
 emit a single YAML manifest that includes all these objects.
 
-## ApiObject
+## ApiObjects
 
 An `ApiObject` is a construct that represents an entry in a Kubernetes manifest (level 0).
 In most cases, you won't use `ApiObject` directly but rather use classes that
 are imported through `cdk8s import` and which extend this base class.
+
+## Metadata
+
+Kubernetes objects can have metadata such as [labels], [annotations] and
+[namespaces] associated with them.
+
+[labels]: (https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
+[annotations]: (https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
+[namespaces]: (https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+
+When an API object is defined, you can explicitly specify it's metadata. For example:
+
+```ts
+const mypod = new Pod(this, 'mypod', {
+  metadata: {
+    namespace: 'my-app',
+    labels: {
+      foo: 'bar'
+    }
+  },
+});
+```
+
+You can access the object's `Metadata` object through the `metadata` property:
+
+```ts
+mypod.metadata.addAnnotation('foo.bar', 'baz');
+```
+
+Metadata specified at the chart level is applied to all API objects within this chart:
+
+```ts
+const myChart = new MyChart(this, 'mychart', {
+  labels: {
+    pruneLabel: 'bazbaz'
+  }
+});
+
+// or through the API after a chart is defined
+myChart.metadata.addNamespace('namespace-for-all');
+```
+
+In fact, cdk8s supports applying specific metadata at the *construct scope*
+level. By applying metadata at the scope level, all API objects within this
+sub-tree will have that metadata defined.
+
+Use the `Metadata.of(scope)` to obtain a `Metadata` object associated with a
+certain construct scope, and use the `addXxx` and `removeXxx` methods to
+add/remove metadata from that scope.
+
+For example, the following code adds the `app=my-app` label to all API objects
+in all charts in an app:
+
+```ts
+const app = new App();
+
+new MyChart(app, 'my-chart');
+new YourChart(app, 'your-chart');
+// ...
+
+Metadata.of(app).addLabel('app', 'my-app');
+
+app.synth();
+```
+
+The following example sets the namespace of all API objects in a custom construct:
+
+```ts
+class MyCustomConstruct extends Construct {
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
+
+    Metadata.of(this).addNamespace('redis-app');
+
+    new Pod(...);
+    new Deployment(...);
+
+    new ChildConstruct(...); // applies recursively
+  }
+}
+```
+
+You can also remove a label, annotation or a namespace definition from a scope
+(and all API objects within that scope) using the `removeXxx` methods:
+
+```ts
+mypod.removeLabel('i-dont-want-you-here');
+Metadata.of(myscope).removeAnnotation('foo.bar');
+chart.metadata.removeNamespace(); // no namespace at the chart level
+```
 
 ## Include
 
@@ -241,8 +331,8 @@ The `Helm` construct will render the manifest from the specified chart by
 executing `helm template`. If `values` is specified, these values will override
 the default values included with the chart.
 
-The `name` option can be used to specify the chart's [release name](https://helm.sh/docs/intro/using_helm/#three-big-concepts). 
-If not specified, a valid and unique release name will be allocated 
+The `name` option can be used to specify the chart's [release name](https://helm.sh/docs/intro/using_helm/#three-big-concepts).
+If not specified, a valid and unique release name will be allocated
 based on the construct path.
 
 The `Helm` construct extends `Include` and inherits it's API. For example, you

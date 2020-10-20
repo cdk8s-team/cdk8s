@@ -1,4 +1,4 @@
-import { ApiObject, Chart, Testing } from '../src';
+import { ApiObject, Chart, Testing, Metadata } from '../src';
 import { Construct, Node, Dependency } from 'constructs';
 
 test('minimal configuration', () => {
@@ -191,4 +191,42 @@ test('default namespace can be defined at the chart level', () => {
       namespace: 'foobar',
     },
   }]);
+});
+
+test('respects scope-level metadata', () => {
+  // GIVEN
+  const chart = Testing.chart();
+
+  new ApiObject(chart, 'obj1', {
+    apiVersion: 'v1',
+    kind: 'K1',
+  });
+
+  const group = new Construct(chart, 'group');
+
+  new ApiObject(group, 'obj2', {
+    apiVersion: 'v2',
+    kind: 'K2',
+    metadata: {
+      namespace: 'obj2-namespace', // set at the object level
+    },
+  });
+
+  new ApiObject(group, 'obj3', {
+    apiVersion: 'v2',
+    kind: 'K2',
+    metadata: {
+      labels: {
+        obj3: 'obj3 label', // set at the object level
+      },
+    },
+  });
+
+  // WHEN
+  Metadata.of(chart).addLabel('chart', 'chart-wide label');
+  Metadata.of(group).addLabel('group', 'group-wide label');
+  Metadata.of(group).addNamespace('group-namespace');
+
+  // THEN
+  expect(Testing.synth(chart)).toMatchSnapshot();
 });

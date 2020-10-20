@@ -271,6 +271,70 @@ describe('toJson', () => {
 
 });
 
+
+test('chart-level metadata', () => {
+  // GIVEN
+  const app = Testing.app();
+
+  // WHEN
+  const chart = new Chart(app, 'mychart', {
+    namespace: 'chart-level-namespace',
+    labels: {
+      app: 'my-app',
+    },
+    annotations: {
+      'my.annotation': '1',
+    },
+  });
+
+  new ApiObject(chart, 'obj1', {
+    kind: 'MyKind',
+    apiVersion: 'v1',
+  });
+
+  const child = new Construct(chart, 'child-scope');
+  const obj2 = new ApiObject(child, 'obj2', { 
+    kind: 'MyMy', 
+    apiVersion: 'v2',
+    metadata: {
+      labels: {
+        objLevel: 'label at the object level',
+      },
+    },
+  });
+  obj2.metadata.removeAnnotation('my.annotation'); // <-- remove from obj2
+
+  // THEN
+  expect(Testing.synth(chart)).toEqual([
+    {
+      apiVersion: 'v1',
+      kind: 'MyKind',
+      metadata: {
+        name: 'mychart-obj1-b85faa3a',
+        namespace: 'chart-level-namespace',
+        labels: {
+          app: 'my-app',
+        },
+        annotations: {
+          'my.annotation': '1',
+        },
+      },
+    },
+    {
+      apiVersion: 'v2',
+      kind: 'MyMy',
+      metadata: {
+        name: 'mychart-child-scope-obj2-d91b5643',
+        namespace: 'chart-level-namespace',
+        labels: {
+          app: 'my-app',
+          objLevel: 'label at the object level',
+        },
+      },
+    },
+  ]);
+});
+
 function createImplictToken(value: any) {
   const implicit = {};
   Object.defineProperty(implicit, 'resolve', { value: () => value });
