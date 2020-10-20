@@ -27,18 +27,21 @@ describe('EnvValue', () => {
 
   });
 
-  test('Can be created from secret', () => {
-
-    const actual = kplus.EnvValue.fromSecret(kplus.Secret.fromSecretName('Secret'), 'key');
+  test('Can be created from secret value', () => {
+    const secretValue = {
+      secret: kplus.Secret.fromSecretName('Secret'),
+      key: 'my-key',
+    }
+    
+    const actual = kplus.EnvValue.fromSecretValue(secretValue);
 
     expect(actual.value).toBeUndefined();
     expect(actual.valueFrom).toEqual({
       secretKeyRef: {
-        key: 'key',
+        key: 'my-key',
         name: 'Secret',
       },
     });
-
   });
 
   test('Cannot be created from missing required process env', () => {

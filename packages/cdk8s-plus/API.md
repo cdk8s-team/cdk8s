@@ -51,6 +51,7 @@ Name|Description
 [ProbeOptions](#cdk8s-plus-probeoptions)|Probe options.
 [ResourceProps](#cdk8s-plus-resourceprops)|Initialization properties for resources.
 [SecretProps](#cdk8s-plus-secretprops)|*No description*
+[SecretValue](#cdk8s-plus-secretvalue)|Represents a specific value in JSON secret.
 [ServiceAccountProps](#cdk8s-plus-serviceaccountprops)|Properties for initialization of `ServiceAccount`.
 [ServiceIngressBackendOptions](#cdk8s-plus-serviceingressbackendoptions)|Options for setting up backends for ingress rules.
 [ServicePort](#cdk8s-plus-serviceport)|Definition of a service port.
@@ -662,17 +663,16 @@ static fromProcess(key: string, options?: EnvValueFromProcessOptions): EnvValue
 __Returns__:
 * <code>[EnvValue](#cdk8s-plus-envvalue)</code>
 
-#### *static* fromSecret(secret, key, options?)🔹 <a id="cdk8s-plus-envvalue-fromsecret"></a>
+#### *static* fromSecretValue(secretValue, options?)🔹 <a id="cdk8s-plus-envvalue-fromsecretvalue"></a>
 
-Create a by reading a specific key inside a secret.
+Defines an environment value from a secret JSON value.
 
 ```ts
-static fromSecret(secret: ISecret, key: string, options?: EnvValueFromSecretOptions): EnvValue
+static fromSecretValue(secretValue: SecretValue, options?: EnvValueFromSecretOptions): EnvValue
 ```
 
-* **secret** (<code>[ISecret](#cdk8s-plus-isecret)</code>)  - The secret.
-* **key** (<code>string</code>)  - The key.
-* **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  - Additional options.
+* **secretValue** (<code>[SecretValue](#cdk8s-plus-secretvalue)</code>)  The secret value (secrent + key).
+* **options** (<code>[EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)</code>)  Additional options.
   * **optional** (<code>boolean</code>)  Specify whether the Secret or its key must be defined. __*Default*__: false
 
 __Returns__:
@@ -2250,6 +2250,20 @@ Name | Type | Description
 -----|------|-------------
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **stringData**?🔹 | <code>Map<string, string></code> | stringData allows specifying non-binary secret data in string form.<br/>__*Optional*__
+
+
+
+## struct SecretValue 🔹 <a id="cdk8s-plus-secretvalue"></a>
+
+
+Represents a specific value in JSON secret.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**key**🔹 | <code>string</code> | The JSON key.
+**secret**🔹 | <code>[ISecret](#cdk8s-plus-isecret)</code> | The secret.
 
 
 

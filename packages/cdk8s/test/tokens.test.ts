@@ -1,6 +1,5 @@
 import { ApiObject, Lazy, Testing } from '../src';
-import { resolve } from '../src/lazy';
-
+import { resolve } from '../src/_resolve';
 
 test('lazy', () => {
   // GIVEN

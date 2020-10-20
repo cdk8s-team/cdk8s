@@ -1,7 +1,7 @@
 import { Construct, IConstruct, Node } from 'constructs';
 import { Chart } from './chart';
 import { sanitizeValue } from './_util';
-import { resolve } from './lazy';
+import { resolve } from './_resolve';
 import * as stringify from 'json-stable-stringify';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition } from './metadata';
 
