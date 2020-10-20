@@ -584,6 +584,18 @@ addNamespace(value?: string): void
 
 
 
+#### clearNamespace()🔹 <a id="cdk8s-metadata-clearnamespace"></a>
+
+Clears the namespace definition from the scope and all API objects within this scope.
+
+```ts
+clearNamespace(): void
+```
+
+
+
+
+
 #### removeAnnotation(name)🔹 <a id="cdk8s-metadata-removeannotation"></a>
 
 Removes an annotation from all API objects within the scope.
@@ -606,18 +618,6 @@ removeLabel(label: string): void
 ```
 
 * **label** (<code>string</code>)  The label to remove.
-
-
-
-
-#### removeNamespace()🔹 <a id="cdk8s-metadata-removenamespace"></a>
-
-Clears the namespace definition from the scope and all API objects within this scope.
-
-```ts
-removeNamespace(): void
-```
-
 
 
 

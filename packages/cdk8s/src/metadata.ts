@@ -252,7 +252,7 @@ export class Metadata extends Construct {
    * Clears the namespace definition from the scope and all API objects within
    * this scope.
    */
-  public removeNamespace() {
+  public clearNamespace() {
     this.addNamespace(undefined);
   }
 
