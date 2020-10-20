@@ -121,7 +121,7 @@ You can also remove a label, annotation or a namespace definition from a scope
 ```ts
 mypod.removeLabel('i-dont-want-you-here');
 Metadata.of(myscope).removeAnnotation('foo.bar');
-chart.metadata.removeNamespace(); // no namespace at the chart level
+chart.metadata.clearNamespace(); // no namespace at the chart level
 ```
 
 ## Include
