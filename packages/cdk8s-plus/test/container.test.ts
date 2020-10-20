@@ -26,20 +26,6 @@ describe('EnvValue', () => {
 
   });
 
-  test('Can be created from secret', () => {
-
-    const actual = kplus.EnvValue.fromSecret(kplus.Secret.fromSecretName('Secret'), 'key');
-
-    expect(actual.value).toBeUndefined();
-    expect(actual.valueFrom).toEqual({
-      secretKeyRef: {
-        key: 'key',
-        name: 'Secret',
-      },
-    });
-
-  });
-
   test('Can be created from secret value', () => {
     const secretValue = {
       secret: kplus.Secret.fromSecretName('Secret'),

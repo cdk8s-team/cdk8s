@@ -1,5 +1,5 @@
 import { IConfigMap } from './config-map';
-import { ISecret, SecretValue } from './secret';
+import { SecretValue } from './secret';
 import * as k8s from './imports/k8s';
 import { Volume } from './volume';
 
@@ -67,17 +67,6 @@ export class EnvValue {
       },
     };
     return new EnvValue(undefined, source);
-  }
-
-  /**
-   * Create an env value by reading a specific key inside a secret.
-   *
-   * @param secret - The secret.
-   * @param key - The key.
-   * @param options - Additional options.
-   */
-  public static fromSecret(secret: ISecret, key: string, options: EnvValueFromSecretOptions = {}): EnvValue {
-    return this.fromSecretValue({ secret, key }, options);
   }
 
   /**
