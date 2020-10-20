@@ -260,6 +260,29 @@ const container = new kplus.Container({
 container.mount('/path/to/mount', volume);
 ```
 
+## Probes
+
+A [Probe] is a diagnostic performed periodically by the kubelet on a Container. To
+perform a diagnostic, the kubelet calls a Handler implemented by the container.
+
+[Probe]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#probe-v1-core
+
+A `Probe` instance can be created through one of the `fromXxx` static methods:
+
+- `Probe.fromHttpGet()`
+- `Probe.fromCommand()`
+
+Readiness probes can be configured at the container-level through the `readiness` option:
+
+```ts
+new kplus.Container({
+  // ...
+  readiness: kplus.Probe.fromHttpGet('/ping')
+});
+```
+
+See the API reference for details.
+
 ### `Volume`
 
 Volume represents a named volume in a pod that may be accessed by any container in the pod.
