@@ -2,6 +2,7 @@ import { IConfigMap } from './config-map';
 import { ISecret } from './secret';
 import * as k8s from './imports/k8s';
 import { Volume } from './volume';
+import { Probe } from './probe';
 
 /**
  * Options to specify an envionment variable value from a ConfigMap key.
@@ -219,6 +220,13 @@ export interface ContainerProps {
    * @default ImagePullPolicy.ALWAYS
    */
   readonly imagePullPolicy?: ImagePullPolicy
+
+  /**
+   * Determines when the container is ready to serve traffic.
+   * 
+   * @default - no readiness probe is defined
+   */
+  readonly readiness?: Probe; 
 }
 
 /**
@@ -259,6 +267,7 @@ export class Container {
   private readonly _command?: readonly string[];
   private readonly _args?: readonly string[];
   private readonly _env: { [name: string]: EnvValue };
+  private readonly _readiness?: Probe;
 
   constructor(props: ContainerProps) {
     this.name = props.name ?? 'main';
@@ -267,6 +276,7 @@ export class Container {
     this._command = props.command;
     this._args = props.args;
     this._env = props.env ?? { };
+    this._readiness = props.readiness;
     this.workingDir = props.workingDir;
     this.mounts = props.volumeMounts ?? [];
     this.imagePullPolicy = props.imagePullPolicy ?? ImagePullPolicy.ALWAYS;
@@ -357,6 +367,7 @@ export class Container {
       args: this.args,
       workingDir: this.workingDir,
       env: renderEnv(this._env),
+      readinessProbe: this._readiness?._toKube(this),
     };
   }
 }
