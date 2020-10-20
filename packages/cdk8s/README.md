@@ -167,8 +167,6 @@ will have duplicate definitions of the same objects.
 
 You can declare dependencies between any two cdk8s constructs using the `addDependency()` method.
 
-### ApiObjects
-
 For example, you can force kubernetes to first apply a `Namespace` before applying the `Service` in the scope of that namespace:
 
 ```typescript
@@ -217,8 +215,6 @@ dist/0001-application.k8s.yaml
 ```
 
 Notice that the `namespace` chart appears first with the `0000` prefix. This will ensure that a subsequent execution of `kubectl apply -f dist/` will apply the `namespace` first, and the `application` second.
-
-### Custom Constructs
 
 The behavior above applies in the same way to custom constructs that you create or use.
 
@@ -269,7 +265,7 @@ metadata:
 
 You can see that all `ApiObject`s of the `Database` construct, appear before the `Service` object.
 
-### Things just got cool
+**Things just got cool!**
 
 If you simply declare a dependency between two `ApiObject`s (or `Constructs`), that belong to two different `Chart`s, `cdk8s` will create the chart dependency automatically for you.
 
