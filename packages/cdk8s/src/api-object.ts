@@ -122,11 +122,13 @@ export class ApiObject extends Construct {
       // start by splatting the resource as-is
       ...this.options,
 
-      // resolve metadata (which also includes the initialized resource metadata)
+      // resolve metadata - first apply metadata passed through options
+      // at the object level, then resolve scope-level metadata (which should technically
+      // also include metadata initialized at the object-level), and then the name.
       metadata: {
-        name: this.name,
         ...this.options.metadata,
         ...Metadata.resolve(this),
+        name: this.name,        
       },
     };
 
