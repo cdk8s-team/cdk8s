@@ -53,7 +53,7 @@ export class MyChart extends Chart {
       env: {
         ELASTIC_USERNAME: kplus.EnvValue.fromValue('elastic'),
         ELASTIC_ENDPOINT: kplus.EnvValue.fromValue(`http://${elastic.name}-es-http:${esPort}`),
-        ELASTIC_PASSWORD: kplus.EnvValue.fromSecret(passwordSecret, 'elastic')
+        ELASTIC_PASSWORD: kplus.EnvValue.fromSecretValue({ secret: passwordSecret, key: 'elastic' })
       }
     })
 
