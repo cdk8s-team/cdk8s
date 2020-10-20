@@ -52,7 +52,10 @@ export class Yaml {
    */
   public static load(urlOrFile: string): any[] {
     const body = loadurl(urlOrFile);
-    const objects = YAML.parseAllDocuments(body);
+
+    // we need to use yaml-1.1 so that octal numbers in the form `0775` will be parsed
+    // correctly (see https://github.com/eemeli/yaml/issues/205)
+    const objects = YAML.parseAllDocuments(body, { schema: 'yaml-1.1' });
     const result = new Array<any>();
 
     for (const obj of objects.map(x => x.toJSON())) {

@@ -16,7 +16,7 @@ const project = new JsiiProject({
   dependencies: {
     "follow-redirects": Semver.caret("1.11.0"),
     "json-stable-stringify": Semver.caret("1.0.1"),
-    "yaml": Semver.caret("1.7.2"),
+    "yaml": Semver.pinned("2.0.0-1"),
   },
   bundledDependencies: [
     "yaml",
