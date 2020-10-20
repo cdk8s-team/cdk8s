@@ -5,7 +5,7 @@ import * as cdk8s from 'cdk8s';
 import { IServiceAccount } from './service-account';
 import { Container } from './container';
 import { Volume } from './volume';
-import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
+import { ApiObjectMetadata } from 'cdk8s';
 
 /**
  * Represents a resource that can be configured with a kuberenets pod spec. (e.g `Deployment`, `Job`, `Pod`, ...).
@@ -64,7 +64,7 @@ export interface IPodTemplate extends IPodSpec {
   /**
    * Provides read/write access to the underlying pod metadata of the resource.
    */
-  readonly podMetadata: ApiObjectMetadataDefinition;
+  readonly podMetadata: ApiObjectMetadata;
 }
 
 /**
@@ -153,17 +153,16 @@ export interface PodTemplateProps extends PodSpecProps {
   readonly podMetadata?: ApiObjectMetadata;
 }
 
-
 /**
  * Provides read/write capabilities ontop of a `PodTemplateProps`.
  */
 export class PodTemplate extends PodSpec implements IPodTemplate {
 
-  public readonly podMetadata: ApiObjectMetadataDefinition;
+  public readonly podMetadata: ApiObjectMetadata;
 
   constructor(props: PodTemplateProps = {}) {
     super(props);
-    this.podMetadata = new ApiObjectMetadataDefinition(props.podMetadata);
+    this.podMetadata = props.podMetadata ?? { };
   }
 
   /**

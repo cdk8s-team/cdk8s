@@ -37,7 +37,7 @@ export abstract class Resource extends Construct implements IResource {
    */
   protected abstract readonly apiObject: cdk8s.ApiObject;
 
-  public get metadata(): cdk8s.ApiObjectMetadataDefinition {
+  public get metadata(): cdk8s.Metadata {
     return this.apiObject.metadata;
   }
 

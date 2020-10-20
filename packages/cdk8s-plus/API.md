@@ -347,7 +347,7 @@ Name | Type | Description
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | The containers belonging to the pod.
 **labelSelector**🔹 | <code>Map<string, string></code> | The labels this deployment will match against in order to select pods.
-**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides read/write access to the underlying pod metadata of the resource.
+**podMetadata**🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Provides read/write access to the underlying pod metadata of the resource.
 **replicas**🔹 | <code>number</code> | Number of desired pods.
 **volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | The volumes associated with this pod.
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
@@ -894,7 +894,7 @@ Name | Type | Description
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | The containers belonging to the pod.
-**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides read/write access to the underlying pod metadata of the resource.
+**podMetadata**🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Provides read/write access to the underlying pod metadata of the resource.
 **volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | The volumes associated with this pod.
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
@@ -1097,7 +1097,7 @@ new PodTemplate(props?: PodTemplateProps)
 
 Name | Type | Description 
 -----|------|-------------
-**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides read/write access to the underlying pod metadata of the resource.
+**podMetadata**🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Provides read/write access to the underlying pod metadata of the resource.
 
 
 
@@ -1194,7 +1194,7 @@ new Resource(scope: Construct, id: string, _: ResourceProps)
 Name | Type | Description 
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
-**metadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
+**metadata**🔹 | <code>[Metadata](#cdk8s-metadata)</code> | <span></span>
 **name**🔹 | <code>string</code> | The name of this API object.
 
 
@@ -1992,7 +1992,7 @@ Use the `PodTemplate` class as an implementation helper.
 Name | Type | Description 
 -----|------|-------------
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | The containers belonging to the pod.
-**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides read/write access to the underlying pod metadata of the resource.
+**podMetadata**🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Provides read/write access to the underlying pod metadata of the resource.
 **volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | The volumes associated with this pod.
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__

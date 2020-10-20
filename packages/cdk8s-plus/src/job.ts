@@ -1,5 +1,5 @@
 import { Resource, ResourceProps } from './base';
-import { ApiObject, ApiObjectMetadataDefinition } from 'cdk8s';
+import { ApiObject, ApiObjectMetadata } from 'cdk8s';
 import { Construct } from 'constructs';
 import * as cdk8s from 'cdk8s';
 import * as k8s from './imports/k8s';
@@ -68,7 +68,7 @@ export class Job extends Resource implements IPodTemplate {
 
   }
 
-  public get podMetadata(): ApiObjectMetadataDefinition {
+  public get podMetadata(): ApiObjectMetadata {
     return this._podTemplate.podMetadata;
   }
 

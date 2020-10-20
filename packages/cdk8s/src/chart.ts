@@ -56,11 +56,6 @@ export class Chart extends Construct {
   }
 
   /**
-   * The default namespace for all objects in this chart.
-   */
-  public readonly namespace?: string;
-
-  /**
    * Chart-scope metadata. Metadata defined through this API is applied to all
    * API objects within the chart.
    */
@@ -68,7 +63,6 @@ export class Chart extends Construct {
 
   constructor(scope: Construct, ns: string, options: ChartOptions = { }) {
     super(scope, ns);
-    this.namespace = options.namespace;
 
     this.metadata = Metadata.of(this);
 
@@ -127,6 +121,4 @@ export class Chart extends Construct {
   public toJson(): any[] {
     return App._synthChart(this);
   }
-
 }
-

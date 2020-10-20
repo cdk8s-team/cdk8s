@@ -3,7 +3,7 @@ import { Construct, Node } from 'constructs';
 import { Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
-import { ApiObjectMetadataDefinition, Names } from 'cdk8s';
+import { ApiObjectMetadata, Names } from 'cdk8s';
 import { RestartPolicy, PodTemplate, IPodTemplate, PodTemplateProps } from './pod'
 import { Volume } from './volume';
 import { Container } from './container';
@@ -108,7 +108,7 @@ export class Deployment extends Resource implements IPodTemplate {
     }
   }
 
-  public get podMetadata(): ApiObjectMetadataDefinition {
+  public get podMetadata(): ApiObjectMetadata {
     return this._podTemplate.podMetadata;
   }
 

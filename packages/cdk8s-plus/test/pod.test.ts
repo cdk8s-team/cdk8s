@@ -69,7 +69,7 @@ test('Synthesizes spec lazily', () => {
 
   const chart = Testing.chart();
 
-  const pod = new kplus.Pod(chart, 'Pod', {});
+  const pod = new kplus.Pod(chart, 'Pod');
 
   const container = new kplus.Container({ image: 'image' });
   pod.addContainer(container);
@@ -78,4 +78,16 @@ test('Synthesizes spec lazily', () => {
 
   expect(spec.containers[0].image).toEqual('image');
 
+});
+
+test('scope-level metadata applies to pods', () => {
+  // GIVEN
+  const chart = Testing.chart();
+  const pod = new kplus.Pod(chart, 'MyPod');
+
+  // WHEN
+  chart.metadata.addLabel('foo', 'bar');
+
+  // THEN
+  expect(Testing.synth(chart)).toEqual([]);
 });

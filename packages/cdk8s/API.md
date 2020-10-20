@@ -183,7 +183,6 @@ new Chart(scope: Construct, ns: string, options?: ChartOptions)
 Name | Type | Description 
 -----|------|-------------
 **metadata**🔹 | <code>[Metadata](#cdk8s-metadata)</code> | Chart-scope metadata.
-**namespace**?🔹 | <code>string</code> | The default namespace for all objects in this chart.<br/>__*Optional*__
 
 ### Methods
 
