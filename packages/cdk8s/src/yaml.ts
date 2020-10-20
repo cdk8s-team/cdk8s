@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import * as YAMLParser from 'js-yaml';
 import * as YAML from 'yaml';
 import { Type } from 'yaml/util';
 import { execFileSync } from 'child_process';
@@ -54,12 +53,12 @@ export class Yaml {
   public static load(urlOrFile: string): any[] {
     const body = loadurl(urlOrFile);
 
-    // we temporarily a different library for parsing due to:
-    // https://github.com/awslabs/cdk8s/issues/348
-    const objects = YAMLParser.loadAll(body);
+    // we need to use yaml-1.1 so that octal numbers in the form `0775` will be parsed
+    // correctly (see https://github.com/eemeli/yaml/issues/205)
+    const objects = YAML.parseAllDocuments(body, { schema: 'yaml-1.1' });
     const result = new Array<any>();
 
-    for (const obj of objects) {
+    for (const obj of objects.map(x => x.toJSON())) {
       // skip empty documents
       if (obj === undefined) { continue; }
       if (obj === null) { continue; }

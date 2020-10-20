@@ -1,5 +1,7 @@
 import { Yaml } from '../src/yaml';
 import * as fs from 'fs';
+import * as path from 'path';
+import * as os from 'os';
 
 describe('load', () => {
   test('from file', () => {
@@ -77,4 +79,11 @@ describe('save', () => {
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
   });
 
-})
+});
+test('yaml 1.1 octal numbers are parsed correctly', () => {
+  const tmpdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-'));
+  const filePath = path.join(tmpdir, 'temp.yaml');
+  fs.writeFileSync(filePath, 'foo: 0755');
+  
+  expect(Yaml.load(filePath)).toEqual([ { foo: 493 }]);
+});
