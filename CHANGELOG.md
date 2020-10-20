@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.32.0](https://github.com/awslabs/cdk8s/compare/v0.31.0...v0.32.0) (2020-10-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **lib:** `EnvValue.fromSecret(secret, key)` has been removed in favor of `EnvValue.fromSecretValue({ secret, key })`.
+
+### Features
+
+* **lib:** SecretValue ([#351](https://github.com/awslabs/cdk8s/issues/351)) ([dd7cf58](https://github.com/awslabs/cdk8s/commit/dd7cf5857b82da75b88f6786933070c570e5df23))
+* **plus:** readiness probes ([#353](https://github.com/awslabs/cdk8s/issues/353)) ([a57e466](https://github.com/awslabs/cdk8s/commit/a57e466d67b561bec95c7be26eb7a36625ebb744))
+
+
+### Bug Fixes
+
+* **lib:** corrupted manifests when including large files ([#350](https://github.com/awslabs/cdk8s/issues/350)) ([649f41b](https://github.com/awslabs/cdk8s/commit/649f41ba65a9bb7f8c7d0c4a260ae9ddd773afb8))
+* **lib:** fail to import octal numbers via include (and helm) ([#349](https://github.com/awslabs/cdk8s/issues/349)) ([bed9eed](https://github.com/awslabs/cdk8s/commit/bed9eedd31e07bd00461d6e54c798bf43fc65ede)), closes [#348](https://github.com/awslabs/cdk8s/issues/348)
+
 ## [0.31.0](https://github.com/awslabs/cdk8s/compare/v0.30.0...v0.31.0) (2020-10-19)
 
 
