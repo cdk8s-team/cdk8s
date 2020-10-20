@@ -8,7 +8,7 @@ import { Duration } from './duration';
 export interface ProbeOptions {
   /**
    * Minimum consecutive failures for the probe to be considered failed after
-   * having succeeded. 
+   * having succeeded.
    *
    * Defaults to 3. Minimum value is 1.
    *
@@ -18,15 +18,15 @@ export interface ProbeOptions {
 
   /**
    * Number of seconds after the container has started before liveness probes
-   * are initiated. 
-   * 
+   * are initiated.
+   *
    * @see https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
    * @default - immediate
    */
   readonly initialDelaySeconds?: Duration;
 
   /**
-   * How often (in seconds) to perform the probe. 
+   * How often (in seconds) to perform the probe.
    *
    * Default to 10 seconds. Minimum value is 1.
    *
@@ -36,7 +36,7 @@ export interface ProbeOptions {
 
   /**
    * Minimum consecutive successes for the probe to be considered successful
-   * after having failed. Defaults to 1. 
+   * after having failed. Defaults to 1.
    *
    * Must be 1 for liveness and startup. Minimum value is 1.
    *
@@ -45,9 +45,9 @@ export interface ProbeOptions {
   readonly successThreshold?: number;
 
   /**
-   * Number of seconds after which the probe times out. 
+   * Number of seconds after which the probe times out.
    *
-   * Defaults to 1 second. Minimum value is 1. 
+   * Defaults to 1 second. Minimum value is 1.
    *
    * @see https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
    * @default Duration.seconds(1)
@@ -61,7 +61,7 @@ export interface ProbeOptions {
 export interface HttpGetProbeOptions extends ProbeOptions {
   /**
    * The TCP port to use when sending the GET request.
-   * 
+   *
    * @default - defaults to `container.port`.
    */
   readonly port?: number;
@@ -82,7 +82,7 @@ export abstract class Probe {
 
   /**
    * Defines a probe based on an HTTP GET request to the IP address of the container.
-   * 
+   *
    * @param path The URL path to hit
    * @param options Options
    */
@@ -102,11 +102,11 @@ export abstract class Probe {
 
   /**
    * Defines a probe based on a command which is executed within the container.
-   * 
+   *
    * @param command The command to execute
    * @param options Options
    */
-  public static fromCommand(command: string[], options: ProbeOptions = { }): Probe {
+  public static fromCommand(command: string[], options: CommandProbeOptions = { }): Probe {
     return {
       _toKube: _ => ({
         ...parseProbeOptions(options),
