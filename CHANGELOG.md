@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.33.0](https://github.com/awslabs/cdk8s/compare/v0.32.0...v0.33.0) (2020-10-21)
+
+
+### Features
+
+* chart-level labels ([#355](https://github.com/awslabs/cdk8s/issues/355)) ([c545c1e](https://github.com/awslabs/cdk8s/commit/c545c1efec86d3af5852101d01f4fbad2e000ac6))
+
 ## [0.32.0](https://github.com/awslabs/cdk8s/compare/v0.31.0...v0.32.0) (2020-10-20)
 
 
