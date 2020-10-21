@@ -28,6 +28,38 @@ class MyChart extends Chart {
 During synthesis, charts collect all the `ApiObject` nodes (recursively) and
 emit a single YAML manifest that includes all these objects.
 
+When a chart is defined, you can specify chart-level `namespace` and `labels`.
+Those will be applied to all API objects defined within the chart (recursively):
+
+```ts
+class MyChart extends Chart {
+  constructor(scope: Construct, ns: string) {
+    super(scope, ns, {
+      namespace: 'my-namespace',
+      labels: {
+        app: 'my-app',
+      },
+    });
+
+    new ApiObject(this, 'my-object', {
+      apiVersion: 'v1',
+      kind: 'Foo'
+    });
+  }
+}
+```
+
+Will synthesize into:
+
+```yaml
+apiVersion: v1
+kind: Foo
+metadata:
+  namesapce: my-namespace
+  labels:
+    app: my-app
+```
+
 ## ApiObject
 
 An `ApiObject` is a construct that represents an entry in a Kubernetes manifest (level 0).
@@ -241,8 +273,8 @@ The `Helm` construct will render the manifest from the specified chart by
 executing `helm template`. If `values` is specified, these values will override
 the default values included with the chart.
 
-The `name` option can be used to specify the chart's [release name](https://helm.sh/docs/intro/using_helm/#three-big-concepts). 
-If not specified, a valid and unique release name will be allocated 
+The `name` option can be used to specify the chart's [release name](https://helm.sh/docs/intro/using_helm/#three-big-concepts).
+If not specified, a valid and unique release name will be allocated
 based on the construct path.
 
 The `Helm` construct extends `Include` and inherits it's API. For example, you
