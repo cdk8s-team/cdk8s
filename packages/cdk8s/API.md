@@ -273,6 +273,7 @@ new Chart(scope: Construct, ns: string, options?: ChartOptions)
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **ns** (<code>string</code>)  *No description*
 * **options** (<code>[ChartOptions](#cdk8s-chartoptions)</code>)  *No description*
+  * **labels** (<code>Map<string, string></code>)  Labels to apply to all resources in this chart. __*Default*__: no common labels
   * **namespace** (<code>string</code>)  The default namespace for all objects defined in this chart (directly or indirectly). __*Default*__: no namespace is synthesized (usually this implies "default")
 
 
@@ -282,6 +283,7 @@ new Chart(scope: Construct, ns: string, options?: ChartOptions)
 
 Name | Type | Description 
 -----|------|-------------
+**labels**🔹 | <code>Map<string, string></code> | Labels applied to all resources in this chart.
 **namespace**?🔹 | <code>string</code> | The default namespace for all objects in this chart.<br/>__*Optional*__
 
 ### Methods
@@ -802,6 +804,7 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
+**labels**?🔹 | <code>Map<string, string></code> | Labels to apply to all resources in this chart.<br/>__*Default*__: no common labels
 **namespace**?🔹 | <code>string</code> | The default namespace for all objects defined in this chart (directly or indirectly).<br/>__*Default*__: no namespace is synthesized (usually this implies "default")
 
 

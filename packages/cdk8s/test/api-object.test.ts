@@ -192,3 +192,56 @@ test('default namespace can be defined at the chart level', () => {
     },
   }]);
 });
+
+test('chart labels are applied to all api objects in the chart', () => {
+  // GIVEN
+  const app = Testing.app();
+
+  // WHEN
+  const chart = new Chart(app, 'my-chart', {
+    labels: {
+      foo: 'ffffffffff',
+      bar: 'bbbbbb',
+    },
+  });
+
+  new ApiObject(chart, 'obj1', { kind: 'Obj1', apiVersion: 'v1' });
+  const group = new Construct(chart, 'group');
+  new ApiObject(group, 'obj2', {
+    kind: 'Obj2',
+    apiVersion: 'v2',
+    metadata: {
+      labels: {
+        foo: 'override by object',
+        zoo: 'zoo1',
+      },
+    },
+  });
+
+  // THEN
+  expect(Testing.synth(chart)).toEqual([
+    {
+      apiVersion: 'v1',
+      kind: 'Obj1',
+      metadata: {
+        labels: {
+          bar: 'bbbbbb',
+          foo: 'ffffffffff',
+        },
+        name: 'my-chart-obj1-01c0df67',
+      },
+    },
+    {
+      apiVersion: 'v2',
+      kind: 'Obj2',
+      metadata: {
+        labels: {
+          bar: 'bbbbbb',
+          foo: 'override by object',
+          zoo: 'zoo1',  
+        },
+        name: 'my-chart-group-obj2-ba1eb578',
+      },
+    },
+  ]);
+});

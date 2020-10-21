@@ -87,10 +87,15 @@ export class ApiObject extends Construct {
 
     this.metadata = new ApiObjectMetadataDefinition({
       name: this.name,
-      namespace: options.metadata?.namespace ?? this.chart.namespace,
 
-      // override user defined values
+      // user defined values
       ...options.metadata,
+      
+      namespace: options.metadata?.namespace ?? this.chart.namespace,
+      labels: {
+        ...this.chart.labels,
+        ...options.metadata?.labels,
+      },
     });
   }
 

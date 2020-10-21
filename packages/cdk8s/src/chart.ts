@@ -12,6 +12,13 @@ export interface ChartOptions {
    * @default - no namespace is synthesized (usually this implies "default")
    */
   readonly namespace?: string;
+
+  /**
+   * Labels to apply to all resources in this chart.
+   * 
+   * @default - no common labels
+   */
+  readonly labels?: { [name: string]: string };
 }
 
 export class Chart extends Construct {
@@ -38,9 +45,24 @@ export class Chart extends Construct {
    */
   public readonly namespace?: string;
 
+  /**
+   * Chart-level labels.
+   */
+  private readonly _labels?: { [name: string]: string };
+
   constructor(scope: Construct, ns: string, options: ChartOptions = { }) {
     super(scope, ns);
     this.namespace = options.namespace;
+    this._labels = options.labels ?? {};
+  }
+
+  /**
+   * Labels applied to all resources in this chart.
+   * 
+   * This is an immutable copy.
+   */
+  public get labels(): { [name: string]: string } {
+    return { ...this._labels };
   }
 
   /**
@@ -84,6 +106,5 @@ export class Chart extends Construct {
   public toJson(): any[] {
     return App._synthChart(this);
   }
-
 }
 
