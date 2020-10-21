@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "changelog-parser": "^2.8.0",
-    "jsii-release": "^0.2.2",
+    "jsii-release": "^0.2.3",
     "lerna": "^3.22.1",
     "semver": "7.3.2",
     "standard-version": "^9.0.0"
