@@ -79,7 +79,7 @@ test('Can be exposed as via service', () => {
     ],
   });
 
-  deployment.expose(9200, { serviceType: kplus.ServiceType.LOAD_BALANCER});
+  deployment.expose(9200, { type: kplus.ServiceType.LOAD_BALANCER});
 
   const spec = Testing.synth(chart)[1].spec;
   expect(spec.type).toEqual('LoadBalancer');
@@ -108,6 +108,42 @@ test('Expose uses the correct default values', () => {
   expect(spec.type).toEqual('ClusterIP');
 
 });
+
+test('Expose can set service and port details', () => {
+  const chart = Testing.chart();
+
+  const deployment = new kplus.Deployment(chart, 'Deployment', {
+    containers: [
+      new kplus.Container({
+        image: 'image',
+        port: 9300,
+      }),
+    ],
+  });
+
+  deployment.expose(
+    9200,
+    {
+      metadata: { name: 'test-srv' },
+      type: kplus.ServiceType.CLUSTER_IP,
+    },
+    { name: 'port-name', protocol: kplus.Protocol.UDP },
+  );
+
+  const srv = Testing.synth(chart)[1];
+  const spec = srv.spec;
+
+  expect(srv.metadata.name).toEqual('test-srv');
+  expect(spec.type).toEqual('ClusterIP');
+  expect(spec.selector).toEqual({
+    'cdk8s.deployment': 'test-Deployment-9e0110cd',
+  });
+  expect(spec.ports![0].port).toEqual(9200);
+  expect(spec.ports![0].targetPort).toEqual(9300);
+  expect(spec.ports![0].name).toEqual('port-name');
+  expect(spec.ports![0].protocol).toEqual('UDP');
+});
+
 
 test('Cannot be exposed if there are no containers in spec', () => {
 
