@@ -1,6 +1,6 @@
 import * as k8s from './imports/k8s';
 import { Construct, Node } from 'constructs';
-import { Service, ServiceType } from './service';
+import { Service, ServicePortOptions, ServiceProps, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { ApiObjectMetadataDefinition, Names } from 'cdk8s';
@@ -31,18 +31,6 @@ export interface DeploymentProps extends ResourceProps, PodTemplateProps {
    */
   readonly defaultSelector?: boolean;
 
-}
-
-/**
- * Options for exposing a deployment via a service.
- */
-export interface ExposeOptions {
-  /**
-   * The type of the exposed service.
-   *
-   * @default - ClusterIP.
-   */
-  readonly serviceType?: ServiceType;
 }
 
 /**
@@ -154,14 +142,16 @@ export class Deployment extends Resource implements IPodTemplate {
    * This is equivalent to running `kubectl expose deployment <deployment-name>`.
    *
    * @param port The port number the service will bind to.
-   * @param options Options.
+   * @param srvOptions Options to configure the wrapped Service.
+   * @param portOptions Optional settings for the exposed port.
    */
-  public expose(port: number, options: ExposeOptions = {}): Service {
+  public expose(port: number, srvOptions: ServiceProps = {}, portOptions: ServicePortOptions = {}): Service {
     const service = new Service(this, 'Service', {
-      type: options.serviceType ?? ServiceType.CLUSTER_IP,
+      ...srvOptions,
+      type: srvOptions.type ?? ServiceType.CLUSTER_IP,
     });
 
-    service.addDeployment(this, port);
+    service.addDeployment(this, port, portOptions);
     return service;
   }
 

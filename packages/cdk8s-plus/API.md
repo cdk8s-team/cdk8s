@@ -38,7 +38,6 @@ Name|Description
 [EnvValueFromConfigMapOptions](#cdk8s-plus-envvaluefromconfigmapoptions)|Options to specify an envionment variable value from a ConfigMap key.
 [EnvValueFromProcessOptions](#cdk8s-plus-envvaluefromprocessoptions)|Options to specify an environment variable value from the process environment.
 [EnvValueFromSecretOptions](#cdk8s-plus-envvaluefromsecretoptions)|Options to specify an environment variable value from a Secret.
-[ExposeOptions](#cdk8s-plus-exposeoptions)|Options for exposing a deployment via a service.
 [HttpGetProbeOptions](#cdk8s-plus-httpgetprobeoptions)|Options for `Probe.fromHttpGet()`.
 [IngressProps](#cdk8s-plus-ingressprops)|Properties for `Ingress`.
 [IngressRule](#cdk8s-plus-ingressrule)|Represents the rules mapping the paths under a specified host to the related backend services.
@@ -383,19 +382,23 @@ addVolume(volume: Volume): void
 
 
 
-#### expose(port, options?)🔹 <a id="cdk8s-plus-deployment-expose"></a>
+#### expose(port, srvOptions?, portOptions?)🔹 <a id="cdk8s-plus-deployment-expose"></a>
 
 Expose a deployment via a service.
 
 This is equivalent to running `kubectl expose deployment <deployment-name>`.
 
 ```ts
-expose(port: number, options?: ExposeOptions): Service
+expose(port: number, srvOptions?: ServiceProps, portOptions?: ServicePortOptions): Service
 ```
 
 * **port** (<code>number</code>)  The port number the service will bind to.
-* **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  Options.
-  * **serviceType** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  The type of the exposed service. __*Default*__: ClusterIP.
+* **srvOptions** (<code>[ServiceProps](#cdk8s-plus-serviceprops)</code>)  Options to configure the wrapped Service.
+* **portOptions** (<code>[ServicePortOptions](#cdk8s-plus-serviceportoptions)</code>)  Optional settings for the exposed port.
+  * **name** (<code>string</code>)  The name of this port within the service. __*Optional*__
+  * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. __*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
+  * **protocol** (<code>[Protocol](#cdk8s-plus-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
+  * **targetPort** (<code>number</code>)  The port number the service will redirect to. __*Default*__: The value of `port` will be used.
 
 __Returns__:
 * <code>[Service](#cdk8s-plus-service)</code>
@@ -1332,7 +1335,7 @@ Name | Type | Description
 ### Methods
 
 
-#### addDeployment(deployment, port)🔹 <a id="cdk8s-plus-service-adddeployment"></a>
+#### addDeployment(deployment, port, portOptions?)🔹 <a id="cdk8s-plus-service-adddeployment"></a>
 
 Associate a deployment to this service.
 
@@ -1341,11 +1344,16 @@ deployment's pods. The deployment's `labelSelector` will be used to select
 pods.
 
 ```ts
-addDeployment(deployment: Deployment, port: number): void
+addDeployment(deployment: Deployment, port: number, portOptions?: ServicePortOptions): void
 ```
 
 * **deployment** (<code>[Deployment](#cdk8s-plus-deployment)</code>)  The deployment to expose.
 * **port** (<code>number</code>)  The external port.
+* **portOptions** (<code>[ServicePortOptions](#cdk8s-plus-serviceportoptions)</code>)  Optional settings for the port.
+  * **name** (<code>string</code>)  The name of this port within the service. __*Optional*__
+  * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. __*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
+  * **protocol** (<code>[Protocol](#cdk8s-plus-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
+  * **targetPort** (<code>number</code>)  The port number the service will redirect to. __*Default*__: The value of `port` will be used.
 
 
 
@@ -1879,19 +1887,6 @@ Options to specify an environment variable value from a Secret.
 Name | Type | Description 
 -----|------|-------------
 **optional**?🔹 | <code>boolean</code> | Specify whether the Secret or its key must be defined.<br/>__*Default*__: false
-
-
-
-## struct ExposeOptions 🔹 <a id="cdk8s-plus-exposeoptions"></a>
-
-
-Options for exposing a deployment via a service.
-
-
-
-Name | Type | Description 
------|------|-------------
-**serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | The type of the exposed service.<br/>__*Default*__: ClusterIP.
 
 
 
