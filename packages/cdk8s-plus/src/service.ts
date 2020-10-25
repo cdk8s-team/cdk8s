@@ -168,9 +168,9 @@ export class Service extends Resource {
   /**
    * Associate a deployment to this service.
    *
-   * Requests will be routed to the port exposed by the first container in the
-   * deployment's pods. The deployment's `labelSelector` will be used to select
-   * pods.
+   * If not targetPort is specific in the portOptions, then requests will be routed
+   * to the port exposed by the first container in the deployment's pods. 
+   * The deployment's `labelSelector` will be used to select pods.
    *
    * @param deployment The deployment to expose
    * @param port The external port
@@ -196,11 +196,11 @@ export class Service extends Resource {
     }
 
     this.serve(port, {
+      ...portOptions, 
+
       // just a PoC, we assume the first container is the main one.
       // TODO: figure out what the correct thing to do here.
-      targetPort: containers[0].port,
-
-      ...portOptions,
+      targetPort: portOptions.targetPort ?? containers[0].port,
     });
   }
 
