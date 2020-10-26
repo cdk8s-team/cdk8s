@@ -99,6 +99,20 @@ export class Volume {
   }
 
   /**
+   * Create a volume the wraps a k8s.Volume for usage in cdk8s-plus.
+   * 
+   * @param name Name of the volume.
+   * @param volume The k8s.Volume resource to wrap.
+   * 
+   * note: 
+   *    Using Omit outputs: 
+   *      jsii/compiler - Type model errors prevented the JSII assembly from being created
+   */
+  public static fromVolumeSpec(name: string, volume: any /*Omit<k8s.Volume, 'name'>*/): Volume {
+    return new Volume(name, volume);
+  }
+
+  /**
    * @internal
    */
   public _toKube(): k8s.Volume {

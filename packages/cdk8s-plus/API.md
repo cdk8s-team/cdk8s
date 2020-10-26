@@ -1733,6 +1733,20 @@ static fromEmptyDir(name: string, options?: EmptyDirVolumeOptions): Volume
 __Returns__:
 * <code>[Volume](#cdk8s-plus-volume)</code>
 
+#### *static* fromVolumeSpec(name, volume)🔹 <a id="cdk8s-plus-volume-fromvolumespec"></a>
+
+Create a volume the wraps a k8s.Volume for usage in cdk8s-plus.
+
+```ts
+static fromVolumeSpec(name: string, volume: any): Volume
+```
+
+* **name** (<code>string</code>)  Name of the volume.
+* **volume** (<code>any</code>)  The k8s.Volume resource to wrap.
+
+__Returns__:
+* <code>[Volume](#cdk8s-plus-volume)</code>
+
 
 
 ## struct AddDirectoryOptions 🔹 <a id="cdk8s-plus-adddirectoryoptions"></a>

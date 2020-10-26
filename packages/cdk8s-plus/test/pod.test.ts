@@ -1,5 +1,6 @@
 import * as kplus from '../src';
 import { Testing } from 'cdk8s';
+import * as k8s from '../src/imports/k8s';
 
 test('Can add container post instantiation', () => {
 
@@ -64,6 +65,33 @@ test('Automatically adds volumes from container mounts', () => {
   expect(spec.volumes[0].emptyDir).toBeTruthy();
 
 });
+
+test('Supports raw volume mounts', () => {
+  const host_vol: Omit<k8s.Volume, 'name'> = {
+    hostPath: {
+      path: '/data',
+      type: 'DirectoryOrCreate',
+    },
+  };
+
+  const chart = Testing.chart();
+
+  const pod = new kplus.Pod(chart, 'Pod');
+
+  const volume = kplus.Volume.fromVolumeSpec('data-vol', host_vol);
+
+  const container = new kplus.Container({ image: 'image' });
+  container.mount('/data', volume);
+
+  pod.addContainer(container);
+
+  const spec = Testing.synth(chart)[0].spec;
+
+  expect(spec.volumes[0].name).toEqual('data-vol');
+  expect(spec.volumes[0].hostPath).toBeTruthy();
+
+});
+
 
 test('Synthesizes spec lazily', () => {
 
