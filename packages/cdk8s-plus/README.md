@@ -272,7 +272,7 @@ A `Probe` instance can be created through one of the `fromXxx` static methods:
 - `Probe.fromHttpGet()`
 - `Probe.fromCommand()`
 
-Readiness probes can be configured at the container-level through the `readiness` option:
+Readiness, liveness, and startup probes can be configured at the container-level through the `readiness`, `liveness`, and `startup` options:
 
 ```ts
 new kplus.Container({
