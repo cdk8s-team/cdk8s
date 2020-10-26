@@ -225,6 +225,21 @@ export interface ContainerProps {
    * @default - no readiness probe is defined
    */
   readonly readiness?: Probe; 
+
+  /**
+   * Periodic probe of container liveness. Container will be restarted if the probe fails. 
+   * 
+   * @default - no liveness probe is defined
+   */
+  readonly liveness?: Probe; 
+
+  /**
+   * StartupProbe indicates that the Pod has successfully initialized. 
+   * If specified, no other probes are executed until this completes successfully
+   * 
+   * @default - no startup probe is defined.
+   */
+  readonly startup?: Probe;
 }
 
 /**
@@ -266,6 +281,8 @@ export class Container {
   private readonly _args?: readonly string[];
   private readonly _env: { [name: string]: EnvValue };
   private readonly _readiness?: Probe;
+  private readonly _liveness?: Probe;
+  private readonly _startup?: Probe;
 
   constructor(props: ContainerProps) {
     this.name = props.name ?? 'main';
@@ -275,6 +292,8 @@ export class Container {
     this._args = props.args;
     this._env = props.env ?? { };
     this._readiness = props.readiness;
+    this._liveness = props.liveness;
+    this._startup = props.startup;
     this.workingDir = props.workingDir;
     this.mounts = props.volumeMounts ?? [];
     this.imagePullPolicy = props.imagePullPolicy ?? ImagePullPolicy.ALWAYS;
@@ -366,6 +385,8 @@ export class Container {
       workingDir: this.workingDir,
       env: renderEnv(this._env),
       readinessProbe: this._readiness?._toKube(this),
+      livenessProbe: this._liveness?._toKube(this),
+      startupProbe: this._startup?._toKube(this),
     };
   }
 }
