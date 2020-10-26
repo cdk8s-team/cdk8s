@@ -1,6 +1,6 @@
 import * as k8s from './imports/k8s';
 import { Construct, Node } from 'constructs';
-import { Service, ServiceType } from './service';
+import { Protocol, Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { ApiObjectMetadataDefinition, Names } from 'cdk8s';
@@ -43,7 +43,30 @@ export interface ExposeOptions {
    * @default - ClusterIP.
    */
   readonly serviceType?: ServiceType;
+
+  /**
+   * The name of the service to expose.
+   * This will be set on the Service.metadata and must be a DNS_LABEL
+   * 
+   * @default undefined Uses the system generated name.
+   */
+  readonly name?: string;
+  
+  /**
+   * The IP protocol for this port. Supports "TCP", "UDP", and "SCTP". Default is TCP.
+   *
+   * @default Protocol.TCP
+   */
+  readonly protocol?: Protocol;
+
+  /**
+   * The port number the service will redirect to.
+   *
+   * @default - The port of the first container in the deployment (ie. containers[0].port)
+   */
+  readonly targetPort?: number;
 }
+
 
 /**
 *
@@ -154,14 +177,15 @@ export class Deployment extends Resource implements IPodTemplate {
    * This is equivalent to running `kubectl expose deployment <deployment-name>`.
    *
    * @param port The port number the service will bind to.
-   * @param options Options.
+   * @param options Options to determine details of the service and port exposed.   
    */
   public expose(port: number, options: ExposeOptions = {}): Service {
     const service = new Service(this, 'Service', {
+      metadata: options.name ? { name: options.name } : undefined,
       type: options.serviceType ?? ServiceType.CLUSTER_IP,
     });
 
-    service.addDeployment(this, port);
+    service.addDeployment(this, port, {protocol: options.protocol, targetPort: options.targetPort});
     return service;
   }
 

@@ -396,8 +396,11 @@ expose(port: number, options?: ExposeOptions): Service
 ```
 
 * **port** (<code>number</code>)  The port number the service will bind to.
-* **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  Options.
+* **options** (<code>[ExposeOptions](#cdk8s-plus-exposeoptions)</code>)  Options to determine details of the service and port exposed.
+  * **name** (<code>string</code>)  The name of the service to expose. __*Default*__: undefined Uses the system generated name.
+  * **protocol** (<code>[Protocol](#cdk8s-plus-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
   * **serviceType** (<code>[ServiceType](#cdk8s-plus-servicetype)</code>)  The type of the exposed service. __*Default*__: ClusterIP.
+  * **targetPort** (<code>number</code>)  The port number the service will redirect to. __*Default*__: The port of the first container in the deployment (ie. containers[0].port)
 
 __Returns__:
 * <code>[Service](#cdk8s-plus-service)</code>
@@ -1334,20 +1337,25 @@ Name | Type | Description
 ### Methods
 
 
-#### addDeployment(deployment, port)🔹 <a id="cdk8s-plus-service-adddeployment"></a>
+#### addDeployment(deployment, port, options?)🔹 <a id="cdk8s-plus-service-adddeployment"></a>
 
 Associate a deployment to this service.
 
-Requests will be routed to the port exposed by the first container in the
-deployment's pods. The deployment's `labelSelector` will be used to select
-pods.
+If not targetPort is specific in the portOptions, then requests will be routed
+to the port exposed by the first container in the deployment's pods. 
+The deployment's `labelSelector` will be used to select pods.
 
 ```ts
-addDeployment(deployment: Deployment, port: number): void
+addDeployment(deployment: Deployment, port: number, options?: ServicePortOptions): void
 ```
 
 * **deployment** (<code>[Deployment](#cdk8s-plus-deployment)</code>)  The deployment to expose.
 * **port** (<code>number</code>)  The external port.
+* **options** (<code>[ServicePortOptions](#cdk8s-plus-serviceportoptions)</code>)  Optional settings for the port.
+  * **name** (<code>string</code>)  The name of this port within the service. __*Optional*__
+  * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. __*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
+  * **protocol** (<code>[Protocol](#cdk8s-plus-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
+  * **targetPort** (<code>number</code>)  The port number the service will redirect to. __*Default*__: The value of `port` will be used.
 
 
 
@@ -1895,7 +1903,10 @@ Options for exposing a deployment via a service.
 
 Name | Type | Description 
 -----|------|-------------
+**name**?🔹 | <code>string</code> | The name of the service to expose.<br/>__*Default*__: undefined Uses the system generated name.
+**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
 **serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-servicetype)</code> | The type of the exposed service.<br/>__*Default*__: ClusterIP.
+**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/>__*Default*__: The port of the first container in the deployment (ie. containers[0].port)
 
 
 

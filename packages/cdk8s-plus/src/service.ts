@@ -168,14 +168,15 @@ export class Service extends Resource {
   /**
    * Associate a deployment to this service.
    *
-   * Requests will be routed to the port exposed by the first container in the
-   * deployment's pods. The deployment's `labelSelector` will be used to select
-   * pods.
+   * If not targetPort is specific in the portOptions, then requests will be routed
+   * to the port exposed by the first container in the deployment's pods. 
+   * The deployment's `labelSelector` will be used to select pods.
    *
    * @param deployment The deployment to expose
    * @param port The external port
+   * @param options Optional settings for the port.
    */
-  public addDeployment(deployment: Deployment, port: number) {
+  public addDeployment(deployment: Deployment, port: number, options: ServicePortOptions = {}) {
     const containers = deployment.containers;
     if (containers.length === 0) {
       throw new Error('Cannot expose a deployment without containers');
@@ -195,9 +196,11 @@ export class Service extends Resource {
     }
 
     this.serve(port, {
+      ...options, 
+
       // just a PoC, we assume the first container is the main one.
       // TODO: figure out what the correct thing to do here.
-      targetPort: containers[0].port,
+      targetPort: options.targetPort ?? containers[0].port,
     });
   }
 
@@ -233,9 +236,11 @@ export class Service extends Resource {
 
     for (const port of this._ports) {
       ports.push({
+        name: port.name,
         port: port.port,
         targetPort: port.targetPort,
         nodePort: port.nodePort,
+        protocol: port.protocol,
       });
     }
 

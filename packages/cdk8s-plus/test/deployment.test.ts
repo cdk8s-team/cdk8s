@@ -106,8 +106,45 @@ test('Expose uses the correct default values', () => {
 
   const spec = Testing.synth(chart)[1].spec;
   expect(spec.type).toEqual('ClusterIP');
+  expect(spec.ports![0].targetPort).toEqual(9300);
 
 });
+
+test('Expose can set service and port details', () => {
+  const chart = Testing.chart();
+
+  const deployment = new kplus.Deployment(chart, 'Deployment', {
+    containers: [
+      new kplus.Container({
+        image: 'image',
+        port: 9300,
+      }),
+    ],
+  });
+
+  deployment.expose(
+    9200,
+    {
+      name: 'test-srv',
+      serviceType: kplus.ServiceType.CLUSTER_IP,    
+      protocol: kplus.Protocol.UDP,
+      targetPort: 9500,
+    },
+  );
+
+  const srv = Testing.synth(chart)[1];
+  const spec = srv.spec;
+
+  expect(srv.metadata.name).toEqual('test-srv');
+  expect(spec.type).toEqual('ClusterIP');
+  expect(spec.selector).toEqual({
+    'cdk8s.deployment': 'test-Deployment-9e0110cd',
+  });
+  expect(spec.ports![0].port).toEqual(9200);
+  expect(spec.ports![0].targetPort).toEqual(9500);  
+  expect(spec.ports![0].protocol).toEqual('UDP');
+});
+
 
 test('Cannot be exposed if there are no containers in spec', () => {
 
