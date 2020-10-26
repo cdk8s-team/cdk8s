@@ -198,12 +198,18 @@ describe('Container', () => {
     expect(container._toKube().volumeMounts).toEqual([expected]);
   });
 
-  test('"readiness" can be used to define readiness probes', () => {
+  test('"readiness", "liveness", and "startup" can be used to define probes', () => {
     // GIVEN
     const container = new kplus.Container({ 
       image: 'foo',
       readiness: kplus.Probe.fromHttpGet('/ping', {
         timeoutSeconds: Duration.minutes(2),
+      }),
+      liveness: kplus.Probe.fromHttpGet('/live', {
+        timeoutSeconds: Duration.minutes(3),
+      }),
+      startup: kplus.Probe.fromHttpGet('/startup', {
+        timeoutSeconds: Duration.minutes(4),
       }),
     });
 
@@ -215,6 +221,22 @@ describe('Container', () => {
       periodSeconds: undefined, 
       successThreshold: undefined, 
       timeoutSeconds: 120,
+    });
+    expect(container._toKube().livenessProbe).toEqual({
+      failureThreshold: 3, 
+      httpGet: {path: '/live', port: 80}, 
+      initialDelaySeconds: undefined, 
+      periodSeconds: undefined, 
+      successThreshold: undefined, 
+      timeoutSeconds: 180,
+    });
+    expect(container._toKube().startupProbe).toEqual({
+      failureThreshold: 3, 
+      httpGet: {path: '/startup', port: 80}, 
+      initialDelaySeconds: undefined, 
+      periodSeconds: undefined, 
+      successThreshold: undefined, 
+      timeoutSeconds: 240,
     });
   });
 

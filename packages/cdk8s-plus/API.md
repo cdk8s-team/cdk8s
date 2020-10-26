@@ -221,9 +221,11 @@ new Container(props: ContainerProps)
   * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
   * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
   * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
+  * **liveness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **startup** (<code>[Probe](#cdk8s-plus-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
@@ -1809,9 +1811,11 @@ Name | Type | Description
 **command**?🔹 | <code>Array<string></code> | Entrypoint array.<br/>__*Default*__: The docker image's ENTRYPOINT.
 **env**?🔹 | <code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code> | List of environment variables to set in the container.<br/>__*Default*__: No environment variables.
 **imagePullPolicy**?🔹 | <code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code> | Image pull policy for this container.<br/>__*Default*__: ImagePullPolicy.ALWAYS
+**liveness**?🔹 | <code>[Probe](#cdk8s-plus-probe)</code> | Periodic probe of container liveness.<br/>__*Default*__: no liveness probe is defined
 **name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/>__*Default*__: 'main'
 **port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/>__*Default*__: No port is exposed.
 **readiness**?🔹 | <code>[Probe](#cdk8s-plus-probe)</code> | Determines when the container is ready to serve traffic.<br/>__*Default*__: no readiness probe is defined
+**startup**?🔹 | <code>[Probe](#cdk8s-plus-probe)</code> | StartupProbe indicates that the Pod has successfully initialized.<br/>__*Default*__: no startup probe is defined.
 **volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/>__*Optional*__
 **workingDir**?🔹 | <code>string</code> | Container's working directory.<br/>__*Default*__: The container runtime's default.
 
