@@ -47,6 +47,8 @@ export interface ExposeOptions {
   /**
    * The name of the service to expose.
    * This will be set on the Service.metadata and must be a DNS_LABEL
+   * 
+   * @default undefined Uses the system generated name.
    */
   readonly name?: string;
   
@@ -179,7 +181,7 @@ export class Deployment extends Resource implements IPodTemplate {
    */
   public expose(port: number, options: ExposeOptions = {}): Service {
     const service = new Service(this, 'Service', {
-      metadata: options.name == null ? {} : {name: options.name},
+      metadata: options.name ? { name: options.name } : undefined,
       type: options.serviceType ?? ServiceType.CLUSTER_IP,
     });
 

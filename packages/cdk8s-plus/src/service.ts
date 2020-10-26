@@ -174,9 +174,9 @@ export class Service extends Resource {
    *
    * @param deployment The deployment to expose
    * @param port The external port
-   * @param portOptions Optional settings for the port.
+   * @param options Optional settings for the port.
    */
-  public addDeployment(deployment: Deployment, port: number, portOptions: ServicePortOptions = {}) {
+  public addDeployment(deployment: Deployment, port: number, options: ServicePortOptions = {}) {
     const containers = deployment.containers;
     if (containers.length === 0) {
       throw new Error('Cannot expose a deployment without containers');
@@ -196,11 +196,11 @@ export class Service extends Resource {
     }
 
     this.serve(port, {
-      ...portOptions, 
+      ...options, 
 
       // just a PoC, we assume the first container is the main one.
       // TODO: figure out what the correct thing to do here.
-      targetPort: portOptions.targetPort ?? containers[0].port,
+      targetPort: options.targetPort ?? containers[0].port,
     });
   }
 
