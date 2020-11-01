@@ -197,7 +197,7 @@ function doSearch(uri, callback) {
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": Object {
-      "name": "test-chart-deployment-service-pod-28e7837f",
+      "name": "test-chart-deployment-service-4869b043",
     },
     "spec": Object {
       "externalIPs": Array [],
