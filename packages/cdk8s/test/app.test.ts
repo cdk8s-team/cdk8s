@@ -107,6 +107,28 @@ test('default output directory is "dist"', () => {
   }
 });
 
+test('stdout option makes no files', () => {
+  // GIVEN
+  const prev = process.cwd();
+  const workdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-'));
+
+  try {
+    process.chdir(workdir);
+
+    // WHEN
+    const app = new App({ stdout: true });
+    new Chart(app, 'chart1');
+    app.synth();
+
+    // THEN
+    expect(app.stdout).toEqual(true);
+    expect(fs.existsSync('./dist')).toBeFalsy();
+  } finally {
+    process.chdir(prev);
+    // fs.rmdirSync(workdir, { recursive: true });
+  }
+});
+
 test('app with dependent and independent charts', () => {
 
   // GIVEN

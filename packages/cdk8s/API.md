@@ -227,6 +227,7 @@ new App(options?: AppOptions)
 
 * **options** (<code>[AppOptions](#cdk8s-appoptions)</code>)  configuration options.
   * **outdir** (<code>string</code>)  The directory to output Kubernetes manifests. __*Default*__: CDK8S_OUTDIR if defined, otherwise "dist"
+  * **stdout** (<code>boolean</code>)  Whether or not to print to stdout. __*Default*__: true if defined, false otherwise
 
 
 
@@ -236,6 +237,7 @@ new App(options?: AppOptions)
 Name | Type | Description 
 -----|------|-------------
 **outdir**🔹 | <code>string</code> | The output directory into which manifests will be synthesized.
+**stdout**🔹 | <code>boolean</code> | Whether or not to print to stdout.
 
 ### Methods
 
@@ -792,6 +794,7 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **outdir**?🔹 | <code>string</code> | The directory to output Kubernetes manifests.<br/>__*Default*__: CDK8S_OUTDIR if defined, otherwise "dist"
+**stdout**?🔹 | <code>boolean</code> | Whether or not to print to stdout.<br/>__*Default*__: true if defined, false otherwise
 
 
 

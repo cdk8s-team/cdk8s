@@ -817,7 +817,7 @@ addRules(...rules: IngressRule[]): void
 
 #### protected onValidate()🔹 <a id="cdk8s-plus-ingress-onvalidate"></a>
 
-Validate the current construct.
+(deprecated) Validate the current construct.
 
 This method can be implemented by derived constructs in order to perform
 validation logic. It is called on all constructs before synthesis.

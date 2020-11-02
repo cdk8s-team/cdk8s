@@ -12,11 +12,18 @@ class Command implements yargs.CommandModule {
 
   public readonly builder = (args: yargs.Argv) => args
     .option('app', { default: config.app, required: true, desc: 'Command to use in order to execute cdk8s app', alias: 'a' })
-    .option('output', { default: config.output, required: true, desc: 'Output directory', alias: 'o' });
+    .option('output', { default: config.output, required: false, desc: 'Output directory', alias: 'o' })
+    .option('stdout', { type: 'boolean', required: false, desc: 'Flag to print to stdout', alias: 'p' });
 
   public async handler(argv: any) {
     const command = argv.app;
     const outdir = argv.output;
+    const stdout = argv.stdout;
+
+    if (outdir !== config.output && stdout) {
+      console.error('ERROR: \'--output\' and \'--stdout\' are mutually exclusive. Please only use one.');
+      process.exit(1);
+    }
 
     await fs.remove(outdir);
 
@@ -25,8 +32,13 @@ class Command implements yargs.CommandModule {
       env: {
         ...process.env,
         CDK8S_OUTDIR: outdir,
+        CDK8S_STDOUT: stdout,
       },
     });
+
+    if (stdout) {
+      process.exit(0);
+    }
 
     if (!await fs.pathExists(outdir)) {
       console.error(`ERROR: synthesis failed, app expected to create "${outdir}"`);
