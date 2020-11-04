@@ -14,6 +14,39 @@ import { Volume } from './volume';
  * Properties for initialization of `Job`.
  */
 export interface JobProps extends ResourceProps, PodTemplateProps {
+  /**
+   * Specifies the duration in seconds relative to the startTime that 
+   * the job may be active before the system tries to terminate it.
+   *
+   * @default - If unset, then there is no deadline.
+   */
+  readonly activeDeadline?: Duration;
+
+  /**
+   * Specifies the number of retries before marking this job failed.
+   *
+   * @default - If not set, system defaults to 6.
+   */
+  readonly backoffLimit?: number;
+
+  /**
+   * Specifies the desired number of successfully finished pods the job should be run with.  
+   * Setting to 1 means that parallelism is limited to 1 
+   * and the success of that pod signals the success of the job.
+   *
+   * @default - If not set, success of any pod signals the success of all pods.
+   */
+  readonly completions?: number;
+
+  /**
+   * Specifies the maximum desired number of pods the job should run at any given time. 
+   * The actual number of pods running in steady state will be less than this number when 
+   * ((.spec.completions - .status.successful) < .spec.parallelism), 
+   * i.e. when the work left to do is less than max parallelism.
+   *
+   * @defaul - If unset, there will be no parallelism.
+   */
+  readonly parallelism?: number;
 
   /**
    * Limits the lifetime of a Job that has finished execution (either Complete
@@ -27,7 +60,7 @@ export interface JobProps extends ResourceProps, PodTemplateProps {
    * @default - If this field is unset, the Job won't be automatically deleted.
    */
   readonly ttlAfterFinished?: Duration;
-
+  
 }
 
 /**
@@ -40,11 +73,30 @@ export interface JobProps extends ResourceProps, PodTemplateProps {
 export class Job extends Resource implements IPodTemplate {
 
   /**
+   * Duration before job is terminated. (must be integer number of seconds)
+   */
+  public readonly activeDeadline?: Duration;
+
+  /**
+   * Number of retries before marking failed.
+   */
+  public readonly backoffLimit?: number;
+
+  /**
+   * Number of successful completions required for job.
+   */
+  readonly completions?: number;
+
+  /**
+   * Max pods to run at a given time.
+   */
+  readonly parallelism?: number;
+
+  /**
    * TTL before the job is deleted after it is finished.
    */
   public readonly ttlAfterFinished?: Duration;
-
-
+  
   /**
    * @see base.Resource.apiObject
    */
@@ -64,8 +116,11 @@ export class Job extends Resource implements IPodTemplate {
       ...props,
       restartPolicy: props.restartPolicy ?? RestartPolicy.NEVER,
     })
-    this.ttlAfterFinished = props.ttlAfterFinished;
-
+    this.activeDeadline = props.activeDeadline;
+    this.backoffLimit = props.backoffLimit;
+    this.completions = props.completions;
+    this.parallelism = props.parallelism;
+    this.ttlAfterFinished = props.ttlAfterFinished;  
   }
 
   public get podMetadata(): ApiObjectMetadataDefinition {
@@ -102,7 +157,11 @@ export class Job extends Resource implements IPodTemplate {
   public _toKube(): k8s.JobSpec {
     return {
       template: this._podTemplate._toPodTemplateSpec(),
-      ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
+      activeDeadlineSeconds: this.activeDeadline ? this.activeDeadline?.toSeconds() : undefined,
+      backoffLimit: this.backoffLimit,      
+      completions: this.completions,
+      parallelism: this.parallelism,
+      ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,      
     };
   }
 
