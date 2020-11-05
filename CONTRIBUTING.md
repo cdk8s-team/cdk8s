@@ -159,6 +159,17 @@ Our integration tests also utilize snapshot testing. To update integration test 
 
 Read [this](./test/README.md) for more details about integration testing in this project.
 
+#### Docker environment for integration tests
+
+Due to the polyglot nature of the `jsii` tools used by cdk8s, the toolchain requirements are somewhat more complicated than for most projects.  To help with this, you can use the `jsii/superchain` docker image that includes all the required tools.
+
+In order to get an interactive shell within a superchain container you can use the following command.
+
+```console
+docker run --rm --net=host -it -v $PWD:$PWD -w $PWD jsii/superchain
+```
+
+
 ### Pull Requests
 
 We use the PR title when we automatically generate the change log for each
