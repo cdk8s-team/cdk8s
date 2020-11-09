@@ -28,7 +28,7 @@ jobs:
         run: |
           ./docs/build.sh website/public/docs
 
-      - name: 'upload artifact'
+      - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: website
