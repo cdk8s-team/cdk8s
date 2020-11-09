@@ -27,3 +27,9 @@ jobs:
       - name: Build Docs Site
         run: |
           ./docs/build.sh website/public/docs
+
+      - name: 'upload artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: website
+          path: website/public
