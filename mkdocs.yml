@@ -1,0 +1,39 @@
+site_name: CDK8s Documentation
+repo_url: https://github.com/awslabs/cdk8s
+repo_name: awslabs/cdk8s
+edit_uri: blob/master/docs
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: blue
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - header.autohide
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
+  - admonition
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - smarty
+  - toc:
+      permalink: true
+plugins:
+  - search
+  - awesome-pages
+
+# footer
+extra:
+  social:
+    - icon: fontawesome/brands/slack
+      link: https://cdk.dev
+    - icon: fontawesome/brands/github
+      link: https://github.com/awslabs/cdk8s
+
+copyright: © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
