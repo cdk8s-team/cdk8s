@@ -10,6 +10,7 @@ if [ -z "${outdir}" ]; then
 fi
 
 # resolve path
+mkdir -p "${outdir}"
 outdir=$(cd ${outdir} && pwd)
 
 # repo root
