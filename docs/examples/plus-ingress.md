@@ -2,7 +2,7 @@
 
 Example of using CDK8s+ `Ingress` resource.
 
-- [TypeScript](https://github.com/awslabs/CDK8s/tree/master/examples/typescript/CDK8s-plus-ingress)
+- [TypeScript](https://github.com/awslabs/cdk8s/tree/master/examples/typescript/cdk8s-plus-ingress)
 
 !!! note
     We try to maintain the same set of examples in all supported languages.

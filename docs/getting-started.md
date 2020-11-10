@@ -49,7 +49,7 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     ```console
     $ mkdir hello
     $ cd hello
-    $ CDK8s init typescript-app
+    $ cdk8s init typescript-app
     creating a new project from template: typescript-app
     ...
     ```
@@ -66,7 +66,7 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     ```console
     $ mkdir hello
     $ cd hello
-    $ CDK8s init python-app
+    $ cdk8s init python-app
     creating a new project from template: python-app
     ...
     ```
@@ -75,7 +75,7 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     ```console
     $ mkdir hello
     $ cd hello
-    $ CDK8s init java-app
+    $ cdk8s init java-app
     Initializing a project from the java-app template
     ...
     ```
@@ -95,7 +95,7 @@ At this point, if you will see something like this:
 
     ```ts
     import { Construct } from 'constructs';
-    import { Chart, App } from 'CDK8s';
+    import { Chart, App } from 'cdk8s';
 
     class MyChart extends Chart {
       constructor(scope: Construct, name: string) {
@@ -207,7 +207,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 === "TypeScript"
     ```ts
     import { Construct } from 'constructs';
-    import { App, Chart } from 'CDK8s';
+    import { App, Chart } from 'cdk8s';
 
     // imported constructs
     import { Deployment, Service, IntOrString } from './imports/k8s';
