@@ -29,4 +29,8 @@ for module in cdk8s cdk8s-plus; do
   cat packages/${module}/API.md | sed "s/# API Reference/# ${module}/" > "docs/reference/${module}.API.md"
 done
 
-mkdocs build --site-dir $outdir
+version=$(node -p "require('./lerna.json').version")
+mkdocs build --site-dir ${outdir}/v${version}
+
+# create a redirect to the latest version
+echo "<meta http-equiv='refresh' content='0; URL=v${version}' />" > ${outdir}/index.html
