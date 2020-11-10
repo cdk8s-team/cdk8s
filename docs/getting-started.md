@@ -1,6 +1,11 @@
 # Getting Started
 
-Let's walk through a simple "Hello, World!" example in Java.
+This guide will walk you through the following steps:
+
+- Installing the CDK8s CLI.
+- Creating a new CDK8s project in one of the supported programming languages.
+- Define & deploy your first CDK8s application.
+- Define a custom CDK8s construct.
 
 ## Prerequisites
 
@@ -16,7 +21,6 @@ Let's walk through a simple "Hello, World!" example in Java.
 === "Java"
     - [Maven >= 3.6.3](https://maven.apache.org/install.html)
 
-
 ## Install the CLI
 
 CDK8s has a cute little CLI that has a few useful commands. Let's start by
@@ -26,10 +30,12 @@ installing the CDK8s CLI globally. We have two options for this.
     ```console
     $ brew install cdk8s
     ```
+
 === "npm"
     ```console
     $ npm install -g cdk8s-cli
     ```
+
 === "yarn"
     ```console
     $ yarn global add cdk8s-cli
@@ -47,6 +53,7 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     creating a new project from template: typescript-app
     ...
     ```
+
     Since TypeScript is a compiled language, we will need to compile `.ts` files to
     `.js` in order to execute our CDK app. You can do that continuously in the
     background like this:
