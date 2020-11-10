@@ -3,7 +3,7 @@
 Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-volume)
+    [API Reference](../reference/cdk8s-plus.md#cdk8s-plus-volume)
 
 ## Create from a ConfigMap
 

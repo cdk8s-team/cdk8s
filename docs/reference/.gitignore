@@ -1,2 +1,4 @@
 # API.md files are copied by build.sh from the repo
-*.API.md
+cdk8s.md
+cdk8s-plus.md
+

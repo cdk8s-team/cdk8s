@@ -26,7 +26,7 @@ cp CONTRIBUTING.md docs/project/
 cp ROADMAP.md docs/project/
 
 for module in cdk8s cdk8s-plus; do
-  cat packages/${module}/API.md | sed "s/# API Reference/# ${module}/" > "docs/reference/${module}.API.md"
+  cat packages/${module}/API.md | sed "s/# API Reference/# ${module}/" > "docs/reference/${module}.md"
 done
 
 version=$(node -p "require('./lerna.json').version")

@@ -3,7 +3,7 @@
 Create a deployment to govern the lifecycle and orchestration of a set of identical pods.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-deployment)
+    [API Reference](../reference/cdk8s-plus.md#cdk8s-plus-deployment)
 
 ## Automatic pod selection
 

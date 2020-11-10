@@ -3,7 +3,7 @@
 Use service accounts to provide an identity for pods.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-serviceaccount)
+    [API Reference](../reference/cdk8s-plus.md#cdk8s-plus-serviceaccount)
 
 ## Use an existing `ServiceAccount`
 

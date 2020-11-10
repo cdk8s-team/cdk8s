@@ -3,7 +3,7 @@
 A pod is essentially a collection of containers. It is the most fundamental computation unit that can be provisioned.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-pod)
+    [API Reference](../reference/cdk8s-plus.md#cdk8s-plus-pod)
 
 ## Adding Containers/Volumes
 
