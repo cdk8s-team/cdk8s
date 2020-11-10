@@ -10,10 +10,19 @@ export interface GeneratedConstruct {
   readonly version: string;
   readonly kind: string;
   readonly schema: JSONSchema4;
+
+  /**
+   * Indicates if a prefix should be added to the construct class name. For
+   * example, for native k8s api objects, we add `Kube` by default.
+   *
+   * @default ""
+   */
+  readonly prefix?: string;
 }
 
 export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruct) {
-  const constructName = TypeGenerator.normalizeTypeName(def.kind);
+  const prefix = def.prefix ?? '';
+  const constructName = TypeGenerator.normalizeTypeName(`${prefix}${def.kind}`);
 
   typegen.addCode(constructName, code => {
     const schema = def.schema;

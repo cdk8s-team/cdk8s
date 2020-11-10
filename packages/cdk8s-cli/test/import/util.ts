@@ -1,9 +1,9 @@
 import { promises as fs } from 'fs';
 import { mkdtemp } from '../../src/util';
-import { ImportBase, Language } from '../../src/import/base';
+import { ImportBase, ImportOptions, Language } from '../../src/import/base';
 import * as path from 'path';
 
-export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
+export function expectImportMatchSnapshot(name: string, fn: () => ImportBase, options?: Partial<ImportOptions>) {
   jest.setTimeout(3 * 60_000);
 
   test(name, async () => {
@@ -15,6 +15,7 @@ export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
         outdir: workdir,
         outputJsii: jsiiPath,
         targetLanguage: Language.TYPESCRIPT,
+        ...options,
       });
     
       const manifest = JSON.parse((await fs.readFile(jsiiPath)).toString('utf-8'));
