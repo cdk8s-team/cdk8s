@@ -4,13 +4,18 @@ repo_name: awslabs/cdk8s
 edit_uri: blob/master/docs
 theme:
   name: material
+  favicon: assets/favicon.png
+  logo: assets/logo.png
   palette:
     scheme: default
-    primary: blue
+    primary: "#133650"
   features:
     - navigation.instant
     # - navigation.tabs
     - header.autohide
+
+extra_css:
+  - assets/extra.css
 
 markdown_extensions:
   - pymdownx.highlight
