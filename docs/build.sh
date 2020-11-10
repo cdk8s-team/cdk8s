@@ -17,8 +17,7 @@ outdir=$(cd ${outdir} && pwd)
 cd ${scriptdir}/..
 
 # install deps
-deps="mkdocs mkdocs-awesome-pages-plugin mkdocs-material"
-pip3 install ${deps} || pip install ${deps}
+pip3 install -r docs/requirements.txt
 
 # stage some content from the repo
 cp CHANGELOG.md docs/project/
