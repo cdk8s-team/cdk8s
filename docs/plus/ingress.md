@@ -4,10 +4,11 @@
 HTTP. Ingress may provide load balancing, SSL termination and name-based virtual
 hosting.
 
+!!! tip ""
+    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-ingress)
+
 You must have an [Ingress controller] to satisfy an Ingress. Only creating an
 Ingress resource has no effect.
-
-> API Reference: [Ingress](./API.md#cdk8s-plus-ingress)
 
 [Ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [Ingress controller]: https://kubernetes.io/docs/concepts/services-networking/ingress-controllers

@@ -6,4 +6,4 @@ Exploration of high-level APIs for **Deployment**, **Service**, **AutoScaler** a
 
 !!! note
     We try to maintain the same set of examples in all supported languages.
-    **[Help us!](./CONTRIBUTING.md)**
+    **[Help us!](../project/CONTRIBUTING.md)**

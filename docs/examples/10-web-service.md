@@ -7,4 +7,4 @@ Demonstrates how to make your first high-level construct which represents a web 
 
 !!! note
     We try to maintain the same set of examples in all supported languages.
-    **[Help us!](./CONTRIBUTING.md)**
+    **[Help us!](../project/CONTRIBUTING.md)**

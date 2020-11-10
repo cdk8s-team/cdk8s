@@ -2,7 +2,8 @@
 
 Secrets are used to store confidential information. Never store such information on the definition of the pod itself.
 
-> API Reference: [Secret](./API.md#cdk8s-plus-secret)
+!!! tip ""
+    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-secret)
 
 ## Use an existing `Secret`
 

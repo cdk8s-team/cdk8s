@@ -2,7 +2,8 @@
 
 Use service accounts to provide an identity for pods.
 
-> API Reference: [ServiceAccount](./API.md#cdk8s-plus-serviceaccount)
+!!! tip ""
+    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-serviceaccount)
 
 ## Use an existing `ServiceAccount`
 

@@ -2,7 +2,8 @@
 
 Define containers that run in a pod using the `Container` class.
 
-> API Reference: [Container](./API.md#cdk8s-plus-container)
+!!! tip ""
+    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-container)
 
 ## Environment variables
 

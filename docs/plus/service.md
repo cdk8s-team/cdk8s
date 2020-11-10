@@ -1,9 +1,11 @@
 # Service
 
-Use services when you want to expose a set of pods using a stable network identity. They can also be used for externalizing
-endpoints to clients outside of the kubernetes cluster.
+Use services when you want to expose a set of pods using a stable network
+identity. They can also be used for externalizing endpoints to clients outside
+of the kubernetes cluster.
 
-> API Reference: [Service](./API.md#cdk8s-plus-service)
+!!! tip ""
+    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-service)
 
 ## Selectors
 

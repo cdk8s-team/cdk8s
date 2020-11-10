@@ -3,9 +3,11 @@
 Jobs are a very useful concept in kubernetes deployments.
 They can be used for add-hoc provisioning tasks, as well as long running processing jobs.
 
-> API Reference: [Job](./API.md#cdk8s-plus-job)
+In configuration, they don't differ much from regular pods, but offer some
+additional properties.
 
-In configuration, they don't differ much from regular pods, but offer some additional properties.
+!!! tip ""
+    [API Reference](../reference/cdk8s-plus.API.md#cdk8s-plus-job)
 
 ## Delete a Job after its finished
 

@@ -7,4 +7,4 @@ Shows how to import and use [Custom Resource Definitions](https://kubernetes.io/
 
 !!! note
     We try to maintain the same set of examples in all supported languages.
-    **[Help us!](./CONTRIBUTING.md)**
+    **[Help us!](../project/CONTRIBUTING.md)**
