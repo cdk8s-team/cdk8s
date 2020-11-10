@@ -29,7 +29,10 @@ for module in cdk8s cdk8s-plus; do
 done
 
 version=$(node -p "require('./lerna.json').version")
-mkdocs build --site-dir ${outdir}/v${version}
+version_dir="v${version}"
+mkdocs build --site-dir ${outdir}/${version_dir}
 
 # create a redirect to the latest version
-echo "<meta http-equiv='refresh' content='0; URL=v${version}' />" > ${outdir}/index.html
+echo "<meta http-equiv='refresh' content='0; URL=${version_dir}' />" > ${outdir}/index.html
+ln -s ${version_dir} ${outdir}/latest
+
