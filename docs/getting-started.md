@@ -47,12 +47,11 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     creating a new project from template: typescript-app
     ...
     ```
-
     Since TypeScript is a compiled language, we will need to compile `.ts` files to
     `.js` in order to execute our CDK app. You can do that continuously in the
     background like this:
 
-    ```shell
+    ```console
     $ npm run watch
     ```
 
@@ -92,11 +91,11 @@ At this point, if you will see something like this:
     import { Chart, App } from 'CDK8s';
 
     class MyChart extends Chart {
-    constructor(scope: Construct, name: string) {
+      constructor(scope: Construct, name: string) {
         super(scope, name);
 
         // define constructs here
-    }
+      }
     }
 
     const app = new App();
@@ -182,30 +181,21 @@ $ cat dist/hello.k8s.yaml
 OK, now let's define some Kubernetes API objects inside our chart.
 
 Similarly to **charts** and **apps**, Kubernetes API Objects are also
-represented in CDK8s as **constructs**. These constructs are "imported" to your
-project using the command `cdk8s import` and can then found under the **imports**
-directory of your project:
+represented in CDK8s as **constructs**. These constructs are _imported_ to your
+project using the `cdk8s import` command which will add source files to your
+project that include constructs that represent the Kubernetes API.
 
-=== "TypeScript"
-    `imports/k8s`
+!!! info
+    When `cdk8s init` created your project it already executed `cdk8s import` for
+    you, so you should see an imports directory already there. You can either commit
+    this directory to source-control or generate it as part of your build process.
 
-=== "Python"
-    `imports/k8s`
-
-=== "Java"
-    `src/main/java/imports/k8s/` or `imports.k8s` java package
-
-When `cdk8s init` created your project it already executed `cdk8s import` for
-you, so you should see an imports directory already there. You can either commit
-this directory to source-control or generate it as part of your build process.
-
-Now, let's use these constructs to define a simple Kubernetes application that
+Now, let's use these constructs to define a simple Kubernetes application which
 contains
 [Service](https://kubernetes.io/docs/concepts/services-networking/service) and a
 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
 resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 [hello-kubernetes](https://github.com/paulbouwer/hello-kubernetes) project.
-
 
 === "TypeScript"
     ```ts
@@ -216,47 +206,46 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     import { Deployment, Service, IntOrString } from './imports/k8s';
 
     class MyChart extends Chart {
-    constructor(scope: Construct, name: string) {
+      constructor(scope: Construct, name: string) {
         super(scope, name);
 
         const label = { app: 'hello-k8s' };
 
         new Service(this, 'service', {
-        spec: {
+          spec: {
             type: 'LoadBalancer',
             ports: [ { port: 80, targetPort: IntOrString.fromNumber(8080) } ],
             selector: label
-        }
+          }
         });
 
         new Deployment(this, 'deployment', {
-        spec: {
+          spec: {
             replicas: 2,
             selector: {
-            matchLabels: label
+              matchLabels: label
             },
             template: {
-            metadata: { labels: label },
-            spec: {
+              metadata: { labels: label },
+              spec: {
                 containers: [
-                {
+                  {
                     name: 'hello-kubernetes',
                     image: 'paulbouwer/hello-kubernetes:1.7',
                     ports: [ { containerPort: 8080 } ]
-                }
+                  }
                 ]
+              }
             }
-            }
-        }
+          }
         });
-    }
+      }
     }
 
     const app = new App();
     new MyChart(app, 'hello');
     app.synth();
     ```
-
 
 === "Python"
     ```python
@@ -406,13 +395,13 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
 Now, compile & synth this project:
 
-!!! notice
-    In compiled languages, like Java and TypeScript, you'll need to compile your program
-    before running `cdk8s synth`.
-
 ```console
 cdk8s synth
 ```
+
+!!! notice
+    In compiled languages, like Java and TypeScript, you'll need to compile your program
+    before running `cdk8s synth`.
 
 This will be contents of `hello.k8s.yaml`:
 
@@ -457,7 +446,7 @@ cluster using standard tools like `kubectl apply`:
 $ kubectl apply -f dist/hello.k8s.yaml
 ```
 
-## Constructs
+## Abstraction through Constructs
 
 Constructs are the basic building block of **CDK8s**. They are the instrument
 that enables composition and creation of higher-level abstractions through
