@@ -239,6 +239,22 @@ the [`docs`](https://github.com/awslabs/cdk8s/tree/master/docs) directory.
 API documentation for `cdk8s` and `cdk8s-plus` is auto-generated from inline
 docstrings during build.
 
+To test locally, install python3 deps:
+
+```shell
+$ pip3 install -r docs/requirements.txt
+```
+
+And then:
+
+```shell
+$ mkdocs serve
+```
+
+This will serve a local web server with the website. 
+
+> A good reference for syntax and capabilities is the [mkdocs-material](https://squidfunk.github.io/mkdocs-material) website.
+
 ## Examples
 
 Examples are stored under
