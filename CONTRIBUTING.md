@@ -230,6 +230,26 @@ release. Therefore please following these guidelines to the letter:
   - If this is a breaking change, the last paragraph should describe the
     breaking change with the prefix `BREAKING CHANGE: xxxxxx`.
 
+## Documentation
+
+Documentation is rendered from markdown using
+[mkdocs-material](https://squidfunk.github.io/mkdocs-material/) and sourced from
+the [`docs`](https://github.com/awslabs/cdk8s/tree/master/docs) directory.
+
+API documentation for `cdk8s` and `cdk8s-plus` is auto-generated from inline
+docstrings during build.
+
+## Examples
+
+Examples are stored under
+[`examples`](https://github.com/awslabs/cdk8s/tree/master/examples) and
+organized according to programming language.
+
+Every example also has an entry under
+[`docs/examples/xxx`](https://github.com/awslabs/cdk8s/tree/master/docs/examples)
+which describes the example and includes links to the source code (on the main
+branch).
+
 ## RFCs
 
 An RFC (request for comments) is a document that proposes and details a change
