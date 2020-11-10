@@ -5,15 +5,11 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs. CDK8s generates pure Kubernetes YAML - you can use
 CDK8s to define applications for any Kubernetes cluster running anywhere.
 
-<!--
-![](./assets/opengraph.jpg)
--->
-
-![](./assets/animation.gif)
+![demo](./assets/animation.gif)
 
 Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/) or [watch our CNCF webinar](https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/) to learn more and see a live demo of CDK8s in action.
 
-## How it works?
+## How does it work
 
 **CDK8s** apps are programs written in one of the supported programming
 languages. They are structured as a tree of
@@ -35,16 +31,3 @@ applied to any Kubernetes cluster using `kubectl apply -f dist/chart.k8s.yaml` o
 Cloud Development Kit](https://aws.amazon.com/cdk), and can interoperate with
 AWS CDK constructs to define cloud-native applications that include both
 Kubernetes resources and other CDK constructs as first class citizens.
-
-
-
-## Maturity
-
-!!! notice
-    This is an early-stage, experimental project built with ❤️ by AWS. We encourage
-    you to [try it out](#getting-started), [leave feedback](#help--feedback), and
-    [jump in to help](#contributing)!
-
-## License
-
-This project is distributed under the [Apache License, Version 2.0](./LICENSE).
