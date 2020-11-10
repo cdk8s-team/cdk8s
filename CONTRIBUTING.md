@@ -202,6 +202,15 @@ To create an RFC follow this process:
 4. The RFC will be reviewed as a pull request and once merged it means it is
    ready for implementation.
 
+## Community Meeting
+
+Join us for the CDK8s community meeting which takes place the [2nd Monday of the
+month at 9:00am Pacific
+Time](https://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29).
+
+- Meeting link: [https://chime.aws/7929414778](https://chime.aws/7929414778)
+- [Agenda](https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing)
+
 ## For Maintainers
 
 This section includes information that is relevant for the maintainers of the project.

@@ -1,7 +1,5 @@
 # cdk8s-cli
 
-> A command-line-interface for CDK for Kubernetes
-
 **cdk8s** is a software development framework for defining Kubernetes
 applications using rich object-oriented APIs. It allows developers to leverage
 the full power of software in order to define abstract components called
@@ -10,9 +8,14 @@ higher-level abstractions.
 
 To install the CLI use one of the following methods:
 
-* Homebrew: `brew install cdk8s`
-* npm: `npm i -g cdk8s-cli`
-* yarn: `yarn global add cdk8s-cli`
+=== "Homebrew"
+    `brew install cdk8s`
+
+=== "npm"
+    `npm i -g cdk8s-cli`
+
+=== "yarn"
+    `yarn global add cdk8s-cli`
 
 ## init
 

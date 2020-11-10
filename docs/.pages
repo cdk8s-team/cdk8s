@@ -5,4 +5,6 @@ nav:
   - CDK8s+: plus
   - API Reference: reference
   - examples
+  - support.md
+  - project
   - ...

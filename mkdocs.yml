@@ -9,13 +9,13 @@ theme:
     primary: blue
   features:
     - navigation.instant
-    - navigation.tabs
+    # - navigation.tabs
     - header.autohide
 
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
-  # - pymdownx.tabbed
+  - pymdownx.tabbed
   - pymdownx.details
   - admonition
   - pymdownx.emoji:
