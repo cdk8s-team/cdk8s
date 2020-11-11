@@ -2513,20 +2513,12 @@
 <h2 id="0310-2020-10-19"><a href="https://github.com/awslabs/cdk8s/compare/v0.30.0...v0.31.0">0.31.0</a> (2020-10-19)<a class="headerlink" href="#0310-2020-10-19" title="Permanent link">&para;</a></h2>
 <h3 id="breaking-changes_1">⚠ BREAKING CHANGES<a class="headerlink" href="#breaking-changes_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p><strong>plus:</strong> <code>spec</code> was removed from all cdk8s+ constructs and that now have a flat structure. See <a href="https://github.com/awslabs/cdk8s/tree/master/packages/cdk8s-plus#at-a-glance">Example</a> for new usage.</p>
-</li>
-<li>
-<p><strong>plus</strong>: Construct id&rsquo;s for deployment will change due to a latent bug that appended the word <code>pod</code> to them.</p>
-</li>
+<li><strong>plus:</strong> <code>spec</code> was removed from all cdk8s+ constructs and that now have a flat structure. See <a href="https://github.com/awslabs/cdk8s/tree/master/packages/cdk8s-plus#at-a-glance">Example</a> for new usage.</li>
+<li><strong>plus</strong>: Construct id&rsquo;s for deployment will change due to a latent bug that appended the word <code>pod</code> to them.</li>
+<li><strong>plus:</strong> <code>deployment.expose()</code> now takes <code>port</code> as a positional argument (before: <code>deployment.expose({ port })</code>, now: <code>deployment.expose(port)</code>).</li>
+<li><strong>lib:</strong> auto-generated resource names that included duplicate hyphens will change will be replaced when applied.</li>
+<li><strong>lib:</strong> cdk8s-plus&rsquo;s value of a label <code>cdk8s.deployment</code> of Pods are changed</li>
 </ul>
-<p><em>By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license</em>
-* <strong>plus:</strong> <code>deployment.expose()</code> now takes <code>port</code> as a positional argument (before: <code>deployment.expose({ port })</code>, now: <code>deployment.expose(port)</code>).</p>
-<p><em>By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license</em>
-* <strong>lib:</strong> auto-generated resource names that included duplicate hyphens will change will be replaced when applied.</p>
-<p><em>By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license</em>
-* <strong>lib:</strong> cdk8s-plus&rsquo;s value of a label <code>cdk8s.deployment</code> of Pods are changed</p>
-<p><em>By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license</em></p>
 <h3 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>lib:</strong> helm construct (<a href="https://github.com/awslabs/cdk8s/issues/346">#346</a>) (<a href="https://github.com/awslabs/cdk8s/commit/6ee449fc1b82e2c59ec24d327044f828665df8b5">6ee449f</a>), closes <a href="https://github.com/awslabs/cdk8s/issues/65">#65</a></li>
@@ -2539,12 +2531,8 @@
 <li><strong>lib:</strong> <code>uniqueId</code> is not compatible with the k8s labels (<a href="https://github.com/awslabs/cdk8s/issues/326">#326</a>) (<a href="https://github.com/awslabs/cdk8s/commit/161f3682e9229cace25d3c283c98028f1e1ca0a6">161f368</a>), closes <a href="https://github.com/awslabs/cdk8s/issues/323">#323</a></li>
 <li><strong>lib:</strong> duplicate hyphens in generated resource names (<a href="https://github.com/awslabs/cdk8s/issues/341">#341</a>) (<a href="https://github.com/awslabs/cdk8s/commit/6f6366a55c31f6ec9af09f33effcfa52a1b23fe8">6f6366a</a>)</li>
 <li>allow tests to run without write access to os.tmpdir parent (<a href="https://github.com/awslabs/cdk8s/issues/338">#338</a>) (<a href="https://github.com/awslabs/cdk8s/commit/dc1702207deb4367a1d05717a009851a7d3dac68">dc17022</a>)</li>
-<li>
-<p>Fix yaml quote serialization 325 (<a href="https://github.com/awslabs/cdk8s/issues/327">#327</a>) (<a href="https://github.com/awslabs/cdk8s/commit/6b1f66278446efd01cb3d0b61a5fca712725fefa">6b1f662</a>), closes <a href="https://github.com/awslabs/cdk8s/issues/325">#325</a></p>
-</li>
-<li>
-<p><strong>plus:</strong> Remove the <code>spec</code> nesting level on both input and output (<a href="https://github.com/awslabs/cdk8s/issues/347">#347</a>) (<a href="https://github.com/awslabs/cdk8s/commit/5e34850f4b3cc9c80fda4f0df245afcaa29b1daf">5e34850</a>)</p>
-</li>
+<li>Fix yaml quote serialization 325 (<a href="https://github.com/awslabs/cdk8s/issues/327">#327</a>) (<a href="https://github.com/awslabs/cdk8s/commit/6b1f66278446efd01cb3d0b61a5fca712725fefa">6b1f662</a>), closes <a href="https://github.com/awslabs/cdk8s/issues/325">#325</a></li>
+<li><strong>plus:</strong> Remove the <code>spec</code> nesting level on both input and output (<a href="https://github.com/awslabs/cdk8s/issues/347">#347</a>) (<a href="https://github.com/awslabs/cdk8s/commit/5e34850f4b3cc9c80fda4f0df245afcaa29b1daf">5e34850</a>)</li>
 </ul>
 <h2 id="0300-2020-10-04"><a href="https://github.com/awslabs/cdk8s/compare/v0.28.0...v0.30.0">0.30.0</a> (2020-10-04)<a class="headerlink" href="#0300-2020-10-04" title="Permanent link">&para;</a></h2>
 <h3 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h3>
