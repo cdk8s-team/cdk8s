@@ -1,7 +1,7 @@
 import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
-import { Names } from './names';
 import { App } from './app';
+import { Names } from './names';
 
 export interface ChartOptions {
   /**
@@ -15,7 +15,7 @@ export interface ChartOptions {
 
   /**
    * Labels to apply to all resources in this chart.
-   * 
+   *
    * @default - no common labels
    */
   readonly labels?: { [name: string]: string };
@@ -58,7 +58,7 @@ export class Chart extends Construct {
 
   /**
    * Labels applied to all resources in this chart.
-   * 
+   *
    * This is an immutable copy.
    */
   public get labels(): { [name: string]: string } {
