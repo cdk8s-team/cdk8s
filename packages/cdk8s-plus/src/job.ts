@@ -1,11 +1,10 @@
-import { Resource, ResourceProps } from './base';
-import { ApiObject, ApiObjectMetadataDefinition } from 'cdk8s';
+import { ApiObject, ApiObjectMetadataDefinition, Lazy } from 'cdk8s';
 import { Construct } from 'constructs';
-import * as cdk8s from 'cdk8s';
+import { Resource, ResourceProps } from './base';
+import { Container } from './container';
+import { Duration } from './duration';
 import * as k8s from './imports/k8s';
 import { RestartPolicy, PodTemplateProps, IPodTemplate, PodTemplate } from './pod';
-import { Duration } from './duration';
-import { Container } from './container';
 import { IServiceAccount } from './service-account';
 import { Volume } from './volume';
 
@@ -55,15 +54,15 @@ export class Job extends Resource implements IPodTemplate {
   constructor(scope: Construct, id: string, props: JobProps = {}) {
     super(scope, id, { metadata: props.metadata });
 
-    this.apiObject = new k8s.Job(this, 'Default', {
+    this.apiObject = new k8s.KubeJob(this, 'Default', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
+      spec: Lazy.any({ produce: () => this._toKube() }),
     });
 
     this._podTemplate = new PodTemplate({
       ...props,
       restartPolicy: props.restartPolicy ?? RestartPolicy.NEVER,
-    })
+    });
     this.ttlAfterFinished = props.ttlAfterFinished;
 
   }

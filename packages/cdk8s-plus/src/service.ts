@@ -1,8 +1,8 @@
-import * as k8s from './imports/k8s';
+import * as cdk8s from 'cdk8s';
 import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
-import * as cdk8s from 'cdk8s';
 import { Deployment } from './deployment';
+import * as k8s from './imports/k8s';
 
 /**
  * Properties for initialization of `Service`.
@@ -131,7 +131,7 @@ export class Service extends Resource {
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
     super(scope, id, { metadata: props.metadata });
 
-    this.apiObject = new k8s.Service(this, 'Pod', {
+    this.apiObject = new k8s.KubeService(this, 'Pod', {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
@@ -169,7 +169,7 @@ export class Service extends Resource {
    * Associate a deployment to this service.
    *
    * If not targetPort is specific in the portOptions, then requests will be routed
-   * to the port exposed by the first container in the deployment's pods. 
+   * to the port exposed by the first container in the deployment's pods.
    * The deployment's `labelSelector` will be used to select pods.
    *
    * @param deployment The deployment to expose
@@ -191,12 +191,12 @@ export class Service extends Resource {
       throw new Error('a selector is already defined for this service. cannot add a deployment');
     }
 
-    for (const [ k, v ] of selector) {
+    for (const [k, v] of selector) {
       this.addSelector(k, v);
     }
 
     this.serve(port, {
-      ...options, 
+      ...options,
 
       // just a PoC, we assume the first container is the main one.
       // TODO: figure out what the correct thing to do here.

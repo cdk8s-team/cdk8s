@@ -1,6 +1,6 @@
-import { IResource, Resource, ResourceProps } from './base';
 import * as cdk8s from 'cdk8s';
 import { Construct } from 'constructs';
+import { IResource, Resource, ResourceProps } from './base';
 import * as k8s from './imports/k8s';
 
 export interface SecretProps extends ResourceProps {
@@ -62,7 +62,7 @@ export class Secret extends Resource implements ISecret {
 
     this.stringData = props.stringData ?? {};
 
-    this.apiObject = new k8s.Secret(this, 'Secret', {
+    this.apiObject = new k8s.KubeSecret(this, 'Secret', {
       metadata: props.metadata,
       stringData: this.stringData,
     });

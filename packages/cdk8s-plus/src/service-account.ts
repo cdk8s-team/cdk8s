@@ -1,9 +1,8 @@
-import { Resource, ResourceProps, IResource } from './base';
+import { ApiObject, Lazy } from 'cdk8s';
 import { Construct } from 'constructs';
+import { Resource, ResourceProps, IResource } from './base';
 import * as k8s from './imports/k8s';
-import { ApiObject } from 'cdk8s';
 import { ISecret } from './secret';
-import * as cdk8s from 'cdk8s';
 import { undefinedIfEmpty } from './utils';
 
 
@@ -65,9 +64,9 @@ export class ServiceAccount extends Resource implements IServiceAccount {
 
     this._secrets = props.secrets ?? [];
 
-    this.apiObject = new k8s.ServiceAccount(this, 'Resource', {
+    this.apiObject = new k8s.KubeServiceAccount(this, 'Resource', {
       metadata: props.metadata,
-      secrets: cdk8s.Lazy.any({ produce: () => undefinedIfEmpty(this._secrets.map(s => ({ name: s.name }))) }),
+      secrets: Lazy.any({ produce: () => undefinedIfEmpty(this._secrets.map(s => ({ name: s.name }))) }),
     });
   }
 
@@ -86,6 +85,6 @@ export class ServiceAccount extends Resource implements IServiceAccount {
    * Returns a copy. To add a secret, use `addSecret()`.
    */
   public get secrets() {
-    return [ ...this._secrets ];
+    return [...this._secrets];
   }
 }

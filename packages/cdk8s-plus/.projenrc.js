@@ -1,5 +1,6 @@
 const { JsiiProject, Semver } = require('projen');
 const common = require('../projen-common');
+const path = require('path');
 
 const project = new JsiiProject({
   name: 'cdk8s-plus',
@@ -42,4 +43,8 @@ const project = new JsiiProject({
 
 common.fixup(project);
 
+const K8S_VERSION = '1.17.0';
+const importdir = path.join('src', 'imports');
+
+project.addScript('import', `../cdk8s-cli/bin/cdk8s -l typescript -o ${importdir} import k8s@${K8S_VERSION}`);
 project.synth();

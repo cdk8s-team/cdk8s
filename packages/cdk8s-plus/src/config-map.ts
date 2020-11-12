@@ -1,10 +1,10 @@
-import { Construct } from 'constructs';
-import * as k8s from './imports/k8s';
-import { ResourceProps, Resource, IResource } from './base';
-import * as cdk8s from 'cdk8s';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as cdk8s from 'cdk8s';
+import { Construct } from 'constructs';
 import * as minimatch from 'minimatch';
+import { ResourceProps, Resource, IResource } from './base';
+import * as k8s from './imports/k8s';
 import { undefinedIfEmpty } from './utils';
 
 /**
@@ -67,7 +67,7 @@ export class ConfigMap extends Resource implements IConfigMap {
   public constructor(scope: Construct, id: string, props: ConfigMapProps = { }) {
     super(scope, id, { metadata: props.metadata });
 
-    this.apiObject = new k8s.ConfigMap(this, 'ConfigMap', {
+    this.apiObject = new k8s.KubeConfigMap(this, 'ConfigMap', {
       metadata: props.metadata,
 
       // we need lazy here because we filter empty
@@ -75,11 +75,11 @@ export class ConfigMap extends Resource implements IConfigMap {
       binaryData: cdk8s.Lazy.any({ produce: () => this.synthesizeBinaryData() }),
     });
 
-    for (const [k,v] of Object.entries(props.data ?? { })) {
+    for (const [k, v] of Object.entries(props.data ?? { })) {
       this.addData(k, v);
     }
 
-    for (const [k,v] of Object.entries(props.binaryData ?? { })) {
+    for (const [k, v] of Object.entries(props.binaryData ?? { })) {
       this.addBinaryData(k, v);
     }
   }
