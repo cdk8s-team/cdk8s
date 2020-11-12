@@ -1,0 +1,7 @@
+nav:
+  - index.md
+  - installation.md
+  - init.md
+  - import.md
+  - synth.md
+  - ...
