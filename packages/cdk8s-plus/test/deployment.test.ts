@@ -1,5 +1,5 @@
-import * as kplus from '../src';
 import { Testing } from 'cdk8s';
+import * as kplus from '../src';
 
 test('A label selector is automatically allocated', () => {
 
@@ -8,7 +8,7 @@ test('A label selector is automatically allocated', () => {
   const deployment = new kplus.Deployment(chart, 'Deployment');
   deployment.addContainer(new kplus.Container({ image: 'foobar' }));
 
-  const expectedValue = 'test-Deployment-9e0110cd'
+  const expectedValue = 'test-Deployment-9e0110cd';
   const expectedSelector = { 'cdk8s.deployment': expectedValue };
 
   // assert the k8s spec has it.
@@ -27,7 +27,7 @@ test('No selector is generated if "defaultSelector" is false', () => {
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
     defaultSelector: false,
-    containers: [ new kplus.Container({ image: 'foobar' }) ],
+    containers: [new kplus.Container({ image: 'foobar' })],
   });
 
   // assert the k8s spec doesnt have it.
@@ -55,7 +55,7 @@ test('Can select by label', () => {
 
   const expectedSelector = { foo: 'bar' };
 
-  deployment.selectByLabel('foo', expectedSelector['foo']);
+  deployment.selectByLabel('foo', expectedSelector.foo);
 
   // assert the k8s spec has it.
   const spec = Testing.synth(chart)[0].spec;
@@ -79,11 +79,11 @@ test('Can be exposed as via service', () => {
     ],
   });
 
-  deployment.expose(9200, { serviceType: kplus.ServiceType.LOAD_BALANCER});
+  deployment.expose(9200, { serviceType: kplus.ServiceType.LOAD_BALANCER });
 
   const spec = Testing.synth(chart)[1].spec;
   expect(spec.type).toEqual('LoadBalancer');
-  expect(spec.selector).toEqual({'cdk8s.deployment': 'test-Deployment-9e0110cd'});
+  expect(spec.selector).toEqual({ 'cdk8s.deployment': 'test-Deployment-9e0110cd' });
   expect(spec.ports![0].port).toEqual(9200);
   expect(spec.ports![0].targetPort).toEqual(9300);
 
@@ -126,7 +126,7 @@ test('Expose can set service and port details', () => {
     9200,
     {
       name: 'test-srv',
-      serviceType: kplus.ServiceType.CLUSTER_IP,    
+      serviceType: kplus.ServiceType.CLUSTER_IP,
       protocol: kplus.Protocol.UDP,
       targetPort: 9500,
     },
@@ -141,7 +141,7 @@ test('Expose can set service and port details', () => {
     'cdk8s.deployment': 'test-Deployment-9e0110cd',
   });
   expect(spec.ports![0].port).toEqual(9200);
-  expect(spec.ports![0].targetPort).toEqual(9500);  
+  expect(spec.ports![0].targetPort).toEqual(9500);
   expect(spec.ports![0].protocol).toEqual('UDP');
 });
 

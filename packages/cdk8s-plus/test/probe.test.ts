@@ -10,14 +10,14 @@ describe('fromHttpGet()', () => {
 
     // THEN
     expect(min._toKube(container)).toEqual({
-      failureThreshold: 3, 
+      failureThreshold: 3,
       httpGet: {
-        path: '/hello', 
+        path: '/hello',
         port: 5555,
-      }, 
-      initialDelaySeconds: undefined, 
-      periodSeconds: undefined, 
-      successThreshold: undefined, 
+      },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
       timeoutSeconds: undefined,
     });
   });
@@ -31,14 +31,14 @@ describe('fromHttpGet()', () => {
 
     // THEN
     expect(min._toKube(container)).toEqual({
-      failureThreshold: 3, 
+      failureThreshold: 3,
       httpGet: {
-        path: '/hello', 
+        path: '/hello',
         port: 1234,
-      }, 
-      initialDelaySeconds: undefined, 
-      periodSeconds: undefined, 
-      successThreshold: undefined, 
+      },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
       timeoutSeconds: undefined,
     });
   });
@@ -59,13 +59,13 @@ describe('fromHttpGet()', () => {
     // THEN
     expect(min._toKube(container)).toEqual({
       httpGet: {
-        path: '/hello', 
+        path: '/hello',
         port: 5555,
       },
-      failureThreshold: 11, 
-      initialDelaySeconds: 60, 
-      periodSeconds: 5, 
-      successThreshold: 3, 
+      failureThreshold: 11,
+      initialDelaySeconds: 60,
+      periodSeconds: 5,
+      successThreshold: 3,
       timeoutSeconds: 120,
     });
   });
@@ -79,11 +79,11 @@ describe('fromCommand()', () => {
     const container = new Container({ image: 'foobar', port: 5555 });
 
     // WHEN
-    const min = Probe.fromCommand([ 'foo', 'bar' ]);
+    const min = Probe.fromCommand(['foo', 'bar']);
 
     // THEN
     expect(min._toKube(container)).toEqual({
-      exec: { command: [ 'foo', 'bar' ] },
+      exec: { command: ['foo', 'bar'] },
       failureThreshold: 3,
       initialDelaySeconds: undefined,
       periodSeconds: undefined,
@@ -97,7 +97,7 @@ describe('fromCommand()', () => {
     const container = new Container({ image: 'foobar', port: 5555 });
 
     // WHEN
-    const min = Probe.fromCommand([ 'foo', 'bar' ], {
+    const min = Probe.fromCommand(['foo', 'bar'], {
       failureThreshold: 11,
       initialDelaySeconds: Duration.minutes(1),
       periodSeconds: Duration.seconds(5),
@@ -107,11 +107,11 @@ describe('fromCommand()', () => {
 
     // THEN
     expect(min._toKube(container)).toEqual({
-      exec: { command: [ 'foo', 'bar' ] },
-      failureThreshold: 11, 
-      initialDelaySeconds: 60, 
-      periodSeconds: 5, 
-      successThreshold: 3, 
+      exec: { command: ['foo', 'bar'] },
+      failureThreshold: 11,
+      initialDelaySeconds: 60,
+      periodSeconds: 5,
+      successThreshold: 3,
       timeoutSeconds: 120,
     });
   });

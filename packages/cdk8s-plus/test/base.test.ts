@@ -1,7 +1,7 @@
-import { Resource, ResourceProps } from '../src/base';
-import { Construct } from 'constructs';
 import { Testing, ApiObject } from 'cdk8s';
-import { ConfigMap } from '../src/imports/k8s';
+import { Construct } from 'constructs';
+import { Resource, ResourceProps } from '../src/base';
+import { KubeConfigMap } from '../src/imports/k8s';
 
 test('Can mutate metadata', () => {
 
@@ -16,7 +16,7 @@ test('Can mutate metadata', () => {
     constructor(scope: Construct, id: string, props: CustomProps) {
       super(scope, id, props);
 
-      this.apiObject = new ConfigMap(this, 'ConfigMap', {
+      this.apiObject = new KubeConfigMap(this, 'ConfigMap', {
         metadata: props.metadata,
       });
     }

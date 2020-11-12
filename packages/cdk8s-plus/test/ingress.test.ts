@@ -107,7 +107,7 @@ describe('Ingress', () => {
     test('defaultBackend property', () => {
       // GIVEN
       const chart = Testing.chart();
-      const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+      const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
 
       // WHEN
       new Ingress(chart, 'my-ingress', {
@@ -119,7 +119,7 @@ describe('Ingress', () => {
         {
           apiVersion: 'networking.k8s.io/v1beta1',
           kind: 'Ingress',
-          metadata: {name: 'test-my-ingress-ingress-56b6a667'},
+          metadata: { name: 'test-my-ingress-ingress-56b6a667' },
           spec: {
             backend: {
               serviceName: 'test-my-service-pod-1c817a88',
@@ -133,7 +133,7 @@ describe('Ingress', () => {
     test('addDefaultBackend()', () => {
       // GIVEN
       const chart = Testing.chart();
-      const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+      const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
 
       // WHEN
       const ingress = new Ingress(chart, 'my-ingress');;
@@ -144,7 +144,7 @@ describe('Ingress', () => {
         {
           apiVersion: 'networking.k8s.io/v1beta1',
           kind: 'Ingress',
-          metadata: {name: 'test-my-ingress-ingress-56b6a667'},
+          metadata: { name: 'test-my-ingress-ingress-56b6a667' },
           spec: {
             backend: {
               serviceName: 'test-my-service-pod-1c817a88',
@@ -160,7 +160,7 @@ describe('Ingress', () => {
   test('addHostDefaultBackend()', () => {
     // GIVEN
     const chart = Testing.chart();
-    const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+    const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
 
     // WHEN
     const ingress = new Ingress(chart, 'my-ingress');;
@@ -171,7 +171,7 @@ describe('Ingress', () => {
       {
         apiVersion: 'networking.k8s.io/v1beta1',
         kind: 'Ingress',
-        metadata: {name: 'test-my-ingress-ingress-56b6a667'},
+        metadata: { name: 'test-my-ingress-ingress-56b6a667' },
         spec: {
           rules: [{
             host: 'my.host',
@@ -194,7 +194,7 @@ describe('Ingress', () => {
   test('addHostRule()', () => {
     // GIVEN
     const chart = Testing.chart();
-    const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+    const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
 
     // WHEN
     const ingress = new Ingress(chart, 'my-ingress');;
@@ -208,7 +208,7 @@ describe('Ingress', () => {
       {
         apiVersion: 'networking.k8s.io/v1beta1',
         kind: 'Ingress',
-        metadata: {name: 'test-my-ingress-ingress-56b6a667'},
+        metadata: { name: 'test-my-ingress-ingress-56b6a667' },
         spec: {
           rules: [
             {
@@ -261,7 +261,7 @@ describe('Ingress', () => {
   test('addRule()', () => {
     // GIVEN
     const chart = Testing.chart();
-    const service = new Service(chart, 'my-service', { ports: [{port: 80}]} );
+    const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
 
     // WHEN
     const ingress = new Ingress(chart, 'my-ingress');
@@ -273,7 +273,7 @@ describe('Ingress', () => {
       {
         apiVersion: 'networking.k8s.io/v1beta1',
         kind: 'Ingress',
-        metadata: {name: 'test-my-ingress-ingress-56b6a667'},
+        metadata: { name: 'test-my-ingress-ingress-56b6a667' },
         spec: {
           rules: [
             {
@@ -331,12 +331,17 @@ describe('Ingress', () => {
         spec: {
           backend: expectedBackend,
           rules: [
-            { host: 'foo.bar', http: { paths: [ { backend: expectedBackend } ] } },
-            { http: { paths: [ { path: '/just/path', backend: expectedBackend } ] } },
-            { host: 'host.and', http: { paths: [
-              { path: '/path', backend: expectedBackend },
-              { path: '/path/2', backend: expectedBackend },
-            ] } },
+            { host: 'foo.bar', http: { paths: [{ backend: expectedBackend }] } },
+            { http: { paths: [{ path: '/just/path', backend: expectedBackend }] } },
+            {
+              host: 'host.and',
+              http: {
+                paths: [
+                  { path: '/path', backend: expectedBackend },
+                  { path: '/path/2', backend: expectedBackend },
+                ],
+              },
+            },
           ],
         },
       },
@@ -370,7 +375,7 @@ describe('Ingress', () => {
       // THEN
       expect(() => new Ingress(chart, 'ingress', {
         defaultBackend: IngressBackend.fromService(service),
-        rules: [ { backend: IngressBackend.fromService(service) } ],
+        rules: [{ backend: IngressBackend.fromService(service) }],
       })).toThrow(/a default backend is already defined for this ingress/);
     });
 

@@ -1,12 +1,11 @@
-import * as kplus from '../src';
-import { Duration } from '../src';
+import { ConfigMap, Container, Duration, EnvValue, ImagePullPolicy, MountPropagation, Probe, Secret, Volume } from '../src';
 import * as k8s from '../src/imports/k8s';
 
 describe('EnvValue', () => {
 
   test('Can be created from value', () => {
 
-    const actual = kplus.EnvValue.fromValue('value');
+    const actual = EnvValue.fromValue('value');
 
     expect(actual.value).toEqual('value');
     expect(actual.valueFrom).toBeUndefined();
@@ -15,7 +14,7 @@ describe('EnvValue', () => {
 
   test('Can be created from config map name', () => {
 
-    const actual = kplus.EnvValue.fromConfigMap(kplus.ConfigMap.fromConfigMapName('ConfigMap'), 'key');
+    const actual = EnvValue.fromConfigMap(ConfigMap.fromConfigMapName('ConfigMap'), 'key');
 
     expect(actual.value).toBeUndefined();
     expect(actual.valueFrom).toEqual({
@@ -29,11 +28,11 @@ describe('EnvValue', () => {
 
   test('Can be created from secret value', () => {
     const secretValue = {
-      secret: kplus.Secret.fromSecretName('Secret'),
+      secret: Secret.fromSecretName('Secret'),
       key: 'my-key',
-    }
-    
-    const actual = kplus.EnvValue.fromSecretValue(secretValue);
+    };
+
+    const actual = EnvValue.fromSecretValue(secretValue);
 
     expect(actual.value).toBeUndefined();
     expect(actual.valueFrom).toEqual({
@@ -47,14 +46,14 @@ describe('EnvValue', () => {
   test('Cannot be created from missing required process env', () => {
 
     const key = 'cdk8s-plus.tests.container.env.fromProcess';
-    expect(() => kplus.EnvValue.fromProcess(key, {required: true})).toThrowError(`Missing ${key} env variable`);
+    expect(() => EnvValue.fromProcess(key, { required: true })).toThrowError(`Missing ${key} env variable`);
 
   });
 
   test('Can be created from missing optional process env', () => {
 
     const key = 'cdk8s-plus.tests.container.env.fromProcess';
-    const actual = kplus.EnvValue.fromProcess(key);
+    const actual = EnvValue.fromProcess(key);
 
     expect(actual.value).toBeUndefined();
     expect(actual.valueFrom).toBeUndefined();
@@ -66,7 +65,7 @@ describe('EnvValue', () => {
     const key = 'cdk8s-plus.tests.container.env.fromProcess';
     try {
       process.env[key] = 'value';
-      const actual = kplus.EnvValue.fromProcess(key);
+      const actual = EnvValue.fromProcess(key);
 
       expect(actual.value).toEqual('value');
       expect(actual.valueFrom).toBeUndefined();
@@ -83,15 +82,15 @@ describe('Container', () => {
 
   test('Instantiation properties are all respected', () => {
 
-    const container = new kplus.Container({
+    const container = new Container({
       image: 'image',
       name: 'name',
-      imagePullPolicy: kplus.ImagePullPolicy.NEVER,
+      imagePullPolicy: ImagePullPolicy.NEVER,
       workingDir: 'workingDir',
       port: 9000,
       command: ['command'],
       env: {
-        key: kplus.EnvValue.fromValue('value'),
+        key: EnvValue.fromValue('value'),
       },
     });
 
@@ -99,7 +98,7 @@ describe('Container', () => {
 
     const expected: k8s.Container = {
       name: 'name',
-      imagePullPolicy: kplus.ImagePullPolicy.NEVER,
+      imagePullPolicy: ImagePullPolicy.NEVER,
       image: 'image',
       workingDir: 'workingDir',
       ports: [{
@@ -120,11 +119,11 @@ describe('Container', () => {
 
   test('Can add environment variable', () => {
 
-    const container = new kplus.Container({
+    const container = new Container({
       image: 'image',
     });
 
-    container.addEnv('key', kplus.EnvValue.fromValue('value'));
+    container.addEnv('key', EnvValue.fromValue('value'));
 
     const actual: k8s.EnvVar[] = container._toKube().env!;
     const expected: k8s.EnvVar[] = [{
@@ -139,11 +138,11 @@ describe('Container', () => {
 
   test('Can mount container to volume', () => {
 
-    const container = new kplus.Container({
+    const container = new Container({
       image: 'image',
     });
 
-    const volume = kplus.Volume.fromConfigMap(kplus.ConfigMap.fromConfigMapName('ConfigMap'));
+    const volume = Volume.fromConfigMap(ConfigMap.fromConfigMapName('ConfigMap'));
 
     container.mount('/path/to/mount', volume);
 
@@ -156,14 +155,14 @@ describe('Container', () => {
   });
 
   test('mount options', () => {
-    const container = new kplus.Container({
+    const container = new Container({
       image: 'image',
     });
 
-    const volume = kplus.Volume.fromConfigMap(kplus.ConfigMap.fromConfigMapName('ConfigMap'));
+    const volume = Volume.fromConfigMap(ConfigMap.fromConfigMapName('ConfigMap'));
 
     container.mount('/path/to/mount', volume, {
-      propagation: kplus.MountPropagation.BIDIRECTIONAL,
+      propagation: MountPropagation.BIDIRECTIONAL,
       readOnly: true,
     });
 
@@ -178,12 +177,12 @@ describe('Container', () => {
   });
 
   test('mount from ctor', () => {
-    const container = new kplus.Container({
+    const container = new Container({
       image: 'image',
       volumeMounts: [
         {
           path: '/foo',
-          volume: kplus.Volume.fromEmptyDir('empty'),
+          volume: Volume.fromEmptyDir('empty'),
           subPath: 'subPath',
         },
       ],
@@ -200,42 +199,42 @@ describe('Container', () => {
 
   test('"readiness", "liveness", and "startup" can be used to define probes', () => {
     // GIVEN
-    const container = new kplus.Container({ 
+    const container = new Container({
       image: 'foo',
-      readiness: kplus.Probe.fromHttpGet('/ping', {
+      readiness: Probe.fromHttpGet('/ping', {
         timeoutSeconds: Duration.minutes(2),
       }),
-      liveness: kplus.Probe.fromHttpGet('/live', {
+      liveness: Probe.fromHttpGet('/live', {
         timeoutSeconds: Duration.minutes(3),
       }),
-      startup: kplus.Probe.fromHttpGet('/startup', {
+      startup: Probe.fromHttpGet('/startup', {
         timeoutSeconds: Duration.minutes(4),
       }),
     });
 
     // THEN
     expect(container._toKube().readinessProbe).toEqual({
-      failureThreshold: 3, 
-      httpGet: {path: '/ping', port: 80}, 
-      initialDelaySeconds: undefined, 
-      periodSeconds: undefined, 
-      successThreshold: undefined, 
+      failureThreshold: 3,
+      httpGet: { path: '/ping', port: 80 },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
       timeoutSeconds: 120,
     });
     expect(container._toKube().livenessProbe).toEqual({
-      failureThreshold: 3, 
-      httpGet: {path: '/live', port: 80}, 
-      initialDelaySeconds: undefined, 
-      periodSeconds: undefined, 
-      successThreshold: undefined, 
+      failureThreshold: 3,
+      httpGet: { path: '/live', port: 80 },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
       timeoutSeconds: 180,
     });
     expect(container._toKube().startupProbe).toEqual({
-      failureThreshold: 3, 
-      httpGet: {path: '/startup', port: 80}, 
-      initialDelaySeconds: undefined, 
-      periodSeconds: undefined, 
-      successThreshold: undefined, 
+      failureThreshold: 3,
+      httpGet: { path: '/startup', port: 80 },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
       timeoutSeconds: 240,
     });
   });
