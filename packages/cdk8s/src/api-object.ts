@@ -1,8 +1,8 @@
 import { Construct, IConstruct, Node } from 'constructs';
-import { Chart } from './chart';
-import { sanitizeValue } from './_util';
-import { resolve } from './_resolve';
 import * as stringify from 'json-stable-stringify';
+import { resolve } from './_resolve';
+import { sanitizeValue } from './_util';
+import { Chart } from './chart';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition } from './metadata';
 
 /**
@@ -90,7 +90,7 @@ export class ApiObject extends Construct {
 
       // user defined values
       ...options.metadata,
-      
+
       namespace: options.metadata?.namespace ?? this.chart.namespace,
       labels: {
         ...this.chart.labels,

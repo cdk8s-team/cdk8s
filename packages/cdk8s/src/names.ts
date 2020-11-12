@@ -3,7 +3,7 @@ import * as crypto from 'crypto';
 const MAX_DNS_NAME_LEN = 63;
 const VALIDATE = /^[0-9a-z-]+$/;
 const MAX_LABEL_VALUE_LEN = 63;
-const VALIDATE_LABEL_VALUE = /^(([0-9a-zA-Z][0-9a-zA-Z-_.]*)?[0-9a-zA-Z])?$/
+const VALIDATE_LABEL_VALUE = /^(([0-9a-zA-Z][0-9a-zA-Z-_.]*)?[0-9a-zA-Z])?$/;
 const HASH_LEN = 8;
 
 /**
@@ -62,7 +62,7 @@ export class Names {
       .reverse()
       .filter(x => x)
       .join('-')
-      .split('-').filter(x => x).join('-') // remove empty components between `-`s.
+      .split('-').filter(x => x).join('-'); // remove empty components between `-`s.
   }
 
   /**
@@ -144,15 +144,15 @@ function omitDuplicates(value: string, index: number, components: string[]) {
 
 function normalizeToDnsName(c: string, maxLen: number) {
   return c
-    .toLocaleLowerCase()        // lower case
+    .toLocaleLowerCase() // lower case
     .replace(/[^0-9a-zA-Z-_.]/g, '') // remove non-allowed characters
-    .substr(0, maxLen)          // trim to maxLength
+    .substr(0, maxLen); // trim to maxLength
 }
 
 function normalizeToLabelValue(c: string, maxLen: number) {
   return c
     .replace(/[^0-9a-zA-Z-_.]/g, '') // remove non-allowed characters
-    .substr(0, maxLen)          // trim to maxLength
+    .substr(0, maxLen); // trim to maxLength
 }
 
 function calcHash(path: string, maxLen: number) {

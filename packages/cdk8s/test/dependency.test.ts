@@ -2,7 +2,7 @@ import { Node, IConstruct, Construct } from 'constructs';
 import { DependencyGraph } from '../src/dependency';
 
 test('topology returns correct order', () => {
-  const root = new Construct(undefined as any, 'App')
+  const root = new Construct(undefined as any, 'App');
   const group = new Construct(root, 'chart1');
 
   const obj1 = new Construct(group, 'obj1');
@@ -12,7 +12,7 @@ test('topology returns correct order', () => {
   Node.of(obj1).addDependency(obj2);
   Node.of(obj2).addDependency(obj3);
 
-  const graph = new DependencyGraph(Node.of(group))
+  const graph = new DependencyGraph(Node.of(group));
 
   expect(graph.topology()).toEqual([group, obj3, obj2, obj1]);
 
@@ -20,7 +20,7 @@ test('topology returns correct order', () => {
 
 test('cycle detection', () => {
 
-  const root = new Construct(undefined as any, 'App')
+  const root = new Construct(undefined as any, 'App');
   const group = new Construct(root, 'chart1');
 
   const obj1 = new Construct(group, 'obj1');
@@ -32,14 +32,14 @@ test('cycle detection', () => {
   Node.of(obj3).addDependency(obj1);
 
   expect(() => {
-    new DependencyGraph(Node.of(group))
+    new DependencyGraph(Node.of(group));
   }).toThrowError(`Dependency cycle detected: ${Node.of(obj1).path} => ${Node.of(obj2).path} => ${Node.of(obj3).path} => ${Node.of(obj1).path}`);
 
 });
 
 test('value of root is null', () => {
 
-  const root = new Construct(undefined as any, 'App')
+  const root = new Construct(undefined as any, 'App');
   const group = new Construct(root, 'chart1');
 
   const obj1 = new Construct(group, 'obj1');
@@ -55,7 +55,7 @@ test('value of root is null', () => {
 
 test('children of root contains all orphans', () => {
 
-  const root = new Construct(undefined as any, 'App')
+  const root = new Construct(undefined as any, 'App');
   const group = new Construct(root, 'chart1');
 
   const obj1 = new Construct(group, 'obj1');
@@ -65,7 +65,7 @@ test('children of root contains all orphans', () => {
 
   const expected = new Set<IConstruct>();
 
-  new DependencyGraph(Node.of(group)).root.outbound.forEach(c => expected.add(c.value!))
+  new DependencyGraph(Node.of(group)).root.outbound.forEach(c => expected.add(c.value!));
 
   // chart1 and obj1 are orphans because no one depends on them (no parents)
   // they should be dependency roots, i.e chidren of the dummy root.
@@ -75,7 +75,7 @@ test('children of root contains all orphans', () => {
 
 test('ignores cross-scope nodes', () => {
 
-  const root = new Construct(undefined as any, 'App')
+  const root = new Construct(undefined as any, 'App');
   const group1 = new Construct(root, 'group1');
   const group2 = new Construct(root, 'group2');
 
@@ -90,8 +90,8 @@ test('ignores cross-scope nodes', () => {
   Node.of(obj2).addDependency(obj3);
 
   // we expect obj3 to not be part of the graph
-  const graph = new DependencyGraph(Node.of(group1))
+  const graph = new DependencyGraph(Node.of(group1));
 
-  expect(graph.topology()).toEqual([group1, obj2, obj1])
+  expect(graph.topology()).toEqual([group1, obj2, obj1]);
 
 });

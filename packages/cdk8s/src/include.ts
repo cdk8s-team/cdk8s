@@ -26,10 +26,10 @@ export class Include extends Construct {
 
     let order = 0;
     for (const obj of objects) {
-      const name = obj.metadata?.name ?? `object${order++}`;
+      const objname = obj.metadata?.name ?? `object${order++}`;
 
       // render an id: name[-kind][-namespace]
-      const id = [ name, obj.kind?.toLowerCase(), obj.metadata?.namespace ].filter(x => x).join('-');
+      const id = [objname, obj.kind?.toLowerCase(), obj.metadata?.namespace].filter(x => x).join('-');
       new ApiObject(this, id, obj);
     }
   }
