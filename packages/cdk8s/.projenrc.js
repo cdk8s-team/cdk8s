@@ -17,11 +17,13 @@ const project = new JsiiProject({
     "follow-redirects": Semver.caret("1.11.0"),
     "json-stable-stringify": Semver.caret("1.0.1"),
     "yaml": Semver.pinned("2.0.0-1"),
+    "fast-json-patch": Semver.caret('3.0.0-1'),
   },
   bundledDependencies: [
     "yaml",
     "json-stable-stringify",
-    "follow-redirects"
+    "follow-redirects",
+    "fast-json-patch"
   ],
   devDependencies: {
     "@types/follow-redirects": Semver.caret("1.8.0"),

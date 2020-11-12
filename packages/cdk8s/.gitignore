@@ -47,8 +47,8 @@ tsconfig.json
 !version.json
 !/.versionrc.json
 !/src
-!/.eslintrc.json
 !/tsconfig.jest.json
 !/test
+!/.eslintrc.json
 !/API.md
 !/src/_loadurl.js

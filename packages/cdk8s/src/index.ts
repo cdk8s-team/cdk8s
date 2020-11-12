@@ -9,3 +9,4 @@ export * from './metadata';
 export * from './lazy';
 export * from './names';
 export * from './helm';
+export * from './json-patch';
