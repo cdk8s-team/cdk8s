@@ -125,11 +125,7 @@ One can use the `postinstall` script to symlink this repo:
 This assumes this repo is a sibling of the target repo and will install the CDK as a linked dependency during
 __yarn install__.
 
-### Testing
-
-This project includes per-module unit tests and project-wide integration tests.
-
-#### Unit tests
+### Unit tests
 
 Unit tests are located under the `test/` directory within each module and use the [jest](https://jestjs.io/) framework.
 
@@ -141,9 +137,11 @@ Out tests utilize [jest snapshot testing](https://jestjs.io/docs/en/snapshot-tes
 
     yarn test -u
 
-#### Integration tests
+### Integration Tests
 
-Integration tests are executed *after* we bundle the release. This means that in order to execute integration tests you'll need to create a bundle by running the following command from the root of the repo:
+Integration tests are executed *after* we bundle the release. This means that in
+order to execute integration tests you'll need to create a bundle by running the
+following command from the root of the repo:
 
     yarn run package
 
@@ -157,7 +155,60 @@ Our integration tests also utilize snapshot testing. To update integration test 
 
     yarn integ:update
 
-Read [this](./test/README.md) for more details about integration testing in this project.
+#### Running Integration Tests
+
+The `test` directory contains integration tests for the cdk8s project.
+
+Each subdirectory represents a single test, with an entrypoint of `test.sh`.
+Tests are written as simple shell scripts and can simulate user activity.
+
+You can either run individual tests by executing their entrypoint directly (e.g.
+`test-python-app/test.sh`) or run all tests by executing the script
+`./test-all.sh`.
+
+Tests assume the `cdk8s` CLI is installed and in the PATH, and will use the same
+version of the `cdk8s` module (this is the behavior of `cdk8s init`).
+
+You can also execute a test (or all of them) against the `dist` build artifact:
+
+```shell
+$ yarn install
+$ yarn build
+$ yarn run package # creates "dist/"
+$ cd test
+$ ./run-against-dist ./test-all.sh
+# or
+$ ./run-against-dist ./test-typescript-app/test.sh
+```
+
+#### Writing Integration Tests
+
+1. Create a new subdirectory with a `test-` prefix.
+2. Create a file named `test.sh`, make it executable.
+
+Test Environment:
+
+- The script `test.sh` is executed within a temporary working directory under
+  /tmp/xxxx/test (where xxxx is some random tmp file).
+- See existing tests as examples on how to bring in auxiliary files to the test.
+- Test MUST NOT install any dependencies or the `cdk8s` CLI. They can expect it
+  to be available in the environment.
+- To install dependencies from package managers, use `yarn`, `npm`, `pipenv`,
+  `mvn` and `nuget`. Those programs will be shimmed to allow consuming local
+  dependencies.
+
+#### Snapshot Testing
+
+Some integration tests utilize a simple snapshot testing mechanism.
+
+To update snapshots, run tests with:
+
+    UPDATE_SNAPSHOTS=1
+
+Or, run this from the root of the repo:
+
+    yarn integ:update
+
 
 ### Pull Requests
 
@@ -179,6 +230,42 @@ release. Therefore please following these guidelines to the letter:
   - If this is a breaking change, the last paragraph should describe the
     breaking change with the prefix `BREAKING CHANGE: xxxxxx`.
 
+## Documentation
+
+Documentation is rendered from markdown using
+[mkdocs-material](https://squidfunk.github.io/mkdocs-material/) and sourced from
+the [`docs`](https://github.com/awslabs/cdk8s/tree/master/docs) directory.
+
+API documentation for `cdk8s` and `cdk8s-plus` is auto-generated from inline
+docstrings during build.
+
+To test locally, install python3 deps:
+
+```shell
+$ pip3 install -r docs/requirements.txt
+```
+
+And then:
+
+```shell
+$ mkdocs serve
+```
+
+This will serve a local web server with the website. 
+
+> A good reference for syntax and capabilities is the [mkdocs-material](https://squidfunk.github.io/mkdocs-material) website.
+
+## Examples
+
+Examples are stored under
+[`examples`](https://github.com/awslabs/cdk8s/tree/master/examples) and
+organized according to programming language.
+
+Every example also has an entry under
+[`docs/examples/xxx`](https://github.com/awslabs/cdk8s/tree/master/docs/examples)
+which describes the example and includes links to the source code (on the main
+branch).
+
 ## RFCs
 
 An RFC (request for comments) is a document that proposes and details a change
@@ -193,7 +280,7 @@ To create an RFC follow this process:
    - Title should represent the title of the RFC.
    - Description should provide the motivation for the RFC.
 2. Create a markdown file based off of
-   [rfc/0000-template.md](rfc/0000-template.md) under the
+   [rfc/0000-template.md](https://github.com/awslabs/cdk8s/blob/master/rfc/0000-template.md) under the
    `rfc/<nnnn>-<title-of-rfc>` where `<nnnn>` is the tracking issue number and
    `<title-of-rfc>` is a symbolic name for the title. For example:
    `rfc/0030-construct-operators.md`.
@@ -201,6 +288,15 @@ To create an RFC follow this process:
    indicate `rfc: <nnnn> <same as issue title>`.
 4. The RFC will be reviewed as a pull request and once merged it means it is
    ready for implementation.
+
+## Community Meeting
+
+Join us for the CDK8s community meeting which takes place the [2nd Monday of the
+month at 9:00am Pacific
+Time](https://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29).
+
+- Meeting link: [https://chime.aws/7929414778](https://chime.aws/7929414778)
+- [Agenda](https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing)
 
 ## For Maintainers
 
@@ -229,7 +325,10 @@ Now, push to `master` (in the future we will release from a release branch, but 
 $ git push origin master
 ```
 
-This will trigger the [release workflow](./.github/workflows/release.yml) which will release to all package managers and will also create a GitHub release with a tag.
+This will trigger the [release
+workflow](https://github.com/awslabs/cdk8s/blob/master/.github/workflows/release.yml)
+which will release to all package managers and will also create a GitHub release
+with a tag.
 
 ---
 
