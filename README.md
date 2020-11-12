@@ -10,7 +10,6 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s)
 [![homebrew](https://img.shields.io/homebrew/v/cdk8s?color=brightgreen)](https://formulae.brew.sh/formula/cdk8s#default)
 
-
 **cdk8s** is a software development framework for defining Kubernetes
 applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use
@@ -18,12 +17,13 @@ cdk8s to define applications for any Kubernetes cluster running anywhere.
 
 This is an early-stage, experimental project built with ❤️ by AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
 
-### Contents
+Contents:
 
 - [Overview](#overview)
 - [At a glance](#at-a-glance)
 - [Getting Started](#getting-started)
 - [Help & Feedback](#help--feedback)
+- [Documentation](#documentation)
 - [Examples](#examples)
 - [Roadmap](#roadmap)
 - [Community](#community)
@@ -61,22 +61,23 @@ Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kube
 
 ## Getting Started
 
-Choose your weapon:
-
-- [TypeScript](./docs/getting-started/typescript.md)
-- [Python](./docs/getting-started/python.md)
-- [Java](./docs/getting-started/java.md)
+See the [Getting Started](https://cdk8s.io/docs/latest/getting-started) guide in
+[CDK8s Documentation](https://cdk8s.io/docs/).
 
 ## Help & Feedback
 
 Interacting with the community and the development team is a great way to
 contribute to the project. Please consider the following venues (in order):
 
-* Search [open issues](https://github.com/awslabs/cdk8s/issues)
-* Stack Overflow: [cdk8s](https://stackoverflow.com/questions/tagged/cdk8s)
-* File a [new issue](https://github.com/awslabs/cdk8s/issues/new/choose)
-* Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
-* Slack: #cdk8s channel in [cdk.dev](https://cdk.dev)
+- Search [open issues](https://github.com/awslabs/cdk8s/issues)
+- Stack Overflow: [cdk8s](https://stackoverflow.com/questions/tagged/cdk8s)
+- File a [new issue](https://github.com/awslabs/cdk8s/issues/new/choose)
+- Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
+- Slack: #cdk8s channel in [cdk.dev](https://cdk.dev)
+
+## Documentation
+
+See [CDK8s Documentation](https://cdk8s.io/docs).
 
 ## Examples
 

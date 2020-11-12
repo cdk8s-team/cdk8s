@@ -15,11 +15,19 @@ jobs:
         with:
           hugo-version: '0.68.3'
           extended: true
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
 
-      - name: Build
+      - name: Build Website
         run: |
           cd website
           ./build.sh
+
+      - name: Build Docs Site
+        run: |
+          ./docs/build.sh website/public/docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
