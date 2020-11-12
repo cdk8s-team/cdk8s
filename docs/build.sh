@@ -3,11 +3,7 @@ set -euo pipefail
 set -x
 
 scriptdir=$(cd $(dirname $0) && pwd)
-outdir=${1:-}
-if [ -z "${outdir}" ]; then
-  echo "Usage: $0 OUTDIR"
-  exit 1
-fi
+outdir=${1:-${scriptdir}/../website/public/docs}
 
 # resolve path
 mkdir -p "${outdir}"
