@@ -5,7 +5,7 @@ import * as cdk8s from 'cdk8s';
 import * as k8s from './imports/k8s';
 import { RestartPolicy, PodTemplateProps, IPodTemplate, PodTemplate } from './pod';
 import { Duration } from './duration';
-import { Container } from './container';
+import { Container, ContainerProps } from './container';
 import { IServiceAccount } from './service-account';
 import { Volume } from './volume';
 
@@ -88,7 +88,7 @@ export class Job extends Resource implements IPodTemplate {
     return this._podTemplate.serviceAccount;
   }
 
-  public addContainer(container: Container): void {
+  public addContainer(container: ContainerProps): Container {
     return this._podTemplate.addContainer(container);
   }
 
