@@ -43,9 +43,13 @@ export class MyChart extends Chart {
 
     const passwordSecret = kplus.Secret.fromSecretName(`${elastic.name}-es-elastic-user`);
 
+    const deployment = new kplus.Deployment(this, 'Deployment', {
+      replicas: 1,
+    })
+
     const workingDir = '/root';
     const queryPort = 8000;
-    const container = new kplus.Container({
+    const container = deployment.addContainer({
       image: 'node:12.18.0-stretch',
       workingDir: workingDir,
       command: ['node', 'query.js', queryPort.toString()],
@@ -55,18 +59,13 @@ export class MyChart extends Chart {
         ELASTIC_ENDPOINT: kplus.EnvValue.fromValue(`http://${elastic.name}-es-http:${esPort}`),
         ELASTIC_PASSWORD: kplus.EnvValue.fromSecretValue({ secret: passwordSecret, key: 'elastic' })
       }
-    })
+    });
 
     const configMap = new kplus.ConfigMap(this, 'Config');
     configMap.addFile(`${__dirname}/query.js`);
 
     const volume = kplus.Volume.fromConfigMap(configMap);
     container.mount(workingDir, volume);
-
-    const deployment = new kplus.Deployment(this, 'Deployment', {
-      replicas: 1,
-      containers: [container]
-    })
 
     deployment.expose(9000);
 

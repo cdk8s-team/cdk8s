@@ -18,7 +18,7 @@ const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
 new kplus.Deployment(chart, 'FrontEnds', {
-  containers: [ new kplus.Container({ image: 'node' }) ],
+  containers: [ { image: 'node' } ],
 });
 ```
 
