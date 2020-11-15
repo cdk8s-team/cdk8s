@@ -19,7 +19,7 @@ You may need to use an escape hatch in the following cases:
 
 The [`ApiObject`](./api-object.md) class, which is the base of all objects
 synthesized into a Kubernetes manifest offers an API for patching the
-synthesized output in at the wire level using JSON Patch
+synthesized output at the wire level using JSON Patch
 ([RFC-6902](http://tools.ietf.org/html/rfc6902)):
 
 ```ts

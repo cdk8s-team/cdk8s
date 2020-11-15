@@ -36,7 +36,7 @@ export interface ApiObjectOptions {
 
 export class ApiObject extends Construct {
   /**
-   * Returns the `ApiObject` named `Default` which is a child of the given
+   * Returns the `ApiObject` named `Resource` which is a child of the given
    * construct. If `c` is an `ApiObject`, it is returned directly. Throws an
    * exception if the construct does not have a child named `Default` _or_ if
    * this child is not an `ApiObject`.
@@ -50,7 +50,7 @@ export class ApiObject extends Construct {
 
     const child = Node.of(c).defaultChild;
     if (!child) {
-      throw new Error('cannot find a (direct or indirect) child of type ApiObject');
+      throw new Error(`cannot find a (direct or indirect) child of type ApiObject for construct ${Node.of(c).path}`);
     }
 
     return ApiObject.of(child);
