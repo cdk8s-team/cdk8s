@@ -27,13 +27,35 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
   typegen.addCode(constructName, code => {
     const schema = def.schema;
 
-    // this will return `any` in case the schema can't be parsed
-    const optionsSchema = createOptionsStructSchema();
-    const optionsStructName = typegen.addType(TypeGenerator.normalizeTypeName(`${constructName}Options`), optionsSchema, def.fqn);
-
+    const propsTypeName = emitPropsStruct(); // could also be "any" if we can't parse the schema for some reason
     emitConstruct();
 
-    function createOptionsStructSchema() {
+    function emitPropsStruct() {
+      const propsSchema = createPropsStructSchema();
+      const propsStructName = `${constructName}Props`;
+      const structName = constructName !== def.kind ? def.kind : propsStructName;
+
+      const actualType = typegen.addType(TypeGenerator.normalizeTypeName(structName), propsSchema, def.fqn);
+
+      // if `any` is returned, it means we could not parse the schema so just go with any all the way.
+      if (actualType === 'any') {
+        return actualType;
+      }
+
+      // if the eventual struct name is not the same as XxxProps, emit an alias
+      // so that our construct will be idiomatic.
+      if (actualType !== propsStructName) {
+        code.line('/**');
+        code.line(` * Initialization props for ${constructName}`);
+        code.line(' */');
+        code.line(`export interface ${propsStructName} extends ${actualType} { }`);
+        code.line();
+      }
+
+      return propsStructName;
+    }
+
+    function createPropsStructSchema() {
       const copy: JSONSchema4 = { ...def.schema || {} };
       const props = copy.properties = copy.properties || {};
       delete props.apiVersion;
@@ -65,13 +87,13 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
       code.line('/**');
       code.line(` * Defines a "${def.fqn}" API object`);
       code.line(' * @param scope the scope in which to define this object');
-      code.line(' * @param name a scope-local name for the object');
-      code.line(' * @param options configuration options');
+      code.line(' * @param id a scope-local name for the object');
+      code.line(' * @param props initialiation props');
       code.line(' */');
   
       const hasRequired = schema?.required && Array.isArray(schema.required) && schema.required.length > 0;
-      const defaultOptions = hasRequired ? '' : ' = {}';
-      code.openBlock(`public constructor(scope: Construct, name: string, options: ${optionsStructName}${defaultOptions})`);
+      const defaultProps = hasRequired ? '' : ' = {}';
+      code.openBlock(`public constructor(scope: Construct, id: string, props: ${propsTypeName}${defaultProps})`);
       emitInitializerSuper();
   
       code.closeBlock();
@@ -79,8 +101,8 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
   
     function emitInitializerSuper() {
       const groupPrefix = def.group ? `${def.group}/` : '';
-      code.open('super(scope, name, {');
-      code.line('...options,');
+      code.open('super(scope, id, {');
+      code.line('...props,');
       code.line(`kind: '${def.kind}',`);
       code.line(`apiVersion: '${groupPrefix}${def.version}',`);
       code.close('});');
