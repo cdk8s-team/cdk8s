@@ -1,6 +1,6 @@
-import { Helm, Testing } from '../src';
-import * as path from 'path';
 import * as child_process from 'child_process';
+import * as path from 'path';
+import { Helm, Testing } from '../src';
 
 const SAMPLE_CHART_PATH = path.join(__dirname, 'fixtures', 'helm-sample');
 
@@ -138,6 +138,6 @@ test('propagates helm failures', () => {
   // THEN
   expect(() => new Helm(chart, 'my-chart', {
     chart: SAMPLE_CHART_PATH,
-    helmFlags: [ '--invalid-argument-not-found-boom-boom' ],
+    helmFlags: ['--invalid-argument-not-found-boom-boom'],
   })).toThrow(/unknown flag/);
 });

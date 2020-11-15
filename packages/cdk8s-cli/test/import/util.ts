@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
-import { mkdtemp } from '../../src/util';
-import { ImportBase, Language } from '../../src/import/base';
 import * as path from 'path';
+import { ImportBase, Language } from '../../src/import/base';
+import { mkdtemp } from '../../src/util';
 
 export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
   jest.setTimeout(3 * 60_000);
@@ -16,7 +16,7 @@ export function expectImportMatchSnapshot(name: string, fn: () => ImportBase) {
         outputJsii: jsiiPath,
         targetLanguage: Language.TYPESCRIPT,
       });
-    
+
       const manifest = JSON.parse((await fs.readFile(jsiiPath)).toString('utf-8'));
 
       // patch cdk8s version in manifest because it's not stable

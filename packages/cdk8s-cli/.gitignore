@@ -46,6 +46,6 @@ jspm_packages/
 !/.versionrc.json
 !/tsconfig.json
 !/src
-!/.eslintrc.json
 !/tsconfig.jest.json
 !/test
+!/.eslintrc.json

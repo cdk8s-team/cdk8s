@@ -1,8 +1,8 @@
-import { TypeGenerator } from 'json2jsii';
-
 // we just need the types from json-schema
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { JSONSchema4 } from 'json-schema';
+
+import { TypeGenerator } from 'json2jsii';
 
 export interface GeneratedConstruct {
   readonly fqn: string;
@@ -31,26 +31,26 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
       delete props.kind;
       delete props.status;
       delete copy['x-kubernetes-group-version-kind'];
-  
+
       copy.required = copy.required || [];
       copy.required = copy.required.filter(x => x !== 'apiVersion' && x !== 'kind' && x !== 'status');
-  
+
       return copy;
     }
-  
+
     function emitConstruct() {
       code.line('/**');
       code.line(` * ${def.schema?.description ?? ''}`);
       code.line(' *');
-      code.line(` * @schema ${def.fqn}`)
+      code.line(` * @schema ${def.fqn}`);
       code.line(' */');
       code.openBlock(`export class ${constructName} extends ApiObject`);
-  
+
       emitInitializer();
-    
+
       code.closeBlock();
     }
-  
+
     function emitInitializer() {
 
       code.line('/**');
@@ -59,15 +59,15 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
       code.line(' * @param name a scope-local name for the object');
       code.line(' * @param options configuration options');
       code.line(' */');
-  
+
       const hasRequired = schema?.required && Array.isArray(schema.required) && schema.required.length > 0;
       const defaultOptions = hasRequired ? '' : ' = {}';
       code.openBlock(`public constructor(scope: Construct, name: string, options: ${optionsStructName}${defaultOptions})`);
       emitInitializerSuper();
-  
+
       code.closeBlock();
     }
-  
+
     function emitInitializerSuper() {
       const groupPrefix = def.group ? `${def.group}/` : '';
       code.open('super(scope, name, {');

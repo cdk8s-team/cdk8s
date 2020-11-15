@@ -1,5 +1,5 @@
-import { ConfigMap } from '../src';
 import { Testing } from 'cdk8s';
+import { ConfigMap } from '../src';
 
 test('minimal', () => {
   // GIVEN

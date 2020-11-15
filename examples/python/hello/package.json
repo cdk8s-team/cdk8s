@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "cdk8s": "0.0.0",
-    "constructs": "^3.0.4"
+    "constructs": "3.0.4"
   },
   "devDependencies": {
     "cdk8s-cli": "0.0.0"
