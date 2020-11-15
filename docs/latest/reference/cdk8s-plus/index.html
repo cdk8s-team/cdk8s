@@ -5331,7 +5331,7 @@ or load balancer in between your application and the backend Pods.</p>
 <h4 id="adddeploymentdeployment-port-options">addDeployment(deployment, port, options?)🔹 <a id="cdk8s-plus-service-adddeployment"></a><a class="headerlink" href="#adddeploymentdeployment-port-options" title="Permanent link">&para;</a></h4>
 <p>Associate a deployment to this service.</p>
 <p>If not targetPort is specific in the portOptions, then requests will be routed
-to the port exposed by the first container in the deployment&rsquo;s pods. 
+to the port exposed by the first container in the deployment&rsquo;s pods.
 The deployment&rsquo;s <code>labelSelector</code> will be used to select pods.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addDeployment</span><span class="p">(</span><span class="nx">deployment</span>: <span class="kt">Deployment</span><span class="p">,</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
