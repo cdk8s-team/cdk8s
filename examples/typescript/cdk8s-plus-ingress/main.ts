@@ -17,10 +17,10 @@ export class MyChart extends Chart {
   private echoBackend(text: string) {
     const deploy = new kplus.Deployment(this, text, {
       containers: [
-        new kplus.Container({
+        {
           image: 'hashicorp/http-echo',
           args: [ '-text', text ]
-        })
+        }
       ]
     });
 
