@@ -12,9 +12,11 @@ Containers and volumes can be added to pod definition like so:
 ```typescript
 import * as kplus from 'cdk8s-plus';
 
-const container = new kplus.Container({
+const pod = new new kplus.Pod(chart, 'Pod');
+
+const container = pod.addContainer({
   image: 'node',
-})
+});
 
 const storage = kplus.Volume.fromEmptyDir('storage');
 
@@ -22,8 +24,6 @@ container.mount('/data', storage);
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
-
-const pod = new new kplus.Pod(chart, 'Pod');
 
 // this will automatically add the volume as well.
 pod.addContainer(container);

@@ -7,7 +7,7 @@ test('Applies default restart policy to pod spec', () => {
   const chart = Testing.chart();
 
   const job = new kplus.Job(chart, 'Job', {
-    containers: [ new kplus.Container({ image: 'image' }) ],
+    containers: [ { image: 'image' } ],
     ttlAfterFinished: kplus.Duration.seconds(1),
   });
 
@@ -25,7 +25,7 @@ test('Does not modify existing restart policy of pod spec', () => {
   const chart = Testing.chart();
 
   const job = new kplus.Job(chart, 'Job', {
-    containers: [ new kplus.Container({ image: 'image' }) ],
+    containers: [ { image: 'image' } ],
     restartPolicy: RestartPolicy.ALWAYS,
     ttlAfterFinished: kplus.Duration.seconds(1),
   });
@@ -46,9 +46,9 @@ test('Synthesizes spec lazily', () => {
   const job = new kplus.Job(chart, 'Job');
 
   job.addContainer(
-    new kplus.Container({
+    {
       image: 'image',
-    }),
+    },
   );
 
   const container = Testing.synth(chart)[0].spec.template.spec.containers[0];

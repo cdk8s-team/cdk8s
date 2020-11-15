@@ -28,7 +28,8 @@ import * as kplus from 'cdk8s-plus';
 
 const data = kplus.Volume.fromEmptyDir(configMap);
 
-const redis = new kplus.Container({
+const pod = new kplus.Pod(this, 'Pod');
+const redis = pod.addContainer({
   image: 'redis'
 })
 

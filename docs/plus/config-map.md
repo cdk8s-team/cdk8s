@@ -57,13 +57,14 @@ appMap.addDirectory(path.join(__dirname, 'app'));
 
 const appVolume = kplus.Volume.fromConfigMap(appMap);
 
-// for here, just mount the volume to a container, and run your app!
 const mountPath = '/var/app';
-const container = new kplus.Container({
+const pod = new kplus.Pod(chart, 'Pod');
+const container = pod.addContainer({
   image: 'node',
   command: [ 'node', 'app.js' ],
   workingDir: mountPath,
-})
+});
 
+// from here, just mount the volume to a container, and run your app!
 container.mount(mountPath, appVolume);
 ```
