@@ -31,8 +31,8 @@ export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruc
     emitConstruct();
 
     function emitPropsStruct() {
+      const propsStructName = `${constructName}Options`;
       const propsSchema = createPropsStructSchema();
-      const propsStructName = `${constructName}Props`;
       const structName = constructName !== def.kind ? def.kind : propsStructName;
 
       const actualType = typegen.addType(TypeGenerator.normalizeTypeName(structName), propsSchema, def.fqn);

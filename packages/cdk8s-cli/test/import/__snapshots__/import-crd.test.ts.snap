@@ -106,7 +106,7 @@ Object {
             "docs": Object {
               "summary": "a scope-local name for the object.",
             },
-            "name": "name",
+            "name": "id",
             "type": Object {
               "primitive": "string",
             },
@@ -118,7 +118,7 @@ Object {
             "name": "props",
             "optional": true,
             "type": Object {
-              "fqn": "stableexamplecomothercrontab.FooOtherCronTabProps",
+              "fqn": "stableexamplecomothercrontab.FooOtherCronTabOptions",
             },
           },
         ],
@@ -130,13 +130,13 @@ Object {
       },
       "name": "FooOtherCronTab",
     },
-    "stableexamplecomothercrontab.FooOtherCronTabProps": Object {
+    "stableexamplecomothercrontab.FooOtherCronTabOptions": Object {
       "assembly": "stableexamplecomothercrontab",
       "datatype": true,
       "docs": Object {
         "summary": "Initialization props for FooOtherCronTab.",
       },
-      "fqn": "stableexamplecomothercrontab.FooOtherCronTabProps",
+      "fqn": "stableexamplecomothercrontab.FooOtherCronTabOptions",
       "interfaces": Array [
         "stableexamplecomothercrontab.OtherCronTab",
       ],
@@ -145,7 +145,7 @@ Object {
         "filename": "stable.example.com/othercrontab.ts",
         "line": 8,
       },
-      "name": "FooOtherCronTabProps",
+      "name": "FooOtherCronTabOptions",
     },
     "stableexamplecomothercrontab.OtherCronTab": Object {
       "assembly": "stableexamplecomothercrontab",
@@ -367,7 +367,7 @@ Object {
             "docs": Object {
               "summary": "a scope-local name for the object.",
             },
-            "name": "name",
+            "name": "id",
             "type": Object {
               "primitive": "string",
             },
@@ -379,7 +379,7 @@ Object {
             "name": "props",
             "optional": true,
             "type": Object {
-              "fqn": "elasticsearchk8selasticcoelasticsearch.ElasticsearchProps",
+              "fqn": "elasticsearchk8selasticcoelasticsearch.ElasticsearchOptions",
             },
           },
         ],
@@ -391,7 +391,7 @@ Object {
       },
       "name": "Elasticsearch",
     },
-    "elasticsearchk8selasticcoelasticsearch.ElasticsearchProps": Object {
+    "elasticsearchk8selasticcoelasticsearch.ElasticsearchOptions": Object {
       "assembly": "elasticsearchk8selasticcoelasticsearch",
       "datatype": true,
       "docs": Object {
@@ -400,13 +400,13 @@ Object {
         },
         "summary": "Elasticsearch represents an Elasticsearch resource in a Kubernetes cluster.",
       },
-      "fqn": "elasticsearchk8selasticcoelasticsearch.ElasticsearchProps",
+      "fqn": "elasticsearchk8selasticcoelasticsearch.ElasticsearchOptions",
       "kind": "interface",
       "locationInModule": Object {
         "filename": "elasticsearch.k8s.elastic.co/elasticsearch.ts",
         "line": 31,
       },
-      "name": "ElasticsearchProps",
+      "name": "ElasticsearchOptions",
       "properties": Array [
         Object {
           "abstract": true,
@@ -4432,7 +4432,7 @@ Object {
             "docs": Object {
               "summary": "a scope-local name for the object.",
             },
-            "name": "name",
+            "name": "id",
             "type": Object {
               "primitive": "string",
             },
@@ -4444,7 +4444,7 @@ Object {
             "name": "props",
             "optional": true,
             "type": Object {
-              "fqn": "jenkinsiojenkins.JenkinsProps",
+              "fqn": "jenkinsiojenkins.JenkinsOptions",
             },
           },
         ],
@@ -4456,7 +4456,7 @@ Object {
       },
       "name": "Jenkins",
     },
-    "jenkinsiojenkins.JenkinsProps": Object {
+    "jenkinsiojenkins.JenkinsOptions": Object {
       "assembly": "jenkinsiojenkins",
       "datatype": true,
       "docs": Object {
@@ -4465,13 +4465,13 @@ Object {
         },
         "summary": "Jenkins is the Schema for the jenkins API.",
       },
-      "fqn": "jenkinsiojenkins.JenkinsProps",
+      "fqn": "jenkinsiojenkins.JenkinsOptions",
       "kind": "interface",
       "locationInModule": Object {
         "filename": "jenkins.io/jenkins.ts",
         "line": 31,
       },
-      "name": "JenkinsProps",
+      "name": "JenkinsOptions",
       "properties": Array [
         Object {
           "abstract": true,
@@ -17199,7 +17199,7 @@ Object {
             "docs": Object {
               "summary": "a scope-local name for the object.",
             },
-            "name": "name",
+            "name": "id",
             "type": Object {
               "primitive": "string",
             },
@@ -17211,7 +17211,7 @@ Object {
             "name": "props",
             "optional": true,
             "type": Object {
-              "fqn": "stableexamplecomcrontab.CronTabProps",
+              "fqn": "stableexamplecomcrontab.CronTabOptions",
             },
           },
         ],
@@ -17223,7 +17223,7 @@ Object {
       },
       "name": "CronTab",
     },
-    "stableexamplecomcrontab.CronTabProps": Object {
+    "stableexamplecomcrontab.CronTabOptions": Object {
       "assembly": "stableexamplecomcrontab",
       "datatype": true,
       "docs": Object {
@@ -17231,13 +17231,13 @@ Object {
           "schema": "CronTab",
         },
       },
-      "fqn": "stableexamplecomcrontab.CronTabProps",
+      "fqn": "stableexamplecomcrontab.CronTabOptions",
       "kind": "interface",
       "locationInModule": Object {
         "filename": "stable.example.com/crontab.ts",
         "line": 29,
       },
-      "name": "CronTabProps",
+      "name": "CronTabOptions",
       "properties": Array [
         Object {
           "abstract": true,
@@ -17442,7 +17442,7 @@ Object {
             "docs": Object {
               "summary": "a scope-local name for the object.",
             },
-            "name": "name",
+            "name": "id",
             "type": Object {
               "primitive": "string",
             },
@@ -17454,7 +17454,7 @@ Object {
             "name": "props",
             "optional": true,
             "type": Object {
-              "fqn": "stableexamplecomothercrontab.OtherCronTabProps",
+              "fqn": "stableexamplecomothercrontab.OtherCronTabOptions",
             },
           },
         ],
@@ -17466,7 +17466,7 @@ Object {
       },
       "name": "OtherCronTab",
     },
-    "stableexamplecomothercrontab.OtherCronTabProps": Object {
+    "stableexamplecomothercrontab.OtherCronTabOptions": Object {
       "assembly": "stableexamplecomothercrontab",
       "datatype": true,
       "docs": Object {
@@ -17474,13 +17474,13 @@ Object {
           "schema": "OtherCronTab",
         },
       },
-      "fqn": "stableexamplecomothercrontab.OtherCronTabProps",
+      "fqn": "stableexamplecomothercrontab.OtherCronTabOptions",
       "kind": "interface",
       "locationInModule": Object {
         "filename": "stable.example.com/othercrontab.ts",
         "line": 29,
       },
-      "name": "OtherCronTabProps",
+      "name": "OtherCronTabOptions",
       "properties": Array [
         Object {
           "abstract": true,
@@ -17686,7 +17686,7 @@ Object {
             "docs": Object {
               "summary": "a scope-local name for the object.",
             },
-            "name": "name",
+            "name": "id",
             "type": Object {
               "primitive": "string",
             },
@@ -17697,7 +17697,7 @@ Object {
             },
             "name": "props",
             "type": Object {
-              "fqn": "monitoringcoreoscomthanosruler.ThanosRulerProps",
+              "fqn": "monitoringcoreoscomthanosruler.ThanosRulerOptions",
             },
           },
         ],
@@ -17709,7 +17709,7 @@ Object {
       },
       "name": "ThanosRuler",
     },
-    "monitoringcoreoscomthanosruler.ThanosRulerProps": Object {
+    "monitoringcoreoscomthanosruler.ThanosRulerOptions": Object {
       "assembly": "monitoringcoreoscomthanosruler",
       "datatype": true,
       "docs": Object {
@@ -17718,13 +17718,13 @@ Object {
         },
         "summary": "ThanosRuler defines a ThanosRuler deployment.",
       },
-      "fqn": "monitoringcoreoscomthanosruler.ThanosRulerProps",
+      "fqn": "monitoringcoreoscomthanosruler.ThanosRulerOptions",
       "kind": "interface",
       "locationInModule": Object {
         "filename": "monitoring.coreos.com/thanosruler.ts",
         "line": 31,
       },
-      "name": "ThanosRulerProps",
+      "name": "ThanosRulerOptions",
       "properties": Array [
         Object {
           "abstract": true,
