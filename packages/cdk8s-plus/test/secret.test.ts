@@ -1,5 +1,5 @@
-import * as kplus from '../src';
 import { Testing } from 'cdk8s';
+import * as kplus from '../src';
 
 test('Can be imported from secret name', () => {
   const secret = kplus.Secret.fromSecretName('secret');

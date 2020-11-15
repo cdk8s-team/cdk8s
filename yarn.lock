@@ -8256,6 +8256,21 @@ projen@^0.3.167:
     yaml "^1.10.0"
     yargs "^16.0.3"
 
+projen@^0.3.168:
+  version "0.3.168"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.3.168.tgz#03f592487ea96eec6b21df6acb57ccb42c249cae"
+  integrity sha512-JnGOIcVVRJyCHwjId0ZIz7+CMFh1DI5Exh71m0DTOr6SfNIn+WlOcxfPQsgbctSbmeZgrPfRc9m3glAofkNkBw==
+  dependencies:
+    "@iarna/toml" "^2.2.5"
+    chalk "^4.1.0"
+    decamelize "^4.0.0"
+    fs-extra "^9.0.1"
+    glob "^7"
+    inquirer "^7.3.3"
+    semver "^7.3.2"
+    yaml "^1.10.0"
+    yargs "^16.0.3"
+
 projen@^0.3.42:
   version "0.3.115"
   resolved "https://registry.yarnpkg.com/projen/-/projen-0.3.115.tgz#46d2579a3d1e773adabd2cfc1a099290b00b9987"

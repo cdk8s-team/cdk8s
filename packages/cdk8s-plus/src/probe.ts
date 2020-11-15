@@ -1,6 +1,6 @@
-import * as k8s from './imports/k8s';
 import { Container } from './container';
 import { Duration } from './duration';
+import * as k8s from './imports/k8s';
 
 /**
  * Probe options.

@@ -1,11 +1,10 @@
-import * as k8s from './imports/k8s';
+import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition, Lazy } from 'cdk8s';
 import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
-import * as cdk8s from 'cdk8s';
-import { IServiceAccount } from './service-account';
 import { Container, ContainerProps } from './container';
+import * as k8s from './imports/k8s';
+import { IServiceAccount } from './service-account';
 import { Volume } from './volume';
-import { ApiObjectMetadata, ApiObjectMetadataDefinition } from 'cdk8s';
 
 /**
  * Represents a resource that can be configured with a kuberenets pod spec. (e.g `Deployment`, `Job`, `Pod`, ...).
@@ -87,11 +86,11 @@ export class PodSpec implements IPodSpec {
   }
 
   public get containers(): Container[] {
-    return [ ...this._containers ];
+    return [...this._containers];
   }
 
   public get volumes(): Volume[] {
-    return [ ...this._volumes ];
+    return [...this._volumes];
   }
 
   public addContainer(container: ContainerProps): Container {
@@ -175,7 +174,7 @@ export class PodTemplate extends PodSpec implements IPodTemplate {
     return {
       metadata: this.podMetadata.toJson(),
       spec: this._toPodSpec(),
-    }
+    };
   }
 }
 
@@ -246,7 +245,7 @@ export class Pod extends Resource implements IPodSpec {
   /**
    * @see base.Resource.apiObject
    */
-  protected readonly apiObject: cdk8s.ApiObject;
+  protected readonly apiObject: ApiObject;
 
   private readonly _spec: PodSpec;
 
@@ -255,7 +254,7 @@ export class Pod extends Resource implements IPodSpec {
 
     this.apiObject = new k8s.Pod(this, 'Pod', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this._spec._toPodSpec() }),
+      spec: Lazy.any({ produce: () => this._spec._toPodSpec() }),
     });
 
     this._spec = new PodSpec(props);

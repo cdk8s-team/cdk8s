@@ -1,8 +1,8 @@
 import { IConfigMap } from './config-map';
-import { SecretValue } from './secret';
 import * as k8s from './imports/k8s';
-import { Volume } from './volume';
 import { Probe } from './probe';
+import { SecretValue } from './secret';
+import { Volume } from './volume';
 
 /**
  * Options to specify an envionment variable value from a ConfigMap key.
@@ -165,7 +165,7 @@ export interface ContainerProps {
    *
    * @default - No port is exposed.
    */
-  readonly port?: number
+  readonly port?: number;
 
   /**
    * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment.
@@ -217,7 +217,7 @@ export interface ContainerProps {
    * Image pull policy for this container
    * @default ImagePullPolicy.ALWAYS
    */
-  readonly imagePullPolicy?: ImagePullPolicy
+  readonly imagePullPolicy?: ImagePullPolicy;
 
   /**
    * Determines when the container is ready to serve traffic.
@@ -304,7 +304,7 @@ export class Container {
    * @returns a copy of the entrypoint array, cannot be modified
    */
   public get command(): string[] | undefined {
-    return this._command ? [ ...this._command ] : undefined;
+    return this._command ? [...this._command] : undefined;
   }
 
   /**
@@ -313,7 +313,7 @@ export class Container {
    * @returns a copy of the arguments array, cannot be modified.
    */
   public get args(): string[] | undefined {
-    return this._args ? [ ...this._args ] : undefined;
+    return this._args ? [...this._args] : undefined;
   }
 
   /**
