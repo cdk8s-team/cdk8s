@@ -1,5 +1,5 @@
-import * as kplus from '../src';
 import { Testing } from 'cdk8s';
+import * as kplus from '../src';
 
 test('Can add container post instantiation', () => {
 
@@ -32,7 +32,7 @@ test('Can add volume post instantiation', () => {
 
   const pod = new kplus.Pod(chart, 'Pod', {
     containers: [
-      { image: 'image'},
+      { image: 'image' },
     ],
   });
 

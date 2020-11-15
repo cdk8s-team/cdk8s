@@ -1,14 +1,14 @@
-import * as yargs from 'yargs';
-import { shell } from '../../util';
 import * as fs from 'fs-extra';
+import * as yargs from 'yargs';
 import { readConfigSync } from '../../config';
+import { shell } from '../../util';
 
 const config = readConfigSync();
 
 class Command implements yargs.CommandModule {
   public readonly command = 'synth';
   public readonly describe = 'Synthesizes Kubernetes manifests for all charts in your app.';
-  public readonly aliases = [ 'synthesize' ];
+  public readonly aliases = ['synthesize'];
 
   public readonly builder = (args: yargs.Argv) => args
     .option('app', { default: config.app, required: true, desc: 'Command to use in order to execute cdk8s app', alias: 'a' })
@@ -20,7 +20,7 @@ class Command implements yargs.CommandModule {
 
     await fs.remove(outdir);
 
-    await shell(command, [], { 
+    await shell(command, [], {
       shell: true,
       env: {
         ...process.env,

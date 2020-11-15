@@ -1,7 +1,7 @@
-import * as k8s from './imports/k8s';
+import { ApiObject, Lazy } from 'cdk8s';
 import { Construct } from 'constructs';
 import { Resource, ResourceProps } from './base';
-import { ApiObject, Lazy } from 'cdk8s';
+import * as k8s from './imports/k8s';
 import { Service } from './service';
 
 /**
@@ -65,7 +65,7 @@ export class Ingress extends Resource {
 
   protected onValidate() {
     if (!this._defaultBackend && Object.keys(this._rulesPerHost).length === 0) {
-      return [ 'ingress with no rules or default backend' ];
+      return ['ingress with no rules or default backend'];
     }
     return [];
   }
@@ -153,7 +153,7 @@ export class Ingress extends Resource {
   private synthRules(): undefined | k8s.IngressRule[] {
     const rules = new Array<k8s.IngressRule>();
 
-    for (const [ host, paths ] of Object.entries(this._rulesPerHost)) {
+    for (const [host, paths] of Object.entries(this._rulesPerHost)) {
       rules.push({
         host: host ? host : undefined,
         http: { paths: paths.sort(sortByPath) },

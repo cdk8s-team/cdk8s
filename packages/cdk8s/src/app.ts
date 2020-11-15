@@ -103,8 +103,6 @@ export class App extends Construct {
     }
 
   }
-
-
 }
 
 function validate(app: App) {

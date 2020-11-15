@@ -1,6 +1,6 @@
-import { Resource, ResourceProps } from '../src/base';
-import { Construct } from 'constructs';
 import { Testing, ApiObject } from 'cdk8s';
+import { Construct } from 'constructs';
+import { Resource, ResourceProps } from '../src/base';
 import { ConfigMap } from '../src/imports/k8s';
 
 test('Can mutate metadata', () => {

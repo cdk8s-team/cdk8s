@@ -77,8 +77,8 @@ test('rounding behavior', () => {
   expect(size.toTebibytes({ rounding: SizeRoundingBehavior.FLOOR })).toEqual(0);
   expect(size.toKibibytes({ rounding: SizeRoundingBehavior.FLOOR })).toBeCloseTo(5_324_800);
 
-  expect(size.toGibibytes({ rounding: SizeRoundingBehavior.NONE})).toEqual(5.078125);
-  expect(size.toTebibytes({ rounding: SizeRoundingBehavior.NONE})).toEqual(5200 / (1024 * 1024));
-  expect(size.toKibibytes({ rounding: SizeRoundingBehavior.NONE})).toEqual(5_324_800);
+  expect(size.toGibibytes({ rounding: SizeRoundingBehavior.NONE })).toEqual(5.078125);
+  expect(size.toTebibytes({ rounding: SizeRoundingBehavior.NONE })).toEqual(5200 / (1024 * 1024));
+  expect(size.toKibibytes({ rounding: SizeRoundingBehavior.NONE })).toEqual(5_324_800);
 });
 

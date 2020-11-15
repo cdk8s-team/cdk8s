@@ -1,5 +1,5 @@
-import * as kplus from '../src';
 import { Testing } from 'cdk8s';
+import * as kplus from '../src';
 
 test('Must be configured with at least one port', () => {
 
@@ -42,10 +42,10 @@ test('Can serve by port', () => {
 
   // assert the k8s spec has it.
   const spec = Testing.synth(chart)[0].spec;
-  expect(spec.ports).toEqual([ { port: 9000, targetPort: 80, nodePort: 30080 } ]);
+  expect(spec.ports).toEqual([{ port: 9000, targetPort: 80, nodePort: 30080 }]);
 
   // assert the service object has it.
-  expect(service.ports).toEqual([ { port: 9000, targetPort: 80, nodePort: 30080 } ]);
+  expect(service.ports).toEqual([{ port: 9000, targetPort: 80, nodePort: 30080 }]);
 
 });
 
@@ -72,7 +72,7 @@ test('Synthesizes spec lazily', () => {
   service.serve(9000);
 
   const spec = Testing.synth(chart)[0].spec;
-  expect(spec.selector).toEqual({key: 'value'});
+  expect(spec.selector).toEqual({ key: 'value' });
   expect(spec.ports).toEqual([{ port: 9000 }]);
 
 });
@@ -87,7 +87,7 @@ test('Can associate a deployment with an existing service', () => {
 
   service.addDeployment(deployment, 1122);
 
-  const expectedSelector = {'cdk8s.deployment': 'test-dep-b18049c6'};
+  const expectedSelector = { 'cdk8s.deployment': 'test-dep-b18049c6' };
 
   const deploymentSpec = Testing.synth(chart)[1].spec;
   const serviceSpec = Testing.synth(chart)[0].spec;
@@ -104,7 +104,7 @@ test('Cannot add a deployment if it does not have a label selector', () => {
   const service = new kplus.Service(chart, 'service');
   const deployment = new kplus.Deployment(chart, 'dep', {
     defaultSelector: false,
-    containers: [ { image: 'foo' } ],
+    containers: [{ image: 'foo' }],
   });
 
   expect(() => service.addDeployment(deployment, 1122))
@@ -118,7 +118,7 @@ test('Cannot add a deployment if a selector is already defined for this service'
   const service = new kplus.Service(chart, 'service');
 
   const deployment = new kplus.Deployment(chart, 'dep1', {
-    containers: [ { image: 'foo' } ],
+    containers: [{ image: 'foo' }],
   });
   service.addSelector('random', 'selector');
 

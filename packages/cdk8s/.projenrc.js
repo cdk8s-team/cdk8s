@@ -10,28 +10,21 @@ const project = new JsiiProject({
 
   // dependencies
   jsiiVersion: Semver.caret(common.versions.jsii),
-  peerDependencies: {
-    "constructs": Semver.caret(common.versions.constructs),
-  },
-  dependencies: {
-    "follow-redirects": Semver.caret("1.11.0"),
-    "json-stable-stringify": Semver.caret("1.0.1"),
-    "yaml": Semver.pinned("2.0.0-1"),
-    "fast-json-patch": Semver.caret('3.0.0-1'),
-  },
-  bundledDependencies: [
-    "yaml",
-    "json-stable-stringify",
-    "follow-redirects",
-    "fast-json-patch"
+  peerDeps: [
+    `constructs@^${common.versions.constructs}`,
   ],
-  devDependencies: {
-    "@types/follow-redirects": Semver.caret("1.8.0"),
-    "@types/json-stable-stringify": Semver.caret("1.0.32"),
-    "@types/yaml": Semver.caret("1.2.0"),
-    "constructs": Semver.caret(common.versions.constructs),
-    "json-schema-to-typescript": Semver.caret("8.0.1"),
-  },
+  bundledDeps: [
+    'yaml@2.0.0-1',
+    'json-stable-stringify',
+    'follow-redirects',
+    'fast-json-patch',
+  ],
+  devDeps: [
+    '@types/follow-redirects',
+    '@types/json-stable-stringify',
+    '@types/yaml',
+    'json-schema-to-typescript'
+  ],
 
   // jsii configuration
   java: {

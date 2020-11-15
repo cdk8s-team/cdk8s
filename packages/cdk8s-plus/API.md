@@ -1390,7 +1390,7 @@ Name | Type | Description
 Associate a deployment to this service.
 
 If not targetPort is specific in the portOptions, then requests will be routed
-to the port exposed by the first container in the deployment's pods. 
+to the port exposed by the first container in the deployment's pods.
 The deployment's `labelSelector` will be used to select pods.
 
 ```ts

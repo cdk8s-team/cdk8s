@@ -1,5 +1,4 @@
 export class Lazy {
-
   public static any(producer: IAnyProducer): any {
     return new Lazy(producer) as unknown as any;
   }
