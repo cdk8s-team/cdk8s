@@ -12,6 +12,7 @@ Name|Description
 [DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
 [Helm](#cdk8s-helm)|Represents a Helm deployment.
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
+[JsonPatch](#cdk8s-jsonpatch)|Utility for applying RFC-6902 JSON-Patch to a document.
 [Lazy](#cdk8s-lazy)|*No description*
 [Names](#cdk8s-names)|Utilities for generating unique and stable names.
 [Testing](#cdk8s-testing)|Testing utilities for cdk8s applications.
@@ -93,6 +94,19 @@ addDependency(...dependencies: IConstruct[]): void
 
 
 
+#### addJsonPatch(...ops)🔹 <a id="cdk8s-apiobject-addjsonpatch"></a>
+
+Applies a set of RFC-6902 JSON-Patch operations to the manifest synthesized for this API object.
+
+```ts
+addJsonPatch(...ops: JsonPatch[]): void
+```
+
+* **ops** (<code>[JsonPatch](#cdk8s-jsonpatch)</code>)  The JSON-Patch operations to apply.
+
+
+
+
 #### toJson()🔹 <a id="cdk8s-apiobject-tojson"></a>
 
 Renders the object to Kubernetes JSON.
@@ -104,6 +118,23 @@ toJson(): any
 
 __Returns__:
 * <code>any</code>
+
+#### *static* of(c)🔹 <a id="cdk8s-apiobject-of"></a>
+
+Returns the `ApiObject` named `Default` which is a child of the given construct.
+
+If `c` is an `ApiObject`, it is returned directly. Throws an
+exception if the construct does not have a child named `Default` _or_ if
+this child is not an `ApiObject`.
+
+```ts
+static of(c: IConstruct): ApiObject
+```
+
+* **c** (<code>[IConstruct](#constructs-iconstruct)</code>)  The higher-level construct.
+
+__Returns__:
+* <code>[ApiObject](#cdk8s-apiobject)</code>
 
 
 
@@ -543,6 +574,133 @@ new Include(scope: Construct, name: string, options: IncludeOptions)
 Name | Type | Description 
 -----|------|-------------
 **apiObjects**🔹 | <code>Array<[ApiObject](#cdk8s-apiobject)></code> | Returns all the included API objects.
+
+
+
+## class JsonPatch 🔹 <a id="cdk8s-jsonpatch"></a>
+
+Utility for applying RFC-6902 JSON-Patch to a document.
+
+Use the the `JsonPatch.apply(doc, ...ops)` function to apply a set of
+operations to a JSON document and return the result.
+
+Operations can be created using the factory methods `JsonPatch.add()`,
+`JsonPatch.remove()`, etc.
+
+
+### Methods
+
+
+#### *static* add(path, value)🔹 <a id="cdk8s-jsonpatch-add"></a>
+
+Adds a value to an object or inserts it into an array.
+
+In the case of an
+array, the value is inserted before the given index. The - character can be
+used instead of an index to insert at the end of an array.
+
+```ts
+static add(path: string, value: any): JsonPatch
+```
+
+* **path** (<code>string</code>)  *No description*
+* **value** (<code>any</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* apply(document, ...ops)🔹 <a id="cdk8s-jsonpatch-apply"></a>
+
+Applies a set of JSON-Patch (RFC-6902) operations to `document` and returns the result.
+
+```ts
+static apply(document: any, ...ops: JsonPatch[]): any
+```
+
+* **document** (<code>any</code>)  The document to patch.
+* **ops** (<code>[JsonPatch](#cdk8s-jsonpatch)</code>)  The operations to apply.
+
+__Returns__:
+* <code>any</code>
+
+#### *static* copy(from, path)🔹 <a id="cdk8s-jsonpatch-copy"></a>
+
+Copies a value from one location to another within the JSON document.
+
+Both
+from and path are JSON Pointers.
+
+```ts
+static copy(from: string, path: string): JsonPatch
+```
+
+* **from** (<code>string</code>)  *No description*
+* **path** (<code>string</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* move(from, path)🔹 <a id="cdk8s-jsonpatch-move"></a>
+
+Moves a value from one location to the other.
+
+Both from and path are JSON Pointers.
+
+```ts
+static move(from: string, path: string): JsonPatch
+```
+
+* **from** (<code>string</code>)  *No description*
+* **path** (<code>string</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* remove(path)🔹 <a id="cdk8s-jsonpatch-remove"></a>
+
+Removes a value from an object or array.
+
+```ts
+static remove(path: string): JsonPatch
+```
+
+* **path** (<code>string</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* replace(path, value)🔹 <a id="cdk8s-jsonpatch-replace"></a>
+
+Replaces a value.
+
+Equivalent to a “remove” followed by an “add”.
+
+```ts
+static replace(path: string, value: any): JsonPatch
+```
+
+* **path** (<code>string</code>)  *No description*
+* **value** (<code>any</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* test(path, value)🔹 <a id="cdk8s-jsonpatch-test"></a>
+
+Tests that the specified value is set in the document.
+
+If the test fails,
+then the patch as a whole should not apply.
+
+```ts
+static test(path: string, value: any): JsonPatch
+```
+
+* **path** (<code>string</code>)  *No description*
+* **value** (<code>any</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
 
 
 

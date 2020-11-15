@@ -16,7 +16,8 @@ const project = new JsiiProject({
   bundledDeps: [
     'yaml@2.0.0-1',
     'json-stable-stringify',
-    'follow-redirects'
+    'follow-redirects',
+    'fast-json-patch',
   ],
   devDeps: [
     '@types/follow-redirects',

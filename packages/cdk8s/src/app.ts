@@ -20,7 +20,6 @@ export interface AppOptions {
  * Represents a cdk8s application.
  */
 export class App extends Construct {
-
   /**
    * Synthesize a single chart.
    *
