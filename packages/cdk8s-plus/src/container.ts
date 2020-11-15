@@ -72,7 +72,7 @@ export class EnvValue {
 
   /**
    * Defines an environment value from a secret JSON value.
-   * 
+   *
    * @param secretValue The secret value (secrent + key)
    * @param options Additional options
    */
@@ -123,7 +123,7 @@ export enum ImagePullPolicy {
    * to resolve the name to an image digest. If the kubelet has a container image with that exact
    * digest cached locally, the kubelet uses its cached image; otherwise, the kubelet downloads
    * (pulls) the image with the resolved digest, and uses that image to launch the container.
-   * 
+   *
    * Default is Always if ImagePullPolicy is omitted and either the image tag is :latest or
    * the image tag is omitted.
    */
@@ -131,7 +131,7 @@ export enum ImagePullPolicy {
 
   /**
    * The image is pulled only if it is not already present locally.
-   * 
+   *
    * Default is IfNotPresent if ImagePullPolicy is omitted and the image tag is present but
    * not :latest
    */
@@ -179,16 +179,16 @@ export interface ContainerProps {
 
   /**
    * Arguments to the entrypoint. The docker image's CMD is used if `command` is
-   * not provided. 
+   * not provided.
    *
    * Variable references $(VAR_NAME) are expanded using the container's
    * environment. If a variable cannot be resolved, the reference in the input
    * string will be unchanged. The $(VAR_NAME) syntax can be escaped with a
    * double $$, ie: $$(VAR_NAME). Escaped references will never be expanded,
-   * regardless of whether the variable exists or not. 
+   * regardless of whether the variable exists or not.
    *
-   * Cannot be updated. 
-   * 
+   * Cannot be updated.
+   *
    * @see https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    * @default []
    */
@@ -221,22 +221,22 @@ export interface ContainerProps {
 
   /**
    * Determines when the container is ready to serve traffic.
-   * 
+   *
    * @default - no readiness probe is defined
    */
-  readonly readiness?: Probe; 
+  readonly readiness?: Probe;
 
   /**
-   * Periodic probe of container liveness. Container will be restarted if the probe fails. 
-   * 
+   * Periodic probe of container liveness. Container will be restarted if the probe fails.
+   *
    * @default - no liveness probe is defined
    */
-  readonly liveness?: Probe; 
+  readonly liveness?: Probe;
 
   /**
-   * StartupProbe indicates that the Pod has successfully initialized. 
+   * StartupProbe indicates that the Pod has successfully initialized.
    * If specified, no other probes are executed until this completes successfully
-   * 
+   *
    * @default - no startup probe is defined.
    */
   readonly startup?: Probe;
@@ -309,7 +309,7 @@ export class Container {
 
   /**
    * Arguments to the entrypoint.
-   * 
+   *
    * @returns a copy of the arguments array, cannot be modified.
    */
   public get args(): string[] | undefined {
