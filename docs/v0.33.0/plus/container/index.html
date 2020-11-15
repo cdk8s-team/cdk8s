@@ -871,9 +871,10 @@
 <p>Environment variables can be added to containers using various sources, via semantically explicit API&rsquo;s:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus&#39;</span>
 
-<span class="kr">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Container</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
   <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;my-app&#39;</span>
-<span class="p">})</span>
+<span class="p">});</span>
 
 <span class="c1">// explicitly use a value.</span>
 <span class="nx">container</span><span class="p">.</span><span class="nx">addEnv</span><span class="p">(</span><span class="s1">&#39;endpoint&#39;</span><span class="p">,</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">EnvValue</span><span class="p">.</span><span class="nx">fromValue</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">));</span>
@@ -909,7 +910,8 @@ you would need to duplicate this configuration. This can get complex and clutter
 <span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">volume</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Container</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
   <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;my-app&#39;</span>
 <span class="p">})</span>
 
@@ -926,9 +928,13 @@ perform a diagnostic, the kubelet calls a Handler implemented by the container.<
 <li><code>Probe.fromCommand()</code></li>
 </ul>
 <p>Readiness, liveness, and startup probes can be configured at the container-level through the <code>readiness</code>, <code>liveness</code>, and <code>startup</code> options:</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Container</span><span class="p">({</span>
-  <span class="c1">// ...</span>
-  <span class="nx">readiness</span>: <span class="kt">kplus.Probe.fromHttpGet</span><span class="p">(</span><span class="s1">&#39;/ping&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">containers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="c1">// ...</span>
+      <span class="nx">readiness</span>: <span class="kt">kplus.Probe.fromHttpGet</span><span class="p">(</span><span class="s1">&#39;/ping&#39;</span><span class="p">),</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">});</span>
 </code></pre></div>
 <p>See the API reference for details.</p>

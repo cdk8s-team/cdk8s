@@ -869,7 +869,8 @@ The data in the volume is preserved throughout the lifecycle of the pod, but is 
 
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromEmptyDir</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">redis</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Container</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">redis</span> <span class="o">=</span> <span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
   <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;redis&#39;</span>
 <span class="p">})</span>
 

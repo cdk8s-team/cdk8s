@@ -863,7 +863,7 @@ make the deployment control the relevant pods. This construct does this automati
 <span class="kr">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
 <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;FrontEnds&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">containers</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Container</span><span class="p">({</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">})</span> <span class="p">],</span>
+  <span class="nx">containers</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">}</span> <span class="p">],</span>
 <span class="p">});</span>
 </code></pre></div>
 <p>Note the resulting manifest contains a special <code>cdk8s.deployment</code> label that is applied to the pods, and is used as

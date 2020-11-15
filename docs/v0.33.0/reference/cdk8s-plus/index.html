@@ -4420,7 +4420,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-deploymentprops">DeploymentProps</a></code>)  <em>No description</em></li>
 <li><strong>metadata</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  Metadata that all persisted resources must have, which includes all objects users must create. <strong><em>Optional</em></strong></li>
-<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
+<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
 <li><strong>restartPolicy</strong> (<code><a href="#cdk8s-plus-restartpolicy">RestartPolicy</a></code>)  Restart policy for all containers within the pod. <strong><em>Default</em></strong>: RestartPolicy.ALWAYS</li>
 <li><strong>serviceAccount</strong> (<code><a href="#cdk8s-plus-iserviceaccount">IServiceAccount</a></code>)  A service account provides an identity for processes that run in a Pod. <strong><em>Default</em></strong>: No service account.</li>
 <li><strong>volumes</strong> (<code>Array&lt;<a href="#cdk8s-plus-volume">Volume</a>&gt;</code>)  List of volumes that can be mounted by containers belonging to the pod. <strong><em>Default</em></strong>: No volumes.</li>
@@ -4483,11 +4483,25 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <h3 id="methods_2">Methods<a class="headerlink" href="#methods_2" title="Permanent link">&para;</a></h3>
 <h4 id="addcontainercontainer">addContainer(container)🔹 <a id="cdk8s-plus-deployment-addcontainer"></a><a class="headerlink" href="#addcontainercontainer" title="Permanent link">&para;</a></h4>
 <p>Add a container to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">Container</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
 <ul>
-<li><strong>container</strong> (<code><a href="#cdk8s-plus-container">Container</a></code>)  <em>No description</em></li>
+<li><strong>container</strong> (<code><a href="#cdk8s-plus-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
+<li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
+<li><strong>args</strong> (<code>Array<string></code>)  Arguments to the entrypoint. The docker image&rsquo;s CMD is used if <code>command</code> is not provided. <strong><em>Default</em></strong>: []</li>
+<li><strong>command</strong> (<code>Array<string></code>)  Entrypoint array. <strong><em>Default</em></strong>: The docker image&rsquo;s ENTRYPOINT.</li>
+<li><strong>env</strong> (<code>Map<string, <a href="#cdk8s-plus-envvalue">EnvValue</a>></code>)  List of environment variables to set in the container. <strong><em>Default</em></strong>: No environment variables.</li>
+<li><strong>imagePullPolicy</strong> (<code><a href="#cdk8s-plus-imagepullpolicy">ImagePullPolicy</a></code>)  Image pull policy for this container. <strong><em>Default</em></strong>: ImagePullPolicy.ALWAYS</li>
+<li><strong>liveness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Periodic probe of container liveness. <strong><em>Default</em></strong>: no liveness probe is defined</li>
+<li><strong>name</strong> (<code>string</code>)  Name of the container specified as a DNS_LABEL. <strong><em>Default</em></strong>: &lsquo;main&rsquo;</li>
+<li><strong>port</strong> (<code>number</code>)  Number of port to expose on the pod&rsquo;s IP address. <strong><em>Default</em></strong>: No port is exposed.</li>
+<li><strong>readiness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Determines when the container is ready to serve traffic. <strong><em>Default</em></strong>: no readiness probe is defined</li>
+<li><strong>startup</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  StartupProbe indicates that the Pod has successfully initialized. <strong><em>Default</em></strong>: no startup probe is defined.</li>
+<li><strong>volumeMounts</strong> (<code>Array&lt;<a href="#cdk8s-plus-volumemount">VolumeMount</a>&gt;</code>)  Pod volumes to mount into the container&rsquo;s filesystem. <strong><em>Optional</em></strong></li>
+<li><strong>workingDir</strong> (<code>string</code>)  Container&rsquo;s working directory. <strong><em>Default</em></strong>: The container runtime&rsquo;s default.</li>
 </ul>
+<p><strong>Returns</strong>:
+* <code><a href="#cdk8s-plus-container">Container</a></code></p>
 <h4 id="addvolumevolume">addVolume(volume)🔹 <a id="cdk8s-plus-deployment-addvolume"></a><a class="headerlink" href="#addvolumevolume" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
@@ -4835,7 +4849,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-jobprops">JobProps</a></code>)  <em>No description</em></li>
 <li><strong>metadata</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  Metadata that all persisted resources must have, which includes all objects users must create. <strong><em>Optional</em></strong></li>
-<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
+<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
 <li><strong>restartPolicy</strong> (<code><a href="#cdk8s-plus-restartpolicy">RestartPolicy</a></code>)  Restart policy for all containers within the pod. <strong><em>Default</em></strong>: RestartPolicy.ALWAYS</li>
 <li><strong>serviceAccount</strong> (<code><a href="#cdk8s-plus-iserviceaccount">IServiceAccount</a></code>)  A service account provides an identity for processes that run in a Pod. <strong><em>Default</em></strong>: No service account.</li>
 <li><strong>volumes</strong> (<code>Array&lt;<a href="#cdk8s-plus-volume">Volume</a>&gt;</code>)  List of volumes that can be mounted by containers belonging to the pod. <strong><em>Default</em></strong>: No volumes.</li>
@@ -4892,11 +4906,25 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <h3 id="methods_7">Methods<a class="headerlink" href="#methods_7" title="Permanent link">&para;</a></h3>
 <h4 id="addcontainercontainer_1">addContainer(container)🔹 <a id="cdk8s-plus-job-addcontainer"></a><a class="headerlink" href="#addcontainercontainer_1" title="Permanent link">&para;</a></h4>
 <p>Add a container to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">Container</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
 <ul>
-<li><strong>container</strong> (<code><a href="#cdk8s-plus-container">Container</a></code>)  <em>No description</em></li>
+<li><strong>container</strong> (<code><a href="#cdk8s-plus-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
+<li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
+<li><strong>args</strong> (<code>Array<string></code>)  Arguments to the entrypoint. The docker image&rsquo;s CMD is used if <code>command</code> is not provided. <strong><em>Default</em></strong>: []</li>
+<li><strong>command</strong> (<code>Array<string></code>)  Entrypoint array. <strong><em>Default</em></strong>: The docker image&rsquo;s ENTRYPOINT.</li>
+<li><strong>env</strong> (<code>Map<string, <a href="#cdk8s-plus-envvalue">EnvValue</a>></code>)  List of environment variables to set in the container. <strong><em>Default</em></strong>: No environment variables.</li>
+<li><strong>imagePullPolicy</strong> (<code><a href="#cdk8s-plus-imagepullpolicy">ImagePullPolicy</a></code>)  Image pull policy for this container. <strong><em>Default</em></strong>: ImagePullPolicy.ALWAYS</li>
+<li><strong>liveness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Periodic probe of container liveness. <strong><em>Default</em></strong>: no liveness probe is defined</li>
+<li><strong>name</strong> (<code>string</code>)  Name of the container specified as a DNS_LABEL. <strong><em>Default</em></strong>: &lsquo;main&rsquo;</li>
+<li><strong>port</strong> (<code>number</code>)  Number of port to expose on the pod&rsquo;s IP address. <strong><em>Default</em></strong>: No port is exposed.</li>
+<li><strong>readiness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Determines when the container is ready to serve traffic. <strong><em>Default</em></strong>: no readiness probe is defined</li>
+<li><strong>startup</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  StartupProbe indicates that the Pod has successfully initialized. <strong><em>Default</em></strong>: no startup probe is defined.</li>
+<li><strong>volumeMounts</strong> (<code>Array&lt;<a href="#cdk8s-plus-volumemount">VolumeMount</a>&gt;</code>)  Pod volumes to mount into the container&rsquo;s filesystem. <strong><em>Optional</em></strong></li>
+<li><strong>workingDir</strong> (<code>string</code>)  Container&rsquo;s working directory. <strong><em>Default</em></strong>: The container runtime&rsquo;s default.</li>
 </ul>
+<p><strong>Returns</strong>:
+* <code><a href="#cdk8s-plus-container">Container</a></code></p>
 <h4 id="addvolumevolume_1">addVolume(volume)🔹 <a id="cdk8s-plus-job-addvolume"></a><a class="headerlink" href="#addvolumevolume_1" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
@@ -4918,7 +4946,7 @@ created by clients and scheduled onto hosts.</p>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-podprops">PodProps</a></code>)  <em>No description</em></li>
 <li><strong>metadata</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  Metadata that all persisted resources must have, which includes all objects users must create. <strong><em>Optional</em></strong></li>
-<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
+<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
 <li><strong>restartPolicy</strong> (<code><a href="#cdk8s-plus-restartpolicy">RestartPolicy</a></code>)  Restart policy for all containers within the pod. <strong><em>Default</em></strong>: RestartPolicy.ALWAYS</li>
 <li><strong>serviceAccount</strong> (<code><a href="#cdk8s-plus-iserviceaccount">IServiceAccount</a></code>)  A service account provides an identity for processes that run in a Pod. <strong><em>Default</em></strong>: No service account.</li>
 <li><strong>volumes</strong> (<code>Array&lt;<a href="#cdk8s-plus-volume">Volume</a>&gt;</code>)  List of volumes that can be mounted by containers belonging to the pod. <strong><em>Default</em></strong>: No volumes.</li>
@@ -4963,11 +4991,25 @@ created by clients and scheduled onto hosts.</p>
 <h3 id="methods_8">Methods<a class="headerlink" href="#methods_8" title="Permanent link">&para;</a></h3>
 <h4 id="addcontainercontainer_2">addContainer(container)🔹 <a id="cdk8s-plus-pod-addcontainer"></a><a class="headerlink" href="#addcontainercontainer_2" title="Permanent link">&para;</a></h4>
 <p>Add a container to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">Container</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
 <ul>
-<li><strong>container</strong> (<code><a href="#cdk8s-plus-container">Container</a></code>)  <em>No description</em></li>
+<li><strong>container</strong> (<code><a href="#cdk8s-plus-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
+<li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
+<li><strong>args</strong> (<code>Array<string></code>)  Arguments to the entrypoint. The docker image&rsquo;s CMD is used if <code>command</code> is not provided. <strong><em>Default</em></strong>: []</li>
+<li><strong>command</strong> (<code>Array<string></code>)  Entrypoint array. <strong><em>Default</em></strong>: The docker image&rsquo;s ENTRYPOINT.</li>
+<li><strong>env</strong> (<code>Map<string, <a href="#cdk8s-plus-envvalue">EnvValue</a>></code>)  List of environment variables to set in the container. <strong><em>Default</em></strong>: No environment variables.</li>
+<li><strong>imagePullPolicy</strong> (<code><a href="#cdk8s-plus-imagepullpolicy">ImagePullPolicy</a></code>)  Image pull policy for this container. <strong><em>Default</em></strong>: ImagePullPolicy.ALWAYS</li>
+<li><strong>liveness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Periodic probe of container liveness. <strong><em>Default</em></strong>: no liveness probe is defined</li>
+<li><strong>name</strong> (<code>string</code>)  Name of the container specified as a DNS_LABEL. <strong><em>Default</em></strong>: &lsquo;main&rsquo;</li>
+<li><strong>port</strong> (<code>number</code>)  Number of port to expose on the pod&rsquo;s IP address. <strong><em>Default</em></strong>: No port is exposed.</li>
+<li><strong>readiness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Determines when the container is ready to serve traffic. <strong><em>Default</em></strong>: no readiness probe is defined</li>
+<li><strong>startup</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  StartupProbe indicates that the Pod has successfully initialized. <strong><em>Default</em></strong>: no startup probe is defined.</li>
+<li><strong>volumeMounts</strong> (<code>Array&lt;<a href="#cdk8s-plus-volumemount">VolumeMount</a>&gt;</code>)  Pod volumes to mount into the container&rsquo;s filesystem. <strong><em>Optional</em></strong></li>
+<li><strong>workingDir</strong> (<code>string</code>)  Container&rsquo;s working directory. <strong><em>Default</em></strong>: The container runtime&rsquo;s default.</li>
 </ul>
+<p><strong>Returns</strong>:
+* <code><a href="#cdk8s-plus-container">Container</a></code></p>
 <h4 id="addvolumevolume_2">addVolume(volume)🔹 <a id="cdk8s-plus-pod-addvolume"></a><a class="headerlink" href="#addvolumevolume_2" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
@@ -4983,7 +5025,7 @@ created by clients and scheduled onto hosts.</p>
 </code></pre></div>
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-podspecprops">PodSpecProps</a></code>)  <em>No description</em></li>
-<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
+<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
 <li><strong>restartPolicy</strong> (<code><a href="#cdk8s-plus-restartpolicy">RestartPolicy</a></code>)  Restart policy for all containers within the pod. <strong><em>Default</em></strong>: RestartPolicy.ALWAYS</li>
 <li><strong>serviceAccount</strong> (<code><a href="#cdk8s-plus-iserviceaccount">IServiceAccount</a></code>)  A service account provides an identity for processes that run in a Pod. <strong><em>Default</em></strong>: No service account.</li>
 <li><strong>volumes</strong> (<code>Array&lt;<a href="#cdk8s-plus-volume">Volume</a>&gt;</code>)  List of volumes that can be mounted by containers belonging to the pod. <strong><em>Default</em></strong>: No volumes.</li>
@@ -5023,11 +5065,25 @@ created by clients and scheduled onto hosts.</p>
 <h3 id="methods_9">Methods<a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h3>
 <h4 id="addcontainercontainer_3">addContainer(container)🔹 <a id="cdk8s-plus-podspec-addcontainer"></a><a class="headerlink" href="#addcontainercontainer_3" title="Permanent link">&para;</a></h4>
 <p>Add a container to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">Container</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
 <ul>
-<li><strong>container</strong> (<code><a href="#cdk8s-plus-container">Container</a></code>)  <em>No description</em></li>
+<li><strong>container</strong> (<code><a href="#cdk8s-plus-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
+<li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
+<li><strong>args</strong> (<code>Array<string></code>)  Arguments to the entrypoint. The docker image&rsquo;s CMD is used if <code>command</code> is not provided. <strong><em>Default</em></strong>: []</li>
+<li><strong>command</strong> (<code>Array<string></code>)  Entrypoint array. <strong><em>Default</em></strong>: The docker image&rsquo;s ENTRYPOINT.</li>
+<li><strong>env</strong> (<code>Map<string, <a href="#cdk8s-plus-envvalue">EnvValue</a>></code>)  List of environment variables to set in the container. <strong><em>Default</em></strong>: No environment variables.</li>
+<li><strong>imagePullPolicy</strong> (<code><a href="#cdk8s-plus-imagepullpolicy">ImagePullPolicy</a></code>)  Image pull policy for this container. <strong><em>Default</em></strong>: ImagePullPolicy.ALWAYS</li>
+<li><strong>liveness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Periodic probe of container liveness. <strong><em>Default</em></strong>: no liveness probe is defined</li>
+<li><strong>name</strong> (<code>string</code>)  Name of the container specified as a DNS_LABEL. <strong><em>Default</em></strong>: &lsquo;main&rsquo;</li>
+<li><strong>port</strong> (<code>number</code>)  Number of port to expose on the pod&rsquo;s IP address. <strong><em>Default</em></strong>: No port is exposed.</li>
+<li><strong>readiness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Determines when the container is ready to serve traffic. <strong><em>Default</em></strong>: no readiness probe is defined</li>
+<li><strong>startup</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  StartupProbe indicates that the Pod has successfully initialized. <strong><em>Default</em></strong>: no startup probe is defined.</li>
+<li><strong>volumeMounts</strong> (<code>Array&lt;<a href="#cdk8s-plus-volumemount">VolumeMount</a>&gt;</code>)  Pod volumes to mount into the container&rsquo;s filesystem. <strong><em>Optional</em></strong></li>
+<li><strong>workingDir</strong> (<code>string</code>)  Container&rsquo;s working directory. <strong><em>Default</em></strong>: The container runtime&rsquo;s default.</li>
 </ul>
+<p><strong>Returns</strong>:
+* <code><a href="#cdk8s-plus-container">Container</a></code></p>
 <h4 id="addvolumevolume_3">addVolume(volume)🔹 <a id="cdk8s-plus-podspec-addvolume"></a><a class="headerlink" href="#addvolumevolume_3" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
@@ -5044,7 +5100,7 @@ created by clients and scheduled onto hosts.</p>
 </code></pre></div>
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-podtemplateprops">PodTemplateProps</a></code>)  <em>No description</em></li>
-<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
+<li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
 <li><strong>restartPolicy</strong> (<code><a href="#cdk8s-plus-restartpolicy">RestartPolicy</a></code>)  Restart policy for all containers within the pod. <strong><em>Default</em></strong>: RestartPolicy.ALWAYS</li>
 <li><strong>serviceAccount</strong> (<code><a href="#cdk8s-plus-iserviceaccount">IServiceAccount</a></code>)  A service account provides an identity for processes that run in a Pod. <strong><em>Default</em></strong>: No service account.</li>
 <li><strong>volumes</strong> (<code>Array&lt;<a href="#cdk8s-plus-volume">Volume</a>&gt;</code>)  List of volumes that can be mounted by containers belonging to the pod. <strong><em>Default</em></strong>: No volumes.</li>
@@ -5771,7 +5827,7 @@ any reason, the data in the emptyDir is deleted forever.</p>
 <tbody>
 <tr>
 <td><strong>containers</strong>?🔹</td>
-<td><code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code></td>
+<td><code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code></td>
 <td>List of containers belonging to the pod.<br/><strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</td>
 </tr>
 <tr>
@@ -6024,11 +6080,25 @@ any reason, the data in the emptyDir is deleted forever.</p>
 <h3 id="methods_16">Methods<a class="headerlink" href="#methods_16" title="Permanent link">&para;</a></h3>
 <h4 id="addcontainercontainer_4">addContainer(container)🔹 <a id="cdk8s-plus-ipodspec-addcontainer"></a><a class="headerlink" href="#addcontainercontainer_4" title="Permanent link">&para;</a></h4>
 <p>Add a container to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">Container</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
 <ul>
-<li><strong>container</strong> (<code><a href="#cdk8s-plus-container">Container</a></code>)  The container.</li>
+<li><strong>container</strong> (<code><a href="#cdk8s-plus-containerprops">ContainerProps</a></code>)  The container.</li>
+<li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
+<li><strong>args</strong> (<code>Array<string></code>)  Arguments to the entrypoint. The docker image&rsquo;s CMD is used if <code>command</code> is not provided. <strong><em>Default</em></strong>: []</li>
+<li><strong>command</strong> (<code>Array<string></code>)  Entrypoint array. <strong><em>Default</em></strong>: The docker image&rsquo;s ENTRYPOINT.</li>
+<li><strong>env</strong> (<code>Map<string, <a href="#cdk8s-plus-envvalue">EnvValue</a>></code>)  List of environment variables to set in the container. <strong><em>Default</em></strong>: No environment variables.</li>
+<li><strong>imagePullPolicy</strong> (<code><a href="#cdk8s-plus-imagepullpolicy">ImagePullPolicy</a></code>)  Image pull policy for this container. <strong><em>Default</em></strong>: ImagePullPolicy.ALWAYS</li>
+<li><strong>liveness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Periodic probe of container liveness. <strong><em>Default</em></strong>: no liveness probe is defined</li>
+<li><strong>name</strong> (<code>string</code>)  Name of the container specified as a DNS_LABEL. <strong><em>Default</em></strong>: &lsquo;main&rsquo;</li>
+<li><strong>port</strong> (<code>number</code>)  Number of port to expose on the pod&rsquo;s IP address. <strong><em>Default</em></strong>: No port is exposed.</li>
+<li><strong>readiness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Determines when the container is ready to serve traffic. <strong><em>Default</em></strong>: no readiness probe is defined</li>
+<li><strong>startup</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  StartupProbe indicates that the Pod has successfully initialized. <strong><em>Default</em></strong>: no startup probe is defined.</li>
+<li><strong>volumeMounts</strong> (<code>Array&lt;<a href="#cdk8s-plus-volumemount">VolumeMount</a>&gt;</code>)  Pod volumes to mount into the container&rsquo;s filesystem. <strong><em>Optional</em></strong></li>
+<li><strong>workingDir</strong> (<code>string</code>)  Container&rsquo;s working directory. <strong><em>Default</em></strong>: The container runtime&rsquo;s default.</li>
 </ul>
+<p><strong>Returns</strong>:
+* <code><a href="#cdk8s-plus-container">Container</a></code></p>
 <h4 id="addvolumevolume_4">addVolume(volume)🔹 <a id="cdk8s-plus-ipodspec-addvolume"></a><a class="headerlink" href="#addvolumevolume_4" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
@@ -6080,11 +6150,25 @@ any reason, the data in the emptyDir is deleted forever.</p>
 <h3 id="methods_17">Methods<a class="headerlink" href="#methods_17" title="Permanent link">&para;</a></h3>
 <h4 id="addcontainercontainer_5">addContainer(container)🔹 <a id="cdk8s-plus-ipodtemplate-addcontainer"></a><a class="headerlink" href="#addcontainercontainer_5" title="Permanent link">&para;</a></h4>
 <p>Add a container to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">Container</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
 <ul>
-<li><strong>container</strong> (<code><a href="#cdk8s-plus-container">Container</a></code>)  The container.</li>
+<li><strong>container</strong> (<code><a href="#cdk8s-plus-containerprops">ContainerProps</a></code>)  The container.</li>
+<li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
+<li><strong>args</strong> (<code>Array<string></code>)  Arguments to the entrypoint. The docker image&rsquo;s CMD is used if <code>command</code> is not provided. <strong><em>Default</em></strong>: []</li>
+<li><strong>command</strong> (<code>Array<string></code>)  Entrypoint array. <strong><em>Default</em></strong>: The docker image&rsquo;s ENTRYPOINT.</li>
+<li><strong>env</strong> (<code>Map<string, <a href="#cdk8s-plus-envvalue">EnvValue</a>></code>)  List of environment variables to set in the container. <strong><em>Default</em></strong>: No environment variables.</li>
+<li><strong>imagePullPolicy</strong> (<code><a href="#cdk8s-plus-imagepullpolicy">ImagePullPolicy</a></code>)  Image pull policy for this container. <strong><em>Default</em></strong>: ImagePullPolicy.ALWAYS</li>
+<li><strong>liveness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Periodic probe of container liveness. <strong><em>Default</em></strong>: no liveness probe is defined</li>
+<li><strong>name</strong> (<code>string</code>)  Name of the container specified as a DNS_LABEL. <strong><em>Default</em></strong>: &lsquo;main&rsquo;</li>
+<li><strong>port</strong> (<code>number</code>)  Number of port to expose on the pod&rsquo;s IP address. <strong><em>Default</em></strong>: No port is exposed.</li>
+<li><strong>readiness</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  Determines when the container is ready to serve traffic. <strong><em>Default</em></strong>: no readiness probe is defined</li>
+<li><strong>startup</strong> (<code><a href="#cdk8s-plus-probe">Probe</a></code>)  StartupProbe indicates that the Pod has successfully initialized. <strong><em>Default</em></strong>: no startup probe is defined.</li>
+<li><strong>volumeMounts</strong> (<code>Array&lt;<a href="#cdk8s-plus-volumemount">VolumeMount</a>&gt;</code>)  Pod volumes to mount into the container&rsquo;s filesystem. <strong><em>Optional</em></strong></li>
+<li><strong>workingDir</strong> (<code>string</code>)  Container&rsquo;s working directory. <strong><em>Default</em></strong>: The container runtime&rsquo;s default.</li>
 </ul>
+<p><strong>Returns</strong>:
+* <code><a href="#cdk8s-plus-container">Container</a></code></p>
 <h4 id="addvolumevolume_5">addVolume(volume)🔹 <a id="cdk8s-plus-ipodtemplate-addvolume"></a><a class="headerlink" href="#addvolumevolume_5" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
@@ -6223,7 +6307,7 @@ then routed to the backend associated with the matching path.</p>
 <tbody>
 <tr>
 <td><strong>containers</strong>?🔹</td>
-<td><code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code></td>
+<td><code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code></td>
 <td>List of containers belonging to the pod.<br/><strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</td>
 </tr>
 <tr>
@@ -6327,7 +6411,7 @@ then routed to the backend associated with the matching path.</p>
 <tbody>
 <tr>
 <td><strong>containers</strong>?🔹</td>
-<td><code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code></td>
+<td><code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code></td>
 <td>List of containers belonging to the pod.<br/><strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</td>
 </tr>
 <tr>
@@ -6365,7 +6449,7 @@ then routed to the backend associated with the matching path.</p>
 <tbody>
 <tr>
 <td><strong>containers</strong>?🔹</td>
-<td><code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code></td>
+<td><code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code></td>
 <td>List of containers belonging to the pod.<br/><strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</td>
 </tr>
 <tr>
@@ -6399,7 +6483,7 @@ then routed to the backend associated with the matching path.</p>
 <tbody>
 <tr>
 <td><strong>containers</strong>?🔹</td>
-<td><code>Array&lt;<a href="#cdk8s-plus-container">Container</a>&gt;</code></td>
+<td><code>Array&lt;<a href="#cdk8s-plus-containerprops">ContainerProps</a>&gt;</code></td>
 <td>List of containers belonging to the pod.<br/><strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</td>
 </tr>
 <tr>
