@@ -22,7 +22,7 @@ const project = new JsiiProject({
   devDependencies: {
     '@types/minimatch': Semver.caret('3.0.3'),
     "cdk8s": Semver.caret('0.0.0'),
-    "constructs": Semver.caret(common.versions.constructs),
+    "constructs": Semver.pinned(common.versions.constructs),
   },
 
   // jsii configuration

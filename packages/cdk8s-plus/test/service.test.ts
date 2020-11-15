@@ -83,7 +83,7 @@ test('Can associate a deployment with an existing service', () => {
 
   const service = new kplus.Service(chart, 'service');
   const deployment = new kplus.Deployment(chart, 'dep');
-  deployment.addContainer(new kplus.Container({ image: 'foo', port: 7777 }));
+  deployment.addContainer({ image: 'foo', port: 7777 });
 
   service.addDeployment(deployment, 1122);
 
@@ -104,7 +104,7 @@ test('Cannot add a deployment if it does not have a label selector', () => {
   const service = new kplus.Service(chart, 'service');
   const deployment = new kplus.Deployment(chart, 'dep', {
     defaultSelector: false,
-    containers: [new kplus.Container({ image: 'foo' })],
+    containers: [{ image: 'foo' }],
   });
 
   expect(() => service.addDeployment(deployment, 1122))
@@ -118,7 +118,7 @@ test('Cannot add a deployment if a selector is already defined for this service'
   const service = new kplus.Service(chart, 'service');
 
   const deployment = new kplus.Deployment(chart, 'dep1', {
-    containers: [new kplus.Container({ image: 'foo' })],
+    containers: [{ image: 'foo' }],
   });
   service.addSelector('random', 'selector');
 

@@ -1,7 +1,7 @@
-import * as yargs from 'yargs';
-import * as fs from 'fs-extra';
 import * as path from 'path';
+import * as fs from 'fs-extra';
 import { sscaff } from 'sscaff';
+import * as yargs from 'yargs';
 
 const pkgroot = path.join(__dirname, '..', '..', '..');
 
@@ -27,7 +27,7 @@ class Command implements yargs.CommandModule {
       console.error('Cannot initialize a project in a non-empty directory');
       process.exit(1);
     }
-  
+
     console.error(`Initializing a project from the ${argv.type} template`);
     const templatePath = path.join(templatesDir, argv.type);
 
@@ -60,14 +60,14 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     const versions = {
       cdk8s_version: version,
       constructs_version: constructsVersion,
-    }
+    };
 
     return {
       ...ret,
       ...versions,
     };
   }
-  
+
   if (version === '0.0.0') {
     throw new Error('cannot use version 0.0.0, use --cdk8s-version, --dist or CDK8S_DIST to install from a "dist" directory');
   }

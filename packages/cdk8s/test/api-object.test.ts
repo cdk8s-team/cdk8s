@@ -1,5 +1,5 @@
-import { ApiObject, Chart, Testing } from '../src';
 import { Construct, Node, Dependency } from 'constructs';
+import { ApiObject, Chart, Testing } from '../src';
 
 test('minimal configuration', () => {
   const app = Testing.app();
@@ -56,7 +56,7 @@ test('addDependency', () => {
       source: obj1,
       target: obj3,
     },
-  ]))
+  ]));
 
 });
 
@@ -238,7 +238,7 @@ test('chart labels are applied to all api objects in the chart', () => {
         labels: {
           bar: 'bbbbbb',
           foo: 'override by object',
-          zoo: 'zoo1',  
+          zoo: 'zoo1',
         },
         name: 'my-chart-group-obj2-ba1eb578',
       },

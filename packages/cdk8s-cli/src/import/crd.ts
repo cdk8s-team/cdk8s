@@ -1,9 +1,9 @@
-import { GenerateOptions, ImportBase } from './base';
 import { CodeMaker } from 'codemaker';
-import { download } from '../util';
+import { TypeGenerator } from 'json2jsii';
 import * as yaml from 'yaml';
 import { ImportSpec } from '../config';
-import { TypeGenerator } from 'json2jsii';
+import { download } from '../util';
+import { GenerateOptions, ImportBase } from './base';
 import { generateConstruct } from './codegen';
 
 const CRD_KIND = 'CustomResourceDefinition';
@@ -52,7 +52,7 @@ export class CustomResourceDefinition {
 
     const spec = manifest.spec;
     if (!spec) {
-      throw new Error('manifest does not have a "spec" attribute')
+      throw new Error('manifest does not have a "spec" attribute');
     }
 
     const version = spec.version ?? (spec.versions ?? [])[0];

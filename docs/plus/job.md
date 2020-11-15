@@ -27,7 +27,7 @@ const load = new kplus.Job(chart, 'LoadData', {
 
 
 // now add a container to all the pods created by this job
-job.addContainer(new kplus.Container({
+job.addContainer({
   image: 'loader'
-}));
+});
 ```

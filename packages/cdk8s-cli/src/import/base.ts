@@ -1,8 +1,8 @@
-import * as fs from 'fs-extra';
 import * as path from 'path';
 import { CodeMaker } from 'codemaker';
-import { mkdtemp } from '../util';
+import * as fs from 'fs-extra';
 import * as srcmak from 'jsii-srcmak';
+import { mkdtemp } from '../util';
 
 export enum Language {
   TYPESCRIPT = 'typescript',
@@ -45,7 +45,7 @@ export abstract class ImportBase {
 
     const outdir = path.resolve(options.outdir);
     await fs.mkdirp(outdir);
-    const isTypescript = options.targetLanguage === Language.TYPESCRIPT
+    const isTypescript = options.targetLanguage === Language.TYPESCRIPT;
     const { moduleNamePrefix } = options;
 
     if (this.moduleNames.length === 0) {
@@ -78,7 +78,7 @@ export abstract class ImportBase {
           await code.save(staging);
 
           // these are the module dependencies we compile against
-          const deps = [ '@types/node', 'constructs', 'cdk8s'];
+          const deps = ['@types/node', 'constructs', 'cdk8s'];
 
           const opts: srcmak.Options = {
             entrypoint: fileName,

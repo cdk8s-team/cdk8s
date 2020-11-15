@@ -6,7 +6,7 @@ test('A label selector is automatically allocated', () => {
   const chart = Testing.chart();
 
   const deployment = new kplus.Deployment(chart, 'Deployment');
-  deployment.addContainer(new kplus.Container({ image: 'foobar' }));
+  deployment.addContainer({ image: 'foobar' });
 
   const expectedValue = 'test-Deployment-9e0110cd';
   const expectedSelector = { 'cdk8s.deployment': expectedValue };
@@ -27,7 +27,7 @@ test('No selector is generated if "defaultSelector" is false', () => {
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
     defaultSelector: false,
-    containers: [new kplus.Container({ image: 'foobar' })],
+    containers: [{ image: 'foobar' }],
   });
 
   // assert the k8s spec doesnt have it.
@@ -46,9 +46,9 @@ test('Can select by label', () => {
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
     containers: [
-      new kplus.Container({
+      {
         image: 'image',
-      }),
+      },
     ],
     defaultSelector: false,
   });
@@ -72,10 +72,10 @@ test('Can be exposed as via service', () => {
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
     containers: [
-      new kplus.Container({
+      {
         image: 'image',
         port: 9300,
-      }),
+      },
     ],
   });
 
@@ -95,10 +95,10 @@ test('Expose uses the correct default values', () => {
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
     containers: [
-      new kplus.Container({
+      {
         image: 'image',
         port: 9300,
-      }),
+      },
     ],
   });
 
@@ -115,10 +115,10 @@ test('Expose can set service and port details', () => {
 
   const deployment = new kplus.Deployment(chart, 'Deployment', {
     containers: [
-      new kplus.Container({
+      {
         image: 'image',
         port: 9300,
-      }),
+      },
     ],
   });
 
@@ -163,10 +163,10 @@ test('Synthesizes spec lazily', () => {
 
   const deployment = new kplus.Deployment(chart, 'Deployment');
   deployment.addContainer(
-    new kplus.Container({
+    {
       image: 'image',
       port: 9300,
-    }),
+    },
   );
 
   const container = Testing.synth(chart)[0].spec.template.spec.containers[0];

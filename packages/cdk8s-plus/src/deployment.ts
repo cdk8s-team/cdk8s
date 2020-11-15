@@ -1,7 +1,7 @@
 import { ApiObject, ApiObjectMetadataDefinition, Lazy, Names } from 'cdk8s';
 import { Construct, Node } from 'constructs';
 import { Resource, ResourceProps } from './base';
-import { Container } from './container';
+import { Container, ContainerProps } from './container';
 import * as k8s from './imports/k8s';
 import { RestartPolicy, PodTemplate, IPodTemplate, PodTemplateProps } from './pod';
 import { Protocol, Service, ServiceType } from './service';
@@ -188,7 +188,7 @@ export class Deployment extends Resource implements IPodTemplate {
     return service;
   }
 
-  public addContainer(container: Container): void {
+  public addContainer(container: ContainerProps): Container {
     return this._podTemplate.addContainer(container);
   }
 

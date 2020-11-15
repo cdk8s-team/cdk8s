@@ -5,12 +5,12 @@ import { importDispatch } from '../../import/dispatch';
 const config = readConfigSync();
 
 const DEFAULT_OUTDIR = 'imports';
-const LANGUAGES = [ 'typescript', 'python', 'java' ];
+const LANGUAGES = ['typescript', 'python', 'java'];
 
 class Command implements yargs.CommandModule {
   public readonly command = 'import [SPEC]';
   public readonly describe = 'Imports API objects to your app by generating constructs.';
-  public readonly aliases = [ 'gen', 'import', 'generate' ];
+  public readonly aliases = ['gen', 'import', 'generate'];
 
   public readonly builder = (args: yargs.Argv) => args
     .positional('SPEC', { default: config.imports, desc: 'import spec with the syntax [NAME:=]SPEC where NAME is an optional module name and supported SPEC are: k8s, crd.yaml, https://domain/crd.yaml).', array: true })
@@ -28,7 +28,7 @@ class Command implements yargs.CommandModule {
 
   public async handler(argv: any) {
     const classNamePrefix = argv.classPrefix === false ? '' : argv.classPrefix;
-    const imports: string[] = Array.isArray(argv.spec) ? argv.spec : [ argv.spec ];
+    const imports: string[] = Array.isArray(argv.spec) ? argv.spec : [argv.spec];
     const specs: ImportSpec[] = imports.filter(spec => spec != null).map(parseImports);
 
     await importDispatch(specs, argv, {
@@ -47,7 +47,7 @@ function parseImports(spec: string): ImportSpec {
   if (splitImport.length === 1) {
     return {
       source: spec,
-    }
+    };
   }
 
   // crd=crd.yaml
@@ -56,7 +56,7 @@ function parseImports(spec: string): ImportSpec {
     return {
       moduleNamePrefix: splitImport[0],
       source: splitImport[1],
-    }
+    };
   }
 
   throw new Error('Unable to parse import specification. Syntax is [NAME:=]SPEC');

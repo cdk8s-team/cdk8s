@@ -1,7 +1,7 @@
 import { ApiObject, ApiObjectMetadata, ApiObjectMetadataDefinition, Lazy } from 'cdk8s';
 import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
-import { Container } from './container';
+import { Container, ContainerProps } from './container';
 import * as k8s from './imports/k8s';
 import { IServiceAccount } from './service-account';
 import { Volume } from './volume';
@@ -42,7 +42,7 @@ export interface IPodSpec {
    *
    * @param container The container.
    */
-  addContainer(container: Container): void;
+  addContainer(container: ContainerProps): Container;
 
   /**
    * Add a volume to the pod.
@@ -81,7 +81,7 @@ export class PodSpec implements IPodSpec {
     this.restartPolicy = props.restartPolicy;
     this.serviceAccount = props.serviceAccount;
 
-    this._containers = props.containers ?? [];
+    this._containers = props.containers?.map(c => new Container(c)) ?? [];
     this._volumes = props.volumes ?? [];
   }
 
@@ -93,8 +93,10 @@ export class PodSpec implements IPodSpec {
     return [...this._volumes];
   }
 
-  public addContainer(container: Container): void {
-    this._containers.push(container);
+  public addContainer(container: ContainerProps): Container {
+    const impl = new Container(container);
+    this._containers.push(impl);
+    return impl;
   }
 
   public addVolume(volume: Volume): void {
@@ -194,7 +196,7 @@ export interface PodSpecProps {
    *
    * @default - No containers. Note that a pod spec must include at least one container.
    */
-  readonly containers?: Container[];
+  readonly containers?: ContainerProps[];
 
   /**
    * List of volumes that can be mounted by containers belonging to the pod.
@@ -274,7 +276,7 @@ export class Pod extends Resource implements IPodSpec {
     return this._spec.serviceAccount;
   }
 
-  public addContainer(container: Container): void {
+  public addContainer(container: ContainerProps): Container {
     return this._spec.addContainer(container);
   }
 

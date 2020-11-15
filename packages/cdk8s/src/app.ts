@@ -1,11 +1,11 @@
-import { Construct, Node, IConstruct } from 'constructs';
 import * as fs from 'fs';
-import { Chart } from './chart';
 import * as path from 'path';
-import { Yaml } from './yaml';
-import { DependencyGraph } from './dependency';
+import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
+import { Chart } from './chart';
+import { DependencyGraph } from './dependency';
 import { Names } from './names';
+import { Yaml } from './yaml';
 
 export interface AppOptions {
   /**
@@ -20,48 +20,6 @@ export interface AppOptions {
  * Represents a cdk8s application.
  */
 export class App extends Construct {
-  /**
-   * The output directory into which manifests will be synthesized.
-   */
-  public readonly outdir: string;
-
-  /**
-   * Defines an app
-   * @param options configuration options
-   */
-  constructor(options: AppOptions = { }) {
-    super(undefined as any, '');
-    this.outdir = options.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
-  }
-
-  /**
-   * Synthesizes all manifests to the output directory
-   */
-  public synth(): void {
-
-    fs.mkdirSync(this.outdir, { recursive: true });
-
-    // this is kind of sucky, eventually I would like the DependencyGraph
-    // to be able to answer this question.
-    const hasDependantCharts = resolveDependencies(this);
-
-    // Since we plan on removing the distributed synth mechanism, we no longer call `Node.synthesize`, but rather simply implement
-    // the necessary operations. We do however want to preserve the distributed validation.
-    validate(this);
-
-    const simpleManifestNamer = (chart: Chart) => `${Names.toDnsLabel(Node.of(chart).path)}.k8s.yaml`;
-    const manifestNamer = hasDependantCharts ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
-
-    const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
-
-    let index = 0;
-    for (const node of charts) {
-      const chart: Chart = Chart.of(node);
-      Yaml.save(path.join(this.outdir, manifestNamer(chart)), chartToKube(chart));
-      index++;
-    }
-
-  }
 
   /**
    * Synthesize a single chart.
@@ -104,6 +62,48 @@ export class App extends Construct {
     return App.of(scope);
   }
 
+  /**
+   * The output directory into which manifests will be synthesized.
+   */
+  public readonly outdir: string;
+
+  /**
+   * Defines an app
+   * @param options configuration options
+   */
+  constructor(options: AppOptions = { }) {
+    super(undefined as any, '');
+    this.outdir = options.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
+  }
+
+  /**
+   * Synthesizes all manifests to the output directory
+   */
+  public synth(): void {
+
+    fs.mkdirSync(this.outdir, { recursive: true });
+
+    // this is kind of sucky, eventually I would like the DependencyGraph
+    // to be able to answer this question.
+    const hasDependantCharts = resolveDependencies(this);
+
+    // Since we plan on removing the distributed synth mechanism, we no longer call `Node.synthesize`, but rather simply implement
+    // the necessary operations. We do however want to preserve the distributed validation.
+    validate(this);
+
+    const simpleManifestNamer = (chart: Chart) => `${Names.toDnsLabel(Node.of(chart).path)}.k8s.yaml`;
+    const manifestNamer = hasDependantCharts ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
+
+    const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
+
+    let index = 0;
+    for (const node of charts) {
+      const chart: Chart = Chart.of(node);
+      Yaml.save(path.join(this.outdir, manifestNamer(chart)), chartToKube(chart));
+      index++;
+    }
+
+  }
 }
 
 function validate(app: App) {

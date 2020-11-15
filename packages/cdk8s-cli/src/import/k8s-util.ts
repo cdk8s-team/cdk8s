@@ -1,5 +1,5 @@
 /**
- * 
+ *
  *     io.k8s.api.extensions.v1beta1.Deployment
  *     |--------- ^ -------|  ^  ^ ^ |---^----|
  *                |           |  | |     |
@@ -28,16 +28,15 @@ enum ApiLevel {
 }
 
 
-
 /**
  * Compares two API versions using the following strategy:
- * 
+ *
  *  - Latest stable version
- *  - If there isn't a stable version, 
- * 
- * 
- * @param lhs 
- * @param rhs 
+ *  - If there isn't a stable version,
+ *
+ *
+ * @param lhs
+ * @param rhs
  */
 export function compareApiVersions(lhs: ApiObjectVersion, rhs: ApiObjectVersion): number {
 
@@ -104,8 +103,8 @@ export function parseApiTypeName(fullname: string): ApiObjectName {
     fullname: fullname,
     namespace,
     basename: type,
-    version: parseInt(version), 
-    level, 
+    version: parseInt(version),
+    level,
     subversion,
   };
 }

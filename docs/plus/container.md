@@ -12,9 +12,10 @@ Environment variables can be added to containers using various sources, via sema
 ```typescript
 import * as kplus from 'cdk8s-plus'
 
-const container = new kplus.Container({
+const pod = new kplus.Pod(this, 'Pod');
+const container = pod.addContainer({
   image: 'my-app'
-})
+});
 
 // explicitly use a value.
 container.addEnv('endpoint', kplus.EnvValue.fromValue('value'));
@@ -58,7 +59,8 @@ import * as kplus from 'cdk8s-plus';
 const config = kplus.ConfigMap.fromConfigMapName('config');
 const volume = kplus.Volume.fromConfigMap(config);
 
-const container = new kplus.Container({
+const pod = new kplus.Pod(this, 'Pod');
+const container = pod.addContainer({
   image: 'my-app'
 })
 
@@ -82,9 +84,13 @@ A `Probe` instance can be created through one of the `fromXxx` static methods:
 Readiness, liveness, and startup probes can be configured at the container-level through the `readiness`, `liveness`, and `startup` options:
 
 ```ts
-new kplus.Container({
-  // ...
-  readiness: kplus.Probe.fromHttpGet('/ping')
+new kplus.Pod(this, 'Pod', {
+  containers: [
+    {
+      // ...
+      readiness: kplus.Probe.fromHttpGet('/ping'),
+    }
+  ]
 });
 ```
 

@@ -332,7 +332,7 @@ new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[DeploymentProps](#cdk8s-plus-deploymentprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
-  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **containers** (<code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
@@ -364,13 +364,25 @@ Name | Type | Description
 Add a container to the pod.
 
 ```ts
-addContainer(container: Container): void
+addContainer(container: ContainerProps): Container
 ```
 
-* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
+* **container** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
+  * **image** (<code>string</code>)  Docker image name. 
+  * **args** (<code>Array<string></code>)  Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided. __*Default*__: []
+  * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
+  * **liveness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **startup** (<code>[Probe](#cdk8s-plus-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
+  * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
-
-
+__Returns__:
+* <code>[Container](#cdk8s-plus-container)</code>
 
 #### addVolume(volume)🔹 <a id="cdk8s-plus-deployment-addvolume"></a>
 
@@ -883,7 +895,7 @@ new Job(scope: Construct, id: string, props?: JobProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[JobProps](#cdk8s-plus-jobprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
-  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **containers** (<code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
@@ -913,13 +925,25 @@ Name | Type | Description
 Add a container to the pod.
 
 ```ts
-addContainer(container: Container): void
+addContainer(container: ContainerProps): Container
 ```
 
-* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
+* **container** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
+  * **image** (<code>string</code>)  Docker image name. 
+  * **args** (<code>Array<string></code>)  Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided. __*Default*__: []
+  * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
+  * **liveness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **startup** (<code>[Probe](#cdk8s-plus-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
+  * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
-
-
+__Returns__:
+* <code>[Container](#cdk8s-plus-container)</code>
 
 #### addVolume(volume)🔹 <a id="cdk8s-plus-job-addvolume"></a>
 
@@ -959,7 +983,7 @@ new Pod(scope: Construct, id: string, props?: PodProps)
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[PodProps](#cdk8s-plus-podprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
-  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **containers** (<code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
@@ -985,13 +1009,25 @@ Name | Type | Description
 Add a container to the pod.
 
 ```ts
-addContainer(container: Container): void
+addContainer(container: ContainerProps): Container
 ```
 
-* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
+* **container** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
+  * **image** (<code>string</code>)  Docker image name. 
+  * **args** (<code>Array<string></code>)  Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided. __*Default*__: []
+  * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
+  * **liveness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **startup** (<code>[Probe](#cdk8s-plus-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
+  * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
-
-
+__Returns__:
+* <code>[Container](#cdk8s-plus-container)</code>
 
 #### addVolume(volume)🔹 <a id="cdk8s-plus-pod-addvolume"></a>
 
@@ -1024,7 +1060,7 @@ new PodSpec(props?: PodSpecProps)
 ```
 
 * **props** (<code>[PodSpecProps](#cdk8s-plus-podspecprops)</code>)  *No description*
-  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **containers** (<code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
@@ -1049,13 +1085,25 @@ Name | Type | Description
 Add a container to the pod.
 
 ```ts
-addContainer(container: Container): void
+addContainer(container: ContainerProps): Container
 ```
 
-* **container** (<code>[Container](#cdk8s-plus-container)</code>)  *No description*
+* **container** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  *No description*
+  * **image** (<code>string</code>)  Docker image name. 
+  * **args** (<code>Array<string></code>)  Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided. __*Default*__: []
+  * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
+  * **liveness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **startup** (<code>[Probe](#cdk8s-plus-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
+  * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
-
-
+__Returns__:
+* <code>[Container](#cdk8s-plus-container)</code>
 
 #### addVolume(volume)🔹 <a id="cdk8s-plus-podspec-addvolume"></a>
 
@@ -1089,7 +1137,7 @@ new PodTemplate(props?: PodTemplateProps)
 ```
 
 * **props** (<code>[PodTemplateProps](#cdk8s-plus-podtemplateprops)</code>)  *No description*
-  * **containers** (<code>Array<[Container](#cdk8s-plus-container)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **containers** (<code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
   * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
@@ -1830,7 +1878,7 @@ Properties for initialization of `Deployment`.
 
 Name | Type | Description 
 -----|------|-------------
-**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
+**containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **defaultSelector**?🔹 | <code>boolean</code> | Automatically allocates a pod selector for this deployment.<br/>__*Default*__: true
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__
@@ -1970,13 +2018,25 @@ Name | Type | Description
 Add a container to the pod.
 
 ```ts
-addContainer(container: Container): void
+addContainer(container: ContainerProps): Container
 ```
 
-* **container** (<code>[Container](#cdk8s-plus-container)</code>)  The container.
+* **container** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  The container.
+  * **image** (<code>string</code>)  Docker image name. 
+  * **args** (<code>Array<string></code>)  Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided. __*Default*__: []
+  * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
+  * **liveness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **startup** (<code>[Probe](#cdk8s-plus-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
+  * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
-
-
+__Returns__:
+* <code>[Container](#cdk8s-plus-container)</code>
 
 #### addVolume(volume)🔹 <a id="cdk8s-plus-ipodspec-addvolume"></a>
 
@@ -2020,13 +2080,25 @@ Name | Type | Description
 Add a container to the pod.
 
 ```ts
-addContainer(container: Container): void
+addContainer(container: ContainerProps): Container
 ```
 
-* **container** (<code>[Container](#cdk8s-plus-container)</code>)  The container.
+* **container** (<code>[ContainerProps](#cdk8s-plus-containerprops)</code>)  The container.
+  * **image** (<code>string</code>)  Docker image name. 
+  * **args** (<code>Array<string></code>)  Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided. __*Default*__: []
+  * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
+  * **liveness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **startup** (<code>[Probe](#cdk8s-plus-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
+  * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
 
-
-
+__Returns__:
+* <code>[Container](#cdk8s-plus-container)</code>
 
 #### addVolume(volume)🔹 <a id="cdk8s-plus-ipodtemplate-addvolume"></a>
 
@@ -2132,7 +2204,7 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
-**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
+**containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
@@ -2181,7 +2253,7 @@ Properties for initialization of `Pod`.
 
 Name | Type | Description 
 -----|------|-------------
-**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
+**containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
@@ -2198,7 +2270,7 @@ Properties of a `PodSpec`.
 
 Name | Type | Description 
 -----|------|-------------
-**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
+**containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
 **volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/>__*Default*__: No volumes.
@@ -2216,7 +2288,7 @@ Adds metadata information on top of the spec.
 
 Name | Type | Description 
 -----|------|-------------
-**containers**?🔹 | <code>Array<[Container](#cdk8s-plus-container)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
+**containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.

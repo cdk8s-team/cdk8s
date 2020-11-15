@@ -1,8 +1,8 @@
-import { Testing, Chart, App, ApiObject } from '../src';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
 import { Node, Construct } from 'constructs';
+import { Testing, Chart, App, ApiObject } from '../src';
 
 test('empty app emits no files', () => {
   // GIVEN
@@ -175,7 +175,7 @@ test('synth calls validate', () => {
 
     protected onValidate(): string[] {
       this.validateInvoked = true;
-      return []
+      return [];
     }
   }
 
@@ -187,4 +187,4 @@ test('synth calls validate', () => {
 
   expect(construct.validateInvoked).toBeTruthy();
 
-})
+});
