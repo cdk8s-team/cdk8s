@@ -1,9 +1,9 @@
-import * as fs from 'fs';
-import * as YAML from 'yaml';
-import { Type } from 'yaml/util';
 import { execFileSync } from 'child_process';
+import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
+import * as YAML from 'yaml';
+import { Type } from 'yaml/util';
 
 // Ensure that all strings are quoted when written to yaml to avoid unquoted
 // primitive types in the output yaml in fields that require strings.
@@ -23,7 +23,7 @@ export class Yaml {
     // NOTE: we convert undefined values to null, but ignore any documents that
     //  are undefined
     const data = docs.map(
-      r => r === undefined ? '\n' : YAML.stringify(r, {keepUndefined: true}),
+      r => r === undefined ? '\n' : YAML.stringify(r, { keepUndefined: true }),
     ).join('---\n');
     fs.writeFileSync(filePath, data, { encoding: 'utf-8' });
   }
@@ -84,6 +84,6 @@ export class Yaml {
  * This method spawns a child process in order to perform an http call synchronously.
  */
 function loadurl(url: string): string {
-  const loadurl = path.join(__dirname, '_loadurl.js');
-  return execFileSync(process.execPath, [ loadurl, url ], { encoding: 'utf-8' }).toString()
+  const script = path.join(__dirname, '_loadurl.js');
+  return execFileSync(process.execPath, [script, url], { encoding: 'utf-8' }).toString();
 }

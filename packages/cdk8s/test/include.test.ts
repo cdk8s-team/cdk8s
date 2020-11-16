@@ -1,7 +1,7 @@
-import { Testing, Include, Yaml } from '../src';
-import * as yaml from 'yaml';
 import * as fs from 'fs';
 import { Node } from 'constructs';
+import * as yaml from 'yaml';
+import { Testing, Include, Yaml } from '../src';
 
 test('Include can be used to load from YAML', () => {
   // GIVEN
@@ -20,7 +20,7 @@ test('Include can be used to load from YAML', () => {
 test('skips empty documents', () => {
   // GIVEN
   const chart = Testing.chart();
-  const file = Yaml.tmp([ { } ]);
+  const file = Yaml.tmp([{ }]);
 
   // WHEN
   const inc = new Include(chart, 'empty', { url: file });
@@ -51,10 +51,10 @@ test('multiple resources with the same k8s name can be included so long as their
       },
     },
   ]);
-  
+
   const inc = new Include(chart, 'foo', { url: file });
   const ids = Node.of(inc).children.map(x => Node.of(x).id);
-  expect(ids).toStrictEqual([ 'resource1-foo', 'resource1-bar' ]);
+  expect(ids).toStrictEqual(['resource1-foo', 'resource1-bar']);
 });
 
 test('apiObjects returns all the API objects', () => {
@@ -79,7 +79,7 @@ test('apiObjects returns all the API objects', () => {
       },
     },
   ]);
-  
+
   const inc = new Include(chart, 'foo', { url: file });
-  expect(inc.apiObjects.map(x => x.kind).sort()).toEqual([ 'Bar', 'Foo' ]);
+  expect(inc.apiObjects.map(x => x.kind).sort()).toEqual(['Bar', 'Foo']);
 });

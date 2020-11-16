@@ -8,10 +8,10 @@ dist
 /.github
 /.vscode
 /.projenrc.js
-/.eslintrc.json
 /tsconfig.jest.json
 /coverage
 /test
+/.eslintrc.json
 !/lib
 !/lib/**/*.js
 !/lib/**/*.d.ts

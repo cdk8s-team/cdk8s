@@ -1,5 +1,4 @@
 import * as kplus from '../src';
-import { Duration } from '../src';
 import * as k8s from '../src/imports/k8s';
 
 describe('EnvValue', () => {
@@ -31,8 +30,8 @@ describe('EnvValue', () => {
     const secretValue = {
       secret: kplus.Secret.fromSecretName('Secret'),
       key: 'my-key',
-    }
-    
+    };
+
     const actual = kplus.EnvValue.fromSecretValue(secretValue);
 
     expect(actual.value).toBeUndefined();
@@ -47,7 +46,7 @@ describe('EnvValue', () => {
   test('Cannot be created from missing required process env', () => {
 
     const key = 'cdk8s-plus.tests.container.env.fromProcess';
-    expect(() => kplus.EnvValue.fromProcess(key, {required: true})).toThrowError(`Missing ${key} env variable`);
+    expect(() => kplus.EnvValue.fromProcess(key, { required: true })).toThrowError(`Missing ${key} env variable`);
 
   });
 
@@ -200,42 +199,42 @@ describe('Container', () => {
 
   test('"readiness", "liveness", and "startup" can be used to define probes', () => {
     // GIVEN
-    const container = new kplus.Container({ 
+    const container = new kplus.Container({
       image: 'foo',
       readiness: kplus.Probe.fromHttpGet('/ping', {
-        timeoutSeconds: Duration.minutes(2),
+        timeoutSeconds: kplus.Duration.minutes(2),
       }),
       liveness: kplus.Probe.fromHttpGet('/live', {
-        timeoutSeconds: Duration.minutes(3),
+        timeoutSeconds: kplus.Duration.minutes(3),
       }),
       startup: kplus.Probe.fromHttpGet('/startup', {
-        timeoutSeconds: Duration.minutes(4),
+        timeoutSeconds: kplus.Duration.minutes(4),
       }),
     });
 
     // THEN
     expect(container._toKube().readinessProbe).toEqual({
-      failureThreshold: 3, 
-      httpGet: {path: '/ping', port: 80}, 
-      initialDelaySeconds: undefined, 
-      periodSeconds: undefined, 
-      successThreshold: undefined, 
+      failureThreshold: 3,
+      httpGet: { path: '/ping', port: 80 },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
       timeoutSeconds: 120,
     });
     expect(container._toKube().livenessProbe).toEqual({
-      failureThreshold: 3, 
-      httpGet: {path: '/live', port: 80}, 
-      initialDelaySeconds: undefined, 
-      periodSeconds: undefined, 
-      successThreshold: undefined, 
+      failureThreshold: 3,
+      httpGet: { path: '/live', port: 80 },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
       timeoutSeconds: 180,
     });
     expect(container._toKube().startupProbe).toEqual({
-      failureThreshold: 3, 
-      httpGet: {path: '/startup', port: 80}, 
-      initialDelaySeconds: undefined, 
-      periodSeconds: undefined, 
-      successThreshold: undefined, 
+      failureThreshold: 3,
+      httpGet: { path: '/startup', port: 80 },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
       timeoutSeconds: 240,
     });
   });

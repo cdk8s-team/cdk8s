@@ -1,7 +1,7 @@
-import { Yaml } from '../src/yaml';
 import * as fs from 'fs';
-import * as path from 'path';
 import * as os from 'os';
+import * as path from 'path';
+import { Yaml } from '../src/yaml';
 
 describe('load', () => {
   test('from file', () => {
@@ -15,15 +15,15 @@ describe('load', () => {
   test('empty documents are filtered out', () => {
     const file = Yaml.tmp([
       { doc: 1 },
-      null,      // filtered
+      null, // filtered
       'str_doc', // not filtered
-      { },       // filtered
-      '',        // not filtered
+      { }, // filtered
+      '', // not filtered
       undefined, // filtered
-      0,         // not filtered
-      [],        // filtered
+      0, // not filtered
+      [], // filtered
       { doc: 2 },
-    ])
+    ]);
 
     expect(Yaml.load(file)).toMatchSnapshot();
   });
@@ -31,13 +31,13 @@ describe('load', () => {
 
 describe('save', () => {
   test('single document', () => {
-    const outputFile = Yaml.tmp([ { foo: 'bar', hello: [ 1, 2, 3 ] } ]);
+    const outputFile = Yaml.tmp([{ foo: 'bar', hello: [1, 2, 3] }]);
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
   });
 
   test('multiple documents', () => {
     const outputFile = Yaml.tmp([
-      { foo: 'bar', hello: [ 1, 2, 3 ] },
+      { foo: 'bar', hello: [1, 2, 3] },
       { number: 2 },
     ]);
 
@@ -55,14 +55,14 @@ describe('save', () => {
     ]);
 
     expect(fs.readFileSync(temp, 'utf-8')).toMatchSnapshot();
-  })
+  });
 
   test('empty documents are respected', () => {
     const outputFile = Yaml.tmp([
       {},
       {},
       undefined,
-      {empty: true},
+      { empty: true },
       {},
     ]);
 
@@ -85,6 +85,6 @@ test('yaml 1.1 octal numbers are parsed correctly', () => {
   const tmpdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-'));
   const filePath = path.join(tmpdir, 'temp.yaml');
   fs.writeFileSync(filePath, 'foo: 0755');
-  
-  expect(Yaml.load(filePath)).toEqual([ { foo: 493 }]);
+
+  expect(Yaml.load(filePath)).toEqual([{ foo: 493 }]);
 });

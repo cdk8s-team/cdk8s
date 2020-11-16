@@ -1,13 +1,12 @@
-import * as k8s from './imports/k8s';
+import { ApiObject, ApiObjectMetadataDefinition, Lazy, Names } from 'cdk8s';
 import { Construct, Node } from 'constructs';
-import { Protocol, Service, ServiceType } from './service';
 import { Resource, ResourceProps } from './base';
-import * as cdk8s from 'cdk8s';
-import { ApiObjectMetadataDefinition, Names } from 'cdk8s';
-import { RestartPolicy, PodTemplate, IPodTemplate, PodTemplateProps } from './pod'
-import { Volume } from './volume';
-import { Container } from './container';
+import { Container, ContainerProps } from './container';
+import * as k8s from './imports/k8s';
+import { RestartPolicy, PodTemplate, IPodTemplate, PodTemplateProps } from './pod';
+import { Protocol, Service, ServiceType } from './service';
 import { IServiceAccount } from './service-account';
+import { Volume } from './volume';
 
 /**
  * Properties for initialization of `Deployment`.
@@ -47,11 +46,11 @@ export interface ExposeOptions {
   /**
    * The name of the service to expose.
    * This will be set on the Service.metadata and must be a DNS_LABEL
-   * 
+   *
    * @default undefined Uses the system generated name.
    */
   readonly name?: string;
-  
+
   /**
    * The IP protocol for this port. Supports "TCP", "UDP", and "SCTP". Default is TCP.
    *
@@ -106,7 +105,7 @@ export class Deployment extends Resource implements IPodTemplate {
   /**
    * @see base.Resource.apiObject
    */
-  protected readonly apiObject: cdk8s.ApiObject;
+  protected readonly apiObject: ApiObject;
 
   private readonly _podTemplate: PodTemplate;
   private readonly _labelSelector: Record<string, string>;
@@ -116,7 +115,7 @@ export class Deployment extends Resource implements IPodTemplate {
 
     this.apiObject = new k8s.Deployment(this, 'Deployment', {
       metadata: props.metadata,
-      spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
+      spec: Lazy.any({ produce: () => this._toKube() }),
     });
 
     this.replicas = props.replicas ?? 1;
@@ -177,7 +176,7 @@ export class Deployment extends Resource implements IPodTemplate {
    * This is equivalent to running `kubectl expose deployment <deployment-name>`.
    *
    * @param port The port number the service will bind to.
-   * @param options Options to determine details of the service and port exposed.   
+   * @param options Options to determine details of the service and port exposed.
    */
   public expose(port: number, options: ExposeOptions = {}): Service {
     const service = new Service(this, 'Service', {
@@ -185,11 +184,11 @@ export class Deployment extends Resource implements IPodTemplate {
       type: options.serviceType ?? ServiceType.CLUSTER_IP,
     });
 
-    service.addDeployment(this, port, {protocol: options.protocol, targetPort: options.targetPort});
+    service.addDeployment(this, port, { protocol: options.protocol, targetPort: options.targetPort });
     return service;
   }
 
-  public addContainer(container: Container): void {
+  public addContainer(container: ContainerProps): Container {
     return this._podTemplate.addContainer(container);
   }
 

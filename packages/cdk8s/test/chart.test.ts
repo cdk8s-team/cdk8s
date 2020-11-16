@@ -1,5 +1,5 @@
-import { Chart, ApiObject, Testing } from '../src';
 import { Construct, Node, Dependency } from 'constructs';
+import { Chart, ApiObject, Testing } from '../src';
 import { Lazy } from '../src/lazy';
 
 test('empty stack', () => {
@@ -114,7 +114,7 @@ test('addDependency', () => {
       source: chart1,
       target: chart3,
     },
-  ]))
+  ]));
 
 });
 
@@ -131,7 +131,7 @@ describe('toJson', () => {
 
       protected onValidate(): string[] {
         this.validateInvoked = true;
-        return []
+        return [];
       }
     }
 
@@ -214,7 +214,7 @@ describe('toJson', () => {
     expect(chart.toJson()).toEqual([
       dataBase.obj.toJson(),
       microService.obj.toJson(),
-    ])
+    ]);
 
   });
 
@@ -231,7 +231,7 @@ describe('toJson', () => {
     expect(chart.toJson()).toEqual([
       dataBase.obj.obj.toJson(),
       microService.obj.toJson(),
-    ])
+    ]);
 
   });
 
@@ -248,7 +248,7 @@ describe('toJson', () => {
     expect(chart.toJson()).toEqual([
       dataBase.obj.toJson(),
       microService.toJson(),
-    ])
+    ]);
 
   });
 
@@ -265,7 +265,7 @@ describe('toJson', () => {
     expect(chart.toJson()).toEqual([
       database.toJson(),
       microService.obj.toJson(),
-    ])
+    ]);
 
   });
 

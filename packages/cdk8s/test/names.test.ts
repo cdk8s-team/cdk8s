@@ -46,7 +46,7 @@ describe('toDnsLabel', () => {
     expect(toDnsName('hello/hello/hello/hello/hello')).toEqual('hello-456bb9d7');
     expect(toDnsName('hello/cool/cool/cool/cool')).toEqual('hello-cool-83150e81');
     expect(toDnsName('hello/world/world/world/cool')).toEqual('hello-world-cool-0148a798');
-  })
+  });
 
   test('trimming (prioritize last component)', () => {
     expect(toDnsName('hello/world', 8)).toEqual('761e91eb');
@@ -112,7 +112,7 @@ describe('toLabel', () => {
     expect(toLabelValue('hello/hello/hello/hello/hello')).toEqual('hello-456bb9d7');
     expect(toLabelValue('hello/cool/cool/cool/cool')).toEqual('hello-cool-83150e81');
     expect(toLabelValue('hello/world/world/world/cool')).toEqual('hello-world-cool-0148a798');
-  })
+  });
 
   test('trimming (prioritize last component)', () => {
     expect(toLabelValue('hello/world', '-', 8)).toEqual('761e91eb');

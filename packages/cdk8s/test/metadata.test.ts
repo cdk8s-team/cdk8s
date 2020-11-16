@@ -10,7 +10,7 @@ test('Can add a label', () => {
 
   expect(actual.labels).toEqual({
     key: 'value',
-  })
+  });
 
 });
 
@@ -24,15 +24,15 @@ test('Can add an annotation', () => {
 
   expect(actual.annotations).toEqual({
     key: 'value',
-  })
+  });
 
 });
 
 test('Instantiation properties are all respected', () => {
 
   const meta = new ApiObjectMetadataDefinition({
-    labels: {key: 'value'},
-    annotations: {key: 'value'},
+    labels: { key: 'value' },
+    annotations: { key: 'value' },
     name: 'name',
     namespace: 'namespace',
   });
@@ -48,7 +48,7 @@ test('Instantiation properties are all respected', () => {
     labels: {
       key: 'value',
     },
-  }
+  };
 
   expect(actual).toStrictEqual(expected);
 
@@ -68,4 +68,4 @@ test('Can include arbirary key/value options', () => {
     bar: 'baz',
     foo: 123,
   });
-})
+});

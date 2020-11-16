@@ -1,6 +1,5 @@
-import * as kplus from '../src';
 import { Testing } from 'cdk8s';
-import { Secret } from '../src';
+import * as kplus from '../src';
 
 test('minimal definition', () => {
   // GIVEN
@@ -26,8 +25,8 @@ test('minimal definition', () => {
 test('secrets can be added to the service account', () => {
   // GIVEN
   const chart = Testing.chart();
-  const secret1 = Secret.fromSecretName('my-secret-1');
-  const secret2 = Secret.fromSecretName('my-secret-2');
+  const secret1 = kplus.Secret.fromSecretName('my-secret-1');
+  const secret2 = kplus.Secret.fromSecretName('my-secret-2');
 
   // WHEN
   const sa = new kplus.ServiceAccount(chart, 'my-service-account', {

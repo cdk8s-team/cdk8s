@@ -1,11 +1,11 @@
-import { Construct, Node, IConstruct } from 'constructs';
 import * as fs from 'fs';
-import { Chart } from './chart';
 import * as path from 'path';
-import { Yaml } from './yaml';
-import { DependencyGraph } from './dependency';
+import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
+import { Chart } from './chart';
+import { DependencyGraph } from './dependency';
 import { Names } from './names';
+import { Yaml } from './yaml';
 
 export interface AppOptions {
   /**
@@ -29,6 +29,47 @@ export interface AppOptions {
  * Represents a cdk8s application.
  */
 export class App extends Construct {
+  /**
+   * Synthesize a single chart.
+   *
+   * Each element returned in the resulting array represents a different ApiObject
+   * in the scope of the chart.
+   *
+   * Note that the returned array order is important. It is determined by the various dependencies between
+   * the constructs in the chart, where the first element is the one without dependencies, and so on...
+   *
+   * @returns An array of JSON objects.
+   * @param chart the chart to synthesize.
+   * @internal
+   */
+  public static _synthChart(chart: Chart): any[] {
+
+    const app: App = App.of(chart);
+
+    // we must prepare the entire app before synthesizing the chart
+    // because the dependency inference happens on the app level.
+    resolveDependencies(app);
+
+    // validate the app since we want to call onValidate of the relevant constructs.
+    // note this will also call onValidate on constructs from possibly different charts,
+    // but thats ok too since we no longer treat constructs as a self-contained synthesis unit.
+    validate(app);
+
+    return chartToKube(chart);
+  }
+
+  private static of(c: IConstruct): App {
+
+    const scope = Node.of(c).scope;
+
+    if (!scope) {
+      // the app is the only construct without a scope.
+      return c as App;
+    }
+
+    return App.of(scope);
+  }
+
   /**
    * The output directory into which manifests will be synthesized.
    */
@@ -83,48 +124,6 @@ export class App extends Construct {
     }
 
   }
-
-  /**
-   * Synthesize a single chart.
-   *
-   * Each element returned in the resulting array represents a different ApiObject
-   * in the scope of the chart.
-   *
-   * Note that the returned array order is important. It is determined by the various dependencies between
-   * the constructs in the chart, where the first element is the one without dependencies, and so on...
-   *
-   * @returns An array of JSON objects.
-   * @param chart the chart to synthesize.
-   * @internal
-   */
-  public static _synthChart(chart: Chart): any[] {
-
-    const app: App = App.of(chart);
-
-    // we must prepare the entire app before synthesizing the chart
-    // because the dependency inference happens on the app level.
-    resolveDependencies(app);
-
-    // validate the app since we want to call onValidate of the relevant constructs.
-    // note this will also call onValidate on constructs from possibly different charts,
-    // but thats ok too since we no longer treat constructs as a self-contained synthesis unit.
-    validate(app);
-
-    return chartToKube(chart);
-  }
-
-  private static of(c: IConstruct): App {
-
-    const scope = Node.of(c).scope;
-
-    if (!scope) {
-      // the app is the only construct without a scope.
-      return c as App;
-    }
-
-    return App.of(scope);
-  }
-
 }
 
 function validate(app: App) {

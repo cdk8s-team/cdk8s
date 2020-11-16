@@ -98,6 +98,10 @@ export class Volume {
     });
   }
 
+  protected constructor(public readonly name: string, private readonly config: any) {
+
+  }
+
   /**
    * @internal
    */
@@ -106,10 +110,6 @@ export class Volume {
       name: this.name,
       ...this.config,
     };
-  }
-
-  protected constructor(public readonly name: string, private readonly config: any) {
-
   }
 }
 
