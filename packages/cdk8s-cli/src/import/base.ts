@@ -24,7 +24,7 @@ export interface ImportOptions {
 
   /**
    * A prefix for all construct classes.
-   * 
+   *
    * @default - default is determined by the specific import type. For example
    * k8s imports will add a "Kube" prefix by default.
    */
