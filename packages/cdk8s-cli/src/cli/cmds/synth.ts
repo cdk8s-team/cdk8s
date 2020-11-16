@@ -13,7 +13,7 @@ class Command implements yargs.CommandModule {
   public readonly builder = (args: yargs.Argv) => args
     .option('app', { default: config.app, required: true, desc: 'Command to use in order to execute cdk8s app', alias: 'a' })
     .option('output', { default: config.output, required: false, desc: 'Output directory', alias: 'o' })
-    .option('stdout', { type: 'boolean', required: false, desc: 'Flag to print to stdout', alias: 'p' });
+    .option('stdout', { type: 'boolean', required: false, desc: 'Write synthesized manifests to STDOUT instead of the output directory', alias: 'p' });
 
   public async handler(argv: any) {
     const command = argv.app;
