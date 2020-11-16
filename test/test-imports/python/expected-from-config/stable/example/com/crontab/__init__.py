@@ -26,19 +26,19 @@ class CronTab(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: typing.Optional["CronTabSpec"] = None,
     ) -> None:
         """Defines a "CronTab" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: 
         """
-        options = CronTabOptions(spec=spec)
+        props = CronTabOptions(spec=spec)
 
-        jsii.create(CronTab, self, [scope, name, options])
+        jsii.create(CronTab, self, [scope, id, props])
 
 
 @jsii.data_type(

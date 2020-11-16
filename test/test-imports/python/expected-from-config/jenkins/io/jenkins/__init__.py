@@ -27,7 +27,7 @@ class Jenkins(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Any = None,
         spec: typing.Optional["JenkinsSpec"] = None,
@@ -35,13 +35,13 @@ class Jenkins(
         """Defines a "Jenkins" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: 
         :param spec: Spec defines the desired state of the Jenkins.
         """
-        options = JenkinsOptions(metadata=metadata, spec=spec)
+        props = JenkinsOptions(metadata=metadata, spec=spec)
 
-        jsii.create(Jenkins, self, [scope, name, options])
+        jsii.create(Jenkins, self, [scope, id, props])
 
 
 @jsii.data_type(

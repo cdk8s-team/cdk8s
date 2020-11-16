@@ -11,12 +11,12 @@ export class ClusterInstallation extends ApiObject {
   /**
    * Defines a "ClusterInstallation" API object
    * @param scope the scope in which to define this object
-   * @param name a scope-local name for the object
-   * @param options configuration options
+   * @param id a scope-local name for the object
+   * @param props initialiation props
    */
-  public constructor(scope: Construct, name: string, options: ClusterInstallationOptions) {
-    super(scope, name, {
-      ...options,
+  public constructor(scope: Construct, id: string, props: ClusterInstallationOptions) {
+    super(scope, id, {
+      ...props,
       kind: 'ClusterInstallation',
       apiVersion: 'mattermost.com/v1alpha1',
     });

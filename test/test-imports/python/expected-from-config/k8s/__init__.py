@@ -276,66 +276,6 @@ class AllowedHostPath:
 
 
 @jsii.data_type(
-    jsii_type="k8s.ApiService",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class ApiService:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["ApiServiceSpec"] = None,
-    ) -> None:
-        """APIService represents a server for a particular GroupVersion.
-
-        Name must be "version.group".
-
-        :param metadata: 
-        :param spec: Spec contains information for locating and communicating with a server.
-
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = ApiServiceSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["ApiServiceSpec"]:
-        """Spec contains information for locating and communicating with a server.
-
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ApiService(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.ApiServiceSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -476,64 +416,6 @@ class ApiServiceSpec:
 
     def __repr__(self) -> str:
         return "ApiServiceSpec(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.AuditSink",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class AuditSink:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["AuditSinkSpec"] = None,
-    ) -> None:
-        """AuditSink represents a cluster level audit sink.
-
-        :param metadata: 
-        :param spec: Spec defines the audit configuration spec.
-
-        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = AuditSinkSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """
-        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["AuditSinkSpec"]:
-        """Spec defines the audit configuration spec.
-
-        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "AuditSink(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -1371,64 +1253,6 @@ class CephFsVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="k8s.CertificateSigningRequest",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class CertificateSigningRequest:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["CertificateSigningRequestSpec"] = None,
-    ) -> None:
-        """Describes a certificate signing request.
-
-        :param metadata: 
-        :param spec: The certificate request itself and any additional information.
-
-        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = CertificateSigningRequestSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """
-        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["CertificateSigningRequestSpec"]:
-        """The certificate request itself and any additional information.
-
-        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "CertificateSigningRequest(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.CertificateSigningRequestSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -1797,165 +1621,6 @@ class ClientIpConfig:
 
 
 @jsii.data_type(
-    jsii_type="k8s.ClusterRole",
-    jsii_struct_bases=[],
-    name_mapping={
-        "aggregation_rule": "aggregationRule",
-        "metadata": "metadata",
-        "rules": "rules",
-    },
-)
-class ClusterRole:
-    def __init__(
-        self,
-        *,
-        aggregation_rule: typing.Optional[AggregationRule] = None,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
-    ) -> None:
-        """ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
-
-        :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-        :param metadata: Standard object's metadata.
-        :param rules: Rules holds all the PolicyRules for this ClusterRole.
-
-        :schema: io.k8s.api.rbac.v1.ClusterRole
-        """
-        if isinstance(aggregation_rule, dict):
-            aggregation_rule = AggregationRule(**aggregation_rule)
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if aggregation_rule is not None:
-            self._values["aggregation_rule"] = aggregation_rule
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if rules is not None:
-            self._values["rules"] = rules
-
-    @builtins.property
-    def aggregation_rule(self) -> typing.Optional[AggregationRule]:
-        """AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
-
-        If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-
-        :schema: io.k8s.api.rbac.v1.ClusterRole#aggregationRule
-        """
-        result = self._values.get("aggregation_rule")
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        :schema: io.k8s.api.rbac.v1.ClusterRole#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
-        """Rules holds all the PolicyRules for this ClusterRole.
-
-        :schema: io.k8s.api.rbac.v1.ClusterRole#rules
-        """
-        result = self._values.get("rules")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ClusterRole(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.ClusterRoleBinding",
-    jsii_struct_bases=[],
-    name_mapping={
-        "role_ref": "roleRef",
-        "metadata": "metadata",
-        "subjects": "subjects",
-    },
-)
-class ClusterRoleBinding:
-    def __init__(
-        self,
-        *,
-        role_ref: "RoleRef",
-        metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
-    ) -> None:
-        """ClusterRoleBinding references a ClusterRole, but not contain it.
-
-        It can reference a ClusterRole in the global namespace, and adds who information via Subject.
-
-        :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
-        :param metadata: Standard object's metadata.
-        :param subjects: Subjects holds references to the objects the role applies to.
-
-        :schema: io.k8s.api.rbac.v1.ClusterRoleBinding
-        """
-        if isinstance(role_ref, dict):
-            role_ref = RoleRef(**role_ref)
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "role_ref": role_ref,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if subjects is not None:
-            self._values["subjects"] = subjects
-
-    @builtins.property
-    def role_ref(self) -> "RoleRef":
-        """RoleRef can only reference a ClusterRole in the global namespace.
-
-        If the RoleRef cannot be resolved, the Authorizer must return an error.
-
-        :schema: io.k8s.api.rbac.v1.ClusterRoleBinding#roleRef
-        """
-        result = self._values.get("role_ref")
-        assert result is not None, "Required property 'role_ref' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        :schema: io.k8s.api.rbac.v1.ClusterRoleBinding#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def subjects(self) -> typing.Optional[typing.List["Subject"]]:
-        """Subjects holds references to the objects the role applies to.
-
-        :schema: io.k8s.api.rbac.v1.ClusterRoleBinding#subjects
-        """
-        result = self._values.get("subjects")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ClusterRoleBinding(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.ComponentCondition",
     jsii_struct_bases=[],
     name_mapping={
@@ -2046,143 +1711,6 @@ class ComponentCondition:
 
     def __repr__(self) -> str:
         return "ComponentCondition(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.ComponentStatus",
-    jsii_struct_bases=[],
-    name_mapping={"conditions": "conditions", "metadata": "metadata"},
-)
-class ComponentStatus:
-    def __init__(
-        self,
-        *,
-        conditions: typing.Optional[typing.List[ComponentCondition]] = None,
-        metadata: typing.Optional["ObjectMeta"] = None,
-    ) -> None:
-        """ComponentStatus (and ComponentStatusList) holds the cluster validation info.
-
-        :param conditions: List of component conditions observed.
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.ComponentStatus
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if conditions is not None:
-            self._values["conditions"] = conditions
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def conditions(self) -> typing.Optional[typing.List[ComponentCondition]]:
-        """List of component conditions observed.
-
-        :schema: io.k8s.api.core.v1.ComponentStatus#conditions
-        """
-        result = self._values.get("conditions")
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.ComponentStatus#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ComponentStatus(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.ConfigMap",
-    jsii_struct_bases=[],
-    name_mapping={"binary_data": "binaryData", "data": "data", "metadata": "metadata"},
-)
-class ConfigMap:
-    def __init__(
-        self,
-        *,
-        binary_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        metadata: typing.Optional["ObjectMeta"] = None,
-    ) -> None:
-        """ConfigMap holds configuration data for pods to consume.
-
-        :param binary_data: BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
-        :param data: Data contains the configuration data. Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.ConfigMap
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if binary_data is not None:
-            self._values["binary_data"] = binary_data
-        if data is not None:
-            self._values["data"] = data
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def binary_data(
-        self,
-    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
-        """BinaryData contains the binary data.
-
-        Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
-
-        :schema: io.k8s.api.core.v1.ConfigMap#binaryData
-        """
-        result = self._values.get("binary_data")
-        return result
-
-    @builtins.property
-    def data(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
-        """Data contains the configuration data.
-
-        Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
-
-        :schema: io.k8s.api.core.v1.ConfigMap#data
-        """
-        result = self._values.get("data")
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.ConfigMap#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ConfigMap(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -3107,144 +2635,6 @@ class ContainerPort:
 
 
 @jsii.data_type(
-    jsii_type="k8s.ControllerRevision",
-    jsii_struct_bases=[],
-    name_mapping={"revision": "revision", "data": "data", "metadata": "metadata"},
-)
-class ControllerRevision:
-    def __init__(
-        self,
-        *,
-        revision: jsii.Number,
-        data: typing.Any = None,
-        metadata: typing.Optional["ObjectMeta"] = None,
-    ) -> None:
-        """ControllerRevision implements an immutable snapshot of state data.
-
-        Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
-
-        :param revision: Revision indicates the revision of the state represented by Data.
-        :param data: Data is the serialized representation of the state.
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.apps.v1.ControllerRevision
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "revision": revision,
-        }
-        if data is not None:
-            self._values["data"] = data
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def revision(self) -> jsii.Number:
-        """Revision indicates the revision of the state represented by Data.
-
-        :schema: io.k8s.api.apps.v1.ControllerRevision#revision
-        """
-        result = self._values.get("revision")
-        assert result is not None, "Required property 'revision' is missing"
-        return result
-
-    @builtins.property
-    def data(self) -> typing.Any:
-        """Data is the serialized representation of the state.
-
-        :schema: io.k8s.api.apps.v1.ControllerRevision#data
-        """
-        result = self._values.get("data")
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.apps.v1.ControllerRevision#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ControllerRevision(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.CronJob",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class CronJob:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["CronJobSpec"] = None,
-    ) -> None:
-        """CronJob represents the configuration of a single cron job.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.batch.v1beta1.CronJob
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = CronJobSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.batch.v1beta1.CronJob#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["CronJobSpec"]:
-        """Specification of the desired behavior of a cron job, including the schedule.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.batch.v1beta1.CronJob#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "CronJob(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.CronJobSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -3465,70 +2855,6 @@ class CrossVersionObjectReference:
 
 
 @jsii.data_type(
-    jsii_type="k8s.CsiDriver",
-    jsii_struct_bases=[],
-    name_mapping={"spec": "spec", "metadata": "metadata"},
-)
-class CsiDriver:
-    def __init__(
-        self,
-        *,
-        spec: "CsiDriverSpec",
-        metadata: typing.Optional["ObjectMeta"] = None,
-    ) -> None:
-        """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
-
-        CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
-
-        :param spec: Specification of the CSI Driver.
-        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.storage.v1beta1.CSIDriver
-        """
-        if isinstance(spec, dict):
-            spec = CsiDriverSpec(**spec)
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "spec": spec,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def spec(self) -> "CsiDriverSpec":
-        """Specification of the CSI Driver.
-
-        :schema: io.k8s.api.storage.v1beta1.CSIDriver#spec
-        """
-        result = self._values.get("spec")
-        assert result is not None, "Required property 'spec' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object metadata.
-
-        metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.storage.v1beta1.CSIDriver#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "CsiDriver(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.CsiDriverSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -3604,68 +2930,6 @@ class CsiDriverSpec:
 
     def __repr__(self) -> str:
         return "CsiDriverSpec(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.CsiNode",
-    jsii_struct_bases=[],
-    name_mapping={"spec": "spec", "metadata": "metadata"},
-)
-class CsiNode:
-    def __init__(
-        self,
-        *,
-        spec: "CsiNodeSpec",
-        metadata: typing.Optional["ObjectMeta"] = None,
-    ) -> None:
-        """CSINode holds information about all CSI drivers installed on a node.
-
-        CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
-
-        :param spec: spec is the specification of CSINode.
-        :param metadata: metadata.name must be the Kubernetes node name.
-
-        :schema: io.k8s.api.storage.v1.CSINode
-        """
-        if isinstance(spec, dict):
-            spec = CsiNodeSpec(**spec)
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "spec": spec,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def spec(self) -> "CsiNodeSpec":
-        """spec is the specification of CSINode.
-
-        :schema: io.k8s.api.storage.v1.CSINode#spec
-        """
-        result = self._values.get("spec")
-        assert result is not None, "Required property 'spec' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """metadata.name must be the Kubernetes node name.
-
-        :schema: io.k8s.api.storage.v1.CSINode#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "CsiNode(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -4295,67 +3559,6 @@ class CustomResourceConversion:
 
 
 @jsii.data_type(
-    jsii_type="k8s.CustomResourceDefinition",
-    jsii_struct_bases=[],
-    name_mapping={"spec": "spec", "metadata": "metadata"},
-)
-class CustomResourceDefinition:
-    def __init__(
-        self,
-        *,
-        spec: "CustomResourceDefinitionSpec",
-        metadata: typing.Optional["ObjectMeta"] = None,
-    ) -> None:
-        """CustomResourceDefinition represents a resource that should be exposed on the API server.
-
-        Its name MUST be in the format <.spec.name>.<.spec.group>.
-
-        :param spec: spec describes how the user wants the resources to appear.
-        :param metadata: 
-
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition
-        """
-        if isinstance(spec, dict):
-            spec = CustomResourceDefinitionSpec(**spec)
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "spec": spec,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def spec(self) -> "CustomResourceDefinitionSpec":
-        """spec describes how the user wants the resources to appear.
-
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition#spec
-        """
-        result = self._values.get("spec")
-        assert result is not None, "Required property 'spec' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "CustomResourceDefinition(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.CustomResourceDefinitionNames",
     jsii_struct_bases=[],
     name_mapping={
@@ -4913,69 +4116,6 @@ class CustomResourceValidation:
 
 
 @jsii.data_type(
-    jsii_type="k8s.DaemonSet",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class DaemonSet:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["DaemonSetSpec"] = None,
-    ) -> None:
-        """DaemonSet represents the configuration of a daemon set.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.apps.v1.DaemonSet
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = DaemonSetSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.apps.v1.DaemonSet#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["DaemonSetSpec"]:
-        """The desired behavior of this daemon set.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.apps.v1.DaemonSet#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "DaemonSet(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.DaemonSetSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -5299,65 +4439,6 @@ class DeleteOptions:
 
     def __repr__(self) -> str:
         return "DeleteOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.Deployment",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class Deployment:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["DeploymentSpec"] = None,
-    ) -> None:
-        """Deployment enables declarative updates for Pods and ReplicaSets.
-
-        :param metadata: Standard object metadata.
-        :param spec: Specification of the desired behavior of the Deployment.
-
-        :schema: io.k8s.api.apps.v1.Deployment
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = DeploymentSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object metadata.
-
-        :schema: io.k8s.api.apps.v1.Deployment#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["DeploymentSpec"]:
-        """Specification of the desired behavior of the Deployment.
-
-        :schema: io.k8s.api.apps.v1.Deployment#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Deployment(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -6179,103 +5260,6 @@ class EndpointPort:
 
 
 @jsii.data_type(
-    jsii_type="k8s.EndpointSlice",
-    jsii_struct_bases=[],
-    name_mapping={
-        "address_type": "addressType",
-        "endpoints": "endpoints",
-        "metadata": "metadata",
-        "ports": "ports",
-    },
-)
-class EndpointSlice:
-    def __init__(
-        self,
-        *,
-        address_type: builtins.str,
-        endpoints: typing.List[Endpoint],
-        metadata: typing.Optional["ObjectMeta"] = None,
-        ports: typing.Optional[typing.List[EndpointPort]] = None,
-    ) -> None:
-        """EndpointSlice represents a subset of the endpoints that implement a service.
-
-        For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
-
-        :param address_type: addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
-        :param endpoints: endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.
-        :param metadata: Standard object's metadata.
-        :param ports: ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
-
-        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "address_type": address_type,
-            "endpoints": endpoints,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if ports is not None:
-            self._values["ports"] = ports
-
-    @builtins.property
-    def address_type(self) -> builtins.str:
-        """addressType specifies the type of address carried by this EndpointSlice.
-
-        All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
-
-        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#addressType
-        """
-        result = self._values.get("address_type")
-        assert result is not None, "Required property 'address_type' is missing"
-        return result
-
-    @builtins.property
-    def endpoints(self) -> typing.List[Endpoint]:
-        """endpoints is a list of unique endpoints in this slice.
-
-        Each slice may include a maximum of 1000 endpoints.
-
-        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#endpoints
-        """
-        result = self._values.get("endpoints")
-        assert result is not None, "Required property 'endpoints' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def ports(self) -> typing.Optional[typing.List[EndpointPort]]:
-        """ports specifies the list of network ports exposed by each endpoint in this slice.
-
-        Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
-
-        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#ports
-        """
-        result = self._values.get("ports")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "EndpointSlice(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.EndpointSubset",
     jsii_struct_bases=[],
     name_mapping={
@@ -6354,80 +5338,6 @@ class EndpointSubset:
 
     def __repr__(self) -> str:
         return "EndpointSubset(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.Endpoints",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "subsets": "subsets"},
-)
-class Endpoints:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        subsets: typing.Optional[typing.List[EndpointSubset]] = None,
-    ) -> None:
-        """Endpoints is a collection of endpoints that implement the actual service.
-
-        Example:
-        Name: "mysvc",
-        Subsets: [
-        {
-        Addresses: [{"ip": "10.10.1.1"}, {"ip": "10.10.2.2"}],
-        Ports: [{"name": "a", "port": 8675}, {"name": "b", "port": 309}]
-        },
-        {
-        Addresses: [{"ip": "10.10.3.3"}],
-        Ports: [{"name": "a", "port": 93}, {"name": "b", "port": 76}]
-        },
-        ]
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param subsets: The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
-
-        :schema: io.k8s.api.core.v1.Endpoints
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if subsets is not None:
-            self._values["subsets"] = subsets
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.Endpoints#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def subsets(self) -> typing.Optional[typing.List[EndpointSubset]]:
-        """The set of all endpoints is the union of all subsets.
-
-        Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
-
-        :schema: io.k8s.api.core.v1.Endpoints#subsets
-        """
-        result = self._values.get("subsets")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Endpoints(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -7097,263 +6007,6 @@ class EphemeralContainer:
 
 
 @jsii.data_type(
-    jsii_type="k8s.Event",
-    jsii_struct_bases=[],
-    name_mapping={
-        "involved_object": "involvedObject",
-        "metadata": "metadata",
-        "action": "action",
-        "count": "count",
-        "event_time": "eventTime",
-        "first_timestamp": "firstTimestamp",
-        "last_timestamp": "lastTimestamp",
-        "message": "message",
-        "reason": "reason",
-        "related": "related",
-        "reporting_component": "reportingComponent",
-        "reporting_instance": "reportingInstance",
-        "series": "series",
-        "source": "source",
-        "type": "type",
-    },
-)
-class Event:
-    def __init__(
-        self,
-        *,
-        involved_object: "ObjectReference",
-        metadata: "ObjectMeta",
-        action: typing.Optional[builtins.str] = None,
-        count: typing.Optional[jsii.Number] = None,
-        event_time: typing.Optional[datetime.datetime] = None,
-        first_timestamp: typing.Optional[datetime.datetime] = None,
-        last_timestamp: typing.Optional[datetime.datetime] = None,
-        message: typing.Optional[builtins.str] = None,
-        reason: typing.Optional[builtins.str] = None,
-        related: typing.Optional["ObjectReference"] = None,
-        reporting_component: typing.Optional[builtins.str] = None,
-        reporting_instance: typing.Optional[builtins.str] = None,
-        series: typing.Optional["EventSeries"] = None,
-        source: typing.Optional["EventSource"] = None,
-        type: typing.Optional[builtins.str] = None,
-    ) -> None:
-        """Event is a report of an event somewhere in the cluster.
-
-        :param involved_object: The object that this event is about.
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param action: What action was taken/failed regarding to the Regarding object.
-        :param count: The number of times this event has occurred.
-        :param event_time: Time when this Event was first observed.
-        :param first_timestamp: The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)
-        :param last_timestamp: The time at which the most recent occurrence of this event was recorded.
-        :param message: A human-readable description of the status of this operation.
-        :param reason: This should be a short, machine understandable string that gives the reason for the transition into the object's current status.
-        :param related: Optional secondary object for more complex actions.
-        :param reporting_component: Name of the controller that emitted this Event, e.g. ``kubernetes.io/kubelet``.
-        :param reporting_instance: ID of the controller instance, e.g. ``kubelet-xyzf``.
-        :param series: Data about the Event series this event represents or nil if it's a singleton Event.
-        :param source: The component reporting this event. Should be a short machine understandable string.
-        :param type: Type of this event (Normal, Warning), new types could be added in the future.
-
-        :schema: io.k8s.api.core.v1.Event
-        """
-        if isinstance(involved_object, dict):
-            involved_object = ObjectReference(**involved_object)
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(related, dict):
-            related = ObjectReference(**related)
-        if isinstance(series, dict):
-            series = EventSeries(**series)
-        if isinstance(source, dict):
-            source = EventSource(**source)
-        self._values: typing.Dict[str, typing.Any] = {
-            "involved_object": involved_object,
-            "metadata": metadata,
-        }
-        if action is not None:
-            self._values["action"] = action
-        if count is not None:
-            self._values["count"] = count
-        if event_time is not None:
-            self._values["event_time"] = event_time
-        if first_timestamp is not None:
-            self._values["first_timestamp"] = first_timestamp
-        if last_timestamp is not None:
-            self._values["last_timestamp"] = last_timestamp
-        if message is not None:
-            self._values["message"] = message
-        if reason is not None:
-            self._values["reason"] = reason
-        if related is not None:
-            self._values["related"] = related
-        if reporting_component is not None:
-            self._values["reporting_component"] = reporting_component
-        if reporting_instance is not None:
-            self._values["reporting_instance"] = reporting_instance
-        if series is not None:
-            self._values["series"] = series
-        if source is not None:
-            self._values["source"] = source
-        if type is not None:
-            self._values["type"] = type
-
-    @builtins.property
-    def involved_object(self) -> "ObjectReference":
-        """The object that this event is about.
-
-        :schema: io.k8s.api.core.v1.Event#involvedObject
-        """
-        result = self._values.get("involved_object")
-        assert result is not None, "Required property 'involved_object' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> "ObjectMeta":
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.Event#metadata
-        """
-        result = self._values.get("metadata")
-        assert result is not None, "Required property 'metadata' is missing"
-        return result
-
-    @builtins.property
-    def action(self) -> typing.Optional[builtins.str]:
-        """What action was taken/failed regarding to the Regarding object.
-
-        :schema: io.k8s.api.core.v1.Event#action
-        """
-        result = self._values.get("action")
-        return result
-
-    @builtins.property
-    def count(self) -> typing.Optional[jsii.Number]:
-        """The number of times this event has occurred.
-
-        :schema: io.k8s.api.core.v1.Event#count
-        """
-        result = self._values.get("count")
-        return result
-
-    @builtins.property
-    def event_time(self) -> typing.Optional[datetime.datetime]:
-        """Time when this Event was first observed.
-
-        :schema: io.k8s.api.core.v1.Event#eventTime
-        """
-        result = self._values.get("event_time")
-        return result
-
-    @builtins.property
-    def first_timestamp(self) -> typing.Optional[datetime.datetime]:
-        """The time at which the event was first recorded.
-
-        (Time of server receipt is in TypeMeta.)
-
-        :schema: io.k8s.api.core.v1.Event#firstTimestamp
-        """
-        result = self._values.get("first_timestamp")
-        return result
-
-    @builtins.property
-    def last_timestamp(self) -> typing.Optional[datetime.datetime]:
-        """The time at which the most recent occurrence of this event was recorded.
-
-        :schema: io.k8s.api.core.v1.Event#lastTimestamp
-        """
-        result = self._values.get("last_timestamp")
-        return result
-
-    @builtins.property
-    def message(self) -> typing.Optional[builtins.str]:
-        """A human-readable description of the status of this operation.
-
-        :schema: io.k8s.api.core.v1.Event#message
-        """
-        result = self._values.get("message")
-        return result
-
-    @builtins.property
-    def reason(self) -> typing.Optional[builtins.str]:
-        """This should be a short, machine understandable string that gives the reason for the transition into the object's current status.
-
-        :schema: io.k8s.api.core.v1.Event#reason
-        """
-        result = self._values.get("reason")
-        return result
-
-    @builtins.property
-    def related(self) -> typing.Optional["ObjectReference"]:
-        """Optional secondary object for more complex actions.
-
-        :schema: io.k8s.api.core.v1.Event#related
-        """
-        result = self._values.get("related")
-        return result
-
-    @builtins.property
-    def reporting_component(self) -> typing.Optional[builtins.str]:
-        """Name of the controller that emitted this Event, e.g. ``kubernetes.io/kubelet``.
-
-        :schema: io.k8s.api.core.v1.Event#reportingComponent
-        """
-        result = self._values.get("reporting_component")
-        return result
-
-    @builtins.property
-    def reporting_instance(self) -> typing.Optional[builtins.str]:
-        """ID of the controller instance, e.g. ``kubelet-xyzf``.
-
-        :schema: io.k8s.api.core.v1.Event#reportingInstance
-        """
-        result = self._values.get("reporting_instance")
-        return result
-
-    @builtins.property
-    def series(self) -> typing.Optional["EventSeries"]:
-        """Data about the Event series this event represents or nil if it's a singleton Event.
-
-        :schema: io.k8s.api.core.v1.Event#series
-        """
-        result = self._values.get("series")
-        return result
-
-    @builtins.property
-    def source(self) -> typing.Optional["EventSource"]:
-        """The component reporting this event.
-
-        Should be a short machine understandable string.
-
-        :schema: io.k8s.api.core.v1.Event#source
-        """
-        result = self._values.get("source")
-        return result
-
-    @builtins.property
-    def type(self) -> typing.Optional[builtins.str]:
-        """Type of this event (Normal, Warning), new types could be added in the future.
-
-        :schema: io.k8s.api.core.v1.Event#type
-        """
-        result = self._values.get("type")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Event(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.EventSeries",
     jsii_struct_bases=[],
     name_mapping={
@@ -8010,71 +6663,6 @@ class FlowDistinguisherMethod:
 
 
 @jsii.data_type(
-    jsii_type="k8s.FlowSchema",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class FlowSchema:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["FlowSchemaSpec"] = None,
-    ) -> None:
-        """FlowSchema defines the schema of a group of flows.
-
-        Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
-
-        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-        :param spec: ``spec`` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = FlowSchemaSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """``metadata`` is the standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["FlowSchemaSpec"]:
-        """``spec`` is the specification of the desired behavior of a FlowSchema.
-
-        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "FlowSchema(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.FlowSchemaSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -8665,69 +7253,6 @@ class Handler:
 
 
 @jsii.data_type(
-    jsii_type="k8s.HorizontalPodAutoscaler",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class HorizontalPodAutoscaler:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["HorizontalPodAutoscalerSpec"] = None,
-    ) -> None:
-        """configuration of a horizontal pod autoscaler.
-
-        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-
-        :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = HorizontalPodAutoscalerSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["HorizontalPodAutoscalerSpec"]:
-        """behaviour of autoscaler.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-
-        :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "HorizontalPodAutoscaler(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.HorizontalPodAutoscalerSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -9304,71 +7829,6 @@ class IdRange:
 
     def __repr__(self) -> str:
         return "IdRange(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.Ingress",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class Ingress:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["IngressSpec"] = None,
-    ) -> None:
-        """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
-
-        An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.networking.v1beta1.Ingress
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = IngressSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.networking.v1beta1.Ingress#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["IngressSpec"]:
-        """Spec is the desired state of the Ingress.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.networking.v1beta1.Ingress#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Ingress(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10130,69 +8590,6 @@ class IscsiVolumeSource:
 
     def __repr__(self) -> str:
         return "IscsiVolumeSource(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.Job",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class Job:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["JobSpec"] = None,
-    ) -> None:
-        """Job represents the configuration of a single job.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.batch.v1.Job
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = JobSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.batch.v1.Job#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["JobSpec"]:
-        """Specification of the desired behavior of a job.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.batch.v1.Job#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Job(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11040,7 +9437,7 @@ class KubeApiService(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[ApiServiceSpec] = None,
@@ -11048,13 +9445,13 @@ class KubeApiService(
         """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: 
         :param spec: Spec contains information for locating and communicating with a server.
         """
-        options = KubeApiServiceOptions(metadata=metadata, spec=spec)
+        props = KubeApiServiceOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeApiService, self, [scope, name, options])
+        jsii.create(KubeApiService, self, [scope, id, props])
 
 
 class KubeApiServiceList(
@@ -11070,21 +9467,21 @@ class KubeApiServiceList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[ApiService],
+        items: typing.List["KubeApiServiceOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: 
         :param metadata: 
         """
-        options = KubeApiServiceListOptions(items=items, metadata=metadata)
+        props = KubeApiServiceListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeApiServiceList, self, [scope, name, options])
+        jsii.create(KubeApiServiceList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -11096,7 +9493,7 @@ class KubeApiServiceListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[ApiService],
+        items: typing.List["KubeApiServiceOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """APIServiceList is a list of APIService objects.
@@ -11115,7 +9512,7 @@ class KubeApiServiceListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[ApiService]:
+    def items(self) -> typing.List["KubeApiServiceOptions"]:
         """
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
         """
@@ -11216,7 +9613,7 @@ class KubeAuditSink(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[AuditSinkSpec] = None,
@@ -11224,13 +9621,13 @@ class KubeAuditSink(
         """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSink" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: 
         :param spec: Spec defines the audit configuration spec.
         """
-        options = KubeAuditSinkOptions(metadata=metadata, spec=spec)
+        props = KubeAuditSinkOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeAuditSink, self, [scope, name, options])
+        jsii.create(KubeAuditSink, self, [scope, id, props])
 
 
 class KubeAuditSinkList(
@@ -11246,21 +9643,21 @@ class KubeAuditSinkList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[AuditSink],
+        items: typing.List["KubeAuditSinkOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of audit configurations.
         :param metadata: 
         """
-        options = KubeAuditSinkListOptions(items=items, metadata=metadata)
+        props = KubeAuditSinkListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeAuditSinkList, self, [scope, name, options])
+        jsii.create(KubeAuditSinkList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -11272,7 +9669,7 @@ class KubeAuditSinkListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[AuditSink],
+        items: typing.List["KubeAuditSinkOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """AuditSinkList is a list of AuditSink items.
@@ -11291,7 +9688,7 @@ class KubeAuditSinkListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[AuditSink]:
+    def items(self) -> typing.List["KubeAuditSinkOptions"]:
         """List of audit configurations.
 
         :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#items
@@ -11393,7 +9790,7 @@ class KubeBinding(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         target: "ObjectReference",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -11401,13 +9798,13 @@ class KubeBinding(
         """Defines a "io.k8s.api.core.v1.Binding" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param target: The target object that you want to bind to the standard object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeBindingOptions(target=target, metadata=metadata)
+        props = KubeBindingOptions(target=target, metadata=metadata)
 
-        jsii.create(KubeBinding, self, [scope, name, options])
+        jsii.create(KubeBinding, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -11487,7 +9884,7 @@ class KubeCertificateSigningRequest(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[CertificateSigningRequestSpec] = None,
@@ -11495,13 +9892,13 @@ class KubeCertificateSigningRequest(
         """Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequest" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: 
         :param spec: The certificate request itself and any additional information.
         """
-        options = KubeCertificateSigningRequestOptions(metadata=metadata, spec=spec)
+        props = KubeCertificateSigningRequestOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeCertificateSigningRequest, self, [scope, name, options])
+        jsii.create(KubeCertificateSigningRequest, self, [scope, id, props])
 
 
 class KubeCertificateSigningRequestList(
@@ -11516,23 +9913,23 @@ class KubeCertificateSigningRequestList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[CertificateSigningRequest],
+        items: typing.List["KubeCertificateSigningRequestOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: 
         :param metadata: 
         """
-        options = KubeCertificateSigningRequestListOptions(
+        props = KubeCertificateSigningRequestListOptions(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeCertificateSigningRequestList, self, [scope, name, options])
+        jsii.create(KubeCertificateSigningRequestList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -11544,7 +9941,7 @@ class KubeCertificateSigningRequestListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[CertificateSigningRequest],
+        items: typing.List["KubeCertificateSigningRequestOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """
@@ -11562,7 +9959,7 @@ class KubeCertificateSigningRequestListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[CertificateSigningRequest]:
+    def items(self) -> typing.List["KubeCertificateSigningRequestOptions"]:
         """
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#items
         """
@@ -11661,7 +10058,7 @@ class KubeClusterRole(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -11670,16 +10067,16 @@ class KubeClusterRole(
         """Defines a "io.k8s.api.rbac.v1.ClusterRole" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
         :param metadata: Standard object's metadata.
         :param rules: Rules holds all the PolicyRules for this ClusterRole.
         """
-        options = KubeClusterRoleOptions(
+        props = KubeClusterRoleOptions(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
-        jsii.create(KubeClusterRole, self, [scope, name, options])
+        jsii.create(KubeClusterRole, self, [scope, id, props])
 
 
 class KubeClusterRoleBinding(
@@ -11697,7 +10094,7 @@ class KubeClusterRoleBinding(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -11706,16 +10103,16 @@ class KubeClusterRoleBinding(
         """Defines a "io.k8s.api.rbac.v1.ClusterRoleBinding" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
         :param metadata: Standard object's metadata.
         :param subjects: Subjects holds references to the objects the role applies to.
         """
-        options = KubeClusterRoleBindingOptions(
+        props = KubeClusterRoleBindingOptions(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        jsii.create(KubeClusterRoleBinding, self, [scope, name, options])
+        jsii.create(KubeClusterRoleBinding, self, [scope, id, props])
 
 
 class KubeClusterRoleBindingList(
@@ -11731,21 +10128,21 @@ class KubeClusterRoleBindingList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[ClusterRoleBinding],
+        items: typing.List["KubeClusterRoleBindingOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1.ClusterRoleBindingList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of ClusterRoleBindings.
         :param metadata: Standard object's metadata.
         """
-        options = KubeClusterRoleBindingListOptions(items=items, metadata=metadata)
+        props = KubeClusterRoleBindingListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeClusterRoleBindingList, self, [scope, name, options])
+        jsii.create(KubeClusterRoleBindingList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -11757,7 +10154,7 @@ class KubeClusterRoleBindingListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[ClusterRoleBinding],
+        items: typing.List["KubeClusterRoleBindingOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -11776,7 +10173,7 @@ class KubeClusterRoleBindingListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[ClusterRoleBinding]:
+    def items(self) -> typing.List["KubeClusterRoleBindingOptions"]:
         """Items is a list of ClusterRoleBindings.
 
         :schema: io.k8s.api.rbac.v1.ClusterRoleBindingList#items
@@ -11900,21 +10297,21 @@ class KubeClusterRoleList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[ClusterRole],
+        items: typing.List["KubeClusterRoleOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1.ClusterRoleList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of ClusterRoles.
         :param metadata: Standard object's metadata.
         """
-        options = KubeClusterRoleListOptions(items=items, metadata=metadata)
+        props = KubeClusterRoleListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeClusterRoleList, self, [scope, name, options])
+        jsii.create(KubeClusterRoleList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -11926,7 +10323,7 @@ class KubeClusterRoleListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[ClusterRole],
+        items: typing.List["KubeClusterRoleOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ClusterRoleList is a collection of ClusterRoles.
@@ -11945,7 +10342,7 @@ class KubeClusterRoleListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[ClusterRole]:
+    def items(self) -> typing.List["KubeClusterRoleOptions"]:
         """Items is a list of ClusterRoles.
 
         :schema: io.k8s.api.rbac.v1.ClusterRoleList#items
@@ -12066,7 +10463,7 @@ class KubeComponentStatus(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         conditions: typing.Optional[typing.List[ComponentCondition]] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -12074,13 +10471,13 @@ class KubeComponentStatus(
         """Defines a "io.k8s.api.core.v1.ComponentStatus" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param conditions: List of component conditions observed.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeComponentStatusOptions(conditions=conditions, metadata=metadata)
+        props = KubeComponentStatusOptions(conditions=conditions, metadata=metadata)
 
-        jsii.create(KubeComponentStatus, self, [scope, name, options])
+        jsii.create(KubeComponentStatus, self, [scope, id, props])
 
 
 class KubeComponentStatusList(
@@ -12096,21 +10493,21 @@ class KubeComponentStatusList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[ComponentStatus],
+        items: typing.List["KubeComponentStatusOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ComponentStatusList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of ComponentStatus objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeComponentStatusListOptions(items=items, metadata=metadata)
+        props = KubeComponentStatusListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeComponentStatusList, self, [scope, name, options])
+        jsii.create(KubeComponentStatusList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -12122,7 +10519,7 @@ class KubeComponentStatusListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[ComponentStatus],
+        items: typing.List["KubeComponentStatusOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Status of all the conditions for the component as a list of ComponentStatus objects.
@@ -12141,7 +10538,7 @@ class KubeComponentStatusListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[ComponentStatus]:
+    def items(self) -> typing.List["KubeComponentStatusOptions"]:
         """List of ComponentStatus objects.
 
         :schema: io.k8s.api.core.v1.ComponentStatusList#items
@@ -12245,7 +10642,7 @@ class KubeConfigMap(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         binary_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
@@ -12254,16 +10651,16 @@ class KubeConfigMap(
         """Defines a "io.k8s.api.core.v1.ConfigMap" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param binary_data: BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
         :param data: Data contains the configuration data. Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeConfigMapOptions(
+        props = KubeConfigMapOptions(
             binary_data=binary_data, data=data, metadata=metadata
         )
 
-        jsii.create(KubeConfigMap, self, [scope, name, options])
+        jsii.create(KubeConfigMap, self, [scope, id, props])
 
 
 class KubeConfigMapList(
@@ -12279,21 +10676,21 @@ class KubeConfigMapList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[ConfigMap],
+        items: typing.List["KubeConfigMapOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ConfigMapList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is the list of ConfigMaps.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        options = KubeConfigMapListOptions(items=items, metadata=metadata)
+        props = KubeConfigMapListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeConfigMapList, self, [scope, name, options])
+        jsii.create(KubeConfigMapList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -12305,7 +10702,7 @@ class KubeConfigMapListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[ConfigMap],
+        items: typing.List["KubeConfigMapOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ConfigMapList is a resource containing a list of ConfigMap objects.
@@ -12324,7 +10721,7 @@ class KubeConfigMapListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[ConfigMap]:
+    def items(self) -> typing.List["KubeConfigMapOptions"]:
         """Items is the list of ConfigMaps.
 
         :schema: io.k8s.api.core.v1.ConfigMapList#items
@@ -12447,7 +10844,7 @@ class KubeControllerRevision(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         revision: jsii.Number,
         data: typing.Any = None,
@@ -12456,16 +10853,16 @@ class KubeControllerRevision(
         """Defines a "io.k8s.api.apps.v1.ControllerRevision" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param revision: Revision indicates the revision of the state represented by Data.
         :param data: Data is the serialized representation of the state.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeControllerRevisionOptions(
+        props = KubeControllerRevisionOptions(
             revision=revision, data=data, metadata=metadata
         )
 
-        jsii.create(KubeControllerRevision, self, [scope, name, options])
+        jsii.create(KubeControllerRevision, self, [scope, id, props])
 
 
 class KubeControllerRevisionList(
@@ -12481,21 +10878,21 @@ class KubeControllerRevisionList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[ControllerRevision],
+        items: typing.List["KubeControllerRevisionOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.ControllerRevisionList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is the list of ControllerRevisions.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        options = KubeControllerRevisionListOptions(items=items, metadata=metadata)
+        props = KubeControllerRevisionListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeControllerRevisionList, self, [scope, name, options])
+        jsii.create(KubeControllerRevisionList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -12507,7 +10904,7 @@ class KubeControllerRevisionListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[ControllerRevision],
+        items: typing.List["KubeControllerRevisionOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -12526,7 +10923,7 @@ class KubeControllerRevisionListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[ControllerRevision]:
+    def items(self) -> typing.List["KubeControllerRevisionOptions"]:
         """Items is the list of ControllerRevisions.
 
         :schema: io.k8s.api.apps.v1.ControllerRevisionList#items
@@ -12644,7 +11041,7 @@ class KubeCronJob(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[CronJobSpec] = None,
@@ -12652,13 +11049,13 @@ class KubeCronJob(
         """Defines a "io.k8s.api.batch.v1beta1.CronJob" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeCronJobOptions(metadata=metadata, spec=spec)
+        props = KubeCronJobOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeCronJob, self, [scope, name, options])
+        jsii.create(KubeCronJob, self, [scope, id, props])
 
 
 class KubeCronJobList(
@@ -12674,21 +11071,21 @@ class KubeCronJobList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[CronJob],
+        items: typing.List["KubeCronJobOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.batch.v1beta1.CronJobList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: items is the list of CronJobs.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeCronJobListOptions(items=items, metadata=metadata)
+        props = KubeCronJobListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeCronJobList, self, [scope, name, options])
+        jsii.create(KubeCronJobList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -12700,7 +11097,7 @@ class KubeCronJobListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[CronJob],
+        items: typing.List["KubeCronJobOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CronJobList is a collection of cron jobs.
@@ -12719,7 +11116,7 @@ class KubeCronJobListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[CronJob]:
+    def items(self) -> typing.List["KubeCronJobOptions"]:
         """items is the list of CronJobs.
 
         :schema: io.k8s.api.batch.v1beta1.CronJobList#items
@@ -12829,7 +11226,7 @@ class KubeCsiDriver(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: CsiDriverSpec,
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -12837,13 +11234,13 @@ class KubeCsiDriver(
         """Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: Specification of the CSI Driver.
         :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeCsiDriverOptions(spec=spec, metadata=metadata)
+        props = KubeCsiDriverOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeCsiDriver, self, [scope, name, options])
+        jsii.create(KubeCsiDriver, self, [scope, id, props])
 
 
 class KubeCsiDriverList(
@@ -12859,21 +11256,21 @@ class KubeCsiDriverList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[CsiDriver],
+        items: typing.List["KubeCsiDriverOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: items is the list of CSIDriver.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        options = KubeCsiDriverListOptions(items=items, metadata=metadata)
+        props = KubeCsiDriverListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeCsiDriverList, self, [scope, name, options])
+        jsii.create(KubeCsiDriverList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -12885,7 +11282,7 @@ class KubeCsiDriverListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[CsiDriver],
+        items: typing.List["KubeCsiDriverOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CSIDriverList is a collection of CSIDriver objects.
@@ -12904,7 +11301,7 @@ class KubeCsiDriverListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[CsiDriver]:
+    def items(self) -> typing.List["KubeCsiDriverOptions"]:
         """items is the list of CSIDriver.
 
         :schema: io.k8s.api.storage.v1beta1.CSIDriverList#items
@@ -13013,7 +11410,7 @@ class KubeCsiNode(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: CsiNodeSpec,
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -13021,13 +11418,13 @@ class KubeCsiNode(
         """Defines a "io.k8s.api.storage.v1.CSINode" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: spec is the specification of CSINode.
         :param metadata: metadata.name must be the Kubernetes node name.
         """
-        options = KubeCsiNodeOptions(spec=spec, metadata=metadata)
+        props = KubeCsiNodeOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeCsiNode, self, [scope, name, options])
+        jsii.create(KubeCsiNode, self, [scope, id, props])
 
 
 class KubeCsiNodeList(
@@ -13043,21 +11440,21 @@ class KubeCsiNodeList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[CsiNode],
+        items: typing.List["KubeCsiNodeOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1.CSINodeList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: items is the list of CSINode.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        options = KubeCsiNodeListOptions(items=items, metadata=metadata)
+        props = KubeCsiNodeListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeCsiNodeList, self, [scope, name, options])
+        jsii.create(KubeCsiNodeList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -13069,7 +11466,7 @@ class KubeCsiNodeListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[CsiNode],
+        items: typing.List["KubeCsiNodeOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CSINodeList is a collection of CSINode objects.
@@ -13088,7 +11485,7 @@ class KubeCsiNodeListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[CsiNode]:
+    def items(self) -> typing.List["KubeCsiNodeOptions"]:
         """items is the list of CSINode.
 
         :schema: io.k8s.api.storage.v1.CSINodeList#items
@@ -13195,7 +11592,7 @@ class KubeCustomResourceDefinition(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: CustomResourceDefinitionSpec,
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -13203,13 +11600,13 @@ class KubeCustomResourceDefinition(
         """Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: spec describes how the user wants the resources to appear.
         :param metadata: 
         """
-        options = KubeCustomResourceDefinitionOptions(spec=spec, metadata=metadata)
+        props = KubeCustomResourceDefinitionOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeCustomResourceDefinition, self, [scope, name, options])
+        jsii.create(KubeCustomResourceDefinition, self, [scope, id, props])
 
 
 class KubeCustomResourceDefinitionList(
@@ -13225,23 +11622,21 @@ class KubeCustomResourceDefinitionList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[CustomResourceDefinition],
+        items: typing.List["KubeCustomResourceDefinitionOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: items list individual CustomResourceDefinition objects.
         :param metadata: 
         """
-        options = KubeCustomResourceDefinitionListOptions(
-            items=items, metadata=metadata
-        )
+        props = KubeCustomResourceDefinitionListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeCustomResourceDefinitionList, self, [scope, name, options])
+        jsii.create(KubeCustomResourceDefinitionList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -13253,7 +11648,7 @@ class KubeCustomResourceDefinitionListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[CustomResourceDefinition],
+        items: typing.List["KubeCustomResourceDefinitionOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
@@ -13272,7 +11667,7 @@ class KubeCustomResourceDefinitionListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[CustomResourceDefinition]:
+    def items(self) -> typing.List["KubeCustomResourceDefinitionOptions"]:
         """items list individual CustomResourceDefinition objects.
 
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#items
@@ -13375,7 +11770,7 @@ class KubeDaemonSet(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[DaemonSetSpec] = None,
@@ -13383,13 +11778,13 @@ class KubeDaemonSet(
         """Defines a "io.k8s.api.apps.v1.DaemonSet" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeDaemonSetOptions(metadata=metadata, spec=spec)
+        props = KubeDaemonSetOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeDaemonSet, self, [scope, name, options])
+        jsii.create(KubeDaemonSet, self, [scope, id, props])
 
 
 class KubeDaemonSetList(
@@ -13405,21 +11800,21 @@ class KubeDaemonSetList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[DaemonSet],
+        items: typing.List["KubeDaemonSetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.DaemonSetList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: A list of daemon sets.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeDaemonSetListOptions(items=items, metadata=metadata)
+        props = KubeDaemonSetListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeDaemonSetList, self, [scope, name, options])
+        jsii.create(KubeDaemonSetList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -13431,7 +11826,7 @@ class KubeDaemonSetListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[DaemonSet],
+        items: typing.List["KubeDaemonSetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DaemonSetList is a collection of daemon sets.
@@ -13450,7 +11845,7 @@ class KubeDaemonSetListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[DaemonSet]:
+    def items(self) -> typing.List["KubeDaemonSetOptions"]:
         """A list of daemon sets.
 
         :schema: io.k8s.api.apps.v1.DaemonSetList#items
@@ -13558,7 +11953,7 @@ class KubeDeployment(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[DeploymentSpec] = None,
@@ -13566,13 +11961,13 @@ class KubeDeployment(
         """Defines a "io.k8s.api.apps.v1.Deployment" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object metadata.
         :param spec: Specification of the desired behavior of the Deployment.
         """
-        options = KubeDeploymentOptions(metadata=metadata, spec=spec)
+        props = KubeDeploymentOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeDeployment, self, [scope, name, options])
+        jsii.create(KubeDeployment, self, [scope, id, props])
 
 
 class KubeDeploymentList(
@@ -13588,21 +11983,21 @@ class KubeDeploymentList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[Deployment],
+        items: typing.List["KubeDeploymentOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.DeploymentList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is the list of Deployments.
         :param metadata: Standard list metadata.
         """
-        options = KubeDeploymentListOptions(items=items, metadata=metadata)
+        props = KubeDeploymentListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeDeploymentList, self, [scope, name, options])
+        jsii.create(KubeDeploymentList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -13614,7 +12009,7 @@ class KubeDeploymentListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[Deployment],
+        items: typing.List["KubeDeploymentOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DeploymentList is a list of Deployments.
@@ -13633,7 +12028,7 @@ class KubeDeploymentListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[Deployment]:
+    def items(self) -> typing.List["KubeDeploymentOptions"]:
         """Items is the list of Deployments.
 
         :schema: io.k8s.api.apps.v1.DeploymentList#items
@@ -13737,7 +12132,7 @@ class KubeEndpointSlice(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         address_type: builtins.str,
         endpoints: typing.List[Endpoint],
@@ -13747,20 +12142,20 @@ class KubeEndpointSlice(
         """Defines a "io.k8s.api.discovery.v1beta1.EndpointSlice" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param address_type: addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
         :param endpoints: endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.
         :param metadata: Standard object's metadata.
         :param ports: ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
         """
-        options = KubeEndpointSliceOptions(
+        props = KubeEndpointSliceOptions(
             address_type=address_type,
             endpoints=endpoints,
             metadata=metadata,
             ports=ports,
         )
 
-        jsii.create(KubeEndpointSlice, self, [scope, name, options])
+        jsii.create(KubeEndpointSlice, self, [scope, id, props])
 
 
 class KubeEndpointSliceList(
@@ -13776,21 +12171,21 @@ class KubeEndpointSliceList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[EndpointSlice],
+        items: typing.List["KubeEndpointSliceOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.discovery.v1beta1.EndpointSliceList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of endpoint slices.
         :param metadata: Standard list metadata.
         """
-        options = KubeEndpointSliceListOptions(items=items, metadata=metadata)
+        props = KubeEndpointSliceListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeEndpointSliceList, self, [scope, name, options])
+        jsii.create(KubeEndpointSliceList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -13802,7 +12197,7 @@ class KubeEndpointSliceListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[EndpointSlice],
+        items: typing.List["KubeEndpointSliceOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """EndpointSliceList represents a list of endpoint slices.
@@ -13821,7 +12216,7 @@ class KubeEndpointSliceListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[EndpointSlice]:
+    def items(self) -> typing.List["KubeEndpointSliceOptions"]:
         """List of endpoint slices.
 
         :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList#items
@@ -13974,7 +12369,7 @@ class KubeEndpoints(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         subsets: typing.Optional[typing.List[EndpointSubset]] = None,
@@ -13982,13 +12377,13 @@ class KubeEndpoints(
         """Defines a "io.k8s.api.core.v1.Endpoints" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param subsets: The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
         """
-        options = KubeEndpointsOptions(metadata=metadata, subsets=subsets)
+        props = KubeEndpointsOptions(metadata=metadata, subsets=subsets)
 
-        jsii.create(KubeEndpoints, self, [scope, name, options])
+        jsii.create(KubeEndpoints, self, [scope, id, props])
 
 
 class KubeEndpointsList(
@@ -14004,21 +12399,21 @@ class KubeEndpointsList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[Endpoints],
+        items: typing.List["KubeEndpointsOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.EndpointsList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of endpoints.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeEndpointsListOptions(items=items, metadata=metadata)
+        props = KubeEndpointsListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeEndpointsList, self, [scope, name, options])
+        jsii.create(KubeEndpointsList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -14030,7 +12425,7 @@ class KubeEndpointsListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[Endpoints],
+        items: typing.List["KubeEndpointsOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """EndpointsList is a list of endpoints.
@@ -14049,7 +12444,7 @@ class KubeEndpointsListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[Endpoints]:
+    def items(self) -> typing.List["KubeEndpointsOptions"]:
         """List of endpoints.
 
         :schema: io.k8s.api.core.v1.EndpointsList#items
@@ -14164,7 +12559,7 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         involved_object: "ObjectReference",
         metadata: "ObjectMeta",
@@ -14185,7 +12580,7 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
         """Defines a "io.k8s.api.core.v1.Event" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param involved_object: The object that this event is about.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param action: What action was taken/failed regarding to the Regarding object.
@@ -14202,7 +12597,7 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
         :param source: The component reporting this event. Should be a short machine understandable string.
         :param type: Type of this event (Normal, Warning), new types could be added in the future.
         """
-        options = KubeEventOptions(
+        props = KubeEventOptions(
             involved_object=involved_object,
             metadata=metadata,
             action=action,
@@ -14220,7 +12615,7 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
             type=type,
         )
 
-        jsii.create(KubeEvent, self, [scope, name, options])
+        jsii.create(KubeEvent, self, [scope, id, props])
 
 
 class KubeEventList(
@@ -14236,21 +12631,21 @@ class KubeEventList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[Event],
+        items: typing.List["KubeEventOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.EventList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of events.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeEventListOptions(items=items, metadata=metadata)
+        props = KubeEventListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeEventList, self, [scope, name, options])
+        jsii.create(KubeEventList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -14262,7 +12657,7 @@ class KubeEventListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[Event],
+        items: typing.List["KubeEventOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """EventList is a list of events.
@@ -14281,7 +12676,7 @@ class KubeEventListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[Event]:
+    def items(self) -> typing.List["KubeEventOptions"]:
         """List of events.
 
         :schema: io.k8s.api.core.v1.EventList#items
@@ -14585,7 +12980,7 @@ class KubeEviction(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         delete_options: typing.Optional[DeleteOptions] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -14593,13 +12988,13 @@ class KubeEviction(
         """Defines a "io.k8s.api.policy.v1beta1.Eviction" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param delete_options: DeleteOptions may be provided.
         :param metadata: ObjectMeta describes the pod that is being evicted.
         """
-        options = KubeEvictionOptions(delete_options=delete_options, metadata=metadata)
+        props = KubeEvictionOptions(delete_options=delete_options, metadata=metadata)
 
-        jsii.create(KubeEviction, self, [scope, name, options])
+        jsii.create(KubeEviction, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -14678,7 +13073,7 @@ class KubeFlowSchema(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[FlowSchemaSpec] = None,
@@ -14686,13 +13081,13 @@ class KubeFlowSchema(
         """Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchema" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         :param spec: ``spec`` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
         """
-        options = KubeFlowSchemaOptions(metadata=metadata, spec=spec)
+        props = KubeFlowSchemaOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeFlowSchema, self, [scope, name, options])
+        jsii.create(KubeFlowSchema, self, [scope, id, props])
 
 
 class KubeFlowSchemaList(
@@ -14708,21 +13103,21 @@ class KubeFlowSchemaList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[FlowSchema],
+        items: typing.List["KubeFlowSchemaOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: ``items`` is a list of FlowSchemas.
         :param metadata: ``metadata`` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         """
-        options = KubeFlowSchemaListOptions(items=items, metadata=metadata)
+        props = KubeFlowSchemaListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeFlowSchemaList, self, [scope, name, options])
+        jsii.create(KubeFlowSchemaList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -14734,7 +13129,7 @@ class KubeFlowSchemaListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[FlowSchema],
+        items: typing.List["KubeFlowSchemaOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """FlowSchemaList is a list of FlowSchema objects.
@@ -14753,7 +13148,7 @@ class KubeFlowSchemaListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[FlowSchema]:
+    def items(self) -> typing.List["KubeFlowSchemaOptions"]:
         """``items`` is a list of FlowSchemas.
 
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#items
@@ -14863,7 +13258,7 @@ class KubeHorizontalPodAutoscaler(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[HorizontalPodAutoscalerSpec] = None,
@@ -14871,13 +13266,13 @@ class KubeHorizontalPodAutoscaler(
         """Defines a "io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         """
-        options = KubeHorizontalPodAutoscalerOptions(metadata=metadata, spec=spec)
+        props = KubeHorizontalPodAutoscalerOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeHorizontalPodAutoscaler, self, [scope, name, options])
+        jsii.create(KubeHorizontalPodAutoscaler, self, [scope, id, props])
 
 
 class KubeHorizontalPodAutoscalerList(
@@ -14893,23 +13288,21 @@ class KubeHorizontalPodAutoscalerList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[HorizontalPodAutoscaler],
+        items: typing.List["KubeHorizontalPodAutoscalerOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: list of horizontal pod autoscaler objects.
         :param metadata: Standard list metadata.
         """
-        options = KubeHorizontalPodAutoscalerListOptions(
-            items=items, metadata=metadata
-        )
+        props = KubeHorizontalPodAutoscalerListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeHorizontalPodAutoscalerList, self, [scope, name, options])
+        jsii.create(KubeHorizontalPodAutoscalerList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -14921,7 +13314,7 @@ class KubeHorizontalPodAutoscalerListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[HorizontalPodAutoscaler],
+        items: typing.List["KubeHorizontalPodAutoscalerOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """list of horizontal pod autoscaler objects.
@@ -14940,7 +13333,7 @@ class KubeHorizontalPodAutoscalerListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[HorizontalPodAutoscaler]:
+    def items(self) -> typing.List["KubeHorizontalPodAutoscalerOptions"]:
         """list of horizontal pod autoscaler objects.
 
         :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#items
@@ -15048,7 +13441,7 @@ class KubeIngress(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[IngressSpec] = None,
@@ -15056,13 +13449,13 @@ class KubeIngress(
         """Defines a "io.k8s.api.networking.v1beta1.Ingress" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeIngressOptions(metadata=metadata, spec=spec)
+        props = KubeIngressOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeIngress, self, [scope, name, options])
+        jsii.create(KubeIngress, self, [scope, id, props])
 
 
 class KubeIngressList(
@@ -15078,21 +13471,21 @@ class KubeIngressList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[Ingress],
+        items: typing.List["KubeIngressOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.networking.v1beta1.IngressList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is the list of Ingress.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeIngressListOptions(items=items, metadata=metadata)
+        props = KubeIngressListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeIngressList, self, [scope, name, options])
+        jsii.create(KubeIngressList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -15104,7 +13497,7 @@ class KubeIngressListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[Ingress],
+        items: typing.List["KubeIngressOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """IngressList is a collection of Ingress.
@@ -15123,7 +13516,7 @@ class KubeIngressListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[Ingress]:
+    def items(self) -> typing.List["KubeIngressOptions"]:
         """Items is the list of Ingress.
 
         :schema: io.k8s.api.networking.v1beta1.IngressList#items
@@ -15229,7 +13622,7 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional[JobSpec] = None,
@@ -15237,13 +13630,13 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
         """Defines a "io.k8s.api.batch.v1.Job" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeJobOptions(metadata=metadata, spec=spec)
+        props = KubeJobOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeJob, self, [scope, name, options])
+        jsii.create(KubeJob, self, [scope, id, props])
 
 
 class KubeJobList(
@@ -15259,21 +13652,21 @@ class KubeJobList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List[Job],
+        items: typing.List["KubeJobOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.batch.v1.JobList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: items is the list of Jobs.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeJobListOptions(items=items, metadata=metadata)
+        props = KubeJobListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeJobList, self, [scope, name, options])
+        jsii.create(KubeJobList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -15285,7 +13678,7 @@ class KubeJobListOptions:
     def __init__(
         self,
         *,
-        items: typing.List[Job],
+        items: typing.List["KubeJobOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """JobList is a collection of jobs.
@@ -15304,7 +13697,7 @@ class KubeJobListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List[Job]:
+    def items(self) -> typing.List["KubeJobOptions"]:
         """items is the list of Jobs.
 
         :schema: io.k8s.api.batch.v1.JobList#items
@@ -15408,7 +13801,7 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["LeaseSpec"] = None,
@@ -15416,13 +13809,13 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
         """Defines a "io.k8s.api.coordination.v1.Lease" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeLeaseOptions(metadata=metadata, spec=spec)
+        props = KubeLeaseOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeLease, self, [scope, name, options])
+        jsii.create(KubeLease, self, [scope, id, props])
 
 
 class KubeLeaseList(
@@ -15438,21 +13831,21 @@ class KubeLeaseList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["Lease"],
+        items: typing.List["KubeLeaseOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.coordination.v1.LeaseList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeLeaseListOptions(items=items, metadata=metadata)
+        props = KubeLeaseListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeLeaseList, self, [scope, name, options])
+        jsii.create(KubeLeaseList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -15464,7 +13857,7 @@ class KubeLeaseListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["Lease"],
+        items: typing.List["KubeLeaseOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """LeaseList is a list of Lease objects.
@@ -15483,7 +13876,7 @@ class KubeLeaseListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["Lease"]:
+    def items(self) -> typing.List["KubeLeaseOptions"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.coordination.v1.LeaseList#items
@@ -15589,7 +13982,7 @@ class KubeLimitRange(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["LimitRangeSpec"] = None,
@@ -15597,13 +13990,13 @@ class KubeLimitRange(
         """Defines a "io.k8s.api.core.v1.LimitRange" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the limits enforced. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeLimitRangeOptions(metadata=metadata, spec=spec)
+        props = KubeLimitRangeOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeLimitRange, self, [scope, name, options])
+        jsii.create(KubeLimitRange, self, [scope, id, props])
 
 
 class KubeLimitRangeList(
@@ -15619,21 +14012,21 @@ class KubeLimitRangeList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["LimitRange"],
+        items: typing.List["KubeLimitRangeOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.LimitRangeList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeLimitRangeListOptions(items=items, metadata=metadata)
+        props = KubeLimitRangeListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeLimitRangeList, self, [scope, name, options])
+        jsii.create(KubeLimitRangeList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -15645,7 +14038,7 @@ class KubeLimitRangeListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["LimitRange"],
+        items: typing.List["KubeLimitRangeOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """LimitRangeList is a list of LimitRange items.
@@ -15664,7 +14057,7 @@ class KubeLimitRangeListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["LimitRange"]:
+    def items(self) -> typing.List["KubeLimitRangeOptions"]:
         """Items is a list of LimitRange objects.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -15776,7 +14169,7 @@ class KubeLocalSubjectAccessReview(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: "SubjectAccessReviewSpec",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -15784,13 +14177,13 @@ class KubeLocalSubjectAccessReview(
         """Defines a "io.k8s.api.authorization.v1.LocalSubjectAccessReview" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: Spec holds information about the request being evaluated. spec.namespace must be equal to the namespace you made the request against. If empty, it is defaulted.
         :param metadata: 
         """
-        options = KubeLocalSubjectAccessReviewOptions(spec=spec, metadata=metadata)
+        props = KubeLocalSubjectAccessReviewOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeLocalSubjectAccessReview, self, [scope, name, options])
+        jsii.create(KubeLocalSubjectAccessReview, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -15869,7 +14262,7 @@ class KubeMutatingWebhookConfiguration(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
@@ -15877,15 +14270,15 @@ class KubeMutatingWebhookConfiguration(
         """Defines a "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         """
-        options = KubeMutatingWebhookConfigurationOptions(
+        props = KubeMutatingWebhookConfigurationOptions(
             metadata=metadata, webhooks=webhooks
         )
 
-        jsii.create(KubeMutatingWebhookConfiguration, self, [scope, name, options])
+        jsii.create(KubeMutatingWebhookConfiguration, self, [scope, id, props])
 
 
 class KubeMutatingWebhookConfigurationList(
@@ -15901,23 +14294,23 @@ class KubeMutatingWebhookConfigurationList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["MutatingWebhookConfiguration"],
+        items: typing.List["KubeMutatingWebhookConfigurationOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of MutatingWebhookConfiguration.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeMutatingWebhookConfigurationListOptions(
+        props = KubeMutatingWebhookConfigurationListOptions(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeMutatingWebhookConfigurationList, self, [scope, name, options])
+        jsii.create(KubeMutatingWebhookConfigurationList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -15929,7 +14322,7 @@ class KubeMutatingWebhookConfigurationListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["MutatingWebhookConfiguration"],
+        items: typing.List["KubeMutatingWebhookConfigurationOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
@@ -15948,7 +14341,7 @@ class KubeMutatingWebhookConfigurationListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["MutatingWebhookConfiguration"]:
+    def items(self) -> typing.List["KubeMutatingWebhookConfigurationOptions"]:
         """List of MutatingWebhookConfiguration.
 
         :schema: io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#items
@@ -16054,7 +14447,7 @@ class KubeNamespace(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["NamespaceSpec"] = None,
@@ -16062,13 +14455,13 @@ class KubeNamespace(
         """Defines a "io.k8s.api.core.v1.Namespace" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the behavior of the Namespace. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeNamespaceOptions(metadata=metadata, spec=spec)
+        props = KubeNamespaceOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeNamespace, self, [scope, name, options])
+        jsii.create(KubeNamespace, self, [scope, id, props])
 
 
 class KubeNamespaceList(
@@ -16084,21 +14477,21 @@ class KubeNamespaceList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["Namespace"],
+        items: typing.List["KubeNamespaceOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.NamespaceList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeNamespaceListOptions(items=items, metadata=metadata)
+        props = KubeNamespaceListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeNamespaceList, self, [scope, name, options])
+        jsii.create(KubeNamespaceList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -16110,7 +14503,7 @@ class KubeNamespaceListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["Namespace"],
+        items: typing.List["KubeNamespaceOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """NamespaceList is a list of Namespaces.
@@ -16129,7 +14522,7 @@ class KubeNamespaceListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["Namespace"]:
+    def items(self) -> typing.List["KubeNamespaceOptions"]:
         """Items is the list of Namespace objects in the list.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
@@ -16241,7 +14634,7 @@ class KubeNetworkPolicy(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["NetworkPolicySpec"] = None,
@@ -16249,13 +14642,13 @@ class KubeNetworkPolicy(
         """Defines a "io.k8s.api.networking.v1.NetworkPolicy" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior for this NetworkPolicy.
         """
-        options = KubeNetworkPolicyOptions(metadata=metadata, spec=spec)
+        props = KubeNetworkPolicyOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeNetworkPolicy, self, [scope, name, options])
+        jsii.create(KubeNetworkPolicy, self, [scope, id, props])
 
 
 class KubeNetworkPolicyList(
@@ -16271,21 +14664,21 @@ class KubeNetworkPolicyList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["NetworkPolicy"],
+        items: typing.List["KubeNetworkPolicyOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.networking.v1.NetworkPolicyList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeNetworkPolicyListOptions(items=items, metadata=metadata)
+        props = KubeNetworkPolicyListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeNetworkPolicyList, self, [scope, name, options])
+        jsii.create(KubeNetworkPolicyList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -16297,7 +14690,7 @@ class KubeNetworkPolicyListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["NetworkPolicy"],
+        items: typing.List["KubeNetworkPolicyOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """NetworkPolicyList is a list of NetworkPolicy objects.
@@ -16316,7 +14709,7 @@ class KubeNetworkPolicyListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["NetworkPolicy"]:
+    def items(self) -> typing.List["KubeNetworkPolicyOptions"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.networking.v1.NetworkPolicyList#items
@@ -16420,7 +14813,7 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["NodeSpec"] = None,
@@ -16428,13 +14821,13 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
         """Defines a "io.k8s.api.core.v1.Node" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the behavior of a node. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeNodeOptions(metadata=metadata, spec=spec)
+        props = KubeNodeOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeNode, self, [scope, name, options])
+        jsii.create(KubeNode, self, [scope, id, props])
 
 
 class KubeNodeList(
@@ -16450,21 +14843,21 @@ class KubeNodeList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["Node"],
+        items: typing.List["KubeNodeOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.NodeList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of nodes.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeNodeListOptions(items=items, metadata=metadata)
+        props = KubeNodeListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeNodeList, self, [scope, name, options])
+        jsii.create(KubeNodeList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -16476,7 +14869,7 @@ class KubeNodeListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["Node"],
+        items: typing.List["KubeNodeOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """NodeList is the whole list of all Nodes which have been registered with master.
@@ -16495,7 +14888,7 @@ class KubeNodeListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["Node"]:
+    def items(self) -> typing.List["KubeNodeOptions"]:
         """List of nodes.
 
         :schema: io.k8s.api.core.v1.NodeList#items
@@ -16607,7 +15000,7 @@ class KubePersistentVolume(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["PersistentVolumeSpec"] = None,
@@ -16615,13 +15008,13 @@ class KubePersistentVolume(
         """Defines a "io.k8s.api.core.v1.PersistentVolume" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines a specification of a persistent volume owned by the cluster. Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
         """
-        options = KubePersistentVolumeOptions(metadata=metadata, spec=spec)
+        props = KubePersistentVolumeOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubePersistentVolume, self, [scope, name, options])
+        jsii.create(KubePersistentVolume, self, [scope, id, props])
 
 
 class KubePersistentVolumeClaim(
@@ -16637,7 +15030,7 @@ class KubePersistentVolumeClaim(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["PersistentVolumeClaimSpec"] = None,
@@ -16645,13 +15038,13 @@ class KubePersistentVolumeClaim(
         """Defines a "io.k8s.api.core.v1.PersistentVolumeClaim" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
         """
-        options = KubePersistentVolumeClaimOptions(metadata=metadata, spec=spec)
+        props = KubePersistentVolumeClaimOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubePersistentVolumeClaim, self, [scope, name, options])
+        jsii.create(KubePersistentVolumeClaim, self, [scope, id, props])
 
 
 class KubePersistentVolumeClaimList(
@@ -16667,21 +15060,21 @@ class KubePersistentVolumeClaimList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["PersistentVolumeClaim"],
+        items: typing.List["KubePersistentVolumeClaimOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.PersistentVolumeClaimList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubePersistentVolumeClaimListOptions(items=items, metadata=metadata)
+        props = KubePersistentVolumeClaimListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubePersistentVolumeClaimList, self, [scope, name, options])
+        jsii.create(KubePersistentVolumeClaimList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -16693,7 +15086,7 @@ class KubePersistentVolumeClaimListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["PersistentVolumeClaim"],
+        items: typing.List["KubePersistentVolumeClaimOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PersistentVolumeClaimList is a list of PersistentVolumeClaim items.
@@ -16712,7 +15105,7 @@ class KubePersistentVolumeClaimListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["PersistentVolumeClaim"]:
+    def items(self) -> typing.List["KubePersistentVolumeClaimOptions"]:
         """A list of persistent volume claims.
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
@@ -16822,21 +15215,21 @@ class KubePersistentVolumeList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["PersistentVolume"],
+        items: typing.List["KubePersistentVolumeOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.PersistentVolumeList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubePersistentVolumeListOptions(items=items, metadata=metadata)
+        props = KubePersistentVolumeListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubePersistentVolumeList, self, [scope, name, options])
+        jsii.create(KubePersistentVolumeList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -16848,7 +15241,7 @@ class KubePersistentVolumeListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["PersistentVolume"],
+        items: typing.List["KubePersistentVolumeOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PersistentVolumeList is a list of PersistentVolume items.
@@ -16867,7 +15260,7 @@ class KubePersistentVolumeListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["PersistentVolume"]:
+    def items(self) -> typing.List["KubePersistentVolumeOptions"]:
         """List of persistent volumes.
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
@@ -16977,7 +15370,7 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["PodSpec"] = None,
@@ -16985,13 +15378,13 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
         """Defines a "io.k8s.api.core.v1.Pod" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubePodOptions(metadata=metadata, spec=spec)
+        props = KubePodOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubePod, self, [scope, name, options])
+        jsii.create(KubePod, self, [scope, id, props])
 
 
 class KubePodDisruptionBudget(
@@ -17007,7 +15400,7 @@ class KubePodDisruptionBudget(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["PodDisruptionBudgetSpec"] = None,
@@ -17015,13 +15408,13 @@ class KubePodDisruptionBudget(
         """Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudget" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: 
         :param spec: Specification of the desired behavior of the PodDisruptionBudget.
         """
-        options = KubePodDisruptionBudgetOptions(metadata=metadata, spec=spec)
+        props = KubePodDisruptionBudgetOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubePodDisruptionBudget, self, [scope, name, options])
+        jsii.create(KubePodDisruptionBudget, self, [scope, id, props])
 
 
 class KubePodDisruptionBudgetList(
@@ -17037,21 +15430,21 @@ class KubePodDisruptionBudgetList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["PodDisruptionBudget"],
+        items: typing.List["KubePodDisruptionBudgetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: 
         :param metadata: 
         """
-        options = KubePodDisruptionBudgetListOptions(items=items, metadata=metadata)
+        props = KubePodDisruptionBudgetListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubePodDisruptionBudgetList, self, [scope, name, options])
+        jsii.create(KubePodDisruptionBudgetList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -17063,7 +15456,7 @@ class KubePodDisruptionBudgetListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["PodDisruptionBudget"],
+        items: typing.List["KubePodDisruptionBudgetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
@@ -17082,7 +15475,7 @@ class KubePodDisruptionBudgetListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["PodDisruptionBudget"]:
+    def items(self) -> typing.List["KubePodDisruptionBudgetOptions"]:
         """
         :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#items
         """
@@ -17181,21 +15574,21 @@ class KubePodList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["Pod"],
+        items: typing.List["KubePodOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.PodList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubePodListOptions(items=items, metadata=metadata)
+        props = KubePodListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubePodList, self, [scope, name, options])
+        jsii.create(KubePodList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -17207,7 +15600,7 @@ class KubePodListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["Pod"],
+        items: typing.List["KubePodOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodList is a list of Pods.
@@ -17226,7 +15619,7 @@ class KubePodListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["Pod"]:
+    def items(self) -> typing.List["KubePodOptions"]:
         """List of pods.
 
         More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
@@ -17338,7 +15731,7 @@ class KubePodPreset(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["PodPresetSpec"] = None,
@@ -17346,13 +15739,13 @@ class KubePodPreset(
         """Defines a "io.k8s.api.settings.v1alpha1.PodPreset" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: 
         :param spec: 
         """
-        options = KubePodPresetOptions(metadata=metadata, spec=spec)
+        props = KubePodPresetOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubePodPreset, self, [scope, name, options])
+        jsii.create(KubePodPreset, self, [scope, id, props])
 
 
 class KubePodPresetList(
@@ -17368,21 +15761,21 @@ class KubePodPresetList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["PodPreset"],
+        items: typing.List["KubePodPresetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.settings.v1alpha1.PodPresetList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubePodPresetListOptions(items=items, metadata=metadata)
+        props = KubePodPresetListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubePodPresetList, self, [scope, name, options])
+        jsii.create(KubePodPresetList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -17394,7 +15787,7 @@ class KubePodPresetListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["PodPreset"],
+        items: typing.List["KubePodPresetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodPresetList is a list of PodPreset objects.
@@ -17413,7 +15806,7 @@ class KubePodPresetListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["PodPreset"]:
+    def items(self) -> typing.List["KubePodPresetOptions"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.settings.v1alpha1.PodPresetList#items
@@ -17515,7 +15908,7 @@ class KubePodSecurityPolicy(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["PodSecurityPolicySpec"] = None,
@@ -17523,13 +15916,13 @@ class KubePodSecurityPolicy(
         """Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicy" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: spec defines the policy enforced.
         """
-        options = KubePodSecurityPolicyOptions(metadata=metadata, spec=spec)
+        props = KubePodSecurityPolicyOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubePodSecurityPolicy, self, [scope, name, options])
+        jsii.create(KubePodSecurityPolicy, self, [scope, id, props])
 
 
 class KubePodSecurityPolicyList(
@@ -17545,21 +15938,21 @@ class KubePodSecurityPolicyList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["PodSecurityPolicy"],
+        items: typing.List["KubePodSecurityPolicyOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubePodSecurityPolicyListOptions(items=items, metadata=metadata)
+        props = KubePodSecurityPolicyListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubePodSecurityPolicyList, self, [scope, name, options])
+        jsii.create(KubePodSecurityPolicyList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -17571,7 +15964,7 @@ class KubePodSecurityPolicyListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["PodSecurityPolicy"],
+        items: typing.List["KubePodSecurityPolicyOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
@@ -17590,7 +15983,7 @@ class KubePodSecurityPolicyListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["PodSecurityPolicy"]:
+    def items(self) -> typing.List["KubePodSecurityPolicyOptions"]:
         """items is a list of schema objects.
 
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList#items
@@ -17696,7 +16089,7 @@ class KubePodTemplate(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         template: typing.Optional["PodTemplateSpec"] = None,
@@ -17704,13 +16097,13 @@ class KubePodTemplate(
         """Defines a "io.k8s.api.core.v1.PodTemplate" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param template: Template defines the pods that will be created from this pod template. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubePodTemplateOptions(metadata=metadata, template=template)
+        props = KubePodTemplateOptions(metadata=metadata, template=template)
 
-        jsii.create(KubePodTemplate, self, [scope, name, options])
+        jsii.create(KubePodTemplate, self, [scope, id, props])
 
 
 class KubePodTemplateList(
@@ -17726,21 +16119,21 @@ class KubePodTemplateList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["PodTemplate"],
+        items: typing.List["KubePodTemplateOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.PodTemplateList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of pod templates.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubePodTemplateListOptions(items=items, metadata=metadata)
+        props = KubePodTemplateListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubePodTemplateList, self, [scope, name, options])
+        jsii.create(KubePodTemplateList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -17752,7 +16145,7 @@ class KubePodTemplateListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["PodTemplate"],
+        items: typing.List["KubePodTemplateOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodTemplateList is a list of PodTemplates.
@@ -17771,7 +16164,7 @@ class KubePodTemplateListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["PodTemplate"]:
+    def items(self) -> typing.List["KubePodTemplateOptions"]:
         """List of pod templates.
 
         :schema: io.k8s.api.core.v1.PodTemplateList#items
@@ -17881,7 +16274,7 @@ class KubePriorityClass(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         value: jsii.Number,
         description: typing.Optional[builtins.str] = None,
@@ -17892,14 +16285,14 @@ class KubePriorityClass(
         """Defines a "io.k8s.api.scheduling.v1.PriorityClass" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
         :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
         :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
         """
-        options = KubePriorityClassOptions(
+        props = KubePriorityClassOptions(
             value=value,
             description=description,
             global_default=global_default,
@@ -17907,7 +16300,7 @@ class KubePriorityClass(
             preemption_policy=preemption_policy,
         )
 
-        jsii.create(KubePriorityClass, self, [scope, name, options])
+        jsii.create(KubePriorityClass, self, [scope, id, props])
 
 
 class KubePriorityClassList(
@@ -17923,21 +16316,21 @@ class KubePriorityClassList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["PriorityClass"],
+        items: typing.List["KubePriorityClassOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.scheduling.v1.PriorityClassList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: items is the list of PriorityClasses.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        options = KubePriorityClassListOptions(items=items, metadata=metadata)
+        props = KubePriorityClassListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubePriorityClassList, self, [scope, name, options])
+        jsii.create(KubePriorityClassList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -17949,7 +16342,7 @@ class KubePriorityClassListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["PriorityClass"],
+        items: typing.List["KubePriorityClassOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PriorityClassList is a collection of priority classes.
@@ -17968,7 +16361,7 @@ class KubePriorityClassListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["PriorityClass"]:
+    def items(self) -> typing.List["KubePriorityClassOptions"]:
         """items is the list of PriorityClasses.
 
         :schema: io.k8s.api.scheduling.v1.PriorityClassList#items
@@ -18126,7 +16519,7 @@ class KubePriorityLevelConfiguration(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["PriorityLevelConfigurationSpec"] = None,
@@ -18134,13 +16527,13 @@ class KubePriorityLevelConfiguration(
         """Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         :param spec: ``spec`` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
         """
-        options = KubePriorityLevelConfigurationOptions(metadata=metadata, spec=spec)
+        props = KubePriorityLevelConfigurationOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubePriorityLevelConfiguration, self, [scope, name, options])
+        jsii.create(KubePriorityLevelConfiguration, self, [scope, id, props])
 
 
 class KubePriorityLevelConfigurationList(
@@ -18156,23 +16549,23 @@ class KubePriorityLevelConfigurationList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["PriorityLevelConfiguration"],
+        items: typing.List["KubePriorityLevelConfigurationOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: ``items`` is a list of request-priorities.
         :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         """
-        options = KubePriorityLevelConfigurationListOptions(
+        props = KubePriorityLevelConfigurationListOptions(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubePriorityLevelConfigurationList, self, [scope, name, options])
+        jsii.create(KubePriorityLevelConfigurationList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -18184,7 +16577,7 @@ class KubePriorityLevelConfigurationListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["PriorityLevelConfiguration"],
+        items: typing.List["KubePriorityLevelConfigurationOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
@@ -18203,7 +16596,7 @@ class KubePriorityLevelConfigurationListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["PriorityLevelConfiguration"]:
+    def items(self) -> typing.List["KubePriorityLevelConfigurationOptions"]:
         """``items`` is a list of request-priorities.
 
         :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#items
@@ -18311,7 +16704,7 @@ class KubeReplicaSet(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["ReplicaSetSpec"] = None,
@@ -18319,13 +16712,13 @@ class KubeReplicaSet(
         """Defines a "io.k8s.api.apps.v1.ReplicaSet" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeReplicaSetOptions(metadata=metadata, spec=spec)
+        props = KubeReplicaSetOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeReplicaSet, self, [scope, name, options])
+        jsii.create(KubeReplicaSet, self, [scope, id, props])
 
 
 class KubeReplicaSetList(
@@ -18341,21 +16734,21 @@ class KubeReplicaSetList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["ReplicaSet"],
+        items: typing.List["KubeReplicaSetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.ReplicaSetList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeReplicaSetListOptions(items=items, metadata=metadata)
+        props = KubeReplicaSetListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeReplicaSetList, self, [scope, name, options])
+        jsii.create(KubeReplicaSetList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -18367,7 +16760,7 @@ class KubeReplicaSetListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["ReplicaSet"],
+        items: typing.List["KubeReplicaSetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ReplicaSetList is a collection of ReplicaSets.
@@ -18386,7 +16779,7 @@ class KubeReplicaSetListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["ReplicaSet"]:
+    def items(self) -> typing.List["KubeReplicaSetOptions"]:
         """List of ReplicaSets.
 
         More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
@@ -18496,7 +16889,7 @@ class KubeReplicationController(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["ReplicationControllerSpec"] = None,
@@ -18504,13 +16897,13 @@ class KubeReplicationController(
         """Defines a "io.k8s.api.core.v1.ReplicationController" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the specification of the desired behavior of the replication controller. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeReplicationControllerOptions(metadata=metadata, spec=spec)
+        props = KubeReplicationControllerOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeReplicationController, self, [scope, name, options])
+        jsii.create(KubeReplicationController, self, [scope, id, props])
 
 
 class KubeReplicationControllerList(
@@ -18526,21 +16919,21 @@ class KubeReplicationControllerList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["ReplicationController"],
+        items: typing.List["KubeReplicationControllerOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ReplicationControllerList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeReplicationControllerListOptions(items=items, metadata=metadata)
+        props = KubeReplicationControllerListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeReplicationControllerList, self, [scope, name, options])
+        jsii.create(KubeReplicationControllerList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -18552,7 +16945,7 @@ class KubeReplicationControllerListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["ReplicationController"],
+        items: typing.List["KubeReplicationControllerOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ReplicationControllerList is a collection of replication controllers.
@@ -18571,7 +16964,7 @@ class KubeReplicationControllerListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["ReplicationController"]:
+    def items(self) -> typing.List["KubeReplicationControllerOptions"]:
         """List of replication controllers.
 
         More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
@@ -18681,7 +17074,7 @@ class KubeResourceQuota(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["ResourceQuotaSpec"] = None,
@@ -18689,13 +17082,13 @@ class KubeResourceQuota(
         """Defines a "io.k8s.api.core.v1.ResourceQuota" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the desired quota. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeResourceQuotaOptions(metadata=metadata, spec=spec)
+        props = KubeResourceQuotaOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeResourceQuota, self, [scope, name, options])
+        jsii.create(KubeResourceQuota, self, [scope, id, props])
 
 
 class KubeResourceQuotaList(
@@ -18711,21 +17104,21 @@ class KubeResourceQuotaList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["ResourceQuota"],
+        items: typing.List["KubeResourceQuotaOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ResourceQuotaList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeResourceQuotaListOptions(items=items, metadata=metadata)
+        props = KubeResourceQuotaListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeResourceQuotaList, self, [scope, name, options])
+        jsii.create(KubeResourceQuotaList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -18737,7 +17130,7 @@ class KubeResourceQuotaListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["ResourceQuota"],
+        items: typing.List["KubeResourceQuotaOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ResourceQuotaList is a list of ResourceQuota items.
@@ -18756,7 +17149,7 @@ class KubeResourceQuotaListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["ResourceQuota"]:
+    def items(self) -> typing.List["KubeResourceQuotaOptions"]:
         """Items is a list of ResourceQuota objects.
 
         More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
@@ -18862,7 +17255,7 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         rules: typing.Optional[typing.List["PolicyRule"]] = None,
@@ -18870,13 +17263,13 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
         """Defines a "io.k8s.api.rbac.v1.Role" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata.
         :param rules: Rules holds all the PolicyRules for this Role.
         """
-        options = KubeRoleOptions(metadata=metadata, rules=rules)
+        props = KubeRoleOptions(metadata=metadata, rules=rules)
 
-        jsii.create(KubeRole, self, [scope, name, options])
+        jsii.create(KubeRole, self, [scope, id, props])
 
 
 class KubeRoleBinding(
@@ -18894,7 +17287,7 @@ class KubeRoleBinding(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -18903,16 +17296,16 @@ class KubeRoleBinding(
         """Defines a "io.k8s.api.rbac.v1.RoleBinding" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
         :param metadata: Standard object's metadata.
         :param subjects: Subjects holds references to the objects the role applies to.
         """
-        options = KubeRoleBindingOptions(
+        props = KubeRoleBindingOptions(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        jsii.create(KubeRoleBinding, self, [scope, name, options])
+        jsii.create(KubeRoleBinding, self, [scope, id, props])
 
 
 class KubeRoleBindingList(
@@ -18928,21 +17321,21 @@ class KubeRoleBindingList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["RoleBinding"],
+        items: typing.List["KubeRoleBindingOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1.RoleBindingList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of RoleBindings.
         :param metadata: Standard object's metadata.
         """
-        options = KubeRoleBindingListOptions(items=items, metadata=metadata)
+        props = KubeRoleBindingListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeRoleBindingList, self, [scope, name, options])
+        jsii.create(KubeRoleBindingList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -18954,7 +17347,7 @@ class KubeRoleBindingListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["RoleBinding"],
+        items: typing.List["KubeRoleBindingOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RoleBindingList is a collection of RoleBindings.
@@ -18973,7 +17366,7 @@ class KubeRoleBindingListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["RoleBinding"]:
+    def items(self) -> typing.List["KubeRoleBindingOptions"]:
         """Items is a list of RoleBindings.
 
         :schema: io.k8s.api.rbac.v1.RoleBindingList#items
@@ -19097,21 +17490,21 @@ class KubeRoleList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["Role"],
+        items: typing.List["KubeRoleOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1.RoleList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of Roles.
         :param metadata: Standard object's metadata.
         """
-        options = KubeRoleListOptions(items=items, metadata=metadata)
+        props = KubeRoleListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeRoleList, self, [scope, name, options])
+        jsii.create(KubeRoleList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -19123,7 +17516,7 @@ class KubeRoleListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["Role"],
+        items: typing.List["KubeRoleOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RoleList is a collection of Roles.
@@ -19142,7 +17535,7 @@ class KubeRoleListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["Role"]:
+    def items(self) -> typing.List["KubeRoleOptions"]:
         """Items is a list of Roles.
 
         :schema: io.k8s.api.rbac.v1.RoleList#items
@@ -19244,7 +17637,7 @@ class KubeRuntimeClass(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         handler: builtins.str,
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -19254,20 +17647,20 @@ class KubeRuntimeClass(
         """Defines a "io.k8s.api.node.v1beta1.RuntimeClass" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param handler: Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration. It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param overhead: Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
         :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
         """
-        options = KubeRuntimeClassOptions(
+        props = KubeRuntimeClassOptions(
             handler=handler,
             metadata=metadata,
             overhead=overhead,
             scheduling=scheduling,
         )
 
-        jsii.create(KubeRuntimeClass, self, [scope, name, options])
+        jsii.create(KubeRuntimeClass, self, [scope, id, props])
 
 
 class KubeRuntimeClassList(
@@ -19283,21 +17676,21 @@ class KubeRuntimeClassList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["RuntimeClass"],
+        items: typing.List["KubeRuntimeClassOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.node.v1beta1.RuntimeClassList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeRuntimeClassListOptions(items=items, metadata=metadata)
+        props = KubeRuntimeClassListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeRuntimeClassList, self, [scope, name, options])
+        jsii.create(KubeRuntimeClassList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -19309,7 +17702,7 @@ class KubeRuntimeClassListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["RuntimeClass"],
+        items: typing.List["KubeRuntimeClassOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RuntimeClassList is a list of RuntimeClass objects.
@@ -19328,7 +17721,7 @@ class KubeRuntimeClassListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["RuntimeClass"]:
+    def items(self) -> typing.List["KubeRuntimeClassOptions"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.node.v1beta1.RuntimeClassList#items
@@ -19470,7 +17863,7 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["ScaleSpec"] = None,
@@ -19478,13 +17871,13 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
         """Defines a "io.k8s.api.autoscaling.v1.Scale" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         """
-        options = KubeScaleOptions(metadata=metadata, spec=spec)
+        props = KubeScaleOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeScale, self, [scope, name, options])
+        jsii.create(KubeScale, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -19561,7 +17954,7 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -19571,17 +17964,17 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
         """Defines a "io.k8s.api.core.v1.Secret" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param data: Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param string_data: stringData allows specifying non-binary secret data in string form. It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
         :param type: Used to facilitate programmatic handling of secret data.
         """
-        options = KubeSecretOptions(
+        props = KubeSecretOptions(
             data=data, metadata=metadata, string_data=string_data, type=type
         )
 
-        jsii.create(KubeSecret, self, [scope, name, options])
+        jsii.create(KubeSecret, self, [scope, id, props])
 
 
 class KubeSecretList(
@@ -19597,21 +17990,21 @@ class KubeSecretList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["Secret"],
+        items: typing.List["KubeSecretOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.SecretList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeSecretListOptions(items=items, metadata=metadata)
+        props = KubeSecretListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeSecretList, self, [scope, name, options])
+        jsii.create(KubeSecretList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -19623,7 +18016,7 @@ class KubeSecretListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["Secret"],
+        items: typing.List["KubeSecretOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """SecretList is a list of Secret.
@@ -19642,7 +18035,7 @@ class KubeSecretListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["Secret"]:
+    def items(self) -> typing.List["KubeSecretOptions"]:
         """Items is a list of secret objects.
 
         More info: https://kubernetes.io/docs/concepts/configuration/secret
@@ -19789,7 +18182,7 @@ class KubeSelfSubjectAccessReview(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: "SelfSubjectAccessReviewSpec",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -19797,13 +18190,13 @@ class KubeSelfSubjectAccessReview(
         """Defines a "io.k8s.api.authorization.v1.SelfSubjectAccessReview" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: Spec holds information about the request being evaluated. user and groups must be empty
         :param metadata: 
         """
-        options = KubeSelfSubjectAccessReviewOptions(spec=spec, metadata=metadata)
+        props = KubeSelfSubjectAccessReviewOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSelfSubjectAccessReview, self, [scope, name, options])
+        jsii.create(KubeSelfSubjectAccessReview, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -19884,7 +18277,7 @@ class KubeSelfSubjectRulesReview(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: "SelfSubjectRulesReviewSpec",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -19892,13 +18285,13 @@ class KubeSelfSubjectRulesReview(
         """Defines a "io.k8s.api.authorization.v1.SelfSubjectRulesReview" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        options = KubeSelfSubjectRulesReviewOptions(spec=spec, metadata=metadata)
+        props = KubeSelfSubjectRulesReviewOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSelfSubjectRulesReview, self, [scope, name, options])
+        jsii.create(KubeSelfSubjectRulesReview, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -19975,7 +18368,7 @@ class KubeService(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["ServiceSpec"] = None,
@@ -19983,13 +18376,13 @@ class KubeService(
         """Defines a "io.k8s.api.core.v1.Service" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the behavior of a service. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = KubeServiceOptions(metadata=metadata, spec=spec)
+        props = KubeServiceOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeService, self, [scope, name, options])
+        jsii.create(KubeService, self, [scope, id, props])
 
 
 class KubeServiceAccount(
@@ -20005,7 +18398,7 @@ class KubeServiceAccount(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         automount_service_account_token: typing.Optional[builtins.bool] = None,
         image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]] = None,
@@ -20015,20 +18408,20 @@ class KubeServiceAccount(
         """Defines a "io.k8s.api.core.v1.ServiceAccount" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param automount_service_account_token: AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
         :param image_pull_secrets: ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount. ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param secrets: Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret
         """
-        options = KubeServiceAccountOptions(
+        props = KubeServiceAccountOptions(
             automount_service_account_token=automount_service_account_token,
             image_pull_secrets=image_pull_secrets,
             metadata=metadata,
             secrets=secrets,
         )
 
-        jsii.create(KubeServiceAccount, self, [scope, name, options])
+        jsii.create(KubeServiceAccount, self, [scope, id, props])
 
 
 class KubeServiceAccountList(
@@ -20044,21 +18437,21 @@ class KubeServiceAccountList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["ServiceAccount"],
+        items: typing.List["KubeServiceAccountOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ServiceAccountList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeServiceAccountListOptions(items=items, metadata=metadata)
+        props = KubeServiceAccountListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeServiceAccountList, self, [scope, name, options])
+        jsii.create(KubeServiceAccountList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -20070,7 +18463,7 @@ class KubeServiceAccountListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["ServiceAccount"],
+        items: typing.List["KubeServiceAccountOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ServiceAccountList is a list of ServiceAccount objects.
@@ -20089,7 +18482,7 @@ class KubeServiceAccountListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["ServiceAccount"]:
+    def items(self) -> typing.List["KubeServiceAccountOptions"]:
         """List of ServiceAccounts.
 
         More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
@@ -20234,21 +18627,21 @@ class KubeServiceList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["Service"],
+        items: typing.List["KubeServiceOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ServiceList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of services.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeServiceListOptions(items=items, metadata=metadata)
+        props = KubeServiceListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeServiceList, self, [scope, name, options])
+        jsii.create(KubeServiceList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -20260,7 +18653,7 @@ class KubeServiceListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["Service"],
+        items: typing.List["KubeServiceOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ServiceList holds a list of services.
@@ -20279,7 +18672,7 @@ class KubeServiceListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["Service"]:
+    def items(self) -> typing.List["KubeServiceOptions"]:
         """List of services.
 
         :schema: io.k8s.api.core.v1.ServiceList#items
@@ -20393,7 +18786,7 @@ class KubeStatefulSet(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["StatefulSetSpec"] = None,
@@ -20401,13 +18794,13 @@ class KubeStatefulSet(
         """Defines a "io.k8s.api.apps.v1.StatefulSet" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: 
         :param spec: Spec defines the desired identities of pods in this set.
         """
-        options = KubeStatefulSetOptions(metadata=metadata, spec=spec)
+        props = KubeStatefulSetOptions(metadata=metadata, spec=spec)
 
-        jsii.create(KubeStatefulSet, self, [scope, name, options])
+        jsii.create(KubeStatefulSet, self, [scope, id, props])
 
 
 class KubeStatefulSetList(
@@ -20423,21 +18816,21 @@ class KubeStatefulSetList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["StatefulSet"],
+        items: typing.List["KubeStatefulSetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.StatefulSetList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: 
         :param metadata: 
         """
-        options = KubeStatefulSetListOptions(items=items, metadata=metadata)
+        props = KubeStatefulSetListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeStatefulSetList, self, [scope, name, options])
+        jsii.create(KubeStatefulSetList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -20449,7 +18842,7 @@ class KubeStatefulSetListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["StatefulSet"],
+        items: typing.List["KubeStatefulSetOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """StatefulSetList is a collection of StatefulSets.
@@ -20468,7 +18861,7 @@ class KubeStatefulSetListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["StatefulSet"]:
+    def items(self) -> typing.List["KubeStatefulSetOptions"]:
         """
         :schema: io.k8s.api.apps.v1.StatefulSetList#items
         """
@@ -20569,7 +18962,7 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         code: typing.Optional[jsii.Number] = None,
         details: typing.Optional["StatusDetails"] = None,
@@ -20580,14 +18973,14 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
         """Defines a "io.k8s.apimachinery.pkg.apis.meta.v1.Status" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param code: Suggested HTTP return code for this status, 0 if not set.
         :param details: Extended data associated with the reason. Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema except that defined by the reason type.
         :param message: A human-readable description of the status of this operation.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         :param reason: A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
         """
-        options = KubeStatusOptions(
+        props = KubeStatusOptions(
             code=code,
             details=details,
             message=message,
@@ -20595,7 +18988,7 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
             reason=reason,
         )
 
-        jsii.create(KubeStatus, self, [scope, name, options])
+        jsii.create(KubeStatus, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -20723,7 +19116,7 @@ class KubeStorageClass(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         provisioner: builtins.str,
         allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
@@ -20737,7 +19130,7 @@ class KubeStorageClass(
         """Defines a "io.k8s.api.storage.v1.StorageClass" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param provisioner: Provisioner indicates the type of the provisioner.
         :param allowed_topologies: Restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
         :param allow_volume_expansion: AllowVolumeExpansion shows whether the storage class allow volume expand.
@@ -20747,7 +19140,7 @@ class KubeStorageClass(
         :param reclaim_policy: Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. Default: Delete.
         :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
         """
-        options = KubeStorageClassOptions(
+        props = KubeStorageClassOptions(
             provisioner=provisioner,
             allowed_topologies=allowed_topologies,
             allow_volume_expansion=allow_volume_expansion,
@@ -20758,7 +19151,7 @@ class KubeStorageClass(
             volume_binding_mode=volume_binding_mode,
         )
 
-        jsii.create(KubeStorageClass, self, [scope, name, options])
+        jsii.create(KubeStorageClass, self, [scope, id, props])
 
 
 class KubeStorageClassList(
@@ -20774,21 +19167,21 @@ class KubeStorageClassList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["StorageClass"],
+        items: typing.List["KubeStorageClassOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1.StorageClassList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is the list of StorageClasses.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        options = KubeStorageClassListOptions(items=items, metadata=metadata)
+        props = KubeStorageClassListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeStorageClassList, self, [scope, name, options])
+        jsii.create(KubeStorageClassList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -20800,7 +19193,7 @@ class KubeStorageClassListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["StorageClass"],
+        items: typing.List["KubeStorageClassOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """StorageClassList is a collection of storage classes.
@@ -20819,7 +19212,7 @@ class KubeStorageClassListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["StorageClass"]:
+    def items(self) -> typing.List["KubeStorageClassOptions"]:
         """Items is the list of StorageClasses.
 
         :schema: io.k8s.api.storage.v1.StorageClassList#items
@@ -21021,7 +19414,7 @@ class KubeSubjectAccessReview(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: "SubjectAccessReviewSpec",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -21029,13 +19422,13 @@ class KubeSubjectAccessReview(
         """Defines a "io.k8s.api.authorization.v1.SubjectAccessReview" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        options = KubeSubjectAccessReviewOptions(spec=spec, metadata=metadata)
+        props = KubeSubjectAccessReviewOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSubjectAccessReview, self, [scope, name, options])
+        jsii.create(KubeSubjectAccessReview, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -21110,7 +19503,7 @@ class KubeTokenRequest(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: "TokenRequestSpec",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -21118,13 +19511,13 @@ class KubeTokenRequest(
         """Defines a "io.k8s.api.authentication.v1.TokenRequest" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: 
         :param metadata: 
         """
-        options = KubeTokenRequestOptions(spec=spec, metadata=metadata)
+        props = KubeTokenRequestOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeTokenRequest, self, [scope, name, options])
+        jsii.create(KubeTokenRequest, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -21200,7 +19593,7 @@ class KubeTokenReview(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: "TokenReviewSpec",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -21208,13 +19601,13 @@ class KubeTokenReview(
         """Defines a "io.k8s.api.authentication.v1.TokenReview" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        options = KubeTokenReviewOptions(spec=spec, metadata=metadata)
+        props = KubeTokenReviewOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeTokenReview, self, [scope, name, options])
+        jsii.create(KubeTokenReview, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -21291,7 +19684,7 @@ class KubeValidatingWebhookConfiguration(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
@@ -21299,15 +19692,15 @@ class KubeValidatingWebhookConfiguration(
         """Defines a "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         """
-        options = KubeValidatingWebhookConfigurationOptions(
+        props = KubeValidatingWebhookConfigurationOptions(
             metadata=metadata, webhooks=webhooks
         )
 
-        jsii.create(KubeValidatingWebhookConfiguration, self, [scope, name, options])
+        jsii.create(KubeValidatingWebhookConfiguration, self, [scope, id, props])
 
 
 class KubeValidatingWebhookConfigurationList(
@@ -21323,23 +19716,23 @@ class KubeValidatingWebhookConfigurationList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["ValidatingWebhookConfiguration"],
+        items: typing.List["KubeValidatingWebhookConfigurationOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: List of ValidatingWebhookConfiguration.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        options = KubeValidatingWebhookConfigurationListOptions(
+        props = KubeValidatingWebhookConfigurationListOptions(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeValidatingWebhookConfigurationList, self, [scope, name, options])
+        jsii.create(KubeValidatingWebhookConfigurationList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -21351,7 +19744,7 @@ class KubeValidatingWebhookConfigurationListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["ValidatingWebhookConfiguration"],
+        items: typing.List["KubeValidatingWebhookConfigurationOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
@@ -21370,7 +19763,7 @@ class KubeValidatingWebhookConfigurationListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["ValidatingWebhookConfiguration"]:
+    def items(self) -> typing.List["KubeValidatingWebhookConfigurationOptions"]:
         """List of ValidatingWebhookConfiguration.
 
         :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#items
@@ -21476,7 +19869,7 @@ class KubeVolumeAttachment(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: "VolumeAttachmentSpec",
         metadata: typing.Optional["ObjectMeta"] = None,
@@ -21484,13 +19877,13 @@ class KubeVolumeAttachment(
         """Defines a "io.k8s.api.storage.v1.VolumeAttachment" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = KubeVolumeAttachmentOptions(spec=spec, metadata=metadata)
+        props = KubeVolumeAttachmentOptions(spec=spec, metadata=metadata)
 
-        jsii.create(KubeVolumeAttachment, self, [scope, name, options])
+        jsii.create(KubeVolumeAttachment, self, [scope, id, props])
 
 
 class KubeVolumeAttachmentList(
@@ -21506,21 +19899,21 @@ class KubeVolumeAttachmentList(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
-        items: typing.List["VolumeAttachment"],
+        items: typing.List["KubeVolumeAttachmentOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1.VolumeAttachmentList" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param items: Items is the list of VolumeAttachments.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        options = KubeVolumeAttachmentListOptions(items=items, metadata=metadata)
+        props = KubeVolumeAttachmentListOptions(items=items, metadata=metadata)
 
-        jsii.create(KubeVolumeAttachmentList, self, [scope, name, options])
+        jsii.create(KubeVolumeAttachmentList, self, [scope, id, props])
 
 
 @jsii.data_type(
@@ -21532,7 +19925,7 @@ class KubeVolumeAttachmentListOptions:
     def __init__(
         self,
         *,
-        items: typing.List["VolumeAttachment"],
+        items: typing.List["KubeVolumeAttachmentOptions"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -21551,7 +19944,7 @@ class KubeVolumeAttachmentListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["VolumeAttachment"]:
+    def items(self) -> typing.List["KubeVolumeAttachmentOptions"]:
         """Items is the list of VolumeAttachments.
 
         :schema: io.k8s.api.storage.v1.VolumeAttachmentList#items
@@ -21789,67 +20182,6 @@ class LabelSelectorRequirement:
 
 
 @jsii.data_type(
-    jsii_type="k8s.Lease",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class Lease:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["LeaseSpec"] = None,
-    ) -> None:
-        """Lease defines a lease concept.
-
-        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.coordination.v1.Lease
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = LeaseSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        :schema: io.k8s.api.coordination.v1.Lease#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["LeaseSpec"]:
-        """Specification of the Lease.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.coordination.v1.Lease#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Lease(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.LeaseSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -22012,69 +20344,6 @@ class Lifecycle:
 
     def __repr__(self) -> str:
         return "Lifecycle(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.LimitRange",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class LimitRange:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["LimitRangeSpec"] = None,
-    ) -> None:
-        """LimitRange sets resource usage limits for each kind of resource in a Namespace.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines the limits enforced. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.LimitRange
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = LimitRangeSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.LimitRange#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["LimitRangeSpec"]:
-        """Spec defines the limits enforced.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.LimitRange#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "LimitRange(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22953,130 +21222,6 @@ class MutatingWebhook:
 
 
 @jsii.data_type(
-    jsii_type="k8s.MutatingWebhookConfiguration",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
-)
-class MutatingWebhookConfiguration:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List[MutatingWebhook]] = None,
-    ) -> None:
-        """MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
-
-        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
-
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if webhooks is not None:
-            self._values["webhooks"] = webhooks
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object metadata;
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def webhooks(self) -> typing.Optional[typing.List[MutatingWebhook]]:
-        """Webhooks is a list of webhooks and the affected resources and operations.
-
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration#webhooks
-        """
-        result = self._values.get("webhooks")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "MutatingWebhookConfiguration(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.Namespace",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class Namespace:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["NamespaceSpec"] = None,
-    ) -> None:
-        """Namespace provides a scope for Names.
-
-        Use of multiple namespaces is optional.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines the behavior of the Namespace. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.Namespace
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = NamespaceSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.Namespace#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["NamespaceSpec"]:
-        """Spec defines the behavior of the Namespace.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.Namespace#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Namespace(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.NamespaceSpec",
     jsii_struct_bases=[],
     name_mapping={"finalizers": "finalizers"},
@@ -23116,67 +21261,6 @@ class NamespaceSpec:
 
     def __repr__(self) -> str:
         return "NamespaceSpec(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.NetworkPolicy",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class NetworkPolicy:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["NetworkPolicySpec"] = None,
-    ) -> None:
-        """NetworkPolicy describes what network traffic is allowed for a set of Pods.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior for this NetworkPolicy.
-
-        :schema: io.k8s.api.networking.v1.NetworkPolicy
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = NetworkPolicySpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.networking.v1.NetworkPolicy#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["NetworkPolicySpec"]:
-        """Specification of the desired behavior for this NetworkPolicy.
-
-        :schema: io.k8s.api.networking.v1.NetworkPolicy#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "NetworkPolicy(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23624,71 +21708,6 @@ class NfsVolumeSource:
 
     def __repr__(self) -> str:
         return "NfsVolumeSource(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.Node",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class Node:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["NodeSpec"] = None,
-    ) -> None:
-        """Node is a worker node in Kubernetes.
-
-        Each node will have a unique identifier in the cache (i.e. in etcd).
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines the behavior of a node. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.Node
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = NodeSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.Node#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["NodeSpec"]:
-        """Spec defines the behavior of a node.
-
-        https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.Node#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Node(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24911,134 +22930,6 @@ class OwnerReference:
 
 
 @jsii.data_type(
-    jsii_type="k8s.PersistentVolume",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class PersistentVolume:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PersistentVolumeSpec"] = None,
-    ) -> None:
-        """PersistentVolume (PV) is a storage resource provisioned by an administrator.
-
-        It is analogous to a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines a specification of a persistent volume owned by the cluster. Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
-
-        :schema: io.k8s.api.core.v1.PersistentVolume
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PersistentVolumeSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.PersistentVolume#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PersistentVolumeSpec"]:
-        """Spec defines a specification of a persistent volume owned by the cluster.
-
-        Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
-
-        :schema: io.k8s.api.core.v1.PersistentVolume#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PersistentVolume(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.PersistentVolumeClaim",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class PersistentVolumeClaim:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PersistentVolumeClaimSpec"] = None,
-    ) -> None:
-        """PersistentVolumeClaim is a user's request for and claim to a persistent volume.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
-
-        :schema: io.k8s.api.core.v1.PersistentVolumeClaim
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PersistentVolumeClaimSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.PersistentVolumeClaim#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PersistentVolumeClaimSpec"]:
-        """Spec defines the desired characteristics of a volume requested by a pod author.
-
-        More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
-
-        :schema: io.k8s.api.core.v1.PersistentVolumeClaim#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PersistentVolumeClaim(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.PersistentVolumeClaimSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -25837,71 +23728,6 @@ class PhotonPersistentDiskVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="k8s.Pod",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class Pod:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PodSpec"] = None,
-    ) -> None:
-        """Pod is a collection of containers that can run on a host.
-
-        This resource is created by clients and scheduled onto hosts.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.Pod
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PodSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.Pod#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PodSpec"]:
-        """Specification of the desired behavior of the pod.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.Pod#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Pod(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.PodAffinity",
     jsii_struct_bases=[],
     name_mapping={
@@ -26113,64 +23939,6 @@ class PodAntiAffinity:
 
 
 @jsii.data_type(
-    jsii_type="k8s.PodDisruptionBudget",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class PodDisruptionBudget:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PodDisruptionBudgetSpec"] = None,
-    ) -> None:
-        """PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
-
-        :param metadata: 
-        :param spec: Specification of the desired behavior of the PodDisruptionBudget.
-
-        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PodDisruptionBudgetSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """
-        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PodDisruptionBudgetSpec"]:
-        """Specification of the desired behavior of the PodDisruptionBudget.
-
-        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PodDisruptionBudget(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.PodDisruptionBudgetSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -26372,63 +24140,6 @@ class PodDnsConfigOption:
 
     def __repr__(self) -> str:
         return "PodDnsConfigOption(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.PodPreset",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class PodPreset:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PodPresetSpec"] = None,
-    ) -> None:
-        """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
-
-        :param metadata: 
-        :param spec: 
-
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PodPresetSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PodPresetSpec"]:
-        """
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PodPreset(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26742,67 +24453,6 @@ class PodSecurityContext:
 
     def __repr__(self) -> str:
         return "PodSecurityContext(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.PodSecurityPolicy",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class PodSecurityPolicy:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PodSecurityPolicySpec"] = None,
-    ) -> None:
-        """PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: spec defines the policy enforced.
-
-        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PodSecurityPolicySpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PodSecurityPolicySpec"]:
-        """spec defines the policy enforced.
-
-        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PodSecurityPolicy(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27812,69 +25462,6 @@ class PodSpec:
 
 
 @jsii.data_type(
-    jsii_type="k8s.PodTemplate",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "template": "template"},
-)
-class PodTemplate:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        template: typing.Optional["PodTemplateSpec"] = None,
-    ) -> None:
-        """PodTemplate describes a template for creating copies of a predefined pod.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param template: Template defines the pods that will be created from this pod template. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.PodTemplate
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(template, dict):
-            template = PodTemplateSpec(**template)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if template is not None:
-            self._values["template"] = template
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.PodTemplate#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def template(self) -> typing.Optional["PodTemplateSpec"]:
-        """Template defines the pods that will be created from this pod template.
-
-        https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.PodTemplate#template
-        """
-        result = self._values.get("template")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PodTemplate(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.PodTemplateSpec",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
@@ -28368,184 +25955,6 @@ class PreferredSchedulingTerm:
 
     def __repr__(self) -> str:
         return "PreferredSchedulingTerm(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.PriorityClass",
-    jsii_struct_bases=[],
-    name_mapping={
-        "value": "value",
-        "description": "description",
-        "global_default": "globalDefault",
-        "metadata": "metadata",
-        "preemption_policy": "preemptionPolicy",
-    },
-)
-class PriorityClass:
-    def __init__(
-        self,
-        *,
-        value: jsii.Number,
-        description: typing.Optional[builtins.str] = None,
-        global_default: typing.Optional[builtins.bool] = None,
-        metadata: typing.Optional[ObjectMeta] = None,
-        preemption_policy: typing.Optional[builtins.str] = None,
-    ) -> None:
-        """PriorityClass defines mapping from a priority class name to the priority integer value.
-
-        The value can be any valid integer.
-
-        :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
-        :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
-        :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
-
-        :schema: io.k8s.api.scheduling.v1.PriorityClass
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "value": value,
-        }
-        if description is not None:
-            self._values["description"] = description
-        if global_default is not None:
-            self._values["global_default"] = global_default
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if preemption_policy is not None:
-            self._values["preemption_policy"] = preemption_policy
-
-    @builtins.property
-    def value(self) -> jsii.Number:
-        """The value of this priority class.
-
-        This is the actual priority that pods receive when they have the name of this class in their pod spec.
-
-        :schema: io.k8s.api.scheduling.v1.PriorityClass#value
-        """
-        result = self._values.get("value")
-        assert result is not None, "Required property 'value' is missing"
-        return result
-
-    @builtins.property
-    def description(self) -> typing.Optional[builtins.str]:
-        """description is an arbitrary string that usually provides guidelines on when this priority class should be used.
-
-        :schema: io.k8s.api.scheduling.v1.PriorityClass#description
-        """
-        result = self._values.get("description")
-        return result
-
-    @builtins.property
-    def global_default(self) -> typing.Optional[builtins.bool]:
-        """globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class.
-
-        Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
-
-        :schema: io.k8s.api.scheduling.v1.PriorityClass#globalDefault
-        """
-        result = self._values.get("global_default")
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.scheduling.v1.PriorityClass#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def preemption_policy(self) -> typing.Optional[builtins.str]:
-        """PreemptionPolicy is the Policy for preempting pods with lower priority.
-
-        One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
-
-        :default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
-
-        :schema: io.k8s.api.scheduling.v1.PriorityClass#preemptionPolicy
-        """
-        result = self._values.get("preemption_policy")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PriorityClass(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.PriorityLevelConfiguration",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class PriorityLevelConfiguration:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PriorityLevelConfigurationSpec"] = None,
-    ) -> None:
-        """PriorityLevelConfiguration represents the configuration of a priority level.
-
-        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-        :param spec: ``spec`` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PriorityLevelConfigurationSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """``metadata`` is the standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PriorityLevelConfigurationSpec"]:
-        """``spec`` is the specification of the desired behavior of a "request-priority".
-
-        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PriorityLevelConfiguration(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -29451,69 +26860,6 @@ class RbdVolumeSource:
 
 
 @jsii.data_type(
-    jsii_type="k8s.ReplicaSet",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class ReplicaSet:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["ReplicaSetSpec"] = None,
-    ) -> None:
-        """ReplicaSet ensures that a specified number of pod replicas are running at any given time.
-
-        :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.apps.v1.ReplicaSet
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = ReplicaSetSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages.
-
-        Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.apps.v1.ReplicaSet#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["ReplicaSetSpec"]:
-        """Spec defines the specification of the desired behavior of the ReplicaSet.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.apps.v1.ReplicaSet#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ReplicaSet(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.ReplicaSetSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -29612,69 +26958,6 @@ class ReplicaSetSpec:
 
     def __repr__(self) -> str:
         return "ReplicaSetSpec(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.ReplicationController",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class ReplicationController:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["ReplicationControllerSpec"] = None,
-    ) -> None:
-        """ReplicationController represents the configuration of a replication controller.
-
-        :param metadata: If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines the specification of the desired behavior of the replication controller. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.ReplicationController
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = ReplicationControllerSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages.
-
-        Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.ReplicationController#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["ReplicationControllerSpec"]:
-        """Spec defines the specification of the desired behavior of the replication controller.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.ReplicationController#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ReplicationController(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -30106,69 +27389,6 @@ class ResourcePolicyRule:
 
 
 @jsii.data_type(
-    jsii_type="k8s.ResourceQuota",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class ResourceQuota:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["ResourceQuotaSpec"] = None,
-    ) -> None:
-        """ResourceQuota sets aggregate quota restrictions enforced per namespace.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines the desired quota. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.ResourceQuota
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = ResourceQuotaSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.ResourceQuota#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["ResourceQuotaSpec"]:
-        """Spec defines the desired quota.
-
-        https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.ResourceQuota#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ResourceQuota(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.ResourceQuotaSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -30303,144 +27523,6 @@ class ResourceRequirements:
 
     def __repr__(self) -> str:
         return "ResourceRequirements(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.Role",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "rules": "rules"},
-)
-class Role:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        rules: typing.Optional[typing.List[PolicyRule]] = None,
-    ) -> None:
-        """Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
-
-        :param metadata: Standard object's metadata.
-        :param rules: Rules holds all the PolicyRules for this Role.
-
-        :schema: io.k8s.api.rbac.v1.Role
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if rules is not None:
-            self._values["rules"] = rules
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        :schema: io.k8s.api.rbac.v1.Role#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def rules(self) -> typing.Optional[typing.List[PolicyRule]]:
-        """Rules holds all the PolicyRules for this Role.
-
-        :schema: io.k8s.api.rbac.v1.Role#rules
-        """
-        result = self._values.get("rules")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Role(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.RoleBinding",
-    jsii_struct_bases=[],
-    name_mapping={
-        "role_ref": "roleRef",
-        "metadata": "metadata",
-        "subjects": "subjects",
-    },
-)
-class RoleBinding:
-    def __init__(
-        self,
-        *,
-        role_ref: "RoleRef",
-        metadata: typing.Optional[ObjectMeta] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
-    ) -> None:
-        """RoleBinding references a role, but does not contain it.
-
-        It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.
-
-        :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
-        :param metadata: Standard object's metadata.
-        :param subjects: Subjects holds references to the objects the role applies to.
-
-        :schema: io.k8s.api.rbac.v1.RoleBinding
-        """
-        if isinstance(role_ref, dict):
-            role_ref = RoleRef(**role_ref)
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "role_ref": role_ref,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if subjects is not None:
-            self._values["subjects"] = subjects
-
-    @builtins.property
-    def role_ref(self) -> "RoleRef":
-        """RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace.
-
-        If the RoleRef cannot be resolved, the Authorizer must return an error.
-
-        :schema: io.k8s.api.rbac.v1.RoleBinding#roleRef
-        """
-        result = self._values.get("role_ref")
-        assert result is not None, "Required property 'role_ref' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        :schema: io.k8s.api.rbac.v1.RoleBinding#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def subjects(self) -> typing.Optional[typing.List["Subject"]]:
-        """Subjects holds references to the objects the role applies to.
-
-        :schema: io.k8s.api.rbac.v1.RoleBinding#subjects
-        """
-        result = self._values.get("subjects")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "RoleBinding(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -30887,107 +27969,6 @@ class RunAsUserStrategyOptions:
 
     def __repr__(self) -> str:
         return "RunAsUserStrategyOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.RuntimeClass",
-    jsii_struct_bases=[],
-    name_mapping={
-        "handler": "handler",
-        "metadata": "metadata",
-        "overhead": "overhead",
-        "scheduling": "scheduling",
-    },
-)
-class RuntimeClass:
-    def __init__(
-        self,
-        *,
-        handler: builtins.str,
-        metadata: typing.Optional[ObjectMeta] = None,
-        overhead: typing.Optional[Overhead] = None,
-        scheduling: typing.Optional["Scheduling"] = None,
-    ) -> None:
-        """RuntimeClass defines a class of container runtime supported in the cluster.
-
-        The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
-
-        :param handler: Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration. It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
-        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        :param overhead: Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
-        :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
-
-        :schema: io.k8s.api.node.v1beta1.RuntimeClass
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(overhead, dict):
-            overhead = Overhead(**overhead)
-        if isinstance(scheduling, dict):
-            scheduling = Scheduling(**scheduling)
-        self._values: typing.Dict[str, typing.Any] = {
-            "handler": handler,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if overhead is not None:
-            self._values["overhead"] = overhead
-        if scheduling is not None:
-            self._values["scheduling"] = scheduling
-
-    @builtins.property
-    def handler(self) -> builtins.str:
-        """Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class.
-
-        The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
-
-        :schema: io.k8s.api.node.v1beta1.RuntimeClass#handler
-        """
-        result = self._values.get("handler")
-        assert result is not None, "Required property 'handler' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        :schema: io.k8s.api.node.v1beta1.RuntimeClass#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def overhead(self) -> typing.Optional[Overhead]:
-        """Overhead represents the resource overhead associated with running a pod for a given RuntimeClass.
-
-        For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
-
-        :schema: io.k8s.api.node.v1beta1.RuntimeClass#overhead
-        """
-        result = self._values.get("overhead")
-        return result
-
-    @builtins.property
-    def scheduling(self) -> typing.Optional["Scheduling"]:
-        """Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it.
-
-        If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
-
-        :schema: io.k8s.api.node.v1beta1.RuntimeClass#scheduling
-        """
-        result = self._values.get("scheduling")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "RuntimeClass(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -31789,104 +28770,6 @@ class SeLinuxStrategyOptions:
 
 
 @jsii.data_type(
-    jsii_type="k8s.Secret",
-    jsii_struct_bases=[],
-    name_mapping={
-        "data": "data",
-        "metadata": "metadata",
-        "string_data": "stringData",
-        "type": "type",
-    },
-)
-class Secret:
-    def __init__(
-        self,
-        *,
-        data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        metadata: typing.Optional[ObjectMeta] = None,
-        string_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        type: typing.Optional[builtins.str] = None,
-    ) -> None:
-        """Secret holds secret data of a certain type.
-
-        The total bytes of the values in the Data field must be less than MaxSecretSize bytes.
-
-        :param data: Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param string_data: stringData allows specifying non-binary secret data in string form. It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
-        :param type: Used to facilitate programmatic handling of secret data.
-
-        :schema: io.k8s.api.core.v1.Secret
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if data is not None:
-            self._values["data"] = data
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if string_data is not None:
-            self._values["string_data"] = string_data
-        if type is not None:
-            self._values["type"] = type
-
-    @builtins.property
-    def data(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
-        """Data contains the secret data.
-
-        Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
-
-        :schema: io.k8s.api.core.v1.Secret#data
-        """
-        result = self._values.get("data")
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.Secret#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def string_data(
-        self,
-    ) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
-        """stringData allows specifying non-binary secret data in string form.
-
-        It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
-
-        :schema: io.k8s.api.core.v1.Secret#stringData
-        """
-        result = self._values.get("string_data")
-        return result
-
-    @builtins.property
-    def type(self) -> typing.Optional[builtins.str]:
-        """Used to facilitate programmatic handling of secret data.
-
-        :schema: io.k8s.api.core.v1.Secret#type
-        """
-        result = self._values.get("type")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Secret(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.SecretEnvSource",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "optional": "optional"},
@@ -32555,165 +29438,6 @@ class SelfSubjectRulesReviewSpec:
 
 
 @jsii.data_type(
-    jsii_type="k8s.Service",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class Service:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["ServiceSpec"] = None,
-    ) -> None:
-        """Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec defines the behavior of a service. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.Service
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = ServiceSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.Service#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["ServiceSpec"]:
-        """Spec defines the behavior of a service.
-
-        https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.core.v1.Service#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "Service(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.ServiceAccount",
-    jsii_struct_bases=[],
-    name_mapping={
-        "automount_service_account_token": "automountServiceAccountToken",
-        "image_pull_secrets": "imagePullSecrets",
-        "metadata": "metadata",
-        "secrets": "secrets",
-    },
-)
-class ServiceAccount:
-    def __init__(
-        self,
-        *,
-        automount_service_account_token: typing.Optional[builtins.bool] = None,
-        image_pull_secrets: typing.Optional[typing.List[LocalObjectReference]] = None,
-        metadata: typing.Optional[ObjectMeta] = None,
-        secrets: typing.Optional[typing.List[ObjectReference]] = None,
-    ) -> None:
-        """ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets.
-
-        :param automount_service_account_token: AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
-        :param image_pull_secrets: ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount. ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param secrets: Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret
-
-        :schema: io.k8s.api.core.v1.ServiceAccount
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if automount_service_account_token is not None:
-            self._values["automount_service_account_token"] = automount_service_account_token
-        if image_pull_secrets is not None:
-            self._values["image_pull_secrets"] = image_pull_secrets
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if secrets is not None:
-            self._values["secrets"] = secrets
-
-    @builtins.property
-    def automount_service_account_token(self) -> typing.Optional[builtins.bool]:
-        """AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted.
-
-        Can be overridden at the pod level.
-
-        :schema: io.k8s.api.core.v1.ServiceAccount#automountServiceAccountToken
-        """
-        result = self._values.get("automount_service_account_token")
-        return result
-
-    @builtins.property
-    def image_pull_secrets(self) -> typing.Optional[typing.List[LocalObjectReference]]:
-        """ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount.
-
-        ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
-
-        :schema: io.k8s.api.core.v1.ServiceAccount#imagePullSecrets
-        """
-        result = self._values.get("image_pull_secrets")
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.core.v1.ServiceAccount#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def secrets(self) -> typing.Optional[typing.List[ObjectReference]]:
-        """Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount.
-
-        More info: https://kubernetes.io/docs/concepts/configuration/secret
-
-        :schema: io.k8s.api.core.v1.ServiceAccount#secrets
-        """
-        result = self._values.get("secrets")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ServiceAccount(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.ServiceAccountTokenProjection",
     jsii_struct_bases=[],
     name_mapping={
@@ -33315,70 +30039,6 @@ class SessionAffinityConfig:
 
 
 @jsii.data_type(
-    jsii_type="k8s.StatefulSet",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class StatefulSet:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["StatefulSetSpec"] = None,
-    ) -> None:
-        """StatefulSet represents a set of pods with consistent identities.
-
-        Identities are defined as:
-
-        - Network: A single stable DNS and hostname.
-        - Storage: As many VolumeClaims as requested.
-          The StatefulSet guarantees that a given network identity will always map to the same storage identity.
-
-        :param metadata: 
-        :param spec: Spec defines the desired identities of pods in this set.
-
-        :schema: io.k8s.api.apps.v1.StatefulSet
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = StatefulSetSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """
-        :schema: io.k8s.api.apps.v1.StatefulSet#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["StatefulSetSpec"]:
-        """Spec defines the desired identities of pods in this set.
-
-        :schema: io.k8s.api.apps.v1.StatefulSet#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "StatefulSet(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.StatefulSetSpec",
     jsii_struct_bases=[],
     name_mapping={
@@ -33403,7 +30063,7 @@ class StatefulSetSpec:
         replicas: typing.Optional[jsii.Number] = None,
         revision_history_limit: typing.Optional[jsii.Number] = None,
         update_strategy: typing.Optional["StatefulSetUpdateStrategy"] = None,
-        volume_claim_templates: typing.Optional[typing.List[PersistentVolumeClaim]] = None,
+        volume_claim_templates: typing.Optional[typing.List[KubePersistentVolumeClaimOptions]] = None,
     ) -> None:
         """A StatefulSetSpec is the specification of a StatefulSet.
 
@@ -33521,7 +30181,7 @@ class StatefulSetSpec:
     @builtins.property
     def volume_claim_templates(
         self,
-    ) -> typing.Optional[typing.List[PersistentVolumeClaim]]:
+    ) -> typing.Optional[typing.List[KubePersistentVolumeClaimOptions]]:
         """volumeClaimTemplates is a list of claims that pods are allowed to reference.
 
         The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
@@ -33804,165 +30464,6 @@ class StatusDetails:
 
     def __repr__(self) -> str:
         return "StatusDetails(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.StorageClass",
-    jsii_struct_bases=[],
-    name_mapping={
-        "provisioner": "provisioner",
-        "allowed_topologies": "allowedTopologies",
-        "allow_volume_expansion": "allowVolumeExpansion",
-        "metadata": "metadata",
-        "mount_options": "mountOptions",
-        "parameters": "parameters",
-        "reclaim_policy": "reclaimPolicy",
-        "volume_binding_mode": "volumeBindingMode",
-    },
-)
-class StorageClass:
-    def __init__(
-        self,
-        *,
-        provisioner: builtins.str,
-        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
-        allow_volume_expansion: typing.Optional[builtins.bool] = None,
-        metadata: typing.Optional[ObjectMeta] = None,
-        mount_options: typing.Optional[typing.List[builtins.str]] = None,
-        parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        reclaim_policy: typing.Optional[builtins.str] = None,
-        volume_binding_mode: typing.Optional[builtins.str] = None,
-    ) -> None:
-        """StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
-
-        StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
-
-        :param provisioner: Provisioner indicates the type of the provisioner.
-        :param allowed_topologies: Restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
-        :param allow_volume_expansion: AllowVolumeExpansion shows whether the storage class allow volume expand.
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param mount_options: Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
-        :param parameters: Parameters holds the parameters for the provisioner that should create volumes of this storage class.
-        :param reclaim_policy: Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. Default: Delete.
-        :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
-
-        :schema: io.k8s.api.storage.v1.StorageClass
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "provisioner": provisioner,
-        }
-        if allowed_topologies is not None:
-            self._values["allowed_topologies"] = allowed_topologies
-        if allow_volume_expansion is not None:
-            self._values["allow_volume_expansion"] = allow_volume_expansion
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if mount_options is not None:
-            self._values["mount_options"] = mount_options
-        if parameters is not None:
-            self._values["parameters"] = parameters
-        if reclaim_policy is not None:
-            self._values["reclaim_policy"] = reclaim_policy
-        if volume_binding_mode is not None:
-            self._values["volume_binding_mode"] = volume_binding_mode
-
-    @builtins.property
-    def provisioner(self) -> builtins.str:
-        """Provisioner indicates the type of the provisioner.
-
-        :schema: io.k8s.api.storage.v1.StorageClass#provisioner
-        """
-        result = self._values.get("provisioner")
-        assert result is not None, "Required property 'provisioner' is missing"
-        return result
-
-    @builtins.property
-    def allowed_topologies(
-        self,
-    ) -> typing.Optional[typing.List["TopologySelectorTerm"]]:
-        """Restrict the node topologies where volumes can be dynamically provisioned.
-
-        Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
-
-        :schema: io.k8s.api.storage.v1.StorageClass#allowedTopologies
-        """
-        result = self._values.get("allowed_topologies")
-        return result
-
-    @builtins.property
-    def allow_volume_expansion(self) -> typing.Optional[builtins.bool]:
-        """AllowVolumeExpansion shows whether the storage class allow volume expand.
-
-        :schema: io.k8s.api.storage.v1.StorageClass#allowVolumeExpansion
-        """
-        result = self._values.get("allow_volume_expansion")
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.storage.v1.StorageClass#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def mount_options(self) -> typing.Optional[typing.List[builtins.str]]:
-        """Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
-
-        :schema: io.k8s.api.storage.v1.StorageClass#mountOptions
-        """
-        result = self._values.get("mount_options")
-        return result
-
-    @builtins.property
-    def parameters(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
-        """Parameters holds the parameters for the provisioner that should create volumes of this storage class.
-
-        :schema: io.k8s.api.storage.v1.StorageClass#parameters
-        """
-        result = self._values.get("parameters")
-        return result
-
-    @builtins.property
-    def reclaim_policy(self) -> typing.Optional[builtins.str]:
-        """Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy.
-
-        Defaults to Delete.
-
-        :default: Delete.
-
-        :schema: io.k8s.api.storage.v1.StorageClass#reclaimPolicy
-        """
-        result = self._values.get("reclaim_policy")
-        return result
-
-    @builtins.property
-    def volume_binding_mode(self) -> typing.Optional[builtins.str]:
-        """VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.
-
-        When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
-
-        :schema: io.k8s.api.storage.v1.StorageClass#volumeBindingMode
-        """
-        result = self._values.get("volume_binding_mode")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "StorageClass(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -35437,65 +31938,6 @@ class ValidatingWebhook:
 
 
 @jsii.data_type(
-    jsii_type="k8s.ValidatingWebhookConfiguration",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
-)
-class ValidatingWebhookConfiguration:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        webhooks: typing.Optional[typing.List[ValidatingWebhook]] = None,
-    ) -> None:
-        """ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
-
-        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
-
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if webhooks is not None:
-            self._values["webhooks"] = webhooks
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object metadata;
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def webhooks(self) -> typing.Optional[typing.List[ValidatingWebhook]]:
-        """Webhooks is a list of webhooks and the affected resources and operations.
-
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration#webhooks
-        """
-        result = self._values.get("webhooks")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "ValidatingWebhookConfiguration(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
     jsii_type="k8s.Volume",
     jsii_struct_bases=[],
     name_mapping={
@@ -36016,72 +32458,6 @@ class Volume:
 
     def __repr__(self) -> str:
         return "Volume(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.VolumeAttachment",
-    jsii_struct_bases=[],
-    name_mapping={"spec": "spec", "metadata": "metadata"},
-)
-class VolumeAttachment:
-    def __init__(
-        self,
-        *,
-        spec: "VolumeAttachmentSpec",
-        metadata: typing.Optional[ObjectMeta] = None,
-    ) -> None:
-        """VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
-
-        VolumeAttachment objects are non-namespaced.
-
-        :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
-        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.storage.v1.VolumeAttachment
-        """
-        if isinstance(spec, dict):
-            spec = VolumeAttachmentSpec(**spec)
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "spec": spec,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def spec(self) -> "VolumeAttachmentSpec":
-        """Specification of the desired attach/detach volume behavior.
-
-        Populated by the Kubernetes system.
-
-        :schema: io.k8s.api.storage.v1.VolumeAttachment#spec
-        """
-        result = self._values.get("spec")
-        assert result is not None, "Required property 'spec' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """Standard object metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.storage.v1.VolumeAttachment#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "VolumeAttachment(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -37076,9 +33452,7 @@ __all__ = [
     "AllowedCsiDriver",
     "AllowedFlexVolume",
     "AllowedHostPath",
-    "ApiService",
     "ApiServiceSpec",
-    "AuditSink",
     "AuditSinkSpec",
     "AwsElasticBlockStoreVolumeSource",
     "AzureDiskVolumeSource",
@@ -37088,16 +33462,11 @@ __all__ = [
     "Capabilities",
     "CephFsPersistentVolumeSource",
     "CephFsVolumeSource",
-    "CertificateSigningRequest",
     "CertificateSigningRequestSpec",
     "CinderPersistentVolumeSource",
     "CinderVolumeSource",
     "ClientIpConfig",
-    "ClusterRole",
-    "ClusterRoleBinding",
     "ComponentCondition",
-    "ComponentStatus",
-    "ConfigMap",
     "ConfigMapEnvSource",
     "ConfigMapKeySelector",
     "ConfigMapNodeConfigSource",
@@ -37105,31 +33474,24 @@ __all__ = [
     "ConfigMapVolumeSource",
     "Container",
     "ContainerPort",
-    "ControllerRevision",
-    "CronJob",
     "CronJobSpec",
     "CrossVersionObjectReference",
-    "CsiDriver",
     "CsiDriverSpec",
-    "CsiNode",
     "CsiNodeDriver",
     "CsiNodeSpec",
     "CsiPersistentVolumeSource",
     "CsiVolumeSource",
     "CustomResourceColumnDefinition",
     "CustomResourceConversion",
-    "CustomResourceDefinition",
     "CustomResourceDefinitionNames",
     "CustomResourceDefinitionSpec",
     "CustomResourceDefinitionVersion",
     "CustomResourceSubresourceScale",
     "CustomResourceSubresources",
     "CustomResourceValidation",
-    "DaemonSet",
     "DaemonSetSpec",
     "DaemonSetUpdateStrategy",
     "DeleteOptions",
-    "Deployment",
     "DeploymentSpec",
     "DeploymentStrategy",
     "DownwardApiProjection",
@@ -37140,14 +33502,11 @@ __all__ = [
     "EndpointAddress",
     "EndpointConditions",
     "EndpointPort",
-    "EndpointSlice",
     "EndpointSubset",
-    "Endpoints",
     "EnvFromSource",
     "EnvVar",
     "EnvVarSource",
     "EphemeralContainer",
-    "Event",
     "EventSeries",
     "EventSource",
     "ExecAction",
@@ -37157,7 +33516,6 @@ __all__ = [
     "FlexVolumeSource",
     "FlockerVolumeSource",
     "FlowDistinguisherMethod",
-    "FlowSchema",
     "FlowSchemaSpec",
     "FsGroupStrategyOptions",
     "GcePersistentDiskVolumeSource",
@@ -37165,7 +33523,6 @@ __all__ = [
     "GlusterfsPersistentVolumeSource",
     "GlusterfsVolumeSource",
     "Handler",
-    "HorizontalPodAutoscaler",
     "HorizontalPodAutoscalerSpec",
     "HostAlias",
     "HostPathVolumeSource",
@@ -37175,7 +33532,6 @@ __all__ = [
     "HttpIngressPath",
     "HttpIngressRuleValue",
     "IdRange",
-    "Ingress",
     "IngressBackend",
     "IngressRule",
     "IngressSpec",
@@ -37185,7 +33541,6 @@ __all__ = [
     "IpBlock",
     "IscsiPersistentVolumeSource",
     "IscsiVolumeSource",
-    "Job",
     "JobSpec",
     "JobTemplateSpec",
     "JsonSchemaProps",
@@ -37408,10 +33763,8 @@ __all__ = [
     "KubeVolumeAttachmentOptions",
     "LabelSelector",
     "LabelSelectorRequirement",
-    "Lease",
     "LeaseSpec",
     "Lifecycle",
-    "LimitRange",
     "LimitRangeItem",
     "LimitRangeSpec",
     "LimitResponse",
@@ -37421,17 +33774,13 @@ __all__ = [
     "LocalVolumeSource",
     "ManagedFieldsEntry",
     "MutatingWebhook",
-    "MutatingWebhookConfiguration",
-    "Namespace",
     "NamespaceSpec",
-    "NetworkPolicy",
     "NetworkPolicyEgressRule",
     "NetworkPolicyIngressRule",
     "NetworkPolicyPeer",
     "NetworkPolicyPort",
     "NetworkPolicySpec",
     "NfsVolumeSource",
-    "Node",
     "NodeAffinity",
     "NodeConfigSource",
     "NodeSelector",
@@ -37445,28 +33794,21 @@ __all__ = [
     "ObjectReference",
     "Overhead",
     "OwnerReference",
-    "PersistentVolume",
-    "PersistentVolumeClaim",
     "PersistentVolumeClaimSpec",
     "PersistentVolumeClaimVolumeSource",
     "PersistentVolumeSpec",
     "PhotonPersistentDiskVolumeSource",
-    "Pod",
     "PodAffinity",
     "PodAffinityTerm",
     "PodAntiAffinity",
-    "PodDisruptionBudget",
     "PodDisruptionBudgetSpec",
     "PodDnsConfig",
     "PodDnsConfigOption",
-    "PodPreset",
     "PodPresetSpec",
     "PodReadinessGate",
     "PodSecurityContext",
-    "PodSecurityPolicy",
     "PodSecurityPolicySpec",
     "PodSpec",
-    "PodTemplate",
     "PodTemplateSpec",
     "Policy",
     "PolicyRule",
@@ -37474,8 +33816,6 @@ __all__ = [
     "PortworxVolumeSource",
     "Preconditions",
     "PreferredSchedulingTerm",
-    "PriorityClass",
-    "PriorityLevelConfiguration",
     "PriorityLevelConfigurationReference",
     "PriorityLevelConfigurationSpec",
     "Probe",
@@ -37485,18 +33825,13 @@ __all__ = [
     "QuobyteVolumeSource",
     "RbdPersistentVolumeSource",
     "RbdVolumeSource",
-    "ReplicaSet",
     "ReplicaSetSpec",
-    "ReplicationController",
     "ReplicationControllerSpec",
     "ResourceAttributes",
     "ResourceFieldSelector",
     "ResourcePolicyRule",
-    "ResourceQuota",
     "ResourceQuotaSpec",
     "ResourceRequirements",
-    "Role",
-    "RoleBinding",
     "RoleRef",
     "RollingUpdateDaemonSet",
     "RollingUpdateDeployment",
@@ -37504,7 +33839,6 @@ __all__ = [
     "RuleWithOperations",
     "RunAsGroupStrategyOptions",
     "RunAsUserStrategyOptions",
-    "RuntimeClass",
     "RuntimeClassStrategyOptions",
     "ScaleIoPersistentVolumeSource",
     "ScaleIoVolumeSource",
@@ -37514,7 +33848,6 @@ __all__ = [
     "ScopedResourceSelectorRequirement",
     "SeLinuxOptions",
     "SeLinuxStrategyOptions",
-    "Secret",
     "SecretEnvSource",
     "SecretKeySelector",
     "SecretProjection",
@@ -37523,19 +33856,15 @@ __all__ = [
     "SecurityContext",
     "SelfSubjectAccessReviewSpec",
     "SelfSubjectRulesReviewSpec",
-    "Service",
-    "ServiceAccount",
     "ServiceAccountTokenProjection",
     "ServicePort",
     "ServiceReference",
     "ServiceSpec",
     "SessionAffinityConfig",
-    "StatefulSet",
     "StatefulSetSpec",
     "StatefulSetUpdateStrategy",
     "StatusCause",
     "StatusDetails",
-    "StorageClass",
     "StorageOsPersistentVolumeSource",
     "StorageOsVolumeSource",
     "Subject",
@@ -37552,9 +33881,7 @@ __all__ = [
     "TopologySpreadConstraint",
     "TypedLocalObjectReference",
     "ValidatingWebhook",
-    "ValidatingWebhookConfiguration",
     "Volume",
-    "VolumeAttachment",
     "VolumeAttachmentSource",
     "VolumeAttachmentSpec",
     "VolumeDevice",
