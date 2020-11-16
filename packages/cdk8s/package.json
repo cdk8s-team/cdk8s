@@ -59,11 +59,13 @@
     "constructs": "^3.0.4"
   },
   "dependencies": {
+    "fast-json-patch": "^3.0.0-1",
     "follow-redirects": "^1.11.0",
     "json-stable-stringify": "^1.0.1",
     "yaml": "2.0.0-1"
   },
   "bundledDependencies": [
+    "fast-json-patch",
     "follow-redirects",
     "json-stable-stringify",
     "yaml"
