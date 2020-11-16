@@ -29,7 +29,7 @@ test('secrets can be added to the service account', () => {
   const secret2 = kplus.Secret.fromSecretName('my-secret-2');
 
   // WHEN
-  const sa = new ServiceAccount(chart, 'my-service-account', {
+  const sa = new kplus.ServiceAccount(chart, 'my-service-account', {
     secrets: [secret1],
   });
 
