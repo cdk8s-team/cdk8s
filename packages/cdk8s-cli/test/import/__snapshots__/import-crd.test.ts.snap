@@ -90,7 +90,7 @@ Object {
         },
         "locationInModule": Object {
           "filename": "stable.example.com/othercrontab.ts",
-          "line": 22,
+          "line": 17,
         },
         "parameters": Array [
           Object {
@@ -126,7 +126,7 @@ Object {
       "kind": "class",
       "locationInModule": Object {
         "filename": "stable.example.com/othercrontab.ts",
-        "line": 15,
+        "line": 10,
       },
       "name": "FooOtherCronTab",
     },
@@ -134,34 +134,17 @@ Object {
       "assembly": "stableexamplecomothercrontab",
       "datatype": true,
       "docs": Object {
-        "summary": "Initialization props for FooOtherCronTab.",
-      },
-      "fqn": "stableexamplecomothercrontab.FooOtherCronTabOptions",
-      "interfaces": Array [
-        "stableexamplecomothercrontab.OtherCronTab",
-      ],
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "stable.example.com/othercrontab.ts",
-        "line": 8,
-      },
-      "name": "FooOtherCronTabOptions",
-    },
-    "stableexamplecomothercrontab.OtherCronTab": Object {
-      "assembly": "stableexamplecomothercrontab",
-      "datatype": true,
-      "docs": Object {
         "custom": Object {
           "schema": "OtherCronTab",
         },
       },
-      "fqn": "stableexamplecomothercrontab.OtherCronTab",
+      "fqn": "stableexamplecomothercrontab.FooOtherCronTabOptions",
       "kind": "interface",
       "locationInModule": Object {
         "filename": "stable.example.com/othercrontab.ts",
-        "line": 34,
+        "line": 29,
       },
-      "name": "OtherCronTab",
+      "name": "FooOtherCronTabOptions",
       "properties": Array [
         Object {
           "abstract": true,
@@ -173,7 +156,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "stable.example.com/othercrontab.ts",
-            "line": 38,
+            "line": 33,
           },
           "name": "spec",
           "optional": true,
@@ -195,7 +178,7 @@ Object {
       "kind": "interface",
       "locationInModule": Object {
         "filename": "stable.example.com/othercrontab.ts",
-        "line": 45,
+        "line": 40,
       },
       "name": "OtherCronTabSpec",
       "properties": Array [
@@ -209,7 +192,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "stable.example.com/othercrontab.ts",
-            "line": 49,
+            "line": 44,
           },
           "name": "cronSpec",
           "optional": true,
@@ -227,7 +210,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "stable.example.com/othercrontab.ts",
-            "line": 54,
+            "line": 49,
           },
           "name": "image",
           "optional": true,
@@ -245,7 +228,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "stable.example.com/othercrontab.ts",
-            "line": 59,
+            "line": 54,
           },
           "name": "replicas",
           "optional": true,

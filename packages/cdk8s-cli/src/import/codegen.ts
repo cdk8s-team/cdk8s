@@ -4,7 +4,7 @@ import { JSONSchema4 } from 'json-schema';
 
 import { TypeGenerator } from 'json2jsii';
 
-export interface GeneratedConstruct {
+export interface ApiObjectDefinition {
   readonly fqn: string;
   readonly group: string;
   readonly version: string;
@@ -20,39 +20,30 @@ export interface GeneratedConstruct {
   readonly prefix?: string;
 }
 
-export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruct) {
+export function getConstructTypeName(def: ApiObjectDefinition) {
   const prefix = def.prefix ?? '';
-  const constructName = TypeGenerator.normalizeTypeName(`${prefix}${def.kind}`);
+  return TypeGenerator.normalizeTypeName(`${prefix}${def.kind}`);
+}
 
-  typegen.addCode(constructName, code => {
+export function getPropsTypeName(def: ApiObjectDefinition) {
+  const constructName = getConstructTypeName(def);
+  return TypeGenerator.normalizeTypeName(`${constructName}Options`);
+}
+
+export function generateConstruct(typegen: TypeGenerator, def: ApiObjectDefinition) {
+  const constructName = getConstructTypeName(def);
+
+  typegen.emitCustomType(constructName, code => {
     const schema = def.schema;
 
-    const propsTypeName = emitPropsStruct(); // could also be "any" if we can't parse the schema for some reason
+    // `propsTypeName` could also be "any" if we can't parse the schema for some reason
+    const propsTypeName = emitPropsStruct();
     emitConstruct();
 
     function emitPropsStruct() {
-      const propsStructName = `${constructName}Options`;
       const propsSchema = createPropsStructSchema();
-      const structName = constructName !== def.kind ? def.kind : propsStructName;
-
-      const actualType = typegen.addType(TypeGenerator.normalizeTypeName(structName), propsSchema, def.fqn);
-
-      // if `any` is returned, it means we could not parse the schema so just go with any all the way.
-      if (actualType === 'any') {
-        return actualType;
-      }
-
-      // if the eventual struct name is not the same as XxxProps, emit an alias
-      // so that our construct will be idiomatic.
-      if (actualType !== propsStructName) {
-        code.line('/**');
-        code.line(` * Initialization props for ${constructName}`);
-        code.line(' */');
-        code.line(`export interface ${propsStructName} extends ${actualType} { }`);
-        code.line();
-      }
-
-      return propsStructName;
+      const propsStructName = getPropsTypeName(def);
+      return typegen.emitType(propsStructName, propsSchema, def.fqn);
     }
 
     function createPropsStructSchema() {

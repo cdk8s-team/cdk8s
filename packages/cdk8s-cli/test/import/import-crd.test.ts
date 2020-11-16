@@ -15,7 +15,7 @@ const readFixture = (fixture: string) => {
 
 // just drop files into the "fixtures" directory and we will import it as a crd
 // and match it against a jest snapshot.
-describe('snapshots', () => {  
+describe('snapshots', () => {
   for (const fixture of fs.readdirSync(fixtures)) {
     if (path.extname(fixture) !== '.yaml') {
       continue;
