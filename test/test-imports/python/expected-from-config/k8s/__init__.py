@@ -107,7 +107,7 @@ class AggregationRule:
 
         :param cluster_role_selectors: ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added
 
-        :schema: io.k8s.api.rbac.v1.AggregationRule
+        :schema: io.k8s.api.rbac.v1beta1.AggregationRule
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if cluster_role_selectors is not None:
@@ -119,7 +119,7 @@ class AggregationRule:
 
         If any of the selectors match, then the ClusterRole's permissions will be added
 
-        :schema: io.k8s.api.rbac.v1.AggregationRule#clusterRoleSelectors
+        :schema: io.k8s.api.rbac.v1beta1.AggregationRule#clusterRoleSelectors
         """
         result = self._values.get("cluster_role_selectors")
         return result
@@ -389,6 +389,92 @@ class ApiServiceListOptions:
         )
 
 
+class ApiServiceListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ApiServiceListV1Beta1",
+):
+    """APIServiceList is a list of APIService objects.
+
+    :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ApiService],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: 
+        :param metadata: 
+        """
+        options = ApiServiceListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(ApiServiceListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ApiServiceListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ApiServiceListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ApiService],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """APIServiceList is a list of APIService objects.
+
+        :param items: 
+        :param metadata: 
+
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ApiService]:
+        """
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ApiServiceListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.ApiServiceOptions",
     jsii_struct_bases=[],
@@ -486,7 +572,7 @@ class ApiServiceSpec:
         :param insecure_skip_tls_verify: InsecureSkipTLSVerify disables TLS certificate verification when communicating with this server. This is strongly discouraged. You should use the CABundle instead.
         :param version: Version is the API version this server hosts. For example, "v1"
 
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec
         """
         if isinstance(service, dict):
             service = ServiceReference(**service)
@@ -510,7 +596,7 @@ class ApiServiceSpec:
 
         Higher priority means that the group is preferred by clients over lower priority ones. Note that other versions of this group might specify even higher GroupPriorityMininum values such that the whole group gets a higher priority. The primary sort is based on GroupPriorityMinimum, ordered highest number to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) We'd recommend something like: *.k8s.io (except extensions) at 18000 and PaaSes (OpenShift, Deis) are recommended to be in the 2000s
 
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec#groupPriorityMinimum
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#groupPriorityMinimum
         """
         result = self._values.get("group_priority_minimum")
         assert result is not None, "Required property 'group_priority_minimum' is missing"
@@ -522,7 +608,7 @@ class ApiServiceSpec:
 
         It must communicate on port 443 If the Service is nil, that means the handling for the API groupversion is handled locally on this server. The call will simply delegate to the normal handler chain to be fulfilled.
 
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec#service
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#service
         """
         result = self._values.get("service")
         assert result is not None, "Required property 'service' is missing"
@@ -534,7 +620,7 @@ class ApiServiceSpec:
 
         Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). Since it's inside of a group, the number can be small, probably in the 10s. In case of equal version priorities, the version string will be used to compute the order inside a group. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
 
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec#versionPriority
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#versionPriority
         """
         result = self._values.get("version_priority")
         assert result is not None, "Required property 'version_priority' is missing"
@@ -546,7 +632,7 @@ class ApiServiceSpec:
 
         If unspecified, system trust roots on the apiserver are used.
 
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec#caBundle
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#caBundle
         """
         result = self._values.get("ca_bundle")
         return result
@@ -555,7 +641,7 @@ class ApiServiceSpec:
     def group(self) -> typing.Optional[builtins.str]:
         """Group is the API group name this server hosts.
 
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec#group
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#group
         """
         result = self._values.get("group")
         return result
@@ -566,7 +652,7 @@ class ApiServiceSpec:
 
         This is strongly discouraged.  You should use the CABundle instead.
 
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec#insecureSkipTLSVerify
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#insecureSkipTLSVerify
         """
         result = self._values.get("insecure_skip_tls_verify")
         return result
@@ -577,7 +663,7 @@ class ApiServiceSpec:
 
         For example, "v1"
 
-        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceSpec#version
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#version
         """
         result = self._values.get("version")
         return result
@@ -594,10 +680,16 @@ class ApiServiceSpec:
         )
 
 
-class AuditSink(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.AuditSink"):
-    """AuditSink represents a cluster level audit sink.
+class ApiServiceV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ApiServiceV1Beta1",
+):
+    """APIService represents a server for a particular GroupVersion.
 
-    :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink
+    Name must be "version.group".
+
+    :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService
     """
 
     def __init__(
@@ -606,93 +698,66 @@ class AuditSink(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.AuditSi
         name: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["AuditSinkSpec"] = None,
+        spec: typing.Optional[ApiServiceSpec] = None,
     ) -> None:
-        """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSink" API object.
+        """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService" API object.
 
         :param scope: the scope in which to define this object.
         :param name: a scope-local name for the object.
         :param metadata: 
-        :param spec: Spec defines the audit configuration spec.
+        :param spec: Spec contains information for locating and communicating with a server.
         """
-        options = AuditSinkOptions(metadata=metadata, spec=spec)
+        options = ApiServiceV1Beta1Options(metadata=metadata, spec=spec)
 
-        jsii.create(AuditSink, self, [scope, name, options])
-
-
-class AuditSinkList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.AuditSinkList",
-):
-    """AuditSinkList is a list of AuditSink items.
-
-    :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[AuditSink],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: List of audit configurations.
-        :param metadata: 
-        """
-        options = AuditSinkListOptions(items=items, metadata=metadata)
-
-        jsii.create(AuditSinkList, self, [scope, name, options])
+        jsii.create(ApiServiceV1Beta1, self, [scope, name, options])
 
 
 @jsii.data_type(
-    jsii_type="k8s.AuditSinkListOptions",
+    jsii_type="k8s.ApiServiceV1Beta1Options",
     jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
+    name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class AuditSinkListOptions:
+class ApiServiceV1Beta1Options:
     def __init__(
         self,
         *,
-        items: typing.List[AuditSink],
-        metadata: typing.Optional["ListMeta"] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[ApiServiceSpec] = None,
     ) -> None:
-        """AuditSinkList is a list of AuditSink items.
+        """APIService represents a server for a particular GroupVersion.
 
-        :param items: List of audit configurations.
+        Name must be "version.group".
+
         :param metadata: 
+        :param spec: Spec contains information for locating and communicating with a server.
 
-        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService
         """
         if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = ApiServiceSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
         if metadata is not None:
             self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
 
     @builtins.property
-    def items(self) -> typing.List[AuditSink]:
-        """List of audit configurations.
-
-        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#items
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
         """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService#metadata
+        """
+        result = self._values.get("metadata")
         return result
 
     @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
+    def spec(self) -> typing.Optional[ApiServiceSpec]:
+        """Spec contains information for locating and communicating with a server.
+
+        :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService#spec
         """
-        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#metadata
-        """
-        result = self._values.get("metadata")
+        result = self._values.get("spec")
         return result
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
@@ -702,17 +767,17 @@ class AuditSinkListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "AuditSinkListOptions(%s)" % ", ".join(
+        return "ApiServiceV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.AuditSinkOptions",
+    jsii_type="k8s.AuditSink",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class AuditSinkOptions:
+class AuditSink:
     def __init__(
         self,
         *,
@@ -760,7 +825,94 @@ class AuditSinkOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "AuditSinkOptions(%s)" % ", ".join(
+        return "AuditSink(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class AuditSinkListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.AuditSinkListV1Alpha1",
+):
+    """AuditSinkList is a list of AuditSink items.
+
+    :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[AuditSink],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: List of audit configurations.
+        :param metadata: 
+        """
+        options = AuditSinkListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(AuditSinkListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.AuditSinkListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class AuditSinkListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[AuditSink],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """AuditSinkList is a list of AuditSink items.
+
+        :param items: List of audit configurations.
+        :param metadata: 
+
+        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[AuditSink]:
+        """List of audit configurations.
+
+        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """
+        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "AuditSinkListV1Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -816,6 +968,94 @@ class AuditSinkSpec:
 
     def __repr__(self) -> str:
         return "AuditSinkSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class AuditSinkV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.AuditSinkV1Alpha1",
+):
+    """AuditSink represents a cluster level audit sink.
+
+    :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[AuditSinkSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSink" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: 
+        :param spec: Spec defines the audit configuration spec.
+        """
+        options = AuditSinkV1Alpha1Options(metadata=metadata, spec=spec)
+
+        jsii.create(AuditSinkV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.AuditSinkV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class AuditSinkV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[AuditSinkSpec] = None,
+    ) -> None:
+        """AuditSink represents a cluster level audit sink.
+
+        :param metadata: 
+        :param spec: Spec defines the audit configuration spec.
+
+        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = AuditSinkSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """
+        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[AuditSinkSpec]:
+        """Spec defines the audit configuration spec.
+
+        :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "AuditSinkV1Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -1689,126 +1929,12 @@ class CephFsVolumeSource:
         )
 
 
-class CertificateSigningRequest(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
+@jsii.data_type(
     jsii_type="k8s.CertificateSigningRequest",
-):
-    """Describes a certificate signing request.
-
-    :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["CertificateSigningRequestSpec"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequest" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param metadata: 
-        :param spec: The certificate request itself and any additional information.
-        """
-        options = CertificateSigningRequestOptions(metadata=metadata, spec=spec)
-
-        jsii.create(CertificateSigningRequest, self, [scope, name, options])
-
-
-class CertificateSigningRequestList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.CertificateSigningRequestList",
-):
-    """
-    :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[CertificateSigningRequest],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: 
-        :param metadata: 
-        """
-        options = CertificateSigningRequestListOptions(items=items, metadata=metadata)
-
-        jsii.create(CertificateSigningRequestList, self, [scope, name, options])
-
-
-@jsii.data_type(
-    jsii_type="k8s.CertificateSigningRequestListOptions",
-    jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
-)
-class CertificateSigningRequestListOptions:
-    def __init__(
-        self,
-        *,
-        items: typing.List[CertificateSigningRequest],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """
-        :param items: 
-        :param metadata: 
-
-        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList
-        """
-        if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List[CertificateSigningRequest]:
-        """
-        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#items
-        """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """
-        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "CertificateSigningRequestListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.CertificateSigningRequestOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class CertificateSigningRequestOptions:
+class CertificateSigningRequest:
     def __init__(
         self,
         *,
@@ -1856,7 +1982,93 @@ class CertificateSigningRequestOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "CertificateSigningRequestOptions(%s)" % ", ".join(
+        return "CertificateSigningRequest(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class CertificateSigningRequestListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CertificateSigningRequestListV1Beta1",
+):
+    """
+    :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[CertificateSigningRequest],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: 
+        :param metadata: 
+        """
+        options = CertificateSigningRequestListV1Beta1Options(
+            items=items, metadata=metadata
+        )
+
+        jsii.create(CertificateSigningRequestListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CertificateSigningRequestListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class CertificateSigningRequestListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[CertificateSigningRequest],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """
+        :param items: 
+        :param metadata: 
+
+        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[CertificateSigningRequest]:
+        """
+        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """
+        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CertificateSigningRequestListV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -1987,6 +2199,94 @@ class CertificateSigningRequestSpec:
 
     def __repr__(self) -> str:
         return "CertificateSigningRequestSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class CertificateSigningRequestV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CertificateSigningRequestV1Beta1",
+):
+    """Describes a certificate signing request.
+
+    :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CertificateSigningRequestSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequest" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: 
+        :param spec: The certificate request itself and any additional information.
+        """
+        options = CertificateSigningRequestV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(CertificateSigningRequestV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CertificateSigningRequestV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class CertificateSigningRequestV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CertificateSigningRequestSpec] = None,
+    ) -> None:
+        """Describes a certificate signing request.
+
+        :param metadata: 
+        :param spec: The certificate request itself and any additional information.
+
+        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = CertificateSigningRequestSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """
+        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[CertificateSigningRequestSpec]:
+        """The certificate request itself and any additional information.
+
+        :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CertificateSigningRequestV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -2387,6 +2687,190 @@ class ClusterRoleBindingListOptions:
         )
 
 
+class ClusterRoleBindingListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ClusterRoleBindingListV1Alpha1",
+):
+    """ClusterRoleBindingList is a collection of ClusterRoleBindings.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ClusterRoleBinding],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of ClusterRoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        options = ClusterRoleBindingListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(ClusterRoleBindingListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ClusterRoleBindingListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ClusterRoleBindingListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ClusterRoleBinding],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """ClusterRoleBindingList is a collection of ClusterRoleBindings.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.20.
+
+        :param items: Items is a list of ClusterRoleBindings.
+        :param metadata: Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ClusterRoleBinding]:
+        """Items is a list of ClusterRoleBindings.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ClusterRoleBindingListV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ClusterRoleBindingListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ClusterRoleBindingListV1Beta1",
+):
+    """ClusterRoleBindingList is a collection of ClusterRoleBindings.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindingList, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBindingList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ClusterRoleBinding],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of ClusterRoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        options = ClusterRoleBindingListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(ClusterRoleBindingListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ClusterRoleBindingListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ClusterRoleBindingListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ClusterRoleBinding],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """ClusterRoleBindingList is a collection of ClusterRoleBindings.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindingList, and will no longer be served in v1.20.
+
+        :param items: Items is a list of ClusterRoleBindings.
+        :param metadata: Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBindingList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ClusterRoleBinding]:
+        """Items is a list of ClusterRoleBindings.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBindingList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBindingList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ClusterRoleBindingListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.ClusterRoleBindingOptions",
     jsii_struct_bases=[],
@@ -2464,6 +2948,240 @@ class ClusterRoleBindingOptions:
 
     def __repr__(self) -> str:
         return "ClusterRoleBindingOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ClusterRoleBindingV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ClusterRoleBindingV1Alpha1",
+):
+    """ClusterRoleBinding references a ClusterRole, but not contain it.
+
+    It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBinding
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        options = ClusterRoleBindingV1Alpha1Options(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        jsii.create(ClusterRoleBindingV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ClusterRoleBindingV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "role_ref": "roleRef",
+        "metadata": "metadata",
+        "subjects": "subjects",
+    },
+)
+class ClusterRoleBindingV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> None:
+        """ClusterRoleBinding references a ClusterRole, but not contain it.
+
+        It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.20.
+
+        :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBinding
+        """
+        if isinstance(role_ref, dict):
+            role_ref = RoleRef(**role_ref)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "role_ref": role_ref,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if subjects is not None:
+            self._values["subjects"] = subjects
+
+    @builtins.property
+    def role_ref(self) -> "RoleRef":
+        """RoleRef can only reference a ClusterRole in the global namespace.
+
+        If the RoleRef cannot be resolved, the Authorizer must return an error.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBinding#roleRef
+        """
+        result = self._values.get("role_ref")
+        assert result is not None, "Required property 'role_ref' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBinding#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def subjects(self) -> typing.Optional[typing.List["Subject"]]:
+        """Subjects holds references to the objects the role applies to.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBinding#subjects
+        """
+        result = self._values.get("subjects")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ClusterRoleBindingV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ClusterRoleBindingV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ClusterRoleBindingV1Beta1",
+):
+    """ClusterRoleBinding references a ClusterRole, but not contain it.
+
+    It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBinding
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleBinding" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        options = ClusterRoleBindingV1Beta1Options(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        jsii.create(ClusterRoleBindingV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ClusterRoleBindingV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "role_ref": "roleRef",
+        "metadata": "metadata",
+        "subjects": "subjects",
+    },
+)
+class ClusterRoleBindingV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> None:
+        """ClusterRoleBinding references a ClusterRole, but not contain it.
+
+        It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.20.
+
+        :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBinding
+        """
+        if isinstance(role_ref, dict):
+            role_ref = RoleRef(**role_ref)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "role_ref": role_ref,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if subjects is not None:
+            self._values["subjects"] = subjects
+
+    @builtins.property
+    def role_ref(self) -> "RoleRef":
+        """RoleRef can only reference a ClusterRole in the global namespace.
+
+        If the RoleRef cannot be resolved, the Authorizer must return an error.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBinding#roleRef
+        """
+        result = self._values.get("role_ref")
+        assert result is not None, "Required property 'role_ref' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBinding#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def subjects(self) -> typing.Optional[typing.List["Subject"]]:
+        """Subjects holds references to the objects the role applies to.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBinding#subjects
+        """
+        result = self._values.get("subjects")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ClusterRoleBindingV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -2556,6 +3274,190 @@ class ClusterRoleListOptions:
         )
 
 
+class ClusterRoleListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ClusterRoleListV1Alpha1",
+):
+    """ClusterRoleList is a collection of ClusterRoles.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ClusterRole],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of ClusterRoles.
+        :param metadata: Standard object's metadata.
+        """
+        options = ClusterRoleListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(ClusterRoleListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ClusterRoleListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ClusterRoleListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ClusterRole],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """ClusterRoleList is a collection of ClusterRoles.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.20.
+
+        :param items: Items is a list of ClusterRoles.
+        :param metadata: Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ClusterRole]:
+        """Items is a list of ClusterRoles.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ClusterRoleListV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ClusterRoleListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ClusterRoleListV1Beta1",
+):
+    """ClusterRoleList is a collection of ClusterRoles.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1beta1.ClusterRoleList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ClusterRole],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of ClusterRoles.
+        :param metadata: Standard object's metadata.
+        """
+        options = ClusterRoleListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(ClusterRoleListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ClusterRoleListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ClusterRoleListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ClusterRole],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """ClusterRoleList is a collection of ClusterRoles.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.20.
+
+        :param items: Items is a list of ClusterRoles.
+        :param metadata: Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ClusterRole]:
+        """Items is a list of ClusterRoles.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRoleList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ClusterRoleListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.ClusterRoleOptions",
     jsii_struct_bases=[],
@@ -2630,6 +3532,238 @@ class ClusterRoleOptions:
 
     def __repr__(self) -> str:
         return "ClusterRoleOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ClusterRoleV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ClusterRoleV1Alpha1",
+):
+    """ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1alpha1.ClusterRole
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        aggregation_rule: typing.Optional[AggregationRule] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1alpha1.ClusterRole" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this ClusterRole.
+        """
+        options = ClusterRoleV1Alpha1Options(
+            aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
+        )
+
+        jsii.create(ClusterRoleV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ClusterRoleV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "aggregation_rule": "aggregationRule",
+        "metadata": "metadata",
+        "rules": "rules",
+    },
+)
+class ClusterRoleV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        aggregation_rule: typing.Optional[AggregationRule] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> None:
+        """ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.20.
+
+        :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this ClusterRole.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRole
+        """
+        if isinstance(aggregation_rule, dict):
+            aggregation_rule = AggregationRule(**aggregation_rule)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if aggregation_rule is not None:
+            self._values["aggregation_rule"] = aggregation_rule
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if rules is not None:
+            self._values["rules"] = rules
+
+    @builtins.property
+    def aggregation_rule(self) -> typing.Optional[AggregationRule]:
+        """AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+
+        If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRole#aggregationRule
+        """
+        result = self._values.get("aggregation_rule")
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRole#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
+        """Rules holds all the PolicyRules for this ClusterRole.
+
+        :schema: io.k8s.api.rbac.v1alpha1.ClusterRole#rules
+        """
+        result = self._values.get("rules")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ClusterRoleV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ClusterRoleV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ClusterRoleV1Beta1",
+):
+    """ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1beta1.ClusterRole
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        aggregation_rule: typing.Optional[AggregationRule] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1beta1.ClusterRole" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this ClusterRole.
+        """
+        options = ClusterRoleV1Beta1Options(
+            aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
+        )
+
+        jsii.create(ClusterRoleV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ClusterRoleV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "aggregation_rule": "aggregationRule",
+        "metadata": "metadata",
+        "rules": "rules",
+    },
+)
+class ClusterRoleV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        aggregation_rule: typing.Optional[AggregationRule] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> None:
+        """ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.20.
+
+        :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this ClusterRole.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRole
+        """
+        if isinstance(aggregation_rule, dict):
+            aggregation_rule = AggregationRule(**aggregation_rule)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if aggregation_rule is not None:
+            self._values["aggregation_rule"] = aggregation_rule
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if rules is not None:
+            self._values["rules"] = rules
+
+    @builtins.property
+    def aggregation_rule(self) -> typing.Optional[AggregationRule]:
+        """AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+
+        If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRole#aggregationRule
+        """
+        result = self._values.get("aggregation_rule")
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRole#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
+        """Rules holds all the PolicyRules for this ClusterRole.
+
+        :schema: io.k8s.api.rbac.v1beta1.ClusterRole#rules
+        """
+        result = self._values.get("rules")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ClusterRoleV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -4147,6 +5281,182 @@ class ControllerRevisionListOptions:
         )
 
 
+class ControllerRevisionListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ControllerRevisionListV1Beta1",
+):
+    """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
+
+    :schema: io.k8s.api.apps.v1beta1.ControllerRevisionList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ControllerRevision],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta1.ControllerRevisionList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is the list of ControllerRevisions.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = ControllerRevisionListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(ControllerRevisionListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ControllerRevisionListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ControllerRevisionListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ControllerRevision],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
+
+        :param items: Items is the list of ControllerRevisions.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.apps.v1beta1.ControllerRevisionList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ControllerRevision]:
+        """Items is the list of ControllerRevisions.
+
+        :schema: io.k8s.api.apps.v1beta1.ControllerRevisionList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.apps.v1beta1.ControllerRevisionList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ControllerRevisionListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ControllerRevisionListV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ControllerRevisionListV1Beta2",
+):
+    """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
+
+    :schema: io.k8s.api.apps.v1beta2.ControllerRevisionList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ControllerRevision],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.ControllerRevisionList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is the list of ControllerRevisions.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = ControllerRevisionListV1Beta2Options(items=items, metadata=metadata)
+
+        jsii.create(ControllerRevisionListV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ControllerRevisionListV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ControllerRevisionListV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ControllerRevision],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
+
+        :param items: Items is the list of ControllerRevisions.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.apps.v1beta2.ControllerRevisionList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ControllerRevision]:
+        """Items is the list of ControllerRevisions.
+
+        :schema: io.k8s.api.apps.v1beta2.ControllerRevisionList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.apps.v1beta2.ControllerRevisionList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ControllerRevisionListV1Beta2Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.ControllerRevisionOptions",
     jsii_struct_bases=[],
@@ -4222,10 +5532,16 @@ class ControllerRevisionOptions:
         )
 
 
-class CronJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CronJob"):
-    """CronJob represents the configuration of a single cron job.
+class ControllerRevisionV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ControllerRevisionV1Beta1",
+):
+    """DEPRECATED - This group version of ControllerRevision is deprecated by apps/v1beta2/ControllerRevision.
 
-    :schema: io.k8s.api.batch.v1beta1.CronJob
+    See the release notes for more information. ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
+
+    :schema: io.k8s.api.apps.v1beta1.ControllerRevision
     """
 
     def __init__(
@@ -4233,25 +5549,278 @@ class CronJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CronJob")
         scope: constructs.Construct,
         name: builtins.str,
         *,
+        revision: jsii.Number,
+        data: typing.Any = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["CronJobSpec"] = None,
     ) -> None:
-        """Defines a "io.k8s.api.batch.v1beta1.CronJob" API object.
+        """Defines a "io.k8s.api.apps.v1beta1.ControllerRevision" API object.
 
         :param scope: the scope in which to define this object.
         :param name: a scope-local name for the object.
+        :param revision: Revision indicates the revision of the state represented by Data.
+        :param data: Data is the serialized representation of the state.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        options = CronJobOptions(metadata=metadata, spec=spec)
+        options = ControllerRevisionV1Beta1Options(
+            revision=revision, data=data, metadata=metadata
+        )
 
-        jsii.create(CronJob, self, [scope, name, options])
+        jsii.create(ControllerRevisionV1Beta1, self, [scope, name, options])
 
 
-class CronJobList(
+@jsii.data_type(
+    jsii_type="k8s.ControllerRevisionV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"revision": "revision", "data": "data", "metadata": "metadata"},
+)
+class ControllerRevisionV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        revision: jsii.Number,
+        data: typing.Any = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """DEPRECATED - This group version of ControllerRevision is deprecated by apps/v1beta2/ControllerRevision.
+
+        See the release notes for more information. ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
+
+        :param revision: Revision indicates the revision of the state represented by Data.
+        :param data: Data is the serialized representation of the state.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.apps.v1beta1.ControllerRevision
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "revision": revision,
+        }
+        if data is not None:
+            self._values["data"] = data
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def revision(self) -> jsii.Number:
+        """Revision indicates the revision of the state represented by Data.
+
+        :schema: io.k8s.api.apps.v1beta1.ControllerRevision#revision
+        """
+        result = self._values.get("revision")
+        assert result is not None, "Required property 'revision' is missing"
+        return result
+
+    @builtins.property
+    def data(self) -> typing.Any:
+        """Data is the serialized representation of the state.
+
+        :schema: io.k8s.api.apps.v1beta1.ControllerRevision#data
+        """
+        result = self._values.get("data")
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.apps.v1beta1.ControllerRevision#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ControllerRevisionV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ControllerRevisionV1Beta2(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.CronJobList",
+    jsii_type="k8s.ControllerRevisionV1Beta2",
+):
+    """DEPRECATED - This group version of ControllerRevision is deprecated by apps/v1/ControllerRevision.
+
+    See the release notes for more information. ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
+
+    :schema: io.k8s.api.apps.v1beta2.ControllerRevision
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        revision: jsii.Number,
+        data: typing.Any = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.ControllerRevision" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param revision: Revision indicates the revision of the state represented by Data.
+        :param data: Data is the serialized representation of the state.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = ControllerRevisionV1Beta2Options(
+            revision=revision, data=data, metadata=metadata
+        )
+
+        jsii.create(ControllerRevisionV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ControllerRevisionV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"revision": "revision", "data": "data", "metadata": "metadata"},
+)
+class ControllerRevisionV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        revision: jsii.Number,
+        data: typing.Any = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """DEPRECATED - This group version of ControllerRevision is deprecated by apps/v1/ControllerRevision.
+
+        See the release notes for more information. ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
+
+        :param revision: Revision indicates the revision of the state represented by Data.
+        :param data: Data is the serialized representation of the state.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.apps.v1beta2.ControllerRevision
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "revision": revision,
+        }
+        if data is not None:
+            self._values["data"] = data
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def revision(self) -> jsii.Number:
+        """Revision indicates the revision of the state represented by Data.
+
+        :schema: io.k8s.api.apps.v1beta2.ControllerRevision#revision
+        """
+        result = self._values.get("revision")
+        assert result is not None, "Required property 'revision' is missing"
+        return result
+
+    @builtins.property
+    def data(self) -> typing.Any:
+        """Data is the serialized representation of the state.
+
+        :schema: io.k8s.api.apps.v1beta2.ControllerRevision#data
+        """
+        result = self._values.get("data")
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.apps.v1beta2.ControllerRevision#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ControllerRevisionV1Beta2Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
+    jsii_type="k8s.CronJob",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class CronJob:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["CronJobSpec"] = None,
+    ) -> None:
+        """CronJob represents the configuration of a single cron job.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.batch.v2alpha1.CronJob
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = CronJobSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.batch.v2alpha1.CronJob#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional["CronJobSpec"]:
+        """Specification of the desired behavior of a cron job, including the schedule.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.batch.v2alpha1.CronJob#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CronJob(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class CronJobListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CronJobListV1Beta1",
 ):
     """CronJobList is a collection of cron jobs.
 
@@ -4273,17 +5842,17 @@ class CronJobList(
         :param items: items is the list of CronJobs.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = CronJobListOptions(items=items, metadata=metadata)
+        options = CronJobListV1Beta1Options(items=items, metadata=metadata)
 
-        jsii.create(CronJobList, self, [scope, name, options])
+        jsii.create(CronJobListV1Beta1, self, [scope, name, options])
 
 
 @jsii.data_type(
-    jsii_type="k8s.CronJobListOptions",
+    jsii_type="k8s.CronJobListV1Beta1Options",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class CronJobListOptions:
+class CronJobListV1Beta1Options:
     def __init__(
         self,
         *,
@@ -4333,60 +5902,87 @@ class CronJobListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "CronJobListOptions(%s)" % ", ".join(
+        return "CronJobListV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
+class CronJobListV2Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CronJobListV2Alpha1",
+):
+    """CronJobList is a collection of cron jobs.
+
+    :schema: io.k8s.api.batch.v2alpha1.CronJobList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[CronJob],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.batch.v2alpha1.CronJobList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of CronJobs.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = CronJobListV2Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(CronJobListV2Alpha1, self, [scope, name, options])
+
+
 @jsii.data_type(
-    jsii_type="k8s.CronJobOptions",
+    jsii_type="k8s.CronJobListV2Alpha1Options",
     jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
+    name_mapping={"items": "items", "metadata": "metadata"},
 )
-class CronJobOptions:
+class CronJobListV2Alpha1Options:
     def __init__(
         self,
         *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["CronJobSpec"] = None,
+        items: typing.List[CronJob],
+        metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
-        """CronJob represents the configuration of a single cron job.
+        """CronJobList is a collection of cron jobs.
 
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        :param items: items is the list of CronJobs.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 
-        :schema: io.k8s.api.batch.v1beta1.CronJob
+        :schema: io.k8s.api.batch.v2alpha1.CronJobList
         """
         if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = CronJobSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
         if metadata is not None:
             self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
 
     @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
+    def items(self) -> typing.List[CronJob]:
+        """items is the list of CronJobs.
 
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.batch.v1beta1.CronJob#metadata
+        :schema: io.k8s.api.batch.v2alpha1.CronJobList#items
         """
-        result = self._values.get("metadata")
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
         return result
 
     @builtins.property
-    def spec(self) -> typing.Optional["CronJobSpec"]:
-        """Specification of the desired behavior of a cron job, including the schedule.
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
 
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 
-        :schema: io.k8s.api.batch.v1beta1.CronJob#spec
+        :schema: io.k8s.api.batch.v2alpha1.CronJobList#metadata
         """
-        result = self._values.get("spec")
+        result = self._values.get("metadata")
         return result
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
@@ -4396,7 +5992,7 @@ class CronJobOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "CronJobOptions(%s)" % ", ".join(
+        return "CronJobListV2Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -4431,12 +6027,12 @@ class CronJobSpec:
         :param job_template: Specifies the job that will be created when executing a CronJob.
         :param schedule: The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
         :param concurrency_policy: Specifies how to treat concurrent executions of a Job. Valid values are: - "Allow" (default): allows CronJobs to run concurrently; - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - "Replace": cancels currently running job and replaces it with a new one
-        :param failed_jobs_history_limit: The number of failed finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1. Default: 1.
+        :param failed_jobs_history_limit: The number of failed finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified.
         :param starting_deadline_seconds: Optional deadline in seconds for starting the job if it misses scheduled time for any reason. Missed jobs executions will be counted as failed ones.
-        :param successful_jobs_history_limit: The number of successful finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified. Defaults to 3. Default: 3.
+        :param successful_jobs_history_limit: The number of successful finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified.
         :param suspend: This flag tells the controller to suspend subsequent executions, it does not apply to already started executions. Defaults to false. Default: false.
 
-        :schema: io.k8s.api.batch.v1beta1.CronJobSpec
+        :schema: io.k8s.api.batch.v2alpha1.CronJobSpec
         """
         if isinstance(job_template, dict):
             job_template = JobTemplateSpec(**job_template)
@@ -4459,7 +6055,7 @@ class CronJobSpec:
     def job_template(self) -> "JobTemplateSpec":
         """Specifies the job that will be created when executing a CronJob.
 
-        :schema: io.k8s.api.batch.v1beta1.CronJobSpec#jobTemplate
+        :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#jobTemplate
         """
         result = self._values.get("job_template")
         assert result is not None, "Required property 'job_template' is missing"
@@ -4469,7 +6065,7 @@ class CronJobSpec:
     def schedule(self) -> builtins.str:
         """The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
 
-        :schema: io.k8s.api.batch.v1beta1.CronJobSpec#schedule
+        :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#schedule
         """
         result = self._values.get("schedule")
         assert result is not None, "Required property 'schedule' is missing"
@@ -4481,7 +6077,7 @@ class CronJobSpec:
 
         Valid values are: - "Allow" (default): allows CronJobs to run concurrently; - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - "Replace": cancels currently running job and replaces it with a new one
 
-        :schema: io.k8s.api.batch.v1beta1.CronJobSpec#concurrencyPolicy
+        :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#concurrencyPolicy
         """
         result = self._values.get("concurrency_policy")
         return result
@@ -4490,11 +6086,9 @@ class CronJobSpec:
     def failed_jobs_history_limit(self) -> typing.Optional[jsii.Number]:
         """The number of failed finished jobs to retain.
 
-        This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
+        This is a pointer to distinguish between explicit zero and not specified.
 
-        :default: 1.
-
-        :schema: io.k8s.api.batch.v1beta1.CronJobSpec#failedJobsHistoryLimit
+        :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#failedJobsHistoryLimit
         """
         result = self._values.get("failed_jobs_history_limit")
         return result
@@ -4505,7 +6099,7 @@ class CronJobSpec:
 
         Missed jobs executions will be counted as failed ones.
 
-        :schema: io.k8s.api.batch.v1beta1.CronJobSpec#startingDeadlineSeconds
+        :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#startingDeadlineSeconds
         """
         result = self._values.get("starting_deadline_seconds")
         return result
@@ -4514,11 +6108,9 @@ class CronJobSpec:
     def successful_jobs_history_limit(self) -> typing.Optional[jsii.Number]:
         """The number of successful finished jobs to retain.
 
-        This is a pointer to distinguish between explicit zero and not specified. Defaults to 3.
+        This is a pointer to distinguish between explicit zero and not specified.
 
-        :default: 3.
-
-        :schema: io.k8s.api.batch.v1beta1.CronJobSpec#successfulJobsHistoryLimit
+        :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#successfulJobsHistoryLimit
         """
         result = self._values.get("successful_jobs_history_limit")
         return result
@@ -4531,7 +6123,7 @@ class CronJobSpec:
 
         :default: false.
 
-        :schema: io.k8s.api.batch.v1beta1.CronJobSpec#suspend
+        :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#suspend
         """
         result = self._values.get("suspend")
         return result
@@ -4544,6 +6136,192 @@ class CronJobSpec:
 
     def __repr__(self) -> str:
         return "CronJobSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class CronJobV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CronJobV1Beta1",
+):
+    """CronJob represents the configuration of a single cron job.
+
+    :schema: io.k8s.api.batch.v1beta1.CronJob
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CronJobSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.batch.v1beta1.CronJob" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = CronJobV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(CronJobV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CronJobV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class CronJobV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CronJobSpec] = None,
+    ) -> None:
+        """CronJob represents the configuration of a single cron job.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.batch.v1beta1.CronJob
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = CronJobSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.batch.v1beta1.CronJob#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[CronJobSpec]:
+        """Specification of the desired behavior of a cron job, including the schedule.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.batch.v1beta1.CronJob#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CronJobV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class CronJobV2Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CronJobV2Alpha1",
+):
+    """CronJob represents the configuration of a single cron job.
+
+    :schema: io.k8s.api.batch.v2alpha1.CronJob
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CronJobSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.batch.v2alpha1.CronJob" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = CronJobV2Alpha1Options(metadata=metadata, spec=spec)
+
+        jsii.create(CronJobV2Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CronJobV2Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class CronJobV2Alpha1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CronJobSpec] = None,
+    ) -> None:
+        """CronJob represents the configuration of a single cron job.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.batch.v2alpha1.CronJob
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = CronJobSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.batch.v2alpha1.CronJob#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[CronJobSpec]:
+        """Specification of the desired behavior of a cron job, including the schedule.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.batch.v2alpha1.CronJob#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CronJobV2Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -4567,7 +6345,7 @@ class CrossVersionObjectReference:
         :param name: Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
         :param api_version: API version of the referent.
 
-        :schema: io.k8s.api.autoscaling.v1.CrossVersionObjectReference
+        :schema: io.k8s.api.autoscaling.v2beta2.CrossVersionObjectReference
         """
         self._values: typing.Dict[str, typing.Any] = {
             "kind": kind,
@@ -4582,7 +6360,7 @@ class CrossVersionObjectReference:
 
         More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
 
-        :schema: io.k8s.api.autoscaling.v1.CrossVersionObjectReference#kind
+        :schema: io.k8s.api.autoscaling.v2beta2.CrossVersionObjectReference#kind
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
@@ -4594,7 +6372,7 @@ class CrossVersionObjectReference:
 
         More info: http://kubernetes.io/docs/user-guide/identifiers#names
 
-        :schema: io.k8s.api.autoscaling.v1.CrossVersionObjectReference#name
+        :schema: io.k8s.api.autoscaling.v2beta2.CrossVersionObjectReference#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -4604,7 +6382,7 @@ class CrossVersionObjectReference:
     def api_version(self) -> typing.Optional[builtins.str]:
         """API version of the referent.
 
-        :schema: io.k8s.api.autoscaling.v1.CrossVersionObjectReference#apiVersion
+        :schema: io.k8s.api.autoscaling.v2beta2.CrossVersionObjectReference#apiVersion
         """
         result = self._values.get("api_version")
         return result
@@ -4621,128 +6399,12 @@ class CrossVersionObjectReference:
         )
 
 
-class CsiDriver(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CsiDriver"):
-    """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
-
-    CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
-
-    :schema: io.k8s.api.storage.v1beta1.CSIDriver
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        spec: "CsiDriverSpec",
-        metadata: typing.Optional["ObjectMeta"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param spec: Specification of the CSI Driver.
-        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        """
-        options = CsiDriverOptions(spec=spec, metadata=metadata)
-
-        jsii.create(CsiDriver, self, [scope, name, options])
-
-
-class CsiDriverList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.CsiDriverList",
-):
-    """CSIDriverList is a collection of CSIDriver objects.
-
-    :schema: io.k8s.api.storage.v1beta1.CSIDriverList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[CsiDriver],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: items is the list of CSIDriver.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        """
-        options = CsiDriverListOptions(items=items, metadata=metadata)
-
-        jsii.create(CsiDriverList, self, [scope, name, options])
-
-
 @jsii.data_type(
-    jsii_type="k8s.CsiDriverListOptions",
-    jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
-)
-class CsiDriverListOptions:
-    def __init__(
-        self,
-        *,
-        items: typing.List[CsiDriver],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """CSIDriverList is a collection of CSIDriver objects.
-
-        :param items: items is the list of CSIDriver.
-        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        :schema: io.k8s.api.storage.v1beta1.CSIDriverList
-        """
-        if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List[CsiDriver]:
-        """items is the list of CSIDriver.
-
-        :schema: io.k8s.api.storage.v1beta1.CSIDriverList#items
-        """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-
-        :schema: io.k8s.api.storage.v1beta1.CSIDriverList#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "CsiDriverListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.CsiDriverOptions",
+    jsii_type="k8s.CsiDriver",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class CsiDriverOptions:
+class CsiDriver:
     def __init__(
         self,
         *,
@@ -4796,7 +6458,95 @@ class CsiDriverOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "CsiDriverOptions(%s)" % ", ".join(
+        return "CsiDriver(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class CsiDriverListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CsiDriverListV1Beta1",
+):
+    """CSIDriverList is a collection of CSIDriver objects.
+
+    :schema: io.k8s.api.storage.v1beta1.CSIDriverList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[CsiDriver],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of CSIDriver.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = CsiDriverListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(CsiDriverListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CsiDriverListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class CsiDriverListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[CsiDriver],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """CSIDriverList is a collection of CSIDriver objects.
+
+        :param items: items is the list of CSIDriver.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1beta1.CSIDriverList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[CsiDriver]:
+        """items is the list of CSIDriver.
+
+        :schema: io.k8s.api.storage.v1beta1.CSIDriverList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1beta1.CSIDriverList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CsiDriverListV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -4881,6 +6631,102 @@ class CsiDriverSpec:
         )
 
 
+class CsiDriverV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CsiDriverV1Beta1",
+):
+    """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
+
+    CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
+
+    :schema: io.k8s.api.storage.v1beta1.CSIDriver
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: CsiDriverSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Specification of the CSI Driver.
+        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = CsiDriverV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(CsiDriverV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CsiDriverV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class CsiDriverV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: CsiDriverSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
+
+        CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
+
+        :param spec: Specification of the CSI Driver.
+        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.storage.v1beta1.CSIDriver
+        """
+        if isinstance(spec, dict):
+            spec = CsiDriverSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> CsiDriverSpec:
+        """Specification of the CSI Driver.
+
+        :schema: io.k8s.api.storage.v1beta1.CSIDriver#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object metadata.
+
+        metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.storage.v1beta1.CSIDriver#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CsiDriverV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 class CsiNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.CsiNode"):
     """CSINode holds information about all CSI drivers installed on a node.
 
@@ -4932,10 +6778,10 @@ class CsiNodeDriver:
 
         :param name: This is the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.
         :param node_id: nodeID of the node from the driver point of view. This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
-        :param allocatable: allocatable represents the volume resources of a node that are available for scheduling. This field is beta.
+        :param allocatable: allocatable represents the volume resources of a node that are available for scheduling.
         :param topology_keys: topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
 
-        :schema: io.k8s.api.storage.v1.CSINodeDriver
+        :schema: io.k8s.api.storage.v1beta1.CSINodeDriver
         """
         if isinstance(allocatable, dict):
             allocatable = VolumeNodeResources(**allocatable)
@@ -4954,7 +6800,7 @@ class CsiNodeDriver:
 
         This MUST be the same name returned by the CSI GetPluginName() call for that driver.
 
-        :schema: io.k8s.api.storage.v1.CSINodeDriver#name
+        :schema: io.k8s.api.storage.v1beta1.CSINodeDriver#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -4966,7 +6812,7 @@ class CsiNodeDriver:
 
         This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
 
-        :schema: io.k8s.api.storage.v1.CSINodeDriver#nodeID
+        :schema: io.k8s.api.storage.v1beta1.CSINodeDriver#nodeID
         """
         result = self._values.get("node_id")
         assert result is not None, "Required property 'node_id' is missing"
@@ -4976,9 +6822,7 @@ class CsiNodeDriver:
     def allocatable(self) -> typing.Optional["VolumeNodeResources"]:
         """allocatable represents the volume resources of a node that are available for scheduling.
 
-        This field is beta.
-
-        :schema: io.k8s.api.storage.v1.CSINodeDriver#allocatable
+        :schema: io.k8s.api.storage.v1beta1.CSINodeDriver#allocatable
         """
         result = self._values.get("allocatable")
         return result
@@ -4989,7 +6833,7 @@ class CsiNodeDriver:
 
         When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
 
-        :schema: io.k8s.api.storage.v1.CSINodeDriver#topologyKeys
+        :schema: io.k8s.api.storage.v1beta1.CSINodeDriver#topologyKeys
         """
         result = self._values.get("topology_keys")
         return result
@@ -5094,6 +6938,94 @@ class CsiNodeListOptions:
         )
 
 
+class CsiNodeListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CsiNodeListV1Beta1",
+):
+    """CSINodeList is a collection of CSINode objects.
+
+    :schema: io.k8s.api.storage.v1beta1.CSINodeList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[CsiNode],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.CSINodeList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of CSINode.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = CsiNodeListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(CsiNodeListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CsiNodeListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class CsiNodeListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[CsiNode],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """CSINodeList is a collection of CSINode objects.
+
+        :param items: items is the list of CSINode.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1beta1.CSINodeList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[CsiNode]:
+        """items is the list of CSINode.
+
+        :schema: io.k8s.api.storage.v1beta1.CSINodeList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1beta1.CSINodeList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CsiNodeListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.CsiNodeOptions",
     jsii_struct_bases=[],
@@ -5167,7 +7099,7 @@ class CsiNodeSpec:
 
         :param drivers: drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
 
-        :schema: io.k8s.api.storage.v1.CSINodeSpec
+        :schema: io.k8s.api.storage.v1beta1.CSINodeSpec
         """
         self._values: typing.Dict[str, typing.Any] = {
             "drivers": drivers,
@@ -5179,7 +7111,7 @@ class CsiNodeSpec:
 
         If all drivers in the list are uninstalled, this can become empty.
 
-        :schema: io.k8s.api.storage.v1.CSINodeSpec#drivers
+        :schema: io.k8s.api.storage.v1beta1.CSINodeSpec#drivers
         """
         result = self._values.get("drivers")
         assert result is not None, "Required property 'drivers' is missing"
@@ -5193,6 +7125,100 @@ class CsiNodeSpec:
 
     def __repr__(self) -> str:
         return "CsiNodeSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class CsiNodeV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CsiNodeV1Beta1",
+):
+    """DEPRECATED - This group version of CSINode is deprecated by storage/v1/CSINode.
+
+    See the release notes for more information. CSINode holds information about all CSI drivers installed on a node. CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
+
+    :schema: io.k8s.api.storage.v1beta1.CSINode
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: CsiNodeSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.CSINode" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: spec is the specification of CSINode.
+        :param metadata: metadata.name must be the Kubernetes node name.
+        """
+        options = CsiNodeV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(CsiNodeV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CsiNodeV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class CsiNodeV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: CsiNodeSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """DEPRECATED - This group version of CSINode is deprecated by storage/v1/CSINode.
+
+        See the release notes for more information. CSINode holds information about all CSI drivers installed on a node. CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
+
+        :param spec: spec is the specification of CSINode.
+        :param metadata: metadata.name must be the Kubernetes node name.
+
+        :schema: io.k8s.api.storage.v1beta1.CSINode
+        """
+        if isinstance(spec, dict):
+            spec = CsiNodeSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> CsiNodeSpec:
+        """spec is the specification of CSINode.
+
+        :schema: io.k8s.api.storage.v1beta1.CSINode#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """metadata.name must be the Kubernetes node name.
+
+        :schema: io.k8s.api.storage.v1beta1.CSINode#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CsiNodeV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -5503,11 +7529,11 @@ class CsiVolumeSource:
     jsii_type="k8s.CustomResourceColumnDefinition",
     jsii_struct_bases=[],
     name_mapping={
-        "json_path": "jsonPath",
         "name": "name",
         "type": "type",
         "description": "description",
         "format": "format",
+        "json_path": "jsonPath",
         "priority": "priority",
     },
 )
@@ -5515,26 +7541,25 @@ class CustomResourceColumnDefinition:
     def __init__(
         self,
         *,
-        json_path: builtins.str,
         name: builtins.str,
         type: builtins.str,
         description: typing.Optional[builtins.str] = None,
         format: typing.Optional[builtins.str] = None,
+        json_path: typing.Optional[builtins.str] = None,
         priority: typing.Optional[jsii.Number] = None,
     ) -> None:
         """CustomResourceColumnDefinition specifies a column for server side printing.
 
-        :param json_path: jsonPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
         :param name: name is a human readable name for the column.
         :param type: type is an OpenAPI type definition for this column. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
         :param description: description is a human readable description of this column.
         :param format: format is an optional OpenAPI type definition for this column. The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
+        :param json_path: JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
         :param priority: priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition
         """
         self._values: typing.Dict[str, typing.Any] = {
-            "json_path": json_path,
             "name": name,
             "type": type,
         }
@@ -5542,24 +7567,16 @@ class CustomResourceColumnDefinition:
             self._values["description"] = description
         if format is not None:
             self._values["format"] = format
+        if json_path is not None:
+            self._values["json_path"] = json_path
         if priority is not None:
             self._values["priority"] = priority
-
-    @builtins.property
-    def json_path(self) -> builtins.str:
-        """jsonPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
-
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition#jsonPath
-        """
-        result = self._values.get("json_path")
-        assert result is not None, "Required property 'json_path' is missing"
-        return result
 
     @builtins.property
     def name(self) -> builtins.str:
         """name is a human readable name for the column.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition#name
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -5571,7 +7588,7 @@ class CustomResourceColumnDefinition:
 
         See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition#type
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#type
         """
         result = self._values.get("type")
         assert result is not None, "Required property 'type' is missing"
@@ -5581,7 +7598,7 @@ class CustomResourceColumnDefinition:
     def description(self) -> typing.Optional[builtins.str]:
         """description is a human readable description of this column.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition#description
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#description
         """
         result = self._values.get("description")
         return result
@@ -5592,9 +7609,18 @@ class CustomResourceColumnDefinition:
 
         The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition#format
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#format
         """
         result = self._values.get("format")
+        return result
+
+    @builtins.property
+    def json_path(self) -> typing.Optional[builtins.str]:
+        """JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#JSONPath
+        """
+        result = self._values.get("json_path")
         return result
 
     @builtins.property
@@ -5603,7 +7629,7 @@ class CustomResourceColumnDefinition:
 
         Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition#priority
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#priority
         """
         result = self._values.get("priority")
         return result
@@ -5623,52 +7649,73 @@ class CustomResourceColumnDefinition:
 @jsii.data_type(
     jsii_type="k8s.CustomResourceConversion",
     jsii_struct_bases=[],
-    name_mapping={"strategy": "strategy", "webhook": "webhook"},
+    name_mapping={
+        "strategy": "strategy",
+        "conversion_review_versions": "conversionReviewVersions",
+        "webhook_client_config": "webhookClientConfig",
+    },
 )
 class CustomResourceConversion:
     def __init__(
         self,
         *,
         strategy: builtins.str,
-        webhook: typing.Optional["WebhookConversion"] = None,
+        conversion_review_versions: typing.Optional[typing.List[builtins.str]] = None,
+        webhook_client_config: typing.Optional["WebhookClientConfig"] = None,
     ) -> None:
         """CustomResourceConversion describes how to convert different versions of a CR.
 
-        :param strategy: strategy specifies how custom resources are converted between versions. Allowed values are: - ``None``: The converter only change the apiVersion and would not touch any other field in the custom resource. - ``Webhook``: API Server will call to an external webhook to do the conversion. Additional information is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhook to be set.
-        :param webhook: webhook describes how to call the conversion webhook. Required when ``strategy`` is set to ``Webhook``.
+        :param strategy: strategy specifies how custom resources are converted between versions. Allowed values are: - ``None``: The converter only change the apiVersion and would not touch any other field in the custom resource. - ``Webhook``: API Server will call to an external webhook to do the conversion. Additional information is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
+        :param conversion_review_versions: conversionReviewVersions is an ordered list of preferred ``ConversionReview`` versions the Webhook expects. The API server will use the first version in the list which it supports. If none of the versions specified in this list are supported by API server, conversion will fail for the custom resource. If a persisted Webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail. Defaults to ``["v1beta1"]``. Default: v1beta1"]`.
+        :param webhook_client_config: webhookClientConfig is the instructions for how to call the webhook if strategy is ``Webhook``. Required when ``strategy`` is set to ``Webhook``.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceConversion
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion
         """
-        if isinstance(webhook, dict):
-            webhook = WebhookConversion(**webhook)
+        if isinstance(webhook_client_config, dict):
+            webhook_client_config = WebhookClientConfig(**webhook_client_config)
         self._values: typing.Dict[str, typing.Any] = {
             "strategy": strategy,
         }
-        if webhook is not None:
-            self._values["webhook"] = webhook
+        if conversion_review_versions is not None:
+            self._values["conversion_review_versions"] = conversion_review_versions
+        if webhook_client_config is not None:
+            self._values["webhook_client_config"] = webhook_client_config
 
     @builtins.property
     def strategy(self) -> builtins.str:
         """strategy specifies how custom resources are converted between versions.
 
         Allowed values are: - ``None``: The converter only change the apiVersion and would not touch any other field in the custom resource. - ``Webhook``: API Server will call to an external webhook to do the conversion. Additional information
-        is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhook to be set.
+        is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceConversion#strategy
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion#strategy
         """
         result = self._values.get("strategy")
         assert result is not None, "Required property 'strategy' is missing"
         return result
 
     @builtins.property
-    def webhook(self) -> typing.Optional["WebhookConversion"]:
-        """webhook describes how to call the conversion webhook.
+    def conversion_review_versions(self) -> typing.Optional[typing.List[builtins.str]]:
+        """conversionReviewVersions is an ordered list of preferred ``ConversionReview`` versions the Webhook expects.
+
+        The API server will use the first version in the list which it supports. If none of the versions specified in this list are supported by API server, conversion will fail for the custom resource. If a persisted Webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail. Defaults to ``["v1beta1"]``.
+
+        :default: v1beta1"]`.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion#conversionReviewVersions
+        """
+        result = self._values.get("conversion_review_versions")
+        return result
+
+    @builtins.property
+    def webhook_client_config(self) -> typing.Optional["WebhookClientConfig"]:
+        """webhookClientConfig is the instructions for how to call the webhook if strategy is ``Webhook``.
 
         Required when ``strategy`` is set to ``Webhook``.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceConversion#webhook
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion#webhookClientConfig
         """
-        result = self._values.get("webhook")
+        result = self._values.get("webhook_client_config")
         return result
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
@@ -5802,6 +7849,95 @@ class CustomResourceDefinitionListOptions:
         )
 
 
+class CustomResourceDefinitionListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CustomResourceDefinitionListV1Beta1",
+):
+    """CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
+
+    :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[CustomResourceDefinition],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items list individual CustomResourceDefinition objects.
+        :param metadata: 
+        """
+        options = CustomResourceDefinitionListV1Beta1Options(
+            items=items, metadata=metadata
+        )
+
+        jsii.create(CustomResourceDefinitionListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CustomResourceDefinitionListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class CustomResourceDefinitionListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[CustomResourceDefinition],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
+
+        :param items: items list individual CustomResourceDefinition objects.
+        :param metadata: 
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[CustomResourceDefinition]:
+        """items list individual CustomResourceDefinition objects.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CustomResourceDefinitionListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.CustomResourceDefinitionNames",
     jsii_struct_bases=[],
@@ -5834,7 +7970,7 @@ class CustomResourceDefinitionNames:
         :param short_names: shortNames are short names for the resource, exposed in API discovery documents, and used by clients to support invocations like ``kubectl get <shortname>``. It must be all lowercase.
         :param singular: singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased ``kind``. Default: lowercased ``kind``.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames
         """
         self._values: typing.Dict[str, typing.Any] = {
             "kind": kind,
@@ -5855,7 +7991,7 @@ class CustomResourceDefinitionNames:
 
         It is normally CamelCase and singular. Custom resource instances will use this value as the ``kind`` attribute in API calls.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames#kind
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#kind
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
@@ -5867,7 +8003,7 @@ class CustomResourceDefinitionNames:
 
         The custom resources are served under ``/apis/<group>/<version>/.../<plural>``. Must match the name of the CustomResourceDefinition (in the form ``<names.plural>.<group>``). Must be all lowercase.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames#plural
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#plural
         """
         result = self._values.get("plural")
         assert result is not None, "Required property 'plural' is missing"
@@ -5877,7 +8013,7 @@ class CustomResourceDefinitionNames:
     def categories(self) -> typing.Optional[typing.List[builtins.str]]:
         """categories is a list of grouped resources this custom resource belongs to (e.g. 'all'). This is published in API discovery documents, and used by clients to support invocations like ``kubectl get all``.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames#categories
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#categories
         """
         result = self._values.get("categories")
         return result
@@ -5890,7 +8026,7 @@ class CustomResourceDefinitionNames:
 
         :default: kind`List".
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames#listKind
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#listKind
         """
         result = self._values.get("list_kind")
         return result
@@ -5901,7 +8037,7 @@ class CustomResourceDefinitionNames:
 
         It must be all lowercase.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames#shortNames
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#shortNames
         """
         result = self._values.get("short_names")
         return result
@@ -5914,7 +8050,7 @@ class CustomResourceDefinitionNames:
 
         :default: lowercased ``kind``.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames#singular
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#singular
         """
         result = self._values.get("singular")
         return result
@@ -5999,9 +8135,13 @@ class CustomResourceDefinitionOptions:
         "group": "group",
         "names": "names",
         "scope": "scope",
-        "versions": "versions",
+        "additional_printer_columns": "additionalPrinterColumns",
         "conversion": "conversion",
         "preserve_unknown_fields": "preserveUnknownFields",
+        "subresources": "subresources",
+        "validation": "validation",
+        "version": "version",
+        "versions": "versions",
     },
 )
 class CustomResourceDefinitionSpec:
@@ -6011,35 +8151,56 @@ class CustomResourceDefinitionSpec:
         group: builtins.str,
         names: CustomResourceDefinitionNames,
         scope: builtins.str,
-        versions: typing.List["CustomResourceDefinitionVersion"],
+        additional_printer_columns: typing.Optional[typing.List[CustomResourceColumnDefinition]] = None,
         conversion: typing.Optional[CustomResourceConversion] = None,
         preserve_unknown_fields: typing.Optional[builtins.bool] = None,
+        subresources: typing.Optional["CustomResourceSubresources"] = None,
+        validation: typing.Optional["CustomResourceValidation"] = None,
+        version: typing.Optional[builtins.str] = None,
+        versions: typing.Optional[typing.List["CustomResourceDefinitionVersion"]] = None,
     ) -> None:
         """CustomResourceDefinitionSpec describes how a user wants their resource to appear.
 
         :param group: group is the API group of the defined custom resource. The custom resources are served under ``/apis/<group>/...``. Must match the name of the CustomResourceDefinition (in the form ``<names.plural>.<group>``).
         :param names: names specify the resource and kind names for the custom resource.
-        :param scope: scope indicates whether the defined custom resource is cluster- or namespace-scoped. Allowed values are ``Cluster`` and ``Namespaced``.
-        :param versions: versions is the list of all API versions of the defined custom resource. Version names are used to compute the order in which served versions are listed in API discovery. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+        :param scope: scope indicates whether the defined custom resource is cluster- or namespace-scoped. Allowed values are ``Cluster`` and ``Namespaced``. Default is ``Namespaced``. Default: Namespaced`.
+        :param additional_printer_columns: additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If present, this field configures columns for all versions. Top-level and per-version columns are mutually exclusive. If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
         :param conversion: conversion defines conversion settings for the CRD.
-        :param preserve_unknown_fields: preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage. apiVersion, kind, metadata and known fields inside metadata are always preserved. This field is deprecated in favor of setting ``x-preserve-unknown-fields`` to true in ``spec.versions[*].schema.openAPIV3Schema``. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+        :param preserve_unknown_fields: preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage. apiVersion, kind, metadata and known fields inside metadata are always preserved. If false, schemas must be defined for all versions. Defaults to true in v1beta for backwards compatibility. Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified in the validation schema using the ``x-kubernetes-preserve-unknown-fields: true`` extension. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details. Default: true in v1beta for backwards compatibility. Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified in the validation schema using the ``x-kubernetes-preserve-unknown-fields: true`` extension. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+        :param subresources: subresources specify what subresources the defined custom resource has. If present, this field configures subresources for all versions. Top-level and per-version subresources are mutually exclusive.
+        :param validation: validation describes the schema used for validation and pruning of the custom resource. If present, this validation schema is used to validate all versions. Top-level and per-version schemas are mutually exclusive.
+        :param version: version is the API version of the defined custom resource. The custom resources are served under ``/apis/<group>/<version>/...``. Must match the name of the first item in the ``versions`` list if ``version`` and ``versions`` are both specified. Optional if ``versions`` is specified. Deprecated: use ``versions`` instead.
+        :param versions: versions is the list of all API versions of the defined custom resource. Optional if ``version`` is specified. The name of the first item in the ``versions`` list must match the ``version`` field if ``version`` and ``versions`` are both specified. Version names are used to compute the order in which served versions are listed in API discovery. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionSpec
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec
         """
         if isinstance(names, dict):
             names = CustomResourceDefinitionNames(**names)
         if isinstance(conversion, dict):
             conversion = CustomResourceConversion(**conversion)
+        if isinstance(subresources, dict):
+            subresources = CustomResourceSubresources(**subresources)
+        if isinstance(validation, dict):
+            validation = CustomResourceValidation(**validation)
         self._values: typing.Dict[str, typing.Any] = {
             "group": group,
             "names": names,
             "scope": scope,
-            "versions": versions,
         }
+        if additional_printer_columns is not None:
+            self._values["additional_printer_columns"] = additional_printer_columns
         if conversion is not None:
             self._values["conversion"] = conversion
         if preserve_unknown_fields is not None:
             self._values["preserve_unknown_fields"] = preserve_unknown_fields
+        if subresources is not None:
+            self._values["subresources"] = subresources
+        if validation is not None:
+            self._values["validation"] = validation
+        if version is not None:
+            self._values["version"] = version
+        if versions is not None:
+            self._values["versions"] = versions
 
     @builtins.property
     def group(self) -> builtins.str:
@@ -6047,7 +8208,7 @@ class CustomResourceDefinitionSpec:
 
         The custom resources are served under ``/apis/<group>/...``. Must match the name of the CustomResourceDefinition (in the form ``<names.plural>.<group>``).
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionSpec#group
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#group
         """
         result = self._values.get("group")
         assert result is not None, "Required property 'group' is missing"
@@ -6057,7 +8218,7 @@ class CustomResourceDefinitionSpec:
     def names(self) -> CustomResourceDefinitionNames:
         """names specify the resource and kind names for the custom resource.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionSpec#names
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#names
         """
         result = self._values.get("names")
         assert result is not None, "Required property 'names' is missing"
@@ -6067,31 +8228,34 @@ class CustomResourceDefinitionSpec:
     def scope(self) -> builtins.str:
         """scope indicates whether the defined custom resource is cluster- or namespace-scoped.
 
-        Allowed values are ``Cluster`` and ``Namespaced``.
+        Allowed values are ``Cluster`` and ``Namespaced``. Default is ``Namespaced``.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionSpec#scope
+        :default: Namespaced`.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#scope
         """
         result = self._values.get("scope")
         assert result is not None, "Required property 'scope' is missing"
         return result
 
     @builtins.property
-    def versions(self) -> typing.List["CustomResourceDefinitionVersion"]:
-        """versions is the list of all API versions of the defined custom resource.
+    def additional_printer_columns(
+        self,
+    ) -> typing.Optional[typing.List[CustomResourceColumnDefinition]]:
+        """additionalPrinterColumns specifies additional columns returned in Table output.
 
-        Version names are used to compute the order in which served versions are listed in API discovery. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+        See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If present, this field configures columns for all versions. Top-level and per-version columns are mutually exclusive. If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionSpec#versions
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#additionalPrinterColumns
         """
-        result = self._values.get("versions")
-        assert result is not None, "Required property 'versions' is missing"
+        result = self._values.get("additional_printer_columns")
         return result
 
     @builtins.property
     def conversion(self) -> typing.Optional[CustomResourceConversion]:
         """conversion defines conversion settings for the CRD.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionSpec#conversion
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#conversion
         """
         result = self._values.get("conversion")
         return result
@@ -6100,11 +8264,59 @@ class CustomResourceDefinitionSpec:
     def preserve_unknown_fields(self) -> typing.Optional[builtins.bool]:
         """preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage.
 
-        apiVersion, kind, metadata and known fields inside metadata are always preserved. This field is deprecated in favor of setting ``x-preserve-unknown-fields`` to true in ``spec.versions[*].schema.openAPIV3Schema``. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+        apiVersion, kind, metadata and known fields inside metadata are always preserved. If false, schemas must be defined for all versions. Defaults to true in v1beta for backwards compatibility. Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified in the validation schema using the ``x-kubernetes-preserve-unknown-fields: true`` extension. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionSpec#preserveUnknownFields
+        :default: true in v1beta for backwards compatibility. Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified in the validation schema using the ``x-kubernetes-preserve-unknown-fields: true`` extension. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#preserveUnknownFields
         """
         result = self._values.get("preserve_unknown_fields")
+        return result
+
+    @builtins.property
+    def subresources(self) -> typing.Optional["CustomResourceSubresources"]:
+        """subresources specify what subresources the defined custom resource has.
+
+        If present, this field configures subresources for all versions. Top-level and per-version subresources are mutually exclusive.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#subresources
+        """
+        result = self._values.get("subresources")
+        return result
+
+    @builtins.property
+    def validation(self) -> typing.Optional["CustomResourceValidation"]:
+        """validation describes the schema used for validation and pruning of the custom resource.
+
+        If present, this validation schema is used to validate all versions. Top-level and per-version schemas are mutually exclusive.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#validation
+        """
+        result = self._values.get("validation")
+        return result
+
+    @builtins.property
+    def version(self) -> typing.Optional[builtins.str]:
+        """version is the API version of the defined custom resource.
+
+        The custom resources are served under ``/apis/<group>/<version>/...``. Must match the name of the first item in the ``versions`` list if ``version`` and ``versions`` are both specified. Optional if ``versions`` is specified. Deprecated: use ``versions`` instead.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#version
+        """
+        result = self._values.get("version")
+        return result
+
+    @builtins.property
+    def versions(
+        self,
+    ) -> typing.Optional[typing.List["CustomResourceDefinitionVersion"]]:
+        """versions is the list of all API versions of the defined custom resource.
+
+        Optional if ``version`` is specified. The name of the first item in the ``versions`` list must match the ``version`` field if ``version`` and ``versions`` are both specified. Version names are used to compute the order in which served versions are listed in API discovery. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#versions
+        """
+        result = self._values.get("versions")
         return result
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
@@ -6115,6 +8327,99 @@ class CustomResourceDefinitionSpec:
 
     def __repr__(self) -> str:
         return "CustomResourceDefinitionSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class CustomResourceDefinitionV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.CustomResourceDefinitionV1Beta1",
+):
+    """CustomResourceDefinition represents a resource that should be exposed on the API server.
+
+    Its name MUST be in the format <.spec.name>.<.spec.group>. Deprecated in v1.16, planned for removal in v1.19. Use apiextensions.k8s.io/v1 CustomResourceDefinition instead.
+
+    :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: CustomResourceDefinitionSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: spec describes how the user wants the resources to appear.
+        :param metadata: 
+        """
+        options = CustomResourceDefinitionV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(CustomResourceDefinitionV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.CustomResourceDefinitionV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class CustomResourceDefinitionV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: CustomResourceDefinitionSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """CustomResourceDefinition represents a resource that should be exposed on the API server.
+
+        Its name MUST be in the format <.spec.name>.<.spec.group>. Deprecated in v1.16, planned for removal in v1.19. Use apiextensions.k8s.io/v1 CustomResourceDefinition instead.
+
+        :param spec: spec describes how the user wants the resources to appear.
+        :param metadata: 
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition
+        """
+        if isinstance(spec, dict):
+            spec = CustomResourceDefinitionSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> CustomResourceDefinitionSpec:
+        """spec describes how the user wants the resources to appear.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "CustomResourceDefinitionV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -6147,11 +8452,11 @@ class CustomResourceDefinitionVersion:
         :param name: name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at ``/apis/<group>/<version>/...`` if ``served`` is true.
         :param served: served is a flag enabling/disabling this version from being served via REST APIs.
         :param storage: storage indicates this version should be used when persisting custom resources to storage. There must be exactly one version with storage=true.
-        :param additional_printer_columns: additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.
-        :param schema: schema describes the schema used for validation, pruning, and defaulting of this version of the custom resource.
-        :param subresources: subresources specify what subresources this version of the defined custom resource have.
+        :param additional_printer_columns: additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. Top-level and per-version columns are mutually exclusive. Per-version columns must not all be set to identical values (top-level columns should be used instead). If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
+        :param schema: schema describes the schema used for validation and pruning of this version of the custom resource. Top-level and per-version schemas are mutually exclusive. Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
+        :param subresources: subresources specify what subresources this version of the defined custom resource have. Top-level and per-version subresources are mutually exclusive. Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionVersion
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion
         """
         if isinstance(schema, dict):
             schema = CustomResourceValidation(**schema)
@@ -6173,7 +8478,7 @@ class CustomResourceDefinitionVersion:
     def name(self) -> builtins.str:
         """name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at ``/apis/<group>/<version>/...`` if ``served`` is true.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionVersion#name
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -6183,7 +8488,7 @@ class CustomResourceDefinitionVersion:
     def served(self) -> builtins.bool:
         """served is a flag enabling/disabling this version from being served via REST APIs.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionVersion#served
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#served
         """
         result = self._values.get("served")
         assert result is not None, "Required property 'served' is missing"
@@ -6195,7 +8500,7 @@ class CustomResourceDefinitionVersion:
 
         There must be exactly one version with storage=true.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionVersion#storage
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#storage
         """
         result = self._values.get("storage")
         assert result is not None, "Required property 'storage' is missing"
@@ -6207,18 +8512,20 @@ class CustomResourceDefinitionVersion:
     ) -> typing.Optional[typing.List[CustomResourceColumnDefinition]]:
         """additionalPrinterColumns specifies additional columns returned in Table output.
 
-        See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.
+        See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. Top-level and per-version columns are mutually exclusive. Per-version columns must not all be set to identical values (top-level columns should be used instead). If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionVersion#additionalPrinterColumns
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#additionalPrinterColumns
         """
         result = self._values.get("additional_printer_columns")
         return result
 
     @builtins.property
     def schema(self) -> typing.Optional["CustomResourceValidation"]:
-        """schema describes the schema used for validation, pruning, and defaulting of this version of the custom resource.
+        """schema describes the schema used for validation and pruning of this version of the custom resource.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionVersion#schema
+        Top-level and per-version schemas are mutually exclusive. Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#schema
         """
         result = self._values.get("schema")
         return result
@@ -6227,7 +8534,9 @@ class CustomResourceDefinitionVersion:
     def subresources(self) -> typing.Optional["CustomResourceSubresources"]:
         """subresources specify what subresources this version of the defined custom resource have.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionVersion#subresources
+        Top-level and per-version subresources are mutually exclusive. Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#subresources
         """
         result = self._values.get("subresources")
         return result
@@ -6267,7 +8576,7 @@ class CustomResourceSubresourceScale:
         :param status_replicas_path: statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale ``status.replicas``. Only JSON paths without the array notation are allowed. Must be a JSON Path under ``.status``. If there is no value under the given path in the custom resource, the ``status.replicas`` value in the ``/scale`` subresource will default to 0.
         :param label_selector_path: labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale ``status.selector``. Only JSON paths without the array notation are allowed. Must be a JSON Path under ``.status`` or ``.spec``. Must be set to work with HorizontalPodAutoscaler. The field pointed by this JSON path must be a string field (not a complex selector struct) which contains a serialized label selector in string form. More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource If there is no value under the given path in the custom resource, the ``status.selector`` value in the ``/scale`` subresource will default to the empty string.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresourceScale
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale
         """
         self._values: typing.Dict[str, typing.Any] = {
             "spec_replicas_path": spec_replicas_path,
@@ -6280,7 +8589,7 @@ class CustomResourceSubresourceScale:
     def spec_replicas_path(self) -> builtins.str:
         """specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale ``spec.replicas``. Only JSON paths without the array notation are allowed. Must be a JSON Path under ``.spec``. If there is no value under the given path in the custom resource, the ``/scale`` subresource will return an error on GET.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresourceScale#specReplicasPath
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale#specReplicasPath
         """
         result = self._values.get("spec_replicas_path")
         assert result is not None, "Required property 'spec_replicas_path' is missing"
@@ -6290,7 +8599,7 @@ class CustomResourceSubresourceScale:
     def status_replicas_path(self) -> builtins.str:
         """statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale ``status.replicas``. Only JSON paths without the array notation are allowed. Must be a JSON Path under ``.status``. If there is no value under the given path in the custom resource, the ``status.replicas`` value in the ``/scale`` subresource will default to 0.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresourceScale#statusReplicasPath
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale#statusReplicasPath
         """
         result = self._values.get("status_replicas_path")
         assert result is not None, "Required property 'status_replicas_path' is missing"
@@ -6300,7 +8609,7 @@ class CustomResourceSubresourceScale:
     def label_selector_path(self) -> typing.Optional[builtins.str]:
         """labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale ``status.selector``. Only JSON paths without the array notation are allowed. Must be a JSON Path under ``.status`` or ``.spec``. Must be set to work with HorizontalPodAutoscaler. The field pointed by this JSON path must be a string field (not a complex selector struct) which contains a serialized label selector in string form. More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource If there is no value under the given path in the custom resource, the ``status.selector`` value in the ``/scale`` subresource will default to the empty string.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresourceScale#labelSelectorPath
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale#labelSelectorPath
         """
         result = self._values.get("label_selector_path")
         return result
@@ -6334,7 +8643,7 @@ class CustomResourceSubresources:
         :param scale: scale indicates the custom resource should serve a ``/scale`` subresource that returns an ``autoscaling/v1`` Scale object.
         :param status: status indicates the custom resource should serve a ``/status`` subresource. When enabled: 1. requests to the custom resource primary endpoint ignore changes to the ``status`` stanza of the object. 2. requests to the custom resource ``/status`` subresource ignore changes to anything other than the ``status`` stanza of the object.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresources
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources
         """
         if isinstance(scale, dict):
             scale = CustomResourceSubresourceScale(**scale)
@@ -6348,7 +8657,7 @@ class CustomResourceSubresources:
     def scale(self) -> typing.Optional[CustomResourceSubresourceScale]:
         """scale indicates the custom resource should serve a ``/scale`` subresource that returns an ``autoscaling/v1`` Scale object.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresources#scale
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources#scale
         """
         result = self._values.get("scale")
         return result
@@ -6359,7 +8668,7 @@ class CustomResourceSubresources:
 
         When enabled: 1. requests to the custom resource primary endpoint ignore changes to the ``status`` stanza of the object. 2. requests to the custom resource ``/status`` subresource ignore changes to anything other than the ``status`` stanza of the object.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresources#status
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources#status
         """
         result = self._values.get("status")
         return result
@@ -6391,7 +8700,7 @@ class CustomResourceValidation:
 
         :param open_apiv3_schema: openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceValidation
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation
         """
         if isinstance(open_apiv3_schema, dict):
             open_apiv3_schema = JsonSchemaProps(**open_apiv3_schema)
@@ -6403,7 +8712,7 @@ class CustomResourceValidation:
     def open_apiv3_schema(self) -> typing.Optional["JsonSchemaProps"]:
         """openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceValidation#openAPIV3Schema
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation#openAPIV3Schema
         """
         result = self._values.get("open_apiv3_schema")
         return result
@@ -6536,6 +8845,186 @@ class DaemonSetListOptions:
         )
 
 
+class DaemonSetListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.DaemonSetListV1Beta1",
+):
+    """DaemonSetList is a collection of daemon sets.
+
+    :schema: io.k8s.api.extensions.v1beta1.DaemonSetList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[DaemonSet],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.DaemonSetList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: A list of daemon sets.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = DaemonSetListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(DaemonSetListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.DaemonSetListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class DaemonSetListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[DaemonSet],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """DaemonSetList is a collection of daemon sets.
+
+        :param items: A list of daemon sets.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[DaemonSet]:
+        """A list of daemon sets.
+
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "DaemonSetListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class DaemonSetListV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.DaemonSetListV1Beta2",
+):
+    """DaemonSetList is a collection of daemon sets.
+
+    :schema: io.k8s.api.apps.v1beta2.DaemonSetList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[DaemonSet],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.DaemonSetList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: A list of daemon sets.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = DaemonSetListV1Beta2Options(items=items, metadata=metadata)
+
+        jsii.create(DaemonSetListV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.DaemonSetListV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class DaemonSetListV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[DaemonSet],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """DaemonSetList is a collection of daemon sets.
+
+        :param items: A list of daemon sets.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.apps.v1beta2.DaemonSetList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[DaemonSet]:
+        """A list of daemon sets.
+
+        :schema: io.k8s.api.apps.v1beta2.DaemonSetList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.apps.v1beta2.DaemonSetList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "DaemonSetListV1Beta2Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.DaemonSetOptions",
     jsii_struct_bases=[],
@@ -6603,10 +9092,11 @@ class DaemonSetOptions:
     jsii_type="k8s.DaemonSetSpec",
     jsii_struct_bases=[],
     name_mapping={
-        "selector": "selector",
         "template": "template",
         "min_ready_seconds": "minReadySeconds",
         "revision_history_limit": "revisionHistoryLimit",
+        "selector": "selector",
+        "template_generation": "templateGeneration",
         "update_strategy": "updateStrategy",
     },
 )
@@ -6614,50 +9104,43 @@ class DaemonSetSpec:
     def __init__(
         self,
         *,
-        selector: "LabelSelector",
         template: "PodTemplateSpec",
         min_ready_seconds: typing.Optional[jsii.Number] = None,
         revision_history_limit: typing.Optional[jsii.Number] = None,
+        selector: typing.Optional["LabelSelector"] = None,
+        template_generation: typing.Optional[jsii.Number] = None,
         update_strategy: typing.Optional["DaemonSetUpdateStrategy"] = None,
     ) -> None:
         """DaemonSetSpec is the specification of a daemon set.
 
-        :param selector: A label query over pods that are managed by the daemon set. Must match in order to be controlled. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
         :param template: An object that describes the pod that will be created. The DaemonSet will create exactly one copy of this pod on every node that matches the template's node selector (or on every node if no node selector is specified). More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
         :param min_ready_seconds: The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready). Default: 0 (pod will be considered available as soon as it is ready).
         :param revision_history_limit: The number of old history to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10. Default: 10.
+        :param selector: A label query over pods that are managed by the daemon set. Must match in order to be controlled. If empty, defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+        :param template_generation: DEPRECATED. A sequence number representing a specific generation of the template. Populated by the system. It can be set only during the creation.
         :param update_strategy: An update strategy to replace existing DaemonSet pods with new pods.
 
-        :schema: io.k8s.api.apps.v1.DaemonSetSpec
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec
         """
-        if isinstance(selector, dict):
-            selector = LabelSelector(**selector)
         if isinstance(template, dict):
             template = PodTemplateSpec(**template)
+        if isinstance(selector, dict):
+            selector = LabelSelector(**selector)
         if isinstance(update_strategy, dict):
             update_strategy = DaemonSetUpdateStrategy(**update_strategy)
         self._values: typing.Dict[str, typing.Any] = {
-            "selector": selector,
             "template": template,
         }
         if min_ready_seconds is not None:
             self._values["min_ready_seconds"] = min_ready_seconds
         if revision_history_limit is not None:
             self._values["revision_history_limit"] = revision_history_limit
+        if selector is not None:
+            self._values["selector"] = selector
+        if template_generation is not None:
+            self._values["template_generation"] = template_generation
         if update_strategy is not None:
             self._values["update_strategy"] = update_strategy
-
-    @builtins.property
-    def selector(self) -> "LabelSelector":
-        """A label query over pods that are managed by the daemon set.
-
-        Must match in order to be controlled. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-
-        :schema: io.k8s.api.apps.v1.DaemonSetSpec#selector
-        """
-        result = self._values.get("selector")
-        assert result is not None, "Required property 'selector' is missing"
-        return result
 
     @builtins.property
     def template(self) -> "PodTemplateSpec":
@@ -6665,7 +9148,7 @@ class DaemonSetSpec:
 
         The DaemonSet will create exactly one copy of this pod on every node that matches the template's node selector (or on every node if no node selector is specified). More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
 
-        :schema: io.k8s.api.apps.v1.DaemonSetSpec#template
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#template
         """
         result = self._values.get("template")
         assert result is not None, "Required property 'template' is missing"
@@ -6679,7 +9162,7 @@ class DaemonSetSpec:
 
         :default: 0 (pod will be considered available as soon as it is ready).
 
-        :schema: io.k8s.api.apps.v1.DaemonSetSpec#minReadySeconds
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#minReadySeconds
         """
         result = self._values.get("min_ready_seconds")
         return result
@@ -6692,16 +9175,38 @@ class DaemonSetSpec:
 
         :default: 10.
 
-        :schema: io.k8s.api.apps.v1.DaemonSetSpec#revisionHistoryLimit
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#revisionHistoryLimit
         """
         result = self._values.get("revision_history_limit")
+        return result
+
+    @builtins.property
+    def selector(self) -> typing.Optional["LabelSelector"]:
+        """A label query over pods that are managed by the daemon set.
+
+        Must match in order to be controlled. If empty, defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#selector
+        """
+        result = self._values.get("selector")
+        return result
+
+    @builtins.property
+    def template_generation(self) -> typing.Optional[jsii.Number]:
+        """DEPRECATED.
+
+        A sequence number representing a specific generation of the template. Populated by the system. It can be set only during the creation.
+
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#templateGeneration
+        """
+        result = self._values.get("template_generation")
         return result
 
     @builtins.property
     def update_strategy(self) -> typing.Optional["DaemonSetUpdateStrategy"]:
         """An update strategy to replace existing DaemonSet pods with new pods.
 
-        :schema: io.k8s.api.apps.v1.DaemonSetSpec#updateStrategy
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#updateStrategy
         """
         result = self._values.get("update_strategy")
         return result
@@ -6730,12 +9235,11 @@ class DaemonSetUpdateStrategy:
         rolling_update: typing.Optional["RollingUpdateDaemonSet"] = None,
         type: typing.Optional[builtins.str] = None,
     ) -> None:
-        """DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
-
+        """
         :param rolling_update: Rolling update config params. Present only if type = "RollingUpdate".
-        :param type: Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate. Default: RollingUpdate.
+        :param type: Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is OnDelete. Default: OnDelete.
 
-        :schema: io.k8s.api.apps.v1.DaemonSetUpdateStrategy
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetUpdateStrategy
         """
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateDaemonSet(**rolling_update)
@@ -6751,7 +9255,7 @@ class DaemonSetUpdateStrategy:
 
         Present only if type = "RollingUpdate".
 
-        :schema: io.k8s.api.apps.v1.DaemonSetUpdateStrategy#rollingUpdate
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetUpdateStrategy#rollingUpdate
         """
         result = self._values.get("rolling_update")
         return result
@@ -6760,11 +9264,11 @@ class DaemonSetUpdateStrategy:
     def type(self) -> typing.Optional[builtins.str]:
         """Type of daemon set update.
 
-        Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
+        Can be "RollingUpdate" or "OnDelete". Default is OnDelete.
 
-        :default: RollingUpdate.
+        :default: OnDelete.
 
-        :schema: io.k8s.api.apps.v1.DaemonSetUpdateStrategy#type
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSetUpdateStrategy#type
         """
         result = self._values.get("type")
         return result
@@ -6777,6 +9281,200 @@ class DaemonSetUpdateStrategy:
 
     def __repr__(self) -> str:
         return "DaemonSetUpdateStrategy(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class DaemonSetV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.DaemonSetV1Beta1",
+):
+    """DEPRECATED - This group version of DaemonSet is deprecated by apps/v1beta2/DaemonSet.
+
+    See the release notes for more information. DaemonSet represents the configuration of a daemon set.
+
+    :schema: io.k8s.api.extensions.v1beta1.DaemonSet
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DaemonSetSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.DaemonSet" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = DaemonSetV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(DaemonSetV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.DaemonSetV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class DaemonSetV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DaemonSetSpec] = None,
+    ) -> None:
+        """DEPRECATED - This group version of DaemonSet is deprecated by apps/v1beta2/DaemonSet.
+
+        See the release notes for more information. DaemonSet represents the configuration of a daemon set.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSet
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = DaemonSetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSet#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[DaemonSetSpec]:
+        """The desired behavior of this daemon set.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.extensions.v1beta1.DaemonSet#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "DaemonSetV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class DaemonSetV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.DaemonSetV1Beta2",
+):
+    """DEPRECATED - This group version of DaemonSet is deprecated by apps/v1/DaemonSet.
+
+    See the release notes for more information. DaemonSet represents the configuration of a daemon set.
+
+    :schema: io.k8s.api.apps.v1beta2.DaemonSet
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DaemonSetSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.DaemonSet" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = DaemonSetV1Beta2Options(metadata=metadata, spec=spec)
+
+        jsii.create(DaemonSetV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.DaemonSetV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class DaemonSetV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DaemonSetSpec] = None,
+    ) -> None:
+        """DEPRECATED - This group version of DaemonSet is deprecated by apps/v1/DaemonSet.
+
+        See the release notes for more information. DaemonSet represents the configuration of a daemon set.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.apps.v1beta2.DaemonSet
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = DaemonSetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.apps.v1beta2.DaemonSet#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[DaemonSetSpec]:
+        """The desired behavior of this daemon set.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.apps.v1beta2.DaemonSet#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "DaemonSetV1Beta2Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -7041,6 +9739,182 @@ class DeploymentListOptions:
         )
 
 
+class DeploymentListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.DeploymentListV1Beta1",
+):
+    """DeploymentList is a list of Deployments.
+
+    :schema: io.k8s.api.extensions.v1beta1.DeploymentList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[Deployment],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.DeploymentList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is the list of Deployments.
+        :param metadata: Standard list metadata.
+        """
+        options = DeploymentListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(DeploymentListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.DeploymentListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class DeploymentListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[Deployment],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """DeploymentList is a list of Deployments.
+
+        :param items: Items is the list of Deployments.
+        :param metadata: Standard list metadata.
+
+        :schema: io.k8s.api.extensions.v1beta1.DeploymentList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[Deployment]:
+        """Items is the list of Deployments.
+
+        :schema: io.k8s.api.extensions.v1beta1.DeploymentList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        :schema: io.k8s.api.extensions.v1beta1.DeploymentList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "DeploymentListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class DeploymentListV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.DeploymentListV1Beta2",
+):
+    """DeploymentList is a list of Deployments.
+
+    :schema: io.k8s.api.apps.v1beta2.DeploymentList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[Deployment],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.DeploymentList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is the list of Deployments.
+        :param metadata: Standard list metadata.
+        """
+        options = DeploymentListV1Beta2Options(items=items, metadata=metadata)
+
+        jsii.create(DeploymentListV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.DeploymentListV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class DeploymentListV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[Deployment],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """DeploymentList is a list of Deployments.
+
+        :param items: Items is the list of Deployments.
+        :param metadata: Standard list metadata.
+
+        :schema: io.k8s.api.apps.v1beta2.DeploymentList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[Deployment]:
+        """Items is the list of Deployments.
+
+        :schema: io.k8s.api.apps.v1beta2.DeploymentList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        :schema: io.k8s.api.apps.v1beta2.DeploymentList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "DeploymentListV1Beta2Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.DeploymentOptions",
     jsii_struct_bases=[],
@@ -7138,7 +10012,7 @@ class DeploymentSpec:
         :param revision_history_limit: The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10. Default: 10.
         :param strategy: The deployment strategy to use to replace existing pods with new ones.
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec
         """
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
@@ -7169,7 +10043,7 @@ class DeploymentSpec:
 
         Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment. It must match the pod template's labels.
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec#selector
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#selector
         """
         result = self._values.get("selector")
         assert result is not None, "Required property 'selector' is missing"
@@ -7179,7 +10053,7 @@ class DeploymentSpec:
     def template(self) -> "PodTemplateSpec":
         """Template describes the pods that will be created.
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec#template
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#template
         """
         result = self._values.get("template")
         assert result is not None, "Required property 'template' is missing"
@@ -7193,7 +10067,7 @@ class DeploymentSpec:
 
         :default: 0 (pod will be considered available as soon as it is ready)
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec#minReadySeconds
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#minReadySeconds
         """
         result = self._values.get("min_ready_seconds")
         return result
@@ -7202,7 +10076,7 @@ class DeploymentSpec:
     def paused(self) -> typing.Optional[builtins.bool]:
         """Indicates that the deployment is paused.
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec#paused
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#paused
         """
         result = self._values.get("paused")
         return result
@@ -7215,7 +10089,7 @@ class DeploymentSpec:
 
         :default: 600s.
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec#progressDeadlineSeconds
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#progressDeadlineSeconds
         """
         result = self._values.get("progress_deadline_seconds")
         return result
@@ -7228,7 +10102,7 @@ class DeploymentSpec:
 
         :default: 1.
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec#replicas
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#replicas
         """
         result = self._values.get("replicas")
         return result
@@ -7241,7 +10115,7 @@ class DeploymentSpec:
 
         :default: 10.
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec#revisionHistoryLimit
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#revisionHistoryLimit
         """
         result = self._values.get("revision_history_limit")
         return result
@@ -7250,7 +10124,7 @@ class DeploymentSpec:
     def strategy(self) -> typing.Optional["DeploymentStrategy"]:
         """The deployment strategy to use to replace existing pods with new ones.
 
-        :schema: io.k8s.api.apps.v1.DeploymentSpec#strategy
+        :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#strategy
         """
         result = self._values.get("strategy")
         return result
@@ -7284,7 +10158,7 @@ class DeploymentStrategy:
         :param rolling_update: Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate.
         :param type: Type of deployment. Can be "Recreate" or "RollingUpdate". Default is RollingUpdate. Default: RollingUpdate.
 
-        :schema: io.k8s.api.apps.v1.DeploymentStrategy
+        :schema: io.k8s.api.apps.v1beta2.DeploymentStrategy
         """
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateDeployment(**rolling_update)
@@ -7300,7 +10174,7 @@ class DeploymentStrategy:
 
         Present only if DeploymentStrategyType = RollingUpdate.
 
-        :schema: io.k8s.api.apps.v1.DeploymentStrategy#rollingUpdate
+        :schema: io.k8s.api.apps.v1beta2.DeploymentStrategy#rollingUpdate
         """
         result = self._values.get("rolling_update")
         return result
@@ -7313,7 +10187,7 @@ class DeploymentStrategy:
 
         :default: RollingUpdate.
 
-        :schema: io.k8s.api.apps.v1.DeploymentStrategy#type
+        :schema: io.k8s.api.apps.v1beta2.DeploymentStrategy#type
         """
         result = self._values.get("type")
         return result
@@ -7326,6 +10200,192 @@ class DeploymentStrategy:
 
     def __repr__(self) -> str:
         return "DeploymentStrategy(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class DeploymentV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.DeploymentV1Beta1",
+):
+    """DEPRECATED - This group version of Deployment is deprecated by apps/v1beta2/Deployment.
+
+    See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets.
+
+    :schema: io.k8s.api.extensions.v1beta1.Deployment
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DeploymentSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.Deployment" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object metadata.
+        :param spec: Specification of the desired behavior of the Deployment.
+        """
+        options = DeploymentV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(DeploymentV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.DeploymentV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class DeploymentV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DeploymentSpec] = None,
+    ) -> None:
+        """DEPRECATED - This group version of Deployment is deprecated by apps/v1beta2/Deployment.
+
+        See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets.
+
+        :param metadata: Standard object metadata.
+        :param spec: Specification of the desired behavior of the Deployment.
+
+        :schema: io.k8s.api.extensions.v1beta1.Deployment
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = DeploymentSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object metadata.
+
+        :schema: io.k8s.api.extensions.v1beta1.Deployment#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[DeploymentSpec]:
+        """Specification of the desired behavior of the Deployment.
+
+        :schema: io.k8s.api.extensions.v1beta1.Deployment#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "DeploymentV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class DeploymentV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.DeploymentV1Beta2",
+):
+    """DEPRECATED - This group version of Deployment is deprecated by apps/v1/Deployment.
+
+    See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets.
+
+    :schema: io.k8s.api.apps.v1beta2.Deployment
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DeploymentSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.Deployment" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object metadata.
+        :param spec: Specification of the desired behavior of the Deployment.
+        """
+        options = DeploymentV1Beta2Options(metadata=metadata, spec=spec)
+
+        jsii.create(DeploymentV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.DeploymentV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class DeploymentV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DeploymentSpec] = None,
+    ) -> None:
+        """DEPRECATED - This group version of Deployment is deprecated by apps/v1/Deployment.
+
+        See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets.
+
+        :param metadata: Standard object metadata.
+        :param spec: Specification of the desired behavior of the Deployment.
+
+        :schema: io.k8s.api.apps.v1beta2.Deployment
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = DeploymentSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object metadata.
+
+        :schema: io.k8s.api.apps.v1beta2.Deployment#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[DeploymentSpec]:
+        """Specification of the desired behavior of the Deployment.
+
+        :schema: io.k8s.api.apps.v1beta2.Deployment#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "DeploymentV1Beta2Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -7916,137 +10976,8 @@ class EndpointPort:
         )
 
 
-class EndpointSlice(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
+@jsii.data_type(
     jsii_type="k8s.EndpointSlice",
-):
-    """EndpointSlice represents a subset of the endpoints that implement a service.
-
-    For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
-
-    :schema: io.k8s.api.discovery.v1beta1.EndpointSlice
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        address_type: builtins.str,
-        endpoints: typing.List[Endpoint],
-        metadata: typing.Optional["ObjectMeta"] = None,
-        ports: typing.Optional[typing.List[EndpointPort]] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.discovery.v1beta1.EndpointSlice" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param address_type: addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
-        :param endpoints: endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.
-        :param metadata: Standard object's metadata.
-        :param ports: ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
-        """
-        options = EndpointSliceOptions(
-            address_type=address_type,
-            endpoints=endpoints,
-            metadata=metadata,
-            ports=ports,
-        )
-
-        jsii.create(EndpointSlice, self, [scope, name, options])
-
-
-class EndpointSliceList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.EndpointSliceList",
-):
-    """EndpointSliceList represents a list of endpoint slices.
-
-    :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[EndpointSlice],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.discovery.v1beta1.EndpointSliceList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: List of endpoint slices.
-        :param metadata: Standard list metadata.
-        """
-        options = EndpointSliceListOptions(items=items, metadata=metadata)
-
-        jsii.create(EndpointSliceList, self, [scope, name, options])
-
-
-@jsii.data_type(
-    jsii_type="k8s.EndpointSliceListOptions",
-    jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
-)
-class EndpointSliceListOptions:
-    def __init__(
-        self,
-        *,
-        items: typing.List[EndpointSlice],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """EndpointSliceList represents a list of endpoint slices.
-
-        :param items: List of endpoint slices.
-        :param metadata: Standard list metadata.
-
-        :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList
-        """
-        if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List[EndpointSlice]:
-        """List of endpoint slices.
-
-        :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList#items
-        """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """Standard list metadata.
-
-        :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "EndpointSliceListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.EndpointSliceOptions",
     jsii_struct_bases=[],
     name_mapping={
         "address_type": "addressType",
@@ -8055,7 +10986,7 @@ class EndpointSliceListOptions:
         "ports": "ports",
     },
 )
-class EndpointSliceOptions:
+class EndpointSlice:
     def __init__(
         self,
         *,
@@ -8137,7 +11068,233 @@ class EndpointSliceOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "EndpointSliceOptions(%s)" % ", ".join(
+        return "EndpointSlice(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class EndpointSliceListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.EndpointSliceListV1Beta1",
+):
+    """EndpointSliceList represents a list of endpoint slices.
+
+    :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[EndpointSlice],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.discovery.v1beta1.EndpointSliceList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: List of endpoint slices.
+        :param metadata: Standard list metadata.
+        """
+        options = EndpointSliceListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(EndpointSliceListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.EndpointSliceListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class EndpointSliceListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[EndpointSlice],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """EndpointSliceList represents a list of endpoint slices.
+
+        :param items: List of endpoint slices.
+        :param metadata: Standard list metadata.
+
+        :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[EndpointSlice]:
+        """List of endpoint slices.
+
+        :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "EndpointSliceListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class EndpointSliceV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.EndpointSliceV1Beta1",
+):
+    """EndpointSlice represents a subset of the endpoints that implement a service.
+
+    For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
+
+    :schema: io.k8s.api.discovery.v1beta1.EndpointSlice
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        address_type: builtins.str,
+        endpoints: typing.List[Endpoint],
+        metadata: typing.Optional["ObjectMeta"] = None,
+        ports: typing.Optional[typing.List[EndpointPort]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.discovery.v1beta1.EndpointSlice" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param address_type: addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
+        :param endpoints: endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.
+        :param metadata: Standard object's metadata.
+        :param ports: ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
+        """
+        options = EndpointSliceV1Beta1Options(
+            address_type=address_type,
+            endpoints=endpoints,
+            metadata=metadata,
+            ports=ports,
+        )
+
+        jsii.create(EndpointSliceV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.EndpointSliceV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "address_type": "addressType",
+        "endpoints": "endpoints",
+        "metadata": "metadata",
+        "ports": "ports",
+    },
+)
+class EndpointSliceV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        address_type: builtins.str,
+        endpoints: typing.List[Endpoint],
+        metadata: typing.Optional["ObjectMeta"] = None,
+        ports: typing.Optional[typing.List[EndpointPort]] = None,
+    ) -> None:
+        """EndpointSlice represents a subset of the endpoints that implement a service.
+
+        For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
+
+        :param address_type: addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
+        :param endpoints: endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.
+        :param metadata: Standard object's metadata.
+        :param ports: ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
+
+        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "address_type": address_type,
+            "endpoints": endpoints,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if ports is not None:
+            self._values["ports"] = ports
+
+    @builtins.property
+    def address_type(self) -> builtins.str:
+        """addressType specifies the type of address carried by this EndpointSlice.
+
+        All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
+
+        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#addressType
+        """
+        result = self._values.get("address_type")
+        assert result is not None, "Required property 'address_type' is missing"
+        return result
+
+    @builtins.property
+    def endpoints(self) -> typing.List[Endpoint]:
+        """endpoints is a list of unique endpoints in this slice.
+
+        Each slice may include a maximum of 1000 endpoints.
+
+        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#endpoints
+        """
+        result = self._values.get("endpoints")
+        assert result is not None, "Required property 'endpoints' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def ports(self) -> typing.Optional[typing.List[EndpointPort]]:
+        """ports specifies the list of network ports exposed by each endpoint in this slice.
+
+        Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
+
+        :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#ports
+        """
+        result = self._values.get("ports")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "EndpointSliceV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -9246,6 +12403,96 @@ class EventListOptions:
         )
 
 
+class EventListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.EventListV1Beta1",
+):
+    """EventList is a list of Event objects.
+
+    :schema: io.k8s.api.events.v1beta1.EventList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[Event],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.events.v1beta1.EventList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = EventListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(EventListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.EventListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class EventListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[Event],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """EventList is a list of Event objects.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.events.v1beta1.EventList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[Event]:
+        """Items is a list of schema objects.
+
+        :schema: io.k8s.api.events.v1beta1.EventList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.events.v1beta1.EventList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "EventListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.EventOptions",
     jsii_struct_bases=[],
@@ -9516,53 +12763,54 @@ class EventSeries:
     def __init__(
         self,
         *,
-        count: typing.Optional[jsii.Number] = None,
-        last_observed_time: typing.Optional[datetime.datetime] = None,
-        state: typing.Optional[builtins.str] = None,
+        count: jsii.Number,
+        last_observed_time: datetime.datetime,
+        state: builtins.str,
     ) -> None:
         """EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
 
         :param count: Number of occurrences in this series up to the last heartbeat time.
-        :param last_observed_time: Time of the last occurrence observed.
-        :param state: State of this Series: Ongoing or Finished Deprecated. Planned removal for 1.18
+        :param last_observed_time: Time when last Event from the series was seen before last heartbeat.
+        :param state: Information whether this series is ongoing or finished. Deprecated. Planned removal for 1.18
 
-        :schema: io.k8s.api.core.v1.EventSeries
+        :schema: io.k8s.api.events.v1beta1.EventSeries
         """
-        self._values: typing.Dict[str, typing.Any] = {}
-        if count is not None:
-            self._values["count"] = count
-        if last_observed_time is not None:
-            self._values["last_observed_time"] = last_observed_time
-        if state is not None:
-            self._values["state"] = state
+        self._values: typing.Dict[str, typing.Any] = {
+            "count": count,
+            "last_observed_time": last_observed_time,
+            "state": state,
+        }
 
     @builtins.property
-    def count(self) -> typing.Optional[jsii.Number]:
+    def count(self) -> jsii.Number:
         """Number of occurrences in this series up to the last heartbeat time.
 
-        :schema: io.k8s.api.core.v1.EventSeries#count
+        :schema: io.k8s.api.events.v1beta1.EventSeries#count
         """
         result = self._values.get("count")
+        assert result is not None, "Required property 'count' is missing"
         return result
 
     @builtins.property
-    def last_observed_time(self) -> typing.Optional[datetime.datetime]:
-        """Time of the last occurrence observed.
+    def last_observed_time(self) -> datetime.datetime:
+        """Time when last Event from the series was seen before last heartbeat.
 
-        :schema: io.k8s.api.core.v1.EventSeries#lastObservedTime
+        :schema: io.k8s.api.events.v1beta1.EventSeries#lastObservedTime
         """
         result = self._values.get("last_observed_time")
+        assert result is not None, "Required property 'last_observed_time' is missing"
         return result
 
     @builtins.property
-    def state(self) -> typing.Optional[builtins.str]:
-        """State of this Series: Ongoing or Finished Deprecated.
+    def state(self) -> builtins.str:
+        """Information whether this series is ongoing or finished.
 
-        Planned removal for 1.18
+        Deprecated. Planned removal for 1.18
 
-        :schema: io.k8s.api.core.v1.EventSeries#state
+        :schema: io.k8s.api.events.v1beta1.EventSeries#state
         """
         result = self._values.get("state")
+        assert result is not None, "Required property 'state' is missing"
         return result
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
@@ -9632,7 +12880,345 @@ class EventSource:
         )
 
 
-class Eviction(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Eviction"):
+class EventV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.EventV1Beta1",
+):
+    """Event is a report of an event somewhere in the cluster.
+
+    It generally denotes some state change in the system.
+
+    :schema: io.k8s.api.events.v1beta1.Event
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        event_time: datetime.datetime,
+        action: typing.Optional[builtins.str] = None,
+        deprecated_count: typing.Optional[jsii.Number] = None,
+        deprecated_first_timestamp: typing.Optional[datetime.datetime] = None,
+        deprecated_last_timestamp: typing.Optional[datetime.datetime] = None,
+        deprecated_source: typing.Optional[EventSource] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        note: typing.Optional[builtins.str] = None,
+        reason: typing.Optional[builtins.str] = None,
+        regarding: typing.Optional["ObjectReference"] = None,
+        related: typing.Optional["ObjectReference"] = None,
+        reporting_controller: typing.Optional[builtins.str] = None,
+        reporting_instance: typing.Optional[builtins.str] = None,
+        series: typing.Optional[EventSeries] = None,
+        type: typing.Optional[builtins.str] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.events.v1beta1.Event" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param event_time: Required. Time when this Event was first observed.
+        :param action: What action was taken/failed regarding to the regarding object.
+        :param deprecated_count: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_first_timestamp: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_last_timestamp: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_source: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param metadata: 
+        :param note: Optional. A human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
+        :param reason: Why the action was taken.
+        :param regarding: The object this Event is about. In most cases it's an Object reporting controller implements. E.g. ReplicaSetController implements ReplicaSets and this event is emitted because it acts on some changes in a ReplicaSet object.
+        :param related: Optional secondary object for more complex actions. E.g. when regarding object triggers a creation or deletion of related object.
+        :param reporting_controller: Name of the controller that emitted this Event, e.g. ``kubernetes.io/kubelet``.
+        :param reporting_instance: ID of the controller instance, e.g. ``kubelet-xyzf``.
+        :param series: Data about the Event series this event represents or nil if it's a singleton Event.
+        :param type: Type of this event (Normal, Warning), new types could be added in the future.
+        """
+        options = EventV1Beta1Options(
+            event_time=event_time,
+            action=action,
+            deprecated_count=deprecated_count,
+            deprecated_first_timestamp=deprecated_first_timestamp,
+            deprecated_last_timestamp=deprecated_last_timestamp,
+            deprecated_source=deprecated_source,
+            metadata=metadata,
+            note=note,
+            reason=reason,
+            regarding=regarding,
+            related=related,
+            reporting_controller=reporting_controller,
+            reporting_instance=reporting_instance,
+            series=series,
+            type=type,
+        )
+
+        jsii.create(EventV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.EventV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "event_time": "eventTime",
+        "action": "action",
+        "deprecated_count": "deprecatedCount",
+        "deprecated_first_timestamp": "deprecatedFirstTimestamp",
+        "deprecated_last_timestamp": "deprecatedLastTimestamp",
+        "deprecated_source": "deprecatedSource",
+        "metadata": "metadata",
+        "note": "note",
+        "reason": "reason",
+        "regarding": "regarding",
+        "related": "related",
+        "reporting_controller": "reportingController",
+        "reporting_instance": "reportingInstance",
+        "series": "series",
+        "type": "type",
+    },
+)
+class EventV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        event_time: datetime.datetime,
+        action: typing.Optional[builtins.str] = None,
+        deprecated_count: typing.Optional[jsii.Number] = None,
+        deprecated_first_timestamp: typing.Optional[datetime.datetime] = None,
+        deprecated_last_timestamp: typing.Optional[datetime.datetime] = None,
+        deprecated_source: typing.Optional[EventSource] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        note: typing.Optional[builtins.str] = None,
+        reason: typing.Optional[builtins.str] = None,
+        regarding: typing.Optional["ObjectReference"] = None,
+        related: typing.Optional["ObjectReference"] = None,
+        reporting_controller: typing.Optional[builtins.str] = None,
+        reporting_instance: typing.Optional[builtins.str] = None,
+        series: typing.Optional[EventSeries] = None,
+        type: typing.Optional[builtins.str] = None,
+    ) -> None:
+        """Event is a report of an event somewhere in the cluster.
+
+        It generally denotes some state change in the system.
+
+        :param event_time: Required. Time when this Event was first observed.
+        :param action: What action was taken/failed regarding to the regarding object.
+        :param deprecated_count: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_first_timestamp: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_last_timestamp: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_source: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param metadata: 
+        :param note: Optional. A human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
+        :param reason: Why the action was taken.
+        :param regarding: The object this Event is about. In most cases it's an Object reporting controller implements. E.g. ReplicaSetController implements ReplicaSets and this event is emitted because it acts on some changes in a ReplicaSet object.
+        :param related: Optional secondary object for more complex actions. E.g. when regarding object triggers a creation or deletion of related object.
+        :param reporting_controller: Name of the controller that emitted this Event, e.g. ``kubernetes.io/kubelet``.
+        :param reporting_instance: ID of the controller instance, e.g. ``kubelet-xyzf``.
+        :param series: Data about the Event series this event represents or nil if it's a singleton Event.
+        :param type: Type of this event (Normal, Warning), new types could be added in the future.
+
+        :schema: io.k8s.api.events.v1beta1.Event
+        """
+        if isinstance(deprecated_source, dict):
+            deprecated_source = EventSource(**deprecated_source)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(regarding, dict):
+            regarding = ObjectReference(**regarding)
+        if isinstance(related, dict):
+            related = ObjectReference(**related)
+        if isinstance(series, dict):
+            series = EventSeries(**series)
+        self._values: typing.Dict[str, typing.Any] = {
+            "event_time": event_time,
+        }
+        if action is not None:
+            self._values["action"] = action
+        if deprecated_count is not None:
+            self._values["deprecated_count"] = deprecated_count
+        if deprecated_first_timestamp is not None:
+            self._values["deprecated_first_timestamp"] = deprecated_first_timestamp
+        if deprecated_last_timestamp is not None:
+            self._values["deprecated_last_timestamp"] = deprecated_last_timestamp
+        if deprecated_source is not None:
+            self._values["deprecated_source"] = deprecated_source
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if note is not None:
+            self._values["note"] = note
+        if reason is not None:
+            self._values["reason"] = reason
+        if regarding is not None:
+            self._values["regarding"] = regarding
+        if related is not None:
+            self._values["related"] = related
+        if reporting_controller is not None:
+            self._values["reporting_controller"] = reporting_controller
+        if reporting_instance is not None:
+            self._values["reporting_instance"] = reporting_instance
+        if series is not None:
+            self._values["series"] = series
+        if type is not None:
+            self._values["type"] = type
+
+    @builtins.property
+    def event_time(self) -> datetime.datetime:
+        """Required.
+
+        Time when this Event was first observed.
+
+        :schema: io.k8s.api.events.v1beta1.Event#eventTime
+        """
+        result = self._values.get("event_time")
+        assert result is not None, "Required property 'event_time' is missing"
+        return result
+
+    @builtins.property
+    def action(self) -> typing.Optional[builtins.str]:
+        """What action was taken/failed regarding to the regarding object.
+
+        :schema: io.k8s.api.events.v1beta1.Event#action
+        """
+        result = self._values.get("action")
+        return result
+
+    @builtins.property
+    def deprecated_count(self) -> typing.Optional[jsii.Number]:
+        """Deprecated field assuring backward compatibility with core.v1 Event type.
+
+        :schema: io.k8s.api.events.v1beta1.Event#deprecatedCount
+        """
+        result = self._values.get("deprecated_count")
+        return result
+
+    @builtins.property
+    def deprecated_first_timestamp(self) -> typing.Optional[datetime.datetime]:
+        """Deprecated field assuring backward compatibility with core.v1 Event type.
+
+        :schema: io.k8s.api.events.v1beta1.Event#deprecatedFirstTimestamp
+        """
+        result = self._values.get("deprecated_first_timestamp")
+        return result
+
+    @builtins.property
+    def deprecated_last_timestamp(self) -> typing.Optional[datetime.datetime]:
+        """Deprecated field assuring backward compatibility with core.v1 Event type.
+
+        :schema: io.k8s.api.events.v1beta1.Event#deprecatedLastTimestamp
+        """
+        result = self._values.get("deprecated_last_timestamp")
+        return result
+
+    @builtins.property
+    def deprecated_source(self) -> typing.Optional[EventSource]:
+        """Deprecated field assuring backward compatibility with core.v1 Event type.
+
+        :schema: io.k8s.api.events.v1beta1.Event#deprecatedSource
+        """
+        result = self._values.get("deprecated_source")
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """
+        :schema: io.k8s.api.events.v1beta1.Event#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def note(self) -> typing.Optional[builtins.str]:
+        """Optional.
+
+        A human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
+
+        :schema: io.k8s.api.events.v1beta1.Event#note
+        """
+        result = self._values.get("note")
+        return result
+
+    @builtins.property
+    def reason(self) -> typing.Optional[builtins.str]:
+        """Why the action was taken.
+
+        :schema: io.k8s.api.events.v1beta1.Event#reason
+        """
+        result = self._values.get("reason")
+        return result
+
+    @builtins.property
+    def regarding(self) -> typing.Optional["ObjectReference"]:
+        """The object this Event is about.
+
+        In most cases it's an Object reporting controller implements. E.g. ReplicaSetController implements ReplicaSets and this event is emitted because it acts on some changes in a ReplicaSet object.
+
+        :schema: io.k8s.api.events.v1beta1.Event#regarding
+        """
+        result = self._values.get("regarding")
+        return result
+
+    @builtins.property
+    def related(self) -> typing.Optional["ObjectReference"]:
+        """Optional secondary object for more complex actions.
+
+        E.g. when regarding object triggers a creation or deletion of related object.
+
+        :schema: io.k8s.api.events.v1beta1.Event#related
+        """
+        result = self._values.get("related")
+        return result
+
+    @builtins.property
+    def reporting_controller(self) -> typing.Optional[builtins.str]:
+        """Name of the controller that emitted this Event, e.g. ``kubernetes.io/kubelet``.
+
+        :schema: io.k8s.api.events.v1beta1.Event#reportingController
+        """
+        result = self._values.get("reporting_controller")
+        return result
+
+    @builtins.property
+    def reporting_instance(self) -> typing.Optional[builtins.str]:
+        """ID of the controller instance, e.g. ``kubelet-xyzf``.
+
+        :schema: io.k8s.api.events.v1beta1.Event#reportingInstance
+        """
+        result = self._values.get("reporting_instance")
+        return result
+
+    @builtins.property
+    def series(self) -> typing.Optional[EventSeries]:
+        """Data about the Event series this event represents or nil if it's a singleton Event.
+
+        :schema: io.k8s.api.events.v1beta1.Event#series
+        """
+        result = self._values.get("series")
+        return result
+
+    @builtins.property
+    def type(self) -> typing.Optional[builtins.str]:
+        """Type of this event (Normal, Warning), new types could be added in the future.
+
+        :schema: io.k8s.api.events.v1beta1.Event#type
+        """
+        result = self._values.get("type")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "EventV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class EvictionV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.EvictionV1Beta1",
+):
     """Eviction evicts a pod from its node subject to certain policies and safety constraints.
 
     This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods//evictions.
@@ -9655,17 +13241,19 @@ class Eviction(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Eviction
         :param delete_options: DeleteOptions may be provided.
         :param metadata: ObjectMeta describes the pod that is being evicted.
         """
-        options = EvictionOptions(delete_options=delete_options, metadata=metadata)
+        options = EvictionV1Beta1Options(
+            delete_options=delete_options, metadata=metadata
+        )
 
-        jsii.create(Eviction, self, [scope, name, options])
+        jsii.create(EvictionV1Beta1, self, [scope, name, options])
 
 
 @jsii.data_type(
-    jsii_type="k8s.EvictionOptions",
+    jsii_type="k8s.EvictionV1Beta1Options",
     jsii_struct_bases=[],
     name_mapping={"delete_options": "deleteOptions", "metadata": "metadata"},
 )
-class EvictionOptions:
+class EvictionV1Beta1Options:
     def __init__(
         self,
         *,
@@ -9716,7 +13304,7 @@ class EvictionOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "EvictionOptions(%s)" % ", ".join(
+        return "EvictionV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -9782,7 +13370,7 @@ class ExternalDocumentation:
         :param description: 
         :param url: 
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.ExternalDocumentation
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.ExternalDocumentation
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if description is not None:
@@ -9793,7 +13381,7 @@ class ExternalDocumentation:
     @builtins.property
     def description(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.ExternalDocumentation#description
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.ExternalDocumentation#description
         """
         result = self._values.get("description")
         return result
@@ -9801,7 +13389,7 @@ class ExternalDocumentation:
     @builtins.property
     def url(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.ExternalDocumentation#url
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.ExternalDocumentation#url
         """
         result = self._values.get("url")
         return result
@@ -9814,6 +13402,61 @@ class ExternalDocumentation:
 
     def __repr__(self) -> str:
         return "ExternalDocumentation(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
+    jsii_type="k8s.ExternalMetricSource",
+    jsii_struct_bases=[],
+    name_mapping={"metric": "metric", "target": "target"},
+)
+class ExternalMetricSource:
+    def __init__(self, *, metric: "MetricIdentifier", target: "MetricTarget") -> None:
+        """ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
+
+        :param metric: metric identifies the target metric by name and selector.
+        :param target: target specifies the target value for the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ExternalMetricSource
+        """
+        if isinstance(metric, dict):
+            metric = MetricIdentifier(**metric)
+        if isinstance(target, dict):
+            target = MetricTarget(**target)
+        self._values: typing.Dict[str, typing.Any] = {
+            "metric": metric,
+            "target": target,
+        }
+
+    @builtins.property
+    def metric(self) -> "MetricIdentifier":
+        """metric identifies the target metric by name and selector.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ExternalMetricSource#metric
+        """
+        result = self._values.get("metric")
+        assert result is not None, "Required property 'metric' is missing"
+        return result
+
+    @builtins.property
+    def target(self) -> "MetricTarget":
+        """target specifies the target value for the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ExternalMetricSource#target
+        """
+        result = self._values.get("target")
+        assert result is not None, "Required property 'target' is missing"
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ExternalMetricSource(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10248,130 +13891,12 @@ class FlowDistinguisherMethod:
         )
 
 
-class FlowSchema(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.FlowSchema"):
-    """FlowSchema defines the schema of a group of flows.
-
-    Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
-
-    :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["FlowSchemaSpec"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchema" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-        :param spec: ``spec`` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
-        """
-        options = FlowSchemaOptions(metadata=metadata, spec=spec)
-
-        jsii.create(FlowSchema, self, [scope, name, options])
-
-
-class FlowSchemaList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.FlowSchemaList",
-):
-    """FlowSchemaList is a list of FlowSchema objects.
-
-    :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[FlowSchema],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: ``items`` is a list of FlowSchemas.
-        :param metadata: ``metadata`` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-        """
-        options = FlowSchemaListOptions(items=items, metadata=metadata)
-
-        jsii.create(FlowSchemaList, self, [scope, name, options])
-
-
 @jsii.data_type(
-    jsii_type="k8s.FlowSchemaListOptions",
-    jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
-)
-class FlowSchemaListOptions:
-    def __init__(
-        self,
-        *,
-        items: typing.List[FlowSchema],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """FlowSchemaList is a list of FlowSchema objects.
-
-        :param items: ``items`` is a list of FlowSchemas.
-        :param metadata: ``metadata`` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList
-        """
-        if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List[FlowSchema]:
-        """``items`` is a list of FlowSchemas.
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#items
-        """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """``metadata`` is the standard list metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-
-        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "FlowSchemaListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.FlowSchemaOptions",
+    jsii_type="k8s.FlowSchema",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class FlowSchemaOptions:
+class FlowSchema:
     def __init__(
         self,
         *,
@@ -10426,7 +13951,97 @@ class FlowSchemaOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "FlowSchemaOptions(%s)" % ", ".join(
+        return "FlowSchema(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class FlowSchemaListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.FlowSchemaListV1Alpha1",
+):
+    """FlowSchemaList is a list of FlowSchema objects.
+
+    :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[FlowSchema],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: ``items`` is a list of FlowSchemas.
+        :param metadata: ``metadata`` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        """
+        options = FlowSchemaListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(FlowSchemaListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.FlowSchemaListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class FlowSchemaListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[FlowSchema],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """FlowSchemaList is a list of FlowSchema objects.
+
+        :param items: ``items`` is a list of FlowSchemas.
+        :param metadata: ``metadata`` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[FlowSchema]:
+        """``items`` is a list of FlowSchemas.
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """``metadata`` is the standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "FlowSchemaListV1Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10526,6 +14141,103 @@ class FlowSchemaSpec:
 
     def __repr__(self) -> str:
         return "FlowSchemaSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class FlowSchemaV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.FlowSchemaV1Alpha1",
+):
+    """FlowSchema defines the schema of a group of flows.
+
+    Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
+
+    :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[FlowSchemaSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchema" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        :param spec: ``spec`` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+        """
+        options = FlowSchemaV1Alpha1Options(metadata=metadata, spec=spec)
+
+        jsii.create(FlowSchemaV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.FlowSchemaV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class FlowSchemaV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[FlowSchemaSpec] = None,
+    ) -> None:
+        """FlowSchema defines the schema of a group of flows.
+
+        Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
+
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        :param spec: ``spec`` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = FlowSchemaSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """``metadata`` is the standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[FlowSchemaSpec]:
+        """``spec`` is the specification of the desired behavior of a FlowSchema.
+
+        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "FlowSchemaV1Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11139,6 +14851,186 @@ class HorizontalPodAutoscalerListOptions:
         )
 
 
+class HorizontalPodAutoscalerListV2Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.HorizontalPodAutoscalerListV2Beta1",
+):
+    """HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.
+
+    :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[HorizontalPodAutoscaler],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of horizontal pod autoscaler objects.
+        :param metadata: metadata is the standard list metadata.
+        """
+        options = HorizontalPodAutoscalerListV2Beta1Options(
+            items=items, metadata=metadata
+        )
+
+        jsii.create(HorizontalPodAutoscalerListV2Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.HorizontalPodAutoscalerListV2Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class HorizontalPodAutoscalerListV2Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[HorizontalPodAutoscaler],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.
+
+        :param items: items is the list of horizontal pod autoscaler objects.
+        :param metadata: metadata is the standard list metadata.
+
+        :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[HorizontalPodAutoscaler]:
+        """items is the list of horizontal pod autoscaler objects.
+
+        :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """metadata is the standard list metadata.
+
+        :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "HorizontalPodAutoscalerListV2Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class HorizontalPodAutoscalerListV2Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.HorizontalPodAutoscalerListV2Beta2",
+):
+    """HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.
+
+    :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[HorizontalPodAutoscaler],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of horizontal pod autoscaler objects.
+        :param metadata: metadata is the standard list metadata.
+        """
+        options = HorizontalPodAutoscalerListV2Beta2Options(
+            items=items, metadata=metadata
+        )
+
+        jsii.create(HorizontalPodAutoscalerListV2Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.HorizontalPodAutoscalerListV2Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class HorizontalPodAutoscalerListV2Beta2Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[HorizontalPodAutoscaler],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.
+
+        :param items: items is the list of horizontal pod autoscaler objects.
+        :param metadata: metadata is the standard list metadata.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[HorizontalPodAutoscaler]:
+        """items is the list of horizontal pod autoscaler objects.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """metadata is the standard list metadata.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "HorizontalPodAutoscalerListV2Beta2Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.HorizontalPodAutoscalerOptions",
     jsii_struct_bases=[],
@@ -11208,8 +15100,8 @@ class HorizontalPodAutoscalerOptions:
     name_mapping={
         "max_replicas": "maxReplicas",
         "scale_target_ref": "scaleTargetRef",
+        "metrics": "metrics",
         "min_replicas": "minReplicas",
-        "target_cpu_utilization_percentage": "targetCPUUtilizationPercentage",
     },
 )
 class HorizontalPodAutoscalerSpec:
@@ -11218,17 +15110,17 @@ class HorizontalPodAutoscalerSpec:
         *,
         max_replicas: jsii.Number,
         scale_target_ref: CrossVersionObjectReference,
+        metrics: typing.Optional[typing.List["MetricSpec"]] = None,
         min_replicas: typing.Optional[jsii.Number] = None,
-        target_cpu_utilization_percentage: typing.Optional[jsii.Number] = None,
     ) -> None:
-        """specification of a horizontal pod autoscaler.
+        """HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.
 
-        :param max_replicas: upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
-        :param scale_target_ref: reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption and will set the desired number of pods by using its Scale subresource.
+        :param max_replicas: maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up. It cannot be less that minReplicas.
+        :param scale_target_ref: scaleTargetRef points to the target resource to scale, and is used to the pods for which metrics should be collected, as well as to actually change the replica count.
+        :param metrics: metrics contains the specifications for which to use to calculate the desired replica count (the maximum replica count across all metrics will be used). The desired replica count is calculated multiplying the ratio between the target value and the current value by the current number of pods. Ergo, metrics used must decrease as the pod count is increased, and vice-versa. See the individual metric source types for more information about how each type of metric must respond. If not set, the default metric will be set to 80% average CPU utilization.
         :param min_replicas: minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down. It defaults to 1 pod. minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured. Scaling is active as long as at least one metric value is available.
-        :param target_cpu_utilization_percentage: target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.
 
-        :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerSpec
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec
         """
         if isinstance(scale_target_ref, dict):
             scale_target_ref = CrossVersionObjectReference(**scale_target_ref)
@@ -11236,18 +15128,18 @@ class HorizontalPodAutoscalerSpec:
             "max_replicas": max_replicas,
             "scale_target_ref": scale_target_ref,
         }
+        if metrics is not None:
+            self._values["metrics"] = metrics
         if min_replicas is not None:
             self._values["min_replicas"] = min_replicas
-        if target_cpu_utilization_percentage is not None:
-            self._values["target_cpu_utilization_percentage"] = target_cpu_utilization_percentage
 
     @builtins.property
     def max_replicas(self) -> jsii.Number:
-        """upper limit for the number of pods that can be set by the autoscaler;
+        """maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
 
-        cannot be smaller than MinReplicas.
+        It cannot be less that minReplicas.
 
-        :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerSpec#maxReplicas
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec#maxReplicas
         """
         result = self._values.get("max_replicas")
         assert result is not None, "Required property 'max_replicas' is missing"
@@ -11255,14 +15147,23 @@ class HorizontalPodAutoscalerSpec:
 
     @builtins.property
     def scale_target_ref(self) -> CrossVersionObjectReference:
-        """reference to scaled resource;
+        """scaleTargetRef points to the target resource to scale, and is used to the pods for which metrics should be collected, as well as to actually change the replica count.
 
-        horizontal pod autoscaler will learn the current resource consumption and will set the desired number of pods by using its Scale subresource.
-
-        :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerSpec#scaleTargetRef
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec#scaleTargetRef
         """
         result = self._values.get("scale_target_ref")
         assert result is not None, "Required property 'scale_target_ref' is missing"
+        return result
+
+    @builtins.property
+    def metrics(self) -> typing.Optional[typing.List["MetricSpec"]]:
+        """metrics contains the specifications for which to use to calculate the desired replica count (the maximum replica count across all metrics will be used).
+
+        The desired replica count is calculated multiplying the ratio between the target value and the current value by the current number of pods.  Ergo, metrics used must decrease as the pod count is increased, and vice-versa.  See the individual metric source types for more information about how each type of metric must respond. If not set, the default metric will be set to 80% average CPU utilization.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec#metrics
+        """
+        result = self._values.get("metrics")
         return result
 
     @builtins.property
@@ -11271,20 +15172,9 @@ class HorizontalPodAutoscalerSpec:
 
         It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.
 
-        :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerSpec#minReplicas
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec#minReplicas
         """
         result = self._values.get("min_replicas")
-        return result
-
-    @builtins.property
-    def target_cpu_utilization_percentage(self) -> typing.Optional[jsii.Number]:
-        """target average CPU utilization (represented as a percentage of requested CPU) over all the pods;
-
-        if not specified the default autoscaling policy will be used.
-
-        :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerSpec#targetCPUUtilizationPercentage
-        """
-        result = self._values.get("target_cpu_utilization_percentage")
         return result
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
@@ -11295,6 +15185,192 @@ class HorizontalPodAutoscalerSpec:
 
     def __repr__(self) -> str:
         return "HorizontalPodAutoscalerSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class HorizontalPodAutoscalerV2Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.HorizontalPodAutoscalerV2Beta1",
+):
+    """HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
+
+    :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[HorizontalPodAutoscalerSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        options = HorizontalPodAutoscalerV2Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(HorizontalPodAutoscalerV2Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.HorizontalPodAutoscalerV2Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class HorizontalPodAutoscalerV2Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[HorizontalPodAutoscalerSpec] = None,
+    ) -> None:
+        """HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
+
+        :param metadata: metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = HorizontalPodAutoscalerSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """metadata is the standard object metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[HorizontalPodAutoscalerSpec]:
+        """spec is the specification for the behaviour of the autoscaler.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "HorizontalPodAutoscalerV2Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class HorizontalPodAutoscalerV2Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.HorizontalPodAutoscalerV2Beta2",
+):
+    """HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
+
+    :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[HorizontalPodAutoscalerSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        options = HorizontalPodAutoscalerV2Beta2Options(metadata=metadata, spec=spec)
+
+        jsii.create(HorizontalPodAutoscalerV2Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.HorizontalPodAutoscalerV2Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class HorizontalPodAutoscalerV2Beta2Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[HorizontalPodAutoscalerSpec] = None,
+    ) -> None:
+        """HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
+
+        :param metadata: metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = HorizontalPodAutoscalerSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """metadata is the standard object metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[HorizontalPodAutoscalerSpec]:
+        """spec is the specification for the behaviour of the autoscaler.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "HorizontalPodAutoscalerV2Beta2Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11783,32 +15859,69 @@ class IdRange:
         )
 
 
-class Ingress(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.Ingress"):
-    """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
-
-    An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
-
-    :schema: io.k8s.api.networking.v1beta1.Ingress
-    """
-
+@jsii.data_type(
+    jsii_type="k8s.Ingress",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class Ingress:
     def __init__(
         self,
-        scope: constructs.Construct,
-        name: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
         spec: typing.Optional["IngressSpec"] = None,
     ) -> None:
-        """Defines a "io.k8s.api.networking.v1beta1.Ingress" API object.
+        """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
 
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
+
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-        """
-        options = IngressOptions(metadata=metadata, spec=spec)
 
-        jsii.create(Ingress, self, [scope, name, options])
+        :schema: io.k8s.api.networking.v1beta1.Ingress
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = IngressSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.networking.v1beta1.Ingress#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional["IngressSpec"]:
+        """Spec is the desired state of the Ingress.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.networking.v1beta1.Ingress#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "Ingress(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
 @jsii.data_type(
@@ -11867,10 +15980,10 @@ class IngressBackend:
         )
 
 
-class IngressList(
+class IngressListV1Beta1(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.IngressList",
+    jsii_type="k8s.IngressListV1Beta1",
 ):
     """IngressList is a collection of Ingress.
 
@@ -11892,17 +16005,17 @@ class IngressList(
         :param items: Items is the list of Ingress.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = IngressListOptions(items=items, metadata=metadata)
+        options = IngressListV1Beta1Options(items=items, metadata=metadata)
 
-        jsii.create(IngressList, self, [scope, name, options])
+        jsii.create(IngressListV1Beta1, self, [scope, name, options])
 
 
 @jsii.data_type(
-    jsii_type="k8s.IngressListOptions",
+    jsii_type="k8s.IngressListV1Beta1Options",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class IngressListOptions:
+class IngressListV1Beta1Options:
     def __init__(
         self,
         *,
@@ -11952,72 +16065,7 @@ class IngressListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "IngressListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.IngressOptions",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class IngressOptions:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["IngressSpec"] = None,
-    ) -> None:
-        """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
-
-        An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
-
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.networking.v1beta1.Ingress
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = IngressSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """Standard object's metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.networking.v1beta1.Ingress#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["IngressSpec"]:
-        """Spec is the desired state of the Ingress.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-
-        :schema: io.k8s.api.networking.v1beta1.Ingress#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "IngressOptions(%s)" % ", ".join(
+        return "IngressListV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12220,6 +16268,103 @@ class IngressTls:
 
     def __repr__(self) -> str:
         return "IngressTls(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class IngressV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.IngressV1Beta1",
+):
+    """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
+
+    An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
+
+    :schema: io.k8s.api.networking.v1beta1.Ingress
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[IngressSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.networking.v1beta1.Ingress" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = IngressV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(IngressV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.IngressV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class IngressV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[IngressSpec] = None,
+    ) -> None:
+        """Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
+
+        An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.networking.v1beta1.Ingress
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = IngressSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.networking.v1beta1.Ingress#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[IngressSpec]:
+        """Spec is the desired state of the Ingress.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.networking.v1beta1.Ingress#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "IngressV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13084,7 +17229,7 @@ class JobTemplateSpec:
         :param metadata: Standard object's metadata of the jobs created from this template. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior of the job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 
-        :schema: io.k8s.api.batch.v1beta1.JobTemplateSpec
+        :schema: io.k8s.api.batch.v2alpha1.JobTemplateSpec
         """
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
@@ -13102,7 +17247,7 @@ class JobTemplateSpec:
 
         More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 
-        :schema: io.k8s.api.batch.v1beta1.JobTemplateSpec#metadata
+        :schema: io.k8s.api.batch.v2alpha1.JobTemplateSpec#metadata
         """
         result = self._values.get("metadata")
         return result
@@ -13113,7 +17258,7 @@ class JobTemplateSpec:
 
         More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
 
-        :schema: io.k8s.api.batch.v1beta1.JobTemplateSpec#spec
+        :schema: io.k8s.api.batch.v2alpha1.JobTemplateSpec#spec
         """
         result = self._values.get("spec")
         return result
@@ -13221,7 +17366,7 @@ class JsonSchemaProps:
         :param additional_properties: 
         :param all_of: 
         :param any_of: 
-        :param default: default is a default value for undefined object fields. Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
+        :param default: default is a default value for undefined object fields. Defaulting is a beta feature under the CustomResourceDefaulting feature gate. CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
         :param definitions: 
         :param dependencies: 
         :param description: 
@@ -13255,7 +17400,7 @@ class JsonSchemaProps:
         :param type: 
         :param unique_items: 
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps
         """
         if isinstance(external_docs, dict):
             external_docs = ExternalDocumentation(**external_docs)
@@ -13340,7 +17485,7 @@ class JsonSchemaProps:
     @builtins.property
     def additional_items(self) -> typing.Any:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalItems
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#additionalItems
         """
         result = self._values.get("additional_items")
         return result
@@ -13348,7 +17493,7 @@ class JsonSchemaProps:
     @builtins.property
     def additional_properties(self) -> typing.Any:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#additionalProperties
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#additionalProperties
         """
         result = self._values.get("additional_properties")
         return result
@@ -13356,7 +17501,7 @@ class JsonSchemaProps:
     @builtins.property
     def all_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#allOf
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#allOf
         """
         result = self._values.get("all_of")
         return result
@@ -13364,7 +17509,7 @@ class JsonSchemaProps:
     @builtins.property
     def any_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#anyOf
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#anyOf
         """
         result = self._values.get("any_of")
         return result
@@ -13373,9 +17518,9 @@ class JsonSchemaProps:
     def default(self) -> typing.Any:
         """default is a default value for undefined object fields.
 
-        Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
+        Defaulting is a beta feature under the CustomResourceDefaulting feature gate. CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#default
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#default
         """
         result = self._values.get("default")
         return result
@@ -13385,7 +17530,7 @@ class JsonSchemaProps:
         self,
     ) -> typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#definitions
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#definitions
         """
         result = self._values.get("definitions")
         return result
@@ -13393,7 +17538,7 @@ class JsonSchemaProps:
     @builtins.property
     def dependencies(self) -> typing.Optional[typing.Mapping[builtins.str, typing.Any]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#dependencies
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#dependencies
         """
         result = self._values.get("dependencies")
         return result
@@ -13401,7 +17546,7 @@ class JsonSchemaProps:
     @builtins.property
     def description(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#description
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#description
         """
         result = self._values.get("description")
         return result
@@ -13409,7 +17554,7 @@ class JsonSchemaProps:
     @builtins.property
     def enum(self) -> typing.Optional[typing.List[typing.Any]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#enum
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#enum
         """
         result = self._values.get("enum")
         return result
@@ -13417,7 +17562,7 @@ class JsonSchemaProps:
     @builtins.property
     def example(self) -> typing.Any:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#example
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#example
         """
         result = self._values.get("example")
         return result
@@ -13425,7 +17570,7 @@ class JsonSchemaProps:
     @builtins.property
     def exclusive_maximum(self) -> typing.Optional[builtins.bool]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#exclusiveMaximum
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#exclusiveMaximum
         """
         result = self._values.get("exclusive_maximum")
         return result
@@ -13433,7 +17578,7 @@ class JsonSchemaProps:
     @builtins.property
     def exclusive_minimum(self) -> typing.Optional[builtins.bool]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#exclusiveMinimum
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#exclusiveMinimum
         """
         result = self._values.get("exclusive_minimum")
         return result
@@ -13441,7 +17586,7 @@ class JsonSchemaProps:
     @builtins.property
     def external_docs(self) -> typing.Optional[ExternalDocumentation]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#externalDocs
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#externalDocs
         """
         result = self._values.get("external_docs")
         return result
@@ -13452,7 +17597,7 @@ class JsonSchemaProps:
 
         - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\\d{3}[- ]?\\d{2}[- ]?\\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
 
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#format
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#format
         """
         result = self._values.get("format")
         return result
@@ -13460,7 +17605,7 @@ class JsonSchemaProps:
     @builtins.property
     def id(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#id
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#id
         """
         result = self._values.get("id")
         return result
@@ -13468,7 +17613,7 @@ class JsonSchemaProps:
     @builtins.property
     def items(self) -> typing.Any:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#items
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#items
         """
         result = self._values.get("items")
         return result
@@ -13476,7 +17621,7 @@ class JsonSchemaProps:
     @builtins.property
     def maximum(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maximum
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maximum
         """
         result = self._values.get("maximum")
         return result
@@ -13484,7 +17629,7 @@ class JsonSchemaProps:
     @builtins.property
     def max_items(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxItems
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maxItems
         """
         result = self._values.get("max_items")
         return result
@@ -13492,7 +17637,7 @@ class JsonSchemaProps:
     @builtins.property
     def max_length(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxLength
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maxLength
         """
         result = self._values.get("max_length")
         return result
@@ -13500,7 +17645,7 @@ class JsonSchemaProps:
     @builtins.property
     def max_properties(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#maxProperties
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maxProperties
         """
         result = self._values.get("max_properties")
         return result
@@ -13508,7 +17653,7 @@ class JsonSchemaProps:
     @builtins.property
     def minimum(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minimum
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#minimum
         """
         result = self._values.get("minimum")
         return result
@@ -13516,7 +17661,7 @@ class JsonSchemaProps:
     @builtins.property
     def min_items(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minItems
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#minItems
         """
         result = self._values.get("min_items")
         return result
@@ -13524,7 +17669,7 @@ class JsonSchemaProps:
     @builtins.property
     def min_length(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minLength
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#minLength
         """
         result = self._values.get("min_length")
         return result
@@ -13532,7 +17677,7 @@ class JsonSchemaProps:
     @builtins.property
     def min_properties(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#minProperties
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#minProperties
         """
         result = self._values.get("min_properties")
         return result
@@ -13540,7 +17685,7 @@ class JsonSchemaProps:
     @builtins.property
     def multiple_of(self) -> typing.Optional[jsii.Number]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#multipleOf
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#multipleOf
         """
         result = self._values.get("multiple_of")
         return result
@@ -13548,7 +17693,7 @@ class JsonSchemaProps:
     @builtins.property
     def not_(self) -> typing.Optional["JsonSchemaProps"]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#not
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#not
         """
         result = self._values.get("not_")
         return result
@@ -13556,7 +17701,7 @@ class JsonSchemaProps:
     @builtins.property
     def nullable(self) -> typing.Optional[builtins.bool]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#nullable
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#nullable
         """
         result = self._values.get("nullable")
         return result
@@ -13564,7 +17709,7 @@ class JsonSchemaProps:
     @builtins.property
     def one_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#oneOf
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#oneOf
         """
         result = self._values.get("one_of")
         return result
@@ -13572,7 +17717,7 @@ class JsonSchemaProps:
     @builtins.property
     def pattern(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#pattern
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#pattern
         """
         result = self._values.get("pattern")
         return result
@@ -13582,7 +17727,7 @@ class JsonSchemaProps:
         self,
     ) -> typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#patternProperties
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#patternProperties
         """
         result = self._values.get("pattern_properties")
         return result
@@ -13592,7 +17737,7 @@ class JsonSchemaProps:
         self,
     ) -> typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#properties
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#properties
         """
         result = self._values.get("properties")
         return result
@@ -13600,7 +17745,7 @@ class JsonSchemaProps:
     @builtins.property
     def ref(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#$ref
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#$ref
         """
         result = self._values.get("ref")
         return result
@@ -13608,7 +17753,7 @@ class JsonSchemaProps:
     @builtins.property
     def required(self) -> typing.Optional[typing.List[builtins.str]]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#required
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#required
         """
         result = self._values.get("required")
         return result
@@ -13616,7 +17761,7 @@ class JsonSchemaProps:
     @builtins.property
     def schema(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#$schema
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#$schema
         """
         result = self._values.get("schema")
         return result
@@ -13624,7 +17769,7 @@ class JsonSchemaProps:
     @builtins.property
     def title(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#title
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#title
         """
         result = self._values.get("title")
         return result
@@ -13632,7 +17777,7 @@ class JsonSchemaProps:
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#type
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#type
         """
         result = self._values.get("type")
         return result
@@ -13640,7 +17785,7 @@ class JsonSchemaProps:
     @builtins.property
     def unique_items(self) -> typing.Optional[builtins.bool]:
         """
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#uniqueItems
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#uniqueItems
         """
         result = self._values.get("unique_items")
         return result
@@ -13983,6 +18128,96 @@ class LeaseListOptions:
         )
 
 
+class LeaseListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.LeaseListV1Beta1",
+):
+    """LeaseList is a list of Lease objects.
+
+    :schema: io.k8s.api.coordination.v1beta1.LeaseList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[Lease],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.coordination.v1beta1.LeaseList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = LeaseListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(LeaseListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.LeaseListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class LeaseListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[Lease],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """LeaseList is a list of Lease objects.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.coordination.v1beta1.LeaseList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[Lease]:
+        """Items is a list of schema objects.
+
+        :schema: io.k8s.api.coordination.v1beta1.LeaseList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.coordination.v1beta1.LeaseList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "LeaseListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.LeaseOptions",
     jsii_struct_bases=[],
@@ -14073,7 +18308,7 @@ class LeaseSpec:
         :param lease_transitions: leaseTransitions is the number of transitions of a lease between holders.
         :param renew_time: renewTime is a time when the current holder of a lease has last updated the lease.
 
-        :schema: io.k8s.api.coordination.v1.LeaseSpec
+        :schema: io.k8s.api.coordination.v1beta1.LeaseSpec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if acquire_time is not None:
@@ -14091,7 +18326,7 @@ class LeaseSpec:
     def acquire_time(self) -> typing.Optional[datetime.datetime]:
         """acquireTime is a time when the current lease was acquired.
 
-        :schema: io.k8s.api.coordination.v1.LeaseSpec#acquireTime
+        :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#acquireTime
         """
         result = self._values.get("acquire_time")
         return result
@@ -14100,7 +18335,7 @@ class LeaseSpec:
     def holder_identity(self) -> typing.Optional[builtins.str]:
         """holderIdentity contains the identity of the holder of a current lease.
 
-        :schema: io.k8s.api.coordination.v1.LeaseSpec#holderIdentity
+        :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#holderIdentity
         """
         result = self._values.get("holder_identity")
         return result
@@ -14111,7 +18346,7 @@ class LeaseSpec:
 
         This is measure against time of last observed RenewTime.
 
-        :schema: io.k8s.api.coordination.v1.LeaseSpec#leaseDurationSeconds
+        :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#leaseDurationSeconds
         """
         result = self._values.get("lease_duration_seconds")
         return result
@@ -14120,7 +18355,7 @@ class LeaseSpec:
     def lease_transitions(self) -> typing.Optional[jsii.Number]:
         """leaseTransitions is the number of transitions of a lease between holders.
 
-        :schema: io.k8s.api.coordination.v1.LeaseSpec#leaseTransitions
+        :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#leaseTransitions
         """
         result = self._values.get("lease_transitions")
         return result
@@ -14129,7 +18364,7 @@ class LeaseSpec:
     def renew_time(self) -> typing.Optional[datetime.datetime]:
         """renewTime is a time when the current holder of a lease has last updated the lease.
 
-        :schema: io.k8s.api.coordination.v1.LeaseSpec#renewTime
+        :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#renewTime
         """
         result = self._values.get("renew_time")
         return result
@@ -14142,6 +18377,97 @@ class LeaseSpec:
 
     def __repr__(self) -> str:
         return "LeaseSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class LeaseV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.LeaseV1Beta1",
+):
+    """Lease defines a lease concept.
+
+    :schema: io.k8s.api.coordination.v1beta1.Lease
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[LeaseSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.coordination.v1beta1.Lease" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = LeaseV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(LeaseV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.LeaseV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class LeaseV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[LeaseSpec] = None,
+    ) -> None:
+        """Lease defines a lease concept.
+
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.coordination.v1beta1.Lease
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = LeaseSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.coordination.v1beta1.Lease#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[LeaseSpec]:
+        """Specification of the Lease.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.coordination.v1beta1.Lease#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "LeaseV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14914,6 +19240,101 @@ class LocalSubjectAccessReviewOptions:
         )
 
 
+class LocalSubjectAccessReviewV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.LocalSubjectAccessReviewV1Beta1",
+):
+    """LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
+
+    Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.
+
+    :schema: io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: "SubjectAccessReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Spec holds information about the request being evaluated. spec.namespace must be equal to the namespace you made the request against. If empty, it is defaulted.
+        :param metadata: 
+        """
+        options = LocalSubjectAccessReviewV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(LocalSubjectAccessReviewV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.LocalSubjectAccessReviewV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class LocalSubjectAccessReviewV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: "SubjectAccessReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> None:
+        """LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
+
+        Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.
+
+        :param spec: Spec holds information about the request being evaluated. spec.namespace must be equal to the namespace you made the request against. If empty, it is defaulted.
+        :param metadata: 
+
+        :schema: io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview
+        """
+        if isinstance(spec, dict):
+            spec = SubjectAccessReviewSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> "SubjectAccessReviewSpec":
+        """Spec holds information about the request being evaluated.
+
+        spec.namespace must be equal to the namespace you made the request against.  If empty, it is defaulted.
+
+        :schema: io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """
+        :schema: io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "LocalSubjectAccessReviewV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.LocalVolumeSource",
     jsii_struct_bases=[],
@@ -15097,19 +19518,283 @@ class ManagedFieldsEntry:
 
 
 @jsii.data_type(
+    jsii_type="k8s.MetricIdentifier",
+    jsii_struct_bases=[],
+    name_mapping={"name": "name", "selector": "selector"},
+)
+class MetricIdentifier:
+    def __init__(
+        self,
+        *,
+        name: builtins.str,
+        selector: typing.Optional[LabelSelector] = None,
+    ) -> None:
+        """MetricIdentifier defines the name and optionally selector for a metric.
+
+        :param name: name is the name of the given metric.
+        :param selector: selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping. When unset, just the metricName will be used to gather metrics.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricIdentifier
+        """
+        if isinstance(selector, dict):
+            selector = LabelSelector(**selector)
+        self._values: typing.Dict[str, typing.Any] = {
+            "name": name,
+        }
+        if selector is not None:
+            self._values["selector"] = selector
+
+    @builtins.property
+    def name(self) -> builtins.str:
+        """name is the name of the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricIdentifier#name
+        """
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
+
+    @builtins.property
+    def selector(self) -> typing.Optional[LabelSelector]:
+        """selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+
+        When unset, just the metricName will be used to gather metrics.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricIdentifier#selector
+        """
+        result = self._values.get("selector")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "MetricIdentifier(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
+    jsii_type="k8s.MetricSpec",
+    jsii_struct_bases=[],
+    name_mapping={
+        "type": "type",
+        "external": "external",
+        "object": "object",
+        "pods": "pods",
+        "resource": "resource",
+    },
+)
+class MetricSpec:
+    def __init__(
+        self,
+        *,
+        type: builtins.str,
+        external: typing.Optional[ExternalMetricSource] = None,
+        object: typing.Optional["ObjectMetricSource"] = None,
+        pods: typing.Optional["PodsMetricSource"] = None,
+        resource: typing.Optional["ResourceMetricSource"] = None,
+    ) -> None:
+        """MetricSpec specifies how to scale based on a single metric (only ``type`` and one other matching field should be set at once).
+
+        :param type: type is the type of metric source. It should be one of "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+        :param external: external refers to a global metric that is not associated with any Kubernetes object. It allows autoscaling based on information coming from components running outside of cluster (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
+        :param object: object refers to a metric describing a single kubernetes object (for example, hits-per-second on an Ingress object).
+        :param pods: pods refers to a metric describing each pod in the current scale target (for example, transactions-processed-per-second). The values will be averaged together before being compared to the target value.
+        :param resource: resource refers to a resource metric (such as those specified in requests and limits) known to Kubernetes describing each pod in the current scale target (e.g. CPU or memory). Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec
+        """
+        if isinstance(external, dict):
+            external = ExternalMetricSource(**external)
+        if isinstance(object, dict):
+            object = ObjectMetricSource(**object)
+        if isinstance(pods, dict):
+            pods = PodsMetricSource(**pods)
+        if isinstance(resource, dict):
+            resource = ResourceMetricSource(**resource)
+        self._values: typing.Dict[str, typing.Any] = {
+            "type": type,
+        }
+        if external is not None:
+            self._values["external"] = external
+        if object is not None:
+            self._values["object"] = object
+        if pods is not None:
+            self._values["pods"] = pods
+        if resource is not None:
+            self._values["resource"] = resource
+
+    @builtins.property
+    def type(self) -> builtins.str:
+        """type is the type of metric source.
+
+        It should be one of "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#type
+        """
+        result = self._values.get("type")
+        assert result is not None, "Required property 'type' is missing"
+        return result
+
+    @builtins.property
+    def external(self) -> typing.Optional[ExternalMetricSource]:
+        """external refers to a global metric that is not associated with any Kubernetes object.
+
+        It allows autoscaling based on information coming from components running outside of cluster (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#external
+        """
+        result = self._values.get("external")
+        return result
+
+    @builtins.property
+    def object(self) -> typing.Optional["ObjectMetricSource"]:
+        """object refers to a metric describing a single kubernetes object (for example, hits-per-second on an Ingress object).
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#object
+        """
+        result = self._values.get("object")
+        return result
+
+    @builtins.property
+    def pods(self) -> typing.Optional["PodsMetricSource"]:
+        """pods refers to a metric describing each pod in the current scale target (for example, transactions-processed-per-second).
+
+        The values will be averaged together before being compared to the target value.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#pods
+        """
+        result = self._values.get("pods")
+        return result
+
+    @builtins.property
+    def resource(self) -> typing.Optional["ResourceMetricSource"]:
+        """resource refers to a resource metric (such as those specified in requests and limits) known to Kubernetes describing each pod in the current scale target (e.g. CPU or memory). Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#resource
+        """
+        result = self._values.get("resource")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "MetricSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
+    jsii_type="k8s.MetricTarget",
+    jsii_struct_bases=[],
+    name_mapping={
+        "type": "type",
+        "average_utilization": "averageUtilization",
+        "average_value": "averageValue",
+        "value": "value",
+    },
+)
+class MetricTarget:
+    def __init__(
+        self,
+        *,
+        type: builtins.str,
+        average_utilization: typing.Optional[jsii.Number] = None,
+        average_value: typing.Optional["Quantity"] = None,
+        value: typing.Optional["Quantity"] = None,
+    ) -> None:
+        """MetricTarget defines the target value, average value, or average utilization of a specific metric.
+
+        :param type: type represents whether the metric type is Utilization, Value, or AverageValue.
+        :param average_utilization: averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
+        :param average_value: averageValue is the target value of the average of the metric across all relevant pods (as a quantity).
+        :param value: value is the target value of the metric (as a quantity).
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget
+        """
+        self._values: typing.Dict[str, typing.Any] = {
+            "type": type,
+        }
+        if average_utilization is not None:
+            self._values["average_utilization"] = average_utilization
+        if average_value is not None:
+            self._values["average_value"] = average_value
+        if value is not None:
+            self._values["value"] = value
+
+    @builtins.property
+    def type(self) -> builtins.str:
+        """type represents whether the metric type is Utilization, Value, or AverageValue.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget#type
+        """
+        result = self._values.get("type")
+        assert result is not None, "Required property 'type' is missing"
+        return result
+
+    @builtins.property
+    def average_utilization(self) -> typing.Optional[jsii.Number]:
+        """averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
+
+        Currently only valid for Resource metric source type
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget#averageUtilization
+        """
+        result = self._values.get("average_utilization")
+        return result
+
+    @builtins.property
+    def average_value(self) -> typing.Optional["Quantity"]:
+        """averageValue is the target value of the average of the metric across all relevant pods (as a quantity).
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget#averageValue
+        """
+        result = self._values.get("average_value")
+        return result
+
+    @builtins.property
+    def value(self) -> typing.Optional["Quantity"]:
+        """value is the target value of the metric (as a quantity).
+
+        :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget#value
+        """
+        result = self._values.get("value")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "MetricTarget(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
     jsii_type="k8s.MutatingWebhook",
     jsii_struct_bases=[],
     name_mapping={
-        "admission_review_versions": "admissionReviewVersions",
         "client_config": "clientConfig",
         "name": "name",
-        "side_effects": "sideEffects",
+        "admission_review_versions": "admissionReviewVersions",
         "failure_policy": "failurePolicy",
         "match_policy": "matchPolicy",
         "namespace_selector": "namespaceSelector",
         "object_selector": "objectSelector",
         "reinvocation_policy": "reinvocationPolicy",
         "rules": "rules",
+        "side_effects": "sideEffects",
         "timeout_seconds": "timeoutSeconds",
     },
 )
@@ -15117,33 +19802,33 @@ class MutatingWebhook:
     def __init__(
         self,
         *,
-        admission_review_versions: typing.List[builtins.str],
         client_config: "WebhookClientConfig",
         name: builtins.str,
-        side_effects: builtins.str,
+        admission_review_versions: typing.Optional[typing.List[builtins.str]] = None,
         failure_policy: typing.Optional[builtins.str] = None,
         match_policy: typing.Optional[builtins.str] = None,
         namespace_selector: typing.Optional[LabelSelector] = None,
         object_selector: typing.Optional[LabelSelector] = None,
         reinvocation_policy: typing.Optional[builtins.str] = None,
         rules: typing.Optional[typing.List["RuleWithOperations"]] = None,
+        side_effects: typing.Optional[builtins.str] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """MutatingWebhook describes an admission webhook and the resources and operations it applies to.
 
-        :param admission_review_versions: AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
         :param client_config: ClientConfig defines how to communicate with the hook. Required
         :param name: The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
-        :param side_effects: SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.
-        :param failure_policy: FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Fail. Default: Fail.
-        :param match_policy: matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent". - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook. - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook. Defaults to "Equivalent" Default: Equivalent"
+        :param admission_review_versions: AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to ``['v1beta1']``. Default: v1beta1']`.
+        :param failure_policy: FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Ignore. Default: Ignore.
+        :param match_policy: matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent". - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook. - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook. Defaults to "Exact" Default: Exact"
         :param namespace_selector: NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook. For example, to run the webhook on any objects whose namespace is not associated with "runlevel" of "0" or "1"; you will set the selector as follows: "namespaceSelector": { "matchExpressions": [ { "key": "runlevel", "operator": "NotIn", "values": [ "0", "1" ] } ] } If instead you want to only run the webhook on any objects whose namespace is associated with the "environment" of "prod" or "staging"; you will set the selector as follows: "namespaceSelector": { "matchExpressions": [ { "key": "environment", "operator": "In", "values": [ "prod", "staging" ] } ] } See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors. Default to the empty LabelSelector, which matches everything. Default: the empty LabelSelector, which matches everything.
         :param object_selector: ObjectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything. Default: the empty LabelSelector, which matches everything.
         :param reinvocation_policy: reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation. Allowed values are "Never" and "IfNeeded". Never: the webhook will not be called more than once in a single admission evaluation. IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation if the object being admitted is modified by other admission plugins after the initial webhook call. Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted. Note: * the number of additional invocations is not guaranteed to be exactly one. * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again. * webhooks that use this option may be reordered to minimize the number of additional invocations. * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead. Defaults to "Never". Default: Never".
         :param rules: Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches *any* Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-        :param timeout_seconds: TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds. Default: 10 seconds.
+        :param side_effects: SideEffects states whether this webhook has side effects. Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown. Default: Unknown.
+        :param timeout_seconds: TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds. Default: 30 seconds.
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook
         """
         if isinstance(client_config, dict):
             client_config = WebhookClientConfig(**client_config)
@@ -15152,11 +19837,11 @@ class MutatingWebhook:
         if isinstance(object_selector, dict):
             object_selector = LabelSelector(**object_selector)
         self._values: typing.Dict[str, typing.Any] = {
-            "admission_review_versions": admission_review_versions,
             "client_config": client_config,
             "name": name,
-            "side_effects": side_effects,
         }
+        if admission_review_versions is not None:
+            self._values["admission_review_versions"] = admission_review_versions
         if failure_policy is not None:
             self._values["failure_policy"] = failure_policy
         if match_policy is not None:
@@ -15169,20 +19854,10 @@ class MutatingWebhook:
             self._values["reinvocation_policy"] = reinvocation_policy
         if rules is not None:
             self._values["rules"] = rules
+        if side_effects is not None:
+            self._values["side_effects"] = side_effects
         if timeout_seconds is not None:
             self._values["timeout_seconds"] = timeout_seconds
-
-    @builtins.property
-    def admission_review_versions(self) -> typing.List[builtins.str]:
-        """AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects.
-
-        API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
-
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#admissionReviewVersions
-        """
-        result = self._values.get("admission_review_versions")
-        assert result is not None, "Required property 'admission_review_versions' is missing"
-        return result
 
     @builtins.property
     def client_config(self) -> "WebhookClientConfig":
@@ -15190,7 +19865,7 @@ class MutatingWebhook:
 
         Required
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#clientConfig
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#clientConfig
         """
         result = self._values.get("client_config")
         assert result is not None, "Required property 'client_config' is missing"
@@ -15202,33 +19877,34 @@ class MutatingWebhook:
 
         Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#name
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
         return result
 
     @builtins.property
-    def side_effects(self) -> builtins.str:
-        """SideEffects states whether this webhook has side effects.
+    def admission_review_versions(self) -> typing.Optional[typing.List[builtins.str]]:
+        """AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects.
 
-        Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.
+        API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to ``['v1beta1']``.
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#sideEffects
+        :default: v1beta1']`.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#admissionReviewVersions
         """
-        result = self._values.get("side_effects")
-        assert result is not None, "Required property 'side_effects' is missing"
+        result = self._values.get("admission_review_versions")
         return result
 
     @builtins.property
     def failure_policy(self) -> typing.Optional[builtins.str]:
         """FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail.
 
-        Defaults to Fail.
+        Defaults to Ignore.
 
-        :default: Fail.
+        :default: Ignore.
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#failurePolicy
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#failurePolicy
         """
         result = self._values.get("failure_policy")
         return result
@@ -15240,11 +19916,11 @@ class MutatingWebhook:
         - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
         - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
 
-        Defaults to "Equivalent"
+        Defaults to "Exact"
 
-        :default: Equivalent"
+        :default: Exact"
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#matchPolicy
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#matchPolicy
         """
         result = self._values.get("match_policy")
         return result
@@ -15287,7 +19963,7 @@ class MutatingWebhook:
 
         :default: the empty LabelSelector, which matches everything.
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#namespaceSelector
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#namespaceSelector
         """
         result = self._values.get("namespace_selector")
         return result
@@ -15300,7 +19976,7 @@ class MutatingWebhook:
 
         :default: the empty LabelSelector, which matches everything.
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#objectSelector
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#objectSelector
         """
         result = self._values.get("object_selector")
         return result
@@ -15319,7 +19995,7 @@ class MutatingWebhook:
 
         :default: Never".
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#reinvocationPolicy
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#reinvocationPolicy
         """
         result = self._values.get("reinvocation_policy")
         return result
@@ -15330,20 +20006,33 @@ class MutatingWebhook:
 
         The webhook cares about an operation if it matches *any* Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#rules
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#rules
         """
         result = self._values.get("rules")
+        return result
+
+    @builtins.property
+    def side_effects(self) -> typing.Optional[builtins.str]:
+        """SideEffects states whether this webhook has side effects.
+
+        Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.
+
+        :default: Unknown.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#sideEffects
+        """
+        result = self._values.get("side_effects")
         return result
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
         """TimeoutSeconds specifies the timeout for this webhook.
 
-        After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.
+        After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.
 
-        :default: 10 seconds.
+        :default: 30 seconds.
 
-        :schema: io.k8s.api.admissionregistration.v1.MutatingWebhook#timeoutSeconds
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
         return result
@@ -15484,6 +20173,98 @@ class MutatingWebhookConfigurationListOptions:
         )
 
 
+class MutatingWebhookConfigurationListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.MutatingWebhookConfigurationListV1Beta1",
+):
+    """MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
+
+    :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[MutatingWebhookConfiguration],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: List of MutatingWebhookConfiguration.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        options = MutatingWebhookConfigurationListV1Beta1Options(
+            items=items, metadata=metadata
+        )
+
+        jsii.create(MutatingWebhookConfigurationListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.MutatingWebhookConfigurationListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class MutatingWebhookConfigurationListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[MutatingWebhookConfiguration],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
+
+        :param items: List of MutatingWebhookConfiguration.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[MutatingWebhookConfiguration]:
+        """List of MutatingWebhookConfiguration.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "MutatingWebhookConfigurationListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.MutatingWebhookConfigurationOptions",
     jsii_struct_bases=[],
@@ -15539,6 +20320,101 @@ class MutatingWebhookConfigurationOptions:
 
     def __repr__(self) -> str:
         return "MutatingWebhookConfigurationOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class MutatingWebhookConfigurationV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.MutatingWebhookConfigurationV1Beta1",
+):
+    """MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
+
+    Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 MutatingWebhookConfiguration instead.
+
+    :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        webhooks: typing.Optional[typing.List[MutatingWebhook]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
+        """
+        options = MutatingWebhookConfigurationV1Beta1Options(
+            metadata=metadata, webhooks=webhooks
+        )
+
+        jsii.create(MutatingWebhookConfigurationV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.MutatingWebhookConfigurationV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
+)
+class MutatingWebhookConfigurationV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        webhooks: typing.Optional[typing.List[MutatingWebhook]] = None,
+    ) -> None:
+        """MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
+
+        Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 MutatingWebhookConfiguration instead.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if webhooks is not None:
+            self._values["webhooks"] = webhooks
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object metadata;
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def webhooks(self) -> typing.Optional[typing.List[MutatingWebhook]]:
+        """Webhooks is a list of webhooks and the affected resources and operations.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration#webhooks
+        """
+        result = self._values.get("webhooks")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "MutatingWebhookConfigurationV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -16014,6 +20890,96 @@ class NetworkPolicyListOptions:
         )
 
 
+class NetworkPolicyListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.NetworkPolicyListV1Beta1",
+):
+    """DEPRECATED 1.9 - This group version of NetworkPolicyList is deprecated by networking/v1/NetworkPolicyList. Network Policy List is a list of NetworkPolicy objects.
+
+    :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[NetworkPolicy],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.NetworkPolicyList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = NetworkPolicyListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(NetworkPolicyListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.NetworkPolicyListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class NetworkPolicyListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[NetworkPolicy],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """DEPRECATED 1.9 - This group version of NetworkPolicyList is deprecated by networking/v1/NetworkPolicyList. Network Policy List is a list of NetworkPolicy objects.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[NetworkPolicy]:
+        """Items is a list of schema objects.
+
+        :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "NetworkPolicyListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.NetworkPolicyOptions",
     jsii_struct_bases=[],
@@ -16317,6 +21283,97 @@ class NetworkPolicySpec:
 
     def __repr__(self) -> str:
         return "NetworkPolicySpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class NetworkPolicyV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.NetworkPolicyV1Beta1",
+):
+    """DEPRECATED 1.9 - This group version of NetworkPolicy is deprecated by networking/v1/NetworkPolicy. NetworkPolicy describes what network traffic is allowed for a set of Pods.
+
+    :schema: io.k8s.api.extensions.v1beta1.NetworkPolicy
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[NetworkPolicySpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.NetworkPolicy" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior for this NetworkPolicy.
+        """
+        options = NetworkPolicyV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(NetworkPolicyV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.NetworkPolicyV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class NetworkPolicyV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[NetworkPolicySpec] = None,
+    ) -> None:
+        """DEPRECATED 1.9 - This group version of NetworkPolicy is deprecated by networking/v1/NetworkPolicy. NetworkPolicy describes what network traffic is allowed for a set of Pods.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior for this NetworkPolicy.
+
+        :schema: io.k8s.api.extensions.v1beta1.NetworkPolicy
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = NetworkPolicySpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.extensions.v1beta1.NetworkPolicy#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[NetworkPolicySpec]:
+        """Specification of the desired behavior for this NetworkPolicy.
+
+        :schema: io.k8s.api.extensions.v1beta1.NetworkPolicy#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "NetworkPolicyV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17024,7 +22081,7 @@ class NonResourceAttributes:
         :param path: Path is the URL path of the request.
         :param verb: Verb is the standard HTTP verb.
 
-        :schema: io.k8s.api.authorization.v1.NonResourceAttributes
+        :schema: io.k8s.api.authorization.v1beta1.NonResourceAttributes
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if path is not None:
@@ -17036,7 +22093,7 @@ class NonResourceAttributes:
     def path(self) -> typing.Optional[builtins.str]:
         """Path is the URL path of the request.
 
-        :schema: io.k8s.api.authorization.v1.NonResourceAttributes#path
+        :schema: io.k8s.api.authorization.v1beta1.NonResourceAttributes#path
         """
         result = self._values.get("path")
         return result
@@ -17045,7 +22102,7 @@ class NonResourceAttributes:
     def verb(self) -> typing.Optional[builtins.str]:
         """Verb is the standard HTTP verb.
 
-        :schema: io.k8s.api.authorization.v1.NonResourceAttributes#verb
+        :schema: io.k8s.api.authorization.v1beta1.NonResourceAttributes#verb
         """
         result = self._values.get("verb")
         return result
@@ -17490,6 +22547,84 @@ class ObjectMeta:
 
 
 @jsii.data_type(
+    jsii_type="k8s.ObjectMetricSource",
+    jsii_struct_bases=[],
+    name_mapping={
+        "described_object": "describedObject",
+        "metric": "metric",
+        "target": "target",
+    },
+)
+class ObjectMetricSource:
+    def __init__(
+        self,
+        *,
+        described_object: CrossVersionObjectReference,
+        metric: MetricIdentifier,
+        target: MetricTarget,
+    ) -> None:
+        """ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
+
+        :param described_object: 
+        :param metric: metric identifies the target metric by name and selector.
+        :param target: target specifies the target value for the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ObjectMetricSource
+        """
+        if isinstance(described_object, dict):
+            described_object = CrossVersionObjectReference(**described_object)
+        if isinstance(metric, dict):
+            metric = MetricIdentifier(**metric)
+        if isinstance(target, dict):
+            target = MetricTarget(**target)
+        self._values: typing.Dict[str, typing.Any] = {
+            "described_object": described_object,
+            "metric": metric,
+            "target": target,
+        }
+
+    @builtins.property
+    def described_object(self) -> CrossVersionObjectReference:
+        """
+        :schema: io.k8s.api.autoscaling.v2beta2.ObjectMetricSource#describedObject
+        """
+        result = self._values.get("described_object")
+        assert result is not None, "Required property 'described_object' is missing"
+        return result
+
+    @builtins.property
+    def metric(self) -> MetricIdentifier:
+        """metric identifies the target metric by name and selector.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ObjectMetricSource#metric
+        """
+        result = self._values.get("metric")
+        assert result is not None, "Required property 'metric' is missing"
+        return result
+
+    @builtins.property
+    def target(self) -> MetricTarget:
+        """target specifies the target value for the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ObjectMetricSource#target
+        """
+        result = self._values.get("target")
+        assert result is not None, "Required property 'target' is missing"
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ObjectMetricSource(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
     jsii_type="k8s.ObjectReference",
     jsii_struct_bases=[],
     name_mapping={
@@ -17642,7 +22777,7 @@ class Overhead:
 
         :param pod_fixed: PodFixed represents the fixed resource overhead associated with running a pod.
 
-        :schema: io.k8s.api.node.v1beta1.Overhead
+        :schema: io.k8s.api.node.v1alpha1.Overhead
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if pod_fixed is not None:
@@ -17652,7 +22787,7 @@ class Overhead:
     def pod_fixed(self) -> typing.Optional[typing.Mapping[builtins.str, "Quantity"]]:
         """PodFixed represents the fixed resource overhead associated with running a pod.
 
-        :schema: io.k8s.api.node.v1beta1.Overhead#podFixed
+        :schema: io.k8s.api.node.v1alpha1.Overhead#podFixed
         """
         result = self._values.get("pod_fixed")
         return result
@@ -19207,128 +24342,12 @@ class PodAntiAffinity:
         )
 
 
-class PodDisruptionBudget(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
+@jsii.data_type(
     jsii_type="k8s.PodDisruptionBudget",
-):
-    """PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
-
-    :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PodDisruptionBudgetSpec"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudget" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param metadata: 
-        :param spec: Specification of the desired behavior of the PodDisruptionBudget.
-        """
-        options = PodDisruptionBudgetOptions(metadata=metadata, spec=spec)
-
-        jsii.create(PodDisruptionBudget, self, [scope, name, options])
-
-
-class PodDisruptionBudgetList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.PodDisruptionBudgetList",
-):
-    """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
-
-    :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[PodDisruptionBudget],
-        metadata: typing.Optional[ListMeta] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: 
-        :param metadata: 
-        """
-        options = PodDisruptionBudgetListOptions(items=items, metadata=metadata)
-
-        jsii.create(PodDisruptionBudgetList, self, [scope, name, options])
-
-
-@jsii.data_type(
-    jsii_type="k8s.PodDisruptionBudgetListOptions",
-    jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
-)
-class PodDisruptionBudgetListOptions:
-    def __init__(
-        self,
-        *,
-        items: typing.List[PodDisruptionBudget],
-        metadata: typing.Optional[ListMeta] = None,
-    ) -> None:
-        """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
-
-        :param items: 
-        :param metadata: 
-
-        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList
-        """
-        if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List[PodDisruptionBudget]:
-        """
-        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#items
-        """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ListMeta]:
-        """
-        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PodDisruptionBudgetListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.PodDisruptionBudgetOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class PodDisruptionBudgetOptions:
+class PodDisruptionBudget:
     def __init__(
         self,
         *,
@@ -19376,7 +24395,93 @@ class PodDisruptionBudgetOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "PodDisruptionBudgetOptions(%s)" % ", ".join(
+        return "PodDisruptionBudget(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PodDisruptionBudgetListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PodDisruptionBudgetListV1Beta1",
+):
+    """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
+
+    :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[PodDisruptionBudget],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: 
+        :param metadata: 
+        """
+        options = PodDisruptionBudgetListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(PodDisruptionBudgetListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PodDisruptionBudgetListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class PodDisruptionBudgetListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[PodDisruptionBudget],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
+
+        :param items: 
+        :param metadata: 
+
+        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[PodDisruptionBudget]:
+        """
+        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """
+        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PodDisruptionBudgetListV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19451,6 +24556,94 @@ class PodDisruptionBudgetSpec:
 
     def __repr__(self) -> str:
         return "PodDisruptionBudgetSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PodDisruptionBudgetV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PodDisruptionBudgetV1Beta1",
+):
+    """PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
+
+    :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[PodDisruptionBudgetSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudget" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: 
+        :param spec: Specification of the desired behavior of the PodDisruptionBudget.
+        """
+        options = PodDisruptionBudgetV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(PodDisruptionBudgetV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PodDisruptionBudgetV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class PodDisruptionBudgetV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[PodDisruptionBudgetSpec] = None,
+    ) -> None:
+        """PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
+
+        :param metadata: 
+        :param spec: Specification of the desired behavior of the PodDisruptionBudget.
+
+        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = PodDisruptionBudgetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[PodDisruptionBudgetSpec]:
+        """Specification of the desired behavior of the PodDisruptionBudget.
+
+        :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PodDisruptionBudgetV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19740,36 +24933,67 @@ class PodOptions:
         )
 
 
-class PodPreset(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.PodPreset"):
-    """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
-
-    :schema: io.k8s.api.settings.v1alpha1.PodPreset
-    """
-
+@jsii.data_type(
+    jsii_type="k8s.PodPreset",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class PodPreset:
     def __init__(
         self,
-        scope: constructs.Construct,
-        name: builtins.str,
         *,
         metadata: typing.Optional[ObjectMeta] = None,
         spec: typing.Optional["PodPresetSpec"] = None,
     ) -> None:
-        """Defines a "io.k8s.api.settings.v1alpha1.PodPreset" API object.
+        """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
 
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
         :param metadata: 
         :param spec: 
+
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset
         """
-        options = PodPresetOptions(metadata=metadata, spec=spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = PodPresetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
 
-        jsii.create(PodPreset, self, [scope, name, options])
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional["PodPresetSpec"]:
+        """
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PodPreset(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
 
 
-class PodPresetList(
+class PodPresetListV1Alpha1(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.PodPresetList",
+    jsii_type="k8s.PodPresetListV1Alpha1",
 ):
     """PodPresetList is a list of PodPreset objects.
 
@@ -19791,17 +25015,17 @@ class PodPresetList(
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        options = PodPresetListOptions(items=items, metadata=metadata)
+        options = PodPresetListV1Alpha1Options(items=items, metadata=metadata)
 
-        jsii.create(PodPresetList, self, [scope, name, options])
+        jsii.create(PodPresetListV1Alpha1, self, [scope, name, options])
 
 
 @jsii.data_type(
-    jsii_type="k8s.PodPresetListOptions",
+    jsii_type="k8s.PodPresetListV1Alpha1Options",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class PodPresetListOptions:
+class PodPresetListV1Alpha1Options:
     def __init__(
         self,
         *,
@@ -19851,64 +25075,7 @@ class PodPresetListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "PodPresetListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.PodPresetOptions",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class PodPresetOptions:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PodPresetSpec"] = None,
-    ) -> None:
-        """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
-
-        :param metadata: 
-        :param spec: 
-
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PodPresetSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ObjectMeta]:
-        """
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PodPresetSpec"]:
-        """
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PodPresetOptions(%s)" % ", ".join(
+        return "PodPresetListV1Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20013,6 +25180,93 @@ class PodPresetSpec:
 
     def __repr__(self) -> str:
         return "PodPresetSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PodPresetV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PodPresetV1Alpha1",
+):
+    """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
+
+    :schema: io.k8s.api.settings.v1alpha1.PodPreset
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[PodPresetSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.settings.v1alpha1.PodPreset" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: 
+        :param spec: 
+        """
+        options = PodPresetV1Alpha1Options(metadata=metadata, spec=spec)
+
+        jsii.create(PodPresetV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PodPresetV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class PodPresetV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[PodPresetSpec] = None,
+    ) -> None:
+        """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
+
+        :param metadata: 
+        :param spec: 
+
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = PodPresetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[PodPresetSpec]:
+        """
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PodPresetV1Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20226,132 +25480,12 @@ class PodSecurityContext:
         )
 
 
-class PodSecurityPolicy(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
+@jsii.data_type(
     jsii_type="k8s.PodSecurityPolicy",
-):
-    """PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
-
-    :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PodSecurityPolicySpec"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicy" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        :param spec: spec defines the policy enforced.
-        """
-        options = PodSecurityPolicyOptions(metadata=metadata, spec=spec)
-
-        jsii.create(PodSecurityPolicy, self, [scope, name, options])
-
-
-class PodSecurityPolicyList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.PodSecurityPolicyList",
-):
-    """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
-
-    :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[PodSecurityPolicy],
-        metadata: typing.Optional[ListMeta] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: items is a list of schema objects.
-        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        """
-        options = PodSecurityPolicyListOptions(items=items, metadata=metadata)
-
-        jsii.create(PodSecurityPolicyList, self, [scope, name, options])
-
-
-@jsii.data_type(
-    jsii_type="k8s.PodSecurityPolicyListOptions",
-    jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
-)
-class PodSecurityPolicyListOptions:
-    def __init__(
-        self,
-        *,
-        items: typing.List[PodSecurityPolicy],
-        metadata: typing.Optional[ListMeta] = None,
-    ) -> None:
-        """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
-
-        :param items: items is a list of schema objects.
-        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList
-        """
-        if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List[PodSecurityPolicy]:
-        """items is a list of schema objects.
-
-        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList#items
-        """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ListMeta]:
-        """Standard list metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "PodSecurityPolicyListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.PodSecurityPolicyOptions",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class PodSecurityPolicyOptions:
+class PodSecurityPolicy:
     def __init__(
         self,
         *,
@@ -20402,7 +25536,97 @@ class PodSecurityPolicyOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "PodSecurityPolicyOptions(%s)" % ", ".join(
+        return "PodSecurityPolicy(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PodSecurityPolicyListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PodSecurityPolicyListV1Beta1",
+):
+    """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
+
+    :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[PodSecurityPolicy],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = PodSecurityPolicyListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(PodSecurityPolicyListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PodSecurityPolicyListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class PodSecurityPolicyListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[PodSecurityPolicy],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
+
+        :param items: items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[PodSecurityPolicy]:
+        """items is a list of schema objects.
+
+        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PodSecurityPolicyListV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20814,6 +26038,97 @@ class PodSecurityPolicySpec:
 
     def __repr__(self) -> str:
         return "PodSecurityPolicySpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PodSecurityPolicyV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PodSecurityPolicyV1Beta1",
+):
+    """PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
+
+    :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[PodSecurityPolicySpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicy" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec defines the policy enforced.
+        """
+        options = PodSecurityPolicyV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(PodSecurityPolicyV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PodSecurityPolicyV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class PodSecurityPolicyV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[PodSecurityPolicySpec] = None,
+    ) -> None:
+        """PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec defines the policy enforced.
+
+        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = PodSecurityPolicySpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[PodSecurityPolicySpec]:
+        """spec defines the policy enforced.
+
+        :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PodSecurityPolicyV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21658,6 +26973,63 @@ class PodTemplateSpec:
 
 
 @jsii.data_type(
+    jsii_type="k8s.PodsMetricSource",
+    jsii_struct_bases=[],
+    name_mapping={"metric": "metric", "target": "target"},
+)
+class PodsMetricSource:
+    def __init__(self, *, metric: MetricIdentifier, target: MetricTarget) -> None:
+        """PodsMetricSource indicates how to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second).
+
+        The values will be averaged together before being compared to the target value.
+
+        :param metric: metric identifies the target metric by name and selector.
+        :param target: target specifies the target value for the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.PodsMetricSource
+        """
+        if isinstance(metric, dict):
+            metric = MetricIdentifier(**metric)
+        if isinstance(target, dict):
+            target = MetricTarget(**target)
+        self._values: typing.Dict[str, typing.Any] = {
+            "metric": metric,
+            "target": target,
+        }
+
+    @builtins.property
+    def metric(self) -> MetricIdentifier:
+        """metric identifies the target metric by name and selector.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.PodsMetricSource#metric
+        """
+        result = self._values.get("metric")
+        assert result is not None, "Required property 'metric' is missing"
+        return result
+
+    @builtins.property
+    def target(self) -> MetricTarget:
+        """target specifies the target value for the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.PodsMetricSource#target
+        """
+        result = self._values.get("target")
+        assert result is not None, "Required property 'target' is missing"
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PodsMetricSource(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
     jsii_type="k8s.Policy",
     jsii_struct_bases=[],
     name_mapping={"level": "level", "stages": "stages"},
@@ -21742,9 +27114,9 @@ class PolicyRule:
         :param api_groups: APIGroups is the name of the APIGroup that contains the resources. If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
         :param non_resource_ur_ls: NonResourceURLs is a set of partial urls that a user should have access to. *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"), but not both.
         :param resource_names: ResourceNames is an optional white list of names that the rule applies to. An empty set means that everything is allowed.
-        :param resources: Resources is a list of resources this rule applies to. ResourceAll represents all resources.
+        :param resources: Resources is a list of resources this rule applies to. '*' represents all resources in the specified apiGroups. '_/foo' represents the subresource 'foo' for all resources in the specified apiGroups.
 
-        :schema: io.k8s.api.rbac.v1.PolicyRule
+        :schema: io.k8s.api.rbac.v1beta1.PolicyRule
         """
         self._values: typing.Dict[str, typing.Any] = {
             "verbs": verbs,
@@ -21764,7 +27136,7 @@ class PolicyRule:
 
         VerbAll represents all kinds.
 
-        :schema: io.k8s.api.rbac.v1.PolicyRule#verbs
+        :schema: io.k8s.api.rbac.v1beta1.PolicyRule#verbs
         """
         result = self._values.get("verbs")
         assert result is not None, "Required property 'verbs' is missing"
@@ -21776,7 +27148,7 @@ class PolicyRule:
 
         If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
 
-        :schema: io.k8s.api.rbac.v1.PolicyRule#apiGroups
+        :schema: io.k8s.api.rbac.v1beta1.PolicyRule#apiGroups
         """
         result = self._values.get("api_groups")
         return result
@@ -21787,7 +27159,7 @@ class PolicyRule:
 
         *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.
 
-        :schema: io.k8s.api.rbac.v1.PolicyRule#nonResourceURLs
+        :schema: io.k8s.api.rbac.v1beta1.PolicyRule#nonResourceURLs
         """
         result = self._values.get("non_resource_ur_ls")
         return result
@@ -21798,7 +27170,7 @@ class PolicyRule:
 
         An empty set means that everything is allowed.
 
-        :schema: io.k8s.api.rbac.v1.PolicyRule#resourceNames
+        :schema: io.k8s.api.rbac.v1beta1.PolicyRule#resourceNames
         """
         result = self._values.get("resource_names")
         return result
@@ -21807,9 +27179,9 @@ class PolicyRule:
     def resources(self) -> typing.Optional[typing.List[builtins.str]]:
         """Resources is a list of resources this rule applies to.
 
-        ResourceAll represents all resources.
+        '*' represents all resources in the specified apiGroups. '_/foo' represents the subresource 'foo' for all resources in the specified apiGroups.
 
-        :schema: io.k8s.api.rbac.v1.PolicyRule#resources
+        :schema: io.k8s.api.rbac.v1beta1.PolicyRule#resources
         """
         result = self._values.get("resources")
         return result
@@ -22224,6 +27596,182 @@ class PriorityClassListOptions:
         )
 
 
+class PriorityClassListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PriorityClassListV1Alpha1",
+):
+    """PriorityClassList is a collection of priority classes.
+
+    :schema: io.k8s.api.scheduling.v1alpha1.PriorityClassList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[PriorityClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.scheduling.v1alpha1.PriorityClassList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of PriorityClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = PriorityClassListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(PriorityClassListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PriorityClassListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class PriorityClassListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[PriorityClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """PriorityClassList is a collection of priority classes.
+
+        :param items: items is the list of PriorityClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClassList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[PriorityClass]:
+        """items is the list of PriorityClasses.
+
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClassList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClassList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PriorityClassListV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PriorityClassListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PriorityClassListV1Beta1",
+):
+    """PriorityClassList is a collection of priority classes.
+
+    :schema: io.k8s.api.scheduling.v1beta1.PriorityClassList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[PriorityClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.scheduling.v1beta1.PriorityClassList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: items is the list of PriorityClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = PriorityClassListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(PriorityClassListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PriorityClassListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class PriorityClassListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[PriorityClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """PriorityClassList is a collection of priority classes.
+
+        :param items: items is the list of PriorityClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClassList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[PriorityClass]:
+        """items is the list of PriorityClasses.
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClassList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClassList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PriorityClassListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.PriorityClassOptions",
     jsii_struct_bases=[],
@@ -22339,14 +27887,14 @@ class PriorityClassOptions:
         )
 
 
-class PriorityLevelConfiguration(
+class PriorityClassV1Alpha1(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.PriorityLevelConfiguration",
+    jsii_type="k8s.PriorityClassV1Alpha1",
 ):
-    """PriorityLevelConfiguration represents the configuration of a priority level.
+    """DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
 
-    :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration
+    :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass
     """
 
     def __init__(
@@ -22354,97 +27902,132 @@ class PriorityLevelConfiguration(
         scope: constructs.Construct,
         name: builtins.str,
         *,
+        value: jsii.Number,
+        description: typing.Optional[builtins.str] = None,
+        global_default: typing.Optional[builtins.bool] = None,
         metadata: typing.Optional[ObjectMeta] = None,
-        spec: typing.Optional["PriorityLevelConfigurationSpec"] = None,
+        preemption_policy: typing.Optional[builtins.str] = None,
     ) -> None:
-        """Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration" API object.
+        """Defines a "io.k8s.api.scheduling.v1alpha1.PriorityClass" API object.
 
         :param scope: the scope in which to define this object.
         :param name: a scope-local name for the object.
-        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-        :param spec: ``spec`` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+        :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+        :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+        :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
         """
-        options = PriorityLevelConfigurationOptions(metadata=metadata, spec=spec)
+        options = PriorityClassV1Alpha1Options(
+            value=value,
+            description=description,
+            global_default=global_default,
+            metadata=metadata,
+            preemption_policy=preemption_policy,
+        )
 
-        jsii.create(PriorityLevelConfiguration, self, [scope, name, options])
-
-
-class PriorityLevelConfigurationList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.PriorityLevelConfigurationList",
-):
-    """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
-
-    :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[PriorityLevelConfiguration],
-        metadata: typing.Optional[ListMeta] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: ``items`` is a list of request-priorities.
-        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-        """
-        options = PriorityLevelConfigurationListOptions(items=items, metadata=metadata)
-
-        jsii.create(PriorityLevelConfigurationList, self, [scope, name, options])
+        jsii.create(PriorityClassV1Alpha1, self, [scope, name, options])
 
 
 @jsii.data_type(
-    jsii_type="k8s.PriorityLevelConfigurationListOptions",
+    jsii_type="k8s.PriorityClassV1Alpha1Options",
     jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
+    name_mapping={
+        "value": "value",
+        "description": "description",
+        "global_default": "globalDefault",
+        "metadata": "metadata",
+        "preemption_policy": "preemptionPolicy",
+    },
 )
-class PriorityLevelConfigurationListOptions:
+class PriorityClassV1Alpha1Options:
     def __init__(
         self,
         *,
-        items: typing.List[PriorityLevelConfiguration],
-        metadata: typing.Optional[ListMeta] = None,
+        value: jsii.Number,
+        description: typing.Optional[builtins.str] = None,
+        global_default: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional[ObjectMeta] = None,
+        preemption_policy: typing.Optional[builtins.str] = None,
     ) -> None:
-        """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
+        """DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
 
-        :param items: ``items`` is a list of request-priorities.
-        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+        :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+        :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
 
-        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass
         """
         if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
+            metadata = ObjectMeta(**metadata)
         self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
+            "value": value,
         }
+        if description is not None:
+            self._values["description"] = description
+        if global_default is not None:
+            self._values["global_default"] = global_default
         if metadata is not None:
             self._values["metadata"] = metadata
+        if preemption_policy is not None:
+            self._values["preemption_policy"] = preemption_policy
 
     @builtins.property
-    def items(self) -> typing.List[PriorityLevelConfiguration]:
-        """``items`` is a list of request-priorities.
+    def value(self) -> jsii.Number:
+        """The value of this priority class.
 
-        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#items
+        This is the actual priority that pods receive when they have the name of this class in their pod spec.
+
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#value
         """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
+        result = self._values.get("value")
+        assert result is not None, "Required property 'value' is missing"
         return result
 
     @builtins.property
-    def metadata(self) -> typing.Optional[ListMeta]:
-        """``metadata`` is the standard object's metadata.
+    def description(self) -> typing.Optional[builtins.str]:
+        """description is an arbitrary string that usually provides guidelines on when this priority class should be used.
 
-        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#description
+        """
+        result = self._values.get("description")
+        return result
 
-        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#metadata
+    @builtins.property
+    def global_default(self) -> typing.Optional[builtins.bool]:
+        """globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class.
+
+        Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#globalDefault
+        """
+        result = self._values.get("global_default")
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#metadata
         """
         result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def preemption_policy(self) -> typing.Optional[builtins.str]:
+        """PreemptionPolicy is the Policy for preempting pods with lower priority.
+
+        One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+
+        :default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+
+        :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#preemptionPolicy
+        """
+        result = self._values.get("preemption_policy")
         return result
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
@@ -22454,17 +28037,172 @@ class PriorityLevelConfigurationListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "PriorityLevelConfigurationListOptions(%s)" % ", ".join(
+        return "PriorityClassV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PriorityClassV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PriorityClassV1Beta1",
+):
+    """DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
+
+    :schema: io.k8s.api.scheduling.v1beta1.PriorityClass
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        value: jsii.Number,
+        description: typing.Optional[builtins.str] = None,
+        global_default: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional[ObjectMeta] = None,
+        preemption_policy: typing.Optional[builtins.str] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.scheduling.v1beta1.PriorityClass" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+        :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+        :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+        """
+        options = PriorityClassV1Beta1Options(
+            value=value,
+            description=description,
+            global_default=global_default,
+            metadata=metadata,
+            preemption_policy=preemption_policy,
+        )
+
+        jsii.create(PriorityClassV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PriorityClassV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "value": "value",
+        "description": "description",
+        "global_default": "globalDefault",
+        "metadata": "metadata",
+        "preemption_policy": "preemptionPolicy",
+    },
+)
+class PriorityClassV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        value: jsii.Number,
+        description: typing.Optional[builtins.str] = None,
+        global_default: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional[ObjectMeta] = None,
+        preemption_policy: typing.Optional[builtins.str] = None,
+    ) -> None:
+        """DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
+
+        :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+        :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+        :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClass
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "value": value,
+        }
+        if description is not None:
+            self._values["description"] = description
+        if global_default is not None:
+            self._values["global_default"] = global_default
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if preemption_policy is not None:
+            self._values["preemption_policy"] = preemption_policy
+
+    @builtins.property
+    def value(self) -> jsii.Number:
+        """The value of this priority class.
+
+        This is the actual priority that pods receive when they have the name of this class in their pod spec.
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#value
+        """
+        result = self._values.get("value")
+        assert result is not None, "Required property 'value' is missing"
+        return result
+
+    @builtins.property
+    def description(self) -> typing.Optional[builtins.str]:
+        """description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#description
+        """
+        result = self._values.get("description")
+        return result
+
+    @builtins.property
+    def global_default(self) -> typing.Optional[builtins.bool]:
+        """globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class.
+
+        Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#globalDefault
+        """
+        result = self._values.get("global_default")
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def preemption_policy(self) -> typing.Optional[builtins.str]:
+        """PreemptionPolicy is the Policy for preempting pods with lower priority.
+
+        One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+
+        :default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+
+        :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#preemptionPolicy
+        """
+        result = self._values.get("preemption_policy")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PriorityClassV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.PriorityLevelConfigurationOptions",
+    jsii_type="k8s.PriorityLevelConfiguration",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class PriorityLevelConfigurationOptions:
+class PriorityLevelConfiguration:
     def __init__(
         self,
         *,
@@ -22517,7 +28255,99 @@ class PriorityLevelConfigurationOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "PriorityLevelConfigurationOptions(%s)" % ", ".join(
+        return "PriorityLevelConfiguration(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PriorityLevelConfigurationListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PriorityLevelConfigurationListV1Alpha1",
+):
+    """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
+
+    :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[PriorityLevelConfiguration],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: ``items`` is a list of request-priorities.
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        """
+        options = PriorityLevelConfigurationListV1Alpha1Options(
+            items=items, metadata=metadata
+        )
+
+        jsii.create(PriorityLevelConfigurationListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PriorityLevelConfigurationListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class PriorityLevelConfigurationListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[PriorityLevelConfiguration],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
+
+        :param items: ``items`` is a list of request-priorities.
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[PriorityLevelConfiguration]:
+        """``items`` is a list of request-priorities.
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """``metadata`` is the standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PriorityLevelConfigurationListV1Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22619,6 +28449,101 @@ class PriorityLevelConfigurationSpec:
 
     def __repr__(self) -> str:
         return "PriorityLevelConfigurationSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class PriorityLevelConfigurationV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.PriorityLevelConfigurationV1Alpha1",
+):
+    """PriorityLevelConfiguration represents the configuration of a priority level.
+
+    :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[PriorityLevelConfigurationSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        :param spec: ``spec`` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+        """
+        options = PriorityLevelConfigurationV1Alpha1Options(
+            metadata=metadata, spec=spec
+        )
+
+        jsii.create(PriorityLevelConfigurationV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.PriorityLevelConfigurationV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class PriorityLevelConfigurationV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[PriorityLevelConfigurationSpec] = None,
+    ) -> None:
+        """PriorityLevelConfiguration represents the configuration of a priority level.
+
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        :param spec: ``spec`` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = PriorityLevelConfigurationSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """``metadata`` is the standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[PriorityLevelConfigurationSpec]:
+        """``spec`` is the specification of the desired behavior of a "request-priority".
+
+        More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "PriorityLevelConfigurationV1Alpha1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23540,6 +29465,190 @@ class ReplicaSetListOptions:
         )
 
 
+class ReplicaSetListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ReplicaSetListV1Beta1",
+):
+    """ReplicaSetList is a collection of ReplicaSets.
+
+    :schema: io.k8s.api.extensions.v1beta1.ReplicaSetList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ReplicaSet],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.ReplicaSetList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        options = ReplicaSetListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(ReplicaSetListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ReplicaSetListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ReplicaSetListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ReplicaSet],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """ReplicaSetList is a collection of ReplicaSets.
+
+        :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSetList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ReplicaSet]:
+        """List of ReplicaSets.
+
+        More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSetList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSetList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ReplicaSetListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ReplicaSetListV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ReplicaSetListV1Beta2",
+):
+    """ReplicaSetList is a collection of ReplicaSets.
+
+    :schema: io.k8s.api.apps.v1beta2.ReplicaSetList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ReplicaSet],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.ReplicaSetList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        options = ReplicaSetListV1Beta2Options(items=items, metadata=metadata)
+
+        jsii.create(ReplicaSetListV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ReplicaSetListV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ReplicaSetListV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ReplicaSet],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """ReplicaSetList is a collection of ReplicaSets.
+
+        :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+        :schema: io.k8s.api.apps.v1beta2.ReplicaSetList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ReplicaSet]:
+        """List of ReplicaSets.
+
+        More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+
+        :schema: io.k8s.api.apps.v1beta2.ReplicaSetList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+        :schema: io.k8s.api.apps.v1beta2.ReplicaSetList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ReplicaSetListV1Beta2Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.ReplicaSetOptions",
     jsii_struct_bases=[],
@@ -23607,9 +29716,9 @@ class ReplicaSetOptions:
     jsii_type="k8s.ReplicaSetSpec",
     jsii_struct_bases=[],
     name_mapping={
-        "selector": "selector",
         "min_ready_seconds": "minReadySeconds",
         "replicas": "replicas",
+        "selector": "selector",
         "template": "template",
     },
 )
@@ -23617,45 +29726,33 @@ class ReplicaSetSpec:
     def __init__(
         self,
         *,
-        selector: LabelSelector,
         min_ready_seconds: typing.Optional[jsii.Number] = None,
         replicas: typing.Optional[jsii.Number] = None,
+        selector: typing.Optional[LabelSelector] = None,
         template: typing.Optional[PodTemplateSpec] = None,
     ) -> None:
         """ReplicaSetSpec is the specification of a ReplicaSet.
 
-        :param selector: Selector is a label query over pods that should match the replica count. Label keys and values that must match in order to be controlled by this replica set. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
         :param min_ready_seconds: Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) Default: 0 (pod will be considered available as soon as it is ready)
         :param replicas: Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller Default: 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
+        :param selector: Selector is a label query over pods that should match the replica count. If the selector is empty, it is defaulted to the labels present on the pod template. Label keys and values that must match in order to be controlled by this replica set. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
         :param template: Template is the object that describes the pod that will be created if insufficient replicas are detected. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
 
-        :schema: io.k8s.api.apps.v1.ReplicaSetSpec
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec
         """
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
         if isinstance(template, dict):
             template = PodTemplateSpec(**template)
-        self._values: typing.Dict[str, typing.Any] = {
-            "selector": selector,
-        }
+        self._values: typing.Dict[str, typing.Any] = {}
         if min_ready_seconds is not None:
             self._values["min_ready_seconds"] = min_ready_seconds
         if replicas is not None:
             self._values["replicas"] = replicas
+        if selector is not None:
+            self._values["selector"] = selector
         if template is not None:
             self._values["template"] = template
-
-    @builtins.property
-    def selector(self) -> LabelSelector:
-        """Selector is a label query over pods that should match the replica count.
-
-        Label keys and values that must match in order to be controlled by this replica set. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-
-        :schema: io.k8s.api.apps.v1.ReplicaSetSpec#selector
-        """
-        result = self._values.get("selector")
-        assert result is not None, "Required property 'selector' is missing"
-        return result
 
     @builtins.property
     def min_ready_seconds(self) -> typing.Optional[jsii.Number]:
@@ -23665,7 +29762,7 @@ class ReplicaSetSpec:
 
         :default: 0 (pod will be considered available as soon as it is ready)
 
-        :schema: io.k8s.api.apps.v1.ReplicaSetSpec#minReadySeconds
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec#minReadySeconds
         """
         result = self._values.get("min_ready_seconds")
         return result
@@ -23678,9 +29775,20 @@ class ReplicaSetSpec:
 
         :default: 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
 
-        :schema: io.k8s.api.apps.v1.ReplicaSetSpec#replicas
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec#replicas
         """
         result = self._values.get("replicas")
+        return result
+
+    @builtins.property
+    def selector(self) -> typing.Optional[LabelSelector]:
+        """Selector is a label query over pods that should match the replica count.
+
+        If the selector is empty, it is defaulted to the labels present on the pod template. Label keys and values that must match in order to be controlled by this replica set. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec#selector
+        """
+        result = self._values.get("selector")
         return result
 
     @builtins.property
@@ -23689,7 +29797,7 @@ class ReplicaSetSpec:
 
         More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
 
-        :schema: io.k8s.api.apps.v1.ReplicaSetSpec#template
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec#template
         """
         result = self._values.get("template")
         return result
@@ -23702,6 +29810,200 @@ class ReplicaSetSpec:
 
     def __repr__(self) -> str:
         return "ReplicaSetSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ReplicaSetV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ReplicaSetV1Beta1",
+):
+    """DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1beta2/ReplicaSet.
+
+    See the release notes for more information. ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+
+    :schema: io.k8s.api.extensions.v1beta1.ReplicaSet
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[ReplicaSetSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.ReplicaSet" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = ReplicaSetV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(ReplicaSetV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ReplicaSetV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class ReplicaSetV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[ReplicaSetSpec] = None,
+    ) -> None:
+        """DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1beta2/ReplicaSet.
+
+        See the release notes for more information. ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+
+        :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSet
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = ReplicaSetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages.
+
+        Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSet#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[ReplicaSetSpec]:
+        """Spec defines the specification of the desired behavior of the ReplicaSet.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.extensions.v1beta1.ReplicaSet#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ReplicaSetV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ReplicaSetV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ReplicaSetV1Beta2",
+):
+    """DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1/ReplicaSet.
+
+    See the release notes for more information. ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+
+    :schema: io.k8s.api.apps.v1beta2.ReplicaSet
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[ReplicaSetSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.ReplicaSet" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        options = ReplicaSetV1Beta2Options(metadata=metadata, spec=spec)
+
+        jsii.create(ReplicaSetV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ReplicaSetV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class ReplicaSetV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[ReplicaSetSpec] = None,
+    ) -> None:
+        """DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1/ReplicaSet.
+
+        See the release notes for more information. ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+
+        :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.apps.v1beta2.ReplicaSet
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = ReplicaSetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages.
+
+        Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.apps.v1beta2.ReplicaSet#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[ReplicaSetSpec]:
+        """Spec defines the specification of the desired behavior of the ReplicaSet.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+
+        :schema: io.k8s.api.apps.v1beta2.ReplicaSet#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ReplicaSetV1Beta2Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24026,7 +30328,7 @@ class ResourceAttributes:
         :param verb: Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy. "*" means all.
         :param version: Version is the API Version of the Resource. "*" means all.
 
-        :schema: io.k8s.api.authorization.v1.ResourceAttributes
+        :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if group is not None:
@@ -24050,7 +30352,7 @@ class ResourceAttributes:
 
         "*" means all.
 
-        :schema: io.k8s.api.authorization.v1.ResourceAttributes#group
+        :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#group
         """
         result = self._values.get("group")
         return result
@@ -24061,7 +30363,7 @@ class ResourceAttributes:
 
         "" (empty) means all.
 
-        :schema: io.k8s.api.authorization.v1.ResourceAttributes#name
+        :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#name
         """
         result = self._values.get("name")
         return result
@@ -24072,7 +30374,7 @@ class ResourceAttributes:
 
         Currently, there is no distinction between no namespace and all namespaces "" (empty) is defaulted for LocalSubjectAccessReviews "" (empty) is empty for cluster-scoped resources "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
 
-        :schema: io.k8s.api.authorization.v1.ResourceAttributes#namespace
+        :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#namespace
         """
         result = self._values.get("namespace")
         return result
@@ -24083,7 +30385,7 @@ class ResourceAttributes:
 
         "*" means all.
 
-        :schema: io.k8s.api.authorization.v1.ResourceAttributes#resource
+        :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#resource
         """
         result = self._values.get("resource")
         return result
@@ -24094,7 +30396,7 @@ class ResourceAttributes:
 
         "" means none.
 
-        :schema: io.k8s.api.authorization.v1.ResourceAttributes#subresource
+        :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#subresource
         """
         result = self._values.get("subresource")
         return result
@@ -24105,7 +30407,7 @@ class ResourceAttributes:
 
         "*" means all.
 
-        :schema: io.k8s.api.authorization.v1.ResourceAttributes#verb
+        :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#verb
         """
         result = self._values.get("verb")
         return result
@@ -24116,7 +30418,7 @@ class ResourceAttributes:
 
         "*" means all.
 
-        :schema: io.k8s.api.authorization.v1.ResourceAttributes#version
+        :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#version
         """
         result = self._values.get("version")
         return result
@@ -24202,6 +30504,59 @@ class ResourceFieldSelector:
 
     def __repr__(self) -> str:
         return "ResourceFieldSelector(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
+    jsii_type="k8s.ResourceMetricSource",
+    jsii_struct_bases=[],
+    name_mapping={"name": "name", "target": "target"},
+)
+class ResourceMetricSource:
+    def __init__(self, *, name: builtins.str, target: MetricTarget) -> None:
+        """ResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  The values will be averaged together before being compared to the target.  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.  Only one "target" type should be set.
+
+        :param name: name is the name of the resource in question.
+        :param target: target specifies the target value for the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ResourceMetricSource
+        """
+        if isinstance(target, dict):
+            target = MetricTarget(**target)
+        self._values: typing.Dict[str, typing.Any] = {
+            "name": name,
+            "target": target,
+        }
+
+    @builtins.property
+    def name(self) -> builtins.str:
+        """name is the name of the resource in question.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ResourceMetricSource#name
+        """
+        result = self._values.get("name")
+        assert result is not None, "Required property 'name' is missing"
+        return result
+
+    @builtins.property
+    def target(self) -> MetricTarget:
+        """target specifies the target value for the given metric.
+
+        :schema: io.k8s.api.autoscaling.v2beta2.ResourceMetricSource#target
+        """
+        result = self._values.get("target")
+        assert result is not None, "Required property 'target' is missing"
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ResourceMetricSource(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24791,6 +31146,182 @@ class RoleBindingListOptions:
         )
 
 
+class RoleBindingListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RoleBindingListV1Alpha1",
+):
+    """RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1alpha1.RoleBindingList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[RoleBinding],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1alpha1.RoleBindingList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of RoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        options = RoleBindingListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(RoleBindingListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RoleBindingListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class RoleBindingListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[RoleBinding],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
+
+        :param items: Items is a list of RoleBindings.
+        :param metadata: Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleBindingList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[RoleBinding]:
+        """Items is a list of RoleBindings.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleBindingList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleBindingList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RoleBindingListV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RoleBindingListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RoleBindingListV1Beta1",
+):
+    """RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1beta1.RoleBindingList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[RoleBinding],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1beta1.RoleBindingList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of RoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        options = RoleBindingListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(RoleBindingListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RoleBindingListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class RoleBindingListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[RoleBinding],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
+
+        :param items: Items is a list of RoleBindings.
+        :param metadata: Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleBindingList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[RoleBinding]:
+        """Items is a list of RoleBindings.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleBindingList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleBindingList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RoleBindingListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.RoleBindingOptions",
     jsii_struct_bases=[],
@@ -24868,6 +31399,240 @@ class RoleBindingOptions:
 
     def __repr__(self) -> str:
         return "RoleBindingOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RoleBindingV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RoleBindingV1Alpha1",
+):
+    """RoleBinding references a role, but does not contain it.
+
+    It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1alpha1.RoleBinding
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional[ObjectMeta] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1alpha1.RoleBinding" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        options = RoleBindingV1Alpha1Options(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        jsii.create(RoleBindingV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RoleBindingV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "role_ref": "roleRef",
+        "metadata": "metadata",
+        "subjects": "subjects",
+    },
+)
+class RoleBindingV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional[ObjectMeta] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> None:
+        """RoleBinding references a role, but does not contain it.
+
+        It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.20.
+
+        :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleBinding
+        """
+        if isinstance(role_ref, dict):
+            role_ref = RoleRef(**role_ref)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "role_ref": role_ref,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if subjects is not None:
+            self._values["subjects"] = subjects
+
+    @builtins.property
+    def role_ref(self) -> "RoleRef":
+        """RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace.
+
+        If the RoleRef cannot be resolved, the Authorizer must return an error.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleBinding#roleRef
+        """
+        result = self._values.get("role_ref")
+        assert result is not None, "Required property 'role_ref' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleBinding#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def subjects(self) -> typing.Optional[typing.List["Subject"]]:
+        """Subjects holds references to the objects the role applies to.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleBinding#subjects
+        """
+        result = self._values.get("subjects")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RoleBindingV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RoleBindingV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RoleBindingV1Beta1",
+):
+    """RoleBinding references a role, but does not contain it.
+
+    It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1beta1.RoleBinding
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional[ObjectMeta] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1beta1.RoleBinding" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        options = RoleBindingV1Beta1Options(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        jsii.create(RoleBindingV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RoleBindingV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "role_ref": "roleRef",
+        "metadata": "metadata",
+        "subjects": "subjects",
+    },
+)
+class RoleBindingV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional[ObjectMeta] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> None:
+        """RoleBinding references a role, but does not contain it.
+
+        It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.20.
+
+        :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleBinding
+        """
+        if isinstance(role_ref, dict):
+            role_ref = RoleRef(**role_ref)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "role_ref": role_ref,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if subjects is not None:
+            self._values["subjects"] = subjects
+
+    @builtins.property
+    def role_ref(self) -> "RoleRef":
+        """RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace.
+
+        If the RoleRef cannot be resolved, the Authorizer must return an error.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleBinding#roleRef
+        """
+        result = self._values.get("role_ref")
+        assert result is not None, "Required property 'role_ref' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleBinding#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def subjects(self) -> typing.Optional[typing.List["Subject"]]:
+        """Subjects holds references to the objects the role applies to.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleBinding#subjects
+        """
+        result = self._values.get("subjects")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RoleBindingV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24956,6 +31721,186 @@ class RoleListOptions:
         )
 
 
+class RoleListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RoleListV1Alpha1",
+):
+    """RoleList is a collection of Roles.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1alpha1.RoleList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[Role],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1alpha1.RoleList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of Roles.
+        :param metadata: Standard object's metadata.
+        """
+        options = RoleListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(RoleListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RoleListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class RoleListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[Role],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """RoleList is a collection of Roles.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
+
+        :param items: Items is a list of Roles.
+        :param metadata: Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[Role]:
+        """Items is a list of Roles.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.RoleList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RoleListV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RoleListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RoleListV1Beta1",
+):
+    """RoleList is a collection of Roles Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1beta1.RoleList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[Role],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1beta1.RoleList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of Roles.
+        :param metadata: Standard object's metadata.
+        """
+        options = RoleListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(RoleListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RoleListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class RoleListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[Role],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """RoleList is a collection of Roles Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
+
+        :param items: Items is a list of Roles.
+        :param metadata: Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[Role]:
+        """Items is a list of Roles.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.RoleList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RoleListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.RoleOptions",
     jsii_struct_bases=[],
@@ -25032,7 +31977,7 @@ class RoleRef:
         :param kind: Kind is the type of resource being referenced.
         :param name: Name is the name of resource being referenced.
 
-        :schema: io.k8s.api.rbac.v1.RoleRef
+        :schema: io.k8s.api.rbac.v1beta1.RoleRef
         """
         self._values: typing.Dict[str, typing.Any] = {
             "api_group": api_group,
@@ -25044,7 +31989,7 @@ class RoleRef:
     def api_group(self) -> builtins.str:
         """APIGroup is the group for the resource being referenced.
 
-        :schema: io.k8s.api.rbac.v1.RoleRef#apiGroup
+        :schema: io.k8s.api.rbac.v1beta1.RoleRef#apiGroup
         """
         result = self._values.get("api_group")
         assert result is not None, "Required property 'api_group' is missing"
@@ -25054,7 +31999,7 @@ class RoleRef:
     def kind(self) -> builtins.str:
         """Kind is the type of resource being referenced.
 
-        :schema: io.k8s.api.rbac.v1.RoleRef#kind
+        :schema: io.k8s.api.rbac.v1beta1.RoleRef#kind
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
@@ -25064,7 +32009,7 @@ class RoleRef:
     def name(self) -> builtins.str:
         """Name is the name of resource being referenced.
 
-        :schema: io.k8s.api.rbac.v1.RoleRef#name
+        :schema: io.k8s.api.rbac.v1beta1.RoleRef#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -25082,6 +32027,188 @@ class RoleRef:
         )
 
 
+class RoleV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RoleV1Alpha1",
+):
+    """Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1alpha1.Role
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        rules: typing.Optional[typing.List[PolicyRule]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1alpha1.Role" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this Role.
+        """
+        options = RoleV1Alpha1Options(metadata=metadata, rules=rules)
+
+        jsii.create(RoleV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RoleV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "rules": "rules"},
+)
+class RoleV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        rules: typing.Optional[typing.List[PolicyRule]] = None,
+    ) -> None:
+        """Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.20.
+
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this Role.
+
+        :schema: io.k8s.api.rbac.v1alpha1.Role
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if rules is not None:
+            self._values["rules"] = rules
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1alpha1.Role#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def rules(self) -> typing.Optional[typing.List[PolicyRule]]:
+        """Rules holds all the PolicyRules for this Role.
+
+        :schema: io.k8s.api.rbac.v1alpha1.Role#rules
+        """
+        result = self._values.get("rules")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RoleV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RoleV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RoleV1Beta1",
+):
+    """Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
+
+    Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.20.
+
+    :schema: io.k8s.api.rbac.v1beta1.Role
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        rules: typing.Optional[typing.List[PolicyRule]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.rbac.v1beta1.Role" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this Role.
+        """
+        options = RoleV1Beta1Options(metadata=metadata, rules=rules)
+
+        jsii.create(RoleV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RoleV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "rules": "rules"},
+)
+class RoleV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        rules: typing.Optional[typing.List[PolicyRule]] = None,
+    ) -> None:
+        """Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
+
+        Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.20.
+
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this Role.
+
+        :schema: io.k8s.api.rbac.v1beta1.Role
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if rules is not None:
+            self._values["rules"] = rules
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object's metadata.
+
+        :schema: io.k8s.api.rbac.v1beta1.Role#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def rules(self) -> typing.Optional[typing.List[PolicyRule]]:
+        """Rules holds all the PolicyRules for this Role.
+
+        :schema: io.k8s.api.rbac.v1beta1.Role#rules
+        """
+        result = self._values.get("rules")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RoleV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.RollingUpdateDaemonSet",
     jsii_struct_bases=[],
@@ -25093,7 +32220,7 @@ class RollingUpdateDaemonSet:
 
         :param max_unavailable: The maximum number of DaemonSet pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of total number of DaemonSet pods at the start of the update (ex: 10%). Absolute number is calculated from percentage by rounding up. This cannot be 0. Default value is 1. Example: when this is set to 30%, at most 30% of the total number of nodes that should be running the daemon pod (i.e. status.desiredNumberScheduled) can have their pods stopped for an update at any given time. The update starts by stopping at most 30% of those DaemonSet pods and then brings up new DaemonSet pods in their place. Once the new pods are available, it then proceeds onto other DaemonSet pods, thus ensuring that at least 70% of original number of DaemonSet pods are available at all times during the update.
 
-        :schema: io.k8s.api.apps.v1.RollingUpdateDaemonSet
+        :schema: io.k8s.api.extensions.v1beta1.RollingUpdateDaemonSet
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if max_unavailable is not None:
@@ -25105,7 +32232,7 @@ class RollingUpdateDaemonSet:
 
         Value can be an absolute number (ex: 5) or a percentage of total number of DaemonSet pods at the start of the update (ex: 10%). Absolute number is calculated from percentage by rounding up. This cannot be 0. Default value is 1. Example: when this is set to 30%, at most 30% of the total number of nodes that should be running the daemon pod (i.e. status.desiredNumberScheduled) can have their pods stopped for an update at any given time. The update starts by stopping at most 30% of those DaemonSet pods and then brings up new DaemonSet pods in their place. Once the new pods are available, it then proceeds onto other DaemonSet pods, thus ensuring that at least 70% of original number of DaemonSet pods are available at all times during the update.
 
-        :schema: io.k8s.api.apps.v1.RollingUpdateDaemonSet#maxUnavailable
+        :schema: io.k8s.api.extensions.v1beta1.RollingUpdateDaemonSet#maxUnavailable
         """
         result = self._values.get("max_unavailable")
         return result
@@ -25139,7 +32266,7 @@ class RollingUpdateDeployment:
         :param max_surge: The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods. Default: 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods.
         :param max_unavailable: The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods. Default: 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.
 
-        :schema: io.k8s.api.apps.v1.RollingUpdateDeployment
+        :schema: io.k8s.api.apps.v1beta2.RollingUpdateDeployment
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if max_surge is not None:
@@ -25155,7 +32282,7 @@ class RollingUpdateDeployment:
 
         :default: 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods.
 
-        :schema: io.k8s.api.apps.v1.RollingUpdateDeployment#maxSurge
+        :schema: io.k8s.api.apps.v1beta2.RollingUpdateDeployment#maxSurge
         """
         result = self._values.get("max_surge")
         return result
@@ -25168,7 +32295,7 @@ class RollingUpdateDeployment:
 
         :default: 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.
 
-        :schema: io.k8s.api.apps.v1.RollingUpdateDeployment#maxUnavailable
+        :schema: io.k8s.api.apps.v1beta2.RollingUpdateDeployment#maxUnavailable
         """
         result = self._values.get("max_unavailable")
         return result
@@ -25196,7 +32323,7 @@ class RollingUpdateStatefulSetStrategy:
 
         :param partition: Partition indicates the ordinal at which the StatefulSet should be partitioned. Default value is 0.
 
-        :schema: io.k8s.api.apps.v1.RollingUpdateStatefulSetStrategy
+        :schema: io.k8s.api.apps.v1beta2.RollingUpdateStatefulSetStrategy
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if partition is not None:
@@ -25208,7 +32335,7 @@ class RollingUpdateStatefulSetStrategy:
 
         Default value is 0.
 
-        :schema: io.k8s.api.apps.v1.RollingUpdateStatefulSetStrategy#partition
+        :schema: io.k8s.api.apps.v1beta2.RollingUpdateStatefulSetStrategy#partition
         """
         result = self._values.get("partition")
         return result
@@ -25256,7 +32383,7 @@ class RuleWithOperations:
         :param resources: Resources is a list of resources this rule applies to. For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources. If wildcard is present, the validation rule will ensure resources do not overlap with each other. Depending on the enclosing object, subresources might not be allowed. Required.
         :param scope: scope specifies the scope of this rule. Valid values are "Cluster", "Namespaced", and "*" "Cluster" means that only cluster-scoped resources will match this rule. Namespace API objects are cluster-scoped. "Namespaced" means that only namespaced resources will match this rule. "*" means that there are no scope restrictions. Subresources match the scope of their parent resource. Default is "*". Default: .
 
-        :schema: io.k8s.api.admissionregistration.v1.RuleWithOperations
+        :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if api_groups is not None:
@@ -25276,7 +32403,7 @@ class RuleWithOperations:
 
         '*' is all groups. If '*' is present, the length of the slice must be one. Required.
 
-        :schema: io.k8s.api.admissionregistration.v1.RuleWithOperations#apiGroups
+        :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#apiGroups
         """
         result = self._values.get("api_groups")
         return result
@@ -25287,7 +32414,7 @@ class RuleWithOperations:
 
         '*' is all versions. If '*' is present, the length of the slice must be one. Required.
 
-        :schema: io.k8s.api.admissionregistration.v1.RuleWithOperations#apiVersions
+        :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#apiVersions
         """
         result = self._values.get("api_versions")
         return result
@@ -25298,7 +32425,7 @@ class RuleWithOperations:
 
         If '*' is present, the length of the slice must be one. Required.
 
-        :schema: io.k8s.api.admissionregistration.v1.RuleWithOperations#operations
+        :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#operations
         """
         result = self._values.get("operations")
         return result
@@ -25313,7 +32440,7 @@ class RuleWithOperations:
 
         Depending on the enclosing object, subresources might not be allowed. Required.
 
-        :schema: io.k8s.api.admissionregistration.v1.RuleWithOperations#resources
+        :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#resources
         """
         result = self._values.get("resources")
         return result
@@ -25326,7 +32453,7 @@ class RuleWithOperations:
 
         :default: .
 
-        :schema: io.k8s.api.admissionregistration.v1.RuleWithOperations#scope
+        :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#scope
         """
         result = self._values.get("scope")
         return result
@@ -25459,139 +32586,8 @@ class RunAsUserStrategyOptions:
         )
 
 
-class RuntimeClass(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
+@jsii.data_type(
     jsii_type="k8s.RuntimeClass",
-):
-    """RuntimeClass defines a class of container runtime supported in the cluster.
-
-    The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
-
-    :schema: io.k8s.api.node.v1beta1.RuntimeClass
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        handler: builtins.str,
-        metadata: typing.Optional[ObjectMeta] = None,
-        overhead: typing.Optional[Overhead] = None,
-        scheduling: typing.Optional["Scheduling"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.node.v1beta1.RuntimeClass" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param handler: Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration. It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
-        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-        :param overhead: Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
-        :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
-        """
-        options = RuntimeClassOptions(
-            handler=handler,
-            metadata=metadata,
-            overhead=overhead,
-            scheduling=scheduling,
-        )
-
-        jsii.create(RuntimeClass, self, [scope, name, options])
-
-
-class RuntimeClassList(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.RuntimeClassList",
-):
-    """RuntimeClassList is a list of RuntimeClass objects.
-
-    :schema: io.k8s.api.node.v1beta1.RuntimeClassList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        name: builtins.str,
-        *,
-        items: typing.List[RuntimeClass],
-        metadata: typing.Optional[ListMeta] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.node.v1beta1.RuntimeClassList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
-        :param items: Items is a list of schema objects.
-        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        """
-        options = RuntimeClassListOptions(items=items, metadata=metadata)
-
-        jsii.create(RuntimeClassList, self, [scope, name, options])
-
-
-@jsii.data_type(
-    jsii_type="k8s.RuntimeClassListOptions",
-    jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
-)
-class RuntimeClassListOptions:
-    def __init__(
-        self,
-        *,
-        items: typing.List[RuntimeClass],
-        metadata: typing.Optional[ListMeta] = None,
-    ) -> None:
-        """RuntimeClassList is a list of RuntimeClass objects.
-
-        :param items: Items is a list of schema objects.
-        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.node.v1beta1.RuntimeClassList
-        """
-        if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List[RuntimeClass]:
-        """Items is a list of schema objects.
-
-        :schema: io.k8s.api.node.v1beta1.RuntimeClassList#items
-        """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional[ListMeta]:
-        """Standard list metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.node.v1beta1.RuntimeClassList#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "RuntimeClassListOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.RuntimeClassOptions",
     jsii_struct_bases=[],
     name_mapping={
         "handler": "handler",
@@ -25600,7 +32596,7 @@ class RuntimeClassListOptions:
         "scheduling": "scheduling",
     },
 )
-class RuntimeClassOptions:
+class RuntimeClass:
     def __init__(
         self,
         *,
@@ -25686,7 +32682,272 @@ class RuntimeClassOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "RuntimeClassOptions(%s)" % ", ".join(
+        return "RuntimeClass(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RuntimeClassListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RuntimeClassListV1Alpha1",
+):
+    """RuntimeClassList is a list of RuntimeClass objects.
+
+    :schema: io.k8s.api.node.v1alpha1.RuntimeClassList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[RuntimeClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.node.v1alpha1.RuntimeClassList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = RuntimeClassListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(RuntimeClassListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RuntimeClassListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class RuntimeClassListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[RuntimeClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """RuntimeClassList is a list of RuntimeClass objects.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClassList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[RuntimeClass]:
+        """Items is a list of schema objects.
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClassList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClassList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RuntimeClassListV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RuntimeClassListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RuntimeClassListV1Beta1",
+):
+    """RuntimeClassList is a list of RuntimeClass objects.
+
+    :schema: io.k8s.api.node.v1beta1.RuntimeClassList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[RuntimeClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.node.v1beta1.RuntimeClassList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = RuntimeClassListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(RuntimeClassListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RuntimeClassListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class RuntimeClassListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[RuntimeClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """RuntimeClassList is a list of RuntimeClass objects.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.node.v1beta1.RuntimeClassList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[RuntimeClass]:
+        """Items is a list of schema objects.
+
+        :schema: io.k8s.api.node.v1beta1.RuntimeClassList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.node.v1beta1.RuntimeClassList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RuntimeClassListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+@jsii.data_type(
+    jsii_type="k8s.RuntimeClassSpec",
+    jsii_struct_bases=[],
+    name_mapping={
+        "runtime_handler": "runtimeHandler",
+        "overhead": "overhead",
+        "scheduling": "scheduling",
+    },
+)
+class RuntimeClassSpec:
+    def __init__(
+        self,
+        *,
+        runtime_handler: builtins.str,
+        overhead: typing.Optional[Overhead] = None,
+        scheduling: typing.Optional["Scheduling"] = None,
+    ) -> None:
+        """RuntimeClassSpec is a specification of a RuntimeClass.
+
+        It contains parameters that are required to describe the RuntimeClass to the Container Runtime Interface (CRI) implementation, as well as any other components that need to understand how the pod will be run. The RuntimeClassSpec is immutable.
+
+        :param runtime_handler: RuntimeHandler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration. It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The RuntimeHandler must conform to the DNS Label (RFC 1123) requirements and is immutable.
+        :param overhead: Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
+        :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClassSpec
+        """
+        if isinstance(overhead, dict):
+            overhead = Overhead(**overhead)
+        if isinstance(scheduling, dict):
+            scheduling = Scheduling(**scheduling)
+        self._values: typing.Dict[str, typing.Any] = {
+            "runtime_handler": runtime_handler,
+        }
+        if overhead is not None:
+            self._values["overhead"] = overhead
+        if scheduling is not None:
+            self._values["scheduling"] = scheduling
+
+    @builtins.property
+    def runtime_handler(self) -> builtins.str:
+        """RuntimeHandler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class.
+
+        The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The RuntimeHandler must conform to the DNS Label (RFC 1123) requirements and is immutable.
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClassSpec#runtimeHandler
+        """
+        result = self._values.get("runtime_handler")
+        assert result is not None, "Required property 'runtime_handler' is missing"
+        return result
+
+    @builtins.property
+    def overhead(self) -> typing.Optional[Overhead]:
+        """Overhead represents the resource overhead associated with running a pod for a given RuntimeClass.
+
+        For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClassSpec#overhead
+        """
+        result = self._values.get("overhead")
+        return result
+
+    @builtins.property
+    def scheduling(self) -> typing.Optional["Scheduling"]:
+        """Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it.
+
+        If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClassSpec#scheduling
+        """
+        result = self._values.get("scheduling")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RuntimeClassSpec(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -25750,6 +33011,242 @@ class RuntimeClassStrategyOptions:
 
     def __repr__(self) -> str:
         return "RuntimeClassStrategyOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RuntimeClassV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RuntimeClassV1Alpha1",
+):
+    """RuntimeClass defines a class of container runtime supported in the cluster.
+
+    The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
+
+    :schema: io.k8s.api.node.v1alpha1.RuntimeClass
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: RuntimeClassSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.node.v1alpha1.RuntimeClass" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Specification of the RuntimeClass More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = RuntimeClassV1Alpha1Options(spec=spec, metadata=metadata)
+
+        jsii.create(RuntimeClassV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RuntimeClassV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class RuntimeClassV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        spec: RuntimeClassSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """RuntimeClass defines a class of container runtime supported in the cluster.
+
+        The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
+
+        :param spec: Specification of the RuntimeClass More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClass
+        """
+        if isinstance(spec, dict):
+            spec = RuntimeClassSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> RuntimeClassSpec:
+        """Specification of the RuntimeClass More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClass#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.node.v1alpha1.RuntimeClass#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RuntimeClassV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class RuntimeClassV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.RuntimeClassV1Beta1",
+):
+    """RuntimeClass defines a class of container runtime supported in the cluster.
+
+    The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
+
+    :schema: io.k8s.api.node.v1beta1.RuntimeClass
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        handler: builtins.str,
+        metadata: typing.Optional[ObjectMeta] = None,
+        overhead: typing.Optional[Overhead] = None,
+        scheduling: typing.Optional["Scheduling"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.node.v1beta1.RuntimeClass" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param handler: Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration. It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param overhead: Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
+        :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
+        """
+        options = RuntimeClassV1Beta1Options(
+            handler=handler,
+            metadata=metadata,
+            overhead=overhead,
+            scheduling=scheduling,
+        )
+
+        jsii.create(RuntimeClassV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.RuntimeClassV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "handler": "handler",
+        "metadata": "metadata",
+        "overhead": "overhead",
+        "scheduling": "scheduling",
+    },
+)
+class RuntimeClassV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        handler: builtins.str,
+        metadata: typing.Optional[ObjectMeta] = None,
+        overhead: typing.Optional[Overhead] = None,
+        scheduling: typing.Optional["Scheduling"] = None,
+    ) -> None:
+        """RuntimeClass defines a class of container runtime supported in the cluster.
+
+        The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
+
+        :param handler: Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration. It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param overhead: Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
+        :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
+
+        :schema: io.k8s.api.node.v1beta1.RuntimeClass
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(overhead, dict):
+            overhead = Overhead(**overhead)
+        if isinstance(scheduling, dict):
+            scheduling = Scheduling(**scheduling)
+        self._values: typing.Dict[str, typing.Any] = {
+            "handler": handler,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if overhead is not None:
+            self._values["overhead"] = overhead
+        if scheduling is not None:
+            self._values["scheduling"] = scheduling
+
+    @builtins.property
+    def handler(self) -> builtins.str:
+        """Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class.
+
+        The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
+
+        :schema: io.k8s.api.node.v1beta1.RuntimeClass#handler
+        """
+        result = self._values.get("handler")
+        assert result is not None, "Required property 'handler' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.node.v1beta1.RuntimeClass#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def overhead(self) -> typing.Optional[Overhead]:
+        """Overhead represents the resource overhead associated with running a pod for a given RuntimeClass.
+
+        For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
+
+        :schema: io.k8s.api.node.v1beta1.RuntimeClass#overhead
+        """
+        result = self._values.get("overhead")
+        return result
+
+    @builtins.property
+    def scheduling(self) -> typing.Optional["Scheduling"]:
+        """Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it.
+
+        If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
+
+        :schema: io.k8s.api.node.v1beta1.RuntimeClass#scheduling
+        """
+        result = self._values.get("scheduling")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "RuntimeClassV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26255,6 +33752,192 @@ class ScaleSpec:
         )
 
 
+class ScaleV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ScaleV1Beta1",
+):
+    """represents a scaling request for a resource.
+
+    :schema: io.k8s.api.extensions.v1beta1.Scale
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[ScaleSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.extensions.v1beta1.Scale" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        options = ScaleV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(ScaleV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ScaleV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class ScaleV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[ScaleSpec] = None,
+    ) -> None:
+        """represents a scaling request for a resource.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.extensions.v1beta1.Scale
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = ScaleSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object metadata;
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.extensions.v1beta1.Scale#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[ScaleSpec]:
+        """defines the behavior of the scale.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.extensions.v1beta1.Scale#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ScaleV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ScaleV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ScaleV1Beta2",
+):
+    """Scale represents a scaling request for a resource.
+
+    :schema: io.k8s.api.apps.v1beta2.Scale
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[ScaleSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.Scale" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        options = ScaleV1Beta2Options(metadata=metadata, spec=spec)
+
+        jsii.create(ScaleV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ScaleV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class ScaleV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[ScaleSpec] = None,
+    ) -> None:
+        """Scale represents a scaling request for a resource.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.apps.v1beta2.Scale
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = ScaleSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object metadata;
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.apps.v1beta2.Scale#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[ScaleSpec]:
+        """defines the behavior of the scale.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+
+        :schema: io.k8s.api.apps.v1beta2.Scale#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ScaleV1Beta2Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.Scheduling",
     jsii_struct_bases=[],
@@ -26272,7 +33955,7 @@ class Scheduling:
         :param node_selector: nodeSelector lists labels that must be present on nodes that support this RuntimeClass. Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
         :param tolerations: tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.
 
-        :schema: io.k8s.api.node.v1beta1.Scheduling
+        :schema: io.k8s.api.node.v1alpha1.Scheduling
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if node_selector is not None:
@@ -26288,7 +33971,7 @@ class Scheduling:
 
         Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
 
-        :schema: io.k8s.api.node.v1beta1.Scheduling#nodeSelector
+        :schema: io.k8s.api.node.v1alpha1.Scheduling#nodeSelector
         """
         result = self._values.get("node_selector")
         return result
@@ -26297,7 +33980,7 @@ class Scheduling:
     def tolerations(self) -> typing.Optional[typing.List["Toleration"]]:
         """tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.
 
-        :schema: io.k8s.api.node.v1beta1.Scheduling#tolerations
+        :schema: io.k8s.api.node.v1alpha1.Scheduling#tolerations
         """
         result = self._values.get("tolerations")
         return result
@@ -27478,7 +35161,7 @@ class SelfSubjectAccessReviewSpec:
         :param non_resource_attributes: NonResourceAttributes describes information for a non-resource access request.
         :param resource_attributes: ResourceAuthorizationAttributes describes information for a resource access request.
 
-        :schema: io.k8s.api.authorization.v1.SelfSubjectAccessReviewSpec
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReviewSpec
         """
         if isinstance(non_resource_attributes, dict):
             non_resource_attributes = NonResourceAttributes(**non_resource_attributes)
@@ -27494,7 +35177,7 @@ class SelfSubjectAccessReviewSpec:
     def non_resource_attributes(self) -> typing.Optional[NonResourceAttributes]:
         """NonResourceAttributes describes information for a non-resource access request.
 
-        :schema: io.k8s.api.authorization.v1.SelfSubjectAccessReviewSpec#nonResourceAttributes
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReviewSpec#nonResourceAttributes
         """
         result = self._values.get("non_resource_attributes")
         return result
@@ -27503,7 +35186,7 @@ class SelfSubjectAccessReviewSpec:
     def resource_attributes(self) -> typing.Optional[ResourceAttributes]:
         """ResourceAuthorizationAttributes describes information for a resource access request.
 
-        :schema: io.k8s.api.authorization.v1.SelfSubjectAccessReviewSpec#resourceAttributes
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReviewSpec#resourceAttributes
         """
         result = self._values.get("resource_attributes")
         return result
@@ -27516,6 +35199,101 @@ class SelfSubjectAccessReviewSpec:
 
     def __repr__(self) -> str:
         return "SelfSubjectAccessReviewSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class SelfSubjectAccessReviewV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.SelfSubjectAccessReviewV1Beta1",
+):
+    """SelfSubjectAccessReview checks whether or the current user can perform an action.
+
+    Not filling in a spec.namespace means "in all namespaces".  Self is a special case, because users should always be able to check whether they can perform an action
+
+    :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: SelfSubjectAccessReviewSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Spec holds information about the request being evaluated. user and groups must be empty
+        :param metadata: 
+        """
+        options = SelfSubjectAccessReviewV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(SelfSubjectAccessReviewV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.SelfSubjectAccessReviewV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class SelfSubjectAccessReviewV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: SelfSubjectAccessReviewSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """SelfSubjectAccessReview checks whether or the current user can perform an action.
+
+        Not filling in a spec.namespace means "in all namespaces".  Self is a special case, because users should always be able to check whether they can perform an action
+
+        :param spec: Spec holds information about the request being evaluated. user and groups must be empty
+        :param metadata: 
+
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview
+        """
+        if isinstance(spec, dict):
+            spec = SelfSubjectAccessReviewSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> SelfSubjectAccessReviewSpec:
+        """Spec holds information about the request being evaluated.
+
+        user and groups must be empty
+
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "SelfSubjectAccessReviewV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27623,7 +35401,7 @@ class SelfSubjectRulesReviewSpec:
         """
         :param namespace: Namespace to evaluate rules for. Required.
 
-        :schema: io.k8s.api.authorization.v1.SelfSubjectRulesReviewSpec
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReviewSpec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if namespace is not None:
@@ -27635,7 +35413,7 @@ class SelfSubjectRulesReviewSpec:
 
         Required.
 
-        :schema: io.k8s.api.authorization.v1.SelfSubjectRulesReviewSpec#namespace
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReviewSpec#namespace
         """
         result = self._values.get("namespace")
         return result
@@ -27648,6 +35426,99 @@ class SelfSubjectRulesReviewSpec:
 
     def __repr__(self) -> str:
         return "SelfSubjectRulesReviewSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class SelfSubjectRulesReviewV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.SelfSubjectRulesReviewV1Beta1",
+):
+    """SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace.
+
+    The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
+
+    :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: SelfSubjectRulesReviewSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        options = SelfSubjectRulesReviewV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(SelfSubjectRulesReviewV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.SelfSubjectRulesReviewV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class SelfSubjectRulesReviewV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: SelfSubjectRulesReviewSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace.
+
+        The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview
+        """
+        if isinstance(spec, dict):
+            spec = SelfSubjectRulesReviewSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> SelfSubjectRulesReviewSpec:
+        """Spec holds information about the request being evaluated.
+
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "SelfSubjectRulesReviewV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -28278,7 +36149,7 @@ class ServiceReference:
         :param path: ``path`` is an optional URL path which will be sent in any request to this service.
         :param port: If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. ``port`` should be a valid port number (1-65535, inclusive). Default: 443 for backward compatibility. ``port`` should be a valid port number (1-65535, inclusive).
 
-        :schema: io.k8s.api.admissionregistration.v1.ServiceReference
+        :schema: io.k8s.api.admissionregistration.v1beta1.ServiceReference
         """
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -28295,7 +36166,7 @@ class ServiceReference:
 
         Required
 
-        :schema: io.k8s.api.admissionregistration.v1.ServiceReference#name
+        :schema: io.k8s.api.admissionregistration.v1beta1.ServiceReference#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -28307,7 +36178,7 @@ class ServiceReference:
 
         Required
 
-        :schema: io.k8s.api.admissionregistration.v1.ServiceReference#namespace
+        :schema: io.k8s.api.admissionregistration.v1beta1.ServiceReference#namespace
         """
         result = self._values.get("namespace")
         assert result is not None, "Required property 'namespace' is missing"
@@ -28317,7 +36188,7 @@ class ServiceReference:
     def path(self) -> typing.Optional[builtins.str]:
         """``path`` is an optional URL path which will be sent in any request to this service.
 
-        :schema: io.k8s.api.admissionregistration.v1.ServiceReference#path
+        :schema: io.k8s.api.admissionregistration.v1beta1.ServiceReference#path
         """
         result = self._values.get("path")
         return result
@@ -28330,7 +36201,7 @@ class ServiceReference:
 
         :default: 443 for backward compatibility. ``port`` should be a valid port number (1-65535, inclusive).
 
-        :schema: io.k8s.api.admissionregistration.v1.ServiceReference#port
+        :schema: io.k8s.api.admissionregistration.v1beta1.ServiceReference#port
         """
         result = self._values.get("port")
         return result
@@ -28781,6 +36652,178 @@ class StatefulSetListOptions:
         )
 
 
+class StatefulSetListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.StatefulSetListV1Beta1",
+):
+    """StatefulSetList is a collection of StatefulSets.
+
+    :schema: io.k8s.api.apps.v1beta1.StatefulSetList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[StatefulSet],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta1.StatefulSetList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: 
+        :param metadata: 
+        """
+        options = StatefulSetListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(StatefulSetListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.StatefulSetListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class StatefulSetListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[StatefulSet],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """StatefulSetList is a collection of StatefulSets.
+
+        :param items: 
+        :param metadata: 
+
+        :schema: io.k8s.api.apps.v1beta1.StatefulSetList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[StatefulSet]:
+        """
+        :schema: io.k8s.api.apps.v1beta1.StatefulSetList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """
+        :schema: io.k8s.api.apps.v1beta1.StatefulSetList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "StatefulSetListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class StatefulSetListV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.StatefulSetListV1Beta2",
+):
+    """StatefulSetList is a collection of StatefulSets.
+
+    :schema: io.k8s.api.apps.v1beta2.StatefulSetList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[StatefulSet],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.StatefulSetList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: 
+        :param metadata: 
+        """
+        options = StatefulSetListV1Beta2Options(items=items, metadata=metadata)
+
+        jsii.create(StatefulSetListV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.StatefulSetListV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class StatefulSetListV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[StatefulSet],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """StatefulSetList is a collection of StatefulSets.
+
+        :param items: 
+        :param metadata: 
+
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[StatefulSet]:
+        """
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "StatefulSetListV1Beta2Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.StatefulSetOptions",
     jsii_struct_bases=[],
@@ -28883,7 +36926,7 @@ class StatefulSetSpec:
         :param update_strategy: updateStrategy indicates the StatefulSetUpdateStrategy that will be employed to update Pods in the StatefulSet when a revision is made to Template.
         :param volume_claim_templates: volumeClaimTemplates is a list of claims that pods are allowed to reference. The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec
         """
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
@@ -28913,7 +36956,7 @@ class StatefulSetSpec:
 
         It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec#selector
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#selector
         """
         result = self._values.get("selector")
         assert result is not None, "Required property 'selector' is missing"
@@ -28925,7 +36968,7 @@ class StatefulSetSpec:
 
         This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where "pod-specific-string" is managed by the StatefulSet controller.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec#serviceName
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#serviceName
         """
         result = self._values.get("service_name")
         assert result is not None, "Required property 'service_name' is missing"
@@ -28937,7 +36980,7 @@ class StatefulSetSpec:
 
         Each pod stamped out by the StatefulSet will fulfill this Template, but have a unique identity from the rest of the StatefulSet.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec#template
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#template
         """
         result = self._values.get("template")
         assert result is not None, "Required property 'template' is missing"
@@ -28949,7 +36992,7 @@ class StatefulSetSpec:
 
         The default policy is ``OrderedReady``, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is ``Parallel`` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec#podManagementPolicy
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#podManagementPolicy
         """
         result = self._values.get("pod_management_policy")
         return result
@@ -28960,7 +37003,7 @@ class StatefulSetSpec:
 
         These are replicas in the sense that they are instantiations of the same Template, but individual replicas also have a consistent identity. If unspecified, defaults to 1.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec#replicas
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#replicas
         """
         result = self._values.get("replicas")
         return result
@@ -28971,7 +37014,7 @@ class StatefulSetSpec:
 
         The revision history consists of all revisions not represented by a currently applied StatefulSetSpec version. The default value is 10.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec#revisionHistoryLimit
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#revisionHistoryLimit
         """
         result = self._values.get("revision_history_limit")
         return result
@@ -28980,7 +37023,7 @@ class StatefulSetSpec:
     def update_strategy(self) -> typing.Optional["StatefulSetUpdateStrategy"]:
         """updateStrategy indicates the StatefulSetUpdateStrategy that will be employed to update Pods in the StatefulSet when a revision is made to Template.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec#updateStrategy
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#updateStrategy
         """
         result = self._values.get("update_strategy")
         return result
@@ -28993,7 +37036,7 @@ class StatefulSetSpec:
 
         The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetSpec#volumeClaimTemplates
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#volumeClaimTemplates
         """
         result = self._values.get("volume_claim_templates")
         return result
@@ -29029,7 +37072,7 @@ class StatefulSetUpdateStrategy:
         :param rolling_update: RollingUpdate is used to communicate parameters when Type is RollingUpdateStatefulSetStrategyType.
         :param type: Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate. Default: RollingUpdate.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetUpdateStrategy
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetUpdateStrategy
         """
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateStatefulSetStrategy(**rolling_update)
@@ -29043,7 +37086,7 @@ class StatefulSetUpdateStrategy:
     def rolling_update(self) -> typing.Optional[RollingUpdateStatefulSetStrategy]:
         """RollingUpdate is used to communicate parameters when Type is RollingUpdateStatefulSetStrategyType.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetUpdateStrategy#rollingUpdate
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetUpdateStrategy#rollingUpdate
         """
         result = self._values.get("rolling_update")
         return result
@@ -29056,7 +37099,7 @@ class StatefulSetUpdateStrategy:
 
         :default: RollingUpdate.
 
-        :schema: io.k8s.api.apps.v1.StatefulSetUpdateStrategy#type
+        :schema: io.k8s.api.apps.v1beta2.StatefulSetUpdateStrategy#type
         """
         result = self._values.get("type")
         return result
@@ -29069,6 +37112,206 @@ class StatefulSetUpdateStrategy:
 
     def __repr__(self) -> str:
         return "StatefulSetUpdateStrategy(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class StatefulSetV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.StatefulSetV1Beta1",
+):
+    """DEPRECATED - This group version of StatefulSet is deprecated by apps/v1beta2/StatefulSet.
+
+    See the release notes for more information. StatefulSet represents a set of pods with consistent identities. Identities are defined as:
+
+    - Network: A single stable DNS and hostname.
+    - Storage: As many VolumeClaims as requested.
+      The StatefulSet guarantees that a given network identity will always map to the same storage identity.
+
+    :schema: io.k8s.api.apps.v1beta1.StatefulSet
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[StatefulSetSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta1.StatefulSet" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: 
+        :param spec: Spec defines the desired identities of pods in this set.
+        """
+        options = StatefulSetV1Beta1Options(metadata=metadata, spec=spec)
+
+        jsii.create(StatefulSetV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.StatefulSetV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class StatefulSetV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[StatefulSetSpec] = None,
+    ) -> None:
+        """DEPRECATED - This group version of StatefulSet is deprecated by apps/v1beta2/StatefulSet.
+
+        See the release notes for more information. StatefulSet represents a set of pods with consistent identities. Identities are defined as:
+
+        - Network: A single stable DNS and hostname.
+        - Storage: As many VolumeClaims as requested.
+          The StatefulSet guarantees that a given network identity will always map to the same storage identity.
+
+        :param metadata: 
+        :param spec: Spec defines the desired identities of pods in this set.
+
+        :schema: io.k8s.api.apps.v1beta1.StatefulSet
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = StatefulSetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.apps.v1beta1.StatefulSet#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[StatefulSetSpec]:
+        """Spec defines the desired identities of pods in this set.
+
+        :schema: io.k8s.api.apps.v1beta1.StatefulSet#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "StatefulSetV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class StatefulSetV1Beta2(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.StatefulSetV1Beta2",
+):
+    """DEPRECATED - This group version of StatefulSet is deprecated by apps/v1/StatefulSet.
+
+    See the release notes for more information. StatefulSet represents a set of pods with consistent identities. Identities are defined as:
+
+    - Network: A single stable DNS and hostname.
+    - Storage: As many VolumeClaims as requested.
+      The StatefulSet guarantees that a given network identity will always map to the same storage identity.
+
+    :schema: io.k8s.api.apps.v1beta2.StatefulSet
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[StatefulSetSpec] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.apps.v1beta2.StatefulSet" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: 
+        :param spec: Spec defines the desired identities of pods in this set.
+        """
+        options = StatefulSetV1Beta2Options(metadata=metadata, spec=spec)
+
+        jsii.create(StatefulSetV1Beta2, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.StatefulSetV1Beta2Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class StatefulSetV1Beta2Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        spec: typing.Optional[StatefulSetSpec] = None,
+    ) -> None:
+        """DEPRECATED - This group version of StatefulSet is deprecated by apps/v1/StatefulSet.
+
+        See the release notes for more information. StatefulSet represents a set of pods with consistent identities. Identities are defined as:
+
+        - Network: A single stable DNS and hostname.
+        - Storage: As many VolumeClaims as requested.
+          The StatefulSet guarantees that a given network identity will always map to the same storage identity.
+
+        :param metadata: 
+        :param spec: Spec defines the desired identities of pods in this set.
+
+        :schema: io.k8s.api.apps.v1beta2.StatefulSet
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = StatefulSetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.apps.v1beta2.StatefulSet#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional[StatefulSetSpec]:
+        """Spec defines the desired identities of pods in this set.
+
+        :schema: io.k8s.api.apps.v1beta2.StatefulSet#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "StatefulSetV1Beta2Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -29564,6 +37807,94 @@ class StorageClassListOptions:
         )
 
 
+class StorageClassListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.StorageClassListV1Beta1",
+):
+    """StorageClassList is a collection of storage classes.
+
+    :schema: io.k8s.api.storage.v1beta1.StorageClassList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[StorageClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.StorageClassList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is the list of StorageClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = StorageClassListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(StorageClassListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.StorageClassListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class StorageClassListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[StorageClass],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """StorageClassList is a collection of storage classes.
+
+        :param items: Items is the list of StorageClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClassList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[StorageClass]:
+        """Items is the list of StorageClasses.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClassList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClassList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "StorageClassListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.StorageClassOptions",
     jsii_struct_bases=[],
@@ -29719,6 +38050,218 @@ class StorageClassOptions:
 
     def __repr__(self) -> str:
         return "StorageClassOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class StorageClassV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.StorageClassV1Beta1",
+):
+    """StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
+
+    StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
+
+    :schema: io.k8s.api.storage.v1beta1.StorageClass
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        provisioner: builtins.str,
+        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allow_volume_expansion: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional[ObjectMeta] = None,
+        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        reclaim_policy: typing.Optional[builtins.str] = None,
+        volume_binding_mode: typing.Optional[builtins.str] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.StorageClass" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param provisioner: Provisioner indicates the type of the provisioner.
+        :param allowed_topologies: Restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
+        :param allow_volume_expansion: AllowVolumeExpansion shows whether the storage class allow volume expand.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param mount_options: Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
+        :param parameters: Parameters holds the parameters for the provisioner that should create volumes of this storage class.
+        :param reclaim_policy: Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. Default: Delete.
+        :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
+        """
+        options = StorageClassV1Beta1Options(
+            provisioner=provisioner,
+            allowed_topologies=allowed_topologies,
+            allow_volume_expansion=allow_volume_expansion,
+            metadata=metadata,
+            mount_options=mount_options,
+            parameters=parameters,
+            reclaim_policy=reclaim_policy,
+            volume_binding_mode=volume_binding_mode,
+        )
+
+        jsii.create(StorageClassV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.StorageClassV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={
+        "provisioner": "provisioner",
+        "allowed_topologies": "allowedTopologies",
+        "allow_volume_expansion": "allowVolumeExpansion",
+        "metadata": "metadata",
+        "mount_options": "mountOptions",
+        "parameters": "parameters",
+        "reclaim_policy": "reclaimPolicy",
+        "volume_binding_mode": "volumeBindingMode",
+    },
+)
+class StorageClassV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        provisioner: builtins.str,
+        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allow_volume_expansion: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional[ObjectMeta] = None,
+        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        reclaim_policy: typing.Optional[builtins.str] = None,
+        volume_binding_mode: typing.Optional[builtins.str] = None,
+    ) -> None:
+        """StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
+
+        StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
+
+        :param provisioner: Provisioner indicates the type of the provisioner.
+        :param allowed_topologies: Restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
+        :param allow_volume_expansion: AllowVolumeExpansion shows whether the storage class allow volume expand.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param mount_options: Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
+        :param parameters: Parameters holds the parameters for the provisioner that should create volumes of this storage class.
+        :param reclaim_policy: Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. Default: Delete.
+        :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "provisioner": provisioner,
+        }
+        if allowed_topologies is not None:
+            self._values["allowed_topologies"] = allowed_topologies
+        if allow_volume_expansion is not None:
+            self._values["allow_volume_expansion"] = allow_volume_expansion
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if mount_options is not None:
+            self._values["mount_options"] = mount_options
+        if parameters is not None:
+            self._values["parameters"] = parameters
+        if reclaim_policy is not None:
+            self._values["reclaim_policy"] = reclaim_policy
+        if volume_binding_mode is not None:
+            self._values["volume_binding_mode"] = volume_binding_mode
+
+    @builtins.property
+    def provisioner(self) -> builtins.str:
+        """Provisioner indicates the type of the provisioner.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass#provisioner
+        """
+        result = self._values.get("provisioner")
+        assert result is not None, "Required property 'provisioner' is missing"
+        return result
+
+    @builtins.property
+    def allowed_topologies(
+        self,
+    ) -> typing.Optional[typing.List["TopologySelectorTerm"]]:
+        """Restrict the node topologies where volumes can be dynamically provisioned.
+
+        Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass#allowedTopologies
+        """
+        result = self._values.get("allowed_topologies")
+        return result
+
+    @builtins.property
+    def allow_volume_expansion(self) -> typing.Optional[builtins.bool]:
+        """AllowVolumeExpansion shows whether the storage class allow volume expand.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass#allowVolumeExpansion
+        """
+        result = self._values.get("allow_volume_expansion")
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object's metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def mount_options(self) -> typing.Optional[typing.List[builtins.str]]:
+        """Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass#mountOptions
+        """
+        result = self._values.get("mount_options")
+        return result
+
+    @builtins.property
+    def parameters(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
+        """Parameters holds the parameters for the provisioner that should create volumes of this storage class.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass#parameters
+        """
+        result = self._values.get("parameters")
+        return result
+
+    @builtins.property
+    def reclaim_policy(self) -> typing.Optional[builtins.str]:
+        """Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy.
+
+        Defaults to Delete.
+
+        :default: Delete.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass#reclaimPolicy
+        """
+        result = self._values.get("reclaim_policy")
+        return result
+
+    @builtins.property
+    def volume_binding_mode(self) -> typing.Optional[builtins.str]:
+        """VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.
+
+        When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
+
+        :schema: io.k8s.api.storage.v1beta1.StorageClass#volumeBindingMode
+        """
+        result = self._values.get("volume_binding_mode")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "StorageClassV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -29979,7 +38522,7 @@ class Subject:
         :param api_group: APIGroup holds the API group of the referenced subject. Defaults to "" for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io" for User and Group subjects. Default: for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io" for User and Group subjects.
         :param namespace: Namespace of the referenced object. If the object kind is non-namespace, such as "User" or "Group", and this value is not empty the Authorizer should report an error.
 
-        :schema: io.k8s.api.rbac.v1.Subject
+        :schema: io.k8s.api.rbac.v1beta1.Subject
         """
         self._values: typing.Dict[str, typing.Any] = {
             "kind": kind,
@@ -29996,7 +38539,7 @@ class Subject:
 
         Values defined by this API group are "User", "Group", and "ServiceAccount". If the Authorizer does not recognized the kind value, the Authorizer should report an error.
 
-        :schema: io.k8s.api.rbac.v1.Subject#kind
+        :schema: io.k8s.api.rbac.v1beta1.Subject#kind
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
@@ -30006,7 +38549,7 @@ class Subject:
     def name(self) -> builtins.str:
         """Name of the object being referenced.
 
-        :schema: io.k8s.api.rbac.v1.Subject#name
+        :schema: io.k8s.api.rbac.v1beta1.Subject#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
@@ -30020,7 +38563,7 @@ class Subject:
 
         :default: for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io" for User and Group subjects.
 
-        :schema: io.k8s.api.rbac.v1.Subject#apiGroup
+        :schema: io.k8s.api.rbac.v1beta1.Subject#apiGroup
         """
         result = self._values.get("api_group")
         return result
@@ -30031,7 +38574,7 @@ class Subject:
 
         If the object kind is non-namespace, such as "User" or "Group", and this value is not empty the Authorizer should report an error.
 
-        :schema: io.k8s.api.rbac.v1.Subject#namespace
+        :schema: io.k8s.api.rbac.v1beta1.Subject#namespace
         """
         result = self._values.get("namespace")
         return result
@@ -30142,7 +38685,7 @@ class SubjectAccessReviewOptions:
     jsii_struct_bases=[],
     name_mapping={
         "extra": "extra",
-        "groups": "groups",
+        "group": "group",
         "non_resource_attributes": "nonResourceAttributes",
         "resource_attributes": "resourceAttributes",
         "uid": "uid",
@@ -30154,7 +38697,7 @@ class SubjectAccessReviewSpec:
         self,
         *,
         extra: typing.Optional[typing.Mapping[builtins.str, typing.List[builtins.str]]] = None,
-        groups: typing.Optional[typing.List[builtins.str]] = None,
+        group: typing.Optional[typing.List[builtins.str]] = None,
         non_resource_attributes: typing.Optional[NonResourceAttributes] = None,
         resource_attributes: typing.Optional[ResourceAttributes] = None,
         uid: typing.Optional[builtins.str] = None,
@@ -30165,13 +38708,13 @@ class SubjectAccessReviewSpec:
         Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
 
         :param extra: Extra corresponds to the user.Info.GetExtra() method from the authenticator. Since that is input to the authorizer it needs a reflection here.
-        :param groups: Groups is the groups you're testing for.
+        :param group: Groups is the groups you're testing for.
         :param non_resource_attributes: NonResourceAttributes describes information for a non-resource access request.
         :param resource_attributes: ResourceAuthorizationAttributes describes information for a resource access request.
         :param uid: UID information about the requesting user.
-        :param user: User is the user you're testing for. If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
+        :param user: User is the user you're testing for. If you specify "User" but not "Group", then is it interpreted as "What if User were not a member of any groups
 
-        :schema: io.k8s.api.authorization.v1.SubjectAccessReviewSpec
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec
         """
         if isinstance(non_resource_attributes, dict):
             non_resource_attributes = NonResourceAttributes(**non_resource_attributes)
@@ -30180,8 +38723,8 @@ class SubjectAccessReviewSpec:
         self._values: typing.Dict[str, typing.Any] = {}
         if extra is not None:
             self._values["extra"] = extra
-        if groups is not None:
-            self._values["groups"] = groups
+        if group is not None:
+            self._values["group"] = group
         if non_resource_attributes is not None:
             self._values["non_resource_attributes"] = non_resource_attributes
         if resource_attributes is not None:
@@ -30197,25 +38740,25 @@ class SubjectAccessReviewSpec:
     ) -> typing.Optional[typing.Mapping[builtins.str, typing.List[builtins.str]]]:
         """Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.
 
-        :schema: io.k8s.api.authorization.v1.SubjectAccessReviewSpec#extra
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#extra
         """
         result = self._values.get("extra")
         return result
 
     @builtins.property
-    def groups(self) -> typing.Optional[typing.List[builtins.str]]:
+    def group(self) -> typing.Optional[typing.List[builtins.str]]:
         """Groups is the groups you're testing for.
 
-        :schema: io.k8s.api.authorization.v1.SubjectAccessReviewSpec#groups
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#group
         """
-        result = self._values.get("groups")
+        result = self._values.get("group")
         return result
 
     @builtins.property
     def non_resource_attributes(self) -> typing.Optional[NonResourceAttributes]:
         """NonResourceAttributes describes information for a non-resource access request.
 
-        :schema: io.k8s.api.authorization.v1.SubjectAccessReviewSpec#nonResourceAttributes
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#nonResourceAttributes
         """
         result = self._values.get("non_resource_attributes")
         return result
@@ -30224,7 +38767,7 @@ class SubjectAccessReviewSpec:
     def resource_attributes(self) -> typing.Optional[ResourceAttributes]:
         """ResourceAuthorizationAttributes describes information for a resource access request.
 
-        :schema: io.k8s.api.authorization.v1.SubjectAccessReviewSpec#resourceAttributes
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#resourceAttributes
         """
         result = self._values.get("resource_attributes")
         return result
@@ -30233,7 +38776,7 @@ class SubjectAccessReviewSpec:
     def uid(self) -> typing.Optional[builtins.str]:
         """UID information about the requesting user.
 
-        :schema: io.k8s.api.authorization.v1.SubjectAccessReviewSpec#uid
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#uid
         """
         result = self._values.get("uid")
         return result
@@ -30242,9 +38785,9 @@ class SubjectAccessReviewSpec:
     def user(self) -> typing.Optional[builtins.str]:
         """User is the user you're testing for.
 
-        If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
+        If you specify "User" but not "Group", then is it interpreted as "What if User were not a member of any groups
 
-        :schema: io.k8s.api.authorization.v1.SubjectAccessReviewSpec#user
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#user
         """
         result = self._values.get("user")
         return result
@@ -30257,6 +38800,95 @@ class SubjectAccessReviewSpec:
 
     def __repr__(self) -> str:
         return "SubjectAccessReviewSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class SubjectAccessReviewV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.SubjectAccessReviewV1Beta1",
+):
+    """SubjectAccessReview checks whether or not a user or group can perform an action.
+
+    :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReview
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: SubjectAccessReviewSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.authorization.v1beta1.SubjectAccessReview" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        options = SubjectAccessReviewV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(SubjectAccessReviewV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.SubjectAccessReviewV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class SubjectAccessReviewV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: SubjectAccessReviewSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """SubjectAccessReview checks whether or not a user or group can perform an action.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReview
+        """
+        if isinstance(spec, dict):
+            spec = SubjectAccessReviewSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> SubjectAccessReviewSpec:
+        """Spec holds information about the request being evaluated.
+
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReview#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReview#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "SubjectAccessReviewV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -30801,7 +39433,7 @@ class TokenReviewSpec:
         :param audiences: Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.
         :param token: Token is the opaque bearer token.
 
-        :schema: io.k8s.api.authentication.v1.TokenReviewSpec
+        :schema: io.k8s.api.authentication.v1beta1.TokenReviewSpec
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if audiences is not None:
@@ -30815,7 +39447,7 @@ class TokenReviewSpec:
 
         Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.
 
-        :schema: io.k8s.api.authentication.v1.TokenReviewSpec#audiences
+        :schema: io.k8s.api.authentication.v1beta1.TokenReviewSpec#audiences
         """
         result = self._values.get("audiences")
         return result
@@ -30824,7 +39456,7 @@ class TokenReviewSpec:
     def token(self) -> typing.Optional[builtins.str]:
         """Token is the opaque bearer token.
 
-        :schema: io.k8s.api.authentication.v1.TokenReviewSpec#token
+        :schema: io.k8s.api.authentication.v1beta1.TokenReviewSpec#token
         """
         result = self._values.get("token")
         return result
@@ -30837,6 +39469,99 @@ class TokenReviewSpec:
 
     def __repr__(self) -> str:
         return "TokenReviewSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class TokenReviewV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.TokenReviewV1Beta1",
+):
+    """TokenReview attempts to authenticate a token to a known user.
+
+    Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
+
+    :schema: io.k8s.api.authentication.v1beta1.TokenReview
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: TokenReviewSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.authentication.v1beta1.TokenReview" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        options = TokenReviewV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(TokenReviewV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.TokenReviewV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class TokenReviewV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: TokenReviewSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """TokenReview attempts to authenticate a token to a known user.
+
+        Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+
+        :schema: io.k8s.api.authentication.v1beta1.TokenReview
+        """
+        if isinstance(spec, dict):
+            spec = TokenReviewSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> TokenReviewSpec:
+        """Spec holds information about the request being evaluated.
+
+        :schema: io.k8s.api.authentication.v1beta1.TokenReview#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """
+        :schema: io.k8s.api.authentication.v1beta1.TokenReview#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "TokenReviewV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -31226,15 +39951,15 @@ class TypedLocalObjectReference:
     jsii_type="k8s.ValidatingWebhook",
     jsii_struct_bases=[],
     name_mapping={
-        "admission_review_versions": "admissionReviewVersions",
         "client_config": "clientConfig",
         "name": "name",
-        "side_effects": "sideEffects",
+        "admission_review_versions": "admissionReviewVersions",
         "failure_policy": "failurePolicy",
         "match_policy": "matchPolicy",
         "namespace_selector": "namespaceSelector",
         "object_selector": "objectSelector",
         "rules": "rules",
+        "side_effects": "sideEffects",
         "timeout_seconds": "timeoutSeconds",
     },
 )
@@ -31242,31 +39967,31 @@ class ValidatingWebhook:
     def __init__(
         self,
         *,
-        admission_review_versions: typing.List[builtins.str],
         client_config: "WebhookClientConfig",
         name: builtins.str,
-        side_effects: builtins.str,
+        admission_review_versions: typing.Optional[typing.List[builtins.str]] = None,
         failure_policy: typing.Optional[builtins.str] = None,
         match_policy: typing.Optional[builtins.str] = None,
         namespace_selector: typing.Optional[LabelSelector] = None,
         object_selector: typing.Optional[LabelSelector] = None,
         rules: typing.Optional[typing.List[RuleWithOperations]] = None,
+        side_effects: typing.Optional[builtins.str] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         """ValidatingWebhook describes an admission webhook and the resources and operations it applies to.
 
-        :param admission_review_versions: AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
         :param client_config: ClientConfig defines how to communicate with the hook. Required
         :param name: The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
-        :param side_effects: SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.
-        :param failure_policy: FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Fail. Default: Fail.
-        :param match_policy: matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent". - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook. - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook. Defaults to "Equivalent" Default: Equivalent"
+        :param admission_review_versions: AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to ``['v1beta1']``. Default: v1beta1']`.
+        :param failure_policy: FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Ignore. Default: Ignore.
+        :param match_policy: matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent". - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook. - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook. Defaults to "Exact" Default: Exact"
         :param namespace_selector: NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook. For example, to run the webhook on any objects whose namespace is not associated with "runlevel" of "0" or "1"; you will set the selector as follows: "namespaceSelector": { "matchExpressions": [ { "key": "runlevel", "operator": "NotIn", "values": [ "0", "1" ] } ] } If instead you want to only run the webhook on any objects whose namespace is associated with the "environment" of "prod" or "staging"; you will set the selector as follows: "namespaceSelector": { "matchExpressions": [ { "key": "environment", "operator": "In", "values": [ "prod", "staging" ] } ] } See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors. Default to the empty LabelSelector, which matches everything. Default: the empty LabelSelector, which matches everything.
         :param object_selector: ObjectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything. Default: the empty LabelSelector, which matches everything.
         :param rules: Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches *any* Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-        :param timeout_seconds: TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds. Default: 10 seconds.
+        :param side_effects: SideEffects states whether this webhook has side effects. Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown. Default: Unknown.
+        :param timeout_seconds: TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds. Default: 30 seconds.
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook
         """
         if isinstance(client_config, dict):
             client_config = WebhookClientConfig(**client_config)
@@ -31275,11 +40000,11 @@ class ValidatingWebhook:
         if isinstance(object_selector, dict):
             object_selector = LabelSelector(**object_selector)
         self._values: typing.Dict[str, typing.Any] = {
-            "admission_review_versions": admission_review_versions,
             "client_config": client_config,
             "name": name,
-            "side_effects": side_effects,
         }
+        if admission_review_versions is not None:
+            self._values["admission_review_versions"] = admission_review_versions
         if failure_policy is not None:
             self._values["failure_policy"] = failure_policy
         if match_policy is not None:
@@ -31290,20 +40015,10 @@ class ValidatingWebhook:
             self._values["object_selector"] = object_selector
         if rules is not None:
             self._values["rules"] = rules
+        if side_effects is not None:
+            self._values["side_effects"] = side_effects
         if timeout_seconds is not None:
             self._values["timeout_seconds"] = timeout_seconds
-
-    @builtins.property
-    def admission_review_versions(self) -> typing.List[builtins.str]:
-        """AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects.
-
-        API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
-
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#admissionReviewVersions
-        """
-        result = self._values.get("admission_review_versions")
-        assert result is not None, "Required property 'admission_review_versions' is missing"
-        return result
 
     @builtins.property
     def client_config(self) -> "WebhookClientConfig":
@@ -31311,7 +40026,7 @@ class ValidatingWebhook:
 
         Required
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#clientConfig
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#clientConfig
         """
         result = self._values.get("client_config")
         assert result is not None, "Required property 'client_config' is missing"
@@ -31323,33 +40038,34 @@ class ValidatingWebhook:
 
         Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#name
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#name
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
         return result
 
     @builtins.property
-    def side_effects(self) -> builtins.str:
-        """SideEffects states whether this webhook has side effects.
+    def admission_review_versions(self) -> typing.Optional[typing.List[builtins.str]]:
+        """AdmissionReviewVersions is an ordered list of preferred ``AdmissionReview`` versions the Webhook expects.
 
-        Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.
+        API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to ``['v1beta1']``.
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#sideEffects
+        :default: v1beta1']`.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#admissionReviewVersions
         """
-        result = self._values.get("side_effects")
-        assert result is not None, "Required property 'side_effects' is missing"
+        result = self._values.get("admission_review_versions")
         return result
 
     @builtins.property
     def failure_policy(self) -> typing.Optional[builtins.str]:
         """FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail.
 
-        Defaults to Fail.
+        Defaults to Ignore.
 
-        :default: Fail.
+        :default: Ignore.
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#failurePolicy
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#failurePolicy
         """
         result = self._values.get("failure_policy")
         return result
@@ -31361,11 +40077,11 @@ class ValidatingWebhook:
         - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
         - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included ``apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]``, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
 
-        Defaults to "Equivalent"
+        Defaults to "Exact"
 
-        :default: Equivalent"
+        :default: Exact"
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#matchPolicy
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#matchPolicy
         """
         result = self._values.get("match_policy")
         return result
@@ -31408,7 +40124,7 @@ class ValidatingWebhook:
 
         :default: the empty LabelSelector, which matches everything.
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#namespaceSelector
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#namespaceSelector
         """
         result = self._values.get("namespace_selector")
         return result
@@ -31421,7 +40137,7 @@ class ValidatingWebhook:
 
         :default: the empty LabelSelector, which matches everything.
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#objectSelector
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#objectSelector
         """
         result = self._values.get("object_selector")
         return result
@@ -31432,20 +40148,33 @@ class ValidatingWebhook:
 
         The webhook cares about an operation if it matches *any* Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#rules
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#rules
         """
         result = self._values.get("rules")
+        return result
+
+    @builtins.property
+    def side_effects(self) -> typing.Optional[builtins.str]:
+        """SideEffects states whether this webhook has side effects.
+
+        Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.
+
+        :default: Unknown.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#sideEffects
+        """
+        result = self._values.get("side_effects")
         return result
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
         """TimeoutSeconds specifies the timeout for this webhook.
 
-        After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.
+        After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.
 
-        :default: 10 seconds.
+        :default: 30 seconds.
 
-        :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhook#timeoutSeconds
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
         return result
@@ -31586,6 +40315,98 @@ class ValidatingWebhookConfigurationListOptions:
         )
 
 
+class ValidatingWebhookConfigurationListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ValidatingWebhookConfigurationListV1Beta1",
+):
+    """ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
+
+    :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[ValidatingWebhookConfiguration],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: List of ValidatingWebhookConfiguration.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        options = ValidatingWebhookConfigurationListV1Beta1Options(
+            items=items, metadata=metadata
+        )
+
+        jsii.create(ValidatingWebhookConfigurationListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ValidatingWebhookConfigurationListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class ValidatingWebhookConfigurationListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[ValidatingWebhookConfiguration],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
+
+        :param items: List of ValidatingWebhookConfiguration.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[ValidatingWebhookConfiguration]:
+        """List of ValidatingWebhookConfiguration.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ValidatingWebhookConfigurationListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.ValidatingWebhookConfigurationOptions",
     jsii_struct_bases=[],
@@ -31641,6 +40462,101 @@ class ValidatingWebhookConfigurationOptions:
 
     def __repr__(self) -> str:
         return "ValidatingWebhookConfigurationOptions(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class ValidatingWebhookConfigurationV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.ValidatingWebhookConfigurationV1Beta1",
+):
+    """ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
+
+    Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 ValidatingWebhookConfiguration instead.
+
+    :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        webhooks: typing.Optional[typing.List[ValidatingWebhook]] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
+        """
+        options = ValidatingWebhookConfigurationV1Beta1Options(
+            metadata=metadata, webhooks=webhooks
+        )
+
+        jsii.create(ValidatingWebhookConfigurationV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.ValidatingWebhookConfigurationV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
+)
+class ValidatingWebhookConfigurationV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[ObjectMeta] = None,
+        webhooks: typing.Optional[typing.List[ValidatingWebhook]] = None,
+    ) -> None:
+        """ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
+
+        Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 ValidatingWebhookConfiguration instead.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if webhooks is not None:
+            self._values["webhooks"] = webhooks
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object metadata;
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def webhooks(self) -> typing.Optional[typing.List[ValidatingWebhook]]:
+        """Webhooks is a list of webhooks and the affected resources and operations.
+
+        :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration#webhooks
+        """
+        result = self._values.get("webhooks")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "ValidatingWebhookConfigurationV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -32290,6 +41206,182 @@ class VolumeAttachmentListOptions:
         )
 
 
+class VolumeAttachmentListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.VolumeAttachmentListV1Alpha1",
+):
+    """VolumeAttachmentList is a collection of VolumeAttachment objects.
+
+    :schema: io.k8s.api.storage.v1alpha1.VolumeAttachmentList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[VolumeAttachment],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1alpha1.VolumeAttachmentList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is the list of VolumeAttachments.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = VolumeAttachmentListV1Alpha1Options(items=items, metadata=metadata)
+
+        jsii.create(VolumeAttachmentListV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.VolumeAttachmentListV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class VolumeAttachmentListV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[VolumeAttachment],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """VolumeAttachmentList is a collection of VolumeAttachment objects.
+
+        :param items: Items is the list of VolumeAttachments.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1alpha1.VolumeAttachmentList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[VolumeAttachment]:
+        """Items is the list of VolumeAttachments.
+
+        :schema: io.k8s.api.storage.v1alpha1.VolumeAttachmentList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1alpha1.VolumeAttachmentList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "VolumeAttachmentListV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class VolumeAttachmentListV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.VolumeAttachmentListV1Beta1",
+):
+    """VolumeAttachmentList is a collection of VolumeAttachment objects.
+
+    :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        items: typing.List[VolumeAttachment],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.VolumeAttachmentList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param items: Items is the list of VolumeAttachments.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        options = VolumeAttachmentListV1Beta1Options(items=items, metadata=metadata)
+
+        jsii.create(VolumeAttachmentListV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.VolumeAttachmentListV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class VolumeAttachmentListV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        items: typing.List[VolumeAttachment],
+        metadata: typing.Optional[ListMeta] = None,
+    ) -> None:
+        """VolumeAttachmentList is a collection of VolumeAttachment objects.
+
+        :param items: Items is the list of VolumeAttachments.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List[VolumeAttachment]:
+        """Items is the list of VolumeAttachments.
+
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ListMeta]:
+        """Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "VolumeAttachmentListV1Beta1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
 @jsii.data_type(
     jsii_type="k8s.VolumeAttachmentOptions",
     jsii_struct_bases=[],
@@ -32378,7 +41470,7 @@ class VolumeAttachmentSource:
         :param inline_volume_spec: inlineVolumeSpec contains all the information necessary to attach a persistent volume defined by a pod's inline VolumeSource. This field is populated only for the CSIMigration feature. It contains translated fields from a pod's inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the CSIMigration feature.
         :param persistent_volume_name: Name of the persistent volume to attach.
 
-        :schema: io.k8s.api.storage.v1.VolumeAttachmentSource
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSource
         """
         if isinstance(inline_volume_spec, dict):
             inline_volume_spec = PersistentVolumeSpec(**inline_volume_spec)
@@ -32394,7 +41486,7 @@ class VolumeAttachmentSource:
 
         This field is populated only for the CSIMigration feature. It contains translated fields from a pod's inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the CSIMigration feature.
 
-        :schema: io.k8s.api.storage.v1.VolumeAttachmentSource#inlineVolumeSpec
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSource#inlineVolumeSpec
         """
         result = self._values.get("inline_volume_spec")
         return result
@@ -32403,7 +41495,7 @@ class VolumeAttachmentSource:
     def persistent_volume_name(self) -> typing.Optional[builtins.str]:
         """Name of the persistent volume to attach.
 
-        :schema: io.k8s.api.storage.v1.VolumeAttachmentSource#persistentVolumeName
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSource#persistentVolumeName
         """
         result = self._values.get("persistent_volume_name")
         return result
@@ -32439,7 +41531,7 @@ class VolumeAttachmentSpec:
         :param node_name: The node that the volume should be attached to.
         :param source: Source represents the volume that should be attached.
 
-        :schema: io.k8s.api.storage.v1.VolumeAttachmentSpec
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSpec
         """
         if isinstance(source, dict):
             source = VolumeAttachmentSource(**source)
@@ -32455,7 +41547,7 @@ class VolumeAttachmentSpec:
 
         This is the name returned by GetPluginName().
 
-        :schema: io.k8s.api.storage.v1.VolumeAttachmentSpec#attacher
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSpec#attacher
         """
         result = self._values.get("attacher")
         assert result is not None, "Required property 'attacher' is missing"
@@ -32465,7 +41557,7 @@ class VolumeAttachmentSpec:
     def node_name(self) -> builtins.str:
         """The node that the volume should be attached to.
 
-        :schema: io.k8s.api.storage.v1.VolumeAttachmentSpec#nodeName
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSpec#nodeName
         """
         result = self._values.get("node_name")
         assert result is not None, "Required property 'node_name' is missing"
@@ -32475,7 +41567,7 @@ class VolumeAttachmentSpec:
     def source(self) -> VolumeAttachmentSource:
         """Source represents the volume that should be attached.
 
-        :schema: io.k8s.api.storage.v1.VolumeAttachmentSpec#source
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSpec#source
         """
         result = self._values.get("source")
         assert result is not None, "Required property 'source' is missing"
@@ -32489,6 +41581,202 @@ class VolumeAttachmentSpec:
 
     def __repr__(self) -> str:
         return "VolumeAttachmentSpec(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class VolumeAttachmentV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.VolumeAttachmentV1Alpha1",
+):
+    """VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
+
+    VolumeAttachment objects are non-namespaced.
+
+    :schema: io.k8s.api.storage.v1alpha1.VolumeAttachment
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: VolumeAttachmentSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1alpha1.VolumeAttachment" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
+        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = VolumeAttachmentV1Alpha1Options(spec=spec, metadata=metadata)
+
+        jsii.create(VolumeAttachmentV1Alpha1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.VolumeAttachmentV1Alpha1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class VolumeAttachmentV1Alpha1Options:
+    def __init__(
+        self,
+        *,
+        spec: VolumeAttachmentSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
+
+        VolumeAttachment objects are non-namespaced.
+
+        :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
+        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.storage.v1alpha1.VolumeAttachment
+        """
+        if isinstance(spec, dict):
+            spec = VolumeAttachmentSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> VolumeAttachmentSpec:
+        """Specification of the desired attach/detach volume behavior.
+
+        Populated by the Kubernetes system.
+
+        :schema: io.k8s.api.storage.v1alpha1.VolumeAttachment#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.storage.v1alpha1.VolumeAttachment#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "VolumeAttachmentV1Alpha1Options(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class VolumeAttachmentV1Beta1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.VolumeAttachmentV1Beta1",
+):
+    """VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
+
+    VolumeAttachment objects are non-namespaced.
+
+    :schema: io.k8s.api.storage.v1beta1.VolumeAttachment
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        name: builtins.str,
+        *,
+        spec: VolumeAttachmentSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.storage.v1beta1.VolumeAttachment" API object.
+
+        :param scope: the scope in which to define this object.
+        :param name: a scope-local name for the object.
+        :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
+        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        options = VolumeAttachmentV1Beta1Options(spec=spec, metadata=metadata)
+
+        jsii.create(VolumeAttachmentV1Beta1, self, [scope, name, options])
+
+
+@jsii.data_type(
+    jsii_type="k8s.VolumeAttachmentV1Beta1Options",
+    jsii_struct_bases=[],
+    name_mapping={"spec": "spec", "metadata": "metadata"},
+)
+class VolumeAttachmentV1Beta1Options:
+    def __init__(
+        self,
+        *,
+        spec: VolumeAttachmentSpec,
+        metadata: typing.Optional[ObjectMeta] = None,
+    ) -> None:
+        """VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
+
+        VolumeAttachment objects are non-namespaced.
+
+        :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
+        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachment
+        """
+        if isinstance(spec, dict):
+            spec = VolumeAttachmentSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "spec": spec,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def spec(self) -> VolumeAttachmentSpec:
+        """Specification of the desired attach/detach volume behavior.
+
+        Populated by the Kubernetes system.
+
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachment#spec
+        """
+        result = self._values.get("spec")
+        assert result is not None, "Required property 'spec' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[ObjectMeta]:
+        """Standard object metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.storage.v1beta1.VolumeAttachment#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "VolumeAttachmentV1Beta1Options(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -32724,9 +42012,9 @@ class VolumeNodeResources:
     def __init__(self, *, count: typing.Optional[jsii.Number] = None) -> None:
         """VolumeNodeResources is a set of resource limits for scheduling of volumes.
 
-        :param count: Maximum number of unique volumes managed by the CSI driver that can be used on a node. A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is not specified, then the supported number of volumes on this node is unbounded.
+        :param count: Maximum number of unique volumes managed by the CSI driver that can be used on a node. A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is nil, then the supported number of volumes on this node is unbounded.
 
-        :schema: io.k8s.api.storage.v1.VolumeNodeResources
+        :schema: io.k8s.api.storage.v1beta1.VolumeNodeResources
         """
         self._values: typing.Dict[str, typing.Any] = {}
         if count is not None:
@@ -32736,9 +42024,9 @@ class VolumeNodeResources:
     def count(self) -> typing.Optional[jsii.Number]:
         """Maximum number of unique volumes managed by the CSI driver that can be used on a node.
 
-        A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is not specified, then the supported number of volumes on this node is unbounded.
+        A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is nil, then the supported number of volumes on this node is unbounded.
 
-        :schema: io.k8s.api.storage.v1.VolumeNodeResources#count
+        :schema: io.k8s.api.storage.v1beta1.VolumeNodeResources#count
         """
         result = self._values.get("count")
         return result
@@ -33017,7 +42305,7 @@ class WebhookClientConfig:
         :param service: ``service`` is a reference to the service for this webhook. Either ``service`` or ``url`` must be specified. If the webhook is running within the cluster, then you should use ``service``.
         :param url: ``url`` gives the location of the webhook, in standard URL form (``scheme://host:port/path``). Exactly one of ``url`` or ``service`` must be specified. The ``host`` should not refer to a service running in the cluster; use the ``service`` field instead. The host might be resolved via external DNS in some apiservers (e.g., ``kube-apiserver`` cannot resolve in-cluster DNS as that would be a layering violation). ``host`` may also be an IP address. Please note that using ``localhost`` or ``127.0.0.1`` as a ``host`` is risky unless you take great care to run this webhook on all hosts which run an apiserver which might need to make calls to this webhook. Such installs are likely to be non-portable, i.e., not easy to turn up in a new cluster. The scheme must be "https"; the URL must begin with "https://". A path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier. Attempting to use a user or basic auth e.g. "user:password@" is not allowed. Fragments ("#...") and query parameters ("?...") are not allowed, either.
 
-        :schema: io.k8s.api.admissionregistration.v1.WebhookClientConfig
+        :schema: io.k8s.api.admissionregistration.v1beta1.WebhookClientConfig
         """
         if isinstance(service, dict):
             service = ServiceReference(**service)
@@ -33035,7 +42323,7 @@ class WebhookClientConfig:
 
         If unspecified, system trust roots on the apiserver are used.
 
-        :schema: io.k8s.api.admissionregistration.v1.WebhookClientConfig#caBundle
+        :schema: io.k8s.api.admissionregistration.v1beta1.WebhookClientConfig#caBundle
         """
         result = self._values.get("ca_bundle")
         return result
@@ -33046,7 +42334,7 @@ class WebhookClientConfig:
 
         If the webhook is running within the cluster, then you should use ``service``.
 
-        :schema: io.k8s.api.admissionregistration.v1.WebhookClientConfig#service
+        :schema: io.k8s.api.admissionregistration.v1beta1.WebhookClientConfig#service
         """
         result = self._values.get("service")
         return result
@@ -33067,7 +42355,7 @@ class WebhookClientConfig:
 
         Attempting to use a user or basic auth e.g. "user:password@" is not allowed. Fragments ("#...") and query parameters ("?...") are not allowed, either.
 
-        :schema: io.k8s.api.admissionregistration.v1.WebhookClientConfig#url
+        :schema: io.k8s.api.admissionregistration.v1beta1.WebhookClientConfig#url
         """
         result = self._values.get("url")
         return result
@@ -33080,69 +42368,6 @@ class WebhookClientConfig:
 
     def __repr__(self) -> str:
         return "WebhookClientConfig(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-@jsii.data_type(
-    jsii_type="k8s.WebhookConversion",
-    jsii_struct_bases=[],
-    name_mapping={
-        "conversion_review_versions": "conversionReviewVersions",
-        "client_config": "clientConfig",
-    },
-)
-class WebhookConversion:
-    def __init__(
-        self,
-        *,
-        conversion_review_versions: typing.List[builtins.str],
-        client_config: typing.Optional[WebhookClientConfig] = None,
-    ) -> None:
-        """WebhookConversion describes how to call a conversion webhook.
-
-        :param conversion_review_versions: conversionReviewVersions is an ordered list of preferred ``ConversionReview`` versions the Webhook expects. The API server will use the first version in the list which it supports. If none of the versions specified in this list are supported by API server, conversion will fail for the custom resource. If a persisted Webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail.
-        :param client_config: clientConfig is the instructions for how to call the webhook if strategy is ``Webhook``.
-
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.WebhookConversion
-        """
-        if isinstance(client_config, dict):
-            client_config = WebhookClientConfig(**client_config)
-        self._values: typing.Dict[str, typing.Any] = {
-            "conversion_review_versions": conversion_review_versions,
-        }
-        if client_config is not None:
-            self._values["client_config"] = client_config
-
-    @builtins.property
-    def conversion_review_versions(self) -> typing.List[builtins.str]:
-        """conversionReviewVersions is an ordered list of preferred ``ConversionReview`` versions the Webhook expects.
-
-        The API server will use the first version in the list which it supports. If none of the versions specified in this list are supported by API server, conversion will fail for the custom resource. If a persisted Webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail.
-
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.WebhookConversion#conversionReviewVersions
-        """
-        result = self._values.get("conversion_review_versions")
-        assert result is not None, "Required property 'conversion_review_versions' is missing"
-        return result
-
-    @builtins.property
-    def client_config(self) -> typing.Optional[WebhookClientConfig]:
-        """clientConfig is the instructions for how to call the webhook if strategy is ``Webhook``.
-
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.WebhookConversion#clientConfig
-        """
-        result = self._values.get("client_config")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "WebhookConversion(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -33349,13 +42574,18 @@ __all__ = [
     "ApiService",
     "ApiServiceList",
     "ApiServiceListOptions",
+    "ApiServiceListV1Beta1",
+    "ApiServiceListV1Beta1Options",
     "ApiServiceOptions",
     "ApiServiceSpec",
+    "ApiServiceV1Beta1",
+    "ApiServiceV1Beta1Options",
     "AuditSink",
-    "AuditSinkList",
-    "AuditSinkListOptions",
-    "AuditSinkOptions",
+    "AuditSinkListV1Alpha1",
+    "AuditSinkListV1Alpha1Options",
     "AuditSinkSpec",
+    "AuditSinkV1Alpha1",
+    "AuditSinkV1Alpha1Options",
     "AwsElasticBlockStoreVolumeSource",
     "AzureDiskVolumeSource",
     "AzureFilePersistentVolumeSource",
@@ -33367,10 +42597,11 @@ __all__ = [
     "CephFsPersistentVolumeSource",
     "CephFsVolumeSource",
     "CertificateSigningRequest",
-    "CertificateSigningRequestList",
-    "CertificateSigningRequestListOptions",
-    "CertificateSigningRequestOptions",
+    "CertificateSigningRequestListV1Beta1",
+    "CertificateSigningRequestListV1Beta1Options",
     "CertificateSigningRequestSpec",
+    "CertificateSigningRequestV1Beta1",
+    "CertificateSigningRequestV1Beta1Options",
     "CinderPersistentVolumeSource",
     "CinderVolumeSource",
     "ClientIpConfig",
@@ -33378,10 +42609,26 @@ __all__ = [
     "ClusterRoleBinding",
     "ClusterRoleBindingList",
     "ClusterRoleBindingListOptions",
+    "ClusterRoleBindingListV1Alpha1",
+    "ClusterRoleBindingListV1Alpha1Options",
+    "ClusterRoleBindingListV1Beta1",
+    "ClusterRoleBindingListV1Beta1Options",
     "ClusterRoleBindingOptions",
+    "ClusterRoleBindingV1Alpha1",
+    "ClusterRoleBindingV1Alpha1Options",
+    "ClusterRoleBindingV1Beta1",
+    "ClusterRoleBindingV1Beta1Options",
     "ClusterRoleList",
     "ClusterRoleListOptions",
+    "ClusterRoleListV1Alpha1",
+    "ClusterRoleListV1Alpha1Options",
+    "ClusterRoleListV1Beta1",
+    "ClusterRoleListV1Beta1Options",
     "ClusterRoleOptions",
+    "ClusterRoleV1Alpha1",
+    "ClusterRoleV1Alpha1Options",
+    "ClusterRoleV1Beta1",
+    "ClusterRoleV1Beta1Options",
     "ComponentCondition",
     "ComponentStatus",
     "ComponentStatusList",
@@ -33401,24 +42648,42 @@ __all__ = [
     "ControllerRevision",
     "ControllerRevisionList",
     "ControllerRevisionListOptions",
+    "ControllerRevisionListV1Beta1",
+    "ControllerRevisionListV1Beta1Options",
+    "ControllerRevisionListV1Beta2",
+    "ControllerRevisionListV1Beta2Options",
     "ControllerRevisionOptions",
+    "ControllerRevisionV1Beta1",
+    "ControllerRevisionV1Beta1Options",
+    "ControllerRevisionV1Beta2",
+    "ControllerRevisionV1Beta2Options",
     "CronJob",
-    "CronJobList",
-    "CronJobListOptions",
-    "CronJobOptions",
+    "CronJobListV1Beta1",
+    "CronJobListV1Beta1Options",
+    "CronJobListV2Alpha1",
+    "CronJobListV2Alpha1Options",
     "CronJobSpec",
+    "CronJobV1Beta1",
+    "CronJobV1Beta1Options",
+    "CronJobV2Alpha1",
+    "CronJobV2Alpha1Options",
     "CrossVersionObjectReference",
     "CsiDriver",
-    "CsiDriverList",
-    "CsiDriverListOptions",
-    "CsiDriverOptions",
+    "CsiDriverListV1Beta1",
+    "CsiDriverListV1Beta1Options",
     "CsiDriverSpec",
+    "CsiDriverV1Beta1",
+    "CsiDriverV1Beta1Options",
     "CsiNode",
     "CsiNodeDriver",
     "CsiNodeList",
     "CsiNodeListOptions",
+    "CsiNodeListV1Beta1",
+    "CsiNodeListV1Beta1Options",
     "CsiNodeOptions",
     "CsiNodeSpec",
+    "CsiNodeV1Beta1",
+    "CsiNodeV1Beta1Options",
     "CsiPersistentVolumeSource",
     "CsiVolumeSource",
     "CustomResourceColumnDefinition",
@@ -33426,9 +42691,13 @@ __all__ = [
     "CustomResourceDefinition",
     "CustomResourceDefinitionList",
     "CustomResourceDefinitionListOptions",
+    "CustomResourceDefinitionListV1Beta1",
+    "CustomResourceDefinitionListV1Beta1Options",
     "CustomResourceDefinitionNames",
     "CustomResourceDefinitionOptions",
     "CustomResourceDefinitionSpec",
+    "CustomResourceDefinitionV1Beta1",
+    "CustomResourceDefinitionV1Beta1Options",
     "CustomResourceDefinitionVersion",
     "CustomResourceSubresourceScale",
     "CustomResourceSubresources",
@@ -33436,16 +42705,32 @@ __all__ = [
     "DaemonSet",
     "DaemonSetList",
     "DaemonSetListOptions",
+    "DaemonSetListV1Beta1",
+    "DaemonSetListV1Beta1Options",
+    "DaemonSetListV1Beta2",
+    "DaemonSetListV1Beta2Options",
     "DaemonSetOptions",
     "DaemonSetSpec",
     "DaemonSetUpdateStrategy",
+    "DaemonSetV1Beta1",
+    "DaemonSetV1Beta1Options",
+    "DaemonSetV1Beta2",
+    "DaemonSetV1Beta2Options",
     "DeleteOptions",
     "Deployment",
     "DeploymentList",
     "DeploymentListOptions",
+    "DeploymentListV1Beta1",
+    "DeploymentListV1Beta1Options",
+    "DeploymentListV1Beta2",
+    "DeploymentListV1Beta2Options",
     "DeploymentOptions",
     "DeploymentSpec",
     "DeploymentStrategy",
+    "DeploymentV1Beta1",
+    "DeploymentV1Beta1Options",
+    "DeploymentV1Beta2",
+    "DeploymentV1Beta2Options",
     "DownwardApiProjection",
     "DownwardApiVolumeFile",
     "DownwardApiVolumeSource",
@@ -33455,9 +42740,10 @@ __all__ = [
     "EndpointConditions",
     "EndpointPort",
     "EndpointSlice",
-    "EndpointSliceList",
-    "EndpointSliceListOptions",
-    "EndpointSliceOptions",
+    "EndpointSliceListV1Beta1",
+    "EndpointSliceListV1Beta1Options",
+    "EndpointSliceV1Beta1",
+    "EndpointSliceV1Beta1Options",
     "EndpointSubset",
     "Endpoints",
     "EndpointsList",
@@ -33470,23 +42756,29 @@ __all__ = [
     "Event",
     "EventList",
     "EventListOptions",
+    "EventListV1Beta1",
+    "EventListV1Beta1Options",
     "EventOptions",
     "EventSeries",
     "EventSource",
-    "Eviction",
-    "EvictionOptions",
+    "EventV1Beta1",
+    "EventV1Beta1Options",
+    "EvictionV1Beta1",
+    "EvictionV1Beta1Options",
     "ExecAction",
     "ExternalDocumentation",
+    "ExternalMetricSource",
     "FcVolumeSource",
     "FlexPersistentVolumeSource",
     "FlexVolumeSource",
     "FlockerVolumeSource",
     "FlowDistinguisherMethod",
     "FlowSchema",
-    "FlowSchemaList",
-    "FlowSchemaListOptions",
-    "FlowSchemaOptions",
+    "FlowSchemaListV1Alpha1",
+    "FlowSchemaListV1Alpha1Options",
     "FlowSchemaSpec",
+    "FlowSchemaV1Alpha1",
+    "FlowSchemaV1Alpha1Options",
     "FsGroupStrategyOptions",
     "GcePersistentDiskVolumeSource",
     "GitRepoVolumeSource",
@@ -33496,8 +42788,16 @@ __all__ = [
     "HorizontalPodAutoscaler",
     "HorizontalPodAutoscalerList",
     "HorizontalPodAutoscalerListOptions",
+    "HorizontalPodAutoscalerListV2Beta1",
+    "HorizontalPodAutoscalerListV2Beta1Options",
+    "HorizontalPodAutoscalerListV2Beta2",
+    "HorizontalPodAutoscalerListV2Beta2Options",
     "HorizontalPodAutoscalerOptions",
     "HorizontalPodAutoscalerSpec",
+    "HorizontalPodAutoscalerV2Beta1",
+    "HorizontalPodAutoscalerV2Beta1Options",
+    "HorizontalPodAutoscalerV2Beta2",
+    "HorizontalPodAutoscalerV2Beta2Options",
     "HostAlias",
     "HostPathVolumeSource",
     "HostPortRange",
@@ -33508,12 +42808,13 @@ __all__ = [
     "IdRange",
     "Ingress",
     "IngressBackend",
-    "IngressList",
-    "IngressListOptions",
-    "IngressOptions",
+    "IngressListV1Beta1",
+    "IngressListV1Beta1Options",
     "IngressRule",
     "IngressSpec",
     "IngressTls",
+    "IngressV1Beta1",
+    "IngressV1Beta1Options",
     "IntOrString",
     "IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind",
     "IpBlock",
@@ -33532,8 +42833,12 @@ __all__ = [
     "Lease",
     "LeaseList",
     "LeaseListOptions",
+    "LeaseListV1Beta1",
+    "LeaseListV1Beta1Options",
     "LeaseOptions",
     "LeaseSpec",
+    "LeaseV1Beta1",
+    "LeaseV1Beta1Options",
     "Lifecycle",
     "LimitRange",
     "LimitRangeItem",
@@ -33547,13 +42852,22 @@ __all__ = [
     "LocalObjectReference",
     "LocalSubjectAccessReview",
     "LocalSubjectAccessReviewOptions",
+    "LocalSubjectAccessReviewV1Beta1",
+    "LocalSubjectAccessReviewV1Beta1Options",
     "LocalVolumeSource",
     "ManagedFieldsEntry",
+    "MetricIdentifier",
+    "MetricSpec",
+    "MetricTarget",
     "MutatingWebhook",
     "MutatingWebhookConfiguration",
     "MutatingWebhookConfigurationList",
     "MutatingWebhookConfigurationListOptions",
+    "MutatingWebhookConfigurationListV1Beta1",
+    "MutatingWebhookConfigurationListV1Beta1Options",
     "MutatingWebhookConfigurationOptions",
+    "MutatingWebhookConfigurationV1Beta1",
+    "MutatingWebhookConfigurationV1Beta1Options",
     "Namespace",
     "NamespaceList",
     "NamespaceListOptions",
@@ -33564,10 +42878,14 @@ __all__ = [
     "NetworkPolicyIngressRule",
     "NetworkPolicyList",
     "NetworkPolicyListOptions",
+    "NetworkPolicyListV1Beta1",
+    "NetworkPolicyListV1Beta1Options",
     "NetworkPolicyOptions",
     "NetworkPolicyPeer",
     "NetworkPolicyPort",
     "NetworkPolicySpec",
+    "NetworkPolicyV1Beta1",
+    "NetworkPolicyV1Beta1Options",
     "NfsVolumeSource",
     "Node",
     "NodeAffinity",
@@ -33583,6 +42901,7 @@ __all__ = [
     "NonResourcePolicyRule",
     "ObjectFieldSelector",
     "ObjectMeta",
+    "ObjectMetricSource",
     "ObjectReference",
     "Overhead",
     "OwnerReference",
@@ -33603,33 +42922,37 @@ __all__ = [
     "PodAffinityTerm",
     "PodAntiAffinity",
     "PodDisruptionBudget",
-    "PodDisruptionBudgetList",
-    "PodDisruptionBudgetListOptions",
-    "PodDisruptionBudgetOptions",
+    "PodDisruptionBudgetListV1Beta1",
+    "PodDisruptionBudgetListV1Beta1Options",
     "PodDisruptionBudgetSpec",
+    "PodDisruptionBudgetV1Beta1",
+    "PodDisruptionBudgetV1Beta1Options",
     "PodDnsConfig",
     "PodDnsConfigOption",
     "PodList",
     "PodListOptions",
     "PodOptions",
     "PodPreset",
-    "PodPresetList",
-    "PodPresetListOptions",
-    "PodPresetOptions",
+    "PodPresetListV1Alpha1",
+    "PodPresetListV1Alpha1Options",
     "PodPresetSpec",
+    "PodPresetV1Alpha1",
+    "PodPresetV1Alpha1Options",
     "PodReadinessGate",
     "PodSecurityContext",
     "PodSecurityPolicy",
-    "PodSecurityPolicyList",
-    "PodSecurityPolicyListOptions",
-    "PodSecurityPolicyOptions",
+    "PodSecurityPolicyListV1Beta1",
+    "PodSecurityPolicyListV1Beta1Options",
     "PodSecurityPolicySpec",
+    "PodSecurityPolicyV1Beta1",
+    "PodSecurityPolicyV1Beta1Options",
     "PodSpec",
     "PodTemplate",
     "PodTemplateList",
     "PodTemplateListOptions",
     "PodTemplateOptions",
     "PodTemplateSpec",
+    "PodsMetricSource",
     "Policy",
     "PolicyRule",
     "PolicyRulesWithSubjects",
@@ -33639,13 +42962,22 @@ __all__ = [
     "PriorityClass",
     "PriorityClassList",
     "PriorityClassListOptions",
+    "PriorityClassListV1Alpha1",
+    "PriorityClassListV1Alpha1Options",
+    "PriorityClassListV1Beta1",
+    "PriorityClassListV1Beta1Options",
     "PriorityClassOptions",
+    "PriorityClassV1Alpha1",
+    "PriorityClassV1Alpha1Options",
+    "PriorityClassV1Beta1",
+    "PriorityClassV1Beta1Options",
     "PriorityLevelConfiguration",
-    "PriorityLevelConfigurationList",
-    "PriorityLevelConfigurationListOptions",
-    "PriorityLevelConfigurationOptions",
+    "PriorityLevelConfigurationListV1Alpha1",
+    "PriorityLevelConfigurationListV1Alpha1Options",
     "PriorityLevelConfigurationReference",
     "PriorityLevelConfigurationSpec",
+    "PriorityLevelConfigurationV1Alpha1",
+    "PriorityLevelConfigurationV1Alpha1Options",
     "Probe",
     "ProjectedVolumeSource",
     "Quantity",
@@ -33656,8 +42988,16 @@ __all__ = [
     "ReplicaSet",
     "ReplicaSetList",
     "ReplicaSetListOptions",
+    "ReplicaSetListV1Beta1",
+    "ReplicaSetListV1Beta1Options",
+    "ReplicaSetListV1Beta2",
+    "ReplicaSetListV1Beta2Options",
     "ReplicaSetOptions",
     "ReplicaSetSpec",
+    "ReplicaSetV1Beta1",
+    "ReplicaSetV1Beta1Options",
+    "ReplicaSetV1Beta2",
+    "ReplicaSetV1Beta2Options",
     "ReplicationController",
     "ReplicationControllerList",
     "ReplicationControllerListOptions",
@@ -33665,6 +43005,7 @@ __all__ = [
     "ReplicationControllerSpec",
     "ResourceAttributes",
     "ResourceFieldSelector",
+    "ResourceMetricSource",
     "ResourcePolicyRule",
     "ResourceQuota",
     "ResourceQuotaList",
@@ -33676,11 +43017,27 @@ __all__ = [
     "RoleBinding",
     "RoleBindingList",
     "RoleBindingListOptions",
+    "RoleBindingListV1Alpha1",
+    "RoleBindingListV1Alpha1Options",
+    "RoleBindingListV1Beta1",
+    "RoleBindingListV1Beta1Options",
     "RoleBindingOptions",
+    "RoleBindingV1Alpha1",
+    "RoleBindingV1Alpha1Options",
+    "RoleBindingV1Beta1",
+    "RoleBindingV1Beta1Options",
     "RoleList",
     "RoleListOptions",
+    "RoleListV1Alpha1",
+    "RoleListV1Alpha1Options",
+    "RoleListV1Beta1",
+    "RoleListV1Beta1Options",
     "RoleOptions",
     "RoleRef",
+    "RoleV1Alpha1",
+    "RoleV1Alpha1Options",
+    "RoleV1Beta1",
+    "RoleV1Beta1Options",
     "RollingUpdateDaemonSet",
     "RollingUpdateDeployment",
     "RollingUpdateStatefulSetStrategy",
@@ -33688,15 +43045,25 @@ __all__ = [
     "RunAsGroupStrategyOptions",
     "RunAsUserStrategyOptions",
     "RuntimeClass",
-    "RuntimeClassList",
-    "RuntimeClassListOptions",
-    "RuntimeClassOptions",
+    "RuntimeClassListV1Alpha1",
+    "RuntimeClassListV1Alpha1Options",
+    "RuntimeClassListV1Beta1",
+    "RuntimeClassListV1Beta1Options",
+    "RuntimeClassSpec",
     "RuntimeClassStrategyOptions",
+    "RuntimeClassV1Alpha1",
+    "RuntimeClassV1Alpha1Options",
+    "RuntimeClassV1Beta1",
+    "RuntimeClassV1Beta1Options",
     "Scale",
     "ScaleIoPersistentVolumeSource",
     "ScaleIoVolumeSource",
     "ScaleOptions",
     "ScaleSpec",
+    "ScaleV1Beta1",
+    "ScaleV1Beta1Options",
+    "ScaleV1Beta2",
+    "ScaleV1Beta2Options",
     "Scheduling",
     "ScopeSelector",
     "ScopedResourceSelectorRequirement",
@@ -33715,9 +43082,13 @@ __all__ = [
     "SelfSubjectAccessReview",
     "SelfSubjectAccessReviewOptions",
     "SelfSubjectAccessReviewSpec",
+    "SelfSubjectAccessReviewV1Beta1",
+    "SelfSubjectAccessReviewV1Beta1Options",
     "SelfSubjectRulesReview",
     "SelfSubjectRulesReviewOptions",
     "SelfSubjectRulesReviewSpec",
+    "SelfSubjectRulesReviewV1Beta1",
+    "SelfSubjectRulesReviewV1Beta1Options",
     "Service",
     "ServiceAccount",
     "ServiceAccountList",
@@ -33734,9 +43105,17 @@ __all__ = [
     "StatefulSet",
     "StatefulSetList",
     "StatefulSetListOptions",
+    "StatefulSetListV1Beta1",
+    "StatefulSetListV1Beta1Options",
+    "StatefulSetListV1Beta2",
+    "StatefulSetListV1Beta2Options",
     "StatefulSetOptions",
     "StatefulSetSpec",
     "StatefulSetUpdateStrategy",
+    "StatefulSetV1Beta1",
+    "StatefulSetV1Beta1Options",
+    "StatefulSetV1Beta2",
+    "StatefulSetV1Beta2Options",
     "Status",
     "StatusCause",
     "StatusDetails",
@@ -33744,13 +43123,19 @@ __all__ = [
     "StorageClass",
     "StorageClassList",
     "StorageClassListOptions",
+    "StorageClassListV1Beta1",
+    "StorageClassListV1Beta1Options",
     "StorageClassOptions",
+    "StorageClassV1Beta1",
+    "StorageClassV1Beta1Options",
     "StorageOsPersistentVolumeSource",
     "StorageOsVolumeSource",
     "Subject",
     "SubjectAccessReview",
     "SubjectAccessReviewOptions",
     "SubjectAccessReviewSpec",
+    "SubjectAccessReviewV1Beta1",
+    "SubjectAccessReviewV1Beta1Options",
     "SupplementalGroupsStrategyOptions",
     "Sysctl",
     "Taint",
@@ -33761,6 +43146,8 @@ __all__ = [
     "TokenReview",
     "TokenReviewOptions",
     "TokenReviewSpec",
+    "TokenReviewV1Beta1",
+    "TokenReviewV1Beta1Options",
     "Toleration",
     "TopologySelectorLabelRequirement",
     "TopologySelectorTerm",
@@ -33770,14 +43157,26 @@ __all__ = [
     "ValidatingWebhookConfiguration",
     "ValidatingWebhookConfigurationList",
     "ValidatingWebhookConfigurationListOptions",
+    "ValidatingWebhookConfigurationListV1Beta1",
+    "ValidatingWebhookConfigurationListV1Beta1Options",
     "ValidatingWebhookConfigurationOptions",
+    "ValidatingWebhookConfigurationV1Beta1",
+    "ValidatingWebhookConfigurationV1Beta1Options",
     "Volume",
     "VolumeAttachment",
     "VolumeAttachmentList",
     "VolumeAttachmentListOptions",
+    "VolumeAttachmentListV1Alpha1",
+    "VolumeAttachmentListV1Alpha1Options",
+    "VolumeAttachmentListV1Beta1",
+    "VolumeAttachmentListV1Beta1Options",
     "VolumeAttachmentOptions",
     "VolumeAttachmentSource",
     "VolumeAttachmentSpec",
+    "VolumeAttachmentV1Alpha1",
+    "VolumeAttachmentV1Alpha1Options",
+    "VolumeAttachmentV1Beta1",
+    "VolumeAttachmentV1Beta1Options",
     "VolumeDevice",
     "VolumeMount",
     "VolumeNodeAffinity",
@@ -33786,7 +43185,6 @@ __all__ = [
     "VsphereVirtualDiskVolumeSource",
     "Webhook",
     "WebhookClientConfig",
-    "WebhookConversion",
     "WebhookThrottleConfig",
     "WeightedPodAffinityTerm",
     "WindowsSecurityContextOptions",
