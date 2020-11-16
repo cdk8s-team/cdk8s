@@ -1,7 +1,7 @@
+import { toPascalCase } from 'codemaker';
 // we just need the types from json-schema
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { JSONSchema4 } from 'json-schema';
-
 import { TypeGenerator } from 'json2jsii';
 
 export interface GeneratedConstruct {
@@ -10,10 +10,17 @@ export interface GeneratedConstruct {
   readonly version: string;
   readonly kind: string;
   readonly schema: JSONSchema4;
+
+  /**
+   * Is this is a custom resource (imported from a CRD) or a core API object?
+   */
+  readonly custom: boolean;
 }
 
 export function generateConstruct(typegen: TypeGenerator, def: GeneratedConstruct) {
-  const constructName = TypeGenerator.normalizeTypeName(def.kind);
+  // add an API version postfix only if this is core API (`import k8s`).
+  const postfix = (def.custom || def.version === 'v1') ? '' : toPascalCase(def.version);
+  const constructName = TypeGenerator.normalizeTypeName(`${def.kind}${postfix}`);
 
   typegen.addCode(constructName, code => {
     const schema = def.schema;
