@@ -2,7 +2,7 @@ import { Construct, Node } from 'constructs';
 import { ApiObject } from './api-object';
 import { Yaml } from './yaml';
 
-export interface IncludeOptions {
+export interface IncludeProps {
   /**
    * Local file path or URL which includes a Kubernetes YAML manifest.
    *
@@ -19,18 +19,18 @@ export interface IncludeOptions {
  * from the manifest.
  */
 export class Include extends Construct {
-  constructor(scope: Construct, name: string, options: IncludeOptions) {
-    super(scope, name);
+  constructor(scope: Construct, id: string, props: IncludeProps) {
+    super(scope, id);
 
-    const objects = Yaml.load(options.url);
+    const objects = Yaml.load(props.url);
 
     let order = 0;
     for (const obj of objects) {
       const objname = obj.metadata?.name ?? `object${order++}`;
 
       // render an id: name[-kind][-namespace]
-      const id = [objname, obj.kind?.toLowerCase(), obj.metadata?.namespace].filter(x => x).join('-');
-      new ApiObject(this, id, obj);
+      const objid = [objname, obj.kind?.toLowerCase(), obj.metadata?.namespace].filter(x => x).join('-');
+      new ApiObject(this, objid, obj);
     }
   }
 

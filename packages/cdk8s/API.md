@@ -24,11 +24,11 @@ Name|Description
 Name|Description
 ----|-----------
 [ApiObjectMetadata](#cdk8s-apiobjectmetadata)|Metadata associated with this object.
-[ApiObjectOptions](#cdk8s-apiobjectoptions)|Options for defining API objects.
-[AppOptions](#cdk8s-appoptions)|*No description*
-[ChartOptions](#cdk8s-chartoptions)|*No description*
-[HelmOptions](#cdk8s-helmoptions)|Options for `Helm`.
-[IncludeOptions](#cdk8s-includeoptions)|*No description*
+[ApiObjectProps](#cdk8s-apiobjectprops)|Options for defining API objects.
+[AppProps](#cdk8s-appprops)|*No description*
+[ChartProps](#cdk8s-chartprops)|*No description*
+[HelmProps](#cdk8s-helmprops)|Options for `Helm`.
+[IncludeProps](#cdk8s-includeprops)|*No description*
 
 
 **Interfaces**
@@ -52,12 +52,12 @@ __Extends__: [Construct](#constructs-construct)
 Defines an API object.
 
 ```ts
-new ApiObject(scope: Construct, ns: string, options: ApiObjectOptions)
+new ApiObject(scope: Construct, id: string, props: ApiObjectProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  the construct scope.
-* **ns** (<code>string</code>)  namespace.
-* **options** (<code>[ApiObjectOptions](#cdk8s-apiobjectoptions)</code>)  options.
+* **id** (<code>string</code>)  namespace.
+* **props** (<code>[ApiObjectProps](#cdk8s-apiobjectprops)</code>)  options.
   * **apiVersion** (<code>string</code>)  API version. 
   * **kind** (<code>string</code>)  Resource kind. 
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Object metadata. __*Optional*__
@@ -253,10 +253,10 @@ __Extends__: [Construct](#constructs-construct)
 Defines an app.
 
 ```ts
-new App(options?: AppOptions)
+new App(props?: AppProps)
 ```
 
-* **options** (<code>[AppOptions](#cdk8s-appoptions)</code>)  configuration options.
+* **props** (<code>[AppProps](#cdk8s-appprops)</code>)  configuration options.
   * **outdir** (<code>string</code>)  The directory to output Kubernetes manifests. __*Default*__: CDK8S_OUTDIR if defined, otherwise "dist"
 
 
@@ -298,12 +298,12 @@ __Extends__: [Construct](#constructs-construct)
 
 
 ```ts
-new Chart(scope: Construct, ns: string, options?: ChartOptions)
+new Chart(scope: Construct, id: string, props?: ChartProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **ns** (<code>string</code>)  *No description*
-* **options** (<code>[ChartOptions](#cdk8s-chartoptions)</code>)  *No description*
+* **id** (<code>string</code>)  *No description*
+* **props** (<code>[ChartProps](#cdk8s-chartprops)</code>)  *No description*
   * **labels** (<code>Map<string, string></code>)  Labels to apply to all resources in this chart. __*Default*__: no common labels
   * **namespace** (<code>string</code>)  The default namespace for all objects defined in this chart (directly or indirectly). __*Default*__: no namespace is synthesized (usually this implies "default")
 
@@ -519,12 +519,12 @@ __Extends__: [Include](#cdk8s-include)
 
 
 ```ts
-new Helm(scope: Construct, id: string, opts: HelmOptions)
+new Helm(scope: Construct, id: string, props: HelmProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **opts** (<code>[HelmOptions](#cdk8s-helmoptions)</code>)  *No description*
+* **props** (<code>[HelmProps](#cdk8s-helmprops)</code>)  *No description*
   * **chart** (<code>string</code>)  The chart name to use. It can be a chart from a helm repository or a local directory. 
   * **helmExecutable** (<code>string</code>)  The local helm executable to use in order to create the manifest the chart. __*Default*__: "helm"
   * **helmFlags** (<code>Array<string></code>)  Additional flags to add to the `helm` execution. __*Default*__: []
@@ -558,12 +558,12 @@ __Extends__: [Construct](#constructs-construct)
 
 
 ```ts
-new Include(scope: Construct, name: string, options: IncludeOptions)
+new Include(scope: Construct, id: string, props: IncludeProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **name** (<code>string</code>)  *No description*
-* **options** (<code>[IncludeOptions](#cdk8s-includeoptions)</code>)  *No description*
+* **id** (<code>string</code>)  *No description*
+* **props** (<code>[IncludeProps](#cdk8s-includeprops)</code>)  *No description*
   * **url** (<code>string</code>)  Local file path or URL which includes a Kubernetes YAML manifest. 
 
 
@@ -925,7 +925,7 @@ Name | Type | Description
 
 
 
-## struct ApiObjectOptions 🔹 <a id="cdk8s-apiobjectoptions"></a>
+## struct ApiObjectProps 🔹 <a id="cdk8s-apiobjectprops"></a>
 
 
 Options for defining API objects.
@@ -940,7 +940,7 @@ Name | Type | Description
 
 
 
-## struct AppOptions 🔹 <a id="cdk8s-appoptions"></a>
+## struct AppProps 🔹 <a id="cdk8s-appprops"></a>
 
 
 
@@ -953,7 +953,7 @@ Name | Type | Description
 
 
 
-## struct ChartOptions 🔹 <a id="cdk8s-chartoptions"></a>
+## struct ChartProps 🔹 <a id="cdk8s-chartprops"></a>
 
 
 
@@ -967,7 +967,7 @@ Name | Type | Description
 
 
 
-## struct HelmOptions 🔹 <a id="cdk8s-helmoptions"></a>
+## struct HelmProps 🔹 <a id="cdk8s-helmprops"></a>
 
 
 Options for `Helm`.
@@ -1005,7 +1005,7 @@ __Returns__:
 
 
 
-## struct IncludeOptions 🔹 <a id="cdk8s-includeoptions"></a>
+## struct IncludeProps 🔹 <a id="cdk8s-includeprops"></a>
 
 
 

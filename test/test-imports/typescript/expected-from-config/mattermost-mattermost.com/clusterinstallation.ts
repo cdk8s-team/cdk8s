@@ -14,7 +14,7 @@ export class ClusterInstallation extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: ClusterInstallationOptions) {
+  public constructor(scope: Construct, id: string, props: ClusterInstallationProps) {
     super(scope, id, {
       ...props,
       kind: 'ClusterInstallation',
@@ -28,7 +28,7 @@ export class ClusterInstallation extends ApiObject {
  *
  * @schema ClusterInstallation
  */
-export interface ClusterInstallationOptions {
+export interface ClusterInstallationProps {
   /**
    * @schema ClusterInstallation#metadata
    */

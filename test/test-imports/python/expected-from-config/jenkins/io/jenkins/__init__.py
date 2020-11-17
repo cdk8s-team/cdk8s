@@ -39,17 +39,17 @@ class Jenkins(
         :param metadata: 
         :param spec: Spec defines the desired state of the Jenkins.
         """
-        props = JenkinsOptions(metadata=metadata, spec=spec)
+        props = JenkinsProps(metadata=metadata, spec=spec)
 
         jsii.create(Jenkins, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="jenkinsiojenkins.JenkinsOptions",
+    jsii_type="jenkinsiojenkins.JenkinsProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class JenkinsOptions:
+class JenkinsProps:
     def __init__(
         self,
         *,
@@ -95,7 +95,7 @@ class JenkinsOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "JenkinsOptions(%s)" % ", ".join(
+        return "JenkinsProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11849,7 +11849,7 @@ class JenkinsSpecSlaveService:
 
 __all__ = [
     "Jenkins",
-    "JenkinsOptions",
+    "JenkinsProps",
     "JenkinsSpec",
     "JenkinsSpecBackup",
     "JenkinsSpecBackupAction",

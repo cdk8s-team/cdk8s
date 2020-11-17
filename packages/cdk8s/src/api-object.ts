@@ -9,7 +9,7 @@ import { ApiObjectMetadata, ApiObjectMetadataDefinition } from './metadata';
 /**
  * Options for defining API objects.
  */
-export interface ApiObjectOptions {
+export interface ApiObjectProps {
   /**
    * Object metadata.
    *
@@ -100,29 +100,29 @@ export class ApiObject extends Construct {
    * Defines an API object.
    *
    * @param scope the construct scope
-   * @param ns namespace
-   * @param options options
+   * @param id namespace
+   * @param props options
    */
-  constructor(scope: Construct, ns: string, private readonly options: ApiObjectOptions) {
-    super(scope, ns);
+  constructor(scope: Construct, id: string, private readonly props: ApiObjectProps) {
+    super(scope, id);
     this.patches = new Array<JsonPatch>();
     this.chart = Chart.of(this);
-    this.kind = options.kind;
-    this.apiVersion = options.apiVersion;
+    this.kind = props.kind;
+    this.apiVersion = props.apiVersion;
     this.apiGroup = parseApiGroup(this.apiVersion);
 
-    this.name = options.metadata?.name ?? this.chart.generateObjectName(this);
+    this.name = props.metadata?.name ?? this.chart.generateObjectName(this);
 
     this.metadata = new ApiObjectMetadataDefinition({
       name: this.name,
 
       // user defined values
-      ...options.metadata,
+      ...props.metadata,
 
-      namespace: options.metadata?.namespace ?? this.chart.namespace,
+      namespace: props.metadata?.namespace ?? this.chart.namespace,
       labels: {
         ...this.chart.labels,
-        ...options.metadata?.labels,
+        ...props.metadata?.labels,
       },
     });
   }
@@ -157,7 +157,7 @@ export class ApiObject extends Construct {
    */
   public toJson(): any {
     const data = {
-      ...this.options,
+      ...this.props,
       metadata: this.metadata.toJson(),
     };
 

@@ -1,9 +1,9 @@
 import { Construct } from 'constructs';
-import { App, Chart } from 'cdk8s';
+import { App, Chart, ChartProps } from 'cdk8s';
 
 export class MyChart extends Chart {
-  constructor(scope: Construct, name: string) {
-    super(scope, name);
+  constructor(scope: Construct, id: string, props: ChartProps = { }) {
+    super(scope, id, props);
 
     // define resources here
 

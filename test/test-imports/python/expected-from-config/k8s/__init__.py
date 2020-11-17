@@ -9613,7 +9613,7 @@ class KubeApiService(
         :param metadata: 
         :param spec: Spec contains information for locating and communicating with a server.
         """
-        props = KubeApiServiceOptions(metadata=metadata, spec=spec)
+        props = KubeApiServiceProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeApiService, self, [scope, id, props])
 
@@ -9633,7 +9633,7 @@ class KubeApiServiceList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeApiServiceOptions"],
+        items: typing.List["KubeApiServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" API object.
@@ -9643,21 +9643,21 @@ class KubeApiServiceList(
         :param items: 
         :param metadata: 
         """
-        props = KubeApiServiceListOptions(items=items, metadata=metadata)
+        props = KubeApiServiceListProps(items=items, metadata=metadata)
 
         jsii.create(KubeApiServiceList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeApiServiceListOptions",
+    jsii_type="k8s.KubeApiServiceListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeApiServiceListOptions:
+class KubeApiServiceListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeApiServiceOptions"],
+        items: typing.List["KubeApiServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """APIServiceList is a list of APIService objects.
@@ -9676,7 +9676,7 @@ class KubeApiServiceListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeApiServiceOptions"]:
+    def items(self) -> typing.List["KubeApiServiceProps"]:
         """
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
         """
@@ -9699,7 +9699,7 @@ class KubeApiServiceListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeApiServiceListOptions(%s)" % ", ".join(
+        return "KubeApiServiceListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -9719,7 +9719,7 @@ class KubeApiServiceListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeApiServiceV1Beta1Options"],
+        items: typing.List["KubeApiServiceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList" API object.
@@ -9729,21 +9729,21 @@ class KubeApiServiceListV1Beta1(
         :param items: 
         :param metadata: 
         """
-        props = KubeApiServiceListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeApiServiceListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeApiServiceListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeApiServiceListV1Beta1Options",
+    jsii_type="k8s.KubeApiServiceListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeApiServiceListV1Beta1Options:
+class KubeApiServiceListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeApiServiceV1Beta1Options"],
+        items: typing.List["KubeApiServiceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """APIServiceList is a list of APIService objects.
@@ -9762,7 +9762,7 @@ class KubeApiServiceListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeApiServiceV1Beta1Options"]:
+    def items(self) -> typing.List["KubeApiServiceV1Beta1Props"]:
         """
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList#items
         """
@@ -9785,17 +9785,17 @@ class KubeApiServiceListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeApiServiceListV1Beta1Options(%s)" % ", ".join(
+        return "KubeApiServiceListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeApiServiceOptions",
+    jsii_type="k8s.KubeApiServiceProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeApiServiceOptions:
+class KubeApiServiceProps:
     def __init__(
         self,
         *,
@@ -9845,7 +9845,7 @@ class KubeApiServiceOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeApiServiceOptions(%s)" % ", ".join(
+        return "KubeApiServiceProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -9877,17 +9877,17 @@ class KubeApiServiceV1Beta1(
         :param metadata: 
         :param spec: Spec contains information for locating and communicating with a server.
         """
-        props = KubeApiServiceV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeApiServiceV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeApiServiceV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeApiServiceV1Beta1Options",
+    jsii_type="k8s.KubeApiServiceV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeApiServiceV1Beta1Options:
+class KubeApiServiceV1Beta1Props:
     def __init__(
         self,
         *,
@@ -9937,7 +9937,7 @@ class KubeApiServiceV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeApiServiceV1Beta1Options(%s)" % ", ".join(
+        return "KubeApiServiceV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -9957,7 +9957,7 @@ class KubeAuditSinkListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeAuditSinkV1Alpha1Options"],
+        items: typing.List["KubeAuditSinkV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" API object.
@@ -9967,21 +9967,21 @@ class KubeAuditSinkListV1Alpha1(
         :param items: List of audit configurations.
         :param metadata: 
         """
-        props = KubeAuditSinkListV1Alpha1Options(items=items, metadata=metadata)
+        props = KubeAuditSinkListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeAuditSinkListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeAuditSinkListV1Alpha1Options",
+    jsii_type="k8s.KubeAuditSinkListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeAuditSinkListV1Alpha1Options:
+class KubeAuditSinkListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeAuditSinkV1Alpha1Options"],
+        items: typing.List["KubeAuditSinkV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """AuditSinkList is a list of AuditSink items.
@@ -10000,7 +10000,7 @@ class KubeAuditSinkListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeAuditSinkV1Alpha1Options"]:
+    def items(self) -> typing.List["KubeAuditSinkV1Alpha1Props"]:
         """List of audit configurations.
 
         :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#items
@@ -10024,7 +10024,7 @@ class KubeAuditSinkListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeAuditSinkListV1Alpha1Options(%s)" % ", ".join(
+        return "KubeAuditSinkListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10054,17 +10054,17 @@ class KubeAuditSinkV1Alpha1(
         :param metadata: 
         :param spec: Spec defines the audit configuration spec.
         """
-        props = KubeAuditSinkV1Alpha1Options(metadata=metadata, spec=spec)
+        props = KubeAuditSinkV1Alpha1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeAuditSinkV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeAuditSinkV1Alpha1Options",
+    jsii_type="k8s.KubeAuditSinkV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeAuditSinkV1Alpha1Options:
+class KubeAuditSinkV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -10112,7 +10112,7 @@ class KubeAuditSinkV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeAuditSinkV1Alpha1Options(%s)" % ", ".join(
+        return "KubeAuditSinkV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10144,17 +10144,17 @@ class KubeBinding(
         :param target: The target object that you want to bind to the standard object.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeBindingOptions(target=target, metadata=metadata)
+        props = KubeBindingProps(target=target, metadata=metadata)
 
         jsii.create(KubeBinding, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeBindingOptions",
+    jsii_type="k8s.KubeBindingProps",
     jsii_struct_bases=[],
     name_mapping={"target": "target", "metadata": "metadata"},
 )
-class KubeBindingOptions:
+class KubeBindingProps:
     def __init__(
         self,
         *,
@@ -10208,7 +10208,7 @@ class KubeBindingOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeBindingOptions(%s)" % ", ".join(
+        return "KubeBindingProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10227,7 +10227,7 @@ class KubeCertificateSigningRequestListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCertificateSigningRequestV1Beta1Options"],
+        items: typing.List["KubeCertificateSigningRequestV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList" API object.
@@ -10237,7 +10237,7 @@ class KubeCertificateSigningRequestListV1Beta1(
         :param items: 
         :param metadata: 
         """
-        props = KubeCertificateSigningRequestListV1Beta1Options(
+        props = KubeCertificateSigningRequestListV1Beta1Props(
             items=items, metadata=metadata
         )
 
@@ -10245,15 +10245,15 @@ class KubeCertificateSigningRequestListV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCertificateSigningRequestListV1Beta1Options",
+    jsii_type="k8s.KubeCertificateSigningRequestListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeCertificateSigningRequestListV1Beta1Options:
+class KubeCertificateSigningRequestListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCertificateSigningRequestV1Beta1Options"],
+        items: typing.List["KubeCertificateSigningRequestV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """
@@ -10271,7 +10271,7 @@ class KubeCertificateSigningRequestListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeCertificateSigningRequestV1Beta1Options"]:
+    def items(self) -> typing.List["KubeCertificateSigningRequestV1Beta1Props"]:
         """
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#items
         """
@@ -10294,7 +10294,7 @@ class KubeCertificateSigningRequestListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCertificateSigningRequestListV1Beta1Options(%s)" % ", ".join(
+        return "KubeCertificateSigningRequestListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10324,19 +10324,17 @@ class KubeCertificateSigningRequestV1Beta1(
         :param metadata: 
         :param spec: The certificate request itself and any additional information.
         """
-        props = KubeCertificateSigningRequestV1Beta1Options(
-            metadata=metadata, spec=spec
-        )
+        props = KubeCertificateSigningRequestV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeCertificateSigningRequestV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCertificateSigningRequestV1Beta1Options",
+    jsii_type="k8s.KubeCertificateSigningRequestV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeCertificateSigningRequestV1Beta1Options:
+class KubeCertificateSigningRequestV1Beta1Props:
     def __init__(
         self,
         *,
@@ -10384,7 +10382,7 @@ class KubeCertificateSigningRequestV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCertificateSigningRequestV1Beta1Options(%s)" % ", ".join(
+        return "KubeCertificateSigningRequestV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10416,7 +10414,7 @@ class KubeClusterRole(
         :param metadata: Standard object's metadata.
         :param rules: Rules holds all the PolicyRules for this ClusterRole.
         """
-        props = KubeClusterRoleOptions(
+        props = KubeClusterRoleProps(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
@@ -10452,7 +10450,7 @@ class KubeClusterRoleBinding(
         :param metadata: Standard object's metadata.
         :param subjects: Subjects holds references to the objects the role applies to.
         """
-        props = KubeClusterRoleBindingOptions(
+        props = KubeClusterRoleBindingProps(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
@@ -10474,7 +10472,7 @@ class KubeClusterRoleBindingList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleBindingOptions"],
+        items: typing.List["KubeClusterRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1.ClusterRoleBindingList" API object.
@@ -10484,21 +10482,21 @@ class KubeClusterRoleBindingList(
         :param items: Items is a list of ClusterRoleBindings.
         :param metadata: Standard object's metadata.
         """
-        props = KubeClusterRoleBindingListOptions(items=items, metadata=metadata)
+        props = KubeClusterRoleBindingListProps(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleBindingList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleBindingListOptions",
+    jsii_type="k8s.KubeClusterRoleBindingListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeClusterRoleBindingListOptions:
+class KubeClusterRoleBindingListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleBindingOptions"],
+        items: typing.List["KubeClusterRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -10517,7 +10515,7 @@ class KubeClusterRoleBindingListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeClusterRoleBindingOptions"]:
+    def items(self) -> typing.List["KubeClusterRoleBindingProps"]:
         """Items is a list of ClusterRoleBindings.
 
         :schema: io.k8s.api.rbac.v1.ClusterRoleBindingList#items
@@ -10542,7 +10540,7 @@ class KubeClusterRoleBindingListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleBindingListOptions(%s)" % ", ".join(
+        return "KubeClusterRoleBindingListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10564,7 +10562,7 @@ class KubeClusterRoleBindingListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Alpha1Options"],
+        items: typing.List["KubeClusterRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList" API object.
@@ -10574,23 +10572,21 @@ class KubeClusterRoleBindingListV1Alpha1(
         :param items: Items is a list of ClusterRoleBindings.
         :param metadata: Standard object's metadata.
         """
-        props = KubeClusterRoleBindingListV1Alpha1Options(
-            items=items, metadata=metadata
-        )
+        props = KubeClusterRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleBindingListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleBindingListV1Alpha1Options",
+    jsii_type="k8s.KubeClusterRoleBindingListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeClusterRoleBindingListV1Alpha1Options:
+class KubeClusterRoleBindingListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Alpha1Options"],
+        items: typing.List["KubeClusterRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -10611,7 +10607,7 @@ class KubeClusterRoleBindingListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeClusterRoleBindingV1Alpha1Options"]:
+    def items(self) -> typing.List["KubeClusterRoleBindingV1Alpha1Props"]:
         """Items is a list of ClusterRoleBindings.
 
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#items
@@ -10636,7 +10632,7 @@ class KubeClusterRoleBindingListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleBindingListV1Alpha1Options(%s)" % ", ".join(
+        return "KubeClusterRoleBindingListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10658,7 +10654,7 @@ class KubeClusterRoleBindingListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Beta1Options"],
+        items: typing.List["KubeClusterRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList" API object.
@@ -10668,23 +10664,21 @@ class KubeClusterRoleBindingListV1Beta1(
         :param items: Items is a list of ClusterRoleBindings.
         :param metadata: Standard object's metadata.
         """
-        props = KubeClusterRoleBindingListV1Beta1Options(
-            items=items, metadata=metadata
-        )
+        props = KubeClusterRoleBindingListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleBindingListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleBindingListV1Beta1Options",
+    jsii_type="k8s.KubeClusterRoleBindingListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeClusterRoleBindingListV1Beta1Options:
+class KubeClusterRoleBindingListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Beta1Options"],
+        items: typing.List["KubeClusterRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -10705,7 +10699,7 @@ class KubeClusterRoleBindingListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeClusterRoleBindingV1Beta1Options"]:
+    def items(self) -> typing.List["KubeClusterRoleBindingV1Beta1Props"]:
         """Items is a list of ClusterRoleBindings.
 
         :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBindingList#items
@@ -10730,13 +10724,13 @@ class KubeClusterRoleBindingListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleBindingListV1Beta1Options(%s)" % ", ".join(
+        return "KubeClusterRoleBindingListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleBindingOptions",
+    jsii_type="k8s.KubeClusterRoleBindingProps",
     jsii_struct_bases=[],
     name_mapping={
         "role_ref": "roleRef",
@@ -10744,7 +10738,7 @@ class KubeClusterRoleBindingListV1Beta1Options:
         "subjects": "subjects",
     },
 )
-class KubeClusterRoleBindingOptions:
+class KubeClusterRoleBindingProps:
     def __init__(
         self,
         *,
@@ -10811,7 +10805,7 @@ class KubeClusterRoleBindingOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleBindingOptions(%s)" % ", ".join(
+        return "KubeClusterRoleBindingProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10845,7 +10839,7 @@ class KubeClusterRoleBindingV1Alpha1(
         :param metadata: Standard object's metadata.
         :param subjects: Subjects holds references to the objects the role applies to.
         """
-        props = KubeClusterRoleBindingV1Alpha1Options(
+        props = KubeClusterRoleBindingV1Alpha1Props(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
@@ -10853,7 +10847,7 @@ class KubeClusterRoleBindingV1Alpha1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleBindingV1Alpha1Options",
+    jsii_type="k8s.KubeClusterRoleBindingV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={
         "role_ref": "roleRef",
@@ -10861,7 +10855,7 @@ class KubeClusterRoleBindingV1Alpha1(
         "subjects": "subjects",
     },
 )
-class KubeClusterRoleBindingV1Alpha1Options:
+class KubeClusterRoleBindingV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -10928,7 +10922,7 @@ class KubeClusterRoleBindingV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleBindingV1Alpha1Options(%s)" % ", ".join(
+        return "KubeClusterRoleBindingV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -10962,7 +10956,7 @@ class KubeClusterRoleBindingV1Beta1(
         :param metadata: Standard object's metadata.
         :param subjects: Subjects holds references to the objects the role applies to.
         """
-        props = KubeClusterRoleBindingV1Beta1Options(
+        props = KubeClusterRoleBindingV1Beta1Props(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
@@ -10970,7 +10964,7 @@ class KubeClusterRoleBindingV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleBindingV1Beta1Options",
+    jsii_type="k8s.KubeClusterRoleBindingV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={
         "role_ref": "roleRef",
@@ -10978,7 +10972,7 @@ class KubeClusterRoleBindingV1Beta1(
         "subjects": "subjects",
     },
 )
-class KubeClusterRoleBindingV1Beta1Options:
+class KubeClusterRoleBindingV1Beta1Props:
     def __init__(
         self,
         *,
@@ -11045,7 +11039,7 @@ class KubeClusterRoleBindingV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleBindingV1Beta1Options(%s)" % ", ".join(
+        return "KubeClusterRoleBindingV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11065,7 +11059,7 @@ class KubeClusterRoleList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleOptions"],
+        items: typing.List["KubeClusterRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1.ClusterRoleList" API object.
@@ -11075,21 +11069,21 @@ class KubeClusterRoleList(
         :param items: Items is a list of ClusterRoles.
         :param metadata: Standard object's metadata.
         """
-        props = KubeClusterRoleListOptions(items=items, metadata=metadata)
+        props = KubeClusterRoleListProps(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleListOptions",
+    jsii_type="k8s.KubeClusterRoleListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeClusterRoleListOptions:
+class KubeClusterRoleListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleOptions"],
+        items: typing.List["KubeClusterRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ClusterRoleList is a collection of ClusterRoles.
@@ -11108,7 +11102,7 @@ class KubeClusterRoleListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeClusterRoleOptions"]:
+    def items(self) -> typing.List["KubeClusterRoleProps"]:
         """Items is a list of ClusterRoles.
 
         :schema: io.k8s.api.rbac.v1.ClusterRoleList#items
@@ -11133,7 +11127,7 @@ class KubeClusterRoleListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleListOptions(%s)" % ", ".join(
+        return "KubeClusterRoleListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11155,7 +11149,7 @@ class KubeClusterRoleListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleV1Alpha1Options"],
+        items: typing.List["KubeClusterRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleList" API object.
@@ -11165,21 +11159,21 @@ class KubeClusterRoleListV1Alpha1(
         :param items: Items is a list of ClusterRoles.
         :param metadata: Standard object's metadata.
         """
-        props = KubeClusterRoleListV1Alpha1Options(items=items, metadata=metadata)
+        props = KubeClusterRoleListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleListV1Alpha1Options",
+    jsii_type="k8s.KubeClusterRoleListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeClusterRoleListV1Alpha1Options:
+class KubeClusterRoleListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleV1Alpha1Options"],
+        items: typing.List["KubeClusterRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ClusterRoleList is a collection of ClusterRoles.
@@ -11200,7 +11194,7 @@ class KubeClusterRoleListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeClusterRoleV1Alpha1Options"]:
+    def items(self) -> typing.List["KubeClusterRoleV1Alpha1Props"]:
         """Items is a list of ClusterRoles.
 
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleList#items
@@ -11225,7 +11219,7 @@ class KubeClusterRoleListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleListV1Alpha1Options(%s)" % ", ".join(
+        return "KubeClusterRoleListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11247,7 +11241,7 @@ class KubeClusterRoleListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleV1Beta1Options"],
+        items: typing.List["KubeClusterRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleList" API object.
@@ -11257,21 +11251,21 @@ class KubeClusterRoleListV1Beta1(
         :param items: Items is a list of ClusterRoles.
         :param metadata: Standard object's metadata.
         """
-        props = KubeClusterRoleListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeClusterRoleListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleListV1Beta1Options",
+    jsii_type="k8s.KubeClusterRoleListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeClusterRoleListV1Beta1Options:
+class KubeClusterRoleListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleV1Beta1Options"],
+        items: typing.List["KubeClusterRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ClusterRoleList is a collection of ClusterRoles.
@@ -11292,7 +11286,7 @@ class KubeClusterRoleListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeClusterRoleV1Beta1Options"]:
+    def items(self) -> typing.List["KubeClusterRoleV1Beta1Props"]:
         """Items is a list of ClusterRoles.
 
         :schema: io.k8s.api.rbac.v1beta1.ClusterRoleList#items
@@ -11317,13 +11311,13 @@ class KubeClusterRoleListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleListV1Beta1Options(%s)" % ", ".join(
+        return "KubeClusterRoleListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleOptions",
+    jsii_type="k8s.KubeClusterRoleProps",
     jsii_struct_bases=[],
     name_mapping={
         "aggregation_rule": "aggregationRule",
@@ -11331,7 +11325,7 @@ class KubeClusterRoleListV1Beta1Options:
         "rules": "rules",
     },
 )
-class KubeClusterRoleOptions:
+class KubeClusterRoleProps:
     def __init__(
         self,
         *,
@@ -11395,7 +11389,7 @@ class KubeClusterRoleOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleOptions(%s)" % ", ".join(
+        return "KubeClusterRoleProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11429,7 +11423,7 @@ class KubeClusterRoleV1Alpha1(
         :param metadata: Standard object's metadata.
         :param rules: Rules holds all the PolicyRules for this ClusterRole.
         """
-        props = KubeClusterRoleV1Alpha1Options(
+        props = KubeClusterRoleV1Alpha1Props(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
@@ -11437,7 +11431,7 @@ class KubeClusterRoleV1Alpha1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleV1Alpha1Options",
+    jsii_type="k8s.KubeClusterRoleV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={
         "aggregation_rule": "aggregationRule",
@@ -11445,7 +11439,7 @@ class KubeClusterRoleV1Alpha1(
         "rules": "rules",
     },
 )
-class KubeClusterRoleV1Alpha1Options:
+class KubeClusterRoleV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -11511,7 +11505,7 @@ class KubeClusterRoleV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleV1Alpha1Options(%s)" % ", ".join(
+        return "KubeClusterRoleV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11545,7 +11539,7 @@ class KubeClusterRoleV1Beta1(
         :param metadata: Standard object's metadata.
         :param rules: Rules holds all the PolicyRules for this ClusterRole.
         """
-        props = KubeClusterRoleV1Beta1Options(
+        props = KubeClusterRoleV1Beta1Props(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
@@ -11553,7 +11547,7 @@ class KubeClusterRoleV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeClusterRoleV1Beta1Options",
+    jsii_type="k8s.KubeClusterRoleV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={
         "aggregation_rule": "aggregationRule",
@@ -11561,7 +11555,7 @@ class KubeClusterRoleV1Beta1(
         "rules": "rules",
     },
 )
-class KubeClusterRoleV1Beta1Options:
+class KubeClusterRoleV1Beta1Props:
     def __init__(
         self,
         *,
@@ -11627,7 +11621,7 @@ class KubeClusterRoleV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeClusterRoleV1Beta1Options(%s)" % ", ".join(
+        return "KubeClusterRoleV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11657,7 +11651,7 @@ class KubeComponentStatus(
         :param conditions: List of component conditions observed.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeComponentStatusOptions(conditions=conditions, metadata=metadata)
+        props = KubeComponentStatusProps(conditions=conditions, metadata=metadata)
 
         jsii.create(KubeComponentStatus, self, [scope, id, props])
 
@@ -11677,7 +11671,7 @@ class KubeComponentStatusList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeComponentStatusOptions"],
+        items: typing.List["KubeComponentStatusProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ComponentStatusList" API object.
@@ -11687,21 +11681,21 @@ class KubeComponentStatusList(
         :param items: List of ComponentStatus objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeComponentStatusListOptions(items=items, metadata=metadata)
+        props = KubeComponentStatusListProps(items=items, metadata=metadata)
 
         jsii.create(KubeComponentStatusList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeComponentStatusListOptions",
+    jsii_type="k8s.KubeComponentStatusListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeComponentStatusListOptions:
+class KubeComponentStatusListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeComponentStatusOptions"],
+        items: typing.List["KubeComponentStatusProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Status of all the conditions for the component as a list of ComponentStatus objects.
@@ -11720,7 +11714,7 @@ class KubeComponentStatusListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeComponentStatusOptions"]:
+    def items(self) -> typing.List["KubeComponentStatusProps"]:
         """List of ComponentStatus objects.
 
         :schema: io.k8s.api.core.v1.ComponentStatusList#items
@@ -11747,17 +11741,17 @@ class KubeComponentStatusListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeComponentStatusListOptions(%s)" % ", ".join(
+        return "KubeComponentStatusListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeComponentStatusOptions",
+    jsii_type="k8s.KubeComponentStatusProps",
     jsii_struct_bases=[],
     name_mapping={"conditions": "conditions", "metadata": "metadata"},
 )
-class KubeComponentStatusOptions:
+class KubeComponentStatusProps:
     def __init__(
         self,
         *,
@@ -11806,7 +11800,7 @@ class KubeComponentStatusOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeComponentStatusOptions(%s)" % ", ".join(
+        return "KubeComponentStatusProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11838,7 +11832,7 @@ class KubeConfigMap(
         :param data: Data contains the configuration data. Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeConfigMapOptions(
+        props = KubeConfigMapProps(
             binary_data=binary_data, data=data, metadata=metadata
         )
 
@@ -11860,7 +11854,7 @@ class KubeConfigMapList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeConfigMapOptions"],
+        items: typing.List["KubeConfigMapProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ConfigMapList" API object.
@@ -11870,21 +11864,21 @@ class KubeConfigMapList(
         :param items: Items is the list of ConfigMaps.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeConfigMapListOptions(items=items, metadata=metadata)
+        props = KubeConfigMapListProps(items=items, metadata=metadata)
 
         jsii.create(KubeConfigMapList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeConfigMapListOptions",
+    jsii_type="k8s.KubeConfigMapListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeConfigMapListOptions:
+class KubeConfigMapListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeConfigMapOptions"],
+        items: typing.List["KubeConfigMapProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ConfigMapList is a resource containing a list of ConfigMap objects.
@@ -11903,7 +11897,7 @@ class KubeConfigMapListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeConfigMapOptions"]:
+    def items(self) -> typing.List["KubeConfigMapProps"]:
         """Items is the list of ConfigMaps.
 
         :schema: io.k8s.api.core.v1.ConfigMapList#items
@@ -11928,17 +11922,17 @@ class KubeConfigMapListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeConfigMapListOptions(%s)" % ", ".join(
+        return "KubeConfigMapListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeConfigMapOptions",
+    jsii_type="k8s.KubeConfigMapProps",
     jsii_struct_bases=[],
     name_mapping={"binary_data": "binaryData", "data": "data", "metadata": "metadata"},
 )
-class KubeConfigMapOptions:
+class KubeConfigMapProps:
     def __init__(
         self,
         *,
@@ -12006,7 +12000,7 @@ class KubeConfigMapOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeConfigMapOptions(%s)" % ", ".join(
+        return "KubeConfigMapProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12040,7 +12034,7 @@ class KubeControllerRevision(
         :param data: Data is the serialized representation of the state.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeControllerRevisionOptions(
+        props = KubeControllerRevisionProps(
             revision=revision, data=data, metadata=metadata
         )
 
@@ -12062,7 +12056,7 @@ class KubeControllerRevisionList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeControllerRevisionOptions"],
+        items: typing.List["KubeControllerRevisionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.ControllerRevisionList" API object.
@@ -12072,21 +12066,21 @@ class KubeControllerRevisionList(
         :param items: Items is the list of ControllerRevisions.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeControllerRevisionListOptions(items=items, metadata=metadata)
+        props = KubeControllerRevisionListProps(items=items, metadata=metadata)
 
         jsii.create(KubeControllerRevisionList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeControllerRevisionListOptions",
+    jsii_type="k8s.KubeControllerRevisionListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeControllerRevisionListOptions:
+class KubeControllerRevisionListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeControllerRevisionOptions"],
+        items: typing.List["KubeControllerRevisionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -12105,7 +12099,7 @@ class KubeControllerRevisionListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeControllerRevisionOptions"]:
+    def items(self) -> typing.List["KubeControllerRevisionProps"]:
         """Items is the list of ControllerRevisions.
 
         :schema: io.k8s.api.apps.v1.ControllerRevisionList#items
@@ -12130,7 +12124,7 @@ class KubeControllerRevisionListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeControllerRevisionListOptions(%s)" % ", ".join(
+        return "KubeControllerRevisionListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12150,7 +12144,7 @@ class KubeControllerRevisionListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta1Options"],
+        items: typing.List["KubeControllerRevisionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1beta1.ControllerRevisionList" API object.
@@ -12160,23 +12154,21 @@ class KubeControllerRevisionListV1Beta1(
         :param items: Items is the list of ControllerRevisions.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeControllerRevisionListV1Beta1Options(
-            items=items, metadata=metadata
-        )
+        props = KubeControllerRevisionListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeControllerRevisionListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeControllerRevisionListV1Beta1Options",
+    jsii_type="k8s.KubeControllerRevisionListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeControllerRevisionListV1Beta1Options:
+class KubeControllerRevisionListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta1Options"],
+        items: typing.List["KubeControllerRevisionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -12195,7 +12187,7 @@ class KubeControllerRevisionListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeControllerRevisionV1Beta1Options"]:
+    def items(self) -> typing.List["KubeControllerRevisionV1Beta1Props"]:
         """Items is the list of ControllerRevisions.
 
         :schema: io.k8s.api.apps.v1beta1.ControllerRevisionList#items
@@ -12220,7 +12212,7 @@ class KubeControllerRevisionListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeControllerRevisionListV1Beta1Options(%s)" % ", ".join(
+        return "KubeControllerRevisionListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12240,7 +12232,7 @@ class KubeControllerRevisionListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta2Options"],
+        items: typing.List["KubeControllerRevisionV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1beta2.ControllerRevisionList" API object.
@@ -12250,23 +12242,21 @@ class KubeControllerRevisionListV1Beta2(
         :param items: Items is the list of ControllerRevisions.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeControllerRevisionListV1Beta2Options(
-            items=items, metadata=metadata
-        )
+        props = KubeControllerRevisionListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeControllerRevisionListV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeControllerRevisionListV1Beta2Options",
+    jsii_type="k8s.KubeControllerRevisionListV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeControllerRevisionListV1Beta2Options:
+class KubeControllerRevisionListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta2Options"],
+        items: typing.List["KubeControllerRevisionV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -12285,7 +12275,7 @@ class KubeControllerRevisionListV1Beta2Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeControllerRevisionV1Beta2Options"]:
+    def items(self) -> typing.List["KubeControllerRevisionV1Beta2Props"]:
         """Items is the list of ControllerRevisions.
 
         :schema: io.k8s.api.apps.v1beta2.ControllerRevisionList#items
@@ -12310,17 +12300,17 @@ class KubeControllerRevisionListV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeControllerRevisionListV1Beta2Options(%s)" % ", ".join(
+        return "KubeControllerRevisionListV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeControllerRevisionOptions",
+    jsii_type="k8s.KubeControllerRevisionProps",
     jsii_struct_bases=[],
     name_mapping={"revision": "revision", "data": "data", "metadata": "metadata"},
 )
-class KubeControllerRevisionOptions:
+class KubeControllerRevisionProps:
     def __init__(
         self,
         *,
@@ -12385,7 +12375,7 @@ class KubeControllerRevisionOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeControllerRevisionOptions(%s)" % ", ".join(
+        return "KubeControllerRevisionProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12419,7 +12409,7 @@ class KubeControllerRevisionV1Beta1(
         :param data: Data is the serialized representation of the state.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeControllerRevisionV1Beta1Options(
+        props = KubeControllerRevisionV1Beta1Props(
             revision=revision, data=data, metadata=metadata
         )
 
@@ -12427,11 +12417,11 @@ class KubeControllerRevisionV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeControllerRevisionV1Beta1Options",
+    jsii_type="k8s.KubeControllerRevisionV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"revision": "revision", "data": "data", "metadata": "metadata"},
 )
-class KubeControllerRevisionV1Beta1Options:
+class KubeControllerRevisionV1Beta1Props:
     def __init__(
         self,
         *,
@@ -12496,7 +12486,7 @@ class KubeControllerRevisionV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeControllerRevisionV1Beta1Options(%s)" % ", ".join(
+        return "KubeControllerRevisionV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12530,7 +12520,7 @@ class KubeControllerRevisionV1Beta2(
         :param data: Data is the serialized representation of the state.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeControllerRevisionV1Beta2Options(
+        props = KubeControllerRevisionV1Beta2Props(
             revision=revision, data=data, metadata=metadata
         )
 
@@ -12538,11 +12528,11 @@ class KubeControllerRevisionV1Beta2(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeControllerRevisionV1Beta2Options",
+    jsii_type="k8s.KubeControllerRevisionV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"revision": "revision", "data": "data", "metadata": "metadata"},
 )
-class KubeControllerRevisionV1Beta2Options:
+class KubeControllerRevisionV1Beta2Props:
     def __init__(
         self,
         *,
@@ -12607,7 +12597,7 @@ class KubeControllerRevisionV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeControllerRevisionV1Beta2Options(%s)" % ", ".join(
+        return "KubeControllerRevisionV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12627,7 +12617,7 @@ class KubeCronJobListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCronJobV1Beta1Options"],
+        items: typing.List["KubeCronJobV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.batch.v1beta1.CronJobList" API object.
@@ -12637,21 +12627,21 @@ class KubeCronJobListV1Beta1(
         :param items: items is the list of CronJobs.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeCronJobListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeCronJobListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeCronJobListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCronJobListV1Beta1Options",
+    jsii_type="k8s.KubeCronJobListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeCronJobListV1Beta1Options:
+class KubeCronJobListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCronJobV1Beta1Options"],
+        items: typing.List["KubeCronJobV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CronJobList is a collection of cron jobs.
@@ -12670,7 +12660,7 @@ class KubeCronJobListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeCronJobV1Beta1Options"]:
+    def items(self) -> typing.List["KubeCronJobV1Beta1Props"]:
         """items is the list of CronJobs.
 
         :schema: io.k8s.api.batch.v1beta1.CronJobList#items
@@ -12697,7 +12687,7 @@ class KubeCronJobListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCronJobListV1Beta1Options(%s)" % ", ".join(
+        return "KubeCronJobListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12717,7 +12707,7 @@ class KubeCronJobListV2Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCronJobV2Alpha1Options"],
+        items: typing.List["KubeCronJobV2Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.batch.v2alpha1.CronJobList" API object.
@@ -12727,21 +12717,21 @@ class KubeCronJobListV2Alpha1(
         :param items: items is the list of CronJobs.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeCronJobListV2Alpha1Options(items=items, metadata=metadata)
+        props = KubeCronJobListV2Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeCronJobListV2Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCronJobListV2Alpha1Options",
+    jsii_type="k8s.KubeCronJobListV2Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeCronJobListV2Alpha1Options:
+class KubeCronJobListV2Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCronJobV2Alpha1Options"],
+        items: typing.List["KubeCronJobV2Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CronJobList is a collection of cron jobs.
@@ -12760,7 +12750,7 @@ class KubeCronJobListV2Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeCronJobV2Alpha1Options"]:
+    def items(self) -> typing.List["KubeCronJobV2Alpha1Props"]:
         """items is the list of CronJobs.
 
         :schema: io.k8s.api.batch.v2alpha1.CronJobList#items
@@ -12787,7 +12777,7 @@ class KubeCronJobListV2Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCronJobListV2Alpha1Options(%s)" % ", ".join(
+        return "KubeCronJobListV2Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12817,17 +12807,17 @@ class KubeCronJobV1Beta1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeCronJobV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeCronJobV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeCronJobV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCronJobV1Beta1Options",
+    jsii_type="k8s.KubeCronJobV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeCronJobV1Beta1Options:
+class KubeCronJobV1Beta1Props:
     def __init__(
         self,
         *,
@@ -12880,7 +12870,7 @@ class KubeCronJobV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCronJobV1Beta1Options(%s)" % ", ".join(
+        return "KubeCronJobV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12910,17 +12900,17 @@ class KubeCronJobV2Alpha1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeCronJobV2Alpha1Options(metadata=metadata, spec=spec)
+        props = KubeCronJobV2Alpha1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeCronJobV2Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCronJobV2Alpha1Options",
+    jsii_type="k8s.KubeCronJobV2Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeCronJobV2Alpha1Options:
+class KubeCronJobV2Alpha1Props:
     def __init__(
         self,
         *,
@@ -12973,7 +12963,7 @@ class KubeCronJobV2Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCronJobV2Alpha1Options(%s)" % ", ".join(
+        return "KubeCronJobV2Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -12993,7 +12983,7 @@ class KubeCsiDriverListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCsiDriverV1Beta1Options"],
+        items: typing.List["KubeCsiDriverV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
@@ -13003,21 +12993,21 @@ class KubeCsiDriverListV1Beta1(
         :param items: items is the list of CSIDriver.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeCsiDriverListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeCsiDriverListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeCsiDriverListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCsiDriverListV1Beta1Options",
+    jsii_type="k8s.KubeCsiDriverListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeCsiDriverListV1Beta1Options:
+class KubeCsiDriverListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCsiDriverV1Beta1Options"],
+        items: typing.List["KubeCsiDriverV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CSIDriverList is a collection of CSIDriver objects.
@@ -13036,7 +13026,7 @@ class KubeCsiDriverListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeCsiDriverV1Beta1Options"]:
+    def items(self) -> typing.List["KubeCsiDriverV1Beta1Props"]:
         """items is the list of CSIDriver.
 
         :schema: io.k8s.api.storage.v1beta1.CSIDriverList#items
@@ -13061,7 +13051,7 @@ class KubeCsiDriverListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCsiDriverListV1Beta1Options(%s)" % ", ".join(
+        return "KubeCsiDriverListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13093,17 +13083,17 @@ class KubeCsiDriverV1Beta1(
         :param spec: Specification of the CSI Driver.
         :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeCsiDriverV1Beta1Options(spec=spec, metadata=metadata)
+        props = KubeCsiDriverV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeCsiDriverV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCsiDriverV1Beta1Options",
+    jsii_type="k8s.KubeCsiDriverV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeCsiDriverV1Beta1Options:
+class KubeCsiDriverV1Beta1Props:
     def __init__(
         self,
         *,
@@ -13157,7 +13147,7 @@ class KubeCsiDriverV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCsiDriverV1Beta1Options(%s)" % ", ".join(
+        return "KubeCsiDriverV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13189,7 +13179,7 @@ class KubeCsiNode(
         :param spec: spec is the specification of CSINode.
         :param metadata: metadata.name must be the Kubernetes node name.
         """
-        props = KubeCsiNodeOptions(spec=spec, metadata=metadata)
+        props = KubeCsiNodeProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeCsiNode, self, [scope, id, props])
 
@@ -13209,7 +13199,7 @@ class KubeCsiNodeList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCsiNodeOptions"],
+        items: typing.List["KubeCsiNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1.CSINodeList" API object.
@@ -13219,21 +13209,21 @@ class KubeCsiNodeList(
         :param items: items is the list of CSINode.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeCsiNodeListOptions(items=items, metadata=metadata)
+        props = KubeCsiNodeListProps(items=items, metadata=metadata)
 
         jsii.create(KubeCsiNodeList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCsiNodeListOptions",
+    jsii_type="k8s.KubeCsiNodeListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeCsiNodeListOptions:
+class KubeCsiNodeListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCsiNodeOptions"],
+        items: typing.List["KubeCsiNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CSINodeList is a collection of CSINode objects.
@@ -13252,7 +13242,7 @@ class KubeCsiNodeListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeCsiNodeOptions"]:
+    def items(self) -> typing.List["KubeCsiNodeProps"]:
         """items is the list of CSINode.
 
         :schema: io.k8s.api.storage.v1.CSINodeList#items
@@ -13277,7 +13267,7 @@ class KubeCsiNodeListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCsiNodeListOptions(%s)" % ", ".join(
+        return "KubeCsiNodeListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13297,7 +13287,7 @@ class KubeCsiNodeListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCsiNodeV1Beta1Options"],
+        items: typing.List["KubeCsiNodeV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1beta1.CSINodeList" API object.
@@ -13307,21 +13297,21 @@ class KubeCsiNodeListV1Beta1(
         :param items: items is the list of CSINode.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeCsiNodeListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeCsiNodeListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeCsiNodeListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCsiNodeListV1Beta1Options",
+    jsii_type="k8s.KubeCsiNodeListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeCsiNodeListV1Beta1Options:
+class KubeCsiNodeListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCsiNodeV1Beta1Options"],
+        items: typing.List["KubeCsiNodeV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CSINodeList is a collection of CSINode objects.
@@ -13340,7 +13330,7 @@ class KubeCsiNodeListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeCsiNodeV1Beta1Options"]:
+    def items(self) -> typing.List["KubeCsiNodeV1Beta1Props"]:
         """items is the list of CSINode.
 
         :schema: io.k8s.api.storage.v1beta1.CSINodeList#items
@@ -13365,17 +13355,17 @@ class KubeCsiNodeListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCsiNodeListV1Beta1Options(%s)" % ", ".join(
+        return "KubeCsiNodeListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCsiNodeOptions",
+    jsii_type="k8s.KubeCsiNodeProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeCsiNodeOptions:
+class KubeCsiNodeProps:
     def __init__(
         self,
         *,
@@ -13427,7 +13417,7 @@ class KubeCsiNodeOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCsiNodeOptions(%s)" % ", ".join(
+        return "KubeCsiNodeProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13459,17 +13449,17 @@ class KubeCsiNodeV1Beta1(
         :param spec: spec is the specification of CSINode.
         :param metadata: metadata.name must be the Kubernetes node name.
         """
-        props = KubeCsiNodeV1Beta1Options(spec=spec, metadata=metadata)
+        props = KubeCsiNodeV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeCsiNodeV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCsiNodeV1Beta1Options",
+    jsii_type="k8s.KubeCsiNodeV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeCsiNodeV1Beta1Options:
+class KubeCsiNodeV1Beta1Props:
     def __init__(
         self,
         *,
@@ -13521,7 +13511,7 @@ class KubeCsiNodeV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCsiNodeV1Beta1Options(%s)" % ", ".join(
+        return "KubeCsiNodeV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13553,7 +13543,7 @@ class KubeCustomResourceDefinition(
         :param spec: spec describes how the user wants the resources to appear.
         :param metadata: 
         """
-        props = KubeCustomResourceDefinitionOptions(spec=spec, metadata=metadata)
+        props = KubeCustomResourceDefinitionProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeCustomResourceDefinition, self, [scope, id, props])
 
@@ -13573,7 +13563,7 @@ class KubeCustomResourceDefinitionList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCustomResourceDefinitionOptions"],
+        items: typing.List["KubeCustomResourceDefinitionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList" API object.
@@ -13583,21 +13573,21 @@ class KubeCustomResourceDefinitionList(
         :param items: items list individual CustomResourceDefinition objects.
         :param metadata: 
         """
-        props = KubeCustomResourceDefinitionListOptions(items=items, metadata=metadata)
+        props = KubeCustomResourceDefinitionListProps(items=items, metadata=metadata)
 
         jsii.create(KubeCustomResourceDefinitionList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCustomResourceDefinitionListOptions",
+    jsii_type="k8s.KubeCustomResourceDefinitionListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeCustomResourceDefinitionListOptions:
+class KubeCustomResourceDefinitionListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCustomResourceDefinitionOptions"],
+        items: typing.List["KubeCustomResourceDefinitionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
@@ -13616,7 +13606,7 @@ class KubeCustomResourceDefinitionListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeCustomResourceDefinitionOptions"]:
+    def items(self) -> typing.List["KubeCustomResourceDefinitionProps"]:
         """items list individual CustomResourceDefinition objects.
 
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#items
@@ -13640,7 +13630,7 @@ class KubeCustomResourceDefinitionListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCustomResourceDefinitionListOptions(%s)" % ", ".join(
+        return "KubeCustomResourceDefinitionListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13660,7 +13650,7 @@ class KubeCustomResourceDefinitionListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCustomResourceDefinitionV1Beta1Options"],
+        items: typing.List["KubeCustomResourceDefinitionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList" API object.
@@ -13670,7 +13660,7 @@ class KubeCustomResourceDefinitionListV1Beta1(
         :param items: items list individual CustomResourceDefinition objects.
         :param metadata: 
         """
-        props = KubeCustomResourceDefinitionListV1Beta1Options(
+        props = KubeCustomResourceDefinitionListV1Beta1Props(
             items=items, metadata=metadata
         )
 
@@ -13678,15 +13668,15 @@ class KubeCustomResourceDefinitionListV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCustomResourceDefinitionListV1Beta1Options",
+    jsii_type="k8s.KubeCustomResourceDefinitionListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeCustomResourceDefinitionListV1Beta1Options:
+class KubeCustomResourceDefinitionListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCustomResourceDefinitionV1Beta1Options"],
+        items: typing.List["KubeCustomResourceDefinitionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
@@ -13705,7 +13695,7 @@ class KubeCustomResourceDefinitionListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeCustomResourceDefinitionV1Beta1Options"]:
+    def items(self) -> typing.List["KubeCustomResourceDefinitionV1Beta1Props"]:
         """items list individual CustomResourceDefinition objects.
 
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList#items
@@ -13729,17 +13719,17 @@ class KubeCustomResourceDefinitionListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCustomResourceDefinitionListV1Beta1Options(%s)" % ", ".join(
+        return "KubeCustomResourceDefinitionListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCustomResourceDefinitionOptions",
+    jsii_type="k8s.KubeCustomResourceDefinitionProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeCustomResourceDefinitionOptions:
+class KubeCustomResourceDefinitionProps:
     def __init__(
         self,
         *,
@@ -13790,7 +13780,7 @@ class KubeCustomResourceDefinitionOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCustomResourceDefinitionOptions(%s)" % ", ".join(
+        return "KubeCustomResourceDefinitionProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13822,19 +13812,17 @@ class KubeCustomResourceDefinitionV1Beta1(
         :param spec: spec describes how the user wants the resources to appear.
         :param metadata: 
         """
-        props = KubeCustomResourceDefinitionV1Beta1Options(
-            spec=spec, metadata=metadata
-        )
+        props = KubeCustomResourceDefinitionV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeCustomResourceDefinitionV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeCustomResourceDefinitionV1Beta1Options",
+    jsii_type="k8s.KubeCustomResourceDefinitionV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeCustomResourceDefinitionV1Beta1Options:
+class KubeCustomResourceDefinitionV1Beta1Props:
     def __init__(
         self,
         *,
@@ -13885,7 +13873,7 @@ class KubeCustomResourceDefinitionV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeCustomResourceDefinitionV1Beta1Options(%s)" % ", ".join(
+        return "KubeCustomResourceDefinitionV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -13915,7 +13903,7 @@ class KubeDaemonSet(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeDaemonSetOptions(metadata=metadata, spec=spec)
+        props = KubeDaemonSetProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeDaemonSet, self, [scope, id, props])
 
@@ -13935,7 +13923,7 @@ class KubeDaemonSetList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDaemonSetOptions"],
+        items: typing.List["KubeDaemonSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.DaemonSetList" API object.
@@ -13945,21 +13933,21 @@ class KubeDaemonSetList(
         :param items: A list of daemon sets.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeDaemonSetListOptions(items=items, metadata=metadata)
+        props = KubeDaemonSetListProps(items=items, metadata=metadata)
 
         jsii.create(KubeDaemonSetList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDaemonSetListOptions",
+    jsii_type="k8s.KubeDaemonSetListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeDaemonSetListOptions:
+class KubeDaemonSetListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDaemonSetOptions"],
+        items: typing.List["KubeDaemonSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DaemonSetList is a collection of daemon sets.
@@ -13978,7 +13966,7 @@ class KubeDaemonSetListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeDaemonSetOptions"]:
+    def items(self) -> typing.List["KubeDaemonSetProps"]:
         """A list of daemon sets.
 
         :schema: io.k8s.api.apps.v1.DaemonSetList#items
@@ -14005,7 +13993,7 @@ class KubeDaemonSetListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDaemonSetListOptions(%s)" % ", ".join(
+        return "KubeDaemonSetListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14025,7 +14013,7 @@ class KubeDaemonSetListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDaemonSetV1Beta1Options"],
+        items: typing.List["KubeDaemonSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.extensions.v1beta1.DaemonSetList" API object.
@@ -14035,21 +14023,21 @@ class KubeDaemonSetListV1Beta1(
         :param items: A list of daemon sets.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeDaemonSetListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeDaemonSetListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeDaemonSetListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDaemonSetListV1Beta1Options",
+    jsii_type="k8s.KubeDaemonSetListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeDaemonSetListV1Beta1Options:
+class KubeDaemonSetListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDaemonSetV1Beta1Options"],
+        items: typing.List["KubeDaemonSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DaemonSetList is a collection of daemon sets.
@@ -14068,7 +14056,7 @@ class KubeDaemonSetListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeDaemonSetV1Beta1Options"]:
+    def items(self) -> typing.List["KubeDaemonSetV1Beta1Props"]:
         """A list of daemon sets.
 
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetList#items
@@ -14095,7 +14083,7 @@ class KubeDaemonSetListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDaemonSetListV1Beta1Options(%s)" % ", ".join(
+        return "KubeDaemonSetListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14115,7 +14103,7 @@ class KubeDaemonSetListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDaemonSetV1Beta2Options"],
+        items: typing.List["KubeDaemonSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1beta2.DaemonSetList" API object.
@@ -14125,21 +14113,21 @@ class KubeDaemonSetListV1Beta2(
         :param items: A list of daemon sets.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeDaemonSetListV1Beta2Options(items=items, metadata=metadata)
+        props = KubeDaemonSetListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeDaemonSetListV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDaemonSetListV1Beta2Options",
+    jsii_type="k8s.KubeDaemonSetListV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeDaemonSetListV1Beta2Options:
+class KubeDaemonSetListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDaemonSetV1Beta2Options"],
+        items: typing.List["KubeDaemonSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DaemonSetList is a collection of daemon sets.
@@ -14158,7 +14146,7 @@ class KubeDaemonSetListV1Beta2Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeDaemonSetV1Beta2Options"]:
+    def items(self) -> typing.List["KubeDaemonSetV1Beta2Props"]:
         """A list of daemon sets.
 
         :schema: io.k8s.api.apps.v1beta2.DaemonSetList#items
@@ -14185,17 +14173,17 @@ class KubeDaemonSetListV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDaemonSetListV1Beta2Options(%s)" % ", ".join(
+        return "KubeDaemonSetListV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDaemonSetOptions",
+    jsii_type="k8s.KubeDaemonSetProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeDaemonSetOptions:
+class KubeDaemonSetProps:
     def __init__(
         self,
         *,
@@ -14248,7 +14236,7 @@ class KubeDaemonSetOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDaemonSetOptions(%s)" % ", ".join(
+        return "KubeDaemonSetProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14280,17 +14268,17 @@ class KubeDaemonSetV1Beta1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeDaemonSetV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeDaemonSetV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeDaemonSetV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDaemonSetV1Beta1Options",
+    jsii_type="k8s.KubeDaemonSetV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeDaemonSetV1Beta1Options:
+class KubeDaemonSetV1Beta1Props:
     def __init__(
         self,
         *,
@@ -14345,7 +14333,7 @@ class KubeDaemonSetV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDaemonSetV1Beta1Options(%s)" % ", ".join(
+        return "KubeDaemonSetV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14377,17 +14365,17 @@ class KubeDaemonSetV1Beta2(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeDaemonSetV1Beta2Options(metadata=metadata, spec=spec)
+        props = KubeDaemonSetV1Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeDaemonSetV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDaemonSetV1Beta2Options",
+    jsii_type="k8s.KubeDaemonSetV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeDaemonSetV1Beta2Options:
+class KubeDaemonSetV1Beta2Props:
     def __init__(
         self,
         *,
@@ -14442,7 +14430,7 @@ class KubeDaemonSetV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDaemonSetV1Beta2Options(%s)" % ", ".join(
+        return "KubeDaemonSetV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14472,7 +14460,7 @@ class KubeDeployment(
         :param metadata: Standard object metadata.
         :param spec: Specification of the desired behavior of the Deployment.
         """
-        props = KubeDeploymentOptions(metadata=metadata, spec=spec)
+        props = KubeDeploymentProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeDeployment, self, [scope, id, props])
 
@@ -14492,7 +14480,7 @@ class KubeDeploymentList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDeploymentOptions"],
+        items: typing.List["KubeDeploymentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.DeploymentList" API object.
@@ -14502,21 +14490,21 @@ class KubeDeploymentList(
         :param items: Items is the list of Deployments.
         :param metadata: Standard list metadata.
         """
-        props = KubeDeploymentListOptions(items=items, metadata=metadata)
+        props = KubeDeploymentListProps(items=items, metadata=metadata)
 
         jsii.create(KubeDeploymentList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDeploymentListOptions",
+    jsii_type="k8s.KubeDeploymentListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeDeploymentListOptions:
+class KubeDeploymentListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDeploymentOptions"],
+        items: typing.List["KubeDeploymentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DeploymentList is a list of Deployments.
@@ -14535,7 +14523,7 @@ class KubeDeploymentListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeDeploymentOptions"]:
+    def items(self) -> typing.List["KubeDeploymentProps"]:
         """Items is the list of Deployments.
 
         :schema: io.k8s.api.apps.v1.DeploymentList#items
@@ -14560,7 +14548,7 @@ class KubeDeploymentListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDeploymentListOptions(%s)" % ", ".join(
+        return "KubeDeploymentListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14580,7 +14568,7 @@ class KubeDeploymentListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDeploymentV1Beta1Options"],
+        items: typing.List["KubeDeploymentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.extensions.v1beta1.DeploymentList" API object.
@@ -14590,21 +14578,21 @@ class KubeDeploymentListV1Beta1(
         :param items: Items is the list of Deployments.
         :param metadata: Standard list metadata.
         """
-        props = KubeDeploymentListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeDeploymentListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeDeploymentListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDeploymentListV1Beta1Options",
+    jsii_type="k8s.KubeDeploymentListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeDeploymentListV1Beta1Options:
+class KubeDeploymentListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDeploymentV1Beta1Options"],
+        items: typing.List["KubeDeploymentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DeploymentList is a list of Deployments.
@@ -14623,7 +14611,7 @@ class KubeDeploymentListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeDeploymentV1Beta1Options"]:
+    def items(self) -> typing.List["KubeDeploymentV1Beta1Props"]:
         """Items is the list of Deployments.
 
         :schema: io.k8s.api.extensions.v1beta1.DeploymentList#items
@@ -14648,7 +14636,7 @@ class KubeDeploymentListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDeploymentListV1Beta1Options(%s)" % ", ".join(
+        return "KubeDeploymentListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14668,7 +14656,7 @@ class KubeDeploymentListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDeploymentV1Beta2Options"],
+        items: typing.List["KubeDeploymentV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1beta2.DeploymentList" API object.
@@ -14678,21 +14666,21 @@ class KubeDeploymentListV1Beta2(
         :param items: Items is the list of Deployments.
         :param metadata: Standard list metadata.
         """
-        props = KubeDeploymentListV1Beta2Options(items=items, metadata=metadata)
+        props = KubeDeploymentListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeDeploymentListV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDeploymentListV1Beta2Options",
+    jsii_type="k8s.KubeDeploymentListV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeDeploymentListV1Beta2Options:
+class KubeDeploymentListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDeploymentV1Beta2Options"],
+        items: typing.List["KubeDeploymentV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DeploymentList is a list of Deployments.
@@ -14711,7 +14699,7 @@ class KubeDeploymentListV1Beta2Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeDeploymentV1Beta2Options"]:
+    def items(self) -> typing.List["KubeDeploymentV1Beta2Props"]:
         """Items is the list of Deployments.
 
         :schema: io.k8s.api.apps.v1beta2.DeploymentList#items
@@ -14736,17 +14724,17 @@ class KubeDeploymentListV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDeploymentListV1Beta2Options(%s)" % ", ".join(
+        return "KubeDeploymentListV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDeploymentOptions",
+    jsii_type="k8s.KubeDeploymentProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeDeploymentOptions:
+class KubeDeploymentProps:
     def __init__(
         self,
         *,
@@ -14795,7 +14783,7 @@ class KubeDeploymentOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDeploymentOptions(%s)" % ", ".join(
+        return "KubeDeploymentProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14827,17 +14815,17 @@ class KubeDeploymentV1Beta1(
         :param metadata: Standard object metadata.
         :param spec: Specification of the desired behavior of the Deployment.
         """
-        props = KubeDeploymentV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeDeploymentV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeDeploymentV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDeploymentV1Beta1Options",
+    jsii_type="k8s.KubeDeploymentV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeDeploymentV1Beta1Options:
+class KubeDeploymentV1Beta1Props:
     def __init__(
         self,
         *,
@@ -14888,7 +14876,7 @@ class KubeDeploymentV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDeploymentV1Beta1Options(%s)" % ", ".join(
+        return "KubeDeploymentV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -14920,17 +14908,17 @@ class KubeDeploymentV1Beta2(
         :param metadata: Standard object metadata.
         :param spec: Specification of the desired behavior of the Deployment.
         """
-        props = KubeDeploymentV1Beta2Options(metadata=metadata, spec=spec)
+        props = KubeDeploymentV1Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeDeploymentV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeDeploymentV1Beta2Options",
+    jsii_type="k8s.KubeDeploymentV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeDeploymentV1Beta2Options:
+class KubeDeploymentV1Beta2Props:
     def __init__(
         self,
         *,
@@ -14981,7 +14969,7 @@ class KubeDeploymentV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeDeploymentV1Beta2Options(%s)" % ", ".join(
+        return "KubeDeploymentV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -15001,7 +14989,7 @@ class KubeEndpointSliceListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeEndpointSliceV1Beta1Options"],
+        items: typing.List["KubeEndpointSliceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.discovery.v1beta1.EndpointSliceList" API object.
@@ -15011,21 +14999,21 @@ class KubeEndpointSliceListV1Beta1(
         :param items: List of endpoint slices.
         :param metadata: Standard list metadata.
         """
-        props = KubeEndpointSliceListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeEndpointSliceListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeEndpointSliceListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEndpointSliceListV1Beta1Options",
+    jsii_type="k8s.KubeEndpointSliceListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeEndpointSliceListV1Beta1Options:
+class KubeEndpointSliceListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeEndpointSliceV1Beta1Options"],
+        items: typing.List["KubeEndpointSliceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """EndpointSliceList represents a list of endpoint slices.
@@ -15044,7 +15032,7 @@ class KubeEndpointSliceListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeEndpointSliceV1Beta1Options"]:
+    def items(self) -> typing.List["KubeEndpointSliceV1Beta1Props"]:
         """List of endpoint slices.
 
         :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList#items
@@ -15069,7 +15057,7 @@ class KubeEndpointSliceListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEndpointSliceListV1Beta1Options(%s)" % ", ".join(
+        return "KubeEndpointSliceListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -15105,7 +15093,7 @@ class KubeEndpointSliceV1Beta1(
         :param metadata: Standard object's metadata.
         :param ports: ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
         """
-        props = KubeEndpointSliceV1Beta1Options(
+        props = KubeEndpointSliceV1Beta1Props(
             address_type=address_type,
             endpoints=endpoints,
             metadata=metadata,
@@ -15116,7 +15104,7 @@ class KubeEndpointSliceV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEndpointSliceV1Beta1Options",
+    jsii_type="k8s.KubeEndpointSliceV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={
         "address_type": "addressType",
@@ -15125,7 +15113,7 @@ class KubeEndpointSliceV1Beta1(
         "ports": "ports",
     },
 )
-class KubeEndpointSliceV1Beta1Options:
+class KubeEndpointSliceV1Beta1Props:
     def __init__(
         self,
         *,
@@ -15207,7 +15195,7 @@ class KubeEndpointSliceV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEndpointSliceV1Beta1Options(%s)" % ", ".join(
+        return "KubeEndpointSliceV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -15250,7 +15238,7 @@ class KubeEndpoints(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param subsets: The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
         """
-        props = KubeEndpointsOptions(metadata=metadata, subsets=subsets)
+        props = KubeEndpointsProps(metadata=metadata, subsets=subsets)
 
         jsii.create(KubeEndpoints, self, [scope, id, props])
 
@@ -15270,7 +15258,7 @@ class KubeEndpointsList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeEndpointsOptions"],
+        items: typing.List["KubeEndpointsProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.EndpointsList" API object.
@@ -15280,21 +15268,21 @@ class KubeEndpointsList(
         :param items: List of endpoints.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeEndpointsListOptions(items=items, metadata=metadata)
+        props = KubeEndpointsListProps(items=items, metadata=metadata)
 
         jsii.create(KubeEndpointsList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEndpointsListOptions",
+    jsii_type="k8s.KubeEndpointsListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeEndpointsListOptions:
+class KubeEndpointsListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeEndpointsOptions"],
+        items: typing.List["KubeEndpointsProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """EndpointsList is a list of endpoints.
@@ -15313,7 +15301,7 @@ class KubeEndpointsListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeEndpointsOptions"]:
+    def items(self) -> typing.List["KubeEndpointsProps"]:
         """List of endpoints.
 
         :schema: io.k8s.api.core.v1.EndpointsList#items
@@ -15340,17 +15328,17 @@ class KubeEndpointsListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEndpointsListOptions(%s)" % ", ".join(
+        return "KubeEndpointsListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEndpointsOptions",
+    jsii_type="k8s.KubeEndpointsProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "subsets": "subsets"},
 )
-class KubeEndpointsOptions:
+class KubeEndpointsProps:
     def __init__(
         self,
         *,
@@ -15414,7 +15402,7 @@ class KubeEndpointsOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEndpointsOptions(%s)" % ", ".join(
+        return "KubeEndpointsProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -15466,7 +15454,7 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
         :param source: The component reporting this event. Should be a short machine understandable string.
         :param type: Type of this event (Normal, Warning), new types could be added in the future.
         """
-        props = KubeEventOptions(
+        props = KubeEventProps(
             involved_object=involved_object,
             metadata=metadata,
             action=action,
@@ -15502,7 +15490,7 @@ class KubeEventList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeEventOptions"],
+        items: typing.List["KubeEventProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.EventList" API object.
@@ -15512,21 +15500,21 @@ class KubeEventList(
         :param items: List of events.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeEventListOptions(items=items, metadata=metadata)
+        props = KubeEventListProps(items=items, metadata=metadata)
 
         jsii.create(KubeEventList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEventListOptions",
+    jsii_type="k8s.KubeEventListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeEventListOptions:
+class KubeEventListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeEventOptions"],
+        items: typing.List["KubeEventProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """EventList is a list of events.
@@ -15545,7 +15533,7 @@ class KubeEventListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeEventOptions"]:
+    def items(self) -> typing.List["KubeEventProps"]:
         """List of events.
 
         :schema: io.k8s.api.core.v1.EventList#items
@@ -15572,7 +15560,7 @@ class KubeEventListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEventListOptions(%s)" % ", ".join(
+        return "KubeEventListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -15592,7 +15580,7 @@ class KubeEventListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeEventV1Beta1Options"],
+        items: typing.List["KubeEventV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.events.v1beta1.EventList" API object.
@@ -15602,21 +15590,21 @@ class KubeEventListV1Beta1(
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeEventListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeEventListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeEventListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEventListV1Beta1Options",
+    jsii_type="k8s.KubeEventListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeEventListV1Beta1Options:
+class KubeEventListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeEventV1Beta1Options"],
+        items: typing.List["KubeEventV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """EventList is a list of Event objects.
@@ -15635,7 +15623,7 @@ class KubeEventListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeEventV1Beta1Options"]:
+    def items(self) -> typing.List["KubeEventV1Beta1Props"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.events.v1beta1.EventList#items
@@ -15662,13 +15650,13 @@ class KubeEventListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEventListV1Beta1Options(%s)" % ", ".join(
+        return "KubeEventListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEventOptions",
+    jsii_type="k8s.KubeEventProps",
     jsii_struct_bases=[],
     name_mapping={
         "involved_object": "involvedObject",
@@ -15688,7 +15676,7 @@ class KubeEventListV1Beta1Options:
         "type": "type",
     },
 )
-class KubeEventOptions:
+class KubeEventProps:
     def __init__(
         self,
         *,
@@ -15919,7 +15907,7 @@ class KubeEventOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEventOptions(%s)" % ", ".join(
+        return "KubeEventProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -15977,7 +15965,7 @@ class KubeEventV1Beta1(
         :param series: Data about the Event series this event represents or nil if it's a singleton Event.
         :param type: Type of this event (Normal, Warning), new types could be added in the future.
         """
-        props = KubeEventV1Beta1Options(
+        props = KubeEventV1Beta1Props(
             event_time=event_time,
             action=action,
             deprecated_count=deprecated_count,
@@ -15999,7 +15987,7 @@ class KubeEventV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEventV1Beta1Options",
+    jsii_type="k8s.KubeEventV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={
         "event_time": "eventTime",
@@ -16019,7 +16007,7 @@ class KubeEventV1Beta1(
         "type": "type",
     },
 )
-class KubeEventV1Beta1Options:
+class KubeEventV1Beta1Props:
     def __init__(
         self,
         *,
@@ -16253,7 +16241,7 @@ class KubeEventV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEventV1Beta1Options(%s)" % ", ".join(
+        return "KubeEventV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -16285,7 +16273,7 @@ class KubeEvictionV1Beta1(
         :param delete_options: DeleteOptions may be provided.
         :param metadata: ObjectMeta describes the pod that is being evicted.
         """
-        props = KubeEvictionV1Beta1Options(
+        props = KubeEvictionV1Beta1Props(
             delete_options=delete_options, metadata=metadata
         )
 
@@ -16293,11 +16281,11 @@ class KubeEvictionV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeEvictionV1Beta1Options",
+    jsii_type="k8s.KubeEvictionV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"delete_options": "deleteOptions", "metadata": "metadata"},
 )
-class KubeEvictionV1Beta1Options:
+class KubeEvictionV1Beta1Props:
     def __init__(
         self,
         *,
@@ -16348,7 +16336,7 @@ class KubeEvictionV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeEvictionV1Beta1Options(%s)" % ", ".join(
+        return "KubeEvictionV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -16368,7 +16356,7 @@ class KubeFlowSchemaListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeFlowSchemaV1Alpha1Options"],
+        items: typing.List["KubeFlowSchemaV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList" API object.
@@ -16378,21 +16366,21 @@ class KubeFlowSchemaListV1Alpha1(
         :param items: ``items`` is a list of FlowSchemas.
         :param metadata: ``metadata`` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         """
-        props = KubeFlowSchemaListV1Alpha1Options(items=items, metadata=metadata)
+        props = KubeFlowSchemaListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeFlowSchemaListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeFlowSchemaListV1Alpha1Options",
+    jsii_type="k8s.KubeFlowSchemaListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeFlowSchemaListV1Alpha1Options:
+class KubeFlowSchemaListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeFlowSchemaV1Alpha1Options"],
+        items: typing.List["KubeFlowSchemaV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """FlowSchemaList is a list of FlowSchema objects.
@@ -16411,7 +16399,7 @@ class KubeFlowSchemaListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeFlowSchemaV1Alpha1Options"]:
+    def items(self) -> typing.List["KubeFlowSchemaV1Alpha1Props"]:
         """``items`` is a list of FlowSchemas.
 
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#items
@@ -16438,7 +16426,7 @@ class KubeFlowSchemaListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeFlowSchemaListV1Alpha1Options(%s)" % ", ".join(
+        return "KubeFlowSchemaListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -16470,17 +16458,17 @@ class KubeFlowSchemaV1Alpha1(
         :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         :param spec: ``spec`` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
         """
-        props = KubeFlowSchemaV1Alpha1Options(metadata=metadata, spec=spec)
+        props = KubeFlowSchemaV1Alpha1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeFlowSchemaV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeFlowSchemaV1Alpha1Options",
+    jsii_type="k8s.KubeFlowSchemaV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeFlowSchemaV1Alpha1Options:
+class KubeFlowSchemaV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -16535,7 +16523,7 @@ class KubeFlowSchemaV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeFlowSchemaV1Alpha1Options(%s)" % ", ".join(
+        return "KubeFlowSchemaV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -16565,7 +16553,7 @@ class KubeHorizontalPodAutoscaler(
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         """
-        props = KubeHorizontalPodAutoscalerOptions(metadata=metadata, spec=spec)
+        props = KubeHorizontalPodAutoscalerProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeHorizontalPodAutoscaler, self, [scope, id, props])
 
@@ -16585,7 +16573,7 @@ class KubeHorizontalPodAutoscalerList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerOptions"],
+        items: typing.List["KubeHorizontalPodAutoscalerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList" API object.
@@ -16595,21 +16583,21 @@ class KubeHorizontalPodAutoscalerList(
         :param items: list of horizontal pod autoscaler objects.
         :param metadata: Standard list metadata.
         """
-        props = KubeHorizontalPodAutoscalerListOptions(items=items, metadata=metadata)
+        props = KubeHorizontalPodAutoscalerListProps(items=items, metadata=metadata)
 
         jsii.create(KubeHorizontalPodAutoscalerList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeHorizontalPodAutoscalerListOptions",
+    jsii_type="k8s.KubeHorizontalPodAutoscalerListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeHorizontalPodAutoscalerListOptions:
+class KubeHorizontalPodAutoscalerListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerOptions"],
+        items: typing.List["KubeHorizontalPodAutoscalerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """list of horizontal pod autoscaler objects.
@@ -16628,7 +16616,7 @@ class KubeHorizontalPodAutoscalerListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeHorizontalPodAutoscalerOptions"]:
+    def items(self) -> typing.List["KubeHorizontalPodAutoscalerProps"]:
         """list of horizontal pod autoscaler objects.
 
         :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#items
@@ -16653,7 +16641,7 @@ class KubeHorizontalPodAutoscalerListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeHorizontalPodAutoscalerListOptions(%s)" % ", ".join(
+        return "KubeHorizontalPodAutoscalerListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -16673,7 +16661,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta1Options"],
+        items: typing.List["KubeHorizontalPodAutoscalerV2Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList" API object.
@@ -16683,7 +16671,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
         :param items: items is the list of horizontal pod autoscaler objects.
         :param metadata: metadata is the standard list metadata.
         """
-        props = KubeHorizontalPodAutoscalerListV2Beta1Options(
+        props = KubeHorizontalPodAutoscalerListV2Beta1Props(
             items=items, metadata=metadata
         )
 
@@ -16691,15 +16679,15 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeHorizontalPodAutoscalerListV2Beta1Options",
+    jsii_type="k8s.KubeHorizontalPodAutoscalerListV2Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeHorizontalPodAutoscalerListV2Beta1Options:
+class KubeHorizontalPodAutoscalerListV2Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta1Options"],
+        items: typing.List["KubeHorizontalPodAutoscalerV2Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.
@@ -16718,7 +16706,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeHorizontalPodAutoscalerV2Beta1Options"]:
+    def items(self) -> typing.List["KubeHorizontalPodAutoscalerV2Beta1Props"]:
         """items is the list of horizontal pod autoscaler objects.
 
         :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#items
@@ -16743,7 +16731,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeHorizontalPodAutoscalerListV2Beta1Options(%s)" % ", ".join(
+        return "KubeHorizontalPodAutoscalerListV2Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -16763,7 +16751,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta2Options"],
+        items: typing.List["KubeHorizontalPodAutoscalerV2Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList" API object.
@@ -16773,7 +16761,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
         :param items: items is the list of horizontal pod autoscaler objects.
         :param metadata: metadata is the standard list metadata.
         """
-        props = KubeHorizontalPodAutoscalerListV2Beta2Options(
+        props = KubeHorizontalPodAutoscalerListV2Beta2Props(
             items=items, metadata=metadata
         )
 
@@ -16781,15 +16769,15 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeHorizontalPodAutoscalerListV2Beta2Options",
+    jsii_type="k8s.KubeHorizontalPodAutoscalerListV2Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeHorizontalPodAutoscalerListV2Beta2Options:
+class KubeHorizontalPodAutoscalerListV2Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta2Options"],
+        items: typing.List["KubeHorizontalPodAutoscalerV2Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.
@@ -16808,7 +16796,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeHorizontalPodAutoscalerV2Beta2Options"]:
+    def items(self) -> typing.List["KubeHorizontalPodAutoscalerV2Beta2Props"]:
         """items is the list of horizontal pod autoscaler objects.
 
         :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#items
@@ -16833,17 +16821,17 @@ class KubeHorizontalPodAutoscalerListV2Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeHorizontalPodAutoscalerListV2Beta2Options(%s)" % ", ".join(
+        return "KubeHorizontalPodAutoscalerListV2Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeHorizontalPodAutoscalerOptions",
+    jsii_type="k8s.KubeHorizontalPodAutoscalerProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeHorizontalPodAutoscalerOptions:
+class KubeHorizontalPodAutoscalerProps:
     def __init__(
         self,
         *,
@@ -16896,7 +16884,7 @@ class KubeHorizontalPodAutoscalerOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeHorizontalPodAutoscalerOptions(%s)" % ", ".join(
+        return "KubeHorizontalPodAutoscalerProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -16926,17 +16914,17 @@ class KubeHorizontalPodAutoscalerV2Beta1(
         :param metadata: metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         """
-        props = KubeHorizontalPodAutoscalerV2Beta1Options(metadata=metadata, spec=spec)
+        props = KubeHorizontalPodAutoscalerV2Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeHorizontalPodAutoscalerV2Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeHorizontalPodAutoscalerV2Beta1Options",
+    jsii_type="k8s.KubeHorizontalPodAutoscalerV2Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeHorizontalPodAutoscalerV2Beta1Options:
+class KubeHorizontalPodAutoscalerV2Beta1Props:
     def __init__(
         self,
         *,
@@ -16989,7 +16977,7 @@ class KubeHorizontalPodAutoscalerV2Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeHorizontalPodAutoscalerV2Beta1Options(%s)" % ", ".join(
+        return "KubeHorizontalPodAutoscalerV2Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17019,17 +17007,17 @@ class KubeHorizontalPodAutoscalerV2Beta2(
         :param metadata: metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         """
-        props = KubeHorizontalPodAutoscalerV2Beta2Options(metadata=metadata, spec=spec)
+        props = KubeHorizontalPodAutoscalerV2Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeHorizontalPodAutoscalerV2Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeHorizontalPodAutoscalerV2Beta2Options",
+    jsii_type="k8s.KubeHorizontalPodAutoscalerV2Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeHorizontalPodAutoscalerV2Beta2Options:
+class KubeHorizontalPodAutoscalerV2Beta2Props:
     def __init__(
         self,
         *,
@@ -17082,7 +17070,7 @@ class KubeHorizontalPodAutoscalerV2Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeHorizontalPodAutoscalerV2Beta2Options(%s)" % ", ".join(
+        return "KubeHorizontalPodAutoscalerV2Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17102,7 +17090,7 @@ class KubeIngressListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeIngressV1Beta1Options"],
+        items: typing.List["KubeIngressV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.networking.v1beta1.IngressList" API object.
@@ -17112,21 +17100,21 @@ class KubeIngressListV1Beta1(
         :param items: Items is the list of Ingress.
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeIngressListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeIngressListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeIngressListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeIngressListV1Beta1Options",
+    jsii_type="k8s.KubeIngressListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeIngressListV1Beta1Options:
+class KubeIngressListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeIngressV1Beta1Options"],
+        items: typing.List["KubeIngressV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """IngressList is a collection of Ingress.
@@ -17145,7 +17133,7 @@ class KubeIngressListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeIngressV1Beta1Options"]:
+    def items(self) -> typing.List["KubeIngressV1Beta1Props"]:
         """Items is the list of Ingress.
 
         :schema: io.k8s.api.networking.v1beta1.IngressList#items
@@ -17172,7 +17160,7 @@ class KubeIngressListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeIngressListV1Beta1Options(%s)" % ", ".join(
+        return "KubeIngressListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17204,17 +17192,17 @@ class KubeIngressV1Beta1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeIngressV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeIngressV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeIngressV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeIngressV1Beta1Options",
+    jsii_type="k8s.KubeIngressV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeIngressV1Beta1Options:
+class KubeIngressV1Beta1Props:
     def __init__(
         self,
         *,
@@ -17269,7 +17257,7 @@ class KubeIngressV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeIngressV1Beta1Options(%s)" % ", ".join(
+        return "KubeIngressV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17295,7 +17283,7 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeJobOptions(metadata=metadata, spec=spec)
+        props = KubeJobProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeJob, self, [scope, id, props])
 
@@ -17315,7 +17303,7 @@ class KubeJobList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeJobOptions"],
+        items: typing.List["KubeJobProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.batch.v1.JobList" API object.
@@ -17325,21 +17313,21 @@ class KubeJobList(
         :param items: items is the list of Jobs.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeJobListOptions(items=items, metadata=metadata)
+        props = KubeJobListProps(items=items, metadata=metadata)
 
         jsii.create(KubeJobList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeJobListOptions",
+    jsii_type="k8s.KubeJobListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeJobListOptions:
+class KubeJobListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeJobOptions"],
+        items: typing.List["KubeJobProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """JobList is a collection of jobs.
@@ -17358,7 +17346,7 @@ class KubeJobListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeJobOptions"]:
+    def items(self) -> typing.List["KubeJobProps"]:
         """items is the list of Jobs.
 
         :schema: io.k8s.api.batch.v1.JobList#items
@@ -17385,17 +17373,17 @@ class KubeJobListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeJobListOptions(%s)" % ", ".join(
+        return "KubeJobListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeJobOptions",
+    jsii_type="k8s.KubeJobProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeJobOptions:
+class KubeJobProps:
     def __init__(
         self,
         *,
@@ -17448,7 +17436,7 @@ class KubeJobOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeJobOptions(%s)" % ", ".join(
+        return "KubeJobProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17474,7 +17462,7 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeLeaseOptions(metadata=metadata, spec=spec)
+        props = KubeLeaseProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeLease, self, [scope, id, props])
 
@@ -17494,7 +17482,7 @@ class KubeLeaseList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeLeaseOptions"],
+        items: typing.List["KubeLeaseProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.coordination.v1.LeaseList" API object.
@@ -17504,21 +17492,21 @@ class KubeLeaseList(
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeLeaseListOptions(items=items, metadata=metadata)
+        props = KubeLeaseListProps(items=items, metadata=metadata)
 
         jsii.create(KubeLeaseList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeLeaseListOptions",
+    jsii_type="k8s.KubeLeaseListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeLeaseListOptions:
+class KubeLeaseListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeLeaseOptions"],
+        items: typing.List["KubeLeaseProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """LeaseList is a list of Lease objects.
@@ -17537,7 +17525,7 @@ class KubeLeaseListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeLeaseOptions"]:
+    def items(self) -> typing.List["KubeLeaseProps"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.coordination.v1.LeaseList#items
@@ -17564,7 +17552,7 @@ class KubeLeaseListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeLeaseListOptions(%s)" % ", ".join(
+        return "KubeLeaseListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17584,7 +17572,7 @@ class KubeLeaseListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeLeaseV1Beta1Options"],
+        items: typing.List["KubeLeaseV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.coordination.v1beta1.LeaseList" API object.
@@ -17594,21 +17582,21 @@ class KubeLeaseListV1Beta1(
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeLeaseListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeLeaseListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeLeaseListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeLeaseListV1Beta1Options",
+    jsii_type="k8s.KubeLeaseListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeLeaseListV1Beta1Options:
+class KubeLeaseListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeLeaseV1Beta1Options"],
+        items: typing.List["KubeLeaseV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """LeaseList is a list of Lease objects.
@@ -17627,7 +17615,7 @@ class KubeLeaseListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeLeaseV1Beta1Options"]:
+    def items(self) -> typing.List["KubeLeaseV1Beta1Props"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.coordination.v1beta1.LeaseList#items
@@ -17654,17 +17642,17 @@ class KubeLeaseListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeLeaseListV1Beta1Options(%s)" % ", ".join(
+        return "KubeLeaseListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeLeaseOptions",
+    jsii_type="k8s.KubeLeaseProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeLeaseOptions:
+class KubeLeaseProps:
     def __init__(
         self,
         *,
@@ -17715,7 +17703,7 @@ class KubeLeaseOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeLeaseOptions(%s)" % ", ".join(
+        return "KubeLeaseProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17745,17 +17733,17 @@ class KubeLeaseV1Beta1(
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeLeaseV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeLeaseV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeLeaseV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeLeaseV1Beta1Options",
+    jsii_type="k8s.KubeLeaseV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeLeaseV1Beta1Options:
+class KubeLeaseV1Beta1Props:
     def __init__(
         self,
         *,
@@ -17806,7 +17794,7 @@ class KubeLeaseV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeLeaseV1Beta1Options(%s)" % ", ".join(
+        return "KubeLeaseV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -17836,7 +17824,7 @@ class KubeLimitRange(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the limits enforced. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeLimitRangeOptions(metadata=metadata, spec=spec)
+        props = KubeLimitRangeProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeLimitRange, self, [scope, id, props])
 
@@ -17856,7 +17844,7 @@ class KubeLimitRangeList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeLimitRangeOptions"],
+        items: typing.List["KubeLimitRangeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.LimitRangeList" API object.
@@ -17866,21 +17854,21 @@ class KubeLimitRangeList(
         :param items: Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeLimitRangeListOptions(items=items, metadata=metadata)
+        props = KubeLimitRangeListProps(items=items, metadata=metadata)
 
         jsii.create(KubeLimitRangeList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeLimitRangeListOptions",
+    jsii_type="k8s.KubeLimitRangeListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeLimitRangeListOptions:
+class KubeLimitRangeListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeLimitRangeOptions"],
+        items: typing.List["KubeLimitRangeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """LimitRangeList is a list of LimitRange items.
@@ -17899,7 +17887,7 @@ class KubeLimitRangeListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeLimitRangeOptions"]:
+    def items(self) -> typing.List["KubeLimitRangeProps"]:
         """Items is a list of LimitRange objects.
 
         More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -17928,17 +17916,17 @@ class KubeLimitRangeListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeLimitRangeListOptions(%s)" % ", ".join(
+        return "KubeLimitRangeListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeLimitRangeOptions",
+    jsii_type="k8s.KubeLimitRangeProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeLimitRangeOptions:
+class KubeLimitRangeProps:
     def __init__(
         self,
         *,
@@ -17991,7 +17979,7 @@ class KubeLimitRangeOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeLimitRangeOptions(%s)" % ", ".join(
+        return "KubeLimitRangeProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -18023,17 +18011,17 @@ class KubeLocalSubjectAccessReview(
         :param spec: Spec holds information about the request being evaluated. spec.namespace must be equal to the namespace you made the request against. If empty, it is defaulted.
         :param metadata: 
         """
-        props = KubeLocalSubjectAccessReviewOptions(spec=spec, metadata=metadata)
+        props = KubeLocalSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeLocalSubjectAccessReview, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeLocalSubjectAccessReviewOptions",
+    jsii_type="k8s.KubeLocalSubjectAccessReviewProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeLocalSubjectAccessReviewOptions:
+class KubeLocalSubjectAccessReviewProps:
     def __init__(
         self,
         *,
@@ -18086,7 +18074,7 @@ class KubeLocalSubjectAccessReviewOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeLocalSubjectAccessReviewOptions(%s)" % ", ".join(
+        return "KubeLocalSubjectAccessReviewProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -18118,19 +18106,17 @@ class KubeLocalSubjectAccessReviewV1Beta1(
         :param spec: Spec holds information about the request being evaluated. spec.namespace must be equal to the namespace you made the request against. If empty, it is defaulted.
         :param metadata: 
         """
-        props = KubeLocalSubjectAccessReviewV1Beta1Options(
-            spec=spec, metadata=metadata
-        )
+        props = KubeLocalSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeLocalSubjectAccessReviewV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeLocalSubjectAccessReviewV1Beta1Options",
+    jsii_type="k8s.KubeLocalSubjectAccessReviewV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeLocalSubjectAccessReviewV1Beta1Options:
+class KubeLocalSubjectAccessReviewV1Beta1Props:
     def __init__(
         self,
         *,
@@ -18183,7 +18169,7 @@ class KubeLocalSubjectAccessReviewV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeLocalSubjectAccessReviewV1Beta1Options(%s)" % ", ".join(
+        return "KubeLocalSubjectAccessReviewV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -18213,7 +18199,7 @@ class KubeMutatingWebhookConfiguration(
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         """
-        props = KubeMutatingWebhookConfigurationOptions(
+        props = KubeMutatingWebhookConfigurationProps(
             metadata=metadata, webhooks=webhooks
         )
 
@@ -18235,7 +18221,7 @@ class KubeMutatingWebhookConfigurationList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationOptions"],
+        items: typing.List["KubeMutatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList" API object.
@@ -18245,7 +18231,7 @@ class KubeMutatingWebhookConfigurationList(
         :param items: List of MutatingWebhookConfiguration.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeMutatingWebhookConfigurationListOptions(
+        props = KubeMutatingWebhookConfigurationListProps(
             items=items, metadata=metadata
         )
 
@@ -18253,15 +18239,15 @@ class KubeMutatingWebhookConfigurationList(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeMutatingWebhookConfigurationListOptions",
+    jsii_type="k8s.KubeMutatingWebhookConfigurationListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeMutatingWebhookConfigurationListOptions:
+class KubeMutatingWebhookConfigurationListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationOptions"],
+        items: typing.List["KubeMutatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
@@ -18280,7 +18266,7 @@ class KubeMutatingWebhookConfigurationListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeMutatingWebhookConfigurationOptions"]:
+    def items(self) -> typing.List["KubeMutatingWebhookConfigurationProps"]:
         """List of MutatingWebhookConfiguration.
 
         :schema: io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#items
@@ -18307,7 +18293,7 @@ class KubeMutatingWebhookConfigurationListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeMutatingWebhookConfigurationListOptions(%s)" % ", ".join(
+        return "KubeMutatingWebhookConfigurationListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -18327,7 +18313,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationV1Beta1Options"],
+        items: typing.List["KubeMutatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList" API object.
@@ -18337,7 +18323,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
         :param items: List of MutatingWebhookConfiguration.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeMutatingWebhookConfigurationListV1Beta1Options(
+        props = KubeMutatingWebhookConfigurationListV1Beta1Props(
             items=items, metadata=metadata
         )
 
@@ -18345,15 +18331,15 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeMutatingWebhookConfigurationListV1Beta1Options",
+    jsii_type="k8s.KubeMutatingWebhookConfigurationListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeMutatingWebhookConfigurationListV1Beta1Options:
+class KubeMutatingWebhookConfigurationListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationV1Beta1Options"],
+        items: typing.List["KubeMutatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
@@ -18372,7 +18358,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeMutatingWebhookConfigurationV1Beta1Options"]:
+    def items(self) -> typing.List["KubeMutatingWebhookConfigurationV1Beta1Props"]:
         """List of MutatingWebhookConfiguration.
 
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList#items
@@ -18399,17 +18385,17 @@ class KubeMutatingWebhookConfigurationListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeMutatingWebhookConfigurationListV1Beta1Options(%s)" % ", ".join(
+        return "KubeMutatingWebhookConfigurationListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeMutatingWebhookConfigurationOptions",
+    jsii_type="k8s.KubeMutatingWebhookConfigurationProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
 )
-class KubeMutatingWebhookConfigurationOptions:
+class KubeMutatingWebhookConfigurationProps:
     def __init__(
         self,
         *,
@@ -18458,7 +18444,7 @@ class KubeMutatingWebhookConfigurationOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeMutatingWebhookConfigurationOptions(%s)" % ", ".join(
+        return "KubeMutatingWebhookConfigurationProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -18490,7 +18476,7 @@ class KubeMutatingWebhookConfigurationV1Beta1(
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         """
-        props = KubeMutatingWebhookConfigurationV1Beta1Options(
+        props = KubeMutatingWebhookConfigurationV1Beta1Props(
             metadata=metadata, webhooks=webhooks
         )
 
@@ -18498,11 +18484,11 @@ class KubeMutatingWebhookConfigurationV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeMutatingWebhookConfigurationV1Beta1Options",
+    jsii_type="k8s.KubeMutatingWebhookConfigurationV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
 )
-class KubeMutatingWebhookConfigurationV1Beta1Options:
+class KubeMutatingWebhookConfigurationV1Beta1Props:
     def __init__(
         self,
         *,
@@ -18553,7 +18539,7 @@ class KubeMutatingWebhookConfigurationV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeMutatingWebhookConfigurationV1Beta1Options(%s)" % ", ".join(
+        return "KubeMutatingWebhookConfigurationV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -18585,7 +18571,7 @@ class KubeNamespace(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the behavior of the Namespace. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeNamespaceOptions(metadata=metadata, spec=spec)
+        props = KubeNamespaceProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeNamespace, self, [scope, id, props])
 
@@ -18605,7 +18591,7 @@ class KubeNamespaceList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeNamespaceOptions"],
+        items: typing.List["KubeNamespaceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.NamespaceList" API object.
@@ -18615,21 +18601,21 @@ class KubeNamespaceList(
         :param items: Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeNamespaceListOptions(items=items, metadata=metadata)
+        props = KubeNamespaceListProps(items=items, metadata=metadata)
 
         jsii.create(KubeNamespaceList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeNamespaceListOptions",
+    jsii_type="k8s.KubeNamespaceListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeNamespaceListOptions:
+class KubeNamespaceListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeNamespaceOptions"],
+        items: typing.List["KubeNamespaceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """NamespaceList is a list of Namespaces.
@@ -18648,7 +18634,7 @@ class KubeNamespaceListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeNamespaceOptions"]:
+    def items(self) -> typing.List["KubeNamespaceProps"]:
         """Items is the list of Namespace objects in the list.
 
         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
@@ -18677,17 +18663,17 @@ class KubeNamespaceListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeNamespaceListOptions(%s)" % ", ".join(
+        return "KubeNamespaceListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeNamespaceOptions",
+    jsii_type="k8s.KubeNamespaceProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeNamespaceOptions:
+class KubeNamespaceProps:
     def __init__(
         self,
         *,
@@ -18742,7 +18728,7 @@ class KubeNamespaceOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeNamespaceOptions(%s)" % ", ".join(
+        return "KubeNamespaceProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -18772,7 +18758,7 @@ class KubeNetworkPolicy(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior for this NetworkPolicy.
         """
-        props = KubeNetworkPolicyOptions(metadata=metadata, spec=spec)
+        props = KubeNetworkPolicyProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeNetworkPolicy, self, [scope, id, props])
 
@@ -18792,7 +18778,7 @@ class KubeNetworkPolicyList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeNetworkPolicyOptions"],
+        items: typing.List["KubeNetworkPolicyProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.networking.v1.NetworkPolicyList" API object.
@@ -18802,21 +18788,21 @@ class KubeNetworkPolicyList(
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeNetworkPolicyListOptions(items=items, metadata=metadata)
+        props = KubeNetworkPolicyListProps(items=items, metadata=metadata)
 
         jsii.create(KubeNetworkPolicyList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeNetworkPolicyListOptions",
+    jsii_type="k8s.KubeNetworkPolicyListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeNetworkPolicyListOptions:
+class KubeNetworkPolicyListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeNetworkPolicyOptions"],
+        items: typing.List["KubeNetworkPolicyProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """NetworkPolicyList is a list of NetworkPolicy objects.
@@ -18835,7 +18821,7 @@ class KubeNetworkPolicyListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeNetworkPolicyOptions"]:
+    def items(self) -> typing.List["KubeNetworkPolicyProps"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.networking.v1.NetworkPolicyList#items
@@ -18862,7 +18848,7 @@ class KubeNetworkPolicyListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeNetworkPolicyListOptions(%s)" % ", ".join(
+        return "KubeNetworkPolicyListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -18882,7 +18868,7 @@ class KubeNetworkPolicyListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeNetworkPolicyV1Beta1Options"],
+        items: typing.List["KubeNetworkPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.extensions.v1beta1.NetworkPolicyList" API object.
@@ -18892,21 +18878,21 @@ class KubeNetworkPolicyListV1Beta1(
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeNetworkPolicyListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeNetworkPolicyListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeNetworkPolicyListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeNetworkPolicyListV1Beta1Options",
+    jsii_type="k8s.KubeNetworkPolicyListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeNetworkPolicyListV1Beta1Options:
+class KubeNetworkPolicyListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeNetworkPolicyV1Beta1Options"],
+        items: typing.List["KubeNetworkPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """DEPRECATED 1.9 - This group version of NetworkPolicyList is deprecated by networking/v1/NetworkPolicyList. Network Policy List is a list of NetworkPolicy objects.
@@ -18925,7 +18911,7 @@ class KubeNetworkPolicyListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeNetworkPolicyV1Beta1Options"]:
+    def items(self) -> typing.List["KubeNetworkPolicyV1Beta1Props"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyList#items
@@ -18952,17 +18938,17 @@ class KubeNetworkPolicyListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeNetworkPolicyListV1Beta1Options(%s)" % ", ".join(
+        return "KubeNetworkPolicyListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeNetworkPolicyOptions",
+    jsii_type="k8s.KubeNetworkPolicyProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeNetworkPolicyOptions:
+class KubeNetworkPolicyProps:
     def __init__(
         self,
         *,
@@ -19013,7 +18999,7 @@ class KubeNetworkPolicyOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeNetworkPolicyOptions(%s)" % ", ".join(
+        return "KubeNetworkPolicyProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19043,17 +19029,17 @@ class KubeNetworkPolicyV1Beta1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior for this NetworkPolicy.
         """
-        props = KubeNetworkPolicyV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeNetworkPolicyV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeNetworkPolicyV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeNetworkPolicyV1Beta1Options",
+    jsii_type="k8s.KubeNetworkPolicyV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeNetworkPolicyV1Beta1Options:
+class KubeNetworkPolicyV1Beta1Props:
     def __init__(
         self,
         *,
@@ -19104,7 +19090,7 @@ class KubeNetworkPolicyV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeNetworkPolicyV1Beta1Options(%s)" % ", ".join(
+        return "KubeNetworkPolicyV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19132,7 +19118,7 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the behavior of a node. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeNodeOptions(metadata=metadata, spec=spec)
+        props = KubeNodeProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeNode, self, [scope, id, props])
 
@@ -19152,7 +19138,7 @@ class KubeNodeList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeNodeOptions"],
+        items: typing.List["KubeNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.NodeList" API object.
@@ -19162,21 +19148,21 @@ class KubeNodeList(
         :param items: List of nodes.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeNodeListOptions(items=items, metadata=metadata)
+        props = KubeNodeListProps(items=items, metadata=metadata)
 
         jsii.create(KubeNodeList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeNodeListOptions",
+    jsii_type="k8s.KubeNodeListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeNodeListOptions:
+class KubeNodeListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeNodeOptions"],
+        items: typing.List["KubeNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """NodeList is the whole list of all Nodes which have been registered with master.
@@ -19195,7 +19181,7 @@ class KubeNodeListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeNodeOptions"]:
+    def items(self) -> typing.List["KubeNodeProps"]:
         """List of nodes.
 
         :schema: io.k8s.api.core.v1.NodeList#items
@@ -19222,17 +19208,17 @@ class KubeNodeListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeNodeListOptions(%s)" % ", ".join(
+        return "KubeNodeListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeNodeOptions",
+    jsii_type="k8s.KubeNodeProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeNodeOptions:
+class KubeNodeProps:
     def __init__(
         self,
         *,
@@ -19287,7 +19273,7 @@ class KubeNodeOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeNodeOptions(%s)" % ", ".join(
+        return "KubeNodeProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19319,7 +19305,7 @@ class KubePersistentVolume(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines a specification of a persistent volume owned by the cluster. Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
         """
-        props = KubePersistentVolumeOptions(metadata=metadata, spec=spec)
+        props = KubePersistentVolumeProps(metadata=metadata, spec=spec)
 
         jsii.create(KubePersistentVolume, self, [scope, id, props])
 
@@ -19349,7 +19335,7 @@ class KubePersistentVolumeClaim(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
         """
-        props = KubePersistentVolumeClaimOptions(metadata=metadata, spec=spec)
+        props = KubePersistentVolumeClaimProps(metadata=metadata, spec=spec)
 
         jsii.create(KubePersistentVolumeClaim, self, [scope, id, props])
 
@@ -19369,7 +19355,7 @@ class KubePersistentVolumeClaimList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePersistentVolumeClaimOptions"],
+        items: typing.List["KubePersistentVolumeClaimProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.PersistentVolumeClaimList" API object.
@@ -19379,21 +19365,21 @@ class KubePersistentVolumeClaimList(
         :param items: A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubePersistentVolumeClaimListOptions(items=items, metadata=metadata)
+        props = KubePersistentVolumeClaimListProps(items=items, metadata=metadata)
 
         jsii.create(KubePersistentVolumeClaimList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePersistentVolumeClaimListOptions",
+    jsii_type="k8s.KubePersistentVolumeClaimListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePersistentVolumeClaimListOptions:
+class KubePersistentVolumeClaimListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePersistentVolumeClaimOptions"],
+        items: typing.List["KubePersistentVolumeClaimProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PersistentVolumeClaimList is a list of PersistentVolumeClaim items.
@@ -19412,7 +19398,7 @@ class KubePersistentVolumeClaimListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePersistentVolumeClaimOptions"]:
+    def items(self) -> typing.List["KubePersistentVolumeClaimProps"]:
         """A list of persistent volume claims.
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
@@ -19441,17 +19427,17 @@ class KubePersistentVolumeClaimListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePersistentVolumeClaimListOptions(%s)" % ", ".join(
+        return "KubePersistentVolumeClaimListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePersistentVolumeClaimOptions",
+    jsii_type="k8s.KubePersistentVolumeClaimProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubePersistentVolumeClaimOptions:
+class KubePersistentVolumeClaimProps:
     def __init__(
         self,
         *,
@@ -19504,7 +19490,7 @@ class KubePersistentVolumeClaimOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePersistentVolumeClaimOptions(%s)" % ", ".join(
+        return "KubePersistentVolumeClaimProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19524,7 +19510,7 @@ class KubePersistentVolumeList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePersistentVolumeOptions"],
+        items: typing.List["KubePersistentVolumeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.PersistentVolumeList" API object.
@@ -19534,21 +19520,21 @@ class KubePersistentVolumeList(
         :param items: List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubePersistentVolumeListOptions(items=items, metadata=metadata)
+        props = KubePersistentVolumeListProps(items=items, metadata=metadata)
 
         jsii.create(KubePersistentVolumeList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePersistentVolumeListOptions",
+    jsii_type="k8s.KubePersistentVolumeListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePersistentVolumeListOptions:
+class KubePersistentVolumeListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePersistentVolumeOptions"],
+        items: typing.List["KubePersistentVolumeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PersistentVolumeList is a list of PersistentVolume items.
@@ -19567,7 +19553,7 @@ class KubePersistentVolumeListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePersistentVolumeOptions"]:
+    def items(self) -> typing.List["KubePersistentVolumeProps"]:
         """List of persistent volumes.
 
         More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
@@ -19596,17 +19582,17 @@ class KubePersistentVolumeListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePersistentVolumeListOptions(%s)" % ", ".join(
+        return "KubePersistentVolumeListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePersistentVolumeOptions",
+    jsii_type="k8s.KubePersistentVolumeProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubePersistentVolumeOptions:
+class KubePersistentVolumeProps:
     def __init__(
         self,
         *,
@@ -19661,7 +19647,7 @@ class KubePersistentVolumeOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePersistentVolumeOptions(%s)" % ", ".join(
+        return "KubePersistentVolumeProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19689,7 +19675,7 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubePodOptions(metadata=metadata, spec=spec)
+        props = KubePodProps(metadata=metadata, spec=spec)
 
         jsii.create(KubePod, self, [scope, id, props])
 
@@ -19709,7 +19695,7 @@ class KubePodDisruptionBudgetListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodDisruptionBudgetV1Beta1Options"],
+        items: typing.List["KubePodDisruptionBudgetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" API object.
@@ -19719,23 +19705,21 @@ class KubePodDisruptionBudgetListV1Beta1(
         :param items: 
         :param metadata: 
         """
-        props = KubePodDisruptionBudgetListV1Beta1Options(
-            items=items, metadata=metadata
-        )
+        props = KubePodDisruptionBudgetListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubePodDisruptionBudgetListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePodDisruptionBudgetListV1Beta1Options",
+    jsii_type="k8s.KubePodDisruptionBudgetListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePodDisruptionBudgetListV1Beta1Options:
+class KubePodDisruptionBudgetListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodDisruptionBudgetV1Beta1Options"],
+        items: typing.List["KubePodDisruptionBudgetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
@@ -19754,7 +19738,7 @@ class KubePodDisruptionBudgetListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePodDisruptionBudgetV1Beta1Options"]:
+    def items(self) -> typing.List["KubePodDisruptionBudgetV1Beta1Props"]:
         """
         :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#items
         """
@@ -19777,7 +19761,7 @@ class KubePodDisruptionBudgetListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePodDisruptionBudgetListV1Beta1Options(%s)" % ", ".join(
+        return "KubePodDisruptionBudgetListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19807,17 +19791,17 @@ class KubePodDisruptionBudgetV1Beta1(
         :param metadata: 
         :param spec: Specification of the desired behavior of the PodDisruptionBudget.
         """
-        props = KubePodDisruptionBudgetV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubePodDisruptionBudgetV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubePodDisruptionBudgetV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePodDisruptionBudgetV1Beta1Options",
+    jsii_type="k8s.KubePodDisruptionBudgetV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubePodDisruptionBudgetV1Beta1Options:
+class KubePodDisruptionBudgetV1Beta1Props:
     def __init__(
         self,
         *,
@@ -19865,7 +19849,7 @@ class KubePodDisruptionBudgetV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePodDisruptionBudgetV1Beta1Options(%s)" % ", ".join(
+        return "KubePodDisruptionBudgetV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -19885,7 +19869,7 @@ class KubePodList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodOptions"],
+        items: typing.List["KubePodProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.PodList" API object.
@@ -19895,21 +19879,21 @@ class KubePodList(
         :param items: List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubePodListOptions(items=items, metadata=metadata)
+        props = KubePodListProps(items=items, metadata=metadata)
 
         jsii.create(KubePodList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePodListOptions",
+    jsii_type="k8s.KubePodListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePodListOptions:
+class KubePodListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodOptions"],
+        items: typing.List["KubePodProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodList is a list of Pods.
@@ -19928,7 +19912,7 @@ class KubePodListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePodOptions"]:
+    def items(self) -> typing.List["KubePodProps"]:
         """List of pods.
 
         More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
@@ -19957,17 +19941,194 @@ class KubePodListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePodListOptions(%s)" % ", ".join(
+        return "KubePodListProps(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class KubePodPresetListV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.KubePodPresetListV1Alpha1",
+):
+    """PodPresetList is a list of PodPreset objects.
+
+    :schema: io.k8s.api.settings.v1alpha1.PodPresetList
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        id: builtins.str,
+        *,
+        items: typing.List["KubePodPresetV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.settings.v1alpha1.PodPresetList" API object.
+
+        :param scope: the scope in which to define this object.
+        :param id: a scope-local name for the object.
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubePodPresetListV1Alpha1Props(items=items, metadata=metadata)
+
+        jsii.create(KubePodPresetListV1Alpha1, self, [scope, id, props])
+
+
+@jsii.data_type(
+    jsii_type="k8s.KubePodPresetListV1Alpha1Props",
+    jsii_struct_bases=[],
+    name_mapping={"items": "items", "metadata": "metadata"},
+)
+class KubePodPresetListV1Alpha1Props:
+    def __init__(
+        self,
+        *,
+        items: typing.List["KubePodPresetV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> None:
+        """PodPresetList is a list of PodPreset objects.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.settings.v1alpha1.PodPresetList
+        """
+        if isinstance(metadata, dict):
+            metadata = ListMeta(**metadata)
+        self._values: typing.Dict[str, typing.Any] = {
+            "items": items,
+        }
+        if metadata is not None:
+            self._values["metadata"] = metadata
+
+    @builtins.property
+    def items(self) -> typing.List["KubePodPresetV1Alpha1Props"]:
+        """Items is a list of schema objects.
+
+        :schema: io.k8s.api.settings.v1alpha1.PodPresetList#items
+        """
+        result = self._values.get("items")
+        assert result is not None, "Required property 'items' is missing"
+        return result
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ListMeta"]:
+        """Standard list metadata.
+
+        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+        :schema: io.k8s.api.settings.v1alpha1.PodPresetList#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "KubePodPresetListV1Alpha1Props(%s)" % ", ".join(
+            k + "=" + repr(v) for k, v in self._values.items()
+        )
+
+
+class KubePodPresetV1Alpha1(
+    cdk8s.ApiObject,
+    metaclass=jsii.JSIIMeta,
+    jsii_type="k8s.KubePodPresetV1Alpha1",
+):
+    """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
+
+    :schema: io.k8s.api.settings.v1alpha1.PodPreset
+    """
+
+    def __init__(
+        self,
+        scope: constructs.Construct,
+        id: builtins.str,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PodPresetSpec"] = None,
+    ) -> None:
+        """Defines a "io.k8s.api.settings.v1alpha1.PodPreset" API object.
+
+        :param scope: the scope in which to define this object.
+        :param id: a scope-local name for the object.
+        :param metadata: 
+        :param spec: 
+        """
+        props = KubePodPresetV1Alpha1Props(metadata=metadata, spec=spec)
+
+        jsii.create(KubePodPresetV1Alpha1, self, [scope, id, props])
+
+
+@jsii.data_type(
+    jsii_type="k8s.KubePodPresetV1Alpha1Props",
+    jsii_struct_bases=[],
+    name_mapping={"metadata": "metadata", "spec": "spec"},
+)
+class KubePodPresetV1Alpha1Props:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PodPresetSpec"] = None,
+    ) -> None:
+        """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
+
+        :param metadata: 
+        :param spec: 
+
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset
+        """
+        if isinstance(metadata, dict):
+            metadata = ObjectMeta(**metadata)
+        if isinstance(spec, dict):
+            spec = PodPresetSpec(**spec)
+        self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
+        if spec is not None:
+            self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional["ObjectMeta"]:
+        """
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset#metadata
+        """
+        result = self._values.get("metadata")
+        return result
+
+    @builtins.property
+    def spec(self) -> typing.Optional["PodPresetSpec"]:
+        """
+        :schema: io.k8s.api.settings.v1alpha1.PodPreset#spec
+        """
+        result = self._values.get("spec")
+        return result
+
+    def __eq__(self, rhs: typing.Any) -> builtins.bool:
+        return isinstance(rhs, self.__class__) and rhs._values == self._values
+
+    def __ne__(self, rhs: typing.Any) -> builtins.bool:
+        return not (rhs == self)
+
+    def __repr__(self) -> str:
+        return "KubePodPresetV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePodOptions",
+    jsii_type="k8s.KubePodProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubePodOptions:
+class KubePodProps:
     def __init__(
         self,
         *,
@@ -20022,184 +20183,7 @@ class KubePodOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePodOptions(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-class KubePodPresetListV1Alpha1(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.KubePodPresetListV1Alpha1",
-):
-    """PodPresetList is a list of PodPreset objects.
-
-    :schema: io.k8s.api.settings.v1alpha1.PodPresetList
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        id: builtins.str,
-        *,
-        items: typing.List["KubePodPresetV1Alpha1Options"],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.settings.v1alpha1.PodPresetList" API object.
-
-        :param scope: the scope in which to define this object.
-        :param id: a scope-local name for the object.
-        :param items: Items is a list of schema objects.
-        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-        """
-        props = KubePodPresetListV1Alpha1Options(items=items, metadata=metadata)
-
-        jsii.create(KubePodPresetListV1Alpha1, self, [scope, id, props])
-
-
-@jsii.data_type(
-    jsii_type="k8s.KubePodPresetListV1Alpha1Options",
-    jsii_struct_bases=[],
-    name_mapping={"items": "items", "metadata": "metadata"},
-)
-class KubePodPresetListV1Alpha1Options:
-    def __init__(
-        self,
-        *,
-        items: typing.List["KubePodPresetV1Alpha1Options"],
-        metadata: typing.Optional["ListMeta"] = None,
-    ) -> None:
-        """PodPresetList is a list of PodPreset objects.
-
-        :param items: Items is a list of schema objects.
-        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.settings.v1alpha1.PodPresetList
-        """
-        if isinstance(metadata, dict):
-            metadata = ListMeta(**metadata)
-        self._values: typing.Dict[str, typing.Any] = {
-            "items": items,
-        }
-        if metadata is not None:
-            self._values["metadata"] = metadata
-
-    @builtins.property
-    def items(self) -> typing.List["KubePodPresetV1Alpha1Options"]:
-        """Items is a list of schema objects.
-
-        :schema: io.k8s.api.settings.v1alpha1.PodPresetList#items
-        """
-        result = self._values.get("items")
-        assert result is not None, "Required property 'items' is missing"
-        return result
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ListMeta"]:
-        """Standard list metadata.
-
-        More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-
-        :schema: io.k8s.api.settings.v1alpha1.PodPresetList#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "KubePodPresetListV1Alpha1Options(%s)" % ", ".join(
-            k + "=" + repr(v) for k, v in self._values.items()
-        )
-
-
-class KubePodPresetV1Alpha1(
-    cdk8s.ApiObject,
-    metaclass=jsii.JSIIMeta,
-    jsii_type="k8s.KubePodPresetV1Alpha1",
-):
-    """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
-
-    :schema: io.k8s.api.settings.v1alpha1.PodPreset
-    """
-
-    def __init__(
-        self,
-        scope: constructs.Construct,
-        id: builtins.str,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["PodPresetSpec"] = None,
-    ) -> None:
-        """Defines a "io.k8s.api.settings.v1alpha1.PodPreset" API object.
-
-        :param scope: the scope in which to define this object.
-        :param id: a scope-local name for the object.
-        :param metadata: 
-        :param spec: 
-        """
-        props = KubePodPresetV1Alpha1Options(metadata=metadata, spec=spec)
-
-        jsii.create(KubePodPresetV1Alpha1, self, [scope, id, props])
-
-
-@jsii.data_type(
-    jsii_type="k8s.KubePodPresetV1Alpha1Options",
-    jsii_struct_bases=[],
-    name_mapping={"metadata": "metadata", "spec": "spec"},
-)
-class KubePodPresetV1Alpha1Options:
-    def __init__(
-        self,
-        *,
-        metadata: typing.Optional["ObjectMeta"] = None,
-        spec: typing.Optional["PodPresetSpec"] = None,
-    ) -> None:
-        """PodPreset is a policy resource that defines additional runtime requirements for a Pod.
-
-        :param metadata: 
-        :param spec: 
-
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset
-        """
-        if isinstance(metadata, dict):
-            metadata = ObjectMeta(**metadata)
-        if isinstance(spec, dict):
-            spec = PodPresetSpec(**spec)
-        self._values: typing.Dict[str, typing.Any] = {}
-        if metadata is not None:
-            self._values["metadata"] = metadata
-        if spec is not None:
-            self._values["spec"] = spec
-
-    @builtins.property
-    def metadata(self) -> typing.Optional["ObjectMeta"]:
-        """
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset#metadata
-        """
-        result = self._values.get("metadata")
-        return result
-
-    @builtins.property
-    def spec(self) -> typing.Optional["PodPresetSpec"]:
-        """
-        :schema: io.k8s.api.settings.v1alpha1.PodPreset#spec
-        """
-        result = self._values.get("spec")
-        return result
-
-    def __eq__(self, rhs: typing.Any) -> builtins.bool:
-        return isinstance(rhs, self.__class__) and rhs._values == self._values
-
-    def __ne__(self, rhs: typing.Any) -> builtins.bool:
-        return not (rhs == self)
-
-    def __repr__(self) -> str:
-        return "KubePodPresetV1Alpha1Options(%s)" % ", ".join(
+        return "KubePodProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20219,7 +20203,7 @@ class KubePodSecurityPolicyListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodSecurityPolicyV1Beta1Options"],
+        items: typing.List["KubePodSecurityPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" API object.
@@ -20229,21 +20213,21 @@ class KubePodSecurityPolicyListV1Beta1(
         :param items: items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubePodSecurityPolicyListV1Beta1Options(items=items, metadata=metadata)
+        props = KubePodSecurityPolicyListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubePodSecurityPolicyListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePodSecurityPolicyListV1Beta1Options",
+    jsii_type="k8s.KubePodSecurityPolicyListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePodSecurityPolicyListV1Beta1Options:
+class KubePodSecurityPolicyListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodSecurityPolicyV1Beta1Options"],
+        items: typing.List["KubePodSecurityPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodSecurityPolicyList is a list of PodSecurityPolicy objects.
@@ -20262,7 +20246,7 @@ class KubePodSecurityPolicyListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePodSecurityPolicyV1Beta1Options"]:
+    def items(self) -> typing.List["KubePodSecurityPolicyV1Beta1Props"]:
         """items is a list of schema objects.
 
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList#items
@@ -20289,7 +20273,7 @@ class KubePodSecurityPolicyListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePodSecurityPolicyListV1Beta1Options(%s)" % ", ".join(
+        return "KubePodSecurityPolicyListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20319,17 +20303,17 @@ class KubePodSecurityPolicyV1Beta1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: spec defines the policy enforced.
         """
-        props = KubePodSecurityPolicyV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubePodSecurityPolicyV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubePodSecurityPolicyV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePodSecurityPolicyV1Beta1Options",
+    jsii_type="k8s.KubePodSecurityPolicyV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubePodSecurityPolicyV1Beta1Options:
+class KubePodSecurityPolicyV1Beta1Props:
     def __init__(
         self,
         *,
@@ -20380,7 +20364,7 @@ class KubePodSecurityPolicyV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePodSecurityPolicyV1Beta1Options(%s)" % ", ".join(
+        return "KubePodSecurityPolicyV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20410,7 +20394,7 @@ class KubePodTemplate(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param template: Template defines the pods that will be created from this pod template. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubePodTemplateOptions(metadata=metadata, template=template)
+        props = KubePodTemplateProps(metadata=metadata, template=template)
 
         jsii.create(KubePodTemplate, self, [scope, id, props])
 
@@ -20430,7 +20414,7 @@ class KubePodTemplateList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodTemplateOptions"],
+        items: typing.List["KubePodTemplateProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.PodTemplateList" API object.
@@ -20440,21 +20424,21 @@ class KubePodTemplateList(
         :param items: List of pod templates.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubePodTemplateListOptions(items=items, metadata=metadata)
+        props = KubePodTemplateListProps(items=items, metadata=metadata)
 
         jsii.create(KubePodTemplateList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePodTemplateListOptions",
+    jsii_type="k8s.KubePodTemplateListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePodTemplateListOptions:
+class KubePodTemplateListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodTemplateOptions"],
+        items: typing.List["KubePodTemplateProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PodTemplateList is a list of PodTemplates.
@@ -20473,7 +20457,7 @@ class KubePodTemplateListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePodTemplateOptions"]:
+    def items(self) -> typing.List["KubePodTemplateProps"]:
         """List of pod templates.
 
         :schema: io.k8s.api.core.v1.PodTemplateList#items
@@ -20500,17 +20484,17 @@ class KubePodTemplateListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePodTemplateListOptions(%s)" % ", ".join(
+        return "KubePodTemplateListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePodTemplateOptions",
+    jsii_type="k8s.KubePodTemplateProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "template": "template"},
 )
-class KubePodTemplateOptions:
+class KubePodTemplateProps:
     def __init__(
         self,
         *,
@@ -20563,7 +20547,7 @@ class KubePodTemplateOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePodTemplateOptions(%s)" % ", ".join(
+        return "KubePodTemplateProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20601,7 +20585,7 @@ class KubePriorityClass(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
         """
-        props = KubePriorityClassOptions(
+        props = KubePriorityClassProps(
             value=value,
             description=description,
             global_default=global_default,
@@ -20627,7 +20611,7 @@ class KubePriorityClassList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePriorityClassOptions"],
+        items: typing.List["KubePriorityClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.scheduling.v1.PriorityClassList" API object.
@@ -20637,21 +20621,21 @@ class KubePriorityClassList(
         :param items: items is the list of PriorityClasses.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubePriorityClassListOptions(items=items, metadata=metadata)
+        props = KubePriorityClassListProps(items=items, metadata=metadata)
 
         jsii.create(KubePriorityClassList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePriorityClassListOptions",
+    jsii_type="k8s.KubePriorityClassListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePriorityClassListOptions:
+class KubePriorityClassListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePriorityClassOptions"],
+        items: typing.List["KubePriorityClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PriorityClassList is a collection of priority classes.
@@ -20670,7 +20654,7 @@ class KubePriorityClassListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePriorityClassOptions"]:
+    def items(self) -> typing.List["KubePriorityClassProps"]:
         """items is the list of PriorityClasses.
 
         :schema: io.k8s.api.scheduling.v1.PriorityClassList#items
@@ -20695,7 +20679,7 @@ class KubePriorityClassListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePriorityClassListOptions(%s)" % ", ".join(
+        return "KubePriorityClassListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20715,7 +20699,7 @@ class KubePriorityClassListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePriorityClassV1Alpha1Options"],
+        items: typing.List["KubePriorityClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.scheduling.v1alpha1.PriorityClassList" API object.
@@ -20725,21 +20709,21 @@ class KubePriorityClassListV1Alpha1(
         :param items: items is the list of PriorityClasses.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubePriorityClassListV1Alpha1Options(items=items, metadata=metadata)
+        props = KubePriorityClassListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubePriorityClassListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePriorityClassListV1Alpha1Options",
+    jsii_type="k8s.KubePriorityClassListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePriorityClassListV1Alpha1Options:
+class KubePriorityClassListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePriorityClassV1Alpha1Options"],
+        items: typing.List["KubePriorityClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PriorityClassList is a collection of priority classes.
@@ -20758,7 +20742,7 @@ class KubePriorityClassListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePriorityClassV1Alpha1Options"]:
+    def items(self) -> typing.List["KubePriorityClassV1Alpha1Props"]:
         """items is the list of PriorityClasses.
 
         :schema: io.k8s.api.scheduling.v1alpha1.PriorityClassList#items
@@ -20783,7 +20767,7 @@ class KubePriorityClassListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePriorityClassListV1Alpha1Options(%s)" % ", ".join(
+        return "KubePriorityClassListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -20803,7 +20787,7 @@ class KubePriorityClassListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePriorityClassV1Beta1Options"],
+        items: typing.List["KubePriorityClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.scheduling.v1beta1.PriorityClassList" API object.
@@ -20813,21 +20797,21 @@ class KubePriorityClassListV1Beta1(
         :param items: items is the list of PriorityClasses.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubePriorityClassListV1Beta1Options(items=items, metadata=metadata)
+        props = KubePriorityClassListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubePriorityClassListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePriorityClassListV1Beta1Options",
+    jsii_type="k8s.KubePriorityClassListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePriorityClassListV1Beta1Options:
+class KubePriorityClassListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePriorityClassV1Beta1Options"],
+        items: typing.List["KubePriorityClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PriorityClassList is a collection of priority classes.
@@ -20846,7 +20830,7 @@ class KubePriorityClassListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePriorityClassV1Beta1Options"]:
+    def items(self) -> typing.List["KubePriorityClassV1Beta1Props"]:
         """items is the list of PriorityClasses.
 
         :schema: io.k8s.api.scheduling.v1beta1.PriorityClassList#items
@@ -20871,13 +20855,13 @@ class KubePriorityClassListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePriorityClassListV1Beta1Options(%s)" % ", ".join(
+        return "KubePriorityClassListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePriorityClassOptions",
+    jsii_type="k8s.KubePriorityClassProps",
     jsii_struct_bases=[],
     name_mapping={
         "value": "value",
@@ -20887,7 +20871,7 @@ class KubePriorityClassListV1Beta1Options:
         "preemption_policy": "preemptionPolicy",
     },
 )
-class KubePriorityClassOptions:
+class KubePriorityClassProps:
     def __init__(
         self,
         *,
@@ -20986,7 +20970,7 @@ class KubePriorityClassOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePriorityClassOptions(%s)" % ", ".join(
+        return "KubePriorityClassProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21022,7 +21006,7 @@ class KubePriorityClassV1Alpha1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
         """
-        props = KubePriorityClassV1Alpha1Options(
+        props = KubePriorityClassV1Alpha1Props(
             value=value,
             description=description,
             global_default=global_default,
@@ -21034,7 +21018,7 @@ class KubePriorityClassV1Alpha1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePriorityClassV1Alpha1Options",
+    jsii_type="k8s.KubePriorityClassV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={
         "value": "value",
@@ -21044,7 +21028,7 @@ class KubePriorityClassV1Alpha1(
         "preemption_policy": "preemptionPolicy",
     },
 )
-class KubePriorityClassV1Alpha1Options:
+class KubePriorityClassV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -21141,7 +21125,7 @@ class KubePriorityClassV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePriorityClassV1Alpha1Options(%s)" % ", ".join(
+        return "KubePriorityClassV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21177,7 +21161,7 @@ class KubePriorityClassV1Beta1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
         """
-        props = KubePriorityClassV1Beta1Options(
+        props = KubePriorityClassV1Beta1Props(
             value=value,
             description=description,
             global_default=global_default,
@@ -21189,7 +21173,7 @@ class KubePriorityClassV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePriorityClassV1Beta1Options",
+    jsii_type="k8s.KubePriorityClassV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={
         "value": "value",
@@ -21199,7 +21183,7 @@ class KubePriorityClassV1Beta1(
         "preemption_policy": "preemptionPolicy",
     },
 )
-class KubePriorityClassV1Beta1Options:
+class KubePriorityClassV1Beta1Props:
     def __init__(
         self,
         *,
@@ -21296,7 +21280,7 @@ class KubePriorityClassV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePriorityClassV1Beta1Options(%s)" % ", ".join(
+        return "KubePriorityClassV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21316,7 +21300,7 @@ class KubePriorityLevelConfigurationListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePriorityLevelConfigurationV1Alpha1Options"],
+        items: typing.List["KubePriorityLevelConfigurationV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList" API object.
@@ -21326,7 +21310,7 @@ class KubePriorityLevelConfigurationListV1Alpha1(
         :param items: ``items`` is a list of request-priorities.
         :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         """
-        props = KubePriorityLevelConfigurationListV1Alpha1Options(
+        props = KubePriorityLevelConfigurationListV1Alpha1Props(
             items=items, metadata=metadata
         )
 
@@ -21334,15 +21318,15 @@ class KubePriorityLevelConfigurationListV1Alpha1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePriorityLevelConfigurationListV1Alpha1Options",
+    jsii_type="k8s.KubePriorityLevelConfigurationListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubePriorityLevelConfigurationListV1Alpha1Options:
+class KubePriorityLevelConfigurationListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePriorityLevelConfigurationV1Alpha1Options"],
+        items: typing.List["KubePriorityLevelConfigurationV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
@@ -21361,7 +21345,7 @@ class KubePriorityLevelConfigurationListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubePriorityLevelConfigurationV1Alpha1Options"]:
+    def items(self) -> typing.List["KubePriorityLevelConfigurationV1Alpha1Props"]:
         """``items`` is a list of request-priorities.
 
         :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#items
@@ -21388,7 +21372,7 @@ class KubePriorityLevelConfigurationListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePriorityLevelConfigurationListV1Alpha1Options(%s)" % ", ".join(
+        return "KubePriorityLevelConfigurationListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21418,7 +21402,7 @@ class KubePriorityLevelConfigurationV1Alpha1(
         :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         :param spec: ``spec`` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
         """
-        props = KubePriorityLevelConfigurationV1Alpha1Options(
+        props = KubePriorityLevelConfigurationV1Alpha1Props(
             metadata=metadata, spec=spec
         )
 
@@ -21426,11 +21410,11 @@ class KubePriorityLevelConfigurationV1Alpha1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubePriorityLevelConfigurationV1Alpha1Options",
+    jsii_type="k8s.KubePriorityLevelConfigurationV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubePriorityLevelConfigurationV1Alpha1Options:
+class KubePriorityLevelConfigurationV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -21483,7 +21467,7 @@ class KubePriorityLevelConfigurationV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubePriorityLevelConfigurationV1Alpha1Options(%s)" % ", ".join(
+        return "KubePriorityLevelConfigurationV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21513,7 +21497,7 @@ class KubeReplicaSet(
         :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeReplicaSetOptions(metadata=metadata, spec=spec)
+        props = KubeReplicaSetProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeReplicaSet, self, [scope, id, props])
 
@@ -21533,7 +21517,7 @@ class KubeReplicaSetList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeReplicaSetOptions"],
+        items: typing.List["KubeReplicaSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.ReplicaSetList" API object.
@@ -21543,21 +21527,21 @@ class KubeReplicaSetList(
         :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeReplicaSetListOptions(items=items, metadata=metadata)
+        props = KubeReplicaSetListProps(items=items, metadata=metadata)
 
         jsii.create(KubeReplicaSetList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeReplicaSetListOptions",
+    jsii_type="k8s.KubeReplicaSetListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeReplicaSetListOptions:
+class KubeReplicaSetListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeReplicaSetOptions"],
+        items: typing.List["KubeReplicaSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ReplicaSetList is a collection of ReplicaSets.
@@ -21576,7 +21560,7 @@ class KubeReplicaSetListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeReplicaSetOptions"]:
+    def items(self) -> typing.List["KubeReplicaSetProps"]:
         """List of ReplicaSets.
 
         More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
@@ -21605,7 +21589,7 @@ class KubeReplicaSetListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeReplicaSetListOptions(%s)" % ", ".join(
+        return "KubeReplicaSetListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21625,7 +21609,7 @@ class KubeReplicaSetListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeReplicaSetV1Beta1Options"],
+        items: typing.List["KubeReplicaSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.extensions.v1beta1.ReplicaSetList" API object.
@@ -21635,21 +21619,21 @@ class KubeReplicaSetListV1Beta1(
         :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeReplicaSetListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeReplicaSetListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeReplicaSetListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeReplicaSetListV1Beta1Options",
+    jsii_type="k8s.KubeReplicaSetListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeReplicaSetListV1Beta1Options:
+class KubeReplicaSetListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeReplicaSetV1Beta1Options"],
+        items: typing.List["KubeReplicaSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ReplicaSetList is a collection of ReplicaSets.
@@ -21668,7 +21652,7 @@ class KubeReplicaSetListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeReplicaSetV1Beta1Options"]:
+    def items(self) -> typing.List["KubeReplicaSetV1Beta1Props"]:
         """List of ReplicaSets.
 
         More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
@@ -21697,7 +21681,7 @@ class KubeReplicaSetListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeReplicaSetListV1Beta1Options(%s)" % ", ".join(
+        return "KubeReplicaSetListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21717,7 +21701,7 @@ class KubeReplicaSetListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeReplicaSetV1Beta2Options"],
+        items: typing.List["KubeReplicaSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1beta2.ReplicaSetList" API object.
@@ -21727,21 +21711,21 @@ class KubeReplicaSetListV1Beta2(
         :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeReplicaSetListV1Beta2Options(items=items, metadata=metadata)
+        props = KubeReplicaSetListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeReplicaSetListV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeReplicaSetListV1Beta2Options",
+    jsii_type="k8s.KubeReplicaSetListV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeReplicaSetListV1Beta2Options:
+class KubeReplicaSetListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeReplicaSetV1Beta2Options"],
+        items: typing.List["KubeReplicaSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ReplicaSetList is a collection of ReplicaSets.
@@ -21760,7 +21744,7 @@ class KubeReplicaSetListV1Beta2Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeReplicaSetV1Beta2Options"]:
+    def items(self) -> typing.List["KubeReplicaSetV1Beta2Props"]:
         """List of ReplicaSets.
 
         More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
@@ -21789,17 +21773,17 @@ class KubeReplicaSetListV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeReplicaSetListV1Beta2Options(%s)" % ", ".join(
+        return "KubeReplicaSetListV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeReplicaSetOptions",
+    jsii_type="k8s.KubeReplicaSetProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeReplicaSetOptions:
+class KubeReplicaSetProps:
     def __init__(
         self,
         *,
@@ -21852,7 +21836,7 @@ class KubeReplicaSetOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeReplicaSetOptions(%s)" % ", ".join(
+        return "KubeReplicaSetProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21884,17 +21868,17 @@ class KubeReplicaSetV1Beta1(
         :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeReplicaSetV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeReplicaSetV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeReplicaSetV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeReplicaSetV1Beta1Options",
+    jsii_type="k8s.KubeReplicaSetV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeReplicaSetV1Beta1Options:
+class KubeReplicaSetV1Beta1Props:
     def __init__(
         self,
         *,
@@ -21949,7 +21933,7 @@ class KubeReplicaSetV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeReplicaSetV1Beta1Options(%s)" % ", ".join(
+        return "KubeReplicaSetV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -21981,17 +21965,17 @@ class KubeReplicaSetV1Beta2(
         :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeReplicaSetV1Beta2Options(metadata=metadata, spec=spec)
+        props = KubeReplicaSetV1Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeReplicaSetV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeReplicaSetV1Beta2Options",
+    jsii_type="k8s.KubeReplicaSetV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeReplicaSetV1Beta2Options:
+class KubeReplicaSetV1Beta2Props:
     def __init__(
         self,
         *,
@@ -22046,7 +22030,7 @@ class KubeReplicaSetV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeReplicaSetV1Beta2Options(%s)" % ", ".join(
+        return "KubeReplicaSetV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22076,7 +22060,7 @@ class KubeReplicationController(
         :param metadata: If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the specification of the desired behavior of the replication controller. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeReplicationControllerOptions(metadata=metadata, spec=spec)
+        props = KubeReplicationControllerProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeReplicationController, self, [scope, id, props])
 
@@ -22096,7 +22080,7 @@ class KubeReplicationControllerList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeReplicationControllerOptions"],
+        items: typing.List["KubeReplicationControllerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ReplicationControllerList" API object.
@@ -22106,21 +22090,21 @@ class KubeReplicationControllerList(
         :param items: List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeReplicationControllerListOptions(items=items, metadata=metadata)
+        props = KubeReplicationControllerListProps(items=items, metadata=metadata)
 
         jsii.create(KubeReplicationControllerList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeReplicationControllerListOptions",
+    jsii_type="k8s.KubeReplicationControllerListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeReplicationControllerListOptions:
+class KubeReplicationControllerListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeReplicationControllerOptions"],
+        items: typing.List["KubeReplicationControllerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ReplicationControllerList is a collection of replication controllers.
@@ -22139,7 +22123,7 @@ class KubeReplicationControllerListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeReplicationControllerOptions"]:
+    def items(self) -> typing.List["KubeReplicationControllerProps"]:
         """List of replication controllers.
 
         More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
@@ -22168,17 +22152,17 @@ class KubeReplicationControllerListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeReplicationControllerListOptions(%s)" % ", ".join(
+        return "KubeReplicationControllerListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeReplicationControllerOptions",
+    jsii_type="k8s.KubeReplicationControllerProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeReplicationControllerOptions:
+class KubeReplicationControllerProps:
     def __init__(
         self,
         *,
@@ -22231,7 +22215,7 @@ class KubeReplicationControllerOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeReplicationControllerOptions(%s)" % ", ".join(
+        return "KubeReplicationControllerProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22261,7 +22245,7 @@ class KubeResourceQuota(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the desired quota. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeResourceQuotaOptions(metadata=metadata, spec=spec)
+        props = KubeResourceQuotaProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeResourceQuota, self, [scope, id, props])
 
@@ -22281,7 +22265,7 @@ class KubeResourceQuotaList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeResourceQuotaOptions"],
+        items: typing.List["KubeResourceQuotaProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ResourceQuotaList" API object.
@@ -22291,21 +22275,21 @@ class KubeResourceQuotaList(
         :param items: Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeResourceQuotaListOptions(items=items, metadata=metadata)
+        props = KubeResourceQuotaListProps(items=items, metadata=metadata)
 
         jsii.create(KubeResourceQuotaList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeResourceQuotaListOptions",
+    jsii_type="k8s.KubeResourceQuotaListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeResourceQuotaListOptions:
+class KubeResourceQuotaListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeResourceQuotaOptions"],
+        items: typing.List["KubeResourceQuotaProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ResourceQuotaList is a list of ResourceQuota items.
@@ -22324,7 +22308,7 @@ class KubeResourceQuotaListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeResourceQuotaOptions"]:
+    def items(self) -> typing.List["KubeResourceQuotaProps"]:
         """Items is a list of ResourceQuota objects.
 
         More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
@@ -22353,17 +22337,17 @@ class KubeResourceQuotaListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeResourceQuotaListOptions(%s)" % ", ".join(
+        return "KubeResourceQuotaListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeResourceQuotaOptions",
+    jsii_type="k8s.KubeResourceQuotaProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeResourceQuotaOptions:
+class KubeResourceQuotaProps:
     def __init__(
         self,
         *,
@@ -22416,7 +22400,7 @@ class KubeResourceQuotaOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeResourceQuotaOptions(%s)" % ", ".join(
+        return "KubeResourceQuotaProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22442,7 +22426,7 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
         :param metadata: Standard object's metadata.
         :param rules: Rules holds all the PolicyRules for this Role.
         """
-        props = KubeRoleOptions(metadata=metadata, rules=rules)
+        props = KubeRoleProps(metadata=metadata, rules=rules)
 
         jsii.create(KubeRole, self, [scope, id, props])
 
@@ -22476,7 +22460,7 @@ class KubeRoleBinding(
         :param metadata: Standard object's metadata.
         :param subjects: Subjects holds references to the objects the role applies to.
         """
-        props = KubeRoleBindingOptions(
+        props = KubeRoleBindingProps(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
@@ -22498,7 +22482,7 @@ class KubeRoleBindingList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleBindingOptions"],
+        items: typing.List["KubeRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1.RoleBindingList" API object.
@@ -22508,21 +22492,21 @@ class KubeRoleBindingList(
         :param items: Items is a list of RoleBindings.
         :param metadata: Standard object's metadata.
         """
-        props = KubeRoleBindingListOptions(items=items, metadata=metadata)
+        props = KubeRoleBindingListProps(items=items, metadata=metadata)
 
         jsii.create(KubeRoleBindingList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleBindingListOptions",
+    jsii_type="k8s.KubeRoleBindingListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeRoleBindingListOptions:
+class KubeRoleBindingListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleBindingOptions"],
+        items: typing.List["KubeRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RoleBindingList is a collection of RoleBindings.
@@ -22541,7 +22525,7 @@ class KubeRoleBindingListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeRoleBindingOptions"]:
+    def items(self) -> typing.List["KubeRoleBindingProps"]:
         """Items is a list of RoleBindings.
 
         :schema: io.k8s.api.rbac.v1.RoleBindingList#items
@@ -22566,7 +22550,7 @@ class KubeRoleBindingListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleBindingListOptions(%s)" % ", ".join(
+        return "KubeRoleBindingListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22586,7 +22570,7 @@ class KubeRoleBindingListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleBindingV1Alpha1Options"],
+        items: typing.List["KubeRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1alpha1.RoleBindingList" API object.
@@ -22596,21 +22580,21 @@ class KubeRoleBindingListV1Alpha1(
         :param items: Items is a list of RoleBindings.
         :param metadata: Standard object's metadata.
         """
-        props = KubeRoleBindingListV1Alpha1Options(items=items, metadata=metadata)
+        props = KubeRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRoleBindingListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleBindingListV1Alpha1Options",
+    jsii_type="k8s.KubeRoleBindingListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeRoleBindingListV1Alpha1Options:
+class KubeRoleBindingListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleBindingV1Alpha1Options"],
+        items: typing.List["KubeRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
@@ -22629,7 +22613,7 @@ class KubeRoleBindingListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeRoleBindingV1Alpha1Options"]:
+    def items(self) -> typing.List["KubeRoleBindingV1Alpha1Props"]:
         """Items is a list of RoleBindings.
 
         :schema: io.k8s.api.rbac.v1alpha1.RoleBindingList#items
@@ -22654,7 +22638,7 @@ class KubeRoleBindingListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleBindingListV1Alpha1Options(%s)" % ", ".join(
+        return "KubeRoleBindingListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22674,7 +22658,7 @@ class KubeRoleBindingListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleBindingV1Beta1Options"],
+        items: typing.List["KubeRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1beta1.RoleBindingList" API object.
@@ -22684,21 +22668,21 @@ class KubeRoleBindingListV1Beta1(
         :param items: Items is a list of RoleBindings.
         :param metadata: Standard object's metadata.
         """
-        props = KubeRoleBindingListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeRoleBindingListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRoleBindingListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleBindingListV1Beta1Options",
+    jsii_type="k8s.KubeRoleBindingListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeRoleBindingListV1Beta1Options:
+class KubeRoleBindingListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleBindingV1Beta1Options"],
+        items: typing.List["KubeRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
@@ -22717,7 +22701,7 @@ class KubeRoleBindingListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeRoleBindingV1Beta1Options"]:
+    def items(self) -> typing.List["KubeRoleBindingV1Beta1Props"]:
         """Items is a list of RoleBindings.
 
         :schema: io.k8s.api.rbac.v1beta1.RoleBindingList#items
@@ -22742,13 +22726,13 @@ class KubeRoleBindingListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleBindingListV1Beta1Options(%s)" % ", ".join(
+        return "KubeRoleBindingListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleBindingOptions",
+    jsii_type="k8s.KubeRoleBindingProps",
     jsii_struct_bases=[],
     name_mapping={
         "role_ref": "roleRef",
@@ -22756,7 +22740,7 @@ class KubeRoleBindingListV1Beta1Options:
         "subjects": "subjects",
     },
 )
-class KubeRoleBindingOptions:
+class KubeRoleBindingProps:
     def __init__(
         self,
         *,
@@ -22823,7 +22807,7 @@ class KubeRoleBindingOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleBindingOptions(%s)" % ", ".join(
+        return "KubeRoleBindingProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22857,7 +22841,7 @@ class KubeRoleBindingV1Alpha1(
         :param metadata: Standard object's metadata.
         :param subjects: Subjects holds references to the objects the role applies to.
         """
-        props = KubeRoleBindingV1Alpha1Options(
+        props = KubeRoleBindingV1Alpha1Props(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
@@ -22865,7 +22849,7 @@ class KubeRoleBindingV1Alpha1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleBindingV1Alpha1Options",
+    jsii_type="k8s.KubeRoleBindingV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={
         "role_ref": "roleRef",
@@ -22873,7 +22857,7 @@ class KubeRoleBindingV1Alpha1(
         "subjects": "subjects",
     },
 )
-class KubeRoleBindingV1Alpha1Options:
+class KubeRoleBindingV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -22940,7 +22924,7 @@ class KubeRoleBindingV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleBindingV1Alpha1Options(%s)" % ", ".join(
+        return "KubeRoleBindingV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -22974,7 +22958,7 @@ class KubeRoleBindingV1Beta1(
         :param metadata: Standard object's metadata.
         :param subjects: Subjects holds references to the objects the role applies to.
         """
-        props = KubeRoleBindingV1Beta1Options(
+        props = KubeRoleBindingV1Beta1Props(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
@@ -22982,7 +22966,7 @@ class KubeRoleBindingV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleBindingV1Beta1Options",
+    jsii_type="k8s.KubeRoleBindingV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={
         "role_ref": "roleRef",
@@ -22990,7 +22974,7 @@ class KubeRoleBindingV1Beta1(
         "subjects": "subjects",
     },
 )
-class KubeRoleBindingV1Beta1Options:
+class KubeRoleBindingV1Beta1Props:
     def __init__(
         self,
         *,
@@ -23057,7 +23041,7 @@ class KubeRoleBindingV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleBindingV1Beta1Options(%s)" % ", ".join(
+        return "KubeRoleBindingV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23077,7 +23061,7 @@ class KubeRoleList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleOptions"],
+        items: typing.List["KubeRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1.RoleList" API object.
@@ -23087,21 +23071,21 @@ class KubeRoleList(
         :param items: Items is a list of Roles.
         :param metadata: Standard object's metadata.
         """
-        props = KubeRoleListOptions(items=items, metadata=metadata)
+        props = KubeRoleListProps(items=items, metadata=metadata)
 
         jsii.create(KubeRoleList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleListOptions",
+    jsii_type="k8s.KubeRoleListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeRoleListOptions:
+class KubeRoleListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleOptions"],
+        items: typing.List["KubeRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RoleList is a collection of Roles.
@@ -23120,7 +23104,7 @@ class KubeRoleListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeRoleOptions"]:
+    def items(self) -> typing.List["KubeRoleProps"]:
         """Items is a list of Roles.
 
         :schema: io.k8s.api.rbac.v1.RoleList#items
@@ -23145,7 +23129,7 @@ class KubeRoleListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleListOptions(%s)" % ", ".join(
+        return "KubeRoleListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23167,7 +23151,7 @@ class KubeRoleListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleV1Alpha1Options"],
+        items: typing.List["KubeRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1alpha1.RoleList" API object.
@@ -23177,21 +23161,21 @@ class KubeRoleListV1Alpha1(
         :param items: Items is a list of Roles.
         :param metadata: Standard object's metadata.
         """
-        props = KubeRoleListV1Alpha1Options(items=items, metadata=metadata)
+        props = KubeRoleListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRoleListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleListV1Alpha1Options",
+    jsii_type="k8s.KubeRoleListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeRoleListV1Alpha1Options:
+class KubeRoleListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleV1Alpha1Options"],
+        items: typing.List["KubeRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RoleList is a collection of Roles.
@@ -23212,7 +23196,7 @@ class KubeRoleListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeRoleV1Alpha1Options"]:
+    def items(self) -> typing.List["KubeRoleV1Alpha1Props"]:
         """Items is a list of Roles.
 
         :schema: io.k8s.api.rbac.v1alpha1.RoleList#items
@@ -23237,7 +23221,7 @@ class KubeRoleListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleListV1Alpha1Options(%s)" % ", ".join(
+        return "KubeRoleListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23257,7 +23241,7 @@ class KubeRoleListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleV1Beta1Options"],
+        items: typing.List["KubeRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.rbac.v1beta1.RoleList" API object.
@@ -23267,21 +23251,21 @@ class KubeRoleListV1Beta1(
         :param items: Items is a list of Roles.
         :param metadata: Standard object's metadata.
         """
-        props = KubeRoleListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeRoleListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRoleListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleListV1Beta1Options",
+    jsii_type="k8s.KubeRoleListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeRoleListV1Beta1Options:
+class KubeRoleListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleV1Beta1Options"],
+        items: typing.List["KubeRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RoleList is a collection of Roles Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
@@ -23300,7 +23284,7 @@ class KubeRoleListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeRoleV1Beta1Options"]:
+    def items(self) -> typing.List["KubeRoleV1Beta1Props"]:
         """Items is a list of Roles.
 
         :schema: io.k8s.api.rbac.v1beta1.RoleList#items
@@ -23325,17 +23309,17 @@ class KubeRoleListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleListV1Beta1Options(%s)" % ", ".join(
+        return "KubeRoleListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleOptions",
+    jsii_type="k8s.KubeRoleProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "rules": "rules"},
 )
-class KubeRoleOptions:
+class KubeRoleProps:
     def __init__(
         self,
         *,
@@ -23382,7 +23366,7 @@ class KubeRoleOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleOptions(%s)" % ", ".join(
+        return "KubeRoleProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23414,17 +23398,17 @@ class KubeRoleV1Alpha1(
         :param metadata: Standard object's metadata.
         :param rules: Rules holds all the PolicyRules for this Role.
         """
-        props = KubeRoleV1Alpha1Options(metadata=metadata, rules=rules)
+        props = KubeRoleV1Alpha1Props(metadata=metadata, rules=rules)
 
         jsii.create(KubeRoleV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleV1Alpha1Options",
+    jsii_type="k8s.KubeRoleV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "rules": "rules"},
 )
-class KubeRoleV1Alpha1Options:
+class KubeRoleV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -23473,7 +23457,7 @@ class KubeRoleV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleV1Alpha1Options(%s)" % ", ".join(
+        return "KubeRoleV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23505,17 +23489,17 @@ class KubeRoleV1Beta1(
         :param metadata: Standard object's metadata.
         :param rules: Rules holds all the PolicyRules for this Role.
         """
-        props = KubeRoleV1Beta1Options(metadata=metadata, rules=rules)
+        props = KubeRoleV1Beta1Props(metadata=metadata, rules=rules)
 
         jsii.create(KubeRoleV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRoleV1Beta1Options",
+    jsii_type="k8s.KubeRoleV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "rules": "rules"},
 )
-class KubeRoleV1Beta1Options:
+class KubeRoleV1Beta1Props:
     def __init__(
         self,
         *,
@@ -23564,7 +23548,7 @@ class KubeRoleV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRoleV1Beta1Options(%s)" % ", ".join(
+        return "KubeRoleV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23584,7 +23568,7 @@ class KubeRuntimeClassListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRuntimeClassV1Alpha1Options"],
+        items: typing.List["KubeRuntimeClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.node.v1alpha1.RuntimeClassList" API object.
@@ -23594,21 +23578,21 @@ class KubeRuntimeClassListV1Alpha1(
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeRuntimeClassListV1Alpha1Options(items=items, metadata=metadata)
+        props = KubeRuntimeClassListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRuntimeClassListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRuntimeClassListV1Alpha1Options",
+    jsii_type="k8s.KubeRuntimeClassListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeRuntimeClassListV1Alpha1Options:
+class KubeRuntimeClassListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRuntimeClassV1Alpha1Options"],
+        items: typing.List["KubeRuntimeClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RuntimeClassList is a list of RuntimeClass objects.
@@ -23627,7 +23611,7 @@ class KubeRuntimeClassListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeRuntimeClassV1Alpha1Options"]:
+    def items(self) -> typing.List["KubeRuntimeClassV1Alpha1Props"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.node.v1alpha1.RuntimeClassList#items
@@ -23654,7 +23638,7 @@ class KubeRuntimeClassListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRuntimeClassListV1Alpha1Options(%s)" % ", ".join(
+        return "KubeRuntimeClassListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23674,7 +23658,7 @@ class KubeRuntimeClassListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRuntimeClassV1Beta1Options"],
+        items: typing.List["KubeRuntimeClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.node.v1beta1.RuntimeClassList" API object.
@@ -23684,21 +23668,21 @@ class KubeRuntimeClassListV1Beta1(
         :param items: Items is a list of schema objects.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeRuntimeClassListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeRuntimeClassListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRuntimeClassListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRuntimeClassListV1Beta1Options",
+    jsii_type="k8s.KubeRuntimeClassListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeRuntimeClassListV1Beta1Options:
+class KubeRuntimeClassListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRuntimeClassV1Beta1Options"],
+        items: typing.List["KubeRuntimeClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """RuntimeClassList is a list of RuntimeClass objects.
@@ -23717,7 +23701,7 @@ class KubeRuntimeClassListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeRuntimeClassV1Beta1Options"]:
+    def items(self) -> typing.List["KubeRuntimeClassV1Beta1Props"]:
         """Items is a list of schema objects.
 
         :schema: io.k8s.api.node.v1beta1.RuntimeClassList#items
@@ -23744,7 +23728,7 @@ class KubeRuntimeClassListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRuntimeClassListV1Beta1Options(%s)" % ", ".join(
+        return "KubeRuntimeClassListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23776,17 +23760,17 @@ class KubeRuntimeClassV1Alpha1(
         :param spec: Specification of the RuntimeClass More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeRuntimeClassV1Alpha1Options(spec=spec, metadata=metadata)
+        props = KubeRuntimeClassV1Alpha1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeRuntimeClassV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRuntimeClassV1Alpha1Options",
+    jsii_type="k8s.KubeRuntimeClassV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeRuntimeClassV1Alpha1Options:
+class KubeRuntimeClassV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -23838,7 +23822,7 @@ class KubeRuntimeClassV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRuntimeClassV1Alpha1Options(%s)" % ", ".join(
+        return "KubeRuntimeClassV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -23874,7 +23858,7 @@ class KubeRuntimeClassV1Beta1(
         :param overhead: Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
         :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
         """
-        props = KubeRuntimeClassV1Beta1Options(
+        props = KubeRuntimeClassV1Beta1Props(
             handler=handler,
             metadata=metadata,
             overhead=overhead,
@@ -23885,7 +23869,7 @@ class KubeRuntimeClassV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeRuntimeClassV1Beta1Options",
+    jsii_type="k8s.KubeRuntimeClassV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={
         "handler": "handler",
@@ -23894,7 +23878,7 @@ class KubeRuntimeClassV1Beta1(
         "scheduling": "scheduling",
     },
 )
-class KubeRuntimeClassV1Beta1Options:
+class KubeRuntimeClassV1Beta1Props:
     def __init__(
         self,
         *,
@@ -23980,7 +23964,7 @@ class KubeRuntimeClassV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeRuntimeClassV1Beta1Options(%s)" % ", ".join(
+        return "KubeRuntimeClassV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24006,17 +23990,17 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         """
-        props = KubeScaleOptions(metadata=metadata, spec=spec)
+        props = KubeScaleProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeScale, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeScaleOptions",
+    jsii_type="k8s.KubeScaleProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeScaleOptions:
+class KubeScaleProps:
     def __init__(
         self,
         *,
@@ -24069,7 +24053,7 @@ class KubeScaleOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeScaleOptions(%s)" % ", ".join(
+        return "KubeScaleProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24099,17 +24083,17 @@ class KubeScaleV1Beta1(
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         """
-        props = KubeScaleV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeScaleV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeScaleV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeScaleV1Beta1Options",
+    jsii_type="k8s.KubeScaleV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeScaleV1Beta1Options:
+class KubeScaleV1Beta1Props:
     def __init__(
         self,
         *,
@@ -24162,7 +24146,7 @@ class KubeScaleV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeScaleV1Beta1Options(%s)" % ", ".join(
+        return "KubeScaleV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24192,17 +24176,17 @@ class KubeScaleV1Beta2(
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         """
-        props = KubeScaleV1Beta2Options(metadata=metadata, spec=spec)
+        props = KubeScaleV1Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeScaleV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeScaleV1Beta2Options",
+    jsii_type="k8s.KubeScaleV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeScaleV1Beta2Options:
+class KubeScaleV1Beta2Props:
     def __init__(
         self,
         *,
@@ -24255,7 +24239,7 @@ class KubeScaleV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeScaleV1Beta2Options(%s)" % ", ".join(
+        return "KubeScaleV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24287,7 +24271,7 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
         :param string_data: stringData allows specifying non-binary secret data in string form. It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
         :param type: Used to facilitate programmatic handling of secret data.
         """
-        props = KubeSecretOptions(
+        props = KubeSecretProps(
             data=data, metadata=metadata, string_data=string_data, type=type
         )
 
@@ -24309,7 +24293,7 @@ class KubeSecretList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeSecretOptions"],
+        items: typing.List["KubeSecretProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.SecretList" API object.
@@ -24319,21 +24303,21 @@ class KubeSecretList(
         :param items: Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeSecretListOptions(items=items, metadata=metadata)
+        props = KubeSecretListProps(items=items, metadata=metadata)
 
         jsii.create(KubeSecretList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeSecretListOptions",
+    jsii_type="k8s.KubeSecretListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeSecretListOptions:
+class KubeSecretListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeSecretOptions"],
+        items: typing.List["KubeSecretProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """SecretList is a list of Secret.
@@ -24352,7 +24336,7 @@ class KubeSecretListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeSecretOptions"]:
+    def items(self) -> typing.List["KubeSecretProps"]:
         """Items is a list of secret objects.
 
         More info: https://kubernetes.io/docs/concepts/configuration/secret
@@ -24381,13 +24365,13 @@ class KubeSecretListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeSecretListOptions(%s)" % ", ".join(
+        return "KubeSecretListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeSecretOptions",
+    jsii_type="k8s.KubeSecretProps",
     jsii_struct_bases=[],
     name_mapping={
         "data": "data",
@@ -24396,7 +24380,7 @@ class KubeSecretListOptions:
         "type": "type",
     },
 )
-class KubeSecretOptions:
+class KubeSecretProps:
     def __init__(
         self,
         *,
@@ -24479,7 +24463,7 @@ class KubeSecretOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeSecretOptions(%s)" % ", ".join(
+        return "KubeSecretProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24511,17 +24495,17 @@ class KubeSelfSubjectAccessReview(
         :param spec: Spec holds information about the request being evaluated. user and groups must be empty
         :param metadata: 
         """
-        props = KubeSelfSubjectAccessReviewOptions(spec=spec, metadata=metadata)
+        props = KubeSelfSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeSelfSubjectAccessReview, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeSelfSubjectAccessReviewOptions",
+    jsii_type="k8s.KubeSelfSubjectAccessReviewProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeSelfSubjectAccessReviewOptions:
+class KubeSelfSubjectAccessReviewProps:
     def __init__(
         self,
         *,
@@ -24574,7 +24558,7 @@ class KubeSelfSubjectAccessReviewOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeSelfSubjectAccessReviewOptions(%s)" % ", ".join(
+        return "KubeSelfSubjectAccessReviewProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24606,17 +24590,17 @@ class KubeSelfSubjectAccessReviewV1Beta1(
         :param spec: Spec holds information about the request being evaluated. user and groups must be empty
         :param metadata: 
         """
-        props = KubeSelfSubjectAccessReviewV1Beta1Options(spec=spec, metadata=metadata)
+        props = KubeSelfSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeSelfSubjectAccessReviewV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeSelfSubjectAccessReviewV1Beta1Options",
+    jsii_type="k8s.KubeSelfSubjectAccessReviewV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeSelfSubjectAccessReviewV1Beta1Options:
+class KubeSelfSubjectAccessReviewV1Beta1Props:
     def __init__(
         self,
         *,
@@ -24669,7 +24653,7 @@ class KubeSelfSubjectAccessReviewV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeSelfSubjectAccessReviewV1Beta1Options(%s)" % ", ".join(
+        return "KubeSelfSubjectAccessReviewV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24701,17 +24685,17 @@ class KubeSelfSubjectRulesReview(
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        props = KubeSelfSubjectRulesReviewOptions(spec=spec, metadata=metadata)
+        props = KubeSelfSubjectRulesReviewProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeSelfSubjectRulesReview, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeSelfSubjectRulesReviewOptions",
+    jsii_type="k8s.KubeSelfSubjectRulesReviewProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeSelfSubjectRulesReviewOptions:
+class KubeSelfSubjectRulesReviewProps:
     def __init__(
         self,
         *,
@@ -24762,7 +24746,7 @@ class KubeSelfSubjectRulesReviewOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeSelfSubjectRulesReviewOptions(%s)" % ", ".join(
+        return "KubeSelfSubjectRulesReviewProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24794,17 +24778,17 @@ class KubeSelfSubjectRulesReviewV1Beta1(
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        props = KubeSelfSubjectRulesReviewV1Beta1Options(spec=spec, metadata=metadata)
+        props = KubeSelfSubjectRulesReviewV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeSelfSubjectRulesReviewV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeSelfSubjectRulesReviewV1Beta1Options",
+    jsii_type="k8s.KubeSelfSubjectRulesReviewV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeSelfSubjectRulesReviewV1Beta1Options:
+class KubeSelfSubjectRulesReviewV1Beta1Props:
     def __init__(
         self,
         *,
@@ -24855,7 +24839,7 @@ class KubeSelfSubjectRulesReviewV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeSelfSubjectRulesReviewV1Beta1Options(%s)" % ", ".join(
+        return "KubeSelfSubjectRulesReviewV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -24885,7 +24869,7 @@ class KubeService(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param spec: Spec defines the behavior of a service. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         """
-        props = KubeServiceOptions(metadata=metadata, spec=spec)
+        props = KubeServiceProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeService, self, [scope, id, props])
 
@@ -24919,7 +24903,7 @@ class KubeServiceAccount(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         :param secrets: Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret
         """
-        props = KubeServiceAccountOptions(
+        props = KubeServiceAccountProps(
             automount_service_account_token=automount_service_account_token,
             image_pull_secrets=image_pull_secrets,
             metadata=metadata,
@@ -24944,7 +24928,7 @@ class KubeServiceAccountList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeServiceAccountOptions"],
+        items: typing.List["KubeServiceAccountProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ServiceAccountList" API object.
@@ -24954,21 +24938,21 @@ class KubeServiceAccountList(
         :param items: List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeServiceAccountListOptions(items=items, metadata=metadata)
+        props = KubeServiceAccountListProps(items=items, metadata=metadata)
 
         jsii.create(KubeServiceAccountList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeServiceAccountListOptions",
+    jsii_type="k8s.KubeServiceAccountListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeServiceAccountListOptions:
+class KubeServiceAccountListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeServiceAccountOptions"],
+        items: typing.List["KubeServiceAccountProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ServiceAccountList is a list of ServiceAccount objects.
@@ -24987,7 +24971,7 @@ class KubeServiceAccountListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeServiceAccountOptions"]:
+    def items(self) -> typing.List["KubeServiceAccountProps"]:
         """List of ServiceAccounts.
 
         More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
@@ -25016,13 +25000,13 @@ class KubeServiceAccountListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeServiceAccountListOptions(%s)" % ", ".join(
+        return "KubeServiceAccountListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeServiceAccountOptions",
+    jsii_type="k8s.KubeServiceAccountProps",
     jsii_struct_bases=[],
     name_mapping={
         "automount_service_account_token": "automountServiceAccountToken",
@@ -25031,7 +25015,7 @@ class KubeServiceAccountListOptions:
         "secrets": "secrets",
     },
 )
-class KubeServiceAccountOptions:
+class KubeServiceAccountProps:
     def __init__(
         self,
         *,
@@ -25114,7 +25098,7 @@ class KubeServiceAccountOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeServiceAccountOptions(%s)" % ", ".join(
+        return "KubeServiceAccountProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -25134,7 +25118,7 @@ class KubeServiceList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeServiceOptions"],
+        items: typing.List["KubeServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.core.v1.ServiceList" API object.
@@ -25144,21 +25128,21 @@ class KubeServiceList(
         :param items: List of services.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeServiceListOptions(items=items, metadata=metadata)
+        props = KubeServiceListProps(items=items, metadata=metadata)
 
         jsii.create(KubeServiceList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeServiceListOptions",
+    jsii_type="k8s.KubeServiceListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeServiceListOptions:
+class KubeServiceListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeServiceOptions"],
+        items: typing.List["KubeServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ServiceList holds a list of services.
@@ -25177,7 +25161,7 @@ class KubeServiceListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeServiceOptions"]:
+    def items(self) -> typing.List["KubeServiceProps"]:
         """List of services.
 
         :schema: io.k8s.api.core.v1.ServiceList#items
@@ -25204,17 +25188,17 @@ class KubeServiceListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeServiceListOptions(%s)" % ", ".join(
+        return "KubeServiceListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeServiceOptions",
+    jsii_type="k8s.KubeServiceProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeServiceOptions:
+class KubeServiceProps:
     def __init__(
         self,
         *,
@@ -25267,7 +25251,7 @@ class KubeServiceOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeServiceOptions(%s)" % ", ".join(
+        return "KubeServiceProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -25303,7 +25287,7 @@ class KubeStatefulSet(
         :param metadata: 
         :param spec: Spec defines the desired identities of pods in this set.
         """
-        props = KubeStatefulSetOptions(metadata=metadata, spec=spec)
+        props = KubeStatefulSetProps(metadata=metadata, spec=spec)
 
         jsii.create(KubeStatefulSet, self, [scope, id, props])
 
@@ -25323,7 +25307,7 @@ class KubeStatefulSetList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStatefulSetOptions"],
+        items: typing.List["KubeStatefulSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1.StatefulSetList" API object.
@@ -25333,21 +25317,21 @@ class KubeStatefulSetList(
         :param items: 
         :param metadata: 
         """
-        props = KubeStatefulSetListOptions(items=items, metadata=metadata)
+        props = KubeStatefulSetListProps(items=items, metadata=metadata)
 
         jsii.create(KubeStatefulSetList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStatefulSetListOptions",
+    jsii_type="k8s.KubeStatefulSetListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeStatefulSetListOptions:
+class KubeStatefulSetListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStatefulSetOptions"],
+        items: typing.List["KubeStatefulSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """StatefulSetList is a collection of StatefulSets.
@@ -25366,7 +25350,7 @@ class KubeStatefulSetListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeStatefulSetOptions"]:
+    def items(self) -> typing.List["KubeStatefulSetProps"]:
         """
         :schema: io.k8s.api.apps.v1.StatefulSetList#items
         """
@@ -25389,7 +25373,7 @@ class KubeStatefulSetListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStatefulSetListOptions(%s)" % ", ".join(
+        return "KubeStatefulSetListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -25409,7 +25393,7 @@ class KubeStatefulSetListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStatefulSetV1Beta1Options"],
+        items: typing.List["KubeStatefulSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1beta1.StatefulSetList" API object.
@@ -25419,21 +25403,21 @@ class KubeStatefulSetListV1Beta1(
         :param items: 
         :param metadata: 
         """
-        props = KubeStatefulSetListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeStatefulSetListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeStatefulSetListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStatefulSetListV1Beta1Options",
+    jsii_type="k8s.KubeStatefulSetListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeStatefulSetListV1Beta1Options:
+class KubeStatefulSetListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStatefulSetV1Beta1Options"],
+        items: typing.List["KubeStatefulSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """StatefulSetList is a collection of StatefulSets.
@@ -25452,7 +25436,7 @@ class KubeStatefulSetListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeStatefulSetV1Beta1Options"]:
+    def items(self) -> typing.List["KubeStatefulSetV1Beta1Props"]:
         """
         :schema: io.k8s.api.apps.v1beta1.StatefulSetList#items
         """
@@ -25475,7 +25459,7 @@ class KubeStatefulSetListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStatefulSetListV1Beta1Options(%s)" % ", ".join(
+        return "KubeStatefulSetListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -25495,7 +25479,7 @@ class KubeStatefulSetListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStatefulSetV1Beta2Options"],
+        items: typing.List["KubeStatefulSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.apps.v1beta2.StatefulSetList" API object.
@@ -25505,21 +25489,21 @@ class KubeStatefulSetListV1Beta2(
         :param items: 
         :param metadata: 
         """
-        props = KubeStatefulSetListV1Beta2Options(items=items, metadata=metadata)
+        props = KubeStatefulSetListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeStatefulSetListV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStatefulSetListV1Beta2Options",
+    jsii_type="k8s.KubeStatefulSetListV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeStatefulSetListV1Beta2Options:
+class KubeStatefulSetListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStatefulSetV1Beta2Options"],
+        items: typing.List["KubeStatefulSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """StatefulSetList is a collection of StatefulSets.
@@ -25538,7 +25522,7 @@ class KubeStatefulSetListV1Beta2Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeStatefulSetV1Beta2Options"]:
+    def items(self) -> typing.List["KubeStatefulSetV1Beta2Props"]:
         """
         :schema: io.k8s.api.apps.v1beta2.StatefulSetList#items
         """
@@ -25561,17 +25545,17 @@ class KubeStatefulSetListV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStatefulSetListV1Beta2Options(%s)" % ", ".join(
+        return "KubeStatefulSetListV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStatefulSetOptions",
+    jsii_type="k8s.KubeStatefulSetProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeStatefulSetOptions:
+class KubeStatefulSetProps:
     def __init__(
         self,
         *,
@@ -25625,7 +25609,7 @@ class KubeStatefulSetOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStatefulSetOptions(%s)" % ", ".join(
+        return "KubeStatefulSetProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -25661,17 +25645,17 @@ class KubeStatefulSetV1Beta1(
         :param metadata: 
         :param spec: Spec defines the desired identities of pods in this set.
         """
-        props = KubeStatefulSetV1Beta1Options(metadata=metadata, spec=spec)
+        props = KubeStatefulSetV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeStatefulSetV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStatefulSetV1Beta1Options",
+    jsii_type="k8s.KubeStatefulSetV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeStatefulSetV1Beta1Options:
+class KubeStatefulSetV1Beta1Props:
     def __init__(
         self,
         *,
@@ -25725,7 +25709,7 @@ class KubeStatefulSetV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStatefulSetV1Beta1Options(%s)" % ", ".join(
+        return "KubeStatefulSetV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -25761,17 +25745,17 @@ class KubeStatefulSetV1Beta2(
         :param metadata: 
         :param spec: Spec defines the desired identities of pods in this set.
         """
-        props = KubeStatefulSetV1Beta2Options(metadata=metadata, spec=spec)
+        props = KubeStatefulSetV1Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeStatefulSetV1Beta2, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStatefulSetV1Beta2Options",
+    jsii_type="k8s.KubeStatefulSetV1Beta2Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class KubeStatefulSetV1Beta2Options:
+class KubeStatefulSetV1Beta2Props:
     def __init__(
         self,
         *,
@@ -25825,7 +25809,7 @@ class KubeStatefulSetV1Beta2Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStatefulSetV1Beta2Options(%s)" % ", ".join(
+        return "KubeStatefulSetV1Beta2Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -25857,7 +25841,7 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         :param reason: A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
         """
-        props = KubeStatusOptions(
+        props = KubeStatusProps(
             code=code,
             details=details,
             message=message,
@@ -25869,7 +25853,7 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStatusOptions",
+    jsii_type="k8s.KubeStatusProps",
     jsii_struct_bases=[],
     name_mapping={
         "code": "code",
@@ -25879,7 +25863,7 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
         "reason": "reason",
     },
 )
-class KubeStatusOptions:
+class KubeStatusProps:
     def __init__(
         self,
         *,
@@ -25973,7 +25957,7 @@ class KubeStatusOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStatusOptions(%s)" % ", ".join(
+        return "KubeStatusProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26017,7 +26001,7 @@ class KubeStorageClass(
         :param reclaim_policy: Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. Default: Delete.
         :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
         """
-        props = KubeStorageClassOptions(
+        props = KubeStorageClassProps(
             provisioner=provisioner,
             allowed_topologies=allowed_topologies,
             allow_volume_expansion=allow_volume_expansion,
@@ -26046,7 +26030,7 @@ class KubeStorageClassList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStorageClassOptions"],
+        items: typing.List["KubeStorageClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1.StorageClassList" API object.
@@ -26056,21 +26040,21 @@ class KubeStorageClassList(
         :param items: Items is the list of StorageClasses.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeStorageClassListOptions(items=items, metadata=metadata)
+        props = KubeStorageClassListProps(items=items, metadata=metadata)
 
         jsii.create(KubeStorageClassList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStorageClassListOptions",
+    jsii_type="k8s.KubeStorageClassListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeStorageClassListOptions:
+class KubeStorageClassListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStorageClassOptions"],
+        items: typing.List["KubeStorageClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """StorageClassList is a collection of storage classes.
@@ -26089,7 +26073,7 @@ class KubeStorageClassListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeStorageClassOptions"]:
+    def items(self) -> typing.List["KubeStorageClassProps"]:
         """Items is the list of StorageClasses.
 
         :schema: io.k8s.api.storage.v1.StorageClassList#items
@@ -26114,7 +26098,7 @@ class KubeStorageClassListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStorageClassListOptions(%s)" % ", ".join(
+        return "KubeStorageClassListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26134,7 +26118,7 @@ class KubeStorageClassListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStorageClassV1Beta1Options"],
+        items: typing.List["KubeStorageClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1beta1.StorageClassList" API object.
@@ -26144,21 +26128,21 @@ class KubeStorageClassListV1Beta1(
         :param items: Items is the list of StorageClasses.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeStorageClassListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeStorageClassListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeStorageClassListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStorageClassListV1Beta1Options",
+    jsii_type="k8s.KubeStorageClassListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeStorageClassListV1Beta1Options:
+class KubeStorageClassListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStorageClassV1Beta1Options"],
+        items: typing.List["KubeStorageClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """StorageClassList is a collection of storage classes.
@@ -26177,7 +26161,7 @@ class KubeStorageClassListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeStorageClassV1Beta1Options"]:
+    def items(self) -> typing.List["KubeStorageClassV1Beta1Props"]:
         """Items is the list of StorageClasses.
 
         :schema: io.k8s.api.storage.v1beta1.StorageClassList#items
@@ -26202,13 +26186,13 @@ class KubeStorageClassListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStorageClassListV1Beta1Options(%s)" % ", ".join(
+        return "KubeStorageClassListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStorageClassOptions",
+    jsii_type="k8s.KubeStorageClassProps",
     jsii_struct_bases=[],
     name_mapping={
         "provisioner": "provisioner",
@@ -26221,7 +26205,7 @@ class KubeStorageClassListV1Beta1Options:
         "volume_binding_mode": "volumeBindingMode",
     },
 )
-class KubeStorageClassOptions:
+class KubeStorageClassProps:
     def __init__(
         self,
         *,
@@ -26361,7 +26345,7 @@ class KubeStorageClassOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStorageClassOptions(%s)" % ", ".join(
+        return "KubeStorageClassProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26405,7 +26389,7 @@ class KubeStorageClassV1Beta1(
         :param reclaim_policy: Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. Default: Delete.
         :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
         """
-        props = KubeStorageClassV1Beta1Options(
+        props = KubeStorageClassV1Beta1Props(
             provisioner=provisioner,
             allowed_topologies=allowed_topologies,
             allow_volume_expansion=allow_volume_expansion,
@@ -26420,7 +26404,7 @@ class KubeStorageClassV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeStorageClassV1Beta1Options",
+    jsii_type="k8s.KubeStorageClassV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={
         "provisioner": "provisioner",
@@ -26433,7 +26417,7 @@ class KubeStorageClassV1Beta1(
         "volume_binding_mode": "volumeBindingMode",
     },
 )
-class KubeStorageClassV1Beta1Options:
+class KubeStorageClassV1Beta1Props:
     def __init__(
         self,
         *,
@@ -26573,7 +26557,7 @@ class KubeStorageClassV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeStorageClassV1Beta1Options(%s)" % ", ".join(
+        return "KubeStorageClassV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26603,17 +26587,17 @@ class KubeSubjectAccessReview(
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        props = KubeSubjectAccessReviewOptions(spec=spec, metadata=metadata)
+        props = KubeSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeSubjectAccessReview, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeSubjectAccessReviewOptions",
+    jsii_type="k8s.KubeSubjectAccessReviewProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeSubjectAccessReviewOptions:
+class KubeSubjectAccessReviewProps:
     def __init__(
         self,
         *,
@@ -26662,7 +26646,7 @@ class KubeSubjectAccessReviewOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeSubjectAccessReviewOptions(%s)" % ", ".join(
+        return "KubeSubjectAccessReviewProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26692,17 +26676,17 @@ class KubeSubjectAccessReviewV1Beta1(
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        props = KubeSubjectAccessReviewV1Beta1Options(spec=spec, metadata=metadata)
+        props = KubeSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeSubjectAccessReviewV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeSubjectAccessReviewV1Beta1Options",
+    jsii_type="k8s.KubeSubjectAccessReviewV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeSubjectAccessReviewV1Beta1Options:
+class KubeSubjectAccessReviewV1Beta1Props:
     def __init__(
         self,
         *,
@@ -26751,7 +26735,7 @@ class KubeSubjectAccessReviewV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeSubjectAccessReviewV1Beta1Options(%s)" % ", ".join(
+        return "KubeSubjectAccessReviewV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26781,17 +26765,17 @@ class KubeTokenRequest(
         :param spec: 
         :param metadata: 
         """
-        props = KubeTokenRequestOptions(spec=spec, metadata=metadata)
+        props = KubeTokenRequestProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeTokenRequest, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeTokenRequestOptions",
+    jsii_type="k8s.KubeTokenRequestProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeTokenRequestOptions:
+class KubeTokenRequestProps:
     def __init__(
         self,
         *,
@@ -26839,7 +26823,7 @@ class KubeTokenRequestOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeTokenRequestOptions(%s)" % ", ".join(
+        return "KubeTokenRequestProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26871,17 +26855,17 @@ class KubeTokenReview(
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        props = KubeTokenReviewOptions(spec=spec, metadata=metadata)
+        props = KubeTokenReviewProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeTokenReview, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeTokenReviewOptions",
+    jsii_type="k8s.KubeTokenReviewProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeTokenReviewOptions:
+class KubeTokenReviewProps:
     def __init__(
         self,
         *,
@@ -26932,7 +26916,7 @@ class KubeTokenReviewOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeTokenReviewOptions(%s)" % ", ".join(
+        return "KubeTokenReviewProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -26964,17 +26948,17 @@ class KubeTokenReviewV1Beta1(
         :param spec: Spec holds information about the request being evaluated.
         :param metadata: 
         """
-        props = KubeTokenReviewV1Beta1Options(spec=spec, metadata=metadata)
+        props = KubeTokenReviewV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeTokenReviewV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeTokenReviewV1Beta1Options",
+    jsii_type="k8s.KubeTokenReviewV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeTokenReviewV1Beta1Options:
+class KubeTokenReviewV1Beta1Props:
     def __init__(
         self,
         *,
@@ -27025,7 +27009,7 @@ class KubeTokenReviewV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeTokenReviewV1Beta1Options(%s)" % ", ".join(
+        return "KubeTokenReviewV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27055,7 +27039,7 @@ class KubeValidatingWebhookConfiguration(
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         """
-        props = KubeValidatingWebhookConfigurationOptions(
+        props = KubeValidatingWebhookConfigurationProps(
             metadata=metadata, webhooks=webhooks
         )
 
@@ -27077,7 +27061,7 @@ class KubeValidatingWebhookConfigurationList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationOptions"],
+        items: typing.List["KubeValidatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList" API object.
@@ -27087,7 +27071,7 @@ class KubeValidatingWebhookConfigurationList(
         :param items: List of ValidatingWebhookConfiguration.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeValidatingWebhookConfigurationListOptions(
+        props = KubeValidatingWebhookConfigurationListProps(
             items=items, metadata=metadata
         )
 
@@ -27095,15 +27079,15 @@ class KubeValidatingWebhookConfigurationList(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeValidatingWebhookConfigurationListOptions",
+    jsii_type="k8s.KubeValidatingWebhookConfigurationListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeValidatingWebhookConfigurationListOptions:
+class KubeValidatingWebhookConfigurationListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationOptions"],
+        items: typing.List["KubeValidatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
@@ -27122,7 +27106,7 @@ class KubeValidatingWebhookConfigurationListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeValidatingWebhookConfigurationOptions"]:
+    def items(self) -> typing.List["KubeValidatingWebhookConfigurationProps"]:
         """List of ValidatingWebhookConfiguration.
 
         :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#items
@@ -27149,7 +27133,7 @@ class KubeValidatingWebhookConfigurationListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeValidatingWebhookConfigurationListOptions(%s)" % ", ".join(
+        return "KubeValidatingWebhookConfigurationListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27169,7 +27153,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationV1Beta1Options"],
+        items: typing.List["KubeValidatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList" API object.
@@ -27179,7 +27163,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
         :param items: List of ValidatingWebhookConfiguration.
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         """
-        props = KubeValidatingWebhookConfigurationListV1Beta1Options(
+        props = KubeValidatingWebhookConfigurationListV1Beta1Props(
             items=items, metadata=metadata
         )
 
@@ -27187,15 +27171,15 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeValidatingWebhookConfigurationListV1Beta1Options",
+    jsii_type="k8s.KubeValidatingWebhookConfigurationListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeValidatingWebhookConfigurationListV1Beta1Options:
+class KubeValidatingWebhookConfigurationListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationV1Beta1Options"],
+        items: typing.List["KubeValidatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
@@ -27214,7 +27198,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeValidatingWebhookConfigurationV1Beta1Options"]:
+    def items(self) -> typing.List["KubeValidatingWebhookConfigurationV1Beta1Props"]:
         """List of ValidatingWebhookConfiguration.
 
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList#items
@@ -27241,17 +27225,17 @@ class KubeValidatingWebhookConfigurationListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeValidatingWebhookConfigurationListV1Beta1Options(%s)" % ", ".join(
+        return "KubeValidatingWebhookConfigurationListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeValidatingWebhookConfigurationOptions",
+    jsii_type="k8s.KubeValidatingWebhookConfigurationProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
 )
-class KubeValidatingWebhookConfigurationOptions:
+class KubeValidatingWebhookConfigurationProps:
     def __init__(
         self,
         *,
@@ -27300,7 +27284,7 @@ class KubeValidatingWebhookConfigurationOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeValidatingWebhookConfigurationOptions(%s)" % ", ".join(
+        return "KubeValidatingWebhookConfigurationProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27332,7 +27316,7 @@ class KubeValidatingWebhookConfigurationV1Beta1(
         :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         """
-        props = KubeValidatingWebhookConfigurationV1Beta1Options(
+        props = KubeValidatingWebhookConfigurationV1Beta1Props(
             metadata=metadata, webhooks=webhooks
         )
 
@@ -27340,11 +27324,11 @@ class KubeValidatingWebhookConfigurationV1Beta1(
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeValidatingWebhookConfigurationV1Beta1Options",
+    jsii_type="k8s.KubeValidatingWebhookConfigurationV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "webhooks": "webhooks"},
 )
-class KubeValidatingWebhookConfigurationV1Beta1Options:
+class KubeValidatingWebhookConfigurationV1Beta1Props:
     def __init__(
         self,
         *,
@@ -27395,7 +27379,7 @@ class KubeValidatingWebhookConfigurationV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeValidatingWebhookConfigurationV1Beta1Options(%s)" % ", ".join(
+        return "KubeValidatingWebhookConfigurationV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27427,7 +27411,7 @@ class KubeVolumeAttachment(
         :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeVolumeAttachmentOptions(spec=spec, metadata=metadata)
+        props = KubeVolumeAttachmentProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeVolumeAttachment, self, [scope, id, props])
 
@@ -27447,7 +27431,7 @@ class KubeVolumeAttachmentList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeVolumeAttachmentOptions"],
+        items: typing.List["KubeVolumeAttachmentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1.VolumeAttachmentList" API object.
@@ -27457,21 +27441,21 @@ class KubeVolumeAttachmentList(
         :param items: Items is the list of VolumeAttachments.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeVolumeAttachmentListOptions(items=items, metadata=metadata)
+        props = KubeVolumeAttachmentListProps(items=items, metadata=metadata)
 
         jsii.create(KubeVolumeAttachmentList, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeVolumeAttachmentListOptions",
+    jsii_type="k8s.KubeVolumeAttachmentListProps",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeVolumeAttachmentListOptions:
+class KubeVolumeAttachmentListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeVolumeAttachmentOptions"],
+        items: typing.List["KubeVolumeAttachmentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -27490,7 +27474,7 @@ class KubeVolumeAttachmentListOptions:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeVolumeAttachmentOptions"]:
+    def items(self) -> typing.List["KubeVolumeAttachmentProps"]:
         """Items is the list of VolumeAttachments.
 
         :schema: io.k8s.api.storage.v1.VolumeAttachmentList#items
@@ -27515,7 +27499,7 @@ class KubeVolumeAttachmentListOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeVolumeAttachmentListOptions(%s)" % ", ".join(
+        return "KubeVolumeAttachmentListProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27535,7 +27519,7 @@ class KubeVolumeAttachmentListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Alpha1Options"],
+        items: typing.List["KubeVolumeAttachmentV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1alpha1.VolumeAttachmentList" API object.
@@ -27545,21 +27529,21 @@ class KubeVolumeAttachmentListV1Alpha1(
         :param items: Items is the list of VolumeAttachments.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeVolumeAttachmentListV1Alpha1Options(items=items, metadata=metadata)
+        props = KubeVolumeAttachmentListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeVolumeAttachmentListV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeVolumeAttachmentListV1Alpha1Options",
+    jsii_type="k8s.KubeVolumeAttachmentListV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeVolumeAttachmentListV1Alpha1Options:
+class KubeVolumeAttachmentListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Alpha1Options"],
+        items: typing.List["KubeVolumeAttachmentV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -27578,7 +27562,7 @@ class KubeVolumeAttachmentListV1Alpha1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeVolumeAttachmentV1Alpha1Options"]:
+    def items(self) -> typing.List["KubeVolumeAttachmentV1Alpha1Props"]:
         """Items is the list of VolumeAttachments.
 
         :schema: io.k8s.api.storage.v1alpha1.VolumeAttachmentList#items
@@ -27603,7 +27587,7 @@ class KubeVolumeAttachmentListV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeVolumeAttachmentListV1Alpha1Options(%s)" % ", ".join(
+        return "KubeVolumeAttachmentListV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27623,7 +27607,7 @@ class KubeVolumeAttachmentListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Beta1Options"],
+        items: typing.List["KubeVolumeAttachmentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """Defines a "io.k8s.api.storage.v1beta1.VolumeAttachmentList" API object.
@@ -27633,21 +27617,21 @@ class KubeVolumeAttachmentListV1Beta1(
         :param items: Items is the list of VolumeAttachments.
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         """
-        props = KubeVolumeAttachmentListV1Beta1Options(items=items, metadata=metadata)
+        props = KubeVolumeAttachmentListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeVolumeAttachmentListV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeVolumeAttachmentListV1Beta1Options",
+    jsii_type="k8s.KubeVolumeAttachmentListV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"items": "items", "metadata": "metadata"},
 )
-class KubeVolumeAttachmentListV1Beta1Options:
+class KubeVolumeAttachmentListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Beta1Options"],
+        items: typing.List["KubeVolumeAttachmentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         """VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -27666,7 +27650,7 @@ class KubeVolumeAttachmentListV1Beta1Options:
             self._values["metadata"] = metadata
 
     @builtins.property
-    def items(self) -> typing.List["KubeVolumeAttachmentV1Beta1Options"]:
+    def items(self) -> typing.List["KubeVolumeAttachmentV1Beta1Props"]:
         """Items is the list of VolumeAttachments.
 
         :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentList#items
@@ -27691,17 +27675,17 @@ class KubeVolumeAttachmentListV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeVolumeAttachmentListV1Beta1Options(%s)" % ", ".join(
+        return "KubeVolumeAttachmentListV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeVolumeAttachmentOptions",
+    jsii_type="k8s.KubeVolumeAttachmentProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeVolumeAttachmentOptions:
+class KubeVolumeAttachmentProps:
     def __init__(
         self,
         *,
@@ -27757,7 +27741,7 @@ class KubeVolumeAttachmentOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeVolumeAttachmentOptions(%s)" % ", ".join(
+        return "KubeVolumeAttachmentProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27789,17 +27773,17 @@ class KubeVolumeAttachmentV1Alpha1(
         :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeVolumeAttachmentV1Alpha1Options(spec=spec, metadata=metadata)
+        props = KubeVolumeAttachmentV1Alpha1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeVolumeAttachmentV1Alpha1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeVolumeAttachmentV1Alpha1Options",
+    jsii_type="k8s.KubeVolumeAttachmentV1Alpha1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeVolumeAttachmentV1Alpha1Options:
+class KubeVolumeAttachmentV1Alpha1Props:
     def __init__(
         self,
         *,
@@ -27855,7 +27839,7 @@ class KubeVolumeAttachmentV1Alpha1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeVolumeAttachmentV1Alpha1Options(%s)" % ", ".join(
+        return "KubeVolumeAttachmentV1Alpha1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -27887,17 +27871,17 @@ class KubeVolumeAttachmentV1Beta1(
         :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         """
-        props = KubeVolumeAttachmentV1Beta1Options(spec=spec, metadata=metadata)
+        props = KubeVolumeAttachmentV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeVolumeAttachmentV1Beta1, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="k8s.KubeVolumeAttachmentV1Beta1Options",
+    jsii_type="k8s.KubeVolumeAttachmentV1Beta1Props",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class KubeVolumeAttachmentV1Beta1Options:
+class KubeVolumeAttachmentV1Beta1Props:
     def __init__(
         self,
         *,
@@ -27953,7 +27937,7 @@ class KubeVolumeAttachmentV1Beta1Options:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "KubeVolumeAttachmentV1Beta1Options(%s)" % ", ".join(
+        return "KubeVolumeAttachmentV1Beta1Props(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -38521,7 +38505,7 @@ class StatefulSetSpec:
         replicas: typing.Optional[jsii.Number] = None,
         revision_history_limit: typing.Optional[jsii.Number] = None,
         update_strategy: typing.Optional["StatefulSetUpdateStrategy"] = None,
-        volume_claim_templates: typing.Optional[typing.List[KubePersistentVolumeClaimOptions]] = None,
+        volume_claim_templates: typing.Optional[typing.List[KubePersistentVolumeClaimProps]] = None,
     ) -> None:
         """A StatefulSetSpec is the specification of a StatefulSet.
 
@@ -38639,7 +38623,7 @@ class StatefulSetSpec:
     @builtins.property
     def volume_claim_templates(
         self,
-    ) -> typing.Optional[typing.List[KubePersistentVolumeClaimOptions]]:
+    ) -> typing.Optional[typing.List[KubePersistentVolumeClaimProps]]:
         """volumeClaimTemplates is a list of claims that pods are allowed to reference.
 
         The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
@@ -41947,374 +41931,374 @@ __all__ = [
     "KeyToPath",
     "KubeApiService",
     "KubeApiServiceList",
-    "KubeApiServiceListOptions",
+    "KubeApiServiceListProps",
     "KubeApiServiceListV1Beta1",
-    "KubeApiServiceListV1Beta1Options",
-    "KubeApiServiceOptions",
+    "KubeApiServiceListV1Beta1Props",
+    "KubeApiServiceProps",
     "KubeApiServiceV1Beta1",
-    "KubeApiServiceV1Beta1Options",
+    "KubeApiServiceV1Beta1Props",
     "KubeAuditSinkListV1Alpha1",
-    "KubeAuditSinkListV1Alpha1Options",
+    "KubeAuditSinkListV1Alpha1Props",
     "KubeAuditSinkV1Alpha1",
-    "KubeAuditSinkV1Alpha1Options",
+    "KubeAuditSinkV1Alpha1Props",
     "KubeBinding",
-    "KubeBindingOptions",
+    "KubeBindingProps",
     "KubeCertificateSigningRequestListV1Beta1",
-    "KubeCertificateSigningRequestListV1Beta1Options",
+    "KubeCertificateSigningRequestListV1Beta1Props",
     "KubeCertificateSigningRequestV1Beta1",
-    "KubeCertificateSigningRequestV1Beta1Options",
+    "KubeCertificateSigningRequestV1Beta1Props",
     "KubeClusterRole",
     "KubeClusterRoleBinding",
     "KubeClusterRoleBindingList",
-    "KubeClusterRoleBindingListOptions",
+    "KubeClusterRoleBindingListProps",
     "KubeClusterRoleBindingListV1Alpha1",
-    "KubeClusterRoleBindingListV1Alpha1Options",
+    "KubeClusterRoleBindingListV1Alpha1Props",
     "KubeClusterRoleBindingListV1Beta1",
-    "KubeClusterRoleBindingListV1Beta1Options",
-    "KubeClusterRoleBindingOptions",
+    "KubeClusterRoleBindingListV1Beta1Props",
+    "KubeClusterRoleBindingProps",
     "KubeClusterRoleBindingV1Alpha1",
-    "KubeClusterRoleBindingV1Alpha1Options",
+    "KubeClusterRoleBindingV1Alpha1Props",
     "KubeClusterRoleBindingV1Beta1",
-    "KubeClusterRoleBindingV1Beta1Options",
+    "KubeClusterRoleBindingV1Beta1Props",
     "KubeClusterRoleList",
-    "KubeClusterRoleListOptions",
+    "KubeClusterRoleListProps",
     "KubeClusterRoleListV1Alpha1",
-    "KubeClusterRoleListV1Alpha1Options",
+    "KubeClusterRoleListV1Alpha1Props",
     "KubeClusterRoleListV1Beta1",
-    "KubeClusterRoleListV1Beta1Options",
-    "KubeClusterRoleOptions",
+    "KubeClusterRoleListV1Beta1Props",
+    "KubeClusterRoleProps",
     "KubeClusterRoleV1Alpha1",
-    "KubeClusterRoleV1Alpha1Options",
+    "KubeClusterRoleV1Alpha1Props",
     "KubeClusterRoleV1Beta1",
-    "KubeClusterRoleV1Beta1Options",
+    "KubeClusterRoleV1Beta1Props",
     "KubeComponentStatus",
     "KubeComponentStatusList",
-    "KubeComponentStatusListOptions",
-    "KubeComponentStatusOptions",
+    "KubeComponentStatusListProps",
+    "KubeComponentStatusProps",
     "KubeConfigMap",
     "KubeConfigMapList",
-    "KubeConfigMapListOptions",
-    "KubeConfigMapOptions",
+    "KubeConfigMapListProps",
+    "KubeConfigMapProps",
     "KubeControllerRevision",
     "KubeControllerRevisionList",
-    "KubeControllerRevisionListOptions",
+    "KubeControllerRevisionListProps",
     "KubeControllerRevisionListV1Beta1",
-    "KubeControllerRevisionListV1Beta1Options",
+    "KubeControllerRevisionListV1Beta1Props",
     "KubeControllerRevisionListV1Beta2",
-    "KubeControllerRevisionListV1Beta2Options",
-    "KubeControllerRevisionOptions",
+    "KubeControllerRevisionListV1Beta2Props",
+    "KubeControllerRevisionProps",
     "KubeControllerRevisionV1Beta1",
-    "KubeControllerRevisionV1Beta1Options",
+    "KubeControllerRevisionV1Beta1Props",
     "KubeControllerRevisionV1Beta2",
-    "KubeControllerRevisionV1Beta2Options",
+    "KubeControllerRevisionV1Beta2Props",
     "KubeCronJobListV1Beta1",
-    "KubeCronJobListV1Beta1Options",
+    "KubeCronJobListV1Beta1Props",
     "KubeCronJobListV2Alpha1",
-    "KubeCronJobListV2Alpha1Options",
+    "KubeCronJobListV2Alpha1Props",
     "KubeCronJobV1Beta1",
-    "KubeCronJobV1Beta1Options",
+    "KubeCronJobV1Beta1Props",
     "KubeCronJobV2Alpha1",
-    "KubeCronJobV2Alpha1Options",
+    "KubeCronJobV2Alpha1Props",
     "KubeCsiDriverListV1Beta1",
-    "KubeCsiDriverListV1Beta1Options",
+    "KubeCsiDriverListV1Beta1Props",
     "KubeCsiDriverV1Beta1",
-    "KubeCsiDriverV1Beta1Options",
+    "KubeCsiDriverV1Beta1Props",
     "KubeCsiNode",
     "KubeCsiNodeList",
-    "KubeCsiNodeListOptions",
+    "KubeCsiNodeListProps",
     "KubeCsiNodeListV1Beta1",
-    "KubeCsiNodeListV1Beta1Options",
-    "KubeCsiNodeOptions",
+    "KubeCsiNodeListV1Beta1Props",
+    "KubeCsiNodeProps",
     "KubeCsiNodeV1Beta1",
-    "KubeCsiNodeV1Beta1Options",
+    "KubeCsiNodeV1Beta1Props",
     "KubeCustomResourceDefinition",
     "KubeCustomResourceDefinitionList",
-    "KubeCustomResourceDefinitionListOptions",
+    "KubeCustomResourceDefinitionListProps",
     "KubeCustomResourceDefinitionListV1Beta1",
-    "KubeCustomResourceDefinitionListV1Beta1Options",
-    "KubeCustomResourceDefinitionOptions",
+    "KubeCustomResourceDefinitionListV1Beta1Props",
+    "KubeCustomResourceDefinitionProps",
     "KubeCustomResourceDefinitionV1Beta1",
-    "KubeCustomResourceDefinitionV1Beta1Options",
+    "KubeCustomResourceDefinitionV1Beta1Props",
     "KubeDaemonSet",
     "KubeDaemonSetList",
-    "KubeDaemonSetListOptions",
+    "KubeDaemonSetListProps",
     "KubeDaemonSetListV1Beta1",
-    "KubeDaemonSetListV1Beta1Options",
+    "KubeDaemonSetListV1Beta1Props",
     "KubeDaemonSetListV1Beta2",
-    "KubeDaemonSetListV1Beta2Options",
-    "KubeDaemonSetOptions",
+    "KubeDaemonSetListV1Beta2Props",
+    "KubeDaemonSetProps",
     "KubeDaemonSetV1Beta1",
-    "KubeDaemonSetV1Beta1Options",
+    "KubeDaemonSetV1Beta1Props",
     "KubeDaemonSetV1Beta2",
-    "KubeDaemonSetV1Beta2Options",
+    "KubeDaemonSetV1Beta2Props",
     "KubeDeployment",
     "KubeDeploymentList",
-    "KubeDeploymentListOptions",
+    "KubeDeploymentListProps",
     "KubeDeploymentListV1Beta1",
-    "KubeDeploymentListV1Beta1Options",
+    "KubeDeploymentListV1Beta1Props",
     "KubeDeploymentListV1Beta2",
-    "KubeDeploymentListV1Beta2Options",
-    "KubeDeploymentOptions",
+    "KubeDeploymentListV1Beta2Props",
+    "KubeDeploymentProps",
     "KubeDeploymentV1Beta1",
-    "KubeDeploymentV1Beta1Options",
+    "KubeDeploymentV1Beta1Props",
     "KubeDeploymentV1Beta2",
-    "KubeDeploymentV1Beta2Options",
+    "KubeDeploymentV1Beta2Props",
     "KubeEndpointSliceListV1Beta1",
-    "KubeEndpointSliceListV1Beta1Options",
+    "KubeEndpointSliceListV1Beta1Props",
     "KubeEndpointSliceV1Beta1",
-    "KubeEndpointSliceV1Beta1Options",
+    "KubeEndpointSliceV1Beta1Props",
     "KubeEndpoints",
     "KubeEndpointsList",
-    "KubeEndpointsListOptions",
-    "KubeEndpointsOptions",
+    "KubeEndpointsListProps",
+    "KubeEndpointsProps",
     "KubeEvent",
     "KubeEventList",
-    "KubeEventListOptions",
+    "KubeEventListProps",
     "KubeEventListV1Beta1",
-    "KubeEventListV1Beta1Options",
-    "KubeEventOptions",
+    "KubeEventListV1Beta1Props",
+    "KubeEventProps",
     "KubeEventV1Beta1",
-    "KubeEventV1Beta1Options",
+    "KubeEventV1Beta1Props",
     "KubeEvictionV1Beta1",
-    "KubeEvictionV1Beta1Options",
+    "KubeEvictionV1Beta1Props",
     "KubeFlowSchemaListV1Alpha1",
-    "KubeFlowSchemaListV1Alpha1Options",
+    "KubeFlowSchemaListV1Alpha1Props",
     "KubeFlowSchemaV1Alpha1",
-    "KubeFlowSchemaV1Alpha1Options",
+    "KubeFlowSchemaV1Alpha1Props",
     "KubeHorizontalPodAutoscaler",
     "KubeHorizontalPodAutoscalerList",
-    "KubeHorizontalPodAutoscalerListOptions",
+    "KubeHorizontalPodAutoscalerListProps",
     "KubeHorizontalPodAutoscalerListV2Beta1",
-    "KubeHorizontalPodAutoscalerListV2Beta1Options",
+    "KubeHorizontalPodAutoscalerListV2Beta1Props",
     "KubeHorizontalPodAutoscalerListV2Beta2",
-    "KubeHorizontalPodAutoscalerListV2Beta2Options",
-    "KubeHorizontalPodAutoscalerOptions",
+    "KubeHorizontalPodAutoscalerListV2Beta2Props",
+    "KubeHorizontalPodAutoscalerProps",
     "KubeHorizontalPodAutoscalerV2Beta1",
-    "KubeHorizontalPodAutoscalerV2Beta1Options",
+    "KubeHorizontalPodAutoscalerV2Beta1Props",
     "KubeHorizontalPodAutoscalerV2Beta2",
-    "KubeHorizontalPodAutoscalerV2Beta2Options",
+    "KubeHorizontalPodAutoscalerV2Beta2Props",
     "KubeIngressListV1Beta1",
-    "KubeIngressListV1Beta1Options",
+    "KubeIngressListV1Beta1Props",
     "KubeIngressV1Beta1",
-    "KubeIngressV1Beta1Options",
+    "KubeIngressV1Beta1Props",
     "KubeJob",
     "KubeJobList",
-    "KubeJobListOptions",
-    "KubeJobOptions",
+    "KubeJobListProps",
+    "KubeJobProps",
     "KubeLease",
     "KubeLeaseList",
-    "KubeLeaseListOptions",
+    "KubeLeaseListProps",
     "KubeLeaseListV1Beta1",
-    "KubeLeaseListV1Beta1Options",
-    "KubeLeaseOptions",
+    "KubeLeaseListV1Beta1Props",
+    "KubeLeaseProps",
     "KubeLeaseV1Beta1",
-    "KubeLeaseV1Beta1Options",
+    "KubeLeaseV1Beta1Props",
     "KubeLimitRange",
     "KubeLimitRangeList",
-    "KubeLimitRangeListOptions",
-    "KubeLimitRangeOptions",
+    "KubeLimitRangeListProps",
+    "KubeLimitRangeProps",
     "KubeLocalSubjectAccessReview",
-    "KubeLocalSubjectAccessReviewOptions",
+    "KubeLocalSubjectAccessReviewProps",
     "KubeLocalSubjectAccessReviewV1Beta1",
-    "KubeLocalSubjectAccessReviewV1Beta1Options",
+    "KubeLocalSubjectAccessReviewV1Beta1Props",
     "KubeMutatingWebhookConfiguration",
     "KubeMutatingWebhookConfigurationList",
-    "KubeMutatingWebhookConfigurationListOptions",
+    "KubeMutatingWebhookConfigurationListProps",
     "KubeMutatingWebhookConfigurationListV1Beta1",
-    "KubeMutatingWebhookConfigurationListV1Beta1Options",
-    "KubeMutatingWebhookConfigurationOptions",
+    "KubeMutatingWebhookConfigurationListV1Beta1Props",
+    "KubeMutatingWebhookConfigurationProps",
     "KubeMutatingWebhookConfigurationV1Beta1",
-    "KubeMutatingWebhookConfigurationV1Beta1Options",
+    "KubeMutatingWebhookConfigurationV1Beta1Props",
     "KubeNamespace",
     "KubeNamespaceList",
-    "KubeNamespaceListOptions",
-    "KubeNamespaceOptions",
+    "KubeNamespaceListProps",
+    "KubeNamespaceProps",
     "KubeNetworkPolicy",
     "KubeNetworkPolicyList",
-    "KubeNetworkPolicyListOptions",
+    "KubeNetworkPolicyListProps",
     "KubeNetworkPolicyListV1Beta1",
-    "KubeNetworkPolicyListV1Beta1Options",
-    "KubeNetworkPolicyOptions",
+    "KubeNetworkPolicyListV1Beta1Props",
+    "KubeNetworkPolicyProps",
     "KubeNetworkPolicyV1Beta1",
-    "KubeNetworkPolicyV1Beta1Options",
+    "KubeNetworkPolicyV1Beta1Props",
     "KubeNode",
     "KubeNodeList",
-    "KubeNodeListOptions",
-    "KubeNodeOptions",
+    "KubeNodeListProps",
+    "KubeNodeProps",
     "KubePersistentVolume",
     "KubePersistentVolumeClaim",
     "KubePersistentVolumeClaimList",
-    "KubePersistentVolumeClaimListOptions",
-    "KubePersistentVolumeClaimOptions",
+    "KubePersistentVolumeClaimListProps",
+    "KubePersistentVolumeClaimProps",
     "KubePersistentVolumeList",
-    "KubePersistentVolumeListOptions",
-    "KubePersistentVolumeOptions",
+    "KubePersistentVolumeListProps",
+    "KubePersistentVolumeProps",
     "KubePod",
     "KubePodDisruptionBudgetListV1Beta1",
-    "KubePodDisruptionBudgetListV1Beta1Options",
+    "KubePodDisruptionBudgetListV1Beta1Props",
     "KubePodDisruptionBudgetV1Beta1",
-    "KubePodDisruptionBudgetV1Beta1Options",
+    "KubePodDisruptionBudgetV1Beta1Props",
     "KubePodList",
-    "KubePodListOptions",
-    "KubePodOptions",
+    "KubePodListProps",
     "KubePodPresetListV1Alpha1",
-    "KubePodPresetListV1Alpha1Options",
+    "KubePodPresetListV1Alpha1Props",
     "KubePodPresetV1Alpha1",
-    "KubePodPresetV1Alpha1Options",
+    "KubePodPresetV1Alpha1Props",
+    "KubePodProps",
     "KubePodSecurityPolicyListV1Beta1",
-    "KubePodSecurityPolicyListV1Beta1Options",
+    "KubePodSecurityPolicyListV1Beta1Props",
     "KubePodSecurityPolicyV1Beta1",
-    "KubePodSecurityPolicyV1Beta1Options",
+    "KubePodSecurityPolicyV1Beta1Props",
     "KubePodTemplate",
     "KubePodTemplateList",
-    "KubePodTemplateListOptions",
-    "KubePodTemplateOptions",
+    "KubePodTemplateListProps",
+    "KubePodTemplateProps",
     "KubePriorityClass",
     "KubePriorityClassList",
-    "KubePriorityClassListOptions",
+    "KubePriorityClassListProps",
     "KubePriorityClassListV1Alpha1",
-    "KubePriorityClassListV1Alpha1Options",
+    "KubePriorityClassListV1Alpha1Props",
     "KubePriorityClassListV1Beta1",
-    "KubePriorityClassListV1Beta1Options",
-    "KubePriorityClassOptions",
+    "KubePriorityClassListV1Beta1Props",
+    "KubePriorityClassProps",
     "KubePriorityClassV1Alpha1",
-    "KubePriorityClassV1Alpha1Options",
+    "KubePriorityClassV1Alpha1Props",
     "KubePriorityClassV1Beta1",
-    "KubePriorityClassV1Beta1Options",
+    "KubePriorityClassV1Beta1Props",
     "KubePriorityLevelConfigurationListV1Alpha1",
-    "KubePriorityLevelConfigurationListV1Alpha1Options",
+    "KubePriorityLevelConfigurationListV1Alpha1Props",
     "KubePriorityLevelConfigurationV1Alpha1",
-    "KubePriorityLevelConfigurationV1Alpha1Options",
+    "KubePriorityLevelConfigurationV1Alpha1Props",
     "KubeReplicaSet",
     "KubeReplicaSetList",
-    "KubeReplicaSetListOptions",
+    "KubeReplicaSetListProps",
     "KubeReplicaSetListV1Beta1",
-    "KubeReplicaSetListV1Beta1Options",
+    "KubeReplicaSetListV1Beta1Props",
     "KubeReplicaSetListV1Beta2",
-    "KubeReplicaSetListV1Beta2Options",
-    "KubeReplicaSetOptions",
+    "KubeReplicaSetListV1Beta2Props",
+    "KubeReplicaSetProps",
     "KubeReplicaSetV1Beta1",
-    "KubeReplicaSetV1Beta1Options",
+    "KubeReplicaSetV1Beta1Props",
     "KubeReplicaSetV1Beta2",
-    "KubeReplicaSetV1Beta2Options",
+    "KubeReplicaSetV1Beta2Props",
     "KubeReplicationController",
     "KubeReplicationControllerList",
-    "KubeReplicationControllerListOptions",
-    "KubeReplicationControllerOptions",
+    "KubeReplicationControllerListProps",
+    "KubeReplicationControllerProps",
     "KubeResourceQuota",
     "KubeResourceQuotaList",
-    "KubeResourceQuotaListOptions",
-    "KubeResourceQuotaOptions",
+    "KubeResourceQuotaListProps",
+    "KubeResourceQuotaProps",
     "KubeRole",
     "KubeRoleBinding",
     "KubeRoleBindingList",
-    "KubeRoleBindingListOptions",
+    "KubeRoleBindingListProps",
     "KubeRoleBindingListV1Alpha1",
-    "KubeRoleBindingListV1Alpha1Options",
+    "KubeRoleBindingListV1Alpha1Props",
     "KubeRoleBindingListV1Beta1",
-    "KubeRoleBindingListV1Beta1Options",
-    "KubeRoleBindingOptions",
+    "KubeRoleBindingListV1Beta1Props",
+    "KubeRoleBindingProps",
     "KubeRoleBindingV1Alpha1",
-    "KubeRoleBindingV1Alpha1Options",
+    "KubeRoleBindingV1Alpha1Props",
     "KubeRoleBindingV1Beta1",
-    "KubeRoleBindingV1Beta1Options",
+    "KubeRoleBindingV1Beta1Props",
     "KubeRoleList",
-    "KubeRoleListOptions",
+    "KubeRoleListProps",
     "KubeRoleListV1Alpha1",
-    "KubeRoleListV1Alpha1Options",
+    "KubeRoleListV1Alpha1Props",
     "KubeRoleListV1Beta1",
-    "KubeRoleListV1Beta1Options",
-    "KubeRoleOptions",
+    "KubeRoleListV1Beta1Props",
+    "KubeRoleProps",
     "KubeRoleV1Alpha1",
-    "KubeRoleV1Alpha1Options",
+    "KubeRoleV1Alpha1Props",
     "KubeRoleV1Beta1",
-    "KubeRoleV1Beta1Options",
+    "KubeRoleV1Beta1Props",
     "KubeRuntimeClassListV1Alpha1",
-    "KubeRuntimeClassListV1Alpha1Options",
+    "KubeRuntimeClassListV1Alpha1Props",
     "KubeRuntimeClassListV1Beta1",
-    "KubeRuntimeClassListV1Beta1Options",
+    "KubeRuntimeClassListV1Beta1Props",
     "KubeRuntimeClassV1Alpha1",
-    "KubeRuntimeClassV1Alpha1Options",
+    "KubeRuntimeClassV1Alpha1Props",
     "KubeRuntimeClassV1Beta1",
-    "KubeRuntimeClassV1Beta1Options",
+    "KubeRuntimeClassV1Beta1Props",
     "KubeScale",
-    "KubeScaleOptions",
+    "KubeScaleProps",
     "KubeScaleV1Beta1",
-    "KubeScaleV1Beta1Options",
+    "KubeScaleV1Beta1Props",
     "KubeScaleV1Beta2",
-    "KubeScaleV1Beta2Options",
+    "KubeScaleV1Beta2Props",
     "KubeSecret",
     "KubeSecretList",
-    "KubeSecretListOptions",
-    "KubeSecretOptions",
+    "KubeSecretListProps",
+    "KubeSecretProps",
     "KubeSelfSubjectAccessReview",
-    "KubeSelfSubjectAccessReviewOptions",
+    "KubeSelfSubjectAccessReviewProps",
     "KubeSelfSubjectAccessReviewV1Beta1",
-    "KubeSelfSubjectAccessReviewV1Beta1Options",
+    "KubeSelfSubjectAccessReviewV1Beta1Props",
     "KubeSelfSubjectRulesReview",
-    "KubeSelfSubjectRulesReviewOptions",
+    "KubeSelfSubjectRulesReviewProps",
     "KubeSelfSubjectRulesReviewV1Beta1",
-    "KubeSelfSubjectRulesReviewV1Beta1Options",
+    "KubeSelfSubjectRulesReviewV1Beta1Props",
     "KubeService",
     "KubeServiceAccount",
     "KubeServiceAccountList",
-    "KubeServiceAccountListOptions",
-    "KubeServiceAccountOptions",
+    "KubeServiceAccountListProps",
+    "KubeServiceAccountProps",
     "KubeServiceList",
-    "KubeServiceListOptions",
-    "KubeServiceOptions",
+    "KubeServiceListProps",
+    "KubeServiceProps",
     "KubeStatefulSet",
     "KubeStatefulSetList",
-    "KubeStatefulSetListOptions",
+    "KubeStatefulSetListProps",
     "KubeStatefulSetListV1Beta1",
-    "KubeStatefulSetListV1Beta1Options",
+    "KubeStatefulSetListV1Beta1Props",
     "KubeStatefulSetListV1Beta2",
-    "KubeStatefulSetListV1Beta2Options",
-    "KubeStatefulSetOptions",
+    "KubeStatefulSetListV1Beta2Props",
+    "KubeStatefulSetProps",
     "KubeStatefulSetV1Beta1",
-    "KubeStatefulSetV1Beta1Options",
+    "KubeStatefulSetV1Beta1Props",
     "KubeStatefulSetV1Beta2",
-    "KubeStatefulSetV1Beta2Options",
+    "KubeStatefulSetV1Beta2Props",
     "KubeStatus",
-    "KubeStatusOptions",
+    "KubeStatusProps",
     "KubeStorageClass",
     "KubeStorageClassList",
-    "KubeStorageClassListOptions",
+    "KubeStorageClassListProps",
     "KubeStorageClassListV1Beta1",
-    "KubeStorageClassListV1Beta1Options",
-    "KubeStorageClassOptions",
+    "KubeStorageClassListV1Beta1Props",
+    "KubeStorageClassProps",
     "KubeStorageClassV1Beta1",
-    "KubeStorageClassV1Beta1Options",
+    "KubeStorageClassV1Beta1Props",
     "KubeSubjectAccessReview",
-    "KubeSubjectAccessReviewOptions",
+    "KubeSubjectAccessReviewProps",
     "KubeSubjectAccessReviewV1Beta1",
-    "KubeSubjectAccessReviewV1Beta1Options",
+    "KubeSubjectAccessReviewV1Beta1Props",
     "KubeTokenRequest",
-    "KubeTokenRequestOptions",
+    "KubeTokenRequestProps",
     "KubeTokenReview",
-    "KubeTokenReviewOptions",
+    "KubeTokenReviewProps",
     "KubeTokenReviewV1Beta1",
-    "KubeTokenReviewV1Beta1Options",
+    "KubeTokenReviewV1Beta1Props",
     "KubeValidatingWebhookConfiguration",
     "KubeValidatingWebhookConfigurationList",
-    "KubeValidatingWebhookConfigurationListOptions",
+    "KubeValidatingWebhookConfigurationListProps",
     "KubeValidatingWebhookConfigurationListV1Beta1",
-    "KubeValidatingWebhookConfigurationListV1Beta1Options",
-    "KubeValidatingWebhookConfigurationOptions",
+    "KubeValidatingWebhookConfigurationListV1Beta1Props",
+    "KubeValidatingWebhookConfigurationProps",
     "KubeValidatingWebhookConfigurationV1Beta1",
-    "KubeValidatingWebhookConfigurationV1Beta1Options",
+    "KubeValidatingWebhookConfigurationV1Beta1Props",
     "KubeVolumeAttachment",
     "KubeVolumeAttachmentList",
-    "KubeVolumeAttachmentListOptions",
+    "KubeVolumeAttachmentListProps",
     "KubeVolumeAttachmentListV1Alpha1",
-    "KubeVolumeAttachmentListV1Alpha1Options",
+    "KubeVolumeAttachmentListV1Alpha1Props",
     "KubeVolumeAttachmentListV1Beta1",
-    "KubeVolumeAttachmentListV1Beta1Options",
-    "KubeVolumeAttachmentOptions",
+    "KubeVolumeAttachmentListV1Beta1Props",
+    "KubeVolumeAttachmentProps",
     "KubeVolumeAttachmentV1Alpha1",
-    "KubeVolumeAttachmentV1Alpha1Options",
+    "KubeVolumeAttachmentV1Alpha1Props",
     "KubeVolumeAttachmentV1Beta1",
-    "KubeVolumeAttachmentV1Beta1Options",
+    "KubeVolumeAttachmentV1Beta1Props",
     "LabelSelector",
     "LabelSelectorRequirement",
     "LeaseSpec",
