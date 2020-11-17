@@ -9,8 +9,7 @@ import { Yaml } from './yaml';
 
 export interface AppOptions {
   /**
-   * The directory to output Kubernetes manifests. Mutually exclusive with
-   * the `--stdout` option.
+   * The directory to output Kubernetes manifests.
    *
    * @default - CDK8S_OUTDIR if defined, otherwise "dist"
    */
