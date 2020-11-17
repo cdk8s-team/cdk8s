@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra';
 import * as yargs from 'yargs';
 import { readConfigSync } from '../../config';
-import { shell } from '../../util';
+import { shell, mkdtemp, validateSynthesis } from '../../util';
 
 const config = readConfigSync();
 
@@ -27,34 +27,28 @@ class Command implements yargs.CommandModule {
 
     await fs.remove(outdir);
 
-    await shell(command, [], {
-      shell: true,
-      env: {
-        ...process.env,
-        CDK8S_OUTDIR: outdir,
-        CDK8S_STDOUT: stdout,
-      },
-    });
-
     if (stdout) {
-      process.exit(0);
-    }
+      await mkdtemp(async tempDir => {
+        await shell(command, [], {
+          shell: true,
+          env: {
+            ...process.env,
+            CDK8S_OUTDIR: tempDir,
+          },
+        });
 
-    if (!await fs.pathExists(outdir)) {
-      console.error(`ERROR: synthesis failed, app expected to create "${outdir}"`);
-      process.exit(1);
-    }
+        await shell(`cat ${tempDir}/*.yaml`, [], { stdio: 'inherit', shell: true });
+      });
+    } else {
+      await shell(command, [], {
+        shell: true,
+        env: {
+          ...process.env,
+          CDK8S_OUTDIR: outdir,
+        },
+      });
 
-    let found = false;
-    for (const file of await fs.readdir(outdir)) {
-      if (file.endsWith('.k8s.yaml')) {
-        console.log(`${outdir}/${file}`);
-        found = true;
-      }
-    }
-
-    if (!found) {
-      console.error('No manifests synthesized');
+      validateSynthesis(outdir);
     }
   }
 }

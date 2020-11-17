@@ -15,14 +15,6 @@ export interface AppOptions {
    * @default - CDK8S_OUTDIR if defined, otherwise "dist"
    */
   readonly outdir?: string;
-
-  /**
-   * Whether or not to print to stdout. Mutually exclusive with
-   * the `--outdir` option.
-   *
-   * @default - true if defined, false otherwise
-   */
-  readonly stdout?: boolean;
 }
 
 /**
@@ -76,18 +68,12 @@ export class App extends Construct {
   public readonly outdir: string;
 
   /**
-   * Whether or not to print to stdout.
-   */
-  public readonly stdout: boolean;
-
-  /**
    * Defines an app
    * @param options configuration options
    */
   constructor(options: AppOptions = { }) {
     super(undefined as any, '');
     this.outdir = options.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
-    this.stdout = options.stdout ?? Boolean(process.env.CDK8S_STDOUT) ?? false;
   }
 
   /**
@@ -95,9 +81,7 @@ export class App extends Construct {
    */
   public synth(): void {
 
-    if (!this.stdout) {
-      fs.mkdirSync(this.outdir, { recursive: true });
-    }
+    fs.mkdirSync(this.outdir, { recursive: true });
 
     // this is kind of sucky, eventually I would like the DependencyGraph
     // to be able to answer this question.
@@ -115,11 +99,7 @@ export class App extends Construct {
     let index = 0;
     for (const node of charts) {
       const chart: Chart = Chart.of(node);
-      if (this.stdout) {
-        console.log(chartToKube(chart));
-      } else {
-        Yaml.save(path.join(this.outdir, manifestNamer(chart)), chartToKube(chart));
-      }
+      Yaml.save(path.join(this.outdir, manifestNamer(chart)), chartToKube(chart));
       index++;
     }
 

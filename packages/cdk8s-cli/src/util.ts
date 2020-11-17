@@ -32,6 +32,25 @@ export async function mkdtemp(closure: (dir: string) => Promise<void>) {
   }
 }
 
+export async function validateSynthesis(outdir: string) {
+  if (!await fs.pathExists(outdir)) {
+    console.error(`ERROR: synthesis failed, app expected to create "${outdir}"`);
+    process.exit(1);
+  }
+
+  let found = false;
+  for (const file of await fs.readdir(outdir)) {
+    if (file.endsWith('.k8s.yaml')) {
+      console.log(`${outdir}/${file}`);
+      found = true;
+    }
+  }
+
+  if (!found) {
+    console.error('No manifests synthesized');
+  }
+}
+
 export async function download(url: string): Promise<string> {
   let client: typeof http | typeof https;
   const proto = parse(url).protocol;
