@@ -48,7 +48,7 @@ class Command implements yargs.CommandModule {
         },
       });
 
-      validateSynthesis(outdir);
+      await validateSynthesis(outdir);
     }
   }
 }
