@@ -26,27 +26,27 @@ class CronTab(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: typing.Optional["CronTabSpec"] = None,
     ) -> None:
         """Defines a "CronTab" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: 
         """
-        options = CronTabOptions(spec=spec)
+        props = CronTabProps(spec=spec)
 
-        jsii.create(CronTab, self, [scope, name, options])
+        jsii.create(CronTab, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="stableexamplecomcrontab.CronTabOptions",
+    jsii_type="stableexamplecomcrontab.CronTabProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec"},
 )
-class CronTabOptions:
+class CronTabProps:
     def __init__(self, *, spec: typing.Optional["CronTabSpec"] = None) -> None:
         """
         :param spec: 
@@ -74,7 +74,7 @@ class CronTabOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "CronTabOptions(%s)" % ", ".join(
+        return "CronTabProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -145,7 +145,7 @@ class CronTabSpec:
 
 __all__ = [
     "CronTab",
-    "CronTabOptions",
+    "CronTabProps",
     "CronTabSpec",
 ]
 

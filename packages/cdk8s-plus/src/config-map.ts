@@ -67,7 +67,7 @@ export class ConfigMap extends Resource implements IConfigMap {
   public constructor(scope: Construct, id: string, props: ConfigMapProps = { }) {
     super(scope, id, { metadata: props.metadata });
 
-    this.apiObject = new k8s.ConfigMap(this, 'ConfigMap', {
+    this.apiObject = new k8s.KubeConfigMap(this, 'ConfigMap', {
       metadata: props.metadata,
 
       // we need lazy here because we filter empty

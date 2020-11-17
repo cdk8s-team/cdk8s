@@ -15,15 +15,15 @@
     "no-changes": "(git log --oneline -1 | grep -q \"chore(release):\") && echo \"No changes to release.\"",
     "bump": "yarn run --silent no-changes || standard-version",
     "release": "yarn run --silent no-changes || (yarn run bump && git push --follow-tags origin master)",
+    "test": "rm -fr lib/ && jest --passWithNoTests && yarn run eslint && yarn compile",
+    "test:watch": "jest --watch",
+    "test:update": "jest --updateSnapshot",
     "projen:upgrade": "yarn upgrade -L projen && CI=\"\" yarn projen",
     "compile": "tsc",
     "watch": "tsc -w",
     "build": "yarn compile",
     "package": "rm -fr dist && mkdir -p dist/js && yarn pack && mv *.tgz dist/js/",
-    "test": "rm -fr lib/ && jest --passWithNoTests && yarn run eslint && yarn compile",
-    "test:watch": "jest --watch",
-    "test:update": "jest --updateSnapshot",
-    "eslint": "eslint --ext .ts --fix src test"
+    "eslint": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test"
   },
   "author": {
     "name": "Amazon Web Services",
@@ -43,7 +43,7 @@
     "eslint-plugin-import": "^2.20.2",
     "jest": "^26.4.2",
     "json-schema": "^0.2.5",
-    "projen": "^0.3.115",
+    "projen": "^0.3.168",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
@@ -56,7 +56,7 @@
     "constructs": "3.0.4",
     "fs-extra": "^8.1.0",
     "jsii-srcmak": "^0.1.36",
-    "json2jsii": "^0.1.4",
+    "json2jsii": "^0.1.104",
     "sscaff": "^1.2.0",
     "yaml": "^1.7.2",
     "yargs": "^15.1.0"
@@ -72,58 +72,70 @@
   "license": "Apache-2.0",
   "start": {
     "start": {
+      "command": "yarn run start",
       "desc": "Shows this menu"
     },
     "projen": {
       "desc": "Synthesize project configuration from .projenrc.js",
+      "command": "yarn run projen",
       "category": 3
     },
     "bump": {
       "desc": "Commits a bump to the package version based on conventional commits",
+      "command": "yarn run bump",
       "category": 2
     },
     "release": {
       "desc": "Bumps version & push to master",
-      "category": 2
-    },
-    "projen:upgrade": {
-      "desc": "upgrades projen to the latest version",
-      "category": 3
-    },
-    "compile": {
-      "desc": "Only compile",
-      "category": 0
-    },
-    "watch": {
-      "desc": "Watch & compile in the background",
-      "category": 0
-    },
-    "build": {
-      "desc": "Full release build (test+compile)",
-      "category": 0
-    },
-    "package": {
-      "desc": "Create an npm tarball",
+      "command": "yarn run release",
       "category": 2
     },
     "test": {
       "desc": "Run tests",
+      "command": "yarn run test",
       "category": 1
     },
     "test:watch": {
       "desc": "Run jest in watch mode",
+      "command": "yarn run test:watch",
       "category": 1
+    },
+    "projen:upgrade": {
+      "desc": "upgrades projen to the latest version",
+      "command": "yarn run projen:upgrade",
+      "category": 3
+    },
+    "compile": {
+      "desc": "Only compile",
+      "command": "yarn run compile",
+      "category": 0
+    },
+    "watch": {
+      "desc": "Watch & compile in the background",
+      "command": "yarn run watch",
+      "category": 0
+    },
+    "build": {
+      "desc": "Full release build (test+compile)",
+      "command": "yarn run build",
+      "category": 0
+    },
+    "package": {
+      "desc": "Create an npm tarball",
+      "command": "yarn run package",
+      "category": 2
     },
     "eslint": {
       "desc": "Runs eslint against the codebase",
+      "command": "yarn run eslint",
       "category": 1
     }
   },
   "version": "0.0.0",
-  "types": "lib/index.d.ts",
   "jest": {
     "clearMocks": true,
     "collectCoverage": true,
+    "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/templates/"
@@ -132,15 +144,16 @@
       "/node_modules/",
       "/templates/"
     ],
-    "preset": "ts-jest",
     "testMatch": [
       "**/__tests__/**/*.ts?(x)",
       "**/?(*.)+(spec|test).ts?(x)"
     ],
+    "preset": "ts-jest",
     "globals": {
       "ts-jest": {
-        "tsConfig": "tsconfig.jest.json"
+        "tsconfig": "tsconfig.jest.json"
       }
     }
-  }
+  },
+  "types": "lib/index.d.ts"
 }

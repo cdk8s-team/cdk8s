@@ -2,4 +2,3 @@ nav:
   - index.md
   - cdk8s: cdk8s.md
   - cdk8s-plus: cdk8s-plus.md
-  - cdk8s-cli: cdk8s-cli.md

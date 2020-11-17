@@ -11,12 +11,12 @@ export class Jenkins extends ApiObject {
   /**
    * Defines a "Jenkins" API object
    * @param scope the scope in which to define this object
-   * @param name a scope-local name for the object
-   * @param options configuration options
+   * @param id a scope-local name for the object
+   * @param props initialiation props
    */
-  public constructor(scope: Construct, name: string, options: JenkinsOptions = {}) {
-    super(scope, name, {
-      ...options,
+  public constructor(scope: Construct, id: string, props: JenkinsProps = {}) {
+    super(scope, id, {
+      ...props,
       kind: 'Jenkins',
       apiVersion: 'jenkins.io/v1alpha2',
     });
@@ -28,7 +28,7 @@ export class Jenkins extends ApiObject {
  *
  * @schema Jenkins
  */
-export interface JenkinsOptions {
+export interface JenkinsProps {
   /**
    * @schema Jenkins#metadata
    */

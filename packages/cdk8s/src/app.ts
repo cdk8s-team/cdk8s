@@ -7,7 +7,7 @@ import { DependencyGraph } from './dependency';
 import { Names } from './names';
 import { Yaml } from './yaml';
 
-export interface AppOptions {
+export interface AppProps {
   /**
    * The directory to output Kubernetes manifests.
    *
@@ -68,11 +68,11 @@ export class App extends Construct {
 
   /**
    * Defines an app
-   * @param options configuration options
+   * @param props configuration options
    */
-  constructor(options: AppOptions = { }) {
+  constructor(props: AppProps = { }) {
     super(undefined as any, '');
-    this.outdir = options.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
+    this.outdir = props.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
   }
 
   /**

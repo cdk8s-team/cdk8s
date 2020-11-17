@@ -23,7 +23,8 @@
     "package": "jsii-pacmak",
     "eslint": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test",
     "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\") -k --ignore-file .compatignore || (echo \"\nUNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .compatignore to skip.\n\" && exit 1)",
-    "docgen": "jsii-docgen"
+    "docgen": "jsii-docgen",
+    "import": "../cdk8s-cli/bin/cdk8s -l typescript -o src/imports import k8s@1.17.0"
   },
   "author": {
     "name": "Amazon Web Services",
@@ -48,7 +49,7 @@
     "jsii-docgen": "^1.3.2",
     "jsii-pacmak": "^1.9.0",
     "json-schema": "^0.2.5",
-    "projen": "^0.3.168",
+    "projen": "^0.3.166",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"

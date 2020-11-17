@@ -21,12 +21,24 @@ export interface ImportOptions {
    * @default - jsii file is not emitted
    */
   readonly outputJsii?: string;
+
+  /**
+   * A prefix for all construct classes.
+   *
+   * @default - default is determined by the specific import type. For example
+   * k8s imports will add a "Kube" prefix by default.
+   */
+  readonly classNamePrefix?: string;
+}
+
+export interface GenerateOptions {
+  readonly classNamePrefix?: string;
 }
 
 export abstract class ImportBase {
   public abstract get moduleNames(): string[];
 
-  protected abstract async generateTypeScript(code: CodeMaker, moduleName?: string): Promise<void>;
+  protected abstract async generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions): Promise<void>;
 
   public async import(options: ImportOptions) {
     const code = new CodeMaker();
@@ -47,7 +59,10 @@ export abstract class ImportBase {
       const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${name}.ts` : `${name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
-      await this.generateTypeScript(code, name);
+      await this.generateTypeScript(code, name, {
+        classNamePrefix: options.classNamePrefix,
+      });
+
       code.closeFile(fileName);
 
       if (isTypescript) {

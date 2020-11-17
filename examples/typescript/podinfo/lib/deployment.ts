@@ -1,6 +1,6 @@
 import { Construct, Node } from 'constructs';
 import { ApiObject, Names } from 'cdk8s';
-import { Deployment as DeploymentObject, Affinity, Container, IntOrString } from '../imports/k8s';
+import { KubeDeployment, Affinity, Container, IntOrString } from '../imports/k8s';
 import { Autoscaler, AutoscalingOptions } from './autoscaler';
 import { ISelector } from './service';
 
@@ -97,7 +97,7 @@ export class Deployment extends Construct implements ISelector {
     //
     // deployment
 
-    const deployment = new DeploymentObject(this, 'deployment', {
+    const deployment = new KubeDeployment(this, 'deployment', {
       metadata: {
         labels: options.labels
       },
