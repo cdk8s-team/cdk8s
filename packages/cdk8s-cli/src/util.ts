@@ -32,6 +32,16 @@ export async function mkdtemp(closure: (dir: string) => Promise<void>) {
   }
 }
 
+export async function callLibrary(command: string, outdir: string) {
+  await shell(command, [], {
+    shell: true,
+    env: {
+      ...process.env,
+      CDK8S_OUTDIR: outdir,
+    },
+  });
+}
+
 export async function validateSynthesis(outdir: string) {
   if (!await fs.pathExists(outdir)) {
     console.error(`ERROR: synthesis failed, app expected to create "${outdir}"`);

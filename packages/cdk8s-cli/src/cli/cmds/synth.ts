@@ -1,7 +1,8 @@
 import * as fs from 'fs-extra';
 import * as yargs from 'yargs';
 import { readConfigSync } from '../../config';
-import { shell, mkdtemp, validateSynthesis } from '../../util';
+import { callLibrary, mkdtemp, validateSynthesis } from '../../util';
+import * as path from 'path';
 
 const config = readConfigSync();
 
@@ -21,32 +22,23 @@ class Command implements yargs.CommandModule {
     const stdout = argv.stdout;
 
     if (outdir !== config.output && stdout) {
-      console.error('ERROR: \'--output\' and \'--stdout\' are mutually exclusive. Please only use one.');
-      process.exit(1);
+      throw new Error('\'--output\' and \'--stdout\' are mutually exclusive. Please only use one.');
     }
 
     await fs.remove(outdir);
 
     if (stdout) {
       await mkdtemp(async tempDir => {
-        await shell(command, [], {
-          shell: true,
-          env: {
-            ...process.env,
-            CDK8S_OUTDIR: tempDir,
-          },
-        });
+        await callLibrary(command, tempDir);
 
-        await shell(`cat ${tempDir}/*.yaml`, [], { stdio: 'inherit', shell: true });
+        const manifests = (await fs.readdir(tempDir)).filter(f => path.extname(f) === '.k8s.yaml');
+        for (const f of manifests) {
+          fs.createReadStream(path.join(tempDir, f)).pipe(process.stdout);
+        }
+        await validateSynthesis(tempDir);
       });
     } else {
-      await shell(command, [], {
-        shell: true,
-        env: {
-          ...process.env,
-          CDK8S_OUTDIR: outdir,
-        },
-      });
+      await callLibrary(command, outdir);
 
       await validateSynthesis(outdir);
     }
