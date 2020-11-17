@@ -36,7 +36,7 @@ class CronTab(
         :param id: a scope-local name for the object.
         :param spec: 
         """
-        props = CronTabOptions(spec=spec)
+        props = CronTabProps(spec=spec)
 
         jsii.create(CronTab, self, [scope, id, props])
 

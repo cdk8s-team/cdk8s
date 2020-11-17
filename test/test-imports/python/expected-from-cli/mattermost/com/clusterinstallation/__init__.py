@@ -39,7 +39,7 @@ class ClusterInstallation(
         :param spec: Specification of the desired behavior of the Mattermost cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
         :param metadata: 
         """
-        props = ClusterInstallationOptions(spec=spec, metadata=metadata)
+        props = ClusterInstallationProps(spec=spec, metadata=metadata)
 
         jsii.create(ClusterInstallation, self, [scope, id, props])
 
