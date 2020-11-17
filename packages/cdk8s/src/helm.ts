@@ -10,7 +10,7 @@ import { Names } from './names';
 /**
  * Options for `Helm`.
  */
-export interface HelmOptions {
+export interface HelmProps {
   /**
    * The chart name to use. It can be a chart from a helm repository or a local directory.
    *
@@ -62,33 +62,33 @@ export class Helm extends Include {
    */
   public readonly releaseName: string;
 
-  constructor(scope: Construct, id: string, opts: HelmOptions) {
+  constructor(scope: Construct, id: string, props: HelmProps) {
     const workdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-helm-'));
 
     const args = new Array<string>();
     args.push('template');
 
     // values
-    if (opts.values && Object.keys(opts.values).length > 0) {
+    if (props.values && Object.keys(props.values).length > 0) {
       const valuesPath = path.join(workdir, 'overrides.yaml');
-      fs.writeFileSync(valuesPath, yaml.stringify(opts.values));
+      fs.writeFileSync(valuesPath, yaml.stringify(props.values));
       args.push('-f', valuesPath);
     }
 
     // custom flags
-    if (opts.helmFlags) {
-      args.push(...opts.helmFlags);
+    if (props.helmFlags) {
+      args.push(...props.helmFlags);
     }
 
     // release name
     const cpath = [Node.of(scope).path, id].join(Node.PATH_SEP);
-    const releaseName = opts.releaseName ?? Names.toDnsLabel(cpath, 53); // constraints: https://github.com/helm/helm/issues/6006
+    const releaseName = props.releaseName ?? Names.toDnsLabel(cpath, 53); // constraints: https://github.com/helm/helm/issues/6006
     args.push(releaseName);
 
     // chart
-    args.push(opts.chart);
+    args.push(props.chart);
 
-    const prog = opts.helmExecutable ?? 'helm';
+    const prog = props.helmExecutable ?? 'helm';
     const outputFile = renderTemplate(workdir, prog, args);
 
     super(scope, id, { url: outputFile });

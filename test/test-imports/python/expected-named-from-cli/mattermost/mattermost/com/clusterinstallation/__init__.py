@@ -39,17 +39,17 @@ class ClusterInstallation(
         :param spec: Specification of the desired behavior of the Mattermost cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
         :param metadata: 
         """
-        props = ClusterInstallationOptions(spec=spec, metadata=metadata)
+        props = ClusterInstallationProps(spec=spec, metadata=metadata)
 
         jsii.create(ClusterInstallation, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="mattermostcomclusterinstallation.ClusterInstallationOptions",
+    jsii_type="mattermostcomclusterinstallation.ClusterInstallationProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
-class ClusterInstallationOptions:
+class ClusterInstallationProps:
     def __init__(
         self,
         *,
@@ -98,7 +98,7 @@ class ClusterInstallationOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "ClusterInstallationOptions(%s)" % ", ".join(
+        return "ClusterInstallationProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -4736,7 +4736,7 @@ class ClusterInstallationSpecResources:
 
 __all__ = [
     "ClusterInstallation",
-    "ClusterInstallationOptions",
+    "ClusterInstallationProps",
     "ClusterInstallationSpec",
     "ClusterInstallationSpecAffinity",
     "ClusterInstallationSpecAffinityNodeAffinity",

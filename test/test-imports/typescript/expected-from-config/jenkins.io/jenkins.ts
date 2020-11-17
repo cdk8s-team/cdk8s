@@ -14,7 +14,7 @@ export class Jenkins extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: JenkinsOptions = {}) {
+  public constructor(scope: Construct, id: string, props: JenkinsProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Jenkins',
@@ -28,7 +28,7 @@ export class Jenkins extends ApiObject {
  *
  * @schema Jenkins
  */
-export interface JenkinsOptions {
+export interface JenkinsProps {
   /**
    * @schema Jenkins#metadata
    */

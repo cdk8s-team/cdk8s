@@ -27,7 +27,7 @@ export function getConstructTypeName(def: ApiObjectDefinition) {
 
 export function getPropsTypeName(def: ApiObjectDefinition) {
   const constructName = getConstructTypeName(def);
-  return TypeGenerator.normalizeTypeName(`${constructName}Options`);
+  return TypeGenerator.normalizeTypeName(`${constructName}Props`);
 }
 
 export function generateConstruct(typegen: TypeGenerator, def: ApiObjectDefinition) {

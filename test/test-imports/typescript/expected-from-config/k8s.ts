@@ -14,7 +14,7 @@ export class KubeMutatingWebhookConfiguration extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeMutatingWebhookConfigurationOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeMutatingWebhookConfigurationProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'MutatingWebhookConfiguration',
@@ -35,7 +35,7 @@ export class KubeMutatingWebhookConfigurationList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeMutatingWebhookConfigurationListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeMutatingWebhookConfigurationListProps) {
     super(scope, id, {
       ...props,
       kind: 'MutatingWebhookConfigurationList',
@@ -56,7 +56,7 @@ export class KubeValidatingWebhookConfiguration extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeValidatingWebhookConfigurationOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeValidatingWebhookConfigurationProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'ValidatingWebhookConfiguration',
@@ -77,7 +77,7 @@ export class KubeValidatingWebhookConfigurationList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeValidatingWebhookConfigurationListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeValidatingWebhookConfigurationListProps) {
     super(scope, id, {
       ...props,
       kind: 'ValidatingWebhookConfigurationList',
@@ -98,7 +98,7 @@ export class KubeControllerRevision extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeControllerRevisionOptions) {
+  public constructor(scope: Construct, id: string, props: KubeControllerRevisionProps) {
     super(scope, id, {
       ...props,
       kind: 'ControllerRevision',
@@ -119,7 +119,7 @@ export class KubeControllerRevisionList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeControllerRevisionListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeControllerRevisionListProps) {
     super(scope, id, {
       ...props,
       kind: 'ControllerRevisionList',
@@ -140,7 +140,7 @@ export class KubeDaemonSet extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeDaemonSetOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeDaemonSetProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'DaemonSet',
@@ -161,7 +161,7 @@ export class KubeDaemonSetList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeDaemonSetListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeDaemonSetListProps) {
     super(scope, id, {
       ...props,
       kind: 'DaemonSetList',
@@ -182,7 +182,7 @@ export class KubeDeployment extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeDeploymentOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeDeploymentProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Deployment',
@@ -203,7 +203,7 @@ export class KubeDeploymentList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeDeploymentListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeDeploymentListProps) {
     super(scope, id, {
       ...props,
       kind: 'DeploymentList',
@@ -224,7 +224,7 @@ export class KubeReplicaSet extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeReplicaSetOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeReplicaSetProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'ReplicaSet',
@@ -245,7 +245,7 @@ export class KubeReplicaSetList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeReplicaSetListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeReplicaSetListProps) {
     super(scope, id, {
       ...props,
       kind: 'ReplicaSetList',
@@ -269,7 +269,7 @@ export class KubeStatefulSet extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeStatefulSetOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeStatefulSetProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'StatefulSet',
@@ -290,7 +290,7 @@ export class KubeStatefulSetList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeStatefulSetListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeStatefulSetListProps) {
     super(scope, id, {
       ...props,
       kind: 'StatefulSetList',
@@ -311,7 +311,7 @@ export class KubeScale extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeScaleOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeScaleProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Scale',
@@ -332,7 +332,7 @@ export class KubeAuditSink extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeAuditSinkOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeAuditSinkProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'AuditSink',
@@ -353,7 +353,7 @@ export class KubeAuditSinkList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeAuditSinkListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeAuditSinkListProps) {
     super(scope, id, {
       ...props,
       kind: 'AuditSinkList',
@@ -374,7 +374,7 @@ export class KubeTokenRequest extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeTokenRequestOptions) {
+  public constructor(scope: Construct, id: string, props: KubeTokenRequestProps) {
     super(scope, id, {
       ...props,
       kind: 'TokenRequest',
@@ -395,7 +395,7 @@ export class KubeTokenReview extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeTokenReviewOptions) {
+  public constructor(scope: Construct, id: string, props: KubeTokenReviewProps) {
     super(scope, id, {
       ...props,
       kind: 'TokenReview',
@@ -416,7 +416,7 @@ export class KubeLocalSubjectAccessReview extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeLocalSubjectAccessReviewOptions) {
+  public constructor(scope: Construct, id: string, props: KubeLocalSubjectAccessReviewProps) {
     super(scope, id, {
       ...props,
       kind: 'LocalSubjectAccessReview',
@@ -437,7 +437,7 @@ export class KubeSelfSubjectAccessReview extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeSelfSubjectAccessReviewOptions) {
+  public constructor(scope: Construct, id: string, props: KubeSelfSubjectAccessReviewProps) {
     super(scope, id, {
       ...props,
       kind: 'SelfSubjectAccessReview',
@@ -458,7 +458,7 @@ export class KubeSelfSubjectRulesReview extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeSelfSubjectRulesReviewOptions) {
+  public constructor(scope: Construct, id: string, props: KubeSelfSubjectRulesReviewProps) {
     super(scope, id, {
       ...props,
       kind: 'SelfSubjectRulesReview',
@@ -479,7 +479,7 @@ export class KubeSubjectAccessReview extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeSubjectAccessReviewOptions) {
+  public constructor(scope: Construct, id: string, props: KubeSubjectAccessReviewProps) {
     super(scope, id, {
       ...props,
       kind: 'SubjectAccessReview',
@@ -500,7 +500,7 @@ export class KubeHorizontalPodAutoscaler extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'HorizontalPodAutoscaler',
@@ -521,7 +521,7 @@ export class KubeHorizontalPodAutoscalerList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerListProps) {
     super(scope, id, {
       ...props,
       kind: 'HorizontalPodAutoscalerList',
@@ -542,7 +542,7 @@ export class KubeJob extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeJobOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeJobProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Job',
@@ -563,7 +563,7 @@ export class KubeJobList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeJobListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeJobListProps) {
     super(scope, id, {
       ...props,
       kind: 'JobList',
@@ -584,7 +584,7 @@ export class KubeCronJob extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCronJobOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeCronJobProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'CronJob',
@@ -605,7 +605,7 @@ export class KubeCronJobList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCronJobListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeCronJobListProps) {
     super(scope, id, {
       ...props,
       kind: 'CronJobList',
@@ -626,7 +626,7 @@ export class KubeCertificateSigningRequest extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCertificateSigningRequestOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeCertificateSigningRequestProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'CertificateSigningRequest',
@@ -647,7 +647,7 @@ export class KubeCertificateSigningRequestList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCertificateSigningRequestListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeCertificateSigningRequestListProps) {
     super(scope, id, {
       ...props,
       kind: 'CertificateSigningRequestList',
@@ -668,7 +668,7 @@ export class KubeLease extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeLeaseOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeLeaseProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Lease',
@@ -689,7 +689,7 @@ export class KubeLeaseList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeLeaseListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeLeaseListProps) {
     super(scope, id, {
       ...props,
       kind: 'LeaseList',
@@ -710,7 +710,7 @@ export class KubeBinding extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeBindingOptions) {
+  public constructor(scope: Construct, id: string, props: KubeBindingProps) {
     super(scope, id, {
       ...props,
       kind: 'Binding',
@@ -731,7 +731,7 @@ export class KubeComponentStatus extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeComponentStatusOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeComponentStatusProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'ComponentStatus',
@@ -752,7 +752,7 @@ export class KubeComponentStatusList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeComponentStatusListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeComponentStatusListProps) {
     super(scope, id, {
       ...props,
       kind: 'ComponentStatusList',
@@ -773,7 +773,7 @@ export class KubeConfigMap extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeConfigMapOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeConfigMapProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'ConfigMap',
@@ -794,7 +794,7 @@ export class KubeConfigMapList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeConfigMapListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeConfigMapListProps) {
     super(scope, id, {
       ...props,
       kind: 'ConfigMapList',
@@ -826,7 +826,7 @@ export class KubeEndpoints extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeEndpointsOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeEndpointsProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Endpoints',
@@ -847,7 +847,7 @@ export class KubeEndpointsList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeEndpointsListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeEndpointsListProps) {
     super(scope, id, {
       ...props,
       kind: 'EndpointsList',
@@ -868,7 +868,7 @@ export class KubeEvent extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeEventOptions) {
+  public constructor(scope: Construct, id: string, props: KubeEventProps) {
     super(scope, id, {
       ...props,
       kind: 'Event',
@@ -889,7 +889,7 @@ export class KubeEventList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeEventListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeEventListProps) {
     super(scope, id, {
       ...props,
       kind: 'EventList',
@@ -910,7 +910,7 @@ export class KubeLimitRange extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeLimitRangeOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeLimitRangeProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'LimitRange',
@@ -931,7 +931,7 @@ export class KubeLimitRangeList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeLimitRangeListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeLimitRangeListProps) {
     super(scope, id, {
       ...props,
       kind: 'LimitRangeList',
@@ -952,7 +952,7 @@ export class KubeNamespace extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeNamespaceOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeNamespaceProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Namespace',
@@ -973,7 +973,7 @@ export class KubeNamespaceList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeNamespaceListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeNamespaceListProps) {
     super(scope, id, {
       ...props,
       kind: 'NamespaceList',
@@ -994,7 +994,7 @@ export class KubeNode extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeNodeOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeNodeProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Node',
@@ -1015,7 +1015,7 @@ export class KubeNodeList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeNodeListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeNodeListProps) {
     super(scope, id, {
       ...props,
       kind: 'NodeList',
@@ -1036,7 +1036,7 @@ export class KubePersistentVolume extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePersistentVolumeOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubePersistentVolumeProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'PersistentVolume',
@@ -1057,7 +1057,7 @@ export class KubePersistentVolumeClaim extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePersistentVolumeClaimOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubePersistentVolumeClaimProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'PersistentVolumeClaim',
@@ -1078,7 +1078,7 @@ export class KubePersistentVolumeClaimList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePersistentVolumeClaimListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePersistentVolumeClaimListProps) {
     super(scope, id, {
       ...props,
       kind: 'PersistentVolumeClaimList',
@@ -1099,7 +1099,7 @@ export class KubePersistentVolumeList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePersistentVolumeListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePersistentVolumeListProps) {
     super(scope, id, {
       ...props,
       kind: 'PersistentVolumeList',
@@ -1120,7 +1120,7 @@ export class KubePod extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubePodProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Pod',
@@ -1141,7 +1141,7 @@ export class KubePodList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePodListProps) {
     super(scope, id, {
       ...props,
       kind: 'PodList',
@@ -1162,7 +1162,7 @@ export class KubePodTemplate extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodTemplateOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubePodTemplateProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'PodTemplate',
@@ -1183,7 +1183,7 @@ export class KubePodTemplateList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodTemplateListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePodTemplateListProps) {
     super(scope, id, {
       ...props,
       kind: 'PodTemplateList',
@@ -1204,7 +1204,7 @@ export class KubeReplicationController extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeReplicationControllerOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeReplicationControllerProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'ReplicationController',
@@ -1225,7 +1225,7 @@ export class KubeReplicationControllerList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeReplicationControllerListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeReplicationControllerListProps) {
     super(scope, id, {
       ...props,
       kind: 'ReplicationControllerList',
@@ -1246,7 +1246,7 @@ export class KubeResourceQuota extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeResourceQuotaOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeResourceQuotaProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'ResourceQuota',
@@ -1267,7 +1267,7 @@ export class KubeResourceQuotaList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeResourceQuotaListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeResourceQuotaListProps) {
     super(scope, id, {
       ...props,
       kind: 'ResourceQuotaList',
@@ -1288,7 +1288,7 @@ export class KubeSecret extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeSecretOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeSecretProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Secret',
@@ -1309,7 +1309,7 @@ export class KubeSecretList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeSecretListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeSecretListProps) {
     super(scope, id, {
       ...props,
       kind: 'SecretList',
@@ -1330,7 +1330,7 @@ export class KubeService extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeServiceOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeServiceProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Service',
@@ -1351,7 +1351,7 @@ export class KubeServiceAccount extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeServiceAccountOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeServiceAccountProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'ServiceAccount',
@@ -1372,7 +1372,7 @@ export class KubeServiceAccountList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeServiceAccountListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeServiceAccountListProps) {
     super(scope, id, {
       ...props,
       kind: 'ServiceAccountList',
@@ -1393,7 +1393,7 @@ export class KubeServiceList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeServiceListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeServiceListProps) {
     super(scope, id, {
       ...props,
       kind: 'ServiceList',
@@ -1414,7 +1414,7 @@ export class KubeEndpointSlice extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeEndpointSliceOptions) {
+  public constructor(scope: Construct, id: string, props: KubeEndpointSliceProps) {
     super(scope, id, {
       ...props,
       kind: 'EndpointSlice',
@@ -1435,7 +1435,7 @@ export class KubeEndpointSliceList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeEndpointSliceListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeEndpointSliceListProps) {
     super(scope, id, {
       ...props,
       kind: 'EndpointSliceList',
@@ -1456,7 +1456,7 @@ export class KubeIngress extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeIngressOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeIngressProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Ingress',
@@ -1477,7 +1477,7 @@ export class KubeIngressList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeIngressListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeIngressListProps) {
     super(scope, id, {
       ...props,
       kind: 'IngressList',
@@ -1498,7 +1498,7 @@ export class KubeNetworkPolicy extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeNetworkPolicyOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeNetworkPolicyProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'NetworkPolicy',
@@ -1519,7 +1519,7 @@ export class KubeNetworkPolicyList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeNetworkPolicyListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeNetworkPolicyListProps) {
     super(scope, id, {
       ...props,
       kind: 'NetworkPolicyList',
@@ -1540,7 +1540,7 @@ export class KubePodSecurityPolicy extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodSecurityPolicyOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubePodSecurityPolicyProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'PodSecurityPolicy',
@@ -1561,7 +1561,7 @@ export class KubePodSecurityPolicyList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodSecurityPolicyListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePodSecurityPolicyListProps) {
     super(scope, id, {
       ...props,
       kind: 'PodSecurityPolicyList',
@@ -1582,7 +1582,7 @@ export class KubeFlowSchema extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeFlowSchemaOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeFlowSchemaProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'FlowSchema',
@@ -1603,7 +1603,7 @@ export class KubeFlowSchemaList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeFlowSchemaListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeFlowSchemaListProps) {
     super(scope, id, {
       ...props,
       kind: 'FlowSchemaList',
@@ -1624,7 +1624,7 @@ export class KubePriorityLevelConfiguration extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePriorityLevelConfigurationOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubePriorityLevelConfigurationProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'PriorityLevelConfiguration',
@@ -1645,7 +1645,7 @@ export class KubePriorityLevelConfigurationList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePriorityLevelConfigurationListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePriorityLevelConfigurationListProps) {
     super(scope, id, {
       ...props,
       kind: 'PriorityLevelConfigurationList',
@@ -1666,7 +1666,7 @@ export class KubeRuntimeClass extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeRuntimeClassOptions) {
+  public constructor(scope: Construct, id: string, props: KubeRuntimeClassProps) {
     super(scope, id, {
       ...props,
       kind: 'RuntimeClass',
@@ -1687,7 +1687,7 @@ export class KubeRuntimeClassList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeRuntimeClassListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeRuntimeClassListProps) {
     super(scope, id, {
       ...props,
       kind: 'RuntimeClassList',
@@ -1708,7 +1708,7 @@ export class KubeEviction extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeEvictionOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeEvictionProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Eviction',
@@ -1729,7 +1729,7 @@ export class KubePodDisruptionBudget extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodDisruptionBudgetOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubePodDisruptionBudgetProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'PodDisruptionBudget',
@@ -1750,7 +1750,7 @@ export class KubePodDisruptionBudgetList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodDisruptionBudgetListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePodDisruptionBudgetListProps) {
     super(scope, id, {
       ...props,
       kind: 'PodDisruptionBudgetList',
@@ -1771,7 +1771,7 @@ export class KubeClusterRole extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeClusterRoleOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeClusterRoleProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'ClusterRole',
@@ -1792,7 +1792,7 @@ export class KubeClusterRoleBinding extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingOptions) {
+  public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingProps) {
     super(scope, id, {
       ...props,
       kind: 'ClusterRoleBinding',
@@ -1813,7 +1813,7 @@ export class KubeClusterRoleBindingList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingListProps) {
     super(scope, id, {
       ...props,
       kind: 'ClusterRoleBindingList',
@@ -1834,7 +1834,7 @@ export class KubeClusterRoleList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeClusterRoleListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeClusterRoleListProps) {
     super(scope, id, {
       ...props,
       kind: 'ClusterRoleList',
@@ -1855,7 +1855,7 @@ export class KubeRole extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeRoleOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeRoleProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Role',
@@ -1876,7 +1876,7 @@ export class KubeRoleBinding extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeRoleBindingOptions) {
+  public constructor(scope: Construct, id: string, props: KubeRoleBindingProps) {
     super(scope, id, {
       ...props,
       kind: 'RoleBinding',
@@ -1897,7 +1897,7 @@ export class KubeRoleBindingList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeRoleBindingListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeRoleBindingListProps) {
     super(scope, id, {
       ...props,
       kind: 'RoleBindingList',
@@ -1918,7 +1918,7 @@ export class KubeRoleList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeRoleListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeRoleListProps) {
     super(scope, id, {
       ...props,
       kind: 'RoleList',
@@ -1939,7 +1939,7 @@ export class KubePriorityClass extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePriorityClassOptions) {
+  public constructor(scope: Construct, id: string, props: KubePriorityClassProps) {
     super(scope, id, {
       ...props,
       kind: 'PriorityClass',
@@ -1960,7 +1960,7 @@ export class KubePriorityClassList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePriorityClassListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePriorityClassListProps) {
     super(scope, id, {
       ...props,
       kind: 'PriorityClassList',
@@ -1981,7 +1981,7 @@ export class KubePodPreset extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodPresetOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubePodPresetProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'PodPreset',
@@ -2002,7 +2002,7 @@ export class KubePodPresetList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubePodPresetListOptions) {
+  public constructor(scope: Construct, id: string, props: KubePodPresetListProps) {
     super(scope, id, {
       ...props,
       kind: 'PodPresetList',
@@ -2023,7 +2023,7 @@ export class KubeCsiNode extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCsiNodeOptions) {
+  public constructor(scope: Construct, id: string, props: KubeCsiNodeProps) {
     super(scope, id, {
       ...props,
       kind: 'CSINode',
@@ -2044,7 +2044,7 @@ export class KubeCsiNodeList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCsiNodeListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeCsiNodeListProps) {
     super(scope, id, {
       ...props,
       kind: 'CSINodeList',
@@ -2067,7 +2067,7 @@ export class KubeStorageClass extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeStorageClassOptions) {
+  public constructor(scope: Construct, id: string, props: KubeStorageClassProps) {
     super(scope, id, {
       ...props,
       kind: 'StorageClass',
@@ -2088,7 +2088,7 @@ export class KubeStorageClassList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeStorageClassListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeStorageClassListProps) {
     super(scope, id, {
       ...props,
       kind: 'StorageClassList',
@@ -2111,7 +2111,7 @@ export class KubeVolumeAttachment extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentOptions) {
+  public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentProps) {
     super(scope, id, {
       ...props,
       kind: 'VolumeAttachment',
@@ -2132,7 +2132,7 @@ export class KubeVolumeAttachmentList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentListProps) {
     super(scope, id, {
       ...props,
       kind: 'VolumeAttachmentList',
@@ -2153,7 +2153,7 @@ export class KubeCsiDriver extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCsiDriverOptions) {
+  public constructor(scope: Construct, id: string, props: KubeCsiDriverProps) {
     super(scope, id, {
       ...props,
       kind: 'CSIDriver',
@@ -2174,7 +2174,7 @@ export class KubeCsiDriverList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCsiDriverListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeCsiDriverListProps) {
     super(scope, id, {
       ...props,
       kind: 'CSIDriverList',
@@ -2195,7 +2195,7 @@ export class KubeCustomResourceDefinition extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCustomResourceDefinitionOptions) {
+  public constructor(scope: Construct, id: string, props: KubeCustomResourceDefinitionProps) {
     super(scope, id, {
       ...props,
       kind: 'CustomResourceDefinition',
@@ -2216,7 +2216,7 @@ export class KubeCustomResourceDefinitionList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeCustomResourceDefinitionListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeCustomResourceDefinitionListProps) {
     super(scope, id, {
       ...props,
       kind: 'CustomResourceDefinitionList',
@@ -2237,7 +2237,7 @@ export class KubeStatus extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeStatusOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeStatusProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'Status',
@@ -2258,7 +2258,7 @@ export class KubeApiService extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeApiServiceOptions = {}) {
+  public constructor(scope: Construct, id: string, props: KubeApiServiceProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'APIService',
@@ -2279,7 +2279,7 @@ export class KubeApiServiceList extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: KubeApiServiceListOptions) {
+  public constructor(scope: Construct, id: string, props: KubeApiServiceListProps) {
     super(scope, id, {
       ...props,
       kind: 'APIServiceList',
@@ -2293,7 +2293,7 @@ export class KubeApiServiceList extends ApiObject {
  *
  * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration
  */
-export interface KubeMutatingWebhookConfigurationOptions {
+export interface KubeMutatingWebhookConfigurationProps {
   /**
    * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
    *
@@ -2315,13 +2315,13 @@ export interface KubeMutatingWebhookConfigurationOptions {
  *
  * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList
  */
-export interface KubeMutatingWebhookConfigurationListOptions {
+export interface KubeMutatingWebhookConfigurationListProps {
   /**
    * List of MutatingWebhookConfiguration.
    *
    * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#items
    */
-  readonly items: KubeMutatingWebhookConfigurationOptions[];
+  readonly items: KubeMutatingWebhookConfigurationProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -2337,7 +2337,7 @@ export interface KubeMutatingWebhookConfigurationListOptions {
  *
  * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration
  */
-export interface KubeValidatingWebhookConfigurationOptions {
+export interface KubeValidatingWebhookConfigurationProps {
   /**
    * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
    *
@@ -2359,13 +2359,13 @@ export interface KubeValidatingWebhookConfigurationOptions {
  *
  * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList
  */
-export interface KubeValidatingWebhookConfigurationListOptions {
+export interface KubeValidatingWebhookConfigurationListProps {
   /**
    * List of ValidatingWebhookConfiguration.
    *
    * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#items
    */
-  readonly items: KubeValidatingWebhookConfigurationOptions[];
+  readonly items: KubeValidatingWebhookConfigurationProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -2381,7 +2381,7 @@ export interface KubeValidatingWebhookConfigurationListOptions {
  *
  * @schema io.k8s.api.apps.v1.ControllerRevision
  */
-export interface KubeControllerRevisionOptions {
+export interface KubeControllerRevisionProps {
   /**
    * Data is the serialized representation of the state.
    *
@@ -2410,13 +2410,13 @@ export interface KubeControllerRevisionOptions {
  *
  * @schema io.k8s.api.apps.v1.ControllerRevisionList
  */
-export interface KubeControllerRevisionListOptions {
+export interface KubeControllerRevisionListProps {
   /**
    * Items is the list of ControllerRevisions
    *
    * @schema io.k8s.api.apps.v1.ControllerRevisionList#items
    */
-  readonly items: KubeControllerRevisionOptions[];
+  readonly items: KubeControllerRevisionProps[];
 
   /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -2432,7 +2432,7 @@ export interface KubeControllerRevisionListOptions {
  *
  * @schema io.k8s.api.apps.v1.DaemonSet
  */
-export interface KubeDaemonSetOptions {
+export interface KubeDaemonSetProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -2454,13 +2454,13 @@ export interface KubeDaemonSetOptions {
  *
  * @schema io.k8s.api.apps.v1.DaemonSetList
  */
-export interface KubeDaemonSetListOptions {
+export interface KubeDaemonSetListProps {
   /**
    * A list of daemon sets.
    *
    * @schema io.k8s.api.apps.v1.DaemonSetList#items
    */
-  readonly items: KubeDaemonSetOptions[];
+  readonly items: KubeDaemonSetProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -2476,7 +2476,7 @@ export interface KubeDaemonSetListOptions {
  *
  * @schema io.k8s.api.apps.v1.Deployment
  */
-export interface KubeDeploymentOptions {
+export interface KubeDeploymentProps {
   /**
    * Standard object metadata.
    *
@@ -2498,13 +2498,13 @@ export interface KubeDeploymentOptions {
  *
  * @schema io.k8s.api.apps.v1.DeploymentList
  */
-export interface KubeDeploymentListOptions {
+export interface KubeDeploymentListProps {
   /**
    * Items is the list of Deployments.
    *
    * @schema io.k8s.api.apps.v1.DeploymentList#items
    */
-  readonly items: KubeDeploymentOptions[];
+  readonly items: KubeDeploymentProps[];
 
   /**
    * Standard list metadata.
@@ -2520,7 +2520,7 @@ export interface KubeDeploymentListOptions {
  *
  * @schema io.k8s.api.apps.v1.ReplicaSet
  */
-export interface KubeReplicaSetOptions {
+export interface KubeReplicaSetProps {
   /**
    * If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -2542,13 +2542,13 @@ export interface KubeReplicaSetOptions {
  *
  * @schema io.k8s.api.apps.v1.ReplicaSetList
  */
-export interface KubeReplicaSetListOptions {
+export interface KubeReplicaSetListProps {
   /**
    * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
    *
    * @schema io.k8s.api.apps.v1.ReplicaSetList#items
    */
-  readonly items: KubeReplicaSetOptions[];
+  readonly items: KubeReplicaSetProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -2567,7 +2567,7 @@ The StatefulSet guarantees that a given network identity will always map to the 
  *
  * @schema io.k8s.api.apps.v1.StatefulSet
  */
-export interface KubeStatefulSetOptions {
+export interface KubeStatefulSetProps {
   /**
    * @schema io.k8s.api.apps.v1.StatefulSet#metadata
    */
@@ -2587,11 +2587,11 @@ export interface KubeStatefulSetOptions {
  *
  * @schema io.k8s.api.apps.v1.StatefulSetList
  */
-export interface KubeStatefulSetListOptions {
+export interface KubeStatefulSetListProps {
   /**
    * @schema io.k8s.api.apps.v1.StatefulSetList#items
    */
-  readonly items: KubeStatefulSetOptions[];
+  readonly items: KubeStatefulSetProps[];
 
   /**
    * @schema io.k8s.api.apps.v1.StatefulSetList#metadata
@@ -2605,7 +2605,7 @@ export interface KubeStatefulSetListOptions {
  *
  * @schema io.k8s.api.autoscaling.v1.Scale
  */
-export interface KubeScaleOptions {
+export interface KubeScaleProps {
   /**
    * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
    *
@@ -2627,7 +2627,7 @@ export interface KubeScaleOptions {
  *
  * @schema io.k8s.api.auditregistration.v1alpha1.AuditSink
  */
-export interface KubeAuditSinkOptions {
+export interface KubeAuditSinkProps {
   /**
    * @schema io.k8s.api.auditregistration.v1alpha1.AuditSink#metadata
    */
@@ -2647,13 +2647,13 @@ export interface KubeAuditSinkOptions {
  *
  * @schema io.k8s.api.auditregistration.v1alpha1.AuditSinkList
  */
-export interface KubeAuditSinkListOptions {
+export interface KubeAuditSinkListProps {
   /**
    * List of audit configurations.
    *
    * @schema io.k8s.api.auditregistration.v1alpha1.AuditSinkList#items
    */
-  readonly items: KubeAuditSinkOptions[];
+  readonly items: KubeAuditSinkProps[];
 
   /**
    * @schema io.k8s.api.auditregistration.v1alpha1.AuditSinkList#metadata
@@ -2667,7 +2667,7 @@ export interface KubeAuditSinkListOptions {
  *
  * @schema io.k8s.api.authentication.v1.TokenRequest
  */
-export interface KubeTokenRequestOptions {
+export interface KubeTokenRequestProps {
   /**
    * @schema io.k8s.api.authentication.v1.TokenRequest#metadata
    */
@@ -2685,7 +2685,7 @@ export interface KubeTokenRequestOptions {
  *
  * @schema io.k8s.api.authentication.v1.TokenReview
  */
-export interface KubeTokenReviewOptions {
+export interface KubeTokenReviewProps {
   /**
    * @schema io.k8s.api.authentication.v1.TokenReview#metadata
    */
@@ -2705,7 +2705,7 @@ export interface KubeTokenReviewOptions {
  *
  * @schema io.k8s.api.authorization.v1.LocalSubjectAccessReview
  */
-export interface KubeLocalSubjectAccessReviewOptions {
+export interface KubeLocalSubjectAccessReviewProps {
   /**
    * @schema io.k8s.api.authorization.v1.LocalSubjectAccessReview#metadata
    */
@@ -2725,7 +2725,7 @@ export interface KubeLocalSubjectAccessReviewOptions {
  *
  * @schema io.k8s.api.authorization.v1.SelfSubjectAccessReview
  */
-export interface KubeSelfSubjectAccessReviewOptions {
+export interface KubeSelfSubjectAccessReviewProps {
   /**
    * @schema io.k8s.api.authorization.v1.SelfSubjectAccessReview#metadata
    */
@@ -2745,7 +2745,7 @@ export interface KubeSelfSubjectAccessReviewOptions {
  *
  * @schema io.k8s.api.authorization.v1.SelfSubjectRulesReview
  */
-export interface KubeSelfSubjectRulesReviewOptions {
+export interface KubeSelfSubjectRulesReviewProps {
   /**
    * @schema io.k8s.api.authorization.v1.SelfSubjectRulesReview#metadata
    */
@@ -2765,7 +2765,7 @@ export interface KubeSelfSubjectRulesReviewOptions {
  *
  * @schema io.k8s.api.authorization.v1.SubjectAccessReview
  */
-export interface KubeSubjectAccessReviewOptions {
+export interface KubeSubjectAccessReviewProps {
   /**
    * @schema io.k8s.api.authorization.v1.SubjectAccessReview#metadata
    */
@@ -2785,7 +2785,7 @@ export interface KubeSubjectAccessReviewOptions {
  *
  * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler
  */
-export interface KubeHorizontalPodAutoscalerOptions {
+export interface KubeHorizontalPodAutoscalerProps {
   /**
    * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -2807,13 +2807,13 @@ export interface KubeHorizontalPodAutoscalerOptions {
  *
  * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList
  */
-export interface KubeHorizontalPodAutoscalerListOptions {
+export interface KubeHorizontalPodAutoscalerListProps {
   /**
    * list of horizontal pod autoscaler objects.
    *
    * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#items
    */
-  readonly items: KubeHorizontalPodAutoscalerOptions[];
+  readonly items: KubeHorizontalPodAutoscalerProps[];
 
   /**
    * Standard list metadata.
@@ -2829,7 +2829,7 @@ export interface KubeHorizontalPodAutoscalerListOptions {
  *
  * @schema io.k8s.api.batch.v1.Job
  */
-export interface KubeJobOptions {
+export interface KubeJobProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -2851,13 +2851,13 @@ export interface KubeJobOptions {
  *
  * @schema io.k8s.api.batch.v1.JobList
  */
-export interface KubeJobListOptions {
+export interface KubeJobListProps {
   /**
    * items is the list of Jobs.
    *
    * @schema io.k8s.api.batch.v1.JobList#items
    */
-  readonly items: KubeJobOptions[];
+  readonly items: KubeJobProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -2873,7 +2873,7 @@ export interface KubeJobListOptions {
  *
  * @schema io.k8s.api.batch.v1beta1.CronJob
  */
-export interface KubeCronJobOptions {
+export interface KubeCronJobProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -2895,13 +2895,13 @@ export interface KubeCronJobOptions {
  *
  * @schema io.k8s.api.batch.v1beta1.CronJobList
  */
-export interface KubeCronJobListOptions {
+export interface KubeCronJobListProps {
   /**
    * items is the list of CronJobs.
    *
    * @schema io.k8s.api.batch.v1beta1.CronJobList#items
    */
-  readonly items: KubeCronJobOptions[];
+  readonly items: KubeCronJobProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -2917,7 +2917,7 @@ export interface KubeCronJobListOptions {
  *
  * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequest
  */
-export interface KubeCertificateSigningRequestOptions {
+export interface KubeCertificateSigningRequestProps {
   /**
    * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequest#metadata
    */
@@ -2935,11 +2935,11 @@ export interface KubeCertificateSigningRequestOptions {
 /**
  * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequestList
  */
-export interface KubeCertificateSigningRequestListOptions {
+export interface KubeCertificateSigningRequestListProps {
   /**
    * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#items
    */
-  readonly items: KubeCertificateSigningRequestOptions[];
+  readonly items: KubeCertificateSigningRequestProps[];
 
   /**
    * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#metadata
@@ -2953,7 +2953,7 @@ export interface KubeCertificateSigningRequestListOptions {
  *
  * @schema io.k8s.api.coordination.v1.Lease
  */
-export interface KubeLeaseOptions {
+export interface KubeLeaseProps {
   /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -2975,13 +2975,13 @@ export interface KubeLeaseOptions {
  *
  * @schema io.k8s.api.coordination.v1.LeaseList
  */
-export interface KubeLeaseListOptions {
+export interface KubeLeaseListProps {
   /**
    * Items is a list of schema objects.
    *
    * @schema io.k8s.api.coordination.v1.LeaseList#items
    */
-  readonly items: KubeLeaseOptions[];
+  readonly items: KubeLeaseProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -2997,7 +2997,7 @@ export interface KubeLeaseListOptions {
  *
  * @schema io.k8s.api.core.v1.Binding
  */
-export interface KubeBindingOptions {
+export interface KubeBindingProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3019,7 +3019,7 @@ export interface KubeBindingOptions {
  *
  * @schema io.k8s.api.core.v1.ComponentStatus
  */
-export interface KubeComponentStatusOptions {
+export interface KubeComponentStatusProps {
   /**
    * List of component conditions observed
    *
@@ -3041,13 +3041,13 @@ export interface KubeComponentStatusOptions {
  *
  * @schema io.k8s.api.core.v1.ComponentStatusList
  */
-export interface KubeComponentStatusListOptions {
+export interface KubeComponentStatusListProps {
   /**
    * List of ComponentStatus objects.
    *
    * @schema io.k8s.api.core.v1.ComponentStatusList#items
    */
-  readonly items: KubeComponentStatusOptions[];
+  readonly items: KubeComponentStatusProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3063,7 +3063,7 @@ export interface KubeComponentStatusListOptions {
  *
  * @schema io.k8s.api.core.v1.ConfigMap
  */
-export interface KubeConfigMapOptions {
+export interface KubeConfigMapProps {
   /**
    * BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
    *
@@ -3092,13 +3092,13 @@ export interface KubeConfigMapOptions {
  *
  * @schema io.k8s.api.core.v1.ConfigMapList
  */
-export interface KubeConfigMapListOptions {
+export interface KubeConfigMapListProps {
   /**
    * Items is the list of ConfigMaps.
    *
    * @schema io.k8s.api.core.v1.ConfigMapList#items
    */
-  readonly items: KubeConfigMapOptions[];
+  readonly items: KubeConfigMapProps[];
 
   /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -3125,7 +3125,7 @@ export interface KubeConfigMapListOptions {
  *
  * @schema io.k8s.api.core.v1.Endpoints
  */
-export interface KubeEndpointsOptions {
+export interface KubeEndpointsProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3147,13 +3147,13 @@ export interface KubeEndpointsOptions {
  *
  * @schema io.k8s.api.core.v1.EndpointsList
  */
-export interface KubeEndpointsListOptions {
+export interface KubeEndpointsListProps {
   /**
    * List of endpoints.
    *
    * @schema io.k8s.api.core.v1.EndpointsList#items
    */
-  readonly items: KubeEndpointsOptions[];
+  readonly items: KubeEndpointsProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3169,7 +3169,7 @@ export interface KubeEndpointsListOptions {
  *
  * @schema io.k8s.api.core.v1.Event
  */
-export interface KubeEventOptions {
+export interface KubeEventProps {
   /**
    * What action was taken/failed regarding to the Regarding object.
    *
@@ -3282,13 +3282,13 @@ export interface KubeEventOptions {
  *
  * @schema io.k8s.api.core.v1.EventList
  */
-export interface KubeEventListOptions {
+export interface KubeEventListProps {
   /**
    * List of events
    *
    * @schema io.k8s.api.core.v1.EventList#items
    */
-  readonly items: KubeEventOptions[];
+  readonly items: KubeEventProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3304,7 +3304,7 @@ export interface KubeEventListOptions {
  *
  * @schema io.k8s.api.core.v1.LimitRange
  */
-export interface KubeLimitRangeOptions {
+export interface KubeLimitRangeProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3326,13 +3326,13 @@ export interface KubeLimitRangeOptions {
  *
  * @schema io.k8s.api.core.v1.LimitRangeList
  */
-export interface KubeLimitRangeListOptions {
+export interface KubeLimitRangeListProps {
   /**
    * Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
    *
    * @schema io.k8s.api.core.v1.LimitRangeList#items
    */
-  readonly items: KubeLimitRangeOptions[];
+  readonly items: KubeLimitRangeProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3348,7 +3348,7 @@ export interface KubeLimitRangeListOptions {
  *
  * @schema io.k8s.api.core.v1.Namespace
  */
-export interface KubeNamespaceOptions {
+export interface KubeNamespaceProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3370,13 +3370,13 @@ export interface KubeNamespaceOptions {
  *
  * @schema io.k8s.api.core.v1.NamespaceList
  */
-export interface KubeNamespaceListOptions {
+export interface KubeNamespaceListProps {
   /**
    * Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
    *
    * @schema io.k8s.api.core.v1.NamespaceList#items
    */
-  readonly items: KubeNamespaceOptions[];
+  readonly items: KubeNamespaceProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3392,7 +3392,7 @@ export interface KubeNamespaceListOptions {
  *
  * @schema io.k8s.api.core.v1.Node
  */
-export interface KubeNodeOptions {
+export interface KubeNodeProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3414,13 +3414,13 @@ export interface KubeNodeOptions {
  *
  * @schema io.k8s.api.core.v1.NodeList
  */
-export interface KubeNodeListOptions {
+export interface KubeNodeListProps {
   /**
    * List of nodes
    *
    * @schema io.k8s.api.core.v1.NodeList#items
    */
-  readonly items: KubeNodeOptions[];
+  readonly items: KubeNodeProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3436,7 +3436,7 @@ export interface KubeNodeListOptions {
  *
  * @schema io.k8s.api.core.v1.PersistentVolume
  */
-export interface KubePersistentVolumeOptions {
+export interface KubePersistentVolumeProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3458,7 +3458,7 @@ export interface KubePersistentVolumeOptions {
  *
  * @schema io.k8s.api.core.v1.PersistentVolumeClaim
  */
-export interface KubePersistentVolumeClaimOptions {
+export interface KubePersistentVolumeClaimProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3480,13 +3480,13 @@ export interface KubePersistentVolumeClaimOptions {
  *
  * @schema io.k8s.api.core.v1.PersistentVolumeClaimList
  */
-export interface KubePersistentVolumeClaimListOptions {
+export interface KubePersistentVolumeClaimListProps {
   /**
    * A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimList#items
    */
-  readonly items: KubePersistentVolumeClaimOptions[];
+  readonly items: KubePersistentVolumeClaimProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3502,13 +3502,13 @@ export interface KubePersistentVolumeClaimListOptions {
  *
  * @schema io.k8s.api.core.v1.PersistentVolumeList
  */
-export interface KubePersistentVolumeListOptions {
+export interface KubePersistentVolumeListProps {
   /**
    * List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeList#items
    */
-  readonly items: KubePersistentVolumeOptions[];
+  readonly items: KubePersistentVolumeProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3524,7 +3524,7 @@ export interface KubePersistentVolumeListOptions {
  *
  * @schema io.k8s.api.core.v1.Pod
  */
-export interface KubePodOptions {
+export interface KubePodProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3546,13 +3546,13 @@ export interface KubePodOptions {
  *
  * @schema io.k8s.api.core.v1.PodList
  */
-export interface KubePodListOptions {
+export interface KubePodListProps {
   /**
    * List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
    *
    * @schema io.k8s.api.core.v1.PodList#items
    */
-  readonly items: KubePodOptions[];
+  readonly items: KubePodProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3568,7 +3568,7 @@ export interface KubePodListOptions {
  *
  * @schema io.k8s.api.core.v1.PodTemplate
  */
-export interface KubePodTemplateOptions {
+export interface KubePodTemplateProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3590,13 +3590,13 @@ export interface KubePodTemplateOptions {
  *
  * @schema io.k8s.api.core.v1.PodTemplateList
  */
-export interface KubePodTemplateListOptions {
+export interface KubePodTemplateListProps {
   /**
    * List of pod templates
    *
    * @schema io.k8s.api.core.v1.PodTemplateList#items
    */
-  readonly items: KubePodTemplateOptions[];
+  readonly items: KubePodTemplateProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3612,7 +3612,7 @@ export interface KubePodTemplateListOptions {
  *
  * @schema io.k8s.api.core.v1.ReplicationController
  */
-export interface KubeReplicationControllerOptions {
+export interface KubeReplicationControllerProps {
   /**
    * If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3634,13 +3634,13 @@ export interface KubeReplicationControllerOptions {
  *
  * @schema io.k8s.api.core.v1.ReplicationControllerList
  */
-export interface KubeReplicationControllerListOptions {
+export interface KubeReplicationControllerListProps {
   /**
    * List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
    *
    * @schema io.k8s.api.core.v1.ReplicationControllerList#items
    */
-  readonly items: KubeReplicationControllerOptions[];
+  readonly items: KubeReplicationControllerProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3656,7 +3656,7 @@ export interface KubeReplicationControllerListOptions {
  *
  * @schema io.k8s.api.core.v1.ResourceQuota
  */
-export interface KubeResourceQuotaOptions {
+export interface KubeResourceQuotaProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3678,13 +3678,13 @@ export interface KubeResourceQuotaOptions {
  *
  * @schema io.k8s.api.core.v1.ResourceQuotaList
  */
-export interface KubeResourceQuotaListOptions {
+export interface KubeResourceQuotaListProps {
   /**
    * Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
    *
    * @schema io.k8s.api.core.v1.ResourceQuotaList#items
    */
-  readonly items: KubeResourceQuotaOptions[];
+  readonly items: KubeResourceQuotaProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3700,7 +3700,7 @@ export interface KubeResourceQuotaListOptions {
  *
  * @schema io.k8s.api.core.v1.Secret
  */
-export interface KubeSecretOptions {
+export interface KubeSecretProps {
   /**
    * Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
    *
@@ -3736,13 +3736,13 @@ export interface KubeSecretOptions {
  *
  * @schema io.k8s.api.core.v1.SecretList
  */
-export interface KubeSecretListOptions {
+export interface KubeSecretListProps {
   /**
    * Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
    *
    * @schema io.k8s.api.core.v1.SecretList#items
    */
-  readonly items: KubeSecretOptions[];
+  readonly items: KubeSecretProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3758,7 +3758,7 @@ export interface KubeSecretListOptions {
  *
  * @schema io.k8s.api.core.v1.Service
  */
-export interface KubeServiceOptions {
+export interface KubeServiceProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3780,7 +3780,7 @@ export interface KubeServiceOptions {
  *
  * @schema io.k8s.api.core.v1.ServiceAccount
  */
-export interface KubeServiceAccountOptions {
+export interface KubeServiceAccountProps {
   /**
    * AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
    *
@@ -3816,13 +3816,13 @@ export interface KubeServiceAccountOptions {
  *
  * @schema io.k8s.api.core.v1.ServiceAccountList
  */
-export interface KubeServiceAccountListOptions {
+export interface KubeServiceAccountListProps {
   /**
    * List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
    *
    * @schema io.k8s.api.core.v1.ServiceAccountList#items
    */
-  readonly items: KubeServiceAccountOptions[];
+  readonly items: KubeServiceAccountProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3838,13 +3838,13 @@ export interface KubeServiceAccountListOptions {
  *
  * @schema io.k8s.api.core.v1.ServiceList
  */
-export interface KubeServiceListOptions {
+export interface KubeServiceListProps {
   /**
    * List of services
    *
    * @schema io.k8s.api.core.v1.ServiceList#items
    */
-  readonly items: KubeServiceOptions[];
+  readonly items: KubeServiceProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
@@ -3860,7 +3860,7 @@ export interface KubeServiceListOptions {
  *
  * @schema io.k8s.api.discovery.v1beta1.EndpointSlice
  */
-export interface KubeEndpointSliceOptions {
+export interface KubeEndpointSliceProps {
   /**
    * addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
    *
@@ -3896,13 +3896,13 @@ export interface KubeEndpointSliceOptions {
  *
  * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList
  */
-export interface KubeEndpointSliceListOptions {
+export interface KubeEndpointSliceListProps {
   /**
    * List of endpoint slices
    *
    * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList#items
    */
-  readonly items: KubeEndpointSliceOptions[];
+  readonly items: KubeEndpointSliceProps[];
 
   /**
    * Standard list metadata.
@@ -3918,7 +3918,7 @@ export interface KubeEndpointSliceListOptions {
  *
  * @schema io.k8s.api.networking.v1beta1.Ingress
  */
-export interface KubeIngressOptions {
+export interface KubeIngressProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3940,13 +3940,13 @@ export interface KubeIngressOptions {
  *
  * @schema io.k8s.api.networking.v1beta1.IngressList
  */
-export interface KubeIngressListOptions {
+export interface KubeIngressListProps {
   /**
    * Items is the list of Ingress.
    *
    * @schema io.k8s.api.networking.v1beta1.IngressList#items
    */
-  readonly items: KubeIngressOptions[];
+  readonly items: KubeIngressProps[];
 
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -3962,7 +3962,7 @@ export interface KubeIngressListOptions {
  *
  * @schema io.k8s.api.networking.v1.NetworkPolicy
  */
-export interface KubeNetworkPolicyOptions {
+export interface KubeNetworkPolicyProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -3984,13 +3984,13 @@ export interface KubeNetworkPolicyOptions {
  *
  * @schema io.k8s.api.networking.v1.NetworkPolicyList
  */
-export interface KubeNetworkPolicyListOptions {
+export interface KubeNetworkPolicyListProps {
   /**
    * Items is a list of schema objects.
    *
    * @schema io.k8s.api.networking.v1.NetworkPolicyList#items
    */
-  readonly items: KubeNetworkPolicyOptions[];
+  readonly items: KubeNetworkPolicyProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4006,7 +4006,7 @@ export interface KubeNetworkPolicyListOptions {
  *
  * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicy
  */
-export interface KubePodSecurityPolicyOptions {
+export interface KubePodSecurityPolicyProps {
   /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -4028,13 +4028,13 @@ export interface KubePodSecurityPolicyOptions {
  *
  * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList
  */
-export interface KubePodSecurityPolicyListOptions {
+export interface KubePodSecurityPolicyListProps {
   /**
    * items is a list of schema objects.
    *
    * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList#items
    */
-  readonly items: KubePodSecurityPolicyOptions[];
+  readonly items: KubePodSecurityPolicyProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4050,7 +4050,7 @@ export interface KubePodSecurityPolicyListOptions {
  *
  * @schema io.k8s.api.flowcontrol.v1alpha1.FlowSchema
  */
-export interface KubeFlowSchemaOptions {
+export interface KubeFlowSchemaProps {
   /**
    * `metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
    *
@@ -4072,13 +4072,13 @@ export interface KubeFlowSchemaOptions {
  *
  * @schema io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList
  */
-export interface KubeFlowSchemaListOptions {
+export interface KubeFlowSchemaListProps {
   /**
    * `items` is a list of FlowSchemas.
    *
    * @schema io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#items
    */
-  readonly items: KubeFlowSchemaOptions[];
+  readonly items: KubeFlowSchemaProps[];
 
   /**
    * `metadata` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -4094,7 +4094,7 @@ export interface KubeFlowSchemaListOptions {
  *
  * @schema io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration
  */
-export interface KubePriorityLevelConfigurationOptions {
+export interface KubePriorityLevelConfigurationProps {
   /**
    * `metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
    *
@@ -4116,13 +4116,13 @@ export interface KubePriorityLevelConfigurationOptions {
  *
  * @schema io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList
  */
-export interface KubePriorityLevelConfigurationListOptions {
+export interface KubePriorityLevelConfigurationListProps {
   /**
    * `items` is a list of request-priorities.
    *
    * @schema io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#items
    */
-  readonly items: KubePriorityLevelConfigurationOptions[];
+  readonly items: KubePriorityLevelConfigurationProps[];
 
   /**
    * `metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -4138,7 +4138,7 @@ export interface KubePriorityLevelConfigurationListOptions {
  *
  * @schema io.k8s.api.node.v1beta1.RuntimeClass
  */
-export interface KubeRuntimeClassOptions {
+export interface KubeRuntimeClassProps {
   /**
    * Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
    *
@@ -4174,13 +4174,13 @@ export interface KubeRuntimeClassOptions {
  *
  * @schema io.k8s.api.node.v1beta1.RuntimeClassList
  */
-export interface KubeRuntimeClassListOptions {
+export interface KubeRuntimeClassListProps {
   /**
    * Items is a list of schema objects.
    *
    * @schema io.k8s.api.node.v1beta1.RuntimeClassList#items
    */
-  readonly items: KubeRuntimeClassOptions[];
+  readonly items: KubeRuntimeClassProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4196,7 +4196,7 @@ export interface KubeRuntimeClassListOptions {
  *
  * @schema io.k8s.api.policy.v1beta1.Eviction
  */
-export interface KubeEvictionOptions {
+export interface KubeEvictionProps {
   /**
    * DeleteOptions may be provided
    *
@@ -4218,7 +4218,7 @@ export interface KubeEvictionOptions {
  *
  * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudget
  */
-export interface KubePodDisruptionBudgetOptions {
+export interface KubePodDisruptionBudgetProps {
   /**
    * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudget#metadata
    */
@@ -4238,11 +4238,11 @@ export interface KubePodDisruptionBudgetOptions {
  *
  * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList
  */
-export interface KubePodDisruptionBudgetListOptions {
+export interface KubePodDisruptionBudgetListProps {
   /**
    * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#items
    */
-  readonly items: KubePodDisruptionBudgetOptions[];
+  readonly items: KubePodDisruptionBudgetProps[];
 
   /**
    * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#metadata
@@ -4256,7 +4256,7 @@ export interface KubePodDisruptionBudgetListOptions {
  *
  * @schema io.k8s.api.rbac.v1.ClusterRole
  */
-export interface KubeClusterRoleOptions {
+export interface KubeClusterRoleProps {
   /**
    * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
    *
@@ -4285,7 +4285,7 @@ export interface KubeClusterRoleOptions {
  *
  * @schema io.k8s.api.rbac.v1.ClusterRoleBinding
  */
-export interface KubeClusterRoleBindingOptions {
+export interface KubeClusterRoleBindingProps {
   /**
    * Standard object's metadata.
    *
@@ -4314,13 +4314,13 @@ export interface KubeClusterRoleBindingOptions {
  *
  * @schema io.k8s.api.rbac.v1.ClusterRoleBindingList
  */
-export interface KubeClusterRoleBindingListOptions {
+export interface KubeClusterRoleBindingListProps {
   /**
    * Items is a list of ClusterRoleBindings
    *
    * @schema io.k8s.api.rbac.v1.ClusterRoleBindingList#items
    */
-  readonly items: KubeClusterRoleBindingOptions[];
+  readonly items: KubeClusterRoleBindingProps[];
 
   /**
    * Standard object's metadata.
@@ -4336,13 +4336,13 @@ export interface KubeClusterRoleBindingListOptions {
  *
  * @schema io.k8s.api.rbac.v1.ClusterRoleList
  */
-export interface KubeClusterRoleListOptions {
+export interface KubeClusterRoleListProps {
   /**
    * Items is a list of ClusterRoles
    *
    * @schema io.k8s.api.rbac.v1.ClusterRoleList#items
    */
-  readonly items: KubeClusterRoleOptions[];
+  readonly items: KubeClusterRoleProps[];
 
   /**
    * Standard object's metadata.
@@ -4358,7 +4358,7 @@ export interface KubeClusterRoleListOptions {
  *
  * @schema io.k8s.api.rbac.v1.Role
  */
-export interface KubeRoleOptions {
+export interface KubeRoleProps {
   /**
    * Standard object's metadata.
    *
@@ -4380,7 +4380,7 @@ export interface KubeRoleOptions {
  *
  * @schema io.k8s.api.rbac.v1.RoleBinding
  */
-export interface KubeRoleBindingOptions {
+export interface KubeRoleBindingProps {
   /**
    * Standard object's metadata.
    *
@@ -4409,13 +4409,13 @@ export interface KubeRoleBindingOptions {
  *
  * @schema io.k8s.api.rbac.v1.RoleBindingList
  */
-export interface KubeRoleBindingListOptions {
+export interface KubeRoleBindingListProps {
   /**
    * Items is a list of RoleBindings
    *
    * @schema io.k8s.api.rbac.v1.RoleBindingList#items
    */
-  readonly items: KubeRoleBindingOptions[];
+  readonly items: KubeRoleBindingProps[];
 
   /**
    * Standard object's metadata.
@@ -4431,13 +4431,13 @@ export interface KubeRoleBindingListOptions {
  *
  * @schema io.k8s.api.rbac.v1.RoleList
  */
-export interface KubeRoleListOptions {
+export interface KubeRoleListProps {
   /**
    * Items is a list of Roles
    *
    * @schema io.k8s.api.rbac.v1.RoleList#items
    */
-  readonly items: KubeRoleOptions[];
+  readonly items: KubeRoleProps[];
 
   /**
    * Standard object's metadata.
@@ -4453,7 +4453,7 @@ export interface KubeRoleListOptions {
  *
  * @schema io.k8s.api.scheduling.v1.PriorityClass
  */
-export interface KubePriorityClassOptions {
+export interface KubePriorityClassProps {
   /**
    * description is an arbitrary string that usually provides guidelines on when this priority class should be used.
    *
@@ -4497,13 +4497,13 @@ export interface KubePriorityClassOptions {
  *
  * @schema io.k8s.api.scheduling.v1.PriorityClassList
  */
-export interface KubePriorityClassListOptions {
+export interface KubePriorityClassListProps {
   /**
    * items is the list of PriorityClasses
    *
    * @schema io.k8s.api.scheduling.v1.PriorityClassList#items
    */
-  readonly items: KubePriorityClassOptions[];
+  readonly items: KubePriorityClassProps[];
 
   /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4519,7 +4519,7 @@ export interface KubePriorityClassListOptions {
  *
  * @schema io.k8s.api.settings.v1alpha1.PodPreset
  */
-export interface KubePodPresetOptions {
+export interface KubePodPresetProps {
   /**
    * @schema io.k8s.api.settings.v1alpha1.PodPreset#metadata
    */
@@ -4537,13 +4537,13 @@ export interface KubePodPresetOptions {
  *
  * @schema io.k8s.api.settings.v1alpha1.PodPresetList
  */
-export interface KubePodPresetListOptions {
+export interface KubePodPresetListProps {
   /**
    * Items is a list of schema objects.
    *
    * @schema io.k8s.api.settings.v1alpha1.PodPresetList#items
    */
-  readonly items: KubePodPresetOptions[];
+  readonly items: KubePodPresetProps[];
 
   /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4559,7 +4559,7 @@ export interface KubePodPresetListOptions {
  *
  * @schema io.k8s.api.storage.v1.CSINode
  */
-export interface KubeCsiNodeOptions {
+export interface KubeCsiNodeProps {
   /**
    * metadata.name must be the Kubernetes node name.
    *
@@ -4581,13 +4581,13 @@ export interface KubeCsiNodeOptions {
  *
  * @schema io.k8s.api.storage.v1.CSINodeList
  */
-export interface KubeCsiNodeListOptions {
+export interface KubeCsiNodeListProps {
   /**
    * items is the list of CSINode
    *
    * @schema io.k8s.api.storage.v1.CSINodeList#items
    */
-  readonly items: KubeCsiNodeOptions[];
+  readonly items: KubeCsiNodeProps[];
 
   /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4605,7 +4605,7 @@ StorageClasses are non-namespaced; the name of the storage class according to et
  *
  * @schema io.k8s.api.storage.v1.StorageClass
  */
-export interface KubeStorageClassOptions {
+export interface KubeStorageClassProps {
   /**
    * AllowVolumeExpansion shows whether the storage class allow volume expand
    *
@@ -4670,13 +4670,13 @@ export interface KubeStorageClassOptions {
  *
  * @schema io.k8s.api.storage.v1.StorageClassList
  */
-export interface KubeStorageClassListOptions {
+export interface KubeStorageClassListProps {
   /**
    * Items is the list of StorageClasses
    *
    * @schema io.k8s.api.storage.v1.StorageClassList#items
    */
-  readonly items: KubeStorageClassOptions[];
+  readonly items: KubeStorageClassProps[];
 
   /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4694,7 +4694,7 @@ VolumeAttachment objects are non-namespaced.
  *
  * @schema io.k8s.api.storage.v1.VolumeAttachment
  */
-export interface KubeVolumeAttachmentOptions {
+export interface KubeVolumeAttachmentProps {
   /**
    * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -4716,13 +4716,13 @@ export interface KubeVolumeAttachmentOptions {
  *
  * @schema io.k8s.api.storage.v1.VolumeAttachmentList
  */
-export interface KubeVolumeAttachmentListOptions {
+export interface KubeVolumeAttachmentListProps {
   /**
    * Items is the list of VolumeAttachments
    *
    * @schema io.k8s.api.storage.v1.VolumeAttachmentList#items
    */
-  readonly items: KubeVolumeAttachmentOptions[];
+  readonly items: KubeVolumeAttachmentProps[];
 
   /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4738,7 +4738,7 @@ export interface KubeVolumeAttachmentListOptions {
  *
  * @schema io.k8s.api.storage.v1beta1.CSIDriver
  */
-export interface KubeCsiDriverOptions {
+export interface KubeCsiDriverProps {
   /**
    * Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
@@ -4760,13 +4760,13 @@ export interface KubeCsiDriverOptions {
  *
  * @schema io.k8s.api.storage.v1beta1.CSIDriverList
  */
-export interface KubeCsiDriverListOptions {
+export interface KubeCsiDriverListProps {
   /**
    * items is the list of CSIDriver
    *
    * @schema io.k8s.api.storage.v1beta1.CSIDriverList#items
    */
-  readonly items: KubeCsiDriverOptions[];
+  readonly items: KubeCsiDriverProps[];
 
   /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
@@ -4782,7 +4782,7 @@ export interface KubeCsiDriverListOptions {
  *
  * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition
  */
-export interface KubeCustomResourceDefinitionOptions {
+export interface KubeCustomResourceDefinitionProps {
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition#metadata
    */
@@ -4802,13 +4802,13 @@ export interface KubeCustomResourceDefinitionOptions {
  *
  * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList
  */
-export interface KubeCustomResourceDefinitionListOptions {
+export interface KubeCustomResourceDefinitionListProps {
   /**
    * items list individual CustomResourceDefinition objects
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#items
    */
-  readonly items: KubeCustomResourceDefinitionOptions[];
+  readonly items: KubeCustomResourceDefinitionProps[];
 
   /**
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#metadata
@@ -4822,7 +4822,7 @@ export interface KubeCustomResourceDefinitionListOptions {
  *
  * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status
  */
-export interface KubeStatusOptions {
+export interface KubeStatusProps {
   /**
    * Suggested HTTP return code for this status, 0 if not set.
    *
@@ -4865,7 +4865,7 @@ export interface KubeStatusOptions {
  *
  * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService
  */
-export interface KubeApiServiceOptions {
+export interface KubeApiServiceProps {
   /**
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService#metadata
    */
@@ -4885,11 +4885,11 @@ export interface KubeApiServiceOptions {
  *
  * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList
  */
-export interface KubeApiServiceListOptions {
+export interface KubeApiServiceListProps {
   /**
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
    */
-  readonly items: KubeApiServiceOptions[];
+  readonly items: KubeApiServiceProps[];
 
   /**
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#metadata
@@ -5535,7 +5535,7 @@ export interface StatefulSetSpec {
    *
    * @schema io.k8s.api.apps.v1.StatefulSetSpec#volumeClaimTemplates
    */
-  readonly volumeClaimTemplates?: KubePersistentVolumeClaimOptions[];
+  readonly volumeClaimTemplates?: KubePersistentVolumeClaimProps[];
 
 }
 

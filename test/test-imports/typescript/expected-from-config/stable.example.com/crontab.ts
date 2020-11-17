@@ -14,7 +14,7 @@ export class CronTab extends ApiObject {
    * @param id a scope-local name for the object
    * @param props initialiation props
    */
-  public constructor(scope: Construct, id: string, props: CronTabOptions = {}) {
+  public constructor(scope: Construct, id: string, props: CronTabProps = {}) {
     super(scope, id, {
       ...props,
       kind: 'CronTab',
@@ -26,7 +26,7 @@ export class CronTab extends ApiObject {
 /**
  * @schema CronTab
  */
-export interface CronTabOptions {
+export interface CronTabProps {
   /**
    * @schema CronTab#spec
    */
