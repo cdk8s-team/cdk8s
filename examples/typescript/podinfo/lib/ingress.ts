@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { Ingress as IngressApiObject, IngressRule, IntOrString } from '../imports/k8s';
+import { KubeIngress, IngressRule, IntOrString } from '../imports/k8s';
 
 export interface IngressTls {
   readonly hosts?: string[];
@@ -62,7 +62,7 @@ export class Ingress extends Construct {
       }
     };
 
-    new IngressApiObject(this, 'default', {
+    new KubeIngress(this, 'default', {
       metadata: {
         annotations: options.annotations
       },

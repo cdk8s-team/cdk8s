@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { HorizontalPodAutoscaler, MetricSpec, Quantity } from '../imports/k8s';
+import { KubeHorizontalPodAutoscaler, MetricSpec, Quantity } from '../imports/k8s';
 
 export interface ScaleTarget {
   readonly apiVersion: string;
@@ -88,7 +88,7 @@ export class Autoscaler extends Construct {
       });
     }
 
-    new HorizontalPodAutoscaler(this, 'default', {
+    new KubeHorizontalPodAutoscaler(this, 'default', {
       spec: {
         scaleTargetRef: {
           apiVersion: options.target.apiVersion,

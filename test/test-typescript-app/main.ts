@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
 
-import { Pod } from './imports/k8s';
+import { KubePod } from './imports/k8s';
 
 export class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
@@ -9,7 +9,7 @@ export class MyChart extends Chart {
 
     // define resources here
 
-    new Pod(this, 'pod', {
+    new KubePod(this, 'pod', {
       spec: {
         containers: [
           {

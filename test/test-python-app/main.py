@@ -9,7 +9,7 @@ class MyChart(Chart):
     super().__init__(scope, ns, **kwargs)
 
     # define resources here
-    k8s.Pod(self, 'pod',
+    k8s.KubePod(self, 'pod',
       spec=k8s.PodSpec(
         containers=[
           k8s.Container(

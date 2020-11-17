@@ -35,17 +35,17 @@ jspm_packages/
 .yarn-integrity
 # parcel-bundler cache (https://parceljs.org/)
 .cache
+/coverage
 /lib
 /dist
-/coverage
 !/package.json
 !/.npmignore
 !/LICENSE
 !/.projenrc.js
 !version.json
 !/.versionrc.json
+!/test
 !/tsconfig.json
 !/src
 !/tsconfig.jest.json
-!/test
 !/.eslintrc.json
