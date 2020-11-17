@@ -1,4 +1,4 @@
-import { Testing } from 'cdk8s';
+import { Testing, Duration } from 'cdk8s';
 import * as kplus from '../src';
 
 test('Applies default restart policy to pod spec', () => {
@@ -7,7 +7,7 @@ test('Applies default restart policy to pod spec', () => {
 
   const job = new kplus.Job(chart, 'Job', {
     containers: [{ image: 'image' }],
-    ttlAfterFinished: kplus.Duration.seconds(1),
+    ttlAfterFinished: Duration.seconds(1),
   });
 
   // assert the k8s spec has it.
@@ -26,7 +26,7 @@ test('Does not modify existing restart policy of pod spec', () => {
   const job = new kplus.Job(chart, 'Job', {
     containers: [{ image: 'image' }],
     restartPolicy: kplus.RestartPolicy.ALWAYS,
-    ttlAfterFinished: kplus.Duration.seconds(1),
+    ttlAfterFinished: Duration.seconds(1),
   });
 
   // assert the k8s spec has it.

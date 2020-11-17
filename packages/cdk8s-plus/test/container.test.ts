@@ -1,3 +1,4 @@
+import * as cdk8s from 'cdk8s';
 import * as kplus from '../src';
 import * as k8s from '../src/imports/k8s';
 
@@ -202,13 +203,13 @@ describe('Container', () => {
     const container = new kplus.Container({
       image: 'foo',
       readiness: kplus.Probe.fromHttpGet('/ping', {
-        timeoutSeconds: kplus.Duration.minutes(2),
+        timeoutSeconds: cdk8s.Duration.minutes(2),
       }),
       liveness: kplus.Probe.fromHttpGet('/live', {
-        timeoutSeconds: kplus.Duration.minutes(3),
+        timeoutSeconds: cdk8s.Duration.minutes(3),
       }),
       startup: kplus.Probe.fromHttpGet('/startup', {
-        timeoutSeconds: kplus.Duration.minutes(4),
+        timeoutSeconds: cdk8s.Duration.minutes(4),
       }),
     });
 
