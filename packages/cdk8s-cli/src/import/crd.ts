@@ -84,6 +84,7 @@ export class CustomResourceDefinition {
       kind: this.kind,
       fqn: this.fqn,
       schema: this.schema,
+      custom: true,
       prefix: options.classNamePrefix,
     });
 

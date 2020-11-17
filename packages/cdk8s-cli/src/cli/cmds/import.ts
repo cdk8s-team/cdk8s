@@ -21,7 +21,6 @@ class Command implements yargs.CommandModule {
     .example('cdk8s import mattermost:=mattermost_crd.yaml', 'Imports constructs for the mattermost cluster custom resource definition using a custom module name')
 
     .option('output', { default: DEFAULT_OUTDIR, type: 'string', desc: 'Output directory', alias: 'o' })
-    .option('include', { type: 'array', desc: 'Types to select instead of the default which is latest stable version (only for "k8s")' })
     .option('exclude', { type: 'array', desc: 'Do not import types that match these regular expressions. They will be represented as the "any" type (only for "k8s")' })
     .option('class-prefix', { type: 'string', desc: 'A prefix to add to all generated class names. By default, this is "Kube" for "k8s" imports and disabled for CRD imports. Use --no-class-prefix to disable. Must be PascalCase' })
     .option('language', { default: config.language, demand: true, type: 'string', desc: 'Output programming language', alias: 'l', choices: LANGUAGES });

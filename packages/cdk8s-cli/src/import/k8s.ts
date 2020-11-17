@@ -9,7 +9,7 @@ import { ImportSpec } from '../config';
 import { download } from '../util';
 import { GenerateOptions, ImportBase } from './base';
 import { ApiObjectDefinition, generateConstruct, getPropsTypeName } from './codegen';
-import { ApiObjectName, parseApiTypeName, compareApiVersions } from './k8s-util';
+import { parseApiTypeName } from './k8s-util';
 
 
 const DEFAULT_API_VERSION = '1.15.0';
@@ -20,14 +20,6 @@ export interface ImportKubernetesApiOptions {
    * The API version to generate.
    */
   readonly apiVersion: string;
-
-  /**
-   * FQNs of API object types to select instead of selecting the latest stable
-   * version.
-   *
-   * @default - selects the latest stable version from each API object
-   */
-  readonly include?: string[];
 
   /**
    * Do not import these types. Instead, represent them as "any".
@@ -48,7 +40,6 @@ export class ImportKubernetesApi extends ImportBase {
     return {
       apiVersion: source.split('@')[1] ?? DEFAULT_API_VERSION,
       exclude: argv.exclude,
-      include: argv.include,
     };
   }
 
@@ -62,16 +53,13 @@ export class ImportKubernetesApi extends ImportBase {
 
   protected async generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions) {
     const schema = await downloadSchema(this.options.apiVersion);
-    const map = findApiObjectDefinitions(schema);
 
     if (moduleName !== 'k8s') {
       throw new Error(`unexpected module name "${moduleName}" when importing k8s types (expected "k8s")`);
     }
 
-    const topLevelObjects = selectApiObjects(map, { include: this.options.include });
-
     const prefix = options.classNamePrefix ?? DEFAULT_CLASS_NAME_PREFIX;
-    const objects = topLevelObjects.map(o => this.getApiObjbectDefinition(o, prefix));
+    const topLevelObjects = findApiObjectDefinitions(schema, prefix);
 
     const typeGenerator = new TypeGenerator({
       definitions: schema.definitions,
@@ -83,12 +71,12 @@ export class ImportKubernetesApi extends ImportBase {
     // order to avoid confusion between constructs (`KubeDeployment`) and those
     // types. This is done by simply replacing their definition in the schema
     // with a $ref to the definition of the props type.
-    for (const o of objects) {
+    for (const o of topLevelObjects) {
       typeGenerator.addDefinition(o.fqn, { $ref: `#/definitions/${getPropsTypeName(o)}` });
     }
 
     // emit construct types (recursive)
-    for (const o of objects) {
+    for (const o of topLevelObjects) {
       generateConstruct(typeGenerator, o);
     }
 
@@ -99,44 +87,6 @@ export class ImportKubernetesApi extends ImportBase {
 
     code.line(typeGenerator.render());
   }
-
-  private getApiObjbectDefinition(apidef: ApiObjectSchema, prefix: string): ApiObjectDefinition {
-    const objectName = getObjectName(apidef);
-    return {
-      fqn: apidef.fullname,
-      group: objectName.group,
-      kind: objectName.kind,
-      version: objectName.version,
-      schema: apidef.schema,
-      prefix,
-    };
-  }
-}
-
-
-export interface SelectApiObjectsOptions {
-  include?: string[];
-}
-
-export function selectApiObjects(map: ApiObjectDefinitions, options: SelectApiObjectsOptions = { }): ApiObjectSchema[] {
-  const result = new Array<ApiObjectSchema>();
-  const include = options.include ?? [];
-  for (const defs of Object.values(map)) {
-    defs.sort((lhs, rhs) => compareApiVersions(lhs, rhs));
-
-
-    let selected = defs[defs.length - 1];
-
-    const included = defs.find(x => include.includes(x.fullname));
-    if (included) {
-      selected = included;
-    }
-
-    // select latest stable version
-    result.push(selected);
-  }
-
-  return result;
 }
 
 /**
@@ -149,32 +99,28 @@ export function selectApiObjects(map: ApiObjectDefinitions, options: SelectApiOb
  *
  * @see https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-versioning
  */
-export function findApiObjectDefinitions(schema: JSONSchema4): ApiObjectDefinitions {
-  const map: ApiObjectDefinitions = { };
+export function findApiObjectDefinitions(schema: JSONSchema4, prefix: string): ApiObjectDefinition[] {
+  const result = new Array<ApiObjectDefinition>();
 
-  for (const [typename, def] of Object.entries(schema.definitions || { })) {
-    const kinds = tryGetObjectName(def);
-    if (!kinds) {
+  for (const [typename, apischema] of Object.entries(schema.definitions || { })) {
+    const objectName = tryGetObjectName(apischema);
+    if (!objectName) {
       continue;
     }
 
     const type = parseApiTypeName(typename);
-    const list = map[type.basename] ?? [];
-    map[type.basename] = list;
-    list.push({
-      ...type,
-      schema: def,
+    result.push({
+      custom: false, // not a CRD
+      fqn: type.fullname,
+      group: objectName.group,
+      kind: objectName.kind,
+      version: objectName.version,
+      schema: apischema,
+      prefix,
     });
   }
 
-  return map;
-}
-
-type ApiObjectDefinitions = { [basename: string]: ApiObjectSchema[] };
-
-
-interface ApiObjectSchema extends ApiObjectName {
-  schema: JSONSchema4;
+  return result;
 }
 
 function tryGetObjectName(def: JSONSchema4): GroupVersionKind | undefined {
@@ -197,16 +143,6 @@ function tryGetObjectName(def: JSONSchema4): GroupVersionKind | undefined {
 
   return objectName;
 }
-
-function getObjectName(apiDefinition: ApiObjectSchema): GroupVersionKind {
-  const objectName = tryGetObjectName(apiDefinition.schema);
-  if (!objectName) {
-    throw new Error(`cannot determine API object name for ${apiDefinition.fullname}. schema must include a ${X_GROUP_VERSION_KIND} key`);
-  }
-
-  return objectName;
-}
-
 
 interface GroupVersionKind {
   readonly group: string;
