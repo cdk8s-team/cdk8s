@@ -31,7 +31,7 @@ class Command implements yargs.CommandModule {
       await mkdtemp(async tempDir => {
         await callLibrary(command, tempDir);
 
-        const manifests = (await fs.readdir(tempDir)).filter(f => path.extname(f) === '.k8s.yaml');
+        const manifests = (await fs.readdir(tempDir)).filter(f => path.extname(f) === '.yaml');
         for (const f of manifests) {
           fs.createReadStream(path.join(tempDir, f)).pipe(process.stdout);
         }
