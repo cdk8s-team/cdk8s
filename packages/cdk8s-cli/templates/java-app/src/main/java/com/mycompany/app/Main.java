@@ -4,7 +4,7 @@ import software.constructs.Construct;
 
 import org.cdk8s.App;
 import org.cdk8s.Chart;
-import org.cdk8s.ChartOptions;
+import org.cdk8s.ChartProps;
 
 public class Main extends Chart 
 {
@@ -13,7 +13,7 @@ public class Main extends Chart
         this(scope, id, null);
     }
 
-    public Main(final Construct scope, final String id, final ChartOptions options) {
+    public Main(final Construct scope, final String id, final ChartProps options) {
         super(scope, id, options);
 
         // define resources here
