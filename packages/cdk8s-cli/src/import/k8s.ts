@@ -9,7 +9,7 @@ import { ImportSpec } from '../config';
 import { download } from '../util';
 import { GenerateOptions, ImportBase } from './base';
 import { ApiObjectDefinition, generateConstruct, getPropsTypeName } from './codegen';
-import { ApiObjectName, parseApiTypeName } from './k8s-util';
+import { parseApiTypeName } from './k8s-util';
 
 
 const DEFAULT_API_VERSION = '1.15.0';
@@ -53,13 +53,13 @@ export class ImportKubernetesApi extends ImportBase {
 
   protected async generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions) {
     const schema = await downloadSchema(this.options.apiVersion);
-    const topLevelObjects = findApiObjectDefinitions(schema);
 
     if (moduleName !== 'k8s') {
       throw new Error(`unexpected module name "${moduleName}" when importing k8s types (expected "k8s")`);
     }
 
     const prefix = options.classNamePrefix ?? DEFAULT_CLASS_NAME_PREFIX;
+    const topLevelObjects = findApiObjectDefinitions(schema, prefix);
 
     const typeGenerator = new TypeGenerator({
       definitions: schema.definitions,
@@ -71,13 +71,12 @@ export class ImportKubernetesApi extends ImportBase {
     // order to avoid confusion between constructs (`KubeDeployment`) and those
     // types. This is done by simply replacing their definition in the schema
     // with a $ref to the definition of the props type.
-    const objects = topLevelObjects.map(o => this.getApiObjbectDefinition(o, prefix));
-    for (const o of objects) {
+    for (const o of topLevelObjects) {
       typeGenerator.addDefinition(o.fqn, { $ref: `#/definitions/${getPropsTypeName(o)}` });
     }
 
     // emit construct types (recursive)
-    for (const o of objects) {
+    for (const o of topLevelObjects) {
       generateConstruct(typeGenerator, o);
     }
 
@@ -87,19 +86,6 @@ export class ImportKubernetesApi extends ImportBase {
     code.line();
 
     code.line(typeGenerator.render());
-  }
-
-  private getApiObjbectDefinition(apidef: ApiObjectSchema, prefix: string): ApiObjectDefinition {
-    const objectName = getObjectName(apidef);
-    return {
-      custom: false, // not a CRD
-      fqn: apidef.fullname,
-      group: objectName.group,
-      kind: objectName.kind,
-      version: objectName.version,
-      schema: apidef.schema,
-      prefix,
-    };
   }
 }
 
@@ -113,27 +99,28 @@ export class ImportKubernetesApi extends ImportBase {
  *
  * @see https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-versioning
  */
-export function findApiObjectDefinitions(schema: JSONSchema4): ApiObjectSchema[] {
-  const result = new Array<ApiObjectSchema>();
+export function findApiObjectDefinitions(schema: JSONSchema4, prefix: string): ApiObjectDefinition[] {
+  const result = new Array<ApiObjectDefinition>();
 
-  for (const [typename, def] of Object.entries(schema.definitions || { })) {
-    const kinds = tryGetObjectName(def);
-    if (!kinds) {
+  for (const [typename, apischema] of Object.entries(schema.definitions || { })) {
+    const objectName = tryGetObjectName(apischema);
+    if (!objectName) {
       continue;
     }
 
     const type = parseApiTypeName(typename);
     result.push({
-      ...type,
-      schema: def,
+      custom: false, // not a CRD
+      fqn: type.fullname,
+      group: objectName.group,
+      kind: objectName.kind,
+      version: objectName.version,
+      schema: apischema,
+      prefix,
     });
   }
 
   return result;
-}
-
-interface ApiObjectSchema extends ApiObjectName {
-  schema: JSONSchema4;
 }
 
 function tryGetObjectName(def: JSONSchema4): GroupVersionKind | undefined {
@@ -156,16 +143,6 @@ function tryGetObjectName(def: JSONSchema4): GroupVersionKind | undefined {
 
   return objectName;
 }
-
-function getObjectName(apiDefinition: ApiObjectSchema): GroupVersionKind {
-  const objectName = tryGetObjectName(apiDefinition.schema);
-  if (!objectName) {
-    throw new Error(`cannot determine API object name for ${apiDefinition.fullname}. schema must include a ${X_GROUP_VERSION_KIND} key`);
-  }
-
-  return objectName;
-}
-
 
 interface GroupVersionKind {
   readonly group: string;

@@ -27,7 +27,10 @@ export interface ApiObjectDefinition {
 
 export function getConstructTypeName(def: ApiObjectDefinition) {
   const prefix = def.prefix ?? '';
-  return TypeGenerator.normalizeTypeName(`${prefix}${def.kind}`);
+
+  // add an API version postfix only if this is core API (`import k8s`).
+  const postfix = (def.custom || def.version === 'v1') ? '' : toPascalCase(def.version);
+  return TypeGenerator.normalizeTypeName(`${prefix}${def.kind}${postfix}`);
 }
 
 export function getPropsTypeName(def: ApiObjectDefinition) {
@@ -36,9 +39,7 @@ export function getPropsTypeName(def: ApiObjectDefinition) {
 }
 
 export function generateConstruct(typegen: TypeGenerator, def: ApiObjectDefinition) {
-  // add an API version postfix only if this is core API (`import k8s`).
-  const postfix = (def.custom || def.version === 'v1') ? '' : toPascalCase(def.version);
-  const constructName = TypeGenerator.normalizeTypeName(`${def.kind}${postfix}`);
+  const constructName = getConstructTypeName(def);
 
   typegen.emitCustomType(constructName, code => {
     const schema = def.schema;

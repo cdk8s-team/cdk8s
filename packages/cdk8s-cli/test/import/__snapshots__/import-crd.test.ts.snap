@@ -75,43 +75,7 @@ Object {
     },
   },
   "types": Object {
-    "stableexamplecomothercrontab.FooOtherCronTabOptions": Object {
-      "assembly": "stableexamplecomothercrontab",
-      "datatype": true,
-      "docs": Object {
-        "custom": Object {
-          "schema": "OtherCronTab",
-        },
-      },
-      "fqn": "stableexamplecomothercrontab.FooOtherCronTabOptions",
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "stable.example.com/othercrontab.ts",
-        "line": 29,
-      },
-      "name": "FooOtherCronTabOptions",
-      "properties": Array [
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "OtherCronTab#spec",
-            },
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "stable.example.com/othercrontab.ts",
-            "line": 33,
-          },
-          "name": "spec",
-          "optional": true,
-          "type": Object {
-            "fqn": "stableexamplecomothercrontab.OtherCronTabSpec",
-          },
-        },
-      ],
-    },
-    "stableexamplecomothercrontab.OtherCronTab": Object {
+    "stableexamplecomothercrontab.FooOtherCronTab": Object {
       "assembly": "stableexamplecomothercrontab",
       "base": "cdk8s.ApiObject",
       "docs": Object {
@@ -119,7 +83,7 @@ Object {
           "schema": "OtherCronTab",
         },
       },
-      "fqn": "stableexamplecomothercrontab.OtherCronTab",
+      "fqn": "stableexamplecomothercrontab.FooOtherCronTab",
       "initializer": Object {
         "docs": Object {
           "summary": "Defines a \\"OtherCronTab\\" API object.",
@@ -164,7 +128,43 @@ Object {
         "filename": "stable.example.com/othercrontab.ts",
         "line": 10,
       },
-      "name": "OtherCronTab",
+      "name": "FooOtherCronTab",
+    },
+    "stableexamplecomothercrontab.FooOtherCronTabOptions": Object {
+      "assembly": "stableexamplecomothercrontab",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "OtherCronTab",
+        },
+      },
+      "fqn": "stableexamplecomothercrontab.FooOtherCronTabOptions",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "stable.example.com/othercrontab.ts",
+        "line": 29,
+      },
+      "name": "FooOtherCronTabOptions",
+      "properties": Array [
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "OtherCronTab#spec",
+            },
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "stable.example.com/othercrontab.ts",
+            "line": 33,
+          },
+          "name": "spec",
+          "optional": true,
+          "type": Object {
+            "fqn": "stableexamplecomothercrontab.OtherCronTabSpec",
+          },
+        },
+      ],
     },
     "stableexamplecomothercrontab.OtherCronTabSpec": Object {
       "assembly": "stableexamplecomothercrontab",
