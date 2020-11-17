@@ -3,6 +3,8 @@
 # Import the kubernetes OpenApi specs from https://github.com/kubernetes/kubernetes/tree/master/api/openapi-spec
 # and translates them to JSON Schema. These specs are later used by the
 # 'cdk8s import k8s' command.
+#
+# See https://github.com/instrumenta/openapi2jsonschema
 #---------------------------------------------------------------------------------------------------------------------
 set -euo pipefail
 scriptdir=$(cd $(dirname $0) && pwd)
