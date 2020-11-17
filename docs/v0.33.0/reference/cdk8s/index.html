@@ -1324,29 +1324,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-apiobjectoptions" class="md-nav__link">
-    struct ApiObjectOptions 🔹 
+  <a href="#struct-apiobjectprops" class="md-nav__link">
+    struct ApiObjectProps 🔹 
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-appoptions" class="md-nav__link">
-    struct AppOptions 🔹 
+  <a href="#struct-appprops" class="md-nav__link">
+    struct AppProps 🔹 
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-chartoptions" class="md-nav__link">
-    struct ChartOptions 🔹 
+  <a href="#struct-chartprops" class="md-nav__link">
+    struct ChartProps 🔹 
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-helmoptions" class="md-nav__link">
-    struct HelmOptions 🔹 
+  <a href="#struct-helmprops" class="md-nav__link">
+    struct HelmProps 🔹 
   </a>
   
 </li>
@@ -1385,8 +1385,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-includeoptions" class="md-nav__link">
-    struct IncludeOptions 🔹 
+  <a href="#struct-includeprops" class="md-nav__link">
+    struct IncludeProps 🔹 
   </a>
   
 </li>
@@ -2290,29 +2290,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-apiobjectoptions" class="md-nav__link">
-    struct ApiObjectOptions 🔹 
+  <a href="#struct-apiobjectprops" class="md-nav__link">
+    struct ApiObjectProps 🔹 
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-appoptions" class="md-nav__link">
-    struct AppOptions 🔹 
+  <a href="#struct-appprops" class="md-nav__link">
+    struct AppProps 🔹 
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-chartoptions" class="md-nav__link">
-    struct ChartOptions 🔹 
+  <a href="#struct-chartprops" class="md-nav__link">
+    struct ChartProps 🔹 
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-helmoptions" class="md-nav__link">
-    struct HelmOptions 🔹 
+  <a href="#struct-helmprops" class="md-nav__link">
+    struct HelmProps 🔹 
   </a>
   
 </li>
@@ -2351,8 +2351,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#struct-includeoptions" class="md-nav__link">
-    struct IncludeOptions 🔹 
+  <a href="#struct-includeprops" class="md-nav__link">
+    struct IncludeProps 🔹 
   </a>
   
 </li>
@@ -2452,23 +2452,23 @@
 <td>Metadata associated with this object.</td>
 </tr>
 <tr>
-<td><a href="#cdk8s-apiobjectoptions">ApiObjectOptions</a></td>
+<td><a href="#cdk8s-apiobjectprops">ApiObjectProps</a></td>
 <td>Options for defining API objects.</td>
 </tr>
 <tr>
-<td><a href="#cdk8s-appoptions">AppOptions</a></td>
+<td><a href="#cdk8s-appprops">AppProps</a></td>
 <td><em>No description</em></td>
 </tr>
 <tr>
-<td><a href="#cdk8s-chartoptions">ChartOptions</a></td>
+<td><a href="#cdk8s-chartprops">ChartProps</a></td>
 <td><em>No description</em></td>
 </tr>
 <tr>
-<td><a href="#cdk8s-helmoptions">HelmOptions</a></td>
+<td><a href="#cdk8s-helmprops">HelmProps</a></td>
 <td>Options for <code>Helm</code>.</td>
 </tr>
 <tr>
-<td><a href="#cdk8s-includeoptions">IncludeOptions</a></td>
+<td><a href="#cdk8s-includeprops">IncludeProps</a></td>
 <td><em>No description</em></td>
 </tr>
 </tbody>
@@ -2493,12 +2493,12 @@
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer">Initializer<a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h3>
 <p>Defines an API object.</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ApiObject</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">ns</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options</span>: <span class="kt">ApiObjectOptions</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ApiObject</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">ApiObjectProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  the construct scope.</li>
-<li><strong>ns</strong> (<code>string</code>)  namespace.</li>
-<li><strong>options</strong> (<code><a href="#cdk8s-apiobjectoptions">ApiObjectOptions</a></code>)  options.</li>
+<li><strong>id</strong> (<code>string</code>)  namespace.</li>
+<li><strong>props</strong> (<code><a href="#cdk8s-apiobjectprops">ApiObjectProps</a></code>)  options.</li>
 <li><strong>apiVersion</strong> (<code>string</code>)  API version. </li>
 <li><strong>kind</strong> (<code>string</code>)  Resource kind. </li>
 <li><strong>metadata</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  Object metadata. <strong><em>Optional</em></strong></li>
@@ -2658,10 +2658,10 @@ this child is not an <code>ApiObject</code>.</p>
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer_2">Initializer<a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h3>
 <p>Defines an app.</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nx">options?</span>: <span class="kt">AppOptions</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">AppProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li><strong>options</strong> (<code><a href="#cdk8s-appoptions">AppOptions</a></code>)  configuration options.</li>
+<li><strong>props</strong> (<code><a href="#cdk8s-appprops">AppProps</a></code>)  configuration options.</li>
 <li><strong>outdir</strong> (<code>string</code>)  The directory to output Kubernetes manifests. <strong><em>Default</em></strong>: CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
 </ul>
 <h3 id="properties_2">Properties<a class="headerlink" href="#properties_2" title="Permanent link">&para;</a></h3>
@@ -2690,12 +2690,12 @@ this child is not an <code>ApiObject</code>.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer_3">Initializer<a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">ns</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ChartOptions</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ChartProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
-<li><strong>ns</strong> (<code>string</code>)  <em>No description</em></li>
-<li><strong>options</strong> (<code><a href="#cdk8s-chartoptions">ChartOptions</a></code>)  <em>No description</em></li>
+<li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
+<li><strong>props</strong> (<code><a href="#cdk8s-chartprops">ChartProps</a></code>)  <em>No description</em></li>
 <li><strong>labels</strong> (<code>Map<string, string></code>)  Labels to apply to all resources in this chart. <strong><em>Default</em></strong>: no common labels</li>
 <li><strong>namespace</strong> (<code>string</code>)  The default namespace for all objects defined in this chart (directly or indirectly). <strong><em>Default</em></strong>: no namespace is synthesized (usually this implies &ldquo;default&rdquo;)</li>
 </ul>
@@ -2860,12 +2860,12 @@ from a different scope, that relationship is not represented in this graph.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>
 <strong>Extends</strong>: <a href="#cdk8s-include">Include</a></p>
 <h3 id="initializer_6">Initializer<a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Helm</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">opts</span>: <span class="kt">HelmOptions</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Helm</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">HelmProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
-<li><strong>opts</strong> (<code><a href="#cdk8s-helmoptions">HelmOptions</a></code>)  <em>No description</em></li>
+<li><strong>props</strong> (<code><a href="#cdk8s-helmprops">HelmProps</a></code>)  <em>No description</em></li>
 <li><strong>chart</strong> (<code>string</code>)  The chart name to use. It can be a chart from a helm repository or a local directory. </li>
 <li><strong>helmExecutable</strong> (<code>string</code>)  The local helm executable to use in order to create the manifest the chart. <strong><em>Default</em></strong>: &ldquo;helm&rdquo;</li>
 <li><strong>helmFlags</strong> (<code>Array<string></code>)  Additional flags to add to the <code>helm</code> execution. <strong><em>Default</em></strong>: []</li>
@@ -2896,12 +2896,12 @@ from the manifest.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer_7">Initializer<a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Include</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options</span>: <span class="kt">IncludeOptions</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Include</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">IncludeProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
-<li><strong>name</strong> (<code>string</code>)  <em>No description</em></li>
-<li><strong>options</strong> (<code><a href="#cdk8s-includeoptions">IncludeOptions</a></code>)  <em>No description</em></li>
+<li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
+<li><strong>props</strong> (<code><a href="#cdk8s-includeprops">IncludeProps</a></code>)  <em>No description</em></li>
 <li><strong>url</strong> (<code>string</code>)  Local file path or URL which includes a Kubernetes YAML manifest. </li>
 </ul>
 <h3 id="properties_7">Properties<a class="headerlink" href="#properties_7" title="Permanent link">&para;</a></h3>
@@ -3154,7 +3154,7 @@ the first components since the last components usually encode more meaning.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="struct-apiobjectoptions">struct ApiObjectOptions 🔹 <a id="cdk8s-apiobjectoptions"></a><a class="headerlink" href="#struct-apiobjectoptions" title="Permanent link">&para;</a></h2>
+<h2 id="struct-apiobjectprops">struct ApiObjectProps 🔹 <a id="cdk8s-apiobjectprops"></a><a class="headerlink" href="#struct-apiobjectprops" title="Permanent link">&para;</a></h2>
 <p>Options for defining API objects.</p>
 <table>
 <thead>
@@ -3182,7 +3182,7 @@ the first components since the last components usually encode more meaning.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="struct-appoptions">struct AppOptions 🔹 <a id="cdk8s-appoptions"></a><a class="headerlink" href="#struct-appoptions" title="Permanent link">&para;</a></h2>
+<h2 id="struct-appprops">struct AppProps 🔹 <a id="cdk8s-appprops"></a><a class="headerlink" href="#struct-appprops" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -3199,7 +3199,7 @@ the first components since the last components usually encode more meaning.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="struct-chartoptions">struct ChartOptions 🔹 <a id="cdk8s-chartoptions"></a><a class="headerlink" href="#struct-chartoptions" title="Permanent link">&para;</a></h2>
+<h2 id="struct-chartprops">struct ChartProps 🔹 <a id="cdk8s-chartprops"></a><a class="headerlink" href="#struct-chartprops" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -3221,7 +3221,7 @@ the first components since the last components usually encode more meaning.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="struct-helmoptions">struct HelmOptions 🔹 <a id="cdk8s-helmoptions"></a><a class="headerlink" href="#struct-helmoptions" title="Permanent link">&para;</a></h2>
+<h2 id="struct-helmprops">struct HelmProps 🔹 <a id="cdk8s-helmprops"></a><a class="headerlink" href="#struct-helmprops" title="Permanent link">&para;</a></h2>
 <p>Options for <code>Helm</code>.</p>
 <table>
 <thead>
@@ -3266,7 +3266,7 @@ the first components since the last components usually encode more meaning.</p>
 </code></pre></div>
 <p><strong>Returns</strong>:
 * <code>any</code></p>
-<h2 id="struct-includeoptions">struct IncludeOptions 🔹 <a id="cdk8s-includeoptions"></a><a class="headerlink" href="#struct-includeoptions" title="Permanent link">&para;</a></h2>
+<h2 id="struct-includeprops">struct IncludeProps 🔹 <a id="cdk8s-includeprops"></a><a class="headerlink" href="#struct-includeprops" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
