@@ -20,7 +20,7 @@
 
 {{- $link_cdk8s_ref := (print $docs_root "/reference/cdk8s") }}
 {{- $link_plus_ref := (print $docs_root "/reference/cdk8s-plus") }}
-{{- $link_cli_ref := (print $docs_root "/reference/cdk8s-cli") }}
+{{- $link_cli := (print $docs_root "/cli") }}
 
 {{- $everywhere := .Site.Params.features.everywhere }}
 {{- $languages  := .Site.Params.features.languages  }}
@@ -112,7 +112,7 @@
                         <nav class="dropdown-list w-dropdown-list">
                             <a href="{{ $link_cdk8s_ref }}" class="dropdown-link w-dropdown-link">cdk8s  ({{ $version }})</a>
                             <a href="{{ $link_plus_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus  ({{ $version }})</a>
-                            <a href="{{ $link_cli_ref }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s-cli ({{ $version }})</a>
+                            <a href="{{ $link_cli }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s-cli clia>
                         </nav>
                     </div>
                     <a href="{{ $link_github }}" target="_blank" class="github w-inline-block"><img src="images/git.png" alt=""></a>
@@ -226,7 +226,7 @@
 
                 <a href="{{ $link_cdk8s_ref }}" class="footer-link">cdk8s ({{ $version }})</a>
                 <a href="{{ $link_plus_ref }}" class="footer-link">cdk8s-plus ({{ $version }})</a>
-                <a href="{{ $link_cli_ref }}" class="footer-link">cdk8s-cli ({{ $version }})</a>
+                <a href="{{ $link_cli }}" class="footer-link">cdk8s-cli clia>
             </div>
 
             <div class="footer-col">

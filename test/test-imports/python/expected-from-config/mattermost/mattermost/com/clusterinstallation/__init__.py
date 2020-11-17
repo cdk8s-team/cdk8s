@@ -27,7 +27,7 @@ class ClusterInstallation(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         spec: "ClusterInstallationSpec",
         metadata: typing.Any = None,
@@ -35,13 +35,13 @@ class ClusterInstallation(
         """Defines a "ClusterInstallation" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param spec: Specification of the desired behavior of the Mattermost cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
         :param metadata: 
         """
-        options = ClusterInstallationOptions(spec=spec, metadata=metadata)
+        props = ClusterInstallationOptions(spec=spec, metadata=metadata)
 
-        jsii.create(ClusterInstallation, self, [scope, name, options])
+        jsii.create(ClusterInstallation, self, [scope, id, props])
 
 
 @jsii.data_type(

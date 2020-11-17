@@ -12,8 +12,8 @@ import org.cdk8s.ChartOptions;
 import imports.k8s.PodSpec;
 import imports.k8s.Container;
 import imports.k8s.ContainerPort;
-import imports.k8s.Pod;
-import imports.k8s.PodOptions;
+import imports.k8s.KubePod;
+import imports.k8s.KubePodOptions;
 
 /**
  * Hello world!
@@ -40,11 +40,11 @@ public class Main extends Chart
                                             .containers(containers)
                                             .build();
 
-        final PodOptions podOptions = new PodOptions.Builder()
+        final KubePodOptions podOptions = new KubePodOptions.Builder()
             .spec(podSpec)
             .build();
 
-        final Pod pod = new Pod(this, "Pod", podOptions);
+        final KubePod pod = new KubePod(this, "Pod", podOptions);
 
     }
 

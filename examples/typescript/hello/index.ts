@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
 
-import { Deployment, Service, IntOrString  } from './imports/k8s';
+import { KubeDeployment, KubeService, IntOrString  } from './imports/k8s';
 
 export class HelloKube extends Chart {
   constructor(scope: Construct, id: string) {
@@ -9,7 +9,7 @@ export class HelloKube extends Chart {
 
     const label = { app: 'hello-k8s' };
 
-    new Service(this, 'service', {
+    new KubeService(this, 'service', {
       spec: {
         type: 'LoadBalancer',
         ports: [ { port: 80, targetPort: IntOrString.fromNumber(8080) } ],
@@ -17,7 +17,7 @@ export class HelloKube extends Chart {
       }
     });
 
-    new Deployment(this, 'deployment', {
+    new KubeDeployment(this, 'deployment', {
       spec: {
         replicas: 1,
         selector: {

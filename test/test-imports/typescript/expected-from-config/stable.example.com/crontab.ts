@@ -11,12 +11,12 @@ export class CronTab extends ApiObject {
   /**
    * Defines a "CronTab" API object
    * @param scope the scope in which to define this object
-   * @param name a scope-local name for the object
-   * @param options configuration options
+   * @param id a scope-local name for the object
+   * @param props initialiation props
    */
-  public constructor(scope: Construct, name: string, options: CronTabOptions = {}) {
-    super(scope, name, {
-      ...options,
+  public constructor(scope: Construct, id: string, props: CronTabOptions = {}) {
+    super(scope, id, {
+      ...props,
       kind: 'CronTab',
       apiVersion: 'stable.example.com/v1',
     });

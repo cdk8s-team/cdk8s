@@ -10,7 +10,7 @@ for each native kubernetes object, exposing richer API's with reduced complexity
 
 ## Documentation
 
-See [cdk8s.io](https://cdk8s.io).
+See [cdk8s.io](https://cdk8s.io/docs/latest/plus).
 
 ## License
 

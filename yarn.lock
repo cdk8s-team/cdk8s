@@ -6757,10 +6757,10 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
-json2jsii@^0.1.4:
-  version "0.1.61"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.61.tgz#705bd2b86d9badc9cb4ec29ec47f35a7c1875570"
-  integrity sha512-1EEIPcFwtiZ1hhN22PJOJ9PHmucCeUg4WJEVzlXttdnqNlCz+sla4C1efAFRQhblw3bJbS4hkXov2b4X+FS3Hg==
+json2jsii@^0.1.104:
+  version "0.1.104"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.104.tgz#02759a353ab0ee6578ba3ca3f0fa93105f19c5a6"
+  integrity sha512-+IHCEvYjLgqBOFxiZ+n/THirXzxSoaxY1IHCQFdPZhViag782ZzGLGtnb6G2s5ippT1JB6VBSThIJmxgt58uzQ==
   dependencies:
     camelcase "^6.0.0"
     json-schema "^0.2.5"
@@ -8198,7 +8198,7 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.3.115, projen@^0.3.168:
+projen@^0.3.166, projen@^0.3.168:
   version "0.3.168"
   resolved "https://registry.yarnpkg.com/projen/-/projen-0.3.168.tgz#03f592487ea96eec6b21df6acb57ccb42c249cae"
   integrity sha512-JnGOIcVVRJyCHwjId0ZIz7+CMFh1DI5Exh71m0DTOr6SfNIn+WlOcxfPQsgbctSbmeZgrPfRc9m3glAofkNkBw==
