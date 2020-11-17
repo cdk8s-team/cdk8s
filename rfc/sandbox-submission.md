@@ -49,7 +49,7 @@ There are similar projects in the Kubernetes ecosystem (kustomize, jsonnet, jkcf
 https://github.com/awslabs/cdk8s/blob/master/CONTRIBUTING.md
 
 13. **Explanation of alignment/overlap with existing CNCF projects (optional)**
-Existing CNCF projects (kustomize, jsonnet, jkcfg, etc) are focused on object generation from a set language. They enable a similar workflow to cdk8s, but are not built with the idea of leveraging familiar general purpose programming languages to accomplish this task, nor do they address the ability to support multiple standard APIs and custom APIs (through CRDs). They also do not have the standard assumption of building and vending higher order libraries. cdk8s+ (https://github.com/awslabs/cdk8s/tree/master/packages/cdk8s-plus) is our development effort to provide an out of the box higher order library for K8s objects.
+Existing CNCF projects (kustomize, jsonnet, jkcfg, etc) are focused on object generation from a set language. They enable a similar workflow to cdk8s, but are not built with the idea of leveraging familiar general purpose programming languages to accomplish this task, nor do they address the ability to support multiple standard APIs and custom APIs (through CRDs). They also do not have the standard assumption of building and vending higher order libraries. cdk8s+ (https://github.com/awslabs/cdk8s/tree/master/packages/cdk8s-plus-17) is our development effort to provide an out of the box higher order library for K8s objects.
 
 
 14. **Existing project overview presentation (optional)**

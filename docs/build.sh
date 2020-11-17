@@ -20,7 +20,7 @@ cp CHANGELOG.md docs/project/
 cp CONTRIBUTING.md docs/project/
 cp ROADMAP.md docs/project/
 
-for module in cdk8s cdk8s-plus; do
+for module in cdk8s cdk8s-plus-17; do
   cat packages/${module}/API.md | sed "s/# API Reference/# ${module}/" > "docs/reference/${module}.md"
 done
 
