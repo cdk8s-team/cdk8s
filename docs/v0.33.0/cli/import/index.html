@@ -14,7 +14,7 @@
     
     
       
-        <title>cdk8s-cli - CDK8s Documentation</title>
+        <title>import - CDK8s Documentation</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cdk8s-cli" class="md-skip">
+        <a href="#import" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              cdk8s-cli
+              import
             
           </span>
         </div>
@@ -346,16 +346,196 @@
       
       
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    <label class="md-nav__link" for="nav-4">
+      CLI
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="CLI" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        CLI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../init/" class="md-nav__link">
+      init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        import
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      import
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#importing-core-kubernetes-api-objects" class="md-nav__link">
+    Importing Core Kubernetes API Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Importing Core Kubernetes API Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specifying-kubernetes-version" class="md-nav__link">
+    Specifying Kubernetes version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecting-api-versions-for-specific-objects" class="md-nav__link">
+    Selecting API versions for specific objects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importing-custom-resource-definitions-crds" class="md-nav__link">
+    Importing Custom Resource Definitions (CRDs)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-import-module-name" class="md-nav__link">
+    Setting import module name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-language" class="md-nav__link">
+    Selecting language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-directory" class="md-nav__link">
+    Output directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-name-prefix" class="md-nav__link">
+    Class name prefix
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../synth/" class="md-nav__link">
+      synth
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
 
   <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
-    <label class="md-nav__link" for="nav-4">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
       CDK8s+
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="CDK8s+" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         <span class="md-nav__icon md-icon"></span>
         CDK8s+
       </label>
@@ -503,18 +683,16 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
-    <label class="md-nav__link" for="nav-5">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    <label class="md-nav__link" for="nav-6">
       API Reference
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="API Reference" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         <span class="md-nav__icon md-icon"></span>
         API Reference
       </label>
@@ -527,7 +705,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../" class="md-nav__link">
+    <a href="../../reference/" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -539,7 +717,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cdk8s/" class="md-nav__link">
+    <a href="../../reference/cdk8s/" class="md-nav__link">
       cdk8s
     </a>
   </li>
@@ -551,120 +729,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../cdk8s-plus/" class="md-nav__link">
+    <a href="../../reference/cdk8s-plus/" class="md-nav__link">
       cdk8s-plus
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        cdk8s-cli
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      cdk8s-cli
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#init" class="md-nav__link">
-    init
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import" class="md-nav__link">
-    import
-  </a>
-  
-    <nav class="md-nav" aria-label="import">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-api" class="md-nav__link">
-    Kubernetes API
-  </a>
-  
-    <nav class="md-nav" aria-label="Kubernetes API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#specifying-kubernetes-version" class="md-nav__link">
-    Specifying Kubernetes version
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#selecting-apiversions-for-specific-objects" class="md-nav__link">
-    Selecting apiVersions for specific objects
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-resource-definitions-crds" class="md-nav__link">
-    Custom Resource Definitions (CRDs)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#override-default-behavior-of-import-naming" class="md-nav__link">
-    Override default behavior of import naming
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#selecting-language" class="md-nav__link">
-    Selecting language
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -680,13 +747,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
-    <label class="md-nav__link" for="nav-6">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+    <label class="md-nav__link" for="nav-7">
       Examples
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Examples" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-7">
         <span class="md-nav__icon md-icon"></span>
         Examples
       </label>
@@ -801,13 +868,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
-    <label class="md-nav__link" for="nav-8">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
+    <label class="md-nav__link" for="nav-9">
       Project
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Project" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         <span class="md-nav__icon md-icon"></span>
         Project
       </label>
@@ -879,26 +946,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#init" class="md-nav__link">
-    init
+  <a href="#importing-core-kubernetes-api-objects" class="md-nav__link">
+    Importing Core Kubernetes API Objects
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import" class="md-nav__link">
-    import
-  </a>
-  
-    <nav class="md-nav" aria-label="import">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-api" class="md-nav__link">
-    Kubernetes API
-  </a>
-  
-    <nav class="md-nav" aria-label="Kubernetes API">
+    <nav class="md-nav" aria-label="Importing Core Kubernetes API Objects">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -909,27 +961,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#selecting-apiversions-for-specific-objects" class="md-nav__link">
-    Selecting apiVersions for specific objects
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-resource-definitions-crds" class="md-nav__link">
-    Custom Resource Definitions (CRDs)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#override-default-behavior-of-import-naming" class="md-nav__link">
-    Override default behavior of import naming
+  <a href="#selecting-api-versions-for-specific-objects" class="md-nav__link">
+    Selecting API versions for specific objects
   </a>
   
 </li>
@@ -940,8 +973,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#importing-custom-resource-definitions-crds" class="md-nav__link">
+    Importing Custom Resource Definitions (CRDs)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-import-module-name" class="md-nav__link">
+    Setting import module name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#selecting-language" class="md-nav__link">
     Selecting language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-directory" class="md-nav__link">
+    Output directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-name-prefix" class="md-nav__link">
+    Class name prefix
   </a>
   
 </li>
@@ -958,74 +1019,70 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/awslabs/cdk8s/blob/master/docs/reference/cdk8s-cli.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/awslabs/cdk8s/blob/master/docs/cli/import.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="cdk8s-cli">cdk8s-cli<a class="headerlink" href="#cdk8s-cli" title="Permanent link">&para;</a></h1>
-<p><strong>cdk8s</strong> is a software development framework for defining Kubernetes
-applications using rich object-oriented APIs. It allows developers to leverage
-the full power of software in order to define abstract components called
-&ldquo;constructs&rdquo; which compose Kubernetes resources or other constructs into
-higher-level abstractions.</p>
-<p>To install the CLI use one of the following methods:</p>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Homebrew</label><div class="tabbed-content">
-<p><code>brew install cdk8s</code></p>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">npm</label><div class="tabbed-content">
-<p><code>npm i -g cdk8s-cli</code></p>
-</div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">yarn</label><div class="tabbed-content">
-<p><code>yarn global add cdk8s-cli</code></p>
-</div>
-</div>
-<h2 id="init">init<a class="headerlink" href="#init" title="Permanent link">&para;</a></h2>
-<p>This command creates new cdk8s projects from built-in templates:</p>
-<div class="highlight"><pre><span></span><code>$ cdk8s init TEMPLATE
-</code></pre></div>
-<p>The following example will create a new TypeScript app project:</p>
-<div class="highlight"><pre><span></span><code>$ mkdir my-fun-little-project
-$ <span class="nb">cd</span> my-fun-little-project
-$ cdk8s init typescript-app
-</code></pre></div>
-<h2 id="import">import<a class="headerlink" href="#import" title="Permanent link">&para;</a></h2>
-<p>The <code>import</code> command generates constructs for Kubernetes objects.</p>
-<h3 id="kubernetes-api">Kubernetes API<a class="headerlink" href="#kubernetes-api" title="Permanent link">&para;</a></h3>
+                <h1 id="import">import<a class="headerlink" href="#import" title="Permanent link">&para;</a></h1>
+<p>The <code>import</code> command generates low-level (L1) constructs for Kubernetes API
+objects and Custom Resources (CRDs).</p>
+<h2 id="importing-core-kubernetes-api-objects">Importing Core Kubernetes API Objects<a class="headerlink" href="#importing-core-kubernetes-api-objects" title="Permanent link">&para;</a></h2>
 <p>To generate constructs for all Kubernetes API objects of a certain version, use:</p>
-<div class="highlight"><pre><span></span><code>$ cdk8s import k8s
+<div class="highlight"><pre><span></span><code>cdk8s import k8s
 </code></pre></div>
-<p>The import command will generate files under <code>imports/k8s.ts</code> with constructs for each API object in the Kubernetes spec.</p>
-<h4 id="specifying-kubernetes-version">Specifying Kubernetes version<a class="headerlink" href="#specifying-kubernetes-version" title="Permanent link">&para;</a></h4>
+<p>The <code>import</code> command will generate files under an &ldquo;imports&rdquo; directory inside
+your project with constructs for each API object in the Kubernetes spec.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended to <em>commit</em> these generated files into your source
+control.</p>
+</div>
+<p>By default, generated class names will be named <code>KubeXyz</code> where <code>Xyz</code> is the API
+object kind (e.g. <code>KubeDeployment</code>).</p>
+<h3 id="specifying-kubernetes-version">Specifying Kubernetes version<a class="headerlink" href="#specifying-kubernetes-version" title="Permanent link">&para;</a></h3>
 <p>Use the <code>@version</code> notation to import a specific Kubernetes version:</p>
-<div class="highlight"><pre><span></span><code>$ cdk8s import k8s@1.16.0
+<div class="highlight"><pre><span></span><code>cdk8s import k8s@1.16.0
 </code></pre></div>
 <p>Alternatively, you can specify your <code>k8s</code> import in the <code>cdk8s.yaml</code> config file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">k8s@1.17.0</span>
 </code></pre></div>
-<h4 id="selecting-apiversions-for-specific-objects">Selecting <code>apiVersion</code>s for specific objects<a class="headerlink" href="#selecting-apiversions-for-specific-objects" title="Permanent link">&para;</a></h4>
-<p>By default, the command <code>cdk8s import k8s</code> will use the latest stable version of k8s objects.</p>
-<p>For example, when using k8s 1.17, if you want to use <code>DeploymentSpec</code>, you would be importing it from <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#deploymentspec-v1-apps">Deployment v1</a> by default. </p>
-<p>In the default <code>v1</code>, the <code>revisionHistoryLimit</code>, which is the number of old ReplicaSets to retain, is set to 10 by default. You would have to explicitly set this to a higher number if you want to retain more.</p>
-<p>Let&rsquo;s say that you want the behavior of <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#deploymentspec-v1beta1-extensions">extensions/v1beta1</a>, which defaults to retaining <em>all</em> old ReplicaSets.</p>
-<p>To do this, you could add the <code>--include</code> flag to your <code>cdk8s import</code>. Here is how that would look:</p>
+<h3 id="selecting-api-versions-for-specific-objects">Selecting API versions for specific objects<a class="headerlink" href="#selecting-api-versions-for-specific-objects" title="Permanent link">&para;</a></h3>
+<p>By default, the command <code>cdk8s import k8s</code> will use the latest stable version of
+k8s objects.</p>
+<p>For example, when using k8s 1.17, if you want to use <code>DeploymentSpec</code>, you would
+be importing it from <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#deploymentspec-v1-apps">Deployment
+v1</a>
+by default.</p>
+<p>In the default <code>v1</code>, the <code>revisionHistoryLimit</code>, which is the number of old
+ReplicaSets to retain, is set to 10 by default. You would have to explicitly set
+this to a higher number if you want to retain more.</p>
+<p>Let&rsquo;s say that you want the behavior of
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#deploymentspec-v1beta1-extensions">extensions/v1beta1</a>,
+which defaults to retaining <em>all</em> old ReplicaSets.</p>
+<p>To do this, you could add the <code>--include</code> flag to your <code>cdk8s import</code>. Here is
+how that would look:</p>
 <p>From the CLI:</p>
 <div class="highlight"><pre><span></span><code>cdk8s import k8s --language typescript --include io.k8s.api.extensions.v1beta1.Deployment
 </code></pre></div>
-<p>Here we are explicitly choosing to use the <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#deployment-v1beta1-extensions">Deployment extensions/v1beta1</a> version, which includes the new default behavior that we want from <code>DeploymentSpec</code></p>
+<p>Here we are explicitly choosing to use the <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#deployment-v1beta1-extensions">Deployment
+extensions/v1beta1</a>
+version, which includes the new default behavior that we want from
+<code>DeploymentSpec</code></p>
 <blockquote>
-<p>This feature is not yet supported in <code>cdk8s.yaml</code> config.</p>
+<p>This feature is not yet supported in <code>cdk8s.yaml</code> config at the moment.</p>
 </blockquote>
-<h3 id="custom-resource-definitions-crds">Custom Resource Definitions (CRDs)<a class="headerlink" href="#custom-resource-definitions-crds" title="Permanent link">&para;</a></h3>
+<h2 id="importing-custom-resource-definitions-crds">Importing Custom Resource Definitions (CRDs)<a class="headerlink" href="#importing-custom-resource-definitions-crds" title="Permanent link">&para;</a></h2>
 <p>You can import CRDs from local files or URLs:</p>
-<div class="highlight"><pre><span></span><code>$ cdk8s import my_crd.yaml
+<div class="highlight"><pre><span></span><code>cdk8s import my_crd.yaml
 </code></pre></div>
 <p>Or from <code>cdk8s.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">my_crd.yaml</span>
 </code></pre></div>
-<p>A CRD with group <code>mygroup.io</code> and kind <code>Foo</code> will be imported to the following locations:</p>
+<p>A CRD with group <code>mygroup.io</code> and kind <code>Foo</code> will be imported to the following
+locations:</p>
 <ul>
 <li>TypeScript: <code>imports/mygroup.io/foo.ts</code></li>
 <li>Python: <code>imports/mygroup/io/foo/__init__.py</code></li>
@@ -1037,33 +1094,49 @@ is useful, for example, to import all the CRDs from a running cluster:</p>
 <blockquote>
 <p>Yes, this works!</p>
 </blockquote>
-<h3 id="override-default-behavior-of-import-naming">Override default behavior of import naming<a class="headerlink" href="#override-default-behavior-of-import-naming" title="Permanent link">&para;</a></h3>
-<p>Note: this is not yet supported for python.</p>
-<p>You can also override the default behavior for <code>cdk8s</code> importing. This will be helpful to you if you would like to name your CRD imports differently from their kind. Here is how you do it:</p>
-<p><code>cdk8s</code> CLI</p>
-<div class="highlight"><pre><span></span><code>cdk8s import example:=my_crd.yaml
+<h2 id="setting-import-module-name">Setting import module name<a class="headerlink" href="#setting-import-module-name" title="Permanent link">&para;</a></h2>
+<p>You can also override the default behavior for <code>cdk8s</code> importing. This will be
+helpful to you if you would like to name your CRD imports differently from their
+kind. Here is how you do it:</p>
+<p>CLI:</p>
+<div class="highlight"><pre><span></span><code>cdk8s import example:<span class="o">=</span>my_crd.yaml
 </code></pre></div>
-<p><code>cdk8s.yaml</code> Config</p>
+<p><code>cdk8s.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">example:=my_crd.yaml</span>
 </code></pre></div>
-<p>If your CRD contained two kinds, <code>cluster</code> and <code>autoscaler</code>, you would have two imports. You could use them in this fashion:</p>
-<p>Typescript:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">cluster</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./imports/example-cluster&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">autoscaler</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./imports/example-autoscaler&#39;</span><span class="p">;</span>
-</code></pre></div>
-<p>Python:</p>
-<div class="highlight"><pre><span></span><code><span class="ow">not</span> <span class="n">yet</span> <span class="n">supported</span>
-</code></pre></div>
+<p>If your CRD contained two kinds, <code>Cluster</code> and <code>Autoscaler</code>, you would have two
+imports. You could use them in this fashion:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Typescript</label><div class="tabbed-content">
+<p>```javascript
+import { Cluster } from &lsquo;./imports/example-cluster&rsquo;;
+import { Autoscaler } from &lsquo;./imports/example-autoscaler&rsquo;;</p>
+</div>
+</div>
+<p>```</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Python</label><div class="tabbed-content">
+<p>```python
+not yet supported</p>
+</div>
+</div>
+<p>```</p>
 <h2 id="selecting-language">Selecting language<a class="headerlink" href="#selecting-language" title="Permanent link">&para;</a></h2>
 <p>You can specify your desired language with the <code>--language</code> flag. For example:</p>
-<p><code>cdk8s</code> CLI</p>
+<p>CLI:</p>
 <div class="highlight"><pre><span></span><code>cdk8s import --language typescript
 </code></pre></div>
-<p><code>cdk8s.yaml</code> Config</p>
+<p><code>cdk8s.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">typescript</span>
 </code></pre></div>
-<p>Both <code>typescript</code> and <code>python</code> are supported right now, unless noted otherwise.</p>
+<h2 id="output-directory">Output directory<a class="headerlink" href="#output-directory" title="Permanent link">&para;</a></h2>
+<p>The <code>--output</code> (or <code>-o</code>) option can be used to specify the output directory for
+your imports.</p>
+<h2 id="class-name-prefix">Class name prefix<a class="headerlink" href="#class-name-prefix" title="Permanent link">&para;</a></h2>
+<p>For <code>k8s</code> imports, all imported classes will have a <code>Kube</code> prefix to denote that
+those are core Kubernetes APIs. For CRD imports, the class name will match the
+resource kind.</p>
+<p>You can use the <code>--class-prefix</code> option to specify an alternative prefix or
+<code>--no-class-prefix</code> to disable this behavior for <code>k8s</code> imports.</p>
                 
               
               
@@ -1082,7 +1155,7 @@ is useful, for example, to import all the CRDs from a running cluster:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../cdk8s-plus/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../init/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1091,19 +1164,19 @@ is useful, for example, to import all the CRDs from a running cluster:</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                cdk8s-plus
+                init
               </div>
             </div>
           </a>
         
         
-          <a href="../../examples/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../synth/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Overview
+                synth
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
