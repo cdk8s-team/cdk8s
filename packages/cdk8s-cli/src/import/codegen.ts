@@ -1,7 +1,7 @@
+import { toPascalCase } from 'codemaker';
 // we just need the types from json-schema
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { JSONSchema4 } from 'json-schema';
-
 import { TypeGenerator } from 'json2jsii';
 
 export interface ApiObjectDefinition {
@@ -12,6 +12,11 @@ export interface ApiObjectDefinition {
   readonly schema: JSONSchema4;
 
   /**
+   * Is this is a custom resource (imported from a CRD) or a core API object?
+   */
+  readonly custom: boolean;
+
+  /*
    * Indicates if a prefix should be added to the construct class name. For
    * example, for native k8s api objects, we add `Kube` by default.
    *
@@ -22,12 +27,15 @@ export interface ApiObjectDefinition {
 
 export function getConstructTypeName(def: ApiObjectDefinition) {
   const prefix = def.prefix ?? '';
-  return TypeGenerator.normalizeTypeName(`${prefix}${def.kind}`);
+
+  // add an API version postfix only if this is core API (`import k8s`).
+  const postfix = (def.custom || def.version === 'v1') ? '' : toPascalCase(def.version);
+  return TypeGenerator.normalizeTypeName(`${prefix}${def.kind}${postfix}`);
 }
 
 export function getPropsTypeName(def: ApiObjectDefinition) {
   const constructName = getConstructTypeName(def);
-  return TypeGenerator.normalizeTypeName(`${constructName}Props`);
+  return TypeGenerator.normalizeTypeName(`${constructName}Options`);
 }
 
 export function generateConstruct(typegen: TypeGenerator, def: ApiObjectDefinition) {

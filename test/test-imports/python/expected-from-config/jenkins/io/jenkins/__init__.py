@@ -39,7 +39,7 @@ class Jenkins(
         :param metadata: 
         :param spec: Spec defines the desired state of the Jenkins.
         """
-        props = JenkinsProps(metadata=metadata, spec=spec)
+        props = JenkinsOptions(metadata=metadata, spec=spec)
 
         jsii.create(Jenkins, self, [scope, id, props])
 

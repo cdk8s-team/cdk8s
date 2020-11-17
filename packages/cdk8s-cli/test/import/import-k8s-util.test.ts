@@ -1,32 +1,8 @@
-import { parseApiTypeName, compareApiVersions } from '../../src/import/k8s-util';
+import { parseApiTypeName } from '../../src/import/k8s-util';
 
-const tests: Array<[ string, '>' | '<' | '=', string ]> = [
-  ['v1', '<', 'v2'],
-  ['v2', '>', 'v1'],
-  ['v33', '=', 'v33'],
-
-  ['v1', '>', 'v1beta1'],
-  ['v1beta1', '>', 'v1alpha1'],
-  ['v1alpha1', '<', 'v1beta1'],
-  ['v1alpha1', '=', 'v1alpha1'],
-
-  ['v1beta1', '<', 'v1beta2'],
-  ['v1beta3', '>', 'v1beta2'],
-  ['v1beta66', '=', 'v1beta66'],
-
-  ['v2', '>', 'v1beta99'],
-  ['v2beta99', '>', 'v1beta99'],
-
-  ['v2alpha1', '<', 'v1'], // prefer stable versions
-];
-
-for (const [lhs, sign, rhs] of tests) {
-  const expected = sign === '>' ? 1 : sign === '<' ? -1 : 0;
-
-  test(`${lhs} ${sign} ${rhs}`, () => {
-    const lhsVersion = parseApiTypeName(`io.k8s.api.extensions.${lhs}.Deployment`);
-    const rhsVersion = parseApiTypeName(`io.k8s.api.extensions.${rhs}.Deployment`);
-    const actual = compareApiVersions(lhsVersion, rhsVersion);
-    expect(actual).toEqual(expected);
-  });
-}
+test('parseApiTypeName', () => {
+  expect(parseApiTypeName('io.k8s.api.extensions.v1.Deployment')).toStrictEqual({ basename: 'Deployment', fullname: 'io.k8s.api.extensions.v1.Deployment', level: 'stable', namespace: 'io.k8s.api.extensions', subversion: 0, version: 1 });
+  expect(parseApiTypeName('io.k8s.api.extensions.v1beta1.Deployment')).toStrictEqual({ basename: 'Deployment', fullname: 'io.k8s.api.extensions.v1beta1.Deployment', level: 'beta', namespace: 'io.k8s.api.extensions', subversion: 1, version: 1 });
+  expect(parseApiTypeName('io.k8s.api.extensions.v2.Deployment')).toStrictEqual({ basename: 'Deployment', fullname: 'io.k8s.api.extensions.v2.Deployment', level: 'stable', namespace: 'io.k8s.api.extensions', subversion: 0, version: 2 });
+  expect(parseApiTypeName('io.v2alpha2.Deployment')).toStrictEqual({ basename: 'Deployment', fullname: 'io.v2alpha2.Deployment', level: 'alpha', namespace: 'io', subversion: 2, version: 2 });
+});
