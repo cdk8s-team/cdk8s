@@ -45,13 +45,12 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
 
   const pythonVersion = pacmakv.toReleaseVersion(version, pacmak.TargetName.PYTHON);
   const javaVersion = pacmakv.toReleaseVersion(version, pacmak.TargetName.JAVA);
-  const jsVersion = pacmakv.toReleaseVersion(version, pacmak.TargetName.JAVASCRIPT);
 
   if (dist) {
     const ret = {
-      npm_cdk8s: path.resolve(dist, 'js', `cdk8s@${jsVersion}.jsii.tgz`),
-      npm_cdk8s_cli: path.resolve(dist, 'js', `cdk8s-cli-v${jsVersion}.tgz`), // yarn pack adds a "v" before the version
-      npm_cdk8s_plus: path.resolve(dist, 'js', `cdk8s-plus@${jsVersion}.jsii.tgz`),
+      npm_cdk8s: path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
+      npm_cdk8s_cli: path.resolve(dist, 'js', `cdk8s-cli-v${version}.tgz`), // yarn pack adds a "v" before the version
+      npm_cdk8s_plus: path.resolve(dist, 'js', `cdk8s-plus@${version}.jsii.tgz`),
       pypi_cdk8s: path.resolve(dist, 'python', `cdk8s-${pythonVersion}-py3-none-any.whl`),
       pypi_cdk8s_plus: path.resolve(dist, 'python', `cdk8s_plus-${pythonVersion}-py3-none-any.whl`),
       mvn_cdk8s: path.resolve(dist, 'java', `org/cdk8s/cdk8s/${javaVersion}/cdk8s-${javaVersion}.jar`),
