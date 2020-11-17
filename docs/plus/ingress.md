@@ -20,10 +20,10 @@ to a service associated with a deployment of the
 ```ts
 const helloDeployment = new kplus.Deployment(this, text, {
   containers: [
-    new kplus.Container({
+    {
       image: 'hashicorp/http-echo',
       args: [ '-text', 'hello ingress' ]
-    })
+    }
   ]
 });
 

@@ -1,8 +1,8 @@
-import * as k8s from './imports/k8s';
+import * as cdk8s from 'cdk8s';
 import { Construct } from 'constructs';
 import { ResourceProps, Resource } from './base';
-import * as cdk8s from 'cdk8s';
 import { Deployment } from './deployment';
+import * as k8s from './imports/k8s';
 
 /**
  * Properties for initialization of `Service`.
@@ -191,7 +191,7 @@ export class Service extends Resource {
       throw new Error('a selector is already defined for this service. cannot add a deployment');
     }
 
-    for (const [ k, v ] of selector) {
+    for (const [k, v] of selector) {
       this.addSelector(k, v);
     }
 

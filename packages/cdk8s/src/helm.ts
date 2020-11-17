@@ -1,9 +1,9 @@
-import { Construct, Node } from 'constructs';
-import * as fs from 'fs';
-import * as path from 'path';
 import * as cp from 'child_process';
-import * as yaml from 'yaml';
+import * as fs from 'fs';
 import * as os from 'os';
+import * as path from 'path';
+import { Construct, Node } from 'constructs';
+import * as yaml from 'yaml';
 import { Include } from './include';
 import { Names } from './names';
 
@@ -13,7 +13,7 @@ import { Names } from './names';
 export interface HelmOptions {
   /**
    * The chart name to use. It can be a chart from a helm repository or a local directory.
-   * 
+   *
    * This name is passed to `helm template` and has all the relevant semantics.
    *
    * @example "./mysql"
@@ -23,7 +23,7 @@ export interface HelmOptions {
 
   /**
    * The release name.
-   * 
+   *
    * @see https://helm.sh/docs/intro/using_helm/#three-big-concepts
    * @default - if unspecified, a name will be allocated based on the construct path
    */
@@ -31,7 +31,7 @@ export interface HelmOptions {
 
   /**
    * Values to pass to the chart.
-   * 
+   *
    * @default - If no values are specified, chart will use the defaults.
    */
   readonly values?: { [key: string]: any };
@@ -45,15 +45,15 @@ export interface HelmOptions {
 
   /**
    * Additional flags to add to the `helm` execution.
-   * 
+   *
    * @default []
    */
   readonly helmFlags?: string[];
 }
 
 /**
- * Represents a Helm deployment. 
- * 
+ * Represents a Helm deployment.
+ *
  * Use this construct to import an existing Helm chart and incorporate it into your constructs.
  */
 export class Helm extends Include {
@@ -64,10 +64,10 @@ export class Helm extends Include {
 
   constructor(scope: Construct, id: string, opts: HelmOptions) {
     const workdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-helm-'));
-    
+
     const args = new Array<string>();
     args.push('template');
-    
+
     // values
     if (opts.values && Object.keys(opts.values).length > 0) {
       const valuesPath = path.join(workdir, 'overrides.yaml');
@@ -81,7 +81,7 @@ export class Helm extends Include {
     }
 
     // release name
-    const cpath = [ Node.of(scope).path, id ].join(Node.PATH_SEP);
+    const cpath = [Node.of(scope).path, id].join(Node.PATH_SEP);
     const releaseName = opts.releaseName ?? Names.toDnsLabel(cpath, 53); // constraints: https://github.com/helm/helm/issues/6006
     args.push(releaseName);
 

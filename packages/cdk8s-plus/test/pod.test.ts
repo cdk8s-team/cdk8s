@@ -1,12 +1,12 @@
-import * as kplus from '../src';
 import { Testing } from 'cdk8s';
+import * as kplus from '../src';
 
 test('Can add container post instantiation', () => {
 
   const chart = Testing.chart();
 
   const pod = new kplus.Pod(chart, 'Pod');
-  pod.addContainer(new kplus.Container({ image: 'image' }));
+  pod.addContainer({ image: 'image' });
 
   const spec = Testing.synth(chart)[0].spec;
 
@@ -32,7 +32,7 @@ test('Can add volume post instantiation', () => {
 
   const pod = new kplus.Pod(chart, 'Pod', {
     containers: [
-      new kplus.Container({ image: 'image'}),
+      { image: 'image' },
     ],
   });
 
@@ -53,10 +53,8 @@ test('Automatically adds volumes from container mounts', () => {
 
   const volume = kplus.Volume.fromEmptyDir('volume');
 
-  const container = new kplus.Container({ image: 'image' });
+  const container = pod.addContainer({ image: 'image' });
   container.mount('/path/to/mount', volume);
-
-  pod.addContainer(container);
 
   const spec = Testing.synth(chart)[0].spec;
 
@@ -71,8 +69,7 @@ test('Synthesizes spec lazily', () => {
 
   const pod = new kplus.Pod(chart, 'Pod', {});
 
-  const container = new kplus.Container({ image: 'image' });
-  pod.addContainer(container);
+  pod.addContainer({ image: 'image' });
 
   const spec = Testing.synth(chart)[0].spec;
 

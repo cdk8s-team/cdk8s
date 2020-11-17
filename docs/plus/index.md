@@ -1,7 +1,7 @@
 # Overview
 
 **cdk8s+** is a library with high level abstractions for authoring Kubernetes
-applications. 
+applications.
 
 Built on top of the auto-generated building blocks provided by CDK8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
@@ -33,24 +33,23 @@ appData.addDirectory(path.join(__dirname, 'app'));
 
 const appVolume = kplus.Volume.fromConfigMap(appData);
 
+// lets create a deployment to run a few instances of a pod
+const deployment = new kplus.Deployment(chart, 'Deployment', {
+  replicas: 3,
+});
+
 // now we create a container that runs our app
 const appPath = '/var/lib/app';
 const port = 80;
-const container = new kplus.Container({
+const container = deployment.addContainer({
   image: 'node:14.4.0-alpine3.12',
   command: ['node', 'index.js', `${port}`],
   port: port,
   workingDir: appPath,
-})
+});
 
 // make the app accessible to the container
 container.mount(appPath, appVolume);
-
-// now lets create a deployment to run a few instances of this container
-const deployment = new kplus.Deployment(chart, 'Deployment', {
-  replicas: 3,
-  containers: [ container ]
-});
 
 // finally, we expose the deployment as a load balancer service and make it run
 deployment.expose(8080, {serviceType: kplus.ServiceType.LOAD_BALANCER})
@@ -146,9 +145,9 @@ app.synth();
 
     new kplus.Deployment(chart, 'Deployment', {
       replicas: 3,
-      containers: [new kplus.Container({
+      containers: [{
         image: 'ubuntu',
-      })],
+      }],
     });
     ```
 
