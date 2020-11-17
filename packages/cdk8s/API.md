@@ -121,7 +121,7 @@ __Returns__:
 
 #### *static* of(c)🔹 <a id="cdk8s-apiobject-of"></a>
 
-Returns the `ApiObject` named `Default` which is a child of the given construct.
+Returns the `ApiObject` named `Resource` which is a child of the given construct.
 
 If `c` is an `ApiObject`, it is returned directly. Throws an
 exception if the construct does not have a child named `Default` _or_ if
