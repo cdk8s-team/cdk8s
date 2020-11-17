@@ -8,8 +8,8 @@ Name|Description
 [Container](#cdk8s-plus-17-container)|A single application container that you want to run within a pod.
 [Deployment](#cdk8s-plus-17-deployment)|A Deployment provides declarative updates for Pods and ReplicaSets.
 [EnvValue](#cdk8s-plus-17-envvalue)|Utility class for creating reading env values from various sources.
-[Ingress](#cdk8s-plus-17-ingress)|Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
-[IngressBackend](#cdk8s-plus-17-ingressbackend)|The backend for an ingress path.
+[IngressV1Beta1](#cdk8s-plus-17-ingressv1beta1)|Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
+[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)|The backend for an ingress path.
 [Job](#cdk8s-plus-17-job)|A Job creates one or more Pods and ensures that a specified number of them successfully terminate.
 [Pod](#cdk8s-plus-17-pod)|Pod is a collection of containers that can run on a host.
 [PodSpec](#cdk8s-plus-17-podspec)|Provides read/write capabilities ontop of a `PodSpecProps`.
@@ -38,8 +38,8 @@ Name|Description
 [EnvValueFromSecretOptions](#cdk8s-plus-17-envvaluefromsecretoptions)|Options to specify an environment variable value from a Secret.
 [ExposeOptions](#cdk8s-plus-17-exposeoptions)|Options for exposing a deployment via a service.
 [HttpGetProbeOptions](#cdk8s-plus-17-httpgetprobeoptions)|Options for `Probe.fromHttpGet()`.
-[IngressProps](#cdk8s-plus-17-ingressprops)|Properties for `Ingress`.
-[IngressRule](#cdk8s-plus-17-ingressrule)|Represents the rules mapping the paths under a specified host to the related backend services.
+[IngressV1Beta1Props](#cdk8s-plus-17-ingressv1beta1props)|Properties for `Ingress`.
+[IngressV1Beta1Rule](#cdk8s-plus-17-ingressv1beta1rule)|Represents the rules mapping the paths under a specified host to the related backend services.
 [JobProps](#cdk8s-plus-17-jobprops)|Properties for initialization of `Job`.
 [MountOptions](#cdk8s-plus-17-mountoptions)|Options for mounts.
 [PathMapping](#cdk8s-plus-17-pathmapping)|Maps a string key to a path within a volume.
@@ -51,7 +51,7 @@ Name|Description
 [SecretProps](#cdk8s-plus-17-secretprops)|*No description*
 [SecretValue](#cdk8s-plus-17-secretvalue)|Represents a specific value in JSON secret.
 [ServiceAccountProps](#cdk8s-plus-17-serviceaccountprops)|Properties for initialization of `ServiceAccount`.
-[ServiceIngressBackendOptions](#cdk8s-plus-17-serviceingressbackendoptions)|Options for setting up backends for ingress rules.
+[ServiceIngressV1BetaBackendOptions](#cdk8s-plus-17-serviceingressv1betabackendoptions)|Options for setting up backends for ingress rules.
 [ServicePort](#cdk8s-plus-17-serviceport)|Definition of a service port.
 [ServicePortOptions](#cdk8s-plus-17-serviceportoptions)|*No description*
 [ServiceProps](#cdk8s-plus-17-serviceprops)|Properties for initialization of `Service`.
@@ -508,7 +508,7 @@ __Returns__:
 
 
 
-## class Ingress 🔹 <a id="cdk8s-plus-17-ingress"></a>
+## class IngressV1Beta1 🔹 <a id="cdk8s-plus-17-ingressv1beta1"></a>
 
 Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
 
@@ -525,15 +525,15 @@ __Extends__: [Resource](#cdk8s-plus-17-resource)
 
 
 ```ts
-new Ingress(scope: Construct, id: string, props?: IngressProps)
+new IngressV1Beta1(scope: Construct, id: string, props?: IngressV1Beta1Props)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[IngressProps](#cdk8s-plus-17-ingressprops)</code>)  *No description*
+* **props** (<code>[IngressV1Beta1Props](#cdk8s-plus-17-ingressv1beta1props)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
-  * **defaultBackend** (<code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code>)  The default backend services requests that do not match any rule. __*Optional*__
-  * **rules** (<code>Array<[IngressRule](#cdk8s-plus-17-ingressrule)></code>)  Routing rules for this ingress. __*Optional*__
+  * **defaultBackend** (<code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>)  The default backend services requests that do not match any rule. __*Optional*__
+  * **rules** (<code>Array<[IngressV1Beta1Rule](#cdk8s-plus-17-ingressv1beta1rule)></code>)  Routing rules for this ingress. __*Optional*__
 
 
 
@@ -547,7 +547,7 @@ Name | Type | Description
 ### Methods
 
 
-#### addDefaultBackend(backend)🔹 <a id="cdk8s-plus-17-ingress-adddefaultbackend"></a>
+#### addDefaultBackend(backend)🔹 <a id="cdk8s-plus-17-ingressv1beta1-adddefaultbackend"></a>
 
 Defines the default backend for this ingress.
 
@@ -555,15 +555,15 @@ A default backend capable of
 servicing requests that don't match any rule.
 
 ```ts
-addDefaultBackend(backend: IngressBackend): void
+addDefaultBackend(backend: IngressV1Beta1Backend): void
 ```
 
-* **backend** (<code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code>)  The backend to use for requests that do not match any rule.
+* **backend** (<code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>)  The backend to use for requests that do not match any rule.
 
 
 
 
-#### addHostDefaultBackend(host, backend)🔹 <a id="cdk8s-plus-17-ingress-addhostdefaultbackend"></a>
+#### addHostDefaultBackend(host, backend)🔹 <a id="cdk8s-plus-17-ingressv1beta1-addhostdefaultbackend"></a>
 
 Specify a default backend for a specific host name.
 
@@ -571,61 +571,61 @@ This backend will be used as a catch-all for requests
 targeted to this host name (the `Host` header matches this value).
 
 ```ts
-addHostDefaultBackend(host: string, backend: IngressBackend): void
+addHostDefaultBackend(host: string, backend: IngressV1Beta1Backend): void
 ```
 
 * **host** (<code>string</code>)  The host name to match.
-* **backend** (<code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code>)  The backend to route to.
+* **backend** (<code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>)  The backend to route to.
 
 
 
 
-#### addHostRule(host, path, backend)🔹 <a id="cdk8s-plus-17-ingress-addhostrule"></a>
+#### addHostRule(host, path, backend)🔹 <a id="cdk8s-plus-17-ingressv1beta1-addhostrule"></a>
 
 Adds an ingress rule applied to requests to a specific host and a specific HTTP path (the `Host` header matches this value).
 
 ```ts
-addHostRule(host: string, path: string, backend: IngressBackend): void
+addHostRule(host: string, path: string, backend: IngressV1Beta1Backend): void
 ```
 
 * **host** (<code>string</code>)  The host name.
 * **path** (<code>string</code>)  The HTTP path.
-* **backend** (<code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code>)  The backend to route requests to.
+* **backend** (<code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>)  The backend to route requests to.
 
 
 
 
-#### addRule(path, backend)🔹 <a id="cdk8s-plus-17-ingress-addrule"></a>
+#### addRule(path, backend)🔹 <a id="cdk8s-plus-17-ingressv1beta1-addrule"></a>
 
 Adds an ingress rule applied to requests sent to a specific HTTP path.
 
 ```ts
-addRule(path: string, backend: IngressBackend): void
+addRule(path: string, backend: IngressV1Beta1Backend): void
 ```
 
 * **path** (<code>string</code>)  The HTTP path.
-* **backend** (<code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code>)  The backend to route requests to.
+* **backend** (<code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>)  The backend to route requests to.
 
 
 
 
-#### addRules(...rules)🔹 <a id="cdk8s-plus-17-ingress-addrules"></a>
+#### addRules(...rules)🔹 <a id="cdk8s-plus-17-ingressv1beta1-addrules"></a>
 
 Adds rules to this ingress.
 
 ```ts
-addRules(...rules: IngressRule[]): void
+addRules(...rules: IngressV1Beta1Rule[]): void
 ```
 
-* **rules** (<code>[IngressRule](#cdk8s-plus-17-ingressrule)</code>)  The rules to add.
-  * **backend** (<code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code>)  Backend defines the referenced service endpoint to which the traffic will be forwarded to. 
+* **rules** (<code>[IngressV1Beta1Rule](#cdk8s-plus-17-ingressv1beta1rule)</code>)  The rules to add.
+  * **backend** (<code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>)  Backend defines the referenced service endpoint to which the traffic will be forwarded to. 
   * **host** (<code>string</code>)  Host is the fully qualified domain name of a network host, as defined by RFC 3986. __*Default*__: If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
   * **path** (<code>string</code>)  Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. __*Default*__: If unspecified, the path defaults to a catch all sending traffic to the backend.
 
 
 
 
-#### protected onValidate()🔹 <a id="cdk8s-plus-17-ingress-onvalidate"></a>
+#### protected onValidate()🔹 <a id="cdk8s-plus-17-ingressv1beta1-onvalidate"></a>
 
 Validate the current construct.
 
@@ -642,7 +642,7 @@ __Returns__:
 
 
 
-## class IngressBackend 🔹 <a id="cdk8s-plus-17-ingressbackend"></a>
+## class IngressV1Beta1Backend 🔹 <a id="cdk8s-plus-17-ingressv1beta1backend"></a>
 
 The backend for an ingress path.
 
@@ -650,20 +650,20 @@ The backend for an ingress path.
 ### Methods
 
 
-#### *static* fromService(service, options?)🔹 <a id="cdk8s-plus-17-ingressbackend-fromservice"></a>
+#### *static* fromService(service, options?)🔹 <a id="cdk8s-plus-17-ingressv1beta1backend-fromservice"></a>
 
 A Kubernetes `Service` to use as the backend for this path.
 
 ```ts
-static fromService(service: Service, options?: ServiceIngressBackendOptions): IngressBackend
+static fromService(service: Service, options?: ServiceIngressV1BetaBackendOptions): IngressV1Beta1Backend
 ```
 
 * **service** (<code>[Service](#cdk8s-plus-17-service)</code>)  The service object.
-* **options** (<code>[ServiceIngressBackendOptions](#cdk8s-plus-17-serviceingressbackendoptions)</code>)  *No description*
+* **options** (<code>[ServiceIngressV1BetaBackendOptions](#cdk8s-plus-17-serviceingressv1betabackendoptions)</code>)  *No description*
   * **port** (<code>number</code>)  The port to use to access the service. __*Default*__: if the service exposes a single port, this port will be used.
 
 __Returns__:
-* <code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code>
+* <code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>
 
 
 
@@ -1021,7 +1021,7 @@ resource.
 
 __Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-17-iresource)
 __Extends__: [Construct](#constructs-construct)
-__Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-plus-17-deployment), [Ingress](#cdk8s-plus-17-ingress), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [Secret](#cdk8s-plus-17-secret), [Service](#cdk8s-plus-17-service), [ServiceAccount](#cdk8s-plus-17-serviceaccount)
+__Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-plus-17-deployment), [IngressV1Beta1](#cdk8s-plus-17-ingressv1beta1), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [Secret](#cdk8s-plus-17-secret), [Service](#cdk8s-plus-17-service), [ServiceAccount](#cdk8s-plus-17-serviceaccount)
 
 ### Initializer
 
@@ -1755,7 +1755,7 @@ addVolume(volume: Volume): void
 
 ## interface IResource 🔹 <a id="cdk8s-plus-17-iresource"></a>
 
-__Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-plus-17-deployment), [Ingress](#cdk8s-plus-17-ingress), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [Secret](#cdk8s-plus-17-secret), [Service](#cdk8s-plus-17-service), [ServiceAccount](#cdk8s-plus-17-serviceaccount)
+__Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-plus-17-deployment), [IngressV1Beta1](#cdk8s-plus-17-ingressv1beta1), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [Secret](#cdk8s-plus-17-secret), [Service](#cdk8s-plus-17-service), [ServiceAccount](#cdk8s-plus-17-serviceaccount)
 
 Represents a resource.
 
@@ -1800,7 +1800,7 @@ Name | Type | Description
 
 
 
-## struct IngressProps 🔹 <a id="cdk8s-plus-17-ingressprops"></a>
+## struct IngressV1Beta1Props 🔹 <a id="cdk8s-plus-17-ingressv1beta1props"></a>
 
 
 Properties for `Ingress`.
@@ -1809,13 +1809,13 @@ Properties for `Ingress`.
 
 Name | Type | Description 
 -----|------|-------------
-**defaultBackend**?🔹 | <code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code> | The default backend services requests that do not match any rule.<br/>__*Optional*__
+**defaultBackend**?🔹 | <code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code> | The default backend services requests that do not match any rule.<br/>__*Optional*__
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
-**rules**?🔹 | <code>Array<[IngressRule](#cdk8s-plus-17-ingressrule)></code> | Routing rules for this ingress.<br/>__*Optional*__
+**rules**?🔹 | <code>Array<[IngressV1Beta1Rule](#cdk8s-plus-17-ingressv1beta1rule)></code> | Routing rules for this ingress.<br/>__*Optional*__
 
 
 
-## struct IngressRule 🔹 <a id="cdk8s-plus-17-ingressrule"></a>
+## struct IngressV1Beta1Rule 🔹 <a id="cdk8s-plus-17-ingressv1beta1rule"></a>
 
 
 Represents the rules mapping the paths under a specified host to the related backend services.
@@ -1827,7 +1827,7 @@ then routed to the backend associated with the matching path.
 
 Name | Type | Description 
 -----|------|-------------
-**backend**🔹 | <code>[IngressBackend](#cdk8s-plus-17-ingressbackend)</code> | Backend defines the referenced service endpoint to which the traffic will be forwarded to.
+**backend**🔹 | <code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code> | Backend defines the referenced service endpoint to which the traffic will be forwarded to.
 **host**?🔹 | <code>string</code> | Host is the fully qualified domain name of a network host, as defined by RFC 3986.<br/>__*Default*__: If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
 **path**?🔹 | <code>string</code> | Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'.<br/>__*Default*__: If unspecified, the path defaults to a catch all sending traffic to the backend.
 
@@ -2008,7 +2008,7 @@ Name | Type | Description
 
 
 
-## struct ServiceIngressBackendOptions 🔹 <a id="cdk8s-plus-17-serviceingressbackendoptions"></a>
+## struct ServiceIngressV1BetaBackendOptions 🔹 <a id="cdk8s-plus-17-serviceingressv1betabackendoptions"></a>
 
 
 Options for setting up backends for ingress rules.

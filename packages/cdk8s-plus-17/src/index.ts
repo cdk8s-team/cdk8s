@@ -8,5 +8,5 @@ export * from './secret';
 export * from './service-account';
 export * from './service';
 export * from './volume';
-export * from './ingress';
+export * from './ingress-v1beta1';
 export * from './probe';
