@@ -1,5 +1,5 @@
-import { Testing } from 'cdk8s';
-import { Volume, ConfigMap, EmptyDirMedium, Size } from '../src';
+import { Testing, Size } from 'cdk8s';
+import { Volume, ConfigMap, EmptyDirMedium } from '../src';
 
 describe('fromConfigMap', () => {
   test('minimal definition', () => {

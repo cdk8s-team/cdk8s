@@ -10,11 +10,13 @@ Name|Description
 [Chart](#cdk8s-chart)|*No description*
 [DependencyGraph](#cdk8s-dependencygraph)|Represents the dependency graph for a given Node.
 [DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
+[Duration](#cdk8s-duration)|Represents a length of time.
 [Helm](#cdk8s-helm)|Represents a Helm deployment.
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
 [JsonPatch](#cdk8s-jsonpatch)|Utility for applying RFC-6902 JSON-Patch to a document.
 [Lazy](#cdk8s-lazy)|*No description*
 [Names](#cdk8s-names)|Utilities for generating unique and stable names.
+[Size](#cdk8s-size)|Represents the amount of digital storage.
 [Testing](#cdk8s-testing)|Testing utilities for cdk8s applications.
 [Yaml](#cdk8s-yaml)|YAML utilities.
 
@@ -29,6 +31,8 @@ Name|Description
 [ChartProps](#cdk8s-chartprops)|*No description*
 [HelmProps](#cdk8s-helmprops)|Options for `Helm`.
 [IncludeProps](#cdk8s-includeprops)|*No description*
+[SizeConversionOptions](#cdk8s-sizeconversionoptions)|Options for how to convert time to a different unit.
+[TimeConversionOptions](#cdk8s-timeconversionoptions)|Options for how to convert time to a different unit.
 
 
 **Interfaces**
@@ -36,6 +40,13 @@ Name|Description
 Name|Description
 ----|-----------
 [IAnyProducer](#cdk8s-ianyproducer)|*No description*
+
+
+**Enums**
+
+Name|Description
+----|-----------
+[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)|Rounding behaviour when converting between units of `Size`.
 
 
 
@@ -504,6 +515,203 @@ __Returns__:
 
 
 
+## class Duration 🔹 <a id="cdk8s-duration"></a>
+
+Represents a length of time.
+
+The amount can be specified either as a literal value (e.g: `10`) which
+cannot be negative.
+
+
+### Methods
+
+
+#### toDays(opts?)🔹 <a id="cdk8s-duration-todays"></a>
+
+Return the total number of days in this Duration.
+
+```ts
+toDays(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### toHours(opts?)🔹 <a id="cdk8s-duration-tohours"></a>
+
+Return the total number of hours in this Duration.
+
+```ts
+toHours(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### toHumanString()🔹 <a id="cdk8s-duration-tohumanstring"></a>
+
+Turn this duration into a human-readable string.
+
+```ts
+toHumanString(): string
+```
+
+
+__Returns__:
+* <code>string</code>
+
+#### toISOString()⚠️ <a id="cdk8s-duration-toisostring"></a>
+
+Return an ISO 8601 representation of this period.
+
+```ts
+toISOString(): string
+```
+
+
+__Returns__:
+* <code>string</code>
+
+#### toIsoString()🔹 <a id="cdk8s-duration-toisostring"></a>
+
+Return an ISO 8601 representation of this period.
+
+```ts
+toIsoString(): string
+```
+
+
+__Returns__:
+* <code>string</code>
+
+#### toMilliseconds(opts?)🔹 <a id="cdk8s-duration-tomilliseconds"></a>
+
+Return the total number of milliseconds in this Duration.
+
+```ts
+toMilliseconds(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### toMinutes(opts?)🔹 <a id="cdk8s-duration-tominutes"></a>
+
+Return the total number of minutes in this Duration.
+
+```ts
+toMinutes(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### toSeconds(opts?)🔹 <a id="cdk8s-duration-toseconds"></a>
+
+Return the total number of seconds in this Duration.
+
+```ts
+toSeconds(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### *static* days(amount)🔹 <a id="cdk8s-duration-days"></a>
+
+Create a Duration representing an amount of days.
+
+```ts
+static days(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Days the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* hours(amount)🔹 <a id="cdk8s-duration-hours"></a>
+
+Create a Duration representing an amount of hours.
+
+```ts
+static hours(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Hours the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* millis(amount)🔹 <a id="cdk8s-duration-millis"></a>
+
+Create a Duration representing an amount of milliseconds.
+
+```ts
+static millis(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Milliseconds the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* minutes(amount)🔹 <a id="cdk8s-duration-minutes"></a>
+
+Create a Duration representing an amount of minutes.
+
+```ts
+static minutes(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Minutes the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* parse(duration)🔹 <a id="cdk8s-duration-parse"></a>
+
+Parse a period formatted according to the ISO 8601 standard.
+
+```ts
+static parse(duration: string): Duration
+```
+
+* **duration** (<code>string</code>)  an ISO-formtted duration to be parsed.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* seconds(amount)🔹 <a id="cdk8s-duration-seconds"></a>
+
+Create a Duration representing an amount of seconds.
+
+```ts
+static seconds(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Seconds the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+
+
 ## class Helm 🔹 <a id="cdk8s-helm"></a>
 
 Represents a Helm deployment.
@@ -810,6 +1018,166 @@ __Returns__:
 
 
 
+## class Size 🔹 <a id="cdk8s-size"></a>
+
+Represents the amount of digital storage.
+
+The amount can be specified either as a literal value (e.g: `10`) which
+cannot be negative.
+
+When the amount is passed as a token, unit conversion is not possible.
+
+
+### Methods
+
+
+#### toGibibytes(opts?)🔹 <a id="cdk8s-size-togibibytes"></a>
+
+Return this storage as a total number of gibibytes.
+
+```ts
+toGibibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### toKibibytes(opts?)🔹 <a id="cdk8s-size-tokibibytes"></a>
+
+Return this storage as a total number of kibibytes.
+
+```ts
+toKibibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### toMebibytes(opts?)🔹 <a id="cdk8s-size-tomebibytes"></a>
+
+Return this storage as a total number of mebibytes.
+
+```ts
+toMebibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### toPebibytes(opts?)🔹 <a id="cdk8s-size-topebibytes"></a>
+
+Return this storage as a total number of pebibytes.
+
+```ts
+toPebibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### toTebibytes(opts?)🔹 <a id="cdk8s-size-totebibytes"></a>
+
+Return this storage as a total number of tebibytes.
+
+```ts
+toTebibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### *static* gibibytes(amount)🔹 <a id="cdk8s-size-gibibytes"></a>
+
+Create a Storage representing an amount gibibytes.
+
+1 GiB = 1024 MiB
+
+```ts
+static gibibytes(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+#### *static* kibibytes(amount)🔹 <a id="cdk8s-size-kibibytes"></a>
+
+Create a Storage representing an amount kibibytes.
+
+1 KiB = 1024 bytes
+
+```ts
+static kibibytes(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+#### *static* mebibytes(amount)🔹 <a id="cdk8s-size-mebibytes"></a>
+
+Create a Storage representing an amount mebibytes.
+
+1 MiB = 1024 KiB
+
+```ts
+static mebibytes(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+#### *static* pebibyte(amount)🔹 <a id="cdk8s-size-pebibyte"></a>
+
+Create a Storage representing an amount pebibytes.
+
+1 PiB = 1024 TiB
+
+```ts
+static pebibyte(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+#### *static* tebibytes(amount)🔹 <a id="cdk8s-size-tebibytes"></a>
+
+Create a Storage representing an amount tebibytes.
+
+1 TiB = 1024 GiB
+
+```ts
+static tebibytes(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+
+
 ## class Testing 🔹 <a id="cdk8s-testing"></a>
 
 Testing utilities for cdk8s applications.
@@ -1016,5 +1384,42 @@ Name | Type | Description
 -----|------|-------------
 **url**🔹 | <code>string</code> | Local file path or URL which includes a Kubernetes YAML manifest.
 
+
+
+## struct SizeConversionOptions 🔹 <a id="cdk8s-sizeconversionoptions"></a>
+
+
+Options for how to convert time to a different unit.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**rounding**?🔹 | <code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code> | How conversions should behave when it encounters a non-integer result.<br/>__*Default*__: SizeRoundingBehavior.FAIL
+
+
+
+## struct TimeConversionOptions 🔹 <a id="cdk8s-timeconversionoptions"></a>
+
+
+Options for how to convert time to a different unit.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**integral**?🔹 | <code>boolean</code> | If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer.<br/>__*Default*__: true
+
+
+
+## enum SizeRoundingBehavior 🔹 <a id="cdk8s-sizeroundingbehavior"></a>
+
+Rounding behaviour when converting between units of `Size`.
+
+Name | Description
+-----|-----
+**FAIL** 🔹|Fail the conversion if the result is not an integer.
+**FLOOR** 🔹|If the result is not an integer, round it to the closest integer less than the result.
+**NONE** 🔹|Don't round.
 
 

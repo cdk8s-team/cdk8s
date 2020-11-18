@@ -5,7 +5,7 @@ identity. They can also be used for externalizing endpoints to clients outside
 of the kubernetes cluster.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus.md#cdk8s-plus-service)
+    [API Reference](../reference/cdk8s-plus-17.md#cdk8s-plus-17-service)
 
 ## Selectors
 
@@ -14,7 +14,7 @@ The most common selector method is using labels.
 
 ```typescript
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus';
+import * as kplus from 'cdk8s-plus-17';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -30,7 +30,7 @@ Ports that the service will listen and redirect to can be configured like so:
 
 ```typescript
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus';
+import * as kplus from 'cdk8s-plus-17';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');

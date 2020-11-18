@@ -143,7 +143,7 @@ At this point, if you will see something like this:
     import org.cdk8s.Chart;
     import org.cdk8s.ChartOptions;
 
-    public class Main extends Chart 
+    public class Main extends Chart
     {
 
         public Main(final Construct scope, final String id) {
@@ -194,7 +194,7 @@ source files to your project that include constructs that represent the
 Kubernetes API.
 
 !!! info
-    When [`cdk8s init`](../cli/init.md) created your project it already executed
+    When [`cdk8s init`](./cli/init.md) created your project it already executed
     `cdk8s import` for you, so you should see an imports directory already there.
     You can either commit this directory to source-control or generate it as part
     of your build process.
@@ -328,7 +328,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     import imports.k8s.KubeDeployment;
     import imports.k8s.KubeDeploymentOptions;
 
-    public class Main extends Chart 
+    public class Main extends Chart
     {
 
         public Main(final Construct scope, final String id) {
@@ -500,7 +500,7 @@ For example, this one line will add a hello world service to our chart:
 
 === "Python"
     ```python
-    WebService(self, 'hello', 
+    WebService(self, 'hello',
             image='paulbouwer/hello-kubernetes:1.7')
     ```
 

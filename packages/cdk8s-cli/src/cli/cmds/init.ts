@@ -44,11 +44,11 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     const ret = {
       npm_cdk8s: path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
       npm_cdk8s_cli: path.resolve(dist, 'js', `cdk8s-cli-v${version}.tgz`), // yarn pack adds a "v" before the version
-      npm_cdk8s_plus: path.resolve(dist, 'js', `cdk8s-plus@${version}.jsii.tgz`),
+      npm_cdk8s_plus: path.resolve(dist, 'js', `cdk8s-plus-17@${version}.jsii.tgz`),
       pypi_cdk8s: path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`),
-      pypi_cdk8s_plus: path.resolve(dist, 'python', `cdk8s_plus-${version.replace(/-/g, '_')}-py3-none-any.whl`),
+      pypi_cdk8s_plus: path.resolve(dist, 'python', `cdk8s_plus_17-${version.replace(/-/g, '_')}-py3-none-any.whl`),
       mvn_cdk8s: path.resolve(dist, 'java', `org/cdk8s/cdk8s/${version}/cdk8s-${version}.jar`),
-      mvn_cdk8s_plus: path.resolve(dist, 'java', `org/cdk8s/cdk8s-plus/${version}/cdk8s-plus-${version}.jar`),
+      mvn_cdk8s_plus: path.resolve(dist, 'java', `org/cdk8s/cdk8s-plus-17/${version}/cdk8s-plus-17-${version}.jar`),
     };
 
     for (const file of Object.values(ret)) {
@@ -81,9 +81,9 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
   return {
     npm_cdk8s: `cdk8s@${ver}`,
     npm_cdk8s_cli: `cdk8s-cli@${ver}`,
-    npm_cdk8s_plus: `cdk8s-plus@${ver}`,
+    npm_cdk8s_plus: `cdk8s-plus-17@${ver}`,
     pypi_cdk8s: `cdk8s~=${version}`, // no support for pre-release
-    pypi_cdk8s_plus: `cdk8s-plus~=${version}`,
+    pypi_cdk8s_plus: `cdk8s-plus-17~=${version}`,
     mvn_cdk8s: version,
     mvn_cdk8s_plus: version,
     cdk8s_version: version,
