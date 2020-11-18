@@ -1,5 +1,6 @@
 {
   "skip": { "tag": true },
+  "prerelease": "beta",
   "packageFiles": [ {  "filename": "lerna.json",  "type": "json" } ],
   "bumpFiles": [ { "filename": "lerna.json", "type": "json" }  ]
 }

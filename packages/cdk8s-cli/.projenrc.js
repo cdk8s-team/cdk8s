@@ -14,6 +14,7 @@ const project = new TypeScriptLibraryProject({
     `constructs@${common.versions.constructs}`,
     'fs-extra',
     'jsii-srcmak',
+    'jsii-pacmak',
     'sscaff',
     'yaml',
     'yargs',
