@@ -252,7 +252,7 @@ export class Pod extends Resource implements IPodSpec {
   constructor(scope: Construct, id: string, props: PodProps = {}) {
     super(scope, id, { metadata: props.metadata });
 
-    this.apiObject = new k8s.KubePod(this, 'Pod', {
+    this.apiObject = new k8s.KubePod(this, 'Resource', {
       metadata: props.metadata,
       spec: Lazy.any({ produce: () => this._spec._toPodSpec() }),
     });

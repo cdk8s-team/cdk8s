@@ -62,7 +62,7 @@ export class Secret extends Resource implements ISecret {
 
     this.stringData = props.stringData ?? {};
 
-    this.apiObject = new k8s.KubeSecret(this, 'Secret', {
+    this.apiObject = new k8s.KubeSecret(this, 'Resource', {
       metadata: props.metadata,
       stringData: this.stringData,
     });

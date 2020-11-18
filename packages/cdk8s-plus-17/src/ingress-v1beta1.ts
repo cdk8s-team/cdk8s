@@ -48,7 +48,7 @@ export class IngressV1Beta1 extends Resource {
   constructor(scope: Construct, id: string, props: IngressV1Beta1Props = {}) {
     super(scope, id, { metadata: props.metadata });
 
-    this.apiObject = new k8s.KubeIngressV1Beta1(this, 'Ingress', {
+    this.apiObject = new k8s.KubeIngressV1Beta1(this, 'Resource', {
       metadata: props.metadata,
       spec: {
         backend: Lazy.any({ produce: () => this._defaultBackend?._toKube() }),

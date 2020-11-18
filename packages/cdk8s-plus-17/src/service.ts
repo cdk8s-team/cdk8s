@@ -131,7 +131,7 @@ export class Service extends Resource {
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
     super(scope, id, { metadata: props.metadata });
 
-    this.apiObject = new k8s.KubeService(this, 'Pod', {
+    this.apiObject = new k8s.KubeService(this, 'Resource', {
       metadata: props.metadata,
       spec: cdk8s.Lazy.any({ produce: () => this._toKube() }),
     });
