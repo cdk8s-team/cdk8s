@@ -8,7 +8,7 @@ import * as yargs from 'yargs';
 const pkgroot = path.join(__dirname, '..', '..', '..');
 
 const pkg = fs.readJsonSync(path.join(pkgroot, 'package.json'));
-const constructsVersion = pkg.dependencies.constructs;
+const constructsVersion = pkg.dependencies.constructs.replace('^', '');
 
 const templatesDir = path.join(pkgroot, 'templates');
 const availableTemplates = fs.readdirSync(templatesDir).filter(x => !x.startsWith('.'));
