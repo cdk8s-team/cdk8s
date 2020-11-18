@@ -13,9 +13,8 @@ jobs:
       - name: installing dependencies
         run: tools/install-workflow-deps.sh
 
-      # we use a "-pre" version to ensure that our tests can run against a pre-release
       - name: set version
-        run: tools/align-version.sh "-pre.$(date +%s)"
+        run: tools/align-version.sh
 
       - name: compile
         run: yarn build
