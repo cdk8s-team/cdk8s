@@ -16,7 +16,7 @@ exposing richer API's with reduced complexity.
 ## At a glance
 
 ```typescript
-import * as kplus from 'cdk8s-plus';
+import * as kplus from 'cdk8s-plus-17';
 import * as cdk8s from 'cdk8s';
 import * as path from 'path';
 
@@ -134,10 +134,10 @@ app.synth();
 
 === "TypeScript/JavaScript"
 
-    `❯ npm install cdk8s-plus cdk8s`
+    `❯ npm install cdk8s-plus-17 cdk8s`
 
     ```typescript
-    import * as kplus from 'cdk8s-plus';
+    import * as kplus from 'cdk8s-plus-17';
     import * as cdk8s from 'cdk8s';
 
     const app = new cdk8s.App();
@@ -153,7 +153,7 @@ app.synth();
 
 === "Python"
 
-    `❯ pip install cdk8s-plus cdk8s`
+    `❯ pip install cdk8s-plus-17 cdk8s`
 
     ```python
     import cdk8s_plus as kplus

@@ -10,7 +10,7 @@ You may need to use an escape hatch in the following cases:
 
 1. You are using an imported API object (e.g. `KubeDeployment`) and there is an
    issue with the schema or a bug in "import" which results in an invalid
-   manifest or missing fields (as an example see 
+   manifest or missing fields (as an example see
    [issue #140](https://github.com/awslabs/cdk8s/issues/140)).
 2. You are using a high-level API (e.g. CDK8s+) which does not expose some
    functionality which exists in the lower-level resources.
@@ -51,7 +51,7 @@ To do that, you will need to "peak" into the construct tree and find the underly
 API object, so you can apply the patch to it:
 
 ```ts
-import { Pod } from 'cdk8s-plus';
+import { Pod } from 'cdk8s-plus-17';
 import { ApiObject } from 'cdk8s';
 
 const pod = new Pod(...);
