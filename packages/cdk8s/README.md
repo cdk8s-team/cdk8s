@@ -4,9 +4,7 @@
 
 <br>
 
-> ![Developer Preview](https://img.shields.io/badge/developer--preview-informational.svg?style=for-the-badge)
->
-> This module is in developer preview. This means we are planning for an upcoming GA, and will only make breaking changes to address unforeseen issues.
+> ![Beta](https://img.shields.io/badge/beta-informational.svg?style=for-the-badge)
 
 **cdk8s** is a software development framework for defining Kubernetes
 applications using rich object-oriented APIs. It allows developers to leverage
