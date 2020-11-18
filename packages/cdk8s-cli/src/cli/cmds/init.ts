@@ -50,13 +50,13 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
 
   if (dist) {
     const ret = {
-      npm_cdk8s: path.resolve(dist, 'js',           cdk8s.npmTarballFile),
-      npm_cdk8s_cli: path.resolve(dist, 'js',       cdk8sCli.npmTarballFile),
-      npm_cdk8s_plus: path.resolve(dist, 'js',      cdk8sPlus17.npmTarballFile),
-      pypi_cdk8s: path.resolve(dist, 'python',      cdk8s.pypiWheelFile),
+      npm_cdk8s: path.resolve(dist, 'js', cdk8s.npmTarballFile),
+      npm_cdk8s_cli: path.resolve(dist, 'js', cdk8sCli.npmTarballFile),
+      npm_cdk8s_plus: path.resolve(dist, 'js', cdk8sPlus17.npmTarballFile),
+      pypi_cdk8s: path.resolve(dist, 'python', cdk8s.pypiWheelFile),
       pypi_cdk8s_plus: path.resolve(dist, 'python', cdk8sPlus17.pypiWheelFile),
-      mvn_cdk8s: path.resolve(dist, 'java',         cdk8s.javaJarFile),
-      mvn_cdk8s_plus: path.resolve(dist, 'java',    cdk8sPlus17.javaJarFile),
+      mvn_cdk8s: path.resolve(dist, 'java', cdk8s.javaJarFile),
+      mvn_cdk8s_plus: path.resolve(dist, 'java', cdk8sPlus17.javaJarFile),
     };
 
     for (const file of Object.values(ret)) {
@@ -126,10 +126,10 @@ class ModuleVersion {
       return `${this.moduleName}-v${this.version}.tgz`;
     }
   }
-  
+
   public get pypiWheelFile() {
-    const [major,minor,patch,pre] = this.pypiVersion.split('.');
-    return `${this.moduleName.replace(/-/g, '_')}-${major}.${minor}.${patch}${pre ?? ''}-py3-none-any.whl`
+    const [major, minor, patch, pre] = this.pypiVersion.split('.');
+    return `${this.moduleName.replace(/-/g, '_')}-${major}.${minor}.${patch}${pre ?? ''}-py3-none-any.whl`;
   }
 
   public get javaJarFile() {
