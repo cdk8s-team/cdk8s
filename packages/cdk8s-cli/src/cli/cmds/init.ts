@@ -112,7 +112,7 @@ class ModuleVersion {
 
   private readonly jsii: boolean;
 
-  constructor(private readonly module: string, private readonly version: string, options: { jsii?: boolean } = { }) {
+  constructor(private readonly moduleName: string, private readonly version: string, options: { jsii?: boolean } = { }) {
     this.npmVersion = version;
     this.pypiVersion = pacmakv.toReleaseVersion(this.version, pacmak.TargetName.PYTHON);
     this.mavenVersion = pacmakv.toReleaseVersion(version, pacmak.TargetName.JAVA);
@@ -121,27 +121,27 @@ class ModuleVersion {
 
   public get npmTarballFile() {
     if (this.jsii) {
-      return `${this.module}@${this.version}.jsii.tgz`;
+      return `${this.moduleName}@${this.version}.jsii.tgz`;
     } else {
-      return `${this.module}-v${this.version}.tgz`;
+      return `${this.moduleName}-v${this.version}.tgz`;
     }
   }
   
   public get pypiWheelFile() {
     const [major,minor,patch,pre] = this.pypiVersion.split('.');
-    return `${this.module.replace(/-/g, '_')}-${major}.${minor}.${patch}${pre ?? ''}-py3-none-any.whl`
+    return `${this.moduleName.replace(/-/g, '_')}-${major}.${minor}.${patch}${pre ?? ''}-py3-none-any.whl`
   }
 
   public get javaJarFile() {
-    return `org/cdk8s/${module}/${this.mavenVersion}/${module}-${this.mavenVersion}.jar`;
+    return `org/cdk8s/${this.moduleName}/${this.mavenVersion}/${this.moduleName}-${this.mavenVersion}.jar`;
   }
 
   public get npmDependency() {
-    return `${this.module}@^${this.npmVersion}`;
+    return `${this.moduleName}@^${this.npmVersion}`;
   }
 
   public get pypiDependency() {
-    return `${this.module}~=${this.pypiVersion}`;
+    return `${this.moduleName}~=${this.pypiVersion}`;
   }
 
   public get mavenDependency() {
