@@ -1,5 +1,16 @@
-import { Testing } from 'cdk8s';
+import { Testing, ApiObject } from 'cdk8s';
+import { Node } from 'constructs';
 import * as kplus from '../src';
+
+test('defaultChild', () => {
+
+  const chart = Testing.chart();
+
+  const defaultChild = Node.of(new kplus.Pod(chart, 'Pod')).defaultChild as ApiObject;
+
+  expect(defaultChild.kind).toEqual('Pod');
+
+});
 
 test('Can add container post instantiation', () => {
 

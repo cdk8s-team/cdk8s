@@ -1,5 +1,16 @@
-import { Testing } from 'cdk8s';
+import { Testing, ApiObject } from 'cdk8s';
+import { Node } from 'constructs';
 import * as kplus from '../src';
+
+test('defaultChild', () => {
+
+  const chart = Testing.chart();
+
+  const defaultChild = Node.of(new kplus.Service(chart, 'Service')).defaultChild as ApiObject;
+
+  expect(defaultChild.kind).toEqual('Service');
+
+});
 
 test('Must be configured with at least one port', () => {
 

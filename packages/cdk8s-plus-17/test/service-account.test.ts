@@ -1,5 +1,15 @@
-import { Testing } from 'cdk8s';
+import { Testing, ApiObject } from 'cdk8s';
+import { Node } from 'constructs';
 import * as kplus from '../src';
+
+test('defaultChild', () => {
+  const chart = Testing.chart();
+
+  const defaultChild = Node.of(new kplus.ServiceAccount(chart, 'ServiceAccount')).defaultChild as ApiObject;
+
+  expect(defaultChild.kind).toEqual('ServiceAccount');
+
+});
 
 test('minimal definition', () => {
   // GIVEN
@@ -15,7 +25,7 @@ test('minimal definition', () => {
         "apiVersion": "v1",
         "kind": "ServiceAccount",
         "metadata": Object {
-          "name": "test-my-service-account-resource-a5be5a3b",
+          "name": "test-my-service-account-a5be5a3b",
         },
       },
     ]
