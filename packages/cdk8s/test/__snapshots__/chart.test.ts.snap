@@ -8,35 +8,35 @@ Array [
     "apiVersion": "v1",
     "kind": "Resource1",
     "metadata": Object {
-      "name": "test-resource1-2b59e3b8",
+      "name": "test-resource1-c85cb0fc",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Resource2",
     "metadata": Object {
-      "name": "test-resource2-22077398",
+      "name": "test-resource2-c8c6bd27",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Resource3",
     "metadata": Object {
-      "name": "test-resource3-365bba40",
+      "name": "test-resource3-c8ccc739",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Resource1",
     "metadata": Object {
-      "name": "test-scope-resource1-3d54e80a",
+      "name": "test-scope-resource1-c84ac5c2",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Resource2",
     "metadata": Object {
-      "name": "test-scope-resource2-e1b938d2",
+      "name": "test-scope-resource2-c889750d",
     },
   },
 ]
@@ -48,14 +48,14 @@ Array [
     "apiVersion": "v1",
     "kind": "Kind1",
     "metadata": Object {
-      "name": "chart-obj1-f2e469b6",
+      "name": "chart-obj1-c80aa35c",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "Kind2",
     "metadata": Object {
-      "name": "chart-obj2-e10626fd",
+      "name": "chart-obj2-c8016fab",
     },
   },
 ]
@@ -67,7 +67,7 @@ Array [
     "apiVersion": "v1",
     "kind": "Resource1",
     "metadata": Object {
-      "name": "test-resource1-2b59e3b8",
+      "name": "test-resource1-c85cb0fc",
     },
     "spec": Object {
       "foo": 123,

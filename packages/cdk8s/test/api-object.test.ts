@@ -180,14 +180,14 @@ test('default namespace can be defined at the chart level', () => {
     kind:
     'Kind1',
     metadata: {
-      name: 'chart-group1-obj1-b4b7a9d0',
+      name: 'chart-group1-obj1-c885aeec',
       namespace: 'ns1',
     },
   }, {
     apiVersion: 'v2',
     kind: 'Kind2',
     metadata: {
-      name: 'chart-group1-obj2-3cdc9d22',
+      name: 'chart-group1-obj2-c81931d8',
       namespace: 'foobar',
     },
   }]);
@@ -228,7 +228,7 @@ test('chart labels are applied to all api objects in the chart', () => {
           bar: 'bbbbbb',
           foo: 'ffffffffff',
         },
-        name: 'my-chart-obj1-01c0df67',
+        name: 'my-chart-obj1-c880bc50',
       },
     },
     {
@@ -240,7 +240,7 @@ test('chart labels are applied to all api objects in the chart', () => {
           foo: 'override by object',
           zoo: 'zoo1',
         },
-        name: 'my-chart-group-obj2-ba1eb578',
+        name: 'my-chart-group-obj2-c824cfcd',
       },
     },
   ]);
@@ -319,7 +319,7 @@ describe('addJsonPatch()', () => {
         apiVersion: 'v1',
         kind: 'Obj',
         metadata: {
-          name: 'test-obj-822728f1',
+          name: 'test-obj-c8686f96',
         },
         spec: {
           apiVersion: 'v1',

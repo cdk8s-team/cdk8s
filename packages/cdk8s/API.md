@@ -31,6 +31,7 @@ Name|Description
 [ChartProps](#cdk8s-chartprops)|*No description*
 [HelmProps](#cdk8s-helmprops)|Options for `Helm`.
 [IncludeProps](#cdk8s-includeprops)|*No description*
+[NameOptions](#cdk8s-nameoptions)|Options for name generation.
 [SizeConversionOptions](#cdk8s-sizeconversionoptions)|Options for how to convert time to a different unit.
 [TimeConversionOptions](#cdk8s-timeconversionoptions)|Options for how to convert time to a different unit.
 
@@ -955,7 +956,7 @@ Utilities for generating unique and stable names.
 ### Methods
 
 
-#### *static* toDnsLabel(path, maxLen?)🔹 <a id="cdk8s-names-todnslabel"></a>
+#### *static* toDnsLabel(scope, options?)🔹 <a id="cdk8s-names-todnslabel"></a>
 
 Generates a unique and stable name compatible DNS_LABEL from RFC-1123 from a path.
 
@@ -975,16 +976,19 @@ Note that if the total length is longer than 63 characters, we will trim
 the first components since the last components usually encode more meaning.
 
 ```ts
-static toDnsLabel(path: string, maxLen?: number): string
+static toDnsLabel(scope: Construct, options?: NameOptions): string
 ```
 
-* **path** (<code>string</code>)  a path to a node (components separated by "/").
-* **maxLen** (<code>number</code>)  maximum allowed length for name.
+* **scope** (<code>[Construct](#constructs-construct)</code>)  The construct for which to render the DNS label.
+* **options** (<code>[NameOptions](#cdk8s-nameoptions)</code>)  Name options.
+  * **delimiter** (<code>string</code>)  Delimiter to use between components. __*Default*__: "-"
+  * **extra** (<code>Array<string></code>)  Extra components to include in the name. __*Default*__: [] use the construct path components
+  * **maxLen** (<code>number</code>)  Maximum allowed length for the name. __*Default*__: 63
 
 __Returns__:
 * <code>string</code>
 
-#### *static* toLabelValue(path, delim?, maxLen?)🔹 <a id="cdk8s-names-tolabelvalue"></a>
+#### *static* toLabelValue(scope, options?)🔹 <a id="cdk8s-names-tolabelvalue"></a>
 
 Generates a unique and stable name compatible label key name segment and label value from a path.
 
@@ -1006,12 +1010,14 @@ Note that if the total length is longer than 63 characters, we will trim
 the first components since the last components usually encode more meaning.
 
 ```ts
-static toLabelValue(path: string, delim?: string, maxLen?: number): string
+static toLabelValue(scope: Construct, options?: NameOptions): string
 ```
 
-* **path** (<code>string</code>)  a path to a node (components separated by "/").
-* **delim** (<code>string</code>)  a delimiter to separates components.
-* **maxLen** (<code>number</code>)  maximum allowed length for name.
+* **scope** (<code>[Construct](#constructs-construct)</code>)  The construct for which to render the DNS label.
+* **options** (<code>[NameOptions](#cdk8s-nameoptions)</code>)  Name options.
+  * **delimiter** (<code>string</code>)  Delimiter to use between components. __*Default*__: "-"
+  * **extra** (<code>Array<string></code>)  Extra components to include in the name. __*Default*__: [] use the construct path components
+  * **maxLen** (<code>number</code>)  Maximum allowed length for the name. __*Default*__: 63
 
 __Returns__:
 * <code>string</code>
@@ -1383,6 +1389,21 @@ __Returns__:
 Name | Type | Description 
 -----|------|-------------
 **url**🔹 | <code>string</code> | Local file path or URL which includes a Kubernetes YAML manifest.
+
+
+
+## struct NameOptions 🔹 <a id="cdk8s-nameoptions"></a>
+
+
+Options for name generation.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**delimiter**?🔹 | <code>string</code> | Delimiter to use between components.<br/>__*Default*__: "-"
+**extra**?🔹 | <code>Array<string></code> | Extra components to include in the name.<br/>__*Default*__: [] use the construct path components
+**maxLen**?🔹 | <code>number</code> | Maximum allowed length for the name.<br/>__*Default*__: 63
 
 
 

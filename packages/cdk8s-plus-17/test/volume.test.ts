@@ -16,10 +16,10 @@ describe('fromConfigMap', () => {
         "configMap": Object {
           "defaultMode": undefined,
           "items": undefined,
-          "name": "test-my-config-map-91419662",
+          "name": "test-my-config-map-c8eaefa4",
           "optional": undefined,
         },
-        "name": "configmap-test-my-config-map-91419662",
+        "name": "configmap-test-my-config-map-c8eaefa4",
       }
     `);
   });
@@ -36,9 +36,7 @@ describe('fromConfigMap', () => {
 
     // THEN
     expect(vol._toKube().name).toBe('filesystem');
-    expect(vol._toKube().configMap?.name).toBe(
-      'test-my-config-map-91419662',
-    );
+    expect(vol._toKube().configMap?.name).toBe('test-my-config-map-c8eaefa4');
   });
 
   test('default mode', () => {

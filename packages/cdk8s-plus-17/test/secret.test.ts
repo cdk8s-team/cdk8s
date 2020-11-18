@@ -1,27 +1,27 @@
-import { Testing, ApiObject } from 'cdk8s';
-import { Node } from 'constructs';
-import * as kplus from '../src';
+import { Testing, ApiObject } from "cdk8s";
+import { Node } from "constructs";
+import * as kplus from "../src";
 
-test('defaultChild', () => {
+test("defaultChild", () => {
   const chart = Testing.chart();
 
-  const defaultChild = Node.of(new kplus.Secret(chart, 'Secret')).defaultChild as ApiObject;
+  const defaultChild = Node.of(new kplus.Secret(chart, "Secret"))
+    .defaultChild as ApiObject;
 
-  expect(defaultChild.kind).toEqual('Secret');
-
+  expect(defaultChild.kind).toEqual("Secret");
 });
 
-test('Can be imported from secret name', () => {
-  const secret = kplus.Secret.fromSecretName('secret');
+test("Can be imported from secret name", () => {
+  const secret = kplus.Secret.fromSecretName("secret");
 
-  expect(secret.name).toEqual('secret');
+  expect(secret.name).toEqual("secret");
 });
 
-test('Can add data to new secrets', () => {
+test("Can add data to new secrets", () => {
   const chart = Testing.chart();
 
-  const secret = new kplus.Secret(chart, 'Secret');
-  secret.addStringData('key', 'value');
+  const secret = new kplus.Secret(chart, "Secret");
+  secret.addStringData("key", "value");
 
   expect(Testing.synth(chart)).toMatchInlineSnapshot(`
     Array [
@@ -29,7 +29,7 @@ test('Can add data to new secrets', () => {
         "apiVersion": "v1",
         "kind": "Secret",
         "metadata": Object {
-          "name": "test-secret-17f996fa",
+          "name": "test-secret-c837fa76",
         },
         "stringData": Object {
           "key": "value",

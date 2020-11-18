@@ -19,7 +19,7 @@ test('A label selector is automatically allocated', () => {
   const deployment = new kplus.Deployment(chart, 'Deployment');
   deployment.addContainer({ image: 'foobar' });
 
-  const expectedValue = 'test-Deployment-9e0110cd';
+  const expectedValue = 'test-Deployment-c83f5e59';
   const expectedSelector = { 'cdk8s.deployment': expectedValue };
 
   // assert the k8s spec has it.
@@ -94,7 +94,7 @@ test('Can be exposed as via service', () => {
 
   const spec = Testing.synth(chart)[1].spec;
   expect(spec.type).toEqual('LoadBalancer');
-  expect(spec.selector).toEqual({ 'cdk8s.deployment': 'test-Deployment-9e0110cd' });
+  expect(spec.selector).toEqual({ 'cdk8s.deployment': 'test-Deployment-c83f5e59' });
   expect(spec.ports![0].port).toEqual(9200);
   expect(spec.ports![0].targetPort).toEqual(9300);
 
@@ -149,7 +149,7 @@ test('Expose can set service and port details', () => {
   expect(srv.metadata.name).toEqual('test-srv');
   expect(spec.type).toEqual('ClusterIP');
   expect(spec.selector).toEqual({
-    'cdk8s.deployment': 'test-Deployment-9e0110cd',
+    'cdk8s.deployment': 'test-Deployment-c83f5e59',
   });
   expect(spec.ports![0].port).toEqual(9200);
   expect(spec.ports![0].targetPort).toEqual(9500);

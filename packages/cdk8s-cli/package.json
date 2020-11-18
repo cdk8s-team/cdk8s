@@ -53,7 +53,7 @@
     "@types/node": "^10.17.0",
     "cdk8s": "0.0.0",
     "codemaker": "^1.14.1",
-    "constructs": "3.0.4",
+    "constructs": "3.2.34",
     "fs-extra": "^8.1.0",
     "jsii-pacmak": "^1.14.1",
     "jsii-srcmak": "^0.1.36",
