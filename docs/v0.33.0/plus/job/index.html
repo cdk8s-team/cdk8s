@@ -674,8 +674,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/cdk8s-plus/" class="md-nav__link">
-      cdk8s-plus
+    <a href="../../reference/cdk8s-plus-17/" class="md-nav__link">
+      cdk8s-plus-17
     </a>
   </li>
 
@@ -920,12 +920,12 @@ They can be used for add-hoc provisioning tasks, as well as long running process
 <p>In configuration, they don&rsquo;t differ much from regular pods, but offer some
 additional properties.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus/#cdk8s-plus-job">API Reference</a></p>
+<p><a href="../../reference/cdk8s-plus-17/#cdk8s-plus-17-job">API Reference</a></p>
 </div>
 <h2 id="delete-a-job-after-its-finished">Delete a Job after its finished<a class="headerlink" href="#delete-a-job-after-its-finished" title="Permanent link">&para;</a></h2>
 <p>You can configure a TTL for the job after it finished its execution successfully.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">k</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="kr">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>

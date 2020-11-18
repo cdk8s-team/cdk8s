@@ -645,8 +645,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/cdk8s-plus/" class="md-nav__link">
-      cdk8s-plus
+    <a href="../../reference/cdk8s-plus-17/" class="md-nav__link">
+      cdk8s-plus-17
     </a>
   </li>
 
@@ -875,7 +875,7 @@
 HTTP. Ingress may provide load balancing, SSL termination and name-based virtual
 hosting.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus/#cdk8s-plus-ingress">API Reference</a></p>
+<p><a href="../../reference/cdk8s-plus-17/#cdk8s-plus-17-ingressv1beta1">API Reference</a></p>
 </div>
 <p>You must have an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers">Ingress controller</a> to satisfy an Ingress. Only creating an
 Ingress resource has no effect.</p>
@@ -893,8 +893,8 @@ to a service associated with a deployment of the
 
 <span class="kr">const</span> <span class="nx">helloService</span> <span class="o">=</span> <span class="nx">helloDeployment</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="mi">5678</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">ingress</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ingress</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
-<span class="nx">ingress</span><span class="p">.</span><span class="nx">addRule</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">,</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">IngressBackend</span><span class="p">.</span><span class="nx">fromService</span><span class="p">(</span><span class="nx">helloService</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">ingress</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IngressV1Beta1</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
+<span class="nx">ingress</span><span class="p">.</span><span class="nx">addRule</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">,</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">IngressV1Beta1Backend</span><span class="p">.</span><span class="nx">fromService</span><span class="p">(</span><span class="nx">helloService</span><span class="p">));</span>
 </code></pre></div>
 <p>You can use <code>addHostRule(host, path, backend)</code> to define a route that will only
 apply to requests with this <code>Host</code> header. This can be used to implement virtual

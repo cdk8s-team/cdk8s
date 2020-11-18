@@ -681,8 +681,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/cdk8s-plus/" class="md-nav__link">
-      cdk8s-plus
+    <a href="../../reference/cdk8s-plus-17/" class="md-nav__link">
+      cdk8s-plus-17
     </a>
   </li>
 
@@ -937,7 +937,7 @@ synthesized output when the abstraction they use does not &ldquo;hold water&rdqu
 <ol>
 <li>You are using an imported API object (e.g. <code>KubeDeployment</code>) and there is an
    issue with the schema or a bug in &ldquo;import&rdquo; which results in an invalid
-   manifest or missing fields (as an example see 
+   manifest or missing fields (as an example see
    <a href="https://github.com/awslabs/cdk8s/issues/140">issue #140</a>).</li>
 <li>You are using a high-level API (e.g. CDK8s+) which does not expose some
    functionality which exists in the lower-level resources.</li>
@@ -965,7 +965,7 @@ the CDK8s+ <code>Pod</code> API, so you&rsquo;ll want to patch the underlying <c
 this value.</p>
 <p>To do that, you will need to &ldquo;peak&rdquo; into the construct tree and find the underlying
 API object, so you can apply the patch to it:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Pod</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Pod</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">ApiObject</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pod</span><span class="p">(...);</span>

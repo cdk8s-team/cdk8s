@@ -486,6 +486,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    Naming conventions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spec-compatibility" class="md-nav__link">
+    Spec Compatibility
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#at-a-glance" class="md-nav__link">
     At a glance
   </a>
@@ -681,8 +695,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../reference/cdk8s-plus/" class="md-nav__link">
-      cdk8s-plus
+    <a href="../reference/cdk8s-plus-17/" class="md-nav__link">
+      cdk8s-plus-17
     </a>
   </li>
 
@@ -898,6 +912,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    Naming conventions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spec-compatibility" class="md-nav__link">
+    Spec Compatibility
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#at-a-glance" class="md-nav__link">
     At a glance
   </a>
@@ -934,16 +962,22 @@ applications.</p>
 <p>Built on top of the auto-generated building blocks provided by CDK8s, this
 library includes a hand crafted <em>construct</em> for each native kubernetes object,
 exposing richer API&rsquo;s with reduced complexity.</p>
+<p><strong>cdk8s+</strong> is vended as a separate library for each kubernetes spec version. The documentation presented here represents version <a href="https://github.com/kubernetes/kubernetes/tree/v1.17.0/api/openapi-spec">1.17.0</a>
+and is vended as the <code>cdk8s-plus-17</code> library.</p>
+<h3 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Stable resources are represented by a <em>construct</em> of the same name <strong>base</strong> name. For example, the <code>io.k8s.api.core.v1.Pod</code> resource maps to the <code>Pod</code> <em>construct</em>.</li>
+<li>Non stable resources are suffixed with their semantic version. For example, the <code>io.k8s.api.networking.v1beta1.Ingress</code> maps to the <code>IngressV1Beta1</code> <em>construct</em>.</li>
+</ul>
+<h3 id="spec-compatibility">Spec Compatibility<a class="headerlink" href="#spec-compatibility" title="Permanent link">&para;</a></h3>
+<p>Per kubernetes <a href="https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning">compatibility guarantees</a>, <strong>stable</strong> resources in this library are compatible with
+any spec version higher or equal to <code>1.17.0</code>. <strong>Non-stable</strong> resources are not guaranteed to be compatible, as they may be removed in future spec versions.</p>
 <div class="admonition notice">
 <p class="admonition-title">Notice</p>
-<p><strong>cdk8s+</strong> is currently built on top of version <a href="https://github.com/instrumenta/kubernetes-json-schema/tree/master/v1.17.0">1.17.0</a> of the kubernetes API specifications.
-If you are deploying manifests produced by <code>cdk8s+</code> onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.</p>
-<blockquote>
-<p>See <a href="https://github.com/awslabs/cdk8s/issues/299">Supporting various k8s API specs</a> for more details and progress on this issue.</p>
-</blockquote>
+<p>If you are deploying manifests produced by <code>cdk8s-plus-17</code> onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.</p>
 </div>
 <h2 id="at-a-glance">At a glance<a class="headerlink" href="#at-a-glance" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">path</span> <span class="nx">from</span> <span class="s1">&#39;path&#39;</span><span class="p">;</span>
 
@@ -1056,8 +1090,8 @@ If you are deploying manifests produced by <code>cdk8s+</code> onto clusters of 
 </details>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">TypeScript/JavaScript</label><div class="tabbed-content">
-<p><code>❯ npm install cdk8s-plus cdk8s</code></p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus&#39;</span><span class="p">;</span>
+<p><code>❯ npm install cdk8s-plus-17 cdk8s</code></p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
@@ -1072,8 +1106,8 @@ If you are deploying manifests produced by <code>cdk8s+</code> onto clusters of 
 </code></pre></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Python</label><div class="tabbed-content">
-<p><code>❯ pip install cdk8s-plus cdk8s</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus</span> <span class="k">as</span> <span class="nn">kplus</span>
+<p><code>❯ pip install cdk8s-plus-17 cdk8s</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_17</span> <span class="k">as</span> <span class="nn">kplus</span>
 <span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">cdk8s</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>

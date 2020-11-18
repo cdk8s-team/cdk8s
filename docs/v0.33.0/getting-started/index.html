@@ -707,8 +707,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../reference/cdk8s-plus/" class="md-nav__link">
-      cdk8s-plus
+    <a href="../reference/cdk8s-plus-17/" class="md-nav__link">
+      cdk8s-plus-17
     </a>
   </li>
 
@@ -1113,7 +1113,7 @@ background like this:</p>
 <span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.cdk8s.ChartOptions</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="n">Chart</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="n">Chart</span>
 <span class="p">{</span>
 
     <span class="kd">public</span> <span class="nf">Main</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
@@ -1157,7 +1157,7 @@ source files to your project that include constructs that represent the
 Kubernetes API.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>When <a href="../cli/init.md"><code>cdk8s init</code></a> created your project it already executed
+<p>When <a href="../cli/init/"><code>cdk8s init</code></a> created your project it already executed
 <code>cdk8s import</code> for you, so you should see an imports directory already there.
 You can either commit this directory to source-control or generate it as part
 of your build process.</p>
@@ -1286,7 +1286,7 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 <span class="kn">import</span> <span class="nn">imports.k8s.KubeDeployment</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">imports.k8s.KubeDeploymentOptions</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="n">Chart</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="n">Chart</span>
 <span class="p">{</span>
 
     <span class="kd">public</span> <span class="nf">Main</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
@@ -1443,7 +1443,7 @@ replicas: 10
 });</p>
 </div>
 <input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Python</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="n">WebService</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">WebService</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
         <span class="n">image</span><span class="o">=</span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>It can also be customized through an API:</p>
