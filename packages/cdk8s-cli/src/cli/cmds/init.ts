@@ -44,9 +44,9 @@ class Command implements yargs.CommandModule {
 }
 
 async function determineDeps(version: string, dist?: string): Promise<Deps> {
-  const cdk8s = new ModuleVersion('cdk8s', version);
-  const cdk8sPlus17 = new ModuleVersion('cdk8s-plus-18', version);
-  const cdk8sCli = new ModuleVersion('cdk8s-cli', version, { yarnTarball: true }); // CLI is packaged by yarn while libraries are packaged by pacmak
+  const cdk8s = new ModuleVersion('cdk8s', version, { jsii: true });
+  const cdk8sPlus17 = new ModuleVersion('cdk8s-plus-18', version, { jsii: true });
+  const cdk8sCli = new ModuleVersion('cdk8s-cli', version);
 
   if (dist) {
     const ret = {
@@ -110,18 +110,21 @@ class ModuleVersion {
   public readonly npmVersion: string;
   public readonly mavenVersion: string;
 
-  private readonly yarnTarball: boolean;
+  private readonly jsii: boolean;
 
-  constructor(private readonly module: string, private readonly version: string, options: { yarnTarball?: boolean } = { }) {
+  constructor(private readonly module: string, private readonly version: string, options: { jsii?: boolean } = { }) {
     this.npmVersion = version;
     this.pypiVersion = pacmakv.toReleaseVersion(this.version, pacmak.TargetName.PYTHON);
     this.mavenVersion = pacmakv.toReleaseVersion(version, pacmak.TargetName.JAVA);
-    this.yarnTarball = options.yarnTarball ?? false;
+    this.jsii = options.jsii ?? false;
   }
 
   public get npmTarballFile() {
-    const prefix = this.yarnTarball ? 'v' : '';
-    return `${this.module}-${prefix}${this.version}.tgz`;
+    if (this.jsii) {
+      return `${this.module}@${this.version}.jsii.tgz`;
+    } else {
+      return `${this.module}-v${this.version}.tgz`;
+    }
   }
   
   public get pypiWheelFile() {
