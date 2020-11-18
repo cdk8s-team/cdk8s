@@ -12,8 +12,8 @@ and is vended as the `cdk8s-plus-17` library.
 
 ### Naming conventions
 
-- Stable resources are represented by a *construct* of the same name **base** name. For example, the `io.k8s.api.core.v1.Pod` resource maps to the `Pod` *construct*.
-- Non stable resources are suffixed with their semantic version. For example, the `io.k8s.api.networking.v1beta1.Ingress` maps to the `IngressV1Beta1` *construct*.
+- Stable resources are represented by a *construct* of the same *kind*. For example, the `io.k8s.api.core.v1.Pod` resource maps to the `Pod` *construct*.
+- Non stable resources are suffixed with their *api version*. For example, the `io.k8s.api.networking.v1beta1.Ingress` maps to the `IngressV1Beta1` *construct*.
 
 ### Spec Compatibility
 
@@ -178,5 +178,4 @@ app.synth();
       containers=[kplus.Container(image='ubuntu')]
     )
     ```
-
 
