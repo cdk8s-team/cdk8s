@@ -199,6 +199,5 @@
       "outDir": "lib",
       "rootDir": "src"
     }
-  },
-  "maturity": "developer-preview"
+  }
 }

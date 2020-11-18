@@ -156,6 +156,5 @@
       }
     }
   },
-  "types": "lib/index.d.ts",
-  "maturity": "developer-preview"
+  "types": "lib/index.d.ts"
 }
