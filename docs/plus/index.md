@@ -7,12 +7,22 @@ Built on top of the auto-generated building blocks provided by CDK8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 
-!!! notice
-    **cdk8s+** is vended as a separate library for each kubernetes spec version. The documentation presented here represents version [1.17.0](https://github.com/kubernetes/kubernetes/tree/v1.17.0/api/openapi-spec)
-    and is vended as the `cdk8s-plus-17` library. Per kubernetes [compatibility guarantees](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning), this library is compatible with
-    any spec version higher or equal to `1.17.0`.
+**cdk8s+** is vended as a separate library for each kubernetes spec version. The documentation presented here represents version [1.17.0](https://github.com/kubernetes/kubernetes/tree/v1.17.0/api/openapi-spec)
+and is vended as the `cdk8s-plus-17` library.
 
-    > If you are deploying manifests produced by `cdk8s-plus-17` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
+### Naming conventions
+
+- Stable resources are represented by a *construct* of the same name **base** name. For example, the `io.k8s.api.core.v1.Pod` resource maps to the `Pod` *construct*.
+- Non stable resources are suffixed with their semantic version. For example, the `io.k8s.api.networking.v1beta1.Ingress` maps to the `IngressV1Beta1` *construct*.
+
+### Spec Compatibility
+
+Per kubernetes [compatibility guarantees](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning), **stable** resources in this library are compatible with
+any spec version higher or equal to `1.17.0`. **Non-stable** resources are not guaranteed to be compatible, as they may be removed in future spec version.
+
+!!! notice
+
+    If you are deploying manifests produced by `cdk8s-plus-17` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
 
 ## At a glance
 
@@ -157,7 +167,7 @@ app.synth();
     `❯ pip install cdk8s-plus-17 cdk8s`
 
     ```python
-    import cdk8s_plus as kplus
+    import cdk8s_plus_17 as kplus
     import cdk8s
 
     app = cdk8s.App()
