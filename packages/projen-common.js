@@ -32,6 +32,8 @@ exports.fixup = project => {
   // // add "compile" after test because the test command deletes lib/ and we run tests *after* build in this repo.
   project.addTestCommand('yarn compile');
 
+  project.gitignore.include('.projen.subproject.js');
+
   // jsii-release is declared at the root level, we don't need it here.
   delete project.devDependencies['jsii-release']
 

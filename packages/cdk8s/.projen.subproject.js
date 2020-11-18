@@ -49,4 +49,4 @@ common.fixup(project);
 project.gitignore.include('/src/_loadurl.js');
 project.addCompileCommand('cp src/_loadurl.js lib/');
 
-project.synth();
+module.exports = project;

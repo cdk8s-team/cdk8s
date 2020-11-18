@@ -51,4 +51,5 @@ tsconfig.json
 !/tsconfig.jest.json
 !/.eslintrc.json
 !/API.md
+!.projen.subproject.js
 !/src/_loadurl.js

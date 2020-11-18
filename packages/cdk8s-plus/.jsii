@@ -1,0 +1,6150 @@
+{
+  "author": {
+    "name": "Amazon Web Services",
+    "organization": true,
+    "roles": [
+      "author"
+    ],
+    "url": "https://aws.amazon.com"
+  },
+  "bundled": {
+    "minimatch": "^3.0.4"
+  },
+  "dependencies": {
+    "cdk8s": "^0.0.0",
+    "constructs": "^3.0.4"
+  },
+  "dependencyClosure": {
+    "cdk8s": {
+      "targets": {
+        "dotnet": {
+          "namespace": "Org.Cdk8s",
+          "packageId": "Org.Cdk8s"
+        },
+        "java": {
+          "maven": {
+            "artifactId": "cdk8s",
+            "groupId": "org.cdk8s"
+          },
+          "package": "org.cdk8s"
+        },
+        "js": {
+          "npm": "cdk8s"
+        },
+        "python": {
+          "distName": "cdk8s",
+          "module": "cdk8s"
+        }
+      }
+    },
+    "constructs": {
+      "targets": {
+        "dotnet": {
+          "namespace": "Constructs",
+          "packageId": "Constructs"
+        },
+        "java": {
+          "maven": {
+            "artifactId": "constructs",
+            "groupId": "software.constructs"
+          },
+          "package": "software.constructs"
+        },
+        "js": {
+          "npm": "constructs"
+        },
+        "python": {
+          "distName": "constructs",
+          "module": "constructs"
+        }
+      }
+    }
+  },
+  "description": "High level abstractions on top of cdk8s",
+  "docs": {
+    "stability": "experimental"
+  },
+  "homepage": "https://github.com/awslabs/cdk8s.git",
+  "jsiiVersion": "1.13.0 (build 385c325)",
+  "keywords": [
+    "cdk",
+    "constructs",
+    "k8s",
+    "kubernetes"
+  ],
+  "license": "Apache-2.0",
+  "name": "cdk8s-plus",
+  "readme": {
+    "markdown": "# cdk8s+ (cdk8s-plus)\n\n> ![Experimental](https://img.shields.io/badge/experimental-important.svg?style=for-the-badge)<br><br>\n> This library is in very early stages of development, as such, and in correspondence with a `0.x` semantic major version line, its `API` is\nlikely to rapidly change in breaking ways. It is therefore not recommended to use library for production workloads.\n\n**cdk8s+** is a software development framework that provides high level abstractions for authoring Kubernetes applications.\nBuilt on top of the auto generated building blocks provided by [cdk8s](../cdk8s), this library includes a hand crafted *construct*\nfor each native kubernetes object, exposing richer API's with reduced complexity.\n\n## Documentation\n\nSee [cdk8s.io](https://cdk8s.io/docs/latest/plus).\n\n## License\n\nThis project is distributed under the [Apache License, Version 2.0](./LICENSE).\n\nThis module is part of the [cdk8s project](https://github.com/awslabs/cdk8s).\n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awslabs/cdk8s.git"
+  },
+  "schema": "jsii/0.10.0",
+  "targets": {
+    "dotnet": {
+      "namespace": "Org.Cdk8s.Plus",
+      "packageId": "Org.Cdk8s.Plus"
+    },
+    "java": {
+      "maven": {
+        "artifactId": "cdk8s-plus",
+        "groupId": "org.cdk8s"
+      },
+      "package": "org.cdk8s.plus"
+    },
+    "js": {
+      "npm": "cdk8s-plus"
+    },
+    "python": {
+      "distName": "cdk8s-plus",
+      "module": "cdk8s_plus"
+    }
+  },
+  "types": {
+    "cdk8s-plus.AddDirectoryOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for `configmap.addDirectory()`."
+      },
+      "fqn": "cdk8s-plus.AddDirectoryOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/config-map.ts",
+        "line": 196
+      },
+      "name": "AddDirectoryOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- include all files",
+            "stability": "experimental",
+            "summary": "Glob patterns to exclude when adding files."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 207
+          },
+          "name": "exclude",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "\"\"",
+            "stability": "experimental",
+            "summary": "A prefix to add to all keys in the config map."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 201
+          },
+          "name": "keyPrefix",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.CommandProbeOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for `Probe.fromCommand()`."
+      },
+      "fqn": "cdk8s-plus.CommandProbeOptions",
+      "interfaces": [
+        "cdk8s-plus.ProbeOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/probe.ts",
+        "line": 73
+      },
+      "name": "CommandProbeOptions"
+    },
+    "cdk8s-plus.ConfigMap": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.Resource",
+      "docs": {
+        "stability": "experimental",
+        "summary": "ConfigMap holds configuration data for pods to consume."
+      },
+      "fqn": "cdk8s-plus.ConfigMap",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/config-map.ts",
+          "line": 67
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.ConfigMapProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.IConfigMap"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/config-map.ts",
+        "line": 50
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Represents a ConfigMap created elsewhere."
+          },
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 55
+          },
+          "name": "fromConfigMapName",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The name of the config map to import."
+              },
+              "name": "name",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.IConfigMap"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "custom": {
+              "throws": "if there is either a `data` or `binaryData` entry with the same key"
+            },
+            "remarks": "BinaryData can contain byte\nsequences that are not in the UTF-8 range.",
+            "stability": "experimental",
+            "summary": "Adds a binary data entry to the config map."
+          },
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 117
+          },
+          "name": "addBinaryData",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The key."
+              },
+              "name": "key",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The value."
+              },
+              "name": "value",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "custom": {
+              "throws": "if there is either a `data` or `binaryData` entry with the same key"
+            },
+            "stability": "experimental",
+            "summary": "Adds a data entry to the config map."
+          },
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 94
+          },
+          "name": "addData",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The key."
+              },
+              "name": "key",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The value."
+              },
+              "name": "value",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Adds a directory to the ConfigMap."
+          },
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 149
+          },
+          "name": "addDirectory",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "A path to a local directory."
+              },
+              "name": "localDir",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "Options."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.AddDirectoryOptions"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Adds a file to the ConfigMap."
+          },
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 137
+          },
+          "name": "addFile",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The path to the local file."
+              },
+              "name": "localFile",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The ConfigMap key (default to the file name)."
+              },
+              "name": "key",
+              "optional": true,
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "ConfigMap",
+      "properties": [
+        {
+          "docs": {
+            "see": "base.Resource.apiObject",
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 62
+          },
+          "name": "apiObject",
+          "overrides": "cdk8s-plus.Resource",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Returns a copy. To add data records, use `addBinaryData()` or `addData()`.",
+            "stability": "experimental",
+            "summary": "The binary data associated with this config map."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 128
+          },
+          "name": "binaryData",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Returns an copy. To add data records, use `addData()` or `addBinaryData()`.",
+            "stability": "experimental",
+            "summary": "The data associated with this config map."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 105
+          },
+          "name": "data",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ConfigMapProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Properties for initialization of `ConfigMap`."
+      },
+      "fqn": "cdk8s-plus.ConfigMapProps",
+      "interfaces": [
+        "cdk8s-plus.ResourceProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/config-map.ts",
+        "line": 13
+      },
+      "name": "ConfigMapProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Each key must consist of alphanumeric characters, '-', '_' or '.'.\nBinaryData can contain byte sequences that are not in the UTF-8 range. The\nkeys stored in BinaryData must not overlap with the ones in the Data field,\nthis is enforced during validation process. Using this field will require\n1.10+ apiserver and kubelet.\n\nYou can also add binary data using `configMap.addBinaryData()`.",
+            "stability": "experimental",
+            "summary": "BinaryData contains the binary data."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 25
+          },
+          "name": "binaryData",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Each key must consist of alphanumeric characters, '-', '_' or '.'. Values\nwith non-UTF-8 byte sequences must use the BinaryData field. The keys\nstored in Data must not overlap with the keys in the BinaryData field, this\nis enforced during validation process.\n\nYou can also add data using `configMap.addData()`.",
+            "stability": "experimental",
+            "summary": "Data contains the configuration data."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/config-map.ts",
+            "line": 37
+          },
+          "name": "data",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ConfigMapVolumeOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for the ConfigMap-based volume."
+      },
+      "fqn": "cdk8s-plus.ConfigMapVolumeOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/volume.ts",
+        "line": 119
+      },
+      "name": "ConfigMapVolumeOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "0644. Directories within the path are not affected by this\nsetting. This might be in conflict with other options that affect the file\nmode, like fsGroup, and the result can be other mode bits set.",
+            "remarks": "Must be a value between 0 and\n0777. Defaults to 0644. Directories within the path are not affected by\nthis setting. This might be in conflict with other options that affect the\nfile mode, like fsGroup, and the result can be other mode bits set.",
+            "stability": "experimental",
+            "summary": "Mode bits to use on created files by default."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 137
+          },
+          "name": "defaultMode",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- no mapping",
+            "remarks": "If specified, the listed keys will be projected\ninto the specified paths, and unlisted keys will not be present. If a key\nis specified which is not present in the ConfigMap, the volume setup will\nerror unless it is marked optional. Paths must be relative and may not\ncontain the '..' path or start with '..'.",
+            "stability": "experimental",
+            "summary": "If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 156
+          },
+          "name": "items",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.PathMapping"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- auto-generated",
+            "stability": "experimental",
+            "summary": "The volume name."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 125
+          },
+          "name": "name",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- undocumented",
+            "stability": "experimental",
+            "summary": "Specify whether the ConfigMap or its keys must be defined."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 143
+          },
+          "name": "optional",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Container": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "A single application container that you want to run within a pod."
+      },
+      "fqn": "cdk8s-plus.Container",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/container.ts",
+          "line": 287
+        },
+        "parameters": [
+          {
+            "name": "props",
+            "type": {
+              "fqn": "cdk8s-plus.ContainerProps"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 248
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "The variable value can come\nfrom various dynamic sources such a secrets of config maps.",
+            "see": "EnvValue.fromXXX",
+            "stability": "experimental",
+            "summary": "Add an environment value to the container."
+          },
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 328
+          },
+          "name": "addEnv",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- The variable name."
+              },
+              "name": "name",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "- The variable value."
+              },
+              "name": "value",
+              "type": {
+                "fqn": "cdk8s-plus.EnvValue"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "Every pod that is configured to use this container will autmoatically have access to the volume.",
+            "stability": "experimental",
+            "summary": "Mount a volume to a specific path so that it is accessible by the container."
+          },
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 348
+          },
+          "name": "mount",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- The desired path in the container."
+              },
+              "name": "path",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "- The volume to mount."
+              },
+              "name": "volume",
+              "type": {
+                "fqn": "cdk8s-plus.Volume"
+              }
+            },
+            {
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.MountOptions"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "Container",
+      "properties": [
+        {
+          "docs": {
+            "remarks": "Returns a copy. To add environment variables use `addEnv()`.",
+            "stability": "experimental",
+            "summary": "The environment variables for this container."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 337
+          },
+          "name": "env",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.EnvValue"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The container image."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 268
+          },
+          "name": "image",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Image pull policy for this container."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 263
+          },
+          "name": "imagePullPolicy",
+          "type": {
+            "fqn": "cdk8s-plus.ImagePullPolicy"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Volume mounts configured for this container."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 258
+          },
+          "name": "mounts",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.VolumeMount"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The name of the container."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 273
+          },
+          "name": "name",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "docs": {
+            "returns": "a copy of the arguments array, cannot be modified.",
+            "stability": "experimental",
+            "summary": "Arguments to the entrypoint."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 315
+          },
+          "name": "args",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "a copy of the entrypoint array, cannot be modified",
+            "stability": "experimental",
+            "summary": "Entrypoint array (the command to execute when the container starts)."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 306
+          },
+          "name": "command",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The port this container exposes."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 253
+          },
+          "name": "port",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The working directory inside the container."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 278
+          },
+          "name": "workingDir",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ContainerProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Properties for creating a container."
+      },
+      "fqn": "cdk8s-plus.ContainerProps",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 149
+      },
+      "name": "ContainerProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "Docker image name."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 154
+          },
+          "name": "image",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "[]",
+            "remarks": "Variable references $(VAR_NAME) are expanded using the container's\nenvironment. If a variable cannot be resolved, the reference in the input\nstring will be unchanged. The $(VAR_NAME) syntax can be escaped with a\ndouble $$, ie: $$(VAR_NAME). Escaped references will never be expanded,\nregardless of whether the variable exists or not.\n\nCannot be updated.",
+            "see": "https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+            "stability": "experimental",
+            "summary": "Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 195
+          },
+          "name": "args",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- The docker image's ENTRYPOINT.",
+            "remarks": "Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment.\nIf a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME).\nEscaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated.\nMore info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
+            "stability": "experimental",
+            "summary": "Entrypoint array."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 178
+          },
+          "name": "command",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- No environment variables.",
+            "remarks": "Cannot be updated.",
+            "stability": "experimental",
+            "summary": "List of environment variables to set in the container."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 209
+          },
+          "name": "env",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.EnvValue"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "ImagePullPolicy.ALWAYS",
+            "stability": "experimental",
+            "summary": "Image pull policy for this container."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 220
+          },
+          "name": "imagePullPolicy",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.ImagePullPolicy"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- no liveness probe is defined",
+            "remarks": "Container will be restarted if the probe fails.",
+            "stability": "experimental",
+            "summary": "Periodic probe of container liveness."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 234
+          },
+          "name": "liveness",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Probe"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "'main'",
+            "remarks": "Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.",
+            "stability": "experimental",
+            "summary": "Name of the container specified as a DNS_LABEL."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 161
+          },
+          "name": "name",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- No port is exposed.",
+            "remarks": "This must be a valid port number, 0 < x < 65536.",
+            "stability": "experimental",
+            "summary": "Number of port to expose on the pod's IP address."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 168
+          },
+          "name": "port",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- no readiness probe is defined",
+            "stability": "experimental",
+            "summary": "Determines when the container is ready to serve traffic."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 227
+          },
+          "name": "readiness",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Probe"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- no startup probe is defined.",
+            "remarks": "If specified, no other probes are executed until this completes successfully",
+            "stability": "experimental",
+            "summary": "StartupProbe indicates that the Pod has successfully initialized."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 242
+          },
+          "name": "startup",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Probe"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Cannot be updated.",
+            "stability": "experimental",
+            "summary": "Pod volumes to mount into the container's filesystem."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 214
+          },
+          "name": "volumeMounts",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.VolumeMount"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- The container runtime's default.",
+            "remarks": "If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.",
+            "stability": "experimental",
+            "summary": "Container's working directory."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 202
+          },
+          "name": "workingDir",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Deployment": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.Resource",
+      "docs": {
+        "remarks": "You describe a desired state in a Deployment, and the Deployment Controller changes the actual\nstate to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove\nexisting Deployments and adopt all their resources with new Deployments.\n\n> Note: Do not manage ReplicaSets owned by a Deployment. Consider opening an issue in the main Kubernetes repository if your use case is not covered below.\n\nUse Case\n---------\n\nThe following are typical use cases for Deployments:\n\n- Create a Deployment to rollout a ReplicaSet. The ReplicaSet creates Pods in the background.\n   Check the status of the rollout to see if it succeeds or not.\n- Declare the new state of the Pods by updating the PodTemplateSpec of the Deployment.\n   A new ReplicaSet is created and the Deployment manages moving the Pods from the old ReplicaSet to the new one at a controlled rate.\n   Each new ReplicaSet updates the revision of the Deployment.\n- Rollback to an earlier Deployment revision if the current state of the Deployment is not stable.\n   Each rollback updates the revision of the Deployment.\n- Scale up the Deployment to facilitate more load.\n- Pause the Deployment to apply multiple fixes to its PodTemplateSpec and then resume it to start a new rollout.\n- Use the status of the Deployment as an indicator that a rollout has stuck.\n- Clean up older ReplicaSets that you don't need anymore.",
+        "stability": "experimental",
+        "summary": "A Deployment provides declarative updates for Pods and ReplicaSets."
+      },
+      "fqn": "cdk8s-plus.Deployment",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/deployment.ts",
+          "line": 113
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.DeploymentProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.IPodTemplate"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/deployment.ts",
+        "line": 98
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a container to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 191
+          },
+          "name": "addContainer",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "parameters": [
+            {
+              "name": "container",
+              "type": {
+                "fqn": "cdk8s-plus.ContainerProps"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Container"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a volume to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 195
+          },
+          "name": "addVolume",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "parameters": [
+            {
+              "name": "volume",
+              "type": {
+                "fqn": "cdk8s-plus.Volume"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "This is equivalent to running `kubectl expose deployment <deployment-name>`.",
+            "stability": "experimental",
+            "summary": "Expose a deployment via a service."
+          },
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 181
+          },
+          "name": "expose",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The port number the service will bind to."
+              },
+              "name": "port",
+              "type": {
+                "primitive": "number"
+              }
+            },
+            {
+              "docs": {
+                "summary": "Options to determine details of the service and port exposed."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.ExposeOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Service"
+            }
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Pods that have the label will be selected by deployments configured with this spec.",
+            "stability": "experimental",
+            "summary": "Configure a label selector to this deployment."
+          },
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 169
+          },
+          "name": "selectByLabel",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- The label key."
+              },
+              "name": "key",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "- The label value."
+              },
+              "name": "value",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "Deployment",
+      "properties": [
+        {
+          "docs": {
+            "see": "base.Resource.apiObject",
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 108
+          },
+          "name": "apiObject",
+          "overrides": "cdk8s-plus.Resource",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Use `addContainer` to add containers.",
+            "stability": "experimental",
+            "summary": "The containers belonging to the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 146
+          },
+          "name": "containers",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Container"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Returns a a copy. Use `selectByLabel()` to add labels.",
+            "stability": "experimental",
+            "summary": "The labels this deployment will match against in order to select pods."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 142
+          },
+          "name": "labelSelector",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Provides read/write access to the underlying pod metadata of the resource."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 133
+          },
+          "name": "podMetadata",
+          "overrides": "cdk8s-plus.IPodTemplate",
+          "type": {
+            "fqn": "cdk8s.ApiObjectMetadataDefinition"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Number of desired pods."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 103
+          },
+          "name": "replicas",
+          "type": {
+            "primitive": "number"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Use `addVolume` to add volumes.",
+            "stability": "experimental",
+            "summary": "The volumes associated with this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 150
+          },
+          "name": "volumes",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Volume"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Restart policy for all containers within the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 154
+          },
+          "name": "restartPolicy",
+          "optional": true,
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "fqn": "cdk8s-plus.RestartPolicy"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The service account used to run this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 158
+          },
+          "name": "serviceAccount",
+          "optional": true,
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "fqn": "cdk8s-plus.IServiceAccount"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.DeploymentProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Properties for initialization of `Deployment`."
+      },
+      "fqn": "cdk8s-plus.DeploymentProps",
+      "interfaces": [
+        "cdk8s-plus.ResourceProps",
+        "cdk8s-plus.PodTemplateProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/deployment.ts",
+        "line": 14
+      },
+      "name": "DeploymentProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "true",
+            "remarks": "If this is set to `false` you must define your selector through\n`deployment.podMetadata.addLabel()` and `deployment.selectByLabel()`.",
+            "stability": "experimental",
+            "summary": "Automatically allocates a pod selector for this deployment."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 31
+          },
+          "name": "defaultSelector",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "1",
+            "stability": "experimental",
+            "summary": "Number of desired pods."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 21
+          },
+          "name": "replicas",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Duration": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "remarks": "The amount can be specified either as a literal value (e.g: `10`) which\ncannot be negative.",
+        "stability": "experimental",
+        "summary": "Represents a length of time."
+      },
+      "fqn": "cdk8s-plus.Duration",
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/duration.ts",
+        "line": 8
+      },
+      "methods": [
+        {
+          "docs": {
+            "returns": "a new `Duration` representing `amount` Days.",
+            "stability": "experimental",
+            "summary": "Create a Duration representing an amount of days."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 55
+          },
+          "name": "days",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "the amount of Days the `Duration` will represent."
+              },
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Duration"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "returns": "a new `Duration` representing `amount` Hours.",
+            "stability": "experimental",
+            "summary": "Create a Duration representing an amount of hours."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 45
+          },
+          "name": "hours",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "the amount of Hours the `Duration` will represent."
+              },
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Duration"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "returns": "a new `Duration` representing `amount` ms.",
+            "stability": "experimental",
+            "summary": "Create a Duration representing an amount of milliseconds."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 15
+          },
+          "name": "millis",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "the amount of Milliseconds the `Duration` will represent."
+              },
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Duration"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "returns": "a new `Duration` representing `amount` Minutes.",
+            "stability": "experimental",
+            "summary": "Create a Duration representing an amount of minutes."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 35
+          },
+          "name": "minutes",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "the amount of Minutes the `Duration` will represent."
+              },
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Duration"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "returns": "the parsed `Duration`.",
+            "see": "https://www.iso.org/fr/standard/70907.html",
+            "stability": "experimental",
+            "summary": "Parse a period formatted according to the ISO 8601 standard."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 66
+          },
+          "name": "parse",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "an ISO-formtted duration to be parsed."
+              },
+              "name": "duration",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Duration"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "returns": "a new `Duration` representing `amount` Seconds.",
+            "stability": "experimental",
+            "summary": "Create a Duration representing an amount of seconds."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 25
+          },
+          "name": "seconds",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "the amount of Seconds the `Duration` will represent."
+              },
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Duration"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "returns": "the value of this `Duration` expressed in Days.",
+            "stability": "experimental",
+            "summary": "Return the total number of days in this Duration."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 141
+          },
+          "name": "toDays",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.TimeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "the value of this `Duration` expressed in Hours.",
+            "stability": "experimental",
+            "summary": "Return the total number of hours in this Duration."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 132
+          },
+          "name": "toHours",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.TimeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Turn this duration into a human-readable string."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 177
+          },
+          "name": "toHumanString",
+          "returns": {
+            "type": {
+              "primitive": "string"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "a string starting with 'PT' describing the period",
+            "see": "https://www.iso.org/fr/standard/70907.html",
+            "stability": "experimental",
+            "summary": "Return an ISO 8601 representation of this period."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 151
+          },
+          "name": "toIsoString",
+          "returns": {
+            "type": {
+              "primitive": "string"
+            }
+          }
+        },
+        {
+          "docs": {
+            "deprecated": "Use `toIsoString()` instead.",
+            "returns": "a string starting with 'PT' describing the period",
+            "see": "https://www.iso.org/fr/standard/70907.html",
+            "stability": "deprecated",
+            "summary": "Return an ISO 8601 representation of this period."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 170
+          },
+          "name": "toISOString",
+          "returns": {
+            "type": {
+              "primitive": "string"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "the value of this `Duration` expressed in Milliseconds.",
+            "stability": "experimental",
+            "summary": "Return the total number of milliseconds in this Duration."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 105
+          },
+          "name": "toMilliseconds",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.TimeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "the value of this `Duration` expressed in Minutes.",
+            "stability": "experimental",
+            "summary": "Return the total number of minutes in this Duration."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 123
+          },
+          "name": "toMinutes",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.TimeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "the value of this `Duration` expressed in Seconds.",
+            "stability": "experimental",
+            "summary": "Return the total number of seconds in this Duration."
+          },
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 114
+          },
+          "name": "toSeconds",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.TimeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        }
+      ],
+      "name": "Duration"
+    },
+    "cdk8s-plus.EmptyDirMedium": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "The medium on which to store the volume."
+      },
+      "fqn": "cdk8s-plus.EmptyDirMedium",
+      "kind": "enum",
+      "locationInModule": {
+        "filename": "src/volume.ts",
+        "line": 210
+      },
+      "members": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The default volume of the backing node."
+          },
+          "name": "DEFAULT"
+        },
+        {
+          "docs": {
+            "remarks": "While tmpfs is very\nfast, be aware that unlike disks, tmpfs is cleared on node reboot and any\nfiles you write will count against your Container's memory limit.",
+            "stability": "experimental",
+            "summary": "Mount a tmpfs (RAM-backed filesystem) for you instead."
+          },
+          "name": "MEMORY"
+        }
+      ],
+      "name": "EmptyDirMedium"
+    },
+    "cdk8s-plus.EmptyDirVolumeOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for volumes populated with an empty directory."
+      },
+      "fqn": "cdk8s-plus.EmptyDirVolumeOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/volume.ts",
+        "line": 182
+      },
+      "name": "EmptyDirVolumeOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "EmptyDirMedium.DEFAULT",
+            "remarks": "However, you can set the emptyDir.medium field to\n`EmptyDirMedium.MEMORY` to tell Kubernetes to mount a tmpfs (RAM-backed\nfilesystem) for you instead. While tmpfs is very fast, be aware that unlike\ndisks, tmpfs is cleared on node reboot and any files you write will count\nagainst your Container's memory limit.",
+            "stability": "experimental",
+            "summary": "By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 194
+          },
+          "name": "medium",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.EmptyDirMedium"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- limit is undefined",
+            "remarks": "The size\nlimit is also applicable for memory medium. The maximum usage on memory\nmedium EmptyDir would be the minimum value between the SizeLimit specified\nhere and the sum of memory limits of all containers in a pod.",
+            "stability": "experimental",
+            "summary": "Total amount of local storage required for this EmptyDir volume."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 204
+          },
+          "name": "sizeLimit",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Size"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.EnvValue": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "Utility class for creating reading env values from various sources."
+      },
+      "fqn": "cdk8s-plus.EnvValue",
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 52
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Create a value by reading a specific key inside a config map."
+          },
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 61
+          },
+          "name": "fromConfigMap",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- The config map."
+              },
+              "name": "configMap",
+              "type": {
+                "fqn": "cdk8s-plus.IConfigMap"
+              }
+            },
+            {
+              "docs": {
+                "summary": "- The key to extract the value from."
+              },
+              "name": "key",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "- Additional options."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.EnvValueFromConfigMapOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.EnvValue"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Create a value from a key in the current process environment."
+          },
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 106
+          },
+          "name": "fromProcess",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- The key to read."
+              },
+              "name": "key",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "- Additional options."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.EnvValueFromProcessOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.EnvValue"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Defines an environment value from a secret JSON value."
+          },
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 79
+          },
+          "name": "fromSecretValue",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The secret value (secrent + key)."
+              },
+              "name": "secretValue",
+              "type": {
+                "fqn": "cdk8s-plus.SecretValue"
+              }
+            },
+            {
+              "docs": {
+                "summary": "Additional options."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.EnvValueFromSecretOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.EnvValue"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Create a value from the given argument."
+          },
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 96
+          },
+          "name": "fromValue",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- The value."
+              },
+              "name": "value",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.EnvValue"
+            }
+          },
+          "static": true
+        }
+      ],
+      "name": "EnvValue",
+      "properties": [
+        {
+          "docs": {
+            "stability": "experimental"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 117
+          },
+          "name": "value",
+          "optional": true,
+          "type": {
+            "primitive": "any"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 117
+          },
+          "name": "valueFrom",
+          "optional": true,
+          "type": {
+            "primitive": "any"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.EnvValueFromConfigMapOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options to specify an envionment variable value from a ConfigMap key."
+      },
+      "fqn": "cdk8s-plus.EnvValueFromConfigMapOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 10
+      },
+      "name": "EnvValueFromConfigMapOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "stability": "experimental",
+            "summary": "Specify whether the ConfigMap or its key must be defined."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 17
+          },
+          "name": "optional",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.EnvValueFromProcessOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options to specify an environment variable value from the process environment."
+      },
+      "fqn": "cdk8s-plus.EnvValueFromProcessOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 37
+      },
+      "name": "EnvValueFromProcessOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If this is set to true, and the key does not exist, an error will thrown.",
+            "stability": "experimental",
+            "summary": "Specify whether the key must exist in the environment."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 45
+          },
+          "name": "required",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.EnvValueFromSecretOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options to specify an environment variable value from a Secret."
+      },
+      "fqn": "cdk8s-plus.EnvValueFromSecretOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 23
+      },
+      "name": "EnvValueFromSecretOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "stability": "experimental",
+            "summary": "Specify whether the Secret or its key must be defined."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 30
+          },
+          "name": "optional",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ExposeOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for exposing a deployment via a service."
+      },
+      "fqn": "cdk8s-plus.ExposeOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/deployment.ts",
+        "line": 38
+      },
+      "name": "ExposeOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "undefined Uses the system generated name.",
+            "remarks": "This will be set on the Service.metadata and must be a DNS_LABEL",
+            "stability": "experimental",
+            "summary": "The name of the service to expose."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 52
+          },
+          "name": "name",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "Protocol.TCP",
+            "remarks": "Supports \"TCP\", \"UDP\", and \"SCTP\". Default is TCP.",
+            "stability": "experimental",
+            "summary": "The IP protocol for this port."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 59
+          },
+          "name": "protocol",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Protocol"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- ClusterIP.",
+            "stability": "experimental",
+            "summary": "The type of the exposed service."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 44
+          },
+          "name": "serviceType",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.ServiceType"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- The port of the first container in the deployment (ie. containers[0].port)",
+            "stability": "experimental",
+            "summary": "The port number the service will redirect to."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/deployment.ts",
+            "line": 66
+          },
+          "name": "targetPort",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.HttpGetProbeOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for `Probe.fromHttpGet()`."
+      },
+      "fqn": "cdk8s-plus.HttpGetProbeOptions",
+      "interfaces": [
+        "cdk8s-plus.ProbeOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/probe.ts",
+        "line": 61
+      },
+      "name": "HttpGetProbeOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- defaults to `container.port`.",
+            "stability": "experimental",
+            "summary": "The TCP port to use when sending the GET request."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/probe.ts",
+            "line": 67
+          },
+          "name": "port",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.IConfigMap": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "Represents a config map."
+      },
+      "fqn": "cdk8s-plus.IConfigMap",
+      "interfaces": [
+        "cdk8s-plus.IResource"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/config-map.ts",
+        "line": 43
+      },
+      "name": "IConfigMap"
+    },
+    "cdk8s-plus.IPodSpec": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "remarks": "Use the `PodSpec` class as an implementation helper.",
+        "stability": "experimental",
+        "summary": "Represents a resource that can be configured with a kuberenets pod spec. (e.g `Deployment`, `Job`, `Pod`, ...)."
+      },
+      "fqn": "cdk8s-plus.IPodSpec",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 14
+      },
+      "methods": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a container to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 45
+          },
+          "name": "addContainer",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The container."
+              },
+              "name": "container",
+              "type": {
+                "fqn": "cdk8s-plus.ContainerProps"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Container"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a volume to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 52
+          },
+          "name": "addVolume",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The volume."
+              },
+              "name": "volume",
+              "type": {
+                "fqn": "cdk8s-plus.Volume"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "IPodSpec",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Use `addContainer` to add containers.",
+            "stability": "experimental",
+            "summary": "The containers belonging to the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 21
+          },
+          "name": "containers",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Container"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Use `addVolume` to add volumes.",
+            "stability": "experimental",
+            "summary": "The volumes associated with this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 28
+          },
+          "name": "volumes",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Volume"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "Restart policy for all containers within the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 33
+          },
+          "name": "restartPolicy",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.RestartPolicy"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "The service account used to run this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 38
+          },
+          "name": "serviceAccount",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.IServiceAccount"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.IPodTemplate": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "remarks": "Use the `PodTemplate` class as an implementation helper.",
+        "stability": "experimental",
+        "summary": "Represents a resource that can be configured with a kuberenets pod template. (e.g `Deployment`, `Job`, ...)."
+      },
+      "fqn": "cdk8s-plus.IPodTemplate",
+      "interfaces": [
+        "cdk8s-plus.IPodSpec"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 61
+      },
+      "name": "IPodTemplate",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "Provides read/write access to the underlying pod metadata of the resource."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 66
+          },
+          "name": "podMetadata",
+          "type": {
+            "fqn": "cdk8s.ApiObjectMetadataDefinition"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.IResource": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "Represents a resource."
+      },
+      "fqn": "cdk8s-plus.IResource",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/base.ts",
+        "line": 18
+      },
+      "name": "IResource",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "The Kubernetes name of this resource."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base.ts",
+            "line": 22
+          },
+          "name": "name",
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ISecret": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental"
+      },
+      "fqn": "cdk8s-plus.ISecret",
+      "interfaces": [
+        "cdk8s-plus.IResource"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/secret.ts",
+        "line": 16
+      },
+      "name": "ISecret"
+    },
+    "cdk8s-plus.IServiceAccount": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental"
+      },
+      "fqn": "cdk8s-plus.IServiceAccount",
+      "interfaces": [
+        "cdk8s-plus.IResource"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/service-account.ts",
+        "line": 16
+      },
+      "name": "IServiceAccount"
+    },
+    "cdk8s-plus.ImagePullPolicy": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental"
+      },
+      "fqn": "cdk8s-plus.ImagePullPolicy",
+      "kind": "enum",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 120
+      },
+      "members": [
+        {
+          "docs": {
+            "remarks": "If the kubelet has a container image with that exact\ndigest cached locally, the kubelet uses its cached image; otherwise, the kubelet downloads\n(pulls) the image with the resolved digest, and uses that image to launch the container.\n\nDefault is Always if ImagePullPolicy is omitted and either the image tag is :latest or\nthe image tag is omitted.",
+            "stability": "experimental",
+            "summary": "Every time the kubelet launches a container, the kubelet queries the container image registry to resolve the name to an image digest."
+          },
+          "name": "ALWAYS"
+        },
+        {
+          "docs": {
+            "remarks": "Default is IfNotPresent if ImagePullPolicy is omitted and the image tag is present but\nnot :latest",
+            "stability": "experimental",
+            "summary": "The image is pulled only if it is not already present locally."
+          },
+          "name": "IF_NOT_PRESENT"
+        },
+        {
+          "docs": {
+            "remarks": "No attempt is made to pull the image.",
+            "stability": "experimental",
+            "summary": "The image is assumed to exist locally."
+          },
+          "name": "NEVER"
+        }
+      ],
+      "name": "ImagePullPolicy"
+    },
+    "cdk8s-plus.Ingress": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.Resource",
+      "docs": {
+        "remarks": "An Ingress can be configured to give services\nexternally-reachable urls, load balance traffic, terminate SSL, offer name\nbased virtual hosting etc.",
+        "stability": "experimental",
+        "summary": "Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend."
+      },
+      "fqn": "cdk8s-plus.Ingress",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/ingress.ts",
+          "line": 48
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.IngressProps"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/ingress.ts",
+        "line": 38
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "A default backend capable of\nservicing requests that don't match any rule.",
+            "stability": "experimental",
+            "summary": "Defines the default backend for this ingress."
+          },
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 79
+          },
+          "name": "addDefaultBackend",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The backend to use for requests that do not match any rule."
+              },
+              "name": "backend",
+              "type": {
+                "fqn": "cdk8s-plus.IngressBackend"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "This backend will be used as a catch-all for requests\ntargeted to this host name (the `Host` header matches this value).",
+            "stability": "experimental",
+            "summary": "Specify a default backend for a specific host name."
+          },
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 90
+          },
+          "name": "addHostDefaultBackend",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The host name to match."
+              },
+              "name": "host",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The backend to route to."
+              },
+              "name": "backend",
+              "type": {
+                "fqn": "cdk8s-plus.IngressBackend"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Adds an ingress rule applied to requests to a specific host and a specific HTTP path (the `Host` header matches this value)."
+          },
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 103
+          },
+          "name": "addHostRule",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The host name."
+              },
+              "name": "host",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The HTTP path."
+              },
+              "name": "path",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The backend to route requests to."
+              },
+              "name": "backend",
+              "type": {
+                "fqn": "cdk8s-plus.IngressBackend"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Adds an ingress rule applied to requests sent to a specific HTTP path."
+          },
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 114
+          },
+          "name": "addRule",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The HTTP path."
+              },
+              "name": "path",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The backend to route requests to."
+              },
+              "name": "backend",
+              "type": {
+                "fqn": "cdk8s-plus.IngressBackend"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Adds rules to this ingress."
+          },
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 122
+          },
+          "name": "addRules",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The rules to add."
+              },
+              "name": "rules",
+              "type": {
+                "fqn": "cdk8s-plus.IngressRule"
+              },
+              "variadic": true
+            }
+          ],
+          "variadic": true
+        },
+        {
+          "docs": {
+            "remarks": "This method can be implemented by derived constructs in order to perform\nvalidation logic. It is called on all constructs before synthesis.",
+            "stability": "experimental",
+            "summary": "Validate the current construct."
+          },
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 66
+          },
+          "name": "onValidate",
+          "overrides": "constructs.Construct",
+          "protected": true,
+          "returns": {
+            "type": {
+              "collection": {
+                "elementtype": {
+                  "primitive": "string"
+                },
+                "kind": "array"
+              }
+            }
+          }
+        }
+      ],
+      "name": "Ingress",
+      "properties": [
+        {
+          "docs": {
+            "see": "base.Resource.apiObject",
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 43
+          },
+          "name": "apiObject",
+          "overrides": "cdk8s-plus.Resource",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.IngressBackend": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "The backend for an ingress path."
+      },
+      "fqn": "cdk8s-plus.IngressBackend",
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/ingress.ts",
+        "line": 187
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "A Kubernetes `Service` to use as the backend for this path."
+          },
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 192
+          },
+          "name": "fromService",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The service object."
+              },
+              "name": "service",
+              "type": {
+                "fqn": "cdk8s-plus.Service"
+              }
+            },
+            {
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.ServiceIngressBackendOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.IngressBackend"
+            }
+          },
+          "static": true
+        }
+      ],
+      "name": "IngressBackend"
+    },
+    "cdk8s-plus.IngressProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Properties for `Ingress`."
+      },
+      "fqn": "cdk8s-plus.IngressProps",
+      "interfaces": [
+        "cdk8s-plus.ResourceProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/ingress.ts",
+        "line": 10
+      },
+      "name": "IngressProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Using this option or the `addDefaultBackend()` method is equivalent to\nadding a rule with both `path` and `host` undefined.",
+            "stability": "experimental",
+            "summary": "The default backend services requests that do not match any rule."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 17
+          },
+          "name": "defaultBackend",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.IngressBackend"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Each rule must define an `IngressBackend` that will receive the requests\nthat match this rule. If both `host` and `path` are not specifiec, this\nbackend will be used as the default backend of the ingress.\n\nYou can also add rules later using `addRule()`, `addHostRule()`,\n`addDefaultBackend()` and `addHostDefaultBackend()`.",
+            "stability": "experimental",
+            "summary": "Routing rules for this ingress."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 29
+          },
+          "name": "rules",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.IngressRule"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.IngressRule": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "remarks": "Incoming requests are first evaluated for a host match,\nthen routed to the backend associated with the matching path.",
+        "stability": "experimental",
+        "summary": "Represents the rules mapping the paths under a specified host to the related backend services."
+      },
+      "fqn": "cdk8s-plus.IngressRule",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/ingress.ts",
+        "line": 238
+      },
+      "name": "IngressRule",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "Backend defines the referenced service endpoint to which the traffic will be forwarded to."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 243
+          },
+          "name": "backend",
+          "type": {
+            "fqn": "cdk8s-plus.IngressBackend"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- If the host is unspecified, the Ingress routes all traffic based\non the specified IngressRuleValue.",
+            "remarks": "Note the following deviations from the \"host\" part of the URI as\ndefined in the RFC: 1. IPs are not allowed. Currently an IngressRuleValue\ncan only apply to the IP in the Spec of the parent Ingress. 2. The `:`\ndelimiter is not respected because ports are not allowed. Currently the\nport of an Ingress is implicitly :80 for http and :443 for https. Both\nthese may change in the future. Incoming requests are matched against the\nhost before the IngressRuleValue.",
+            "stability": "experimental",
+            "summary": "Host is the fully qualified domain name of a network host, as defined by RFC 3986."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 258
+          },
+          "name": "host",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- If unspecified, the path defaults to a catch all sending traffic\nto the backend.",
+            "stability": "experimental",
+            "summary": "Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional \"path\" part of a URL as defined by RFC 3986. Paths must begin with a '/'."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 270
+          },
+          "name": "path",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Job": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.Resource",
+      "docs": {
+        "remarks": "As pods successfully complete,\nthe Job tracks the successful completions. When a specified number of successful completions is reached, the task (ie, Job) is complete.\nDeleting a Job will clean up the Pods it created. A simple case is to create one Job object in order to reliably run one Pod to completion.\nThe Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).\nYou can also use a Job to run multiple Pods in parallel.",
+        "stability": "experimental",
+        "summary": "A Job creates one or more Pods and ensures that a specified number of them successfully terminate."
+      },
+      "fqn": "cdk8s-plus.Job",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/job.ts",
+          "line": 54
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.JobProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.IPodTemplate"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/job.ts",
+        "line": 39
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a container to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 90
+          },
+          "name": "addContainer",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "parameters": [
+            {
+              "name": "container",
+              "type": {
+                "fqn": "cdk8s-plus.ContainerProps"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Container"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a volume to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 94
+          },
+          "name": "addVolume",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "parameters": [
+            {
+              "name": "volume",
+              "type": {
+                "fqn": "cdk8s-plus.Volume"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "Job",
+      "properties": [
+        {
+          "docs": {
+            "see": "base.Resource.apiObject",
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 50
+          },
+          "name": "apiObject",
+          "overrides": "cdk8s-plus.Resource",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Use `addContainer` to add containers.",
+            "stability": "experimental",
+            "summary": "The containers belonging to the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 74
+          },
+          "name": "containers",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Container"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Provides read/write access to the underlying pod metadata of the resource."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 70
+          },
+          "name": "podMetadata",
+          "overrides": "cdk8s-plus.IPodTemplate",
+          "type": {
+            "fqn": "cdk8s.ApiObjectMetadataDefinition"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Use `addVolume` to add volumes.",
+            "stability": "experimental",
+            "summary": "The volumes associated with this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 78
+          },
+          "name": "volumes",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Volume"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Restart policy for all containers within the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 82
+          },
+          "name": "restartPolicy",
+          "optional": true,
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "fqn": "cdk8s-plus.RestartPolicy"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The service account used to run this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 86
+          },
+          "name": "serviceAccount",
+          "optional": true,
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "fqn": "cdk8s-plus.IServiceAccount"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "TTL before the job is deleted after it is finished."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 44
+          },
+          "name": "ttlAfterFinished",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Duration"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.JobProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Properties for initialization of `Job`."
+      },
+      "fqn": "cdk8s-plus.JobProps",
+      "interfaces": [
+        "cdk8s-plus.ResourceProps",
+        "cdk8s-plus.PodTemplateProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/job.ts",
+        "line": 15
+      },
+      "name": "JobProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- If this field is unset, the Job won't be automatically deleted.",
+            "remarks": "If this field is set, after the Job finishes, it is eligible to\nbe automatically deleted. When the Job is being deleted, its lifecycle\nguarantees (e.g. finalizers) will be honored. If this field is set to zero,\nthe Job becomes eligible to be deleted immediately after it finishes. This\nfield is alpha-level and is only honored by servers that enable the\n`TTLAfterFinished` feature.",
+            "stability": "experimental",
+            "summary": "Limits the lifetime of a Job that has finished execution (either Complete or Failed)."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/job.ts",
+            "line": 28
+          },
+          "name": "ttlAfterFinished",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Duration"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.MountOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for mounts."
+      },
+      "fqn": "cdk8s-plus.MountOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 397
+      },
+      "name": "MountOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "MountPropagation.NONE",
+            "remarks": "When not set, MountPropagationNone is used.\n\nMount propagation allows for sharing volumes mounted by a Container to\nother Containers in the same Pod, or even to other Pods on the same node.\n\nThis field is beta in 1.10.",
+            "stability": "experimental",
+            "summary": "Determines how mounts are propagated from the host to container and the other way around."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 409
+          },
+          "name": "propagation",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.MountPropagation"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "Defaults to false.",
+            "stability": "experimental",
+            "summary": "Mounted read-only if true, read-write otherwise (false or unspecified)."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 417
+          },
+          "name": "readOnly",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "\"\" the volume's root",
+            "stability": "experimental",
+            "summary": "Path within the volume from which the container's volume should be mounted.)."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 424
+          },
+          "name": "subPath",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "\"\" volume's root.",
+            "remarks": "Behaves similarly to SubPath but environment variable references\n$(VAR_NAME) are expanded using the container's environment. Defaults to \"\"\n(volume's root). SubPathExpr and SubPath are mutually exclusive. This field\nis beta in 1.15.\n\n`subPathExpr` and `subPath` are mutually exclusive. This field is beta in\n1.15.",
+            "stability": "experimental",
+            "summary": "Expanded path within the volume from which the container's volume should be mounted."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 438
+          },
+          "name": "subPathExpr",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.MountPropagation": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental"
+      },
+      "fqn": "cdk8s-plus.MountPropagation",
+      "kind": "enum",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 457
+      },
+      "members": [
+        {
+          "docs": {
+            "remarks": "In similar\nfashion, no mounts created by the Container will be visible on the host.\n\nThis is the default mode.\n\nThis mode is equal to `private` mount propagation as described in the Linux\nkernel documentation",
+            "stability": "experimental",
+            "summary": "This volume mount will not receive any subsequent mounts that are mounted to this volume or any of its subdirectories by the host."
+          },
+          "name": "NONE"
+        },
+        {
+          "docs": {
+            "remarks": "In other words, if the host mounts anything inside the volume mount, the\nContainer will see it mounted there.\n\nSimilarly, if any Pod with Bidirectional mount propagation to the same\nvolume mounts anything there, the Container with HostToContainer mount\npropagation will see it.\n\nThis mode is equal to `rslave` mount propagation as described in the Linux\nkernel documentation",
+            "stability": "experimental",
+            "summary": "This volume mount will receive all subsequent mounts that are mounted to this volume or any of its subdirectories."
+          },
+          "name": "HOST_TO_CONTAINER"
+        },
+        {
+          "docs": {
+            "remarks": "In addition,\nall volume mounts created by the Container will be propagated back to the\nhost and to all Containers of all Pods that use the same volume\n\nA typical use case for this mode is a Pod with a FlexVolume or CSI driver\nor a Pod that needs to mount something on the host using a hostPath volume.\n\nThis mode is equal to `rshared` mount propagation as described in the Linux\nkernel documentation\n\nCaution: Bidirectional mount propagation can be dangerous. It can damage\nthe host operating system and therefore it is allowed only in privileged\nContainers. Familiarity with Linux kernel behavior is strongly recommended.\nIn addition, any volume mounts created by Containers in Pods must be\ndestroyed (unmounted) by the Containers on termination.",
+            "stability": "experimental",
+            "summary": "This volume mount behaves the same the HostToContainer mount."
+          },
+          "name": "BIDIRECTIONAL"
+        }
+      ],
+      "name": "MountPropagation"
+    },
+    "cdk8s-plus.PathMapping": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Maps a string key to a path within a volume."
+      },
+      "fqn": "cdk8s-plus.PathMapping",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/volume.ts",
+        "line": 162
+      },
+      "name": "PathMapping",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "May not be an absolute\npath. May not contain the path element '..'. May not start with the string\n'..'.",
+            "stability": "experimental",
+            "summary": "The relative path of the file to map the key to."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 168
+          },
+          "name": "path",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "If not specified, the volume defaultMode will be used. This might be\nin conflict with other options that affect the file mode, like fsGroup, and\nthe result can be other mode bits set.",
+            "stability": "experimental",
+            "summary": "Optional: mode bits to use on this file, must be a value between 0 and 0777."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 176
+          },
+          "name": "mode",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Pod": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.Resource",
+      "docs": {
+        "remarks": "This resource is\ncreated by clients and scheduled onto hosts.",
+        "stability": "experimental",
+        "summary": "Pod is a collection of containers that can run on a host."
+      },
+      "fqn": "cdk8s-plus.Pod",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/pod.ts",
+          "line": 252
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.PodProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.IPodSpec"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 243
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a container to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 279
+          },
+          "name": "addContainer",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "parameters": [
+            {
+              "name": "container",
+              "type": {
+                "fqn": "cdk8s-plus.ContainerProps"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Container"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a volume to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 283
+          },
+          "name": "addVolume",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "parameters": [
+            {
+              "name": "volume",
+              "type": {
+                "fqn": "cdk8s-plus.Volume"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "Pod",
+      "properties": [
+        {
+          "docs": {
+            "see": "base.Resource.apiObject",
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 248
+          },
+          "name": "apiObject",
+          "overrides": "cdk8s-plus.Resource",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Use `addContainer` to add containers.",
+            "stability": "experimental",
+            "summary": "The containers belonging to the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 263
+          },
+          "name": "containers",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Container"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Use `addVolume` to add volumes.",
+            "stability": "experimental",
+            "summary": "The volumes associated with this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 267
+          },
+          "name": "volumes",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Volume"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Restart policy for all containers within the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 271
+          },
+          "name": "restartPolicy",
+          "optional": true,
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "fqn": "cdk8s-plus.RestartPolicy"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The service account used to run this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 275
+          },
+          "name": "serviceAccount",
+          "optional": true,
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "fqn": "cdk8s-plus.IServiceAccount"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.PodProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Properties for initialization of `Pod`."
+      },
+      "fqn": "cdk8s-plus.PodProps",
+      "interfaces": [
+        "cdk8s-plus.ResourceProps",
+        "cdk8s-plus.PodSpecProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 184
+      },
+      "name": "PodProps"
+    },
+    "cdk8s-plus.PodSpec": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "Provides read/write capabilities ontop of a `PodSpecProps`."
+      },
+      "fqn": "cdk8s-plus.PodSpec",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/pod.ts",
+          "line": 80
+        },
+        "parameters": [
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.PodSpecProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.IPodSpec"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 72
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a container to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 96
+          },
+          "name": "addContainer",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "parameters": [
+            {
+              "name": "container",
+              "type": {
+                "fqn": "cdk8s-plus.ContainerProps"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Container"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Add a volume to the pod."
+          },
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 102
+          },
+          "name": "addVolume",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "parameters": [
+            {
+              "name": "volume",
+              "type": {
+                "fqn": "cdk8s-plus.Volume"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "PodSpec",
+      "properties": [
+        {
+          "docs": {
+            "remarks": "Use `addContainer` to add containers.",
+            "stability": "experimental",
+            "summary": "The containers belonging to the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 88
+          },
+          "name": "containers",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Container"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Use `addVolume` to add volumes.",
+            "stability": "experimental",
+            "summary": "The volumes associated with this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 92
+          },
+          "name": "volumes",
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Volume"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Restart policy for all containers within the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 74
+          },
+          "name": "restartPolicy",
+          "optional": true,
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "fqn": "cdk8s-plus.RestartPolicy"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The service account used to run this pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 75
+          },
+          "name": "serviceAccount",
+          "optional": true,
+          "overrides": "cdk8s-plus.IPodSpec",
+          "type": {
+            "fqn": "cdk8s-plus.IServiceAccount"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.PodSpecProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Properties of a `PodSpec`."
+      },
+      "fqn": "cdk8s-plus.PodSpecProps",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 189
+      },
+      "name": "PodSpecProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- No containers. Note that a pod spec must include at least one container.",
+            "remarks": "Containers cannot currently be\nadded or removed. There must be at least one container in a Pod.\n\nYou can add additionnal containers using `podSpec.addContainer()`",
+            "stability": "experimental",
+            "summary": "List of containers belonging to the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 199
+          },
+          "name": "containers",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.ContainerProps"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "RestartPolicy.ALWAYS",
+            "see": "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
+            "stability": "experimental",
+            "summary": "Restart policy for all containers within the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 219
+          },
+          "name": "restartPolicy",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.RestartPolicy"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- No service account.",
+            "remarks": "When you (a human) access the cluster (for example, using kubectl), you are\nauthenticated by the apiserver as a particular User Account (currently this\nis usually admin, unless your cluster administrator has customized your\ncluster). Processes in containers inside pods can also contact the\napiserver. When they do, they are authenticated as a particular Service\nAccount (for example, default).",
+            "see": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/",
+            "stability": "experimental",
+            "summary": "A service account provides an identity for processes that run in a Pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 235
+          },
+          "name": "serviceAccount",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.IServiceAccount"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- No volumes.",
+            "remarks": "You can also add volumes later using `podSpec.addVolume()`",
+            "see": "https://kubernetes.io/docs/concepts/storage/volumes",
+            "stability": "experimental",
+            "summary": "List of volumes that can be mounted by containers belonging to the pod."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 210
+          },
+          "name": "volumes",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.Volume"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.PodTemplate": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.PodSpec",
+      "docs": {
+        "stability": "experimental",
+        "summary": "Provides read/write capabilities ontop of a `PodTemplateProps`."
+      },
+      "fqn": "cdk8s-plus.PodTemplate",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/pod.ts",
+          "line": 165
+        },
+        "parameters": [
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.PodTemplateProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.IPodTemplate"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 161
+      },
+      "name": "PodTemplate",
+      "properties": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Provides read/write access to the underlying pod metadata of the resource."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 163
+          },
+          "name": "podMetadata",
+          "overrides": "cdk8s-plus.IPodTemplate",
+          "type": {
+            "fqn": "cdk8s.ApiObjectMetadataDefinition"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.PodTemplateProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "remarks": "Adds metadata information on top of the spec.",
+        "stability": "experimental",
+        "summary": "Properties of a `PodTemplate`."
+      },
+      "fqn": "cdk8s-plus.PodTemplateProps",
+      "interfaces": [
+        "cdk8s-plus.PodSpecProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 149
+      },
+      "name": "PodTemplateProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "The pod metadata."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/pod.ts",
+            "line": 154
+          },
+          "name": "podMetadata",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s.ApiObjectMetadata"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Probe": {
+      "abstract": true,
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic."
+      },
+      "fqn": "cdk8s-plus.Probe",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        }
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/probe.ts",
+        "line": 81
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Defines a probe based on a command which is executed within the container."
+          },
+          "locationInModule": {
+            "filename": "src/probe.ts",
+            "line": 109
+          },
+          "name": "fromCommand",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The command to execute."
+              },
+              "name": "command",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            },
+            {
+              "docs": {
+                "summary": "Options."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.CommandProbeOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Probe"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Defines a probe based on an HTTP GET request to the IP address of the container."
+          },
+          "locationInModule": {
+            "filename": "src/probe.ts",
+            "line": 89
+          },
+          "name": "fromHttpGet",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The URL path to hit."
+              },
+              "name": "path",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "Options."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.HttpGetProbeOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Probe"
+            }
+          },
+          "static": true
+        }
+      ],
+      "name": "Probe"
+    },
+    "cdk8s-plus.ProbeOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Probe options."
+      },
+      "fqn": "cdk8s-plus.ProbeOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/probe.ts",
+        "line": 8
+      },
+      "name": "ProbeOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "3",
+            "remarks": "Defaults to 3. Minimum value is 1.",
+            "stability": "experimental",
+            "summary": "Minimum consecutive failures for the probe to be considered failed after having succeeded."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/probe.ts",
+            "line": 17
+          },
+          "name": "failureThreshold",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- immediate",
+            "see": "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+            "stability": "experimental",
+            "summary": "Number of seconds after the container has started before liveness probes are initiated."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/probe.ts",
+            "line": 26
+          },
+          "name": "initialDelaySeconds",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Duration"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "Duration.seconds(10) Minimum value is 1.",
+            "remarks": "Default to 10 seconds. Minimum value is 1.",
+            "stability": "experimental",
+            "summary": "How often (in seconds) to perform the probe."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/probe.ts",
+            "line": 35
+          },
+          "name": "periodSeconds",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Duration"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "1 Must be 1 for liveness and startup. Minimum value is 1.",
+            "remarks": "Must be 1 for liveness and startup. Minimum value is 1.",
+            "stability": "experimental",
+            "summary": "Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/probe.ts",
+            "line": 45
+          },
+          "name": "successThreshold",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "Duration.seconds(1)",
+            "remarks": "Defaults to 1 second. Minimum value is 1.",
+            "see": "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
+            "stability": "experimental",
+            "summary": "Number of seconds after which the probe times out."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/probe.ts",
+            "line": 55
+          },
+          "name": "timeoutSeconds",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Duration"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Protocol": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental"
+      },
+      "fqn": "cdk8s-plus.Protocol",
+      "kind": "enum",
+      "locationInModule": {
+        "filename": "src/service.ts",
+        "line": 258
+      },
+      "members": [
+        {
+          "docs": {
+            "stability": "experimental"
+          },
+          "name": "TCP"
+        },
+        {
+          "docs": {
+            "stability": "experimental"
+          },
+          "name": "UDP"
+        },
+        {
+          "docs": {
+            "stability": "experimental"
+          },
+          "name": "SCTP"
+        }
+      ],
+      "name": "Protocol"
+    },
+    "cdk8s-plus.Resource": {
+      "abstract": true,
+      "assembly": "cdk8s-plus",
+      "base": "constructs.Construct",
+      "docs": {
+        "remarks": "Represents a single\nresource.",
+        "stability": "experimental",
+        "summary": "Base class for all Kubernetes objects in stdk8s."
+      },
+      "fqn": "cdk8s-plus.Resource",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/base.ts",
+          "line": 36
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "_",
+            "type": {
+              "fqn": "cdk8s-plus.ResourceProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.IResource"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base.ts",
+        "line": 29
+      },
+      "name": "Resource",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base.ts",
+            "line": 34
+          },
+          "name": "apiObject",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base.ts",
+            "line": 40
+          },
+          "name": "metadata",
+          "type": {
+            "fqn": "cdk8s.ApiObjectMetadataDefinition"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The name of this API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base.ts",
+            "line": 47
+          },
+          "name": "name",
+          "overrides": "cdk8s-plus.IResource",
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ResourceProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Initialization properties for resources."
+      },
+      "fqn": "cdk8s-plus.ResourceProps",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/base.ts",
+        "line": 7
+      },
+      "name": "ResourceProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "Metadata that all persisted resources must have, which includes all objects users must create."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base.ts",
+            "line": 12
+          },
+          "name": "metadata",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s.ApiObjectMetadata"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.RestartPolicy": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "Restart policy for all containers within the pod."
+      },
+      "fqn": "cdk8s-plus.RestartPolicy",
+      "kind": "enum",
+      "locationInModule": {
+        "filename": "src/pod.ts",
+        "line": 292
+      },
+      "members": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Always restart the pod after it exits."
+          },
+          "name": "ALWAYS"
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Only restart if the pod exits with a non-zero exit code."
+          },
+          "name": "ON_FAILURE"
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Never restart the pod."
+          },
+          "name": "NEVER"
+        }
+      ],
+      "name": "RestartPolicy"
+    },
+    "cdk8s-plus.Secret": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.Resource",
+      "docs": {
+        "remarks": "Storing confidential information in a\nSecret is safer and more flexible than putting it verbatim in a Pod\ndefinition or in a container image.",
+        "see": "https://kubernetes.io/docs/concepts/configuration/secret",
+        "stability": "experimental",
+        "summary": "Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys."
+      },
+      "fqn": "cdk8s-plus.Secret",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/secret.ts",
+          "line": 60
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.SecretProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.ISecret"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/secret.ts",
+        "line": 43
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Imports a secret from the cluster as a reference."
+          },
+          "locationInModule": {
+            "filename": "src/secret.ts",
+            "line": 49
+          },
+          "name": "fromSecretName",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The name of the secret to reference."
+              },
+              "name": "name",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.ISecret"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Adds a string data field to the secert."
+          },
+          "locationInModule": {
+            "filename": "src/secret.ts",
+            "line": 76
+          },
+          "name": "addStringData",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "Key."
+              },
+              "name": "key",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "Value."
+              },
+              "name": "value",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Gets a string data by key or undefined."
+          },
+          "locationInModule": {
+            "filename": "src/secret.ts",
+            "line": 84
+          },
+          "name": "getStringData",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "Key."
+              },
+              "name": "key",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ],
+          "returns": {
+            "optional": true,
+            "type": {
+              "primitive": "string"
+            }
+          }
+        }
+      ],
+      "name": "Secret",
+      "properties": [
+        {
+          "docs": {
+            "see": "base.Resource.apiObject",
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/secret.ts",
+            "line": 56
+          },
+          "name": "apiObject",
+          "overrides": "cdk8s-plus.Resource",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.SecretProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental"
+      },
+      "fqn": "cdk8s-plus.SecretProps",
+      "interfaces": [
+        "cdk8s-plus.ResourceProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/secret.ts",
+        "line": 6
+      },
+      "name": "SecretProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "It is\nprovided as a write-only convenience method. All keys and values are merged\ninto the data field on write, overwriting any existing values. It is never\noutput when reading from the API.",
+            "stability": "experimental",
+            "summary": "stringData allows specifying non-binary secret data in string form."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/secret.ts",
+            "line": 13
+          },
+          "name": "stringData",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.SecretValue": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Represents a specific value in JSON secret."
+      },
+      "fqn": "cdk8s-plus.SecretValue",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/secret.ts",
+        "line": 23
+      },
+      "name": "SecretValue",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "The JSON key."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/secret.ts",
+            "line": 32
+          },
+          "name": "key",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "The secret."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/secret.ts",
+            "line": 27
+          },
+          "name": "secret",
+          "type": {
+            "fqn": "cdk8s-plus.ISecret"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Service": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.Resource",
+      "docs": {
+        "remarks": "With Kubernetes you don't need to modify your application to use an unfamiliar service discovery mechanism.\nKubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.\n\nFor example, consider a stateless image-processing backend which is running with 3 replicas. Those replicas are fungible—frontends do not care which backend they use.\nWhile the actual Pods that compose the backend set may change, the frontend clients should not need to be aware of that,\nnor should they need to keep track of the set of backends themselves.\nThe Service abstraction enables this decoupling.\n\nIf you're able to use Kubernetes APIs for service discovery in your application, you can query the API server for Endpoints,\nthat get updated whenever the set of Pods in a Service changes. For non-native applications, Kubernetes offers ways to place a network port\nor load balancer in between your application and the backend Pods.",
+        "stability": "experimental",
+        "summary": "An abstract way to expose an application running on a set of Pods as a network service."
+      },
+      "fqn": "cdk8s-plus.Service",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/service.ts",
+          "line": 131
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.ServiceProps"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/service.ts",
+        "line": 109
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "If not targetPort is specific in the portOptions, then requests will be routed\nto the port exposed by the first container in the deployment's pods.\nThe deployment's `labelSelector` will be used to select pods.",
+            "stability": "experimental",
+            "summary": "Associate a deployment to this service."
+          },
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 179
+          },
+          "name": "addDeployment",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The deployment to expose."
+              },
+              "name": "deployment",
+              "type": {
+                "fqn": "cdk8s-plus.Deployment"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The external port."
+              },
+              "name": "port",
+              "type": {
+                "primitive": "number"
+              }
+            },
+            {
+              "docs": {
+                "summary": "Optional settings for the port."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.ServicePortOptions"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Services defined using this spec will select pods according the provided label."
+          },
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 213
+          },
+          "name": "addSelector",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The label key."
+              },
+              "name": "label",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "The label value."
+              },
+              "name": "value",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "This method can be called multiple times.",
+            "stability": "experimental",
+            "summary": "Configure a port the service will bind to."
+          },
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 223
+          },
+          "name": "serve",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The port definition."
+              },
+              "name": "port",
+              "type": {
+                "primitive": "number"
+              }
+            },
+            {
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.ServicePortOptions"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "Service",
+      "properties": [
+        {
+          "docs": {
+            "see": "base.Resource.apiObject",
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 125
+          },
+          "name": "apiObject",
+          "overrides": "cdk8s-plus.Resource",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Use `serve()` to expose additional service ports.",
+            "stability": "experimental",
+            "summary": "Ports for this service."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 164
+          },
+          "name": "ports",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.ServicePort"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Returns the labels which are used to select pods for this service."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 155
+          },
+          "name": "selector",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Determines how the Service is exposed."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 120
+          },
+          "name": "type",
+          "type": {
+            "fqn": "cdk8s-plus.ServiceType"
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "The IP address of the service and is usually assigned randomly by the master."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 115
+          },
+          "name": "clusterIP",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ServiceAccount": {
+      "assembly": "cdk8s-plus",
+      "base": "cdk8s-plus.Resource",
+      "docs": {
+        "remarks": "When you (a human) access the cluster (for example, using kubectl), you are\nauthenticated by the apiserver as a particular User Account (currently this\nis usually admin, unless your cluster administrator has customized your\ncluster). Processes in containers inside pods can also contact the apiserver.\nWhen they do, they are authenticated as a particular Service Account (for\nexample, default).",
+        "see": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account",
+        "stability": "experimental",
+        "summary": "A service account provides an identity for processes that run in a Pod."
+      },
+      "fqn": "cdk8s-plus.ServiceAccount",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/service-account.ts",
+          "line": 62
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "constructs.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "optional": true,
+            "type": {
+              "fqn": "cdk8s-plus.ServiceAccountProps"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "cdk8s-plus.IServiceAccount"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/service-account.ts",
+        "line": 45
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Imports a service account from the cluster as a reference."
+          },
+          "locationInModule": {
+            "filename": "src/service-account.ts",
+            "line": 51
+          },
+          "name": "fromServiceAccountName",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The name of the service account resource."
+              },
+              "name": "name",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.IServiceAccount"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Allow a secret to be accessed by pods using this service account."
+          },
+          "locationInModule": {
+            "filename": "src/service-account.ts",
+            "line": 77
+          },
+          "name": "addSecret",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The secret."
+              },
+              "name": "secret",
+              "type": {
+                "fqn": "cdk8s-plus.ISecret"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "ServiceAccount",
+      "properties": [
+        {
+          "docs": {
+            "see": "base.Resource.apiObject",
+            "stability": "experimental",
+            "summary": "The underlying cdk8s API object."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service-account.ts",
+            "line": 58
+          },
+          "name": "apiObject",
+          "overrides": "cdk8s-plus.Resource",
+          "protected": true,
+          "type": {
+            "fqn": "cdk8s.ApiObject"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "Returns a copy. To add a secret, use `addSecret()`.",
+            "stability": "experimental",
+            "summary": "List of secrets allowed to be used by pods running using this service account."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service-account.ts",
+            "line": 87
+          },
+          "name": "secrets",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.ISecret"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ServiceAccountProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "remarks": "Properties for initialization of `ServiceAccount`.",
+        "stability": "experimental",
+        "summary": "Properties for initialization of `ServiceAccount`."
+      },
+      "fqn": "cdk8s-plus.ServiceAccountProps",
+      "interfaces": [
+        "cdk8s-plus.ResourceProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/service-account.ts",
+        "line": 12
+      },
+      "name": "ServiceAccountProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "see": "https://kubernetes.io/docs/concepts/configuration/secret",
+            "stability": "experimental",
+            "summary": "List of secrets allowed to be used by pods running using this ServiceAccount."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service-account.ts",
+            "line": 30
+          },
+          "name": "secrets",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.ISecret"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ServiceIngressBackendOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for setting up backends for ingress rules."
+      },
+      "fqn": "cdk8s-plus.ServiceIngressBackendOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/ingress.ts",
+        "line": 170
+      },
+      "name": "ServiceIngressBackendOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- if the service exposes a single port, this port will be used.",
+            "remarks": "- This option will fail if the service does not expose any ports.\n- If the service exposes multiple ports, this option must be specified.\n- If the service exposes a single port, this option is optional and if\n   specified, it must be the same port exposed by the service.",
+            "stability": "experimental",
+            "summary": "The port to use to access the service."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/ingress.ts",
+            "line": 181
+          },
+          "name": "port",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ServicePort": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Definition of a service port."
+      },
+      "fqn": "cdk8s-plus.ServicePort",
+      "interfaces": [
+        "cdk8s-plus.ServicePortOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/service.ts",
+        "line": 305
+      },
+      "name": "ServicePort",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "The port number the service will bind to."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 310
+          },
+          "name": "port",
+          "type": {
+            "primitive": "number"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ServicePortOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental"
+      },
+      "fqn": "cdk8s-plus.ServicePortOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/service.ts",
+        "line": 264
+      },
+      "name": "ServicePortOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "This must be a DNS_LABEL. All\nports within a ServiceSpec must have unique names. This maps to the 'Name'\nfield in EndpointPort objects. Optional if only one ServicePort is defined\non this service.",
+            "stability": "experimental",
+            "summary": "The name of this port within the service."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 271
+          },
+          "name": "name",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "to auto-allocate a port if the ServiceType of this Service\nrequires one.",
+            "remarks": "Usually assigned by the system. If specified, it will be\nallocated to the service if unused or else creation of the service will\nfail. Default is to auto-allocate a port if the ServiceType of this Service\nrequires one.",
+            "see": "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
+            "stability": "experimental",
+            "summary": "The port on each node on which this service is exposed when type=NodePort or LoadBalancer."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 285
+          },
+          "name": "nodePort",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "Protocol.TCP",
+            "remarks": "Supports \"TCP\", \"UDP\", and \"SCTP\". Default is TCP.",
+            "stability": "experimental",
+            "summary": "The IP protocol for this port."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 292
+          },
+          "name": "protocol",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.Protocol"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- The value of `port` will be used.",
+            "stability": "experimental",
+            "summary": "The port number the service will redirect to."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 299
+          },
+          "name": "targetPort",
+          "optional": true,
+          "type": {
+            "primitive": "number"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ServiceProps": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Properties for initialization of `Service`."
+      },
+      "fqn": "cdk8s-plus.ServiceProps",
+      "interfaces": [
+        "cdk8s-plus.ResourceProps"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/service.ts",
+        "line": 10
+      },
+      "name": "ServiceProps",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- Automatically assigned.",
+            "remarks": "If an address is specified manually and is not in use by others, it\nwill be allocated to the service; otherwise, creation of the service will\nfail. This field can not be changed through updates. Valid values are\n\"None\", empty string (\"\"), or a valid IP address. \"None\" can be specified\nfor headless services when proxying is not required. Only applies to types\nClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName.",
+            "see": "https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "stability": "experimental",
+            "summary": "The IP address of the service and is usually assigned randomly by the master."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 25
+          },
+          "name": "clusterIP",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "- No external IPs.",
+            "remarks": "These IPs are not managed by Kubernetes. The user\nis responsible for ensuring that traffic arrives at a node with this IP. A\ncommon example is external load-balancers that are not part of the\nKubernetes system.",
+            "stability": "experimental",
+            "summary": "A list of IP addresses for which nodes in the cluster will also accept traffic for this service."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 36
+          },
+          "name": "externalIPs",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+            "stability": "experimental",
+            "summary": "The port exposed by this service."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 52
+          },
+          "name": "ports",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "cdk8s-plus.ServicePort"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "ServiceType.ClusterIP",
+            "remarks": "More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types",
+            "stability": "experimental",
+            "summary": "Determines how the Service is exposed."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/service.ts",
+            "line": 45
+          },
+          "name": "type",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.ServiceType"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.ServiceType": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "remarks": "Kubernetes ServiceTypes allow you to specify what kind of Service you want.\nThe default is ClusterIP.",
+        "stability": "experimental",
+        "summary": "For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that's outside of your cluster."
+      },
+      "fqn": "cdk8s-plus.ServiceType",
+      "kind": "enum",
+      "locationInModule": {
+        "filename": "src/service.ts",
+        "line": 62
+      },
+      "members": [
+        {
+          "docs": {
+            "remarks": "Choosing this value makes the Service only reachable from within the cluster.\nThis is the default ServiceType",
+            "stability": "experimental",
+            "summary": "Exposes the Service on a cluster-internal IP."
+          },
+          "name": "CLUSTER_IP"
+        },
+        {
+          "docs": {
+            "remarks": "A ClusterIP Service, to which the NodePort Service routes, is automatically created.\nYou'll be able to contact the NodePort Service, from outside the cluster,\nby requesting <NodeIP>:<NodePort>.",
+            "stability": "experimental",
+            "summary": "Exposes the Service on each Node's IP at a static port (the NodePort)."
+          },
+          "name": "NODE_PORT"
+        },
+        {
+          "docs": {
+            "remarks": "NodePort and ClusterIP Services, to which the external load balancer routes,\nare automatically created.",
+            "stability": "experimental",
+            "summary": "Exposes the Service externally using a cloud provider's load balancer."
+          },
+          "name": "LOAD_BALANCER"
+        },
+        {
+          "docs": {
+            "remarks": "> Note: You need either kube-dns version 1.7 or CoreDNS version 0.0.8 or higher to use the ExternalName type.",
+            "stability": "experimental",
+            "summary": "Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up."
+          },
+          "name": "EXTERNAL_NAME"
+        }
+      ],
+      "name": "ServiceType"
+    },
+    "cdk8s-plus.Size": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "remarks": "The amount can be specified either as a literal value (e.g: `10`) which\ncannot be negative.\n\nWhen the amount is passed as a token, unit conversion is not possible.",
+        "stability": "experimental",
+        "summary": "Represents the amount of digital storage."
+      },
+      "fqn": "cdk8s-plus.Size",
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/size.ts",
+        "line": 9
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "1 GiB = 1024 MiB",
+            "stability": "experimental",
+            "summary": "Create a Storage representing an amount gibibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 30
+          },
+          "name": "gibibytes",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Size"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "remarks": "1 KiB = 1024 bytes",
+            "stability": "experimental",
+            "summary": "Create a Storage representing an amount kibibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 14
+          },
+          "name": "kibibytes",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Size"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "remarks": "1 MiB = 1024 KiB",
+            "stability": "experimental",
+            "summary": "Create a Storage representing an amount mebibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 22
+          },
+          "name": "mebibytes",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Size"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "remarks": "1 PiB = 1024 TiB",
+            "stability": "experimental",
+            "summary": "Create a Storage representing an amount pebibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 46
+          },
+          "name": "pebibyte",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Size"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "remarks": "1 TiB = 1024 GiB",
+            "stability": "experimental",
+            "summary": "Create a Storage representing an amount tebibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 38
+          },
+          "name": "tebibytes",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": {
+                "primitive": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Size"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Return this storage as a total number of gibibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 78
+          },
+          "name": "toGibibytes",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.SizeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Return this storage as a total number of kibibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 64
+          },
+          "name": "toKibibytes",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.SizeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Return this storage as a total number of mebibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 71
+          },
+          "name": "toMebibytes",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.SizeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Return this storage as a total number of pebibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 92
+          },
+          "name": "toPebibytes",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.SizeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Return this storage as a total number of tebibytes."
+          },
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 85
+          },
+          "name": "toTebibytes",
+          "parameters": [
+            {
+              "name": "opts",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.SizeConversionOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "primitive": "number"
+            }
+          }
+        }
+      ],
+      "name": "Size"
+    },
+    "cdk8s-plus.SizeConversionOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for how to convert time to a different unit."
+      },
+      "fqn": "cdk8s-plus.SizeConversionOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/size.ts",
+        "line": 113
+      },
+      "name": "SizeConversionOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "SizeRoundingBehavior.FAIL",
+            "stability": "experimental",
+            "summary": "How conversions should behave when it encounters a non-integer result."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/size.ts",
+            "line": 118
+          },
+          "name": "rounding",
+          "optional": true,
+          "type": {
+            "fqn": "cdk8s-plus.SizeRoundingBehavior"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.SizeRoundingBehavior": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "stability": "experimental",
+        "summary": "Rounding behaviour when converting between units of `Size`."
+      },
+      "fqn": "cdk8s-plus.SizeRoundingBehavior",
+      "kind": "enum",
+      "locationInModule": {
+        "filename": "src/size.ts",
+        "line": 100
+      },
+      "members": [
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "Fail the conversion if the result is not an integer."
+          },
+          "name": "FAIL"
+        },
+        {
+          "docs": {
+            "stability": "experimental",
+            "summary": "If the result is not an integer, round it to the closest integer less than the result."
+          },
+          "name": "FLOOR"
+        },
+        {
+          "docs": {
+            "remarks": "Return even if the result is a fraction.",
+            "stability": "experimental",
+            "summary": "Don't round."
+          },
+          "name": "NONE"
+        }
+      ],
+      "name": "SizeRoundingBehavior"
+    },
+    "cdk8s-plus.TimeConversionOptions": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Options for how to convert time to a different unit."
+      },
+      "fqn": "cdk8s-plus.TimeConversionOptions",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/duration.ts",
+        "line": 223
+      },
+      "name": "TimeConversionOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "true",
+            "stability": "experimental",
+            "summary": "If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/duration.ts",
+            "line": 230
+          },
+          "name": "integral",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.Volume": {
+      "assembly": "cdk8s-plus",
+      "docs": {
+        "remarks": "Docker also has a concept of volumes, though it is somewhat looser and less\nmanaged. In Docker, a volume is simply a directory on disk or in another\nContainer. Lifetimes are not managed and until very recently there were only\nlocal-disk-backed volumes. Docker now provides volume drivers, but the\nfunctionality is very limited for now (e.g. as of Docker 1.7 only one volume\ndriver is allowed per Container and there is no way to pass parameters to\nvolumes).\n\nA Kubernetes volume, on the other hand, has an explicit lifetime - the same\nas the Pod that encloses it. Consequently, a volume outlives any Containers\nthat run within the Pod, and data is preserved across Container restarts. Of\ncourse, when a Pod ceases to exist, the volume will cease to exist, too.\nPerhaps more importantly than this, Kubernetes supports many types of\nvolumes, and a Pod can use any number of them simultaneously.\n\nAt its core, a volume is just a directory, possibly with some data in it,\nwhich is accessible to the Containers in a Pod. How that directory comes to\nbe, the medium that backs it, and the contents of it are determined by the\nparticular volume type used.\n\nTo use a volume, a Pod specifies what volumes to provide for the Pod (the\n.spec.volumes field) and where to mount those into Containers (the\n.spec.containers[*].volumeMounts field).\n\nA process in a container sees a filesystem view composed from their Docker\nimage and volumes. The Docker image is at the root of the filesystem\nhierarchy, and any volumes are mounted at the specified paths within the\nimage. Volumes can not mount onto other volumes",
+        "stability": "experimental",
+        "summary": "Volume represents a named volume in a pod that may be accessed by any container in the pod."
+      },
+      "fqn": "cdk8s-plus.Volume",
+      "initializer": {
+        "docs": {
+          "stability": "experimental"
+        },
+        "locationInModule": {
+          "filename": "src/volume.ts",
+          "line": 101
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "config",
+            "type": {
+              "primitive": "any"
+            }
+          }
+        ],
+        "protected": true
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/volume.ts",
+        "line": 38
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "The configMap resource provides a way to inject configuration data into\nPods. The data stored in a ConfigMap object can be referenced in a volume\nof type configMap and then consumed by containerized applications running\nin a Pod.\n\nWhen referencing a configMap object, you can simply provide its name in the\nvolume to reference it. You can also customize the path to use for a\nspecific entry in the ConfigMap.",
+            "stability": "experimental",
+            "summary": "Populate the volume from a ConfigMap."
+          },
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 54
+          },
+          "name": "fromConfigMap",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The config map to use to populate the volume."
+              },
+              "name": "configMap",
+              "type": {
+                "fqn": "cdk8s-plus.IConfigMap"
+              }
+            },
+            {
+              "docs": {
+                "summary": "Options."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.ConfigMapVolumeOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Volume"
+            }
+          },
+          "static": true
+        },
+        {
+          "docs": {
+            "remarks": "As the name says, it is\ninitially empty. Containers in the Pod can all read and write the same\nfiles in the emptyDir volume, though that volume can be mounted at the same\nor different paths in each Container. When a Pod is removed from a node for\nany reason, the data in the emptyDir is deleted forever.",
+            "see": "http://kubernetes.io/docs/user-guide/volumes#emptydir",
+            "stability": "experimental",
+            "summary": "An emptyDir volume is first created when a Pod is assigned to a Node, and exists as long as that Pod is running on that node."
+          },
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 90
+          },
+          "name": "fromEmptyDir",
+          "parameters": [
+            {
+              "name": "name",
+              "type": {
+                "primitive": "string"
+              }
+            },
+            {
+              "docs": {
+                "summary": "- Additional options."
+              },
+              "name": "options",
+              "optional": true,
+              "type": {
+                "fqn": "cdk8s-plus.EmptyDirVolumeOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "cdk8s-plus.Volume"
+            }
+          },
+          "static": true
+        }
+      ],
+      "name": "Volume",
+      "properties": [
+        {
+          "docs": {
+            "stability": "experimental"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/volume.ts",
+            "line": 101
+          },
+          "name": "name",
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
+    "cdk8s-plus.VolumeMount": {
+      "assembly": "cdk8s-plus",
+      "datatype": true,
+      "docs": {
+        "stability": "experimental",
+        "summary": "Mount a volume from the pod to the container."
+      },
+      "fqn": "cdk8s-plus.VolumeMount",
+      "interfaces": [
+        "cdk8s-plus.MountOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/container.ts",
+        "line": 444
+      },
+      "name": "VolumeMount",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Must not\ncontain ':'.",
+            "stability": "experimental",
+            "summary": "Path within the container at which the volume should be mounted."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 454
+          },
+          "name": "path",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "experimental",
+            "summary": "The volume to mount."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/container.ts",
+            "line": 448
+          },
+          "name": "volume",
+          "type": {
+            "fqn": "cdk8s-plus.Volume"
+          }
+        }
+      ]
+    }
+  },
+  "version": "0.0.0",
+  "fingerprint": "Lk+hhjvDZ5dMjSCYPEnUbe1SYPhzS27NpawTZ2zSgUM="
+}
