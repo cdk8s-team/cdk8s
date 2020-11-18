@@ -8,10 +8,11 @@ library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 
 !!! notice
-    **cdk8s+** is currently built on top of version [1.17.0](https://github.com/instrumenta/kubernetes-json-schema/tree/master/v1.17.0) of the kubernetes API specifications.
-    If you are deploying manifests produced by `cdk8s+` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
+    **cdk8s+** is vended as a separate library for each kubernetes spec version. The documentation presented here represents version [1.17.0](https://github.com/kubernetes/kubernetes/tree/v1.17.0/api/openapi-spec)
+    and is vended as the `cdk8s-plus-17` library. Per kubernetes [compatibility guarantees](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning), this library is compatible with
+    any spec version higher or equal to `1.17.0`.
 
-    > See [Supporting various k8s API specs](https://github.com/awslabs/cdk8s/issues/299) for more details and progress on this issue.
+    > If you are deploying manifests produced by `cdk8s-plus-17` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
 
 ## At a glance
 
