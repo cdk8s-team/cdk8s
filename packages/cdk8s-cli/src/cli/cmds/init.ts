@@ -129,7 +129,7 @@ class ModuleVersion {
   
   public get pypiWheelFile() {
     const [major,minor,patch,pre] = this.pypiVersion.split('.');
-    return `${this.module.replace('-', '_')}-${major}.${minor}.${patch}${pre ?? ''}-py3-none-any.whl`
+    return `${this.module.replace(/-/g, '_')}-${major}.${minor}.${patch}${pre ?? ''}-py3-none-any.whl`
   }
 
   public get javaJarFile() {
