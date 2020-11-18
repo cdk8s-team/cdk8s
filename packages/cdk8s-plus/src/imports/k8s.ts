@@ -1335,7 +1335,7 @@ export class KubeCertificateSigningRequestV1Beta1 extends ApiObject {
 }
 
 /**
- * 
+ *
  *
  * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequestList
  */
@@ -14534,7 +14534,7 @@ bigger numbers of ACS mean more reserved concurrent requests (at the expense of 
  */
 export enum IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind {
   /** DeleteOptions */
-  DELETE_OPTIONS = "DeleteOptions",
+  DELETE_OPTIONS = 'DeleteOptions',
 }
 
 /**
