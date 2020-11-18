@@ -1,11 +1,14 @@
-import { Testing } from 'cdk8s';
+import { Testing, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
 import * as kplus from '../src';
 
 test('defaultChild', () => {
   const chart = Testing.chart();
 
-  expect(Node.of(new kplus.Secret(chart, 'Secret')).defaultChild).toBeTruthy();
+  const defaultChild = Node.of(new kplus.Secret(chart, 'Secret')).defaultChild as ApiObject;
+
+  expect(defaultChild.kind).toEqual('Secret');
+
 });
 
 test('Can be imported from secret name', () => {

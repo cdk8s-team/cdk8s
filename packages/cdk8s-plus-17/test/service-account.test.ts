@@ -1,13 +1,14 @@
-import { Testing } from 'cdk8s';
+import { Testing, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
 import * as kplus from '../src';
 
 test('defaultChild', () => {
   const chart = Testing.chart();
 
-  expect(
-    Node.of(new kplus.ServiceAccount(chart, 'ServiceAccount')).defaultChild,
-  ).toBeTruthy();
+  const defaultChild = Node.of(new kplus.ServiceAccount(chart, 'ServiceAccount')).defaultChild as ApiObject;
+
+  expect(defaultChild.kind).toEqual('ServiceAccount');
+
 });
 
 test('minimal definition', () => {

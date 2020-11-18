@@ -1,4 +1,4 @@
-import { Testing } from 'cdk8s';
+import { Testing, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
 import { ConfigMap } from '../src';
 
@@ -6,7 +6,9 @@ test('defaultChild', () => {
 
   const chart = Testing.chart();
 
-  expect(Node.of(new ConfigMap(chart, 'ConfigMap')).defaultChild).toBeTruthy();
+  const defaultChild = Node.of(new ConfigMap(chart, 'ConfigMap')).defaultChild as ApiObject;
+
+  expect(defaultChild.kind).toEqual('ConfigMap');
 
 });
 

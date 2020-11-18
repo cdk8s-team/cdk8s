@@ -1,4 +1,4 @@
-import { Testing } from 'cdk8s';
+import { Testing, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
 import { IngressV1Beta1Backend, Service, IngressV1Beta1 } from '../src';
 
@@ -6,7 +6,9 @@ test('defaultChild', () => {
 
   const chart = Testing.chart();
 
-  expect(Node.of(new IngressV1Beta1(chart, 'Ingress')).defaultChild).toBeTruthy();
+  const defaultChild = Node.of(new IngressV1Beta1(chart, 'Ingress')).defaultChild as ApiObject;
+
+  expect(defaultChild.kind).toEqual('Ingress');
 
 });
 

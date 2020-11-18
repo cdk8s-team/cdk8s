@@ -1,4 +1,4 @@
-import { Testing, Duration } from 'cdk8s';
+import { Testing, Duration, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
 import * as kplus from '../src';
 
@@ -6,7 +6,9 @@ test('defaultChild', () => {
 
   const chart = Testing.chart();
 
-  expect(Node.of(new kplus.Job(chart, 'Job')).defaultChild).toBeTruthy();
+  const defaultChild = Node.of(new kplus.Job(chart, 'Job')).defaultChild as ApiObject;
+
+  expect(defaultChild.kind).toEqual('Job');
 
 });
 
