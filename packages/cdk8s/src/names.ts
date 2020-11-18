@@ -53,19 +53,7 @@ export class Names {
 
     components.push(calcHash(path, HASH_LEN));
 
-    return components
-      .reverse()
-      .filter(omitDuplicates)
-      .join('/')
-      .slice(0, maxLen)
-      .split('/')
-      .reverse()
-      .filter(x => x)
-      .join('-')
-      .split('-')
-      .filter(x => x) // remove empty components between `-`s.
-      .filter(omitDefaultChild)
-      .join('-');
+    return toHumanForm(components, '-', maxLen);
   }
 
   /**
@@ -118,19 +106,7 @@ export class Names {
 
     components.push(calcHash(path, HASH_LEN));
 
-    const result = components
-      .reverse()
-      .filter(omitDuplicates)
-      .join('/')
-      .slice(0, maxLen)
-      .split('/')
-      .reverse()
-      .filter(x => x)
-      .join(delim)
-      .split(delim)
-      .filter(x => x)
-      .filter(omitDefaultChild)
-      .join(delim);
+    const result = toHumanForm(components, delim, maxLen);
 
     // slicing might let '-', '_', '.' be in the start of the result.
     return result.replace(/^[^0-9a-zA-Z]+/, '');
@@ -150,21 +126,21 @@ function omitDefaultChild(value: string, _: number, __: string[]) {
   return value.toLowerCase() !== 'resource' && value.toLowerCase() !== 'default';
 }
 
-// function toHumanForm(components: string[], delimiter: string, maxLen: number) {
-//   return components
-//     .reverse()
-//     .filter(omitDuplicates)
-//     .join(delimiter)
-//     .slice(0, maxLen)
-//     .split(delimiter)
-//     .reverse()
-//     .filter(x => x) // remove empty components between `-`s.
-//     .join(delimiter)
-//     .split(delimiter)
-//     .filter(x => x) // remove empty components between `-`s.
-//     // .filter(omitDefaultChild)
-//     .join(delimiter);
-// }
+function toHumanForm(components: string[], delim: string, maxLen: number) {
+  return components.reverse()
+    .filter(omitDuplicates)
+    .join('/')
+    .slice(0, maxLen)
+    .split('/')
+    .reverse()
+    .filter(x => x)
+    .join(delim)
+    .split(delim)
+    .filter(x => x)
+    .filter(omitDefaultChild)
+    .join(delim);
+
+}
 
 function normalizeToDnsName(c: string, maxLen: number) {
   return c
