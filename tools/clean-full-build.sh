@@ -8,5 +8,5 @@ fi
 git clean -fdx
 yarn
 yarn build
-yarn run packagse
+yarn run package
 yarn test:update
