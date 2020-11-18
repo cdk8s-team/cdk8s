@@ -6617,24 +6617,6 @@ jsii-docgen@^1.3.2:
     jsii-reflect "^1.9.0"
     yargs "^15.4.1"
 
-jsii-pacmak@*:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/jsii-pacmak/-/jsii-pacmak-1.14.1.tgz#1296cb926df803fef407b2cbbe2e2658a524c371"
-  integrity sha512-BRASls0wizqS4mxOmC2eoC7DgDb3tyS1UtFQeok0kfhhyi+GDs/9JPJ+VKlhU1kGLmsQswYxkPrZhV9VcXoiIw==
-  dependencies:
-    "@jsii/spec" "^1.14.1"
-    clone "^2.1.2"
-    codemaker "^1.14.1"
-    commonmark "^0.29.2"
-    escape-string-regexp "^4.0.0"
-    fs-extra "^9.0.1"
-    jsii-reflect "^1.14.1"
-    jsii-rosetta "^1.14.1"
-    semver "^7.3.2"
-    spdx-license-list "^6.3.0"
-    xmlbuilder "^15.1.1"
-    yargs "^16.1.0"
-
 jsii-pacmak@^1.12.0, jsii-pacmak@^1.9.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/jsii-pacmak/-/jsii-pacmak-1.13.0.tgz#28cc1cd4013142aa6169a4e04fd14abe8a42c559"
@@ -6652,6 +6634,24 @@ jsii-pacmak@^1.12.0, jsii-pacmak@^1.9.0:
     spdx-license-list "^6.3.0"
     xmlbuilder "^15.1.1"
     yargs "^16.0.3"
+
+jsii-pacmak@^1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/jsii-pacmak/-/jsii-pacmak-1.14.1.tgz#1296cb926df803fef407b2cbbe2e2658a524c371"
+  integrity sha512-BRASls0wizqS4mxOmC2eoC7DgDb3tyS1UtFQeok0kfhhyi+GDs/9JPJ+VKlhU1kGLmsQswYxkPrZhV9VcXoiIw==
+  dependencies:
+    "@jsii/spec" "^1.14.1"
+    clone "^2.1.2"
+    codemaker "^1.14.1"
+    commonmark "^0.29.2"
+    escape-string-regexp "^4.0.0"
+    fs-extra "^9.0.1"
+    jsii-reflect "^1.14.1"
+    jsii-rosetta "^1.14.1"
+    semver "^7.3.2"
+    spdx-license-list "^6.3.0"
+    xmlbuilder "^15.1.1"
+    yargs "^16.1.0"
 
 jsii-reflect@^1.13.0, jsii-reflect@^1.9.0:
   version "1.13.0"
