@@ -966,8 +966,8 @@ exposing richer API&rsquo;s with reduced complexity.</p>
 and is vended as the <code>cdk8s-plus-17</code> library.</p>
 <h3 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Stable resources are represented by a <em>construct</em> of the same name <strong>base</strong> name. For example, the <code>io.k8s.api.core.v1.Pod</code> resource maps to the <code>Pod</code> <em>construct</em>.</li>
-<li>Non stable resources are suffixed with their semantic version. For example, the <code>io.k8s.api.networking.v1beta1.Ingress</code> maps to the <code>IngressV1Beta1</code> <em>construct</em>.</li>
+<li>Stable resources are represented by a <em>construct</em> of the same <em>kind</em>. For example, the <code>io.k8s.api.core.v1.Pod</code> resource maps to the <code>Pod</code> <em>construct</em>.</li>
+<li>Non stable resources are suffixed with their <em>api version</em>. For example, the <code>io.k8s.api.networking.v1beta1.Ingress</code> maps to the <code>IngressV1Beta1</code> <em>construct</em>.</li>
 </ul>
 <h3 id="spec-compatibility">Spec Compatibility<a class="headerlink" href="#spec-compatibility" title="Permanent link">&para;</a></h3>
 <p>Per kubernetes <a href="https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning">compatibility guarantees</a>, <strong>stable</strong> resources in this library are compatible with
