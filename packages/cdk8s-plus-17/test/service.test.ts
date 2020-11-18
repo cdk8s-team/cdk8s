@@ -1,5 +1,14 @@
 import { Testing } from 'cdk8s';
+import { Node } from 'constructs';
 import * as kplus from '../src';
+
+test('defaultChild', () => {
+
+  const chart = Testing.chart();
+
+  expect(Node.of(new kplus.Service(chart, 'Service')).defaultChild).toBeTruthy();
+
+});
 
 test('Must be configured with at least one port', () => {
 

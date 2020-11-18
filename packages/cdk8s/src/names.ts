@@ -62,7 +62,10 @@ export class Names {
       .reverse()
       .filter(x => x)
       .join('-')
-      .split('-').filter(x => x).join('-'); // remove empty components between `-`s.
+      .split('-')
+      .filter(x => x) // remove empty components between `-`s.
+      .filter(omitDefaultChild)
+      .join('-');
   }
 
   /**
@@ -126,6 +129,7 @@ export class Names {
       .join(delim)
       .split(delim)
       .filter(x => x)
+      .filter(omitDefaultChild)
       .join(delim);
 
     // slicing might let '-', '_', '.' be in the start of the result.
@@ -141,6 +145,26 @@ export class Names {
 function omitDuplicates(value: string, index: number, components: string[]) {
   return value !== components[index-1];
 }
+
+function omitDefaultChild(value: string, _: number, __: string[]) {
+  return value.toLowerCase() !== 'resource' && value.toLowerCase() !== 'default';
+}
+
+// function toHumanForm(components: string[], delimiter: string, maxLen: number) {
+//   return components
+//     .reverse()
+//     .filter(omitDuplicates)
+//     .join(delimiter)
+//     .slice(0, maxLen)
+//     .split(delimiter)
+//     .reverse()
+//     .filter(x => x) // remove empty components between `-`s.
+//     .join(delimiter)
+//     .split(delimiter)
+//     .filter(x => x) // remove empty components between `-`s.
+//     // .filter(omitDefaultChild)
+//     .join(delimiter);
+// }
 
 function normalizeToDnsName(c: string, maxLen: number) {
   return c

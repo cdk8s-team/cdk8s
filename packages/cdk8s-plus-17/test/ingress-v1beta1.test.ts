@@ -1,5 +1,14 @@
 import { Testing } from 'cdk8s';
+import { Node } from 'constructs';
 import { IngressV1Beta1Backend, Service, IngressV1Beta1 } from '../src';
+
+test('defaultChild', () => {
+
+  const chart = Testing.chart();
+
+  expect(Node.of(new IngressV1Beta1(chart, 'Ingress')).defaultChild).toBeTruthy();
+
+});
 
 describe('IngressBackend', () => {
   describe('fromService', () => {
@@ -13,7 +22,7 @@ describe('IngressBackend', () => {
 
       // THEN
       expect(IngressV1Beta1Backend.fromService(service)._toKube()).toEqual({
-        serviceName: 'test-my-service-pod-1c817a88',
+        serviceName: 'test-my-service-72ba846b',
         servicePort: 8899,
       });
     });
@@ -50,7 +59,7 @@ describe('IngressBackend', () => {
 
       // THEN
       expect(IngressV1Beta1Backend.fromService(service, { port: 6011 })._toKube()).toEqual({
-        serviceName: 'test-my-service-pod-1c817a88',
+        serviceName: 'test-my-service-72ba846b',
         servicePort: 6011,
       });
     });
@@ -67,7 +76,7 @@ describe('IngressBackend', () => {
 
       // THEN
       expect(IngressV1Beta1Backend.fromService(service, { port: 8899 })._toKube()).toEqual({
-        serviceName: 'test-my-service-pod-1c817a88',
+        serviceName: 'test-my-service-72ba846b',
         servicePort: 8899,
       });
     });
@@ -119,10 +128,10 @@ describe('Ingress', () => {
         {
           apiVersion: 'networking.k8s.io/v1beta1',
           kind: 'Ingress',
-          metadata: { name: 'test-my-ingress-ingress-56b6a667' },
+          metadata: { name: 'test-my-ingress-e859c4c6' },
           spec: {
             backend: {
-              serviceName: 'test-my-service-pod-1c817a88',
+              serviceName: 'test-my-service-72ba846b',
               servicePort: 80,
             },
           },
@@ -144,10 +153,10 @@ describe('Ingress', () => {
         {
           apiVersion: 'networking.k8s.io/v1beta1',
           kind: 'Ingress',
-          metadata: { name: 'test-my-ingress-ingress-56b6a667' },
+          metadata: { name: 'test-my-ingress-e859c4c6' },
           spec: {
             backend: {
-              serviceName: 'test-my-service-pod-1c817a88',
+              serviceName: 'test-my-service-72ba846b',
               servicePort: 80,
             },
           },
@@ -171,7 +180,7 @@ describe('Ingress', () => {
       {
         apiVersion: 'networking.k8s.io/v1beta1',
         kind: 'Ingress',
-        metadata: { name: 'test-my-ingress-ingress-56b6a667' },
+        metadata: { name: 'test-my-ingress-e859c4c6' },
         spec: {
           rules: [{
             host: 'my.host',
@@ -179,7 +188,7 @@ describe('Ingress', () => {
               paths: [
                 {
                   backend: {
-                    serviceName: 'test-my-service-pod-1c817a88',
+                    serviceName: 'test-my-service-72ba846b',
                     servicePort: 80,
                   },
                 },
@@ -208,7 +217,7 @@ describe('Ingress', () => {
       {
         apiVersion: 'networking.k8s.io/v1beta1',
         kind: 'Ingress',
-        metadata: { name: 'test-my-ingress-ingress-56b6a667' },
+        metadata: { name: 'test-my-ingress-e859c4c6' },
         spec: {
           rules: [
             {
@@ -218,14 +227,14 @@ describe('Ingress', () => {
                   {
                     path: '/bar',
                     backend: {
-                      serviceName: 'test-my-service-pod-1c817a88',
+                      serviceName: 'test-my-service-72ba846b',
                       servicePort: 80,
                     },
                   },
                   {
                     path: '/foo',
                     backend: {
-                      serviceName: 'test-my-service-pod-1c817a88',
+                      serviceName: 'test-my-service-72ba846b',
                       servicePort: 80,
                     },
                   },
@@ -238,14 +247,14 @@ describe('Ingress', () => {
                 paths: [
                   {
                     backend: {
-                      serviceName: 'test-my-service-pod-1c817a88',
+                      serviceName: 'test-my-service-72ba846b',
                       servicePort: 80,
                     },
                   },
                   {
                     path: '/',
                     backend: {
-                      serviceName: 'test-my-service-pod-1c817a88',
+                      serviceName: 'test-my-service-72ba846b',
                       servicePort: 80,
                     },
                   },
@@ -273,7 +282,7 @@ describe('Ingress', () => {
       {
         apiVersion: 'networking.k8s.io/v1beta1',
         kind: 'Ingress',
-        metadata: { name: 'test-my-ingress-ingress-56b6a667' },
+        metadata: { name: 'test-my-ingress-e859c4c6' },
         spec: {
           rules: [
             {
@@ -282,14 +291,14 @@ describe('Ingress', () => {
                   {
                     path: '/foo',
                     backend: {
-                      serviceName: 'test-my-service-pod-1c817a88',
+                      serviceName: 'test-my-service-72ba846b',
                       servicePort: 80,
                     },
                   },
                   {
                     path: '/foo/bar',
                     backend: {
-                      serviceName: 'test-my-service-pod-1c817a88',
+                      serviceName: 'test-my-service-72ba846b',
                       servicePort: 80,
                     },
                   },
@@ -320,13 +329,13 @@ describe('Ingress', () => {
     });
 
     // THEN
-    const expectedBackend = { serviceName: 'test-my-service-pod-1c817a88', servicePort: 4000 };
+    const expectedBackend = { serviceName: 'test-my-service-72ba846b', servicePort: 4000 };
     expect(Testing.synth(chart).filter(x => x.kind === 'Ingress')).toEqual([
       {
         apiVersion: 'networking.k8s.io/v1beta1',
         kind: 'Ingress',
         metadata: {
-          name: 'test-my-ingress-ingress-56b6a667',
+          name: 'test-my-ingress-e859c4c6',
         },
         spec: {
           backend: expectedBackend,

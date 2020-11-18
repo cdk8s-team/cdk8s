@@ -1,5 +1,14 @@
 import { Testing } from 'cdk8s';
+import { Node } from 'constructs';
 import { ConfigMap } from '../src';
+
+test('defaultChild', () => {
+
+  const chart = Testing.chart();
+
+  expect(Node.of(new ConfigMap(chart, 'ConfigMap')).defaultChild).toBeTruthy();
+
+});
 
 test('minimal', () => {
   // GIVEN
@@ -14,7 +23,7 @@ test('minimal', () => {
       apiVersion: 'v1',
       kind: 'ConfigMap',
       metadata: {
-        name: 'test-my-config-map-configmap-d0fa5644',
+        name: 'test-my-config-map-91419662',
       },
     },
   ]);
@@ -42,7 +51,7 @@ test('with data', () => {
         key2: 'bar',
       },
       metadata: {
-        name: 'test-my-config-map-configmap-d0fa5644',
+        name: 'test-my-config-map-91419662',
       },
     },
   ]);
@@ -70,7 +79,7 @@ test('with binaryData', () => {
         key2: 'bar',
       },
       metadata: {
-        name: 'test-my-config-map-configmap-d0fa5644',
+        name: 'test-my-config-map-91419662',
       },
     },
   ]);
@@ -104,7 +113,7 @@ test('with binaryData and data', () => {
         key2: 'bar',
       },
       metadata: {
-        name: 'test-my-config-map-configmap-d0fa5644',
+        name: 'test-my-config-map-91419662',
       },
     },
   ]);
@@ -163,7 +172,7 @@ test('addData()/addBinaryDataq() can be used to add data', () => {
       },
       kind: 'ConfigMap',
       metadata: {
-        name: 'test-my-config-map-configmap-d0fa5644',
+        name: 'test-my-config-map-91419662',
       },
     },
   ]);

@@ -1,5 +1,14 @@
 import { Testing } from 'cdk8s';
+import { Node } from 'constructs';
 import * as kplus from '../src';
+
+test('defaultChild', () => {
+
+  const chart = Testing.chart();
+
+  expect(Node.of(new kplus.Pod(chart, 'Pod')).defaultChild).toBeTruthy();
+
+});
 
 test('Can add container post instantiation', () => {
 

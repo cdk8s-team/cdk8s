@@ -1,5 +1,12 @@
 import { Testing } from 'cdk8s';
+import { Node } from 'constructs';
 import * as kplus from '../src';
+
+test('defaultChild', () => {
+  const chart = Testing.chart();
+
+  expect(Node.of(new kplus.Secret(chart, 'Secret')).defaultChild).toBeTruthy();
+});
 
 test('Can be imported from secret name', () => {
   const secret = kplus.Secret.fromSecretName('secret');
@@ -19,7 +26,7 @@ test('Can add data to new secrets', () => {
         "apiVersion": "v1",
         "kind": "Secret",
         "metadata": Object {
-          "name": "test-secret-081177f7",
+          "name": "test-secret-17f996fa",
         },
         "stringData": Object {
           "key": "value",

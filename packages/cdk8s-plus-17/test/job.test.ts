@@ -1,5 +1,14 @@
 import { Testing, Duration } from 'cdk8s';
+import { Node } from 'constructs';
 import * as kplus from '../src';
+
+test('defaultChild', () => {
+
+  const chart = Testing.chart();
+
+  expect(Node.of(new kplus.Job(chart, 'Job')).defaultChild).toBeTruthy();
+
+});
 
 test('Applies default restart policy to pod spec', () => {
 

@@ -9,7 +9,7 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-my-config-map-configmap-d0fa5644",
+      "name": "test-my-config-map-91419662",
     },
   },
 ]
@@ -25,7 +25,7 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-my-config-map-configmap-d0fa5644",
+      "name": "test-my-config-map-91419662",
     },
   },
 ]
@@ -41,7 +41,7 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-my-config-map-configmap-d0fa5644",
+      "name": "test-my-config-map-91419662",
     },
   },
 ]
@@ -56,7 +56,7 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-my-config-map-configmap-d0fa5644",
+      "name": "test-my-config-map-91419662",
     },
   },
 ]
@@ -72,7 +72,7 @@ Array [
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-my-config-map-configmap-d0fa5644",
+      "name": "test-my-config-map-91419662",
     },
   },
 ]
