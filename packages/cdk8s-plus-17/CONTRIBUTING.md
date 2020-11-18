@@ -20,7 +20,7 @@ read-only accessors for primitives.
 For example:
 
 ```typescript
-import * as kplus from 'cdk8s-plus';
+import * as kplus from 'cdk8s-plus-17';
 
 const pod = new kplus.Pod(parent, 'Pod', {
   replicas: 4

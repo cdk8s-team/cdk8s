@@ -1,6 +1,6 @@
+import { Size } from 'cdk8s';
 import { IConfigMap } from './config-map';
 import * as k8s from './imports/k8s';
-import { Size } from './size';
 
 /**
  * Volume represents a named volume in a pod that may be accessed by any

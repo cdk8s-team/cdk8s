@@ -2,8 +2,10 @@ const { JsiiProject, Semver } = require('projen');
 const common = require('../projen-common');
 const path = require('path');
 
+const SPEC_VERSION = '17';
+
 const project = new JsiiProject({
-  name: 'cdk8s-plus',
+  name: `cdk8s-plus-${SPEC_VERSION}`,
   description: 'High level abstractions on top of cdk8s',
   stability: 'experimental',
 
@@ -27,17 +29,17 @@ const project = new JsiiProject({
 
   // jsii configuration
   java: {
-    javaPackage: 'org.cdk8s.plus',
+    javaPackage: `org.cdk8s.plus${SPEC_VERSION}`,
     mavenGroupId: 'org.cdk8s',
-    mavenArtifactId: 'cdk8s-plus'
+    mavenArtifactId: `cdk8s-plus-${SPEC_VERSION}`
   },
   python: {
-    distName: 'cdk8s-plus',
-    module: 'cdk8s_plus'
+    distName: `cdk8s-plus-${SPEC_VERSION}`,
+    module: `cdk8s_plus_${SPEC_VERSION}`
   },
   dotnet: {
-    dotNetNamespace: 'Org.Cdk8s.Plus',
-    packageId: 'Org.Cdk8s.Plus'
+    dotNetNamespace: `Org.Cdk8s.Plus${SPEC_VERSION}`,
+    packageId: `Org.Cdk8s.Plus${SPEC_VERSION}`
   }
 });
 

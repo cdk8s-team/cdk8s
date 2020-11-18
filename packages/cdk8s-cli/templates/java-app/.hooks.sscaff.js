@@ -30,7 +30,7 @@ exports.post = options => {
   }
 
   if (mvn_cdk8s_plus.endsWith('.jar')) {
-    execSync(`mvn install:install-file -Dfile=${mvn_cdk8s_plus} -DgroupId=org.cdk8s -DartifactId=cdk8s-plus -Dversion=${cdk8s_version} -Dpackaging=jar`)
+    execSync(`mvn install:install-file -Dfile=${mvn_cdk8s_plus} -DgroupId=org.cdk8s -DartifactId=cdk8s-plus-17 -Dversion=${cdk8s_version} -Dpackaging=jar`)
   }
 
   execSync(`mvn install`);

@@ -1,4 +1,4 @@
 nav:
   - index.md
   - cdk8s: cdk8s.md
-  - cdk8s-plus: cdk8s-plus.md
+  - cdk8s-plus-17: cdk8s-plus-17.md

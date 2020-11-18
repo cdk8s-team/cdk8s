@@ -1,8 +1,7 @@
-import { ApiObject, ApiObjectMetadataDefinition, Lazy } from 'cdk8s';
+import { ApiObject, ApiObjectMetadataDefinition, Lazy, Duration } from 'cdk8s';
 import { Construct } from 'constructs';
 import { Resource, ResourceProps } from './base';
 import { Container, ContainerProps } from './container';
-import { Duration } from './duration';
 import * as k8s from './imports/k8s';
 import { RestartPolicy, PodTemplateProps, IPodTemplate, PodTemplate } from './pod';
 import { IServiceAccount } from './service-account';

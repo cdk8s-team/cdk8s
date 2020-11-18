@@ -1,4 +1,5 @@
-import { Container, Duration, Probe } from '../src';
+import { Duration } from 'cdk8s';
+import { Container, Probe } from '../src';
 
 describe('fromHttpGet()', () => {
   test('defaults to the container port', () => {
