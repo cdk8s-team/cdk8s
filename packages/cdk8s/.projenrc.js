@@ -4,7 +4,7 @@ const common = require('../projen-common');
 const project = new JsiiProject({
   name: 'cdk8s',
   description: 'Cloud Development Kit for Kubernetes',
-  stability: 'experimental',
+  stability: common.options.stability,
 
   ...common.options,
 

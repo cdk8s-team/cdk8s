@@ -7,7 +7,7 @@ const SPEC_VERSION = '17';
 const project = new JsiiProject({
   name: `cdk8s-plus-${SPEC_VERSION}`,
   description: 'High level abstractions on top of cdk8s',
-  stability: 'experimental',
+  stability: common.options.stability,
 
   ...common.options,
 
