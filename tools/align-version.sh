@@ -10,6 +10,10 @@ scriptdir=$(cd $(dirname $0) && pwd)
 cd ${scriptdir}/..
 
 suffix="${1:-}"
+if [ -n "${suffix}" ]; then
+  echo "suffix is no longer supported"
+  exit 1
+fi
 
 version=$(node -p "require('./tools/get-version')")
 files="./package.json $(npx lerna ls -p -a | xargs -n1 -I@ echo @/package.json)"
