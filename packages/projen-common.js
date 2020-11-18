@@ -9,6 +9,7 @@ exports.options = {
   authorUrl: 'https://aws.amazon.com',
   authorOrganization: true,
   buildWorkflow: false,
+  stability: 'experimental',
   releaseWorkflow: false,
   dependabot: false,
   mergify: false,
@@ -34,6 +35,8 @@ exports.fixup = project => {
 
   // jsii-release is declared at the root level, we don't need it here.
   delete project.devDependencies['jsii-release']
+
+  project.addFields({ maturity: 'developer-preview' })
 
   delete project.manifest.scripts.bump;
   delete project.manifest.scripts.release;
