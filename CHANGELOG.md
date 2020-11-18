@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * **website:** documentation website ([#367](https://github.com/awslabs/cdk8s/issues/367)) ([505f946](https://github.com/awslabs/cdk8s/commit/505f9460e53a0cf3a0249b762431addda999ec4a)), closes [#366](https://github.com/awslabs/cdk8s/issues/366)
-* escape hatches ([#372](https://github.com/awslabs/cdk8s/issues/372)) ([12b0f01](https://github.com/awslabs/cdk8s/commit/12b0f01c5c1ef4c621f5b501d39911a207251ca1)), closes [#144](https://github.com/awslabs/cdk8s/issues/144)
+* **cdk8s:** escape hatches ([#372](https://github.com/awslabs/cdk8s/issues/372)) ([12b0f01](https://github.com/awslabs/cdk8s/commit/12b0f01c5c1ef4c621f5b501d39911a207251ca1)), closes [#144](https://github.com/awslabs/cdk8s/issues/144)
 * **cli:** class prefix for imported constructs ([#370](https://github.com/awslabs/cdk8s/issues/370)) ([0b18df3](https://github.com/awslabs/cdk8s/commit/0b18df37a42d1c2f29719089cf7996efdbab8cb3)), closes [#140](https://github.com/awslabs/cdk8s/issues/140)
 * **cli:** import constructs for all API levels ([#379](https://github.com/awslabs/cdk8s/issues/379)) ([b0d7621](https://github.com/awslabs/cdk8s/commit/b0d76210fe944b03f8197b821da134120015e139)), closes [#380](https://github.com/awslabs/cdk8s/issues/380)
 * **plus:** add liveness and startup probes to Container ([#358](https://github.com/awslabs/cdk8s/issues/358)) ([f3f9a6a](https://github.com/awslabs/cdk8s/commit/f3f9a6a7474e60ff90376a4d74be55d08014b2d3))
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* input type names are "XxxOptions" instead of "XxxProps" ([#381](https://github.com/awslabs/cdk8s/issues/381)) ([b2bd34e](https://github.com/awslabs/cdk8s/commit/b2bd34e43dc487673b7dce3061195465a5806f38)), closes [#371](https://github.com/awslabs/cdk8s/issues/371)
+* **cli:** input type names are "XxxOptions" instead of "XxxProps" ([#381](https://github.com/awslabs/cdk8s/issues/381)) ([b2bd34e](https://github.com/awslabs/cdk8s/commit/b2bd34e43dc487673b7dce3061195465a5806f38)), closes [#371](https://github.com/awslabs/cdk8s/issues/371)
 * **plus-17:** L2 default child ([#389](https://github.com/awslabs/cdk8s/issues/389)) ([a8337e8](https://github.com/awslabs/cdk8s/commit/a8337e805dce81e0d0883bb296c1017b5ac2311f))
 
 ## [0.33.0](https://github.com/awslabs/cdk8s/compare/v0.32.0...v0.33.0) (2020-10-21)
