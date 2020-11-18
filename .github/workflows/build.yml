@@ -9,16 +9,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: installing dependencies
         run: tools/install-workflow-deps.sh
+
+      # we use a "-pre" version to ensure that our tests can run against a pre-release
+      - name: set version
+        run: tools/align-version.sh "-pre.$(date +%s)"
+
       - name: compile
-        run: |
-          tools/align-version.sh "-pre.$(date +%s)"
-          yarn build
+        run: yarn build
+
       - name: unit tests
         run: yarn test
+
       - name: create bundle
         run: yarn package
+
       - name: integration tests
         run: yarn integ
 
