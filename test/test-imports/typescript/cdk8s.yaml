@@ -7,3 +7,4 @@ imports:
   - https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/6edd2e554f40d7ee03f1cf6e12feb278cb5097f0/deploy/crds/jenkins.io_jenkins_crd.yaml
   - mattermost:=mattermost_crd.yaml
   - example_multiple_crd.yaml
+  - github:crossplane/crossplane@0.14.0

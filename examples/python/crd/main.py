@@ -2,8 +2,8 @@
 from constructs import Construct
 from cdk8s import App, Chart
 
-from imports.jenkins.io import jenkins
-from imports.mattermost.com import clusterinstallation
+from imports.io import jenkins
+from imports.com import mattermost
 
 class MyChart(Chart):
     def __init__(self, scope: Construct, ns: str):
@@ -23,15 +23,15 @@ class MyChart(Chart):
           )
         )
 
-        clusterinstallation.ClusterInstallation(self, "foo",
-          spec=clusterinstallation.ClusterInstallationSpec(
+        mattermost.ClusterInstallation(self, "foo",
+          spec=mattermost.ClusterInstallationSpec(
             ingress_name="example.mattermost-example.dev",
             replicas=2,
-            minio=clusterinstallation.ClusterInstallationSpecMinio(
+            minio=mattermost.ClusterInstallationSpecMinio(
               storage_size="10Gi",
               replicas=4
             ),
-            database=clusterinstallation.ClusterInstallationSpecDatabase(
+            database=mattermost.ClusterInstallationSpecDatabase(
               storage_size="10Gi",
               replicas=4
             ),
