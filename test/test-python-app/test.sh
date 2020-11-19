@@ -8,6 +8,9 @@ mkdir test && cd test
 touch .foo
 mkdir .bar
 
+# debug
+pipenv --version
+
 # initialize an empty project
 cdk8s init python-app
 
