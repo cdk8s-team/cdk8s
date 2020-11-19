@@ -209,6 +209,30 @@ Or, run this from the root of the repo:
 
     yarn integ:update
 
+#### Docker environment for integration tests
+
+Due to the polyglot nature of the [jsii](https://github.com/aws/jsii) tools used by cdk8s, 
+the toolchain requirements are somewhat more complicated than for most projects.  To 
+help with this, you can use the `jsii/superchain` docker image that includes all the required tools.
+
+In order to get an interactive shell within a superchain container you can use the 
+following command.
+
+```console
+docker run --rm --net=host -it -v $PWD:$PWD -w $PWD jsii/superchain
+```
+
+Then once in the docker shell, you can package and execute the tests as normal.
+
+```shell
+$ pip install pipenv  # Currently not included in jsii docker image
+$ yarn build
+$ yarn run package
+$ yarn integ:update
+```
+
+> Note: this may leave some files owned as the docker root user id.  These will need to 
+  be cleaned up manually.
 
 ### Pull Requests
 
