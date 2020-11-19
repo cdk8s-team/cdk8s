@@ -928,6 +928,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#docker-environment-for-integration-tests" class="md-nav__link">
+    Docker environment for integration tests
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1135,6 +1142,13 @@
           <li class="md-nav__item">
   <a href="#snapshot-testing" class="md-nav__link">
     Snapshot Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-environment-for-integration-tests" class="md-nav__link">
+    Docker environment for integration tests
   </a>
   
 </li>
@@ -1389,6 +1403,24 @@ $ ./run-against-dist ./test-typescript-app/test.sh
 <p>Or, run this from the root of the repo:</p>
 <div class="highlight"><pre><span></span><code>yarn integ:update
 </code></pre></div>
+<h4 id="docker-environment-for-integration-tests">Docker environment for integration tests<a class="headerlink" href="#docker-environment-for-integration-tests" title="Permanent link">&para;</a></h4>
+<p>Due to the polyglot nature of the <a href="https://github.com/aws/jsii">jsii</a> tools used by cdk8s, 
+the toolchain requirements are somewhat more complicated than for most projects.  To 
+help with this, you can use the <code>jsii/superchain</code> docker image that includes all the required tools.</p>
+<p>In order to get an interactive shell within a superchain container you can use the 
+following command.</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker run --rm --net=host -it -v $PWD:$PWD -w $PWD jsii/superchain</span>
+</code></pre></div>
+<p>Then once in the docker shell, you can package and execute the tests as normal.</p>
+<div class="highlight"><pre><span></span><code>$ pip install pipenv  <span class="c1"># Currently not included in jsii docker image</span>
+$ yarn build
+$ yarn run package
+$ yarn integ:update
+</code></pre></div>
+<blockquote>
+<p>Note: this may leave some files owned as the docker root user id.  These will need to 
+  be cleaned up manually.</p>
+</blockquote>
 <h3 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">&para;</a></h3>
 <p>We use the PR title when we automatically generate the change log for each
 release. Therefore please following these guidelines to the letter:</p>
