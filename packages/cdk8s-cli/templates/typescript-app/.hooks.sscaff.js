@@ -1,12 +1,11 @@
 const { execSync } = require('child_process');
 const { readFileSync } = require('fs');
 
-const constructs_version = require('../../package.json').dependencies.constructs;
-
 exports.post = ctx => {
   const npm_cdk8s = ctx.npm_cdk8s;
   const npm_cdk8s_plus = ctx.npm_cdk8s_plus;
   const npm_cdk8s_cli = ctx.npm_cdk8s_cli;
+  const constructs_version = ctx.constructs_version;
 
   if (!npm_cdk8s) { throw new Error(`missing context "npm_cdk8s"`); }
   if (!npm_cdk8s_cli) { throw new Error(`missing context "npm_cdk8s_cli"`); }
