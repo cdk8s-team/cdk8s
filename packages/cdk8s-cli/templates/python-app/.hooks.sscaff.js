@@ -29,8 +29,8 @@ exports.post = options => {
   }
 
   execSync('pipenv lock --clear')
-  execSync('pipenv install --skip-lock', { stdio: 'inherit' });
-  execSync(`pipenv install ${pypi_cdk8s}`, { stdio: 'inherit' });
+  execSync('pipenv install --pre --skip-lock', { stdio: 'inherit' });
+  execSync(`pipenv install --pre ${pypi_cdk8s}`, { stdio: 'inherit' });
   /**
    * Using --no-deps flag here to ignore subdependencies. For cdk8s_plus, that's
    * these dependencies:
