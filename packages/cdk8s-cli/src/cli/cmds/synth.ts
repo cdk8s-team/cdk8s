@@ -1,12 +1,12 @@
 import * as fs from 'fs-extra';
 import * as yargs from 'yargs';
 import { readConfigSync } from '../../config';
-import { callLibrary, mkdtemp, validateSynthesis } from '../../util';
+import { synthApp, mkdtemp } from '../../util';
 import * as path from 'path';
 
 const config = readConfigSync();
 
-class Command implements yargs.CommandModule {
+export class Command implements yargs.CommandModule {
   public readonly command = 'synth';
   public readonly describe = 'Synthesizes Kubernetes manifests for all charts in your app.';
   public readonly aliases = ['synthesize'];
@@ -29,18 +29,15 @@ class Command implements yargs.CommandModule {
 
     if (stdout) {
       await mkdtemp(async tempDir => {
-        await callLibrary(command, tempDir);
+        await synthApp(command, tempDir);
 
         const manifests = (await fs.readdir(tempDir)).filter(f => path.extname(f) === '.yaml');
         for (const f of manifests) {
           fs.createReadStream(path.join(tempDir, f)).pipe(process.stdout);
         }
-        await validateSynthesis(tempDir);
       });
     } else {
-      await callLibrary(command, outdir);
-
-      await validateSynthesis(outdir);
+      await synthApp(command, outdir);
     }
   }
 }
