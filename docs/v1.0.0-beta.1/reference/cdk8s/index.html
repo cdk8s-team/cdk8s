@@ -1323,15 +1323,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-todnslabelpath-maxlen" class="md-nav__link">
-    static toDnsLabel(path, maxLen?)🔹 
+  <a href="#static-todnslabelscope-options" class="md-nav__link">
+    static toDnsLabel(scope, options?)🔹 
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#static-tolabelvaluepath-delim-maxlen" class="md-nav__link">
-    static toLabelValue(path, delim?, maxLen?)🔹 
+  <a href="#static-tolabelvaluescope-options" class="md-nav__link">
+    static toLabelValue(scope, options?)🔹 
   </a>
   
 </li>
@@ -1607,6 +1607,13 @@
         <li class="md-nav__item">
   <a href="#struct-includeprops" class="md-nav__link">
     struct IncludeProps 🔹 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#struct-nameoptions" class="md-nav__link">
+    struct NameOptions 🔹 
   </a>
   
 </li>
@@ -2530,15 +2537,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-todnslabelpath-maxlen" class="md-nav__link">
-    static toDnsLabel(path, maxLen?)🔹 
+  <a href="#static-todnslabelscope-options" class="md-nav__link">
+    static toDnsLabel(scope, options?)🔹 
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#static-tolabelvaluepath-delim-maxlen" class="md-nav__link">
-    static toLabelValue(path, delim?, maxLen?)🔹 
+  <a href="#static-tolabelvaluescope-options" class="md-nav__link">
+    static toLabelValue(scope, options?)🔹 
   </a>
   
 </li>
@@ -2819,6 +2826,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#struct-nameoptions" class="md-nav__link">
+    struct NameOptions 🔹 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#struct-sizeconversionoptions" class="md-nav__link">
     struct SizeConversionOptions 🔹 
   </a>
@@ -2960,6 +2974,10 @@
 <tr>
 <td><a href="#cdk8s-includeprops">IncludeProps</a></td>
 <td><em>No description</em></td>
+</tr>
+<tr>
+<td><a href="#cdk8s-nameoptions">NameOptions</a></td>
+<td>Options for name generation.</td>
 </tr>
 <tr>
 <td><a href="#cdk8s-sizeconversionoptions">SizeConversionOptions</a></td>
@@ -3664,7 +3682,7 @@ then the patch as a whole should not apply.</p>
 <h2 id="class-names">class Names 🔹 <a id="cdk8s-names"></a><a class="headerlink" href="#class-names" title="Permanent link">&para;</a></h2>
 <p>Utilities for generating unique and stable names.</p>
 <h3 id="methods_9">Methods<a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h3>
-<h4 id="static-todnslabelpath-maxlen"><em>static</em> toDnsLabel(path, maxLen?)🔹 <a id="cdk8s-names-todnslabel"></a><a class="headerlink" href="#static-todnslabelpath-maxlen" title="Permanent link">&para;</a></h4>
+<h4 id="static-todnslabelscope-options"><em>static</em> toDnsLabel(scope, options?)🔹 <a id="cdk8s-names-todnslabel"></a><a class="headerlink" href="#static-todnslabelscope-options" title="Permanent link">&para;</a></h4>
 <p>Generates a unique and stable name compatible DNS_LABEL from RFC-1123 from a path.</p>
 <p>The generated name will:
   - contain at most 63 characters
@@ -3677,15 +3695,18 @@ then the patch as a whole should not apply.</p>
 &ldquo;/&rdquo;).</p>
 <p>Note that if the total length is longer than 63 characters, we will trim
 the first components since the last components usually encode more meaning.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">toDnsLabel</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">maxLen?</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
+<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">toDnsLabel</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">NameOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
 <ul>
-<li><strong>path</strong> (<code>string</code>)  a path to a node (components separated by &ldquo;/&rdquo;).</li>
-<li><strong>maxLen</strong> (<code>number</code>)  maximum allowed length for name.</li>
+<li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  The construct for which to render the DNS label.</li>
+<li><strong>options</strong> (<code><a href="#cdk8s-nameoptions">NameOptions</a></code>)  Name options.</li>
+<li><strong>delimiter</strong> (<code>string</code>)  Delimiter to use between components. <strong><em>Default</em></strong>: &ldquo;-&ldquo;</li>
+<li><strong>extra</strong> (<code>Array<string></code>)  Extra components to include in the name. <strong><em>Default</em></strong>: [] use the construct path components</li>
+<li><strong>maxLen</strong> (<code>number</code>)  Maximum allowed length for the name. <strong><em>Default</em></strong>: 63</li>
 </ul>
 <p><strong>Returns</strong>:
 * <code>string</code></p>
-<h4 id="static-tolabelvaluepath-delim-maxlen"><em>static</em> toLabelValue(path, delim?, maxLen?)🔹 <a id="cdk8s-names-tolabelvalue"></a><a class="headerlink" href="#static-tolabelvaluepath-delim-maxlen" title="Permanent link">&para;</a></h4>
+<h4 id="static-tolabelvaluescope-options"><em>static</em> toLabelValue(scope, options?)🔹 <a id="cdk8s-names-tolabelvalue"></a><a class="headerlink" href="#static-tolabelvaluescope-options" title="Permanent link">&para;</a></h4>
 <p>Generates a unique and stable name compatible label key name segment and label value from a path.</p>
 <p>The name segment is required and must be 63 characters or less, beginning
 and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-),
@@ -3699,12 +3720,14 @@ begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes
 &ldquo;/&rdquo;).</p>
 <p>Note that if the total length is longer than 63 characters, we will trim
 the first components since the last components usually encode more meaning.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">toLabelValue</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">delim?</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">maxLen?</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
+<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">toLabelValue</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">NameOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
 <ul>
-<li><strong>path</strong> (<code>string</code>)  a path to a node (components separated by &ldquo;/&rdquo;).</li>
-<li><strong>delim</strong> (<code>string</code>)  a delimiter to separates components.</li>
-<li><strong>maxLen</strong> (<code>number</code>)  maximum allowed length for name.</li>
+<li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  The construct for which to render the DNS label.</li>
+<li><strong>options</strong> (<code><a href="#cdk8s-nameoptions">NameOptions</a></code>)  Name options.</li>
+<li><strong>delimiter</strong> (<code>string</code>)  Delimiter to use between components. <strong><em>Default</em></strong>: &ldquo;-&ldquo;</li>
+<li><strong>extra</strong> (<code>Array<string></code>)  Extra components to include in the name. <strong><em>Default</em></strong>: [] use the construct path components</li>
+<li><strong>maxLen</strong> (<code>number</code>)  Maximum allowed length for the name. <strong><em>Default</em></strong>: 63</li>
 </ul>
 <p><strong>Returns</strong>:
 * <code>string</code></p>
@@ -4026,6 +4049,34 @@ cannot be negative.</p>
 <td><strong>url</strong>🔹</td>
 <td><code>string</code></td>
 <td>Local file path or URL which includes a Kubernetes YAML manifest.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="struct-nameoptions">struct NameOptions 🔹 <a id="cdk8s-nameoptions"></a><a class="headerlink" href="#struct-nameoptions" title="Permanent link">&para;</a></h2>
+<p>Options for name generation.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>delimiter</strong>?🔹</td>
+<td><code>string</code></td>
+<td>Delimiter to use between components.<br/><strong><em>Default</em></strong>: &ldquo;-&ldquo;</td>
+</tr>
+<tr>
+<td><strong>extra</strong>?🔹</td>
+<td><code>Array<string></code></td>
+<td>Extra components to include in the name.<br/><strong><em>Default</em></strong>: [] use the construct path components</td>
+</tr>
+<tr>
+<td><strong>maxLen</strong>?🔹</td>
+<td><code>number</code></td>
+<td>Maximum allowed length for the name.<br/><strong><em>Default</em></strong>: 63</td>
 </tr>
 </tbody>
 </table>

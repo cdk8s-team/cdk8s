@@ -4262,7 +4262,7 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 <li><strong>path</strong> (<code>string</code>)  Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional &ldquo;path&rdquo; part of a URL as defined by RFC 3986. Paths must begin with a &lsquo;/&rsquo;. <strong><em>Default</em></strong>: If unspecified, the path defaults to a catch all sending traffic to the backend.</li>
 </ul>
 <h4 id="protected-onvalidate">protected onValidate()🔹 <a id="cdk8s-plus-17-ingressv1beta1-onvalidate"></a><a class="headerlink" href="#protected-onvalidate" title="Permanent link">&para;</a></h4>
-<p>Validate the current construct.</p>
+<p>(deprecated) Validate the current construct.</p>
 <p>This method can be implemented by derived constructs in order to perform
 validation logic. It is called on all constructs before synthesis.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">protected</span> <span class="nx">onValidate</span><span class="p">()</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
