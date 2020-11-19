@@ -46,7 +46,7 @@ Array [
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": Object {
-      "name": "test-chart-deployment-c5d38cbe",
+      "name": "test-chart-deployment-e606f14e",
     },
     "spec": Object {
       "replicas": 1,
@@ -99,7 +99,7 @@ Array [
               "volumeMounts": Array [
                 Object {
                   "mountPath": "/root",
-                  "name": "configmap-test-chart-config-configmap-233db8e7",
+                  "name": "configmap-test-chart-config-c3f7d3c0",
                 },
               ],
               "workingDir": "/root",
@@ -108,9 +108,9 @@ Array [
           "volumes": Array [
             Object {
               "configMap": Object {
-                "name": "test-chart-config-configmap-233db8e7",
+                "name": "test-chart-config-c3f7d3c0",
               },
-              "name": "configmap-test-chart-config-configmap-233db8e7",
+              "name": "configmap-test-chart-config-c3f7d3c0",
             },
           ],
         },
@@ -121,7 +121,7 @@ Array [
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": Object {
-      "name": "test-chart-deployment-service-pod-28e7837f",
+      "name": "test-chart-deployment-service-7f4c5401",
     },
     "spec": Object {
       "externalIPs": Array [],
@@ -210,7 +210,7 @@ function doSearch(uri, callback) {
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-chart-config-configmap-233db8e7",
+      "name": "test-chart-config-c3f7d3c0",
     },
   },
 ]

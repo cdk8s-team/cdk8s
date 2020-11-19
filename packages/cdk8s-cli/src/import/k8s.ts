@@ -153,7 +153,7 @@ interface GroupVersionKind {
 const X_GROUP_VERSION_KIND = 'x-kubernetes-group-version-kind';
 
 async function downloadSchema(apiVersion: string) {
-  const url = `https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v${apiVersion}/_definitions.json`;
+  const url = `https://raw.githubusercontent.com/awslabs/cdk8s/master/kubernetes-schemas/v${apiVersion}/_definitions.json`;
   const output = await download(url);
   return JSON.parse(output) as JSONSchema4;
 }

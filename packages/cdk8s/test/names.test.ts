@@ -2,6 +2,14 @@ import { Names } from '../src/names';
 
 describe('toDnsLabel', () => {
   const toDnsName = Names.toDnsLabel;
+  test('ignores default children', () => {
+    expect(toDnsName('hello/default/foo/world/default')).toEqual('hello-foo-world-5d193db9');
+    expect(toDnsName('hello/resource/foo/world/resource')).toEqual('hello-foo-world-f5dd971f');
+    expect(toDnsName('hello/resource/foo/world/default')).toEqual('hello-foo-world-2f1cee85');
+    expect(toDnsName('hello/Resource/foo/world/Default')).toEqual('hello-foo-world-857189b5');
+    expect(toDnsName('hello/default/foo/world/resource')).toEqual('hello-foo-world-e89fdfae');
+    expect(toDnsName('resource/default')).toEqual('40b6bcd9');
+  });
 
   test('normalize to dns_name', () => {
     expect(toDnsName(' ')).toEqual('36a9e7f1');
@@ -68,6 +76,15 @@ describe('toDnsLabel', () => {
 
 describe('toLabel', () => {
   const toLabelValue = Names.toLabelValue;
+
+  test('ignores default children', () => {
+    expect(toLabelValue('hello/default/foo/world/default')).toEqual('hello-foo-world-5d193db9');
+    expect(toLabelValue('hello/resource/foo/world/resource')).toEqual('hello-foo-world-f5dd971f');
+    expect(toLabelValue('hello/resource/foo/world/default')).toEqual('hello-foo-world-2f1cee85');
+    expect(toLabelValue('hello/Resource/foo/world/Default')).toEqual('hello-foo-world-857189b5');
+    expect(toLabelValue('hello/default/foo/world/resource')).toEqual('hello-foo-world-e89fdfae');
+    expect(toLabelValue('resource/default')).toEqual('40b6bcd9');
+  });
 
   test('normalize to dns_name', () => {
     expect(toLabelValue(' ')).toEqual('36a9e7f1');

@@ -1,5 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
+import * as pacmak from 'jsii-pacmak';
+import * as pacmakv from 'jsii-pacmak/lib/targets/version-utils';
 import { sscaff } from 'sscaff';
 import * as yargs from 'yargs';
 
@@ -17,7 +19,7 @@ class Command implements yargs.CommandModule {
   public readonly describe = 'Create a new cdk8s project from a template.';
   public readonly builder = (args: yargs.Argv) => args
     .positional('TYPE', { demandOption: true, desc: 'Project type' })
-    .showHelpOnFail(true)
+    .showHelpOnFail(false)
     .option('dist', { type: 'string', desc: 'Install dependencies from a "dist" directory (for development)' })
     .option('cdk8s-version', { type: 'string', desc: 'The cdk8s version to use when creating the new project', default: pkg.version })
     .choices('TYPE', availableTemplates);
@@ -33,22 +35,28 @@ class Command implements yargs.CommandModule {
 
     const deps: any = await determineDeps(argv.cdk8SVersion, argv.dist);
 
-    await sscaff(templatePath, '.', {
-      ...deps,
-    });
+    try {
+      await sscaff(templatePath, '.', { ...deps });
+    } catch (e) {
+      throw new Error(`error during project initialization: ${e.stack}\nSTDOUT:\n${e.stdout?.toString()}\nSTDERR:\n${e.stderr?.toString()}`);
+    }
   }
 }
 
 async function determineDeps(version: string, dist?: string): Promise<Deps> {
+  const cdk8s = new ModuleVersion('cdk8s', version, { jsii: true });
+  const cdk8sPlus17 = new ModuleVersion('cdk8s-plus-17', version, { jsii: true });
+  const cdk8sCli = new ModuleVersion('cdk8s-cli', version);
+
   if (dist) {
     const ret = {
-      npm_cdk8s: path.resolve(dist, 'js', `cdk8s@${version}.jsii.tgz`),
-      npm_cdk8s_cli: path.resolve(dist, 'js', `cdk8s-cli-v${version}.tgz`), // yarn pack adds a "v" before the version
-      npm_cdk8s_plus: path.resolve(dist, 'js', `cdk8s-plus@${version}.jsii.tgz`),
-      pypi_cdk8s: path.resolve(dist, 'python', `cdk8s-${version.replace(/-/g, '_')}-py3-none-any.whl`),
-      pypi_cdk8s_plus: path.resolve(dist, 'python', `cdk8s_plus-${version.replace(/-/g, '_')}-py3-none-any.whl`),
-      mvn_cdk8s: path.resolve(dist, 'java', `org/cdk8s/cdk8s/${version}/cdk8s-${version}.jar`),
-      mvn_cdk8s_plus: path.resolve(dist, 'java', `org/cdk8s/cdk8s-plus/${version}/cdk8s-plus-${version}.jar`),
+      npm_cdk8s: path.resolve(dist, 'js', cdk8s.npmTarballFile),
+      npm_cdk8s_cli: path.resolve(dist, 'js', cdk8sCli.npmTarballFile),
+      npm_cdk8s_plus: path.resolve(dist, 'js', cdk8sPlus17.npmTarballFile),
+      pypi_cdk8s: path.resolve(dist, 'python', cdk8s.pypiWheelFile),
+      pypi_cdk8s_plus: path.resolve(dist, 'python', cdk8sPlus17.pypiWheelFile),
+      mvn_cdk8s: path.resolve(dist, 'java', cdk8s.javaJarFile),
+      mvn_cdk8s_plus: path.resolve(dist, 'java', cdk8sPlus17.javaJarFile),
     };
 
     for (const file of Object.values(ret)) {
@@ -72,20 +80,14 @@ async function determineDeps(version: string, dist?: string): Promise<Deps> {
     throw new Error('cannot use version 0.0.0, use --cdk8s-version, --dist or CDK8S_DIST to install from a "dist" directory');
   }
 
-  // determine if we want a specific pinned version or a version range we take
-  // a pinned version if version includes a hyphen which means it is a
-  // pre-release (e.g. "0.12.0-pre.e6834d3"). otherwise, we require a caret
-  // version.
-  const ver = version.includes('-') ? version : `^${version}`;
-
   return {
-    npm_cdk8s: `cdk8s@${ver}`,
-    npm_cdk8s_cli: `cdk8s-cli@${ver}`,
-    npm_cdk8s_plus: `cdk8s-plus@${ver}`,
-    pypi_cdk8s: `cdk8s~=${version}`, // no support for pre-release
-    pypi_cdk8s_plus: `cdk8s-plus~=${version}`,
-    mvn_cdk8s: version,
-    mvn_cdk8s_plus: version,
+    npm_cdk8s: cdk8s.npmDependency,
+    npm_cdk8s_cli: cdk8sCli.npmDependency,
+    npm_cdk8s_plus: cdk8sPlus17.npmDependency,
+    pypi_cdk8s: cdk8s.pypiDependency,
+    pypi_cdk8s_plus: cdk8sPlus17.pypiDependency,
+    mvn_cdk8s: cdk8s.mavenDependency,
+    mvn_cdk8s_plus: cdk8sPlus17.mavenDependency,
     cdk8s_version: version,
     constructs_version: constructsVersion,
   };
@@ -101,6 +103,50 @@ interface Deps {
   mvn_cdk8s_plus: string;
   cdk8s_version: string;
   constructs_version: string;
+}
+
+class ModuleVersion {
+  public readonly pypiVersion: string;
+  public readonly npmVersion: string;
+  public readonly mavenVersion: string;
+
+  private readonly jsii: boolean;
+
+  constructor(private readonly moduleName: string, private readonly version: string, options: { jsii?: boolean } = { }) {
+    this.npmVersion = version;
+    this.pypiVersion = pacmakv.toReleaseVersion(this.version, pacmak.TargetName.PYTHON);
+    this.mavenVersion = pacmakv.toReleaseVersion(version, pacmak.TargetName.JAVA);
+    this.jsii = options.jsii ?? false;
+  }
+
+  public get npmTarballFile() {
+    if (this.jsii) {
+      return `${this.moduleName}@${this.version}.jsii.tgz`;
+    } else {
+      return `${this.moduleName}-v${this.version}.tgz`;
+    }
+  }
+
+  public get pypiWheelFile() {
+    const [major, minor, patch, pre] = this.pypiVersion.split('.');
+    return `${this.moduleName.replace(/-/g, '_')}-${major}.${minor}.${patch}${pre ?? ''}-py3-none-any.whl`;
+  }
+
+  public get javaJarFile() {
+    return `org/cdk8s/${this.moduleName}/${this.mavenVersion}/${this.moduleName}-${this.mavenVersion}.jar`;
+  }
+
+  public get npmDependency() {
+    return `${this.moduleName}@^${this.npmVersion}`;
+  }
+
+  public get pypiDependency() {
+    return `${this.moduleName}~=${this.pypiVersion}`;
+  }
+
+  public get mavenDependency() {
+    return this.mavenVersion;
+  }
 }
 
 module.exports = new Command();
