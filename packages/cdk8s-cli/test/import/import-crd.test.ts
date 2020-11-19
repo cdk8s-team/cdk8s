@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'yaml';
 import { ImportCustomResourceDefinition } from '../../src/import/crd';
-import { expectImportMatchSnapshot } from './util';
+import { testImportMatchSnapshot } from './util';
 
 const fixtures = path.join(__dirname, 'fixtures');
 
@@ -21,7 +21,7 @@ describe('snapshots', () => {
       continue;
     }
     const crd = readFixture(fixture);
-    expectImportMatchSnapshot(fixture, () => new ImportCustomResourceDefinition(crd));
+    testImportMatchSnapshot(fixture, () => new ImportCustomResourceDefinition(crd));
   }
 });
 
@@ -216,7 +216,7 @@ test('can import a "List" of CRDs (kubectl get crds -o json)', () => {
 
 describe('classPrefix can be used to add a prefix to all construct class names', () => {
   const crd = readFixture('multi_object_crd.yaml');
-  expectImportMatchSnapshot('Foo', () => new ImportCustomResourceDefinition(crd), {
+  testImportMatchSnapshot('Foo', () => new ImportCustomResourceDefinition(crd), {
     classNamePrefix: 'Foo',
   });
 });

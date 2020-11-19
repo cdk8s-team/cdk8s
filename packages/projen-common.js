@@ -1,6 +1,6 @@
 exports.versions = {
-  constructs: '3.0.4',
-  jsii: '1.9.0',
+  constructs: '3.2.34',
+  jsii: '1.14.1',
 };
 
 exports.options = {

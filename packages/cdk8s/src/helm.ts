@@ -2,7 +2,7 @@ import * as cp from 'child_process';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
-import { Construct, Node } from 'constructs';
+import { Construct } from 'constructs';
 import * as yaml from 'yaml';
 import { Include } from './include';
 import { Names } from './names';
@@ -81,8 +81,8 @@ export class Helm extends Include {
     }
 
     // release name
-    const cpath = [Node.of(scope).path, id].join(Node.PATH_SEP);
-    const releaseName = props.releaseName ?? Names.toDnsLabel(cpath, 53); // constraints: https://github.com/helm/helm/issues/6006
+    // constraints: https://github.com/helm/helm/issues/6006
+    const releaseName = props.releaseName ?? Names.toDnsLabel(scope, { maxLen: 53, extra: [id] });
     args.push(releaseName);
 
     // chart

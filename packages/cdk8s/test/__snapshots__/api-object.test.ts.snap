@@ -9,7 +9,7 @@ Array [
     },
     "kind": "ResourceType",
     "metadata": Object {
-      "name": "test-3953b2d0",
+      "name": "test-c8c5facf",
     },
   },
 ]
@@ -21,7 +21,7 @@ Array [
     "apiVersion": "v1",
     "kind": "ResourceType",
     "metadata": Object {
-      "name": "test-3953b2d0",
+      "name": "test-c8c5facf",
     },
     "spec": Object {
       "prop1": "hello",
@@ -51,7 +51,7 @@ Array [
     "apiVersion": "v1",
     "kind": "MyResource",
     "metadata": Object {
-      "name": "test-my-2998ce93",
+      "name": "test-my-c8487bf7",
     },
   },
 ]
@@ -63,7 +63,7 @@ Array [
     "apiVersion": "v1",
     "kind": "MyResource",
     "metadata": Object {
-      "name": "test-my-2998ce93",
+      "name": "test-my-c8487bf7",
     },
     "spec": Object {
       "firstProperty": "hello",
@@ -82,14 +82,14 @@ Array [
     "apiVersion": "v1",
     "kind": "MyResource",
     "metadata": Object {
-      "name": "test-my-2998ce93",
+      "name": "test-my-c8487bf7",
     },
   },
   Object {
     "apiVersion": "v1",
     "kind": "MyResource",
     "metadata": Object {
-      "name": "test-scope-my-eddbdbb2",
+      "name": "test-scope-my-c8fafaf7",
     },
   },
 ]

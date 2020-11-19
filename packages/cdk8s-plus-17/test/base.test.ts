@@ -35,7 +35,7 @@ test('Can mutate metadata', () => {
       labels: {
         key: 'value',
       },
-      name: 'test-custom-configmap-4cfa97cc',
+      name: 'test-custom-configmap-c8a1da6c',
     },
   }]);
 

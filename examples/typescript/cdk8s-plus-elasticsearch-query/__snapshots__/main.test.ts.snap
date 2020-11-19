@@ -6,7 +6,7 @@ Array [
     "apiVersion": "elasticsearch.k8s.elastic.co/v1",
     "kind": "Elasticsearch",
     "metadata": Object {
-      "name": "test-chart-elasticsearch-5921e846",
+      "name": "test-chart-elasticsearch-c819bb71",
     },
     "spec": Object {
       "http": Object {
@@ -46,19 +46,19 @@ Array [
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": Object {
-      "name": "test-chart-deployment-e606f14e",
+      "name": "test-chart-deployment-c8cfd183",
     },
     "spec": Object {
       "replicas": 1,
       "selector": Object {
         "matchLabels": Object {
-          "cdk8s.deployment": "test-chart-Deployment-98e15317",
+          "cdk8s.deployment": "test-chart-Deployment-c8550d6d",
         },
       },
       "template": Object {
         "metadata": Object {
           "labels": Object {
-            "cdk8s.deployment": "test-chart-Deployment-98e15317",
+            "cdk8s.deployment": "test-chart-Deployment-c8550d6d",
           },
         },
         "spec": Object {
@@ -76,14 +76,14 @@ Array [
                 },
                 Object {
                   "name": "ELASTIC_ENDPOINT",
-                  "value": "http://test-chart-elasticsearch-5921e846-es-http:9200",
+                  "value": "http://test-chart-elasticsearch-c819bb71-es-http:9200",
                 },
                 Object {
                   "name": "ELASTIC_PASSWORD",
                   "valueFrom": Object {
                     "secretKeyRef": Object {
                       "key": "elastic",
-                      "name": "test-chart-elasticsearch-5921e846-es-elastic-user",
+                      "name": "test-chart-elasticsearch-c819bb71-es-elastic-user",
                     },
                   },
                 },
@@ -99,7 +99,7 @@ Array [
               "volumeMounts": Array [
                 Object {
                   "mountPath": "/root",
-                  "name": "configmap-test-chart-config-c3f7d3c0",
+                  "name": "configmap-test-chart-config-c873bd48",
                 },
               ],
               "workingDir": "/root",
@@ -108,9 +108,9 @@ Array [
           "volumes": Array [
             Object {
               "configMap": Object {
-                "name": "test-chart-config-c3f7d3c0",
+                "name": "test-chart-config-c873bd48",
               },
-              "name": "configmap-test-chart-config-c3f7d3c0",
+              "name": "configmap-test-chart-config-c873bd48",
             },
           ],
         },
@@ -121,7 +121,7 @@ Array [
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": Object {
-      "name": "test-chart-deployment-service-7f4c5401",
+      "name": "test-chart-deployment-service-c835a1d2",
     },
     "spec": Object {
       "externalIPs": Array [],
@@ -132,7 +132,7 @@ Array [
         },
       ],
       "selector": Object {
-        "cdk8s.deployment": "test-chart-Deployment-98e15317",
+        "cdk8s.deployment": "test-chart-Deployment-c8550d6d",
       },
       "type": "ClusterIP",
     },
@@ -210,7 +210,7 @@ function doSearch(uri, callback) {
     },
     "kind": "ConfigMap",
     "metadata": Object {
-      "name": "test-chart-config-c3f7d3c0",
+      "name": "test-chart-config-c873bd48",
     },
   },
 ]

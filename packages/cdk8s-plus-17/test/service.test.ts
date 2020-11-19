@@ -98,7 +98,7 @@ test('Can associate a deployment with an existing service', () => {
 
   service.addDeployment(deployment, 1122);
 
-  const expectedSelector = { 'cdk8s.deployment': 'test-dep-b18049c6' };
+  const expectedSelector = { 'cdk8s.deployment': 'test-dep-c8cc9f8f' };
 
   const deploymentSpec = Testing.synth(chart)[1].spec;
   const serviceSpec = Testing.synth(chart)[0].spec;

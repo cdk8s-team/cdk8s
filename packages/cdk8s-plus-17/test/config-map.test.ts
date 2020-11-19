@@ -25,7 +25,7 @@ test('minimal', () => {
       apiVersion: 'v1',
       kind: 'ConfigMap',
       metadata: {
-        name: 'test-my-config-map-91419662',
+        name: 'test-my-config-map-c8eaefa4',
       },
     },
   ]);
@@ -53,7 +53,7 @@ test('with data', () => {
         key2: 'bar',
       },
       metadata: {
-        name: 'test-my-config-map-91419662',
+        name: 'test-my-config-map-c8eaefa4',
       },
     },
   ]);
@@ -81,7 +81,7 @@ test('with binaryData', () => {
         key2: 'bar',
       },
       metadata: {
-        name: 'test-my-config-map-91419662',
+        name: 'test-my-config-map-c8eaefa4',
       },
     },
   ]);
@@ -115,7 +115,7 @@ test('with binaryData and data', () => {
         key2: 'bar',
       },
       metadata: {
-        name: 'test-my-config-map-91419662',
+        name: 'test-my-config-map-c8eaefa4',
       },
     },
   ]);
@@ -174,7 +174,7 @@ test('addData()/addBinaryDataq() can be used to add data', () => {
       },
       kind: 'ConfigMap',
       metadata: {
-        name: 'test-my-config-map-91419662',
+        name: 'test-my-config-map-c8eaefa4',
       },
     },
   ]);
