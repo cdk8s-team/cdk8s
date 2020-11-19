@@ -1,13 +1,12 @@
 import { Testing, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
 import * as kplus from '../src';
-import { PodManagementPolicy, ServiceType } from '../src';
 
 test('defaultChild', () => {
 
   const chart = Testing.chart();
 
-  const defaultChild = Node.of(new kplus.StatefulSet(chart, 'StatefulSet', {servicePort: 80})).defaultChild as ApiObject;
+  const defaultChild = Node.of(new kplus.StatefulSet(chart, 'StatefulSet', { servicePort: 80 })).defaultChild as ApiObject;
 
   expect(defaultChild.kind).toEqual('StatefulSet');
 
@@ -17,7 +16,7 @@ test('A label selector is automatically allocated', () => {
 
   const chart = Testing.chart();
 
-  const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', {servicePort: 80});
+  const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', { servicePort: 80 });
   statefulset.addContainer({ image: 'foobar' });
 
   const expectedValue = 'test-StatefulSet-c809b559';
@@ -84,21 +83,21 @@ test('StatefulSet gets defaults', () => {
 
   const chart = Testing.chart();
 
-  new kplus.StatefulSet(chart, 'StatefulSet', {    
+  new kplus.StatefulSet(chart, 'StatefulSet', {
     containers: [{ image: 'image' }],
     servicePort: 9200,
   });
-    
-  const resources = Testing.synth(chart);
-  const set_spec = resources[0].spec; 
-  const srv_spec = resources[1].spec;   
-  expect(set_spec.replicas).toEqual(1)
-  expect(set_spec.serviceName).toEqual(resources[1].metadata.name);
-  expect(set_spec.podManagementPolicy).toEqual(PodManagementPolicy.ORDERED_READY);  
 
-  expect(srv_spec.type).toEqual(ServiceType.CLUSTER_IP);
+  const resources = Testing.synth(chart);
+  const set_spec = resources[0].spec;
+  const srv_spec = resources[1].spec;
+  expect(set_spec.replicas).toEqual(1);
+  expect(set_spec.serviceName).toEqual(resources[1].metadata.name);
+  expect(set_spec.podManagementPolicy).toEqual(kplus.PodManagementPolicy.ORDERED_READY);
+
+  expect(srv_spec.type).toEqual(kplus.ServiceType.CLUSTER_IP);
   expect(srv_spec.clusterIP).toEqual('None');
-  expect(srv_spec.ports![0].port).toEqual(9200); 
+  expect(srv_spec.ports![0].port).toEqual(9200);
 });
 
 
@@ -106,40 +105,39 @@ test('StatefulSet allows overrides', () => {
 
   const chart = Testing.chart();
 
-  new kplus.StatefulSet(chart, 'StatefulSet', {    
+  new kplus.StatefulSet(chart, 'StatefulSet', {
     containers: [{ image: 'image' }],
-    replicas: 5, 
-    podManagementPolicy: PodManagementPolicy.PARALLEL,
+    replicas: 5,
+    podManagementPolicy: kplus.PodManagementPolicy.PARALLEL,
     serviceName: 'test-srv',
     service: {
-      type: ServiceType.NODE_PORT,
-      ports: [{port: 9000, targetPort: 9900}]
-    }
+      type: kplus.ServiceType.NODE_PORT,
+      ports: [{ port: 9000, targetPort: 9900 }],
+    },
   });
-    
+
   const resources = Testing.synth(chart);
-  const set_spec = resources[0].spec; 
-  const srv_spec = resources[1].spec;   
-  expect(set_spec.replicas).toEqual(5)
+  const set_spec = resources[0].spec;
+  const srv_spec = resources[1].spec;
+  expect(set_spec.replicas).toEqual(5);
   expect(set_spec.serviceName).toEqual('test-srv');
-  expect(set_spec.podManagementPolicy).toEqual(PodManagementPolicy.PARALLEL);  
+  expect(set_spec.podManagementPolicy).toEqual(kplus.PodManagementPolicy.PARALLEL);
 
-  expect(srv_spec.type).toEqual(ServiceType.NODE_PORT);  
-  expect(srv_spec.ports![0].port).toEqual(9000); 
+  expect(srv_spec.type).toEqual(kplus.ServiceType.NODE_PORT);
+  expect(srv_spec.ports![0].port).toEqual(9000);
 });
-
 
 
 test('Synthesizes spec lazily', () => {
 
   const chart = Testing.chart();
 
-  const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', {servicePort: 9300});
+  const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', { servicePort: 9300 });
   statefulset.addContainer(
     {
       image: 'image',
       port: 9300,
-    },    
+    },
   );
 
   const container = Testing.synth(chart)[0].spec.template.spec.containers[0];
