@@ -1,6 +1,6 @@
 import { ImportSpec } from '../config';
 import { ImportOptions } from './base';
-import { ImportCustomResourceDefinition } from './crd';
+import { ImportCustomResourceDefinition, ModuleEmitOptions } from './crd';
 import { importCrdsDevRepoMatch } from './crds-dev';
 import { ImportKubernetesApi } from './k8s';
 
@@ -27,7 +27,9 @@ async function matchImporter(importSpec: ImportSpec, argv: any) {
 
   const crdsDev = await importCrdsDevRepoMatch(importSpec.source);
   if (crdsDev) {
-    return new ImportCustomResourceDefinition(crdsDev);
+    return new ImportCustomResourceDefinition(crdsDev, {
+      emitModulePer: ModuleEmitOptions.API_GROUP,
+    });
   }
 
   const crd = await ImportCustomResourceDefinition.match(importSpec);
