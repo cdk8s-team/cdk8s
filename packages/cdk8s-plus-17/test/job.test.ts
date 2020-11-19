@@ -12,6 +12,33 @@ test('defaultChild', () => {
 
 });
 
+test('Allows setting all options', () => {
+
+  const chart = Testing.chart();
+
+  const job = new kplus.Job(chart, 'Job', {
+    containers: [new kplus.Container({ image: 'image' })],
+    activeDeadline: Duration.seconds(20),
+    backoffLimit: 4,
+    completions: 5,
+    parallelism: 2,
+    ttlAfterFinished: Duration.seconds(1),
+  });
+
+  // assert the k8s spec has it.
+  const spec = Testing.synth(chart)[0].spec;
+
+  expect(spec.activeDeadlineSeconds).toEqual(20);
+  expect(spec.backoffLimit).toEqual(job.backoffLimit);
+  expect(spec.completions).toEqual(job.completions);
+  expect(spec.parallelism).toEqual(job.parallelism);
+  expect(spec.ttlSecondsAfterFinished).toEqual(1);
+
+  // assert the job object has it.
+  expect(job.restartPolicy).toEqual(kplus.RestartPolicy.NEVER);
+
+});
+
 test('Applies default restart policy to pod spec', () => {
 
   const chart = Testing.chart();
