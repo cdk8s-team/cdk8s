@@ -5,10 +5,10 @@ import * as kplus from '../src';
 test('defaultChild', () => {
   const chart = Testing.chart();
 
-  const defaultChild = Node.of(new kplus.Secret(chart, 'Secret')).defaultChild as ApiObject;
+  const defaultChild = Node.of(new kplus.Secret(chart, 'Secret'))
+    .defaultChild as ApiObject;
 
   expect(defaultChild.kind).toEqual('Secret');
-
 });
 
 test('Can be imported from secret name', () => {
@@ -29,7 +29,7 @@ test('Can add data to new secrets', () => {
         "apiVersion": "v1",
         "kind": "Secret",
         "metadata": Object {
-          "name": "test-secret-17f996fa",
+          "name": "test-secret-c837fa76",
         },
         "stringData": Object {
           "key": "value",

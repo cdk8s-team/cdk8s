@@ -16,7 +16,7 @@ test('basic usage', () => {
   });
 
   // THEN
-  expect(helm.releaseName).toEqual('test-sample-00742e24');
+  expect(helm.releaseName).toEqual('test-sample-c8e2763d');
   expect(Testing.synth(chart)).toMatchSnapshot();
 });
 
@@ -81,14 +81,14 @@ test('it is possible to interact with api objects in the chart', () => {
     chart: SAMPLE_CHART_PATH,
   });
 
-  const service = helm.apiObjects.find(o => o.kind === 'ServiceAccount' && o.name === 'test-sample-00742e24-helm-sample');
+  const service = helm.apiObjects.find(o => o.kind === 'ServiceAccount' && o.name === 'test-sample-c8e2763d-helm-sample');
   service?.metadata.addAnnotation('my.annotation', 'hey-there');
 
   // THEN
   expect(helm.apiObjects.map(o => `${o.kind}/${o.name}`).sort()).toEqual([
-    'Deployment/test-sample-00742e24-helm-sample',
-    'Service/test-sample-00742e24-helm-sample',
-    'ServiceAccount/test-sample-00742e24-helm-sample',
+    'Deployment/test-sample-c8e2763d-helm-sample',
+    'Service/test-sample-c8e2763d-helm-sample',
+    'ServiceAccount/test-sample-c8e2763d-helm-sample',
   ]);
 
   expect(service?.toJson().metadata.annotations).toEqual({
@@ -123,7 +123,7 @@ test('helmFlags can be used to specify additional helm options', () => {
     'template',
     '--description', 'my custom description',
     '--no-hooks',
-    'test-sample-00742e24',
+    'test-sample-c8e2763d',
     SAMPLE_CHART_PATH,
   ];
 

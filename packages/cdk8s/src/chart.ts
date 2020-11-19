@@ -86,7 +86,7 @@ export class Chart extends Construct {
    * @param apiObject The API object to generate a name for.
    */
   public generateObjectName(apiObject: ApiObject) {
-    return Names.toDnsLabel(Node.of(apiObject).path);
+    return Names.toDnsLabel(apiObject);
   }
 
   /**

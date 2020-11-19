@@ -1,5 +1,5 @@
 import { ApiObject, ApiObjectMetadataDefinition, Lazy, Names } from 'cdk8s';
-import { Construct, Node } from 'constructs';
+import { Construct } from 'constructs';
 import { Resource, ResourceProps } from './base';
 import { Container, ContainerProps } from './container';
 import * as k8s from './imports/k8s';
@@ -124,7 +124,7 @@ export class Deployment extends Resource implements IPodTemplate {
 
     if (props.defaultSelector ?? true) {
       const selector = 'cdk8s.deployment';
-      const matcher = Names.toLabelValue(Node.of(this).path);
+      const matcher = Names.toLabelValue(this);
       this.podMetadata.addLabel(selector, matcher);
       this.selectByLabel(selector, matcher);
     }
