@@ -164,7 +164,7 @@ app.synth();
 
 === "Python"
 
-    `❯ pip install cdk8s-plus-17 cdk8s`
+    `❯ pip install --pre cdk8s-plus-17 cdk8s`
 
     ```python
     import cdk8s_plus_17 as kplus
