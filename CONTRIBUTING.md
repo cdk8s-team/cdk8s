@@ -226,8 +226,9 @@ Then once in the docker shell, you can package and execute the tests as normal.
 
 ```shell
 $ pip install pipenv  # Currently not included in jsii docker image
-$ yarn package
-$ yarn integ
+$ yarn build
+$ yarn run package
+$ yarn integ:update
 ```
 
 > Note: this may leave some files owned as the docker root user id.  These will need to 
