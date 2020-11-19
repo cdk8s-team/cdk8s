@@ -9,6 +9,7 @@ exports.options = {
   authorUrl: 'https://aws.amazon.com',
   authorOrganization: true,
   buildWorkflow: false,
+  stability: 'experimental',
   releaseWorkflow: false,
   dependabot: false,
   mergify: false,
