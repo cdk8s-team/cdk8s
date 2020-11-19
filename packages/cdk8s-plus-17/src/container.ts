@@ -285,6 +285,10 @@ export class Container {
   private readonly _startup?: Probe;
 
   constructor(props: ContainerProps) {
+    if (props instanceof Container) {
+      throw new Error('Attempted to construct a container from a Container object.');
+    }
+
     this.name = props.name ?? 'main';
     this.image = props.image;
     this.port = props.port;
