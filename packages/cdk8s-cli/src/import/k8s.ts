@@ -144,7 +144,7 @@ function tryGetObjectName(def: JSONSchema4): GroupVersionKind | undefined {
   return objectName;
 }
 
-interface GroupVersionKind {
+export interface GroupVersionKind {
   readonly group: string;
   readonly kind: string;
   readonly version: string;

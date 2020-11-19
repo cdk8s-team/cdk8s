@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { mocked } from 'ts-jest/utils';
-import { ImportCustomResourceDefinition } from '../../src/import/crd';
+import { ImportCustomResourceDefinition, ModuleEmitOptions } from '../../src/import/crd';
 import { importCrdsDevRepoMatch, crdsDevUrl } from '../../src/import/crds-dev';
 import { download } from '../../src/util';
 import { expectImportMatchSnapshot } from './util';
@@ -24,7 +24,7 @@ const crdsDevUrlTests = [
   { import: 'github:crossplane/crossplane', expected: 'https://doc.crds.dev/raw/github.com/crossplane/crossplane' },
   { import: 'github:crossplane/crossplane@0.14', expected: 'https://doc.crds.dev/raw/github.com/crossplane/crossplane@v0.14.0' },
   { import: 'github:crossplane/crossplane@0.14.0', expected: 'https://doc.crds.dev/raw/github.com/crossplane/crossplane@v0.14.0' },
-  { import: 'unsupported:crossplane/crossplane@0.14.0', expected: undefined, reason: 'unsupported provider' },
+  { import: 'unsupported:account/repo@0.1.0', expected: undefined, reason: 'unsupported provider' },
   { import: 'github:account/repo@1', expected: undefined, reason: 'major minor required if version present' },
 ];
 
@@ -47,11 +47,21 @@ describe('crds.dev import', () => {
       });
     });
 
-    test(source, async () => {
+    test(`${source} emit module per CRD`, async () => {
       const crdsDev = await importCrdsDevRepoMatch(source);
       expect(crdsDev).toBeDefined();
       if (crdsDev) {
         await expectImportMatchSnapshot( () => new ImportCustomResourceDefinition(crdsDev) );
+      }
+    });
+
+    test(`${source} emit module per API group`, async () => {
+      const crdsDev = await importCrdsDevRepoMatch(source);
+      expect(crdsDev).toBeDefined();
+      if (crdsDev) {
+        await expectImportMatchSnapshot( () => new ImportCustomResourceDefinition(crdsDev, {
+          emitModulePer: ModuleEmitOptions.API_GROUP,
+        }));
       }
     });
   }
