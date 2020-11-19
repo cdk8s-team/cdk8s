@@ -1,12 +1,12 @@
+import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as yargs from 'yargs';
 import { readConfigSync } from '../../config';
 import { synthApp, mkdtemp } from '../../util';
-import * as path from 'path';
 
 const config = readConfigSync();
 
-export class Command implements yargs.CommandModule {
+class Command implements yargs.CommandModule {
   public readonly command = 'synth';
   public readonly describe = 'Synthesizes Kubernetes manifests for all charts in your app.';
   public readonly aliases = ['synthesize'];
