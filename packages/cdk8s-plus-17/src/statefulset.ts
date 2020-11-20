@@ -128,7 +128,7 @@ export class StatefulSet extends Resource implements IPodTemplate {
     this._service = new Service(this, 'Service', {
       metadata: props.serviceName ? { name: props.serviceName } : undefined,
       type: props.service?.type ?? ServiceType.CLUSTER_IP,
-      clusterIP: props.service?.clusterIP ?? 'None',
+      clusterIP: props.service?.clusterIP,
       ports:
             props.service?.ports ?? (props.servicePort != null ? [{ port: props.servicePort }] : []),
     });

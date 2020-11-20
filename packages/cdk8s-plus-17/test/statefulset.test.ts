@@ -96,7 +96,7 @@ test('StatefulSet gets defaults', () => {
   expect(set_spec.podManagementPolicy).toEqual(kplus.PodManagementPolicy.ORDERED_READY);
 
   expect(srv_spec.type).toEqual(kplus.ServiceType.CLUSTER_IP);
-  expect(srv_spec.clusterIP).toEqual('None');
+  expect(srv_spec.clusterIP).toBeUndefined();
   expect(srv_spec.ports![0].port).toEqual(9200);
 });
 
