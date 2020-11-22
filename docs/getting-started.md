@@ -67,7 +67,7 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     $ mkdir hello
     $ cd hello
     $ cdk8s init python-app
-    creating a new project from template: python-app
+    Initializing a project from the python-app template
     ...
     ```
 
@@ -119,11 +119,12 @@ At this point, if you will see something like this:
     from constructs import Construct
     from cdk8s import App, Chart
 
-    class MyChart(Chart):
-    def __init__(self, scope: Construct, ns: str, **kwargs):
-        super().__init__(scope, ns, **kwargs)
 
-        # define resources here
+    class MyChart(Chart):
+        def __init__(self, scope: Construct, id: str):
+            super().__init__(scope, id)
+
+            # define resources here
 
 
     app = App()
@@ -266,10 +267,9 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
     from imports import k8s
 
-
     class MyChart(Chart):
-        def __init__(self, scope: Construct, name: str):
-            super().__init__(scope, name)
+        def __init__(self, scope: Construct, id: str):
+            super().__init__(scope, id)
 
             # define resources here
             label = {"app": "hello-k8s"}
@@ -504,16 +504,16 @@ For example, this one line will add a hello world service to our chart:
 === "Python"
     ```python
     WebService(self, 'hello',
-            image='paulbouwer/hello-kubernetes:1.7')
+               image='paulbouwer/hello-kubernetes:1.7')
     ```
 
     It can also be customized through an API:
 
     ```python
     WebService(self, 'hello-k8s',
-            image='paulbouwer/hello-kubernetes:1.7',
-            container_port=8080,
-            replicas=10)
+               image='paulbouwer/hello-kubernetes:1.7',
+               container_port=8080,
+               replicas=10)
     ```
 
 
@@ -642,17 +642,16 @@ Here's how to implement `WebService`:
     ```python
     from constructs import Construct, Node
 
-    import typing
     from imports import k8s
 
 
     class WebService(Construct):
-        def __init__(self, scope: Construct, ns: str, *,
+        def __init__(self, scope: Construct, id: str, *,
                     image: str,
                     replicas: int = 1,
                     port: int = 80,
                     container_port: int = 8080):
-            super().__init__(scope, ns)
+            super().__init__(scope, id)
 
             label = {'app': Node.of(self).unique_id}
 
@@ -663,7 +662,7 @@ Here's how to implement `WebService`:
                               selector=label))
 
             k8s.KubeDeployment(self, 'deployment',
-                               spec=k8s.DeploymentSpec(
+                              spec=k8s.DeploymentSpec(
                                   replicas=replicas,
                                   selector=k8s.LabelSelector(match_labels=label),
                                   template=k8s.PodTemplateSpec(
@@ -685,10 +684,9 @@ Here's how to implement `WebService`:
 
     from webservice import WebService
 
-
     class MyChart(Chart):
-        def __init__(self, scope: Construct, name: str):
-            super().__init__(scope, name)
+        def __init__(self, scope: Construct, id: str):
+            super().__init__(scope, id)
 
             WebService(self, 'hello', image='paulbouwer/hello-kubernetes:1.7', replicas=2)
             WebService(self, 'ghost', image='ghost', container_port=2368)
