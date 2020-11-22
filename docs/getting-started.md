@@ -220,7 +220,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
         const label = { app: 'hello-k8s' };
 
-        new Service(this, 'service', {
+        new KubeService(this, 'service', {
           spec: {
             type: 'LoadBalancer',
             ports: [ { port: 80, targetPort: IntOrString.fromNumber(8080) } ],
