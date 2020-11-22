@@ -497,6 +497,7 @@ For example, this one line will add a hello world service to our chart:
     containerPort: 8080,
     replicas: 10
     });
+    ```
 
 === "Python"
     ```python
