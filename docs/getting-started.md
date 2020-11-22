@@ -95,13 +95,14 @@ At this point, if you will see something like this:
 
     ```ts
     import { Construct } from 'constructs';
-    import { Chart, App } from 'cdk8s';
+    import { App, Chart, ChartProps } from 'cdk8s';
 
-    class MyChart extends Chart {
-      constructor(scope: Construct, name: string) {
-        super(scope, name);
+    export class MyChart extends Chart {
+      constructor(scope: Construct, id: string, props: ChartProps = { }) {
+        super(scope, id, props);
 
-        // define constructs here
+        // define resources here
+
       }
     }
 
@@ -209,14 +210,15 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 === "TypeScript"
     ```ts
     import { Construct } from 'constructs';
-    import { App, Chart } from 'cdk8s';
+    import { App, Chart, ChartProps } from 'cdk8s';
 
     // imported constructs
     import { KubeDeployment, KubeService, IntOrString } from './imports/k8s';
 
-    class MyChart extends Chart {
-      constructor(scope: Construct, name: string) {
-        super(scope, name);
+
+    export class MyChart extends Chart {
+      constructor(scope: Construct, id: string, props: ChartProps = { }) {
+        super(scope, id, props);
 
         const label = { app: 'hello-k8s' };
 
@@ -415,35 +417,35 @@ cdk8s synth
 This will be contents of `hello.k8s.yaml`:
 
 ```yaml
-apiVersion: v1
-kind: Service
+apiVersion: "v1"
+kind: "Service"
 metadata:
-  name: hello-java-service-3a4f9468
+  name: "hello-service-c8c17160"
 spec:
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: hello-k8s
-  type: LoadBalancer
+    app: "hello-k8s"
+  type: "LoadBalancer"
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: "apps/v1"
+kind: "Deployment"
 metadata:
-  name: hello-java-deployment-d312868f
+  name: "hello-deployment-c8c7fda7"
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: hello-k8s
+      app: "hello-k8s"
   template:
     metadata:
       labels:
-        app: hello-k8s
+        app: "hello-k8s"
     spec:
       containers:
-        - image: paulbouwer/hello-kubernetes:1.7
-          name: hello-kubernetes
+        - image: "paulbouwer/hello-kubernetes:1.7"
+          name: "hello-kubernetes"
           ports:
             - containerPort: 8080
 ```
@@ -485,7 +487,7 @@ For example, this one line will add a hello world service to our chart:
 === "TypeScript"
     ```ts
     new WebService(this, 'hello-k8s', {
-    image: 'paulbouwer/hello-kubernetes:1.7'
+      image: 'paulbouwer/hello-kubernetes:1.7'
     });
     ```
 
@@ -493,9 +495,9 @@ For example, this one line will add a hello world service to our chart:
 
     ```ts
     new WebService(this, 'hello-k8s', {
-    image: 'paulbouwer/hello-kubernetes:1.7',
-    containerPort: 8080,
-    replicas: 10
+      image: 'paulbouwer/hello-kubernetes:1.7',
+      containerPort: 8080,
+      replicas: 10
     });
     ```
 
@@ -537,46 +539,46 @@ Here's how to implement `WebService`:
     Create a file `lib/web-service.ts` (the convention is to use `lib` for reusable components):
 
     ```ts
-    import { Construct, Node } from 'constructs';
+    import { Construct } from 'constructs';
     import { Names } from 'cdk8s';
     import { KubeDeployment, KubeService, IntOrString } from '../imports/k8s';
 
-    export interface WebServiceOptions {
-    /**
-     * The Docker image to use for this service.
-     */
-    readonly image: string;
+    export interface WebServiceProps {
+      /**
+       * The Docker image to use for this service.
+       */
+      readonly image: string;
 
-    /**
-     * Number of replicas.
-     *
-     * @default 1
-     */
-    readonly replicas?: number;
+      /**
+       * Number of replicas.
+       *
+       * @default 1
+       */
+      readonly replicas?: number;
 
-    /**
-     * External port.
-     *
-     * @default 80
-     */
-    readonly port?: number;
+      /**
+       * External port.
+       *
+       * @default 80
+       */
+      readonly port?: number;
 
-    /**
-     * Internal port.
-     *
-     * @default 8080
-     */
-    readonly containerPort?: number;
+      /**
+       * Internal port.
+       *
+       * @default 8080
+       */
+      readonly containerPort?: number;
     }
 
     export class WebService extends Construct {
-    constructor(scope: Construct, ns: string, options: WebServiceOptions) {
-        super(scope, ns);
+      constructor(scope: Construct, id: string, props: WebServiceProps) {
+        super(scope, id);
 
-        const port = options.port || 80;
-        const containerPort = options.containerPort || 8080;
-        const label = { app: Names.toDnsLabel(Node.of(this).path) };
-        const replicas = options.replicas ?? 1;
+        const port = props.port || 80;
+        const containerPort = props.containerPort || 8080;
+        const label = { app: Names.toDnsLabel(this) };
+        const replicas = props.replicas ?? 1;
 
         new KubeService(this, 'service', {
           spec: {
@@ -598,7 +600,7 @@ Here's how to implement `WebService`:
                 containers: [
                   {
                     name: 'app',
-                    image: options.image,
+                    image: props.image,
                     ports: [ { containerPort } ]
                   }
                 ]
@@ -613,18 +615,24 @@ Here's how to implement `WebService`:
     Now, let's edit `main.ts` and use our new construct:
 
     ```ts
-    import { Chart } from 'cdk8s';
     import { Construct } from 'constructs';
+    import { App, Chart, ChartProps } from 'cdk8s';
     import { WebService } from './lib/web-service';
 
+
     export class MyChart extends Chart {
-      constructor(scope: Construct, ns: string) {
-        super(scope, ns);
+      constructor(scope: Construct, id: string, props: ChartProps = { }) {
+        super(scope, id, props);
 
         new WebService(this, 'hello', { image: 'paulbouwer/hello-kubernetes:1.7', replicas: 2 });
         new WebService(this, 'ghost', { image: 'ghost', containerPort: 2368 });
+
       }
     }
+
+    const app = new App();
+    new MyChart(app, 'hello');
+    app.synth();
     ```
 
 
