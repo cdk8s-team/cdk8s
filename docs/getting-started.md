@@ -212,7 +212,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     import { App, Chart } from 'cdk8s';
 
     // imported constructs
-    import { Deployment, Service, IntOrString } from './imports/k8s';
+    import { KubeDeployment, KubeService, IntOrString } from './imports/k8s';
 
     export class MyChart extends Chart {
       constructor(scope: Construct, name: string) {
