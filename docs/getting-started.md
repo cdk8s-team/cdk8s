@@ -317,16 +317,16 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     import imports.k8s.LabelSelector;
     import imports.k8s.ObjectMeta;
     import imports.k8s.PodTemplateSpec;
-    import imports.k8s.KubeService;
-    import imports.k8s.KubeServiceOptions;
+    import imports.k8s.Service;
+    import imports.k8s.ServiceOptions;
     import imports.k8s.ServicePort;
     import imports.k8s.ServiceSpec;
     import imports.k8s.DeploymentSpec;
     import imports.k8s.PodSpec;
     import imports.k8s.Container;
     import imports.k8s.ContainerPort;
-    import imports.k8s.KubeDeployment;
-    import imports.k8s.KubeDeploymentOptions;
+    import imports.k8s.Deployment;
+    import imports.k8s.DeploymentOptions;
 
     public class Main extends Chart
     {
@@ -353,11 +353,11 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
                 .selector(selector)
                 .ports(servicePorts)
                 .build();
-            final KubeServiceOptions serviceOptions = new KubeServiceOptions.Builder()
+            final ServiceOptions serviceOptions = new ServiceOptions.Builder()
                 .spec(serviceSpec)
                 .build();
 
-            new KubeService(this, "service", serviceOptions);
+            new Service(this, "service", serviceOptions);
 
             // Defining a Deployment
             final LabelSelector labelSelector = new LabelSelector.Builder().matchLabels(selector).build();
@@ -386,11 +386,11 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
                 .selector(labelSelector)
                 .template(podTemplateSpec)
                 .build();
-            final KubeDeploymentOptions deploymentOptions = new KubeDeploymentOptions.Builder()
+            final DeploymentOptions deploymentOptions = new DeploymentOptions.Builder()
                 .spec(deploymentSpec)
                 .build();
 
-            new KubeDeployment(this, "deployment", deploymentOptions);
+            new Deployment(this, "deployment", deploymentOptions);
 
         }
 
@@ -705,24 +705,20 @@ Here's how to implement `WebService`:
     import java.util.Map;
     import java.util.Optional;
 
-    import org.cdk8s.App;
-    import org.cdk8s.Chart;
-    import org.cdk8s.ChartOptions;
-
     import imports.k8s.IntOrString;
     import imports.k8s.LabelSelector;
     import imports.k8s.ObjectMeta;
     import imports.k8s.PodTemplateSpec;
-    import imports.k8s.KubeService;
-    import imports.k8s.KubeServiceOptions;
+    import imports.k8s.Service;
+    import imports.k8s.ServiceOptions;
     import imports.k8s.ServicePort;
     import imports.k8s.ServiceSpec;
     import imports.k8s.DeploymentSpec;
     import imports.k8s.PodSpec;
     import imports.k8s.Container;
     import imports.k8s.ContainerPort;
-    import imports.k8s.KubeDeployment;
-    import imports.k8s.KubeDeploymentOptions;
+    import imports.k8s.Deployment;
+    import imports.k8s.DeploymentOptions;
 
     public class WebService extends Construct
     {
@@ -754,11 +750,11 @@ Here's how to implement `WebService`:
                 .selector(selector)
                 .ports(servicePorts)
                 .build();
-            final KubeServiceOptions serviceOptions = new KubeServiceOptions.Builder()
+            final ServiceOptions serviceOptions = new ServiceOptions.Builder()
                 .spec(serviceSpec)
                 .build();
 
-            new KubeService(this, "service", serviceOptions);
+            new Service(this, "service", serviceOptions);
 
             // Defining a Deployment
             final LabelSelector labelSelector = new LabelSelector.Builder().matchLabels(selector).build();
@@ -787,11 +783,11 @@ Here's how to implement `WebService`:
                 .selector(labelSelector)
                 .template(podTemplateSpec)
                 .build();
-            final KubeDeploymentOptions deploymentOptions = new KubeDeploymentOptions.Builder()
+            final DeploymentOptions deploymentOptions = new DeploymentOptions.Builder()
                 .spec(deploymentSpec)
                 .build();
 
-            new KubeDeployment(this, "deployment", deploymentOptions);
+            new Deployment(this, "deployment", deploymentOptions);
         }
     }
     ```
@@ -800,8 +796,6 @@ Here's how to implement `WebService`:
 
     ```java
     package com.mycompany.app;
-
-    import software.constructs.Construct;
 
     public class WebServiceOptions
     {
