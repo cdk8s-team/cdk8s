@@ -228,7 +228,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
           }
         });
 
-        new Deployment(this, 'deployment', {
+        new KubeDeployment(this, 'deployment', {
           spec: {
             replicas: 2,
             selector: {
