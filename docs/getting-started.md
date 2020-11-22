@@ -97,7 +97,7 @@ At this point, if you will see something like this:
     import { Construct } from 'constructs';
     import { Chart, App } from 'cdk8s';
 
-    class MyChart extends Chart {
+    export class MyChart extends Chart {
       constructor(scope: Construct, name: string) {
         super(scope, name);
 
@@ -212,15 +212,15 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     import { App, Chart } from 'cdk8s';
 
     // imported constructs
-    import { KubeDeployment, KubeService, IntOrString } from './imports/k8s';
+    import { Deployment, Service, IntOrString } from './imports/k8s';
 
-    class MyChart extends Chart {
+    export class MyChart extends Chart {
       constructor(scope: Construct, name: string) {
         super(scope, name);
 
         const label = { app: 'hello-k8s' };
 
-        new KubeService(this, 'service', {
+        new Service(this, 'service', {
           spec: {
             type: 'LoadBalancer',
             ports: [ { port: 80, targetPort: IntOrString.fromNumber(8080) } ],
@@ -228,7 +228,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
           }
         });
 
-        new KubeDeployment(this, 'deployment', {
+        new Deployment(this, 'deployment', {
           spec: {
             replicas: 2,
             selector: {
