@@ -27,7 +27,7 @@ class Jenkins(
     def __init__(
         self,
         scope: constructs.Construct,
-        name: builtins.str,
+        id: builtins.str,
         *,
         metadata: typing.Any = None,
         spec: typing.Optional["JenkinsSpec"] = None,
@@ -35,21 +35,21 @@ class Jenkins(
         """Defines a "Jenkins" API object.
 
         :param scope: the scope in which to define this object.
-        :param name: a scope-local name for the object.
+        :param id: a scope-local name for the object.
         :param metadata: 
         :param spec: Spec defines the desired state of the Jenkins.
         """
-        options = JenkinsOptions(metadata=metadata, spec=spec)
+        props = JenkinsProps(metadata=metadata, spec=spec)
 
-        jsii.create(Jenkins, self, [scope, name, options])
+        jsii.create(Jenkins, self, [scope, id, props])
 
 
 @jsii.data_type(
-    jsii_type="jenkinsiojenkins.JenkinsOptions",
+    jsii_type="jenkinsiojenkins.JenkinsProps",
     jsii_struct_bases=[],
     name_mapping={"metadata": "metadata", "spec": "spec"},
 )
-class JenkinsOptions:
+class JenkinsProps:
     def __init__(
         self,
         *,
@@ -95,7 +95,7 @@ class JenkinsOptions:
         return not (rhs == self)
 
     def __repr__(self) -> str:
-        return "JenkinsOptions(%s)" % ", ".join(
+        return "JenkinsProps(%s)" % ", ".join(
             k + "=" + repr(v) for k, v in self._values.items()
         )
 
@@ -11849,7 +11849,7 @@ class JenkinsSpecSlaveService:
 
 __all__ = [
     "Jenkins",
-    "JenkinsOptions",
+    "JenkinsProps",
     "JenkinsSpec",
     "JenkinsSpecBackup",
     "JenkinsSpecBackupAction",

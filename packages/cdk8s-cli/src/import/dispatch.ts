@@ -1,7 +1,8 @@
-import { ImportOptions } from './base';
-import { ImportKubernetesApi } from './k8s';
-import { ImportCustomResourceDefinition } from './crd';
 import { ImportSpec } from '../config';
+import { ImportOptions } from './base';
+import { ImportCustomResourceDefinition } from './crd';
+import { importCrdsDevRepoMatch } from './crds-dev';
+import { ImportKubernetesApi } from './k8s';
 
 export async function importDispatch(imports: ImportSpec[], argv: any, options: ImportOptions) {
   for (const importSpec of imports) {
@@ -22,6 +23,11 @@ async function matchImporter(importSpec: ImportSpec, argv: any) {
   const k8s = await ImportKubernetesApi.match(importSpec, argv);
   if (k8s) {
     return new ImportKubernetesApi(k8s);
+  }
+
+  const crdsDev = await importCrdsDevRepoMatch(importSpec.source);
+  if (crdsDev) {
+    return new ImportCustomResourceDefinition(crdsDev);
   }
 
   const crd = await ImportCustomResourceDefinition.match(importSpec);

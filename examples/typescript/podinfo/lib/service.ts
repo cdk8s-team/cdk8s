@@ -1,5 +1,5 @@
 import { Construct } from "constructs";
-import { Service as ServiceApiObject, ServicePort, IntOrString } from '../imports/k8s';
+import { KubeService, ServicePort, IntOrString } from '../imports/k8s';
 import { Ingress, IngressOptions } from "./ingress";
 
 export interface ISelector {
@@ -80,7 +80,7 @@ export class Service extends Construct {
 
     // service
 
-    const service = new ServiceApiObject(this, 'service', {
+    const service = new KubeService(this, 'service', {
       metadata: {
         labels: options.labels
       },

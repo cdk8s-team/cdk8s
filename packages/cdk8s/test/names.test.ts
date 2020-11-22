@@ -1,19 +1,28 @@
-import { Names } from '../src/names';
+import { NameOptions, Names } from '../src/names';
+import { createTree } from './util';
+
+const toDnsName = (path: string, options: NameOptions = { }) => Names.toDnsLabel(createTree(path), options);
+const toLabelValue = (path: string, options: NameOptions = { }) => Names.toLabelValue(createTree(path), options);
 
 describe('toDnsLabel', () => {
-  const toDnsName = Names.toDnsLabel;
+  test('ignores default children', () => {
+    expect(toDnsName('hello/default/foo/world/default')).toEqual('hello-foo-world-c8ceb89a');
+    expect(toDnsName('hello/resource/foo/world/resource')).toEqual('hello-foo-world-c8c051a2');
+    expect(toDnsName('hello/resource/foo/world/default')).toEqual('hello-foo-world-c8285558');
+    expect(toDnsName('hello/Resource/foo/world/Default')).toEqual('hello-foo-world-c8455d08');
+    expect(toDnsName('hello/default/foo/world/resource')).toEqual('hello-foo-world-c83a0f50');
+    expect(toDnsName('resource/default')).toEqual('c818ce2d');
+  });
 
   test('normalize to dns_name', () => {
-    expect(toDnsName(' ')).toEqual('36a9e7f1');
-    expect(toDnsName('')).toEqual('e3b0c442');
-    expect(toDnsName('Hello')).toEqual('hello-185f8db3');
-    expect(toDnsName('hey*')).toEqual('hey-96c05e6c');
-    expect(toDnsName('not allowed')).toEqual('notallowed-a26075ed');
+    expect(toDnsName('Hello')).toEqual('hello-c8a347e4');
+    expect(toDnsName('hey*')).toEqual('hey-c808ed9e');
+    expect(toDnsName('not allowed')).toEqual('notallowed-c82fed05');
   });
 
   test('maximum length for a single term', () => {
-    expect(toDnsName('1234567890abcdef', 15)).toEqual('123456-8e9916c5');
-    expect(toDnsName('x' + 'a'.repeat(64))).toEqual('xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-f69f4ba1');
+    expect(toDnsName('1234567890abcdef', { maxLen: 15 })).toEqual('123456-c85fab94');
+    expect(toDnsName('x' + 'a'.repeat(64))).toEqual('xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-c86953f2');
   });
 
   test('single term is not decorated with a hash', () => {
@@ -25,61 +34,67 @@ describe('toDnsLabel', () => {
   test('multiple terms are separated by "." and a hash is appended', () => {
     expect(toDnsName('hello-foo-world')).toEqual('hello-foo-world'); // this is actually a single term
     expect(toDnsName('hello-hello-foo-world')).toEqual('hello-hello-foo-world'); // intentionally duplicated
-    expect(toDnsName('hello-foo/world')).toEqual('hello-foo-world-54700203'); // two terms
-    expect(toDnsName('hello-foo/foo')).toEqual('hello-foo-foo-e078a973'); // two terms, intentionally duplicated
-    expect(toDnsName('hello/foo/world')).toEqual('hello-foo-world-4f6e4fd8'); // three terms
+    expect(toDnsName('hello-foo/world')).toEqual('hello-foo-world-c83c4a8a'); // two terms
+    expect(toDnsName('hello-foo/foo')).toEqual('hello-foo-foo-c884a60a'); // two terms, intentionally duplicated
+    expect(toDnsName('hello/foo/world')).toEqual('hello-foo-world-c89b166b'); // three terms
   });
 
   test('invalid max length (minimum is 8 - for hash)', () => {
     const expected = /minimum max length for object names is 8/;
-    expect(() => toDnsName('foo', 4)).toThrow(expected);
-    expect(() => toDnsName('foo', 7)).toThrow(expected);
+    expect(() => toDnsName('foo', { maxLen: 4 })).toThrow(expected);
+    expect(() => toDnsName('foo', { maxLen: 7 })).toThrow(expected);
 
     // these are ok
-    expect(toDnsName('foo', 8)).toEqual('foo');
-    expect(toDnsName('foo', 9)).toEqual('foo');
+    expect(toDnsName('foo', { maxLen: 8 })).toEqual('foo');
+    expect(toDnsName('foo', { maxLen: 9 })).toEqual('foo');
   });
 
   test('omit duplicate components in names', () => {
-    expect(toDnsName('hello/hello/foo/world')).toEqual('hello-foo-world-1d4999d0');
-    expect(toDnsName('hello/hello/hello/foo/world')).toEqual('hello-foo-world-d3ebcda3');
-    expect(toDnsName('hello/hello/hello/hello/hello')).toEqual('hello-456bb9d7');
-    expect(toDnsName('hello/cool/cool/cool/cool')).toEqual('hello-cool-83150e81');
-    expect(toDnsName('hello/world/world/world/cool')).toEqual('hello-world-cool-0148a798');
-  })
+    expect(toDnsName('hello/hello/foo/world')).toEqual('hello-foo-world-c8538d75');
+    expect(toDnsName('hello/hello/hello/foo/world')).toEqual('hello-foo-world-c815bea4');
+    expect(toDnsName('hello/hello/hello/hello/hello')).toEqual('hello-c830c284');
+    expect(toDnsName('hello/cool/cool/cool/cool')).toEqual('hello-cool-c816948a');
+    expect(toDnsName('hello/world/world/world/cool')).toEqual('hello-world-cool-c8e259cb');
+  });
 
   test('trimming (prioritize last component)', () => {
-    expect(toDnsName('hello/world', 8)).toEqual('761e91eb');
-    expect(toDnsName('hello/world/this/is/cool', 8)).toEqual('a7c39f00');
-    expect(toDnsName('hello/world/this/is/cool', 12)).toEqual('coo-a7c39f00');
-    expect(toDnsName('hello/hello/this/is/cool', 12)).toEqual('coo-8751188b');
-    expect(toDnsName('hello/cool/cool/cool/cool', 15)).toEqual('h-cool-83150e81');
-    expect(toDnsName('hello/world/this/is/cool', 14)).toEqual('cool-a7c39f00');
-    expect(toDnsName('hello/world/this/is/cool', 15)).toEqual('i-cool-a7c39f00');
-    expect(toDnsName('hello/world/this/is/cool', 25)).toEqual('wor-this-is-cool-a7c39f00');
+    expect(toDnsName('hello/world', { maxLen: 8 })).toEqual('c85bc96a');
+    expect(toDnsName('hello/world/this/is/cool', { maxLen: 8 })).toEqual('c80ec725');
+    expect(toDnsName('hello/world/this/is/cool', { maxLen: 12 })).toEqual('coo-c80ec725');
+    expect(toDnsName('hello/hello/this/is/cool', { maxLen: 12 })).toEqual('coo-c812c430');
+    expect(toDnsName('hello/cool/cool/cool/cool', { maxLen: 15 })).toEqual('h-cool-c816948a');
+    expect(toDnsName('hello/world/this/is/cool', { maxLen: 14 })).toEqual('cool-c80ec725');
+    expect(toDnsName('hello/world/this/is/cool', { maxLen: 15 })).toEqual('i-cool-c80ec725');
+    expect(toDnsName('hello/world/this/is/cool', { maxLen: 25 })).toEqual('wor-this-is-cool-c80ec725');
   });
 
   test('filter empty components', () => {
-    expect(toDnsName('hello//world---this-is-cool---')).toEqual('hello-world-this-is-cool-52f679f4');
+    expect(toDnsName('hello/world---this-is-cool---')).toEqual('hello-world-this-is-cool-c88665d5');
     expect(toDnsName('hello-world-this-is-cool')).toEqual('hello-world-this-is-cool');
-    expect(toDnsName('hello/world-this//is-cool')).toEqual('hello-world-this-is-cool-b6e3e997');
+    expect(toDnsName('hello/world-this/is-cool')).toEqual('hello-world-this-is-cool-c81c7478');
   });
 });
 
 describe('toLabel', () => {
-  const toLabelValue = Names.toLabelValue;
+
+  test('ignores default children', () => {
+    expect(toLabelValue('hello/default/foo/world/default')).toEqual('hello-foo-world-c8ceb89a');
+    expect(toLabelValue('hello/resource/foo/world/resource')).toEqual('hello-foo-world-c8c051a2');
+    expect(toLabelValue('hello/resource/foo/world/default')).toEqual('hello-foo-world-c8285558');
+    expect(toLabelValue('hello/Resource/foo/world/Default')).toEqual('hello-foo-world-c8455d08');
+    expect(toLabelValue('hello/default/foo/world/resource')).toEqual('hello-foo-world-c83a0f50');
+    expect(toLabelValue('resource/default')).toEqual('c818ce2d');
+  });
 
   test('normalize to dns_name', () => {
-    expect(toLabelValue(' ')).toEqual('36a9e7f1');
-    expect(toLabelValue('')).toEqual(''); // Empty label is allowed for a label value
     expect(toLabelValue('Hello')).toEqual('Hello'); // Upper case is allowed for a label
-    expect(toLabelValue('hey*')).toEqual('hey-96c05e6c');
-    expect(toLabelValue('not allowed')).toEqual('notallowed-a26075ed');
+    expect(toLabelValue('hey*')).toEqual('hey-c808ed9e');
+    expect(toLabelValue('not allowed')).toEqual('notallowed-c82fed05');
   });
 
   test('maximum length for a single term', () => {
-    expect(toLabelValue('1234567890abcdef', '-', 15)).toEqual('123456-8e9916c5');
-    expect(toLabelValue('x' + 'a'.repeat(64))).toEqual('xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-f69f4ba1');
+    expect(toLabelValue('1234567890abcdef', { maxLen: 15, delimiter: '-' })).toEqual('123456-c85fab94');
+    expect(toLabelValue('x' + 'a'.repeat(64))).toEqual('xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-c86953f2');
   });
 
   test('single term is not decorated with a hash', () => {
@@ -91,42 +106,42 @@ describe('toLabel', () => {
   test('multiple terms are separated by "." and a hash is appended', () => {
     expect(toLabelValue('hello-foo-world')).toEqual('hello-foo-world'); // this is actually a single term
     expect(toLabelValue('hello-hello-foo-world')).toEqual('hello-hello-foo-world'); // intentionally duplicated
-    expect(toLabelValue('hello-foo/world')).toEqual('hello-foo-world-54700203'); // two terms
-    expect(toLabelValue('hello-foo/foo')).toEqual('hello-foo-foo-e078a973'); // two terms, intentionally duplicated
-    expect(toLabelValue('hello/foo/world')).toEqual('hello-foo-world-4f6e4fd8'); // three terms
+    expect(toLabelValue('hello-foo/world')).toEqual('hello-foo-world-c83c4a8a'); // two terms
+    expect(toLabelValue('hello-foo/foo')).toEqual('hello-foo-foo-c884a60a'); // two terms, intentionally duplicated
+    expect(toLabelValue('hello/foo/world')).toEqual('hello-foo-world-c89b166b'); // three terms
   });
 
   test('invalid max length (minimum is 8 - for hash)', () => {
     const expected = /minimum max length for label is 8/;
-    expect(() => toLabelValue('foo', '-', 4)).toThrow(expected);
-    expect(() => toLabelValue('foo', '-', 7)).toThrow(expected);
+    expect(() => toLabelValue('foo', { maxLen: 4 })).toThrow(expected);
+    expect(() => toLabelValue('foo', { maxLen: 7 })).toThrow(expected);
 
     // these are ok
-    expect(toLabelValue('foo', '-', 8)).toEqual('foo');
-    expect(toLabelValue('foo', '-', 9)).toEqual('foo');
+    expect(toLabelValue('foo', { maxLen: 8 })).toEqual('foo');
+    expect(toLabelValue('foo', { maxLen: 9 })).toEqual('foo');
   });
 
   test('omit duplicate components in names', () => {
-    expect(toLabelValue('hello/hello/foo/world')).toEqual('hello-foo-world-1d4999d0');
-    expect(toLabelValue('hello/hello/hello/foo/world')).toEqual('hello-foo-world-d3ebcda3');
-    expect(toLabelValue('hello/hello/hello/hello/hello')).toEqual('hello-456bb9d7');
-    expect(toLabelValue('hello/cool/cool/cool/cool')).toEqual('hello-cool-83150e81');
-    expect(toLabelValue('hello/world/world/world/cool')).toEqual('hello-world-cool-0148a798');
-  })
+    expect(toLabelValue('hello/hello/foo/world')).toEqual('hello-foo-world-c8538d75');
+    expect(toLabelValue('hello/hello/hello/foo/world')).toEqual('hello-foo-world-c815bea4');
+    expect(toLabelValue('hello/hello/hello/hello/hello')).toEqual('hello-c830c284');
+    expect(toLabelValue('hello/cool/cool/cool/cool')).toEqual('hello-cool-c816948a');
+    expect(toLabelValue('hello/world/world/world/cool')).toEqual('hello-world-cool-c8e259cb');
+  });
 
   test('trimming (prioritize last component)', () => {
-    expect(toLabelValue('hello/world', '-', 8)).toEqual('761e91eb');
-    expect(toLabelValue('hello/world/this/is/cool', '-', 8)).toEqual('a7c39f00');
-    expect(toLabelValue('hello/world/this/is/cool', '-', 12)).toEqual('coo-a7c39f00');
-    expect(toLabelValue('hello/hello/this/is/cool', '-', 12)).toEqual('coo-8751188b');
-    expect(toLabelValue('hello/cool/cool/cool/cool', '-', 15)).toEqual('h-cool-83150e81');
-    expect(toLabelValue('hello/world/this/is/cool', '-', 14)).toEqual('cool-a7c39f00');
-    expect(toLabelValue('hello/world/this/is/cool', '-', 15)).toEqual('i-cool-a7c39f00');
-    expect(toLabelValue('hello/world/this/is/cool', '-', 25)).toEqual('wor-this-is-cool-a7c39f00');
+    expect(toLabelValue('hello/world', { maxLen: 8 })).toEqual('c85bc96a');
+    expect(toLabelValue('hello/world/this/is/cool', { maxLen: 8 })).toEqual('c80ec725');
+    expect(toLabelValue('hello/world/this/is/cool', { maxLen: 12 })).toEqual('coo-c80ec725');
+    expect(toLabelValue('hello/hello/this/is/cool', { maxLen: 12 })).toEqual('coo-c812c430');
+    expect(toLabelValue('hello/cool/cool/cool/cool', { maxLen: 15 })).toEqual('h-cool-c816948a');
+    expect(toLabelValue('hello/world/this/is/cool', { maxLen: 14 })).toEqual('cool-c80ec725');
+    expect(toLabelValue('hello/world/this/is/cool', { maxLen: 15 })).toEqual('i-cool-c80ec725');
+    expect(toLabelValue('hello/world/this/is/cool', { maxLen: 25 })).toEqual('wor-this-is-cool-c80ec725');
   });
 
   test('filter empty components', () => {
-    expect(toLabelValue('hello---this/is//cool//-')).toEqual('hello-this-is-cool-dfb4c573');
-    expect(toLabelValue('hello---this/is---//cool////-')).toEqual('hello-this-is-cool-84d02267');
+    expect(toLabelValue('hello---this/is/cool/-')).toEqual('hello-this-is-cool-c83b900b');
+    expect(toLabelValue('hello---this/is---/cool/-')).toEqual('hello-this-is-cool-c82d69dd');
   });
 });

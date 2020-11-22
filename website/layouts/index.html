@@ -3,13 +3,24 @@
 {{- $footer_title := .Site.Params.footer_title }}
 {{- $footer_subtitle := .Site.Params.footer_subtitle }}
 
-{{- $getting_started := .Site.Params.links.getting_started }}
-{{- $python_link := .Site.Params.links.getting_started_python }}
-{{- $typescript_link := .Site.Params.links.getting_started_typescript }}
-{{- $java_link := .Site.Params.links.getting_started_java }}
+{{- $docs_root := (print "docs/v" $version) }}
 
-{{- $lib_docs := (print "https://awscdk.io/packages/cdk8s@" $version) }}
-{{- $cli_docs := (print "https://github.com/awslabs/cdk8s/blob/v" $version "/packages/cdk8s-cli/README.md") }}
+{{- $link_getting_started := (print $docs_root "/getting-started") }}
+{{- $link_plus_docs := (print $docs_root "/plus") }}
+{{- $link_concepts := (print $docs_root "/concepts") }}
+{{- $link_examples := (print $docs_root "/examples") }}
+{{- $link_contrib := (print $docs_root "/project/CONTRIBUTING") }}
+{{- $link_roadmap := "https://github.com/awslabs/cdk8s/projects/1" }}
+{{- $link_github := "https://github.com/awslabs/cdk8s" }}
+{{- $link_slack := "https://cdk.dev" }}
+{{- $link_license := "https://github.com/aws/aws-cdk/blob/master/LICENSE" }}
+{{- $link_coc := "https://github.com/cncf/foundation/blob/master/code-of-conduct.md" }}
+{{- $link_privacy := "https://aws.amazon.com/privacy/?nc1=f_pr" }}
+{{- $link_terms := "https://aws.amazon.com/terms/?nc1=f_pr" }}
+
+{{- $link_cdk8s_ref := (print $docs_root "/reference/cdk8s") }}
+{{- $link_plus_ref := (print $docs_root "/reference/cdk8s-plus-17") }}
+{{- $link_cli := (print $docs_root "/cli") }}
 
 {{- $everywhere := .Site.Params.features.everywhere }}
 {{- $languages  := .Site.Params.features.languages  }}
@@ -73,30 +84,38 @@
                     <div data-hover="" data-delay="0" class="w-dropdown">
                         <div class="dropdown w-dropdown-toggle">
                             <div class="w-icon-dropdown-toggle"></div>
-                            <div>Getting started</div>
+                            <div>Docs</div>
                         </div>
-                        <nav class="dropdown-list w-dropdown-list"><a href="{{ $python_link }}" class="dropdown-link w-dropdown-link">Python</a><a href="{{ $typescript_link }}" class="dropdown-link w-dropdown-link">TypeScript</a><a href="{{ $java_link }}" class="dropdown-link w-dropdown-link">Java</a></nav>
+                        <nav class="dropdown-list w-dropdown-list">
+                            <a href="{{ $docs_root }}" class="dropdown-link w-dropdown-link">Documentation</a>
+                            <a href="{{ $link_getting_started }}" class="dropdown-link w-dropdown-link">Getting Started</a>
+                            <a href="{{ $link_concepts }}" class="dropdown-link w-dropdown-link">Concepts</a>
+                            <a href="{{ $link_plus_docs }}" class="dropdown-link w-dropdown-link">CDK8s+</a>
+                        </nav>
                     </div>
                     <div data-hover="" data-delay="0" class="w-dropdown">
                         <div class="dropdown w-dropdown-toggle">
                             <div class="w-icon-dropdown-toggle"></div>
                             <div>Resources</div>
                         </div>
-                        <nav class="dropdown-list w-dropdown-list"><a href="https://github.com/awslabs/cdk8s/tree/master/examples" target="_blank" class="dropdown-link w-dropdown-link">Examples</a><a href="https://github.com/awslabs/cdk8s/projects/1" target="_blank" class="dropdown-link w-dropdown-link">Roadmap</a>
-                            <a href="https://github.com/awslabs/cdk8s/blob/master/CONTRIBUTING.md" target="_blank" class="dropdown-link w-dropdown-link">Contributors</a>
+                        <nav class="dropdown-list w-dropdown-list">
+                            <a href="{{ $link_examples }}" target="_blank" class="dropdown-link w-dropdown-link">Examples</a>
+                            <a href="{{ $link_roadmap }}" target="_blank" class="dropdown-link w-dropdown-link">Roadmap</a>
+                            <a href="{{ $link_contrib }}" target="_blank" class="dropdown-link w-dropdown-link">Contributors</a>
                         </nav>
                     </div>
                     <div data-hover="" data-delay="0" class="w-dropdown">
                         <div class="dropdown w-dropdown-toggle">
                             <div class="w-icon-dropdown-toggle"></div>
-                            <div>Docs ({{ $version }})</div>
+                            <div>API Reference</div>
                         </div>
                         <nav class="dropdown-list w-dropdown-list">
-                            <a href="{{ $cli_docs }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s CLI</a>
-                            <a href="{{ $lib_docs }}" class="dropdown-link w-dropdown-link">cdk8s Library</a>
+                            <a href="{{ $link_cdk8s_ref }}" class="dropdown-link w-dropdown-link">cdk8s  ({{ $version }})</a>
+                            <a href="{{ $link_plus_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-17  ({{ $version }})</a>
+                            <a href="{{ $link_cli }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s-cli ({{ $version }})<a>
                         </nav>
                     </div>
-                    <a href="https://github.com/awslabs/cdk8s" target="_blank" class="github w-inline-block"><img src="images/git.png" alt=""></a>
+                    <a href="{{ $link_github }}" target="_blank" class="github w-inline-block"><img src="images/git.png" alt=""></a>
                 </nav>
                 <div class="menu w-nav-button">
                     <div class="icon-2 w-icon-nav-menu"></div>
@@ -106,7 +125,7 @@
         <div class="head-wrapper">
             <h1 class="h1">{{ .Site.Title }}<br></h1>
             <div class="text-20">{{ .Site.Params.summary }}<br></div>
-            <a href="{{ $getting_started }}" target="_blank" class="button w-inline-block">
+            <a href="{{ $link_getting_started }}" target="_blank" class="button w-inline-block">
                 <div class="text-block-4">Get started</div>
             </a>
         </div><img src="images/main.png" width="800" srcset="images/main.png 500w, images/main.png 1200w" sizes="100vw" alt="" class="image"></div>
@@ -188,7 +207,7 @@
     <div class="cta">
         <h2 class="h2">{{ $footer_title }}<br></h2>
         <div class="text-20">{{ $footer_subtitle }}<br></div>
-        <a href="{{ $getting_started }}" target="_blank" class="button w-inline-block">
+        <a href="{{ $link_getting_started }}" target="_blank" class="button w-inline-block">
             <div>Get started</div>
         </a>
     </div>
@@ -200,27 +219,32 @@
 
             <div class="footer-col">
                 <h1 class="footer-title">DOCS</h1>
-                <a href="{{ $python_link }}" class="footer-link">Start with Python</a>
-                <a href="{{ $typescript_link }}" class="footer-link">Start with TypeScript</a>
-                <a href="{{ $java_link }}" class="footer-link">Start with Java</a>
-                <a href="{{ $cli_docs }}" class="footer-link">cdk8s CLI ({{ $version }})</a>
-                <a href="{{ $lib_docs }}" class="footer-link">cdk8s Library ({{ $version }})</a>
+                <a href="{{ $docs_root }}" class="footer-link">Documentation</a>
+                <a href="{{ $link_getting_started }}" class="footer-link">Getting Started</a>
+                <a href="{{ $link_concepts }}" class="footer-link">Concepts</a>
+                <a href="{{ $link_plus_docs }}" class="footer-link">CDK8s+</a>
+
+                <a href="{{ $link_cdk8s_ref }}" class="footer-link">cdk8s ({{ $version }})</a>
+                <a href="{{ $link_plus_ref }}" class="footer-link">cdk8s-plus-17 ({{ $version }})</a>
+                <a href="{{ $link_cli }}" class="footer-link">cdk8s-cli ({{ $version }})</a>
             </div>
 
             <div class="footer-col">
                 <h1 class="footer-title">MORE RESOURCES</h1>
-                <a href="https://github.com/awslabs/cdk8s/tree/master/examples" target="_blank" class="footer-link">Examples</a>
-                <a href="https://github.com/awslabs/cdk8s/projects/1" target="_blank" class="footer-link">Roadmap</a><a href="https://github.com/awslabs/cdk8s/blob/master/CONTRIBUTING.md" target="_blank" class="footer-link">Contributing</a></div>
+                <a href="{{ $link_examples }}" target="_blank" class="footer-link">Examples</a>
+                <a href="{{ $link_roadmap }}" target="_blank" class="footer-link">Roadmap</a>
+                <a href="{{ $link_contrib }}" target="_blank" class="footer-link">Contributing</a></div>
             <div class="footer-col">
                 <h1 class="footer-title">CONNECT WITH US
-                    <a href="https://github.com/awslabs/cdk8s"><br></a>
+                    <a href="{{ $link_github }}"><br></a>
                 </h1>
                 <div class="link-block">
-
-                    <a href="https://github.com/awslabs/cdk8s" target="_blank" class="footer-link"><img src="images/git-small.png" alt="" class="link-icon"> Github</a>
+                    <a href="{{ $link_github }}" target="_blank" class="footer-link">
+                        <img src="images/git-small.png" alt="" class="link-icon"> Github
+                    </a>
                 </div>
                 <div class="link-block">
-                    <a href="https://cdk.dev" target="_blank" class="footer-link">
+                    <a href="{{ $link_slack }}" target="_blank" class="footer-link">
                         <img src="images/slack.png" alt="" class="link-icon"> Slack
                     </a>
                 </div>
@@ -228,11 +252,11 @@
         </div>
         <div class="div-block">
             <div class="credits">
-                Made with 💙 by Amazon Web Services and distributed under the <a href="{{ .Site.Params.links.license }}" class="link">the Apache 2.0 License‍</a>
-                <br> Contributors and maintainers are governed by the <a href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md" class="link">CNCF Code of Conduct</a>
+                Made with 💙 by Amazon Web Services and distributed under the <a href="{{ $link_license }}" class="link">the Apache 2.0 License‍</a>
+                <br> Contributors and maintainers are governed by the <a href="{{ $link_coc }}" class="link">CNCF Code of Conduct</a>
             </div>
             <div class="text-block-3">
-              <a class="footer-link" href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a class="footer-link" href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
+              <a class="footer-link" href="{{ $link_privacy }}">Privacy</a> | <a class="footer-link" href="{{ $link_terms }}">Site Terms</a> | © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
             </div>
         </div>
     </div>

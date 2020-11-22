@@ -1,10 +1,33 @@
 import * as crypto from 'crypto';
+import { Construct, Node } from 'constructs';
 
-const MAX_DNS_NAME_LEN = 63;
+const MAX_LEN = 63;
 const VALIDATE = /^[0-9a-z-]+$/;
-const MAX_LABEL_VALUE_LEN = 63;
-const VALIDATE_LABEL_VALUE = /^(([0-9a-zA-Z][0-9a-zA-Z-_.]*)?[0-9a-zA-Z])?$/
+const VALIDATE_LABEL_VALUE = /^(([0-9a-zA-Z][0-9a-zA-Z-_.]*)?[0-9a-zA-Z])?$/;
 const HASH_LEN = 8;
+
+/**
+ * Options for name generation.
+ */
+export interface NameOptions {
+  /**
+   * Maximum allowed length for the name.
+   * @default 63
+   */
+  readonly maxLen?: number;
+
+  /**
+   * Extra components to include in the name.
+   * @default [] use the construct path components
+   */
+  readonly extra?: string[];
+
+  /**
+   * Delimiter to use between components.
+   * @default "-"
+   */
+  readonly delimiter?: string;
+}
 
 /**
  * Utilities for generating unique and stable names.
@@ -31,17 +54,23 @@ export class Names {
    *
    * @link https://tools.ietf.org/html/rfc1123
    *
-   * @param path a path to a node (components separated by "/")
-   * @param maxLen maximum allowed length for name
+   * @param scope The construct for which to render the DNS label
+   * @param options Name options
    * @throws if any of the components do not adhere to naming constraints or
    * length.
    */
-  public static toDnsLabel(path: string, maxLen = MAX_DNS_NAME_LEN) {
+  public static toDnsLabel(scope: Construct, options: NameOptions = { }) {
+    const maxLen = options.maxLen ?? MAX_LEN;
+    const delim = options.delimiter ?? '-';
+
     if (maxLen < HASH_LEN) {
       throw new Error(`minimum max length for object names is ${HASH_LEN} (required for hash)`);
     }
 
-    let components = path.split('/');
+    const node = Node.of(scope);
+
+    let components = node.path.split('/');
+    components.push(...options.extra ?? []);
 
     // special case: if we only have one component in our path and it adheres to DNS_NAME, we don't decorate it
     if (components.length === 1 && VALIDATE.test(components[0]) && components[0].length <= maxLen) {
@@ -50,19 +79,9 @@ export class Names {
 
     // okay, now we need to normalize all components to adhere to DNS_NAME and append the hash of the full path.
     components = components.map(c => normalizeToDnsName(c, maxLen));
+    components.push(calcHash(node, HASH_LEN));
 
-    components.push(calcHash(path, HASH_LEN));
-
-    return components
-      .reverse()
-      .filter(omitDuplicates)
-      .join('/')
-      .slice(0, maxLen)
-      .split('/')
-      .reverse()
-      .filter(x => x)
-      .join('-')
-      .split('-').filter(x => x).join('-') // remove empty components between `-`s.
+    return toHumanForm(components, delim, maxLen);
   }
 
   /**
@@ -88,13 +107,15 @@ export class Names {
    *
    * @link https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
    *
-   * @param path a path to a node (components separated by "/")
-   * @param delim a delimiter to separates components
-   * @param maxLen maximum allowed length for name
+   * @param scope The construct for which to render the DNS label
+   * @param options Name options
    * @throws if any of the components do not adhere to naming constraints or
    * length.
    */
-  public static toLabelValue(path: string, delim: string = '-', maxLen: number = MAX_LABEL_VALUE_LEN) {
+  public static toLabelValue(scope: Construct, options: NameOptions = {}) {
+    const maxLen = options.maxLen ?? MAX_LEN;
+    const delim = options.delimiter ?? '-';
+
     if (maxLen < HASH_LEN) {
       throw new Error(`minimum max length for label is ${HASH_LEN} (required for hash)`);
     }
@@ -103,7 +124,9 @@ export class Names {
       throw new Error('delim should not contain "[^0-9a-zA-Z-_.]"');
     }
 
-    let components = path.split('/');
+    const node = Node.of(scope);
+    let components = node.path.split('/');
+    components.push(...options.extra ?? []);
 
     // special case: if we only have one component in our path and it adheres to DNS_NAME, we don't decorate it
     if (components.length === 1 && VALIDATE_LABEL_VALUE.test(components[0]) && components[0].length <= maxLen) {
@@ -112,21 +135,9 @@ export class Names {
 
     // okay, now we need to normalize all components to adhere to label and append the hash of the full path.
     components = components.map(c => normalizeToLabelValue(c, maxLen));
+    components.push(calcHash(node, HASH_LEN));
 
-    components.push(calcHash(path, HASH_LEN));
-
-    const result = components
-      .reverse()
-      .filter(omitDuplicates)
-      .join('/')
-      .slice(0, maxLen)
-      .split('/')
-      .reverse()
-      .filter(x => x)
-      .join(delim)
-      .split(delim)
-      .filter(x => x)
-      .join(delim);
+    const result = toHumanForm(components, delim, maxLen);
 
     // slicing might let '-', '_', '.' be in the start of the result.
     return result.replace(/^[^0-9a-zA-Z]+/, '');
@@ -142,21 +153,45 @@ function omitDuplicates(value: string, index: number, components: string[]) {
   return value !== components[index-1];
 }
 
+function omitDefaultChild(value: string, _: number, __: string[]) {
+  return value.toLowerCase() !== 'resource' && value.toLowerCase() !== 'default';
+}
+
+function toHumanForm(components: string[], delim: string, maxLen: number) {
+  return components.reverse()
+    .filter(omitDuplicates)
+    .join('/')
+    .slice(0, maxLen)
+    .split('/')
+    .reverse()
+    .filter(x => x)
+    .join(delim)
+    .split(delim)
+    .filter(x => x)
+    .filter(omitDefaultChild)
+    .join(delim);
+
+}
+
 function normalizeToDnsName(c: string, maxLen: number) {
   return c
-    .toLocaleLowerCase()        // lower case
+    .toLocaleLowerCase() // lower case
     .replace(/[^0-9a-zA-Z-_.]/g, '') // remove non-allowed characters
-    .substr(0, maxLen)          // trim to maxLength
+    .substr(0, maxLen); // trim to maxLength
+}
+
+function calcHash(node: Node, maxLen: number) {
+  if (process.env.CDK8S_LEGACY_HASH) {
+    const hash = crypto.createHash('sha256');
+    hash.update(node.path);
+    return hash.digest('hex').slice(0, maxLen);
+  }
+
+  return node.addr.substring(0, HASH_LEN);
 }
 
 function normalizeToLabelValue(c: string, maxLen: number) {
   return c
     .replace(/[^0-9a-zA-Z-_.]/g, '') // remove non-allowed characters
-    .substr(0, maxLen)          // trim to maxLength
-}
-
-function calcHash(path: string, maxLen: number) {
-  const hash = crypto.createHash('sha256');
-  hash.update(path);
-  return hash.digest('hex').slice(0, maxLen);
+    .substr(0, maxLen); // trim to maxLength
 }

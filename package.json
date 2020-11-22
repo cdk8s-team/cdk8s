@@ -22,10 +22,12 @@
       "cdk8s/yaml/**",
       "cdk8s/json-stable-stringify",
       "cdk8s/json-stable-stringify/**",
+      "cdk8s/fast-json-patch",
+      "cdk8s/fast-json-patch/**",
       "cdk8s/follow-redirects",
       "cdk8s/follow-redirects/**",
-      "cdk8s-plus/minimatch",
-      "cdk8s-plus/minimatch/**"
+      "cdk8s-plus-17/minimatch",
+      "cdk8s-plus-17/minimatch/**"
     ]
   },
   "devDependencies": {

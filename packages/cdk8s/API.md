@@ -10,10 +10,13 @@ Name|Description
 [Chart](#cdk8s-chart)|*No description*
 [DependencyGraph](#cdk8s-dependencygraph)|Represents the dependency graph for a given Node.
 [DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
+[Duration](#cdk8s-duration)|Represents a length of time.
 [Helm](#cdk8s-helm)|Represents a Helm deployment.
 [Include](#cdk8s-include)|Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.
+[JsonPatch](#cdk8s-jsonpatch)|Utility for applying RFC-6902 JSON-Patch to a document.
 [Lazy](#cdk8s-lazy)|*No description*
 [Names](#cdk8s-names)|Utilities for generating unique and stable names.
+[Size](#cdk8s-size)|Represents the amount of digital storage.
 [Testing](#cdk8s-testing)|Testing utilities for cdk8s applications.
 [Yaml](#cdk8s-yaml)|YAML utilities.
 
@@ -23,11 +26,14 @@ Name|Description
 Name|Description
 ----|-----------
 [ApiObjectMetadata](#cdk8s-apiobjectmetadata)|Metadata associated with this object.
-[ApiObjectOptions](#cdk8s-apiobjectoptions)|Options for defining API objects.
-[AppOptions](#cdk8s-appoptions)|*No description*
-[ChartOptions](#cdk8s-chartoptions)|*No description*
-[HelmOptions](#cdk8s-helmoptions)|Options for `Helm`.
-[IncludeOptions](#cdk8s-includeoptions)|*No description*
+[ApiObjectProps](#cdk8s-apiobjectprops)|Options for defining API objects.
+[AppProps](#cdk8s-appprops)|*No description*
+[ChartProps](#cdk8s-chartprops)|*No description*
+[HelmProps](#cdk8s-helmprops)|Options for `Helm`.
+[IncludeProps](#cdk8s-includeprops)|*No description*
+[NameOptions](#cdk8s-nameoptions)|Options for name generation.
+[SizeConversionOptions](#cdk8s-sizeconversionoptions)|Options for how to convert time to a different unit.
+[TimeConversionOptions](#cdk8s-timeconversionoptions)|Options for how to convert time to a different unit.
 
 
 **Interfaces**
@@ -35,6 +41,13 @@ Name|Description
 Name|Description
 ----|-----------
 [IAnyProducer](#cdk8s-ianyproducer)|*No description*
+
+
+**Enums**
+
+Name|Description
+----|-----------
+[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)|Rounding behaviour when converting between units of `Size`.
 
 
 
@@ -51,12 +64,12 @@ __Extends__: [Construct](#constructs-construct)
 Defines an API object.
 
 ```ts
-new ApiObject(scope: Construct, ns: string, options: ApiObjectOptions)
+new ApiObject(scope: Construct, id: string, props: ApiObjectProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  the construct scope.
-* **ns** (<code>string</code>)  namespace.
-* **options** (<code>[ApiObjectOptions](#cdk8s-apiobjectoptions)</code>)  options.
+* **id** (<code>string</code>)  namespace.
+* **props** (<code>[ApiObjectProps](#cdk8s-apiobjectprops)</code>)  options.
   * **apiVersion** (<code>string</code>)  API version. 
   * **kind** (<code>string</code>)  Resource kind. 
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Object metadata. __*Optional*__
@@ -93,6 +106,19 @@ addDependency(...dependencies: IConstruct[]): void
 
 
 
+#### addJsonPatch(...ops)🔹 <a id="cdk8s-apiobject-addjsonpatch"></a>
+
+Applies a set of RFC-6902 JSON-Patch operations to the manifest synthesized for this API object.
+
+```ts
+addJsonPatch(...ops: JsonPatch[]): void
+```
+
+* **ops** (<code>[JsonPatch](#cdk8s-jsonpatch)</code>)  The JSON-Patch operations to apply.
+
+
+
+
 #### toJson()🔹 <a id="cdk8s-apiobject-tojson"></a>
 
 Renders the object to Kubernetes JSON.
@@ -104,6 +130,23 @@ toJson(): any
 
 __Returns__:
 * <code>any</code>
+
+#### *static* of(c)🔹 <a id="cdk8s-apiobject-of"></a>
+
+Returns the `ApiObject` named `Resource` which is a child of the given construct.
+
+If `c` is an `ApiObject`, it is returned directly. Throws an
+exception if the construct does not have a child named `Default` _or_ if
+this child is not an `ApiObject`.
+
+```ts
+static of(c: IConstruct): ApiObject
+```
+
+* **c** (<code>[IConstruct](#constructs-iconstruct)</code>)  The higher-level construct.
+
+__Returns__:
+* <code>[ApiObject](#cdk8s-apiobject)</code>
 
 
 
@@ -222,10 +265,10 @@ __Extends__: [Construct](#constructs-construct)
 Defines an app.
 
 ```ts
-new App(options?: AppOptions)
+new App(props?: AppProps)
 ```
 
-* **options** (<code>[AppOptions](#cdk8s-appoptions)</code>)  configuration options.
+* **props** (<code>[AppProps](#cdk8s-appprops)</code>)  configuration options.
   * **outdir** (<code>string</code>)  The directory to output Kubernetes manifests. __*Default*__: CDK8S_OUTDIR if defined, otherwise "dist"
 
 
@@ -267,12 +310,12 @@ __Extends__: [Construct](#constructs-construct)
 
 
 ```ts
-new Chart(scope: Construct, ns: string, options?: ChartOptions)
+new Chart(scope: Construct, id: string, props?: ChartProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **ns** (<code>string</code>)  *No description*
-* **options** (<code>[ChartOptions](#cdk8s-chartoptions)</code>)  *No description*
+* **id** (<code>string</code>)  *No description*
+* **props** (<code>[ChartProps](#cdk8s-chartprops)</code>)  *No description*
   * **labels** (<code>Map<string, string></code>)  Labels to apply to all resources in this chart. __*Default*__: no common labels
   * **namespace** (<code>string</code>)  The default namespace for all objects defined in this chart (directly or indirectly). __*Default*__: no namespace is synthesized (usually this implies "default")
 
@@ -473,6 +516,203 @@ __Returns__:
 
 
 
+## class Duration 🔹 <a id="cdk8s-duration"></a>
+
+Represents a length of time.
+
+The amount can be specified either as a literal value (e.g: `10`) which
+cannot be negative.
+
+
+### Methods
+
+
+#### toDays(opts?)🔹 <a id="cdk8s-duration-todays"></a>
+
+Return the total number of days in this Duration.
+
+```ts
+toDays(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### toHours(opts?)🔹 <a id="cdk8s-duration-tohours"></a>
+
+Return the total number of hours in this Duration.
+
+```ts
+toHours(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### toHumanString()🔹 <a id="cdk8s-duration-tohumanstring"></a>
+
+Turn this duration into a human-readable string.
+
+```ts
+toHumanString(): string
+```
+
+
+__Returns__:
+* <code>string</code>
+
+#### toISOString()⚠️ <a id="cdk8s-duration-toisostring"></a>
+
+Return an ISO 8601 representation of this period.
+
+```ts
+toISOString(): string
+```
+
+
+__Returns__:
+* <code>string</code>
+
+#### toIsoString()🔹 <a id="cdk8s-duration-toisostring"></a>
+
+Return an ISO 8601 representation of this period.
+
+```ts
+toIsoString(): string
+```
+
+
+__Returns__:
+* <code>string</code>
+
+#### toMilliseconds(opts?)🔹 <a id="cdk8s-duration-tomilliseconds"></a>
+
+Return the total number of milliseconds in this Duration.
+
+```ts
+toMilliseconds(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### toMinutes(opts?)🔹 <a id="cdk8s-duration-tominutes"></a>
+
+Return the total number of minutes in this Duration.
+
+```ts
+toMinutes(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### toSeconds(opts?)🔹 <a id="cdk8s-duration-toseconds"></a>
+
+Return the total number of seconds in this Duration.
+
+```ts
+toSeconds(opts?: TimeConversionOptions): number
+```
+
+* **opts** (<code>[TimeConversionOptions](#cdk8s-timeconversionoptions)</code>)  *No description*
+  * **integral** (<code>boolean</code>)  If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer. __*Default*__: true
+
+__Returns__:
+* <code>number</code>
+
+#### *static* days(amount)🔹 <a id="cdk8s-duration-days"></a>
+
+Create a Duration representing an amount of days.
+
+```ts
+static days(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Days the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* hours(amount)🔹 <a id="cdk8s-duration-hours"></a>
+
+Create a Duration representing an amount of hours.
+
+```ts
+static hours(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Hours the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* millis(amount)🔹 <a id="cdk8s-duration-millis"></a>
+
+Create a Duration representing an amount of milliseconds.
+
+```ts
+static millis(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Milliseconds the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* minutes(amount)🔹 <a id="cdk8s-duration-minutes"></a>
+
+Create a Duration representing an amount of minutes.
+
+```ts
+static minutes(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Minutes the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* parse(duration)🔹 <a id="cdk8s-duration-parse"></a>
+
+Parse a period formatted according to the ISO 8601 standard.
+
+```ts
+static parse(duration: string): Duration
+```
+
+* **duration** (<code>string</code>)  an ISO-formtted duration to be parsed.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+#### *static* seconds(amount)🔹 <a id="cdk8s-duration-seconds"></a>
+
+Create a Duration representing an amount of seconds.
+
+```ts
+static seconds(amount: number): Duration
+```
+
+* **amount** (<code>number</code>)  the amount of Seconds the `Duration` will represent.
+
+__Returns__:
+* <code>[Duration](#cdk8s-duration)</code>
+
+
+
 ## class Helm 🔹 <a id="cdk8s-helm"></a>
 
 Represents a Helm deployment.
@@ -488,12 +728,12 @@ __Extends__: [Include](#cdk8s-include)
 
 
 ```ts
-new Helm(scope: Construct, id: string, opts: HelmOptions)
+new Helm(scope: Construct, id: string, props: HelmProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **opts** (<code>[HelmOptions](#cdk8s-helmoptions)</code>)  *No description*
+* **props** (<code>[HelmProps](#cdk8s-helmprops)</code>)  *No description*
   * **chart** (<code>string</code>)  The chart name to use. It can be a chart from a helm repository or a local directory. 
   * **helmExecutable** (<code>string</code>)  The local helm executable to use in order to create the manifest the chart. __*Default*__: "helm"
   * **helmFlags** (<code>Array<string></code>)  Additional flags to add to the `helm` execution. __*Default*__: []
@@ -527,12 +767,12 @@ __Extends__: [Construct](#constructs-construct)
 
 
 ```ts
-new Include(scope: Construct, name: string, options: IncludeOptions)
+new Include(scope: Construct, id: string, props: IncludeProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **name** (<code>string</code>)  *No description*
-* **options** (<code>[IncludeOptions](#cdk8s-includeoptions)</code>)  *No description*
+* **id** (<code>string</code>)  *No description*
+* **props** (<code>[IncludeProps](#cdk8s-includeprops)</code>)  *No description*
   * **url** (<code>string</code>)  Local file path or URL which includes a Kubernetes YAML manifest. 
 
 
@@ -543,6 +783,133 @@ new Include(scope: Construct, name: string, options: IncludeOptions)
 Name | Type | Description 
 -----|------|-------------
 **apiObjects**🔹 | <code>Array<[ApiObject](#cdk8s-apiobject)></code> | Returns all the included API objects.
+
+
+
+## class JsonPatch 🔹 <a id="cdk8s-jsonpatch"></a>
+
+Utility for applying RFC-6902 JSON-Patch to a document.
+
+Use the the `JsonPatch.apply(doc, ...ops)` function to apply a set of
+operations to a JSON document and return the result.
+
+Operations can be created using the factory methods `JsonPatch.add()`,
+`JsonPatch.remove()`, etc.
+
+
+### Methods
+
+
+#### *static* add(path, value)🔹 <a id="cdk8s-jsonpatch-add"></a>
+
+Adds a value to an object or inserts it into an array.
+
+In the case of an
+array, the value is inserted before the given index. The - character can be
+used instead of an index to insert at the end of an array.
+
+```ts
+static add(path: string, value: any): JsonPatch
+```
+
+* **path** (<code>string</code>)  *No description*
+* **value** (<code>any</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* apply(document, ...ops)🔹 <a id="cdk8s-jsonpatch-apply"></a>
+
+Applies a set of JSON-Patch (RFC-6902) operations to `document` and returns the result.
+
+```ts
+static apply(document: any, ...ops: JsonPatch[]): any
+```
+
+* **document** (<code>any</code>)  The document to patch.
+* **ops** (<code>[JsonPatch](#cdk8s-jsonpatch)</code>)  The operations to apply.
+
+__Returns__:
+* <code>any</code>
+
+#### *static* copy(from, path)🔹 <a id="cdk8s-jsonpatch-copy"></a>
+
+Copies a value from one location to another within the JSON document.
+
+Both
+from and path are JSON Pointers.
+
+```ts
+static copy(from: string, path: string): JsonPatch
+```
+
+* **from** (<code>string</code>)  *No description*
+* **path** (<code>string</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* move(from, path)🔹 <a id="cdk8s-jsonpatch-move"></a>
+
+Moves a value from one location to the other.
+
+Both from and path are JSON Pointers.
+
+```ts
+static move(from: string, path: string): JsonPatch
+```
+
+* **from** (<code>string</code>)  *No description*
+* **path** (<code>string</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* remove(path)🔹 <a id="cdk8s-jsonpatch-remove"></a>
+
+Removes a value from an object or array.
+
+```ts
+static remove(path: string): JsonPatch
+```
+
+* **path** (<code>string</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* replace(path, value)🔹 <a id="cdk8s-jsonpatch-replace"></a>
+
+Replaces a value.
+
+Equivalent to a “remove” followed by an “add”.
+
+```ts
+static replace(path: string, value: any): JsonPatch
+```
+
+* **path** (<code>string</code>)  *No description*
+* **value** (<code>any</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
+
+#### *static* test(path, value)🔹 <a id="cdk8s-jsonpatch-test"></a>
+
+Tests that the specified value is set in the document.
+
+If the test fails,
+then the patch as a whole should not apply.
+
+```ts
+static test(path: string, value: any): JsonPatch
+```
+
+* **path** (<code>string</code>)  *No description*
+* **value** (<code>any</code>)  *No description*
+
+__Returns__:
+* <code>[JsonPatch](#cdk8s-jsonpatch)</code>
 
 
 
@@ -589,7 +956,7 @@ Utilities for generating unique and stable names.
 ### Methods
 
 
-#### *static* toDnsLabel(path, maxLen?)🔹 <a id="cdk8s-names-todnslabel"></a>
+#### *static* toDnsLabel(scope, options?)🔹 <a id="cdk8s-names-todnslabel"></a>
 
 Generates a unique and stable name compatible DNS_LABEL from RFC-1123 from a path.
 
@@ -609,16 +976,19 @@ Note that if the total length is longer than 63 characters, we will trim
 the first components since the last components usually encode more meaning.
 
 ```ts
-static toDnsLabel(path: string, maxLen?: number): string
+static toDnsLabel(scope: Construct, options?: NameOptions): string
 ```
 
-* **path** (<code>string</code>)  a path to a node (components separated by "/").
-* **maxLen** (<code>number</code>)  maximum allowed length for name.
+* **scope** (<code>[Construct](#constructs-construct)</code>)  The construct for which to render the DNS label.
+* **options** (<code>[NameOptions](#cdk8s-nameoptions)</code>)  Name options.
+  * **delimiter** (<code>string</code>)  Delimiter to use between components. __*Default*__: "-"
+  * **extra** (<code>Array<string></code>)  Extra components to include in the name. __*Default*__: [] use the construct path components
+  * **maxLen** (<code>number</code>)  Maximum allowed length for the name. __*Default*__: 63
 
 __Returns__:
 * <code>string</code>
 
-#### *static* toLabelValue(path, delim?, maxLen?)🔹 <a id="cdk8s-names-tolabelvalue"></a>
+#### *static* toLabelValue(scope, options?)🔹 <a id="cdk8s-names-tolabelvalue"></a>
 
 Generates a unique and stable name compatible label key name segment and label value from a path.
 
@@ -640,15 +1010,177 @@ Note that if the total length is longer than 63 characters, we will trim
 the first components since the last components usually encode more meaning.
 
 ```ts
-static toLabelValue(path: string, delim?: string, maxLen?: number): string
+static toLabelValue(scope: Construct, options?: NameOptions): string
 ```
 
-* **path** (<code>string</code>)  a path to a node (components separated by "/").
-* **delim** (<code>string</code>)  a delimiter to separates components.
-* **maxLen** (<code>number</code>)  maximum allowed length for name.
+* **scope** (<code>[Construct](#constructs-construct)</code>)  The construct for which to render the DNS label.
+* **options** (<code>[NameOptions](#cdk8s-nameoptions)</code>)  Name options.
+  * **delimiter** (<code>string</code>)  Delimiter to use between components. __*Default*__: "-"
+  * **extra** (<code>Array<string></code>)  Extra components to include in the name. __*Default*__: [] use the construct path components
+  * **maxLen** (<code>number</code>)  Maximum allowed length for the name. __*Default*__: 63
 
 __Returns__:
 * <code>string</code>
+
+
+
+## class Size 🔹 <a id="cdk8s-size"></a>
+
+Represents the amount of digital storage.
+
+The amount can be specified either as a literal value (e.g: `10`) which
+cannot be negative.
+
+When the amount is passed as a token, unit conversion is not possible.
+
+
+### Methods
+
+
+#### toGibibytes(opts?)🔹 <a id="cdk8s-size-togibibytes"></a>
+
+Return this storage as a total number of gibibytes.
+
+```ts
+toGibibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### toKibibytes(opts?)🔹 <a id="cdk8s-size-tokibibytes"></a>
+
+Return this storage as a total number of kibibytes.
+
+```ts
+toKibibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### toMebibytes(opts?)🔹 <a id="cdk8s-size-tomebibytes"></a>
+
+Return this storage as a total number of mebibytes.
+
+```ts
+toMebibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### toPebibytes(opts?)🔹 <a id="cdk8s-size-topebibytes"></a>
+
+Return this storage as a total number of pebibytes.
+
+```ts
+toPebibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### toTebibytes(opts?)🔹 <a id="cdk8s-size-totebibytes"></a>
+
+Return this storage as a total number of tebibytes.
+
+```ts
+toTebibytes(opts?: SizeConversionOptions): number
+```
+
+* **opts** (<code>[SizeConversionOptions](#cdk8s-sizeconversionoptions)</code>)  *No description*
+  * **rounding** (<code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code>)  How conversions should behave when it encounters a non-integer result. __*Default*__: SizeRoundingBehavior.FAIL
+
+__Returns__:
+* <code>number</code>
+
+#### *static* gibibytes(amount)🔹 <a id="cdk8s-size-gibibytes"></a>
+
+Create a Storage representing an amount gibibytes.
+
+1 GiB = 1024 MiB
+
+```ts
+static gibibytes(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+#### *static* kibibytes(amount)🔹 <a id="cdk8s-size-kibibytes"></a>
+
+Create a Storage representing an amount kibibytes.
+
+1 KiB = 1024 bytes
+
+```ts
+static kibibytes(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+#### *static* mebibytes(amount)🔹 <a id="cdk8s-size-mebibytes"></a>
+
+Create a Storage representing an amount mebibytes.
+
+1 MiB = 1024 KiB
+
+```ts
+static mebibytes(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+#### *static* pebibyte(amount)🔹 <a id="cdk8s-size-pebibyte"></a>
+
+Create a Storage representing an amount pebibytes.
+
+1 PiB = 1024 TiB
+
+```ts
+static pebibyte(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
+
+#### *static* tebibytes(amount)🔹 <a id="cdk8s-size-tebibytes"></a>
+
+Create a Storage representing an amount tebibytes.
+
+1 TiB = 1024 GiB
+
+```ts
+static tebibytes(amount: number): Size
+```
+
+* **amount** (<code>number</code>)  *No description*
+
+__Returns__:
+* <code>[Size](#cdk8s-size)</code>
 
 
 
@@ -767,7 +1299,7 @@ Name | Type | Description
 
 
 
-## struct ApiObjectOptions 🔹 <a id="cdk8s-apiobjectoptions"></a>
+## struct ApiObjectProps 🔹 <a id="cdk8s-apiobjectprops"></a>
 
 
 Options for defining API objects.
@@ -782,7 +1314,7 @@ Name | Type | Description
 
 
 
-## struct AppOptions 🔹 <a id="cdk8s-appoptions"></a>
+## struct AppProps 🔹 <a id="cdk8s-appprops"></a>
 
 
 
@@ -795,7 +1327,7 @@ Name | Type | Description
 
 
 
-## struct ChartOptions 🔹 <a id="cdk8s-chartoptions"></a>
+## struct ChartProps 🔹 <a id="cdk8s-chartprops"></a>
 
 
 
@@ -809,7 +1341,7 @@ Name | Type | Description
 
 
 
-## struct HelmOptions 🔹 <a id="cdk8s-helmoptions"></a>
+## struct HelmProps 🔹 <a id="cdk8s-helmprops"></a>
 
 
 Options for `Helm`.
@@ -847,7 +1379,7 @@ __Returns__:
 
 
 
-## struct IncludeOptions 🔹 <a id="cdk8s-includeoptions"></a>
+## struct IncludeProps 🔹 <a id="cdk8s-includeprops"></a>
 
 
 
@@ -858,5 +1390,57 @@ Name | Type | Description
 -----|------|-------------
 **url**🔹 | <code>string</code> | Local file path or URL which includes a Kubernetes YAML manifest.
 
+
+
+## struct NameOptions 🔹 <a id="cdk8s-nameoptions"></a>
+
+
+Options for name generation.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**delimiter**?🔹 | <code>string</code> | Delimiter to use between components.<br/>__*Default*__: "-"
+**extra**?🔹 | <code>Array<string></code> | Extra components to include in the name.<br/>__*Default*__: [] use the construct path components
+**maxLen**?🔹 | <code>number</code> | Maximum allowed length for the name.<br/>__*Default*__: 63
+
+
+
+## struct SizeConversionOptions 🔹 <a id="cdk8s-sizeconversionoptions"></a>
+
+
+Options for how to convert time to a different unit.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**rounding**?🔹 | <code>[SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)</code> | How conversions should behave when it encounters a non-integer result.<br/>__*Default*__: SizeRoundingBehavior.FAIL
+
+
+
+## struct TimeConversionOptions 🔹 <a id="cdk8s-timeconversionoptions"></a>
+
+
+Options for how to convert time to a different unit.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**integral**?🔹 | <code>boolean</code> | If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) will fail if the result is not an integer.<br/>__*Default*__: true
+
+
+
+## enum SizeRoundingBehavior 🔹 <a id="cdk8s-sizeroundingbehavior"></a>
+
+Rounding behaviour when converting between units of `Size`.
+
+Name | Description
+-----|-----
+**FAIL** 🔹|Fail the conversion if the result is not an integer.
+**FLOOR** 🔹|If the result is not an integer, round it to the closest integer less than the result.
+**NONE** 🔹|Don't round.
 
 

@@ -1,19 +1,19 @@
-import { Construct, Node } from 'constructs';
-import * as fs from 'fs';
-import * as path from 'path';
 import * as cp from 'child_process';
-import * as yaml from 'yaml';
+import * as fs from 'fs';
 import * as os from 'os';
+import * as path from 'path';
+import { Construct } from 'constructs';
+import * as yaml from 'yaml';
 import { Include } from './include';
 import { Names } from './names';
 
 /**
  * Options for `Helm`.
  */
-export interface HelmOptions {
+export interface HelmProps {
   /**
    * The chart name to use. It can be a chart from a helm repository or a local directory.
-   * 
+   *
    * This name is passed to `helm template` and has all the relevant semantics.
    *
    * @example "./mysql"
@@ -23,7 +23,7 @@ export interface HelmOptions {
 
   /**
    * The release name.
-   * 
+   *
    * @see https://helm.sh/docs/intro/using_helm/#three-big-concepts
    * @default - if unspecified, a name will be allocated based on the construct path
    */
@@ -31,7 +31,7 @@ export interface HelmOptions {
 
   /**
    * Values to pass to the chart.
-   * 
+   *
    * @default - If no values are specified, chart will use the defaults.
    */
   readonly values?: { [key: string]: any };
@@ -45,15 +45,15 @@ export interface HelmOptions {
 
   /**
    * Additional flags to add to the `helm` execution.
-   * 
+   *
    * @default []
    */
   readonly helmFlags?: string[];
 }
 
 /**
- * Represents a Helm deployment. 
- * 
+ * Represents a Helm deployment.
+ *
  * Use this construct to import an existing Helm chart and incorporate it into your constructs.
  */
 export class Helm extends Include {
@@ -62,33 +62,33 @@ export class Helm extends Include {
    */
   public readonly releaseName: string;
 
-  constructor(scope: Construct, id: string, opts: HelmOptions) {
+  constructor(scope: Construct, id: string, props: HelmProps) {
     const workdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-helm-'));
-    
+
     const args = new Array<string>();
     args.push('template');
-    
+
     // values
-    if (opts.values && Object.keys(opts.values).length > 0) {
+    if (props.values && Object.keys(props.values).length > 0) {
       const valuesPath = path.join(workdir, 'overrides.yaml');
-      fs.writeFileSync(valuesPath, yaml.stringify(opts.values));
+      fs.writeFileSync(valuesPath, yaml.stringify(props.values));
       args.push('-f', valuesPath);
     }
 
     // custom flags
-    if (opts.helmFlags) {
-      args.push(...opts.helmFlags);
+    if (props.helmFlags) {
+      args.push(...props.helmFlags);
     }
 
     // release name
-    const cpath = [ Node.of(scope).path, id ].join(Node.PATH_SEP);
-    const releaseName = opts.releaseName ?? Names.toDnsLabel(cpath, 53); // constraints: https://github.com/helm/helm/issues/6006
+    // constraints: https://github.com/helm/helm/issues/6006
+    const releaseName = props.releaseName ?? Names.toDnsLabel(scope, { maxLen: 53, extra: [id] });
     args.push(releaseName);
 
     // chart
-    args.push(opts.chart);
+    args.push(props.chart);
 
-    const prog = opts.helmExecutable ?? 'helm';
+    const prog = props.helmExecutable ?? 'helm';
     const outputFile = renderTemplate(workdir, prog, args);
 
     super(scope, id, { url: outputFile });

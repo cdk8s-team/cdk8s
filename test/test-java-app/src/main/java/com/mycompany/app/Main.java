@@ -7,13 +7,13 @@ import java.util.List;
 
 import org.cdk8s.App;
 import org.cdk8s.Chart;
-import org.cdk8s.ChartOptions;
+import org.cdk8s.ChartProps;
 
 import imports.k8s.PodSpec;
 import imports.k8s.Container;
 import imports.k8s.ContainerPort;
-import imports.k8s.Pod;
-import imports.k8s.PodOptions;
+import imports.k8s.KubePod;
+import imports.k8s.KubePodProps;
 
 /**
  * Hello world!
@@ -25,8 +25,8 @@ public class Main extends Chart
         this(scope, id, null);
     }
 
-    public Main(final Construct scope, final String id, final ChartOptions options) {
-        super(scope, id, options);
+    public Main(final Construct scope, final String id, final ChartProps props) {
+        super(scope, id, props);
 
         final List<ContainerPort> containerPorts = new ArrayList<>();
         final ContainerPort port = new ContainerPort.Builder().containerPort(8080).build();
@@ -40,11 +40,11 @@ public class Main extends Chart
                                             .containers(containers)
                                             .build();
 
-        final PodOptions podOptions = new PodOptions.Builder()
+        final KubePodProps podOptions = new KubePodProps.Builder()
             .spec(podSpec)
             .build();
 
-        final Pod pod = new Pod(this, "Pod", podOptions);
+        final KubePod pod = new KubePod(this, "Pod", podOptions);
 
     }
 

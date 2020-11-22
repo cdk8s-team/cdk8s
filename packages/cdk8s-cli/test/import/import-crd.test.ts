@@ -1,27 +1,27 @@
+import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'yaml';
-import * as fs from 'fs';
 import { ImportCustomResourceDefinition } from '../../src/import/crd';
-import { expectImportMatchSnapshot } from './util';
+import { testImportMatchSnapshot } from './util';
 
+const fixtures = path.join(__dirname, 'fixtures');
+
+const readFixture = (fixture: string) => {
+  const filePath = path.join(fixtures, fixture);
+  return yaml
+    .parseAllDocuments(fs.readFileSync(filePath, 'utf-8'))
+    .map((doc: yaml.Document) => doc.toJSON());
+};
 
 // just drop files into the "fixtures" directory and we will import it as a crd
 // and match it against a jest snapshot.
 describe('snapshots', () => {
-  const fixtures = path.join(__dirname, 'fixtures');
-
   for (const fixture of fs.readdirSync(fixtures)) {
     if (path.extname(fixture) !== '.yaml') {
       continue;
     }
-
-    const filePath = path.join(fixtures, fixture);
-    const crd = yaml
-      .parseAllDocuments(fs.readFileSync(filePath, 'utf-8'))
-      .map((doc: yaml.Document) => doc.toJSON());
-
-
-    expectImportMatchSnapshot(fixture, () => new ImportCustomResourceDefinition(crd));
+    const crd = readFixture(fixture);
+    testImportMatchSnapshot(fixture, () => new ImportCustomResourceDefinition(crd));
   }
 });
 
@@ -214,3 +214,9 @@ test('can import a "List" of CRDs (kubectl get crds -o json)', () => {
   ]);
 });
 
+describe('classPrefix can be used to add a prefix to all construct class names', () => {
+  const crd = readFixture('multi_object_crd.yaml');
+  testImportMatchSnapshot('Foo', () => new ImportCustomResourceDefinition(crd), {
+    classNamePrefix: 'Foo',
+  });
+});

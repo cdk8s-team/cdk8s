@@ -1,6 +1,6 @@
-import { Construct, Node } from 'constructs';
+import { Construct } from 'constructs';
 import { Names } from 'cdk8s';
-import { Deployment, Service, IntOrString } from './imports/k8s';
+import { KubeDeployment, KubeService, IntOrString } from './imports/k8s';
 
 export interface WebServiceOptions {
   /** The Docker image to use for this service. */
@@ -31,10 +31,10 @@ export class WebService extends Construct {
 
     const port = options.port || 80;
     const containerPort = options.containerPort || 8080;
-    const label = { app: Names.toLabelValue(Node.of(this).path) };
+    const label = { app: Names.toLabelValue(this) };
     const replicas = options.replicas ?? 1;
 
-    new Service(this, 'service', {
+    new KubeService(this, 'service', {
       spec: {
         type: 'LoadBalancer',
         ports: [ { port, targetPort: IntOrString.fromNumber(containerPort) } ],
@@ -42,7 +42,7 @@ export class WebService extends Construct {
       }
     });
 
-    new Deployment(this, 'deployment', {
+    new KubeDeployment(this, 'deployment', {
       spec: {
         replicas,
         selector: {

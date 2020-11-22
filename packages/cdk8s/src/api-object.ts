@@ -1,14 +1,15 @@
 import { Construct, IConstruct, Node } from 'constructs';
-import { Chart } from './chart';
-import { sanitizeValue } from './_util';
-import { resolve } from './_resolve';
 import * as stringify from 'json-stable-stringify';
+import { resolve } from './_resolve';
+import { sanitizeValue } from './_util';
+import { Chart } from './chart';
+import { JsonPatch } from './json-patch';
 import { ApiObjectMetadata, ApiObjectMetadataDefinition } from './metadata';
 
 /**
  * Options for defining API objects.
  */
-export interface ApiObjectOptions {
+export interface ApiObjectProps {
   /**
    * Object metadata.
    *
@@ -34,6 +35,27 @@ export interface ApiObjectOptions {
 }
 
 export class ApiObject extends Construct {
+  /**
+   * Returns the `ApiObject` named `Resource` which is a child of the given
+   * construct. If `c` is an `ApiObject`, it is returned directly. Throws an
+   * exception if the construct does not have a child named `Default` _or_ if
+   * this child is not an `ApiObject`.
+   *
+   * @param c The higher-level construct
+   */
+  public static of(c: IConstruct): ApiObject {
+    if (c instanceof ApiObject) {
+      return c;
+    }
+
+    const child = Node.of(c).defaultChild;
+    if (!child) {
+      throw new Error(`cannot find a (direct or indirect) child of type ApiObject for construct ${Node.of(c).path}`);
+    }
+
+    return ApiObject.of(child);
+  }
+
   /**
    * The name of the API object.
    *
@@ -70,31 +92,37 @@ export class ApiObject extends Construct {
   public readonly metadata: ApiObjectMetadataDefinition;
 
   /**
+   * A set of JSON patch operations to apply to the document after synthesis.
+   */
+  private readonly patches: Array<JsonPatch>;
+
+  /**
    * Defines an API object.
    *
    * @param scope the construct scope
-   * @param ns namespace
-   * @param options options
+   * @param id namespace
+   * @param props options
    */
-  constructor(scope: Construct, ns: string, private readonly options: ApiObjectOptions) {
-    super(scope, ns);
+  constructor(scope: Construct, id: string, private readonly props: ApiObjectProps) {
+    super(scope, id);
+    this.patches = new Array<JsonPatch>();
     this.chart = Chart.of(this);
-    this.kind = options.kind;
-    this.apiVersion = options.apiVersion;
+    this.kind = props.kind;
+    this.apiVersion = props.apiVersion;
     this.apiGroup = parseApiGroup(this.apiVersion);
 
-    this.name = options.metadata?.name ?? this.chart.generateObjectName(this);
+    this.name = props.metadata?.name ?? this.chart.generateObjectName(this);
 
     this.metadata = new ApiObjectMetadataDefinition({
       name: this.name,
 
       // user defined values
-      ...options.metadata,
-      
-      namespace: options.metadata?.namespace ?? this.chart.namespace,
+      ...props.metadata,
+
+      namespace: props.metadata?.namespace ?? this.chart.namespace,
       labels: {
         ...this.chart.labels,
-        ...options.metadata?.labels,
+        ...props.metadata?.labels,
       },
     });
   }
@@ -110,17 +138,33 @@ export class ApiObject extends Construct {
   }
 
   /**
+   * Applies a set of RFC-6902 JSON-Patch operations to the manifest
+   * synthesized for this API object.
+   *
+   * @param ops The JSON-Patch operations to apply.
+   *
+   * @example
+   *
+   *   kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
+   *
+   */
+  public addJsonPatch(...ops: JsonPatch[]) {
+    this.patches.push(...ops);
+  }
+
+  /**
    * Renders the object to Kubernetes JSON.
    */
   public toJson(): any {
     const data = {
-      ...this.options,
+      ...this.props,
       metadata: this.metadata.toJson(),
     };
 
     // convert to "pure data" so, for example, when we convert to yaml these
     // references are not converted to anchors.
-    return JSON.parse(stringify(sanitizeValue(resolve(data))));
+    const json = JSON.parse(stringify(sanitizeValue(resolve(data))));
+    return JsonPatch.apply(json, ...this.patches);
   }
 }
 

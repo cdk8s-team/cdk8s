@@ -1,8 +1,8 @@
-import * as fs from 'fs-extra';
 import * as path from 'path';
 import { CodeMaker } from 'codemaker';
-import { mkdtemp } from '../util';
+import * as fs from 'fs-extra';
 import * as srcmak from 'jsii-srcmak';
+import { mkdtemp } from '../util';
 
 export enum Language {
   TYPESCRIPT = 'typescript',
@@ -21,19 +21,31 @@ export interface ImportOptions {
    * @default - jsii file is not emitted
    */
   readonly outputJsii?: string;
+
+  /**
+   * A prefix for all construct classes.
+   *
+   * @default - default is determined by the specific import type. For example
+   * k8s imports will add a "Kube" prefix by default.
+   */
+  readonly classNamePrefix?: string;
+}
+
+export interface GenerateOptions {
+  readonly classNamePrefix?: string;
 }
 
 export abstract class ImportBase {
   public abstract get moduleNames(): string[];
 
-  protected abstract async generateTypeScript(code: CodeMaker, moduleName?: string): Promise<void>;
+  protected abstract async generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions): Promise<void>;
 
   public async import(options: ImportOptions) {
     const code = new CodeMaker();
 
     const outdir = path.resolve(options.outdir);
     await fs.mkdirp(outdir);
-    const isTypescript = options.targetLanguage === Language.TYPESCRIPT
+    const isTypescript = options.targetLanguage === Language.TYPESCRIPT;
     const { moduleNamePrefix } = options;
 
     if (this.moduleNames.length === 0) {
@@ -47,7 +59,10 @@ export abstract class ImportBase {
       const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${name}.ts` : `${name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
-      await this.generateTypeScript(code, name);
+      await this.generateTypeScript(code, name, {
+        classNamePrefix: options.classNamePrefix,
+      });
+
       code.closeFile(fileName);
 
       if (isTypescript) {
@@ -63,7 +78,7 @@ export abstract class ImportBase {
           await code.save(staging);
 
           // these are the module dependencies we compile against
-          const deps = [ '@types/node', 'constructs', 'cdk8s'];
+          const deps = ['@types/node', 'constructs', 'cdk8s'];
 
           const opts: srcmak.Options = {
             entrypoint: fileName,

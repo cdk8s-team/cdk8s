@@ -5,13 +5,13 @@ titleOnly: true
 scopes:
   - lib
   - cli
-  - plus
+  - plus-17
   - examples
   - readme
   - docs
   - website
   - release
-  
+
 # only allow these types
 types:
   - feat

@@ -1,6 +1,6 @@
 exports.versions = {
-  constructs: '3.0.4',
-  jsii: '1.9.0',
+  constructs: '3.2.34',
+  jsii: '1.14.1',
 };
 
 exports.options = {
@@ -9,11 +9,13 @@ exports.options = {
   authorUrl: 'https://aws.amazon.com',
   authorOrganization: true,
   buildWorkflow: false,
+  stability: 'experimental',
   releaseWorkflow: false,
   dependabot: false,
   mergify: false,
   compat: false,
   dependabot: false,
+  pullRequestTemplate: false,
   keywords: [
     "cdk",
     "kubernetes",

@@ -1,9 +1,9 @@
 import { Construct, Node, IConstruct } from 'constructs';
 import { ApiObject } from './api-object';
-import { Names } from './names';
 import { App } from './app';
+import { Names } from './names';
 
-export interface ChartOptions {
+export interface ChartProps {
   /**
    * The default namespace for all objects defined in this chart (directly or
    * indirectly). This namespace will only apply to objects that don't have a
@@ -15,7 +15,7 @@ export interface ChartOptions {
 
   /**
    * Labels to apply to all resources in this chart.
-   * 
+   *
    * @default - no common labels
    */
   readonly labels?: { [name: string]: string };
@@ -50,15 +50,15 @@ export class Chart extends Construct {
    */
   private readonly _labels?: { [name: string]: string };
 
-  constructor(scope: Construct, ns: string, options: ChartOptions = { }) {
-    super(scope, ns);
-    this.namespace = options.namespace;
-    this._labels = options.labels ?? {};
+  constructor(scope: Construct, id: string, props: ChartProps = { }) {
+    super(scope, id);
+    this.namespace = props.namespace;
+    this._labels = props.labels ?? {};
   }
 
   /**
    * Labels applied to all resources in this chart.
-   * 
+   *
    * This is an immutable copy.
    */
   public get labels(): { [name: string]: string } {
@@ -86,7 +86,7 @@ export class Chart extends Construct {
    * @param apiObject The API object to generate a name for.
    */
   public generateObjectName(apiObject: ApiObject) {
-    return Names.toDnsLabel(Node.of(apiObject).path);
+    return Names.toDnsLabel(apiObject);
   }
 
   /**

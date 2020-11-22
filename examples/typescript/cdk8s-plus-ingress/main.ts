@@ -1,12 +1,12 @@
 import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
-import * as kplus from 'cdk8s-plus';
+import * as kplus from 'cdk8s-plus-17';
 
 export class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
     super(scope, name);
 
-    const ingress = new kplus.Ingress(this, 'ingress');
+    const ingress = new kplus.IngressV1Beta1(this, 'ingress');
     ingress.addRule('/', this.echoBackend('root'));
     ingress.addRule('/foo', this.echoBackend('foo'));
     ingress.addRule('/foo/bar', this.echoBackend('foo-bar'));
@@ -17,14 +17,14 @@ export class MyChart extends Chart {
   private echoBackend(text: string) {
     const deploy = new kplus.Deployment(this, text, {
       containers: [
-        new kplus.Container({
+        {
           image: 'hashicorp/http-echo',
           args: [ '-text', text ]
-        })
+        }
       ]
     });
 
-    return kplus.IngressBackend.fromService(deploy.expose(5678));
+    return kplus.IngressV1Beta1Backend.fromService(deploy.expose(5678));
   }
 }
 

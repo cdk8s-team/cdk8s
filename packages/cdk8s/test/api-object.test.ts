@@ -1,5 +1,5 @@
-import { ApiObject, Chart, Testing } from '../src';
 import { Construct, Node, Dependency } from 'constructs';
+import { ApiObject, Chart, JsonPatch, Testing } from '../src';
 
 test('minimal configuration', () => {
   const app = Testing.app();
@@ -56,7 +56,7 @@ test('addDependency', () => {
       source: obj1,
       target: obj3,
     },
-  ]))
+  ]));
 
 });
 
@@ -180,14 +180,14 @@ test('default namespace can be defined at the chart level', () => {
     kind:
     'Kind1',
     metadata: {
-      name: 'chart-group1-obj1-b4b7a9d0',
+      name: 'chart-group1-obj1-c885aeec',
       namespace: 'ns1',
     },
   }, {
     apiVersion: 'v2',
     kind: 'Kind2',
     metadata: {
-      name: 'chart-group1-obj2-3cdc9d22',
+      name: 'chart-group1-obj2-c81931d8',
       namespace: 'foobar',
     },
   }]);
@@ -228,7 +228,7 @@ test('chart labels are applied to all api objects in the chart', () => {
           bar: 'bbbbbb',
           foo: 'ffffffffff',
         },
-        name: 'my-chart-obj1-01c0df67',
+        name: 'my-chart-obj1-c880bc50',
       },
     },
     {
@@ -238,10 +238,97 @@ test('chart labels are applied to all api objects in the chart', () => {
         labels: {
           bar: 'bbbbbb',
           foo: 'override by object',
-          zoo: 'zoo1',  
+          zoo: 'zoo1',
         },
-        name: 'my-chart-group-obj2-ba1eb578',
+        name: 'my-chart-group-obj2-c824cfcd',
       },
     },
   ]);
+});
+
+describe('ApiObject.of()', () => {
+
+  test('fails if there is no default child', () => {
+    // GIVEN
+    const chart = Testing.chart();
+
+    // THEN
+    expect(() => ApiObject.of(new Construct(chart, 'hello'))).toThrow(/cannot find a \(direct or indirect\) child of type ApiObject/);
+  });
+
+  test('returns the object if it is an API object', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const obj = new ApiObject(chart, 'my-obj', { apiVersion: 'v1', kind: 'Foo' });
+
+    // THEN
+    expect(ApiObject.of(obj)).toBe(obj);
+  });
+
+  test('returns a direct child', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const parent = new Construct(chart, 'l2');
+
+    // WHEN
+    const obj = new ApiObject(parent, 'Default', { apiVersion: 'v1', kind: 'Foo' });
+
+    // THEN
+    expect(ApiObject.of(parent)).toBe(obj);
+  });
+
+  test('returns an indirect child', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const parent1 = new Construct(chart, 'l3');
+
+    // WHEN
+    const parent2 = new Construct(parent1, 'Default');
+    const obj = new ApiObject(parent2, 'Default', { apiVersion: 'v1', kind: 'Foo' });
+
+    // THEN
+    expect(ApiObject.of(parent1)).toBe(obj);
+  });
+
+});
+
+describe('addJsonPatch()', () => {
+
+  test('applied after the object has been synthesized', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const obj = new ApiObject(chart, 'obj', {
+      kind: 'Obj',
+      apiVersion: 'v1',
+      spec: {
+        foo: 1234,
+        bar: {
+          baz: [1, 2, 3],
+        },
+      },
+    });
+
+    // WHEN
+    obj.addJsonPatch(JsonPatch.add('/spec/bar/baz/3', 4));
+    obj.addJsonPatch(JsonPatch.remove('/spec/foo'));
+    obj.addJsonPatch(JsonPatch.copy('/apiVersion', '/spec/apiVersion'));
+
+    // THEN
+    expect(Testing.synth(chart)).toStrictEqual([
+      {
+        apiVersion: 'v1',
+        kind: 'Obj',
+        metadata: {
+          name: 'test-obj-c8686f96',
+        },
+        spec: {
+          apiVersion: 'v1',
+          bar: {
+            baz: [1, 2, 3, 4],
+          },
+        },
+      },
+    ]);
+  });
+
 });

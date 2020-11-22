@@ -8,28 +8,29 @@ const project = new TypeScriptLibraryProject({
   bin: {
     cdk8s: 'bin/cdk8s'
   },
-  dependencies: {
-    "cdk8s": Semver.pinned('0.0.0'),
-    "codemaker": Semver.caret('0.22.0'),
-    "constructs": Semver.caret(common.versions.constructs),
-    "fs-extra": Semver.caret('8.1.0'),
-    "jsii-srcmak": Semver.caret('0.1.36'),
-    "sscaff": Semver.caret('1.2.0'),
-    "yaml": Semver.caret('1.7.2'),
-    "yargs": Semver.caret('15.1.0'),
-    "json2jsii": Semver.caret('0.1.4'),
-  },
-  devDependencies: {
-    "@types/fs-extra": Semver.caret('8.1.0'),
-    "@types/json-schema": Semver.caret('7.0.5'),
-  },
+  deps: [
+    'cdk8s@0.0.0',
+    'codemaker',
+    `constructs@^${common.versions.constructs}`,
+    'fs-extra',
+    'jsii-srcmak',
+    'jsii-pacmak',
+    'sscaff',
+    'yaml',
+    'yargs',
+    'json2jsii'
+  ],
+  devDeps: [
+    '@types/fs-extra',
+    '@types/json-schema',
+  ],
   ...common.options,
 });
 
 // add @types/node as a regular dependency since it's needed to during "import"
 // to compile the generated jsii code.
 project.addDependencies({
-  '@types/node': Semver.caret(project.manifest.devDependencies['@types/node'].replace(/^\^/, ''))
+  '@types/node': Semver.caret(project.devDependencies['@types/node'].replace(/^\^/, ''))
 });
 
 project.eslint.addIgnorePattern('/templates/');

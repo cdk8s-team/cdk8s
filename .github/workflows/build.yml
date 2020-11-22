@@ -9,16 +9,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: installing dependencies
         run: tools/install-workflow-deps.sh
+
+      - name: set version
+        run: tools/align-version.sh
+
       - name: compile
-        run: |
-          tools/align-version.sh
-          yarn build
+        run: yarn build
+
       - name: unit tests
         run: yarn test
+
       - name: create bundle
         run: yarn package
+
       - name: integration tests
         run: yarn integ
 
