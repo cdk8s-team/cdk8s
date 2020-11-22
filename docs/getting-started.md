@@ -97,7 +97,7 @@ At this point, if you will see something like this:
     import { Construct } from 'constructs';
     import { Chart, App } from 'cdk8s';
 
-    class MyChart extends Chart {
+    export class MyChart extends Chart {
       constructor(scope: Construct, name: string) {
         super(scope, name);
 
@@ -214,7 +214,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     // imported constructs
     import { KubeDeployment, KubeService, IntOrString } from './imports/k8s';
 
-    class MyChart extends Chart {
+    export class MyChart extends Chart {
       constructor(scope: Construct, name: string) {
         super(scope, name);
 
