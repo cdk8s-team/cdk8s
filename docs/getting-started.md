@@ -50,7 +50,7 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     $ mkdir hello
     $ cd hello
     $ cdk8s init typescript-app
-    creating a new project from template: typescript-app
+    Initializing a project from the typescript-app template
     ...
     ```
 
@@ -67,7 +67,7 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     $ mkdir hello
     $ cd hello
     $ cdk8s init python-app
-    creating a new project from template: python-app
+    Initializing a project from the python-app template
     ...
     ```
 
@@ -95,13 +95,14 @@ At this point, if you will see something like this:
 
     ```ts
     import { Construct } from 'constructs';
-    import { Chart, App } from 'cdk8s';
+    import { App, Chart, ChartProps } from 'cdk8s';
 
     export class MyChart extends Chart {
-      constructor(scope: Construct, name: string) {
-        super(scope, name);
+      constructor(scope: Construct, id: string, props: ChartProps = { }) {
+        super(scope, id, props);
 
-        // define constructs here
+        // define resources here
+
       }
     }
 
@@ -118,11 +119,12 @@ At this point, if you will see something like this:
     from constructs import Construct
     from cdk8s import App, Chart
 
-    class MyChart(Chart):
-    def __init__(self, scope: Construct, ns: str, **kwargs):
-        super().__init__(scope, ns, **kwargs)
 
-        # define resources here
+    class MyChart(Chart):
+        def __init__(self, scope: Construct, id: str):
+            super().__init__(scope, id)
+
+            # define resources here
 
 
     app = App()
@@ -141,7 +143,7 @@ At this point, if you will see something like this:
 
     import org.cdk8s.App;
     import org.cdk8s.Chart;
-    import org.cdk8s.ChartOptions;
+    import org.cdk8s.ChartProps;
 
     public class Main extends Chart
     {
@@ -150,7 +152,7 @@ At this point, if you will see something like this:
             this(scope, id, null);
         }
 
-        public Main(final Construct scope, final String id, final ChartOptions options) {
+        public Main(final Construct scope, final String id, final ChartProps options) {
             super(scope, id, options);
 
             // define resources here
@@ -209,14 +211,15 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 === "TypeScript"
     ```ts
     import { Construct } from 'constructs';
-    import { App, Chart } from 'cdk8s';
+    import { App, Chart, ChartProps } from 'cdk8s';
 
     // imported constructs
     import { KubeDeployment, KubeService, IntOrString } from './imports/k8s';
 
+
     export class MyChart extends Chart {
-      constructor(scope: Construct, name: string) {
-        super(scope, name);
+      constructor(scope: Construct, id: string, props: ChartProps = { }) {
+        super(scope, id, props);
 
         const label = { app: 'hello-k8s' };
 
@@ -264,10 +267,9 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
     from imports import k8s
 
-
     class MyChart(Chart):
-        def __init__(self, scope: Construct, name: str):
-            super().__init__(scope, name)
+        def __init__(self, scope: Construct, id: str):
+            super().__init__(scope, id)
 
             # define resources here
             label = {"app": "hello-k8s"}
@@ -311,14 +313,14 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
     import org.cdk8s.App;
     import org.cdk8s.Chart;
-    import org.cdk8s.ChartOptions;
+    import org.cdk8s.ChartProps;
 
     import imports.k8s.IntOrString;
     import imports.k8s.LabelSelector;
     import imports.k8s.ObjectMeta;
     import imports.k8s.PodTemplateSpec;
     import imports.k8s.KubeService;
-    import imports.k8s.KubeServiceOptions;
+    import imports.k8s.KubeServiceProps;
     import imports.k8s.ServicePort;
     import imports.k8s.ServiceSpec;
     import imports.k8s.DeploymentSpec;
@@ -326,7 +328,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     import imports.k8s.Container;
     import imports.k8s.ContainerPort;
     import imports.k8s.KubeDeployment;
-    import imports.k8s.KubeDeploymentOptions;
+    import imports.k8s.KubeDeploymentProps;
 
     public class Main extends Chart
     {
@@ -335,7 +337,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
             this(scope, id, null);
         }
 
-        public Main(final Construct scope, final String id, final ChartOptions options) {
+        public Main(final Construct scope, final String id, final ChartProps options) {
             super(scope, id, options);
 
             // Defining a LoadBalancer Service
@@ -353,11 +355,11 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
                 .selector(selector)
                 .ports(servicePorts)
                 .build();
-            final KubeServiceOptions serviceOptions = new KubeServiceOptions.Builder()
+            final KubeServiceProps serviceProps = new KubeServiceProps.Builder()
                 .spec(serviceSpec)
                 .build();
 
-            new KubeService(this, "service", serviceOptions);
+            new KubeService(this, "service", serviceProps);
 
             // Defining a Deployment
             final LabelSelector labelSelector = new LabelSelector.Builder().matchLabels(selector).build();
@@ -386,17 +388,17 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
                 .selector(labelSelector)
                 .template(podTemplateSpec)
                 .build();
-            final KubeDeploymentOptions deploymentOptions = new KubeDeploymentOptions.Builder()
+            final KubeDeploymentProps deploymentProps = new KubeDeploymentProps.Builder()
                 .spec(deploymentSpec)
                 .build();
 
-            new KubeDeployment(this, "deployment", deploymentOptions);
+            new KubeDeployment(this, "deployment", deploymentProps);
 
         }
 
         public static void main(String[] args) {
             final App app = new App();
-            new Main(app, "hello-java");
+            new Main(app, "hello");
             app.synth();
         }
     }
@@ -415,35 +417,35 @@ cdk8s synth
 This will be contents of `hello.k8s.yaml`:
 
 ```yaml
-apiVersion: v1
-kind: Service
+apiVersion: "v1"
+kind: "Service"
 metadata:
-  name: hello-java-service-3a4f9468
+  name: "hello-service-c8c17160"
 spec:
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: hello-k8s
-  type: LoadBalancer
+    app: "hello-k8s"
+  type: "LoadBalancer"
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: "apps/v1"
+kind: "Deployment"
 metadata:
-  name: hello-java-deployment-d312868f
+  name: "hello-deployment-c8c7fda7"
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: hello-k8s
+      app: "hello-k8s"
   template:
     metadata:
       labels:
-        app: hello-k8s
+        app: "hello-k8s"
     spec:
       containers:
-        - image: paulbouwer/hello-kubernetes:1.7
-          name: hello-kubernetes
+        - image: "paulbouwer/hello-kubernetes:1.7"
+          name: "hello-kubernetes"
           ports:
             - containerPort: 8080
 ```
@@ -485,7 +487,7 @@ For example, this one line will add a hello world service to our chart:
 === "TypeScript"
     ```ts
     new WebService(this, 'hello-k8s', {
-    image: 'paulbouwer/hello-kubernetes:1.7'
+      image: 'paulbouwer/hello-kubernetes:1.7'
     });
     ```
 
@@ -493,42 +495,42 @@ For example, this one line will add a hello world service to our chart:
 
     ```ts
     new WebService(this, 'hello-k8s', {
-    image: 'paulbouwer/hello-kubernetes:1.7',
-    containerPort: 8080,
-    replicas: 10
+      image: 'paulbouwer/hello-kubernetes:1.7',
+      containerPort: 8080,
+      replicas: 10
     });
     ```
 
 === "Python"
     ```python
     WebService(self, 'hello',
-            image='paulbouwer/hello-kubernetes:1.7')
+               image='paulbouwer/hello-kubernetes:1.7')
     ```
 
     It can also be customized through an API:
 
     ```python
     WebService(self, 'hello-k8s',
-            image='paulbouwer/hello-kubernetes:1.7',
-            container_port=8080,
-            replicas=10)
+               image='paulbouwer/hello-kubernetes:1.7',
+               container_port=8080,
+               replicas=10)
     ```
 
 
 === "Java"
     ```java
-    new WebService(this, "hello-k8s", new WebServiceOptions.Builder()
-                                                        .image("paulbouwer/hello-kubernetes:1.7")
-                                                        .build());
+    new WebService(this, "hello-k8s", new WebServiceProps.Builder()
+      .image("paulbouwer/hello-kubernetes:1.7")
+      .build());
     ```
 
     It can also be customized through an API:
 
     ```java
-    new WebService(this, "hello-k8s", new WebServiceOptions.Builder()
-                                                        .image("paulbouwer/hello-kubernetes:1.7")
-                                                        .replicas(2)
-                                                        .build());
+    new WebService(this, "hello-k8s", new WebServiceProps.Builder()
+      .image("paulbouwer/hello-kubernetes:1.7")
+      .replicas(2)
+      .build());
     ```
 
 Here's how to implement `WebService`:
@@ -537,46 +539,46 @@ Here's how to implement `WebService`:
     Create a file `lib/web-service.ts` (the convention is to use `lib` for reusable components):
 
     ```ts
-    import { Construct, Node } from 'constructs';
+    import { Construct } from 'constructs';
     import { Names } from 'cdk8s';
     import { KubeDeployment, KubeService, IntOrString } from '../imports/k8s';
 
-    export interface WebServiceOptions {
-    /**
-     * The Docker image to use for this service.
-     */
-    readonly image: string;
+    export interface WebServiceProps {
+      /**
+       * The Docker image to use for this service.
+       */
+      readonly image: string;
 
-    /**
-     * Number of replicas.
-     *
-     * @default 1
-     */
-    readonly replicas?: number;
+      /**
+       * Number of replicas.
+       *
+       * @default 1
+       */
+      readonly replicas?: number;
 
-    /**
-     * External port.
-     *
-     * @default 80
-     */
-    readonly port?: number;
+      /**
+       * External port.
+       *
+       * @default 80
+       */
+      readonly port?: number;
 
-    /**
-     * Internal port.
-     *
-     * @default 8080
-     */
-    readonly containerPort?: number;
+      /**
+       * Internal port.
+       *
+       * @default 8080
+       */
+      readonly containerPort?: number;
     }
 
     export class WebService extends Construct {
-    constructor(scope: Construct, ns: string, options: WebServiceOptions) {
-        super(scope, ns);
+      constructor(scope: Construct, id: string, props: WebServiceProps) {
+        super(scope, id);
 
-        const port = options.port || 80;
-        const containerPort = options.containerPort || 8080;
-        const label = { app: Names.toDnsLabel(Node.of(this).path) };
-        const replicas = options.replicas ?? 1;
+        const port = props.port || 80;
+        const containerPort = props.containerPort || 8080;
+        const label = { app: Names.toDnsLabel(this) };
+        const replicas = props.replicas ?? 1;
 
         new KubeService(this, 'service', {
           spec: {
@@ -598,7 +600,7 @@ Here's how to implement `WebService`:
                 containers: [
                   {
                     name: 'app',
-                    image: options.image,
+                    image: props.image,
                     ports: [ { containerPort } ]
                   }
                 ]
@@ -613,18 +615,24 @@ Here's how to implement `WebService`:
     Now, let's edit `main.ts` and use our new construct:
 
     ```ts
-    import { Chart } from 'cdk8s';
     import { Construct } from 'constructs';
+    import { App, Chart, ChartProps } from 'cdk8s';
     import { WebService } from './lib/web-service';
 
+
     export class MyChart extends Chart {
-      constructor(scope: Construct, ns: string) {
-        super(scope, ns);
+      constructor(scope: Construct, id: string, props: ChartProps = { }) {
+        super(scope, id, props);
 
         new WebService(this, 'hello', { image: 'paulbouwer/hello-kubernetes:1.7', replicas: 2 });
         new WebService(this, 'ghost', { image: 'ghost', containerPort: 2368 });
+
       }
     }
+
+    const app = new App();
+    new MyChart(app, 'hello');
+    app.synth();
     ```
 
 
@@ -634,17 +642,16 @@ Here's how to implement `WebService`:
     ```python
     from constructs import Construct, Node
 
-    import typing
     from imports import k8s
 
 
     class WebService(Construct):
-        def __init__(self, scope: Construct, ns: str, *,
+        def __init__(self, scope: Construct, id: str, *,
                     image: str,
                     replicas: int = 1,
                     port: int = 80,
                     container_port: int = 8080):
-            super().__init__(scope, ns)
+            super().__init__(scope, id)
 
             label = {'app': Node.of(self).unique_id}
 
@@ -655,7 +662,7 @@ Here's how to implement `WebService`:
                               selector=label))
 
             k8s.KubeDeployment(self, 'deployment',
-                               spec=k8s.DeploymentSpec(
+                              spec=k8s.DeploymentSpec(
                                   replicas=replicas,
                                   selector=k8s.LabelSelector(match_labels=label),
                                   template=k8s.PodTemplateSpec(
@@ -677,10 +684,9 @@ Here's how to implement `WebService`:
 
     from webservice import WebService
 
-
     class MyChart(Chart):
-        def __init__(self, scope: Construct, name: str):
-            super().__init__(scope, name)
+        def __init__(self, scope: Construct, id: str):
+            super().__init__(scope, id)
 
             WebService(self, 'hello', image='paulbouwer/hello-kubernetes:1.7', replicas=2)
             WebService(self, 'ghost', image='ghost', container_port=2368)
@@ -706,16 +712,12 @@ Here's how to implement `WebService`:
     import java.util.Map;
     import java.util.Optional;
 
-    import org.cdk8s.App;
-    import org.cdk8s.Chart;
-    import org.cdk8s.ChartOptions;
-
     import imports.k8s.IntOrString;
     import imports.k8s.LabelSelector;
     import imports.k8s.ObjectMeta;
     import imports.k8s.PodTemplateSpec;
     import imports.k8s.KubeService;
-    import imports.k8s.KubeServiceOptions;
+    import imports.k8s.KubeServiceProps;
     import imports.k8s.ServicePort;
     import imports.k8s.ServiceSpec;
     import imports.k8s.DeploymentSpec;
@@ -723,7 +725,7 @@ Here's how to implement `WebService`:
     import imports.k8s.Container;
     import imports.k8s.ContainerPort;
     import imports.k8s.KubeDeployment;
-    import imports.k8s.KubeDeploymentOptions;
+    import imports.k8s.KubeDeploymentProps;
 
     public class WebService extends Construct
     {
@@ -732,7 +734,7 @@ Here's how to implement `WebService`:
             this(scope, id, null);
         }
 
-        public WebService(final Construct scope, final String id, final WebServiceOptions options) {
+        public WebService(final Construct scope, final String id, final WebServiceProps options) {
             super(scope, id);
 
             final int portNumber = Optional.of(options.getPort()).orElse(80);
@@ -755,11 +757,11 @@ Here's how to implement `WebService`:
                 .selector(selector)
                 .ports(servicePorts)
                 .build();
-            final KubeServiceOptions serviceOptions = new KubeServiceOptions.Builder()
+            final KubeServiceProps serviceProps = new KubeServiceProps.Builder()
                 .spec(serviceSpec)
                 .build();
 
-            new KubeService(this, "service", serviceOptions);
+            new KubeService(this, "service", serviceProps);
 
             // Defining a Deployment
             final LabelSelector labelSelector = new LabelSelector.Builder().matchLabels(selector).build();
@@ -784,34 +786,32 @@ Here's how to implement `WebService`:
                 .spec(podSpec)
                 .build();
             final DeploymentSpec deploymentSpec = new DeploymentSpec.Builder()
-                .replicas(1)
+                .replicas(replicas)
                 .selector(labelSelector)
                 .template(podTemplateSpec)
                 .build();
-            final KubeDeploymentOptions deploymentOptions = new KubeDeploymentOptions.Builder()
+            final KubeDeploymentProps deploymentProps = new KubeDeploymentProps.Builder()
                 .spec(deploymentSpec)
                 .build();
 
-            new KubeDeployment(this, "deployment", deploymentOptions);
+            new KubeDeployment(this, "deployment", deploymentProps);
         }
     }
     ```
 
-    `src/main/java/com/mycompany/app/WebServiceOptions.java`
+    `src/main/java/com/mycompany/app/WebServiceProps.java`
 
     ```java
     package com.mycompany.app;
 
-    import software.constructs.Construct;
-
-    public class WebServiceOptions
+    public class WebServiceProps
     {
         private String image;
         private int replicas;
         private int port;
         private int containerPort;
 
-        public WebServiceOptions(final String image, final int replicas, final int port, final int containerPort) {
+        public WebServiceProps(final String image, final int replicas, final int port, final int containerPort) {
             this.image = image;
             this.replicas = replicas;
             this.port = port;
@@ -860,8 +860,8 @@ Here's how to implement `WebService`:
                 return this;
             }
 
-            public WebServiceOptions build() {
-                return new WebServiceOptions(image, replicas, port, containerPort);
+            public WebServiceProps build() {
+                return new WebServiceProps(image, replicas, port, containerPort);
             }
         }
     }
@@ -876,7 +876,7 @@ Here's how to implement `WebService`:
 
     import org.cdk8s.App;
     import org.cdk8s.Chart;
-    import org.cdk8s.ChartOptions;
+    import org.cdk8s.ChartProps;
 
     public class Main extends Chart
     {
@@ -885,18 +885,18 @@ Here's how to implement `WebService`:
             this(scope, id, null);
         }
 
-        public Main(final Construct scope, final String id, final ChartOptions options) {
+        public Main(final Construct scope, final String id, final ChartProps options) {
             super(scope, id, options);
 
-            new WebService(this, "hello", new WebServiceOptions.Builder()
-                                                            .image("paulbouwer/hello-kubernetes:1.7")
-                                                            .replicas(2)
-                                                            .build());
+            new WebService(this, "hello", new WebServiceProps.Builder()
+              .image("paulbouwer/hello-kubernetes:1.7")
+              .replicas(2)
+              .build());
 
-            new WebService(this, "ghost", new WebServiceOptions.Builder()
-                                                            .image("ghost")
-                                                            .containerPort(2368)
-                                                            .build());
+            new WebService(this, "ghost", new WebServiceProps.Builder()
+              .image("ghost")
+              .containerPort(2368)
+              .build());
         }
 
         public static void main(String[] args) {
