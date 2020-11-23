@@ -28,28 +28,28 @@ exports.post = options => {
     throw new Error(`missing context "pypi_cdk8s_plus"`);
   }
 
+  const flags = [];
+
+  if (options.dist) {
+    // https://github.com/awslabs/cdk8s/pull/399
+    flags.push('--skip-lock');
+  }
+
+  if (options.pre) {
+    flags.push('--pre');
+  }
+
+  const args = flags.join(' ');
+
   execSync('pipenv lock --clear')
-  execSync('pipenv install --pre --skip-lock', { stdio: 'inherit' });
-  execSync(`pipenv install --pre ${pypi_cdk8s}`, { stdio: 'inherit' });
-  /**
-   * Using --no-deps flag here to ignore subdependencies. For cdk8s_plus, that's
-   * these dependencies:
-   *
-   * jsii (<2.0.0,>=1.7.0)
-   * publication (>=0.0.3)
-   * cdk8s (==0.0.0)
-   * constructs (<4.0.0,>=3.0.4)
-   *
-   * Even when installing locally, with this command:
-   *
-   * pipenv install dist/python/cdk8s_plus-0.0.0-py3-none-any.whl
-   *
-   * this would point to these sub-dependencies in https://pypi.org/ which
-   * unfortunataly does not have cdk8s-0.0.0. We've already installed that
-   * locally, so this is safe to ignore.
-   *
-   */
-  execSync(`pip3 install --no-deps ${pypi_cdk8s_plus}`, { stdio: 'inherit' });
+
+  // this installs the libraries in the Pipfile we provide
+  execSync('pipenv install', { stdio: 'inherit' });
+
+  // these are more akward to put in the Pipfile since they can be local wheel files
+  execSync(`pipenv install ${args} ${pypi_cdk8s}`, { stdio: 'inherit' });
+  execSync(`pipenv install ${args} ${pypi_cdk8s_plus}`, { stdio: 'inherit' });
+
   chmodSync('main.py', '700');
 
   execSync(`${cli} import k8s -l python`);

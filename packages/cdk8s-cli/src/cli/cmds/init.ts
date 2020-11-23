@@ -32,11 +32,10 @@ class Command implements yargs.CommandModule {
 
     console.error(`Initializing a project from the ${argv.type} template`);
     const templatePath = path.join(templatesDir, argv.type);
-
     const deps: any = await determineDeps(argv.cdk8SVersion, argv.dist);
 
     try {
-      await sscaff(templatePath, '.', { ...deps });
+      await sscaff(templatePath, '.', { ...deps, dist: argv.dist, pre: argv.cdk8SVersion.includes('-') });
     } catch (e) {
       throw new Error(`error during project initialization: ${e.stack}\nSTDOUT:\n${e.stdout?.toString()}\nSTDERR:\n${e.stderr?.toString()}`);
     }

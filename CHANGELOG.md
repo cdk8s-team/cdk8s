@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.3](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2020-11-19)
+
+
+### Features
+
+* **cli:** stdout option for cdk8s synth ([#361](https://github.com/awslabs/cdk8s/issues/361)) ([bbf116b](https://github.com/awslabs/cdk8s/commit/bbf116b93d9a14c24094aa51ec3a383489341190))
+* add contributor instructions about using jsii docker image ([#397](https://github.com/awslabs/cdk8s/issues/397)) ([bb0a5cc](https://github.com/awslabs/cdk8s/commit/bb0a5cc0762e753f1f18093b3cd15cbb83bd7c5e))
+
+
+### Bug Fixes
+
+* **cli:** python init template doesn't install cdk8s-plus in the correct env ([#399](https://github.com/awslabs/cdk8s/issues/399)) ([0d3017b](https://github.com/awslabs/cdk8s/commit/0d3017b4285bb015d129cdf24c9e2da2d00f9025))
+
 ## [1.0.0-beta.2](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2020-11-19)
 
 
