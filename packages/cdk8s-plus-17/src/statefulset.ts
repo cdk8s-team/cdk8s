@@ -132,6 +132,7 @@ export class StatefulSet extends Resource implements IPodTemplate {
       ports:
             props.service?.ports ?? (props.servicePort != null ? [{ port: props.servicePort }] : []),
     });
+    this.apiObject.addDependency(this._service);
 
     this.replicas = props.replicas ?? 1;
     this.podManagementPolicy = props.podManagementPolicy ?? PodManagementPolicy.ORDERED_READY;

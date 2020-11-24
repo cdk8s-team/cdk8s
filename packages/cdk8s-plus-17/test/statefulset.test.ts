@@ -23,7 +23,7 @@ test('A label selector is automatically allocated', () => {
   const expectedSelector = { 'cdk8s.statefulset': expectedValue };
 
   // assert the k8s spec has it.
-  const spec = Testing.synth(chart)[0].spec;
+  const spec = Testing.synth(chart)[1].spec;
   expect(spec.selector.matchLabels).toEqual(expectedSelector);
   expect(spec.template.metadata?.labels).toEqual(expectedSelector);
 
@@ -43,7 +43,7 @@ test('No selector is generated if "defaultSelector" is false', () => {
   });
 
   // assert the k8s spec doesnt have it.
-  const spec = Testing.synth(chart)[0].spec;
+  const spec = Testing.synth(chart)[1].spec;
   expect(spec.selector.matchLabels).toEqual({});
   expect(spec.template.metadata?.labels).toEqual(undefined);
 
@@ -71,7 +71,7 @@ test('Can select by label', () => {
   statefulset.selectByLabel('foo', expectedSelector.foo);
 
   // assert the k8s spec has it.
-  const spec = Testing.synth(chart)[0].spec;
+  const spec = Testing.synth(chart)[1].spec;
   expect(spec.selector.matchLabels).toEqual(expectedSelector);
 
   // assert the statefulset object has it.
@@ -89,10 +89,10 @@ test('StatefulSet gets defaults', () => {
   });
 
   const resources = Testing.synth(chart);
-  const set_spec = resources[0].spec;
-  const srv_spec = resources[1].spec;
+  const srv_spec = resources[0].spec;
+  const set_spec = resources[1].spec;
   expect(set_spec.replicas).toEqual(1);
-  expect(set_spec.serviceName).toEqual(resources[1].metadata.name);
+  expect(set_spec.serviceName).toEqual(resources[0].metadata.name);
   expect(set_spec.podManagementPolicy).toEqual(kplus.PodManagementPolicy.ORDERED_READY);
 
   expect(srv_spec.type).toEqual(kplus.ServiceType.CLUSTER_IP);
@@ -117,8 +117,8 @@ test('StatefulSet allows overrides', () => {
   });
 
   const resources = Testing.synth(chart);
-  const set_spec = resources[0].spec;
-  const srv_spec = resources[1].spec;
+  const srv_spec = resources[0].spec;
+  const set_spec = resources[1].spec;
   expect(set_spec.replicas).toEqual(5);
   expect(set_spec.serviceName).toEqual('test-srv');
   expect(set_spec.podManagementPolicy).toEqual(kplus.PodManagementPolicy.PARALLEL);
@@ -140,7 +140,7 @@ test('Synthesizes spec lazily', () => {
     },
   );
 
-  const container = Testing.synth(chart)[0].spec.template.spec.containers[0];
+  const container = Testing.synth(chart)[1].spec.template.spec.containers[0];
 
   expect(container.image).toEqual('image');
   expect(container.ports[0].containerPort).toEqual(9300);
