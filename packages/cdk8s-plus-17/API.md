@@ -698,9 +698,9 @@ new Job(scope: Construct, id: string, props?: JobProps)
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-17-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
   * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The pod metadata. __*Optional*__
-  * **activeDeadline** (<code>[Duration](#cdk8s-duration)</code>)  Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it. __*Default*__: If unset, then there is no deadline.
+  * **activeDeadline** (<code>[Duration](#cdk8s-duration)</code>)  Specifies the duration in seconds the job may be active before the system tries to terminate it. __*Default*__: If unset, then there is no deadline.
   * **backoffLimit** (<code>number</code>)  Specifies the number of retries before marking this job failed. __*Default*__: If not set, system defaults to 6.
-  * **completions** (<code>number</code>)  Specifies the desired number of successfully finished pods the job should be run with. __*Default*__: If not set, success of any pod signals the success of all pods.
+  * **completions** (<code>number</code>)  Specifies the desired number of successfully finished pods the job should be run with. __*Default*__: undefined
   * **parallelism** (<code>number</code>)  Specifies the maximum desired number of pods the job should run at any given time. __*Optional*__
   * **ttlAfterFinished** (<code>[Duration](#cdk8s-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). __*Default*__: If this field is unset, the Job won't be automatically deleted.
 
@@ -1850,9 +1850,9 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
-**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
+**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration in seconds the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
 **backoffLimit**?🔹 | <code>number</code> | Specifies the number of retries before marking this job failed.<br/>__*Default*__: If not set, system defaults to 6.
-**completions**?🔹 | <code>number</code> | Specifies the desired number of successfully finished pods the job should be run with.<br/>__*Default*__: If not set, success of any pod signals the success of all pods.
+**completions**?🔹 | <code>number</code> | Specifies the desired number of successfully finished pods the job should be run with.<br/>__*Default*__: undefined
 **containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-17-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **parallelism**?🔹 | <code>number</code> | Specifies the maximum desired number of pods the job should run at any given time.<br/>__*Optional*__

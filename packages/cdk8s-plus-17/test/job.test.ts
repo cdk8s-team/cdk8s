@@ -36,6 +36,11 @@ test('Allows setting all options', () => {
 
   // assert the job object has it.
   expect(job.restartPolicy).toEqual(kplus.RestartPolicy.NEVER);
+  expect(job.activeDeadline!.toSeconds()).toEqual(20);
+  expect(job.backoffLimit).toEqual(4);
+  expect(job.completions).toEqual(5);
+  expect(job.parallelism).toEqual(2);
+  expect(job.ttlAfterFinished!.toSeconds()).toEqual(1);
 
 });
 

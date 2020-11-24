@@ -84,12 +84,12 @@ export class Job extends Resource implements IPodTemplate {
   /**
    * Number of successful completions required for job.
    */
-public  readonly completions?: number;
+  public readonly completions?: number;
 
   /**
    * Max pods to run at a given time.
    */
-public  readonly parallelism?: number;
+  public readonly parallelism?: number;
 
   /**
    * TTL before the job is deleted after it is finished.
