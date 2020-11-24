@@ -29,10 +29,11 @@ export interface JobProps extends ResourceProps, PodTemplateProps {
 
   /**
    * Specifies the desired number of successfully finished pods the job should be run with.
-   * Setting to 1 means that parallelism is limited to 1
-   * and the success of that pod signals the success of the job.
+   * Setting to undefined means that the success of any pod signals the success of all pods,
+   * and allows parallelism to have any positive value. Setting to 1 means that parallelism
+   * is limited to 1 and the success of that pod signals the success of the job.
    *
-   * @default - If not set, success of any pod signals the success of all pods.
+   * @default - undefined
    */
   readonly completions?: number;
 
