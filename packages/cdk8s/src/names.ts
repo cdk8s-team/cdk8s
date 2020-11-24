@@ -187,7 +187,11 @@ function calcHash(node: Node, maxLen: number) {
     return hash.digest('hex').slice(0, maxLen);
   }
 
-  return node.addr.substring(0, HASH_LEN);
+  if (node.addr){ 
+    return node.addr.substring(0, HASH_LEN);
+  }
+
+  return '';
 }
 
 function normalizeToLabelValue(c: string, maxLen: number) {
