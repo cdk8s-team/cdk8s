@@ -18,6 +18,8 @@ const project = new TypeScriptLibraryProject({
     'sscaff',
     'yaml',
     'yargs',
+    'json5',
+    'glob',
     'json2jsii'
   ],
   devDeps: [
