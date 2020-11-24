@@ -17,7 +17,7 @@ test('Allows setting all options', () => {
   const chart = Testing.chart();
 
   const job = new kplus.Job(chart, 'Job', {
-    containers: [new kplus.Container({ image: 'image' })],
+    containers: [{ image: 'image' }],
     activeDeadline: Duration.seconds(20),
     backoffLimit: 4,
     completions: 5,

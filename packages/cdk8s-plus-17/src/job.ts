@@ -14,8 +14,7 @@ import { Volume } from './volume';
 export interface JobProps extends ResourceProps, PodTemplateProps {
 
   /**
-   * Specifies the duration in seconds relative to the startTime that
-   * the job may be active before the system tries to terminate it.
+   * Specifies the duration in seconds the job may be active before the system tries to terminate it.
    *
    * @default - If unset, then there is no deadline.
    */
@@ -84,12 +83,12 @@ export class Job extends Resource implements IPodTemplate {
   /**
    * Number of successful completions required for job.
    */
-  readonly completions?: number;
+public  readonly completions?: number;
 
   /**
    * Max pods to run at a given time.
    */
-  readonly parallelism?: number;
+public  readonly parallelism?: number;
 
   /**
    * TTL before the job is deleted after it is finished.
