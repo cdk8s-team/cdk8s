@@ -51,6 +51,10 @@ export class ImportKubernetesApi extends ImportBase {
     return ['k8s'];
   }
 
+  public get fileExt(): string {
+    return '.ts';
+  }
+
   protected async generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions) {
     const schema = await downloadSchema(this.options.apiVersion);
 

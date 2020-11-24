@@ -207,6 +207,10 @@ export class ImportCustomResourceDefinition extends ImportBase {
     return this.defs.map(crd => crd.moduleName);
   }
 
+  public get fileExt(): string {
+    return '.ts';
+  }
+
   protected async generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions) {
     if (this.options.emitModulePer === ModuleEmitOptions.API_GROUP) {
       const crds = this.groups[moduleName];

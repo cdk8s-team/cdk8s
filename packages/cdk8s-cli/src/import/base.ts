@@ -37,6 +37,7 @@ export interface GenerateOptions {
 
 export abstract class ImportBase {
   public abstract get moduleNames(): string[];
+  public abstract get fileExt(): string;
 
   protected abstract async generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions): Promise<void>;
 
@@ -56,7 +57,7 @@ export abstract class ImportBase {
       // output the name of the imported resource
       console.log(name);
 
-      const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${name}.ts` : `${name}.ts`;
+      const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${name}${this.fileExt}` : `${name}${this.fileExt}`;
       code.openFile(fileName);
       code.indentation = 2;
       await this.generateTypeScript(code, name, {

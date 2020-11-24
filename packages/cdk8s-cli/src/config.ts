@@ -14,6 +14,9 @@ export interface Config {
   readonly language?: Language;
   readonly output?: string;
   readonly imports?: string[];
+
+  readonly testOutput?: string;
+  readonly testImports?: string[];
 }
 
 const DEFAULTS: Config = {
