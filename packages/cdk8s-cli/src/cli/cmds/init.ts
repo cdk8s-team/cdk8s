@@ -30,8 +30,8 @@ class Command implements yargs.CommandModule {
       process.exit(1);
     }
 
-    console.error(`Initializing a project from the ${argv.type} template`);
-    const templatePath = path.join(templatesDir, argv.type);
+    console.error(`Initializing a project from the ${argv.TYPE} template`);
+    const templatePath = path.join(templatesDir, argv.TYPE);
     const deps: any = await determineDeps(argv.cdk8SVersion, argv.dist);
 
     try {
