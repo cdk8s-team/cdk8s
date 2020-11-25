@@ -6,7 +6,7 @@ const cli = require.resolve('../../bin/cdk8s');
 
 exports.pre = (variables) => {
   try {
-    execSync(`${platform() == 'win32' ? 'where' : 'which'} mvn`);
+    execSync(`${platform() === 'win32' ? 'where' : 'which'} mvn`);
   } catch {
     console.error(`Unable to find "mvn". Install from https://maven.apache.org/install.html`);
     process.exit(1);

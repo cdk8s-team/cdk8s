@@ -7,13 +7,13 @@ const cli = require.resolve('../../bin/cdk8s');
 
 exports.pre = () => {
   try {
-    execSync(`${platform() == 'win32' ? 'where' : 'which'} pipenv`);
+    execSync(`${platform() === 'win32' ? 'where' : 'which'} pipenv`);
   } catch {
     console.error(`Unable to find "pipenv". Install from https://pipenv.kennethreitz.org`);
     process.exit(1);
   }
   try {
-    execSync(`${platform() == 'win32' ? 'where' : 'which'} pip3`);
+    execSync(`${platform() === 'win32' ? 'where' : 'which'} pip3`);
   } catch {
     console.error(`Unable to find "pip3". Install from https://pip.pypa.io`);
     process.exit(1);
