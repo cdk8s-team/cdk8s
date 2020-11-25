@@ -10,10 +10,10 @@ module.exports = function(common) {
       cdk8s: 'bin/cdk8s'
     },
     deps: [
+      common.deps.constructs,
       'cdk8s@0.0.0',
       'codemaker',
-      `constructs@^${common.versions.constructs}`,
-      'fs-extra',
+      'fs-extra@^8',
       'jsii-srcmak',
       'jsii-pacmak',
       'sscaff',
@@ -22,9 +22,10 @@ module.exports = function(common) {
       'json2jsii'
     ],
     devDeps: [
-      '@types/fs-extra',
+      '@types/fs-extra@^8',
       '@types/json-schema',
     ],
+
     ...common.options,
   });
   

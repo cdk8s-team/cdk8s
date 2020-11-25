@@ -12,7 +12,7 @@ module.exports = function(common) {
     // dependencies
     jsiiVersion: Semver.caret(common.versions.jsii),
     peerDeps: [
-      `constructs@^${common.versions.constructs}`,
+      common.deps.constructs,
     ],
     bundledDeps: [
       'yaml@2.0.0-1',

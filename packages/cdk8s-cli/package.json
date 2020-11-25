@@ -31,7 +31,7 @@
     "organization": true
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.4",
+    "@types/fs-extra": "^8",
     "@types/jest": "^26.0.15",
     "@types/json-schema": "^7.0.6",
     "@types/node": "^10.17.0",
@@ -53,12 +53,12 @@
   "dependencies": {
     "@types/node": "^10.17.0",
     "cdk8s": "0.0.0",
-    "codemaker": "^1.14.1",
+    "codemaker": "^1.15.0",
     "constructs": "^3.2.34",
-    "fs-extra": "^9.0.1",
-    "jsii-pacmak": "^1.14.1",
-    "jsii-srcmak": "^0.1.115",
-    "json2jsii": "^0.1.113",
+    "fs-extra": "^8",
+    "jsii-pacmak": "^1.15.0",
+    "jsii-srcmak": "^0.1.117",
+    "json2jsii": "^0.1.115",
     "sscaff": "^1.2.0",
     "yaml": "^1.10.0",
     "yargs": "*"
