@@ -28,9 +28,8 @@ class Command implements yargs.CommandModule {
 
   public async handler(argv: any) {
     const classNamePrefix = argv.classPrefix === false ? '' : argv.classPrefix;
-    const imports: string[] = Array.isArray(argv.spec) ? argv.spec : [argv.spec];
+    const imports: string[] = Array.isArray(argv.SPEC) ? argv.SPEC : [argv.SPEC];
     const specs: ImportSpec[] = imports.filter(spec => spec != null).map(parseImports);
-
     await importDispatch(specs, argv, {
       outdir: argv.output,
       targetLanguage: argv.language,
