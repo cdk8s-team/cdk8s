@@ -1,11 +1,12 @@
 const { execSync } = require('child_process');
 const { readFileSync } = require('fs');
+import { whichShim } from '../../src/util';
 
 const cli = require.resolve('../../bin/cdk8s');
 
 exports.pre = (variables) => {
   try {
-    execSync('which mvn');
+    execSync(`${whichShim()} mvn`);
   } catch {
     console.error(`Unable to find "mvn". Install from https://maven.apache.org/install.html`);
     process.exit(1);

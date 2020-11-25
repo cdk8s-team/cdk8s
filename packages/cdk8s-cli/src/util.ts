@@ -6,6 +6,10 @@ import * as path from 'path';
 import { parse } from 'url';
 import * as fs from 'fs-extra';
 
+export function whichShim(): string {
+  return (os.platform.toString() === 'win32') ? 'where' : 'which';
+}
+
 export async function shell(program: string, args: string[] = [], options: SpawnOptions = { }) {
   const command = `"${program} ${args.join(' ')}" at ${path.resolve(options.cwd ?? '.')}`;
   return new Promise((ok, ko) => {

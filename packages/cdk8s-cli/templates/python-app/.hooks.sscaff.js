@@ -1,20 +1,21 @@
 const { execSync } = require('child_process');
 const { chmodSync } = require('fs');
 const { readFileSync } = require('fs');
+import { whichShim } from '../../src/util';
 
 const cli = require.resolve('../../bin/cdk8s');
 
 exports.pre = () => {
   try {
-    execSync('which pipenv')
+    execSync(`${whichShim()} pipenv`);
   } catch {
-    console.error(`Unable to find "pipenv". Install from https://pipenv.kennethreitz.org`)
+    console.error(`Unable to find "pipenv". Install from https://pipenv.kennethreitz.org`);
     process.exit(1);
   }
   try {
-    execSync('which pip3')
+    execSync(`${whichShim()} pip3`);
   } catch {
-    console.error(`Unable to find "pip3". Install from https://pip.pypa.io`)
+    console.error(`Unable to find "pip3". Install from https://pip.pypa.io`);
     process.exit(1);
   }
 };
