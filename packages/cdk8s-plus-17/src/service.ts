@@ -51,6 +51,12 @@ export interface ServiceProps extends ResourceProps {
    */
   readonly ports?: ServicePort[];
 
+  /**
+   * The externalName to be used when ServiceType.EXTERNAL_NAME is set
+   *
+   * @default - No external name.
+   */
+  readonly externalName?: string;
 }
 
 /**
@@ -120,6 +126,11 @@ export class Service extends Resource {
   public readonly type: ServiceType;
 
   /**
+   * The externalName to be used for EXTERNAL_NAME types
+   */
+  public readonly externalName?: string;
+
+  /**
    * @see base.Resource.apiObject
    */
   protected readonly apiObject: cdk8s.ApiObject;
@@ -138,6 +149,7 @@ export class Service extends Resource {
 
     this.clusterIP = props.clusterIP;
     this.type = props.type ?? ServiceType.CLUSTER_IP;
+    this.externalName = props.externalName;
 
     this._externalIPs = props.externalIPs ?? [];
     this._ports = [];
@@ -232,6 +244,10 @@ export class Service extends Resource {
       throw new Error('A service must be configured with a port');
     }
 
+    if (this.type === ServiceType.EXTERNAL_NAME && this.externalName === undefined) {
+      throw new Error('A service with type EXTERNAL_NAME requires an externalName prop');
+    }
+
     const ports: k8s.ServicePort[] = [];
 
     for (const port of this._ports) {
@@ -250,9 +266,9 @@ export class Service extends Resource {
       type: this.type,
       selector: this._selector,
       ports: ports,
+      externalName: this.externalName
     };
   }
-
 }
 
 export enum Protocol {

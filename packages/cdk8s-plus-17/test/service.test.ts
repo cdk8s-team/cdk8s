@@ -138,3 +138,32 @@ test('Cannot add a deployment if a selector is already defined for this service'
     .toThrow(/a selector is already defined for this service. cannot add a deployment/);
 
 });
+
+test('Must set externalIPs if provided', () => {
+
+  const chart = Testing.chart();
+  const externalIPs = ['1.1.1.1', '8.8.8.8'];
+  const service = new kplus.Service(chart, 'service', { externalIPs });
+  service.serve(53);
+
+  const spec = Testing.synth(chart)[0].spec;
+
+  expect(spec.externalIPs).toEqual(externalIPs);
+
+});
+
+test('Must be configured with externalName if type is EXTERNAL_NAME', () => {
+
+  const chart = Testing.chart();
+
+  const service = new kplus.Service(chart, 'service', {
+    type: kplus.ServiceType.EXTERNAL_NAME
+  });
+
+  service.serve(5432);
+
+  expect(() => Testing.synth(chart)).toThrowError(
+    'A service with type EXTERNAL_NAME requires an externalName prop',
+  );
+
+});
