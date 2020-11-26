@@ -274,13 +274,13 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
             # define resources here
             label = {"app": "hello-k8s"}
 
-            k8s.KubeService(self, 'service',
+            k8s.Service(self, 'service',
                         spec=k8s.ServiceSpec(
                         type='LoadBalancer',
                         ports=[k8s.ServicePort(port=80, target_port=k8s.IntOrString.from_number(8080))],
                         selector=label))
 
-            k8s.KubeDeployment(self, 'deployment',
+            k8s.Deployment(self, 'deployment',
                         spec=k8s.DeploymentSpec(
                             replicas=2,
                             selector=k8s.LabelSelector(match_labels=label),
@@ -655,13 +655,13 @@ Here's how to implement `WebService`:
 
             label = {'app': Node.of(self).unique_id}
 
-            k8s.KubeService(self, 'service',
+            k8s.Service(self, 'service',
                             spec=k8s.ServiceSpec(
                               type='LoadBalancer',
                               ports=[k8s.ServicePort(port=port, target_port=k8s.IntOrString.from_number(container_port))],
                               selector=label))
 
-            k8s.KubeDeployment(self, 'deployment',
+            k8s.Deployment(self, 'deployment',
                               spec=k8s.DeploymentSpec(
                                   replicas=replicas,
                                   selector=k8s.LabelSelector(match_labels=label),
