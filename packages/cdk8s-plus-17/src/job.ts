@@ -28,26 +28,6 @@ export interface JobProps extends ResourceProps, PodTemplateProps {
   readonly backoffLimit?: number;
 
   /**
-   * Specifies the desired number of successfully finished pods the job should be run with.
-   * Setting to undefined means that the success of any pod signals the success of all pods,
-   * and allows parallelism to have any positive value. Setting to 1 means that parallelism
-   * is limited to 1 and the success of that pod signals the success of the job.
-   *
-   * @default - undefined
-   */
-  readonly completions?: number;
-
-  /**
-   * Specifies the maximum desired number of pods the job should run at any given time.
-   * The actual number of pods running in steady state will be less than this number when
-   * ((.spec.completions - .status.successful) < .spec.parallelism),
-   * i.e. when the work left to do is less than max parallelism.
-   *
-   * @defaul - If unset, there will be no parallelism.
-   */
-  readonly parallelism?: number;
-
-  /**
    * Limits the lifetime of a Job that has finished execution (either Complete
    * or Failed). If this field is set, after the Job finishes, it is eligible to
    * be automatically deleted. When the Job is being deleted, its lifecycle
@@ -82,16 +62,6 @@ export class Job extends Resource implements IPodTemplate {
   public readonly backoffLimit?: number;
 
   /**
-   * Number of successful completions required for job.
-   */
-  public readonly completions?: number;
-
-  /**
-   * Max pods to run at a given time.
-   */
-  public readonly parallelism?: number;
-
-  /**
    * TTL before the job is deleted after it is finished.
    */
   public readonly ttlAfterFinished?: Duration;
@@ -118,8 +88,6 @@ export class Job extends Resource implements IPodTemplate {
     });
     this.activeDeadline = props.activeDeadline;
     this.backoffLimit = props.backoffLimit;
-    this.completions = props.completions;
-    this.parallelism = props.parallelism;
     this.ttlAfterFinished = props.ttlAfterFinished;
 
   }
@@ -160,8 +128,6 @@ export class Job extends Resource implements IPodTemplate {
       template: this._podTemplate._toPodTemplateSpec(),
       activeDeadlineSeconds: this.activeDeadline ? this.activeDeadline?.toSeconds() : undefined,
       backoffLimit: this.backoffLimit,
-      completions: this.completions,
-      parallelism: this.parallelism,
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };
   }
