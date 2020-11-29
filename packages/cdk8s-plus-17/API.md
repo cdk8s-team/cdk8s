@@ -698,7 +698,7 @@ new Job(scope: Construct, id: string, props?: JobProps)
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-17-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
   * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The pod metadata. __*Optional*__
-  * **activeDeadline** (<code>[Duration](#cdk8s-duration)</code>)  Specifies the duration in seconds the job may be active before the system tries to terminate it. __*Default*__: If unset, then there is no deadline.
+  * **activeDeadline** (<code>[Duration](#cdk8s-duration)</code>)  Specifies the duration the job may be active before the system tries to terminate it. __*Default*__: If unset, then there is no deadline.
   * **backoffLimit** (<code>number</code>)  Specifies the number of retries before marking this job failed. __*Default*__: If not set, system defaults to 6.
   * **ttlAfterFinished** (<code>[Duration](#cdk8s-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). __*Default*__: If this field is unset, the Job won't be automatically deleted.
 
@@ -2162,5 +2162,4 @@ Name | Description
 **NODE_PORT** 🔹|Exposes the Service on each Node's IP at a static port (the NodePort).
 **LOAD_BALANCER** 🔹|Exposes the Service externally using a cloud provider's load balancer.
 **EXTERNAL_NAME** 🔹|Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up.
-
 

@@ -14,7 +14,7 @@ import { Volume } from './volume';
 export interface JobProps extends ResourceProps, PodTemplateProps {
 
   /**
-   * Specifies the duration in seconds the job may be active before the system tries to terminate it.
+   * Specifies the duration the job may be active before the system tries to terminate it.
    *
    * @default - If unset, then there is no deadline.
    */
@@ -52,7 +52,7 @@ export interface JobProps extends ResourceProps, PodTemplateProps {
 export class Job extends Resource implements IPodTemplate {
 
   /**
-   * Duration before job is terminated. (must be integer number of seconds)
+   * Duration before job is terminated. If undefined, there is no deadline.
    */
   public readonly activeDeadline?: Duration;
 
@@ -126,7 +126,7 @@ export class Job extends Resource implements IPodTemplate {
   public _toKube(): k8s.JobSpec {
     return {
       template: this._podTemplate._toPodTemplateSpec(),
-      activeDeadlineSeconds: this.activeDeadline ? this.activeDeadline?.toSeconds() : undefined,
+      activeDeadlineSeconds: this.activeDeadline?.toSeconds(),
       backoffLimit: this.backoffLimit,
       ttlSecondsAfterFinished: this.ttlAfterFinished ? this.ttlAfterFinished.toSeconds() : undefined,
     };
