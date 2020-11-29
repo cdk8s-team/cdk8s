@@ -17,7 +17,16 @@ if (!url) {
 
 const purl = parse(url);
 
-if (fs.lstatSync(url).isFile()) {
+let isLocalFile = false;
+try {
+  if(fs.lstatSync(url).isFile()){
+    isLocalFile = true;
+  }
+} catch (error) {
+  isLocalFile = false;
+}
+
+if (isLocalFile) {
   if (!purl.pathname) {
     throw new Error(`unable to parse pathname from file url: ${url}`);
   }
