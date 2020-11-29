@@ -17,7 +17,7 @@ if (!url) {
 
 const purl = parse(url);
 
-if (!purl.protocol) {
+if (fs.lstatSync(url).isFile()) {
   if (!purl.pathname) {
     throw new Error(`unable to parse pathname from file url: ${url}`);
   }
