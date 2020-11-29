@@ -4305,6 +4305,8 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <li><strong>serviceAccount</strong> (<code><a href="#cdk8s-plus-17-iserviceaccount">IServiceAccount</a></code>)  A service account provides an identity for processes that run in a Pod. <strong><em>Default</em></strong>: No service account.</li>
 <li><strong>volumes</strong> (<code>Array&lt;<a href="#cdk8s-plus-17-volume">Volume</a>&gt;</code>)  List of volumes that can be mounted by containers belonging to the pod. <strong><em>Default</em></strong>: No volumes.</li>
 <li><strong>podMetadata</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  The pod metadata. <strong><em>Optional</em></strong></li>
+<li><strong>activeDeadline</strong> (<code><a href="#cdk8s-duration">Duration</a></code>)  Specifies the duration the job may be active before the system tries to terminate it. <strong><em>Default</em></strong>: If unset, then there is no deadline.</li>
+<li><strong>backoffLimit</strong> (<code>number</code>)  Specifies the number of retries before marking this job failed. <strong><em>Default</em></strong>: If not set, system defaults to 6.</li>
 <li><strong>ttlAfterFinished</strong> (<code><a href="#cdk8s-duration">Duration</a></code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). <strong><em>Default</em></strong>: If this field is unset, the Job won&rsquo;t be automatically deleted.</li>
 </ul>
 <h3 id="properties_5">Properties<a class="headerlink" href="#properties_5" title="Permanent link">&para;</a></h3>
@@ -4336,6 +4338,16 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <td><strong>volumes</strong>🔹</td>
 <td><code>Array&lt;<a href="#cdk8s-plus-17-volume">Volume</a>&gt;</code></td>
 <td>The volumes associated with this pod.</td>
+</tr>
+<tr>
+<td><strong>activeDeadline</strong>?🔹</td>
+<td><code><a href="#cdk8s-duration">Duration</a></code></td>
+<td>Duration before job is terminated.<br/><strong><em>Optional</em></strong></td>
+</tr>
+<tr>
+<td><strong>backoffLimit</strong>?🔹</td>
+<td><code>number</code></td>
+<td>Number of retries before marking failed.<br/><strong><em>Optional</em></strong></td>
 </tr>
 <tr>
 <td><strong>restartPolicy</strong>?🔹</td>
@@ -5650,6 +5662,16 @@ then routed to the backend associated with the matching path.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><strong>activeDeadline</strong>?🔹</td>
+<td><code><a href="#cdk8s-duration">Duration</a></code></td>
+<td>Specifies the duration in seconds the job may be active before the system tries to terminate it.<br/><strong><em>Default</em></strong>: If unset, then there is no deadline.</td>
+</tr>
+<tr>
+<td><strong>backoffLimit</strong>?🔹</td>
+<td><code>number</code></td>
+<td>Specifies the number of retries before marking this job failed.<br/><strong><em>Default</em></strong>: If not set, system defaults to 6.</td>
+</tr>
 <tr>
 <td><strong>containers</strong>?🔹</td>
 <td><code>Array&lt;<a href="#cdk8s-plus-17-containerprops">ContainerProps</a>&gt;</code></td>
