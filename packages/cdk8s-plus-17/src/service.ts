@@ -248,6 +248,10 @@ export class Service extends Resource {
       throw new Error('A service with type EXTERNAL_NAME requires an externalName prop');
     }
 
+    if (this.externalName !== undefined && this.type !== ServiceType.EXTERNAL_NAME) {
+      throw new Error('A service with an externalName prop requires a type of EXTERNAL_NAME');
+    }
+
     const ports: k8s.ServicePort[] = [];
 
     for (const port of this._ports) {

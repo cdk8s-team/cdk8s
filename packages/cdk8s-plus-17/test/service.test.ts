@@ -167,3 +167,19 @@ test('Must be configured with externalName if type is EXTERNAL_NAME', () => {
   );
 
 });
+
+test('Must be configured with a type of EXTERNAL_NAME if externalName if given', () => {
+
+  const chart = Testing.chart();
+
+  const service = new kplus.Service(chart, 'service', {
+    externalName: 'test-external-name'
+  });
+
+  service.serve(5432);
+
+  expect(() => Testing.synth(chart)).toThrowError(
+    'A service with an externalName prop requires a type of EXTERNAL_NAME',
+  );
+
+});
