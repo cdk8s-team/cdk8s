@@ -19,14 +19,14 @@ version=$(node -p "require('./tools/get-version')")
 files="./package.json $(npx lerna ls -p -a | xargs -n1 -I@ echo @/package.json)"
 ${scriptdir}/align-version.js ${version}${suffix} ${files}
 
-# validation
-marker=$(node -p "require('./tools/get-version-marker').replace(/\./g, '\\\.')")
+# # validation
+# marker=$(node -p "require('./tools/get-version-marker').replace(/\./g, '\\\.')")
 
-# Get a list of all package.json files. None of them shouldn contain 0.0.0 anymore.
-# Exclude a couple of specific ones that we don't care about.
-package_jsons=$(find . -name package.json | grep -v node_modules)
+# # Get a list of all package.json files. None of them shouldn contain 0.0.0 anymore.
+# # Exclude a couple of specific ones that we don't care about.
+# package_jsons=$(find . -name package.json | grep -v node_modules)
 
-if grep -l "[^0-9]${marker}" $package_jsons; then
-  echo "ERROR: unexpected version marker ${marker} in a package.json file"
-  exit 1
-fi
+# if grep -l "[^0-9]${marker}" $package_jsons; then
+#   echo "ERROR: unexpected version marker ${marker} in a package.json file"
+#   exit 1
+# fi

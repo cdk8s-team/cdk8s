@@ -1,5 +1,8 @@
 name: Build
-on: [pull_request]
+on:
+  push:
+    branches:
+      - windowsbuild
 
 jobs:
   build:
@@ -19,12 +22,38 @@ jobs:
       - name: compile
         run: yarn build
 
-      - name: unit tests
-        run: yarn test
-
       - name: create bundle
         run: yarn package
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
+
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest]
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
       - name: integration tests
         run: yarn integ
-
