@@ -1,0 +1,24 @@
+on: push
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.17.0
+      - run: yarn upgrade
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update dependencies in yarn."
+          branch: github-actions/yarn-upgrade
+          title: "chore(deps): Upgrade dependencies"
+          body: |
+            This PR upgrades yarn dependencies to the latest version.
+
+            ------
+
+            Automatically created via GitHubActions
+          labels: auto-merge
