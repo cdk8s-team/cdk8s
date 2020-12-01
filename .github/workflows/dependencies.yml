@@ -20,5 +20,5 @@ jobs:
 
             ------
 
-            Automatically created via GitHubActions
+            *Automatically created via GitHubActions*
           labels: auto-merge
