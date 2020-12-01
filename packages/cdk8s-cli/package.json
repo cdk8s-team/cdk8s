@@ -42,8 +42,9 @@
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.20.2",
     "jest": "^26.4.2",
+    "jest-junit": "^12",
     "json-schema": "^0.2.5",
-    "projen": "^0.3.168",
+    "projen": "^0.3.178",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
@@ -148,6 +149,15 @@
     "testMatch": [
       "**/__tests__/**/*.ts?(x)",
       "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "test-reports"
+        }
+      ]
     ],
     "preset": "ts-jest",
     "globals": {
