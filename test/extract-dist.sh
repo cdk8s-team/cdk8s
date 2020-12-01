@@ -23,6 +23,4 @@ npm init -y > /dev/null
 npm install ${CDK8S_DIST}/js/*.tgz
 export PATH=${staging}/node_modules/.bin:$PATH
 
-# restore working directory
-cd $cwd
-$@
+echo "${staging}/node_modules/.bin/" >> $GITHUB_PATH

@@ -176,9 +176,9 @@ $ yarn install
 $ yarn build
 $ yarn run package # creates "dist/"
 $ cd test
-$ ./run-against-dist ./test-all.sh
+$ ./extract-dist ./test-all.sh
 # or
-$ ./run-against-dist ./test-typescript-app/test.sh
+$ ./extract-dist ./test-typescript-app/test.sh
 ```
 
 #### Writing Integration Tests
