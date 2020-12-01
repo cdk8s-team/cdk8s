@@ -7,13 +7,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10.17.0
-      - run: yarn upgrade
+      - run: yarn upgrade && yarn projen
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Update dependencies in yarn."
-          branch: github-actions/yarn-upgrade
+          branch: github-actions/dependencies
           title: "chore(deps): Upgrade dependencies"
           body: |
             This PR upgrades yarn dependencies to the latest version.
