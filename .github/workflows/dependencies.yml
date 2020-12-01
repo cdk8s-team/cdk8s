@@ -7,7 +7,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10.17.0
-      - run: yarn upgrade && yarn projen
+      - run: yarn upgrade && yarn upgrade --latest projen && yarn projen
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
