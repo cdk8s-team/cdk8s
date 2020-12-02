@@ -25,16 +25,12 @@ const job = {
       }
     },
     {
-      "name": "Install npm-check-updates",
-      "run": "npm install npm-check-updates",
-    },
-    {
       "name": "Upgrade lock file",
       "run": "yarn upgrade",
     },
     {
       "name": "Update CLI package.json",
-      "run": "cd packages/cdk8s-cli && npx ncu -u --target=minor",
+      "run": "cd packages/cdk8s-cli && npx npm-check-updates -u --target=minor",
     },
     {
       "name": "Create Pull Request",
