@@ -8,7 +8,7 @@
     "test": "lerna run test",
     "projen": "lerna run projen",
     "package": "tools/pack.sh && tools/collect-dist.sh",
-    "integ": "test/run-against-dist test/test-all.sh",
+    "integ": "bash test/run-against-dist.sh && bash test/test-all.sh",
     "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ",
     "release-github": "tools/release-github.sh"
   },

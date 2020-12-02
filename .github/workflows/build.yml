@@ -57,3 +57,4 @@ jobs:
 
       - name: integration tests
         run: yarn integ
+        shell: bash
