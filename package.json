@@ -6,7 +6,7 @@
     "bump": "tools/bump.sh",
     "build": "lerna run build",
     "test": "lerna run test",
-    "projen": "lerna run projen",
+    "projen": "projen && lerna run projen",
     "package": "tools/pack.sh && tools/collect-dist.sh",
     "integ": "test/run-against-dist test/test-all.sh",
     "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ",
@@ -56,5 +56,8 @@
         "tsConfig": "tsconfig.jest.json"
       }
     }
+  },
+  "dependencies": {
+    "projen": "^0.5.10"
   }
 }

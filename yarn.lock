@@ -8304,6 +8304,21 @@ projen@^0.3.168:
     yaml "^1.10.0"
     yargs "^16.0.3"
 
+projen@^0.5.10:
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.5.10.tgz#108effe560a873bf9bb0823de9129c012bc68edf"
+  integrity sha512-Sb8L1lssIRnKIiD8b/bNZJ4RjwnCehMC6UbW4dd+GAmXCWOsibyiTgiu8SsYyVH3SsNLtXi4RpoleK8wi8ErwQ==
+  dependencies:
+    "@iarna/toml" "^2.2.5"
+    chalk "^4.1.0"
+    decamelize "^4.0.0"
+    fs-extra "^9.0.1"
+    glob "^7"
+    inquirer "^7.3.3"
+    semver "^7.3.2"
+    yaml "^1.10.0"
+    yargs "^16.1.1"
+
 promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
@@ -10363,7 +10378,7 @@ yargs@^16.0.3:
     y18n "^5.0.2"
     yargs-parser "^20.2.2"
 
-yargs@^16.1.0:
+yargs@^16.1.0, yargs@^16.1.1:
   version "16.1.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.1.1.tgz#5a4a095bd1ca806b0a50d0c03611d38034d219a1"
   integrity sha512-hAD1RcFP/wfgfxgMVswPE+z3tlPFtxG8/yWUrG2i17sTWGCGqWnxKcLTF4cUKDUK8fzokwsmO9H0TDkRbMHy8w==
