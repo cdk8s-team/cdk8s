@@ -30,7 +30,7 @@ const job = {
     },
     {
       "name": "Update CLI package.json",
-      "run": "cd packages/cdk8s-cli && npx npm-check-updates -u --target=minor",
+      "run": "cd packages/cdk8s-cli && npx npm-check-updates -u --reject=projen --target=minor",
     },
     {
       "name": "Create Pull Request",
