@@ -53,7 +53,7 @@ const job = {
   }
 }
 
-dependencies.on({ push: 'epolon/master' });
+dependencies.on({ push: { branches: ['epolon/master'] } });
 dependencies.addJobs({ upgrade: job });
 
 project.synth();
