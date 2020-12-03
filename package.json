@@ -6,7 +6,7 @@
     "bump": "tools/bump.sh",
     "build": "lerna run build",
     "test": "lerna run test",
-    "projen-mono": "tsc -p projen/ && projen",
+    "projen-mono": "tsc -p projen-contrib/ && tsc -p .projenrc && cd .projenrc && projen",
     "projen": "projen && lerna run projen",
     "package": "tools/pack.sh && tools/collect-dist.sh",
     "integ": "test/run-against-dist test/test-all.sh",

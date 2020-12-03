@@ -34,7 +34,7 @@ export class MonoRepoDependenciesUpgrade extends pj.github.GithubWorkflow {
 
   private readonly _props: MonoRepoDependenciesPropsUpgradeProps;
 
-  constructor(github: pj.github.GitHub, name: string, props: MonoRepoDependenciesPropsUpgradeProps) {
+  constructor(github: pj.github.GitHub,  name: string, props: MonoRepoDependenciesPropsUpgradeProps) {
     super(github, name);
 
     this._props = props;
