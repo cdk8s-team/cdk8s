@@ -1,16 +1,15 @@
-import { YarnMonoRepoProject } from '../projen-contrib/yarn-mono-repo';
 import * as pj from 'projen';
+import * as pjcontrib from '../projen-contrib';
 
 const CONSTRCUTS_VERSION = '3.2.34';
 
 export class Cdk8sCli {
 
-  constructor(repo: YarnMonoRepoProject, common: Omit<pj.NodeProjectOptions, 'name'>) {
+  public readonly project: pj.TypeScriptProject;
 
-    const packagePath = `packages/cdk8s-cli`;
+  constructor(root: pjcontrib.YarnMonoRepoProject) {
 
-    const cli = repo.addTypeScriptPackage(packagePath, {
-      ...common,
+    this.project = root.addTypeScriptPackage(this.packagePath, {
       name: 'cdk8s-cli',
       description: 'CDK for Kubernetes CLI',
       bin: {
@@ -32,20 +31,20 @@ export class Cdk8sCli {
         '@types/fs-extra',
         '@types/json-schema',
       ],
-    });
+
+    })
 
     // add @types/node as a regular dependency since it's needed to during "import"
     // to compile the generated jsii code.
-    cli.addDeps('@types/node');
+    this.project.addDeps('@types/node');
 
-    cli.eslint!.addIgnorePattern('/templates/');
-    cli.jest!.addIgnorePattern('/templates/');
+    this.project.eslint!.addIgnorePattern('/templates/');
+    this.project.jest!.addIgnorePattern('/templates/');
 
-    if (repo.dependenciesUpgrade) {
-      // projen is still in 0.x - lets be more intentional about upgrading its minor version.
-      repo.dependenciesUpgrade.addPackage(packagePath, { exclude: ['projen'] });
-    }
+  }
 
+  public get packagePath(): string {
+    return 'packages/cdk8s-cli';
   }
 
 }

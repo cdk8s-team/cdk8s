@@ -1,9 +1,20 @@
 import * as pj from 'projen';
-import * as fs from 'fs';
 import * as path from 'path';
 import { MonoRepoDependenciesUpgrade } from './dependencies';
 
 export interface YarnMonoRepoProjectOptions extends pj.ProjectOptions {
+
+  readonly repository: string,
+
+  readonly authorName: string,
+
+  readonly stability: string,
+
+  readonly authorUrl: string,
+
+  readonly keywords?: string[],
+
+  readonly authorOrganization?: boolean,
 
   readonly dependenciesUpgrade?: DependenciesUpgrade;
 
@@ -31,10 +42,24 @@ export class YarnMonoRepoProject extends pj.Project {
 
   public readonly dependenciesUpgrade?: MonoRepoDependenciesUpgrade;
 
-  private readonly _packages: Record<string, pj.TypeScriptProject> = {};
+  private _options: YarnMonoRepoProjectOptions;
+  private _packages: pj.NodeProject[] = [];
+
+  private _common: any;
 
   constructor(options: YarnMonoRepoProjectOptions) {
     super(options);
+
+    this._options = options;
+    this._common = {
+      root: this,
+      mergify: false,
+      buildWorkflow: false,
+      releaseWorkflow: false,
+      dependabot: false,
+      pullRequestTemplate: false,
+      stability: this._options.stability,
+    }
 
     new pj.JsonFile(this, 'package.json', {
       marker: true,
@@ -59,45 +84,60 @@ export class YarnMonoRepoProject extends pj.Project {
 
   }
 
-  public preSynthesize() {
+  public get repository(): string {
+    return this._options.repository;
+  }
 
-    for (const packagePath of Object.keys(this._packages)) {
-      fs.mkdirSync(path.join(this.outdir, packagePath), { recursive : true });
-    }
+  public get authorName(): string {
+    return  this._options.authorName;
+  }
 
-    return super.preSynthesize();
+  public get authorOrganization(): boolean | undefined {
+    return this._options.authorOrganization;
+  }
+
+  public get authorUrl(): string {
+    return this._options.authorUrl;
   }
 
   public synth() {
 
     super.synth();
 
-    for (const packagePath of Object.keys(this._packages)) {
-      const p = this._packages[packagePath];
-      p.synth();
+    for (const project of this._packages) {
+      project.synth();
     }
-
   }
 
+  public addTypeScriptPackage(packagePath: string, options: pj.TypeScriptProjectOptions) {
 
-  public addJsiiPackage(packagePath: string, options: pj.JsiiProjectOptions): pj.JsiiProject {
-    this._packages[packagePath] = new pj.JsiiProject({
+    const project = new pj.TypeScriptProject({
+      ...this._common,
       ...options,
       outdir: path.join(this.outdir, packagePath),
-    });
-    return this._packages[packagePath] as pj.JsiiProject;
+    })
+
+    this._packages.push(project);
+
+    return project;
+
   }
 
-  public addTypeScriptPackage(packagePath: string, options: pj.TypeScriptProjectOptions): pj.TypeScriptProject {
-    this._packages[packagePath] = new pj.TypeScriptProject({
+  public addJsiiPackage(packagePath: string, options: pj.JsiiProjectOptions) {
+
+    const project = new pj.JsiiProject({
+      ...this._common,
+      compat: this._options.stability === 'stable',
       ...options,
       outdir: path.join(this.outdir, packagePath),
-    });
-    return this._packages[packagePath];
+    })
+
+    this._packages.push(project);
+
+    return project;
+
   }
 
-  public get packages(): pj.NodeProject[] {
-    return Object.values(this._packages);
-  }
+
 
 }

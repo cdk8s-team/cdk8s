@@ -1,21 +1,15 @@
-import { YarnMonoRepoProject } from '../projen-contrib/yarn-mono-repo';
 import * as pj from 'projen';
+import * as pjcontrib from '../projen-contrib';
 
 const CONSTRCUTS_VERSION = '3.2.34';
 
 export class Cdk8s {
 
-  constructor(repo: YarnMonoRepoProject, common: Omit<pj.NodeProjectOptions, 'name'>) {
+  public readonly project: pj.JsiiProject;
 
-    const cdk8s = repo.addJsiiPackage('packages/cdk8s', {
-      ...common,
+  constructor(root: pjcontrib.YarnMonoRepoProject) {
 
-      // bahhh
-      repository: common.repository!,
-      authorName: common.authorName!,
-      authorAddress: common.authorEmail!,
-      compat: common.stability === 'stable',
-
+    this.project = root.addJsiiPackage(this.packagePath, {
       name: 'cdk8s',
       description: 'Cloud Development Kit for Kubernetes',
       peerDeps: [
@@ -46,11 +40,20 @@ export class Cdk8s {
         dotNetNamespace: 'Org.Cdk8s',
         packageId: 'Org.Cdk8s'
       },
+
+      repository: root.repository,
+      authorAddress: root.authorUrl,
+      authorName: root.authorName,
+
     });
 
-    cdk8s.gitignore.include('/src/_loadurl.js');
-    cdk8s.compileTask.exec('cp src/_loadurl.js lib/');
+    this.project.gitignore.include('/src/_loadurl.js');
+    this.project.compileTask.exec('cp src/_loadurl.js lib/');
 
+  }
+
+  public get packagePath(): string {
+    return 'packages/cdk8s';
   }
 
 }
