@@ -1,19 +1,16 @@
 import * as pj from 'projen';
 import * as pjcontrib from '../projen-contrib';
 
-const CONSTRCUTS_VERSION = '3.2.34';
+export class Cdk8s extends pj.JsiiProject {
 
-export class Cdk8s {
+  constructor(root: pjcontrib.YarnMonoRepo) {
 
-  public readonly project: pj.JsiiProject;
-
-  constructor(root: pjcontrib.YarnMonoRepoProject) {
-
-    this.project = root.addJsiiPackage(this.packagePath, {
+    super({
+      outdir: 'packages/cdk8s',
       name: 'cdk8s',
       description: 'Cloud Development Kit for Kubernetes',
       peerDeps: [
-        `constructs@^${CONSTRCUTS_VERSION}`,
+        `constructs`,
       ],
       bundledDeps: [
         'yaml@2.0.0-1',
@@ -41,19 +38,19 @@ export class Cdk8s {
         packageId: 'Org.Cdk8s'
       },
 
+      ...root.common,
+
+      compat: root.common.stability === 'stable',
+
       repository: root.repository,
       authorAddress: root.authorUrl,
       authorName: root.authorName,
 
     });
 
-    this.project.gitignore.include('/src/_loadurl.js');
-    this.project.compileTask.exec('cp src/_loadurl.js lib/');
+    this.gitignore.include('/src/_loadurl.js');
+    this.compileTask.exec('cp src/_loadurl.js lib/');
 
-  }
-
-  public get packagePath(): string {
-    return 'packages/cdk8s';
   }
 
 }

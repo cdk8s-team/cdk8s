@@ -4,10 +4,12 @@ import { Cdk8sCli } from './cdk8s-cli';
 import * as pj from 'projen';
 import * as pjcontrib from '../projen-contrib';
 
-const project = new pjcontrib.YarnMonoRepoProject({
+const project = new pjcontrib.YarnMonoRepo({
+  name: 'root',
   outdir: '../test-mono-repo',
   repository: 'https://github.com/awslabs/cdk8s.git',
   authorName: 'Amazon Web Services',
+  authorOrganization: true,
   authorUrl: 'https://aws.amazon.com',
   stability: 'experimental',
   keywords: [
@@ -34,13 +36,13 @@ const project = new pjcontrib.YarnMonoRepoProject({
       "cdk8s-plus-17/minimatch/**"
     ]
   },
-  devDependencies: {
-    "changelog-parser": "^2.8.0",
-    "jsii-release": "^0.2.3",
-    "lerna": "^3.22.1",
-    "semver": "7.3.2",
-    "standard-version": "^9.0.0"
-  },
+  devDeps: [
+    "changelog-parser",
+    "jsii-release",
+    "lerna",
+    "semver",
+    "standard-version"
+  ],
   dependenciesUpgrade: {
     schedule: '0 8 * * *',
     autoApprove: true,
@@ -50,11 +52,6 @@ const project = new pjcontrib.YarnMonoRepoProject({
 const lib = new Cdk8s(project);
 const plus17 = new Cdk8sPlus17(project);
 const cli = new Cdk8sCli(project);
-
-if (project.dependenciesUpgrade) {
-  // projen is still in 0.x - lets be more intentional about upgrading its minor version.
-  project.dependenciesUpgrade.addPackage(cli.packagePath, { exclude: ['projen'] });
-}
 
 project.gitignore.exclude('**/dist');
 project.gitignore.exclude('**/.vscode');
@@ -79,8 +76,8 @@ function fixup(project: pj.NodeProject) {
   delete project.manifest.scripts.release;
 };
 
-fixup(lib.project);
-fixup(plus17.project);
-fixup(cli.project);
+fixup(lib);
+fixup(plus17);
+fixup(cli);
 
 project.synth();

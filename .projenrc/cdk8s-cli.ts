@@ -3,13 +3,14 @@ import * as pjcontrib from '../projen-contrib';
 
 const CONSTRCUTS_VERSION = '3.2.34';
 
-export class Cdk8sCli {
+export class Cdk8sCli extends pj.TypeScriptProject {
 
-  public readonly project: pj.TypeScriptProject;
+  constructor(root: pjcontrib.YarnMonoRepo) {
 
-  constructor(root: pjcontrib.YarnMonoRepoProject) {
+    const packagePath = 'packages/cdk8s-cli';
 
-    this.project = root.addTypeScriptPackage(this.packagePath, {
+    super({
+      outdir: packagePath,
       name: 'cdk8s-cli',
       description: 'CDK for Kubernetes CLI',
       bin: {
@@ -32,19 +33,23 @@ export class Cdk8sCli {
         '@types/json-schema',
       ],
 
+      ...root.common,
+
     })
 
     // add @types/node as a regular dependency since it's needed to during "import"
     // to compile the generated jsii code.
-    this.project.addDeps('@types/node');
+    this.addDeps('@types/node');
 
-    this.project.eslint!.addIgnorePattern('/templates/');
-    this.project.jest!.addIgnorePattern('/templates/');
+    this.eslint!.addIgnorePattern('/templates/');
+    this.jest!.addIgnorePattern('/templates/');
 
-  }
+    if (root.dependenciesUpgrade) {
+      // projen is still in 0.x - lets be more intentional about upgrading its minor version.
+      root.dependenciesUpgrade.addPackage(packagePath, { exclude: ['projen'] });
+    }
 
-  public get packagePath(): string {
-    return 'packages/cdk8s-cli';
+
   }
 
 }
