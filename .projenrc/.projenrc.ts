@@ -39,7 +39,6 @@ const project = new pjcontrib.YarnMonoRepo({
   devDeps: [
     "changelog-parser",
     "jsii-release",
-    "lerna",
     "semver",
     "standard-version"
   ],

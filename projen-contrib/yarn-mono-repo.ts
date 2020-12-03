@@ -42,16 +42,34 @@ export class YarnMonoRepo extends pj.NodeProject {
   private _options: YarnMonoRepoProjectOptions;
 
   constructor(options: YarnMonoRepoProjectOptions) {
-    super(options);
+    super({
+      ...options,
+      jest: false,
+      devDeps: [...options.devDeps ?? [], 'lerna'],
+      npmignoreEnabled: false,
+    });
 
+    new pj.JsonFile(this, 'lerna.json', {
+      obj: {
+        npmClient: "yarn",
+        useWorkspaces: true,
+      },
+      marker: true,
+    });
     this._options = options;
 
     this.manifest.private = true;
     this.manifest.workspaces = options.workspaces;
 
-    this.compileTask.exec('lerna run projen compile');
-    this.buildTask.exec('lerna run projen build');
-    this.testTask.exec('lerna run projen test')
+    console.log(`here are the script before: ${Object.keys((this as any).scripts)}`);
+
+    this.compileTask.reset('lerna run npx projen compile');
+    this.buildTask.reset('lerna run npx projen build');
+    this.testTask.reset('lerna run npx projen test');
+
+    this.setScript('test:update', 'lerna run npx projen test:update');
+
+    console.log(`here are the script after: ${Object.keys((this as any).scripts)}`);
 
     if (options.dependenciesUpgrade) {
 
@@ -61,7 +79,7 @@ export class YarnMonoRepo extends pj.NodeProject {
 
       this.dependenciesUpgrade = new MonoRepoDependenciesUpgrade(this.github, 'dependencies', {
         schedule: options.dependenciesUpgrade.schedule
-      })
+      });
 
     }
 
