@@ -17,6 +17,7 @@
     "bootstrap": "npx projen bootstrap",
     "projen:upgrade": "npx projen projen:upgrade",
     "package": "npx projen package",
+    "align-version": "npx projen align-version",
     "nuke": "npx projen nuke",
     "rebuild": "npx projen rebuild",
     "integ": "npx projen integ",

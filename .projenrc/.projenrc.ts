@@ -52,6 +52,8 @@ const pack = project.tasks.addTask('package');
 pack.exec('tools/pack.sh');
 pack.exec('tools/collect-dist.sh');
 
+project.tasks.addTask('align-version', { exec: 'tools/align-version.sh' });
+
 const nuke = project.tasks.addTask('nuke', { exec: 'rm -rf **/node_modules **/dist' });
 const rebuild = project.tasks.addTask('rebuild');
 

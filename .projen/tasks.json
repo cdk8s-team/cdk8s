@@ -96,6 +96,14 @@
         }
       ]
     },
+    "align-version": {
+      "name": "align-version",
+      "steps": [
+        {
+          "exec": "tools/align-version.sh"
+        }
+      ]
+    },
     "nuke": {
       "name": "nuke",
       "steps": [
