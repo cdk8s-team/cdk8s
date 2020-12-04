@@ -22,10 +22,15 @@ cd ${staging}
 npm init -y > /dev/null
 npm install ${CDK8S_DIST}/js/*.tgz
 export PATH=${staging}/node_modules/.bin:$PATH
+export PATH=${staging}/node_modules/bin:$PATH
 export PATH=${staging}/node_modules/.bin/:$PATH
+export PATH=${staging}/node_modules/bin/:$PATH
 export PATH=${staging}/node_modules/.bin/cdk8s:$PATH
+export PATH=${staging}/node_modules/bin/cdk8s:$PATH
 
 ls -al ${staging}/node_modules/.bin/
+echo "BREAK"
+ls -al ${staging}/node_modules/bin/
 # restore working directory
 cd $cwd
 $@
