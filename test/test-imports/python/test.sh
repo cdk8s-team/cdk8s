@@ -13,19 +13,19 @@ cp ${scriptdir}/example_multiple_crd.yaml .
 
 ls
 
-cdk8s import mattermost:=mattermost_crd.yaml --language python
+cdk8s.cmd import mattermost:=mattermost_crd.yaml --language python
 
 match_snapshot imports ${scriptdir}/expected-named-from-cli
 
 rm -rf imports
 
-cdk8s import --language python
+cdk8s.cmd import --language python
 
 match_snapshot imports ${scriptdir}/expected-from-config
 
 rm -rf imports
 
-cdk8s import mattermost_crd.yaml --language python
+cdk8s.cmd import mattermost_crd.yaml --language python
 
 match_snapshot imports ${scriptdir}/expected-from-cli
 
