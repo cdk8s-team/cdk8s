@@ -16,19 +16,19 @@ echo $PATH
 echo %PATH%
 ls .
 
-cdk8s import mattermost:=mattermost_crd.yaml --language python
+sudo cdk8s import mattermost:=mattermost_crd.yaml --language python
 
 match_snapshot imports ${scriptdir}/expected-named-from-cli
 
 rm -rf imports
 
-cdk8s import --language python
+sudo cdk8s import --language python
 
 match_snapshot imports ${scriptdir}/expected-from-config
 
 rm -rf imports
 
-cdk8s import mattermost_crd.yaml --language python
+sudo cdk8s import mattermost_crd.yaml --language python
 
 match_snapshot imports ${scriptdir}/expected-from-cli
 
