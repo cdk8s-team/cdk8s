@@ -13,7 +13,7 @@ cp ${scriptdir}/example_multiple_crd.yaml .
 
 echo "CAMPION"
 echo $PATH
-echo %PATH%
+echo "%PATH%"
 ls .
 
 sudo cdk8s import mattermost:=mattermost_crd.yaml --language python
