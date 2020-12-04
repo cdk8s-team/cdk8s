@@ -25,7 +25,7 @@ export PATH=${staging}/node_modules/.bin:$PATH
 export PATH=${staging}/node_modules/.bin/:$PATH
 export PATH=${staging}/node_modules/.bin/cdk8s:$PATH
 
-ls ${staging}/node_modules/.bin/
+ls -al ${staging}/node_modules/.bin/
 # restore working directory
 cd $cwd
 $@
