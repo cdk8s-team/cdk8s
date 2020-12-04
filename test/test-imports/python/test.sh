@@ -11,7 +11,8 @@ cp ${scriptdir}/cdk8s.yaml  .
 cp ${scriptdir}/mattermost_crd.yaml .
 cp ${scriptdir}/example_multiple_crd.yaml .
 
-ls
+echo "CAMPION"
+ls .
 
 cdk8s.cmd import mattermost:=mattermost_crd.yaml --language python
 
