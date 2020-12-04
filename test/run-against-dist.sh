@@ -22,8 +22,8 @@ cd ${staging}
 npm init -y > /dev/null
 npm install ${CDK8S_DIST}/js/*.tgz
 export PATH=${staging}/node_modules/.bin:$PATH
+export PATH="${staging}/node_modules/.bin:$PATH"
 
-icacls ${staging}/node_modules/.bin/cdk8s
 # restore working directory
 cd $cwd
 $@
