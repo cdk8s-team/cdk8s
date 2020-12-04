@@ -10,7 +10,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -253,7 +253,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -1556,7 +1556,7 @@ Object {
             "custom": Object {
               "schema": "ElasticsearchSpecHttpTls#certificate",
             },
-            "remarks": "The referenced secret should contain the following: 
+            "remarks": "The referenced secret should contain the following:
 - \`ca.crt\`: The certificate authority (optional). - \`tls.crt\`: The certificate (or a chain). - \`tls.key\`: The private key to the first certificate in the certificate chain.",
             "summary": "Certificate is a reference to a Kubernetes secret that contains the certificate and private key for enabling TLS.",
           },
@@ -1599,7 +1599,7 @@ Object {
         "custom": Object {
           "schema": "ElasticsearchSpecHttpTlsCertificate",
         },
-        "remarks": "The referenced secret should contain the following: 
+        "remarks": "The referenced secret should contain the following:
 - \`ca.crt\`: The certificate authority (optional). - \`tls.crt\`: The certificate (or a chain). - \`tls.key\`: The private key to the first certificate in the certificate chain.",
         "summary": "Certificate is a reference to a Kubernetes secret that contains the certificate and private key for enabling TLS.",
       },
@@ -4318,7 +4318,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -9700,8 +9700,8 @@ Object {
             "custom": Object {
               "schema": "JenkinsSpecMasterSecurityContext#fsGroup",
             },
-            "remarks": "Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 
-1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- 
+            "remarks": "Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:
+1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----
 If unset, the Kubelet will not modify the ownership and permissions of any volume.",
             "summary": "A special supplemental group that applies to all containers in a pod.",
           },
@@ -17086,7 +17086,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17329,7 +17329,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17572,7 +17572,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -31409,8 +31409,8 @@ Object {
             "custom": Object {
               "schema": "ThanosRulerSpecSecurityContext#fsGroup",
             },
-            "remarks": "Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 
-1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- 
+            "remarks": "Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:
+1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----
 If unset, the Kubelet will not modify the ownership and permissions of any volume.",
             "summary": "A special supplemental group that applies to all containers in a pod.",
           },

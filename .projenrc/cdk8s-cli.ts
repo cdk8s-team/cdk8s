@@ -1,11 +1,9 @@
 import * as pj from 'projen';
 import * as pjcontrib from '../projen-contrib';
 
-const CONSTRCUTS_VERSION = '3.2.34';
-
 export class Cdk8sCli extends pj.TypeScriptProject {
 
-  constructor(root: pjcontrib.YarnMonoRepo) {
+  constructor(root: pjcontrib.YarnMonoRepo, constructs: string) {
 
     const packagePath = 'packages/cdk8s-cli';
 
@@ -19,7 +17,7 @@ export class Cdk8sCli extends pj.TypeScriptProject {
       deps: [
         'cdk8s@0.0.0',
         'codemaker',
-        `constructs@^${CONSTRCUTS_VERSION}`,
+        `constructs@^${constructs}`,
         'fs-extra',
         'jsii-srcmak',
         'jsii-pacmak',

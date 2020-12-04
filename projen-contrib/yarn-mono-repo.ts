@@ -1,4 +1,7 @@
 import * as pj from 'projen';
+import * as fs from 'fs';
+import * as path from 'path';
+
 import { MonoRepoDependenciesUpgrade } from './dependencies';
 
 export interface YarnMonoRepoProjectOptions extends pj.NodeProjectOptions {
@@ -19,6 +22,8 @@ export interface YarnMonoRepoProjectOptions extends pj.NodeProjectOptions {
 
   readonly workspaces: Workspaces;
 
+  readonly typescript?: boolean;
+
 }
 
 export interface DependenciesUpgrade {
@@ -32,7 +37,7 @@ export interface Workspaces {
 
   readonly packages: string[];
 
-  readonly noHoist: string[];
+  readonly nohoist: string[];
 }
 
 export class YarnMonoRepo extends pj.NodeProject {
@@ -53,23 +58,21 @@ export class YarnMonoRepo extends pj.NodeProject {
       obj: {
         npmClient: "yarn",
         useWorkspaces: true,
+        version: "0.0.0",
       },
-      marker: true,
+      marker: false,
+      readonly: false,
     });
     this._options = options;
 
     this.manifest.private = true;
     this.manifest.workspaces = options.workspaces;
 
-    console.log(`here are the script before: ${Object.keys((this as any).scripts)}`);
+    this.compileTask.reset(this.lerna('compile'));
+    this.buildTask.reset(this.lerna('build'));
+    this.testTask.reset(this.lerna('test'));
 
-    this.compileTask.reset('lerna run npx projen compile');
-    this.buildTask.reset('lerna run npx projen build');
-    this.testTask.reset('lerna run npx projen test');
-
-    this.setScript('test:update', 'lerna run npx projen test:update');
-
-    console.log(`here are the script after: ${Object.keys((this as any).scripts)}`);
+    this.setScript('test:update', this.lerna('test:update'));
 
     if (options.dependenciesUpgrade) {
 
@@ -82,6 +85,48 @@ export class YarnMonoRepo extends pj.NodeProject {
       });
 
     }
+
+    this.gitignore.exclude('**/coverage');
+    this.gitignore.exclude('**/.vscode');
+    this.gitignore.exclude('**/node_modules');
+
+    if (this._options.typescript ?? false) {
+      this.gitignore.exclude('**/*.d.ts');
+      this.gitignore.exclude('**/*.js');
+    }
+  }
+
+  public preSynthesize() {
+
+    const subProjects = (this as any).subprojects as pj.Project[];
+
+    for (const project of subProjects) {
+
+      if (!(project instanceof pj.NodeProject)) {
+        throw new Error(`Unsupported project type ${project.constructor.name} for project ${project.outdir}: Project must be a 'NodeProject'`);
+      }
+
+      delete (project.tasks as any)._tasks.bump
+      delete (project.tasks as any)._tasks.release
+
+      project.manifest.keywords = this._options.keywords;
+
+    }
+
+    super.preSynthesize();
+
+  }
+
+  public postSynthesize() {
+
+    const subProjects = (this as any).subprojects as pj.Project[];
+
+    for (const project of subProjects) {
+      fs.unlinkSync(path.join(project.outdir, 'version.json'));
+      fs.unlinkSync(path.join(project.outdir, '.versionrc.json'));
+    }
+
+    super.postSynthesize();
 
   }
 
@@ -111,6 +156,10 @@ export class YarnMonoRepo extends pj.NodeProject {
 
   public get authorUrl(): string {
     return this._options.authorUrl;
+  }
+
+  private lerna(script: string) {
+    return `lerna run ${script}`;
   }
 
 }

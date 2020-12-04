@@ -7,7 +7,7 @@ const K8S_17_VERSION = '1.17.0';
 
 export class Cdk8sPlus17 extends pj.JsiiProject {
 
-  constructor(root: pjcontrib.YarnMonoRepo) {
+  constructor(root: pjcontrib.YarnMonoRepo, constructs: string) {
 
     super({
       outdir: 'packages/cdk8s-plus-17',
@@ -15,7 +15,7 @@ export class Cdk8sPlus17 extends pj.JsiiProject {
       description: 'High level abstractions on top of cdk8s',
       peerDeps: [
         "cdk8s@",
-        `constructs`,
+        `constructs@^${constructs}`,
       ],
       bundledDeps: [
         'minimatch@^3.0.4',

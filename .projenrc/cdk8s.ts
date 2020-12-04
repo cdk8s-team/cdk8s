@@ -3,14 +3,14 @@ import * as pjcontrib from '../projen-contrib';
 
 export class Cdk8s extends pj.JsiiProject {
 
-  constructor(root: pjcontrib.YarnMonoRepo) {
+  constructor(root: pjcontrib.YarnMonoRepo, constructs: string) {
 
     super({
       outdir: 'packages/cdk8s',
       name: 'cdk8s',
       description: 'Cloud Development Kit for Kubernetes',
       peerDeps: [
-        `constructs`,
+        `constructs@^${constructs}`,
       ],
       bundledDeps: [
         'yaml@2.0.0-1',

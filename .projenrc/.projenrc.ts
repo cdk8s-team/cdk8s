@@ -1,12 +1,12 @@
 import { Cdk8s } from './cdk8s';
 import { Cdk8sPlus17 } from './cdk8s-plus-17';
 import { Cdk8sCli } from './cdk8s-cli';
-import * as pj from 'projen';
 import * as pjcontrib from '../projen-contrib';
 
 const project = new pjcontrib.YarnMonoRepo({
   name: 'root',
-  outdir: '../test-mono-repo',
+  typescript: true,
+  outdir: '..',
   repository: 'https://github.com/awslabs/cdk8s.git',
   authorName: 'Amazon Web Services',
   authorOrganization: true,
@@ -23,7 +23,7 @@ const project = new pjcontrib.YarnMonoRepo({
       "packages/*",
       "examples/**/*"
     ],
-    noHoist: [
+    nohoist: [
       "cdk8s/yaml",
       "cdk8s/yaml/**",
       "cdk8s/json-stable-stringify",
@@ -48,35 +48,27 @@ const project = new pjcontrib.YarnMonoRepo({
   },
 });
 
-const lib = new Cdk8s(project);
-const plus17 = new Cdk8sPlus17(project);
-const cli = new Cdk8sCli(project);
+const pack = project.tasks.addTask('package');
+pack.exec('tools/pack.sh');
+pack.exec('tools/collect-dist.sh');
+
+const nuke = project.tasks.addTask('nuke', { exec: 'rm -rf **/node_modules **/dist' });
+const rebuild = project.tasks.addTask('rebuild');
+
+rebuild.spawn(nuke);
+rebuild.spawn(project.buildTask);
+
+project.tasks.addTask('integ', { exec: 'test/run-against-dist test/test-all.sh' });
+project.tasks.addTask('integ:update', { exec: 'UPDATE_SNAPSHOTS=1 yarn integ' });
+project.tasks.addTask('release-github', { exec: 'tools/release-github.sh' });
+
+const constructs = '3.2.56';
+
+new Cdk8s(project, constructs);
+new Cdk8sPlus17(project, constructs);
+new Cdk8sCli(project, constructs);
 
 project.gitignore.exclude('**/dist');
-project.gitignore.exclude('**/.vscode');
-project.gitignore.exclude('**/*.d.ts');
-project.gitignore.exclude('**/*.js');
-project.gitignore.exclude('**/coverage');
-project.gitignore.exclude('**/node_modules');
-
-function fixup(project: pj.NodeProject) {
-  // override the default "build" from projen because currently in this
-  // repo it means "compile"
-  project.removeScript('build');
-  project.addTask('build', { exec: 'yarn compile' })
-
-  // // add "compile" after test because the test command deletes lib/ and we run tests *after* build in this repo.
-  project.testTask.exec('yarn compile');
-
-  // jsii-release is declared at the root level, we don't need it here.
-  delete (project as any).devDependencies['jsii-release']
-
-  delete project.manifest.scripts.bump;
-  delete project.manifest.scripts.release;
-};
-
-fixup(lib);
-fixup(plus17);
-fixup(cli);
+project.gitignore.include('tools/*.js');
 
 project.synth();
