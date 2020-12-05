@@ -47,10 +47,7 @@ jspm_packages/
 !/.projenrc.js
 !version.json
 !/.versionrc.json
-!/.github/workflows/build.yml
-!/.github/workflows/release.yml
 !/.mergify.yml
-!/.github/dependabot.yml
 !/.github/pull_request_template.md
 !/lerna.json
 !/.github/workflows/dependencies.yml

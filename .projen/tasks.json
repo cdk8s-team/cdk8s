@@ -65,10 +65,6 @@
         },
         {
           "exec": "npx projen"
-        },
-        {
-          "exec": "git diff --exit-code",
-          "name": "Anti-tamper check"
         }
       ]
     },
@@ -144,6 +140,26 @@
       "steps": [
         {
           "exec": "tools/release-github.sh"
+        }
+      ]
+    },
+    "ci": {
+      "name": "ci",
+      "steps": [
+        {
+          "spawn": "align-version"
+        },
+        {
+          "spawn": "compile"
+        },
+        {
+          "spawn": "test"
+        },
+        {
+          "spawn": "package"
+        },
+        {
+          "spawn": "integ"
         }
       ]
     }

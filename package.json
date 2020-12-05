@@ -22,7 +22,8 @@
     "rebuild": "npx projen rebuild",
     "integ": "npx projen integ",
     "integ:update": "npx projen integ:update",
-    "release-github": "npx projen release-github"
+    "release-github": "npx projen release-github",
+    "ci": "npx projen ci"
   },
   "author": {
     "name": "Amazon Web Services",
