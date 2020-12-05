@@ -9,8 +9,13 @@ pull_request_rules:
         strict: smart
         strict_method: merge
       delete_head_branch: {}
+      comment:
+        message: Your pull request will be updated and merged automatically (do not
+          update manually).
     conditions:
       - "#approved-reviews-by>=1"
+      - -label~=(blocked|do-not-merge|no-squash|two-approvers)
+      - status-success=build
   - name: Automatic merge PRs with auto-merge label upon successful build
     actions:
       merge:
@@ -19,5 +24,10 @@ pull_request_rules:
         strict: smart
         strict_method: merge
       delete_head_branch: {}
+      comment:
+        message: Your pull request will be updated and merged automatically (do not
+          update manually).
     conditions:
       - label=auto-merge
+      - -label~=(blocked|do-not-merge|no-squash|two-approvers)
+      - status-success=build

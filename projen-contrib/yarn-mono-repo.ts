@@ -26,6 +26,8 @@ export interface YarnMonoRepoProjectOptions extends pj.NodeProjectOptions {
 
   readonly typescript?: boolean;
 
+  readonly dontMergeLabels?: string[];
+
 }
 
 export interface DependenciesUpgrade {
@@ -101,11 +103,6 @@ export class YarnMonoRepo extends pj.NodeProject {
       this.gitignore.exclude('**/*.js');
     }
 
-    // since subprojects are synthed first, their post synthesis will run before this project finished
-    // synthesis. in this case, the `yarn install` command will execute when the root package.json is deleted,
-    // casuing yarn to think every subproject is a root package, and generate a lock file each.
-    // TODO: projen should only purge files that don't exist in current assembly, i.e files that are leftovers from previous configurations.
-    this.addExcludeFromCleanup(path.join(this.outdir, 'package.json'));
   }
 
   public preSynthesize() {
@@ -145,6 +142,17 @@ export class YarnMonoRepo extends pj.NodeProject {
         const obj = component.obj as any;
         obj.packageFiles[0].filename = LERNA_FILE;
         obj.bumpFiles[0].filename = LERNA_FILE;
+      }
+
+      if (component instanceof pj.YamlFile && path.basename(component.absolutePath) === '.mergify.yml') {
+        const obj = component.obj as any;
+        for (const rule of obj.pull_request_rules) {
+          if (rule.actions.merge) {
+            rule.actions.comment = { message: 'Your pull request will be updated and merged automatically (do not update manually).'};
+            rule.conditions.push(`-label~=(${(this._options.dontMergeLabels ?? []).join('|')})`);
+            rule.conditions.push(`status-success=build`);
+          }
+        }
       }
 
     }

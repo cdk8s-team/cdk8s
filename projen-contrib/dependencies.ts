@@ -80,6 +80,7 @@ export class MonoRepoDependenciesUpgrade extends pj.github.GithubWorkflow {
           "token": "${{ secrets.GITHUB_TOKEN }}",
           "commit-message": "Upgrade yarn.lock",
           "branch": "github-actions/dependencies",
+          "labels": "aut-merge",
           "title": "chore(deps): Upgrade dependencies",
           "body": [
             "This PR upgrades yarn dependencies to the latest versions.",

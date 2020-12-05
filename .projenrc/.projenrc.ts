@@ -12,6 +12,7 @@ const project = new pjcontrib.YarnMonoRepo({
   authorOrganization: true,
   authorUrl: 'https://aws.amazon.com',
   stability: 'experimental',
+  dontMergeLabels: ['blocked', 'do-not-merge', 'no-squash', 'two-approvers'],
 
   // the default workflows aren't currently
   // comptabile with this repo since we need extra tasks,
@@ -22,11 +23,6 @@ const project = new pjcontrib.YarnMonoRepo({
 
   // handled by github actions instead
   dependabot: false,
-
-  // since the workflows are disabled, the default mergify configuration
-  // does not include a build success criteria.
-  // TODO: projen should expose this for customizations.
-  mergify: false,
 
   keywords: [
     "cdk",
@@ -95,5 +91,6 @@ new Cdk8sCli(project, constructs);
 
 project.gitignore.exclude('**/dist');
 project.gitignore.include('tools/*.js');
+
 
 project.synth();
