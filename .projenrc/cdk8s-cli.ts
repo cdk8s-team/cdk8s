@@ -18,7 +18,7 @@ export class Cdk8sCli extends pj.TypeScriptProject {
         'cdk8s@0.0.0',
         'codemaker',
         `constructs@^${constructs}`,
-        'fs-extra',
+        'fs-extra@^8.1.0',
         'jsii-srcmak',
         'jsii-pacmak',
         'sscaff',
