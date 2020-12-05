@@ -2,6 +2,8 @@ import * as pj from 'projen';
 import * as fs from 'fs';
 import * as path from 'path';
 
+const LERNA_FILE = 'lerna.json';
+
 import { MonoRepoDependenciesUpgrade } from './dependencies';
 
 export interface YarnMonoRepoProjectOptions extends pj.NodeProjectOptions {
@@ -54,15 +56,19 @@ export class YarnMonoRepo extends pj.NodeProject {
       npmignoreEnabled: false,
     });
 
-    new pj.JsonFile(this, 'lerna.json', {
+    const lernaPath = path.join(this.outdir, 'lerna.json');
+    const version = fs.existsSync(lernaPath) ? JSON.parse(fs.readFileSync(lernaPath, 'utf-8')).version : '0.0.0';
+
+    new pj.JsonFile(this, LERNA_FILE, {
       obj: {
         npmClient: "yarn",
         useWorkspaces: true,
-        version: "0.0.0",
+        version,
       },
       marker: false,
       readonly: false,
     });
+
     this._options = options;
 
     this.manifest.private = true;
@@ -113,6 +119,16 @@ export class YarnMonoRepo extends pj.NodeProject {
 
     }
 
+    for (const component of this.components) {
+
+      if (component instanceof pj.JsonFile && path.basename(component.absolutePath) === '.versionrc.json') {
+        // path the versionrc file so that standard-version will bump lerna.json
+        const obj = component.obj as any;
+        obj.packageFiles[0].filename = LERNA_FILE;
+        obj.bumpFiles[0].filename = LERNA_FILE;
+      }
+    }
+
     super.preSynthesize();
 
   }
@@ -127,6 +143,9 @@ export class YarnMonoRepo extends pj.NodeProject {
     }
 
     super.postSynthesize();
+
+    // lerna.json replaces this file in the mono repo scenario
+    fs.unlinkSync(path.join(this.outdir, 'version.json'));
 
   }
 
