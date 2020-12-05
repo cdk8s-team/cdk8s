@@ -10,7 +10,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.56",
+    "constructs": "3.2.59",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -253,7 +253,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.56",
+    "constructs": "3.2.59",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -4318,7 +4318,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.56",
+    "constructs": "3.2.59",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17086,7 +17086,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.56",
+    "constructs": "3.2.59",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17329,7 +17329,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.56",
+    "constructs": "3.2.59",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17572,7 +17572,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.56",
+    "constructs": "3.2.59",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
