@@ -14,7 +14,7 @@ export class Cdk8sPlus17 extends pj.JsiiProject {
       name: `cdk8s-plus-${K8S_17}`,
       description: 'High level abstractions on top of cdk8s',
       peerDeps: [
-        "cdk8s@",
+        "cdk8s",
         `constructs@^${constructs}`,
       ],
       bundledDeps: [
