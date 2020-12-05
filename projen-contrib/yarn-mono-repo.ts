@@ -128,6 +128,11 @@ export class YarnMonoRepo extends pj.NodeProject {
         throw new Error(`Unsupported project type ${project.constructor.name} for project ${project.outdir}: Project must be a 'NodeProject'`);
       }
 
+      // recompile because by default the tests erase the lib folder.
+      // normally that might be ok but in the mono repo its a problem since other
+      // packages may depend on it.
+      project.testTask.spawn(project.compileTask);
+
       delete (project.tasks as any)._tasks.bump
       delete (project.tasks as any)._tasks.release
 

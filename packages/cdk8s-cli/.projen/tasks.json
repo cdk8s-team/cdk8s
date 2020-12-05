@@ -23,6 +23,9 @@
         },
         {
           "spawn": "eslint"
+        },
+        {
+          "spawn": "compile"
         }
       ]
     },
