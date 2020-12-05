@@ -100,6 +100,12 @@ export class YarnMonoRepo extends pj.NodeProject {
       this.gitignore.exclude('**/*.d.ts');
       this.gitignore.exclude('**/*.js');
     }
+
+    // since subprojects are synthed first, their post synthesis will run before this project finished
+    // synthesis. in this case, the `yarn install` command will execute when the root package.json is deleted,
+    // casuing yarn to think every subproject is a root package, and generate a lock file each.
+    // TODO: projen should only purge files that don't exist in current assembly, i.e files that are leftovers from previous configurations.
+    this.addExcludeFromCleanup(path.join(this.outdir, 'package.json'));
   }
 
   public preSynthesize() {
@@ -128,12 +134,6 @@ export class YarnMonoRepo extends pj.NodeProject {
         obj.bumpFiles[0].filename = LERNA_FILE;
       }
 
-      if (component instanceof pj.JsonFile && component.absolutePath === path.join(this.outdir, 'package.json')) {
-        // deleting the root package json before running yarn will cause every package to have its own yarn.lock file
-        // because yarn will think the package is a root package.
-        // TODO: projen should only purge files that don't exist in current assembly, i.e files that are leftovers from previous configurations.
-        (component as any).marker = false;
-      }
     }
 
     super.preSynthesize();
