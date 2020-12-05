@@ -110,9 +110,22 @@ export class YarnMonoRepo extends pj.NodeProject {
 
   public preSynthesize() {
 
+    // since subprojects are synthed first, their post synthesis will run before this project finished
+    // synthesis. in this case, the `yarn install` command will execute when the root package.json is deleted,
+    // casuing yarn to think every subproject is a root package, and generate a lock file each.
+
+    // TODO: projen should only purge files that don't exist in current assembly, i.e files that are leftovers from previous configurations.
+    // TODO: also maybe postSynthesis should happen after all projects synthesize.
+    this.addExcludeFromCleanup(path.join(this.outdir, 'package.json'));
+
     const subProjects = (this as any).subprojects as pj.Project[];
 
     for (const project of subProjects) {
+
+      // if we dont do this, yarn won't recognize inner dependencies because
+      // the package.json of one package may be missing while running.
+      // TODO: if projen is executed with --no-post, package.json will contain '*'
+      this.addExcludeFromCleanup(path.join(project.outdir, 'package.json'));
 
       if (!(project instanceof pj.NodeProject)) {
         throw new Error(`Unsupported project type ${project.constructor.name} for project ${project.outdir}: Project must be a 'NodeProject'`);
