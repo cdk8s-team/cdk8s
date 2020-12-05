@@ -19,7 +19,7 @@
     "eslint": "npx projen eslint"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.4",
+    "@types/fs-extra": "^8.1.0",
     "@types/jest": "^26.0.16",
     "@types/json-schema": "^7.0.6",
     "@types/node": "^10.17.0",

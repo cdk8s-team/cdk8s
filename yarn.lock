@@ -2571,40 +2571,6 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk8s-cli@1.0.0-beta.3:
-  version "1.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.3.tgz#a9c79b428bb1559f6b0bd578251436abd1353cda"
-  integrity sha512-KbJ8A3DCnDrnwyByVG6xYA1RfwZZqyqHLwuEvEj2XW0TPgzn/ORaprDV/G07bcxpCvfhIrG/o/vx6gyVAyOP+A==
-  dependencies:
-    "@types/node" "^10.17.0"
-    cdk8s "1.0.0-beta.3"
-    codemaker "^1.14.1"
-    constructs "^3.2.34"
-    fs-extra "^8.1.0"
-    jsii-pacmak "^1.14.1"
-    jsii-srcmak "^0.1.36"
-    json2jsii "^0.1.104"
-    sscaff "^1.2.0"
-    yaml "^1.7.2"
-    yargs "^15.1.0"
-
-cdk8s-plus-17@1.0.0-beta.3:
-  version "1.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.3.tgz#00daf6cfa4b47fce837ea627e28d3c674b2812a7"
-  integrity sha512-0VJQYHNT4yS8y29qwq4w1Ht7mORWnrGWIklGJYc11/sn6sUk8vDJ2w8hUKjImYfB56fU4oFlk0glD/jIVaO6Bg==
-  dependencies:
-    minimatch "^3.0.4"
-
-cdk8s@1.0.0-beta.3:
-  version "1.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-1.0.0-beta.3.tgz#4de75c0d2ae8817e36cde4296cbef6de96a017c0"
-  integrity sha512-qK7j0GVD3wwggIoMjke3x/wjPBAUk51dFQnjJEmz/rjlubHNSABr69S0pX03XGgCvisgw94E5xlQeTrdbO1Xyw==
-  dependencies:
-    fast-json-patch "^3.0.0-1"
-    follow-redirects "^1.11.0"
-    json-stable-stringify "^1.0.1"
-    yaml "2.0.0-1"
-
 chalk@^2.0.0, chalk@^2.3.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
@@ -2765,7 +2731,7 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codemaker@^1.14.1, codemaker@^1.15.0:
+codemaker@^1.15.0:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.15.0.tgz#3e2b319b6eb83be6094be166470158b186abdd04"
   integrity sha512-2xXzYKUYrl79m1sertY+NL62T15Q5m1RLGuf5K8ZxX0gik0Ok3AmEhhEpSUaFBS48ocjHZ1rg5EgKK2A+7CY3g==
@@ -2897,7 +2863,7 @@ constructs@3.2.56:
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.2.56.tgz#e4e63cdd30c21e5412f5a197774c5610fc07f904"
   integrity sha512-J2eQoENgGeaAkPpCZpWfkDElHVdY+NzwQce1JKBrdTbsHsyjQkdLyBERqKXJRJowHowHKRVKUJjHKeiVfakguA==
 
-constructs@^3.2.34, constructs@^3.2.56:
+constructs@^3.2.56:
   version "3.2.59"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.2.59.tgz#452e251534aff24d41e6b597db04abb1a734e3cd"
   integrity sha512-mg7IJyLyi9EjT1Arsq99GEuNk0cebbm7wSoHy+Of3fBy4uypUO0xIHmx6FKn1NfPj28PEpzEAHzXoy1IPO4ySw==
@@ -4103,11 +4069,6 @@ fast-json-patch@^2.2.1:
   dependencies:
     fast-deep-equal "^2.0.1"
 
-fast-json-patch@^3.0.0-1:
-  version "3.0.0-1"
-  resolved "https://registry.yarnpkg.com/fast-json-patch/-/fast-json-patch-3.0.0-1.tgz#4c68f2e7acfbab6d29d1719c44be51899c93dabb"
-  integrity sha512-6pdFb07cknxvPzCeLsFHStEy+MysPJPgZQ9LbQ/2O67unQF93SNqfdSqnPPl71YMHX+AD8gbl7iuoGFzHEdDuw==
-
 fast-json-stable-stringify@2.x, fast-json-stable-stringify@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz#874bf69c6f404c2b5d99c481341399fd55892633"
@@ -4231,7 +4192,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.11.0, follow-redirects@^1.13.0:
+follow-redirects@^1.13.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
   integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
@@ -6154,7 +6115,7 @@ jsii-docgen@^1.4.108:
     jsii-reflect "^1.9.0"
     yargs "^15.4.1"
 
-jsii-pacmak@^1.12.0, jsii-pacmak@^1.14.1, jsii-pacmak@^1.15.0:
+jsii-pacmak@^1.12.0, jsii-pacmak@^1.15.0:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/jsii-pacmak/-/jsii-pacmak-1.15.0.tgz#48060233cfe693a24554c0e28a851aa1f690c734"
   integrity sha512-/VxBDjC7Mi3zhuopm1oL0mXNBuC32YhuQJnHyHkFEnFduso7gnc6/3OCQbm3l5pOxHfg7oTBXIKxwDkh7EkK0w==
@@ -6200,7 +6161,7 @@ jsii-rosetta@^1.15.0:
     xmldom "^0.4.0"
     yargs "^16.1.1"
 
-jsii-srcmak@^0.1.139, jsii-srcmak@^0.1.36:
+jsii-srcmak@^0.1.139:
   version "0.1.139"
   resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.139.tgz#7a490b85bfe23ea0930258224e0a2c9f2365badb"
   integrity sha512-/jYW8weoITsTXYWLk/2koOOl3ZXhC0gXaDk+5e94gAAeuTtlRJLTThCW9mRgH/nqx2sgBCkYYYdVfmHG1xW6DA==
@@ -6297,7 +6258,7 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
-json2jsii@^0.1.104, json2jsii@^0.1.128:
+json2jsii@^0.1.128:
   version "0.1.128"
   resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.128.tgz#0e59d90738a71be5179f4e554299e7f13c9c5917"
   integrity sha512-hbDiddF0E1Re/wsyj+wzfjutjq4DITHGC2QfqVSmWNIeIa1ihfR6olv/5+H0fsmCE0McIM8qhmFDzxK9pXQMBQ==
@@ -9779,7 +9740,7 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@*, yaml@^1.10.0, yaml@^1.7.2:
+yaml@*, yaml@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
@@ -9827,7 +9788,7 @@ yargs@^14.2.2:
     y18n "^4.0.0"
     yargs-parser "^15.0.1"
 
-yargs@^15.1.0, yargs@^15.3.1, yargs@^15.4.1:
+yargs@^15.3.1, yargs@^15.4.1:
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
   integrity sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
