@@ -127,6 +127,13 @@ export class YarnMonoRepo extends pj.NodeProject {
         obj.packageFiles[0].filename = LERNA_FILE;
         obj.bumpFiles[0].filename = LERNA_FILE;
       }
+
+      if (component instanceof pj.JsonFile && component.absolutePath === path.join(this.outdir, 'package.json')) {
+        // deleting the root package json before running yarn will cause every package to have its own yarn.lock file
+        // because yarn will think the package is a root package.
+        // TODO: projen should only purge files that don't exist in current assembly, i.e files that are leftovers from previous configurations.
+        (component as any).marker = false;
+      }
     }
 
     super.preSynthesize();
