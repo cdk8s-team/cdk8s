@@ -27,7 +27,7 @@ export class Cdk8sCli extends pj.TypeScriptProject {
         'json2jsii'
       ],
       devDeps: [
-        '@types/fs-extra',
+        '@types/fs-extra@^8.1.0',
         '@types/json-schema',
       ],
 
