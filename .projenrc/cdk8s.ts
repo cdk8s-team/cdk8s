@@ -19,6 +19,7 @@ export class Cdk8s extends pj.JsiiProject {
         'fast-json-patch',
       ],
       devDeps: [
+        `constructs@^${constructs}`,
         '@types/follow-redirects',
         '@types/json-stable-stringify',
         '@types/yaml',

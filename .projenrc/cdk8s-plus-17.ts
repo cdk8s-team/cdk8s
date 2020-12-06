@@ -14,16 +14,16 @@ export class Cdk8sPlus17 extends pj.JsiiProject {
       name: `cdk8s-plus-${K8S_17}`,
       description: 'High level abstractions on top of cdk8s',
       peerDeps: [
-        "cdk8s",
+        "cdk8s@0.0.0",
         `constructs@^${constructs}`,
       ],
       bundledDeps: [
-        'minimatch@^3.0.4',
+        'minimatch',
       ],
       devDeps: [
-        '@types/minimatch@',
-        "cdk8s",
-        `constructs`,
+        "cdk8s@0.0.0",
+        `constructs@^${constructs}`,
+        '@types/minimatch',
       ],
       java: {
         javaPackage: `org.cdk8s.plus${K8S_17}`,

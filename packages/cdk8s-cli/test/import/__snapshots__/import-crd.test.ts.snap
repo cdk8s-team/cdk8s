@@ -10,7 +10,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.59",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -61,8 +61,15 @@ Object {
   "description": "stableexamplecomothercrontab",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecomothercrontab",
   "repository": Object {
     "type": "git",
@@ -253,7 +260,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.59",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -304,8 +311,15 @@ Object {
   "description": "elasticsearchk8selasticcoelasticsearch",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "elasticsearchk8selasticcoelasticsearch",
   "repository": Object {
     "type": "git",
@@ -1556,7 +1570,7 @@ Object {
             "custom": Object {
               "schema": "ElasticsearchSpecHttpTls#certificate",
             },
-            "remarks": "The referenced secret should contain the following:
+            "remarks": "The referenced secret should contain the following: 
 - \`ca.crt\`: The certificate authority (optional). - \`tls.crt\`: The certificate (or a chain). - \`tls.key\`: The private key to the first certificate in the certificate chain.",
             "summary": "Certificate is a reference to a Kubernetes secret that contains the certificate and private key for enabling TLS.",
           },
@@ -1599,7 +1613,7 @@ Object {
         "custom": Object {
           "schema": "ElasticsearchSpecHttpTlsCertificate",
         },
-        "remarks": "The referenced secret should contain the following:
+        "remarks": "The referenced secret should contain the following: 
 - \`ca.crt\`: The certificate authority (optional). - \`tls.crt\`: The certificate (or a chain). - \`tls.key\`: The private key to the first certificate in the certificate chain.",
         "summary": "Certificate is a reference to a Kubernetes secret that contains the certificate and private key for enabling TLS.",
       },
@@ -4318,7 +4332,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.59",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -4369,8 +4383,15 @@ Object {
   "description": "jenkinsiojenkins",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "jenkinsiojenkins",
   "repository": Object {
     "type": "git",
@@ -9700,8 +9721,8 @@ Object {
             "custom": Object {
               "schema": "JenkinsSpecMasterSecurityContext#fsGroup",
             },
-            "remarks": "Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:
-1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----
+            "remarks": "Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 
+1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- 
 If unset, the Kubelet will not modify the ownership and permissions of any volume.",
             "summary": "A special supplemental group that applies to all containers in a pod.",
           },
@@ -17086,7 +17107,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.59",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17137,8 +17158,15 @@ Object {
   "description": "stableexamplecomcrontab",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecomcrontab",
   "repository": Object {
     "type": "git",
@@ -17329,7 +17357,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.59",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17380,8 +17408,15 @@ Object {
   "description": "stableexamplecomothercrontab",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecomothercrontab",
   "repository": Object {
     "type": "git",
@@ -17572,7 +17607,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.59",
+    "constructs": "3.2.56",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17623,8 +17658,15 @@ Object {
   "description": "monitoringcoreoscomthanosruler",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "monitoringcoreoscomthanosruler",
   "repository": Object {
     "type": "git",
@@ -31409,8 +31451,8 @@ Object {
             "custom": Object {
               "schema": "ThanosRulerSpecSecurityContext#fsGroup",
             },
-            "remarks": "Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:
-1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----
+            "remarks": "Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 
+1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- 
 If unset, the Kubelet will not modify the ownership and permissions of any volume.",
             "summary": "A special supplemental group that applies to all containers in a pod.",
           },

@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.16",
-    "@types/minimatch": "",
+    "@types/minimatch": "^3.0.3",
     "@types/node": "^10.17.0",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
@@ -54,7 +54,7 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "cdk8s": "^0.0.0",
+    "cdk8s": "0.0.0",
     "constructs": "^3.2.56"
   },
   "dependencies": {

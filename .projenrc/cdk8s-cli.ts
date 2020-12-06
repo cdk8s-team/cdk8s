@@ -16,8 +16,11 @@ export class Cdk8sCli extends pj.TypeScriptProject {
       },
       deps: [
         'cdk8s@0.0.0',
-        'codemaker',
+
+        // using a caret here will cause projen to upgrade this
+        // on every execution. this will cause a mismatch with other packages.
         `constructs@^${constructs}`,
+        'codemaker',
         'fs-extra@^8.1.0',
         'jsii-srcmak',
         'jsii-pacmak',
