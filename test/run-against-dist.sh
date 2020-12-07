@@ -30,7 +30,10 @@ export PATH=${staging}/node_modules/bin/cdk8s:$PATH
 
 ls -al ${staging}/node_modules/.bin/
 echo "BREAK"
-ls -al ${staging}/node_modules/bin/
+
+where cdk8s
+${staging}/node_modules/.bin/cdk8s --version
+
 # restore working directory
 cd $cwd
 $@
