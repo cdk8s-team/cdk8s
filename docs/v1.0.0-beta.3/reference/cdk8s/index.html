@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.7">
     
     
       
@@ -18,7 +18,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6910b76c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.19753c6b.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.196e0c26.min.css">
@@ -3702,6 +3702,7 @@ the first components since the last components usually encode more meaning.</p>
 <li><strong>options</strong> (<code><a href="#cdk8s-nameoptions">NameOptions</a></code>)  Name options.</li>
 <li><strong>delimiter</strong> (<code>string</code>)  Delimiter to use between components. <strong><em>Default</em></strong>: &ldquo;-&ldquo;</li>
 <li><strong>extra</strong> (<code>Array<string></code>)  Extra components to include in the name. <strong><em>Default</em></strong>: [] use the construct path components</li>
+<li><strong>includeHash</strong> (<code>boolean</code>)  Include a short hash as last part of the name. <strong><em>Default</em></strong>: true</li>
 <li><strong>maxLen</strong> (<code>number</code>)  Maximum allowed length for the name. <strong><em>Default</em></strong>: 63</li>
 </ul>
 <p><strong>Returns</strong>:
@@ -3727,6 +3728,7 @@ the first components since the last components usually encode more meaning.</p>
 <li><strong>options</strong> (<code><a href="#cdk8s-nameoptions">NameOptions</a></code>)  Name options.</li>
 <li><strong>delimiter</strong> (<code>string</code>)  Delimiter to use between components. <strong><em>Default</em></strong>: &ldquo;-&ldquo;</li>
 <li><strong>extra</strong> (<code>Array<string></code>)  Extra components to include in the name. <strong><em>Default</em></strong>: [] use the construct path components</li>
+<li><strong>includeHash</strong> (<code>boolean</code>)  Include a short hash as last part of the name. <strong><em>Default</em></strong>: true</li>
 <li><strong>maxLen</strong> (<code>number</code>)  Maximum allowed length for the name. <strong><em>Default</em></strong>: 63</li>
 </ul>
 <p><strong>Returns</strong>:
@@ -4074,6 +4076,11 @@ cannot be negative.</p>
 <td>Extra components to include in the name.<br/><strong><em>Default</em></strong>: [] use the construct path components</td>
 </tr>
 <tr>
+<td><strong>includeHash</strong>?🔹</td>
+<td><code>boolean</code></td>
+<td>Include a short hash as last part of the name.<br/><strong><em>Default</em></strong>: true</td>
+</tr>
+<tr>
 <td><strong>maxLen</strong>?🔹</td>
 <td><code>number</code></td>
 <td>Maximum allowed length for the name.<br/><strong><em>Default</em></strong>: 63</td>
@@ -4232,8 +4239,8 @@ cannot be negative.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.fd16492e.min.js"></script>
-      <script src="../../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/vendor.0ac82a11.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f81dfb4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
