@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.3](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2020-11-19)
+
+
+### Features
+
+* **cli:** stdout option for cdk8s synth ([#361](https://github.com/awslabs/cdk8s/issues/361)) ([bbf116b](https://github.com/awslabs/cdk8s/commit/bbf116b93d9a14c24094aa51ec3a383489341190))
+* add contributor instructions about using jsii docker image ([#397](https://github.com/awslabs/cdk8s/issues/397)) ([bb0a5cc](https://github.com/awslabs/cdk8s/commit/bb0a5cc0762e753f1f18093b3cd15cbb83bd7c5e))
+
+
+### Bug Fixes
+
+* **cli:** python init template doesn't install cdk8s-plus in the correct env ([#399](https://github.com/awslabs/cdk8s/issues/399)) ([0d3017b](https://github.com/awslabs/cdk8s/commit/0d3017b4285bb015d129cdf24c9e2da2d00f9025))
+
+## [1.0.0-beta.2](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2020-11-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **lib:** CAUTION! Auto-generated resource names will change with this release. Resource names in manifests synthesized by a previous version of the CDK8s will be invalidated. Deploying new manifests will cause **resources to be replaced**. Temporarily, you can opt to use the legacy hashing mechanism by setting the environment variable `CDK8S_LEGACY_HASH=1`.
+* **lib:** `Names.toDnsLabel()` now accepts a construct scope instead of a string path, and a set of options instead of `maxLen`.
+* **lib:** `Names.toLabelValue()` now accepts a construct scope instead of a string path, and a set of options instead of `maxLen`.
+
+### Features
+
+* **cli:** import from crds.dev ([#378](https://github.com/awslabs/cdk8s/issues/378)) ([c62d0a4](https://github.com/awslabs/cdk8s/commit/c62d0a4c86c6256d93cc8b717b081fd4a16de0be)), closes [#377](https://github.com/awslabs/cdk8s/issues/377)
+
+
+### Bug Fixes
+
+* **cli:** python init templates are broken ([#393](https://github.com/awslabs/cdk8s/issues/393)) ([d786001](https://github.com/awslabs/cdk8s/commit/d786001edd0b91653d14aa687865f3e1eb68a88f))
+* **lib:** names generated using non-FIPS compliant algorithm ([#392](https://github.com/awslabs/cdk8s/issues/392)) ([a1acae7](https://github.com/awslabs/cdk8s/commit/a1acae7a1b935fc06a15c820bf28619d1e4c0f37)), closes [#334](https://github.com/awslabs/cdk8s/issues/334)
+
 ## [1.0.0-beta.1](https://github.com/awslabs/cdk8s/compare/v0.33.0...v1.0.0-beta.1) (2020-11-18)
 
 
