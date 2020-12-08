@@ -17,22 +17,11 @@ if (!url) {
 
 const purl = parse(url);
 
-let isLocalFile = false;
 try {
-  if(fs.lstatSync(url).isFile()){
-    isLocalFile = true;
+  if (fs.lstatSync(url).isFile()) {
+    fs.createReadStream(url).pipe(process.stdout);
   }
-} catch (error) {
-  isLocalFile = false;
-}
-
-if (isLocalFile) {
-  if (!purl.pathname) {
-    throw new Error(`unable to parse pathname from file url: ${url}`);
-  }
-
-  fs.createReadStream(purl.pathname).pipe(process.stdout);
-} else {
+} catch (err) {
   const client = getHttpClient();
   const get = client.get(url, response => {
     if (response.statusCode !== 200) {
