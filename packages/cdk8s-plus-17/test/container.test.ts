@@ -119,14 +119,14 @@ describe('Container', () => {
   });
 
   test('Must use container props', () => {
-    
+
     const container = new kplus.Container({
       image: 'image',
     });
     expect(() => {
       new kplus.Container(container);
     }).toThrow();
-        
+
   });
 
   test('Can add environment variable', () => {
@@ -251,4 +251,30 @@ describe('Container', () => {
     });
   });
 
+  test('resource requirments can be defined', () => {
+    const container = new kplus.Container({
+      image: 'image',
+      resources: {
+        cpu: {
+          limit: cdk8s.Cpu.units(0.5),
+        },
+        memory: {
+          request: cdk8s.Size.mebibytes(200),
+        },
+      },
+    });
+    container.resources.cpu.request = cdk8s.Cpu.millis(100);
+
+    const expected: k8s.ResourceRequirements = {
+      requests: {
+        cpu: '100m',
+        memory: '200Mi',
+      },
+      limits: {
+        cpu: '500m',
+      },
+    };
+
+    expect(container._toKube().resources).toEqual(expected);
+  });
 });

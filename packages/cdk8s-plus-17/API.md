@@ -16,6 +16,7 @@ Name|Description
 [PodTemplate](#cdk8s-plus-17-podtemplate)|Provides read/write capabilities ontop of a `PodTemplateProps`.
 [Probe](#cdk8s-plus-17-probe)|Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
 [Resource](#cdk8s-plus-17-resource)|Base class for all Kubernetes objects in stdk8s.
+[ResourceRequirements](#cdk8s-plus-17-resourcerequirements)|Resource requests and limits.
 [Secret](#cdk8s-plus-17-secret)|Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
 [Service](#cdk8s-plus-17-service)|An abstract way to expose an application running on a set of Pods as a network service.
 [ServiceAccount](#cdk8s-plus-17-serviceaccount)|A service account provides an identity for processes that run in a Pod.
@@ -48,6 +49,7 @@ Name|Description
 [PodTemplateProps](#cdk8s-plus-17-podtemplateprops)|Properties of a `PodTemplate`.
 [ProbeOptions](#cdk8s-plus-17-probeoptions)|Probe options.
 [ResourceProps](#cdk8s-plus-17-resourceprops)|Initialization properties for resources.
+[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)|Properties for creating ResourceRequirements.
 [SecretProps](#cdk8s-plus-17-secretprops)|*No description*
 [SecretValue](#cdk8s-plus-17-secretvalue)|Represents a specific value in JSON secret.
 [ServiceAccountProps](#cdk8s-plus-17-serviceaccountprops)|Properties for initialization of `ServiceAccount`.
@@ -66,6 +68,7 @@ Name|Description
 [IPodSpec](#cdk8s-plus-17-ipodspec)|Represents a resource that can be configured with a kuberenets pod spec. (e.g `Deployment`, `Job`, `Pod`, ...).
 [IPodTemplate](#cdk8s-plus-17-ipodtemplate)|Represents a resource that can be configured with a kuberenets pod template. (e.g `Deployment`, `Job`, ...).
 [IResource](#cdk8s-plus-17-iresource)|Represents a resource.
+[IResourceRequirement](#cdk8s-plus-17-iresourcerequirement)|Resource requests and limits.
 [ISecret](#cdk8s-plus-17-isecret)|*No description*
 [IServiceAccount](#cdk8s-plus-17-iserviceaccount)|*No description*
 
@@ -220,6 +223,7 @@ new Container(props: ContainerProps)
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **resources** (<code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code>)  *No description* __*Optional*__
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
@@ -236,6 +240,7 @@ Name | Type | Description
 **imagePullPolicy**🔹 | <code>[ImagePullPolicy](#cdk8s-plus-17-imagepullpolicy)</code> | Image pull policy for this container.
 **mounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code> | Volume mounts configured for this container.
 **name**🔹 | <code>string</code> | The name of the container.
+**resources**🔹 | <code>[ResourceRequirements](#cdk8s-plus-17-resourcerequirements)</code> | Resource requests and limits for this container.
 **args**?🔹 | <code>Array<string></code> | Arguments to the entrypoint.<br/>__*Optional*__
 **command**?🔹 | <code>Array<string></code> | Entrypoint array (the command to execute when the container starts).<br/>__*Optional*__
 **port**?🔹 | <code>number</code> | The port this container exposes.<br/>__*Optional*__
@@ -372,6 +377,7 @@ addContainer(container: ContainerProps): Container
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **resources** (<code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code>)  *No description* __*Optional*__
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
@@ -740,6 +746,7 @@ addContainer(container: ContainerProps): Container
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **resources** (<code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code>)  *No description* __*Optional*__
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
@@ -824,6 +831,7 @@ addContainer(container: ContainerProps): Container
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **resources** (<code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code>)  *No description* __*Optional*__
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
@@ -900,6 +908,7 @@ addContainer(container: ContainerProps): Container
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **resources** (<code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code>)  *No description* __*Optional*__
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
@@ -1051,6 +1060,36 @@ Name | Type | Description
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **metadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | <span></span>
 **name**🔹 | <code>string</code> | The name of this API object.
+
+
+
+## class ResourceRequirements 🔹 <a id="cdk8s-plus-17-resourcerequirements"></a>
+
+Resource requests and limits.
+
+
+### Initializer
+
+
+
+
+```ts
+new ResourceRequirements(props?: ResourceRequirementsProps)
+```
+
+* **props** (<code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code>)  *No description*
+  * **cpu** (<code>[IResourceRequirement](#cdk8s-plus-17-iresourcerequirement)</code>)  *No description* __*Optional*__
+  * **memory** (<code>[IResourceRequirement](#cdk8s-plus-17-iresourcerequirement)</code>)  *No description* __*Optional*__
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**cpu**?🔹 | <code>[IResourceRequirement](#cdk8s-plus-17-iresourcerequirement)</code> | __*Optional*__
+**memory**?🔹 | <code>[IResourceRequirement](#cdk8s-plus-17-iresourcerequirement)</code> | __*Optional*__
 
 
 
@@ -1505,6 +1544,7 @@ Name | Type | Description
 **name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/>__*Default*__: 'main'
 **port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/>__*Default*__: No port is exposed.
 **readiness**?🔹 | <code>[Probe](#cdk8s-plus-17-probe)</code> | Determines when the container is ready to serve traffic.<br/>__*Default*__: no readiness probe is defined
+**resources**?🔹 | <code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code> | __*Optional*__
 **startup**?🔹 | <code>[Probe](#cdk8s-plus-17-probe)</code> | StartupProbe indicates that the Pod has successfully initialized.<br/>__*Default*__: no startup probe is defined.
 **volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/>__*Optional*__
 **workingDir**?🔹 | <code>string</code> | Container's working directory.<br/>__*Default*__: The container runtime's default.
@@ -1673,6 +1713,7 @@ addContainer(container: ContainerProps): Container
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **resources** (<code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code>)  *No description* __*Optional*__
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
@@ -1735,6 +1776,7 @@ addContainer(container: ContainerProps): Container
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **resources** (<code>[ResourceRequirementsProps](#cdk8s-plus-17-resourcerequirementsprops)</code>)  *No description* __*Optional*__
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
   * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
@@ -1769,6 +1811,21 @@ Represents a resource.
 Name | Type | Description 
 -----|------|-------------
 **name**🔹 | <code>string</code> | The Kubernetes name of this resource.
+
+
+
+## interface IResourceRequirement 🔹 <a id="cdk8s-plus-17-iresourcerequirement"></a>
+
+
+Resource requests and limits.
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**limit**?🔹 | <code>any</code> | __*Optional*__
+**requests**?🔹 | <code>any</code> | __*Optional*__
 
 
 
@@ -1846,7 +1903,7 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
-**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration in seconds the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
+**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
 **backoffLimit**?🔹 | <code>number</code> | Specifies the number of retries before marking this job failed.<br/>__*Default*__: If not set, system defaults to 6.
 **containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-17-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
@@ -1967,6 +2024,20 @@ Initialization properties for resources.
 Name | Type | Description 
 -----|------|-------------
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+
+
+
+## struct ResourceRequirementsProps 🔹 <a id="cdk8s-plus-17-resourcerequirementsprops"></a>
+
+
+Properties for creating ResourceRequirements.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**cpu**?🔹 | <code>[IResourceRequirement](#cdk8s-plus-17-iresourcerequirement)</code> | __*Optional*__
+**memory**?🔹 | <code>[IResourceRequirement](#cdk8s-plus-17-iresourcerequirement)</code> | __*Optional*__
 
 
 
@@ -2162,4 +2233,5 @@ Name | Description
 **NODE_PORT** 🔹|Exposes the Service on each Node's IP at a static port (the NodePort).
 **LOAD_BALANCER** 🔹|Exposes the Service externally using a cloud provider's load balancer.
 **EXTERNAL_NAME** 🔹|Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up.
+
 

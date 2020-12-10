@@ -1,3 +1,4 @@
+import * as cdk8s from 'cdk8s';
 import { IConfigMap } from './config-map';
 import * as k8s from './imports/k8s';
 import { Probe } from './probe';
@@ -240,6 +241,8 @@ export interface ContainerProps {
    * @default - no startup probe is defined.
    */
   readonly startup?: Probe;
+
+  readonly resources?: ResourceRequirementsProps;
 }
 
 /**
@@ -277,6 +280,11 @@ export class Container {
    */
   public readonly workingDir?: string;
 
+  /**
+   * Resource requests and limits for this container.
+   */
+  public readonly resources: ResourceRequirements;
+
   private readonly _command?: readonly string[];
   private readonly _args?: readonly string[];
   private readonly _env: { [name: string]: EnvValue };
@@ -301,6 +309,7 @@ export class Container {
     this.workingDir = props.workingDir;
     this.mounts = props.volumeMounts ?? [];
     this.imagePullPolicy = props.imagePullPolicy ?? ImagePullPolicy.ALWAYS;
+    this.resources = new ResourceRequirements(props.resources);
   }
 
   /**
@@ -391,6 +400,7 @@ export class Container {
       readinessProbe: this._readiness?._toKube(this),
       livenessProbe: this._liveness?._toKube(this),
       startupProbe: this._startup?._toKube(this),
+      resources: this.resources?._toKube(),
     };
   }
 }
@@ -506,6 +516,70 @@ export enum MountPropagation {
    *
    */
   BIDIRECTIONAL = 'Bidirectional',
+}
+
+/**
+ * Properties for creating ResourceRequirements
+ */
+export interface ResourceRequirementsProps {
+  readonly cpu?: IResourceRequirement<cdk8s.Cpu>;
+  readonly memory?: IResourceRequirement<cdk8s.Size>;
+}
+
+/**
+ * Resource requests and limits
+ */
+export interface IResourceRequirement<Unit> {
+  limit?: Unit;
+  request?: Unit;
+}
+
+/**
+ * Resource requests and limits
+ */
+export class ResourceRequirements {
+  public cpu: IResourceRequirement<cdk8s.Cpu>;
+  public memory: IResourceRequirement<cdk8s.Size>;
+
+  /**
+   * @internal
+   */
+  constructor(props?: ResourceRequirementsProps) {
+    this.cpu = props?.cpu ?? {};
+    this.memory = props?.memory ?? {};
+  }
+
+  /**
+   * @internal
+   */
+  _toKube(): k8s.ResourceRequirements | undefined {
+    const limits: Record<string, string> = {};
+    const requests: Record<string, string> = {};
+
+    if (this.cpu.limit) {
+      limits.cpu = this.cpu.limit.toString();
+    }
+    if (this.cpu.request) {
+      requests.cpu = this.cpu.request.toString();
+    }
+    if (this.memory.limit) {
+      limits.memory = `${this.memory.limit?.toMebibytes()}Mi`;
+    }
+    if (this.memory.request) {
+      requests.memory = `${this.memory.request?.toMebibytes()}Mi`;
+    }
+
+    const result: k8s.ResourceRequirements = {
+      ...(Object.keys(limits).length != 0 ? { limits } : undefined),
+      ...(Object.keys(requests).length != 0 ? { requests } : undefined),
+    };
+
+    if (Object.keys(result).length != 0) {
+      return result;
+    } else {
+      return undefined;
+    }
+  }
 }
 
 function renderEnv(env: { [name: string]: EnvValue }): k8s.EnvVar[] {
