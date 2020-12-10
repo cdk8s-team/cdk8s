@@ -15,13 +15,13 @@ if (!url) {
   process.exit(1);
 }
 
+const purl = parse(url);
+
 try {
   if (fs.lstatSync(url).isFile()) {
     fs.createReadStream(url).pipe(process.stdout);
   }
 } catch (err) {
-  const purl = parse(url);
-
   if (!purl.protocol) {
     throw new Error(`unable to determine protocol from url: ${url}`);
   }
