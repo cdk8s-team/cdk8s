@@ -12,3 +12,4 @@ export * from './helm';
 export * from './json-patch';
 export * from './duration';
 export * from './size';
+export * from './cpu';

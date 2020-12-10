@@ -8,6 +8,7 @@ Name|Description
 [ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)|Object metadata.
 [App](#cdk8s-app)|Represents a cdk8s application.
 [Chart](#cdk8s-chart)|*No description*
+[Cpu](#cdk8s-cpu)|Represents the amount of cpu.
 [DependencyGraph](#cdk8s-dependencygraph)|Represents the dependency graph for a given Node.
 [DependencyVertex](#cdk8s-dependencyvertex)|Represents a vertex in the graph.
 [Duration](#cdk8s-duration)|Represents a length of time.
@@ -399,6 +400,54 @@ static of(c: IConstruct): Chart
 
 __Returns__:
 * <code>[Chart](#cdk8s-chart)</code>
+
+
+
+## class Cpu 🔹 <a id="cdk8s-cpu"></a>
+
+Represents the amount of cpu.
+
+
+### Methods
+
+
+#### toString()🔹 <a id="cdk8s-cpu-tostring"></a>
+
+
+
+```ts
+toString(): string
+```
+
+
+__Returns__:
+* <code>string</code>
+
+#### *static* millis(amount)🔹 <a id="cdk8s-cpu-millis"></a>
+
+Creates a Cpu representing an amount of milllicpus.
+
+```ts
+static millis(amount: number): Cpu
+```
+
+* **amount** (<code>number</code>)  the amount of millicpus the Cpu will represents.
+
+__Returns__:
+* <code>[Cpu](#cdk8s-cpu)</code>
+
+#### *static* units(amount)🔹 <a id="cdk8s-cpu-units"></a>
+
+Creates a Cpu representing an amount of cpus.
+
+```ts
+static units(amount: number): Cpu
+```
+
+* **amount** (<code>number</code>)  the amount of cpus the Cpu will represents.
+
+__Returns__:
+* <code>[Cpu](#cdk8s-cpu)</code>
 
 
 
