@@ -22,6 +22,10 @@ try {
     fs.createReadStream(url).pipe(process.stdout);
   }
 } catch (err) {
+  if (!purl.pathname) {
+    throw new Error(`unable to parse pathname from file url: ${url}`);
+  }
+  
   const client = getHttpClient();
   const get = client.get(url, response => {
     if (response.statusCode !== 200) {
