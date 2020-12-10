@@ -22,8 +22,8 @@ try {
     fs.createReadStream(url).pipe(process.stdout);
   }
 } catch (err) {
-  if (!purl.pathname) {
-    throw new Error(`unable to parse pathname from file url: ${url}`);
+  if (!purl.protocol) {
+    throw new Error(`unable to determine protocol from url: ${url}`);
   }
   
   const client = getHttpClient();
