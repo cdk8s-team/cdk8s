@@ -81,7 +81,10 @@ export class PodSpec implements IPodSpec {
     this.restartPolicy = props.restartPolicy;
     this.serviceAccount = props.serviceAccount;
 
-    this._containers = props.containers?.map(c => new Container(c)) ?? [];
+    this._containers = [];
+    for (const container of props.containers ?? []) {
+      this.addContainer(container);
+    }
     this._volumes = props.volumes ?? [];
   }
 
@@ -95,6 +98,21 @@ export class PodSpec implements IPodSpec {
 
   public addContainer(container: ContainerProps): Container {
     const impl = new Container(container);
+
+    // total loop of a PodSpec will be quadratic to total number of ports in the podspec.
+    for (const existing of this._containers) {
+      for (const existingPort of existing.ports) {
+        for (const port of impl.ports) {
+          if (existingPort.port === port.port) {
+            throw new Error(`port in a PodSpec must be unique. Port ${port.port} is already occupied by ${existing.name}`);
+          }
+          if (port.name && existingPort.name && port.name === existingPort.name) {
+            throw new Error(`Port names in a PodSpec must be unique. Port ${port.name} is already occupied by ${existing.name}`);
+          }
+        }
+      }
+    }
+
     this._containers.push(impl);
     return impl;
   }

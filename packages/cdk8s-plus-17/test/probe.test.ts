@@ -28,20 +28,58 @@ describe('fromHttpGet()', () => {
     const container = new Container({ image: 'foobar', port: 5555 });
 
     // WHEN
-    const min = Probe.fromHttpGet('/hello', { port: 1234 });
+    const min = Probe.fromHttpGet('/hello', { port: 5555 });
 
     // THEN
     expect(min._toKube(container)).toEqual({
       failureThreshold: 3,
       httpGet: {
         path: '/hello',
-        port: 1234,
+        port: 5555,
       },
       initialDelaySeconds: undefined,
       periodSeconds: undefined,
       successThreshold: undefined,
       timeoutSeconds: undefined,
     });
+  });
+
+  test('specific port by name', () => {
+    // GIVEN
+    const container = new Container({
+      image: 'foobar',
+      ports: [{
+        port: 5555,
+        name: 'port',
+      }],
+    });
+
+    // WHEN
+    const min = Probe.fromHttpGet('/hello', { port: 'port' });
+
+    // THEN
+    expect(min._toKube(container)).toEqual({
+      failureThreshold: 3,
+      httpGet: {
+        path: '/hello',
+        port: 'port',
+      },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
+      timeoutSeconds: undefined,
+    });
+  });
+
+  test('cannot probe on not exposed port', () => {
+    // GIVEN
+    const container = new Container({ image: 'foobar', port: 5555 });
+
+    // WHEN
+    const min = Probe.fromHttpGet('/hello', { port: 1234 });
+
+    // THEN
+    expect(() => min._toKube(container)).toThrow();
   });
 
   test('options', () => {

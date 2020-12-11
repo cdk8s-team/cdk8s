@@ -1,10 +1,12 @@
 import { ApiObject, ApiObjectMetadataDefinition, Lazy, Names } from 'cdk8s';
 import { Construct } from 'constructs';
 import { Resource, ResourceProps } from './base';
+import { Protocol } from './common';
 import { Container, ContainerProps } from './container';
+import { ContainerPort } from './container-port';
 import * as k8s from './imports/k8s';
 import { RestartPolicy, PodTemplate, IPodTemplate, PodTemplateProps } from './pod';
-import { Protocol, Service, ServiceType } from './service';
+import { Service, ServiceType } from './service';
 import { IServiceAccount } from './service-account';
 import { Volume } from './volume';
 
@@ -59,11 +61,11 @@ export interface ExposeOptions {
   readonly protocol?: Protocol;
 
   /**
-   * The port number the service will redirect to.
+   * The port number or name the service will redirect to.
    *
-   * @default - The port of the first container in the deployment (ie. containers[0].port)
+   * @default - The first port of the first container in the deployment (ie. containers[0].ports[0])
    */
-  readonly targetPort?: number;
+  readonly targetPort?: number | string;
 }
 
 
@@ -196,6 +198,28 @@ export class Deployment extends Resource implements IPodTemplate {
     return this._podTemplate.addVolume(volume);
   }
 
+  /**
+   * Get exposed port on this deployment.
+   *
+   * @param targetPort - Number or name of exposed port
+   * @param throwOnNotfound
+   */
+  public lookupPort(targetPort: number | string, throwOnNotfound: true): ContainerPort
+  public lookupPort(targetPort: number | string, throwOnNotfound?: boolean): ContainerPort | undefined
+  public lookupPort(targetPort: number | string, throwOnNotfound: boolean = false): ContainerPort | undefined {
+    for (const container of this.containers) {
+      const result = container.lookupPort(targetPort);
+      if (result) {
+        return result;
+      }
+    }
+
+    if (throwOnNotfound) {
+      throw new Error('a targetPort is not exposed on any container in this deployment');
+    }
+
+    return undefined;
+  }
 
   /**
    * @internal

@@ -89,6 +89,10 @@ describe('Container', () => {
       imagePullPolicy: kplus.ImagePullPolicy.NEVER,
       workingDir: 'workingDir',
       port: 9000,
+      ports: [{
+        port: 9100,
+        name: 'port',
+      }],
       command: ['command'],
       env: {
         key: kplus.EnvValue.fromValue('value'),
@@ -104,6 +108,10 @@ describe('Container', () => {
       workingDir: 'workingDir',
       ports: [{
         containerPort: 9000,
+      },
+      {
+        containerPort: 9100,
+        name: 'port',
       }],
       command: ['command'],
       env: [{
@@ -251,4 +259,31 @@ describe('Container', () => {
     });
   });
 
+  test('Ports must be unique', () => {
+    expect(() => {
+      new kplus.Container({
+        image: 'image',
+        ports: [{
+          port: 8000,
+        }, {
+          port: 8000,
+        }],
+      });
+    }).toThrow();
+  });
+
+  test('Port names must be unique', () => {
+    expect(() => {
+      new kplus.Container({
+        image: 'image',
+        ports: [{
+          port: 80,
+          name: 'port',
+        }, {
+          port: 8080,
+          name: 'port',
+        }],
+      });
+    }).toThrow();
+  });
 });

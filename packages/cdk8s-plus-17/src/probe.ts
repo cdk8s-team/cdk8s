@@ -64,7 +64,7 @@ export interface HttpGetProbeOptions extends ProbeOptions {
    *
    * @default - defaults to `container.port`.
    */
-  readonly port?: number;
+  readonly port?: number | string;
 }
 
 /**
@@ -89,12 +89,15 @@ export abstract class Probe {
   public static fromHttpGet(path: string, options: HttpGetProbeOptions = { }): Probe {
     return {
       _toKube(container) {
+        let port: number | string;
+        if (options.port !== undefined) {
+          port = container.lookupPort(options.port, true).nameOrPort();
+        } else {
+          port = container.ports[0]?.nameOrPort() ?? 80;
+        }
         return {
           ...parseProbeOptions(options),
-          httpGet: {
-            path,
-            port: options.port ?? container.port ?? 80,
-          },
+          httpGet: { path, port },
         };
       },
     };

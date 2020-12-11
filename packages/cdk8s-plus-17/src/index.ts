@@ -10,3 +10,5 @@ export * from './service';
 export * from './volume';
 export * from './ingress-v1beta1';
 export * from './probe';
+export * from './container-port';
+export * from './common';

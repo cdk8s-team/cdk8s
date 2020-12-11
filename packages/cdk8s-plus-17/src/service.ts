@@ -1,6 +1,8 @@
 import * as cdk8s from 'cdk8s';
 import { Construct } from 'constructs';
-import { ResourceProps, Resource } from './base';
+import { Resource, ResourceProps } from './base';
+import { Protocol } from './common';
+import { ContainerPort } from './container-port';
 import { Deployment } from './deployment';
 import * as k8s from './imports/k8s';
 
@@ -126,7 +128,7 @@ export class Service extends Resource {
 
   private readonly _externalIPs: string[];
   private readonly _selector: Record<string, string>;
-  private readonly _ports: ServicePort[];
+  private readonly _ports: k8s.ServicePort[];
 
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
     super(scope, id, { metadata: props.metadata });
@@ -191,17 +193,19 @@ export class Service extends Resource {
       throw new Error('a selector is already defined for this service. cannot add a deployment');
     }
 
+    let targetPort: string | number | undefined;
+    if (options.targetPort) {
+      targetPort = deployment.lookupPort(options.targetPort, true).nameOrPort();
+    } else {
+      const firstPort = containers[0].ports[0];
+      targetPort = firstPort?.name ?? firstPort?.port;
+    }
+
     for (const [k, v] of selector) {
       this.addSelector(k, v);
     }
 
-    this.serve(port, {
-      ...options,
-
-      // just a PoC, we assume the first container is the main one.
-      // TODO: figure out what the correct thing to do here.
-      targetPort: options.targetPort ?? containers[0].port,
-    });
+    this._ports.push({ port, ...options, targetPort });
   }
 
   /**
@@ -221,7 +225,7 @@ export class Service extends Resource {
    * @param port The port definition.
    */
   public serve(port: number, options: ServicePortOptions = { }) {
-    this._ports.push({ port, ...options });
+    this._ports.push({ port, ...options, targetPort: resolvePort(options.targetPort) });
   }
 
   /**
@@ -232,33 +236,15 @@ export class Service extends Resource {
       throw new Error('A service must be configured with a port');
     }
 
-    const ports: k8s.ServicePort[] = [];
-
-    for (const port of this._ports) {
-      ports.push({
-        name: port.name,
-        port: port.port,
-        targetPort: port.targetPort,
-        nodePort: port.nodePort,
-        protocol: port.protocol,
-      });
-    }
-
     return {
       clusterIP: this.clusterIP,
       externalIPs: this._externalIPs,
       type: this.type,
       selector: this._selector,
-      ports: ports,
+      ports: this._ports,
     };
   }
 
-}
-
-export enum Protocol {
-  TCP = 'TCP',
-  UDP = 'UDP',
-  SCTP = 'SCTP'
 }
 
 export interface ServicePortOptions {
@@ -292,11 +278,11 @@ export interface ServicePortOptions {
   readonly protocol?: Protocol;
 
   /**
-   * The port number the service will redirect to.
+   * The port number or name the service will redirect to.
    *
    * @default - The value of `port` will be used.
    */
-  readonly targetPort?: number;
+  readonly targetPort?: number | string;
 }
 
 /**
@@ -308,4 +294,15 @@ export interface ServicePort extends ServicePortOptions {
    * The port number the service will bind to.
    */
   readonly port: number;
+}
+
+function resolvePort(port: number | string | ContainerPort | undefined) : number | string | undefined {
+  if (port === undefined) {
+    return undefined;
+  }
+  if (typeof port === 'number' || typeof port === 'string') {
+    return port;
+  } else {
+    return port.nameOrPort();
+  }
 }

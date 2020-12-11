@@ -139,7 +139,7 @@ test('Expose can set service and port details', () => {
       name: 'test-srv',
       serviceType: kplus.ServiceType.CLUSTER_IP,
       protocol: kplus.Protocol.UDP,
-      targetPort: 9500,
+      targetPort: 9300,
     },
   );
 
@@ -152,10 +152,52 @@ test('Expose can set service and port details', () => {
     'cdk8s.deployment': 'test-Deployment-c83f5e59',
   });
   expect(spec.ports![0].port).toEqual(9200);
-  expect(spec.ports![0].targetPort).toEqual(9500);
+  expect(spec.ports![0].targetPort).toEqual(9300);
   expect(spec.ports![0].protocol).toEqual('UDP');
 });
 
+test('Expose can set service by port name', () => {
+  const chart = Testing.chart();
+
+  const deployment = new kplus.Deployment(chart, 'Deployment', {
+    containers: [
+      {
+        image: 'image',
+        ports: [{
+          port: 9300,
+          name: 'port',
+        }],
+      },
+    ],
+  });
+
+  deployment.expose(
+    9200,
+    {
+      targetPort: 'port',
+    },
+  );
+
+  const srv = Testing.synth(chart)[1];
+  const spec = srv.spec;
+
+  expect(spec.ports![0].targetPort).toEqual('port');
+});
+
+test('Cannot be exposed if there are no such port in spec', () => {
+  const chart = Testing.chart();
+
+  const deployment = new kplus.Deployment(chart, 'Deployment', {
+    containers: [
+      {
+        image: 'image',
+        port: 9300,
+      },
+    ],
+  });
+
+  expect(() => deployment.expose(9000, { targetPort: 9000 })).toThrow();
+});
 
 test('Cannot be exposed if there are no containers in spec', () => {
 
@@ -185,4 +227,44 @@ test('Synthesizes spec lazily', () => {
   expect(container.image).toEqual('image');
   expect(container.ports[0].containerPort).toEqual(9300);
 
+});
+
+test('Ports must be unique in a deployment', () => {
+  const chart = Testing.chart();
+
+  expect(() => new kplus.Deployment(chart, 'Deployment', {
+    containers: [
+      {
+        image: 'image',
+        port: 9300,
+      },
+      {
+        image: 'image2',
+        port: 9300,
+      },
+    ],
+  })).toThrow();
+});
+
+test('Port names must be unique in a deployment', () => {
+  const chart = Testing.chart();
+
+  expect(() => new kplus.Deployment(chart, 'Deployment', {
+    containers: [
+      {
+        image: 'image',
+        ports: [{
+          port: 80,
+          name: 'web',
+        }],
+      },
+      {
+        image: 'image2',
+        ports: [{
+          port: 8080,
+          name: 'web',
+        }],
+      },
+    ],
+  })).toThrow();
 });

@@ -108,6 +108,62 @@ test('Can associate a deployment with an existing service', () => {
 
 });
 
+test('Can associate a deployment with an existing service by a port', () => {
+  const chart = Testing.chart();
+
+  const service = new kplus.Service(chart, 'service');
+  const deployment = new kplus.Deployment(chart, 'dep');
+  deployment.addContainer({ image: 'foo', port: 7777 });
+
+  service.addDeployment(deployment, 1122, {
+    targetPort: 7777,
+  });
+
+  const spec = Testing.synth(chart)[0].spec;
+  expect(spec.ports).toEqual([{ port: 1122, targetPort: 7777 }]);
+});
+
+test('Can associate a deployment with an existing service by a port name', () => {
+  const chart = Testing.chart();
+
+  const service = new kplus.Service(chart, 'service');
+  const deployment = new kplus.Deployment(chart, 'dep');
+  deployment.addContainer({
+    image: 'foo',
+    ports: [{
+      port: 7777,
+      name: 'port',
+    }],
+  });
+
+  service.addDeployment(deployment, 1122, {
+    targetPort: 'port',
+  });
+
+  const spec = Testing.synth(chart)[0].spec;
+  expect(spec.ports).toEqual([{ port: 1122, targetPort: 'port' }]);
+});
+
+test('Cannot associate a deployment with an existing service by a non-existing port', () => {
+  const chart = Testing.chart();
+
+  const service = new kplus.Service(chart, 'service');
+  const deployment = new kplus.Deployment(chart, 'dep');
+  deployment.addContainer({
+    image: 'foo',
+    ports: [{
+      port: 7777,
+      name: 'port',
+    }],
+  });
+
+  expect(() => {
+    service.addDeployment(deployment, 1122, {
+      targetPort: 'non-existing',
+    });
+  }).toThrow();
+});
+
 test('Cannot add a deployment if it does not have a label selector', () => {
 
   const chart = Testing.chart();

@@ -1,7 +1,9 @@
 import { IConfigMap } from './config-map';
+import { ContainerPort, ContainerPortOptions, ContainerPortProps } from './container-port';
 import * as k8s from './imports/k8s';
 import { Probe } from './probe';
 import { SecretValue } from './secret';
+import { undefinedIfEmpty } from './utils';
 import { Volume } from './volume';
 
 /**
@@ -168,6 +170,13 @@ export interface ContainerProps {
   readonly port?: number;
 
   /**
+   * List of ports to expose from the container.
+   *
+   * @default - No port is exposed.
+   */
+  readonly ports?: ContainerPortProps[];
+
+  /**
    * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment.
    * If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME).
    * Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated.
@@ -248,9 +257,9 @@ export interface ContainerProps {
 export class Container {
 
   /**
-   * The port this container exposes.
+   * List of ports this container exposes.
    */
-  public readonly port?: number;
+  public readonly ports: ContainerPort[] = [];
 
   /**
    * Volume mounts configured for this container.
@@ -291,7 +300,12 @@ export class Container {
 
     this.name = props.name ?? 'main';
     this.image = props.image;
-    this.port = props.port;
+    if (props.port) {
+      this.expose(props.port);
+    }
+    for (const port of props.ports ?? []) {
+      this.expose(port.port, port);
+    }
     this._command = props.command;
     this._args = props.args;
     this._env = props.env ?? { };
@@ -354,6 +368,58 @@ export class Container {
   }
 
   /**
+   * Expose a port on this container.
+   *
+   * @param portNumber - Number of port to expose.
+   * @param options - Expose options.
+   */
+  public expose(portNumber: number, options?: ContainerPortOptions): ContainerPort {
+    if (this.ports.some(port => port.port === portNumber)) {
+      throw new Error('a given port is already exposed');
+    }
+    if (options?.name && this.ports.some(port => port.name === options.name)) {
+      throw new Error('a given port name is already used');
+    }
+
+    const port = new ContainerPort({
+      ...options,
+      port: portNumber,
+    });
+    this.ports.push(port);
+    return port;
+  }
+
+  /**
+   * Get exposed port on this container.
+   *
+   * @param targetPort - Number or name of exposed port
+   * @param throwOnNotfound
+   */
+  public lookupPort(targetPort: number | string, throwOnNotfound: true): ContainerPort
+  public lookupPort(targetPort: number | string, throwOnNotfound?: boolean): ContainerPort | undefined
+  public lookupPort(targetPort: number | string, throwOnNotfound: boolean = false): ContainerPort | undefined {
+    if (typeof targetPort === 'number') {
+      for (const port of this.ports) {
+        if (targetPort === port.port) {
+          return port;
+        }
+      }
+    } else {
+      for (const port of this.ports) {
+        if (targetPort === port.name) {
+          return port;
+        }
+      }
+    }
+
+    if (throwOnNotfound) {
+      throw new Error('a targetPort is not exposed on this container');
+    }
+
+    return undefined;
+  }
+
+  /**
    * @internal
    */
   public _toKube(): k8s.Container {
@@ -370,19 +436,11 @@ export class Container {
       });
     }
 
-    const ports = new Array<k8s.ContainerPort>();
-
-    if (this.port) {
-      ports.push({
-        containerPort: this.port,
-      });
-    }
-
     return {
       name: this.name,
       image: this.image,
       imagePullPolicy: this.imagePullPolicy,
-      ports,
+      ports: undefinedIfEmpty(this.ports.map(port => port._toKube())),
       volumeMounts,
       command: this.command,
       args: this.args,

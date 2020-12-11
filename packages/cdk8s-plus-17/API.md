@@ -6,6 +6,7 @@ Name|Description
 ----|-----------
 [ConfigMap](#cdk8s-plus-17-configmap)|ConfigMap holds configuration data for pods to consume.
 [Container](#cdk8s-plus-17-container)|A single application container that you want to run within a pod.
+[ContainerPort](#cdk8s-plus-17-containerport)|*No description*
 [Deployment](#cdk8s-plus-17-deployment)|A Deployment provides declarative updates for Pods and ReplicaSets.
 [EnvValue](#cdk8s-plus-17-envvalue)|Utility class for creating reading env values from various sources.
 [IngressV1Beta1](#cdk8s-plus-17-ingressv1beta1)|Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
@@ -30,6 +31,8 @@ Name|Description
 [CommandProbeOptions](#cdk8s-plus-17-commandprobeoptions)|Options for `Probe.fromCommand()`.
 [ConfigMapProps](#cdk8s-plus-17-configmapprops)|Properties for initialization of `ConfigMap`.
 [ConfigMapVolumeOptions](#cdk8s-plus-17-configmapvolumeoptions)|Options for the ConfigMap-based volume.
+[ContainerPortOptions](#cdk8s-plus-17-containerportoptions)|*No description*
+[ContainerPortProps](#cdk8s-plus-17-containerportprops)|*No description*
 [ContainerProps](#cdk8s-plus-17-containerprops)|Properties for creating a container.
 [DeploymentProps](#cdk8s-plus-17-deploymentprops)|Properties for initialization of `Deployment`.
 [EmptyDirVolumeOptions](#cdk8s-plus-17-emptydirvolumeoptions)|Options for volumes populated with an empty directory.
@@ -219,6 +222,7 @@ new Container(props: ContainerProps)
   * **liveness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **ports** (<code>Array<[ContainerPortProps](#cdk8s-plus-17-containerportprops)></code>)  List of ports to expose from the container. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -236,9 +240,9 @@ Name | Type | Description
 **imagePullPolicy**🔹 | <code>[ImagePullPolicy](#cdk8s-plus-17-imagepullpolicy)</code> | Image pull policy for this container.
 **mounts**🔹 | <code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code> | Volume mounts configured for this container.
 **name**🔹 | <code>string</code> | The name of the container.
+**ports**🔹 | <code>Array<[ContainerPort](#cdk8s-plus-17-containerport)></code> | List of ports this container exposes.
 **args**?🔹 | <code>Array<string></code> | Arguments to the entrypoint.<br/>__*Optional*__
 **command**?🔹 | <code>Array<string></code> | Entrypoint array (the command to execute when the container starts).<br/>__*Optional*__
-**port**?🔹 | <code>number</code> | The port this container exposes.<br/>__*Optional*__
 **workingDir**?🔹 | <code>string</code> | The working directory inside the container.<br/>__*Optional*__
 
 ### Methods
@@ -261,6 +265,38 @@ addEnv(name: string, value: EnvValue): void
 
 
 
+#### expose(portNumber, options?)🔹 <a id="cdk8s-plus-17-container-expose"></a>
+
+Expose a port on this container.
+
+```ts
+expose(portNumber: number, options?: ContainerPortOptions): ContainerPort
+```
+
+* **portNumber** (<code>number</code>)  - Number of port to expose.
+* **options** (<code>[ContainerPortOptions](#cdk8s-plus-17-containerportoptions)</code>)  - Expose options.
+  * **hostIP** (<code>string</code>)  What host IP to bind the external port to. __*Optional*__
+  * **hostPort** (<code>number</code>)  Number of port to expose on the host. __*Optional*__
+  * **name** (<code>string</code>)  If specified, this must be an IANA_SVC_NAME and unique within the pod. __*Optional*__
+  * **protocol** (<code>[Protocol](#cdk8s-plus-17-protocol)</code>)  Protocol for port. __*Optional*__
+
+__Returns__:
+* <code>[ContainerPort](#cdk8s-plus-17-containerport)</code>
+
+#### lookupPort(targetPort, throwOnNotfound)🔹 <a id="cdk8s-plus-17-container-lookupport"></a>
+
+Get exposed port on this container.
+
+```ts
+lookupPort(targetPort: string &#124; number, throwOnNotfound: boolean): ContainerPort
+```
+
+* **targetPort** (<code>string &#124; number</code>)  - Number or name of exposed port.
+* **throwOnNotfound** (<code>boolean</code>)  *No description*
+
+__Returns__:
+* <code>[ContainerPort](#cdk8s-plus-17-containerport)</code>
+
 #### mount(path, volume, options?)🔹 <a id="cdk8s-plus-17-container-mount"></a>
 
 Mount a volume to a specific path so that it is accessible by the container.
@@ -281,6 +317,57 @@ mount(path: string, volume: Volume, options?: MountOptions): void
 
 
 
+
+
+
+## class ContainerPort 🔹 <a id="cdk8s-plus-17-containerport"></a>
+
+
+
+
+### Initializer
+
+
+
+
+```ts
+new ContainerPort(props: ContainerPortProps)
+```
+
+* **props** (<code>[ContainerPortProps](#cdk8s-plus-17-containerportprops)</code>)  *No description*
+  * **hostIP** (<code>string</code>)  What host IP to bind the external port to. __*Optional*__
+  * **hostPort** (<code>number</code>)  Number of port to expose on the host. __*Optional*__
+  * **name** (<code>string</code>)  If specified, this must be an IANA_SVC_NAME and unique within the pod. __*Optional*__
+  * **protocol** (<code>[Protocol](#cdk8s-plus-17-protocol)</code>)  Protocol for port. __*Optional*__
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. 
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**port**🔹 | <code>number</code> | Number of port to expose on the pod's IP address.
+**hostIP**?🔹 | <code>string</code> | What host IP to bind the external port to.<br/>__*Optional*__
+**hostPort**?🔹 | <code>number</code> | Number of port to expose on the host.<br/>__*Optional*__
+**name**?🔹 | <code>string</code> | If specified, this must be an IANA_SVC_NAME and unique within the pod.<br/>__*Optional*__
+**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | Protocol for port.<br/>__*Optional*__
+
+### Methods
+
+
+#### nameOrPort()🔹 <a id="cdk8s-plus-17-containerport-nameorport"></a>
+
+Get name or containerPort.
+
+```ts
+nameOrPort(): string &#124; number
+```
+
+
+__Returns__:
+* <code>string &#124; number</code>
 
 
 
@@ -371,6 +458,7 @@ addContainer(container: ContainerProps): Container
   * **liveness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **ports** (<code>Array<[ContainerPortProps](#cdk8s-plus-17-containerportprops)></code>)  List of ports to expose from the container. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -407,10 +495,24 @@ expose(port: number, options?: ExposeOptions): Service
   * **name** (<code>string</code>)  The name of the service to expose. __*Default*__: undefined Uses the system generated name.
   * **protocol** (<code>[Protocol](#cdk8s-plus-17-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
   * **serviceType** (<code>[ServiceType](#cdk8s-plus-17-servicetype)</code>)  The type of the exposed service. __*Default*__: ClusterIP.
-  * **targetPort** (<code>number</code>)  The port number the service will redirect to. __*Default*__: The port of the first container in the deployment (ie. containers[0].port)
+  * **targetPort** (<code>string &#124; number</code>)  The port number or name the service will redirect to. __*Default*__: The first port of the first container in the deployment (ie. containers[0].ports[0])
 
 __Returns__:
 * <code>[Service](#cdk8s-plus-17-service)</code>
+
+#### lookupPort(targetPort, throwOnNotfound)🔹 <a id="cdk8s-plus-17-deployment-lookupport"></a>
+
+Get exposed port on this deployment.
+
+```ts
+lookupPort(targetPort: string &#124; number, throwOnNotfound: boolean): ContainerPort
+```
+
+* **targetPort** (<code>string &#124; number</code>)  - Number or name of exposed port.
+* **throwOnNotfound** (<code>boolean</code>)  *No description*
+
+__Returns__:
+* <code>[ContainerPort](#cdk8s-plus-17-containerport)</code>
 
 #### selectByLabel(key, value)🔹 <a id="cdk8s-plus-17-deployment-selectbylabel"></a>
 
@@ -739,6 +841,7 @@ addContainer(container: ContainerProps): Container
   * **liveness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **ports** (<code>Array<[ContainerPortProps](#cdk8s-plus-17-containerportprops)></code>)  List of ports to expose from the container. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -823,6 +926,7 @@ addContainer(container: ContainerProps): Container
   * **liveness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **ports** (<code>Array<[ContainerPortProps](#cdk8s-plus-17-containerportprops)></code>)  List of ports to expose from the container. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -899,6 +1003,7 @@ addContainer(container: ContainerProps): Container
   * **liveness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **ports** (<code>Array<[ContainerPortProps](#cdk8s-plus-17-containerportprops)></code>)  List of ports to expose from the container. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -1009,7 +1114,7 @@ static fromHttpGet(path: string, options?: HttpGetProbeOptions): Probe
   * **periodSeconds** (<code>[Duration](#cdk8s-duration)</code>)  How often (in seconds) to perform the probe. __*Default*__: Duration.seconds(10) Minimum value is 1.
   * **successThreshold** (<code>number</code>)  Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. __*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
   * **timeoutSeconds** (<code>[Duration](#cdk8s-duration)</code>)  Number of seconds after which the probe times out. __*Default*__: Duration.seconds(1)
-  * **port** (<code>number</code>)  The TCP port to use when sending the GET request. __*Default*__: defaults to `container.port`.
+  * **port** (<code>string &#124; number</code>)  The TCP port to use when sending the GET request. __*Default*__: defaults to `container.port`.
 
 __Returns__:
 * <code>[Probe](#cdk8s-plus-17-probe)</code>
@@ -1205,7 +1310,7 @@ addDeployment(deployment: Deployment, port: number, options?: ServicePortOptions
   * **name** (<code>string</code>)  The name of this port within the service. __*Optional*__
   * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. __*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
   * **protocol** (<code>[Protocol](#cdk8s-plus-17-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
-  * **targetPort** (<code>number</code>)  The port number the service will redirect to. __*Default*__: The value of `port` will be used.
+  * **targetPort** (<code>string &#124; number</code>)  The port number or name the service will redirect to. __*Default*__: The value of `port` will be used.
 
 
 
@@ -1239,7 +1344,7 @@ serve(port: number, options?: ServicePortOptions): void
   * **name** (<code>string</code>)  The name of this port within the service. __*Optional*__
   * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. __*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
   * **protocol** (<code>[Protocol](#cdk8s-plus-17-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
-  * **targetPort** (<code>number</code>)  The port number the service will redirect to. __*Default*__: The value of `port` will be used.
+  * **targetPort** (<code>string &#124; number</code>)  The port number or name the service will redirect to. __*Default*__: The value of `port` will be used.
 
 
 
@@ -1487,6 +1592,39 @@ Name | Type | Description
 
 
 
+## struct ContainerPortOptions 🔹 <a id="cdk8s-plus-17-containerportoptions"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**hostIP**?🔹 | <code>string</code> | What host IP to bind the external port to.<br/>__*Optional*__
+**hostPort**?🔹 | <code>number</code> | Number of port to expose on the host.<br/>__*Optional*__
+**name**?🔹 | <code>string</code> | If specified, this must be an IANA_SVC_NAME and unique within the pod.<br/>__*Optional*__
+**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | Protocol for port.<br/>__*Optional*__
+
+
+
+## struct ContainerPortProps 🔹 <a id="cdk8s-plus-17-containerportprops"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**port**🔹 | <code>number</code> | Number of port to expose on the pod's IP address.
+**hostIP**?🔹 | <code>string</code> | What host IP to bind the external port to.<br/>__*Optional*__
+**hostPort**?🔹 | <code>number</code> | Number of port to expose on the host.<br/>__*Optional*__
+**name**?🔹 | <code>string</code> | If specified, this must be an IANA_SVC_NAME and unique within the pod.<br/>__*Optional*__
+**protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | Protocol for port.<br/>__*Optional*__
+
+
+
 ## struct ContainerProps 🔹 <a id="cdk8s-plus-17-containerprops"></a>
 
 
@@ -1504,6 +1642,7 @@ Name | Type | Description
 **liveness**?🔹 | <code>[Probe](#cdk8s-plus-17-probe)</code> | Periodic probe of container liveness.<br/>__*Default*__: no liveness probe is defined
 **name**?🔹 | <code>string</code> | Name of the container specified as a DNS_LABEL.<br/>__*Default*__: 'main'
 **port**?🔹 | <code>number</code> | Number of port to expose on the pod's IP address.<br/>__*Default*__: No port is exposed.
+**ports**?🔹 | <code>Array<[ContainerPortProps](#cdk8s-plus-17-containerportprops)></code> | List of ports to expose from the container.<br/>__*Default*__: No port is exposed.
 **readiness**?🔹 | <code>[Probe](#cdk8s-plus-17-probe)</code> | Determines when the container is ready to serve traffic.<br/>__*Default*__: no readiness probe is defined
 **startup**?🔹 | <code>[Probe](#cdk8s-plus-17-probe)</code> | StartupProbe indicates that the Pod has successfully initialized.<br/>__*Default*__: no startup probe is defined.
 **volumeMounts**?🔹 | <code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code> | Pod volumes to mount into the container's filesystem.<br/>__*Optional*__
@@ -1596,7 +1735,7 @@ Name | Type | Description
 **name**?🔹 | <code>string</code> | The name of the service to expose.<br/>__*Default*__: undefined Uses the system generated name.
 **protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
 **serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-17-servicetype)</code> | The type of the exposed service.<br/>__*Default*__: ClusterIP.
-**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/>__*Default*__: The port of the first container in the deployment (ie. containers[0].port)
+**targetPort**?🔹 | <code>string &#124; number</code> | The port number or name the service will redirect to.<br/>__*Default*__: The first port of the first container in the deployment (ie. containers[0].ports[0])
 
 
 
@@ -1612,7 +1751,7 @@ Name | Type | Description
 **failureThreshold**?🔹 | <code>number</code> | Minimum consecutive failures for the probe to be considered failed after having succeeded.<br/>__*Default*__: 3
 **initialDelaySeconds**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Number of seconds after the container has started before liveness probes are initiated.<br/>__*Default*__: immediate
 **periodSeconds**?🔹 | <code>[Duration](#cdk8s-duration)</code> | How often (in seconds) to perform the probe.<br/>__*Default*__: Duration.seconds(10) Minimum value is 1.
-**port**?🔹 | <code>number</code> | The TCP port to use when sending the GET request.<br/>__*Default*__: defaults to `container.port`.
+**port**?🔹 | <code>string &#124; number</code> | The TCP port to use when sending the GET request.<br/>__*Default*__: defaults to `container.port`.
 **successThreshold**?🔹 | <code>number</code> | Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.<br/>__*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
 **timeoutSeconds**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Number of seconds after which the probe times out.<br/>__*Default*__: Duration.seconds(1)
 
@@ -1672,6 +1811,7 @@ addContainer(container: ContainerProps): Container
   * **liveness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **ports** (<code>Array<[ContainerPortProps](#cdk8s-plus-17-containerportprops)></code>)  List of ports to expose from the container. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -1734,6 +1874,7 @@ addContainer(container: ContainerProps): Container
   * **liveness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
   * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
   * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **ports** (<code>Array<[ContainerPortProps](#cdk8s-plus-17-containerportprops)></code>)  List of ports to expose from the container. __*Default*__: No port is exposed.
   * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
   * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
   * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
@@ -1846,7 +1987,7 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
-**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration in seconds the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
+**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
 **backoffLimit**?🔹 | <code>number</code> | Specifies the number of retries before marking this job failed.<br/>__*Default*__: If not set, system defaults to 6.
 **containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-17-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
@@ -2040,7 +2181,7 @@ Name | Type | Description
 **name**?🔹 | <code>string</code> | The name of this port within the service.<br/>__*Optional*__
 **nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/>__*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
 **protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
-**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
+**targetPort**?🔹 | <code>string &#124; number</code> | The port number or name the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
 
 
 
@@ -2056,7 +2197,7 @@ Name | Type | Description
 **name**?🔹 | <code>string</code> | The name of this port within the service.<br/>__*Optional*__
 **nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/>__*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
 **protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
-**targetPort**?🔹 | <code>number</code> | The port number the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
+**targetPort**?🔹 | <code>string &#124; number</code> | The port number or name the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
 
 
 
@@ -2162,4 +2303,5 @@ Name | Description
 **NODE_PORT** 🔹|Exposes the Service on each Node's IP at a static port (the NodePort).
 **LOAD_BALANCER** 🔹|Exposes the Service externally using a cloud provider's load balancer.
 **EXTERNAL_NAME** 🔹|Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up.
+
 
