@@ -286,4 +286,27 @@ describe('Container', () => {
       });
     }).toThrow();
   });
+
+  test('lookupPort should preserve reference', () => {
+    const container = new kplus.Container({
+      image: 'image',
+    });
+    const port = container.expose(80);
+
+    expect(container.lookupPort(80)).toBe(port);
+  });
+
+  test('lookupPort should aware of the port object ownership', () => {
+    const container1 = new kplus.Container({
+      image: 'image',
+    });
+    const port1 = container1.expose(80);
+
+    const container2 = new kplus.Container({
+      image: 'image',
+    });
+    container2.expose(80);
+
+    expect(container2.lookupPort(port1)).toBeUndefined();
+  });
 });

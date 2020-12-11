@@ -288,10 +288,10 @@ __Returns__:
 Get exposed port on this container.
 
 ```ts
-lookupPort(targetPort: string &#124; number, throwOnNotfound: boolean): ContainerPort
+lookupPort(targetPort: string &#124; number &#124; ContainerPort, throwOnNotfound: boolean): ContainerPort
 ```
 
-* **targetPort** (<code>string &#124; number</code>)  - Number or name of exposed port.
+* **targetPort** (<code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code>)  - Number or name of exposed port.
 * **throwOnNotfound** (<code>boolean</code>)  *No description*
 
 __Returns__:
@@ -495,7 +495,7 @@ expose(port: number, options?: ExposeOptions): Service
   * **name** (<code>string</code>)  The name of the service to expose. __*Default*__: undefined Uses the system generated name.
   * **protocol** (<code>[Protocol](#cdk8s-plus-17-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
   * **serviceType** (<code>[ServiceType](#cdk8s-plus-17-servicetype)</code>)  The type of the exposed service. __*Default*__: ClusterIP.
-  * **targetPort** (<code>string &#124; number</code>)  The port number or name the service will redirect to. __*Default*__: The first port of the first container in the deployment (ie. containers[0].ports[0])
+  * **targetPort** (<code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code>)  The port number or name the service will redirect to. __*Default*__: The first port of the first container in the deployment (ie. containers[0].ports[0])
 
 __Returns__:
 * <code>[Service](#cdk8s-plus-17-service)</code>
@@ -505,10 +505,10 @@ __Returns__:
 Get exposed port on this deployment.
 
 ```ts
-lookupPort(targetPort: string &#124; number, throwOnNotfound: boolean): ContainerPort
+lookupPort(targetPort: string &#124; number &#124; ContainerPort, throwOnNotfound: boolean): ContainerPort
 ```
 
-* **targetPort** (<code>string &#124; number</code>)  - Number or name of exposed port.
+* **targetPort** (<code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code>)  - Number or name of exposed port.
 * **throwOnNotfound** (<code>boolean</code>)  *No description*
 
 __Returns__:
@@ -1114,7 +1114,7 @@ static fromHttpGet(path: string, options?: HttpGetProbeOptions): Probe
   * **periodSeconds** (<code>[Duration](#cdk8s-duration)</code>)  How often (in seconds) to perform the probe. __*Default*__: Duration.seconds(10) Minimum value is 1.
   * **successThreshold** (<code>number</code>)  Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. __*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
   * **timeoutSeconds** (<code>[Duration](#cdk8s-duration)</code>)  Number of seconds after which the probe times out. __*Default*__: Duration.seconds(1)
-  * **port** (<code>string &#124; number</code>)  The TCP port to use when sending the GET request. __*Default*__: defaults to `container.port`.
+  * **port** (<code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code>)  The TCP port to use when sending the GET request. __*Default*__: defaults to `container.port`.
 
 __Returns__:
 * <code>[Probe](#cdk8s-plus-17-probe)</code>
@@ -1310,7 +1310,7 @@ addDeployment(deployment: Deployment, port: number, options?: ServicePortOptions
   * **name** (<code>string</code>)  The name of this port within the service. __*Optional*__
   * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. __*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
   * **protocol** (<code>[Protocol](#cdk8s-plus-17-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
-  * **targetPort** (<code>string &#124; number</code>)  The port number or name the service will redirect to. __*Default*__: The value of `port` will be used.
+  * **targetPort** (<code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code>)  The port number or name the service will redirect to. __*Default*__: The value of `port` will be used.
 
 
 
@@ -1344,7 +1344,7 @@ serve(port: number, options?: ServicePortOptions): void
   * **name** (<code>string</code>)  The name of this port within the service. __*Optional*__
   * **nodePort** (<code>number</code>)  The port on each node on which this service is exposed when type=NodePort or LoadBalancer. __*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
   * **protocol** (<code>[Protocol](#cdk8s-plus-17-protocol)</code>)  The IP protocol for this port. __*Default*__: Protocol.TCP
-  * **targetPort** (<code>string &#124; number</code>)  The port number or name the service will redirect to. __*Default*__: The value of `port` will be used.
+  * **targetPort** (<code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code>)  The port number or name the service will redirect to. __*Default*__: The value of `port` will be used.
 
 
 
@@ -1735,7 +1735,7 @@ Name | Type | Description
 **name**?🔹 | <code>string</code> | The name of the service to expose.<br/>__*Default*__: undefined Uses the system generated name.
 **protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
 **serviceType**?🔹 | <code>[ServiceType](#cdk8s-plus-17-servicetype)</code> | The type of the exposed service.<br/>__*Default*__: ClusterIP.
-**targetPort**?🔹 | <code>string &#124; number</code> | The port number or name the service will redirect to.<br/>__*Default*__: The first port of the first container in the deployment (ie. containers[0].ports[0])
+**targetPort**?🔹 | <code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code> | The port number or name the service will redirect to.<br/>__*Default*__: The first port of the first container in the deployment (ie. containers[0].ports[0])
 
 
 
@@ -1751,7 +1751,7 @@ Name | Type | Description
 **failureThreshold**?🔹 | <code>number</code> | Minimum consecutive failures for the probe to be considered failed after having succeeded.<br/>__*Default*__: 3
 **initialDelaySeconds**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Number of seconds after the container has started before liveness probes are initiated.<br/>__*Default*__: immediate
 **periodSeconds**?🔹 | <code>[Duration](#cdk8s-duration)</code> | How often (in seconds) to perform the probe.<br/>__*Default*__: Duration.seconds(10) Minimum value is 1.
-**port**?🔹 | <code>string &#124; number</code> | The TCP port to use when sending the GET request.<br/>__*Default*__: defaults to `container.port`.
+**port**?🔹 | <code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code> | The TCP port to use when sending the GET request.<br/>__*Default*__: defaults to `container.port`.
 **successThreshold**?🔹 | <code>number</code> | Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.<br/>__*Default*__: 1 Must be 1 for liveness and startup. Minimum value is 1.
 **timeoutSeconds**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Number of seconds after which the probe times out.<br/>__*Default*__: Duration.seconds(1)
 
@@ -2181,7 +2181,7 @@ Name | Type | Description
 **name**?🔹 | <code>string</code> | The name of this port within the service.<br/>__*Optional*__
 **nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/>__*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
 **protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
-**targetPort**?🔹 | <code>string &#124; number</code> | The port number or name the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
+**targetPort**?🔹 | <code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code> | The port number or name the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
 
 
 
@@ -2197,7 +2197,7 @@ Name | Type | Description
 **name**?🔹 | <code>string</code> | The name of this port within the service.<br/>__*Optional*__
 **nodePort**?🔹 | <code>number</code> | The port on each node on which this service is exposed when type=NodePort or LoadBalancer.<br/>__*Default*__: to auto-allocate a port if the ServiceType of this Service requires one.
 **protocol**?🔹 | <code>[Protocol](#cdk8s-plus-17-protocol)</code> | The IP protocol for this port.<br/>__*Default*__: Protocol.TCP
-**targetPort**?🔹 | <code>string &#124; number</code> | The port number or name the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
+**targetPort**?🔹 | <code>string &#124; number &#124; [ContainerPort](#cdk8s-plus-17-containerport)</code> | The port number or name the service will redirect to.<br/>__*Default*__: The value of `port` will be used.
 
 
 

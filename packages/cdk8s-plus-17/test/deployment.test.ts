@@ -268,3 +268,33 @@ test('Port names must be unique in a deployment', () => {
     ],
   })).toThrow();
 });
+
+test('lookupPort should preserve reference', () => {
+  const chart = Testing.chart();
+
+  const deployment = new kplus.Deployment(chart, 'Deployment');
+  const container = deployment.addContainer({
+    image: 'image',
+  });
+  const port = container.expose(80);
+
+  expect(container.lookupPort(80)).toBe(port);
+});
+
+test('lookupPort should aware of the port object ownership', () => {
+  const chart = Testing.chart();
+
+  const deployment1 = new kplus.Deployment(chart, 'Deployment1');
+  const container1 = deployment1.addContainer({
+    image: 'image',
+  });
+  const port1 = container1.expose(80);
+
+  const deployment2 = new kplus.Deployment(chart, 'Deployment2');
+  const container2 = deployment1.addContainer({
+    image: 'image',
+  });
+  container2.expose(80);
+
+  expect(deployment2.lookupPort(port1)).toBeUndefined();
+});

@@ -144,6 +144,24 @@ test('Can associate a deployment with an existing service by a port name', () =>
   expect(spec.ports).toEqual([{ port: 1122, targetPort: 'port' }]);
 });
 
+test('Can associate a deployment with an existing service by a port object', () => {
+  const chart = Testing.chart();
+
+  const service = new kplus.Service(chart, 'service');
+  const deployment = new kplus.Deployment(chart, 'dep');
+  const container = deployment.addContainer({
+    image: 'foo',
+  });
+  const port = container.expose(7777);
+
+  service.addDeployment(deployment, 1122, {
+    targetPort: port,
+  });
+
+  const spec = Testing.synth(chart)[0].spec;
+  expect(spec.ports).toEqual([{ port: 1122, targetPort: 7777 }]);
+});
+
 test('Cannot associate a deployment with an existing service by a non-existing port', () => {
   const chart = Testing.chart();
 
@@ -160,6 +178,29 @@ test('Cannot associate a deployment with an existing service by a non-existing p
   expect(() => {
     service.addDeployment(deployment, 1122, {
       targetPort: 'non-existing',
+    });
+  }).toThrow();
+});
+
+test('Cannot associate a deployment with an existing service by port object of other deployment', () => {
+  const chart = Testing.chart();
+
+  const service = new kplus.Service(chart, 'service');
+  const deployment1 = new kplus.Deployment(chart, 'dep');
+  const container1 = deployment1.addContainer({
+    image: 'foo',
+  });
+  container1.expose(7777);
+
+  const deployment2 = new kplus.Deployment(chart, 'dep2');
+  const container2 = deployment2.addContainer({
+    image: 'foo',
+  });
+  const port2 = container2.expose(7777);
+
+  expect(() => {
+    service.addDeployment(deployment1, 1122, {
+      targetPort: port2,
     });
   }).toThrow();
 });

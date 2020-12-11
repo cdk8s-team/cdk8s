@@ -65,7 +65,7 @@ export interface ExposeOptions {
    *
    * @default - The first port of the first container in the deployment (ie. containers[0].ports[0])
    */
-  readonly targetPort?: number | string;
+  readonly targetPort?: number | string | ContainerPort;
 }
 
 
@@ -204,9 +204,9 @@ export class Deployment extends Resource implements IPodTemplate {
    * @param targetPort - Number or name of exposed port
    * @param throwOnNotfound
    */
-  public lookupPort(targetPort: number | string, throwOnNotfound: true): ContainerPort
-  public lookupPort(targetPort: number | string, throwOnNotfound?: boolean): ContainerPort | undefined
-  public lookupPort(targetPort: number | string, throwOnNotfound: boolean = false): ContainerPort | undefined {
+  public lookupPort(targetPort: number | string | ContainerPort, throwOnNotfound: true): ContainerPort
+  public lookupPort(targetPort: number | string | ContainerPort, throwOnNotfound?: boolean): ContainerPort | undefined
+  public lookupPort(targetPort: number | string | ContainerPort, throwOnNotfound: boolean = false): ContainerPort | undefined {
     for (const container of this.containers) {
       const result = container.lookupPort(targetPort);
       if (result) {
@@ -215,7 +215,11 @@ export class Deployment extends Resource implements IPodTemplate {
     }
 
     if (throwOnNotfound) {
-      throw new Error('a targetPort is not exposed on any container in this deployment');
+      if (typeof targetPort === 'number' || typeof targetPort === 'string') {
+        throw new Error('a targetPort is not exposed on any container in this deployment');
+      } else {
+        throw new Error('a targetPort is originated from other deployment');
+      }
     }
 
     return undefined;

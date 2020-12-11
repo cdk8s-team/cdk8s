@@ -395,25 +395,36 @@ export class Container {
    * @param targetPort - Number or name of exposed port
    * @param throwOnNotfound
    */
-  public lookupPort(targetPort: number | string, throwOnNotfound: true): ContainerPort
-  public lookupPort(targetPort: number | string, throwOnNotfound?: boolean): ContainerPort | undefined
-  public lookupPort(targetPort: number | string, throwOnNotfound: boolean = false): ContainerPort | undefined {
+  public lookupPort(targetPort: number | string | ContainerPort, throwOnNotfound: true): ContainerPort
+  public lookupPort(targetPort: number | string | ContainerPort, throwOnNotfound?: boolean): ContainerPort | undefined
+  public lookupPort(targetPort: number | string | ContainerPort, throwOnNotfound: boolean = false): ContainerPort | undefined {
     if (typeof targetPort === 'number') {
       for (const port of this.ports) {
         if (targetPort === port.port) {
           return port;
         }
       }
-    } else {
+    } else if (typeof targetPort === 'string') {
       for (const port of this.ports) {
         if (targetPort === port.name) {
+          return port;
+        }
+      }
+    } else {
+      for (const port of this.ports) {
+        // compare reference to ensure the origin
+        if (port === targetPort) {
           return port;
         }
       }
     }
 
     if (throwOnNotfound) {
-      throw new Error('a targetPort is not exposed on this container');
+      if (typeof targetPort === 'number' || typeof targetPort === 'string') {
+        throw new Error('a targetPort is not exposed on this container');
+      } else {
+        throw new Error('a targetPort is originated from other containers');
+      }
     }
 
     return undefined;

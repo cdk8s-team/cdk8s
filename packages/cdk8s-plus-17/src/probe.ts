@@ -1,5 +1,6 @@
 import { Duration } from 'cdk8s';
 import { Container } from './container';
+import { ContainerPort } from './container-port';
 import * as k8s from './imports/k8s';
 
 /**
@@ -64,7 +65,7 @@ export interface HttpGetProbeOptions extends ProbeOptions {
    *
    * @default - defaults to `container.port`.
    */
-  readonly port?: number | string;
+  readonly port?: number | string | ContainerPort;
 }
 
 /**

@@ -71,6 +71,32 @@ describe('fromHttpGet()', () => {
     });
   });
 
+  test('specific port by port object', () => {
+    // GIVEN
+    const container = new Container({
+      image: 'foobar',
+    });
+    const port = container.expose(7777, {
+      name: 'port',
+    });
+
+    // WHEN
+    const min = Probe.fromHttpGet('/hello', { port });
+
+    // THEN
+    expect(min._toKube(container)).toEqual({
+      failureThreshold: 3,
+      httpGet: {
+        path: '/hello',
+        port: 'port',
+      },
+      initialDelaySeconds: undefined,
+      periodSeconds: undefined,
+      successThreshold: undefined,
+      timeoutSeconds: undefined,
+    });
+  });
+
   test('cannot probe on not exposed port', () => {
     // GIVEN
     const container = new Container({ image: 'foobar', port: 5555 });
@@ -80,6 +106,20 @@ describe('fromHttpGet()', () => {
 
     // THEN
     expect(() => min._toKube(container)).toThrow();
+  });
+
+  test('cannot probe on other containers port', () => {
+    // GIVEN
+    const container1 = new Container({ image: 'foobar' });
+    const port1 = container1.expose(5555);
+    const container2 = new Container({ image: 'foobar' });
+    container2.expose(5555);
+
+    // WHEN
+    const min = Probe.fromHttpGet('/hello', { port: port1 });
+
+    // THEN
+    expect(() => min._toKube(container2)).toThrow();
   });
 
   test('options', () => {

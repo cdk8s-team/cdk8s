@@ -282,7 +282,7 @@ export interface ServicePortOptions {
    *
    * @default - The value of `port` will be used.
    */
-  readonly targetPort?: number | string;
+  readonly targetPort?: number | string | ContainerPort;
 }
 
 /**
