@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function match_snapshot() {
   local actual=$1
   local expected=$2
