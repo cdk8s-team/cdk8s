@@ -1,8 +1,8 @@
 import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
 
-import { Jenkins } from './imports/jenkins.io/jenkins';
-import { ClusterInstallation } from './imports/mattermost-mattermost.com/clusterinstallation';
+import { Jenkins } from './imports/jenkins.io';
+import { ClusterInstallation } from './imports/mattermost-mattermost.com';
 
 export class HelloKube extends Chart {
   constructor(scope: Construct, id: string) {

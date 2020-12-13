@@ -26,11 +26,6 @@ This guide will walk you through the following steps:
 CDK8s has a cute little CLI that has a few useful commands. Let's start by
 installing the CDK8s CLI globally. We have two options for this.
 
-=== "Homebrew"
-    ```console
-    $ brew install cdk8s
-    ```
-
 === "npm"
     ```console
     $ npm install -g cdk8s-cli

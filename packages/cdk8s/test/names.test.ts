@@ -73,6 +73,11 @@ describe('toDnsLabel', () => {
     expect(toDnsName('hello-world-this-is-cool')).toEqual('hello-world-this-is-cool');
     expect(toDnsName('hello/world-this/is-cool')).toEqual('hello-world-this-is-cool-c81c7478');
   });
+
+  test('optional hash', () => {
+    expect(toDnsName('hello/default/foo/world/resource', { includeHash: false })).toEqual('hello-foo-world');
+    expect(toDnsName('hello/world/this/is/cool', { includeHash: false, maxLen: 8 })).toEqual('is-cool');
+  });
 });
 
 describe('toLabel', () => {
@@ -143,5 +148,10 @@ describe('toLabel', () => {
   test('filter empty components', () => {
     expect(toLabelValue('hello---this/is/cool/-')).toEqual('hello-this-is-cool-c83b900b');
     expect(toLabelValue('hello---this/is---/cool/-')).toEqual('hello-this-is-cool-c82d69dd');
+  });
+
+  test('optional hash', () => {
+    expect(toLabelValue('hello/default/foo/world/resource', { includeHash: false })).toEqual('hello-foo-world');
+    expect(toLabelValue('hello/world/this/is/cool', { includeHash: false, maxLen: 8 })).toEqual('is-cool');
   });
 });
