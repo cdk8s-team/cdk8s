@@ -183,3 +183,18 @@ test('Type defaults to EXTERNAL_NAME if externalName if given', () => {
   expect(spec.type).toEqual(kplus.ServiceType.EXTERNAL_NAME);
 
 });
+
+test('Can restrict CIDR IP addresses for a LoadBalancer type', () => {
+  const sourceRanges = ['143.231.0.0/16'];
+  const chart = Testing.chart();
+  new kplus.Service(chart, 'service', {
+    ports: [{ port: 80 }],
+    type: kplus.ServiceType.LOAD_BALANCER,
+    loadBalancerSourceRanges: sourceRanges,
+  });
+
+  // assert the k8s spec has it.
+  const spec = Testing.synth(chart)[0].spec;
+  expect(spec.loadBalancerSourceRanges).toEqual(sourceRanges);
+
+});
