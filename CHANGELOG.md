@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * **lib:** Lazy is not resolved in metadata ([#443](https://github.com/awslabs/cdk8s/issues/443)) ([914d4a8](https://github.com/awslabs/cdk8s/commit/914d4a89ace15a6081267cbf5d359459f8514ee9))
-* which command missing for windows ([#417](https://github.com/awslabs/cdk8s/issues/417)) ([38a7034](https://github.com/awslabs/cdk8s/commit/38a703411c7162bfa4d1904ef6b94e2a017ea4da))
+* **cli:** which command missing for windows ([#417](https://github.com/awslabs/cdk8s/issues/417)) ([38a7034](https://github.com/awslabs/cdk8s/commit/38a703411c7162bfa4d1904ef6b94e2a017ea4da))
 * **docs:** align getting started with new code ([#410](https://github.com/awslabs/cdk8s/issues/410)) ([c61e109](https://github.com/awslabs/cdk8s/commit/c61e109e5cdddeb6c5c3b4ff86d2f7f79e11b9ff))
 * **docs:** WebService typescript example formatting ([#408](https://github.com/awslabs/cdk8s/issues/408)) ([e2470f9](https://github.com/awslabs/cdk8s/commit/e2470f96e737af784f11168474ca24e52619c238))
 * **plus-17:** don't allow containers to be contructed from containers ([#404](https://github.com/awslabs/cdk8s/issues/404)) ([5d11533](https://github.com/awslabs/cdk8s/commit/5d11533f9aea672793459b9f2c6caaddb6430e3e))
