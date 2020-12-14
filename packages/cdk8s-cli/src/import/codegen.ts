@@ -46,6 +46,9 @@ export function generateConstruct(typegen: TypeGenerator, def: ApiObjectDefiniti
 
     // `propsTypeName` could also be "any" if we can't parse the schema for some reason
     const propsTypeName = emitPropsStruct();
+    const groupPrefix = def.group ? `${def.group}/` : '';
+    const hasRequired = schema?.required && Array.isArray(schema.required) && schema.required.length > 0;
+    const defaultProps = hasRequired ? '' : ' = {}';
     emitConstruct();
 
     function emitPropsStruct() {
@@ -76,7 +79,29 @@ export function generateConstruct(typegen: TypeGenerator, def: ApiObjectDefiniti
       code.line(' */');
       code.openBlock(`export class ${constructName} extends ApiObject`);
 
+      emitGVK();
+
+      code.line('');
+
+      emitPropsWithGVK();
+
+      code.line('');
+
       emitInitializer();
+
+      code.closeBlock();
+    }
+
+    function emitGVK() {
+
+      code.line('/**');
+      code.line(` * Returns the apiVersion and kind for "${def.fqn}"`);
+      code.line(' */');
+
+      code.openBlock('public static readonly GVK: GroupVersionKind =');
+
+      code.line(`apiVersion: '${groupPrefix}${def.version}',`);
+      code.line(`kind: '${def.kind}',`);
 
       code.closeBlock();
     }
@@ -87,24 +112,32 @@ export function generateConstruct(typegen: TypeGenerator, def: ApiObjectDefiniti
       code.line(` * Defines a "${def.fqn}" API object`);
       code.line(' * @param scope the scope in which to define this object');
       code.line(' * @param id a scope-local name for the object');
-      code.line(' * @param props initialiation props');
+      code.line(' * @param props initialization props');
       code.line(' */');
 
-      const hasRequired = schema?.required && Array.isArray(schema.required) && schema.required.length > 0;
-      const defaultProps = hasRequired ? '' : ' = {}';
       code.openBlock(`public constructor(scope: Construct, id: string, props: ${propsTypeName}${defaultProps})`);
-      emitInitializerSuper();
+
+      code.line(`super(scope, id, ${constructName}.propsWithGVK(props));`);
 
       code.closeBlock();
     }
 
-    function emitInitializerSuper() {
-      const groupPrefix = def.group ? `${def.group}/` : '';
-      code.open('super(scope, id, {');
+    function emitPropsWithGVK() {
+
+      code.line('/**');
+      code.line(` * Adds "${def.fqn}" kind and apiVersion to props`);
+      code.line(' * @param props initialization props');
+      code.line(' */');
+
+      code.openBlock(`public static propsWithGVK(props: ${propsTypeName}${defaultProps}): any`);
+
+      code.open('return {');
       code.line('...props,');
       code.line(`kind: '${def.kind}',`);
       code.line(`apiVersion: '${groupPrefix}${def.version}',`);
-      code.close('});');
+      code.close('};');
+
+      code.closeBlock();
     }
   });
 }

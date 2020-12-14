@@ -40,6 +40,27 @@ class CronTab(
 
         jsii.create(CronTab, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: typing.Optional["CronTabSpec"] = None,
+    ) -> typing.Any:
+        """Adds "CronTab" kind and apiVersion to props.
+
+        :param spec: 
+        """
+        props = CronTabProps(spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "CronTab"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="comexamplestable.CronTabProps",

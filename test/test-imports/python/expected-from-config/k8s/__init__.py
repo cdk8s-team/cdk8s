@@ -9617,6 +9617,29 @@ class KubeApiService(
 
         jsii.create(KubeApiService, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[ApiServiceSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: Spec contains information for locating and communicating with a server.
+        """
+        props = KubeApiServiceProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeApiServiceList(
     cdk8s.ApiObject,
@@ -9646,6 +9669,29 @@ class KubeApiServiceList(
         props = KubeApiServiceListProps(items=items, metadata=metadata)
 
         jsii.create(KubeApiServiceList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeApiServiceProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" kind and apiVersion to props.
+
+        :param items: 
+        :param metadata: 
+        """
+        props = KubeApiServiceListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -9732,6 +9778,29 @@ class KubeApiServiceListV1Beta1(
         props = KubeApiServiceListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeApiServiceListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeApiServiceV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList" kind and apiVersion to props.
+
+        :param items: 
+        :param metadata: 
+        """
+        props = KubeApiServiceListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -9881,6 +9950,29 @@ class KubeApiServiceV1Beta1(
 
         jsii.create(KubeApiServiceV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[ApiServiceSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: Spec contains information for locating and communicating with a server.
+        """
+        props = KubeApiServiceV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeApiServiceV1Beta1Props",
@@ -9971,6 +10063,29 @@ class KubeAuditSinkListV1Alpha1(
 
         jsii.create(KubeAuditSinkListV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeAuditSinkV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" kind and apiVersion to props.
+
+        :param items: List of audit configurations.
+        :param metadata: 
+        """
+        props = KubeAuditSinkListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.auditregistration.v1alpha1.AuditSinkList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeAuditSinkListV1Alpha1Props",
@@ -10057,6 +10172,29 @@ class KubeAuditSinkV1Alpha1(
         props = KubeAuditSinkV1Alpha1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeAuditSinkV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[AuditSinkSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.auditregistration.v1alpha1.AuditSink" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: Spec defines the audit configuration spec.
+        """
+        props = KubeAuditSinkV1Alpha1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.auditregistration.v1alpha1.AuditSink"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -10147,6 +10285,29 @@ class KubeBinding(
         props = KubeBindingProps(target=target, metadata=metadata)
 
         jsii.create(KubeBinding, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        target: "ObjectReference",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.Binding" kind and apiVersion to props.
+
+        :param target: The target object that you want to bind to the standard object.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeBindingProps(target=target, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.Binding"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -10243,6 +10404,31 @@ class KubeCertificateSigningRequestListV1Beta1(
 
         jsii.create(KubeCertificateSigningRequestListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeCertificateSigningRequestV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList" kind and apiVersion to props.
+
+        :param items: 
+        :param metadata: 
+        """
+        props = KubeCertificateSigningRequestListV1Beta1Props(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeCertificateSigningRequestListV1Beta1Props",
@@ -10327,6 +10513,29 @@ class KubeCertificateSigningRequestV1Beta1(
         props = KubeCertificateSigningRequestV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeCertificateSigningRequestV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CertificateSigningRequestSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.certificates.v1beta1.CertificateSigningRequest" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: The certificate request itself and any additional information.
+        """
+        props = KubeCertificateSigningRequestV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.certificates.v1beta1.CertificateSigningRequest"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -10420,6 +10629,33 @@ class KubeClusterRole(
 
         jsii.create(KubeClusterRole, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        aggregation_rule: typing.Optional[AggregationRule] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1.ClusterRole" kind and apiVersion to props.
+
+        :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this ClusterRole.
+        """
+        props = KubeClusterRoleProps(
+            aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.ClusterRole"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeClusterRoleBinding(
     cdk8s.ApiObject,
@@ -10456,6 +10692,33 @@ class KubeClusterRoleBinding(
 
         jsii.create(KubeClusterRoleBinding, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1.ClusterRoleBinding" kind and apiVersion to props.
+
+        :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        props = KubeClusterRoleBindingProps(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.ClusterRoleBinding"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeClusterRoleBindingList(
     cdk8s.ApiObject,
@@ -10485,6 +10748,29 @@ class KubeClusterRoleBindingList(
         props = KubeClusterRoleBindingListProps(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleBindingList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeClusterRoleBindingProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1.ClusterRoleBindingList" kind and apiVersion to props.
+
+        :param items: Items is a list of ClusterRoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeClusterRoleBindingListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.ClusterRoleBindingList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -10575,6 +10861,29 @@ class KubeClusterRoleBindingListV1Alpha1(
         props = KubeClusterRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleBindingListV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeClusterRoleBindingV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList" kind and apiVersion to props.
+
+        :param items: Items is a list of ClusterRoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeClusterRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -10667,6 +10976,29 @@ class KubeClusterRoleBindingListV1Beta1(
         props = KubeClusterRoleBindingListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleBindingListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeClusterRoleBindingV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList" kind and apiVersion to props.
+
+        :param items: Items is a list of ClusterRoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeClusterRoleBindingListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -10845,6 +11177,33 @@ class KubeClusterRoleBindingV1Alpha1(
 
         jsii.create(KubeClusterRoleBindingV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding" kind and apiVersion to props.
+
+        :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        props = KubeClusterRoleBindingV1Alpha1Props(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeClusterRoleBindingV1Alpha1Props",
@@ -10962,6 +11321,33 @@ class KubeClusterRoleBindingV1Beta1(
 
         jsii.create(KubeClusterRoleBindingV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1beta1.ClusterRoleBinding" kind and apiVersion to props.
+
+        :param role_ref: RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        props = KubeClusterRoleBindingV1Beta1Props(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.ClusterRoleBinding"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeClusterRoleBindingV1Beta1Props",
@@ -11073,6 +11459,29 @@ class KubeClusterRoleList(
 
         jsii.create(KubeClusterRoleList, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeClusterRoleProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1.ClusterRoleList" kind and apiVersion to props.
+
+        :param items: Items is a list of ClusterRoles.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeClusterRoleListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.ClusterRoleList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeClusterRoleListProps",
@@ -11162,6 +11571,29 @@ class KubeClusterRoleListV1Alpha1(
         props = KubeClusterRoleListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleListV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeClusterRoleV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1alpha1.ClusterRoleList" kind and apiVersion to props.
+
+        :param items: Items is a list of ClusterRoles.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeClusterRoleListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -11254,6 +11686,29 @@ class KubeClusterRoleListV1Beta1(
         props = KubeClusterRoleListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeClusterRoleListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeClusterRoleV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1beta1.ClusterRoleList" kind and apiVersion to props.
+
+        :param items: Items is a list of ClusterRoles.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeClusterRoleListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.ClusterRoleList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -11429,6 +11884,33 @@ class KubeClusterRoleV1Alpha1(
 
         jsii.create(KubeClusterRoleV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        aggregation_rule: typing.Optional[AggregationRule] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1alpha1.ClusterRole" kind and apiVersion to props.
+
+        :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this ClusterRole.
+        """
+        props = KubeClusterRoleV1Alpha1Props(
+            aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRole"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeClusterRoleV1Alpha1Props",
@@ -11545,6 +12027,33 @@ class KubeClusterRoleV1Beta1(
 
         jsii.create(KubeClusterRoleV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        aggregation_rule: typing.Optional[AggregationRule] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1beta1.ClusterRole" kind and apiVersion to props.
+
+        :param aggregation_rule: AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this ClusterRole.
+        """
+        props = KubeClusterRoleV1Beta1Props(
+            aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.ClusterRole"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeClusterRoleV1Beta1Props",
@@ -11655,6 +12164,29 @@ class KubeComponentStatus(
 
         jsii.create(KubeComponentStatus, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        conditions: typing.Optional[typing.List[ComponentCondition]] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ComponentStatus" kind and apiVersion to props.
+
+        :param conditions: List of component conditions observed.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeComponentStatusProps(conditions=conditions, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ComponentStatus"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeComponentStatusList(
     cdk8s.ApiObject,
@@ -11684,6 +12216,29 @@ class KubeComponentStatusList(
         props = KubeComponentStatusListProps(items=items, metadata=metadata)
 
         jsii.create(KubeComponentStatusList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeComponentStatusProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ComponentStatusList" kind and apiVersion to props.
+
+        :param items: List of ComponentStatus objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeComponentStatusListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ComponentStatusList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -11838,6 +12393,33 @@ class KubeConfigMap(
 
         jsii.create(KubeConfigMap, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        binary_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ConfigMap" kind and apiVersion to props.
+
+        :param binary_data: BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
+        :param data: Data contains the configuration data. Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeConfigMapProps(
+            binary_data=binary_data, data=data, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ConfigMap"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeConfigMapList(
     cdk8s.ApiObject,
@@ -11867,6 +12449,29 @@ class KubeConfigMapList(
         props = KubeConfigMapListProps(items=items, metadata=metadata)
 
         jsii.create(KubeConfigMapList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeConfigMapProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ConfigMapList" kind and apiVersion to props.
+
+        :param items: Items is the list of ConfigMaps.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeConfigMapListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ConfigMapList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -12040,6 +12645,33 @@ class KubeControllerRevision(
 
         jsii.create(KubeControllerRevision, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        revision: jsii.Number,
+        data: typing.Any = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.ControllerRevision" kind and apiVersion to props.
+
+        :param revision: Revision indicates the revision of the state represented by Data.
+        :param data: Data is the serialized representation of the state.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeControllerRevisionProps(
+            revision=revision, data=data, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.ControllerRevision"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeControllerRevisionList(
     cdk8s.ApiObject,
@@ -12069,6 +12701,29 @@ class KubeControllerRevisionList(
         props = KubeControllerRevisionListProps(items=items, metadata=metadata)
 
         jsii.create(KubeControllerRevisionList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeControllerRevisionProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.ControllerRevisionList" kind and apiVersion to props.
+
+        :param items: Items is the list of ControllerRevisions.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeControllerRevisionListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.ControllerRevisionList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -12158,6 +12813,29 @@ class KubeControllerRevisionListV1Beta1(
 
         jsii.create(KubeControllerRevisionListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeControllerRevisionV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta1.ControllerRevisionList" kind and apiVersion to props.
+
+        :param items: Items is the list of ControllerRevisions.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeControllerRevisionListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta1.ControllerRevisionList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeControllerRevisionListV1Beta1Props",
@@ -12245,6 +12923,29 @@ class KubeControllerRevisionListV1Beta2(
         props = KubeControllerRevisionListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeControllerRevisionListV1Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeControllerRevisionV1Beta2Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.ControllerRevisionList" kind and apiVersion to props.
+
+        :param items: Items is the list of ControllerRevisions.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeControllerRevisionListV1Beta2Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.ControllerRevisionList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -12415,6 +13116,33 @@ class KubeControllerRevisionV1Beta1(
 
         jsii.create(KubeControllerRevisionV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        revision: jsii.Number,
+        data: typing.Any = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta1.ControllerRevision" kind and apiVersion to props.
+
+        :param revision: Revision indicates the revision of the state represented by Data.
+        :param data: Data is the serialized representation of the state.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeControllerRevisionV1Beta1Props(
+            revision=revision, data=data, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta1.ControllerRevision"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeControllerRevisionV1Beta1Props",
@@ -12526,6 +13254,33 @@ class KubeControllerRevisionV1Beta2(
 
         jsii.create(KubeControllerRevisionV1Beta2, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        revision: jsii.Number,
+        data: typing.Any = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.ControllerRevision" kind and apiVersion to props.
+
+        :param revision: Revision indicates the revision of the state represented by Data.
+        :param data: Data is the serialized representation of the state.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeControllerRevisionV1Beta2Props(
+            revision=revision, data=data, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.ControllerRevision"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeControllerRevisionV1Beta2Props",
@@ -12631,6 +13386,29 @@ class KubeCronJobListV1Beta1(
 
         jsii.create(KubeCronJobListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeCronJobV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.batch.v1beta1.CronJobList" kind and apiVersion to props.
+
+        :param items: items is the list of CronJobs.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeCronJobListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.batch.v1beta1.CronJobList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeCronJobListV1Beta1Props",
@@ -12721,6 +13499,29 @@ class KubeCronJobListV2Alpha1(
 
         jsii.create(KubeCronJobListV2Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeCronJobV2Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.batch.v2alpha1.CronJobList" kind and apiVersion to props.
+
+        :param items: items is the list of CronJobs.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeCronJobListV2Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.batch.v2alpha1.CronJobList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeCronJobListV2Alpha1Props",
@@ -12810,6 +13611,29 @@ class KubeCronJobV1Beta1(
         props = KubeCronJobV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeCronJobV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CronJobSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.batch.v1beta1.CronJob" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeCronJobV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.batch.v1beta1.CronJob"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -12904,6 +13728,29 @@ class KubeCronJobV2Alpha1(
 
         jsii.create(KubeCronJobV2Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[CronJobSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.batch.v2alpha1.CronJob" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeCronJobV2Alpha1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.batch.v2alpha1.CronJob"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeCronJobV2Alpha1Props",
@@ -12997,6 +13844,29 @@ class KubeCsiDriverListV1Beta1(
 
         jsii.create(KubeCsiDriverListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeCsiDriverV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1beta1.CSIDriverList" kind and apiVersion to props.
+
+        :param items: items is the list of CSIDriver.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeCsiDriverListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.CSIDriverList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeCsiDriverListV1Beta1Props",
@@ -13086,6 +13956,29 @@ class KubeCsiDriverV1Beta1(
         props = KubeCsiDriverV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeCsiDriverV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: CsiDriverSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1beta1.CSIDriver" kind and apiVersion to props.
+
+        :param spec: Specification of the CSI Driver.
+        :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeCsiDriverV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.CSIDriver"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -13183,6 +14076,29 @@ class KubeCsiNode(
 
         jsii.create(KubeCsiNode, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: CsiNodeSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1.CSINode" kind and apiVersion to props.
+
+        :param spec: spec is the specification of CSINode.
+        :param metadata: metadata.name must be the Kubernetes node name.
+        """
+        props = KubeCsiNodeProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1.CSINode"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeCsiNodeList(
     cdk8s.ApiObject,
@@ -13212,6 +14128,29 @@ class KubeCsiNodeList(
         props = KubeCsiNodeListProps(items=items, metadata=metadata)
 
         jsii.create(KubeCsiNodeList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeCsiNodeProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1.CSINodeList" kind and apiVersion to props.
+
+        :param items: items is the list of CSINode.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeCsiNodeListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1.CSINodeList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -13300,6 +14239,29 @@ class KubeCsiNodeListV1Beta1(
         props = KubeCsiNodeListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeCsiNodeListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeCsiNodeV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1beta1.CSINodeList" kind and apiVersion to props.
+
+        :param items: items is the list of CSINode.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeCsiNodeListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.CSINodeList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -13453,6 +14415,29 @@ class KubeCsiNodeV1Beta1(
 
         jsii.create(KubeCsiNodeV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: CsiNodeSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1beta1.CSINode" kind and apiVersion to props.
+
+        :param spec: spec is the specification of CSINode.
+        :param metadata: metadata.name must be the Kubernetes node name.
+        """
+        props = KubeCsiNodeV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.CSINode"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeCsiNodeV1Beta1Props",
@@ -13547,6 +14532,29 @@ class KubeCustomResourceDefinition(
 
         jsii.create(KubeCustomResourceDefinition, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: CustomResourceDefinitionSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition" kind and apiVersion to props.
+
+        :param spec: spec describes how the user wants the resources to appear.
+        :param metadata: 
+        """
+        props = KubeCustomResourceDefinitionProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeCustomResourceDefinitionList(
     cdk8s.ApiObject,
@@ -13576,6 +14584,29 @@ class KubeCustomResourceDefinitionList(
         props = KubeCustomResourceDefinitionListProps(items=items, metadata=metadata)
 
         jsii.create(KubeCustomResourceDefinitionList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeCustomResourceDefinitionProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList" kind and apiVersion to props.
+
+        :param items: items list individual CustomResourceDefinition objects.
+        :param metadata: 
+        """
+        props = KubeCustomResourceDefinitionListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -13665,6 +14696,31 @@ class KubeCustomResourceDefinitionListV1Beta1(
         )
 
         jsii.create(KubeCustomResourceDefinitionListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeCustomResourceDefinitionV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList" kind and apiVersion to props.
+
+        :param items: items list individual CustomResourceDefinition objects.
+        :param metadata: 
+        """
+        props = KubeCustomResourceDefinitionListV1Beta1Props(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -13816,6 +14872,29 @@ class KubeCustomResourceDefinitionV1Beta1(
 
         jsii.create(KubeCustomResourceDefinitionV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: CustomResourceDefinitionSpec,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition" kind and apiVersion to props.
+
+        :param spec: spec describes how the user wants the resources to appear.
+        :param metadata: 
+        """
+        props = KubeCustomResourceDefinitionV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeCustomResourceDefinitionV1Beta1Props",
@@ -13907,6 +14986,29 @@ class KubeDaemonSet(
 
         jsii.create(KubeDaemonSet, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DaemonSetSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.DaemonSet" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeDaemonSetProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.DaemonSet"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeDaemonSetList(
     cdk8s.ApiObject,
@@ -13936,6 +15038,29 @@ class KubeDaemonSetList(
         props = KubeDaemonSetListProps(items=items, metadata=metadata)
 
         jsii.create(KubeDaemonSetList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeDaemonSetProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.DaemonSetList" kind and apiVersion to props.
+
+        :param items: A list of daemon sets.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeDaemonSetListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.DaemonSetList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -14027,6 +15152,29 @@ class KubeDaemonSetListV1Beta1(
 
         jsii.create(KubeDaemonSetListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeDaemonSetV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.DaemonSetList" kind and apiVersion to props.
+
+        :param items: A list of daemon sets.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeDaemonSetListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.DaemonSetList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeDaemonSetListV1Beta1Props",
@@ -14116,6 +15264,29 @@ class KubeDaemonSetListV1Beta2(
         props = KubeDaemonSetListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeDaemonSetListV1Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeDaemonSetV1Beta2Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.DaemonSetList" kind and apiVersion to props.
+
+        :param items: A list of daemon sets.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeDaemonSetListV1Beta2Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.DaemonSetList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -14272,6 +15443,29 @@ class KubeDaemonSetV1Beta1(
 
         jsii.create(KubeDaemonSetV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DaemonSetSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.DaemonSet" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeDaemonSetV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.DaemonSet"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeDaemonSetV1Beta1Props",
@@ -14369,6 +15563,29 @@ class KubeDaemonSetV1Beta2(
 
         jsii.create(KubeDaemonSetV1Beta2, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DaemonSetSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.DaemonSet" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeDaemonSetV1Beta2Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.DaemonSet"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeDaemonSetV1Beta2Props",
@@ -14464,6 +15681,29 @@ class KubeDeployment(
 
         jsii.create(KubeDeployment, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DeploymentSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.Deployment" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata.
+        :param spec: Specification of the desired behavior of the Deployment.
+        """
+        props = KubeDeploymentProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.Deployment"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeDeploymentList(
     cdk8s.ApiObject,
@@ -14493,6 +15733,29 @@ class KubeDeploymentList(
         props = KubeDeploymentListProps(items=items, metadata=metadata)
 
         jsii.create(KubeDeploymentList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeDeploymentProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.DeploymentList" kind and apiVersion to props.
+
+        :param items: Items is the list of Deployments.
+        :param metadata: Standard list metadata.
+        """
+        props = KubeDeploymentListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.DeploymentList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -14582,6 +15845,29 @@ class KubeDeploymentListV1Beta1(
 
         jsii.create(KubeDeploymentListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeDeploymentV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.DeploymentList" kind and apiVersion to props.
+
+        :param items: Items is the list of Deployments.
+        :param metadata: Standard list metadata.
+        """
+        props = KubeDeploymentListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.DeploymentList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeDeploymentListV1Beta1Props",
@@ -14669,6 +15955,29 @@ class KubeDeploymentListV1Beta2(
         props = KubeDeploymentListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeDeploymentListV1Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeDeploymentV1Beta2Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.DeploymentList" kind and apiVersion to props.
+
+        :param items: Items is the list of Deployments.
+        :param metadata: Standard list metadata.
+        """
+        props = KubeDeploymentListV1Beta2Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.DeploymentList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -14819,6 +16128,29 @@ class KubeDeploymentV1Beta1(
 
         jsii.create(KubeDeploymentV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DeploymentSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.Deployment" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata.
+        :param spec: Specification of the desired behavior of the Deployment.
+        """
+        props = KubeDeploymentV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.Deployment"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeDeploymentV1Beta1Props",
@@ -14912,6 +16244,29 @@ class KubeDeploymentV1Beta2(
 
         jsii.create(KubeDeploymentV1Beta2, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[DeploymentSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.Deployment" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata.
+        :param spec: Specification of the desired behavior of the Deployment.
+        """
+        props = KubeDeploymentV1Beta2Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.Deployment"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeDeploymentV1Beta2Props",
@@ -15002,6 +16357,29 @@ class KubeEndpointSliceListV1Beta1(
         props = KubeEndpointSliceListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeEndpointSliceListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeEndpointSliceV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.discovery.v1beta1.EndpointSliceList" kind and apiVersion to props.
+
+        :param items: List of endpoint slices.
+        :param metadata: Standard list metadata.
+        """
+        props = KubeEndpointSliceListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.discovery.v1beta1.EndpointSliceList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -15101,6 +16479,38 @@ class KubeEndpointSliceV1Beta1(
         )
 
         jsii.create(KubeEndpointSliceV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        address_type: builtins.str,
+        endpoints: typing.List[Endpoint],
+        metadata: typing.Optional["ObjectMeta"] = None,
+        ports: typing.Optional[typing.List[EndpointPort]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.discovery.v1beta1.EndpointSlice" kind and apiVersion to props.
+
+        :param address_type: addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
+        :param endpoints: endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.
+        :param metadata: Standard object's metadata.
+        :param ports: ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
+        """
+        props = KubeEndpointSliceV1Beta1Props(
+            address_type=address_type,
+            endpoints=endpoints,
+            metadata=metadata,
+            ports=ports,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.discovery.v1beta1.EndpointSlice"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -15242,6 +16652,29 @@ class KubeEndpoints(
 
         jsii.create(KubeEndpoints, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subsets: typing.Optional[typing.List[EndpointSubset]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.Endpoints" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param subsets: The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
+        """
+        props = KubeEndpointsProps(metadata=metadata, subsets=subsets)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.Endpoints"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeEndpointsList(
     cdk8s.ApiObject,
@@ -15271,6 +16704,29 @@ class KubeEndpointsList(
         props = KubeEndpointsListProps(items=items, metadata=metadata)
 
         jsii.create(KubeEndpointsList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeEndpointsProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.EndpointsList" kind and apiVersion to props.
+
+        :param items: List of endpoints.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeEndpointsListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.EndpointsList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -15474,6 +16930,71 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
 
         jsii.create(KubeEvent, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        involved_object: "ObjectReference",
+        metadata: "ObjectMeta",
+        action: typing.Optional[builtins.str] = None,
+        count: typing.Optional[jsii.Number] = None,
+        event_time: typing.Optional[datetime.datetime] = None,
+        first_timestamp: typing.Optional[datetime.datetime] = None,
+        last_timestamp: typing.Optional[datetime.datetime] = None,
+        message: typing.Optional[builtins.str] = None,
+        reason: typing.Optional[builtins.str] = None,
+        related: typing.Optional["ObjectReference"] = None,
+        reporting_component: typing.Optional[builtins.str] = None,
+        reporting_instance: typing.Optional[builtins.str] = None,
+        series: typing.Optional[EventSeries] = None,
+        source: typing.Optional[EventSource] = None,
+        type: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.Event" kind and apiVersion to props.
+
+        :param involved_object: The object that this event is about.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param action: What action was taken/failed regarding to the Regarding object.
+        :param count: The number of times this event has occurred.
+        :param event_time: Time when this Event was first observed.
+        :param first_timestamp: The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)
+        :param last_timestamp: The time at which the most recent occurrence of this event was recorded.
+        :param message: A human-readable description of the status of this operation.
+        :param reason: This should be a short, machine understandable string that gives the reason for the transition into the object's current status.
+        :param related: Optional secondary object for more complex actions.
+        :param reporting_component: Name of the controller that emitted this Event, e.g. ``kubernetes.io/kubelet``.
+        :param reporting_instance: ID of the controller instance, e.g. ``kubelet-xyzf``.
+        :param series: Data about the Event series this event represents or nil if it's a singleton Event.
+        :param source: The component reporting this event. Should be a short machine understandable string.
+        :param type: Type of this event (Normal, Warning), new types could be added in the future.
+        """
+        props = KubeEventProps(
+            involved_object=involved_object,
+            metadata=metadata,
+            action=action,
+            count=count,
+            event_time=event_time,
+            first_timestamp=first_timestamp,
+            last_timestamp=last_timestamp,
+            message=message,
+            reason=reason,
+            related=related,
+            reporting_component=reporting_component,
+            reporting_instance=reporting_instance,
+            series=series,
+            source=source,
+            type=type,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.Event"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeEventList(
     cdk8s.ApiObject,
@@ -15503,6 +17024,29 @@ class KubeEventList(
         props = KubeEventListProps(items=items, metadata=metadata)
 
         jsii.create(KubeEventList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeEventProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.EventList" kind and apiVersion to props.
+
+        :param items: List of events.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeEventListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.EventList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -15593,6 +17137,29 @@ class KubeEventListV1Beta1(
         props = KubeEventListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeEventListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeEventV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.events.v1beta1.EventList" kind and apiVersion to props.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeEventListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.events.v1beta1.EventList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -15985,6 +17552,71 @@ class KubeEventV1Beta1(
 
         jsii.create(KubeEventV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        event_time: datetime.datetime,
+        action: typing.Optional[builtins.str] = None,
+        deprecated_count: typing.Optional[jsii.Number] = None,
+        deprecated_first_timestamp: typing.Optional[datetime.datetime] = None,
+        deprecated_last_timestamp: typing.Optional[datetime.datetime] = None,
+        deprecated_source: typing.Optional[EventSource] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        note: typing.Optional[builtins.str] = None,
+        reason: typing.Optional[builtins.str] = None,
+        regarding: typing.Optional["ObjectReference"] = None,
+        related: typing.Optional["ObjectReference"] = None,
+        reporting_controller: typing.Optional[builtins.str] = None,
+        reporting_instance: typing.Optional[builtins.str] = None,
+        series: typing.Optional[EventSeries] = None,
+        type: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.events.v1beta1.Event" kind and apiVersion to props.
+
+        :param event_time: Required. Time when this Event was first observed.
+        :param action: What action was taken/failed regarding to the regarding object.
+        :param deprecated_count: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_first_timestamp: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_last_timestamp: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param deprecated_source: Deprecated field assuring backward compatibility with core.v1 Event type.
+        :param metadata: 
+        :param note: Optional. A human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
+        :param reason: Why the action was taken.
+        :param regarding: The object this Event is about. In most cases it's an Object reporting controller implements. E.g. ReplicaSetController implements ReplicaSets and this event is emitted because it acts on some changes in a ReplicaSet object.
+        :param related: Optional secondary object for more complex actions. E.g. when regarding object triggers a creation or deletion of related object.
+        :param reporting_controller: Name of the controller that emitted this Event, e.g. ``kubernetes.io/kubelet``.
+        :param reporting_instance: ID of the controller instance, e.g. ``kubelet-xyzf``.
+        :param series: Data about the Event series this event represents or nil if it's a singleton Event.
+        :param type: Type of this event (Normal, Warning), new types could be added in the future.
+        """
+        props = KubeEventV1Beta1Props(
+            event_time=event_time,
+            action=action,
+            deprecated_count=deprecated_count,
+            deprecated_first_timestamp=deprecated_first_timestamp,
+            deprecated_last_timestamp=deprecated_last_timestamp,
+            deprecated_source=deprecated_source,
+            metadata=metadata,
+            note=note,
+            reason=reason,
+            regarding=regarding,
+            related=related,
+            reporting_controller=reporting_controller,
+            reporting_instance=reporting_instance,
+            series=series,
+            type=type,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.events.v1beta1.Event"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeEventV1Beta1Props",
@@ -16279,6 +17911,31 @@ class KubeEvictionV1Beta1(
 
         jsii.create(KubeEvictionV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        delete_options: typing.Optional[DeleteOptions] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.policy.v1beta1.Eviction" kind and apiVersion to props.
+
+        :param delete_options: DeleteOptions may be provided.
+        :param metadata: ObjectMeta describes the pod that is being evicted.
+        """
+        props = KubeEvictionV1Beta1Props(
+            delete_options=delete_options, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.Eviction"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeEvictionV1Beta1Props",
@@ -16369,6 +18026,29 @@ class KubeFlowSchemaListV1Alpha1(
         props = KubeFlowSchemaListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeFlowSchemaListV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeFlowSchemaV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList" kind and apiVersion to props.
+
+        :param items: ``items`` is a list of FlowSchemas.
+        :param metadata: ``metadata`` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        """
+        props = KubeFlowSchemaListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -16461,6 +18141,29 @@ class KubeFlowSchemaV1Alpha1(
         props = KubeFlowSchemaV1Alpha1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeFlowSchemaV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[FlowSchemaSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.flowcontrol.v1alpha1.FlowSchema" kind and apiVersion to props.
+
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        :param spec: ``spec`` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+        """
+        props = KubeFlowSchemaV1Alpha1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1alpha1.FlowSchema"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -16557,6 +18260,29 @@ class KubeHorizontalPodAutoscaler(
 
         jsii.create(KubeHorizontalPodAutoscaler, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[HorizontalPodAutoscalerSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        props = KubeHorizontalPodAutoscalerProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeHorizontalPodAutoscalerList(
     cdk8s.ApiObject,
@@ -16586,6 +18312,29 @@ class KubeHorizontalPodAutoscalerList(
         props = KubeHorizontalPodAutoscalerListProps(items=items, metadata=metadata)
 
         jsii.create(KubeHorizontalPodAutoscalerList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeHorizontalPodAutoscalerProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList" kind and apiVersion to props.
+
+        :param items: list of horizontal pod autoscaler objects.
+        :param metadata: Standard list metadata.
+        """
+        props = KubeHorizontalPodAutoscalerListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -16677,6 +18426,31 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
 
         jsii.create(KubeHorizontalPodAutoscalerListV2Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeHorizontalPodAutoscalerV2Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList" kind and apiVersion to props.
+
+        :param items: items is the list of horizontal pod autoscaler objects.
+        :param metadata: metadata is the standard list metadata.
+        """
+        props = KubeHorizontalPodAutoscalerListV2Beta1Props(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeHorizontalPodAutoscalerListV2Beta1Props",
@@ -16766,6 +18540,31 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
         )
 
         jsii.create(KubeHorizontalPodAutoscalerListV2Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeHorizontalPodAutoscalerV2Beta2Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList" kind and apiVersion to props.
+
+        :param items: items is the list of horizontal pod autoscaler objects.
+        :param metadata: metadata is the standard list metadata.
+        """
+        props = KubeHorizontalPodAutoscalerListV2Beta2Props(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -16918,6 +18717,29 @@ class KubeHorizontalPodAutoscalerV2Beta1(
 
         jsii.create(KubeHorizontalPodAutoscalerV2Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[HorizontalPodAutoscalerSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler" kind and apiVersion to props.
+
+        :param metadata: metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        props = KubeHorizontalPodAutoscalerV2Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeHorizontalPodAutoscalerV2Beta1Props",
@@ -17010,6 +18832,29 @@ class KubeHorizontalPodAutoscalerV2Beta2(
         props = KubeHorizontalPodAutoscalerV2Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeHorizontalPodAutoscalerV2Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[HorizontalPodAutoscalerSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler" kind and apiVersion to props.
+
+        :param metadata: metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        props = KubeHorizontalPodAutoscalerV2Beta2Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -17104,6 +18949,29 @@ class KubeIngressListV1Beta1(
 
         jsii.create(KubeIngressListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeIngressV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.networking.v1beta1.IngressList" kind and apiVersion to props.
+
+        :param items: Items is the list of Ingress.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeIngressListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.networking.v1beta1.IngressList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeIngressListV1Beta1Props",
@@ -17196,6 +19064,29 @@ class KubeIngressV1Beta1(
 
         jsii.create(KubeIngressV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[IngressSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.networking.v1beta1.Ingress" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeIngressV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.networking.v1beta1.Ingress"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeIngressV1Beta1Props",
@@ -17287,6 +19178,29 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
 
         jsii.create(KubeJob, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional[JobSpec] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.batch.v1.Job" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeJobProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.batch.v1.Job"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeJobList(
     cdk8s.ApiObject,
@@ -17316,6 +19230,29 @@ class KubeJobList(
         props = KubeJobListProps(items=items, metadata=metadata)
 
         jsii.create(KubeJobList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeJobProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.batch.v1.JobList" kind and apiVersion to props.
+
+        :param items: items is the list of Jobs.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeJobListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.batch.v1.JobList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -17466,6 +19403,29 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
 
         jsii.create(KubeLease, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["LeaseSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.coordination.v1.Lease" kind and apiVersion to props.
+
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeLeaseProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.coordination.v1.Lease"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeLeaseList(
     cdk8s.ApiObject,
@@ -17495,6 +19455,29 @@ class KubeLeaseList(
         props = KubeLeaseListProps(items=items, metadata=metadata)
 
         jsii.create(KubeLeaseList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeLeaseProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.coordination.v1.LeaseList" kind and apiVersion to props.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeLeaseListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.coordination.v1.LeaseList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -17585,6 +19568,29 @@ class KubeLeaseListV1Beta1(
         props = KubeLeaseListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeLeaseListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeLeaseV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.coordination.v1beta1.LeaseList" kind and apiVersion to props.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeLeaseListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.coordination.v1beta1.LeaseList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -17737,6 +19743,29 @@ class KubeLeaseV1Beta1(
 
         jsii.create(KubeLeaseV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["LeaseSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.coordination.v1beta1.Lease" kind and apiVersion to props.
+
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeLeaseV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.coordination.v1beta1.Lease"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeLeaseV1Beta1Props",
@@ -17828,6 +19857,29 @@ class KubeLimitRange(
 
         jsii.create(KubeLimitRange, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["LimitRangeSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.LimitRange" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the limits enforced. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeLimitRangeProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.LimitRange"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeLimitRangeList(
     cdk8s.ApiObject,
@@ -17857,6 +19909,29 @@ class KubeLimitRangeList(
         props = KubeLimitRangeListProps(items=items, metadata=metadata)
 
         jsii.create(KubeLimitRangeList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeLimitRangeProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.LimitRangeList" kind and apiVersion to props.
+
+        :param items: Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeLimitRangeListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.LimitRangeList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -18015,6 +20090,29 @@ class KubeLocalSubjectAccessReview(
 
         jsii.create(KubeLocalSubjectAccessReview, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "SubjectAccessReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authorization.v1.LocalSubjectAccessReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated. spec.namespace must be equal to the namespace you made the request against. If empty, it is defaulted.
+        :param metadata: 
+        """
+        props = KubeLocalSubjectAccessReviewProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authorization.v1.LocalSubjectAccessReview"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeLocalSubjectAccessReviewProps",
@@ -18109,6 +20207,29 @@ class KubeLocalSubjectAccessReviewV1Beta1(
         props = KubeLocalSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeLocalSubjectAccessReviewV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "SubjectAccessReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated. spec.namespace must be equal to the namespace you made the request against. If empty, it is defaulted.
+        :param metadata: 
+        """
+        props = KubeLocalSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -18205,6 +20326,31 @@ class KubeMutatingWebhookConfiguration(
 
         jsii.create(KubeMutatingWebhookConfiguration, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
+        """
+        props = KubeMutatingWebhookConfigurationProps(
+            metadata=metadata, webhooks=webhooks
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeMutatingWebhookConfigurationList(
     cdk8s.ApiObject,
@@ -18236,6 +20382,31 @@ class KubeMutatingWebhookConfigurationList(
         )
 
         jsii.create(KubeMutatingWebhookConfigurationList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeMutatingWebhookConfigurationProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList" kind and apiVersion to props.
+
+        :param items: List of MutatingWebhookConfiguration.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeMutatingWebhookConfigurationListProps(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -18328,6 +20499,31 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
         )
 
         jsii.create(KubeMutatingWebhookConfigurationListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeMutatingWebhookConfigurationV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList" kind and apiVersion to props.
+
+        :param items: List of MutatingWebhookConfiguration.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeMutatingWebhookConfigurationListV1Beta1Props(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -18482,6 +20678,31 @@ class KubeMutatingWebhookConfigurationV1Beta1(
 
         jsii.create(KubeMutatingWebhookConfigurationV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
+        """
+        props = KubeMutatingWebhookConfigurationV1Beta1Props(
+            metadata=metadata, webhooks=webhooks
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeMutatingWebhookConfigurationV1Beta1Props",
@@ -18575,6 +20796,29 @@ class KubeNamespace(
 
         jsii.create(KubeNamespace, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["NamespaceSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.Namespace" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the behavior of the Namespace. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeNamespaceProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.Namespace"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeNamespaceList(
     cdk8s.ApiObject,
@@ -18604,6 +20848,29 @@ class KubeNamespaceList(
         props = KubeNamespaceListProps(items=items, metadata=metadata)
 
         jsii.create(KubeNamespaceList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeNamespaceProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.NamespaceList" kind and apiVersion to props.
+
+        :param items: Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeNamespaceListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.NamespaceList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -18762,6 +21029,29 @@ class KubeNetworkPolicy(
 
         jsii.create(KubeNetworkPolicy, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["NetworkPolicySpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.networking.v1.NetworkPolicy" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior for this NetworkPolicy.
+        """
+        props = KubeNetworkPolicyProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.networking.v1.NetworkPolicy"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeNetworkPolicyList(
     cdk8s.ApiObject,
@@ -18791,6 +21081,29 @@ class KubeNetworkPolicyList(
         props = KubeNetworkPolicyListProps(items=items, metadata=metadata)
 
         jsii.create(KubeNetworkPolicyList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeNetworkPolicyProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.networking.v1.NetworkPolicyList" kind and apiVersion to props.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeNetworkPolicyListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.networking.v1.NetworkPolicyList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -18881,6 +21194,29 @@ class KubeNetworkPolicyListV1Beta1(
         props = KubeNetworkPolicyListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeNetworkPolicyListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeNetworkPolicyV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.NetworkPolicyList" kind and apiVersion to props.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeNetworkPolicyListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.NetworkPolicyList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -19033,6 +21369,29 @@ class KubeNetworkPolicyV1Beta1(
 
         jsii.create(KubeNetworkPolicyV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["NetworkPolicySpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.NetworkPolicy" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior for this NetworkPolicy.
+        """
+        props = KubeNetworkPolicyV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.NetworkPolicy"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeNetworkPolicyV1Beta1Props",
@@ -19122,6 +21481,29 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
 
         jsii.create(KubeNode, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["NodeSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.Node" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the behavior of a node. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeNodeProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.Node"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeNodeList(
     cdk8s.ApiObject,
@@ -19151,6 +21533,29 @@ class KubeNodeList(
         props = KubeNodeListProps(items=items, metadata=metadata)
 
         jsii.create(KubeNodeList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeNodeProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.NodeList" kind and apiVersion to props.
+
+        :param items: List of nodes.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeNodeListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.NodeList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -19309,6 +21714,29 @@ class KubePersistentVolume(
 
         jsii.create(KubePersistentVolume, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PersistentVolumeSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.PersistentVolume" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines a specification of a persistent volume owned by the cluster. Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
+        """
+        props = KubePersistentVolumeProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.PersistentVolume"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubePersistentVolumeClaim(
     cdk8s.ApiObject,
@@ -19339,6 +21767,29 @@ class KubePersistentVolumeClaim(
 
         jsii.create(KubePersistentVolumeClaim, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PersistentVolumeClaimSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.PersistentVolumeClaim" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+        """
+        props = KubePersistentVolumeClaimProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.PersistentVolumeClaim"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubePersistentVolumeClaimList(
     cdk8s.ApiObject,
@@ -19368,6 +21819,29 @@ class KubePersistentVolumeClaimList(
         props = KubePersistentVolumeClaimListProps(items=items, metadata=metadata)
 
         jsii.create(KubePersistentVolumeClaimList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePersistentVolumeClaimProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.PersistentVolumeClaimList" kind and apiVersion to props.
+
+        :param items: A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubePersistentVolumeClaimListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.PersistentVolumeClaimList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -19524,6 +21998,29 @@ class KubePersistentVolumeList(
 
         jsii.create(KubePersistentVolumeList, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePersistentVolumeProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.PersistentVolumeList" kind and apiVersion to props.
+
+        :param items: List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubePersistentVolumeListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.PersistentVolumeList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubePersistentVolumeListProps",
@@ -19679,6 +22176,29 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
 
         jsii.create(KubePod, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PodSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.Pod" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubePodProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.Pod"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubePodDisruptionBudgetListV1Beta1(
     cdk8s.ApiObject,
@@ -19708,6 +22228,29 @@ class KubePodDisruptionBudgetListV1Beta1(
         props = KubePodDisruptionBudgetListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubePodDisruptionBudgetListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePodDisruptionBudgetV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" kind and apiVersion to props.
+
+        :param items: 
+        :param metadata: 
+        """
+        props = KubePodDisruptionBudgetListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -19794,6 +22337,29 @@ class KubePodDisruptionBudgetV1Beta1(
         props = KubePodDisruptionBudgetV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubePodDisruptionBudgetV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PodDisruptionBudgetSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.policy.v1beta1.PodDisruptionBudget" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: Specification of the desired behavior of the PodDisruptionBudget.
+        """
+        props = KubePodDisruptionBudgetV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodDisruptionBudget"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -19882,6 +22448,29 @@ class KubePodList(
         props = KubePodListProps(items=items, metadata=metadata)
 
         jsii.create(KubePodList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePodProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.PodList" kind and apiVersion to props.
+
+        :param items: List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubePodListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.PodList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -19975,6 +22564,29 @@ class KubePodPresetListV1Alpha1(
 
         jsii.create(KubePodPresetListV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePodPresetV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.settings.v1alpha1.PodPresetList" kind and apiVersion to props.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubePodPresetListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.settings.v1alpha1.PodPresetList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubePodPresetListV1Alpha1Props",
@@ -20064,6 +22676,29 @@ class KubePodPresetV1Alpha1(
         props = KubePodPresetV1Alpha1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubePodPresetV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PodPresetSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.settings.v1alpha1.PodPreset" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: 
+        """
+        props = KubePodPresetV1Alpha1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.settings.v1alpha1.PodPreset"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -20217,6 +22852,29 @@ class KubePodSecurityPolicyListV1Beta1(
 
         jsii.create(KubePodSecurityPolicyListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePodSecurityPolicyV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" kind and apiVersion to props.
+
+        :param items: items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubePodSecurityPolicyListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodSecurityPolicyList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubePodSecurityPolicyListV1Beta1Props",
@@ -20306,6 +22964,29 @@ class KubePodSecurityPolicyV1Beta1(
         props = KubePodSecurityPolicyV1Beta1Props(metadata=metadata, spec=spec)
 
         jsii.create(KubePodSecurityPolicyV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PodSecurityPolicySpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.policy.v1beta1.PodSecurityPolicy" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: spec defines the policy enforced.
+        """
+        props = KubePodSecurityPolicyV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodSecurityPolicy"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -20398,6 +23079,29 @@ class KubePodTemplate(
 
         jsii.create(KubePodTemplate, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        template: typing.Optional["PodTemplateSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.PodTemplate" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param template: Template defines the pods that will be created from this pod template. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubePodTemplateProps(metadata=metadata, template=template)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.PodTemplate"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubePodTemplateList(
     cdk8s.ApiObject,
@@ -20427,6 +23131,29 @@ class KubePodTemplateList(
         props = KubePodTemplateListProps(items=items, metadata=metadata)
 
         jsii.create(KubePodTemplateList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePodTemplateProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.PodTemplateList" kind and apiVersion to props.
+
+        :param items: List of pod templates.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubePodTemplateListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.PodTemplateList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -20595,6 +23322,41 @@ class KubePriorityClass(
 
         jsii.create(KubePriorityClass, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        value: jsii.Number,
+        description: typing.Optional[builtins.str] = None,
+        global_default: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        preemption_policy: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.scheduling.v1.PriorityClass" kind and apiVersion to props.
+
+        :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+        :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+        :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+        """
+        props = KubePriorityClassProps(
+            value=value,
+            description=description,
+            global_default=global_default,
+            metadata=metadata,
+            preemption_policy=preemption_policy,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1.PriorityClass"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubePriorityClassList(
     cdk8s.ApiObject,
@@ -20624,6 +23386,29 @@ class KubePriorityClassList(
         props = KubePriorityClassListProps(items=items, metadata=metadata)
 
         jsii.create(KubePriorityClassList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePriorityClassProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.scheduling.v1.PriorityClassList" kind and apiVersion to props.
+
+        :param items: items is the list of PriorityClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubePriorityClassListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1.PriorityClassList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -20713,6 +23498,29 @@ class KubePriorityClassListV1Alpha1(
 
         jsii.create(KubePriorityClassListV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePriorityClassV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.scheduling.v1alpha1.PriorityClassList" kind and apiVersion to props.
+
+        :param items: items is the list of PriorityClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubePriorityClassListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1alpha1.PriorityClassList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubePriorityClassListV1Alpha1Props",
@@ -20800,6 +23608,29 @@ class KubePriorityClassListV1Beta1(
         props = KubePriorityClassListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubePriorityClassListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePriorityClassV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.scheduling.v1beta1.PriorityClassList" kind and apiVersion to props.
+
+        :param items: items is the list of PriorityClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubePriorityClassListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1beta1.PriorityClassList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -21016,6 +23847,41 @@ class KubePriorityClassV1Alpha1(
 
         jsii.create(KubePriorityClassV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        value: jsii.Number,
+        description: typing.Optional[builtins.str] = None,
+        global_default: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        preemption_policy: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.scheduling.v1alpha1.PriorityClass" kind and apiVersion to props.
+
+        :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+        :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+        :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+        """
+        props = KubePriorityClassV1Alpha1Props(
+            value=value,
+            description=description,
+            global_default=global_default,
+            metadata=metadata,
+            preemption_policy=preemption_policy,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1alpha1.PriorityClass"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubePriorityClassV1Alpha1Props",
@@ -21171,6 +24037,41 @@ class KubePriorityClassV1Beta1(
 
         jsii.create(KubePriorityClassV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        value: jsii.Number,
+        description: typing.Optional[builtins.str] = None,
+        global_default: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        preemption_policy: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.scheduling.v1beta1.PriorityClass" kind and apiVersion to props.
+
+        :param value: The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+        :param description: description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+        :param global_default: globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as ``globalDefault``. However, if more than one PriorityClasses exists with their ``globalDefault`` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
+        """
+        props = KubePriorityClassV1Beta1Props(
+            value=value,
+            description=description,
+            global_default=global_default,
+            metadata=metadata,
+            preemption_policy=preemption_policy,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1beta1.PriorityClass"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubePriorityClassV1Beta1Props",
@@ -21316,6 +24217,31 @@ class KubePriorityLevelConfigurationListV1Alpha1(
 
         jsii.create(KubePriorityLevelConfigurationListV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubePriorityLevelConfigurationV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList" kind and apiVersion to props.
+
+        :param items: ``items`` is a list of request-priorities.
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        """
+        props = KubePriorityLevelConfigurationListV1Alpha1Props(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubePriorityLevelConfigurationListV1Alpha1Props",
@@ -21407,6 +24333,31 @@ class KubePriorityLevelConfigurationV1Alpha1(
         )
 
         jsii.create(KubePriorityLevelConfigurationV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["PriorityLevelConfigurationSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration" kind and apiVersion to props.
+
+        :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+        :param spec: ``spec`` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+        """
+        props = KubePriorityLevelConfigurationV1Alpha1Props(
+            metadata=metadata, spec=spec
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -21501,6 +24452,29 @@ class KubeReplicaSet(
 
         jsii.create(KubeReplicaSet, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ReplicaSetSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.ReplicaSet" kind and apiVersion to props.
+
+        :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeReplicaSetProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.ReplicaSet"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeReplicaSetList(
     cdk8s.ApiObject,
@@ -21530,6 +24504,29 @@ class KubeReplicaSetList(
         props = KubeReplicaSetListProps(items=items, metadata=metadata)
 
         jsii.create(KubeReplicaSetList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeReplicaSetProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.ReplicaSetList" kind and apiVersion to props.
+
+        :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeReplicaSetListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.ReplicaSetList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -21623,6 +24620,29 @@ class KubeReplicaSetListV1Beta1(
 
         jsii.create(KubeReplicaSetListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeReplicaSetV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.ReplicaSetList" kind and apiVersion to props.
+
+        :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeReplicaSetListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.ReplicaSetList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeReplicaSetListV1Beta1Props",
@@ -21714,6 +24734,29 @@ class KubeReplicaSetListV1Beta2(
         props = KubeReplicaSetListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeReplicaSetListV1Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeReplicaSetV1Beta2Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.ReplicaSetList" kind and apiVersion to props.
+
+        :param items: List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeReplicaSetListV1Beta2Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.ReplicaSetList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -21872,6 +24915,29 @@ class KubeReplicaSetV1Beta1(
 
         jsii.create(KubeReplicaSetV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ReplicaSetSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.ReplicaSet" kind and apiVersion to props.
+
+        :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeReplicaSetV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.ReplicaSet"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeReplicaSetV1Beta1Props",
@@ -21969,6 +25035,29 @@ class KubeReplicaSetV1Beta2(
 
         jsii.create(KubeReplicaSetV1Beta2, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ReplicaSetSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.ReplicaSet" kind and apiVersion to props.
+
+        :param metadata: If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeReplicaSetV1Beta2Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.ReplicaSet"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeReplicaSetV1Beta2Props",
@@ -22064,6 +25153,29 @@ class KubeReplicationController(
 
         jsii.create(KubeReplicationController, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ReplicationControllerSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ReplicationController" kind and apiVersion to props.
+
+        :param metadata: If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the specification of the desired behavior of the replication controller. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeReplicationControllerProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ReplicationController"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeReplicationControllerList(
     cdk8s.ApiObject,
@@ -22093,6 +25205,29 @@ class KubeReplicationControllerList(
         props = KubeReplicationControllerListProps(items=items, metadata=metadata)
 
         jsii.create(KubeReplicationControllerList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeReplicationControllerProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ReplicationControllerList" kind and apiVersion to props.
+
+        :param items: List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeReplicationControllerListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ReplicationControllerList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -22249,6 +25384,29 @@ class KubeResourceQuota(
 
         jsii.create(KubeResourceQuota, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ResourceQuotaSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ResourceQuota" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the desired quota. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeResourceQuotaProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ResourceQuota"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeResourceQuotaList(
     cdk8s.ApiObject,
@@ -22278,6 +25436,29 @@ class KubeResourceQuotaList(
         props = KubeResourceQuotaListProps(items=items, metadata=metadata)
 
         jsii.create(KubeResourceQuotaList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeResourceQuotaProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ResourceQuotaList" kind and apiVersion to props.
+
+        :param items: Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeResourceQuotaListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ResourceQuotaList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -22430,6 +25611,29 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
 
         jsii.create(KubeRole, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1.Role" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this Role.
+        """
+        props = KubeRoleProps(metadata=metadata, rules=rules)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.Role"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeRoleBinding(
     cdk8s.ApiObject,
@@ -22466,6 +25670,33 @@ class KubeRoleBinding(
 
         jsii.create(KubeRoleBinding, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1.RoleBinding" kind and apiVersion to props.
+
+        :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        props = KubeRoleBindingProps(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.RoleBinding"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeRoleBindingList(
     cdk8s.ApiObject,
@@ -22495,6 +25726,29 @@ class KubeRoleBindingList(
         props = KubeRoleBindingListProps(items=items, metadata=metadata)
 
         jsii.create(KubeRoleBindingList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeRoleBindingProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1.RoleBindingList" kind and apiVersion to props.
+
+        :param items: Items is a list of RoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeRoleBindingListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.RoleBindingList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -22584,6 +25838,29 @@ class KubeRoleBindingListV1Alpha1(
 
         jsii.create(KubeRoleBindingListV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeRoleBindingV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1alpha1.RoleBindingList" kind and apiVersion to props.
+
+        :param items: Items is a list of RoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleBindingList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeRoleBindingListV1Alpha1Props",
@@ -22671,6 +25948,29 @@ class KubeRoleBindingListV1Beta1(
         props = KubeRoleBindingListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRoleBindingListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeRoleBindingV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1beta1.RoleBindingList" kind and apiVersion to props.
+
+        :param items: Items is a list of RoleBindings.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeRoleBindingListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.RoleBindingList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -22847,6 +26147,33 @@ class KubeRoleBindingV1Alpha1(
 
         jsii.create(KubeRoleBindingV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1alpha1.RoleBinding" kind and apiVersion to props.
+
+        :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        props = KubeRoleBindingV1Alpha1Props(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleBinding"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeRoleBindingV1Alpha1Props",
@@ -22964,6 +26291,33 @@ class KubeRoleBindingV1Beta1(
 
         jsii.create(KubeRoleBindingV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        role_ref: "RoleRef",
+        metadata: typing.Optional["ObjectMeta"] = None,
+        subjects: typing.Optional[typing.List["Subject"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1beta1.RoleBinding" kind and apiVersion to props.
+
+        :param role_ref: RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
+        :param metadata: Standard object's metadata.
+        :param subjects: Subjects holds references to the objects the role applies to.
+        """
+        props = KubeRoleBindingV1Beta1Props(
+            role_ref=role_ref, metadata=metadata, subjects=subjects
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.RoleBinding"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeRoleBindingV1Beta1Props",
@@ -23075,6 +26429,29 @@ class KubeRoleList(
 
         jsii.create(KubeRoleList, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeRoleProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1.RoleList" kind and apiVersion to props.
+
+        :param items: Items is a list of Roles.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeRoleListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.RoleList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeRoleListProps",
@@ -23165,6 +26542,29 @@ class KubeRoleListV1Alpha1(
 
         jsii.create(KubeRoleListV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeRoleV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1alpha1.RoleList" kind and apiVersion to props.
+
+        :param items: Items is a list of Roles.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeRoleListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeRoleListV1Alpha1Props",
@@ -23254,6 +26654,29 @@ class KubeRoleListV1Beta1(
         props = KubeRoleListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRoleListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeRoleV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1beta1.RoleList" kind and apiVersion to props.
+
+        :param items: Items is a list of Roles.
+        :param metadata: Standard object's metadata.
+        """
+        props = KubeRoleListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.RoleList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -23402,6 +26825,29 @@ class KubeRoleV1Alpha1(
 
         jsii.create(KubeRoleV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1alpha1.Role" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this Role.
+        """
+        props = KubeRoleV1Alpha1Props(metadata=metadata, rules=rules)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.Role"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeRoleV1Alpha1Props",
@@ -23493,6 +26939,29 @@ class KubeRoleV1Beta1(
 
         jsii.create(KubeRoleV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.rbac.v1beta1.Role" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata.
+        :param rules: Rules holds all the PolicyRules for this Role.
+        """
+        props = KubeRoleV1Beta1Props(metadata=metadata, rules=rules)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.Role"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeRoleV1Beta1Props",
@@ -23581,6 +27050,29 @@ class KubeRuntimeClassListV1Alpha1(
         props = KubeRuntimeClassListV1Alpha1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRuntimeClassListV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeRuntimeClassV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.node.v1alpha1.RuntimeClassList" kind and apiVersion to props.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeRuntimeClassListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.node.v1alpha1.RuntimeClassList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -23671,6 +27163,29 @@ class KubeRuntimeClassListV1Beta1(
         props = KubeRuntimeClassListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeRuntimeClassListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeRuntimeClassV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.node.v1beta1.RuntimeClassList" kind and apiVersion to props.
+
+        :param items: Items is a list of schema objects.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeRuntimeClassListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.node.v1beta1.RuntimeClassList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -23763,6 +27278,29 @@ class KubeRuntimeClassV1Alpha1(
         props = KubeRuntimeClassV1Alpha1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeRuntimeClassV1Alpha1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "RuntimeClassSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.node.v1alpha1.RuntimeClass" kind and apiVersion to props.
+
+        :param spec: Specification of the RuntimeClass More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeRuntimeClassV1Alpha1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.node.v1alpha1.RuntimeClass"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -23866,6 +27404,38 @@ class KubeRuntimeClassV1Beta1(
         )
 
         jsii.create(KubeRuntimeClassV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        handler: builtins.str,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        overhead: typing.Optional["Overhead"] = None,
+        scheduling: typing.Optional["Scheduling"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.node.v1beta1.RuntimeClass" kind and apiVersion to props.
+
+        :param handler: Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration. It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
+        :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param overhead: Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
+        :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
+        """
+        props = KubeRuntimeClassV1Beta1Props(
+            handler=handler,
+            metadata=metadata,
+            overhead=overhead,
+            scheduling=scheduling,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.node.v1beta1.RuntimeClass"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -23994,6 +27564,29 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
 
         jsii.create(KubeScale, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ScaleSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.autoscaling.v1.Scale" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        props = KubeScaleProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v1.Scale"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeScaleProps",
@@ -24087,6 +27680,29 @@ class KubeScaleV1Beta1(
 
         jsii.create(KubeScaleV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ScaleSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.extensions.v1beta1.Scale" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        props = KubeScaleV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.Scale"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeScaleV1Beta1Props",
@@ -24179,6 +27795,29 @@ class KubeScaleV1Beta2(
         props = KubeScaleV1Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeScaleV1Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ScaleSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.Scale" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
+        """
+        props = KubeScaleV1Beta2Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.Scale"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -24277,6 +27916,35 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
 
         jsii.create(KubeSecret, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        string_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        type: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.Secret" kind and apiVersion to props.
+
+        :param data: Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param string_data: stringData allows specifying non-binary secret data in string form. It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
+        :param type: Used to facilitate programmatic handling of secret data.
+        """
+        props = KubeSecretProps(
+            data=data, metadata=metadata, string_data=string_data, type=type
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.Secret"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeSecretList(
     cdk8s.ApiObject,
@@ -24306,6 +27974,29 @@ class KubeSecretList(
         props = KubeSecretListProps(items=items, metadata=metadata)
 
         jsii.create(KubeSecretList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeSecretProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.SecretList" kind and apiVersion to props.
+
+        :param items: Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeSecretListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.SecretList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -24499,6 +28190,29 @@ class KubeSelfSubjectAccessReview(
 
         jsii.create(KubeSelfSubjectAccessReview, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "SelfSubjectAccessReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authorization.v1.SelfSubjectAccessReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated. user and groups must be empty
+        :param metadata: 
+        """
+        props = KubeSelfSubjectAccessReviewProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authorization.v1.SelfSubjectAccessReview"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeSelfSubjectAccessReviewProps",
@@ -24593,6 +28307,29 @@ class KubeSelfSubjectAccessReviewV1Beta1(
         props = KubeSelfSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeSelfSubjectAccessReviewV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "SelfSubjectAccessReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated. user and groups must be empty
+        :param metadata: 
+        """
+        props = KubeSelfSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -24689,6 +28426,29 @@ class KubeSelfSubjectRulesReview(
 
         jsii.create(KubeSelfSubjectRulesReview, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "SelfSubjectRulesReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authorization.v1.SelfSubjectRulesReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        props = KubeSelfSubjectRulesReviewProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authorization.v1.SelfSubjectRulesReview"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeSelfSubjectRulesReviewProps",
@@ -24782,6 +28542,29 @@ class KubeSelfSubjectRulesReviewV1Beta1(
 
         jsii.create(KubeSelfSubjectRulesReviewV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "SelfSubjectRulesReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        props = KubeSelfSubjectRulesReviewV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeSelfSubjectRulesReviewV1Beta1Props",
@@ -24873,6 +28656,29 @@ class KubeService(
 
         jsii.create(KubeService, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["ServiceSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.Service" kind and apiVersion to props.
+
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param spec: Spec defines the behavior of a service. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+        """
+        props = KubeServiceProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.Service"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeServiceAccount(
     cdk8s.ApiObject,
@@ -24912,6 +28718,38 @@ class KubeServiceAccount(
 
         jsii.create(KubeServiceAccount, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        automount_service_account_token: typing.Optional[builtins.bool] = None,
+        image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        secrets: typing.Optional[typing.List["ObjectReference"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ServiceAccount" kind and apiVersion to props.
+
+        :param automount_service_account_token: AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
+        :param image_pull_secrets: ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount. ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param secrets: Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret
+        """
+        props = KubeServiceAccountProps(
+            automount_service_account_token=automount_service_account_token,
+            image_pull_secrets=image_pull_secrets,
+            metadata=metadata,
+            secrets=secrets,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ServiceAccount"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeServiceAccountList(
     cdk8s.ApiObject,
@@ -24941,6 +28779,29 @@ class KubeServiceAccountList(
         props = KubeServiceAccountListProps(items=items, metadata=metadata)
 
         jsii.create(KubeServiceAccountList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeServiceAccountProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ServiceAccountList" kind and apiVersion to props.
+
+        :param items: List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeServiceAccountListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ServiceAccountList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -25132,6 +28993,29 @@ class KubeServiceList(
 
         jsii.create(KubeServiceList, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeServiceProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.core.v1.ServiceList" kind and apiVersion to props.
+
+        :param items: List of services.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeServiceListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.core.v1.ServiceList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeServiceListProps",
@@ -25291,6 +29175,29 @@ class KubeStatefulSet(
 
         jsii.create(KubeStatefulSet, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["StatefulSetSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.StatefulSet" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: Spec defines the desired identities of pods in this set.
+        """
+        props = KubeStatefulSetProps(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.StatefulSet"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeStatefulSetList(
     cdk8s.ApiObject,
@@ -25320,6 +29227,29 @@ class KubeStatefulSetList(
         props = KubeStatefulSetListProps(items=items, metadata=metadata)
 
         jsii.create(KubeStatefulSetList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeStatefulSetProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1.StatefulSetList" kind and apiVersion to props.
+
+        :param items: 
+        :param metadata: 
+        """
+        props = KubeStatefulSetListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1.StatefulSetList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -25407,6 +29337,29 @@ class KubeStatefulSetListV1Beta1(
 
         jsii.create(KubeStatefulSetListV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeStatefulSetV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta1.StatefulSetList" kind and apiVersion to props.
+
+        :param items: 
+        :param metadata: 
+        """
+        props = KubeStatefulSetListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta1.StatefulSetList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeStatefulSetListV1Beta1Props",
@@ -25492,6 +29445,29 @@ class KubeStatefulSetListV1Beta2(
         props = KubeStatefulSetListV1Beta2Props(items=items, metadata=metadata)
 
         jsii.create(KubeStatefulSetListV1Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeStatefulSetV1Beta2Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.StatefulSetList" kind and apiVersion to props.
+
+        :param items: 
+        :param metadata: 
+        """
+        props = KubeStatefulSetListV1Beta2Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.StatefulSetList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -25649,6 +29625,29 @@ class KubeStatefulSetV1Beta1(
 
         jsii.create(KubeStatefulSetV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["StatefulSetSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta1.StatefulSet" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: Spec defines the desired identities of pods in this set.
+        """
+        props = KubeStatefulSetV1Beta1Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta1.StatefulSet"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeStatefulSetV1Beta1Props",
@@ -25748,6 +29747,29 @@ class KubeStatefulSetV1Beta2(
         props = KubeStatefulSetV1Beta2Props(metadata=metadata, spec=spec)
 
         jsii.create(KubeStatefulSetV1Beta2, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        spec: typing.Optional["StatefulSetSpec"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.apps.v1beta2.StatefulSet" kind and apiVersion to props.
+
+        :param metadata: 
+        :param spec: Spec defines the desired identities of pods in this set.
+        """
+        props = KubeStatefulSetV1Beta2Props(metadata=metadata, spec=spec)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.StatefulSet"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -25850,6 +29872,41 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
         )
 
         jsii.create(KubeStatus, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        code: typing.Optional[jsii.Number] = None,
+        details: typing.Optional["StatusDetails"] = None,
+        message: typing.Optional[builtins.str] = None,
+        metadata: typing.Optional["ListMeta"] = None,
+        reason: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.apimachinery.pkg.apis.meta.v1.Status" kind and apiVersion to props.
+
+        :param code: Suggested HTTP return code for this status, 0 if not set.
+        :param details: Extended data associated with the reason. Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema except that defined by the reason type.
+        :param message: A human-readable description of the status of this operation.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        :param reason: A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
+        """
+        props = KubeStatusProps(
+            code=code,
+            details=details,
+            message=message,
+            metadata=metadata,
+            reason=reason,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.apimachinery.pkg.apis.meta.v1.Status"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -26014,6 +30071,50 @@ class KubeStorageClass(
 
         jsii.create(KubeStorageClass, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        provisioner: builtins.str,
+        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allow_volume_expansion: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        reclaim_policy: typing.Optional[builtins.str] = None,
+        volume_binding_mode: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1.StorageClass" kind and apiVersion to props.
+
+        :param provisioner: Provisioner indicates the type of the provisioner.
+        :param allowed_topologies: Restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
+        :param allow_volume_expansion: AllowVolumeExpansion shows whether the storage class allow volume expand.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param mount_options: Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
+        :param parameters: Parameters holds the parameters for the provisioner that should create volumes of this storage class.
+        :param reclaim_policy: Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. Default: Delete.
+        :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
+        """
+        props = KubeStorageClassProps(
+            provisioner=provisioner,
+            allowed_topologies=allowed_topologies,
+            allow_volume_expansion=allow_volume_expansion,
+            metadata=metadata,
+            mount_options=mount_options,
+            parameters=parameters,
+            reclaim_policy=reclaim_policy,
+            volume_binding_mode=volume_binding_mode,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1.StorageClass"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeStorageClassList(
     cdk8s.ApiObject,
@@ -26043,6 +30144,29 @@ class KubeStorageClassList(
         props = KubeStorageClassListProps(items=items, metadata=metadata)
 
         jsii.create(KubeStorageClassList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeStorageClassProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1.StorageClassList" kind and apiVersion to props.
+
+        :param items: Items is the list of StorageClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeStorageClassListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1.StorageClassList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -26131,6 +30255,29 @@ class KubeStorageClassListV1Beta1(
         props = KubeStorageClassListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeStorageClassListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeStorageClassV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1beta1.StorageClassList" kind and apiVersion to props.
+
+        :param items: Items is the list of StorageClasses.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeStorageClassListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.StorageClassList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -26402,6 +30549,50 @@ class KubeStorageClassV1Beta1(
 
         jsii.create(KubeStorageClassV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        provisioner: builtins.str,
+        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allow_volume_expansion: typing.Optional[builtins.bool] = None,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+        reclaim_policy: typing.Optional[builtins.str] = None,
+        volume_binding_mode: typing.Optional[builtins.str] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1beta1.StorageClass" kind and apiVersion to props.
+
+        :param provisioner: Provisioner indicates the type of the provisioner.
+        :param allowed_topologies: Restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
+        :param allow_volume_expansion: AllowVolumeExpansion shows whether the storage class allow volume expand.
+        :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        :param mount_options: Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
+        :param parameters: Parameters holds the parameters for the provisioner that should create volumes of this storage class.
+        :param reclaim_policy: Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. Default: Delete.
+        :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
+        """
+        props = KubeStorageClassV1Beta1Props(
+            provisioner=provisioner,
+            allowed_topologies=allowed_topologies,
+            allow_volume_expansion=allow_volume_expansion,
+            metadata=metadata,
+            mount_options=mount_options,
+            parameters=parameters,
+            reclaim_policy=reclaim_policy,
+            volume_binding_mode=volume_binding_mode,
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.StorageClass"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeStorageClassV1Beta1Props",
@@ -26591,6 +30782,29 @@ class KubeSubjectAccessReview(
 
         jsii.create(KubeSubjectAccessReview, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "SubjectAccessReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authorization.v1.SubjectAccessReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        props = KubeSubjectAccessReviewProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authorization.v1.SubjectAccessReview"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeSubjectAccessReviewProps",
@@ -26679,6 +30893,29 @@ class KubeSubjectAccessReviewV1Beta1(
         props = KubeSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeSubjectAccessReviewV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "SubjectAccessReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authorization.v1beta1.SubjectAccessReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        props = KubeSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authorization.v1beta1.SubjectAccessReview"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -26769,6 +31006,29 @@ class KubeTokenRequest(
 
         jsii.create(KubeTokenRequest, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "TokenRequestSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authentication.v1.TokenRequest" kind and apiVersion to props.
+
+        :param spec: 
+        :param metadata: 
+        """
+        props = KubeTokenRequestProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authentication.v1.TokenRequest"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeTokenRequestProps",
@@ -26858,6 +31118,29 @@ class KubeTokenReview(
         props = KubeTokenReviewProps(spec=spec, metadata=metadata)
 
         jsii.create(KubeTokenReview, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "TokenReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authentication.v1.TokenReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        props = KubeTokenReviewProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authentication.v1.TokenReview"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -26952,6 +31235,29 @@ class KubeTokenReviewV1Beta1(
 
         jsii.create(KubeTokenReviewV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "TokenReviewSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.authentication.v1beta1.TokenReview" kind and apiVersion to props.
+
+        :param spec: Spec holds information about the request being evaluated.
+        :param metadata: 
+        """
+        props = KubeTokenReviewV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.authentication.v1beta1.TokenReview"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeTokenReviewV1Beta1Props",
@@ -27045,6 +31351,31 @@ class KubeValidatingWebhookConfiguration(
 
         jsii.create(KubeValidatingWebhookConfiguration, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
+        """
+        props = KubeValidatingWebhookConfigurationProps(
+            metadata=metadata, webhooks=webhooks
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeValidatingWebhookConfigurationList(
     cdk8s.ApiObject,
@@ -27076,6 +31407,31 @@ class KubeValidatingWebhookConfigurationList(
         )
 
         jsii.create(KubeValidatingWebhookConfigurationList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeValidatingWebhookConfigurationProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList" kind and apiVersion to props.
+
+        :param items: List of ValidatingWebhookConfiguration.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeValidatingWebhookConfigurationListProps(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -27168,6 +31524,31 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
         )
 
         jsii.create(KubeValidatingWebhookConfigurationListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeValidatingWebhookConfigurationV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList" kind and apiVersion to props.
+
+        :param items: List of ValidatingWebhookConfiguration.
+        :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+        """
+        props = KubeValidatingWebhookConfigurationListV1Beta1Props(
+            items=items, metadata=metadata
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -27322,6 +31703,31 @@ class KubeValidatingWebhookConfigurationV1Beta1(
 
         jsii.create(KubeValidatingWebhookConfigurationV1Beta1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        metadata: typing.Optional["ObjectMeta"] = None,
+        webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration" kind and apiVersion to props.
+
+        :param metadata: Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
+        """
+        props = KubeValidatingWebhookConfigurationV1Beta1Props(
+            metadata=metadata, webhooks=webhooks
+        )
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeValidatingWebhookConfigurationV1Beta1Props",
@@ -27415,6 +31821,29 @@ class KubeVolumeAttachment(
 
         jsii.create(KubeVolumeAttachment, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "VolumeAttachmentSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1.VolumeAttachment" kind and apiVersion to props.
+
+        :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
+        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeVolumeAttachmentProps(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1.VolumeAttachment"."""
+        return jsii.sget(cls, "GVK")
+
 
 class KubeVolumeAttachmentList(
     cdk8s.ApiObject,
@@ -27444,6 +31873,29 @@ class KubeVolumeAttachmentList(
         props = KubeVolumeAttachmentListProps(items=items, metadata=metadata)
 
         jsii.create(KubeVolumeAttachmentList, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeVolumeAttachmentProps"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1.VolumeAttachmentList" kind and apiVersion to props.
+
+        :param items: Items is the list of VolumeAttachments.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeVolumeAttachmentListProps(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1.VolumeAttachmentList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -27533,6 +31985,29 @@ class KubeVolumeAttachmentListV1Alpha1(
 
         jsii.create(KubeVolumeAttachmentListV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeVolumeAttachmentV1Alpha1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1alpha1.VolumeAttachmentList" kind and apiVersion to props.
+
+        :param items: Items is the list of VolumeAttachments.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeVolumeAttachmentListV1Alpha1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1alpha1.VolumeAttachmentList"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeVolumeAttachmentListV1Alpha1Props",
@@ -27620,6 +32095,29 @@ class KubeVolumeAttachmentListV1Beta1(
         props = KubeVolumeAttachmentListV1Beta1Props(items=items, metadata=metadata)
 
         jsii.create(KubeVolumeAttachmentListV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        items: typing.List["KubeVolumeAttachmentV1Beta1Props"],
+        metadata: typing.Optional["ListMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1beta1.VolumeAttachmentList" kind and apiVersion to props.
+
+        :param items: Items is the list of VolumeAttachments.
+        :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+        """
+        props = KubeVolumeAttachmentListV1Beta1Props(items=items, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.VolumeAttachmentList"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
@@ -27777,6 +32275,29 @@ class KubeVolumeAttachmentV1Alpha1(
 
         jsii.create(KubeVolumeAttachmentV1Alpha1, self, [scope, id, props])
 
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "VolumeAttachmentSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1alpha1.VolumeAttachment" kind and apiVersion to props.
+
+        :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
+        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeVolumeAttachmentV1Alpha1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1alpha1.VolumeAttachment"."""
+        return jsii.sget(cls, "GVK")
+
 
 @jsii.data_type(
     jsii_type="k8s.KubeVolumeAttachmentV1Alpha1Props",
@@ -27874,6 +32395,29 @@ class KubeVolumeAttachmentV1Beta1(
         props = KubeVolumeAttachmentV1Beta1Props(spec=spec, metadata=metadata)
 
         jsii.create(KubeVolumeAttachmentV1Beta1, self, [scope, id, props])
+
+    @jsii.member(jsii_name="propsWithGVK")
+    @builtins.classmethod
+    def props_with_gvk(
+        cls,
+        *,
+        spec: "VolumeAttachmentSpec",
+        metadata: typing.Optional["ObjectMeta"] = None,
+    ) -> typing.Any:
+        """Adds "io.k8s.api.storage.v1beta1.VolumeAttachment" kind and apiVersion to props.
+
+        :param spec: Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
+        :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+        """
+        props = KubeVolumeAttachmentV1Beta1Props(spec=spec, metadata=metadata)
+
+        return jsii.sinvoke(cls, "propsWithGVK", [props])
+
+    @jsii.python.classproperty # type: ignore
+    @jsii.member(jsii_name="GVK")
+    def GVK(cls) -> cdk8s.GroupVersionKind:
+        """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.VolumeAttachment"."""
+        return jsii.sget(cls, "GVK")
 
 
 @jsii.data_type(
