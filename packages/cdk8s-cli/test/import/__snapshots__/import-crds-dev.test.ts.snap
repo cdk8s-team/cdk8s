@@ -91,7 +91,7 @@ Object {
         },
         "locationInModule": Object {
           "filename": "meta.pkg.crossplane.io.ts",
-          "line": 37,
+          "line": 39,
         },
         "parameters": Array [
           Object {
@@ -131,13 +131,14 @@ Object {
       "methods": Array [
         Object {
           "docs": Object {
-            "summary": "Adds \\"Configuration\\" kind and apiVersion to props.",
+            "remarks": "This can be used to inline resource manifests inside other objects (e.g. as templates).",
+            "summary": "Renders a Kubernetes manifest for \\"Configuration\\".",
           },
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 23,
+            "line": 26,
           },
-          "name": "propsWithGVK",
+          "name": "manifest",
           "parameters": Array [
             Object {
               "docs": Object {
@@ -190,7 +191,7 @@ Object {
       "kind": "interface",
       "locationInModule": Object {
         "filename": "meta.pkg.crossplane.io.ts",
-        "line": 47,
+        "line": 49,
       },
       "name": "ConfigurationProps",
       "properties": Array [
@@ -205,7 +206,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 58,
+            "line": 60,
           },
           "name": "spec",
           "type": Object {
@@ -222,7 +223,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 51,
+            "line": 53,
           },
           "name": "metadata",
           "optional": true,
@@ -245,7 +246,7 @@ Object {
       "kind": "interface",
       "locationInModule": Object {
         "filename": "meta.pkg.crossplane.io.ts",
-        "line": 67,
+        "line": 69,
       },
       "name": "ConfigurationSpec",
       "properties": Array [
@@ -260,7 +261,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 73,
+            "line": 75,
           },
           "name": "crossplane",
           "optional": true,
@@ -279,7 +280,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 80,
+            "line": 82,
           },
           "name": "dependsOn",
           "optional": true,
@@ -307,7 +308,7 @@ Object {
       "kind": "interface",
       "locationInModule": Object {
         "filename": "meta.pkg.crossplane.io.ts",
-        "line": 89,
+        "line": 91,
       },
       "name": "ConfigurationSpecCrossplane",
       "properties": Array [
@@ -322,7 +323,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 95,
+            "line": 97,
           },
           "name": "version",
           "type": Object {
@@ -345,7 +346,7 @@ Object {
       "kind": "interface",
       "locationInModule": Object {
         "filename": "meta.pkg.crossplane.io.ts",
-        "line": 104,
+        "line": 106,
       },
       "name": "ConfigurationSpecDependsOn",
       "properties": Array [
@@ -360,7 +361,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 124,
+            "line": 126,
           },
           "name": "version",
           "type": Object {
@@ -378,7 +379,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 110,
+            "line": 112,
           },
           "name": "configuration",
           "optional": true,
@@ -397,7 +398,7 @@ Object {
           "immutable": true,
           "locationInModule": Object {
             "filename": "meta.pkg.crossplane.io.ts",
-            "line": 117,
+            "line": 119,
           },
           "name": "provider",
           "optional": true,
