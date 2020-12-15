@@ -1,3 +1,4 @@
+import { resolve } from './_resolve';
 import { sanitizeValue } from './_util';
 
 /**
@@ -141,12 +142,12 @@ export class ApiObjectMetadataDefinition {
    */
   public toJson() {
     const sanitize = (x: any) => sanitizeValue(x, { filterEmptyArrays: true, filterEmptyObjects: true });
-    return sanitize({
+    return sanitize(resolve({
       ...this._additionalAttributes,
       name: this.name,
       namespace: this.namespace,
       annotations: this.annotations,
       labels: this.labels,
-    });
+    }));
   }
 }

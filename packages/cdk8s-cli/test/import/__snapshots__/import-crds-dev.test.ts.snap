@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`crds.dev import github:crossplane/crossplane@0.14.0 1`] = `
+exports[`crds.dev import github:crossplane/crossplane@0.14.0 emit module per API group 1`] = `
 Object {
   "author": Object {
     "name": "generated@generated.com",
@@ -58,12 +58,12 @@ Object {
       },
     },
   },
-  "description": "apiextensionscrossplaneiocomposition",
+  "description": "metapkgcrossplaneio",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
   "jsiiVersion": "1.13.0 (build 385c325)",
   "license": "Apache-2.0",
-  "name": "apiextensionscrossplaneiocomposition",
+  "name": "metapkgcrossplaneio",
   "repository": Object {
     "type": "git",
     "url": "http://generated",
@@ -71,26 +71,26 @@ Object {
   "schema": "jsii/0.10.0",
   "targets": Object {
     "js": Object {
-      "npm": "apiextensionscrossplaneiocomposition",
+      "npm": "metapkgcrossplaneio",
     },
   },
   "types": Object {
-    "apiextensionscrossplaneiocomposition.Composition": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
+    "metapkgcrossplaneio.Configuration": Object {
+      "assembly": "metapkgcrossplaneio",
       "base": "cdk8s.ApiObject",
       "docs": Object {
         "custom": Object {
-          "schema": "Composition",
+          "schema": "Configuration",
         },
-        "summary": "Composition defines the group of resources to be created when a compatible type is created with reference to the composition.",
+        "summary": "A Configuration is the description of a Crossplane Configuration package.",
       },
-      "fqn": "apiextensionscrossplaneiocomposition.Composition",
+      "fqn": "metapkgcrossplaneio.Configuration",
       "initializer": Object {
         "docs": Object {
-          "summary": "Defines a \\"Composition\\" API object.",
+          "summary": "Defines a \\"Configuration\\" API object.",
         },
         "locationInModule": Object {
-          "filename": "apiextensions.crossplane.io/composition.ts",
+          "filename": "meta.pkg.crossplane.io.ts",
           "line": 17,
         },
         "parameters": Array [
@@ -117,47 +117,64 @@ Object {
               "summary": "initialiation props.",
             },
             "name": "props",
-            "optional": true,
             "type": Object {
-              "fqn": "apiextensionscrossplaneiocomposition.CompositionProps",
+              "fqn": "metapkgcrossplaneio.ConfigurationProps",
             },
           },
         ],
       },
       "kind": "class",
       "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
+        "filename": "meta.pkg.crossplane.io.ts",
         "line": 10,
       },
-      "name": "Composition",
+      "name": "Configuration",
     },
-    "apiextensionscrossplaneiocomposition.CompositionProps": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
+    "metapkgcrossplaneio.ConfigurationProps": Object {
+      "assembly": "metapkgcrossplaneio",
       "datatype": true,
       "docs": Object {
         "custom": Object {
-          "schema": "Composition",
+          "schema": "Configuration",
         },
-        "summary": "Composition defines the group of resources to be created when a compatible type is created with reference to the composition.",
+        "summary": "A Configuration is the description of a Crossplane Configuration package.",
       },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionProps",
+      "fqn": "metapkgcrossplaneio.ConfigurationProps",
       "kind": "interface",
       "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
+        "filename": "meta.pkg.crossplane.io.ts",
         "line": 31,
       },
-      "name": "CompositionProps",
+      "name": "ConfigurationProps",
       "properties": Array [
         Object {
           "abstract": true,
           "docs": Object {
             "custom": Object {
-              "schema": "Composition#metadata",
+              "schema": "Configuration#spec",
+            },
+            "summary": "ConfigurationSpec specifies the configuration of a Configuration.",
+          },
+          "immutable": true,
+          "locationInModule": Object {
+            "filename": "meta.pkg.crossplane.io.ts",
+            "line": 42,
+          },
+          "name": "spec",
+          "type": Object {
+            "fqn": "metapkgcrossplaneio.ConfigurationSpec",
+          },
+        },
+        Object {
+          "abstract": true,
+          "docs": Object {
+            "custom": Object {
+              "schema": "Configuration#metadata",
             },
           },
           "immutable": true,
           "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
+            "filename": "meta.pkg.crossplane.io.ts",
             "line": 35,
           },
           "name": "metadata",
@@ -166,302 +183,157 @@ Object {
             "primitive": "any",
           },
         },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "Composition#spec",
-            },
-            "summary": "CompositionSpec specifies the desired state of the definition.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 42,
-          },
-          "name": "spec",
-          "optional": true,
-          "type": Object {
-            "fqn": "apiextensionscrossplaneiocomposition.CompositionSpec",
-          },
-        },
       ],
     },
-    "apiextensionscrossplaneiocomposition.CompositionSpec": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
+    "metapkgcrossplaneio.ConfigurationSpec": Object {
+      "assembly": "metapkgcrossplaneio",
       "datatype": true,
       "docs": Object {
         "custom": Object {
-          "schema": "CompositionSpec",
+          "schema": "ConfigurationSpec",
         },
-        "summary": "CompositionSpec specifies the desired state of the definition.",
+        "summary": "ConfigurationSpec specifies the configuration of a Configuration.",
       },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpec",
+      "fqn": "metapkgcrossplaneio.ConfigurationSpec",
       "kind": "interface",
       "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
+        "filename": "meta.pkg.crossplane.io.ts",
         "line": 51,
       },
-      "name": "CompositionSpec",
+      "name": "ConfigurationSpec",
       "properties": Array [
         Object {
           "abstract": true,
           "docs": Object {
             "custom": Object {
-              "schema": "CompositionSpec#compositeTypeRef",
+              "schema": "ConfigurationSpec#crossplane",
             },
-            "summary": "CompositeTypeRef specifies the type of composite resource that this composition is compatible with.",
+            "summary": "Semantic version constraints of Crossplane that package is compatible with.",
           },
           "immutable": true,
           "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
+            "filename": "meta.pkg.crossplane.io.ts",
             "line": 57,
           },
-          "name": "compositeTypeRef",
+          "name": "crossplane",
+          "optional": true,
           "type": Object {
-            "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecCompositeTypeRef",
+            "fqn": "metapkgcrossplaneio.ConfigurationSpecCrossplane",
           },
         },
         Object {
           "abstract": true,
           "docs": Object {
             "custom": Object {
-              "schema": "CompositionSpec#resources",
+              "schema": "ConfigurationSpec#dependsOn",
             },
-            "summary": "Resources is the list of resource templates that will be used when a composite resource referring to this composition is created.",
+            "summary": "Dependencies on other packages.",
           },
           "immutable": true,
           "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
+            "filename": "meta.pkg.crossplane.io.ts",
             "line": 64,
           },
-          "name": "resources",
+          "name": "dependsOn",
+          "optional": true,
           "type": Object {
             "collection": Object {
               "elementtype": Object {
-                "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResources",
+                "fqn": "metapkgcrossplaneio.ConfigurationSpecDependsOn",
               },
               "kind": "array",
             },
           },
         },
+      ],
+    },
+    "metapkgcrossplaneio.ConfigurationSpecCrossplane": Object {
+      "assembly": "metapkgcrossplaneio",
+      "datatype": true,
+      "docs": Object {
+        "custom": Object {
+          "schema": "ConfigurationSpecCrossplane",
+        },
+        "summary": "Semantic version constraints of Crossplane that package is compatible with.",
+      },
+      "fqn": "metapkgcrossplaneio.ConfigurationSpecCrossplane",
+      "kind": "interface",
+      "locationInModule": Object {
+        "filename": "meta.pkg.crossplane.io.ts",
+        "line": 73,
+      },
+      "name": "ConfigurationSpecCrossplane",
+      "properties": Array [
         Object {
           "abstract": true,
           "docs": Object {
             "custom": Object {
-              "schema": "CompositionSpec#writeConnectionSecretsToNamespace",
+              "schema": "ConfigurationSpecCrossplane#version",
             },
-            "summary": "WriteConnectionSecretsToNamespace specifies the namespace in which the connection secrets of composite resource dynamically provisioned using this composition will be created.",
+            "summary": "Semantic version constraints of Crossplane that package is compatible with.",
           },
           "immutable": true,
           "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 71,
+            "filename": "meta.pkg.crossplane.io.ts",
+            "line": 79,
           },
-          "name": "writeConnectionSecretsToNamespace",
-          "optional": true,
+          "name": "version",
           "type": Object {
             "primitive": "string",
           },
         },
       ],
     },
-    "apiextensionscrossplaneiocomposition.CompositionSpecCompositeTypeRef": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
+    "metapkgcrossplaneio.ConfigurationSpecDependsOn": Object {
+      "assembly": "metapkgcrossplaneio",
       "datatype": true,
       "docs": Object {
         "custom": Object {
-          "schema": "CompositionSpecCompositeTypeRef",
+          "schema": "ConfigurationSpecDependsOn",
         },
-        "summary": "CompositeTypeRef specifies the type of composite resource that this composition is compatible with.",
+        "remarks": "One of Provider or Configuration may be supplied.",
+        "summary": "Dependency is a dependency on another package.",
       },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecCompositeTypeRef",
+      "fqn": "metapkgcrossplaneio.ConfigurationSpecDependsOn",
       "kind": "interface",
       "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 80,
+        "filename": "meta.pkg.crossplane.io.ts",
+        "line": 88,
       },
-      "name": "CompositionSpecCompositeTypeRef",
+      "name": "ConfigurationSpecDependsOn",
       "properties": Array [
         Object {
           "abstract": true,
           "docs": Object {
             "custom": Object {
-              "schema": "CompositionSpecCompositeTypeRef#apiVersion",
+              "schema": "ConfigurationSpecDependsOn#version",
             },
-            "summary": "APIVersion of the type.",
+            "summary": "Version is the semantic version constraints of the dependency image.",
           },
           "immutable": true,
           "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 86,
-          },
-          "name": "apiVersion",
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecCompositeTypeRef#kind",
-            },
-            "summary": "Kind of the type.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 93,
-          },
-          "name": "kind",
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-      ],
-    },
-    "apiextensionscrossplaneiocomposition.CompositionSpecResources": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
-      "datatype": true,
-      "docs": Object {
-        "custom": Object {
-          "schema": "CompositionSpecResources",
-        },
-        "summary": "ComposedTemplate is used to provide information about how the composed resource should be processed.",
-      },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResources",
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 102,
-      },
-      "name": "CompositionSpecResources",
-      "properties": Array [
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResources#base",
-            },
-            "summary": "Base is the target resource that the patches will be applied on.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
+            "filename": "meta.pkg.crossplane.io.ts",
             "line": 108,
           },
-          "name": "base",
+          "name": "version",
           "type": Object {
-            "primitive": "any",
+            "primitive": "string",
           },
         },
         Object {
           "abstract": true,
           "docs": Object {
             "custom": Object {
-              "schema": "CompositionSpecResources#connectionDetails",
+              "schema": "ConfigurationSpecDependsOn#configuration",
             },
-            "summary": "ConnectionDetails lists the propagation secret keys from this target resource to the composition instance connection secret.",
+            "summary": "Configuration is the name of a Configuration package image.",
           },
           "immutable": true,
           "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 115,
+            "filename": "meta.pkg.crossplane.io.ts",
+            "line": 94,
           },
-          "name": "connectionDetails",
-          "optional": true,
-          "type": Object {
-            "collection": Object {
-              "elementtype": Object {
-                "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesConnectionDetails",
-              },
-              "kind": "array",
-            },
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResources#patches",
-            },
-            "summary": "Patches will be applied as overlay to the base resource.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 122,
-          },
-          "name": "patches",
-          "optional": true,
-          "type": Object {
-            "collection": Object {
-              "elementtype": Object {
-                "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatches",
-              },
-              "kind": "array",
-            },
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResources#readinessChecks",
-            },
-            "remarks": "All checks have to return true in order for resource to be considered ready. The default readiness check is to have the \\"Ready\\" condition to be \\"True\\".",
-            "summary": "ReadinessChecks allows users to define custom readiness checks.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 129,
-          },
-          "name": "readinessChecks",
-          "optional": true,
-          "type": Object {
-            "collection": Object {
-              "elementtype": Object {
-                "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesReadinessChecks",
-              },
-              "kind": "array",
-            },
-          },
-        },
-      ],
-    },
-    "apiextensionscrossplaneiocomposition.CompositionSpecResourcesConnectionDetails": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
-      "datatype": true,
-      "docs": Object {
-        "custom": Object {
-          "schema": "CompositionSpecResourcesConnectionDetails",
-        },
-        "summary": "ConnectionDetail includes the information about the propagation of the connection information from one secret to another.",
-      },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesConnectionDetails",
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 138,
-      },
-      "name": "CompositionSpecResourcesConnectionDetails",
-      "properties": Array [
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesConnectionDetails#fromConnectionSecretKey",
-            },
-            "summary": "FromConnectionSecretKey is the key that will be used to fetch the value from the given target resource.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 144,
-          },
-          "name": "fromConnectionSecretKey",
+          "name": "configuration",
           "optional": true,
           "type": Object {
             "primitive": "string",
@@ -471,437 +343,22 @@ Object {
           "abstract": true,
           "docs": Object {
             "custom": Object {
-              "schema": "CompositionSpecResourcesConnectionDetails#name",
+              "schema": "ConfigurationSpecDependsOn#provider",
             },
-            "remarks": "Leave empty if you'd like to use the same key name.",
-            "summary": "Name of the connection secret key that will be propagated to the connection secret of the composition instance.",
+            "summary": "Provider is the name of a Provider package image.",
           },
           "immutable": true,
           "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 151,
+            "filename": "meta.pkg.crossplane.io.ts",
+            "line": 101,
           },
-          "name": "name",
-          "optional": true,
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesConnectionDetails#value",
-            },
-            "remarks": "Typically you should use FromConnectionSecretKey instead, but an explicit value may be set to inject a fixed, non-sensitive connection secret values, for example a well-known port. Supercedes FromConnectionSecretKey when set.",
-            "summary": "Value that will be propagated to the connection secret of the composition instance.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 158,
-          },
-          "name": "value",
+          "name": "provider",
           "optional": true,
           "type": Object {
             "primitive": "string",
           },
         },
       ],
-    },
-    "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatches": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
-      "datatype": true,
-      "docs": Object {
-        "custom": Object {
-          "schema": "CompositionSpecResourcesPatches",
-        },
-        "summary": "Patch is used to patch the field on the base resource at ToFieldPath after piping the value that is at FromFieldPath of the target resource through transformers.",
-      },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatches",
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 167,
-      },
-      "name": "CompositionSpecResourcesPatches",
-      "properties": Array [
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatches#fromFieldPath",
-            },
-            "summary": "FromFieldPath is the path of the field on the upstream resource whose value to be used as input.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 173,
-          },
-          "name": "fromFieldPath",
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatches#toFieldPath",
-            },
-            "remarks": "Leave empty if you'd like to propagate to the same path on the target resource.",
-            "summary": "ToFieldPath is the path of the field on the base resource whose value will be changed with the result of transforms.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 180,
-          },
-          "name": "toFieldPath",
-          "optional": true,
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatches#transforms",
-            },
-            "summary": "Transforms are the list of functions that are used as a FIFO pipe for the input to be transformed.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 187,
-          },
-          "name": "transforms",
-          "optional": true,
-          "type": Object {
-            "collection": Object {
-              "elementtype": Object {
-                "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransforms",
-              },
-              "kind": "array",
-            },
-          },
-        },
-      ],
-    },
-    "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransforms": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
-      "datatype": true,
-      "docs": Object {
-        "custom": Object {
-          "schema": "CompositionSpecResourcesPatchesTransforms",
-        },
-        "summary": "Transform is a unit of process whose input is transformed into an output with the supplied configuration.",
-      },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransforms",
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 232,
-      },
-      "name": "CompositionSpecResourcesPatchesTransforms",
-      "properties": Array [
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatchesTransforms#type",
-            },
-            "summary": "Type of the transform to be run.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 259,
-          },
-          "name": "type",
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatchesTransforms#map",
-            },
-            "summary": "Map uses the input as a key in the given map and returns the value.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 238,
-          },
-          "name": "map",
-          "optional": true,
-          "type": Object {
-            "collection": Object {
-              "elementtype": Object {
-                "primitive": "string",
-              },
-              "kind": "map",
-            },
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatchesTransforms#math",
-            },
-            "summary": "Math is used to transform the input via mathematical operations such as multiplication.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 245,
-          },
-          "name": "math",
-          "optional": true,
-          "type": Object {
-            "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransformsMath",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatchesTransforms#string",
-            },
-            "remarks": "Note that the input does not necessarily need to be a string.",
-            "summary": "String is used to transform the input into a string or a different kind of string.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 252,
-          },
-          "name": "string",
-          "optional": true,
-          "type": Object {
-            "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransformsString",
-          },
-        },
-      ],
-    },
-    "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransformsMath": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
-      "datatype": true,
-      "docs": Object {
-        "custom": Object {
-          "schema": "CompositionSpecResourcesPatchesTransformsMath",
-        },
-        "summary": "Math is used to transform the input via mathematical operations such as multiplication.",
-      },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransformsMath",
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 284,
-      },
-      "name": "CompositionSpecResourcesPatchesTransformsMath",
-      "properties": Array [
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatchesTransformsMath#multiply",
-            },
-            "summary": "Multiply the value.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 290,
-          },
-          "name": "multiply",
-          "optional": true,
-          "type": Object {
-            "primitive": "number",
-          },
-        },
-      ],
-    },
-    "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransformsString": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
-      "datatype": true,
-      "docs": Object {
-        "custom": Object {
-          "schema": "CompositionSpecResourcesPatchesTransformsString",
-        },
-        "remarks": "Note that the input does not necessarily need to be a string.",
-        "summary": "String is used to transform the input into a string or a different kind of string.",
-      },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesPatchesTransformsString",
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 299,
-      },
-      "name": "CompositionSpecResourcesPatchesTransformsString",
-      "properties": Array [
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesPatchesTransformsString#fmt",
-            },
-            "remarks": "See https://golang.org/pkg/fmt/ for details.",
-            "summary": "Format the input using a Go format string.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 305,
-          },
-          "name": "fmt",
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-      ],
-    },
-    "apiextensionscrossplaneiocomposition.CompositionSpecResourcesReadinessChecks": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
-      "datatype": true,
-      "docs": Object {
-        "custom": Object {
-          "schema": "CompositionSpecResourcesReadinessChecks",
-        },
-        "summary": "ReadinessCheck is used to indicate how to tell whether a resource is ready for consumption.",
-      },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesReadinessChecks",
-      "kind": "interface",
-      "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 196,
-      },
-      "name": "CompositionSpecResourcesReadinessChecks",
-      "properties": Array [
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesReadinessChecks#type",
-            },
-            "summary": "Type indicates the type of probe you'd like to use.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 223,
-          },
-          "name": "type",
-          "type": Object {
-            "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesReadinessChecksType",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesReadinessChecks#fieldPath",
-            },
-            "summary": "FieldPath shows the path of the field whose value will be used.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 202,
-          },
-          "name": "fieldPath",
-          "optional": true,
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesReadinessChecks#matchInteger",
-            },
-            "summary": "MatchInt is the value you'd like to match if you're using \\"MatchInt\\" type.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 209,
-          },
-          "name": "matchInteger",
-          "optional": true,
-          "type": Object {
-            "primitive": "number",
-          },
-        },
-        Object {
-          "abstract": true,
-          "docs": Object {
-            "custom": Object {
-              "schema": "CompositionSpecResourcesReadinessChecks#matchString",
-            },
-            "summary": "MatchString is the value you'd like to match if you're using \\"MatchString\\" type.",
-          },
-          "immutable": true,
-          "locationInModule": Object {
-            "filename": "apiextensions.crossplane.io/composition.ts",
-            "line": 216,
-          },
-          "name": "matchString",
-          "optional": true,
-          "type": Object {
-            "primitive": "string",
-          },
-        },
-      ],
-    },
-    "apiextensionscrossplaneiocomposition.CompositionSpecResourcesReadinessChecksType": Object {
-      "assembly": "apiextensionscrossplaneiocomposition",
-      "docs": Object {
-        "custom": Object {
-          "schema": "CompositionSpecResourcesReadinessChecksType",
-        },
-        "summary": "Type indicates the type of probe you'd like to use.",
-      },
-      "fqn": "apiextensionscrossplaneiocomposition.CompositionSpecResourcesReadinessChecksType",
-      "kind": "enum",
-      "locationInModule": Object {
-        "filename": "apiextensions.crossplane.io/composition.ts",
-        "line": 268,
-      },
-      "members": Array [
-        Object {
-          "docs": Object {
-            "summary": "MatchString.",
-          },
-          "name": "MATCH_STRING",
-        },
-        Object {
-          "docs": Object {
-            "summary": "MatchInteger.",
-          },
-          "name": "MATCH_INTEGER",
-        },
-        Object {
-          "docs": Object {
-            "summary": "NonEmpty.",
-          },
-          "name": "NON_EMPTY",
-        },
-        Object {
-          "docs": Object {
-            "summary": "None.",
-          },
-          "name": "NONE",
-        },
-      ],
-      "name": "CompositionSpecResourcesReadinessChecksType",
     },
   },
   "version": "0.0.0",

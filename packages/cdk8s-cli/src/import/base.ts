@@ -52,14 +52,31 @@ export abstract class ImportBase {
       console.error('warning: no definitions to import');
     }
 
-    for (const name of this.moduleNames) {
-      // output the name of the imported resource
-      console.log(name);
+    const mapFunc = ( origName: any ) => {
+      let name = origName;
+      switch (options.targetLanguage) {
+        case Language.PYTHON:
+        case Language.JAVA:
+          name = name.split('.').reverse().join('.');
+          break;
+      }
+      return {
+        origName: origName,
+        name: name,
+      };
+    };
 
-      const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${name}.ts` : `${name}.ts`;
+    // sort to ensure python writes parent packages first, so children are not deleted
+    const modules = this.moduleNames.map(mapFunc).sort((a: any, b: any) => a.name.localeCompare(b.name));
+
+    for (const module of modules) {
+      // output the name of the imported resource
+      console.log(module.origName);
+
+      const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${module.name}.ts` : `${module.name}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
-      await this.generateTypeScript(code, name, {
+      await this.generateTypeScript(code, module.origName, {
         classNamePrefix: options.classNamePrefix,
       });
 
@@ -82,7 +99,7 @@ export abstract class ImportBase {
 
           const opts: srcmak.Options = {
             entrypoint: fileName,
-            moduleKey: name,
+            moduleKey: module.name,
             deps: deps.map(dep => path.dirname(require.resolve(`${dep}/package.json`))),
           };
 
@@ -93,7 +110,7 @@ export abstract class ImportBase {
 
           // python!
           if (options.targetLanguage === Language.PYTHON) {
-            const moduleName = `${moduleNamePrefix ? `${moduleNamePrefix}.${name}` : name}`.replace(/-/g, '_');
+            const moduleName = `${moduleNamePrefix ? `${moduleNamePrefix}.${module.name}` : module.name}`.replace(/-/g, '_');
             opts.python = {
               outdir: outdir,
               moduleName,
@@ -102,7 +119,7 @@ export abstract class ImportBase {
 
           // java!
           if (options.targetLanguage === Language.JAVA) {
-            const javaName = name.replace(/\//g, '.').replace(/-/g, '_');
+            const javaName = module.name.replace(/\//g, '.').replace(/-/g, '_');
             opts.java = {
               outdir: '.',
               package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + javaName : javaName}`,
