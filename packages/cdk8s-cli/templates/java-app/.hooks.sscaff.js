@@ -2,8 +2,6 @@ const { execSync } = require('child_process');
 const { readFileSync } = require('fs');
 const { platform } = require('os');
 
-const cli = require.resolve('../../bin/cdk8s');
-
 exports.pre = (variables) => {
   try {
     execSync(`${platform() === 'win32' ? 'where' : 'which'} mvn`);
@@ -35,7 +33,7 @@ exports.post = options => {
   }
 
   execSync(`mvn install`);
-  execSync(`${cli} import k8s -l java`);
+  execSync(`cdk8s import k8s -l java`);
   execSync(`mvn compile`);
   execSync(`mvn exec:java -Dexec.mainClass="com.mycompany.app.Main"`);
 
