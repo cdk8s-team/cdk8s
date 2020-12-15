@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.5](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2020-12-15)
+
+
+### Features
+
+* **cli:** enable using imported resources as raw manifests ([#447](https://github.com/awslabs/cdk8s/issues/447)) ([aa2422e](https://github.com/awslabs/cdk8s/commit/aa2422e1844d4684b0c61f871c9cbc9f34c08183))
+
+
+### Bug Fixes
+
+* **cli:** importing local files is broken on windows ([#427](https://github.com/awslabs/cdk8s/issues/427)) ([2c4a185](https://github.com/awslabs/cdk8s/commit/2c4a1858b5c88cf4e5eb6ac5e8f0bcb1495adbf4))
+
 ## [1.0.0-beta.4](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2020-12-13)
 
 
