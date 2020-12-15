@@ -50,5 +50,9 @@ export class Cdk8sCli extends pj.TypeScriptProject {
       root.dependenciesUpgrade.addPackage(packagePath, { exclude: ['projen'] });
     }
 
+    // build is actually compile for this project
+    this.buildTask.reset();
+    this.buildTask.spawn(this.compileTask);
+
   }
 }

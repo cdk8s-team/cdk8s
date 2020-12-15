@@ -52,6 +52,10 @@ export class Cdk8s extends pj.JsiiProject {
     this.gitignore.include('/src/_loadurl.js');
     this.compileTask.exec('cp src/_loadurl.js lib/');
 
+    // build is actually compile for this project
+    this.buildTask.reset();
+    this.buildTask.spawn(this.compileTask);
+
   }
 
 }

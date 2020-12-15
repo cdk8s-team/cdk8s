@@ -53,6 +53,10 @@ export class Cdk8sPlus17 extends pj.JsiiProject {
 
     this.addTask('import', { exec: `../cdk8s-cli/bin/cdk8s -l typescript -o ${importdir} import k8s@${K8S_17_VERSION}` });
 
+    // build is actually compile for this project
+    this.buildTask.reset();
+    this.buildTask.spawn(this.compileTask);
+
   }
 
 }

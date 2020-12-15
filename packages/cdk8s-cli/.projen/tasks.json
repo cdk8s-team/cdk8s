@@ -35,13 +35,7 @@
       "description": "Full release build (test+compile)",
       "steps": [
         {
-          "spawn": "test"
-        },
-        {
           "spawn": "compile"
-        },
-        {
-          "spawn": "package"
         }
       ]
     },
