@@ -517,6 +517,19 @@
     CRDs
   </a>
   
+    <nav class="md-nav" aria-label="CRDs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-crds-from-a-cluster" class="md-nav__link">
+    Importing CRDs from a cluster
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1052,6 +1065,19 @@
     CRDs
   </a>
   
+    <nav class="md-nav" aria-label="CRDs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-crds-from-a-cluster" class="md-nav__link">
+    Importing CRDs from a cluster
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1170,9 +1196,10 @@ will also include an <code>Ingress</code> construct which represents the <code>v
 <p>A CRD with group <code>mygroup.io</code> and kind <code>Foo</code> will be imported to the following
 locations:</p>
 <ul>
-<li>TypeScript: <code>imports/mygroup.io/foo.ts</code></li>
-<li>Python: <code>imports/mygroup/io/foo/__init__.py</code></li>
+<li>TypeScript: <code>imports/mygroup.io.ts</code></li>
+<li>Python: <code>imports/mygroup/io</code></li>
 </ul>
+<h4 id="importing-crds-from-a-cluster">Importing CRDs from a cluster<a class="headerlink" href="#importing-crds-from-a-cluster" title="Permanent link">&para;</a></h4>
 <p>If the imported YAML is a <code>List</code> of CRDs, all these CRDs will be imported. This
 is useful, for example, to import all the CRDs from a running cluster:</p>
 <div class="highlight"><pre><span></span><code>kubectl get crds -o json <span class="p">|</span> cdk8s import /dev/stdin
