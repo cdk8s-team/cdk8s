@@ -3,8 +3,6 @@ const { chmodSync } = require('fs');
 const { readFileSync } = require('fs');
 const { platform } = require('os');
 
-const cli = require.resolve('../../bin/cdk8s');
-
 exports.pre = () => {
   try {
     execSync(`${platform() === 'win32' ? 'where' : 'which'} pipenv`);
@@ -47,7 +45,7 @@ exports.post = options => {
 
   chmodSync('main.py', '700');
 
-  execSync(`${cli} import k8s -l python`);
+  execSync(`cdk8s import k8s -l python`);
   execSync(`pipenv run ./main.py`);
 
   console.log(readFileSync('./help', 'utf-8'));

@@ -24,6 +24,6 @@ cp ${scriptdir}/main.test.ts .
 yarn compile && yarn test -u && yarn synth
 
 # show output
-diff dist ${scriptdir}/expected
+diff --strip-trailing-cr dist ${scriptdir}/expected
 
 echo "PASS"
