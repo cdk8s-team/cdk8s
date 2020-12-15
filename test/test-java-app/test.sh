@@ -20,6 +20,6 @@ mvn compile
 cdk8s synth
 
 # show output
-diff dist ${scriptdir}/expected
+diff --strip-trailing-cr dist ${scriptdir}/expected
 
 echo "PASS"
