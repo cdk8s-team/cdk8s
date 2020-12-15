@@ -148,8 +148,13 @@ export class Service extends Resource {
     });
 
     this.clusterIP = props.clusterIP;
-    this.type = props.type ?? ServiceType.CLUSTER_IP;
     this.externalName = props.externalName;
+
+    if (props.externalName !== undefined) {
+      this.type = ServiceType.EXTERNAL_NAME;
+    } else {
+      this.type = props.type ?? ServiceType.CLUSTER_IP;
+    }
 
     this._externalIPs = props.externalIPs ?? [];
     this._ports = [];
@@ -248,10 +253,6 @@ export class Service extends Resource {
       throw new Error('A service with type EXTERNAL_NAME requires an externalName prop');
     }
 
-    if (this.externalName !== undefined && this.type !== ServiceType.EXTERNAL_NAME) {
-      throw new Error('A service with an externalName prop requires a type of EXTERNAL_NAME');
-    }
-
     const ports: k8s.ServicePort[] = [];
 
     for (const port of this._ports) {
@@ -270,7 +271,7 @@ export class Service extends Resource {
       type: this.type,
       selector: this._selector,
       ports: ports,
-      externalName: this.externalName
+      externalName: this.externalName,
     };
   }
 }
