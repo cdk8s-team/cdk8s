@@ -17,14 +17,16 @@ export class CompositeResourceDefinition extends ApiObject {
   }
 
   /**
-   * Adds "CompositeResourceDefinition" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "CompositeResourceDefinition".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: CompositeResourceDefinitionProps = {}): any {
+  public static manifest(props: CompositeResourceDefinitionProps = {}): any {
     return {
+      ...CompositeResourceDefinition.GVK,
       ...props,
-      kind: 'CompositeResourceDefinition',
-      apiVersion: 'apiextensions.crossplane.io/v1alpha1',
     };
   }
 
@@ -35,7 +37,7 @@ export class CompositeResourceDefinition extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: CompositeResourceDefinitionProps = {}) {
-    super(scope, id, CompositeResourceDefinition.propsWithGVK(props));
+    super(scope, id, CompositeResourceDefinition.manifest(props));
   }
 }
 
@@ -373,14 +375,16 @@ export class Composition extends ApiObject {
   }
 
   /**
-   * Adds "Composition" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "Composition".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: CompositionProps = {}): any {
+  public static manifest(props: CompositionProps = {}): any {
     return {
+      ...Composition.GVK,
       ...props,
-      kind: 'Composition',
-      apiVersion: 'apiextensions.crossplane.io/v1alpha1',
     };
   }
 
@@ -391,7 +395,7 @@ export class Composition extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: CompositionProps = {}) {
-    super(scope, id, Composition.propsWithGVK(props));
+    super(scope, id, Composition.manifest(props));
   }
 }
 

@@ -17,14 +17,16 @@ export class CronTab extends ApiObject {
   }
 
   /**
-   * Adds "CronTab" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "CronTab".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: CronTabProps = {}): any {
+  public static manifest(props: CronTabProps = {}): any {
     return {
+      ...CronTab.GVK,
       ...props,
-      kind: 'CronTab',
-      apiVersion: 'stable.example.com/v1',
     };
   }
 
@@ -35,7 +37,7 @@ export class CronTab extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: CronTabProps = {}) {
-    super(scope, id, CronTab.propsWithGVK(props));
+    super(scope, id, CronTab.manifest(props));
   }
 }
 

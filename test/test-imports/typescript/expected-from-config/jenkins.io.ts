@@ -17,14 +17,16 @@ export class Jenkins extends ApiObject {
   }
 
   /**
-   * Adds "Jenkins" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "Jenkins".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: JenkinsProps = {}): any {
+  public static manifest(props: JenkinsProps = {}): any {
     return {
+      ...Jenkins.GVK,
       ...props,
-      kind: 'Jenkins',
-      apiVersion: 'jenkins.io/v1alpha2',
     };
   }
 
@@ -35,7 +37,7 @@ export class Jenkins extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: JenkinsProps = {}) {
-    super(scope, id, Jenkins.propsWithGVK(props));
+    super(scope, id, Jenkins.manifest(props));
   }
 }
 

@@ -17,14 +17,16 @@ export class Configuration extends ApiObject {
   }
 
   /**
-   * Adds "Configuration" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "Configuration".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: ConfigurationProps = {}): any {
+  public static manifest(props: ConfigurationProps = {}): any {
     return {
+      ...Configuration.GVK,
       ...props,
-      kind: 'Configuration',
-      apiVersion: 'pkg.crossplane.io/v1alpha1',
     };
   }
 
@@ -35,7 +37,7 @@ export class Configuration extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ConfigurationProps = {}) {
-    super(scope, id, Configuration.propsWithGVK(props));
+    super(scope, id, Configuration.manifest(props));
   }
 }
 
@@ -143,14 +145,16 @@ export class ConfigurationRevision extends ApiObject {
   }
 
   /**
-   * Adds "ConfigurationRevision" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "ConfigurationRevision".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: ConfigurationRevisionProps = {}): any {
+  public static manifest(props: ConfigurationRevisionProps = {}): any {
     return {
+      ...ConfigurationRevision.GVK,
       ...props,
-      kind: 'ConfigurationRevision',
-      apiVersion: 'pkg.crossplane.io/v1alpha1',
     };
   }
 
@@ -161,7 +165,7 @@ export class ConfigurationRevision extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ConfigurationRevisionProps = {}) {
-    super(scope, id, ConfigurationRevision.propsWithGVK(props));
+    super(scope, id, ConfigurationRevision.manifest(props));
   }
 }
 
@@ -289,14 +293,16 @@ export class ControllerConfig extends ApiObject {
   }
 
   /**
-   * Adds "ControllerConfig" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "ControllerConfig".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: ControllerConfigProps = {}): any {
+  public static manifest(props: ControllerConfigProps = {}): any {
     return {
+      ...ControllerConfig.GVK,
       ...props,
-      kind: 'ControllerConfig',
-      apiVersion: 'pkg.crossplane.io/v1alpha1',
     };
   }
 
@@ -307,7 +313,7 @@ export class ControllerConfig extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ControllerConfigProps = {}) {
-    super(scope, id, ControllerConfig.propsWithGVK(props));
+    super(scope, id, ControllerConfig.manifest(props));
   }
 }
 
@@ -1837,14 +1843,16 @@ export class Provider extends ApiObject {
   }
 
   /**
-   * Adds "Provider" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "Provider".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: ProviderProps = {}): any {
+  public static manifest(props: ProviderProps = {}): any {
     return {
+      ...Provider.GVK,
       ...props,
-      kind: 'Provider',
-      apiVersion: 'pkg.crossplane.io/v1alpha1',
     };
   }
 
@@ -1855,7 +1863,7 @@ export class Provider extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ProviderProps = {}) {
-    super(scope, id, Provider.propsWithGVK(props));
+    super(scope, id, Provider.manifest(props));
   }
 }
 
@@ -1985,14 +1993,16 @@ export class ProviderRevision extends ApiObject {
   }
 
   /**
-   * Adds "ProviderRevision" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "ProviderRevision".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: ProviderRevisionProps = {}): any {
+  public static manifest(props: ProviderRevisionProps = {}): any {
     return {
+      ...ProviderRevision.GVK,
       ...props,
-      kind: 'ProviderRevision',
-      apiVersion: 'pkg.crossplane.io/v1alpha1',
     };
   }
 
@@ -2003,7 +2013,7 @@ export class ProviderRevision extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ProviderRevisionProps = {}) {
-    super(scope, id, ProviderRevision.propsWithGVK(props));
+    super(scope, id, ProviderRevision.manifest(props));
   }
 }
 

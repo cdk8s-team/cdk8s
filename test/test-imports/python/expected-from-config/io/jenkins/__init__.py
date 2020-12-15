@@ -39,22 +39,24 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="iojenkins.Jen
 
         jsii.create(Jenkins, self, [scope, id, props])
 
-    @jsii.member(jsii_name="propsWithGVK")
+    @jsii.member(jsii_name="manifest")
     @builtins.classmethod
-    def props_with_gvk(
+    def manifest(
         cls,
         *,
         metadata: typing.Any = None,
         spec: typing.Optional["JenkinsSpec"] = None,
     ) -> typing.Any:
-        """Adds "Jenkins" kind and apiVersion to props.
+        """Renders a Kubernetes manifest for "Jenkins".
+
+        This can be used to inline resource manifests inside other objects (e.g. as templates).
 
         :param metadata: 
         :param spec: Spec defines the desired state of the Jenkins.
         """
         props = JenkinsProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "propsWithGVK", [props])
+        return jsii.sinvoke(cls, "manifest", [props])
 
     @jsii.python.classproperty # type: ignore
     @jsii.member(jsii_name="GVK")

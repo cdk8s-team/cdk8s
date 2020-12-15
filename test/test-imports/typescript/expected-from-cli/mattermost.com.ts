@@ -17,14 +17,16 @@ export class ClusterInstallation extends ApiObject {
   }
 
   /**
-   * Adds "ClusterInstallation" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "ClusterInstallation".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: ClusterInstallationProps): any {
+  public static manifest(props: ClusterInstallationProps): any {
     return {
+      ...ClusterInstallation.GVK,
       ...props,
-      kind: 'ClusterInstallation',
-      apiVersion: 'mattermost.com/v1alpha1',
     };
   }
 
@@ -35,7 +37,7 @@ export class ClusterInstallation extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ClusterInstallationProps) {
-    super(scope, id, ClusterInstallation.propsWithGVK(props));
+    super(scope, id, ClusterInstallation.manifest(props));
   }
 }
 

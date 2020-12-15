@@ -40,20 +40,18 @@ class CronTab(
 
         jsii.create(CronTab, self, [scope, id, props])
 
-    @jsii.member(jsii_name="propsWithGVK")
+    @jsii.member(jsii_name="manifest")
     @builtins.classmethod
-    def props_with_gvk(
-        cls,
-        *,
-        spec: typing.Optional["CronTabSpec"] = None,
-    ) -> typing.Any:
-        """Adds "CronTab" kind and apiVersion to props.
+    def manifest(cls, *, spec: typing.Optional["CronTabSpec"] = None) -> typing.Any:
+        """Renders a Kubernetes manifest for "CronTab".
+
+        This can be used to inline resource manifests inside other objects (e.g. as templates).
 
         :param spec: 
         """
         props = CronTabProps(spec=spec)
 
-        return jsii.sinvoke(cls, "propsWithGVK", [props])
+        return jsii.sinvoke(cls, "manifest", [props])
 
     @jsii.python.classproperty # type: ignore
     @jsii.member(jsii_name="GVK")

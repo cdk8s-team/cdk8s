@@ -17,14 +17,16 @@ export class KubeMutatingWebhookConfiguration extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeMutatingWebhookConfigurationProps = {}): any {
+  public static manifest(props: KubeMutatingWebhookConfigurationProps = {}): any {
     return {
+      ...KubeMutatingWebhookConfiguration.GVK,
       ...props,
-      kind: 'MutatingWebhookConfiguration',
-      apiVersion: 'admissionregistration.k8s.io/v1',
     };
   }
 
@@ -35,7 +37,7 @@ export class KubeMutatingWebhookConfiguration extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeMutatingWebhookConfigurationProps = {}) {
-    super(scope, id, KubeMutatingWebhookConfiguration.propsWithGVK(props));
+    super(scope, id, KubeMutatingWebhookConfiguration.manifest(props));
   }
 }
 
@@ -54,14 +56,16 @@ export class KubeMutatingWebhookConfigurationList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeMutatingWebhookConfigurationListProps): any {
+  public static manifest(props: KubeMutatingWebhookConfigurationListProps): any {
     return {
+      ...KubeMutatingWebhookConfigurationList.GVK,
       ...props,
-      kind: 'MutatingWebhookConfigurationList',
-      apiVersion: 'admissionregistration.k8s.io/v1',
     };
   }
 
@@ -72,7 +76,7 @@ export class KubeMutatingWebhookConfigurationList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeMutatingWebhookConfigurationListProps) {
-    super(scope, id, KubeMutatingWebhookConfigurationList.propsWithGVK(props));
+    super(scope, id, KubeMutatingWebhookConfigurationList.manifest(props));
   }
 }
 
@@ -91,14 +95,16 @@ export class KubeValidatingWebhookConfiguration extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeValidatingWebhookConfigurationProps = {}): any {
+  public static manifest(props: KubeValidatingWebhookConfigurationProps = {}): any {
     return {
+      ...KubeValidatingWebhookConfiguration.GVK,
       ...props,
-      kind: 'ValidatingWebhookConfiguration',
-      apiVersion: 'admissionregistration.k8s.io/v1',
     };
   }
 
@@ -109,7 +115,7 @@ export class KubeValidatingWebhookConfiguration extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeValidatingWebhookConfigurationProps = {}) {
-    super(scope, id, KubeValidatingWebhookConfiguration.propsWithGVK(props));
+    super(scope, id, KubeValidatingWebhookConfiguration.manifest(props));
   }
 }
 
@@ -128,14 +134,16 @@ export class KubeValidatingWebhookConfigurationList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeValidatingWebhookConfigurationListProps): any {
+  public static manifest(props: KubeValidatingWebhookConfigurationListProps): any {
     return {
+      ...KubeValidatingWebhookConfigurationList.GVK,
       ...props,
-      kind: 'ValidatingWebhookConfigurationList',
-      apiVersion: 'admissionregistration.k8s.io/v1',
     };
   }
 
@@ -146,7 +154,7 @@ export class KubeValidatingWebhookConfigurationList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeValidatingWebhookConfigurationListProps) {
-    super(scope, id, KubeValidatingWebhookConfigurationList.propsWithGVK(props));
+    super(scope, id, KubeValidatingWebhookConfigurationList.manifest(props));
   }
 }
 
@@ -165,14 +173,16 @@ export class KubeMutatingWebhookConfigurationV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeMutatingWebhookConfigurationV1Beta1Props = {}): any {
+  public static manifest(props: KubeMutatingWebhookConfigurationV1Beta1Props = {}): any {
     return {
+      ...KubeMutatingWebhookConfigurationV1Beta1.GVK,
       ...props,
-      kind: 'MutatingWebhookConfiguration',
-      apiVersion: 'admissionregistration.k8s.io/v1beta1',
     };
   }
 
@@ -183,7 +193,7 @@ export class KubeMutatingWebhookConfigurationV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeMutatingWebhookConfigurationV1Beta1Props = {}) {
-    super(scope, id, KubeMutatingWebhookConfigurationV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeMutatingWebhookConfigurationV1Beta1.manifest(props));
   }
 }
 
@@ -202,14 +212,16 @@ export class KubeMutatingWebhookConfigurationListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeMutatingWebhookConfigurationListV1Beta1Props): any {
+  public static manifest(props: KubeMutatingWebhookConfigurationListV1Beta1Props): any {
     return {
+      ...KubeMutatingWebhookConfigurationListV1Beta1.GVK,
       ...props,
-      kind: 'MutatingWebhookConfigurationList',
-      apiVersion: 'admissionregistration.k8s.io/v1beta1',
     };
   }
 
@@ -220,7 +232,7 @@ export class KubeMutatingWebhookConfigurationListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeMutatingWebhookConfigurationListV1Beta1Props) {
-    super(scope, id, KubeMutatingWebhookConfigurationListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeMutatingWebhookConfigurationListV1Beta1.manifest(props));
   }
 }
 
@@ -239,14 +251,16 @@ export class KubeValidatingWebhookConfigurationV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeValidatingWebhookConfigurationV1Beta1Props = {}): any {
+  public static manifest(props: KubeValidatingWebhookConfigurationV1Beta1Props = {}): any {
     return {
+      ...KubeValidatingWebhookConfigurationV1Beta1.GVK,
       ...props,
-      kind: 'ValidatingWebhookConfiguration',
-      apiVersion: 'admissionregistration.k8s.io/v1beta1',
     };
   }
 
@@ -257,7 +271,7 @@ export class KubeValidatingWebhookConfigurationV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeValidatingWebhookConfigurationV1Beta1Props = {}) {
-    super(scope, id, KubeValidatingWebhookConfigurationV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeValidatingWebhookConfigurationV1Beta1.manifest(props));
   }
 }
 
@@ -276,14 +290,16 @@ export class KubeValidatingWebhookConfigurationListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeValidatingWebhookConfigurationListV1Beta1Props): any {
+  public static manifest(props: KubeValidatingWebhookConfigurationListV1Beta1Props): any {
     return {
+      ...KubeValidatingWebhookConfigurationListV1Beta1.GVK,
       ...props,
-      kind: 'ValidatingWebhookConfigurationList',
-      apiVersion: 'admissionregistration.k8s.io/v1beta1',
     };
   }
 
@@ -294,7 +310,7 @@ export class KubeValidatingWebhookConfigurationListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeValidatingWebhookConfigurationListV1Beta1Props) {
-    super(scope, id, KubeValidatingWebhookConfigurationListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeValidatingWebhookConfigurationListV1Beta1.manifest(props));
   }
 }
 
@@ -313,14 +329,16 @@ export class KubeControllerRevision extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.ControllerRevision" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ControllerRevision".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeControllerRevisionProps): any {
+  public static manifest(props: KubeControllerRevisionProps): any {
     return {
+      ...KubeControllerRevision.GVK,
       ...props,
-      kind: 'ControllerRevision',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -331,7 +349,7 @@ export class KubeControllerRevision extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeControllerRevisionProps) {
-    super(scope, id, KubeControllerRevision.propsWithGVK(props));
+    super(scope, id, KubeControllerRevision.manifest(props));
   }
 }
 
@@ -350,14 +368,16 @@ export class KubeControllerRevisionList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.ControllerRevisionList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ControllerRevisionList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeControllerRevisionListProps): any {
+  public static manifest(props: KubeControllerRevisionListProps): any {
     return {
+      ...KubeControllerRevisionList.GVK,
       ...props,
-      kind: 'ControllerRevisionList',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -368,7 +388,7 @@ export class KubeControllerRevisionList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeControllerRevisionListProps) {
-    super(scope, id, KubeControllerRevisionList.propsWithGVK(props));
+    super(scope, id, KubeControllerRevisionList.manifest(props));
   }
 }
 
@@ -387,14 +407,16 @@ export class KubeDaemonSet extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.DaemonSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.DaemonSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDaemonSetProps = {}): any {
+  public static manifest(props: KubeDaemonSetProps = {}): any {
     return {
+      ...KubeDaemonSet.GVK,
       ...props,
-      kind: 'DaemonSet',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -405,7 +427,7 @@ export class KubeDaemonSet extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDaemonSetProps = {}) {
-    super(scope, id, KubeDaemonSet.propsWithGVK(props));
+    super(scope, id, KubeDaemonSet.manifest(props));
   }
 }
 
@@ -424,14 +446,16 @@ export class KubeDaemonSetList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.DaemonSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.DaemonSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDaemonSetListProps): any {
+  public static manifest(props: KubeDaemonSetListProps): any {
     return {
+      ...KubeDaemonSetList.GVK,
       ...props,
-      kind: 'DaemonSetList',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -442,7 +466,7 @@ export class KubeDaemonSetList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDaemonSetListProps) {
-    super(scope, id, KubeDaemonSetList.propsWithGVK(props));
+    super(scope, id, KubeDaemonSetList.manifest(props));
   }
 }
 
@@ -461,14 +485,16 @@ export class KubeDeployment extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.Deployment" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.Deployment".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDeploymentProps = {}): any {
+  public static manifest(props: KubeDeploymentProps = {}): any {
     return {
+      ...KubeDeployment.GVK,
       ...props,
-      kind: 'Deployment',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -479,7 +505,7 @@ export class KubeDeployment extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDeploymentProps = {}) {
-    super(scope, id, KubeDeployment.propsWithGVK(props));
+    super(scope, id, KubeDeployment.manifest(props));
   }
 }
 
@@ -498,14 +524,16 @@ export class KubeDeploymentList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.DeploymentList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.DeploymentList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDeploymentListProps): any {
+  public static manifest(props: KubeDeploymentListProps): any {
     return {
+      ...KubeDeploymentList.GVK,
       ...props,
-      kind: 'DeploymentList',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -516,7 +544,7 @@ export class KubeDeploymentList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDeploymentListProps) {
-    super(scope, id, KubeDeploymentList.propsWithGVK(props));
+    super(scope, id, KubeDeploymentList.manifest(props));
   }
 }
 
@@ -535,14 +563,16 @@ export class KubeReplicaSet extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.ReplicaSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ReplicaSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeReplicaSetProps = {}): any {
+  public static manifest(props: KubeReplicaSetProps = {}): any {
     return {
+      ...KubeReplicaSet.GVK,
       ...props,
-      kind: 'ReplicaSet',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -553,7 +583,7 @@ export class KubeReplicaSet extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeReplicaSetProps = {}) {
-    super(scope, id, KubeReplicaSet.propsWithGVK(props));
+    super(scope, id, KubeReplicaSet.manifest(props));
   }
 }
 
@@ -572,14 +602,16 @@ export class KubeReplicaSetList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.ReplicaSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ReplicaSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeReplicaSetListProps): any {
+  public static manifest(props: KubeReplicaSetListProps): any {
     return {
+      ...KubeReplicaSetList.GVK,
       ...props,
-      kind: 'ReplicaSetList',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -590,7 +622,7 @@ export class KubeReplicaSetList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeReplicaSetListProps) {
-    super(scope, id, KubeReplicaSetList.propsWithGVK(props));
+    super(scope, id, KubeReplicaSetList.manifest(props));
   }
 }
 
@@ -612,14 +644,16 @@ export class KubeStatefulSet extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.StatefulSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.StatefulSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStatefulSetProps = {}): any {
+  public static manifest(props: KubeStatefulSetProps = {}): any {
     return {
+      ...KubeStatefulSet.GVK,
       ...props,
-      kind: 'StatefulSet',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -630,7 +664,7 @@ export class KubeStatefulSet extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStatefulSetProps = {}) {
-    super(scope, id, KubeStatefulSet.propsWithGVK(props));
+    super(scope, id, KubeStatefulSet.manifest(props));
   }
 }
 
@@ -649,14 +683,16 @@ export class KubeStatefulSetList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1.StatefulSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1.StatefulSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStatefulSetListProps): any {
+  public static manifest(props: KubeStatefulSetListProps): any {
     return {
+      ...KubeStatefulSetList.GVK,
       ...props,
-      kind: 'StatefulSetList',
-      apiVersion: 'apps/v1',
     };
   }
 
@@ -667,7 +703,7 @@ export class KubeStatefulSetList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStatefulSetListProps) {
-    super(scope, id, KubeStatefulSetList.propsWithGVK(props));
+    super(scope, id, KubeStatefulSetList.manifest(props));
   }
 }
 
@@ -686,14 +722,16 @@ export class KubeControllerRevisionV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta1.ControllerRevision" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.ControllerRevision".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeControllerRevisionV1Beta1Props): any {
+  public static manifest(props: KubeControllerRevisionV1Beta1Props): any {
     return {
+      ...KubeControllerRevisionV1Beta1.GVK,
       ...props,
-      kind: 'ControllerRevision',
-      apiVersion: 'apps/v1beta1',
     };
   }
 
@@ -704,7 +742,7 @@ export class KubeControllerRevisionV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeControllerRevisionV1Beta1Props) {
-    super(scope, id, KubeControllerRevisionV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeControllerRevisionV1Beta1.manifest(props));
   }
 }
 
@@ -723,14 +761,16 @@ export class KubeControllerRevisionListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta1.ControllerRevisionList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.ControllerRevisionList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeControllerRevisionListV1Beta1Props): any {
+  public static manifest(props: KubeControllerRevisionListV1Beta1Props): any {
     return {
+      ...KubeControllerRevisionListV1Beta1.GVK,
       ...props,
-      kind: 'ControllerRevisionList',
-      apiVersion: 'apps/v1beta1',
     };
   }
 
@@ -741,7 +781,7 @@ export class KubeControllerRevisionListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeControllerRevisionListV1Beta1Props) {
-    super(scope, id, KubeControllerRevisionListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeControllerRevisionListV1Beta1.manifest(props));
   }
 }
 
@@ -760,14 +800,16 @@ export class KubeDeploymentV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.Deployment" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.Deployment".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDeploymentV1Beta1Props = {}): any {
+  public static manifest(props: KubeDeploymentV1Beta1Props = {}): any {
     return {
+      ...KubeDeploymentV1Beta1.GVK,
       ...props,
-      kind: 'Deployment',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -778,7 +820,7 @@ export class KubeDeploymentV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDeploymentV1Beta1Props = {}) {
-    super(scope, id, KubeDeploymentV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeDeploymentV1Beta1.manifest(props));
   }
 }
 
@@ -797,14 +839,16 @@ export class KubeDeploymentListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.DeploymentList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.DeploymentList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDeploymentListV1Beta1Props): any {
+  public static manifest(props: KubeDeploymentListV1Beta1Props): any {
     return {
+      ...KubeDeploymentListV1Beta1.GVK,
       ...props,
-      kind: 'DeploymentList',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -815,7 +859,7 @@ export class KubeDeploymentListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDeploymentListV1Beta1Props) {
-    super(scope, id, KubeDeploymentListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeDeploymentListV1Beta1.manifest(props));
   }
 }
 
@@ -834,14 +878,16 @@ export class KubeScaleV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.Scale" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.Scale".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeScaleV1Beta1Props = {}): any {
+  public static manifest(props: KubeScaleV1Beta1Props = {}): any {
     return {
+      ...KubeScaleV1Beta1.GVK,
       ...props,
-      kind: 'Scale',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -852,7 +898,7 @@ export class KubeScaleV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeScaleV1Beta1Props = {}) {
-    super(scope, id, KubeScaleV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeScaleV1Beta1.manifest(props));
   }
 }
 
@@ -874,14 +920,16 @@ export class KubeStatefulSetV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta1.StatefulSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.StatefulSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStatefulSetV1Beta1Props = {}): any {
+  public static manifest(props: KubeStatefulSetV1Beta1Props = {}): any {
     return {
+      ...KubeStatefulSetV1Beta1.GVK,
       ...props,
-      kind: 'StatefulSet',
-      apiVersion: 'apps/v1beta1',
     };
   }
 
@@ -892,7 +940,7 @@ export class KubeStatefulSetV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStatefulSetV1Beta1Props = {}) {
-    super(scope, id, KubeStatefulSetV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeStatefulSetV1Beta1.manifest(props));
   }
 }
 
@@ -911,14 +959,16 @@ export class KubeStatefulSetListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta1.StatefulSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.StatefulSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStatefulSetListV1Beta1Props): any {
+  public static manifest(props: KubeStatefulSetListV1Beta1Props): any {
     return {
+      ...KubeStatefulSetListV1Beta1.GVK,
       ...props,
-      kind: 'StatefulSetList',
-      apiVersion: 'apps/v1beta1',
     };
   }
 
@@ -929,7 +979,7 @@ export class KubeStatefulSetListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStatefulSetListV1Beta1Props) {
-    super(scope, id, KubeStatefulSetListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeStatefulSetListV1Beta1.manifest(props));
   }
 }
 
@@ -948,14 +998,16 @@ export class KubeControllerRevisionV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.ControllerRevision" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ControllerRevision".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeControllerRevisionV1Beta2Props): any {
+  public static manifest(props: KubeControllerRevisionV1Beta2Props): any {
     return {
+      ...KubeControllerRevisionV1Beta2.GVK,
       ...props,
-      kind: 'ControllerRevision',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -966,7 +1018,7 @@ export class KubeControllerRevisionV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeControllerRevisionV1Beta2Props) {
-    super(scope, id, KubeControllerRevisionV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeControllerRevisionV1Beta2.manifest(props));
   }
 }
 
@@ -985,14 +1037,16 @@ export class KubeControllerRevisionListV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.ControllerRevisionList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ControllerRevisionList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeControllerRevisionListV1Beta2Props): any {
+  public static manifest(props: KubeControllerRevisionListV1Beta2Props): any {
     return {
+      ...KubeControllerRevisionListV1Beta2.GVK,
       ...props,
-      kind: 'ControllerRevisionList',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1003,7 +1057,7 @@ export class KubeControllerRevisionListV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeControllerRevisionListV1Beta2Props) {
-    super(scope, id, KubeControllerRevisionListV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeControllerRevisionListV1Beta2.manifest(props));
   }
 }
 
@@ -1022,14 +1076,16 @@ export class KubeDaemonSetV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.DaemonSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.DaemonSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDaemonSetV1Beta2Props = {}): any {
+  public static manifest(props: KubeDaemonSetV1Beta2Props = {}): any {
     return {
+      ...KubeDaemonSetV1Beta2.GVK,
       ...props,
-      kind: 'DaemonSet',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1040,7 +1096,7 @@ export class KubeDaemonSetV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDaemonSetV1Beta2Props = {}) {
-    super(scope, id, KubeDaemonSetV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeDaemonSetV1Beta2.manifest(props));
   }
 }
 
@@ -1059,14 +1115,16 @@ export class KubeDaemonSetListV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.DaemonSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.DaemonSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDaemonSetListV1Beta2Props): any {
+  public static manifest(props: KubeDaemonSetListV1Beta2Props): any {
     return {
+      ...KubeDaemonSetListV1Beta2.GVK,
       ...props,
-      kind: 'DaemonSetList',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1077,7 +1135,7 @@ export class KubeDaemonSetListV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDaemonSetListV1Beta2Props) {
-    super(scope, id, KubeDaemonSetListV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeDaemonSetListV1Beta2.manifest(props));
   }
 }
 
@@ -1096,14 +1154,16 @@ export class KubeDeploymentV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.Deployment" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.Deployment".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDeploymentV1Beta2Props = {}): any {
+  public static manifest(props: KubeDeploymentV1Beta2Props = {}): any {
     return {
+      ...KubeDeploymentV1Beta2.GVK,
       ...props,
-      kind: 'Deployment',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1114,7 +1174,7 @@ export class KubeDeploymentV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDeploymentV1Beta2Props = {}) {
-    super(scope, id, KubeDeploymentV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeDeploymentV1Beta2.manifest(props));
   }
 }
 
@@ -1133,14 +1193,16 @@ export class KubeDeploymentListV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.DeploymentList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.DeploymentList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDeploymentListV1Beta2Props): any {
+  public static manifest(props: KubeDeploymentListV1Beta2Props): any {
     return {
+      ...KubeDeploymentListV1Beta2.GVK,
       ...props,
-      kind: 'DeploymentList',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1151,7 +1213,7 @@ export class KubeDeploymentListV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDeploymentListV1Beta2Props) {
-    super(scope, id, KubeDeploymentListV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeDeploymentListV1Beta2.manifest(props));
   }
 }
 
@@ -1170,14 +1232,16 @@ export class KubeReplicaSetV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.ReplicaSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ReplicaSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeReplicaSetV1Beta2Props = {}): any {
+  public static manifest(props: KubeReplicaSetV1Beta2Props = {}): any {
     return {
+      ...KubeReplicaSetV1Beta2.GVK,
       ...props,
-      kind: 'ReplicaSet',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1188,7 +1252,7 @@ export class KubeReplicaSetV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeReplicaSetV1Beta2Props = {}) {
-    super(scope, id, KubeReplicaSetV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeReplicaSetV1Beta2.manifest(props));
   }
 }
 
@@ -1207,14 +1271,16 @@ export class KubeReplicaSetListV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.ReplicaSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ReplicaSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeReplicaSetListV1Beta2Props): any {
+  public static manifest(props: KubeReplicaSetListV1Beta2Props): any {
     return {
+      ...KubeReplicaSetListV1Beta2.GVK,
       ...props,
-      kind: 'ReplicaSetList',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1225,7 +1291,7 @@ export class KubeReplicaSetListV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeReplicaSetListV1Beta2Props) {
-    super(scope, id, KubeReplicaSetListV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeReplicaSetListV1Beta2.manifest(props));
   }
 }
 
@@ -1244,14 +1310,16 @@ export class KubeScaleV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.Scale" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.Scale".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeScaleV1Beta2Props = {}): any {
+  public static manifest(props: KubeScaleV1Beta2Props = {}): any {
     return {
+      ...KubeScaleV1Beta2.GVK,
       ...props,
-      kind: 'Scale',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1262,7 +1330,7 @@ export class KubeScaleV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeScaleV1Beta2Props = {}) {
-    super(scope, id, KubeScaleV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeScaleV1Beta2.manifest(props));
   }
 }
 
@@ -1284,14 +1352,16 @@ export class KubeStatefulSetV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.StatefulSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.StatefulSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStatefulSetV1Beta2Props = {}): any {
+  public static manifest(props: KubeStatefulSetV1Beta2Props = {}): any {
     return {
+      ...KubeStatefulSetV1Beta2.GVK,
       ...props,
-      kind: 'StatefulSet',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1302,7 +1372,7 @@ export class KubeStatefulSetV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStatefulSetV1Beta2Props = {}) {
-    super(scope, id, KubeStatefulSetV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeStatefulSetV1Beta2.manifest(props));
   }
 }
 
@@ -1321,14 +1391,16 @@ export class KubeStatefulSetListV1Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.apps.v1beta2.StatefulSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.StatefulSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStatefulSetListV1Beta2Props): any {
+  public static manifest(props: KubeStatefulSetListV1Beta2Props): any {
     return {
+      ...KubeStatefulSetListV1Beta2.GVK,
       ...props,
-      kind: 'StatefulSetList',
-      apiVersion: 'apps/v1beta2',
     };
   }
 
@@ -1339,7 +1411,7 @@ export class KubeStatefulSetListV1Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStatefulSetListV1Beta2Props) {
-    super(scope, id, KubeStatefulSetListV1Beta2.propsWithGVK(props));
+    super(scope, id, KubeStatefulSetListV1Beta2.manifest(props));
   }
 }
 
@@ -1358,14 +1430,16 @@ export class KubeAuditSinkV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.auditregistration.v1alpha1.AuditSink" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.auditregistration.v1alpha1.AuditSink".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeAuditSinkV1Alpha1Props = {}): any {
+  public static manifest(props: KubeAuditSinkV1Alpha1Props = {}): any {
     return {
+      ...KubeAuditSinkV1Alpha1.GVK,
       ...props,
-      kind: 'AuditSink',
-      apiVersion: 'auditregistration.k8s.io/v1alpha1',
     };
   }
 
@@ -1376,7 +1450,7 @@ export class KubeAuditSinkV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeAuditSinkV1Alpha1Props = {}) {
-    super(scope, id, KubeAuditSinkV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeAuditSinkV1Alpha1.manifest(props));
   }
 }
 
@@ -1395,14 +1469,16 @@ export class KubeAuditSinkListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.auditregistration.v1alpha1.AuditSinkList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeAuditSinkListV1Alpha1Props): any {
+  public static manifest(props: KubeAuditSinkListV1Alpha1Props): any {
     return {
+      ...KubeAuditSinkListV1Alpha1.GVK,
       ...props,
-      kind: 'AuditSinkList',
-      apiVersion: 'auditregistration.k8s.io/v1alpha1',
     };
   }
 
@@ -1413,7 +1489,7 @@ export class KubeAuditSinkListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeAuditSinkListV1Alpha1Props) {
-    super(scope, id, KubeAuditSinkListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeAuditSinkListV1Alpha1.manifest(props));
   }
 }
 
@@ -1432,14 +1508,16 @@ export class KubeTokenRequest extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authentication.v1.TokenRequest" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authentication.v1.TokenRequest".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeTokenRequestProps): any {
+  public static manifest(props: KubeTokenRequestProps): any {
     return {
+      ...KubeTokenRequest.GVK,
       ...props,
-      kind: 'TokenRequest',
-      apiVersion: 'authentication.k8s.io/v1',
     };
   }
 
@@ -1450,7 +1528,7 @@ export class KubeTokenRequest extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeTokenRequestProps) {
-    super(scope, id, KubeTokenRequest.propsWithGVK(props));
+    super(scope, id, KubeTokenRequest.manifest(props));
   }
 }
 
@@ -1469,14 +1547,16 @@ export class KubeTokenReview extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authentication.v1.TokenReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authentication.v1.TokenReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeTokenReviewProps): any {
+  public static manifest(props: KubeTokenReviewProps): any {
     return {
+      ...KubeTokenReview.GVK,
       ...props,
-      kind: 'TokenReview',
-      apiVersion: 'authentication.k8s.io/v1',
     };
   }
 
@@ -1487,7 +1567,7 @@ export class KubeTokenReview extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeTokenReviewProps) {
-    super(scope, id, KubeTokenReview.propsWithGVK(props));
+    super(scope, id, KubeTokenReview.manifest(props));
   }
 }
 
@@ -1506,14 +1586,16 @@ export class KubeTokenReviewV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authentication.v1beta1.TokenReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authentication.v1beta1.TokenReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeTokenReviewV1Beta1Props): any {
+  public static manifest(props: KubeTokenReviewV1Beta1Props): any {
     return {
+      ...KubeTokenReviewV1Beta1.GVK,
       ...props,
-      kind: 'TokenReview',
-      apiVersion: 'authentication.k8s.io/v1beta1',
     };
   }
 
@@ -1524,7 +1606,7 @@ export class KubeTokenReviewV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeTokenReviewV1Beta1Props) {
-    super(scope, id, KubeTokenReviewV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeTokenReviewV1Beta1.manifest(props));
   }
 }
 
@@ -1543,14 +1625,16 @@ export class KubeLocalSubjectAccessReview extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authorization.v1.LocalSubjectAccessReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authorization.v1.LocalSubjectAccessReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeLocalSubjectAccessReviewProps): any {
+  public static manifest(props: KubeLocalSubjectAccessReviewProps): any {
     return {
+      ...KubeLocalSubjectAccessReview.GVK,
       ...props,
-      kind: 'LocalSubjectAccessReview',
-      apiVersion: 'authorization.k8s.io/v1',
     };
   }
 
@@ -1561,7 +1645,7 @@ export class KubeLocalSubjectAccessReview extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeLocalSubjectAccessReviewProps) {
-    super(scope, id, KubeLocalSubjectAccessReview.propsWithGVK(props));
+    super(scope, id, KubeLocalSubjectAccessReview.manifest(props));
   }
 }
 
@@ -1580,14 +1664,16 @@ export class KubeSelfSubjectAccessReview extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authorization.v1.SelfSubjectAccessReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authorization.v1.SelfSubjectAccessReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeSelfSubjectAccessReviewProps): any {
+  public static manifest(props: KubeSelfSubjectAccessReviewProps): any {
     return {
+      ...KubeSelfSubjectAccessReview.GVK,
       ...props,
-      kind: 'SelfSubjectAccessReview',
-      apiVersion: 'authorization.k8s.io/v1',
     };
   }
 
@@ -1598,7 +1684,7 @@ export class KubeSelfSubjectAccessReview extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeSelfSubjectAccessReviewProps) {
-    super(scope, id, KubeSelfSubjectAccessReview.propsWithGVK(props));
+    super(scope, id, KubeSelfSubjectAccessReview.manifest(props));
   }
 }
 
@@ -1617,14 +1703,16 @@ export class KubeSelfSubjectRulesReview extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authorization.v1.SelfSubjectRulesReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authorization.v1.SelfSubjectRulesReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeSelfSubjectRulesReviewProps): any {
+  public static manifest(props: KubeSelfSubjectRulesReviewProps): any {
     return {
+      ...KubeSelfSubjectRulesReview.GVK,
       ...props,
-      kind: 'SelfSubjectRulesReview',
-      apiVersion: 'authorization.k8s.io/v1',
     };
   }
 
@@ -1635,7 +1723,7 @@ export class KubeSelfSubjectRulesReview extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeSelfSubjectRulesReviewProps) {
-    super(scope, id, KubeSelfSubjectRulesReview.propsWithGVK(props));
+    super(scope, id, KubeSelfSubjectRulesReview.manifest(props));
   }
 }
 
@@ -1654,14 +1742,16 @@ export class KubeSubjectAccessReview extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authorization.v1.SubjectAccessReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authorization.v1.SubjectAccessReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeSubjectAccessReviewProps): any {
+  public static manifest(props: KubeSubjectAccessReviewProps): any {
     return {
+      ...KubeSubjectAccessReview.GVK,
       ...props,
-      kind: 'SubjectAccessReview',
-      apiVersion: 'authorization.k8s.io/v1',
     };
   }
 
@@ -1672,7 +1762,7 @@ export class KubeSubjectAccessReview extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeSubjectAccessReviewProps) {
-    super(scope, id, KubeSubjectAccessReview.propsWithGVK(props));
+    super(scope, id, KubeSubjectAccessReview.manifest(props));
   }
 }
 
@@ -1691,14 +1781,16 @@ export class KubeLocalSubjectAccessReviewV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeLocalSubjectAccessReviewV1Beta1Props): any {
+  public static manifest(props: KubeLocalSubjectAccessReviewV1Beta1Props): any {
     return {
+      ...KubeLocalSubjectAccessReviewV1Beta1.GVK,
       ...props,
-      kind: 'LocalSubjectAccessReview',
-      apiVersion: 'authorization.k8s.io/v1beta1',
     };
   }
 
@@ -1709,7 +1801,7 @@ export class KubeLocalSubjectAccessReviewV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeLocalSubjectAccessReviewV1Beta1Props) {
-    super(scope, id, KubeLocalSubjectAccessReviewV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeLocalSubjectAccessReviewV1Beta1.manifest(props));
   }
 }
 
@@ -1728,14 +1820,16 @@ export class KubeSelfSubjectAccessReviewV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeSelfSubjectAccessReviewV1Beta1Props): any {
+  public static manifest(props: KubeSelfSubjectAccessReviewV1Beta1Props): any {
     return {
+      ...KubeSelfSubjectAccessReviewV1Beta1.GVK,
       ...props,
-      kind: 'SelfSubjectAccessReview',
-      apiVersion: 'authorization.k8s.io/v1beta1',
     };
   }
 
@@ -1746,7 +1840,7 @@ export class KubeSelfSubjectAccessReviewV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeSelfSubjectAccessReviewV1Beta1Props) {
-    super(scope, id, KubeSelfSubjectAccessReviewV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeSelfSubjectAccessReviewV1Beta1.manifest(props));
   }
 }
 
@@ -1765,14 +1859,16 @@ export class KubeSelfSubjectRulesReviewV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeSelfSubjectRulesReviewV1Beta1Props): any {
+  public static manifest(props: KubeSelfSubjectRulesReviewV1Beta1Props): any {
     return {
+      ...KubeSelfSubjectRulesReviewV1Beta1.GVK,
       ...props,
-      kind: 'SelfSubjectRulesReview',
-      apiVersion: 'authorization.k8s.io/v1beta1',
     };
   }
 
@@ -1783,7 +1879,7 @@ export class KubeSelfSubjectRulesReviewV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeSelfSubjectRulesReviewV1Beta1Props) {
-    super(scope, id, KubeSelfSubjectRulesReviewV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeSelfSubjectRulesReviewV1Beta1.manifest(props));
   }
 }
 
@@ -1802,14 +1898,16 @@ export class KubeSubjectAccessReviewV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.authorization.v1beta1.SubjectAccessReview" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.authorization.v1beta1.SubjectAccessReview".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeSubjectAccessReviewV1Beta1Props): any {
+  public static manifest(props: KubeSubjectAccessReviewV1Beta1Props): any {
     return {
+      ...KubeSubjectAccessReviewV1Beta1.GVK,
       ...props,
-      kind: 'SubjectAccessReview',
-      apiVersion: 'authorization.k8s.io/v1beta1',
     };
   }
 
@@ -1820,7 +1918,7 @@ export class KubeSubjectAccessReviewV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeSubjectAccessReviewV1Beta1Props) {
-    super(scope, id, KubeSubjectAccessReviewV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeSubjectAccessReviewV1Beta1.manifest(props));
   }
 }
 
@@ -1839,14 +1937,16 @@ export class KubeHorizontalPodAutoscaler extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeHorizontalPodAutoscalerProps = {}): any {
+  public static manifest(props: KubeHorizontalPodAutoscalerProps = {}): any {
     return {
+      ...KubeHorizontalPodAutoscaler.GVK,
       ...props,
-      kind: 'HorizontalPodAutoscaler',
-      apiVersion: 'autoscaling/v1',
     };
   }
 
@@ -1857,7 +1957,7 @@ export class KubeHorizontalPodAutoscaler extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerProps = {}) {
-    super(scope, id, KubeHorizontalPodAutoscaler.propsWithGVK(props));
+    super(scope, id, KubeHorizontalPodAutoscaler.manifest(props));
   }
 }
 
@@ -1876,14 +1976,16 @@ export class KubeHorizontalPodAutoscalerList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeHorizontalPodAutoscalerListProps): any {
+  public static manifest(props: KubeHorizontalPodAutoscalerListProps): any {
     return {
+      ...KubeHorizontalPodAutoscalerList.GVK,
       ...props,
-      kind: 'HorizontalPodAutoscalerList',
-      apiVersion: 'autoscaling/v1',
     };
   }
 
@@ -1894,7 +1996,7 @@ export class KubeHorizontalPodAutoscalerList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerListProps) {
-    super(scope, id, KubeHorizontalPodAutoscalerList.propsWithGVK(props));
+    super(scope, id, KubeHorizontalPodAutoscalerList.manifest(props));
   }
 }
 
@@ -1913,14 +2015,16 @@ export class KubeScale extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.autoscaling.v1.Scale" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v1.Scale".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeScaleProps = {}): any {
+  public static manifest(props: KubeScaleProps = {}): any {
     return {
+      ...KubeScale.GVK,
       ...props,
-      kind: 'Scale',
-      apiVersion: 'autoscaling/v1',
     };
   }
 
@@ -1931,7 +2035,7 @@ export class KubeScale extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeScaleProps = {}) {
-    super(scope, id, KubeScale.propsWithGVK(props));
+    super(scope, id, KubeScale.manifest(props));
   }
 }
 
@@ -1950,14 +2054,16 @@ export class KubeHorizontalPodAutoscalerV2Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeHorizontalPodAutoscalerV2Beta1Props = {}): any {
+  public static manifest(props: KubeHorizontalPodAutoscalerV2Beta1Props = {}): any {
     return {
+      ...KubeHorizontalPodAutoscalerV2Beta1.GVK,
       ...props,
-      kind: 'HorizontalPodAutoscaler',
-      apiVersion: 'autoscaling/v2beta1',
     };
   }
 
@@ -1968,7 +2074,7 @@ export class KubeHorizontalPodAutoscalerV2Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerV2Beta1Props = {}) {
-    super(scope, id, KubeHorizontalPodAutoscalerV2Beta1.propsWithGVK(props));
+    super(scope, id, KubeHorizontalPodAutoscalerV2Beta1.manifest(props));
   }
 }
 
@@ -1987,14 +2093,16 @@ export class KubeHorizontalPodAutoscalerListV2Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeHorizontalPodAutoscalerListV2Beta1Props): any {
+  public static manifest(props: KubeHorizontalPodAutoscalerListV2Beta1Props): any {
     return {
+      ...KubeHorizontalPodAutoscalerListV2Beta1.GVK,
       ...props,
-      kind: 'HorizontalPodAutoscalerList',
-      apiVersion: 'autoscaling/v2beta1',
     };
   }
 
@@ -2005,7 +2113,7 @@ export class KubeHorizontalPodAutoscalerListV2Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerListV2Beta1Props) {
-    super(scope, id, KubeHorizontalPodAutoscalerListV2Beta1.propsWithGVK(props));
+    super(scope, id, KubeHorizontalPodAutoscalerListV2Beta1.manifest(props));
   }
 }
 
@@ -2024,14 +2132,16 @@ export class KubeHorizontalPodAutoscalerV2Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeHorizontalPodAutoscalerV2Beta2Props = {}): any {
+  public static manifest(props: KubeHorizontalPodAutoscalerV2Beta2Props = {}): any {
     return {
+      ...KubeHorizontalPodAutoscalerV2Beta2.GVK,
       ...props,
-      kind: 'HorizontalPodAutoscaler',
-      apiVersion: 'autoscaling/v2beta2',
     };
   }
 
@@ -2042,7 +2152,7 @@ export class KubeHorizontalPodAutoscalerV2Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerV2Beta2Props = {}) {
-    super(scope, id, KubeHorizontalPodAutoscalerV2Beta2.propsWithGVK(props));
+    super(scope, id, KubeHorizontalPodAutoscalerV2Beta2.manifest(props));
   }
 }
 
@@ -2061,14 +2171,16 @@ export class KubeHorizontalPodAutoscalerListV2Beta2 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeHorizontalPodAutoscalerListV2Beta2Props): any {
+  public static manifest(props: KubeHorizontalPodAutoscalerListV2Beta2Props): any {
     return {
+      ...KubeHorizontalPodAutoscalerListV2Beta2.GVK,
       ...props,
-      kind: 'HorizontalPodAutoscalerList',
-      apiVersion: 'autoscaling/v2beta2',
     };
   }
 
@@ -2079,7 +2191,7 @@ export class KubeHorizontalPodAutoscalerListV2Beta2 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerListV2Beta2Props) {
-    super(scope, id, KubeHorizontalPodAutoscalerListV2Beta2.propsWithGVK(props));
+    super(scope, id, KubeHorizontalPodAutoscalerListV2Beta2.manifest(props));
   }
 }
 
@@ -2098,14 +2210,16 @@ export class KubeJob extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.batch.v1.Job" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.batch.v1.Job".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeJobProps = {}): any {
+  public static manifest(props: KubeJobProps = {}): any {
     return {
+      ...KubeJob.GVK,
       ...props,
-      kind: 'Job',
-      apiVersion: 'batch/v1',
     };
   }
 
@@ -2116,7 +2230,7 @@ export class KubeJob extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeJobProps = {}) {
-    super(scope, id, KubeJob.propsWithGVK(props));
+    super(scope, id, KubeJob.manifest(props));
   }
 }
 
@@ -2135,14 +2249,16 @@ export class KubeJobList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.batch.v1.JobList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.batch.v1.JobList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeJobListProps): any {
+  public static manifest(props: KubeJobListProps): any {
     return {
+      ...KubeJobList.GVK,
       ...props,
-      kind: 'JobList',
-      apiVersion: 'batch/v1',
     };
   }
 
@@ -2153,7 +2269,7 @@ export class KubeJobList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeJobListProps) {
-    super(scope, id, KubeJobList.propsWithGVK(props));
+    super(scope, id, KubeJobList.manifest(props));
   }
 }
 
@@ -2172,14 +2288,16 @@ export class KubeCronJobV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.batch.v1beta1.CronJob" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.batch.v1beta1.CronJob".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCronJobV1Beta1Props = {}): any {
+  public static manifest(props: KubeCronJobV1Beta1Props = {}): any {
     return {
+      ...KubeCronJobV1Beta1.GVK,
       ...props,
-      kind: 'CronJob',
-      apiVersion: 'batch/v1beta1',
     };
   }
 
@@ -2190,7 +2308,7 @@ export class KubeCronJobV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCronJobV1Beta1Props = {}) {
-    super(scope, id, KubeCronJobV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCronJobV1Beta1.manifest(props));
   }
 }
 
@@ -2209,14 +2327,16 @@ export class KubeCronJobListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.batch.v1beta1.CronJobList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.batch.v1beta1.CronJobList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCronJobListV1Beta1Props): any {
+  public static manifest(props: KubeCronJobListV1Beta1Props): any {
     return {
+      ...KubeCronJobListV1Beta1.GVK,
       ...props,
-      kind: 'CronJobList',
-      apiVersion: 'batch/v1beta1',
     };
   }
 
@@ -2227,7 +2347,7 @@ export class KubeCronJobListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCronJobListV1Beta1Props) {
-    super(scope, id, KubeCronJobListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCronJobListV1Beta1.manifest(props));
   }
 }
 
@@ -2246,14 +2366,16 @@ export class KubeCronJobV2Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.batch.v2alpha1.CronJob" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.batch.v2alpha1.CronJob".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCronJobV2Alpha1Props = {}): any {
+  public static manifest(props: KubeCronJobV2Alpha1Props = {}): any {
     return {
+      ...KubeCronJobV2Alpha1.GVK,
       ...props,
-      kind: 'CronJob',
-      apiVersion: 'batch/v2alpha1',
     };
   }
 
@@ -2264,7 +2386,7 @@ export class KubeCronJobV2Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCronJobV2Alpha1Props = {}) {
-    super(scope, id, KubeCronJobV2Alpha1.propsWithGVK(props));
+    super(scope, id, KubeCronJobV2Alpha1.manifest(props));
   }
 }
 
@@ -2283,14 +2405,16 @@ export class KubeCronJobListV2Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.batch.v2alpha1.CronJobList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.batch.v2alpha1.CronJobList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCronJobListV2Alpha1Props): any {
+  public static manifest(props: KubeCronJobListV2Alpha1Props): any {
     return {
+      ...KubeCronJobListV2Alpha1.GVK,
       ...props,
-      kind: 'CronJobList',
-      apiVersion: 'batch/v2alpha1',
     };
   }
 
@@ -2301,7 +2425,7 @@ export class KubeCronJobListV2Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCronJobListV2Alpha1Props) {
-    super(scope, id, KubeCronJobListV2Alpha1.propsWithGVK(props));
+    super(scope, id, KubeCronJobListV2Alpha1.manifest(props));
   }
 }
 
@@ -2320,14 +2444,16 @@ export class KubeCertificateSigningRequestV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.certificates.v1beta1.CertificateSigningRequest" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.certificates.v1beta1.CertificateSigningRequest".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCertificateSigningRequestV1Beta1Props = {}): any {
+  public static manifest(props: KubeCertificateSigningRequestV1Beta1Props = {}): any {
     return {
+      ...KubeCertificateSigningRequestV1Beta1.GVK,
       ...props,
-      kind: 'CertificateSigningRequest',
-      apiVersion: 'certificates.k8s.io/v1beta1',
     };
   }
 
@@ -2338,7 +2464,7 @@ export class KubeCertificateSigningRequestV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCertificateSigningRequestV1Beta1Props = {}) {
-    super(scope, id, KubeCertificateSigningRequestV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCertificateSigningRequestV1Beta1.manifest(props));
   }
 }
 
@@ -2357,14 +2483,16 @@ export class KubeCertificateSigningRequestListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCertificateSigningRequestListV1Beta1Props): any {
+  public static manifest(props: KubeCertificateSigningRequestListV1Beta1Props): any {
     return {
+      ...KubeCertificateSigningRequestListV1Beta1.GVK,
       ...props,
-      kind: 'CertificateSigningRequestList',
-      apiVersion: 'certificates.k8s.io/v1beta1',
     };
   }
 
@@ -2375,7 +2503,7 @@ export class KubeCertificateSigningRequestListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCertificateSigningRequestListV1Beta1Props) {
-    super(scope, id, KubeCertificateSigningRequestListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCertificateSigningRequestListV1Beta1.manifest(props));
   }
 }
 
@@ -2394,14 +2522,16 @@ export class KubeLease extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.coordination.v1.Lease" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.coordination.v1.Lease".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeLeaseProps = {}): any {
+  public static manifest(props: KubeLeaseProps = {}): any {
     return {
+      ...KubeLease.GVK,
       ...props,
-      kind: 'Lease',
-      apiVersion: 'coordination.k8s.io/v1',
     };
   }
 
@@ -2412,7 +2542,7 @@ export class KubeLease extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeLeaseProps = {}) {
-    super(scope, id, KubeLease.propsWithGVK(props));
+    super(scope, id, KubeLease.manifest(props));
   }
 }
 
@@ -2431,14 +2561,16 @@ export class KubeLeaseList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.coordination.v1.LeaseList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.coordination.v1.LeaseList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeLeaseListProps): any {
+  public static manifest(props: KubeLeaseListProps): any {
     return {
+      ...KubeLeaseList.GVK,
       ...props,
-      kind: 'LeaseList',
-      apiVersion: 'coordination.k8s.io/v1',
     };
   }
 
@@ -2449,7 +2581,7 @@ export class KubeLeaseList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeLeaseListProps) {
-    super(scope, id, KubeLeaseList.propsWithGVK(props));
+    super(scope, id, KubeLeaseList.manifest(props));
   }
 }
 
@@ -2468,14 +2600,16 @@ export class KubeLeaseV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.coordination.v1beta1.Lease" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.coordination.v1beta1.Lease".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeLeaseV1Beta1Props = {}): any {
+  public static manifest(props: KubeLeaseV1Beta1Props = {}): any {
     return {
+      ...KubeLeaseV1Beta1.GVK,
       ...props,
-      kind: 'Lease',
-      apiVersion: 'coordination.k8s.io/v1beta1',
     };
   }
 
@@ -2486,7 +2620,7 @@ export class KubeLeaseV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeLeaseV1Beta1Props = {}) {
-    super(scope, id, KubeLeaseV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeLeaseV1Beta1.manifest(props));
   }
 }
 
@@ -2505,14 +2639,16 @@ export class KubeLeaseListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.coordination.v1beta1.LeaseList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.coordination.v1beta1.LeaseList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeLeaseListV1Beta1Props): any {
+  public static manifest(props: KubeLeaseListV1Beta1Props): any {
     return {
+      ...KubeLeaseListV1Beta1.GVK,
       ...props,
-      kind: 'LeaseList',
-      apiVersion: 'coordination.k8s.io/v1beta1',
     };
   }
 
@@ -2523,7 +2659,7 @@ export class KubeLeaseListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeLeaseListV1Beta1Props) {
-    super(scope, id, KubeLeaseListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeLeaseListV1Beta1.manifest(props));
   }
 }
 
@@ -2542,14 +2678,16 @@ export class KubeBinding extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.Binding" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.Binding".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeBindingProps): any {
+  public static manifest(props: KubeBindingProps): any {
     return {
+      ...KubeBinding.GVK,
       ...props,
-      kind: 'Binding',
-      apiVersion: 'v1',
     };
   }
 
@@ -2560,7 +2698,7 @@ export class KubeBinding extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeBindingProps) {
-    super(scope, id, KubeBinding.propsWithGVK(props));
+    super(scope, id, KubeBinding.manifest(props));
   }
 }
 
@@ -2579,14 +2717,16 @@ export class KubeComponentStatus extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ComponentStatus" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ComponentStatus".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeComponentStatusProps = {}): any {
+  public static manifest(props: KubeComponentStatusProps = {}): any {
     return {
+      ...KubeComponentStatus.GVK,
       ...props,
-      kind: 'ComponentStatus',
-      apiVersion: 'v1',
     };
   }
 
@@ -2597,7 +2737,7 @@ export class KubeComponentStatus extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeComponentStatusProps = {}) {
-    super(scope, id, KubeComponentStatus.propsWithGVK(props));
+    super(scope, id, KubeComponentStatus.manifest(props));
   }
 }
 
@@ -2616,14 +2756,16 @@ export class KubeComponentStatusList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ComponentStatusList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ComponentStatusList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeComponentStatusListProps): any {
+  public static manifest(props: KubeComponentStatusListProps): any {
     return {
+      ...KubeComponentStatusList.GVK,
       ...props,
-      kind: 'ComponentStatusList',
-      apiVersion: 'v1',
     };
   }
 
@@ -2634,7 +2776,7 @@ export class KubeComponentStatusList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeComponentStatusListProps) {
-    super(scope, id, KubeComponentStatusList.propsWithGVK(props));
+    super(scope, id, KubeComponentStatusList.manifest(props));
   }
 }
 
@@ -2653,14 +2795,16 @@ export class KubeConfigMap extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ConfigMap" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ConfigMap".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeConfigMapProps = {}): any {
+  public static manifest(props: KubeConfigMapProps = {}): any {
     return {
+      ...KubeConfigMap.GVK,
       ...props,
-      kind: 'ConfigMap',
-      apiVersion: 'v1',
     };
   }
 
@@ -2671,7 +2815,7 @@ export class KubeConfigMap extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeConfigMapProps = {}) {
-    super(scope, id, KubeConfigMap.propsWithGVK(props));
+    super(scope, id, KubeConfigMap.manifest(props));
   }
 }
 
@@ -2690,14 +2834,16 @@ export class KubeConfigMapList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ConfigMapList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ConfigMapList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeConfigMapListProps): any {
+  public static manifest(props: KubeConfigMapListProps): any {
     return {
+      ...KubeConfigMapList.GVK,
       ...props,
-      kind: 'ConfigMapList',
-      apiVersion: 'v1',
     };
   }
 
@@ -2708,7 +2854,7 @@ export class KubeConfigMapList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeConfigMapListProps) {
-    super(scope, id, KubeConfigMapList.propsWithGVK(props));
+    super(scope, id, KubeConfigMapList.manifest(props));
   }
 }
 
@@ -2738,14 +2884,16 @@ export class KubeEndpoints extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.Endpoints" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.Endpoints".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEndpointsProps = {}): any {
+  public static manifest(props: KubeEndpointsProps = {}): any {
     return {
+      ...KubeEndpoints.GVK,
       ...props,
-      kind: 'Endpoints',
-      apiVersion: 'v1',
     };
   }
 
@@ -2756,7 +2904,7 @@ export class KubeEndpoints extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEndpointsProps = {}) {
-    super(scope, id, KubeEndpoints.propsWithGVK(props));
+    super(scope, id, KubeEndpoints.manifest(props));
   }
 }
 
@@ -2775,14 +2923,16 @@ export class KubeEndpointsList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.EndpointsList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.EndpointsList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEndpointsListProps): any {
+  public static manifest(props: KubeEndpointsListProps): any {
     return {
+      ...KubeEndpointsList.GVK,
       ...props,
-      kind: 'EndpointsList',
-      apiVersion: 'v1',
     };
   }
 
@@ -2793,7 +2943,7 @@ export class KubeEndpointsList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEndpointsListProps) {
-    super(scope, id, KubeEndpointsList.propsWithGVK(props));
+    super(scope, id, KubeEndpointsList.manifest(props));
   }
 }
 
@@ -2812,14 +2962,16 @@ export class KubeEvent extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.Event" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.Event".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEventProps): any {
+  public static manifest(props: KubeEventProps): any {
     return {
+      ...KubeEvent.GVK,
       ...props,
-      kind: 'Event',
-      apiVersion: 'v1',
     };
   }
 
@@ -2830,7 +2982,7 @@ export class KubeEvent extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEventProps) {
-    super(scope, id, KubeEvent.propsWithGVK(props));
+    super(scope, id, KubeEvent.manifest(props));
   }
 }
 
@@ -2849,14 +3001,16 @@ export class KubeEventList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.EventList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.EventList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEventListProps): any {
+  public static manifest(props: KubeEventListProps): any {
     return {
+      ...KubeEventList.GVK,
       ...props,
-      kind: 'EventList',
-      apiVersion: 'v1',
     };
   }
 
@@ -2867,7 +3021,7 @@ export class KubeEventList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEventListProps) {
-    super(scope, id, KubeEventList.propsWithGVK(props));
+    super(scope, id, KubeEventList.manifest(props));
   }
 }
 
@@ -2886,14 +3040,16 @@ export class KubeLimitRange extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.LimitRange" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.LimitRange".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeLimitRangeProps = {}): any {
+  public static manifest(props: KubeLimitRangeProps = {}): any {
     return {
+      ...KubeLimitRange.GVK,
       ...props,
-      kind: 'LimitRange',
-      apiVersion: 'v1',
     };
   }
 
@@ -2904,7 +3060,7 @@ export class KubeLimitRange extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeLimitRangeProps = {}) {
-    super(scope, id, KubeLimitRange.propsWithGVK(props));
+    super(scope, id, KubeLimitRange.manifest(props));
   }
 }
 
@@ -2923,14 +3079,16 @@ export class KubeLimitRangeList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.LimitRangeList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.LimitRangeList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeLimitRangeListProps): any {
+  public static manifest(props: KubeLimitRangeListProps): any {
     return {
+      ...KubeLimitRangeList.GVK,
       ...props,
-      kind: 'LimitRangeList',
-      apiVersion: 'v1',
     };
   }
 
@@ -2941,7 +3099,7 @@ export class KubeLimitRangeList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeLimitRangeListProps) {
-    super(scope, id, KubeLimitRangeList.propsWithGVK(props));
+    super(scope, id, KubeLimitRangeList.manifest(props));
   }
 }
 
@@ -2960,14 +3118,16 @@ export class KubeNamespace extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.Namespace" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.Namespace".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeNamespaceProps = {}): any {
+  public static manifest(props: KubeNamespaceProps = {}): any {
     return {
+      ...KubeNamespace.GVK,
       ...props,
-      kind: 'Namespace',
-      apiVersion: 'v1',
     };
   }
 
@@ -2978,7 +3138,7 @@ export class KubeNamespace extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeNamespaceProps = {}) {
-    super(scope, id, KubeNamespace.propsWithGVK(props));
+    super(scope, id, KubeNamespace.manifest(props));
   }
 }
 
@@ -2997,14 +3157,16 @@ export class KubeNamespaceList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.NamespaceList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.NamespaceList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeNamespaceListProps): any {
+  public static manifest(props: KubeNamespaceListProps): any {
     return {
+      ...KubeNamespaceList.GVK,
       ...props,
-      kind: 'NamespaceList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3015,7 +3177,7 @@ export class KubeNamespaceList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeNamespaceListProps) {
-    super(scope, id, KubeNamespaceList.propsWithGVK(props));
+    super(scope, id, KubeNamespaceList.manifest(props));
   }
 }
 
@@ -3034,14 +3196,16 @@ export class KubeNode extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.Node" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.Node".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeNodeProps = {}): any {
+  public static manifest(props: KubeNodeProps = {}): any {
     return {
+      ...KubeNode.GVK,
       ...props,
-      kind: 'Node',
-      apiVersion: 'v1',
     };
   }
 
@@ -3052,7 +3216,7 @@ export class KubeNode extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeNodeProps = {}) {
-    super(scope, id, KubeNode.propsWithGVK(props));
+    super(scope, id, KubeNode.manifest(props));
   }
 }
 
@@ -3071,14 +3235,16 @@ export class KubeNodeList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.NodeList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.NodeList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeNodeListProps): any {
+  public static manifest(props: KubeNodeListProps): any {
     return {
+      ...KubeNodeList.GVK,
       ...props,
-      kind: 'NodeList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3089,7 +3255,7 @@ export class KubeNodeList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeNodeListProps) {
-    super(scope, id, KubeNodeList.propsWithGVK(props));
+    super(scope, id, KubeNodeList.manifest(props));
   }
 }
 
@@ -3108,14 +3274,16 @@ export class KubePersistentVolume extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.PersistentVolume" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolume".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePersistentVolumeProps = {}): any {
+  public static manifest(props: KubePersistentVolumeProps = {}): any {
     return {
+      ...KubePersistentVolume.GVK,
       ...props,
-      kind: 'PersistentVolume',
-      apiVersion: 'v1',
     };
   }
 
@@ -3126,7 +3294,7 @@ export class KubePersistentVolume extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePersistentVolumeProps = {}) {
-    super(scope, id, KubePersistentVolume.propsWithGVK(props));
+    super(scope, id, KubePersistentVolume.manifest(props));
   }
 }
 
@@ -3145,14 +3313,16 @@ export class KubePersistentVolumeClaim extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.PersistentVolumeClaim" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolumeClaim".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePersistentVolumeClaimProps = {}): any {
+  public static manifest(props: KubePersistentVolumeClaimProps = {}): any {
     return {
+      ...KubePersistentVolumeClaim.GVK,
       ...props,
-      kind: 'PersistentVolumeClaim',
-      apiVersion: 'v1',
     };
   }
 
@@ -3163,7 +3333,7 @@ export class KubePersistentVolumeClaim extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePersistentVolumeClaimProps = {}) {
-    super(scope, id, KubePersistentVolumeClaim.propsWithGVK(props));
+    super(scope, id, KubePersistentVolumeClaim.manifest(props));
   }
 }
 
@@ -3182,14 +3352,16 @@ export class KubePersistentVolumeClaimList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.PersistentVolumeClaimList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolumeClaimList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePersistentVolumeClaimListProps): any {
+  public static manifest(props: KubePersistentVolumeClaimListProps): any {
     return {
+      ...KubePersistentVolumeClaimList.GVK,
       ...props,
-      kind: 'PersistentVolumeClaimList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3200,7 +3372,7 @@ export class KubePersistentVolumeClaimList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePersistentVolumeClaimListProps) {
-    super(scope, id, KubePersistentVolumeClaimList.propsWithGVK(props));
+    super(scope, id, KubePersistentVolumeClaimList.manifest(props));
   }
 }
 
@@ -3219,14 +3391,16 @@ export class KubePersistentVolumeList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.PersistentVolumeList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolumeList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePersistentVolumeListProps): any {
+  public static manifest(props: KubePersistentVolumeListProps): any {
     return {
+      ...KubePersistentVolumeList.GVK,
       ...props,
-      kind: 'PersistentVolumeList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3237,7 +3411,7 @@ export class KubePersistentVolumeList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePersistentVolumeListProps) {
-    super(scope, id, KubePersistentVolumeList.propsWithGVK(props));
+    super(scope, id, KubePersistentVolumeList.manifest(props));
   }
 }
 
@@ -3256,14 +3430,16 @@ export class KubePod extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.Pod" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.Pod".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodProps = {}): any {
+  public static manifest(props: KubePodProps = {}): any {
     return {
+      ...KubePod.GVK,
       ...props,
-      kind: 'Pod',
-      apiVersion: 'v1',
     };
   }
 
@@ -3274,7 +3450,7 @@ export class KubePod extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodProps = {}) {
-    super(scope, id, KubePod.propsWithGVK(props));
+    super(scope, id, KubePod.manifest(props));
   }
 }
 
@@ -3293,14 +3469,16 @@ export class KubePodList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.PodList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.PodList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodListProps): any {
+  public static manifest(props: KubePodListProps): any {
     return {
+      ...KubePodList.GVK,
       ...props,
-      kind: 'PodList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3311,7 +3489,7 @@ export class KubePodList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodListProps) {
-    super(scope, id, KubePodList.propsWithGVK(props));
+    super(scope, id, KubePodList.manifest(props));
   }
 }
 
@@ -3330,14 +3508,16 @@ export class KubePodTemplate extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.PodTemplate" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.PodTemplate".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodTemplateProps = {}): any {
+  public static manifest(props: KubePodTemplateProps = {}): any {
     return {
+      ...KubePodTemplate.GVK,
       ...props,
-      kind: 'PodTemplate',
-      apiVersion: 'v1',
     };
   }
 
@@ -3348,7 +3528,7 @@ export class KubePodTemplate extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodTemplateProps = {}) {
-    super(scope, id, KubePodTemplate.propsWithGVK(props));
+    super(scope, id, KubePodTemplate.manifest(props));
   }
 }
 
@@ -3367,14 +3547,16 @@ export class KubePodTemplateList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.PodTemplateList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.PodTemplateList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodTemplateListProps): any {
+  public static manifest(props: KubePodTemplateListProps): any {
     return {
+      ...KubePodTemplateList.GVK,
       ...props,
-      kind: 'PodTemplateList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3385,7 +3567,7 @@ export class KubePodTemplateList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodTemplateListProps) {
-    super(scope, id, KubePodTemplateList.propsWithGVK(props));
+    super(scope, id, KubePodTemplateList.manifest(props));
   }
 }
 
@@ -3404,14 +3586,16 @@ export class KubeReplicationController extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ReplicationController" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ReplicationController".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeReplicationControllerProps = {}): any {
+  public static manifest(props: KubeReplicationControllerProps = {}): any {
     return {
+      ...KubeReplicationController.GVK,
       ...props,
-      kind: 'ReplicationController',
-      apiVersion: 'v1',
     };
   }
 
@@ -3422,7 +3606,7 @@ export class KubeReplicationController extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeReplicationControllerProps = {}) {
-    super(scope, id, KubeReplicationController.propsWithGVK(props));
+    super(scope, id, KubeReplicationController.manifest(props));
   }
 }
 
@@ -3441,14 +3625,16 @@ export class KubeReplicationControllerList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ReplicationControllerList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ReplicationControllerList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeReplicationControllerListProps): any {
+  public static manifest(props: KubeReplicationControllerListProps): any {
     return {
+      ...KubeReplicationControllerList.GVK,
       ...props,
-      kind: 'ReplicationControllerList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3459,7 +3645,7 @@ export class KubeReplicationControllerList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeReplicationControllerListProps) {
-    super(scope, id, KubeReplicationControllerList.propsWithGVK(props));
+    super(scope, id, KubeReplicationControllerList.manifest(props));
   }
 }
 
@@ -3478,14 +3664,16 @@ export class KubeResourceQuota extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ResourceQuota" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ResourceQuota".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeResourceQuotaProps = {}): any {
+  public static manifest(props: KubeResourceQuotaProps = {}): any {
     return {
+      ...KubeResourceQuota.GVK,
       ...props,
-      kind: 'ResourceQuota',
-      apiVersion: 'v1',
     };
   }
 
@@ -3496,7 +3684,7 @@ export class KubeResourceQuota extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeResourceQuotaProps = {}) {
-    super(scope, id, KubeResourceQuota.propsWithGVK(props));
+    super(scope, id, KubeResourceQuota.manifest(props));
   }
 }
 
@@ -3515,14 +3703,16 @@ export class KubeResourceQuotaList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ResourceQuotaList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ResourceQuotaList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeResourceQuotaListProps): any {
+  public static manifest(props: KubeResourceQuotaListProps): any {
     return {
+      ...KubeResourceQuotaList.GVK,
       ...props,
-      kind: 'ResourceQuotaList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3533,7 +3723,7 @@ export class KubeResourceQuotaList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeResourceQuotaListProps) {
-    super(scope, id, KubeResourceQuotaList.propsWithGVK(props));
+    super(scope, id, KubeResourceQuotaList.manifest(props));
   }
 }
 
@@ -3552,14 +3742,16 @@ export class KubeSecret extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.Secret" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.Secret".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeSecretProps = {}): any {
+  public static manifest(props: KubeSecretProps = {}): any {
     return {
+      ...KubeSecret.GVK,
       ...props,
-      kind: 'Secret',
-      apiVersion: 'v1',
     };
   }
 
@@ -3570,7 +3762,7 @@ export class KubeSecret extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeSecretProps = {}) {
-    super(scope, id, KubeSecret.propsWithGVK(props));
+    super(scope, id, KubeSecret.manifest(props));
   }
 }
 
@@ -3589,14 +3781,16 @@ export class KubeSecretList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.SecretList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.SecretList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeSecretListProps): any {
+  public static manifest(props: KubeSecretListProps): any {
     return {
+      ...KubeSecretList.GVK,
       ...props,
-      kind: 'SecretList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3607,7 +3801,7 @@ export class KubeSecretList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeSecretListProps) {
-    super(scope, id, KubeSecretList.propsWithGVK(props));
+    super(scope, id, KubeSecretList.manifest(props));
   }
 }
 
@@ -3626,14 +3820,16 @@ export class KubeService extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.Service" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.Service".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeServiceProps = {}): any {
+  public static manifest(props: KubeServiceProps = {}): any {
     return {
+      ...KubeService.GVK,
       ...props,
-      kind: 'Service',
-      apiVersion: 'v1',
     };
   }
 
@@ -3644,7 +3840,7 @@ export class KubeService extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeServiceProps = {}) {
-    super(scope, id, KubeService.propsWithGVK(props));
+    super(scope, id, KubeService.manifest(props));
   }
 }
 
@@ -3663,14 +3859,16 @@ export class KubeServiceAccount extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ServiceAccount" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceAccount".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeServiceAccountProps = {}): any {
+  public static manifest(props: KubeServiceAccountProps = {}): any {
     return {
+      ...KubeServiceAccount.GVK,
       ...props,
-      kind: 'ServiceAccount',
-      apiVersion: 'v1',
     };
   }
 
@@ -3681,7 +3879,7 @@ export class KubeServiceAccount extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeServiceAccountProps = {}) {
-    super(scope, id, KubeServiceAccount.propsWithGVK(props));
+    super(scope, id, KubeServiceAccount.manifest(props));
   }
 }
 
@@ -3700,14 +3898,16 @@ export class KubeServiceAccountList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ServiceAccountList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceAccountList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeServiceAccountListProps): any {
+  public static manifest(props: KubeServiceAccountListProps): any {
     return {
+      ...KubeServiceAccountList.GVK,
       ...props,
-      kind: 'ServiceAccountList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3718,7 +3918,7 @@ export class KubeServiceAccountList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeServiceAccountListProps) {
-    super(scope, id, KubeServiceAccountList.propsWithGVK(props));
+    super(scope, id, KubeServiceAccountList.manifest(props));
   }
 }
 
@@ -3737,14 +3937,16 @@ export class KubeServiceList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.core.v1.ServiceList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeServiceListProps): any {
+  public static manifest(props: KubeServiceListProps): any {
     return {
+      ...KubeServiceList.GVK,
       ...props,
-      kind: 'ServiceList',
-      apiVersion: 'v1',
     };
   }
 
@@ -3755,7 +3957,7 @@ export class KubeServiceList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeServiceListProps) {
-    super(scope, id, KubeServiceList.propsWithGVK(props));
+    super(scope, id, KubeServiceList.manifest(props));
   }
 }
 
@@ -3774,14 +3976,16 @@ export class KubeEndpointSliceV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.discovery.v1beta1.EndpointSlice" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.discovery.v1beta1.EndpointSlice".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEndpointSliceV1Beta1Props): any {
+  public static manifest(props: KubeEndpointSliceV1Beta1Props): any {
     return {
+      ...KubeEndpointSliceV1Beta1.GVK,
       ...props,
-      kind: 'EndpointSlice',
-      apiVersion: 'discovery.k8s.io/v1beta1',
     };
   }
 
@@ -3792,7 +3996,7 @@ export class KubeEndpointSliceV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEndpointSliceV1Beta1Props) {
-    super(scope, id, KubeEndpointSliceV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeEndpointSliceV1Beta1.manifest(props));
   }
 }
 
@@ -3811,14 +4015,16 @@ export class KubeEndpointSliceListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.discovery.v1beta1.EndpointSliceList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.discovery.v1beta1.EndpointSliceList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEndpointSliceListV1Beta1Props): any {
+  public static manifest(props: KubeEndpointSliceListV1Beta1Props): any {
     return {
+      ...KubeEndpointSliceListV1Beta1.GVK,
       ...props,
-      kind: 'EndpointSliceList',
-      apiVersion: 'discovery.k8s.io/v1beta1',
     };
   }
 
@@ -3829,7 +4035,7 @@ export class KubeEndpointSliceListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEndpointSliceListV1Beta1Props) {
-    super(scope, id, KubeEndpointSliceListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeEndpointSliceListV1Beta1.manifest(props));
   }
 }
 
@@ -3848,14 +4054,16 @@ export class KubeEventV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.events.v1beta1.Event" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.events.v1beta1.Event".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEventV1Beta1Props): any {
+  public static manifest(props: KubeEventV1Beta1Props): any {
     return {
+      ...KubeEventV1Beta1.GVK,
       ...props,
-      kind: 'Event',
-      apiVersion: 'events.k8s.io/v1beta1',
     };
   }
 
@@ -3866,7 +4074,7 @@ export class KubeEventV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEventV1Beta1Props) {
-    super(scope, id, KubeEventV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeEventV1Beta1.manifest(props));
   }
 }
 
@@ -3885,14 +4093,16 @@ export class KubeEventListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.events.v1beta1.EventList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.events.v1beta1.EventList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEventListV1Beta1Props): any {
+  public static manifest(props: KubeEventListV1Beta1Props): any {
     return {
+      ...KubeEventListV1Beta1.GVK,
       ...props,
-      kind: 'EventList',
-      apiVersion: 'events.k8s.io/v1beta1',
     };
   }
 
@@ -3903,7 +4113,7 @@ export class KubeEventListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEventListV1Beta1Props) {
-    super(scope, id, KubeEventListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeEventListV1Beta1.manifest(props));
   }
 }
 
@@ -3922,14 +4132,16 @@ export class KubeDaemonSetV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.DaemonSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.DaemonSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDaemonSetV1Beta1Props = {}): any {
+  public static manifest(props: KubeDaemonSetV1Beta1Props = {}): any {
     return {
+      ...KubeDaemonSetV1Beta1.GVK,
       ...props,
-      kind: 'DaemonSet',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -3940,7 +4152,7 @@ export class KubeDaemonSetV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDaemonSetV1Beta1Props = {}) {
-    super(scope, id, KubeDaemonSetV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeDaemonSetV1Beta1.manifest(props));
   }
 }
 
@@ -3959,14 +4171,16 @@ export class KubeDaemonSetListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.DaemonSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.DaemonSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeDaemonSetListV1Beta1Props): any {
+  public static manifest(props: KubeDaemonSetListV1Beta1Props): any {
     return {
+      ...KubeDaemonSetListV1Beta1.GVK,
       ...props,
-      kind: 'DaemonSetList',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -3977,7 +4191,7 @@ export class KubeDaemonSetListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeDaemonSetListV1Beta1Props) {
-    super(scope, id, KubeDaemonSetListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeDaemonSetListV1Beta1.manifest(props));
   }
 }
 
@@ -3996,14 +4210,16 @@ export class KubeIngressV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.networking.v1beta1.Ingress" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.networking.v1beta1.Ingress".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeIngressV1Beta1Props = {}): any {
+  public static manifest(props: KubeIngressV1Beta1Props = {}): any {
     return {
+      ...KubeIngressV1Beta1.GVK,
       ...props,
-      kind: 'Ingress',
-      apiVersion: 'networking.k8s.io/v1beta1',
     };
   }
 
@@ -4014,7 +4230,7 @@ export class KubeIngressV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeIngressV1Beta1Props = {}) {
-    super(scope, id, KubeIngressV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeIngressV1Beta1.manifest(props));
   }
 }
 
@@ -4033,14 +4249,16 @@ export class KubeIngressListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.networking.v1beta1.IngressList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.networking.v1beta1.IngressList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeIngressListV1Beta1Props): any {
+  public static manifest(props: KubeIngressListV1Beta1Props): any {
     return {
+      ...KubeIngressListV1Beta1.GVK,
       ...props,
-      kind: 'IngressList',
-      apiVersion: 'networking.k8s.io/v1beta1',
     };
   }
 
@@ -4051,7 +4269,7 @@ export class KubeIngressListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeIngressListV1Beta1Props) {
-    super(scope, id, KubeIngressListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeIngressListV1Beta1.manifest(props));
   }
 }
 
@@ -4070,14 +4288,16 @@ export class KubeNetworkPolicyV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.NetworkPolicy" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.NetworkPolicy".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeNetworkPolicyV1Beta1Props = {}): any {
+  public static manifest(props: KubeNetworkPolicyV1Beta1Props = {}): any {
     return {
+      ...KubeNetworkPolicyV1Beta1.GVK,
       ...props,
-      kind: 'NetworkPolicy',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -4088,7 +4308,7 @@ export class KubeNetworkPolicyV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeNetworkPolicyV1Beta1Props = {}) {
-    super(scope, id, KubeNetworkPolicyV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeNetworkPolicyV1Beta1.manifest(props));
   }
 }
 
@@ -4107,14 +4327,16 @@ export class KubeNetworkPolicyListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.NetworkPolicyList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.NetworkPolicyList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeNetworkPolicyListV1Beta1Props): any {
+  public static manifest(props: KubeNetworkPolicyListV1Beta1Props): any {
     return {
+      ...KubeNetworkPolicyListV1Beta1.GVK,
       ...props,
-      kind: 'NetworkPolicyList',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -4125,7 +4347,7 @@ export class KubeNetworkPolicyListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeNetworkPolicyListV1Beta1Props) {
-    super(scope, id, KubeNetworkPolicyListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeNetworkPolicyListV1Beta1.manifest(props));
   }
 }
 
@@ -4144,14 +4366,16 @@ export class KubePodSecurityPolicyV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.policy.v1beta1.PodSecurityPolicy" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodSecurityPolicy".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodSecurityPolicyV1Beta1Props = {}): any {
+  public static manifest(props: KubePodSecurityPolicyV1Beta1Props = {}): any {
     return {
+      ...KubePodSecurityPolicyV1Beta1.GVK,
       ...props,
-      kind: 'PodSecurityPolicy',
-      apiVersion: 'policy/v1beta1',
     };
   }
 
@@ -4162,7 +4386,7 @@ export class KubePodSecurityPolicyV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodSecurityPolicyV1Beta1Props = {}) {
-    super(scope, id, KubePodSecurityPolicyV1Beta1.propsWithGVK(props));
+    super(scope, id, KubePodSecurityPolicyV1Beta1.manifest(props));
   }
 }
 
@@ -4181,14 +4405,16 @@ export class KubePodSecurityPolicyListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodSecurityPolicyList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodSecurityPolicyListV1Beta1Props): any {
+  public static manifest(props: KubePodSecurityPolicyListV1Beta1Props): any {
     return {
+      ...KubePodSecurityPolicyListV1Beta1.GVK,
       ...props,
-      kind: 'PodSecurityPolicyList',
-      apiVersion: 'policy/v1beta1',
     };
   }
 
@@ -4199,7 +4425,7 @@ export class KubePodSecurityPolicyListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodSecurityPolicyListV1Beta1Props) {
-    super(scope, id, KubePodSecurityPolicyListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubePodSecurityPolicyListV1Beta1.manifest(props));
   }
 }
 
@@ -4218,14 +4444,16 @@ export class KubeReplicaSetV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.ReplicaSet" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.ReplicaSet".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeReplicaSetV1Beta1Props = {}): any {
+  public static manifest(props: KubeReplicaSetV1Beta1Props = {}): any {
     return {
+      ...KubeReplicaSetV1Beta1.GVK,
       ...props,
-      kind: 'ReplicaSet',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -4236,7 +4464,7 @@ export class KubeReplicaSetV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeReplicaSetV1Beta1Props = {}) {
-    super(scope, id, KubeReplicaSetV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeReplicaSetV1Beta1.manifest(props));
   }
 }
 
@@ -4255,14 +4483,16 @@ export class KubeReplicaSetListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.extensions.v1beta1.ReplicaSetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.ReplicaSetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeReplicaSetListV1Beta1Props): any {
+  public static manifest(props: KubeReplicaSetListV1Beta1Props): any {
     return {
+      ...KubeReplicaSetListV1Beta1.GVK,
       ...props,
-      kind: 'ReplicaSetList',
-      apiVersion: 'extensions/v1beta1',
     };
   }
 
@@ -4273,7 +4503,7 @@ export class KubeReplicaSetListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeReplicaSetListV1Beta1Props) {
-    super(scope, id, KubeReplicaSetListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeReplicaSetListV1Beta1.manifest(props));
   }
 }
 
@@ -4292,14 +4522,16 @@ export class KubeFlowSchemaV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.flowcontrol.v1alpha1.FlowSchema" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.FlowSchema".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeFlowSchemaV1Alpha1Props = {}): any {
+  public static manifest(props: KubeFlowSchemaV1Alpha1Props = {}): any {
     return {
+      ...KubeFlowSchemaV1Alpha1.GVK,
       ...props,
-      kind: 'FlowSchema',
-      apiVersion: 'flowcontrol.apiserver.k8s.io/v1alpha1',
     };
   }
 
@@ -4310,7 +4542,7 @@ export class KubeFlowSchemaV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeFlowSchemaV1Alpha1Props = {}) {
-    super(scope, id, KubeFlowSchemaV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeFlowSchemaV1Alpha1.manifest(props));
   }
 }
 
@@ -4329,14 +4561,16 @@ export class KubeFlowSchemaListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeFlowSchemaListV1Alpha1Props): any {
+  public static manifest(props: KubeFlowSchemaListV1Alpha1Props): any {
     return {
+      ...KubeFlowSchemaListV1Alpha1.GVK,
       ...props,
-      kind: 'FlowSchemaList',
-      apiVersion: 'flowcontrol.apiserver.k8s.io/v1alpha1',
     };
   }
 
@@ -4347,7 +4581,7 @@ export class KubeFlowSchemaListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeFlowSchemaListV1Alpha1Props) {
-    super(scope, id, KubeFlowSchemaListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeFlowSchemaListV1Alpha1.manifest(props));
   }
 }
 
@@ -4366,14 +4600,16 @@ export class KubePriorityLevelConfigurationV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePriorityLevelConfigurationV1Alpha1Props = {}): any {
+  public static manifest(props: KubePriorityLevelConfigurationV1Alpha1Props = {}): any {
     return {
+      ...KubePriorityLevelConfigurationV1Alpha1.GVK,
       ...props,
-      kind: 'PriorityLevelConfiguration',
-      apiVersion: 'flowcontrol.apiserver.k8s.io/v1alpha1',
     };
   }
 
@@ -4384,7 +4620,7 @@ export class KubePriorityLevelConfigurationV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePriorityLevelConfigurationV1Alpha1Props = {}) {
-    super(scope, id, KubePriorityLevelConfigurationV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubePriorityLevelConfigurationV1Alpha1.manifest(props));
   }
 }
 
@@ -4403,14 +4639,16 @@ export class KubePriorityLevelConfigurationListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePriorityLevelConfigurationListV1Alpha1Props): any {
+  public static manifest(props: KubePriorityLevelConfigurationListV1Alpha1Props): any {
     return {
+      ...KubePriorityLevelConfigurationListV1Alpha1.GVK,
       ...props,
-      kind: 'PriorityLevelConfigurationList',
-      apiVersion: 'flowcontrol.apiserver.k8s.io/v1alpha1',
     };
   }
 
@@ -4421,7 +4659,7 @@ export class KubePriorityLevelConfigurationListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePriorityLevelConfigurationListV1Alpha1Props) {
-    super(scope, id, KubePriorityLevelConfigurationListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubePriorityLevelConfigurationListV1Alpha1.manifest(props));
   }
 }
 
@@ -4440,14 +4678,16 @@ export class KubeNetworkPolicy extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.networking.v1.NetworkPolicy" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.networking.v1.NetworkPolicy".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeNetworkPolicyProps = {}): any {
+  public static manifest(props: KubeNetworkPolicyProps = {}): any {
     return {
+      ...KubeNetworkPolicy.GVK,
       ...props,
-      kind: 'NetworkPolicy',
-      apiVersion: 'networking.k8s.io/v1',
     };
   }
 
@@ -4458,7 +4698,7 @@ export class KubeNetworkPolicy extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeNetworkPolicyProps = {}) {
-    super(scope, id, KubeNetworkPolicy.propsWithGVK(props));
+    super(scope, id, KubeNetworkPolicy.manifest(props));
   }
 }
 
@@ -4477,14 +4717,16 @@ export class KubeNetworkPolicyList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.networking.v1.NetworkPolicyList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.networking.v1.NetworkPolicyList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeNetworkPolicyListProps): any {
+  public static manifest(props: KubeNetworkPolicyListProps): any {
     return {
+      ...KubeNetworkPolicyList.GVK,
       ...props,
-      kind: 'NetworkPolicyList',
-      apiVersion: 'networking.k8s.io/v1',
     };
   }
 
@@ -4495,7 +4737,7 @@ export class KubeNetworkPolicyList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeNetworkPolicyListProps) {
-    super(scope, id, KubeNetworkPolicyList.propsWithGVK(props));
+    super(scope, id, KubeNetworkPolicyList.manifest(props));
   }
 }
 
@@ -4514,14 +4756,16 @@ export class KubeRuntimeClassV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.node.v1alpha1.RuntimeClass" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.node.v1alpha1.RuntimeClass".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRuntimeClassV1Alpha1Props): any {
+  public static manifest(props: KubeRuntimeClassV1Alpha1Props): any {
     return {
+      ...KubeRuntimeClassV1Alpha1.GVK,
       ...props,
-      kind: 'RuntimeClass',
-      apiVersion: 'node.k8s.io/v1alpha1',
     };
   }
 
@@ -4532,7 +4776,7 @@ export class KubeRuntimeClassV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRuntimeClassV1Alpha1Props) {
-    super(scope, id, KubeRuntimeClassV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeRuntimeClassV1Alpha1.manifest(props));
   }
 }
 
@@ -4551,14 +4795,16 @@ export class KubeRuntimeClassListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.node.v1alpha1.RuntimeClassList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.node.v1alpha1.RuntimeClassList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRuntimeClassListV1Alpha1Props): any {
+  public static manifest(props: KubeRuntimeClassListV1Alpha1Props): any {
     return {
+      ...KubeRuntimeClassListV1Alpha1.GVK,
       ...props,
-      kind: 'RuntimeClassList',
-      apiVersion: 'node.k8s.io/v1alpha1',
     };
   }
 
@@ -4569,7 +4815,7 @@ export class KubeRuntimeClassListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRuntimeClassListV1Alpha1Props) {
-    super(scope, id, KubeRuntimeClassListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeRuntimeClassListV1Alpha1.manifest(props));
   }
 }
 
@@ -4588,14 +4834,16 @@ export class KubeRuntimeClassV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.node.v1beta1.RuntimeClass" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.node.v1beta1.RuntimeClass".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRuntimeClassV1Beta1Props): any {
+  public static manifest(props: KubeRuntimeClassV1Beta1Props): any {
     return {
+      ...KubeRuntimeClassV1Beta1.GVK,
       ...props,
-      kind: 'RuntimeClass',
-      apiVersion: 'node.k8s.io/v1beta1',
     };
   }
 
@@ -4606,7 +4854,7 @@ export class KubeRuntimeClassV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRuntimeClassV1Beta1Props) {
-    super(scope, id, KubeRuntimeClassV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeRuntimeClassV1Beta1.manifest(props));
   }
 }
 
@@ -4625,14 +4873,16 @@ export class KubeRuntimeClassListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.node.v1beta1.RuntimeClassList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.node.v1beta1.RuntimeClassList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRuntimeClassListV1Beta1Props): any {
+  public static manifest(props: KubeRuntimeClassListV1Beta1Props): any {
     return {
+      ...KubeRuntimeClassListV1Beta1.GVK,
       ...props,
-      kind: 'RuntimeClassList',
-      apiVersion: 'node.k8s.io/v1beta1',
     };
   }
 
@@ -4643,7 +4893,7 @@ export class KubeRuntimeClassListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRuntimeClassListV1Beta1Props) {
-    super(scope, id, KubeRuntimeClassListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeRuntimeClassListV1Beta1.manifest(props));
   }
 }
 
@@ -4662,14 +4912,16 @@ export class KubeEvictionV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.policy.v1beta1.Eviction" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.Eviction".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeEvictionV1Beta1Props = {}): any {
+  public static manifest(props: KubeEvictionV1Beta1Props = {}): any {
     return {
+      ...KubeEvictionV1Beta1.GVK,
       ...props,
-      kind: 'Eviction',
-      apiVersion: 'policy/v1beta1',
     };
   }
 
@@ -4680,7 +4932,7 @@ export class KubeEvictionV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeEvictionV1Beta1Props = {}) {
-    super(scope, id, KubeEvictionV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeEvictionV1Beta1.manifest(props));
   }
 }
 
@@ -4699,14 +4951,16 @@ export class KubePodDisruptionBudgetV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.policy.v1beta1.PodDisruptionBudget" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodDisruptionBudget".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodDisruptionBudgetV1Beta1Props = {}): any {
+  public static manifest(props: KubePodDisruptionBudgetV1Beta1Props = {}): any {
     return {
+      ...KubePodDisruptionBudgetV1Beta1.GVK,
       ...props,
-      kind: 'PodDisruptionBudget',
-      apiVersion: 'policy/v1beta1',
     };
   }
 
@@ -4717,7 +4971,7 @@ export class KubePodDisruptionBudgetV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodDisruptionBudgetV1Beta1Props = {}) {
-    super(scope, id, KubePodDisruptionBudgetV1Beta1.propsWithGVK(props));
+    super(scope, id, KubePodDisruptionBudgetV1Beta1.manifest(props));
   }
 }
 
@@ -4736,14 +4990,16 @@ export class KubePodDisruptionBudgetListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodDisruptionBudgetListV1Beta1Props): any {
+  public static manifest(props: KubePodDisruptionBudgetListV1Beta1Props): any {
     return {
+      ...KubePodDisruptionBudgetListV1Beta1.GVK,
       ...props,
-      kind: 'PodDisruptionBudgetList',
-      apiVersion: 'policy/v1beta1',
     };
   }
 
@@ -4754,7 +5010,7 @@ export class KubePodDisruptionBudgetListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodDisruptionBudgetListV1Beta1Props) {
-    super(scope, id, KubePodDisruptionBudgetListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubePodDisruptionBudgetListV1Beta1.manifest(props));
   }
 }
 
@@ -4773,14 +5029,16 @@ export class KubeClusterRole extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1.ClusterRole" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRole".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleProps = {}): any {
+  public static manifest(props: KubeClusterRoleProps = {}): any {
     return {
+      ...KubeClusterRole.GVK,
       ...props,
-      kind: 'ClusterRole',
-      apiVersion: 'rbac.authorization.k8s.io/v1',
     };
   }
 
@@ -4791,7 +5049,7 @@ export class KubeClusterRole extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleProps = {}) {
-    super(scope, id, KubeClusterRole.propsWithGVK(props));
+    super(scope, id, KubeClusterRole.manifest(props));
   }
 }
 
@@ -4810,14 +5068,16 @@ export class KubeClusterRoleBinding extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1.ClusterRoleBinding" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleBinding".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleBindingProps): any {
+  public static manifest(props: KubeClusterRoleBindingProps): any {
     return {
+      ...KubeClusterRoleBinding.GVK,
       ...props,
-      kind: 'ClusterRoleBinding',
-      apiVersion: 'rbac.authorization.k8s.io/v1',
     };
   }
 
@@ -4828,7 +5088,7 @@ export class KubeClusterRoleBinding extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingProps) {
-    super(scope, id, KubeClusterRoleBinding.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleBinding.manifest(props));
   }
 }
 
@@ -4847,14 +5107,16 @@ export class KubeClusterRoleBindingList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1.ClusterRoleBindingList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleBindingList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleBindingListProps): any {
+  public static manifest(props: KubeClusterRoleBindingListProps): any {
     return {
+      ...KubeClusterRoleBindingList.GVK,
       ...props,
-      kind: 'ClusterRoleBindingList',
-      apiVersion: 'rbac.authorization.k8s.io/v1',
     };
   }
 
@@ -4865,7 +5127,7 @@ export class KubeClusterRoleBindingList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingListProps) {
-    super(scope, id, KubeClusterRoleBindingList.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleBindingList.manifest(props));
   }
 }
 
@@ -4884,14 +5146,16 @@ export class KubeClusterRoleList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1.ClusterRoleList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleListProps): any {
+  public static manifest(props: KubeClusterRoleListProps): any {
     return {
+      ...KubeClusterRoleList.GVK,
       ...props,
-      kind: 'ClusterRoleList',
-      apiVersion: 'rbac.authorization.k8s.io/v1',
     };
   }
 
@@ -4902,7 +5166,7 @@ export class KubeClusterRoleList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleListProps) {
-    super(scope, id, KubeClusterRoleList.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleList.manifest(props));
   }
 }
 
@@ -4921,14 +5185,16 @@ export class KubeRole extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1.Role" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.Role".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleProps = {}): any {
+  public static manifest(props: KubeRoleProps = {}): any {
     return {
+      ...KubeRole.GVK,
       ...props,
-      kind: 'Role',
-      apiVersion: 'rbac.authorization.k8s.io/v1',
     };
   }
 
@@ -4939,7 +5205,7 @@ export class KubeRole extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleProps = {}) {
-    super(scope, id, KubeRole.propsWithGVK(props));
+    super(scope, id, KubeRole.manifest(props));
   }
 }
 
@@ -4958,14 +5224,16 @@ export class KubeRoleBinding extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1.RoleBinding" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleBinding".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleBindingProps): any {
+  public static manifest(props: KubeRoleBindingProps): any {
     return {
+      ...KubeRoleBinding.GVK,
       ...props,
-      kind: 'RoleBinding',
-      apiVersion: 'rbac.authorization.k8s.io/v1',
     };
   }
 
@@ -4976,7 +5244,7 @@ export class KubeRoleBinding extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleBindingProps) {
-    super(scope, id, KubeRoleBinding.propsWithGVK(props));
+    super(scope, id, KubeRoleBinding.manifest(props));
   }
 }
 
@@ -4995,14 +5263,16 @@ export class KubeRoleBindingList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1.RoleBindingList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleBindingList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleBindingListProps): any {
+  public static manifest(props: KubeRoleBindingListProps): any {
     return {
+      ...KubeRoleBindingList.GVK,
       ...props,
-      kind: 'RoleBindingList',
-      apiVersion: 'rbac.authorization.k8s.io/v1',
     };
   }
 
@@ -5013,7 +5283,7 @@ export class KubeRoleBindingList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleBindingListProps) {
-    super(scope, id, KubeRoleBindingList.propsWithGVK(props));
+    super(scope, id, KubeRoleBindingList.manifest(props));
   }
 }
 
@@ -5032,14 +5302,16 @@ export class KubeRoleList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1.RoleList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleListProps): any {
+  public static manifest(props: KubeRoleListProps): any {
     return {
+      ...KubeRoleList.GVK,
       ...props,
-      kind: 'RoleList',
-      apiVersion: 'rbac.authorization.k8s.io/v1',
     };
   }
 
@@ -5050,7 +5322,7 @@ export class KubeRoleList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleListProps) {
-    super(scope, id, KubeRoleList.propsWithGVK(props));
+    super(scope, id, KubeRoleList.manifest(props));
   }
 }
 
@@ -5069,14 +5341,16 @@ export class KubeClusterRoleV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1alpha1.ClusterRole" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRole".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleV1Alpha1Props = {}): any {
+  public static manifest(props: KubeClusterRoleV1Alpha1Props = {}): any {
     return {
+      ...KubeClusterRoleV1Alpha1.GVK,
       ...props,
-      kind: 'ClusterRole',
-      apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
     };
   }
 
@@ -5087,7 +5361,7 @@ export class KubeClusterRoleV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleV1Alpha1Props = {}) {
-    super(scope, id, KubeClusterRoleV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleV1Alpha1.manifest(props));
   }
 }
 
@@ -5106,14 +5380,16 @@ export class KubeClusterRoleBindingV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleBindingV1Alpha1Props): any {
+  public static manifest(props: KubeClusterRoleBindingV1Alpha1Props): any {
     return {
+      ...KubeClusterRoleBindingV1Alpha1.GVK,
       ...props,
-      kind: 'ClusterRoleBinding',
-      apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
     };
   }
 
@@ -5124,7 +5400,7 @@ export class KubeClusterRoleBindingV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingV1Alpha1Props) {
-    super(scope, id, KubeClusterRoleBindingV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleBindingV1Alpha1.manifest(props));
   }
 }
 
@@ -5143,14 +5419,16 @@ export class KubeClusterRoleBindingListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleBindingListV1Alpha1Props): any {
+  public static manifest(props: KubeClusterRoleBindingListV1Alpha1Props): any {
     return {
+      ...KubeClusterRoleBindingListV1Alpha1.GVK,
       ...props,
-      kind: 'ClusterRoleBindingList',
-      apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
     };
   }
 
@@ -5161,7 +5439,7 @@ export class KubeClusterRoleBindingListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingListV1Alpha1Props) {
-    super(scope, id, KubeClusterRoleBindingListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleBindingListV1Alpha1.manifest(props));
   }
 }
 
@@ -5180,14 +5458,16 @@ export class KubeClusterRoleListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1alpha1.ClusterRoleList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleListV1Alpha1Props): any {
+  public static manifest(props: KubeClusterRoleListV1Alpha1Props): any {
     return {
+      ...KubeClusterRoleListV1Alpha1.GVK,
       ...props,
-      kind: 'ClusterRoleList',
-      apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
     };
   }
 
@@ -5198,7 +5478,7 @@ export class KubeClusterRoleListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleListV1Alpha1Props) {
-    super(scope, id, KubeClusterRoleListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleListV1Alpha1.manifest(props));
   }
 }
 
@@ -5217,14 +5497,16 @@ export class KubeRoleV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1alpha1.Role" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.Role".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleV1Alpha1Props = {}): any {
+  public static manifest(props: KubeRoleV1Alpha1Props = {}): any {
     return {
+      ...KubeRoleV1Alpha1.GVK,
       ...props,
-      kind: 'Role',
-      apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
     };
   }
 
@@ -5235,7 +5517,7 @@ export class KubeRoleV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleV1Alpha1Props = {}) {
-    super(scope, id, KubeRoleV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeRoleV1Alpha1.manifest(props));
   }
 }
 
@@ -5254,14 +5536,16 @@ export class KubeRoleBindingV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1alpha1.RoleBinding" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleBinding".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleBindingV1Alpha1Props): any {
+  public static manifest(props: KubeRoleBindingV1Alpha1Props): any {
     return {
+      ...KubeRoleBindingV1Alpha1.GVK,
       ...props,
-      kind: 'RoleBinding',
-      apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
     };
   }
 
@@ -5272,7 +5556,7 @@ export class KubeRoleBindingV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleBindingV1Alpha1Props) {
-    super(scope, id, KubeRoleBindingV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeRoleBindingV1Alpha1.manifest(props));
   }
 }
 
@@ -5291,14 +5575,16 @@ export class KubeRoleBindingListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1alpha1.RoleBindingList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleBindingList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleBindingListV1Alpha1Props): any {
+  public static manifest(props: KubeRoleBindingListV1Alpha1Props): any {
     return {
+      ...KubeRoleBindingListV1Alpha1.GVK,
       ...props,
-      kind: 'RoleBindingList',
-      apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
     };
   }
 
@@ -5309,7 +5595,7 @@ export class KubeRoleBindingListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleBindingListV1Alpha1Props) {
-    super(scope, id, KubeRoleBindingListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeRoleBindingListV1Alpha1.manifest(props));
   }
 }
 
@@ -5328,14 +5614,16 @@ export class KubeRoleListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1alpha1.RoleList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleListV1Alpha1Props): any {
+  public static manifest(props: KubeRoleListV1Alpha1Props): any {
     return {
+      ...KubeRoleListV1Alpha1.GVK,
       ...props,
-      kind: 'RoleList',
-      apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
     };
   }
 
@@ -5346,7 +5634,7 @@ export class KubeRoleListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleListV1Alpha1Props) {
-    super(scope, id, KubeRoleListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeRoleListV1Alpha1.manifest(props));
   }
 }
 
@@ -5365,14 +5653,16 @@ export class KubeClusterRoleV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1beta1.ClusterRole" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRole".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleV1Beta1Props = {}): any {
+  public static manifest(props: KubeClusterRoleV1Beta1Props = {}): any {
     return {
+      ...KubeClusterRoleV1Beta1.GVK,
       ...props,
-      kind: 'ClusterRole',
-      apiVersion: 'rbac.authorization.k8s.io/v1beta1',
     };
   }
 
@@ -5383,7 +5673,7 @@ export class KubeClusterRoleV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleV1Beta1Props = {}) {
-    super(scope, id, KubeClusterRoleV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleV1Beta1.manifest(props));
   }
 }
 
@@ -5402,14 +5692,16 @@ export class KubeClusterRoleBindingV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1beta1.ClusterRoleBinding" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleBinding".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleBindingV1Beta1Props): any {
+  public static manifest(props: KubeClusterRoleBindingV1Beta1Props): any {
     return {
+      ...KubeClusterRoleBindingV1Beta1.GVK,
       ...props,
-      kind: 'ClusterRoleBinding',
-      apiVersion: 'rbac.authorization.k8s.io/v1beta1',
     };
   }
 
@@ -5420,7 +5712,7 @@ export class KubeClusterRoleBindingV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingV1Beta1Props) {
-    super(scope, id, KubeClusterRoleBindingV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleBindingV1Beta1.manifest(props));
   }
 }
 
@@ -5439,14 +5731,16 @@ export class KubeClusterRoleBindingListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleBindingListV1Beta1Props): any {
+  public static manifest(props: KubeClusterRoleBindingListV1Beta1Props): any {
     return {
+      ...KubeClusterRoleBindingListV1Beta1.GVK,
       ...props,
-      kind: 'ClusterRoleBindingList',
-      apiVersion: 'rbac.authorization.k8s.io/v1beta1',
     };
   }
 
@@ -5457,7 +5751,7 @@ export class KubeClusterRoleBindingListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingListV1Beta1Props) {
-    super(scope, id, KubeClusterRoleBindingListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleBindingListV1Beta1.manifest(props));
   }
 }
 
@@ -5476,14 +5770,16 @@ export class KubeClusterRoleListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1beta1.ClusterRoleList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeClusterRoleListV1Beta1Props): any {
+  public static manifest(props: KubeClusterRoleListV1Beta1Props): any {
     return {
+      ...KubeClusterRoleListV1Beta1.GVK,
       ...props,
-      kind: 'ClusterRoleList',
-      apiVersion: 'rbac.authorization.k8s.io/v1beta1',
     };
   }
 
@@ -5494,7 +5790,7 @@ export class KubeClusterRoleListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeClusterRoleListV1Beta1Props) {
-    super(scope, id, KubeClusterRoleListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeClusterRoleListV1Beta1.manifest(props));
   }
 }
 
@@ -5513,14 +5809,16 @@ export class KubeRoleV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1beta1.Role" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.Role".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleV1Beta1Props = {}): any {
+  public static manifest(props: KubeRoleV1Beta1Props = {}): any {
     return {
+      ...KubeRoleV1Beta1.GVK,
       ...props,
-      kind: 'Role',
-      apiVersion: 'rbac.authorization.k8s.io/v1beta1',
     };
   }
 
@@ -5531,7 +5829,7 @@ export class KubeRoleV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleV1Beta1Props = {}) {
-    super(scope, id, KubeRoleV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeRoleV1Beta1.manifest(props));
   }
 }
 
@@ -5550,14 +5848,16 @@ export class KubeRoleBindingV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1beta1.RoleBinding" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleBinding".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleBindingV1Beta1Props): any {
+  public static manifest(props: KubeRoleBindingV1Beta1Props): any {
     return {
+      ...KubeRoleBindingV1Beta1.GVK,
       ...props,
-      kind: 'RoleBinding',
-      apiVersion: 'rbac.authorization.k8s.io/v1beta1',
     };
   }
 
@@ -5568,7 +5868,7 @@ export class KubeRoleBindingV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleBindingV1Beta1Props) {
-    super(scope, id, KubeRoleBindingV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeRoleBindingV1Beta1.manifest(props));
   }
 }
 
@@ -5587,14 +5887,16 @@ export class KubeRoleBindingListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1beta1.RoleBindingList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleBindingList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleBindingListV1Beta1Props): any {
+  public static manifest(props: KubeRoleBindingListV1Beta1Props): any {
     return {
+      ...KubeRoleBindingListV1Beta1.GVK,
       ...props,
-      kind: 'RoleBindingList',
-      apiVersion: 'rbac.authorization.k8s.io/v1beta1',
     };
   }
 
@@ -5605,7 +5907,7 @@ export class KubeRoleBindingListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleBindingListV1Beta1Props) {
-    super(scope, id, KubeRoleBindingListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeRoleBindingListV1Beta1.manifest(props));
   }
 }
 
@@ -5624,14 +5926,16 @@ export class KubeRoleListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.rbac.v1beta1.RoleList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeRoleListV1Beta1Props): any {
+  public static manifest(props: KubeRoleListV1Beta1Props): any {
     return {
+      ...KubeRoleListV1Beta1.GVK,
       ...props,
-      kind: 'RoleList',
-      apiVersion: 'rbac.authorization.k8s.io/v1beta1',
     };
   }
 
@@ -5642,7 +5946,7 @@ export class KubeRoleListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeRoleListV1Beta1Props) {
-    super(scope, id, KubeRoleListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeRoleListV1Beta1.manifest(props));
   }
 }
 
@@ -5661,14 +5965,16 @@ export class KubePriorityClass extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.scheduling.v1.PriorityClass" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1.PriorityClass".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePriorityClassProps): any {
+  public static manifest(props: KubePriorityClassProps): any {
     return {
+      ...KubePriorityClass.GVK,
       ...props,
-      kind: 'PriorityClass',
-      apiVersion: 'scheduling.k8s.io/v1',
     };
   }
 
@@ -5679,7 +5985,7 @@ export class KubePriorityClass extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePriorityClassProps) {
-    super(scope, id, KubePriorityClass.propsWithGVK(props));
+    super(scope, id, KubePriorityClass.manifest(props));
   }
 }
 
@@ -5698,14 +6004,16 @@ export class KubePriorityClassList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.scheduling.v1.PriorityClassList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1.PriorityClassList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePriorityClassListProps): any {
+  public static manifest(props: KubePriorityClassListProps): any {
     return {
+      ...KubePriorityClassList.GVK,
       ...props,
-      kind: 'PriorityClassList',
-      apiVersion: 'scheduling.k8s.io/v1',
     };
   }
 
@@ -5716,7 +6024,7 @@ export class KubePriorityClassList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePriorityClassListProps) {
-    super(scope, id, KubePriorityClassList.propsWithGVK(props));
+    super(scope, id, KubePriorityClassList.manifest(props));
   }
 }
 
@@ -5735,14 +6043,16 @@ export class KubePriorityClassV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.scheduling.v1alpha1.PriorityClass" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1alpha1.PriorityClass".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePriorityClassV1Alpha1Props): any {
+  public static manifest(props: KubePriorityClassV1Alpha1Props): any {
     return {
+      ...KubePriorityClassV1Alpha1.GVK,
       ...props,
-      kind: 'PriorityClass',
-      apiVersion: 'scheduling.k8s.io/v1alpha1',
     };
   }
 
@@ -5753,7 +6063,7 @@ export class KubePriorityClassV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePriorityClassV1Alpha1Props) {
-    super(scope, id, KubePriorityClassV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubePriorityClassV1Alpha1.manifest(props));
   }
 }
 
@@ -5772,14 +6082,16 @@ export class KubePriorityClassListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.scheduling.v1alpha1.PriorityClassList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1alpha1.PriorityClassList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePriorityClassListV1Alpha1Props): any {
+  public static manifest(props: KubePriorityClassListV1Alpha1Props): any {
     return {
+      ...KubePriorityClassListV1Alpha1.GVK,
       ...props,
-      kind: 'PriorityClassList',
-      apiVersion: 'scheduling.k8s.io/v1alpha1',
     };
   }
 
@@ -5790,7 +6102,7 @@ export class KubePriorityClassListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePriorityClassListV1Alpha1Props) {
-    super(scope, id, KubePriorityClassListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubePriorityClassListV1Alpha1.manifest(props));
   }
 }
 
@@ -5809,14 +6121,16 @@ export class KubePriorityClassV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.scheduling.v1beta1.PriorityClass" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1beta1.PriorityClass".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePriorityClassV1Beta1Props): any {
+  public static manifest(props: KubePriorityClassV1Beta1Props): any {
     return {
+      ...KubePriorityClassV1Beta1.GVK,
       ...props,
-      kind: 'PriorityClass',
-      apiVersion: 'scheduling.k8s.io/v1beta1',
     };
   }
 
@@ -5827,7 +6141,7 @@ export class KubePriorityClassV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePriorityClassV1Beta1Props) {
-    super(scope, id, KubePriorityClassV1Beta1.propsWithGVK(props));
+    super(scope, id, KubePriorityClassV1Beta1.manifest(props));
   }
 }
 
@@ -5846,14 +6160,16 @@ export class KubePriorityClassListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.scheduling.v1beta1.PriorityClassList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1beta1.PriorityClassList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePriorityClassListV1Beta1Props): any {
+  public static manifest(props: KubePriorityClassListV1Beta1Props): any {
     return {
+      ...KubePriorityClassListV1Beta1.GVK,
       ...props,
-      kind: 'PriorityClassList',
-      apiVersion: 'scheduling.k8s.io/v1beta1',
     };
   }
 
@@ -5864,7 +6180,7 @@ export class KubePriorityClassListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePriorityClassListV1Beta1Props) {
-    super(scope, id, KubePriorityClassListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubePriorityClassListV1Beta1.manifest(props));
   }
 }
 
@@ -5883,14 +6199,16 @@ export class KubePodPresetV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.settings.v1alpha1.PodPreset" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.settings.v1alpha1.PodPreset".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodPresetV1Alpha1Props = {}): any {
+  public static manifest(props: KubePodPresetV1Alpha1Props = {}): any {
     return {
+      ...KubePodPresetV1Alpha1.GVK,
       ...props,
-      kind: 'PodPreset',
-      apiVersion: 'settings.k8s.io/v1alpha1',
     };
   }
 
@@ -5901,7 +6219,7 @@ export class KubePodPresetV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodPresetV1Alpha1Props = {}) {
-    super(scope, id, KubePodPresetV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubePodPresetV1Alpha1.manifest(props));
   }
 }
 
@@ -5920,14 +6238,16 @@ export class KubePodPresetListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.settings.v1alpha1.PodPresetList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.settings.v1alpha1.PodPresetList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubePodPresetListV1Alpha1Props): any {
+  public static manifest(props: KubePodPresetListV1Alpha1Props): any {
     return {
+      ...KubePodPresetListV1Alpha1.GVK,
       ...props,
-      kind: 'PodPresetList',
-      apiVersion: 'settings.k8s.io/v1alpha1',
     };
   }
 
@@ -5938,7 +6258,7 @@ export class KubePodPresetListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubePodPresetListV1Alpha1Props) {
-    super(scope, id, KubePodPresetListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubePodPresetListV1Alpha1.manifest(props));
   }
 }
 
@@ -5957,14 +6277,16 @@ export class KubeCsiNode extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1.CSINode" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1.CSINode".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCsiNodeProps): any {
+  public static manifest(props: KubeCsiNodeProps): any {
     return {
+      ...KubeCsiNode.GVK,
       ...props,
-      kind: 'CSINode',
-      apiVersion: 'storage.k8s.io/v1',
     };
   }
 
@@ -5975,7 +6297,7 @@ export class KubeCsiNode extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCsiNodeProps) {
-    super(scope, id, KubeCsiNode.propsWithGVK(props));
+    super(scope, id, KubeCsiNode.manifest(props));
   }
 }
 
@@ -5994,14 +6316,16 @@ export class KubeCsiNodeList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1.CSINodeList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1.CSINodeList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCsiNodeListProps): any {
+  public static manifest(props: KubeCsiNodeListProps): any {
     return {
+      ...KubeCsiNodeList.GVK,
       ...props,
-      kind: 'CSINodeList',
-      apiVersion: 'storage.k8s.io/v1',
     };
   }
 
@@ -6012,7 +6336,7 @@ export class KubeCsiNodeList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCsiNodeListProps) {
-    super(scope, id, KubeCsiNodeList.propsWithGVK(props));
+    super(scope, id, KubeCsiNodeList.manifest(props));
   }
 }
 
@@ -6033,14 +6357,16 @@ export class KubeStorageClass extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1.StorageClass" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1.StorageClass".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStorageClassProps): any {
+  public static manifest(props: KubeStorageClassProps): any {
     return {
+      ...KubeStorageClass.GVK,
       ...props,
-      kind: 'StorageClass',
-      apiVersion: 'storage.k8s.io/v1',
     };
   }
 
@@ -6051,7 +6377,7 @@ export class KubeStorageClass extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStorageClassProps) {
-    super(scope, id, KubeStorageClass.propsWithGVK(props));
+    super(scope, id, KubeStorageClass.manifest(props));
   }
 }
 
@@ -6070,14 +6396,16 @@ export class KubeStorageClassList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1.StorageClassList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1.StorageClassList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStorageClassListProps): any {
+  public static manifest(props: KubeStorageClassListProps): any {
     return {
+      ...KubeStorageClassList.GVK,
       ...props,
-      kind: 'StorageClassList',
-      apiVersion: 'storage.k8s.io/v1',
     };
   }
 
@@ -6088,7 +6416,7 @@ export class KubeStorageClassList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStorageClassListProps) {
-    super(scope, id, KubeStorageClassList.propsWithGVK(props));
+    super(scope, id, KubeStorageClassList.manifest(props));
   }
 }
 
@@ -6109,14 +6437,16 @@ export class KubeVolumeAttachment extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1.VolumeAttachment" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1.VolumeAttachment".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeVolumeAttachmentProps): any {
+  public static manifest(props: KubeVolumeAttachmentProps): any {
     return {
+      ...KubeVolumeAttachment.GVK,
       ...props,
-      kind: 'VolumeAttachment',
-      apiVersion: 'storage.k8s.io/v1',
     };
   }
 
@@ -6127,7 +6457,7 @@ export class KubeVolumeAttachment extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentProps) {
-    super(scope, id, KubeVolumeAttachment.propsWithGVK(props));
+    super(scope, id, KubeVolumeAttachment.manifest(props));
   }
 }
 
@@ -6146,14 +6476,16 @@ export class KubeVolumeAttachmentList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1.VolumeAttachmentList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1.VolumeAttachmentList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeVolumeAttachmentListProps): any {
+  public static manifest(props: KubeVolumeAttachmentListProps): any {
     return {
+      ...KubeVolumeAttachmentList.GVK,
       ...props,
-      kind: 'VolumeAttachmentList',
-      apiVersion: 'storage.k8s.io/v1',
     };
   }
 
@@ -6164,7 +6496,7 @@ export class KubeVolumeAttachmentList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentListProps) {
-    super(scope, id, KubeVolumeAttachmentList.propsWithGVK(props));
+    super(scope, id, KubeVolumeAttachmentList.manifest(props));
   }
 }
 
@@ -6185,14 +6517,16 @@ export class KubeVolumeAttachmentV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1alpha1.VolumeAttachment" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.VolumeAttachment".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeVolumeAttachmentV1Alpha1Props): any {
+  public static manifest(props: KubeVolumeAttachmentV1Alpha1Props): any {
     return {
+      ...KubeVolumeAttachmentV1Alpha1.GVK,
       ...props,
-      kind: 'VolumeAttachment',
-      apiVersion: 'storage.k8s.io/v1alpha1',
     };
   }
 
@@ -6203,7 +6537,7 @@ export class KubeVolumeAttachmentV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentV1Alpha1Props) {
-    super(scope, id, KubeVolumeAttachmentV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeVolumeAttachmentV1Alpha1.manifest(props));
   }
 }
 
@@ -6222,14 +6556,16 @@ export class KubeVolumeAttachmentListV1Alpha1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1alpha1.VolumeAttachmentList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.VolumeAttachmentList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeVolumeAttachmentListV1Alpha1Props): any {
+  public static manifest(props: KubeVolumeAttachmentListV1Alpha1Props): any {
     return {
+      ...KubeVolumeAttachmentListV1Alpha1.GVK,
       ...props,
-      kind: 'VolumeAttachmentList',
-      apiVersion: 'storage.k8s.io/v1alpha1',
     };
   }
 
@@ -6240,7 +6576,7 @@ export class KubeVolumeAttachmentListV1Alpha1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentListV1Alpha1Props) {
-    super(scope, id, KubeVolumeAttachmentListV1Alpha1.propsWithGVK(props));
+    super(scope, id, KubeVolumeAttachmentListV1Alpha1.manifest(props));
   }
 }
 
@@ -6259,14 +6595,16 @@ export class KubeCsiDriverV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1beta1.CSIDriver" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSIDriver".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCsiDriverV1Beta1Props): any {
+  public static manifest(props: KubeCsiDriverV1Beta1Props): any {
     return {
+      ...KubeCsiDriverV1Beta1.GVK,
       ...props,
-      kind: 'CSIDriver',
-      apiVersion: 'storage.k8s.io/v1beta1',
     };
   }
 
@@ -6277,7 +6615,7 @@ export class KubeCsiDriverV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCsiDriverV1Beta1Props) {
-    super(scope, id, KubeCsiDriverV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCsiDriverV1Beta1.manifest(props));
   }
 }
 
@@ -6296,14 +6634,16 @@ export class KubeCsiDriverListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1beta1.CSIDriverList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSIDriverList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCsiDriverListV1Beta1Props): any {
+  public static manifest(props: KubeCsiDriverListV1Beta1Props): any {
     return {
+      ...KubeCsiDriverListV1Beta1.GVK,
       ...props,
-      kind: 'CSIDriverList',
-      apiVersion: 'storage.k8s.io/v1beta1',
     };
   }
 
@@ -6314,7 +6654,7 @@ export class KubeCsiDriverListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCsiDriverListV1Beta1Props) {
-    super(scope, id, KubeCsiDriverListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCsiDriverListV1Beta1.manifest(props));
   }
 }
 
@@ -6333,14 +6673,16 @@ export class KubeCsiNodeV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1beta1.CSINode" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSINode".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCsiNodeV1Beta1Props): any {
+  public static manifest(props: KubeCsiNodeV1Beta1Props): any {
     return {
+      ...KubeCsiNodeV1Beta1.GVK,
       ...props,
-      kind: 'CSINode',
-      apiVersion: 'storage.k8s.io/v1beta1',
     };
   }
 
@@ -6351,7 +6693,7 @@ export class KubeCsiNodeV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCsiNodeV1Beta1Props) {
-    super(scope, id, KubeCsiNodeV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCsiNodeV1Beta1.manifest(props));
   }
 }
 
@@ -6370,14 +6712,16 @@ export class KubeCsiNodeListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1beta1.CSINodeList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSINodeList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCsiNodeListV1Beta1Props): any {
+  public static manifest(props: KubeCsiNodeListV1Beta1Props): any {
     return {
+      ...KubeCsiNodeListV1Beta1.GVK,
       ...props,
-      kind: 'CSINodeList',
-      apiVersion: 'storage.k8s.io/v1beta1',
     };
   }
 
@@ -6388,7 +6732,7 @@ export class KubeCsiNodeListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCsiNodeListV1Beta1Props) {
-    super(scope, id, KubeCsiNodeListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCsiNodeListV1Beta1.manifest(props));
   }
 }
 
@@ -6409,14 +6753,16 @@ export class KubeStorageClassV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1beta1.StorageClass" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.StorageClass".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStorageClassV1Beta1Props): any {
+  public static manifest(props: KubeStorageClassV1Beta1Props): any {
     return {
+      ...KubeStorageClassV1Beta1.GVK,
       ...props,
-      kind: 'StorageClass',
-      apiVersion: 'storage.k8s.io/v1beta1',
     };
   }
 
@@ -6427,7 +6773,7 @@ export class KubeStorageClassV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStorageClassV1Beta1Props) {
-    super(scope, id, KubeStorageClassV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeStorageClassV1Beta1.manifest(props));
   }
 }
 
@@ -6446,14 +6792,16 @@ export class KubeStorageClassListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1beta1.StorageClassList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.StorageClassList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStorageClassListV1Beta1Props): any {
+  public static manifest(props: KubeStorageClassListV1Beta1Props): any {
     return {
+      ...KubeStorageClassListV1Beta1.GVK,
       ...props,
-      kind: 'StorageClassList',
-      apiVersion: 'storage.k8s.io/v1beta1',
     };
   }
 
@@ -6464,7 +6812,7 @@ export class KubeStorageClassListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStorageClassListV1Beta1Props) {
-    super(scope, id, KubeStorageClassListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeStorageClassListV1Beta1.manifest(props));
   }
 }
 
@@ -6485,14 +6833,16 @@ export class KubeVolumeAttachmentV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1beta1.VolumeAttachment" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.VolumeAttachment".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeVolumeAttachmentV1Beta1Props): any {
+  public static manifest(props: KubeVolumeAttachmentV1Beta1Props): any {
     return {
+      ...KubeVolumeAttachmentV1Beta1.GVK,
       ...props,
-      kind: 'VolumeAttachment',
-      apiVersion: 'storage.k8s.io/v1beta1',
     };
   }
 
@@ -6503,7 +6853,7 @@ export class KubeVolumeAttachmentV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentV1Beta1Props) {
-    super(scope, id, KubeVolumeAttachmentV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeVolumeAttachmentV1Beta1.manifest(props));
   }
 }
 
@@ -6522,14 +6872,16 @@ export class KubeVolumeAttachmentListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.api.storage.v1beta1.VolumeAttachmentList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.VolumeAttachmentList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeVolumeAttachmentListV1Beta1Props): any {
+  public static manifest(props: KubeVolumeAttachmentListV1Beta1Props): any {
     return {
+      ...KubeVolumeAttachmentListV1Beta1.GVK,
       ...props,
-      kind: 'VolumeAttachmentList',
-      apiVersion: 'storage.k8s.io/v1beta1',
     };
   }
 
@@ -6540,7 +6892,7 @@ export class KubeVolumeAttachmentListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentListV1Beta1Props) {
-    super(scope, id, KubeVolumeAttachmentListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeVolumeAttachmentListV1Beta1.manifest(props));
   }
 }
 
@@ -6559,14 +6911,16 @@ export class KubeCustomResourceDefinition extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCustomResourceDefinitionProps): any {
+  public static manifest(props: KubeCustomResourceDefinitionProps): any {
     return {
+      ...KubeCustomResourceDefinition.GVK,
       ...props,
-      kind: 'CustomResourceDefinition',
-      apiVersion: 'apiextensions.k8s.io/v1',
     };
   }
 
@@ -6577,7 +6931,7 @@ export class KubeCustomResourceDefinition extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCustomResourceDefinitionProps) {
-    super(scope, id, KubeCustomResourceDefinition.propsWithGVK(props));
+    super(scope, id, KubeCustomResourceDefinition.manifest(props));
   }
 }
 
@@ -6596,14 +6950,16 @@ export class KubeCustomResourceDefinitionList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCustomResourceDefinitionListProps): any {
+  public static manifest(props: KubeCustomResourceDefinitionListProps): any {
     return {
+      ...KubeCustomResourceDefinitionList.GVK,
       ...props,
-      kind: 'CustomResourceDefinitionList',
-      apiVersion: 'apiextensions.k8s.io/v1',
     };
   }
 
@@ -6614,7 +6970,7 @@ export class KubeCustomResourceDefinitionList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCustomResourceDefinitionListProps) {
-    super(scope, id, KubeCustomResourceDefinitionList.propsWithGVK(props));
+    super(scope, id, KubeCustomResourceDefinitionList.manifest(props));
   }
 }
 
@@ -6633,14 +6989,16 @@ export class KubeCustomResourceDefinitionV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCustomResourceDefinitionV1Beta1Props): any {
+  public static manifest(props: KubeCustomResourceDefinitionV1Beta1Props): any {
     return {
+      ...KubeCustomResourceDefinitionV1Beta1.GVK,
       ...props,
-      kind: 'CustomResourceDefinition',
-      apiVersion: 'apiextensions.k8s.io/v1beta1',
     };
   }
 
@@ -6651,7 +7009,7 @@ export class KubeCustomResourceDefinitionV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCustomResourceDefinitionV1Beta1Props) {
-    super(scope, id, KubeCustomResourceDefinitionV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCustomResourceDefinitionV1Beta1.manifest(props));
   }
 }
 
@@ -6670,14 +7028,16 @@ export class KubeCustomResourceDefinitionListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeCustomResourceDefinitionListV1Beta1Props): any {
+  public static manifest(props: KubeCustomResourceDefinitionListV1Beta1Props): any {
     return {
+      ...KubeCustomResourceDefinitionListV1Beta1.GVK,
       ...props,
-      kind: 'CustomResourceDefinitionList',
-      apiVersion: 'apiextensions.k8s.io/v1beta1',
     };
   }
 
@@ -6688,7 +7048,7 @@ export class KubeCustomResourceDefinitionListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeCustomResourceDefinitionListV1Beta1Props) {
-    super(scope, id, KubeCustomResourceDefinitionListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeCustomResourceDefinitionListV1Beta1.manifest(props));
   }
 }
 
@@ -6707,14 +7067,16 @@ export class KubeStatus extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.apimachinery.pkg.apis.meta.v1.Status" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.apimachinery.pkg.apis.meta.v1.Status".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeStatusProps = {}): any {
+  public static manifest(props: KubeStatusProps = {}): any {
     return {
+      ...KubeStatus.GVK,
       ...props,
-      kind: 'Status',
-      apiVersion: 'v1',
     };
   }
 
@@ -6725,7 +7087,7 @@ export class KubeStatus extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeStatusProps = {}) {
-    super(scope, id, KubeStatus.propsWithGVK(props));
+    super(scope, id, KubeStatus.manifest(props));
   }
 }
 
@@ -6744,14 +7106,16 @@ export class KubeApiService extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeApiServiceProps = {}): any {
+  public static manifest(props: KubeApiServiceProps = {}): any {
     return {
+      ...KubeApiService.GVK,
       ...props,
-      kind: 'APIService',
-      apiVersion: 'apiregistration.k8s.io/v1',
     };
   }
 
@@ -6762,7 +7126,7 @@ export class KubeApiService extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeApiServiceProps = {}) {
-    super(scope, id, KubeApiService.propsWithGVK(props));
+    super(scope, id, KubeApiService.manifest(props));
   }
 }
 
@@ -6781,14 +7145,16 @@ export class KubeApiServiceList extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeApiServiceListProps): any {
+  public static manifest(props: KubeApiServiceListProps): any {
     return {
+      ...KubeApiServiceList.GVK,
       ...props,
-      kind: 'APIServiceList',
-      apiVersion: 'apiregistration.k8s.io/v1',
     };
   }
 
@@ -6799,7 +7165,7 @@ export class KubeApiServiceList extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeApiServiceListProps) {
-    super(scope, id, KubeApiServiceList.propsWithGVK(props));
+    super(scope, id, KubeApiServiceList.manifest(props));
   }
 }
 
@@ -6818,14 +7184,16 @@ export class KubeApiServiceV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeApiServiceV1Beta1Props = {}): any {
+  public static manifest(props: KubeApiServiceV1Beta1Props = {}): any {
     return {
+      ...KubeApiServiceV1Beta1.GVK,
       ...props,
-      kind: 'APIService',
-      apiVersion: 'apiregistration.k8s.io/v1beta1',
     };
   }
 
@@ -6836,7 +7204,7 @@ export class KubeApiServiceV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeApiServiceV1Beta1Props = {}) {
-    super(scope, id, KubeApiServiceV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeApiServiceV1Beta1.manifest(props));
   }
 }
 
@@ -6855,14 +7223,16 @@ export class KubeApiServiceListV1Beta1 extends ApiObject {
   }
 
   /**
-   * Adds "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: KubeApiServiceListV1Beta1Props): any {
+  public static manifest(props: KubeApiServiceListV1Beta1Props): any {
     return {
+      ...KubeApiServiceListV1Beta1.GVK,
       ...props,
-      kind: 'APIServiceList',
-      apiVersion: 'apiregistration.k8s.io/v1beta1',
     };
   }
 
@@ -6873,7 +7243,7 @@ export class KubeApiServiceListV1Beta1 extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: KubeApiServiceListV1Beta1Props) {
-    super(scope, id, KubeApiServiceListV1Beta1.propsWithGVK(props));
+    super(scope, id, KubeApiServiceListV1Beta1.manifest(props));
   }
 }
 

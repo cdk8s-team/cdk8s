@@ -43,22 +43,24 @@ class ClusterInstallation(
 
         jsii.create(ClusterInstallation, self, [scope, id, props])
 
-    @jsii.member(jsii_name="propsWithGVK")
+    @jsii.member(jsii_name="manifest")
     @builtins.classmethod
-    def props_with_gvk(
+    def manifest(
         cls,
         *,
         spec: "ClusterInstallationSpec",
         metadata: typing.Any = None,
     ) -> typing.Any:
-        """Adds "ClusterInstallation" kind and apiVersion to props.
+        """Renders a Kubernetes manifest for "ClusterInstallation".
+
+        This can be used to inline resource manifests inside other objects (e.g. as templates).
 
         :param spec: Specification of the desired behavior of the Mattermost cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
         :param metadata: 
         """
         props = ClusterInstallationProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "propsWithGVK", [props])
+        return jsii.sinvoke(cls, "manifest", [props])
 
     @jsii.python.classproperty # type: ignore
     @jsii.member(jsii_name="GVK")

@@ -17,14 +17,16 @@ export class Configuration extends ApiObject {
   }
 
   /**
-   * Adds "Configuration" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "Configuration".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: ConfigurationProps): any {
+  public static manifest(props: ConfigurationProps): any {
     return {
+      ...Configuration.GVK,
       ...props,
-      kind: 'Configuration',
-      apiVersion: 'meta.pkg.crossplane.io/v1alpha1',
     };
   }
 
@@ -35,7 +37,7 @@ export class Configuration extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ConfigurationProps) {
-    super(scope, id, Configuration.propsWithGVK(props));
+    super(scope, id, Configuration.manifest(props));
   }
 }
 
@@ -140,14 +142,16 @@ export class Provider extends ApiObject {
   }
 
   /**
-   * Adds "Provider" kind and apiVersion to props
+   * Renders a Kubernetes manifest for "Provider".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
    * @param props initialization props
    */
-  public static propsWithGVK(props: ProviderProps): any {
+  public static manifest(props: ProviderProps): any {
     return {
+      ...Provider.GVK,
       ...props,
-      kind: 'Provider',
-      apiVersion: 'meta.pkg.crossplane.io/v1alpha1',
     };
   }
 
@@ -158,7 +162,7 @@ export class Provider extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ProviderProps) {
-    super(scope, id, Provider.propsWithGVK(props));
+    super(scope, id, Provider.manifest(props));
   }
 }
 
