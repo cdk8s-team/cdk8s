@@ -78,7 +78,7 @@ project.tasks.addTask('release-github', { exec: 'tools/release-github.sh' });
 
 const ci = project.tasks.addTask('ci');
 ci.spawn(alignVersion);
-ci.spawn(project.compileTask);
+ci.spawn(project.buildTask);
 ci.spawn(project.testTask);
 ci.spawn(pack);
 ci.spawn(integ);

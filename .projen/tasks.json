@@ -150,7 +150,7 @@
           "spawn": "align-version"
         },
         {
-          "spawn": "compile"
+          "spawn": "build"
         },
         {
           "spawn": "test"
