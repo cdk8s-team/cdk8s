@@ -61,8 +61,15 @@ Object {
   "description": "metapkgcrossplaneio",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "metapkgcrossplaneio",
   "repository": Object {
     "type": "git",

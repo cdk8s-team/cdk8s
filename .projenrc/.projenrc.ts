@@ -83,7 +83,7 @@ ci.spawn(project.testTask);
 ci.spawn(pack);
 ci.spawn(integ);
 
-const constructs = '3.2.56';
+const constructs = '3.2.34';
 
 new Cdk8s(project, constructs);
 new Cdk8sPlus17(project, constructs);

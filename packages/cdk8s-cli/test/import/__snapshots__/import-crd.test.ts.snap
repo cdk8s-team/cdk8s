@@ -61,8 +61,15 @@ Object {
   "description": "stableexamplecom",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecom",
   "repository": Object {
     "type": "git",
@@ -467,8 +474,15 @@ Object {
   "description": "elasticsearchk8selasticco",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "elasticsearchk8selasticco",
   "repository": Object {
     "type": "git",
@@ -4532,8 +4546,15 @@ Object {
   "description": "jenkinsio",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "jenkinsio",
   "repository": Object {
     "type": "git",
@@ -17300,8 +17321,15 @@ Object {
   "description": "stableexamplecom",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecom",
   "repository": Object {
     "type": "git",
@@ -17543,8 +17571,15 @@ Object {
   "description": "stableexamplecom",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecom",
   "repository": Object {
     "type": "git",
@@ -17949,8 +17984,15 @@ Object {
   "description": "monitoringcoreoscom",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.15.0 (build 585166b)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "monitoringcoreoscom",
   "repository": Object {
     "type": "git",

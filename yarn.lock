@@ -2858,15 +2858,10 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs@3.2.56:
-  version "3.2.56"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.2.56.tgz#e4e63cdd30c21e5412f5a197774c5610fc07f904"
-  integrity sha512-J2eQoENgGeaAkPpCZpWfkDElHVdY+NzwQce1JKBrdTbsHsyjQkdLyBERqKXJRJowHowHKRVKUJjHKeiVfakguA==
-
-constructs@^3.2.56:
-  version "3.2.59"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.2.59.tgz#452e251534aff24d41e6b597db04abb1a734e3cd"
-  integrity sha512-mg7IJyLyi9EjT1Arsq99GEuNk0cebbm7wSoHy+Of3fBy4uypUO0xIHmx6FKn1NfPj28PEpzEAHzXoy1IPO4ySw==
+constructs@3.2.34, constructs@^3.2.34:
+  version "3.2.34"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.2.34.tgz#e877e0c903b1be74429427179c3df1e0c4c964f0"
+  integrity sha512-BEc18syAsY2D3sYFXpa0HBuYj2yN0yhD24xHi5IYb1/5Xisbjm9ZKCsd3W9ko9Sy9BsB6w2lCA5dOqty14LNHg==
 
 contains-path@^0.1.0:
   version "0.1.0"
