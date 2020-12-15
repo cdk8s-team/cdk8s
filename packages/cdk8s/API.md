@@ -29,6 +29,7 @@ Name|Description
 [ApiObjectProps](#cdk8s-apiobjectprops)|Options for defining API objects.
 [AppProps](#cdk8s-appprops)|*No description*
 [ChartProps](#cdk8s-chartprops)|*No description*
+[GroupVersionKind](#cdk8s-groupversionkind)|*No description*
 [HelmProps](#cdk8s-helmprops)|Options for `Helm`.
 [IncludeProps](#cdk8s-includeprops)|*No description*
 [NameOptions](#cdk8s-nameoptions)|Options for name generation.
@@ -1340,6 +1341,20 @@ Name | Type | Description
 -----|------|-------------
 **labels**?🔹 | <code>Map<string, string></code> | Labels to apply to all resources in this chart.<br/>__*Default*__: no common labels
 **namespace**?🔹 | <code>string</code> | The default namespace for all objects defined in this chart (directly or indirectly).<br/>__*Default*__: no namespace is synthesized (usually this implies "default")
+
+
+
+## struct GroupVersionKind 🔹 <a id="cdk8s-groupversionkind"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**apiVersion**🔹 | <code>string</code> | The object's API version (e.g. `authorization.k8s.io/v1`).
+**kind**🔹 | <code>string</code> | The object kind.
 
 
 

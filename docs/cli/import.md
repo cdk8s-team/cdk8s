@@ -140,8 +140,10 @@ imports:
 A CRD with group `mygroup.io` and kind `Foo` will be imported to the following
 locations:
 
-- TypeScript: `imports/mygroup.io/foo.ts`
-- Python: `imports/mygroup/io/foo/__init__.py`
+- TypeScript: `imports/mygroup.io.ts`
+- Python: `imports/mygroup/io`
+
+#### Importing CRDs from a cluster
 
 If the imported YAML is a `List` of CRDs, all these CRDs will be imported. This
 is useful, for example, to import all the CRDs from a running cluster:
