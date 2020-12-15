@@ -18,7 +18,8 @@ const project = new TypeScriptLibraryProject({
     'sscaff',
     'yaml',
     'yargs',
-    'json2jsii'
+    'json2jsii',
+    'colors'
   ],
   devDeps: [
     '@types/fs-extra',
