@@ -27,13 +27,16 @@ jobs:
           # and should remain on the same minor.
           # https://github.com/microsoft/TypeScript/issues/14116
 
+          # We reject projen since it may involve breaking changes and we don't
+          # want to couple them with pure dependency upgrades.
+
           # Upgrade dependencies at repository root
           ncu --upgrade --filter=typescript --target=patch
           ncu --upgrade --reject=typescript --target=minor
 
           # Upgrade all the packages
           lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch
-          lerna exec --parallel ncu -- --upgrade --reject='typescript,${{ steps.list-packages.outputs.list }}'  --target=minor
+          lerna exec --parallel ncu -- --upgrade --reject='projen,typescript,${{ steps.list-packages.outputs.list }}'  --target=minor
 
       - name: Upgrade lock file
         # This will create a brand new `yarn.lock` file (this is more efficient than `yarn install && yarn upgrade`)
