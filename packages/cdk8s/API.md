@@ -983,6 +983,7 @@ static toDnsLabel(scope: Construct, options?: NameOptions): string
 * **options** (<code>[NameOptions](#cdk8s-nameoptions)</code>)  Name options.
   * **delimiter** (<code>string</code>)  Delimiter to use between components. __*Default*__: "-"
   * **extra** (<code>Array<string></code>)  Extra components to include in the name. __*Default*__: [] use the construct path components
+  * **includeHash** (<code>boolean</code>)  Include a short hash as last part of the name. __*Default*__: true
   * **maxLen** (<code>number</code>)  Maximum allowed length for the name. __*Default*__: 63
 
 __Returns__:
@@ -1017,6 +1018,7 @@ static toLabelValue(scope: Construct, options?: NameOptions): string
 * **options** (<code>[NameOptions](#cdk8s-nameoptions)</code>)  Name options.
   * **delimiter** (<code>string</code>)  Delimiter to use between components. __*Default*__: "-"
   * **extra** (<code>Array<string></code>)  Extra components to include in the name. __*Default*__: [] use the construct path components
+  * **includeHash** (<code>boolean</code>)  Include a short hash as last part of the name. __*Default*__: true
   * **maxLen** (<code>number</code>)  Maximum allowed length for the name. __*Default*__: 63
 
 __Returns__:
@@ -1403,6 +1405,7 @@ Name | Type | Description
 -----|------|-------------
 **delimiter**?🔹 | <code>string</code> | Delimiter to use between components.<br/>__*Default*__: "-"
 **extra**?🔹 | <code>Array<string></code> | Extra components to include in the name.<br/>__*Default*__: [] use the construct path components
+**includeHash**?🔹 | <code>boolean</code> | Include a short hash as last part of the name.<br/>__*Default*__: true
 **maxLen**?🔹 | <code>number</code> | Maximum allowed length for the name.<br/>__*Default*__: 63
 
 

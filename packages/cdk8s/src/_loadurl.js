@@ -15,16 +15,18 @@ if (!url) {
   process.exit(1);
 }
 
-const purl = parse(url);
-
-if (!purl.protocol) {
-  if (!purl.pathname) {
-    throw new Error(`unable to parse pathname from file url: ${url}`);
+try {
+  if (fs.lstatSync(url).isFile()) {
+    fs.createReadStream(url).pipe(process.stdout);
   }
+} catch (err) {
+  const purl = parse(url);
 
-  fs.createReadStream(purl.pathname).pipe(process.stdout);
-} else {
-  const client = getHttpClient();
+  if (!purl.protocol) {
+    throw new Error(`unable to determine protocol from url: ${url}`);
+  }
+  
+  const client = getHttpClient(purl.protocol);
   const get = client.get(url, response => {
     if (response.statusCode !== 200) {
       throw new Error(`${response.statusCode} response from http get: ${response.statusMessage}`);
@@ -38,11 +40,11 @@ if (!purl.protocol) {
   });
 }
 
-function getHttpClient() {
-  switch (purl.protocol) {
+function getHttpClient(protocol) {
+  switch (protocol) {
     case 'http:': return http;
     case 'https:': return https;
     default:
-      throw new Error(`unsupported protocol "${purl.protocol}" in url: ${url}`);
+      throw new Error(`unsupported protocol "${protocol}" in url: ${url}`);
   }
 }

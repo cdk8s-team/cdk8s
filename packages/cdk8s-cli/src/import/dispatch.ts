@@ -25,7 +25,7 @@ async function matchImporter(importSpec: ImportSpec, argv: any) {
     return new ImportKubernetesApi(k8s);
   }
 
-  const crdsDev = await importCrdsDevRepoMatch(importSpec.source);
+  const crdsDev = await importCrdsDevRepoMatch(importSpec);
   if (crdsDev) {
     return new ImportCustomResourceDefinition(crdsDev);
   }

@@ -208,9 +208,8 @@ test('can import a "List" of CRDs (kubectl get crds -o json)', () => {
   ]);
 
   expect(importer.moduleNames).toEqual([
-    'stable.example.com/othercrontab',
-    'foo.bar/foo',
-    'stable.example.com/crontab',
+    'foo.bar',
+    'stable.example.com',
   ]);
 });
 

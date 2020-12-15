@@ -27,6 +27,12 @@ export interface NameOptions {
    * @default "-"
    */
   readonly delimiter?: string;
+
+  /**
+   * Include a short hash as last part of the name.
+   * @default true
+   */
+  readonly includeHash?: boolean;
 }
 
 /**
@@ -62,8 +68,9 @@ export class Names {
   public static toDnsLabel(scope: Construct, options: NameOptions = { }) {
     const maxLen = options.maxLen ?? MAX_LEN;
     const delim = options.delimiter ?? '-';
+    const include_hash = options.includeHash ?? true;
 
-    if (maxLen < HASH_LEN) {
+    if (maxLen < HASH_LEN && include_hash) {
       throw new Error(`minimum max length for object names is ${HASH_LEN} (required for hash)`);
     }
 
@@ -79,7 +86,9 @@ export class Names {
 
     // okay, now we need to normalize all components to adhere to DNS_NAME and append the hash of the full path.
     components = components.map(c => normalizeToDnsName(c, maxLen));
-    components.push(calcHash(node, HASH_LEN));
+    if (include_hash) {
+      components.push(calcHash(node, HASH_LEN));
+    }
 
     return toHumanForm(components, delim, maxLen);
   }
@@ -115,8 +124,9 @@ export class Names {
   public static toLabelValue(scope: Construct, options: NameOptions = {}) {
     const maxLen = options.maxLen ?? MAX_LEN;
     const delim = options.delimiter ?? '-';
+    const include_hash = options.includeHash ?? true;
 
-    if (maxLen < HASH_LEN) {
+    if (maxLen < HASH_LEN && include_hash) {
       throw new Error(`minimum max length for label is ${HASH_LEN} (required for hash)`);
     }
 
@@ -135,7 +145,9 @@ export class Names {
 
     // okay, now we need to normalize all components to adhere to label and append the hash of the full path.
     components = components.map(c => normalizeToLabelValue(c, maxLen));
-    components.push(calcHash(node, HASH_LEN));
+    if (include_hash) {
+      components.push(calcHash(node, HASH_LEN));
+    }
 
     const result = toHumanForm(components, delim, maxLen);
 
