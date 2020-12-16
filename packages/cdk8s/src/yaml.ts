@@ -72,6 +72,24 @@ export class Yaml {
   }
 
   /**
+   * Converts a set of objects to a YAML string.
+   * @param value The set of objects.
+   * @returns A String with YAML formatting.
+   */
+  public static stringify(value: any): string{
+    return YAML.stringify(value);
+  }
+
+  /**
+   * Converts a String with YAML formatting to a set of objects.
+   * @param str The YAML String.
+   * @returns A value that matches the type of the root value of the parsed YAML document.
+   */
+  public static parse(str: string): any{
+    return YAML.parse(str);
+  }
+
+  /**
    * Utility class.
    */
   private constructor() {

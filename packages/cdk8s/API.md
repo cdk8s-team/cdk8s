@@ -1257,6 +1257,19 @@ static load(urlOrFile: string): Array<any>
 __Returns__:
 * <code>Array<any></code>
 
+#### *static* parse(str)🔹 <a id="cdk8s-yaml-parse"></a>
+
+Converts a String with YAML formatting to a set of objects.
+
+```ts
+static parse(str: string): any
+```
+
+* **str** (<code>string</code>)  The YAML String.
+
+__Returns__:
+* <code>any</code>
+
 #### *static* save(filePath, docs)🔹 <a id="cdk8s-yaml-save"></a>
 
 Saves a set of objects as a multi-document YAML file.
@@ -1270,6 +1283,19 @@ static save(filePath: string, docs: Array<any>): void
 
 
 
+
+#### *static* stringify(value)🔹 <a id="cdk8s-yaml-stringify"></a>
+
+Converts a set of objects to a YAML string.
+
+```ts
+static stringify(value: any): string
+```
+
+* **value** (<code>any</code>)  The set of objects.
+
+__Returns__:
+* <code>string</code>
 
 #### *static* tmp(docs)🔹 <a id="cdk8s-yaml-tmp"></a>
 
