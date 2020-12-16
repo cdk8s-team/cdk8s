@@ -13,6 +13,9 @@ jobs:
       - name: Install
         run: |-
           yarn install --frozen-lockfile
+      - name: Export Binaries
+        run: |-
+          export PATH=$(pwd)/node_modules/.bin:${PATH}
       - name: List Mono-Repo Packages
         id: list-packages
         # These need to be ignored from the `ncu` runs since local dependencies
