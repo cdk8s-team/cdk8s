@@ -11,6 +11,14 @@ export interface SecretProps extends ResourceProps {
    * output when reading from the API.
    */
   readonly stringData?: { [key: string]: string };
+
+  /**
+   * Optional type associated with the secret.  Used to facilitate programmatic
+   * handling of secret data by various controllers.
+   *
+   * @default undefined - Don't set a type.
+   */
+  readonly type?: string;
 }
 
 export interface ISecret extends IResource {
@@ -64,6 +72,7 @@ export class Secret extends Resource implements ISecret {
 
     this.apiObject = new k8s.KubeSecret(this, 'Resource', {
       metadata: props.metadata,
+      type: props.type,
       stringData: this.stringData,
     });
   }
