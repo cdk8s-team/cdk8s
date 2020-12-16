@@ -23,6 +23,8 @@ jobs:
       - name: Upgrade package.json files
         run: |-
 
+          export PATH=./node_modules/.bin:${PATH}
+
           # We special-case typescript because it's not semantically versionned
           # and should remain on the same minor.
           # https://github.com/microsoft/TypeScript/issues/14116
