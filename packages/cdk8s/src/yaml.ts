@@ -76,7 +76,7 @@ export class Yaml {
    * @param value The set of objects.
    * @returns A String with YAML formatting.
    */
-  public static stringify(value: any): string{
+  public static stringify(value: any): string {
     return YAML.stringify(value);
   }
 
