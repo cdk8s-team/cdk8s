@@ -24,7 +24,6 @@ jobs:
           echo -n "::set-output name=list::"
           node -p "$(lerna ls --all --json 2>/dev/null).map(item => item.name).join(',')"
       - name: Upgrade package.json files
-        id: upgrade-packages
         run: |-
 
           # We special-case typescript because it's not semantically versionned
@@ -34,20 +33,17 @@ jobs:
           # We reject projen since it may involve breaking changes and we don't
           # want to couple them with pure dependency upgrades.
 
+          # We reject constructs because ncu doesn't update pinned dev dependencies.
+          # we will do constructs upgrades manually for a little while until we sort this out.
+
           # Upgrade dependencies at repository root
-          ncu --upgrade --filter=typescript --target=patch >> rootupgrade.txt
-          ncu --upgrade --reject=typescript --target=minor >> rootupgrade.txt
-          output=$(cat rootupgrade.txt)
-          output="${output//$'\n'/'%0A'}" # https://github.community/t/set-output-truncates-multiline-strings/16852/2
-          echo -n "::set-output name=rootupgrade::$output"
+          ncu --upgrade --filter=typescript --target=patch
+          ncu --upgrade --reject=construct,typescript --target=minor
 
 
           # Upgrade all the packages
-          lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch >> packagesupgrade.txt
-          lerna exec --parallel ncu -- --upgrade --reject='projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor >> packagesupgrade.txt
-          output=$(cat packagesupgrade.txt)
-          output="${output//$'\n'/'%0A'}" # https://github.community/t/set-output-truncates-multiline-strings/16852/2
-          echo -n "::set-output name=packagesupgrade::$output"
+          lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch
+          lerna exec --parallel ncu -- --upgrade --reject='construct,projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
 
       - name: Upgrade lock file
         # This will create a brand new `yarn.lock` file (this is more efficient than `yarn install && yarn upgrade`)
@@ -62,14 +58,6 @@ jobs:
           title: "chore(deps): Upgrade dependencies"
           body: |-
             Upgrade dependencies.
-
-            ```console
-            ${{ steps.upgrade-packages.outputs.rootupgrade }}
-            ```
-
-            ```console
-            ${{ steps.upgrade-packages.outputs.packagesupgrade }}
-            ```
 
             ------
 
