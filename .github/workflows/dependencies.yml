@@ -40,12 +40,12 @@ jobs:
 
           # Upgrade dependencies at repository root
           ncu --upgrade --filter=typescript --target=patch
-          ncu --upgrade --reject=typescript --target=minor
+          ncu --upgrade --reject=constructs,typescript --target=minor
 
 
           # Upgrade all the packages
           lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch
-          lerna exec --parallel ncu -- --upgrade --reject='projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
+          lerna exec --parallel ncu -- --upgrade --reject='constructs,projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
 
       - name: Upgrade lock file
         run: yarn install && yarn upgrade
