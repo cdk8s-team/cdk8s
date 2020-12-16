@@ -1,5 +1,9 @@
 name: dependencies
-on: push
+on:
+  schedule:
+    - cron: 0 8 * * *
+  push:
+    - epolon/dependencies-upgrade
 jobs:
   upgrade:
     runs-on: ubuntu-latest
@@ -50,7 +54,7 @@ jobs:
           labels: auto-merge
           title: "chore(deps): Upgrade dependencies"
           body: |-
-            This PR upgrades yarn dependencies to the latest versions.
+            This PR upgrades our dependencies to the latest minor versions.
 
             ------
 
