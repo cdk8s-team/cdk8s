@@ -18,8 +18,11 @@ jobs:
         # These need to be ignored from the `ncu` runs since local dependencies
         # need to remain on 0.0.0
         run: |-
+
+          export PATH=./node_modules/.bin:${PATH}
+
           echo -n "::set-output name=list::"
-          node -p "$(./node_modules/.bin/lerna ls --all --json 2>/dev/null).map(item => item.name).join(',')"
+          node -p "$(lerna ls --all --json 2>/dev/null).map(item => item.name).join(',')"
       - name: Upgrade package.json files
         run: |-
 
@@ -45,7 +48,7 @@ jobs:
           lerna exec --parallel ncu -- --upgrade --reject='projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
 
       - name: Upgrade lock file
-        run: yarn upgrade
+        run: yarn install && yarn upgrade
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
