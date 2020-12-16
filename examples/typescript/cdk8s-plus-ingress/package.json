@@ -16,10 +16,10 @@
   "dependencies": {
     "cdk8s": "0.0.0",
     "cdk8s-plus-17": "0.0.0",
-    "constructs": "3.2.34"
+    "constructs": "3.2.72"
   },
   "devDependencies": {
-    "@types/node": "^14.0.27",
+    "@types/node": "^14.14.14",
     "cdk8s-cli": "0.0.0",
     "typescript": "^3.9.7"
   }
