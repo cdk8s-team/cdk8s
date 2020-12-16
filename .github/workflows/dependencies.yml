@@ -1,0 +1,63 @@
+name: dependencies
+on:
+  schedule:
+    - cron: 0 8 * * *
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.17.0
+      - name: Install Tools
+        run: |-
+          npm -g install lerna npm-check-updates@^9.0.0
+      - name: List Mono-Repo Packages
+        id: list-packages
+        # These need to be ignored from the `ncu` runs since local dependencies
+        # need to remain on 0.0.0
+        run: |-
+          echo -n "::set-output name=list::"
+          node -p "$(lerna ls --all --json 2>/dev/null).map(item => item.name).join(',')"
+      - name: Upgrade package.json files
+        run: |-
+
+          # We special-case typescript because it's not semantically versionned
+          # and should remain on the same minor.
+          # https://github.com/microsoft/TypeScript/issues/14116
+
+          # We reject projen since it may involve breaking changes and we don't
+          # want to couple them with pure dependency upgrades.
+
+          # We reject constructs because ncu doesn't update pinned dev dependencies.
+          # we will do constructs upgrades manually for a little while until we sort this out.
+
+          # Upgrade dependencies at repository root
+          ncu --upgrade --filter=typescript --target=patch
+          ncu --upgrade --reject=constructs,typescript --target=minor
+
+
+          # Upgrade all the packages
+          lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch
+          lerna exec --parallel ncu -- --upgrade --reject='constructs,projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
+
+      - name: Upgrade lock file
+        # This will create a brand new `yarn.lock` file (this is more efficient than `yarn install && yarn upgrade`)
+        run: yarn install --force
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Upgrade yarn.lock
+          branch: github-actions/dependencies
+          labels: auto-merge
+          title: "chore(deps): Upgrade dependencies"
+          body: |-
+            Upgrade dependencies.
+
+            ------
+
+            *Automatically created via GitHubActions*
