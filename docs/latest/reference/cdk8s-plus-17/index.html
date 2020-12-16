@@ -4744,6 +4744,7 @@ definition or in a container image.</p>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-17-secretprops">SecretProps</a></code>)  <em>No description</em></li>
 <li><strong>metadata</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  Metadata that all persisted resources must have, which includes all objects users must create. <strong><em>Optional</em></strong></li>
 <li><strong>stringData</strong> (<code>Map<string, string></code>)  stringData allows specifying non-binary secret data in string form. <strong><em>Optional</em></strong></li>
+<li><strong>type</strong> (<code>string</code>)  Optional type associated with the secret. <strong><em>Default</em></strong>: undefined - Don&rsquo;t set a type.</li>
 </ul>
 <h3 id="properties_10">Properties<a class="headerlink" href="#properties_10" title="Permanent link">&para;</a></h3>
 <table>
@@ -6012,6 +6013,11 @@ then routed to the backend associated with the matching path.</p>
 <td><strong>stringData</strong>?🔹</td>
 <td><code>Map<string, string></code></td>
 <td>stringData allows specifying non-binary secret data in string form.<br/><strong><em>Optional</em></strong></td>
+</tr>
+<tr>
+<td><strong>type</strong>?🔹</td>
+<td><code>string</code></td>
+<td>Optional type associated with the secret.<br/><strong><em>Default</em></strong>: undefined - Don&rsquo;t set a type.</td>
 </tr>
 </tbody>
 </table>
