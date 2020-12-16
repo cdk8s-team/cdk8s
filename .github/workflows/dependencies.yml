@@ -1,8 +1,5 @@
 name: dependencies
-on:
-  schedule:
-    - cron: 0 8 * * *
-  workflow_dispatch: {}      
+on: push
 jobs:
   upgrade:
     runs-on: ubuntu-latest
@@ -13,9 +10,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.17.0
-      - name: Install Tools
+      - name: Install
         run: |-
-          npm -g install lerna npm-check-updates@^9.0.0
+          yarn install --frozen-lockfile
       - name: List Mono-Repo Packages
         id: list-packages
         # These need to be ignored from the `ncu` runs since local dependencies
@@ -38,16 +35,15 @@ jobs:
 
           # Upgrade dependencies at repository root
           ncu --upgrade --filter=typescript --target=patch
-          ncu --upgrade --reject=constructs,typescript --target=minor
+          ncu --upgrade --reject=typescript --target=minor
 
 
           # Upgrade all the packages
           lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch
-          lerna exec --parallel ncu -- --upgrade --reject='constructs,projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
+          lerna exec --parallel ncu -- --upgrade --reject='projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
 
       - name: Upgrade lock file
-        # This will create a brand new `yarn.lock` file (this is more efficient than `yarn install && yarn upgrade`)
-        run: yarn install --force
+        run: yarn upgrade
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
