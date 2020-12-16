@@ -85,7 +85,7 @@ export class Yaml {
    * @param str The YAML String.
    * @returns A value that matches the type of the root value of the parsed YAML document.
    */
-  public static parse(str: string): any{
+  public static parse(str: string): any {
     return YAML.parse(str);
   }
 
