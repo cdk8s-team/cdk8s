@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.5](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2020-12-15)
+
+
+### Features
+
+* **cli:** enable using imported resources as raw manifests ([#447](https://github.com/awslabs/cdk8s/issues/447)) ([aa2422e](https://github.com/awslabs/cdk8s/commit/aa2422e1844d4684b0c61f871c9cbc9f34c08183))
+
+
+### Bug Fixes
+
+* **cli:** importing local files is broken on windows ([#427](https://github.com/awslabs/cdk8s/issues/427)) ([2c4a185](https://github.com/awslabs/cdk8s/commit/2c4a1858b5c88cf4e5eb6ac5e8f0bcb1495adbf4))
+
+## [1.0.0-beta.4](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2020-12-13)
+
+
+### Features
+
+* **cli:** import a single module per api group ([#402](https://github.com/awslabs/cdk8s/issues/402)) ([ac295fe](https://github.com/awslabs/cdk8s/commit/ac295fe78544c4b06f732fe945dfa6423eea5c83)), closes [#378](https://github.com/awslabs/cdk8s/issues/378) [#401](https://github.com/awslabs/cdk8s/issues/401)
+* **lib:** allow hash to be optionally included in Names functions. ([#396](https://github.com/awslabs/cdk8s/issues/396)) ([2c86526](https://github.com/awslabs/cdk8s/commit/2c86526e6434b7317c338b3446613b8ff7650e5a))
+* **plus-17:** additional options for the Job construct. ([#398](https://github.com/awslabs/cdk8s/issues/398)) ([17e8801](https://github.com/awslabs/cdk8s/commit/17e8801bc748e3ff0e999b994645058cc17637ce))
+
+
+### Bug Fixes
+
+* **lib:** Lazy is not resolved in metadata ([#443](https://github.com/awslabs/cdk8s/issues/443)) ([914d4a8](https://github.com/awslabs/cdk8s/commit/914d4a89ace15a6081267cbf5d359459f8514ee9))
+* **cli:** which command missing for windows ([#417](https://github.com/awslabs/cdk8s/issues/417)) ([38a7034](https://github.com/awslabs/cdk8s/commit/38a703411c7162bfa4d1904ef6b94e2a017ea4da))
+* **docs:** align getting started with new code ([#410](https://github.com/awslabs/cdk8s/issues/410)) ([c61e109](https://github.com/awslabs/cdk8s/commit/c61e109e5cdddeb6c5c3b4ff86d2f7f79e11b9ff))
+* **docs:** WebService typescript example formatting ([#408](https://github.com/awslabs/cdk8s/issues/408)) ([e2470f9](https://github.com/awslabs/cdk8s/commit/e2470f96e737af784f11168474ca24e52619c238))
+* **plus-17:** don't allow containers to be contructed from containers ([#404](https://github.com/awslabs/cdk8s/issues/404)) ([5d11533](https://github.com/awslabs/cdk8s/commit/5d11533f9aea672793459b9f2c6caaddb6430e3e))
+
+## [1.0.0-beta.3](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2020-11-19)
+
+
+### Features
+
+* **cli:** stdout option for cdk8s synth ([#361](https://github.com/awslabs/cdk8s/issues/361)) ([bbf116b](https://github.com/awslabs/cdk8s/commit/bbf116b93d9a14c24094aa51ec3a383489341190))
+* add contributor instructions about using jsii docker image ([#397](https://github.com/awslabs/cdk8s/issues/397)) ([bb0a5cc](https://github.com/awslabs/cdk8s/commit/bb0a5cc0762e753f1f18093b3cd15cbb83bd7c5e))
+
+
+### Bug Fixes
+
+* **cli:** python init template doesn't install cdk8s-plus in the correct env ([#399](https://github.com/awslabs/cdk8s/issues/399)) ([0d3017b](https://github.com/awslabs/cdk8s/commit/0d3017b4285bb015d129cdf24c9e2da2d00f9025))
+
 ## [1.0.0-beta.2](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2020-11-19)
 
 

@@ -118,6 +118,17 @@ describe('Container', () => {
 
   });
 
+  test('Must use container props', () => {
+
+    const container = new kplus.Container({
+      image: 'image',
+    });
+    expect(() => {
+      new kplus.Container(container);
+    }).toThrow();
+
+  });
+
   test('Can add environment variable', () => {
 
     const container = new kplus.Container({

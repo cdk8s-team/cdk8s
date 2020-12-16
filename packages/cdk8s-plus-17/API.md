@@ -698,6 +698,8 @@ new Job(scope: Construct, id: string, props?: JobProps)
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-17-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
   * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The pod metadata. __*Optional*__
+  * **activeDeadline** (<code>[Duration](#cdk8s-duration)</code>)  Specifies the duration the job may be active before the system tries to terminate it. __*Default*__: If unset, then there is no deadline.
+  * **backoffLimit** (<code>number</code>)  Specifies the number of retries before marking this job failed. __*Default*__: If not set, system defaults to 6.
   * **ttlAfterFinished** (<code>[Duration](#cdk8s-duration)</code>)  Limits the lifetime of a Job that has finished execution (either Complete or Failed). __*Default*__: If this field is unset, the Job won't be automatically deleted.
 
 
@@ -711,6 +713,8 @@ Name | Type | Description
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-17-container)></code> | The containers belonging to the pod.
 **podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides read/write access to the underlying pod metadata of the resource.
 **volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-17-volume)></code> | The volumes associated with this pod.
+**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Duration before job is terminated.<br/>__*Optional*__
+**backoffLimit**?🔹 | <code>number</code> | Number of retries before marking failed.<br/>__*Optional*__
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-17-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
 **ttlAfterFinished**?🔹 | <code>[Duration](#cdk8s-duration)</code> | TTL before the job is deleted after it is finished.<br/>__*Optional*__
@@ -1843,6 +1847,8 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
+**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
+**backoffLimit**?🔹 | <code>number</code> | Specifies the number of retries before marking this job failed.<br/>__*Default*__: If not set, system defaults to 6.
 **containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-17-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__

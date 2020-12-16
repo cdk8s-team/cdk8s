@@ -1,4 +1,4 @@
-import { ApiObjectMetadataDefinition } from '../src';
+import { ApiObjectMetadataDefinition, Lazy } from '../src';
 
 test('Can add a label', () => {
 
@@ -44,6 +44,38 @@ test('Instantiation properties are all respected', () => {
     namespace: 'namespace',
     annotations: {
       key: 'value',
+    },
+    labels: {
+      key: 'value',
+    },
+  };
+
+  expect(actual).toStrictEqual(expected);
+
+});
+
+test('ensure Lazy properties are resolved', () => {
+
+  const meta = new ApiObjectMetadataDefinition({
+    labels: { key: 'value' },
+    annotations: {
+      key: 'value',
+      lazy: Lazy.any({ produce: () => { return { uiMeta: 'is good' }; } }),
+    },
+    name: 'name',
+    namespace: 'namespace',
+  });
+
+  const actual = meta.toJson();
+
+  const expected = {
+    name: 'name',
+    namespace: 'namespace',
+    annotations: {
+      key: 'value',
+      lazy: {
+        uiMeta: 'is good',
+      },
     },
     labels: {
       key: 'value',

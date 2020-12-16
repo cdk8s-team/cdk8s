@@ -29,6 +29,7 @@ Name|Description
 [ApiObjectProps](#cdk8s-apiobjectprops)|Options for defining API objects.
 [AppProps](#cdk8s-appprops)|*No description*
 [ChartProps](#cdk8s-chartprops)|*No description*
+[GroupVersionKind](#cdk8s-groupversionkind)|*No description*
 [HelmProps](#cdk8s-helmprops)|Options for `Helm`.
 [IncludeProps](#cdk8s-includeprops)|*No description*
 [NameOptions](#cdk8s-nameoptions)|Options for name generation.
@@ -983,6 +984,7 @@ static toDnsLabel(scope: Construct, options?: NameOptions): string
 * **options** (<code>[NameOptions](#cdk8s-nameoptions)</code>)  Name options.
   * **delimiter** (<code>string</code>)  Delimiter to use between components. __*Default*__: "-"
   * **extra** (<code>Array<string></code>)  Extra components to include in the name. __*Default*__: [] use the construct path components
+  * **includeHash** (<code>boolean</code>)  Include a short hash as last part of the name. __*Default*__: true
   * **maxLen** (<code>number</code>)  Maximum allowed length for the name. __*Default*__: 63
 
 __Returns__:
@@ -1017,6 +1019,7 @@ static toLabelValue(scope: Construct, options?: NameOptions): string
 * **options** (<code>[NameOptions](#cdk8s-nameoptions)</code>)  Name options.
   * **delimiter** (<code>string</code>)  Delimiter to use between components. __*Default*__: "-"
   * **extra** (<code>Array<string></code>)  Extra components to include in the name. __*Default*__: [] use the construct path components
+  * **includeHash** (<code>boolean</code>)  Include a short hash as last part of the name. __*Default*__: true
   * **maxLen** (<code>number</code>)  Maximum allowed length for the name. __*Default*__: 63
 
 __Returns__:
@@ -1341,6 +1344,20 @@ Name | Type | Description
 
 
 
+## struct GroupVersionKind 🔹 <a id="cdk8s-groupversionkind"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**apiVersion**🔹 | <code>string</code> | The object's API version (e.g. `authorization.k8s.io/v1`).
+**kind**🔹 | <code>string</code> | The object kind.
+
+
+
 ## struct HelmProps 🔹 <a id="cdk8s-helmprops"></a>
 
 
@@ -1403,6 +1420,7 @@ Name | Type | Description
 -----|------|-------------
 **delimiter**?🔹 | <code>string</code> | Delimiter to use between components.<br/>__*Default*__: "-"
 **extra**?🔹 | <code>Array<string></code> | Extra components to include in the name.<br/>__*Default*__: [] use the construct path components
+**includeHash**?🔹 | <code>boolean</code> | Include a short hash as last part of the name.<br/>__*Default*__: true
 **maxLen**?🔹 | <code>number</code> | Maximum allowed length for the name.<br/>__*Default*__: 63
 
 
