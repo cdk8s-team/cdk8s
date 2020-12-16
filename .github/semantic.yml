@@ -11,6 +11,7 @@ scopes:
   - docs
   - website
   - release
+  - deps
 
 # only allow these types
 types:
