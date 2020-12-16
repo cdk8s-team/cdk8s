@@ -134,15 +134,15 @@ export function generateConstruct(typegen: TypeGenerator, def: ApiObjectDefiniti
     function emitManifestFactory() {
       code.line('/**');
       code.line(` * Renders a Kubernetes manifest for "${def.fqn}".`);
-      code.line(` *`);
-      code.line(` * This can be used to inline resource manifests inside other objects (e.g. as templates).`);
-      code.line(` *`);
+      code.line(' *');
+      code.line(' * This can be used to inline resource manifests inside other objects (e.g. as templates).');
+      code.line(' *');
       code.line(' * @param props initialization props');
       code.line(' */');
 
       code.openBlock(`public static ${MANIFEST_STATIC_METHOD}(props: ${propsTypeName}${defaultProps}): any`);
       code.open('return {');
-      code.line(`...${constructName}.${GVK_STATIC},`)
+      code.line(`...${constructName}.${GVK_STATIC},`);
       code.line('...props,');
       code.close('};');
       code.closeBlock();
