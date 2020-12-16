@@ -245,7 +245,7 @@ export class Service extends Resource {
    * @internal
    */
   public _toKube(): k8s.ServiceSpec {
-    if (this._ports.length === 0) {
+    if (this._ports.length === 0 && this.type !== ServiceType.EXTERNAL_NAME) {
       throw new Error('A service must be configured with a port');
     }
 
@@ -265,12 +265,15 @@ export class Service extends Resource {
       });
     }
 
-    return {
+    return this.type !== ServiceType.EXTERNAL_NAME ? {
       clusterIP: this.clusterIP,
       externalIPs: this._externalIPs,
+      externalName: this.externalName,
       type: this.type,
       selector: this._selector,
       ports: ports,
+    } : {
+      type: this.type,
       externalName: this.externalName,
     };
   }
