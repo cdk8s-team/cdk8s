@@ -38,12 +38,12 @@ jobs:
 
           # Upgrade dependencies at repository root
           ncu --upgrade --filter=typescript --target=patch
-          ncu --upgrade --reject=construct,typescript --target=minor
+          ncu --upgrade --reject=constructs,typescript --target=minor
 
 
           # Upgrade all the packages
           lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch
-          lerna exec --parallel ncu -- --upgrade --reject='construct,projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
+          lerna exec --parallel ncu -- --upgrade --reject='constructs,projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
 
       - name: Upgrade lock file
         # This will create a brand new `yarn.lock` file (this is more efficient than `yarn install && yarn upgrade`)
