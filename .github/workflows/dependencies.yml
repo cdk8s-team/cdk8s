@@ -1,5 +1,8 @@
 name: dependencies
 on: push
+  schedule:
+    - cron: 0 8 * * *
+  workflow_dispatch: {}
 jobs:
   upgrade:
     runs-on: ubuntu-latest
