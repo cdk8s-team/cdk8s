@@ -24,7 +24,6 @@ jobs:
           echo -n "::set-output name=list::"
           node -p "$(lerna ls --all --json 2>/dev/null).map(item => item.name).join(',')"
       - name: Upgrade package.json files
-        id: upgrade-packages
         run: |-
 
           # We special-case typescript because it's not semantically versionned
@@ -35,12 +34,10 @@ jobs:
           # want to couple them with pure dependency upgrades.
 
           # Upgrade dependencies at repository root
-          echo -n "::set-output name=rootupgrade::"
           ncu --upgrade --filter=typescript --target=patch
           ncu --upgrade --reject=typescript --target=minor
 
           # Upgrade all the packages
-          echo -n "::set-output name=packagesupgrade::"
           lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch
           lerna exec --parallel ncu -- --upgrade --reject='projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
 
@@ -56,16 +53,7 @@ jobs:
           labels: auto-merge
           title: "chore(deps): Upgrade dependencies"
           body: |-
-            ### Root package upgrades
-
-            ```console
-            ${{ steps.upgrade-packages.outputs.rootupgrade }}
-            ```
-
-            ### Specific package upgrades
-            ```console
-            ${{ steps.upgrade-packages.outputs.packagesupgrade }}
-            ```
+            Upgrade dependencies.
 
             ------
 
