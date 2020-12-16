@@ -34,6 +34,18 @@ export interface ApiObjectProps {
   readonly [key: string]: any;
 }
 
+export interface GroupVersionKind {
+  /**
+   * The object's API version (e.g. `authorization.k8s.io/v1`)
+   */
+  readonly apiVersion: string;
+
+  /**
+   * The object kind.
+   */
+  readonly kind: string;
+}
+
 export class ApiObject extends Construct {
   /**
    * Returns the `ApiObject` named `Resource` which is a child of the given
