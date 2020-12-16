@@ -24,6 +24,23 @@ test('Must be configured with at least one port', () => {
 
 });
 
+test('Can be configured for externalName', () => {
+
+  const chart = Testing.chart();
+
+  new kplus.Service(chart, 'service', {
+    type: kplus.ServiceType.EXTERNAL_NAME,
+    externalName: 'https://www.external.com',
+  });
+
+  // assert the k8s spec has it.
+  const spec = Testing.synth(chart)[0].spec;
+  expect(spec.externalName).toEqual('https://www.external.com');
+  expect(spec.selector).toBeUndefined();
+  expect(spec.ports).toBeUndefined();
+});
+
+
 test('Can select by label', () => {
 
   const chart = Testing.chart();

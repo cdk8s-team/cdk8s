@@ -35,6 +35,15 @@ export interface ServiceProps extends ResourceProps {
    */
   readonly externalIPs?: string[];
 
+   /**
+   * The external reference that kubedns or equivalent will return as a CNAME record
+   * for this service. No proxying will be involved. Must be a valid RFC-1123 hostname
+   * (https://tools.ietf.org/html/rfc1123) and requires Type to be ExternalName.
+   *
+   * @default - No external name.
+   */
+  readonly externalName?: string;
+
   /**
    * Determines how the Service is exposed.
    *
@@ -115,6 +124,11 @@ export class Service extends Resource {
   public readonly clusterIP?: string;
 
   /**
+   * The external reference to use for this service.
+   */
+  public readonly externalName?: string;
+
+  /**
    * Determines how the Service is exposed.
    */
   public readonly type: ServiceType;
@@ -137,6 +151,7 @@ export class Service extends Resource {
     });
 
     this.clusterIP = props.clusterIP;
+    this.externalName = props.externalName;
     this.type = props.type ?? ServiceType.CLUSTER_IP;
 
     this._externalIPs = props.externalIPs ?? [];
@@ -228,7 +243,7 @@ export class Service extends Resource {
    * @internal
    */
   public _toKube(): k8s.ServiceSpec {
-    if (this._ports.length === 0) {
+    if (this._ports.length === 0 && this.type !== ServiceType.EXTERNAL_NAME) {
       throw new Error('A service must be configured with a port');
     }
 
@@ -244,12 +259,16 @@ export class Service extends Resource {
       });
     }
 
-    return {
+    return this.type !== ServiceType.EXTERNAL_NAME ? {
       clusterIP: this.clusterIP,
       externalIPs: this._externalIPs,
+      externalName: this.externalName,
       type: this.type,
       selector: this._selector,
       ports: ports,
+    } : {
+       type: this.type,
+       externalName: this.externalName
     };
   }
 
