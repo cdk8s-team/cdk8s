@@ -19,14 +19,14 @@
   "dependencies": {
     "cdk8s": "0.0.0",
     "cdk8s-plus-17": "0.0.0",
-    "constructs": "3.2.34"
+    "constructs": "3.2.71"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.8",
-    "@types/node": "^14.0.27",
+    "@types/jest": "^26.0.19",
+    "@types/node": "^14.14.14",
     "cdk8s-cli": "0.0.0",
-    "jest": "^26.2.2",
-    "ts-jest": "^26.1.4",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.4",
     "typescript": "^3.9.7"
   }
 }
