@@ -21,8 +21,8 @@
     "constructs": "3.2.34"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.2",
-    "@types/node": "^13.7.1",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^13.13.36",
     "cdk8s-cli": "0.0.0",
     "typescript": "^3.7.5"
   }
