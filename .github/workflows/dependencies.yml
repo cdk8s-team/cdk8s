@@ -31,10 +31,6 @@ jobs:
 
           export PATH=./node_modules/.bin:${PATH}
 
-          # We special-case typescript because it's not semantically versionned
-          # and should remain on the same minor.
-          # https://github.com/microsoft/TypeScript/issues/14116
-
           # We reject projen since it may involve breaking changes and we don't
           # want to couple them with pure dependency upgrades.
 
@@ -42,16 +38,13 @@ jobs:
           # we will do constructs upgrades manually for a little while until we sort this out.
 
           # Upgrade dependencies at repository root
-          ncu --upgrade --filter=typescript --target=patch
-          ncu --upgrade --reject=constructs,typescript --target=minor
-
+          ncu --upgrade --reject=constructs,projen --target=minor
 
           # Upgrade all the packages
-          lerna exec --parallel ncu -- --upgrade --filter=typescript --target=patch
-          lerna exec --parallel ncu -- --upgrade --reject='constructs,projen,typescript,${{ steps.list-packages.outputs.list }}' --target=minor
+          lerna exec --parallel ncu -- --upgrade --reject='constructs,projen,${{ steps.list-packages.outputs.list }}' --target=minor
 
       - name: Upgrade lock file
-        run: yarn install && yarn upgrade
+        run: yarn install && yarn upgrade --pattern '!(constructs|projen)'
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
