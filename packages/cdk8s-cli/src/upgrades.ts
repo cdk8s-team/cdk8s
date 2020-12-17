@@ -32,18 +32,28 @@ export function latestVersion() {
  *
  * @param module The module name
  */
-function getLatestVersion(module: string, options: { cacheFile: string; cacheTtlSec: number }) {
-  const cache = readCache();
-  if (!cache) {
-    const info = cdk8s.Yaml.load(`http://registry.npmjs.org/${module}/latest`);
-    if (!info || info.length < 1) {
-      throw new Error('no response from npm');
+export function getLatestVersion(module: string, options: { cacheFile: string; cacheTtlSec: number }) {
+  let latest = readCache();
+  if (!latest) {
+    try {
+      const info = cdk8s.Yaml.load(`http://registry.npmjs.org/${module}/latest`);
+      if (!info || info.length < 1) {
+        return undefined;
+      }
+      latest = info[0].version;
+    } catch (e) {
+      return undefined;
     }
 
-    writeCache(info[0].version);
+    // cannot determine version, return undefined.
+    if (!latest) {
+      return undefined;
+    }
+
+    writeCache(latest);
   }
 
-  return cache;
+  return latest;
 
   function readCache(): string | undefined {
     try {
