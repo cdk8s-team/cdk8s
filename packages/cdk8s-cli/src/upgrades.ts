@@ -12,16 +12,18 @@ const CACHE = {
   cacheFile: join(homedir(), '.cdk8s-cli.version'),
 };
 
-export function latestVersion() {
-  try {
-    const latest = getLatestVersion(pkg.name, CACHE);
-    if (latest !== pkg.version) {
-      return { latest, current: pkg.version };
-    } else {
-      return undefined;
-    }
-  } catch (e) {
-    // swollow errors
+/**
+ * Checks if there is a new version of the CLI available on npm.
+ *
+ * @returns `undefined` if there is no upgrade available. If there is a new
+ * version, returns an object with `latest` (the latest version) and `current`
+ * (the current version).
+ */
+export function upgradeAvailable() {
+  const latest = getLatestVersion(pkg.name, CACHE);
+  if (latest !== pkg.version) {
+    return { latest, current: pkg.version };
+  } else {
     return undefined;
   }
 }
@@ -30,7 +32,10 @@ export function latestVersion() {
  * Returns the latest version of an npm module. The version is cached for 30min
  * to ~/.cdk8s-cli.version.
  *
+ * Never throws.
+ *
  * @param module The module name
+ * @param options cache options
  */
 export function getLatestVersion(module: string, options: { cacheFile: string; cacheTtlSec: number }) {
   let latest = readCache();
