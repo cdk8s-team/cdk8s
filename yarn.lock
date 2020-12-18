@@ -6545,10 +6545,10 @@ jsii-diff@^1.16.0:
     typescript "~3.9.7"
     yargs "^16.1.1"
 
-jsii-docgen@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-1.5.3.tgz#654072e2835adc4520ac741c41f2b5e2bb6baadf"
-  integrity sha512-AnDxMQwBCjK23ISZqXf4JmRFNODTprcB6qfwUrCaPwBblfOCFEo6xpZROtuGdeZRmu+RmlcYlywSyWQQFdj0PA==
+jsii-docgen@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-1.5.4.tgz#a3991313e2978155e81ea88e8fdf4a86dbf999a8"
+  integrity sha512-RJvZtysQPy/xm6MIDMKioD/CQ6OmtjgQfoRSxOARIiplOfLt9OuuoOmJBzYCNZPLXdH+2WTSKEts8fgFvU1ywg==
   dependencies:
     "@jsii/spec" "^1.9.0"
     fs-extra "^9.0.0"
@@ -6642,10 +6642,10 @@ jsii-rosetta@^1.16.0:
     xmldom "^0.4.0"
     yargs "^16.1.1"
 
-jsii-srcmak@^0.1.154:
-  version "0.1.154"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.154.tgz#d190b8c6f462b04cb2255d77f409dd8576942b58"
-  integrity sha512-CQpgx4JUPvYs7BhzBaPf1Hf/3KIJIwckaEFZ335HM14bARpY96qjKhUTgNkslsPc3yNY/UezbPCRPiXTYaIieA==
+jsii-srcmak@^0.1.156:
+  version "0.1.156"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.156.tgz#8d91c401ea0fa8963fac284984e76ed2f04c35e9"
+  integrity sha512-pV9GGtEkbKjLAlxk+5Cfsd5ta/gDKUSGDUcCh7kpWuuyOOtrj8tr5XWu5jJSzGDgwjvyWYyMBnWMvQOO+EZM2Q==
   dependencies:
     fs-extra "^9.0.1"
     jsii "^1.12.0"
@@ -6773,10 +6773,10 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
-json2jsii@^0.1.145:
-  version "0.1.145"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.145.tgz#b67dc935962ee14a729e033d46fe17b6c3b45509"
-  integrity sha512-r53Vc4XuvnueOUUad2Stiq7QgUqHlDM5VNd53SFAmEhDoagGKuMQdvENrbQmJa7ZS/h+RSQNLVDDcBsED2ZkoQ==
+json2jsii@^0.1.147:
+  version "0.1.147"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.147.tgz#13e95255049acdc594b29d0a9cfc56a9d7dc99be"
+  integrity sha512-0HpLivnN/7fshu7UVSZRd51AY7QHdlgI8XtJMr0JODEQ0lREFv3Fck1Inh7aCH3CZL31OK/aO5DFszues4qJ4Q==
   dependencies:
     camelcase "^6.0.0"
     json-schema "^0.2.5"
