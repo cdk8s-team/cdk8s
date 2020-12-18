@@ -18,6 +18,8 @@ To install the CLI use one of the following methods:
 * npm: `npm i -g cdk8s-cli`
 * yarn: `yarn global add cdk8s-cli`
 
+| Note: the latest version available via Homebrew is `0.33.0` because Homebrew does not support beta releases. Please use `npm` or `yarn` if you need a later version of the `cdk8s` cli.
+
 ## Documentation
 
 See [cdk8s.io](https://cdk8s.io).
