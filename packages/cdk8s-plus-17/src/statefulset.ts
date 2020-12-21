@@ -152,7 +152,7 @@ export class StatefulSet extends Resource implements IPodTemplate {
     }
   }
 
-  get podMetadata(): ApiObjectMetadataDefinition {
+  public get podMetadata(): ApiObjectMetadataDefinition {
     return this._podTemplate.podMetadata;
   }
 
@@ -161,23 +161,23 @@ export class StatefulSet extends Resource implements IPodTemplate {
     *
     * Returns a a copy. Use `selectByLabel()` to add labels.
     */
-  get labelSelector(): Record<string, string> {
+  public get labelSelector(): Record<string, string> {
     return { ...this._labelSelector };
   }
 
-  get containers(): Container[] {
+  public get containers(): Container[] {
     return this._podTemplate.containers;
   }
 
-  get volumes(): Volume[] {
+  public get volumes(): Volume[] {
     return this._podTemplate.volumes;
   }
 
-  get restartPolicy(): RestartPolicy | undefined {
+  public get restartPolicy(): RestartPolicy | undefined {
     return this._podTemplate.restartPolicy;
   }
 
-  get serviceAccount(): IServiceAccount | undefined {
+  public get serviceAccount(): IServiceAccount | undefined {
     return this._podTemplate.serviceAccount;
   }
 
@@ -188,22 +188,22 @@ export class StatefulSet extends Resource implements IPodTemplate {
     * @param key - The label key.
     * @param value - The label value.
     */
-  selectByLabel(key: string, value: string): void {
+  public selectByLabel(key: string, value: string): void {
     this._labelSelector[key] = value;
   }
 
-  addContainer(container: ContainerProps): Container {
+  public addContainer(container: ContainerProps): Container {
     return this._podTemplate.addContainer(container);
   }
 
-  addVolume(volume: Volume): void {
+  public addVolume(volume: Volume): void {
     return this._podTemplate.addVolume(volume);
   }
 
   /**
     * @internal
     */
-  _toKube(): k8s.StatefulSetSpec {
+  public _toKube(): k8s.StatefulSetSpec {
     return {
       serviceName: this._service.name,
       replicas: this.replicas,
