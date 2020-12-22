@@ -157,7 +157,7 @@ export class StatefulSet extends Resource implements IPodTemplate {
   }
 
   /**
-    * The labels this deployment will match against in order to select pods.
+    * The labels this statefulset will match against in order to select pods.
     *
     * Returns a a copy. Use `selectByLabel()` to add labels.
     */
