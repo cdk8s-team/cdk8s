@@ -81,7 +81,7 @@ See [CDK8s Documentation](https://cdk8s.io/docs).
 
 ## Examples
 
-See our [Examples Directory](./examples/README.md).
+See our [Examples Directory](./examples).
 
 ## Roadmap
 
