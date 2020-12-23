@@ -17,6 +17,33 @@ test('Can be imported from secret name', () => {
   expect(secret.name).toEqual('secret');
 });
 
+test('Can create a new secret', () => {
+  const chart = Testing.chart();
+
+  new kplus.Secret(chart, 'Secret', {
+    stringData: {
+      key: 'value',
+    },
+    type: 'kubernetes.io/tls',
+  });
+
+  expect(Testing.synth(chart)).toMatchInlineSnapshot(`
+    Array [
+      Object {
+        "apiVersion": "v1",
+        "kind": "Secret",
+        "metadata": Object {
+          "name": "test-secret-c837fa76",
+        },
+        "stringData": Object {
+          "key": "value",
+        },
+        "type": "kubernetes.io/tls",
+      },
+    ]
+  `);
+});
+
 test('Can add data to new secrets', () => {
   const chart = Testing.chart();
 

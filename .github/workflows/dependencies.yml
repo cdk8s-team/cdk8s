@@ -1,0 +1,61 @@
+name: dependencies
+on:
+  schedule:
+    - cron: 0 8 * * *
+  workflow_dispatch: {}
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.17.0
+      - name: Install
+        run: |-
+          yarn install --frozen-lockfile
+      - name: List Mono-Repo Packages
+        id: list-packages
+        # These need to be ignored from the `ncu` runs since local dependencies
+        # need to remain on 0.0.0
+        run: |-
+
+          export PATH=./node_modules/.bin:${PATH}
+
+          echo -n "::set-output name=list::"
+          node -p "$(lerna ls --all --json 2>/dev/null).map(item => item.name).join(',')"
+      - name: Upgrade package.json files
+        run: |-
+
+          export PATH=./node_modules/.bin:${PATH}
+
+          # We reject projen since it may involve breaking changes and we don't
+          # want to couple them with pure dependency upgrades.
+
+          # We reject constructs because ncu doesn't update pinned dev dependencies.
+          # we will do constructs upgrades manually for a little while until we sort this out.
+
+          # Upgrade dependencies at repository root
+          ncu --upgrade --reject=constructs,projen --target=minor
+
+          # Upgrade all the packages
+          lerna exec --parallel ncu -- --upgrade --reject='constructs,projen,${{ steps.list-packages.outputs.list }}' --target=minor
+
+      - name: Upgrade lock file
+        run: yarn install && yarn upgrade --pattern '!(constructs|projen)'
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.CDK8S_AUTOMATION_TOKEN }}
+          commit-message: Upgrade yarn.lock
+          branch: github-actions/dependencies
+          labels: auto-merge
+          title: "chore(deps): Upgrade dependencies"
+          body: |-
+            Upgrade dependencies.
+
+            ------
+
+            *Automatically created via GitHubActions*

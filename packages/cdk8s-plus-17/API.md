@@ -1079,6 +1079,7 @@ new Secret(scope: Construct, id: string, props?: SecretProps)
 * **props** (<code>[SecretProps](#cdk8s-plus-17-secretprops)</code>)  *No description*
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
   * **stringData** (<code>Map<string, string></code>)  stringData allows specifying non-binary secret data in string form. __*Optional*__
+  * **type** (<code>string</code>)  Optional type associated with the secret. __*Default*__: undefined - Don't set a type.
 
 
 
@@ -1846,7 +1847,7 @@ Properties for initialization of `Job`.
 
 Name | Type | Description 
 -----|------|-------------
-**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration in seconds the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
+**activeDeadline**?🔹 | <code>[Duration](#cdk8s-duration)</code> | Specifies the duration the job may be active before the system tries to terminate it.<br/>__*Default*__: If unset, then there is no deadline.
 **backoffLimit**?🔹 | <code>number</code> | Specifies the number of retries before marking this job failed.<br/>__*Default*__: If not set, system defaults to 6.
 **containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-17-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
@@ -1981,6 +1982,7 @@ Name | Type | Description
 -----|------|-------------
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **stringData**?🔹 | <code>Map<string, string></code> | stringData allows specifying non-binary secret data in string form.<br/>__*Optional*__
+**type**?🔹 | <code>string</code> | Optional type associated with the secret.<br/>__*Default*__: undefined - Don't set a type.
 
 
 
@@ -2162,4 +2164,5 @@ Name | Description
 **NODE_PORT** 🔹|Exposes the Service on each Node's IP at a static port (the NodePort).
 **LOAD_BALANCER** 🔹|Exposes the Service externally using a cloud provider's load balancer.
 **EXTERNAL_NAME** 🔹|Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up.
+
 

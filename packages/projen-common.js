@@ -1,14 +1,11 @@
-exports.versions = {
-  constructs: '3.2.34',
-  jsii: '1.14.1',
-};
-
 exports.options = {
+  minNodeVersion: '10.17.0',
   repository: 'https://github.com/awslabs/cdk8s.git',
   authorName: 'Amazon Web Services',
   authorUrl: 'https://aws.amazon.com',
   authorOrganization: true,
   buildWorkflow: false,
+  rebuildBot: false,
   stability: 'experimental',
   releaseWorkflow: false,
   dependabot: false,
@@ -28,13 +25,21 @@ exports.options = {
 exports.fixup = project => {
   // override the default "build" from projen because currently in this
   // repo it means "compile"
-  project.addScripts({ build: 'yarn compile' });
+  project.setScript('build', 'yarn compile');
+
+  project.buildTask.reset();
+  project.buildTask.spawn(project.compileTask);
 
   // // add "compile" after test because the test command deletes lib/ and we run tests *after* build in this repo.
   project.addTestCommand('yarn compile');
 
   // jsii-release is declared at the root level, we don't need it here.
   delete project.devDependencies['jsii-release']
+
+  // typescript is not semantically versionned and should remain on the same minor.
+  // https://github.com/microsoft/TypeScript/issues/14116
+  // TODO add this to projen.
+  project.devDependencies['typescript'] = project.devDependencies['typescript'].replace('^', '~')
 
   delete project.manifest.scripts.bump;
   delete project.manifest.scripts.release;
