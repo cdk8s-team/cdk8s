@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1033,7 +1033,6 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>All API objects defined in the included manifest will be added as children
 <code>ApiObject</code>s under the <code>Include</code> construct&rsquo;s scope and can be accessed
 through the <code>apiObject</code> property:</p>
@@ -1041,7 +1040,6 @@ through the <code>apiObject</code> property:</p>
 dashboard:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">deploymentApiObject</span> <span class="o">=</span> <span class="nx">dashboard</span><span class="p">.</span><span class="nx">apiObjects</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">c</span> <span class="o">=&gt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">kind</span> <span class="o">===</span> <span class="err">&#39;</span><span class="nx">Deployment</span><span class="p">);</span>
 </code></pre></div>
-
 <p>NOTE: names of included objects (<code>metadata.name</code>) are preserved. This means that
 if you try to include the same manifest twice into the same chart, your manifest
 will have duplicate definitions of the same objects.</p>

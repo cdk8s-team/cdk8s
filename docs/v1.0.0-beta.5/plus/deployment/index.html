@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1090,7 +1090,6 @@ make the deployment control the relevant pods. This construct does this automati
   <span class="nx">containers</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">}</span> <span class="p">],</span>
 <span class="p">});</span>
 </code></pre></div>
-
 <p>Note the resulting manifest contains a special <code>cdk8s.deployment</code> label that is applied to the pods, and is used as
 the selector for the deployment.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
@@ -1110,7 +1109,6 @@ the selector for the deployment.</p>
       <span class="nt">labels</span><span class="p">:</span>
         <span class="nt">cdk8s.deployment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChartFrontEndsDD8A97CE</span>
 </code></pre></div>
-
 <h2 id="exposing-via-a-service">Exposing via a service<a class="headerlink" href="#exposing-via-a-service" title="Permanent link">&para;</a></h2>
 <p>Following up on pod selection, you can also easily create a service that will select the pods relevant to the deployment.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// store the deployment to created in a constant</span>
@@ -1119,7 +1117,6 @@ the selector for the deployment.</p>
 <span class="c1">// create a ClusterIP service that listens on port 9000 and redirects to port 9000 on the containers.</span>
 <span class="nx">frontends</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="mi">9000</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Notice the resulting manifest, will have the same <code>cdk8s.deployment</code> magic label as the selector.
 This will cause the service to attach to the pods that were configured as part of the said deployment.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>

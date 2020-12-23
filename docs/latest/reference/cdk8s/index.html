@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -3188,7 +3188,6 @@
 <p>Defines an API object.</p>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ApiObject</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">ApiObjectProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  the construct scope.</li>
 <li><strong>id</strong> (<code>string</code>)  namespace.</li>
@@ -3245,7 +3244,6 @@
 <p>These can be other ApiObjects, Charts, or custom.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addDependency</span><span class="p">(...</span><span class="nx">dependencies</span>: <span class="kt">IConstruct</span><span class="p">[])</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>dependencies</strong> (<code><a href="#constructs-iconstruct">IConstruct</a></code>)  the dependencies to add.</li>
 </ul>
@@ -3253,7 +3251,6 @@
 <p>Applies a set of RFC-6902 JSON-Patch operations to the manifest synthesized for this API object.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addJsonPatch</span><span class="p">(...</span><span class="nx">ops</span>: <span class="kt">JsonPatch</span><span class="p">[])</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>ops</strong> (<code><a href="#cdk8s-jsonpatch">JsonPatch</a></code>)  The JSON-Patch operations to apply.</li>
 </ul>
@@ -3261,7 +3258,6 @@
 <p>Renders the object to Kubernetes JSON.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toJson</span><span class="p">()</span><span class="o">:</span> <span class="nx">any</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>any</code></p>
 <h4 id="static-ofc"><em>static</em> of(c)🔹 <a id="cdk8s-apiobject-of"></a><a class="headerlink" href="#static-ofc" title="Permanent link">&para;</a></h4>
@@ -3271,7 +3267,6 @@ exception if the construct does not have a child named <code>Default</code> <em>
 this child is not an <code>ApiObject</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="k">of</span><span class="p">(</span><span class="nx">c</span>: <span class="kt">IConstruct</span><span class="p">)</span><span class="o">:</span> <span class="nx">ApiObject</span>
 </code></pre></div>
-
 <ul>
 <li><strong>c</strong> (<code><a href="#constructs-iconstruct">IConstruct</a></code>)  The higher-level construct.</li>
 </ul>
@@ -3282,7 +3277,6 @@ this child is not an <code>ApiObject</code>.</p>
 <h3 id="initializer_1">Initializer<a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ApiObjectMetadataDefinition</span><span class="p">(</span><span class="nx">options?</span>: <span class="kt">ApiObjectMetadata</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>options</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  <em>No description</em></li>
 <li><strong>annotations</strong> (<code>Map<string, string></code>)  Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. <strong><em>Default</em></strong>: No annotations.</li>
@@ -3317,7 +3311,6 @@ this child is not an <code>ApiObject</code>.</p>
 <p>Adds an arbitrary key/value to the object metadata.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">add</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  Metadata key.</li>
 <li><strong>value</strong> (<code>any</code>)  Metadata value.</li>
@@ -3326,7 +3319,6 @@ this child is not an <code>ApiObject</code>.</p>
 <p>Add an annotation.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addAnnotation</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The key.</li>
 <li><strong>value</strong> (<code>string</code>)  - The value.</li>
@@ -3335,7 +3327,6 @@ this child is not an <code>ApiObject</code>.</p>
 <p>Add a label.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The key.</li>
 <li><strong>value</strong> (<code>string</code>)  - The value.</li>
@@ -3343,7 +3334,6 @@ this child is not an <code>ApiObject</code>.</p>
 <h4 id="getlabelkey">getLabel(key)🔹 <a id="cdk8s-apiobjectmetadatadefinition-getlabel"></a><a class="headerlink" href="#getlabelkey" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nx">getLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  the label.</li>
 </ul>
@@ -3353,7 +3343,6 @@ this child is not an <code>ApiObject</code>.</p>
 <p>Synthesizes a k8s ObjectMeta for this metadata set.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toJson</span><span class="p">()</span><span class="o">:</span> <span class="nx">any</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>any</code></p>
 <h2 id="class-app">class App 🔹 <a id="cdk8s-app"></a><a class="headerlink" href="#class-app" title="Permanent link">&para;</a></h2>
@@ -3364,7 +3353,6 @@ this child is not an <code>ApiObject</code>.</p>
 <p>Defines an app.</p>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">AppProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-appprops">AppProps</a></code>)  configuration options.</li>
 <li><strong>outdir</strong> (<code>string</code>)  The directory to output Kubernetes manifests. <strong><em>Default</em></strong>: CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
@@ -3391,14 +3379,12 @@ this child is not an <code>ApiObject</code>.</p>
 <p>Synthesizes all manifests to the output directory.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">synth</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <h2 id="class-chart">class Chart 🔹 <a id="cdk8s-chart"></a><a class="headerlink" href="#class-chart" title="Permanent link">&para;</a></h2>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer_3">Initializer<a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ChartProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -3434,7 +3420,6 @@ this child is not an <code>ApiObject</code>.</p>
 <p>These can be other ApiObjects, Charts, or custom.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addDependency</span><span class="p">(...</span><span class="nx">dependencies</span>: <span class="kt">IConstruct</span><span class="p">[])</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>dependencies</strong> (<code><a href="#constructs-iconstruct">IConstruct</a></code>)  the dependencies to add.</li>
 </ul>
@@ -3453,7 +3438,6 @@ since it’s the common denominator for all kubernetes resources
 chart level.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">generateObjectName</span><span class="p">(</span><span class="nx">apiObject</span>: <span class="kt">ApiObject</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <ul>
 <li><strong>apiObject</strong> (<code><a href="#cdk8s-apiobject">ApiObject</a></code>)  The API object to generate a name for.</li>
 </ul>
@@ -3463,14 +3447,12 @@ chart level.</p>
 <p>Renders this chart to a set of Kubernetes JSON resources.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toJson</span><span class="p">()</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>Array<any></code></p>
 <h4 id="static-ofc_1"><em>static</em> of(c)🔹 <a id="cdk8s-chart-of"></a><a class="headerlink" href="#static-ofc_1" title="Permanent link">&para;</a></h4>
 <p>Finds the chart in which a node is defined.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="k">of</span><span class="p">(</span><span class="nx">c</span>: <span class="kt">IConstruct</span><span class="p">)</span><span class="o">:</span> <span class="nx">Chart</span>
 </code></pre></div>
-
 <ul>
 <li><strong>c</strong> (<code><a href="#constructs-iconstruct">IConstruct</a></code>)  a construct node.</li>
 </ul>
@@ -3487,7 +3469,6 @@ from a different scope, that relationship is not represented in this graph.</p>
 <h3 id="initializer_4">Initializer<a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">DependencyGraph</span><span class="p">(</span><span class="nx">node</span>: <span class="kt">Node</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>node</strong> (<code><a href="#constructs-node">Node</a></code>)  <em>No description</em></li>
 </ul>
@@ -3512,7 +3493,6 @@ from a different scope, that relationship is not represented in this graph.</p>
 <h4 id="topology">topology()🔹 <a id="cdk8s-dependencygraph-topology"></a><a class="headerlink" href="#topology" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nx">topology</span><span class="p">()</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">IConstruct</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>Array&lt;<a href="#constructs-iconstruct">IConstruct</a>&gt;</code></p>
 <h2 id="class-dependencyvertex">class DependencyVertex 🔹 <a id="cdk8s-dependencyvertex"></a><a class="headerlink" href="#class-dependencyvertex" title="Permanent link">&para;</a></h2>
@@ -3521,7 +3501,6 @@ from a different scope, that relationship is not represented in this graph.</p>
 <h3 id="initializer_5">Initializer<a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">DependencyVertex</span><span class="p">(</span><span class="nx">value?</span>: <span class="kt">IConstruct</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>value</strong> (<code><a href="#constructs-iconstruct">IConstruct</a></code>)  <em>No description</em></li>
 </ul>
@@ -3559,7 +3538,6 @@ from a different scope, that relationship is not represented in this graph.</p>
 <p>This operation will fail in case it creates a cycle in the graph.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addChild</span><span class="p">(</span><span class="nx">dep</span>: <span class="kt">DependencyVertex</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>dep</strong> (<code><a href="#cdk8s-dependencyvertex">DependencyVertex</a></code>)  The dependency.</li>
 </ul>
@@ -3567,7 +3545,6 @@ from a different scope, that relationship is not represented in this graph.</p>
 <p>Returns a topologically sorted array of the constructs in the sub-graph.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">topology</span><span class="p">()</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">IConstruct</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>Array&lt;<a href="#constructs-iconstruct">IConstruct</a>&gt;</code></p>
 <h2 id="class-duration">class Duration 🔹 <a id="cdk8s-duration"></a><a class="headerlink" href="#class-duration" title="Permanent link">&para;</a></h2>
@@ -3579,7 +3556,6 @@ cannot be negative.</p>
 <p>Return the total number of days in this Duration.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toDays</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">TimeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-timeconversionoptions">TimeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>integral</strong> (<code>boolean</code>)  If <code>true</code>, conversions into a larger time unit (e.g. <code>Seconds</code> to <code>Minutes</code>) will fail if the result is not an integer. <strong><em>Default</em></strong>: true</li>
@@ -3590,7 +3566,6 @@ cannot be negative.</p>
 <p>Return the total number of hours in this Duration.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toHours</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">TimeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-timeconversionoptions">TimeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>integral</strong> (<code>boolean</code>)  If <code>true</code>, conversions into a larger time unit (e.g. <code>Seconds</code> to <code>Minutes</code>) will fail if the result is not an integer. <strong><em>Default</em></strong>: true</li>
@@ -3601,28 +3576,24 @@ cannot be negative.</p>
 <p>Turn this duration into a human-readable string.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toHumanString</span><span class="p">()</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>string</code></p>
 <h4 id="toisostring">toISOString()⚠️ <a id="cdk8s-duration-toisostring"></a><a class="headerlink" href="#toisostring" title="Permanent link">&para;</a></h4>
 <p>Return an ISO 8601 representation of this period.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toISOString</span><span class="p">()</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>string</code></p>
 <h4 id="toisostring_1">toIsoString()🔹 <a id="cdk8s-duration-toisostring"></a><a class="headerlink" href="#toisostring_1" title="Permanent link">&para;</a></h4>
 <p>Return an ISO 8601 representation of this period.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toIsoString</span><span class="p">()</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>string</code></p>
 <h4 id="tomillisecondsopts">toMilliseconds(opts?)🔹 <a id="cdk8s-duration-tomilliseconds"></a><a class="headerlink" href="#tomillisecondsopts" title="Permanent link">&para;</a></h4>
 <p>Return the total number of milliseconds in this Duration.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toMilliseconds</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">TimeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-timeconversionoptions">TimeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>integral</strong> (<code>boolean</code>)  If <code>true</code>, conversions into a larger time unit (e.g. <code>Seconds</code> to <code>Minutes</code>) will fail if the result is not an integer. <strong><em>Default</em></strong>: true</li>
@@ -3633,7 +3604,6 @@ cannot be negative.</p>
 <p>Return the total number of minutes in this Duration.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toMinutes</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">TimeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-timeconversionoptions">TimeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>integral</strong> (<code>boolean</code>)  If <code>true</code>, conversions into a larger time unit (e.g. <code>Seconds</code> to <code>Minutes</code>) will fail if the result is not an integer. <strong><em>Default</em></strong>: true</li>
@@ -3644,7 +3614,6 @@ cannot be negative.</p>
 <p>Return the total number of seconds in this Duration.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toSeconds</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">TimeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-timeconversionoptions">TimeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>integral</strong> (<code>boolean</code>)  If <code>true</code>, conversions into a larger time unit (e.g. <code>Seconds</code> to <code>Minutes</code>) will fail if the result is not an integer. <strong><em>Default</em></strong>: true</li>
@@ -3655,7 +3624,6 @@ cannot be negative.</p>
 <p>Create a Duration representing an amount of days.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">days</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Duration</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  the amount of Days the <code>Duration</code> will represent.</li>
 </ul>
@@ -3665,7 +3633,6 @@ cannot be negative.</p>
 <p>Create a Duration representing an amount of hours.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">hours</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Duration</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  the amount of Hours the <code>Duration</code> will represent.</li>
 </ul>
@@ -3675,7 +3642,6 @@ cannot be negative.</p>
 <p>Create a Duration representing an amount of milliseconds.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">millis</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Duration</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  the amount of Milliseconds the <code>Duration</code> will represent.</li>
 </ul>
@@ -3685,7 +3651,6 @@ cannot be negative.</p>
 <p>Create a Duration representing an amount of minutes.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">minutes</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Duration</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  the amount of Minutes the <code>Duration</code> will represent.</li>
 </ul>
@@ -3695,7 +3660,6 @@ cannot be negative.</p>
 <p>Parse a period formatted according to the ISO 8601 standard.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">parse</span><span class="p">(</span><span class="nx">duration</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">Duration</span>
 </code></pre></div>
-
 <ul>
 <li><strong>duration</strong> (<code>string</code>)  an ISO-formtted duration to be parsed.</li>
 </ul>
@@ -3705,7 +3669,6 @@ cannot be negative.</p>
 <p>Create a Duration representing an amount of seconds.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">seconds</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Duration</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  the amount of Seconds the <code>Duration</code> will represent.</li>
 </ul>
@@ -3719,7 +3682,6 @@ cannot be negative.</p>
 <h3 id="initializer_6">Initializer<a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Helm</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">HelmProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -3756,7 +3718,6 @@ from the manifest.</p>
 <h3 id="initializer_7">Initializer<a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Include</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">IncludeProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -3794,7 +3755,6 @@ array, the value is inserted before the given index. The - character can be
 used instead of an index to insert at the end of an array.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">add</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
 </code></pre></div>
-
 <ul>
 <li><strong>path</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>value</strong> (<code>any</code>)  <em>No description</em></li>
@@ -3805,7 +3765,6 @@ used instead of an index to insert at the end of an array.</p>
 <p>Applies a set of JSON-Patch (RFC-6902) operations to <code>document</code> and returns the result.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">apply</span><span class="p">(</span><span class="nb">document</span><span class="o">:</span> <span class="nx">any</span><span class="p">,</span> <span class="p">...</span><span class="nx">ops</span>: <span class="kt">JsonPatch</span><span class="p">[])</span><span class="o">:</span> <span class="nx">any</span>
 </code></pre></div>
-
 <ul>
 <li><strong>document</strong> (<code>any</code>)  The document to patch.</li>
 <li><strong>ops</strong> (<code><a href="#cdk8s-jsonpatch">JsonPatch</a></code>)  The operations to apply.</li>
@@ -3818,7 +3777,6 @@ used instead of an index to insert at the end of an array.</p>
 from and path are JSON Pointers.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">copy</span><span class="p">(</span><span class="nx">from</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
 </code></pre></div>
-
 <ul>
 <li><strong>from</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>path</strong> (<code>string</code>)  <em>No description</em></li>
@@ -3830,7 +3788,6 @@ from and path are JSON Pointers.</p>
 <p>Both from and path are JSON Pointers.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">move</span><span class="p">(</span><span class="nx">from</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
 </code></pre></div>
-
 <ul>
 <li><strong>from</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>path</strong> (<code>string</code>)  <em>No description</em></li>
@@ -3841,7 +3798,6 @@ from and path are JSON Pointers.</p>
 <p>Removes a value from an object or array.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">remove</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
 </code></pre></div>
-
 <ul>
 <li><strong>path</strong> (<code>string</code>)  <em>No description</em></li>
 </ul>
@@ -3852,7 +3808,6 @@ from and path are JSON Pointers.</p>
 <p>Equivalent to a “remove” followed by an “add”.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">replace</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
 </code></pre></div>
-
 <ul>
 <li><strong>path</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>value</strong> (<code>any</code>)  <em>No description</em></li>
@@ -3865,7 +3820,6 @@ from and path are JSON Pointers.</p>
 then the patch as a whole should not apply.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">test</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
 </code></pre></div>
-
 <ul>
 <li><strong>path</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>value</strong> (<code>any</code>)  <em>No description</em></li>
@@ -3877,13 +3831,11 @@ then the patch as a whole should not apply.</p>
 <h4 id="produce">produce()🔹 <a id="cdk8s-lazy-produce"></a><a class="headerlink" href="#produce" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nx">produce</span><span class="p">()</span><span class="o">:</span> <span class="nx">any</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>any</code></p>
 <h4 id="static-anyproducer"><em>static</em> any(producer)🔹 <a id="cdk8s-lazy-any"></a><a class="headerlink" href="#static-anyproducer" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">any</span><span class="p">(</span><span class="nx">producer</span>: <span class="kt">IAnyProducer</span><span class="p">)</span><span class="o">:</span> <span class="nx">any</span>
 </code></pre></div>
-
 <ul>
 <li><strong>producer</strong> (<code><a href="#cdk8s-ianyproducer">IAnyProducer</a></code>)  <em>No description</em></li>
 </ul>
@@ -3907,7 +3859,6 @@ then the patch as a whole should not apply.</p>
 the first components since the last components usually encode more meaning.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">toDnsLabel</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">NameOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  The construct for which to render the DNS label.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-nameoptions">NameOptions</a></code>)  Name options.</li>
@@ -3934,7 +3885,6 @@ begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes
 the first components since the last components usually encode more meaning.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">toLabelValue</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">NameOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  The construct for which to render the DNS label.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-nameoptions">NameOptions</a></code>)  Name options.</li>
@@ -3955,7 +3905,6 @@ cannot be negative.</p>
 <p>Return this storage as a total number of gibibytes.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toGibibytes</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">SizeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-sizeconversionoptions">SizeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>rounding</strong> (<code><a href="#cdk8s-sizeroundingbehavior">SizeRoundingBehavior</a></code>)  How conversions should behave when it encounters a non-integer result. <strong><em>Default</em></strong>: SizeRoundingBehavior.FAIL</li>
@@ -3966,7 +3915,6 @@ cannot be negative.</p>
 <p>Return this storage as a total number of kibibytes.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toKibibytes</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">SizeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-sizeconversionoptions">SizeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>rounding</strong> (<code><a href="#cdk8s-sizeroundingbehavior">SizeRoundingBehavior</a></code>)  How conversions should behave when it encounters a non-integer result. <strong><em>Default</em></strong>: SizeRoundingBehavior.FAIL</li>
@@ -3977,7 +3925,6 @@ cannot be negative.</p>
 <p>Return this storage as a total number of mebibytes.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toMebibytes</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">SizeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-sizeconversionoptions">SizeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>rounding</strong> (<code><a href="#cdk8s-sizeroundingbehavior">SizeRoundingBehavior</a></code>)  How conversions should behave when it encounters a non-integer result. <strong><em>Default</em></strong>: SizeRoundingBehavior.FAIL</li>
@@ -3988,7 +3935,6 @@ cannot be negative.</p>
 <p>Return this storage as a total number of pebibytes.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toPebibytes</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">SizeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-sizeconversionoptions">SizeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>rounding</strong> (<code><a href="#cdk8s-sizeroundingbehavior">SizeRoundingBehavior</a></code>)  How conversions should behave when it encounters a non-integer result. <strong><em>Default</em></strong>: SizeRoundingBehavior.FAIL</li>
@@ -3999,7 +3945,6 @@ cannot be negative.</p>
 <p>Return this storage as a total number of tebibytes.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">toTebibytes</span><span class="p">(</span><span class="nx">opts?</span>: <span class="kt">SizeConversionOptions</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span>
 </code></pre></div>
-
 <ul>
 <li><strong>opts</strong> (<code><a href="#cdk8s-sizeconversionoptions">SizeConversionOptions</a></code>)  <em>No description</em></li>
 <li><strong>rounding</strong> (<code><a href="#cdk8s-sizeroundingbehavior">SizeRoundingBehavior</a></code>)  How conversions should behave when it encounters a non-integer result. <strong><em>Default</em></strong>: SizeRoundingBehavior.FAIL</li>
@@ -4011,7 +3956,6 @@ cannot be negative.</p>
 <p>1 GiB = 1024 MiB</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">gibibytes</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Size</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  <em>No description</em></li>
 </ul>
@@ -4022,7 +3966,6 @@ cannot be negative.</p>
 <p>1 KiB = 1024 bytes</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">kibibytes</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Size</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  <em>No description</em></li>
 </ul>
@@ -4033,7 +3976,6 @@ cannot be negative.</p>
 <p>1 MiB = 1024 KiB</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">mebibytes</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Size</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  <em>No description</em></li>
 </ul>
@@ -4044,7 +3986,6 @@ cannot be negative.</p>
 <p>1 PiB = 1024 TiB</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">pebibyte</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Size</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  <em>No description</em></li>
 </ul>
@@ -4055,7 +3996,6 @@ cannot be negative.</p>
 <p>1 TiB = 1024 GiB</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">tebibytes</span><span class="p">(</span><span class="nx">amount</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">Size</span>
 </code></pre></div>
-
 <ul>
 <li><strong>amount</strong> (<code>number</code>)  <em>No description</em></li>
 </ul>
@@ -4068,20 +4008,17 @@ cannot be negative.</p>
 <p>Returns an app for testing with the following properties: - Output directory is a temp dir.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">app</span><span class="p">()</span><span class="o">:</span> <span class="nx">App</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code><a href="#cdk8s-app">App</a></code></p>
 <h4 id="static-chart"><em>static</em> chart()🔹 <a id="cdk8s-testing-chart"></a><a class="headerlink" href="#static-chart" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">chart</span><span class="p">()</span><span class="o">:</span> <span class="nx">Chart</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code><a href="#cdk8s-chart">Chart</a></code></p>
 <h4 id="static-synthchart"><em>static</em> synth(chart)🔹 <a id="cdk8s-testing-synth"></a><a class="headerlink" href="#static-synthchart" title="Permanent link">&para;</a></h4>
 <p>Returns the Kubernetes manifest synthesized from this chart.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">synth</span><span class="p">(</span><span class="nx">chart</span>: <span class="kt">Chart</span><span class="p">)</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <ul>
 <li><strong>chart</strong> (<code><a href="#cdk8s-chart">Chart</a></code>)  <em>No description</em></li>
 </ul>
@@ -4095,7 +4032,6 @@ cannot be negative.</p>
 <p>Empty documents are filtered out.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">load</span><span class="p">(</span><span class="nx">urlOrFile</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <ul>
 <li><strong>urlOrFile</strong> (<code>string</code>)  a URL of a file path to load from.</li>
 </ul>
@@ -4105,7 +4041,6 @@ cannot be negative.</p>
 <p>Saves a set of objects as a multi-document YAML file.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">save</span><span class="p">(</span><span class="nx">filePath</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">docs</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>filePath</strong> (<code>string</code>)  The output path.</li>
 <li><strong>docs</strong> (<code>Array<any></code>)  The set of objects.</li>
@@ -4114,7 +4049,6 @@ cannot be negative.</p>
 <p>Saves a set of YAML documents into a temp file (in /tmp).</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">tmp</span><span class="p">(</span><span class="nx">docs</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <ul>
 <li><strong>docs</strong> (<code>Array<any></code>)  the set of documents to save.</li>
 </ul>
@@ -4285,7 +4219,6 @@ cannot be negative.</p>
 <h4 id="produce_1">produce()🔹 <a id="cdk8s-ianyproducer-produce"></a><a class="headerlink" href="#produce_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nx">produce</span><span class="p">()</span><span class="o">:</span> <span class="nx">any</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>any</code></p>
 <h2 id="struct-includeprops">struct IncludeProps 🔹 <a id="cdk8s-includeprops"></a><a class="headerlink" href="#struct-includeprops" title="Permanent link">&para;</a></h2>

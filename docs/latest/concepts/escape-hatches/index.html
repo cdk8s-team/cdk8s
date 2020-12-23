@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1095,7 +1095,6 @@ synthesized output at the wire level using JSON Patch
 <span class="nx">apiObject</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">));</span>
 <span class="nx">apiObject</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;/foo/bar/0&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">bar</span>: <span class="kt">123</span> <span class="p">}));</span>
 </code></pre></div>
-
 <p>During synthesis, patches are applied in-order after the API object synthesized
 itself.</p>
 <p>All classes generated using the CLI <a href="../../cli/import/">import</a> command extend
@@ -1117,7 +1116,6 @@ API object, so you can apply the patch to it:</p>
 <span class="kr">const</span> <span class="nx">kubePod</span> <span class="o">=</span> <span class="nx">ApiObject</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="nx">pod</span><span class="p">);</span>
 <span class="nx">kubePod</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(...);</span>
 </code></pre></div>
-
 <p>The <code>ApiObject.of()</code> method uses capabilities of the <a href="../constructs/">constructs programming
 model</a> to find the &ldquo;default child&rdquo; of a construct
 (<code>Node.of(c).defaultChild</code>). When a construct is initialized, it can either

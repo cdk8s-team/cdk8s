@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1110,7 +1110,6 @@
 <span class="c1">// declare the dependency. this is just a syntactic sugar for Node.of(service).addDependency(namespace)</span>
 <span class="nx">service</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">namespace</span><span class="p">);</span>
 </code></pre></div>
-
 <p><code>cdk8s</code> will ensure that the <code>Namespace</code> object is placed before the <code>Service</code> object in the resulting manifest:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
@@ -1123,7 +1122,6 @@
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chart-service-93d02be7</span>
   <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chart-backend-a59d2e47</span>
 </code></pre></div>
-
 <h3 id="charts">Charts<a class="headerlink" href="#charts" title="Permanent link">&para;</a></h3>
 <p>You can also specify dependencies between charts, in exactly the same manner. For example, if we have a chart that provisions our <code>namespace</code>, we need that chart to be applied first:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">namespaceChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NamespaceChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span><span class="p">);</span>
@@ -1132,14 +1130,12 @@
 <span class="c1">// declare the dependency. this is just a syntactic sugar for Node.of(applicationChart).addDependency(namespaceChart)</span>
 <span class="nx">applicationChart</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">namespaceChart</span><span class="p">);</span>
 </code></pre></div>
-
 <p>Running <code>cdk8s synth</code> will produce the following <code>dist</code> directory:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">&gt;</span> cdk8s synth
 
 <span class="go">dist/0000-namespace.k8s.yaml</span>
 <span class="go">dist/0001-application.k8s.yaml</span>
 </code></pre></div>
-
 <p>Notice that the <code>namespace</code> chart appears first with the <code>0000</code> prefix. This will ensure that a subsequent execution of <code>kubectl apply -f dist/</code> will apply the <code>namespace</code> first, and the <code>application</code> second.</p>
 <h3 id="custom-constructs">Custom Constructs<a class="headerlink" href="#custom-constructs" title="Permanent link">&para;</a></h3>
 <p>The behavior above applies in the same way to custom constructs that you create or use.</p>
@@ -1161,7 +1157,6 @@
 
 <span class="nx">service</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">database</span><span class="p">);</span>
 </code></pre></div>
-
 <p>Declaring such a dependency will cause <strong>each</strong> <code>ApiObject</code> in the source construct, to <em>depend on</em> <strong>every</strong> <code>ApiObject</code> in the target construct.</p>
 <p>Note that in the example above, the source construct is actually an <code>ApiObject</code>, which is also ok since it is essentially a construct with a single <code>ApiObject</code>.</p>
 <blockquote>
@@ -1183,7 +1178,6 @@
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chart-service-93d02be7</span>
 </code></pre></div>
-
 <p>You can see that all <code>ApiObject</code>s of the <code>Database</code> construct, appear before the <code>Service</code> object.</p>
 <h3 id="things-just-got-cool">Things just got cool<a class="headerlink" href="#things-just-got-cool" title="Permanent link">&para;</a></h3>
 <p>If you simply declare a dependency between two <code>ApiObject</code>s (or <code>Constructs</code>), that belong to two different <code>Chart</code>s, <code>cdk8s</code> will create the chart dependency automatically for you.</p>
@@ -1196,14 +1190,12 @@
 <span class="c1">// dependency between ApiObjects, not Charts!</span>
 <span class="nx">deployment</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">namespace</span><span class="p">);</span>
 </code></pre></div>
-
 <p>Running <code>cdk8s synth</code> will produce the same result as if explicit chart dependencies were declared:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">&gt;</span> cdk8s synth
 
 <span class="go">dist/0000-namespace.k8s.yaml</span>
 <span class="go">dist/0001-application.k8s.yaml</span>
 </code></pre></div>
-
 <p>This means you need not be bothered with managing chart dependencies, simply work with the <code>ApiObject</code>s you create, and let <code>cdk8s</code> infer the chart dependencies.</p>
                 
               

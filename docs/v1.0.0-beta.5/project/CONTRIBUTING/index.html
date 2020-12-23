@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1482,7 +1482,6 @@ directory. This can be used to develop against this repo as a local dependency.<
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>This assumes this repo is a sibling of the target repo and will install the CDK as a linked dependency during
 <strong>yarn install</strong>.</p>
 <h3 id="unit-tests">Unit tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
@@ -1490,27 +1489,22 @@ directory. This can be used to develop against this repo as a local dependency.<
 <p>To run unit tests, execute <code>yarn test</code> either from the root of the repo (to unit test all modules) or from individual module directories:</p>
 <div class="highlight"><pre><span></span><code>yarn test
 </code></pre></div>
-
 <p>Out tests utilize <a href="https://jestjs.io/docs/en/snapshot-testing">jest snapshot testing</a>. In case a snapshot needs to be updated, just run:</p>
 <div class="highlight"><pre><span></span><code>yarn test -u
 </code></pre></div>
-
 <h3 id="integration-tests">Integration Tests<a class="headerlink" href="#integration-tests" title="Permanent link">&para;</a></h3>
 <p>Integration tests are executed <em>after</em> we bundle the release. This means that in
 order to execute integration tests you&rsquo;ll need to create a bundle by running the
 following command from the root of the repo:</p>
 <div class="highlight"><pre><span></span><code>yarn run package
 </code></pre></div>
-
 <p>This will result in <code>./dist</code> that contains all the ready-to-publish artifacts.</p>
 <p>Now, you can run integration tests via:</p>
 <div class="highlight"><pre><span></span><code>yarn integ
 </code></pre></div>
-
 <p>Our integration tests also utilize snapshot testing. To update integration test snapshots, run:</p>
 <div class="highlight"><pre><span></span><code>yarn integ:update
 </code></pre></div>
-
 <h4 id="running-integration-tests">Running Integration Tests<a class="headerlink" href="#running-integration-tests" title="Permanent link">&para;</a></h4>
 <p>The <code>test</code> directory contains integration tests for the cdk8s project.</p>
 <p>Each subdirectory represents a single test, with an entrypoint of <code>test.sh</code>.
@@ -1529,7 +1523,6 @@ $ ./run-against-dist ./test-all.sh
 <span class="c1"># or</span>
 $ ./run-against-dist ./test-typescript-app/test.sh
 </code></pre></div>
-
 <h4 id="writing-integration-tests">Writing Integration Tests<a class="headerlink" href="#writing-integration-tests" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Create a new subdirectory with a <code>test-</code> prefix.</li>
@@ -1551,11 +1544,9 @@ $ ./run-against-dist ./test-typescript-app/test.sh
 <p>To update snapshots, run tests with:</p>
 <div class="highlight"><pre><span></span><code>UPDATE_SNAPSHOTS=1
 </code></pre></div>
-
 <p>Or, run this from the root of the repo:</p>
 <div class="highlight"><pre><span></span><code>yarn integ:update
 </code></pre></div>
-
 <h4 id="docker-environment-for-integration-tests">Docker environment for integration tests<a class="headerlink" href="#docker-environment-for-integration-tests" title="Permanent link">&para;</a></h4>
 <p>Due to the polyglot nature of the <a href="https://github.com/aws/jsii">jsii</a> tools used by cdk8s, 
 the toolchain requirements are somewhat more complicated than for most projects.  To 
@@ -1564,14 +1555,12 @@ help with this, you can use the <code>jsii/superchain</code> docker image that i
 following command.</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker run --rm --net=host -it -v $PWD:$PWD -w $PWD jsii/superchain</span>
 </code></pre></div>
-
 <p>Then once in the docker shell, you can package and execute the tests as normal.</p>
 <div class="highlight"><pre><span></span><code>$ pip install pipenv  <span class="c1"># Currently not included in jsii docker image</span>
 $ yarn build
 $ yarn run package
 $ yarn integ:update
 </code></pre></div>
-
 <blockquote>
 <p>Note: this may leave some files owned as the docker root user id.  These will need to 
   be cleaned up manually.</p>
@@ -1604,11 +1593,9 @@ docstrings during build.</p>
 <p>To test locally, install python3 deps:</p>
 <div class="highlight"><pre><span></span><code>$ pip3 install -r docs/requirements.txt
 </code></pre></div>
-
 <p>And then:</p>
 <div class="highlight"><pre><span></span><code>$ mkdocs serve
 </code></pre></div>
-
 <p>This will serve a local web server with the website.</p>
 <blockquote>
 <p>A good reference for syntax and capabilities is the <a href="https://squidfunk.github.io/mkdocs-material">mkdocs-material</a> website.</p>
@@ -1660,13 +1647,11 @@ needing to modify multiple files and avoid merge conflicts in post-release rebas
 <p>To release a new version of cdk8s following these steps:</p>
 <div class="highlight"><pre><span></span><code>$ yarn bump
 </code></pre></div>
-
 <p>This will create a new CHANGELOG entry (from conventional commits), bump the version in
 <code>package.json</code> and create a bump commit.</p>
 <p>Now, push to <code>master</code> (in the future we will release from a release branch, but in the meantime we release directly from master):</p>
 <div class="highlight"><pre><span></span><code>$ git push origin master
 </code></pre></div>
-
 <p>This will trigger the <a href="https://github.com/awslabs/cdk8s/blob/master/.github/workflows/release.yml">release
 workflow</a>
 which will release to all package managers and will also create a GitHub release

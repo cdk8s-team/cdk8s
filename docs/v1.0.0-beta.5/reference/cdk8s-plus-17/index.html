@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -3926,7 +3926,6 @@
 <h3 id="initializer">Initializer<a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ConfigMap</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ConfigMapProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -3969,7 +3968,6 @@
 sequences that are not in the UTF-8 range.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addBinaryData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  The key.</li>
 <li><strong>value</strong> (<code>string</code>)  The value.</li>
@@ -3978,7 +3976,6 @@ sequences that are not in the UTF-8 range.</p>
 <p>Adds a data entry to the config map.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  The key.</li>
 <li><strong>value</strong> (<code>string</code>)  The value.</li>
@@ -3987,7 +3984,6 @@ sequences that are not in the UTF-8 range.</p>
 <p>Adds a directory to the ConfigMap.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addDirectory</span><span class="p">(</span><span class="nx">localDir</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">AddDirectoryOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>localDir</strong> (<code>string</code>)  A path to a local directory.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-adddirectoryoptions">AddDirectoryOptions</a></code>)  Options.</li>
@@ -3998,7 +3994,6 @@ sequences that are not in the UTF-8 range.</p>
 <p>Adds a file to the ConfigMap.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addFile</span><span class="p">(</span><span class="nx">localFile</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">key?</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>localFile</strong> (<code>string</code>)  The path to the local file.</li>
 <li><strong>key</strong> (<code>string</code>)  The ConfigMap key (default to the file name).</li>
@@ -4007,7 +4002,6 @@ sequences that are not in the UTF-8 range.</p>
 <p>Represents a ConfigMap created elsewhere.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromConfigMapName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">IConfigMap</span>
 </code></pre></div>
-
 <ul>
 <li><strong>name</strong> (<code>string</code>)  The name of the config map to import.</li>
 </ul>
@@ -4018,7 +4012,6 @@ sequences that are not in the UTF-8 range.</p>
 <h3 id="initializer_1">Initializer<a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Container</span><span class="p">(</span><span class="nx">props</span>: <span class="kt">ContainerProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-17-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
 <li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
@@ -4098,7 +4091,6 @@ sequences that are not in the UTF-8 range.</p>
 from various dynamic sources such a secrets of config maps.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addEnv</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">EnvValue</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>name</strong> (<code>string</code>)  - The variable name.</li>
 <li><strong>value</strong> (<code><a href="#cdk8s-plus-17-envvalue">EnvValue</a></code>)  - The variable value.</li>
@@ -4108,7 +4100,6 @@ from various dynamic sources such a secrets of config maps.</p>
 <p>Every pod that is configured to use this container will autmoatically have access to the volume.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">mount</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">MountOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>path</strong> (<code>string</code>)  - The desired path in the container.</li>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  - The volume to mount.</li>
@@ -4146,7 +4137,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <h3 id="initializer_2">Initializer<a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Deployment</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">DeploymentProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -4217,7 +4207,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Add a container to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
-
 <ul>
 <li><strong>container</strong> (<code><a href="#cdk8s-plus-17-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
 <li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
@@ -4239,7 +4228,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
 </ul>
@@ -4248,7 +4236,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>This is equivalent to running <code>kubectl expose deployment &lt;deployment-name&gt;</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">expose</span><span class="p">(</span><span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ExposeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Service</span>
 </code></pre></div>
-
 <ul>
 <li><strong>port</strong> (<code>number</code>)  The port number the service will bind to.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-exposeoptions">ExposeOptions</a></code>)  Options to determine details of the service and port exposed.</li>
@@ -4264,7 +4251,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Pods that have the label will be selected by deployments configured with this spec.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">selectByLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The label key.</li>
 <li><strong>value</strong> (<code>string</code>)  - The label value.</li>
@@ -4298,7 +4284,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Create a value by reading a specific key inside a config map.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span>: <span class="kt">IConfigMap</span><span class="p">,</span> <span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromConfigMapOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
 </code></pre></div>
-
 <ul>
 <li><strong>configMap</strong> (<code><a href="#cdk8s-plus-17-iconfigmap">IConfigMap</a></code>)  - The config map.</li>
 <li><strong>key</strong> (<code>string</code>)  - The key to extract the value from.</li>
@@ -4311,7 +4296,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Create a value from a key in the current process environment.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromProcess</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromProcessOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The key to read.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-envvaluefromprocessoptions">EnvValueFromProcessOptions</a></code>)  - Additional options.</li>
@@ -4323,7 +4307,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Defines an environment value from a secret JSON value.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromSecretValue</span><span class="p">(</span><span class="nx">secretValue</span>: <span class="kt">SecretValue</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromSecretOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
 </code></pre></div>
-
 <ul>
 <li><strong>secretValue</strong> (<code><a href="#cdk8s-plus-17-secretvalue">SecretValue</a></code>)  The secret value (secrent + key).</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-envvaluefromsecretoptions">EnvValueFromSecretOptions</a></code>)  Additional options.</li>
@@ -4335,7 +4318,6 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Create a value from the given argument.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromValue</span><span class="p">(</span><span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
 </code></pre></div>
-
 <ul>
 <li><strong>value</strong> (<code>string</code>)  - The value.</li>
 </ul>
@@ -4351,7 +4333,6 @@ based virtual hosting etc.</p>
 <h3 id="initializer_3">Initializer<a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">IngressV1Beta1</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">IngressV1Beta1Props</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -4384,7 +4365,6 @@ based virtual hosting etc.</p>
 servicing requests that don&rsquo;t match any rule.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addDefaultBackend</span><span class="p">(</span><span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>backend</strong> (<code><a href="#cdk8s-plus-17-ingressv1beta1backend">IngressV1Beta1Backend</a></code>)  The backend to use for requests that do not match any rule.</li>
 </ul>
@@ -4394,7 +4374,6 @@ servicing requests that don&rsquo;t match any rule.</p>
 targeted to this host name (the <code>Host</code> header matches this value).</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addHostDefaultBackend</span><span class="p">(</span><span class="nx">host</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>host</strong> (<code>string</code>)  The host name to match.</li>
 <li><strong>backend</strong> (<code><a href="#cdk8s-plus-17-ingressv1beta1backend">IngressV1Beta1Backend</a></code>)  The backend to route to.</li>
@@ -4403,7 +4382,6 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 <p>Adds an ingress rule applied to requests to a specific host and a specific HTTP path (the <code>Host</code> header matches this value).</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addHostRule</span><span class="p">(</span><span class="nx">host</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>host</strong> (<code>string</code>)  The host name.</li>
 <li><strong>path</strong> (<code>string</code>)  The HTTP path.</li>
@@ -4413,7 +4391,6 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 <p>Adds an ingress rule applied to requests sent to a specific HTTP path.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addRule</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>path</strong> (<code>string</code>)  The HTTP path.</li>
 <li><strong>backend</strong> (<code><a href="#cdk8s-plus-17-ingressv1beta1backend">IngressV1Beta1Backend</a></code>)  The backend to route requests to.</li>
@@ -4422,7 +4399,6 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 <p>Adds rules to this ingress.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addRules</span><span class="p">(...</span><span class="nx">rules</span>: <span class="kt">IngressV1Beta1Rule</span><span class="p">[])</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>rules</strong> (<code><a href="#cdk8s-plus-17-ingressv1beta1rule">IngressV1Beta1Rule</a></code>)  The rules to add.</li>
 <li><strong>backend</strong> (<code><a href="#cdk8s-plus-17-ingressv1beta1backend">IngressV1Beta1Backend</a></code>)  Backend defines the referenced service endpoint to which the traffic will be forwarded to. </li>
@@ -4435,7 +4411,6 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 validation logic. It is called on all constructs before synthesis.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">protected</span> <span class="nx">onValidate</span><span class="p">()</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
 </code></pre></div>
-
 <p><strong>Returns</strong>:
 * <code>Array<string></code></p>
 <h2 id="class-ingressv1beta1backend">class IngressV1Beta1Backend 🔹 <a id="cdk8s-plus-17-ingressv1beta1backend"></a><a class="headerlink" href="#class-ingressv1beta1backend" title="Permanent link">&para;</a></h2>
@@ -4445,7 +4420,6 @@ validation logic. It is called on all constructs before synthesis.</p>
 <p>A Kubernetes <code>Service</code> to use as the backend for this path.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromService</span><span class="p">(</span><span class="nx">service</span>: <span class="kt">Service</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServiceIngressV1BetaBackendOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">IngressV1Beta1Backend</span>
 </code></pre></div>
-
 <ul>
 <li><strong>service</strong> (<code><a href="#cdk8s-plus-17-service">Service</a></code>)  The service object.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-serviceingressv1betabackendoptions">ServiceIngressV1BetaBackendOptions</a></code>)  <em>No description</em></li>
@@ -4465,7 +4439,6 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <h3 id="initializer_4">Initializer<a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Job</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">JobProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -4542,7 +4515,6 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <p>Add a container to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
-
 <ul>
 <li><strong>container</strong> (<code><a href="#cdk8s-plus-17-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
 <li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
@@ -4564,7 +4536,6 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
 </ul>
@@ -4577,7 +4548,6 @@ created by clients and scheduled onto hosts.</p>
 <h3 id="initializer_5">Initializer<a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Pod</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">PodProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -4630,7 +4600,6 @@ created by clients and scheduled onto hosts.</p>
 <p>Add a container to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
-
 <ul>
 <li><strong>container</strong> (<code><a href="#cdk8s-plus-17-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
 <li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
@@ -4652,7 +4621,6 @@ created by clients and scheduled onto hosts.</p>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
 </ul>
@@ -4662,7 +4630,6 @@ created by clients and scheduled onto hosts.</p>
 <h3 id="initializer_6">Initializer<a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">PodSpec</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">PodSpecProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-17-podspecprops">PodSpecProps</a></code>)  <em>No description</em></li>
 <li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-17-containerprops">ContainerProps</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
@@ -4707,7 +4674,6 @@ created by clients and scheduled onto hosts.</p>
 <p>Add a container to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
-
 <ul>
 <li><strong>container</strong> (<code><a href="#cdk8s-plus-17-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
 <li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
@@ -4729,7 +4695,6 @@ created by clients and scheduled onto hosts.</p>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
 </ul>
@@ -4740,7 +4705,6 @@ created by clients and scheduled onto hosts.</p>
 <h3 id="initializer_7">Initializer<a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">PodTemplate</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">PodTemplateProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-17-podtemplateprops">PodTemplateProps</a></code>)  <em>No description</em></li>
 <li><strong>containers</strong> (<code>Array&lt;<a href="#cdk8s-plus-17-containerprops">ContainerProps</a>&gt;</code>)  List of containers belonging to the pod. <strong><em>Default</em></strong>: No containers. Note that a pod spec must include at least one container.</li>
@@ -4771,13 +4735,11 @@ created by clients and scheduled onto hosts.</p>
 <h3 id="initializer_8">Initializer<a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Probe</span><span class="p">()</span>
 </code></pre></div>
-
 <h3 id="methods_9">Methods<a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h3>
 <h4 id="static-fromcommandcommand-options"><em>static</em> fromCommand(command, options?)🔹 <a id="cdk8s-plus-17-probe-fromcommand"></a><a class="headerlink" href="#static-fromcommandcommand-options" title="Permanent link">&para;</a></h4>
 <p>Defines a probe based on a command which is executed within the container.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromCommand</span><span class="p">(</span><span class="nx">command</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">CommandProbeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Probe</span>
 </code></pre></div>
-
 <ul>
 <li><strong>command</strong> (<code>Array<string></code>)  The command to execute.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-commandprobeoptions">CommandProbeOptions</a></code>)  Options.</li>
@@ -4793,7 +4755,6 @@ created by clients and scheduled onto hosts.</p>
 <p>Defines a probe based on an HTTP GET request to the IP address of the container.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromHttpGet</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">HttpGetProbeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Probe</span>
 </code></pre></div>
-
 <ul>
 <li><strong>path</strong> (<code>string</code>)  The URL path to hit.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-httpgetprobeoptions">HttpGetProbeOptions</a></code>)  Options.</li>
@@ -4816,7 +4777,6 @@ resource.</p>
 <h3 id="initializer_9">Initializer<a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Resource</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">_</span>: <span class="kt">ResourceProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -4860,7 +4820,6 @@ definition or in a container image.</p>
 <h3 id="initializer_10">Initializer<a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Secret</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">SecretProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -4891,7 +4850,6 @@ definition or in a container image.</p>
 <p>Adds a string data field to the secert.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addStringData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  Key.</li>
 <li><strong>value</strong> (<code>string</code>)  Value.</li>
@@ -4900,7 +4858,6 @@ definition or in a container image.</p>
 <p>Gets a string data by key or undefined.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">getStringData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span>
 </code></pre></div>
-
 <ul>
 <li><strong>key</strong> (<code>string</code>)  Key.</li>
 </ul>
@@ -4910,7 +4867,6 @@ definition or in a container image.</p>
 <p>Imports a secret from the cluster as a reference.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromSecretName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">ISecret</span>
 </code></pre></div>
-
 <ul>
 <li><strong>name</strong> (<code>string</code>)  The name of the secret to reference.</li>
 </ul>
@@ -4932,7 +4888,6 @@ or load balancer in between your application and the backend Pods.</p>
 <h3 id="initializer_11">Initializer<a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Service</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ServiceProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -4988,7 +4943,6 @@ to the port exposed by the first container in the deployment&rsquo;s pods.
 The deployment&rsquo;s <code>labelSelector</code> will be used to select pods.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addDeployment</span><span class="p">(</span><span class="nx">deployment</span>: <span class="kt">Deployment</span><span class="p">,</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>deployment</strong> (<code><a href="#cdk8s-plus-17-deployment">Deployment</a></code>)  The deployment to expose.</li>
 <li><strong>port</strong> (<code>number</code>)  The external port.</li>
@@ -5002,7 +4956,6 @@ The deployment&rsquo;s <code>labelSelector</code> will be used to select pods.</
 <p>Services defined using this spec will select pods according the provided label.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addSelector</span><span class="p">(</span><span class="nx">label</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>label</strong> (<code>string</code>)  The label key.</li>
 <li><strong>value</strong> (<code>string</code>)  The label value.</li>
@@ -5012,7 +4965,6 @@ The deployment&rsquo;s <code>labelSelector</code> will be used to select pods.</
 <p>This method can be called multiple times.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">serve</span><span class="p">(</span><span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>port</strong> (<code>number</code>)  The port definition.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-serviceportoptions">ServicePortOptions</a></code>)  <em>No description</em></li>
@@ -5034,7 +4986,6 @@ example, default).</p>
 <h3 id="initializer_12">Initializer<a class="headerlink" href="#initializer_12" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ServiceAccount</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ServiceAccountProps</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
 <li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
@@ -5069,7 +5020,6 @@ example, default).</p>
 <p>Allow a secret to be accessed by pods using this service account.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addSecret</span><span class="p">(</span><span class="nx">secret</span>: <span class="kt">ISecret</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>secret</strong> (<code><a href="#cdk8s-plus-17-isecret">ISecret</a></code>)  The secret.</li>
 </ul>
@@ -5077,7 +5027,6 @@ example, default).</p>
 <p>Imports a service account from the cluster as a reference.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromServiceAccountName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">IServiceAccount</span>
 </code></pre></div>
-
 <ul>
 <li><strong>name</strong> (<code>string</code>)  The name of the service account resource.</li>
 </ul>
@@ -5112,7 +5061,6 @@ image. Volumes can not mount onto other volumes</p>
 <h3 id="initializer_13">Initializer<a class="headerlink" href="#initializer_13" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Volume</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">config</span>: <span class="kt">any</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><strong>name</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>config</strong> (<code>any</code>)  <em>No description</em></li>
@@ -5146,7 +5094,6 @@ volume to reference it. You can also customize the path to use for a
 specific entry in the ConfigMap.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span>: <span class="kt">IConfigMap</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ConfigMapVolumeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Volume</span>
 </code></pre></div>
-
 <ul>
 <li><strong>configMap</strong> (<code><a href="#cdk8s-plus-17-iconfigmap">IConfigMap</a></code>)  The config map to use to populate the volume.</li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-configmapvolumeoptions">ConfigMapVolumeOptions</a></code>)  Options.</li>
@@ -5166,7 +5113,6 @@ or different paths in each Container. When a Pod is removed from a node for
 any reason, the data in the emptyDir is deleted forever.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromEmptyDir</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EmptyDirVolumeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Volume</span>
 </code></pre></div>
-
 <ul>
 <li><strong>name</strong> (<code>string</code>)  <em>No description</em></li>
 <li><strong>options</strong> (<code><a href="#cdk8s-plus-17-emptydirvolumeoptions">EmptyDirVolumeOptions</a></code>)  - Additional options.</li>
@@ -5638,7 +5584,6 @@ any reason, the data in the emptyDir is deleted forever.</p>
 <p>Add a container to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
-
 <ul>
 <li><strong>container</strong> (<code><a href="#cdk8s-plus-17-containerprops">ContainerProps</a></code>)  The container.</li>
 <li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
@@ -5660,7 +5605,6 @@ any reason, the data in the emptyDir is deleted forever.</p>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  The volume.</li>
 </ul>
@@ -5710,7 +5654,6 @@ any reason, the data in the emptyDir is deleted forever.</p>
 <p>Add a container to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span>: <span class="kt">ContainerProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">Container</span>
 </code></pre></div>
-
 <ul>
 <li><strong>container</strong> (<code><a href="#cdk8s-plus-17-containerprops">ContainerProps</a></code>)  The container.</li>
 <li><strong>image</strong> (<code>string</code>)  Docker image name. </li>
@@ -5732,7 +5675,6 @@ any reason, the data in the emptyDir is deleted forever.</p>
 <p>Add a volume to the pod.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
 </code></pre></div>
-
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  The volume.</li>
 </ul>

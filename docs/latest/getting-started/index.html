@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1160,12 +1160,10 @@ installing the CDK8s CLI globally. We have two options for this.</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">npm</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> npm install -g cdk8s-cli
 </code></pre></div>
-
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">yarn</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> yarn global add cdk8s-cli
 </code></pre></div>
-
 </div>
 </div>
 <h2 id="new-project">New Project<a class="headerlink" href="#new-project" title="Permanent link">&para;</a></h2>
@@ -1177,13 +1175,11 @@ installing the CDK8s CLI globally. We have two options for this.</p>
 <span class="go">Initializing a project from the typescript-app template</span>
 <span class="go">...</span>
 </code></pre></div>
-
 <p>Since TypeScript is a compiled language, we will need to compile <code>.ts</code> files to
 <code>.js</code> in order to execute our CDK app. You can do that continuously in the
 background like this:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> npm run watch
 </code></pre></div>
-
 </div>
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Python</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> mkdir hello
@@ -1192,7 +1188,6 @@ background like this:</p>
 <span class="go">Initializing a project from the python-app template</span>
 <span class="go">...</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">Java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> mkdir hello
@@ -1201,7 +1196,6 @@ background like this:</p>
 <span class="go">Initializing a project from the java-app template</span>
 <span class="go">...</span>
 </code></pre></div>
-
 </div>
 </div>
 <p>This will perform the following:</p>
@@ -1230,7 +1224,6 @@ background like this:</p>
 <span class="k">new</span> <span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">);</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Python</label><div class="tabbed-content">
 <p><code>main.py</code></p>
@@ -1251,7 +1244,6 @@ background like this:</p>
 
 <span class="n">app</span><span class="o">.</span><span class="n">synth</span><span class="p">()</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">Java</label><div class="tabbed-content">
 <p><code>src/main/java/com/mycompany/app/Main.java</code></p>
@@ -1283,7 +1275,6 @@ background like this:</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 </div>
 </div>
 <p>Apps are structured as a tree of <strong>constructs</strong>, which are composable units of
@@ -1299,7 +1290,6 @@ each <code>Chart</code> in your app and will write it to the <code>dist</code> d
 <span class="gp">$</span> cat dist/hello.k8s.yaml
 <span class="go">&lt;EMPTY&gt;</span>
 </code></pre></div>
-
 <h2 id="importing-constructs-for-the-kubernetes-api">Importing Constructs for the Kubernetes API<a class="headerlink" href="#importing-constructs-for-the-kubernetes-api" title="Permanent link">&para;</a></h2>
 <p>OK, now let&rsquo;s define some Kubernetes API objects inside our chart.</p>
 <p>Similarly to <strong>charts</strong> and <strong>apps</strong>, Kubernetes API Objects are also
@@ -1369,7 +1359,6 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 <span class="k">new</span> <span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">);</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Python</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -1409,7 +1398,6 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 
 <span class="n">app</span><span class="o">.</span><span class="n">synth</span><span class="p">()</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">Java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.mycompany.app</span><span class="p">;</span>
@@ -1513,13 +1501,11 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 </div>
 </div>
 <p>Now, compile &amp; synth this project:</p>
 <div class="highlight"><pre><span></span><code>cdk8s synth
 </code></pre></div>
-
 <div class="admonition notice">
 <p class="admonition-title">Notice</p>
 <p>In compiled languages, like Java and TypeScript, you&rsquo;ll need to compile your program
@@ -1558,12 +1544,10 @@ before running <code>cdk8s synth</code>.</p>
           <span class="nt">ports</span><span class="p">:</span>
             <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
 </code></pre></div>
-
 <p>The manifest synthesized by your app is ready to be applied to any Kubernetes
 cluster using standard tools like <code>kubectl apply</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl apply -f dist/hello.k8s.yaml</span>
 </code></pre></div>
-
 <h2 id="abstraction-through-constructs">Abstraction through Constructs<a class="headerlink" href="#abstraction-through-constructs" title="Permanent link">&para;</a></h2>
 <p>Constructs are the basic building block of <strong>CDK8s</strong>. They are the instrument
 that enables composition and creation of higher-level abstractions through
@@ -1592,7 +1576,6 @@ actually quite useful.</p>
   <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span>
 <span class="p">});</span>
 </code></pre></div>
-
 <p>It can also be customized through an API:</p>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;hello-k8s&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">,</span>
@@ -1600,34 +1583,29 @@ actually quite useful.</p>
   <span class="nx">replicas</span>: <span class="kt">10</span>
 <span class="p">});</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Python</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="n">WebService</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
            <span class="n">image</span><span class="o">=</span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>It can also be customized through an API:</p>
 <div class="highlight"><pre><span></span><code><span class="n">WebService</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;hello-k8s&#39;</span><span class="p">,</span>
            <span class="n">image</span><span class="o">=</span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">,</span>
            <span class="n">container_port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span>
            <span class="n">replicas</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><label for="__tabbed_6_3">Java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;hello-k8s&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
   <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span>
   <span class="p">.</span><span class="na">build</span><span class="p">());</span>
 </code></pre></div>
-
 <p>It can also be customized through an API:</p>
 <div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;hello-k8s&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
   <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span>
   <span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
   <span class="p">.</span><span class="na">build</span><span class="p">());</span>
 </code></pre></div>
-
 </div>
 </div>
 <p>Here&rsquo;s how to implement <code>WebService</code>:</p>
@@ -1705,7 +1683,6 @@ actually quite useful.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Now, let&rsquo;s edit <code>main.ts</code> and use our new construct:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
@@ -1726,7 +1703,6 @@ actually quite useful.</p>
 <span class="k">new</span> <span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">);</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Python</label><div class="tabbed-content">
 <p>Create a file <code>webservice.py</code> with the following content:</p>
@@ -1764,7 +1740,6 @@ actually quite useful.</p>
                                         <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
                                         <span class="n">ports</span><span class="o">=</span><span class="p">[</span><span class="n">k8s</span><span class="o">.</span><span class="n">ContainerPort</span><span class="p">(</span><span class="n">container_port</span><span class="o">=</span><span class="n">container_port</span><span class="p">)])]))))</span>
 </code></pre></div>
-
 <p>Now, let&rsquo;s edit <code>main.py</code> and use our new construct:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">from</span> <span class="nn">constructs</span> <span class="kn">import</span> <span class="n">Construct</span>
@@ -1785,7 +1760,6 @@ actually quite useful.</p>
 
 <span class="n">app</span><span class="o">.</span><span class="n">synth</span><span class="p">()</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">Java</label><div class="tabbed-content">
 <p><code>src/main/java/com/mycompany/app/WebService.java</code></p>
@@ -1885,7 +1859,6 @@ actually quite useful.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><code>src/main/java/com/mycompany/app/WebServiceProps.java</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.mycompany.app</span><span class="p">;</span>
 
@@ -1951,7 +1924,6 @@ actually quite useful.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><code>src/main/java/com/mycompany/app/Main.java</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.mycompany.app</span><span class="p">;</span>
 
@@ -1989,7 +1961,6 @@ actually quite useful.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 </div>
 </div>
 <p>As you can see, we now add define <code>WebService</code> constructs inside our chart: one

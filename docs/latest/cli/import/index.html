@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1255,11 +1255,9 @@ objects and Custom Resources (CRDs).</p>
 <p>CLI:</p>
 <div class="highlight"><pre><span></span><code>cdk8s import --language typescript
 </code></pre></div>
-
 <p><code>cdk8s.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">typescript</span>
 </code></pre></div>
-
 <h3 id="output-directory-output">Output directory (<code>--output</code>)<a class="headerlink" href="#output-directory-output" title="Permanent link">&para;</a></h3>
 <p>The <code>--output</code> (or <code>-o</code>) option can be used to specify the output directory for
 your imports.</p>
@@ -1276,12 +1274,10 @@ kind. Here is how you do it:</p>
 <p>CLI:</p>
 <div class="highlight"><pre><span></span><code>cdk8s import example:<span class="o">=</span>my_crd.yaml
 </code></pre></div>
-
 <p><code>cdk8s.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">example:=my_crd.yaml</span>
 </code></pre></div>
-
 <p>If your CRD contained two kinds, <code>Cluster</code> and <code>Autoscaler</code>, you would have two
 imports. You could use them in this fashion:</p>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Typescript</label><div class="tabbed-content">
@@ -1308,7 +1304,6 @@ not yet supported</p>
 <p>To generate constructs for all Kubernetes API objects of a certain version, use:</p>
 <div class="highlight"><pre><span></span><code>cdk8s import k8s
 </code></pre></div>
-
 <p>The <code>import</code> command will generate files under an &ldquo;imports&rdquo; directory inside
 your project with constructs for each API object in the Kubernetes spec.</p>
 <div class="admonition note">
@@ -1322,12 +1317,10 @@ object kind (e.g. <code>KubeDeployment</code>).</p>
 <p>Use the <code>@version</code> notation to import a specific Kubernetes version:</p>
 <div class="highlight"><pre><span></span><code>cdk8s import k8s@1.16.0
 </code></pre></div>
-
 <p>Alternatively, you can specify your <code>k8s</code> import in the <code>cdk8s.yaml</code> config file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">k8s@1.17.0</span>
 </code></pre></div>
-
 <h4 id="api-object-versions">API Object Versions<a class="headerlink" href="#api-object-versions" title="Permanent link">&para;</a></h4>
 <p>When importing the core Kubernetes API objects, <code>cdk8s import</code> will generate constructs
 both for stable APIs (e.g. <code>v1</code>) and pre-stable APIs (<code>v1beta1</code>). To ensure compatibility
@@ -1340,12 +1333,10 @@ will also include an <code>Ingress</code> construct which represents the <code>v
 <p>You can import CRDs from local files or URLs:</p>
 <div class="highlight"><pre><span></span><code>cdk8s import my_crd.yaml
 </code></pre></div>
-
 <p>Or from <code>cdk8s.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">my_crd.yaml</span>
 </code></pre></div>
-
 <p>A CRD with group <code>mygroup.io</code> and kind <code>Foo</code> will be imported to the following
 locations:</p>
 <ul>
@@ -1357,7 +1348,6 @@ locations:</p>
 is useful, for example, to import all the CRDs from a running cluster:</p>
 <div class="highlight"><pre><span></span><code>kubectl get crds -o json <span class="p">|</span> cdk8s import /dev/stdin
 </code></pre></div>
-
 <blockquote>
 <p>Yes, this works!</p>
 </blockquote>

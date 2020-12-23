@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1024,7 +1024,6 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>During synthesis, charts collect all the <code>ApiObject</code> nodes (recursively) and
 emit a single YAML manifest that includes all these objects.</p>
 <p>When a chart is defined, you can specify chart-level <code>namespace</code> and <code>labels</code>.
@@ -1045,7 +1044,6 @@ Those will be applied to all API objects defined within the chart (recursively):
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Will synthesize into:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Foo</span>

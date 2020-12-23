@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1085,7 +1085,6 @@ who&rsquo;s content is the value of the key.</p>
 <span class="kr">const</span> <span class="nx">configMap</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;redis-config&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">configVolume</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span>
 </code></pre></div>
-
 <h2 id="create-from-an-emptydir">Create from an EmptyDir<a class="headerlink" href="#create-from-an-emptydir" title="Permanent link">&para;</a></h2>
 <p>The easiest way to allocate some persistent storage to your container is to create a volume from an empty directory.
 This volume, as the name suggests, is initially empty, and can be written to by containers who mount it.

@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1103,7 +1103,6 @@ and will therefore not be included in the resulting manifest.</p>
 <span class="c1">// for example when creating a volume.</span>
 <span class="kr">const</span> <span class="nx">volume</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
 </code></pre></div>
-
 <h2 id="adding-data">Adding data<a class="headerlink" href="#adding-data" title="Permanent link">&para;</a></h2>
 <p>You can create config maps and add some data to them like so:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
@@ -1115,7 +1114,6 @@ and will therefore not be included in the resulting manifest.</p>
 <span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="k">new</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Config&#39;</span><span class="p">);</span>
 <span class="nx">config</span><span class="p">.</span><span class="nx">addData</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;https://my-endpoint:8080&#39;</span><span class="p">);</span>
 </code></pre></div>
-
 <h2 id="creating-a-volume-from-a-directory">Creating a volume from a directory<a class="headerlink" href="#creating-a-volume-from-a-directory" title="Permanent link">&para;</a></h2>
 <p>Here is a nifty little trick you can use to create a volume that contains a directory on the client machine (machine that runs <code>cdk8s synth</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>

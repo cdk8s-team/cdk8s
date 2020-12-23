@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1040,7 +1040,6 @@ to a service associated with a deployment of the
 <span class="kr">const</span> <span class="nx">ingress</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IngressV1Beta1</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
 <span class="nx">ingress</span><span class="p">.</span><span class="nx">addRule</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">,</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">IngressV1Beta1Backend</span><span class="p">.</span><span class="nx">fromService</span><span class="p">(</span><span class="nx">helloService</span><span class="p">));</span>
 </code></pre></div>
-
 <p>You can use <code>addHostRule(host, path, backend)</code> to define a route that will only
 apply to requests with this <code>Host</code> header. This can be used to implement virtual
 hosts.</p>

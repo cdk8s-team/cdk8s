@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -1114,7 +1114,6 @@
 <span class="c1">// but if you want to explicitly add it, simply use:</span>
 <span class="nx">pod</span><span class="p">.</span><span class="nx">addVolume</span><span class="p">(</span><span class="nx">storage</span><span class="p">);</span>
 </code></pre></div>
-
 <h2 id="applying-a-restart-policy">Applying a restart policy<a class="headerlink" href="#applying-a-restart-policy" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 
@@ -1125,7 +1124,6 @@
   <span class="nx">restartPolicy</span>: <span class="kt">kplus.RestartPolicy.NEVER</span><span class="p">,</span>
 <span class="p">});</span>
 </code></pre></div>
-
 <h2 id="assigning-a-serviceaccount">Assigning a ServiceAccount<a class="headerlink" href="#assigning-a-serviceaccount" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 
