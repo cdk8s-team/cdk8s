@@ -1,8 +1,7 @@
-import { existsSync, mkdtempSync, writeFileSync } from 'fs';
+import * as fs from 'fs-extra';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { Yaml } from 'cdk8s';
-import { readFileSync } from 'fs-extra';
 import { getLatestVersion } from '../src/upgrades';
 
 describe('getLatestVersion', () => {
@@ -10,7 +9,7 @@ describe('getLatestVersion', () => {
   let cacheFile: string;
 
   beforeEach(() => {
-    const workdir = mkdtempSync(join(tmpdir(), 'test'));
+    const workdir = fs.mkdtempSync(join(tmpdir(), 'test'));
     cacheFile = join(workdir, 'version-cache.txt');
   });
 
@@ -37,12 +36,12 @@ describe('getLatestVersion', () => {
     expect(yamlLoad).toBeCalledWith('http://registry.npmjs.org/dummy-module/latest');
 
     // local cache now includes the version
-    expect(readFileSync(cacheFile, 'utf-8')).toStrictEqual('1.2.3');
+    expect(fs.readFileSync(cacheFile, 'utf-8')).toStrictEqual('1.2.3');
   });
 
   test('local cache exists and valid', () => {
     // GIVEN
-    writeFileSync(cacheFile, '7.7.7');
+    fs.writeFileSync(cacheFile, '7.7.7');
 
     // WHEN
     const result = getLatestVersion('dummy-module', {
@@ -59,13 +58,13 @@ describe('getLatestVersion', () => {
     expect(yamlLoad).not.toBeCalled();
 
     // local cache now includes the version
-    expect(readFileSync(cacheFile, 'utf-8')).toStrictEqual('7.7.7');
+    expect(fs.readFileSync(cacheFile, 'utf-8')).toStrictEqual('7.7.7');
   });
 
   test('local cache exists and invalid', () => {
     // GIVEN
     yamlLoad.mockReturnValue([{ version: '43.12.13' }]);
-    writeFileSync(cacheFile, '88.88.88');
+    fs.writeFileSync(cacheFile, '88.88.88');
 
     // WHEN
     const result = getLatestVersion('dummy-module', {
@@ -82,7 +81,7 @@ describe('getLatestVersion', () => {
     expect(yamlLoad).toBeCalled();
 
     // local cache now includes the version
-    expect(readFileSync(cacheFile, 'utf-8')).toStrictEqual('43.12.13');
+    expect(fs.readFileSync(cacheFile, 'utf-8')).toStrictEqual('43.12.13');
   });
 
   test('no local cache, http get failed => undefined', () => {
@@ -106,7 +105,7 @@ describe('getLatestVersion', () => {
     expect(result).toBe(undefined);
 
     // local cache now includes the version
-    expect(existsSync(cacheFile)).toBeFalsy();
+    expect(fs.existsSync(cacheFile)).toBeFalsy();
   });
 
   test('npm returns a malformed result', () => {
@@ -120,9 +119,46 @@ describe('getLatestVersion', () => {
     });
 
     // THEN
-    expect(result).toBe(undefined);
+    expect(result).toBeUndefined();
     expect(yamlLoad).toBeCalledWith('http://registry.npmjs.org/dummy-module/latest');
-    expect(existsSync(cacheFile)).toBeFalsy();
+    expect(fs.existsSync(cacheFile)).toBeFalsy();
   });
+
+  test('fail to write to local cache', () => {
+      // GIVEN
+      yamlLoad.mockReturnValue([{ version: '43.12.13' }]);
+      jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {
+        throw new Error('unable to write file');
+      });
+
+      // WHEN
+      const result = getLatestVersion('dummy-module', {
+        cacheFile, cacheTtlSec: 30
+      });
+
+      // THEN
+      expect(fs.existsSync(cacheFile)).toBeFalsy();
+      expect(result).toBe('43.12.13');
+  });
+
+  test('fails to download & to write to local cache', () => {
+      // GIVEN
+      yamlLoad.mockImplementation(() => {
+        throw new Error('unable to download');
+      });
+      
+      jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {
+        throw new Error('unable to write file');
+      });
+
+      // WHEN
+      const result = getLatestVersion('dummy-module', {
+        cacheFile, cacheTtlSec: 30
+      });
+
+      // THEN
+      expect(fs.existsSync(cacheFile)).toBeFalsy();
+      expect(result).toBeUndefined();
+  })
 });
 

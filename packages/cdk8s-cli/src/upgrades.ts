@@ -75,6 +75,10 @@ export function getLatestVersion(module: string, options: { cacheFile: string; c
   }
 
   function writeCache(version: string) {
-    writeFileSync(options.cacheFile, version);
+    try {
+      writeFileSync(options.cacheFile, version);
+    } catch (e) {
+      return;
+    }
   }
 }
