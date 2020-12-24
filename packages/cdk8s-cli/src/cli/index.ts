@@ -8,6 +8,7 @@ async function main() {
     console.error('------------------------------------------------------------------------------------------------');
     console.error(colors.yellow(`A new version ${versions.latest} of cdk8s-cli is available (current ${versions.current}).`));
     console.error(colors.yellow('Run "npm install -g cdk8s-cli" to install the latest version on your system.'));
+    console.error(colors.yellow('For additional installation methods, see https://cdk8s.io/docs/latest/getting-started'));
     console.error('------------------------------------------------------------------------------------------------');
   }
 
