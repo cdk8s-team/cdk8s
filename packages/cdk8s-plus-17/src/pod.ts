@@ -112,9 +112,7 @@ export class PodSpec implements IPodSpec {
       throw new Error('PodSpec must have at least 1 container');
     }
 
-    const volumes: Set<Volume> = new Set();
-
-    const k8sVolumes: k8s.Volume[] = [];
+    const volumes: Map<string, k8s.Volume> = new Map();
     const containers: k8s.Container[] = [];
 
     for (const container of this.containers) {
@@ -122,25 +120,25 @@ export class PodSpec implements IPodSpec {
       // automatically add volume from the container mount
       // to this pod so thats its available to the container.
       for (const mount of container.mounts) {
-        volumes.add(mount.volume);
+        if (!volumes.has(mount.volume.name)) {
+          volumes.set(mount.volume.name, mount.volume._toKube());
+        }
       }
 
       containers.push(container._toKube());
     }
 
     for (const volume of this._volumes) {
-      volumes.add(volume);
-    }
-
-    for (const volume of volumes) {
-      k8sVolumes.push(volume._toKube());
+      if (!volumes.has(volume.name)) {
+        volumes.set(volume.name, volume._toKube());
+      }
     }
 
     return {
       restartPolicy: this.restartPolicy,
       serviceAccountName: this.serviceAccount?.name,
       containers: containers,
-      volumes: k8sVolumes,
+      volumes: Array.from(volumes.values()),
     };
 
   }
