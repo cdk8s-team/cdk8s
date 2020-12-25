@@ -6642,10 +6642,10 @@ jsii-rosetta@^1.16.0:
     xmldom "^0.4.0"
     yargs "^16.1.1"
 
-jsii-srcmak@^0.1.164:
-  version "0.1.164"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.164.tgz#12bf71cea91f4e52c8161be32465c5157e5c165c"
-  integrity sha512-MqAHj30K/HQAcBgCeN7fX1GVA6Sa3Hyttw/L6xpmRkFXssS3QNJ0dgs9alzdaWk4WoMDxvFY41w0rPmLXD+qzA==
+jsii-srcmak@^0.1.166:
+  version "0.1.166"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.166.tgz#3acf32f24ec64f55b9375280cc5306cb97282304"
+  integrity sha512-UxHfuBNMxnujOIF9Qal0HUKJCsP9YHHdWdo1aWzX9gUtJnhTuJVTz1mKttdi4WbAGR++LSk/sbxPltzIrgbjVg==
   dependencies:
     fs-extra "^9.0.1"
     jsii "^1.12.0"
@@ -6773,10 +6773,10 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
-json2jsii@^0.1.155:
-  version "0.1.155"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.155.tgz#09e2f0b19a2970602c48bfdec1c2d41c1d83ddb3"
-  integrity sha512-O6Qts+Vcpr34p80RRkxQQMQuWcav1I/QXELCH8Jl/tyyeEynIElZG7DeH+T8bnoRce6RoP971tBQhOt34FNLtQ==
+json2jsii@^0.1.156:
+  version "0.1.156"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.156.tgz#c596c4407777cfca1c9c9826d8e38dc9b7ac2a67"
+  integrity sha512-K25SkOf62N+1vrrfvX7jVKC+TxT7XGp2WxkSGu9cDdTgPwkPN8twjAyRA0uV4RYEFSnXagbbeSkc+9ZLVaifpg==
   dependencies:
     camelcase "^6.0.0"
     json-schema "^0.2.5"
