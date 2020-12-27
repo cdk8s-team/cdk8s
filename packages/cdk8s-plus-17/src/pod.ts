@@ -127,14 +127,16 @@ export class PodSpec implements IPodSpec {
 
     function addVolume(volume: Volume) {
       const existingVolume = volumes.get(volume.name);
+      // its ok to call this function twice on the same volume, but its not ok to call twice on a different volume
+      // with the same name.
       if (existingVolume && existingVolume !== volume) {
         throw new Error(`Invalid mount configuration. At least two different volumes have the same name: ${volume.name}`);
       }
       volumes.set(volume.name, volume);
     }
 
-    // automatically add volume from the container mount to this pod so thats its available to the container.
-    // make sure there are not inconsistencies between different mounts.
+    // automatically add volume from the container mount
+    // to this pod so thats its available to the container.
     for (const container of this.containers) {
       for (const mount of container.mounts) {
         addVolume(mount.volume);
@@ -142,8 +144,6 @@ export class PodSpec implements IPodSpec {
       containers.push(container._toKube());
     }
 
-    // dont forget the volumes directly added to the pod.
-    // make sure there are no inconsistencies with the volumes coming from mounts.
     for (const volume of this.volumes) {
       addVolume(volume);
     }
@@ -151,7 +151,7 @@ export class PodSpec implements IPodSpec {
     return {
       restartPolicy: this.restartPolicy,
       serviceAccountName: this.serviceAccount?.name,
-      containers: this.containers.map(c => c._toKube()),
+      containers: containers,
       volumes: Array.from(volumes.values()).map(v => v._toKube()),
     };
 
