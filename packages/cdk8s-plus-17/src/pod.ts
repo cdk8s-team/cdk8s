@@ -125,9 +125,9 @@ export class PodSpec implements IPodSpec {
     const volumes: Map<string, Volume> = new Map();
     const containers: k8s.Container[] = [];
 
-    // automatically add volume from the container mount
-    // to this pod so thats its available to the container.
     for (const container of this.containers) {
+      // automatically add volume from the container mount
+      // to this pod so thats its available to the container.
       for (const mount of container.mounts) {
         addVolume(mount.volume);
       }
