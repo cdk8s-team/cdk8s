@@ -82,7 +82,7 @@ export class PodSpec implements IPodSpec {
     this.serviceAccount = props.serviceAccount;
 
     if (props.containers) {
-      props.containers.map(c => this.addContainer(c));
+      props.containers.forEach(c => this.addContainer(c));
     }
 
     if (props.volumes) {
