@@ -2,6 +2,69 @@ import { Testing, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
 import * as kplus from '../src';
 
+test('fails instantiating with two volumes with the same name', () => {
+
+  const chart = Testing.chart();
+
+  const cm1 = new kplus.ConfigMap(chart, 'cm1', { data: { f1: 'f1-content' } });
+  const cm2 = new kplus.ConfigMap(chart, 'cm2', { data: { f2: 'f2-content' } });
+
+  const v1 = kplus.Volume.fromConfigMap(cm1, { name: 'v' });
+  const v2 = kplus.Volume.fromConfigMap(cm2, { name: 'v' });
+
+  expect(() => new kplus.Pod(chart, 'Pod', { volumes: [v1, v2] })).toThrow('Volume with name v already exists');
+
+});
+
+test('fails adding a volume with the same name', () => {
+
+  const chart = Testing.chart();
+
+  const cm1 = new kplus.ConfigMap(chart, 'cm1', { data: { f1: 'f1-content' } });
+  const cm2 = new kplus.ConfigMap(chart, 'cm2', { data: { f2: 'f2-content' } });
+
+  const v1 = kplus.Volume.fromConfigMap(cm1, { name: 'v' });
+  const v2 = kplus.Volume.fromConfigMap(cm2, { name: 'v' });
+
+  const pod = new kplus.Pod(chart, 'Pod');
+  pod.addVolume(v1);
+
+  expect(() => pod.addVolume(v2)).toThrow('Volume with name v already exists');
+
+});
+
+test('fails instantiating with a container that has two mounts with different volumes of the same name', () => {
+
+  const chart = Testing.chart();
+
+  const cm1 = new kplus.ConfigMap(chart, 'cm1', { data: { f1: 'f1-content' } });
+  const cm2 = new kplus.ConfigMap(chart, 'cm2', { data: { f2: 'f2-content' } });
+
+  const v1 = kplus.Volume.fromConfigMap(cm1, { name: 'v' });
+  const v2 = kplus.Volume.fromConfigMap(cm2, { name: 'v' });
+
+  new kplus.Pod(chart, 'Pod', {
+    containers: [{
+      image: 'nginx',
+      volumeMounts: [
+        {
+          volume: v1,
+          path: 'f1',
+          subPath: 'f1',
+        },
+        {
+          volume: v2,
+          path: 'f2',
+          subPath: 'f2',
+        },
+      ],
+    }],
+  });
+
+  expect(() => Testing.synth(chart)).toThrow('Invalid mount configuration. At least two different volumes have the same name: v');
+
+});
+
 test('multiple mounts per volume', () => {
 
   const chart = Testing.chart();
