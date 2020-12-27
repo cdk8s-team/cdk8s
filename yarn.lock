@@ -6545,10 +6545,10 @@ jsii-diff@^1.16.0:
     typescript "~3.9.7"
     yargs "^16.1.1"
 
-jsii-docgen@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-1.8.0.tgz#ee0ef23b5b32df8bbdadb1bdaef44d16b6b1d394"
-  integrity sha512-PR6es+ND/0D+Of4oGIGVEgq9O1MYZelXIRRARoC2WFXd25Ou6I1CHZBdjnc1KuG5G5Jrbk3OAcwXphkB9B/pUA==
+jsii-docgen@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-1.8.1.tgz#e2527c924fe871a08044e44247a6240535a368e4"
+  integrity sha512-KMEkqE+OsaCCyw/eIKWFJPlkXueyJbehCqZawyQKo7poRiC0XIArhXePYwC6IfaYLXmfan1pjSa8i6YSCrDipw==
   dependencies:
     "@jsii/spec" "^1.9.0"
     fs-extra "^9.0.0"
@@ -6773,10 +6773,10 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
-json2jsii@^0.1.156:
-  version "0.1.156"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.156.tgz#c596c4407777cfca1c9c9826d8e38dc9b7ac2a67"
-  integrity sha512-K25SkOf62N+1vrrfvX7jVKC+TxT7XGp2WxkSGu9cDdTgPwkPN8twjAyRA0uV4RYEFSnXagbbeSkc+9ZLVaifpg==
+json2jsii@^0.1.157:
+  version "0.1.157"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.157.tgz#0ee5609940005769424d5de34a58f8e4cc7e8fa3"
+  integrity sha512-8cUWt0SiTwpgRTiWzD5qUDzp1vldc40A9Pxy6ekQxDM/g0EDhj8RpO7jvxVAFImz089tualZkAAU5RYYHs9elQ==
   dependencies:
     camelcase "^6.0.0"
     json-schema "^0.2.5"
