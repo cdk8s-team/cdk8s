@@ -2,7 +2,7 @@ import { Testing, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
 import * as kplus from '../src';
 
-test('fails instantiating with two volumes with the same name', () => {
+test('fails with two volumes with the same name', () => {
 
   const chart = Testing.chart();
 
@@ -33,7 +33,7 @@ test('fails adding a volume with the same name', () => {
 
 });
 
-test('fails instantiating with a container that has two mounts with different volumes of the same name', () => {
+test('fails with a container that has mounts with different volumes of the same name', () => {
 
   const chart = Testing.chart();
 
@@ -65,7 +65,7 @@ test('fails instantiating with a container that has two mounts with different vo
 
 });
 
-test('multiple mounts per volume', () => {
+test('can configure multiple mounts with the same volume', () => {
 
   const chart = Testing.chart();
 
