@@ -125,16 +125,6 @@ export class PodSpec implements IPodSpec {
     const volumes: Map<string, Volume> = new Map();
     const containers: k8s.Container[] = [];
 
-    function addVolume(volume: Volume) {
-      const existingVolume = volumes.get(volume.name);
-      // its ok to call this function twice on the same volume, but its not ok to call twice on a different volume
-      // with the same name.
-      if (existingVolume && existingVolume !== volume) {
-        throw new Error(`Invalid mount configuration. At least two different volumes have the same name: ${volume.name}`);
-      }
-      volumes.set(volume.name, volume);
-    }
-
     // automatically add volume from the container mount
     // to this pod so thats its available to the container.
     for (const container of this.containers) {
@@ -146,6 +136,16 @@ export class PodSpec implements IPodSpec {
 
     for (const volume of this.volumes) {
       addVolume(volume);
+    }
+
+    function addVolume(volume: Volume) {
+      const existingVolume = volumes.get(volume.name);
+      // its ok to call this function twice on the same volume, but its not ok to call twice on a different volume
+      // with the same name.
+      if (existingVolume && existingVolume !== volume) {
+        throw new Error(`Invalid mount configuration. At least two different volumes have the same name: ${volume.name}`);
+      }
+      volumes.set(volume.name, volume);
     }
 
     return {
