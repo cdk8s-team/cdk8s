@@ -10,7 +10,7 @@ const MAX_DOWNLOAD_BUFFER = 10 * 1024 * 1024;
 // Ensure that all strings are quoted when written to yaml to avoid unquoted
 // primitive types in the output yaml in fields that require strings.
 YAML.scalarOptions.str.defaultType = Type.QUOTE_DOUBLE;
-// YAML.scalarOptions.str.fold = { lineWidth: 0, minContentWidth: 0 };
+YAML.scalarOptions.str.fold = { lineWidth: 0, minContentWidth: 0 };
 
 /**
  * YAML utilities.

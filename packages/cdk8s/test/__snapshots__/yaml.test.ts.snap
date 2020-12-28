@@ -300,7 +300,7 @@ hello:
 exports[`save strings are not folded 1`] = `
 "\\"abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef\\"
 ---
-\\"abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefa\\"
+\\"abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef\\"
 "
 `;
 

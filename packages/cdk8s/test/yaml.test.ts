@@ -83,7 +83,7 @@ describe('save', () => {
     const seedString = 'abcdef';
     const repeatTime = 13;
     const shortString = seedString.repeat(repeatTime);
-    const longString = shortString + 'a';
+    const longString = shortString + seedString;
     const outputFile = Yaml.tmp([
       shortString, longString,
     ]);
