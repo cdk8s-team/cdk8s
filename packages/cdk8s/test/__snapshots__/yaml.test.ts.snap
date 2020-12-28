@@ -297,13 +297,6 @@ hello:
 "
 `;
 
-exports[`save strings are not folded 1`] = `
-"\\"abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef\\"
----
-\\"abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef\\"
-"
-`;
-
 exports[`save strings are quoted 1`] = `
 "foo: \\"on\\"
 bar: \\"this has a \\\\\\"big quote\\\\\\"\\"

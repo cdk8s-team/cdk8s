@@ -80,15 +80,13 @@ describe('save', () => {
   });
 
   test('strings are not folded', () => {
-    const seedString = 'abcdef';
-    const repeatTime = 13;
-    const shortString = seedString.repeat(repeatTime);
-    const longString = shortString + seedString;
-    const outputFile = Yaml.tmp([
-      shortString, longString,
-    ]);
-
-    expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
+    const longStringList = [
+      '^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|' +
+      '(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|' +
+      '(\d*(\.\d*)?ns))+|infinity|infinite)$',
+    ];
+    const dumpPath = Yaml.tmp(longStringList);
+    expect(fs.readFileSync(dumpPath, 'utf8').trimEnd()).not.toContain('\n');
   });
 });
 
