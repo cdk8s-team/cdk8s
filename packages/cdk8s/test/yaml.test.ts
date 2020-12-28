@@ -79,6 +79,17 @@ describe('save', () => {
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
   });
 
+  test('strings are not folded', () => {
+    const seedString = 'abcdef';
+    const repeatTime = 13;
+    const shortString = seedString.repeat(repeatTime);
+    const longString = shortString + 'a';
+    const outputFile = Yaml.tmp([
+      shortString, longString,
+    ]);
+
+    expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
+  });
 });
 
 test('yaml 1.1 octal numbers are parsed correctly', () => {
