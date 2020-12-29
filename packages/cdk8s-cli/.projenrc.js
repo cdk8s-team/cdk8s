@@ -11,7 +11,7 @@ const project = new TypeScriptLibraryProject({
   deps: [
     'cdk8s@^0.0.0',
     'codemaker',
-    `constructs`,
+    'constructs',
     'fs-extra',
     'jsii-srcmak',
     'jsii-pacmak',

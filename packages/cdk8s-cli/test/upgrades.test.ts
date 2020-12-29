@@ -1,7 +1,7 @@
-import * as fs from 'fs-extra';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { Yaml } from 'cdk8s';
+import * as fs from 'fs-extra';
 import { getLatestVersion } from '../src/upgrades';
 
 describe('getLatestVersion', () => {
@@ -125,40 +125,40 @@ describe('getLatestVersion', () => {
   });
 
   test('fail to write to local cache', () => {
-      // GIVEN
-      yamlLoad.mockReturnValue([{ version: '43.12.13' }]);
-      jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {
-        throw new Error('unable to write file');
-      });
+    // GIVEN
+    yamlLoad.mockReturnValue([{ version: '43.12.13' }]);
+    jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {
+      throw new Error('unable to write file');
+    });
 
-      // WHEN
-      const result = getLatestVersion('dummy-module', {
-        cacheFile, cacheTtlSec: 30
-      });
+    // WHEN
+    const result = getLatestVersion('dummy-module', {
+      cacheFile, cacheTtlSec: 30,
+    });
 
-      // THEN
-      expect(fs.existsSync(cacheFile)).toBeFalsy();
-      expect(result).toBe('43.12.13');
+    // THEN
+    expect(fs.existsSync(cacheFile)).toBeFalsy();
+    expect(result).toBe('43.12.13');
   });
 
   test('fails to download & to write to local cache', () => {
-      // GIVEN
-      yamlLoad.mockImplementation(() => {
-        throw new Error('unable to download');
-      });
-      
-      jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {
-        throw new Error('unable to write file');
-      });
+    // GIVEN
+    yamlLoad.mockImplementation(() => {
+      throw new Error('unable to download');
+    });
 
-      // WHEN
-      const result = getLatestVersion('dummy-module', {
-        cacheFile, cacheTtlSec: 30
-      });
+    jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {
+      throw new Error('unable to write file');
+    });
 
-      // THEN
-      expect(fs.existsSync(cacheFile)).toBeFalsy();
-      expect(result).toBeUndefined();
-  })
+    // WHEN
+    const result = getLatestVersion('dummy-module', {
+      cacheFile, cacheTtlSec: 30,
+    });
+
+    // THEN
+    expect(fs.existsSync(cacheFile)).toBeFalsy();
+    expect(result).toBeUndefined();
+  });
 });
 
