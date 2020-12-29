@@ -79,7 +79,7 @@ describe('save', () => {
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
   });
 
-  test('escaped character does not divided by cross line boundries', () => {
+  test('escaped character does not divided by cross line boundaries', () => {
     const longStringList = [
       '^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|' +
       '(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|' +
