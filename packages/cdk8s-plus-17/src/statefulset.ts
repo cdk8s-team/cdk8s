@@ -4,7 +4,7 @@ import { Resource, ResourceProps } from './base';
 import { Container, ContainerProps } from './container';
 import * as k8s from './imports/k8s';
 import { RestartPolicy, PodTemplate, IPodTemplate, PodTemplateProps } from './pod';
-import { Service, ServiceProps, ServiceType } from './service';
+import { Service } from './service';
 import { IServiceAccount } from './service-account';
 import { Volume } from './volume';
 
@@ -18,6 +18,11 @@ export enum PodManagementPolicy {
  * Properties for initialization of `StatefulSet`.
  */
 export interface StatefulSetProps extends ResourceProps, PodTemplateProps {
+  /**
+   * Service to associate with the statefulset.    
+   */
+  readonly service: Service;  
+
   /**
     * Number of desired pods.
     *
@@ -40,30 +45,7 @@ export interface StatefulSetProps extends ResourceProps, PodTemplateProps {
     *
     * @default PodManagementPolicy.ORDERED_READY
     */
-  readonly podManagementPolicy?: PodManagementPolicy;
-
-  /**
-    * Details of service to create and expose.
-    *
-    * @default undefined - allocate a default service based upon servicePort and serviceName.
-    */
-  readonly service?: ServiceProps;
-
-  /**
-    * Default port to expose if service doesn't includes ports.
-    *
-    * Must set this or include ports in service props.
-    *
-    * @default undefined
-    */
-  readonly servicePort?: number;
-
-  /**
-    * Name to use for the service to allow finding it in DNS.
-    *
-    * @default undefined
-    */
-  readonly serviceName?: string;
+  readonly podManagementPolicy?: PodManagementPolicy;  
 }
 
 /**
@@ -113,25 +95,15 @@ export class StatefulSet extends Resource implements IPodTemplate {
 
   private readonly _service: Service;
 
-  constructor(scope: Construct, id: string, props: StatefulSetProps = {}) {
+  constructor(scope: Construct, id: string, props: StatefulSetProps) {
     super(scope, id, { metadata: props.metadata });
 
     this.apiObject = new k8s.KubeStatefulSet(this, 'Resource', {
       metadata: props.metadata,
       spec: Lazy.any({ produce: () => this._toKube() }),
     });
+    this._service = props.service;
 
-    if (!props.servicePort && !props.service?.ports) {
-      throw new Error('Cannot build a stateful set with a Service without ports.');
-    }
-
-    this._service = new Service(this, 'Service', {
-      metadata: props.serviceName ? { name: props.serviceName } : undefined,
-      type: props.service?.type ?? ServiceType.CLUSTER_IP,
-      clusterIP: props.service?.clusterIP,
-      ports:
-            props.service?.ports ?? (props.servicePort != null ? [{ port: props.servicePort }] : []),
-    });
     this.apiObject.addDependency(this._service);
 
     this.replicas = props.replicas ?? 1;

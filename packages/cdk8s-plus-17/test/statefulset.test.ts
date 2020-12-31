@@ -5,8 +5,9 @@ import * as kplus from '../src';
 test('defaultChild', () => {
 
   const chart = Testing.chart();
-
-  const defaultChild = Node.of(new kplus.StatefulSet(chart, 'StatefulSet', { servicePort: 80 })).defaultChild as ApiObject;
+  
+  const service = new kplus.Service(chart, 'test_service', {ports: [{port: 80}] });
+  const defaultChild = Node.of(new kplus.StatefulSet(chart, 'StatefulSet', { service })).defaultChild as ApiObject;
 
   expect(defaultChild.kind).toEqual('StatefulSet');
 
@@ -16,7 +17,9 @@ test('A label selector is automatically allocated', () => {
 
   const chart = Testing.chart();
 
-  const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', { servicePort: 80 });
+  const service = new kplus.Service(chart, 'test_service', {ports: [{port: 80}] });
+
+  const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', { service });
   statefulset.addContainer({ image: 'foobar' });
 
   const expectedValue = 'test-StatefulSet-c809b559';
@@ -36,10 +39,11 @@ test('No selector is generated if "defaultSelector" is false', () => {
 
   const chart = Testing.chart();
 
+  const service = new kplus.Service(chart, 'test_service', {ports: [{port: 80}] });
   const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', {
     defaultSelector: false,
     containers: [{ image: 'foobar' }],
-    servicePort: 80,
+    service: service,
   });
 
   // assert the k8s spec doesnt have it.
@@ -56,6 +60,7 @@ test('Can select by label', () => {
 
   const chart = Testing.chart();
 
+  const service = new kplus.Service(chart, 'test_service', {ports: [{port: 80}] });
   const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', {
     containers: [
       {
@@ -63,7 +68,7 @@ test('Can select by label', () => {
       },
     ],
     defaultSelector: false,
-    servicePort: 80,
+    service,
   });
 
   const expectedSelector = { foo: 'bar' };
@@ -83,9 +88,10 @@ test('StatefulSet gets defaults', () => {
 
   const chart = Testing.chart();
 
+  const service = new kplus.Service(chart, 'test_service', {ports: [{port: 80}] });
   new kplus.StatefulSet(chart, 'StatefulSet', {
     containers: [{ image: 'image' }],
-    servicePort: 9200,
+    service,
   });
 
   const resources = Testing.synth(chart);
@@ -97,7 +103,7 @@ test('StatefulSet gets defaults', () => {
 
   expect(srv_spec.type).toEqual(kplus.ServiceType.CLUSTER_IP);
   expect(srv_spec.clusterIP).toBeUndefined();
-  expect(srv_spec.ports![0].port).toEqual(9200);
+  expect(srv_spec.ports![0].port).toEqual(80);
 });
 
 
@@ -105,15 +111,16 @@ test('StatefulSet allows overrides', () => {
 
   const chart = Testing.chart();
 
+  const service = new kplus.Service(chart, 'test_service', {
+    metadata: {name: 'test-srv'},
+    type: kplus.ServiceType.NODE_PORT,
+    ports: [{port: 9000, targetPort: 9900}] 
+  });
   new kplus.StatefulSet(chart, 'StatefulSet', {
     containers: [{ image: 'image' }],
     replicas: 5,
-    podManagementPolicy: kplus.PodManagementPolicy.PARALLEL,
-    serviceName: 'test-srv',
-    service: {
-      type: kplus.ServiceType.NODE_PORT,
-      ports: [{ port: 9000, targetPort: 9900 }],
-    },
+    podManagementPolicy: kplus.PodManagementPolicy.PARALLEL,    
+    service
   });
 
   const resources = Testing.synth(chart);
@@ -132,7 +139,8 @@ test('Synthesizes spec lazily', () => {
 
   const chart = Testing.chart();
 
-  const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', { servicePort: 9300 });
+  const service = new kplus.Service(chart, 'test_service', {ports: [{port: 9300}]});
+  const statefulset = new kplus.StatefulSet(chart, 'StatefulSet', { service });
   statefulset.addContainer(
     {
       image: 'image',

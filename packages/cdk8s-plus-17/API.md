@@ -1356,7 +1356,7 @@ __Extends__: [Resource](#cdk8s-plus-17-resource)
 
 
 ```ts
-new StatefulSet(scope: Construct, id: string, props?: StatefulSetProps)
+new StatefulSet(scope: Construct, id: string, props: StatefulSetProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
@@ -1368,12 +1368,10 @@ new StatefulSet(scope: Construct, id: string, props?: StatefulSetProps)
   * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
   * **volumes** (<code>Array<[Volume](#cdk8s-plus-17-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
   * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The pod metadata. __*Optional*__
+  * **service** (<code>[Service](#cdk8s-plus-17-service)</code>)  Service to associate with the statefulset. 
   * **defaultSelector** (<code>boolean</code>)  Automatically allocates a pod selector for this statefulset. __*Default*__: true
   * **podManagementPolicy** (<code>[PodManagementPolicy](#cdk8s-plus-17-podmanagementpolicy)</code>)  Pod management policy to use for this statefulset. __*Default*__: PodManagementPolicy.ORDERED_READY
   * **replicas** (<code>number</code>)  Number of desired pods. __*Default*__: 1
-  * **service** (<code>[ServiceProps](#cdk8s-plus-17-serviceprops)</code>)  Details of service to create and expose. __*Default*__: undefined - allocate a default service based upon servicePort and serviceName.
-  * **serviceName** (<code>string</code>)  Name to use for the service to allow finding it in DNS. __*Default*__: undefined
-  * **servicePort** (<code>number</code>)  Default port to expose if service doesn't includes ports. __*Default*__: undefined
 
 
 
@@ -1384,7 +1382,7 @@ Name | Type | Description
 -----|------|-------------
 **apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
 **containers**🔹 | <code>Array<[Container](#cdk8s-plus-17-container)></code> | The containers belonging to the pod.
-**labelSelector**🔹 | <code>Map<string, string></code> | The labels this deployment will match against in order to select pods.
+**labelSelector**🔹 | <code>Map<string, string></code> | The labels this statefulset will match against in order to select pods.
 **podManagementPolicy**🔹 | <code>[PodManagementPolicy](#cdk8s-plus-17-podmanagementpolicy)</code> | Management policy to use for the set.
 **podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides read/write access to the underlying pod metadata of the resource.
 **replicas**🔹 | <code>number</code> | Number of desired pods.
@@ -2222,6 +2220,7 @@ Properties for initialization of `StatefulSet`.
 
 Name | Type | Description 
 -----|------|-------------
+**service**🔹 | <code>[Service](#cdk8s-plus-17-service)</code> | Service to associate with the statefulset.
 **containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-17-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
 **defaultSelector**?🔹 | <code>boolean</code> | Automatically allocates a pod selector for this statefulset.<br/>__*Default*__: true
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
@@ -2229,10 +2228,7 @@ Name | Type | Description
 **podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__
 **replicas**?🔹 | <code>number</code> | Number of desired pods.<br/>__*Default*__: 1
 **restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-17-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
-**service**?🔹 | <code>[ServiceProps](#cdk8s-plus-17-serviceprops)</code> | Details of service to create and expose.<br/>__*Default*__: undefined - allocate a default service based upon servicePort and serviceName.
 **serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
-**serviceName**?🔹 | <code>string</code> | Name to use for the service to allow finding it in DNS.<br/>__*Default*__: undefined
-**servicePort**?🔹 | <code>number</code> | Default port to expose if service doesn't includes ports.<br/>__*Default*__: undefined
 **volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-17-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/>__*Default*__: No volumes.
 
 
