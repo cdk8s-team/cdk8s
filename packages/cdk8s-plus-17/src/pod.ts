@@ -74,15 +74,21 @@ export class PodSpec implements IPodSpec {
   public readonly restartPolicy?: RestartPolicy;
   public readonly serviceAccount?: IServiceAccount;
 
-  private readonly _containers: Container[];
-  private readonly _volumes: Volume[];
+  private readonly _containers: Container[] = [];
+  private readonly _volumes: Map<string, Volume> = new Map();
 
   constructor(props: PodSpecProps = {}) {
     this.restartPolicy = props.restartPolicy;
     this.serviceAccount = props.serviceAccount;
 
-    this._containers = props.containers?.map(c => new Container(c)) ?? [];
-    this._volumes = props.volumes ?? [];
+    if (props.containers) {
+      props.containers.forEach(c => this.addContainer(c));
+    }
+
+    if (props.volumes) {
+      props.volumes.forEach(v => this.addVolume(v));
+    }
+
   }
 
   public get containers(): Container[] {
@@ -90,7 +96,7 @@ export class PodSpec implements IPodSpec {
   }
 
   public get volumes(): Volume[] {
-    return [...this._volumes];
+    return Array.from(this._volumes.values());
   }
 
   public addContainer(container: ContainerProps): Container {
@@ -100,7 +106,11 @@ export class PodSpec implements IPodSpec {
   }
 
   public addVolume(volume: Volume): void {
-    this._volumes.push(volume);
+    const existingVolume = this._volumes.get(volume.name);
+    if (existingVolume) {
+      throw new Error(`Volume with name ${volume.name} already exists`);
+    }
+    this._volumes.set(volume.name, volume);
   }
 
   /**
@@ -112,29 +122,37 @@ export class PodSpec implements IPodSpec {
       throw new Error('PodSpec must have at least 1 container');
     }
 
-    const volumes: k8s.Volume[] = [];
+    const volumes: Map<string, Volume> = new Map();
     const containers: k8s.Container[] = [];
 
     for (const container of this.containers) {
-
       // automatically add volume from the container mount
       // to this pod so thats its available to the container.
       for (const mount of container.mounts) {
-        volumes.push(mount.volume._toKube());
+        addVolume(mount.volume);
       }
-
       containers.push(container._toKube());
     }
 
-    for (const volume of this._volumes) {
-      volumes.push(volume._toKube());
+    for (const volume of this.volumes) {
+      addVolume(volume);
+    }
+
+    function addVolume(volume: Volume) {
+      const existingVolume = volumes.get(volume.name);
+      // its ok to call this function twice on the same volume, but its not ok to
+      // call it twice on a different volume with the same name.
+      if (existingVolume && existingVolume !== volume) {
+        throw new Error(`Invalid mount configuration. At least two different volumes have the same name: ${volume.name}`);
+      }
+      volumes.set(volume.name, volume);
     }
 
     return {
       restartPolicy: this.restartPolicy,
       serviceAccountName: this.serviceAccount?.name,
       containers: containers,
-      volumes: volumes,
+      volumes: Array.from(volumes.values()).map(v => v._toKube()),
     };
 
   }

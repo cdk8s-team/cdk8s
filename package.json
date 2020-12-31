@@ -32,11 +32,11 @@
   },
   "devDependencies": {
     "changelog-parser": "^2.8.0",
-    "jsii-release": "^0.2.3",
+    "jsii-release": "^0.2.9",
     "lerna": "^3.22.1",
-    "semver": "7.3.2",
-    "standard-version": "^9.0.0",
-    "npm-check-updates": "10.2.1"
+    "npm-check-updates": "10.2.5",
+    "semver": "7.3.4",
+    "standard-version": "^9.0.0"
   },
   "jest": {
     "clearMocks": true,
