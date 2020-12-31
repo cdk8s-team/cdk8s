@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as cdk8s from 'cdk8s';
 import { Construct } from 'constructs';
-import * as minimatch from 'minimatch';
+import minimatch = require('minimatch');
 import { ResourceProps, Resource, IResource } from './base';
 import * as k8s from './imports/k8s';
 import { undefinedIfEmpty } from './utils';

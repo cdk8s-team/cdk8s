@@ -1,5 +1,5 @@
 import { Construct, IConstruct, Node } from 'constructs';
-import * as stringify from 'json-stable-stringify';
+import stringify = require('json-stable-stringify');
 import { resolve } from './_resolve';
 import { sanitizeValue } from './_util';
 import { Chart } from './chart';
