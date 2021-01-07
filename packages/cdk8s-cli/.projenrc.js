@@ -19,6 +19,8 @@ const project = new TypeScriptLibraryProject({
     'yaml',
     'yargs',
     'json2jsii',
+    'colors',
+
     // add @types/node as a regular dependency since it's needed to during "import"
     // to compile the generated jsii code.
     '@types/node',

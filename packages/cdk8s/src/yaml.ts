@@ -5,6 +5,8 @@ import * as path from 'path';
 import * as YAML from 'yaml';
 import { Type } from 'yaml/util';
 
+const MAX_DOWNLOAD_BUFFER = 10 * 1024 * 1024;
+
 // Ensure that all strings are quoted when written to yaml to avoid unquoted
 // primitive types in the output yaml in fields that require strings.
 YAML.scalarOptions.str.defaultType = Type.QUOTE_DOUBLE;
@@ -85,5 +87,8 @@ export class Yaml {
  */
 function loadurl(url: string): string {
   const script = path.join(__dirname, '_loadurl.js');
-  return execFileSync(process.execPath, [script, url], { encoding: 'utf-8' }).toString();
+  return execFileSync(process.execPath, [script, url], {
+    encoding: 'utf-8',
+    maxBuffer: MAX_DOWNLOAD_BUFFER,
+  }).toString();
 }

@@ -6,16 +6,17 @@ import * as path from 'path';
 import { parse } from 'url';
 import * as fs from 'fs-extra';
 
-export async function shell(program: string, args: string[] = [], options: SpawnOptions = { }) {
+export async function shell(program: string, args: string[] = [], options: SpawnOptions = { }): Promise<string> {
   const command = `"${program} ${args.join(' ')}" at ${path.resolve(options.cwd ?? '.')}`;
   return new Promise((ok, ko) => {
-    const child = spawn(program, args, { stdio: 'inherit', ...options });
-    child.once('error', err => {
-      throw new Error(`command ${command} failed: ${err}`);
-    });
+    const child = spawn(program, args, { stdio: ['inherit', 'pipe', 'inherit'], ...options });
+    const data = new Array<Buffer>();
+    child.stdout.on('data', chunk => data.push(chunk));
+
+    child.once('error', err => ko(new Error(`command ${command} failed: ${err}`)));
     child.once('exit', code => {
       if (code === 0) {
-        return ok();
+        return ok(Buffer.concat(data).toString('utf-8'));
       } else {
         return ko(new Error(`command ${command} returned a non-zero exit code ${code}`));
       }
