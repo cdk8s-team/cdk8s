@@ -278,7 +278,7 @@ empty_object: {}
 `;
 
 exports[`save multiple documents 1`] = `
-"foo: \\"bar\\"
+"foo: bar
 hello:
   - 1
   - 2
@@ -289,7 +289,7 @@ number: 2
 `;
 
 exports[`save single document 1`] = `
-"foo: \\"bar\\"
+"foo: bar
 hello:
   - 1
   - 2
@@ -299,7 +299,7 @@ hello:
 
 exports[`save strings are quoted 1`] = `
 "foo: \\"on\\"
-bar: \\"this has a \\\\\\"big quote\\\\\\"\\"
+bar: this has a \\"big quote\\"
 not_a_string: true
 "
 `;
