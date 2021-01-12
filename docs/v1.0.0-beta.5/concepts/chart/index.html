@@ -1016,9 +1016,9 @@
                 
                 <h1 id="chart">Chart<a class="headerlink" href="#chart" title="Permanent link">&para;</a></h1>
 <p>The <code>Chart</code> is a container that synthesizes a single Kubernetes manifest.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nx">MyChart</span> <span class="kr">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">MyChart</span> <span class="k">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
   <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">ns</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">ns</span><span class="p">);</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">ns</span><span class="p">);</span>
 
     <span class="c1">// add contents here</span>
   <span class="p">}</span>
@@ -1028,9 +1028,9 @@
 emit a single YAML manifest that includes all these objects.</p>
 <p>When a chart is defined, you can specify chart-level <code>namespace</code> and <code>labels</code>.
 Those will be applied to all API objects defined within the chart (recursively):</p>
-<div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nx">MyChart</span> <span class="kr">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">MyChart</span> <span class="k">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
   <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">ns</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">ns</span><span class="p">,</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">ns</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">namespace</span><span class="o">:</span> <span class="s1">&#39;my-namespace&#39;</span><span class="p">,</span>
       <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">app</span><span class="o">:</span> <span class="s1">&#39;my-app&#39;</span><span class="p">,</span>

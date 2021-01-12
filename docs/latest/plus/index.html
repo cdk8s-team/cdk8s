@@ -1121,32 +1121,32 @@ any spec version higher or equal to <code>1.17.0</code>. <strong>Non-stable</str
 <p>If you are deploying manifests produced by <code>cdk8s-plus-17</code> onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.</p>
 </div>
 <h2 id="at-a-glance">At a glance<a class="headerlink" href="#at-a-glance" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">path</span> <span class="nx">from</span> <span class="s1">&#39;path&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">path</span> <span class="nx">from</span> <span class="s1">&#39;path&#39;</span><span class="p">;</span>
 
 <span class="c1">// our cdk app</span>
-<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 
 <span class="c1">// our kuberentes chart</span>
-<span class="kr">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;my-chart&#39;</span><span class="p">);</span>
 
 <span class="c1">// lets create a volume that contains our app.</span>
 <span class="c1">// we use a trick with a config map!</span>
-<span class="kr">const</span> <span class="nx">appData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;AppData&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">appData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;AppData&#39;</span><span class="p">);</span>
 <span class="nx">appData</span><span class="p">.</span><span class="nx">addDirectory</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;app&#39;</span><span class="p">));</span>
 
-<span class="kr">const</span> <span class="nx">appVolume</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">appData</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">appVolume</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">appData</span><span class="p">);</span>
 
 <span class="c1">// lets create a deployment to run a few instances of a pod</span>
-<span class="kr">const</span> <span class="nx">deployment</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Deployment&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">deployment</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Deployment&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">replicas</span>: <span class="kt">3</span><span class="p">,</span>
 <span class="p">});</span>
 
 <span class="c1">// now we create a container that runs our app</span>
-<span class="kr">const</span> <span class="nx">appPath</span> <span class="o">=</span> <span class="s1">&#39;/var/lib/app&#39;</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">deployment</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
+<span class="kd">const</span> <span class="nx">appPath</span> <span class="o">=</span> <span class="s1">&#39;/var/lib/app&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="mf">80</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">deployment</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
   <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;node:14.4.0-alpine3.12&#39;</span><span class="p">,</span>
   <span class="nx">command</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;index.js&#39;</span><span class="p">,</span> <span class="sb">`</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">],</span>
   <span class="nx">port</span>: <span class="kt">port</span><span class="p">,</span>
@@ -1157,7 +1157,7 @@ any spec version higher or equal to <code>1.17.0</code>. <strong>Non-stable</str
 <span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="nx">appPath</span><span class="p">,</span> <span class="nx">appVolume</span><span class="p">);</span>
 
 <span class="c1">// finally, we expose the deployment as a load balancer service and make it run</span>
-<span class="nx">deployment</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="mi">8080</span><span class="p">,</span> <span class="p">{</span><span class="nx">serviceType</span>: <span class="kt">kplus.ServiceType.LOAD_BALANCER</span><span class="p">})</span>
+<span class="nx">deployment</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="mf">8080</span><span class="p">,</span> <span class="p">{</span><span class="nx">serviceType</span>: <span class="kt">kplus.ServiceType.LOAD_BALANCER</span><span class="p">})</span>
 
 <span class="c1">// we are done, synth</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
@@ -1235,11 +1235,11 @@ any spec version higher or equal to <code>1.17.0</code>. <strong>Non-stable</str
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">TypeScript/JavaScript</label><div class="tabbed-content">
 <p><code>❯ npm install cdk8s-plus-17 cdk8s</code></p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
-<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kr">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
 <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Deployment&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">replicas</span>: <span class="kt">3</span><span class="p">,</span>

@@ -1026,7 +1026,7 @@ Ingress resource has no effect.</p>
 <p>The following example will route HTTP requests sent to the <code>/hello</code> url prefix
 to a service associated with a deployment of the
 <a href="https://github.com/hashicorp/http-echo">hashicorp/http-echo</a> image.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">helloDeployment</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">text</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">helloDeployment</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">text</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">containers</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;hashicorp/http-echo&#39;</span><span class="p">,</span>
@@ -1035,9 +1035,9 @@ to a service associated with a deployment of the
   <span class="p">]</span>
 <span class="p">});</span>
 
-<span class="kr">const</span> <span class="nx">helloService</span> <span class="o">=</span> <span class="nx">helloDeployment</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="mi">5678</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">helloService</span> <span class="o">=</span> <span class="nx">helloDeployment</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="mf">5678</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">ingress</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IngressV1Beta1</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">ingress</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IngressV1Beta1</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
 <span class="nx">ingress</span><span class="p">.</span><span class="nx">addRule</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">,</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">IngressV1Beta1Backend</span><span class="p">.</span><span class="nx">fromService</span><span class="p">(</span><span class="nx">helloService</span><span class="p">));</span>
 </code></pre></div>
 <p>You can use <code>addHostRule(host, path, backend)</code> to define a route that will only

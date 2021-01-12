@@ -4000,7 +4000,7 @@ sequences that are not in the UTF-8 range.</p>
 </ul>
 <h4 id="static-fromconfigmapnamename"><em>static</em> fromConfigMapName(name)🔹 <a id="cdk8s-plus-17-configmap-fromconfigmapname"></a><a class="headerlink" href="#static-fromconfigmapnamename" title="Permanent link">&para;</a></h4>
 <p>Represents a ConfigMap created elsewhere.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromConfigMapName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">IConfigMap</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromConfigMapName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">IConfigMap</span>
 </code></pre></div>
 <ul>
 <li><strong>name</strong> (<code>string</code>)  The name of the config map to import.</li>
@@ -4282,7 +4282,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <h3 id="methods_3">Methods<a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h3>
 <h4 id="static-fromconfigmapconfigmap-key-options"><em>static</em> fromConfigMap(configMap, key, options?)🔹 <a id="cdk8s-plus-17-envvalue-fromconfigmap"></a><a class="headerlink" href="#static-fromconfigmapconfigmap-key-options" title="Permanent link">&para;</a></h4>
 <p>Create a value by reading a specific key inside a config map.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span>: <span class="kt">IConfigMap</span><span class="p">,</span> <span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromConfigMapOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span>: <span class="kt">IConfigMap</span><span class="p">,</span> <span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromConfigMapOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
 </code></pre></div>
 <ul>
 <li><strong>configMap</strong> (<code><a href="#cdk8s-plus-17-iconfigmap">IConfigMap</a></code>)  - The config map.</li>
@@ -4294,7 +4294,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 * <code><a href="#cdk8s-plus-17-envvalue">EnvValue</a></code></p>
 <h4 id="static-fromprocesskey-options"><em>static</em> fromProcess(key, options?)🔹 <a id="cdk8s-plus-17-envvalue-fromprocess"></a><a class="headerlink" href="#static-fromprocesskey-options" title="Permanent link">&para;</a></h4>
 <p>Create a value from a key in the current process environment.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromProcess</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromProcessOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromProcess</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromProcessOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The key to read.</li>
@@ -4305,7 +4305,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 * <code><a href="#cdk8s-plus-17-envvalue">EnvValue</a></code></p>
 <h4 id="static-fromsecretvaluesecretvalue-options"><em>static</em> fromSecretValue(secretValue, options?)🔹 <a id="cdk8s-plus-17-envvalue-fromsecretvalue"></a><a class="headerlink" href="#static-fromsecretvaluesecretvalue-options" title="Permanent link">&para;</a></h4>
 <p>Defines an environment value from a secret JSON value.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromSecretValue</span><span class="p">(</span><span class="nx">secretValue</span>: <span class="kt">SecretValue</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromSecretOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromSecretValue</span><span class="p">(</span><span class="nx">secretValue</span>: <span class="kt">SecretValue</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EnvValueFromSecretOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
 </code></pre></div>
 <ul>
 <li><strong>secretValue</strong> (<code><a href="#cdk8s-plus-17-secretvalue">SecretValue</a></code>)  The secret value (secrent + key).</li>
@@ -4316,7 +4316,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 * <code><a href="#cdk8s-plus-17-envvalue">EnvValue</a></code></p>
 <h4 id="static-fromvaluevalue"><em>static</em> fromValue(value)🔹 <a id="cdk8s-plus-17-envvalue-fromvalue"></a><a class="headerlink" href="#static-fromvaluevalue" title="Permanent link">&para;</a></h4>
 <p>Create a value from the given argument.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromValue</span><span class="p">(</span><span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromValue</span><span class="p">(</span><span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">EnvValue</span>
 </code></pre></div>
 <ul>
 <li><strong>value</strong> (<code>string</code>)  - The value.</li>
@@ -4409,7 +4409,7 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 <p>(deprecated) Validate the current construct.</p>
 <p>This method can be implemented by derived constructs in order to perform
 validation logic. It is called on all constructs before synthesis.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">protected</span> <span class="nx">onValidate</span><span class="p">()</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="k">protected</span> <span class="nx">onValidate</span><span class="p">()</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
 </code></pre></div>
 <p><strong>Returns</strong>:
 * <code>Array<string></code></p>
@@ -4418,7 +4418,7 @@ validation logic. It is called on all constructs before synthesis.</p>
 <h3 id="methods_5">Methods<a class="headerlink" href="#methods_5" title="Permanent link">&para;</a></h3>
 <h4 id="static-fromserviceservice-options"><em>static</em> fromService(service, options?)🔹 <a id="cdk8s-plus-17-ingressv1beta1backend-fromservice"></a><a class="headerlink" href="#static-fromserviceservice-options" title="Permanent link">&para;</a></h4>
 <p>A Kubernetes <code>Service</code> to use as the backend for this path.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromService</span><span class="p">(</span><span class="nx">service</span>: <span class="kt">Service</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServiceIngressV1BetaBackendOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">IngressV1Beta1Backend</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromService</span><span class="p">(</span><span class="nx">service</span>: <span class="kt">Service</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServiceIngressV1BetaBackendOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">IngressV1Beta1Backend</span>
 </code></pre></div>
 <ul>
 <li><strong>service</strong> (<code><a href="#cdk8s-plus-17-service">Service</a></code>)  The service object.</li>
@@ -4738,7 +4738,7 @@ created by clients and scheduled onto hosts.</p>
 <h3 id="methods_9">Methods<a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h3>
 <h4 id="static-fromcommandcommand-options"><em>static</em> fromCommand(command, options?)🔹 <a id="cdk8s-plus-17-probe-fromcommand"></a><a class="headerlink" href="#static-fromcommandcommand-options" title="Permanent link">&para;</a></h4>
 <p>Defines a probe based on a command which is executed within the container.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromCommand</span><span class="p">(</span><span class="nx">command</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">CommandProbeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Probe</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromCommand</span><span class="p">(</span><span class="nx">command</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">CommandProbeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Probe</span>
 </code></pre></div>
 <ul>
 <li><strong>command</strong> (<code>Array<string></code>)  The command to execute.</li>
@@ -4753,7 +4753,7 @@ created by clients and scheduled onto hosts.</p>
 * <code><a href="#cdk8s-plus-17-probe">Probe</a></code></p>
 <h4 id="static-fromhttpgetpath-options"><em>static</em> fromHttpGet(path, options?)🔹 <a id="cdk8s-plus-17-probe-fromhttpget"></a><a class="headerlink" href="#static-fromhttpgetpath-options" title="Permanent link">&para;</a></h4>
 <p>Defines a probe based on an HTTP GET request to the IP address of the container.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromHttpGet</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">HttpGetProbeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Probe</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromHttpGet</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">HttpGetProbeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Probe</span>
 </code></pre></div>
 <ul>
 <li><strong>path</strong> (<code>string</code>)  The URL path to hit.</li>
@@ -4865,7 +4865,7 @@ definition or in a container image.</p>
 * <code>string</code></p>
 <h4 id="static-fromsecretnamename"><em>static</em> fromSecretName(name)🔹 <a id="cdk8s-plus-17-secret-fromsecretname"></a><a class="headerlink" href="#static-fromsecretnamename" title="Permanent link">&para;</a></h4>
 <p>Imports a secret from the cluster as a reference.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromSecretName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">ISecret</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromSecretName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">ISecret</span>
 </code></pre></div>
 <ul>
 <li><strong>name</strong> (<code>string</code>)  The name of the secret to reference.</li>
@@ -5031,7 +5031,7 @@ example, default).</p>
 </ul>
 <h4 id="static-fromserviceaccountnamename"><em>static</em> fromServiceAccountName(name)🔹 <a id="cdk8s-plus-17-serviceaccount-fromserviceaccountname"></a><a class="headerlink" href="#static-fromserviceaccountnamename" title="Permanent link">&para;</a></h4>
 <p>Imports a service account from the cluster as a reference.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromServiceAccountName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">IServiceAccount</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromServiceAccountName</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">IServiceAccount</span>
 </code></pre></div>
 <ul>
 <li><strong>name</strong> (<code>string</code>)  The name of the service account resource.</li>
@@ -5098,7 +5098,7 @@ in a Pod.</p>
 <p>When referencing a configMap object, you can simply provide its name in the
 volume to reference it. You can also customize the path to use for a
 specific entry in the ConfigMap.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span>: <span class="kt">IConfigMap</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ConfigMapVolumeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Volume</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span>: <span class="kt">IConfigMap</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ConfigMapVolumeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Volume</span>
 </code></pre></div>
 <ul>
 <li><strong>configMap</strong> (<code><a href="#cdk8s-plus-17-iconfigmap">IConfigMap</a></code>)  The config map to use to populate the volume.</li>
@@ -5117,7 +5117,7 @@ initially empty. Containers in the Pod can all read and write the same
 files in the emptyDir volume, though that volume can be mounted at the same
 or different paths in each Container. When a Pod is removed from a node for
 any reason, the data in the emptyDir is deleted forever.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">static</span> <span class="nx">fromEmptyDir</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EmptyDirVolumeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Volume</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">fromEmptyDir</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">EmptyDirVolumeOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Volume</span>
 </code></pre></div>
 <ul>
 <li><strong>name</strong> (<code>string</code>)  <em>No description</em></li>
