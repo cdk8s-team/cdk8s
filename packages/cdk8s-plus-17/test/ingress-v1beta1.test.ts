@@ -426,4 +426,51 @@ describe('Ingress', () => {
     expect(() => ingress.addRule('bad/path', IngressV1Beta1Backend.fromService(service))).toThrow(/ingress paths must begin with a "\/": bad\/path/);
   });
 
-});
+  test('ssl redirectmethod', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const service = new Service(chart, 'my-service');
+    service.serve(4000);
+
+    // WHEN
+    new IngressV1Beta1(chart, 'my-ingress', {
+      rules: [
+        { backend: IngressV1Beta1Backend.fromService(service) }, // default backend
+        { host: 'foo.bar', backend: IngressV1Beta1Backend.fromService(service) },
+        { path: '/just/path', backend: IngressV1Beta1Backend.fromService(service) },
+        { host: 'host.and', path: '/path', backend: IngressV1Beta1Backend.fromService(service) },
+        { host: 'host.and', path: '/path/2', backend: IngressV1Beta1Backend.fromService(service) },
+        { host: 'host.and', path: '/*', backend: IngressV1Beta1Backend.sslRedirect() }, // ssl-redirect
+      ],
+    });
+
+    // THEN
+    const expectedBackend = { serviceName: 'test-my-service-c8493104', servicePort: 4000 };
+    expect(Testing.synth(chart).filter(x => x.kind === 'Ingress')).toEqual([
+      {
+        apiVersion: 'networking.k8s.io/v1beta1',
+        kind: 'Ingress',
+        metadata: {
+          name: 'test-my-ingress-c8135042',
+        },
+        spec: {
+          backend: expectedBackend,
+          rules: [
+            { host: 'foo.bar', http: { paths: [{ backend: expectedBackend }] } },
+            { host: 'foo.bar', http: { paths: [{ backend: expectedBackend }] } },
+            { http: { paths: [{ path: '/just/path', backend: expectedBackend }] } },
+            {
+              host: 'host.and',
+              http: {
+                paths: [
+                  { path: '/path', backend: expectedBackend },
+                  { path: '/path/2', backend: expectedBackend },
+                  { path: 'ssl-redirect', backend: 'use-annotation'},
+                ],
+              },
+            },
+          ],
+        },
+      },
+    ]);
+  });

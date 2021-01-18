@@ -665,6 +665,18 @@ static fromService(service: Service, options?: ServiceIngressV1BetaBackendOption
 __Returns__:
 * <code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>
 
+#### *static* sslRedirect()🔹 <a id="cdk8s-plus-17-ingressv1beta1backend-sslredirect"></a>
+
+Redirect Traffic from HTTP to HTTPS At AWS LoadBalancer Controller, Using the alb.ingress.kubernetes.io/actions.${action-name} annotation to setup an ingress to redirect http traffic into https and return ssl Readirect rule to Ingress.
+
+```ts
+static sslRedirect(): IngressV1Beta1Backend
+```
+
+
+__Returns__:
+* <code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>
+
 
 
 ## class Job 🔹 <a id="cdk8s-plus-17-job"></a>

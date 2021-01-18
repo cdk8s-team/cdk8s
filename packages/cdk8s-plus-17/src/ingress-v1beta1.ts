@@ -219,6 +219,17 @@ export class IngressV1Beta1Backend {
       servicePort,
     });
   }
+  /**
+   * Redirect Traffic from HTTP to HTTPS At AWS LoadBalancer Controller,
+   * Using the alb.ingress.kubernetes.io/actions.${action-name} annotation to setup an ingress to redirect http traffic into https
+   * and return ssl Readirect rule to Ingress.
+   */
+  public static sslRedirect() {
+    return new IngressV1Beta1Backend({
+      serviceName: 'ssl-redirect',
+      servicePort: 'use-annotation',
+    })
+  }
 
   private constructor(private readonly backend: k8s.IngressBackend) {
 
