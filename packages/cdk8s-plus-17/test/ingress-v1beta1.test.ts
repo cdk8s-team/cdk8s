@@ -438,9 +438,9 @@ describe('Ingress', () => {
         { backend: IngressV1Beta1Backend.fromService(service) }, // default backend
         { host: 'foo.bar', backend: IngressV1Beta1Backend.fromService(service) },
         { path: '/just/path', backend: IngressV1Beta1Backend.fromService(service) },
+        { host: 'host.and', path: '/*', backend: IngressV1Beta1Backend.sslRedirect() }, // ssl-redirect
         { host: 'host.and', path: '/path', backend: IngressV1Beta1Backend.fromService(service) },
         { host: 'host.and', path: '/path/2', backend: IngressV1Beta1Backend.fromService(service) },
-        { host: 'host.and', path: '/*', backend: IngressV1Beta1Backend.sslRedirect() }, // ssl-redirect
       ],
     });
 
@@ -457,15 +457,14 @@ describe('Ingress', () => {
           backend: expectedBackend,
           rules: [
             { host: 'foo.bar', http: { paths: [{ backend: expectedBackend }] } },
-            { host: 'foo.bar', http: { paths: [{ backend: expectedBackend }] } },
             { http: { paths: [{ path: '/just/path', backend: expectedBackend }] } },
             {
               host: 'host.and',
               http: {
                 paths: [
+                  { path: '/*', backend: { serviceName: 'ssl-redirect', servicePort: 'use-annotation' } },
                   { path: '/path', backend: expectedBackend },
                   { path: '/path/2', backend: expectedBackend },
-                  { path: 'ssl-redirect', backend: 'use-annotation'},
                 ],
               },
             },

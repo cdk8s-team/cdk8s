@@ -228,7 +228,7 @@ export class IngressV1Beta1Backend {
     return new IngressV1Beta1Backend({
       serviceName: 'ssl-redirect',
       servicePort: 'use-annotation',
-    })
+    });
   }
 
   private constructor(private readonly backend: k8s.IngressBackend) {
