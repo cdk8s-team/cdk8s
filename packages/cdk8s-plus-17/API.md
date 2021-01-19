@@ -79,7 +79,7 @@ Name|Description
 [EmptyDirMedium](#cdk8s-plus-17-emptydirmedium)|The medium on which to store the volume.
 [ImagePullPolicy](#cdk8s-plus-17-imagepullpolicy)|*No description*
 [MountPropagation](#cdk8s-plus-17-mountpropagation)|*No description*
-[PodManagementPolicy](#cdk8s-plus-17-podmanagementpolicy)|*No description*
+[PodManagementPolicy](#cdk8s-plus-17-podmanagementpolicy)|Controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
 [Protocol](#cdk8s-plus-17-protocol)|*No description*
 [RestartPolicy](#cdk8s-plus-17-restartpolicy)|Restart policy for all containers within the pod.
 [ServiceType](#cdk8s-plus-17-servicetype)|For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that's outside of your cluster.
@@ -2285,7 +2285,14 @@ Name | Description
 
 ## enum PodManagementPolicy 🔹 <a id="cdk8s-plus-17-podmanagementpolicy"></a>
 
+Controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
 
+The default policy is `OrderedReady`, where pods are created in increasing order
+(pod-0, then pod-1, etc) and the controller will wait until each pod is ready before
+continuing. When scaling down, the pods are removed in the opposite order.
+
+The alternative policy is `Parallel` which will create pods in parallel to match the
+desired scale without waiting, and on scale down will delete all pods at once.
 
 Name | Description
 -----|-----
