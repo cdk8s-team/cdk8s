@@ -1,4 +1,4 @@
-# Custom Resource Definition Import Example (in Python!)
+# Custom Resource Definition Import Example (in Java!)
 
 This example application defines a Kubernetes app that uses a bunch of
 CustomResourceDefinitions (CRDs).
