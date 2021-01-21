@@ -32,16 +32,16 @@ const project = new JsiiProject({
   ],
 
   // jsii configuration
-  java: {
+  publishToMaven: {
     javaPackage: 'org.cdk8s',
     mavenGroupId: 'org.cdk8s',
     mavenArtifactId: 'cdk8s',
   },
-  python: {
+  publishToPypi: {
     distName: 'cdk8s',
     module: 'cdk8s',
   },
-  dotnet: {
+  publishToNuget: {
     dotNetNamespace: 'Org.Cdk8s',
     packageId: 'Org.Cdk8s',
   },
