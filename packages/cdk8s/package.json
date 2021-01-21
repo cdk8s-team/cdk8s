@@ -37,7 +37,7 @@
     "@types/yaml": "^1.9.6",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
-    "constructs": "3.2.110",
+    "constructs": "3.2.109",
     "eslint": "^6.8.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.3.0",
@@ -56,7 +56,7 @@
     "typescript": "~3.9.7"
   },
   "peerDependencies": {
-    "constructs": "^3.2.110"
+    "constructs": "^3.2.109"
   },
   "dependencies": {
     "fast-json-patch": "^3.0.0-1",

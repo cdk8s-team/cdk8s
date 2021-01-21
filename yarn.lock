@@ -2814,10 +2814,10 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs@3.2.110, constructs@^3.2.110:
-  version "3.2.110"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.2.110.tgz#096de50952029511f13f7d0493385290577bb12a"
-  integrity sha512-c1obaTQ3NjRErSIF8aG6AE63Xgo/fHzRD5XVIRNfEccWGo/qlhcTBplF7/sgtIXRSgGjQ+/cuT9GRd2dCAgY4w==
+constructs@3.2.109:
+  version "3.2.109"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.2.109.tgz#54b6bd91d70584614c2f830d8428cf217ba17ebf"
+  integrity sha512-5/CNcH+EBslsmuKF2ZLptZWSpXAdNj4KRLz8ndNhjCppkSFn6nDY8mJ9ewsBXwZs9ZAI4YjEBP/SA6Vf8/7mOQ==
 
 contains-path@^0.1.0:
   version "0.1.0"
