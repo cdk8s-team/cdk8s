@@ -41,6 +41,7 @@
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.3.0",
     "eslint-plugin-import": "^2.22.1",
+    "constructs": "3.2.34",
     "jest": "^26.6.3",
     "jest-junit": "^12",
     "json-schema": "^0.3.0",
