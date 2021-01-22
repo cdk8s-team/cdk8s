@@ -19,6 +19,7 @@ Name|Description
 [Secret](#cdk8s-plus-17-secret)|Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
 [Service](#cdk8s-plus-17-service)|An abstract way to expose an application running on a set of Pods as a network service.
 [ServiceAccount](#cdk8s-plus-17-serviceaccount)|A service account provides an identity for processes that run in a Pod.
+[StatefulSet](#cdk8s-plus-17-statefulset)|StatefulSet is the workload API object used to manage stateful applications.
 [Volume](#cdk8s-plus-17-volume)|Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
 
@@ -55,6 +56,7 @@ Name|Description
 [ServicePort](#cdk8s-plus-17-serviceport)|Definition of a service port.
 [ServicePortOptions](#cdk8s-plus-17-serviceportoptions)|*No description*
 [ServiceProps](#cdk8s-plus-17-serviceprops)|Properties for initialization of `Service`.
+[StatefulSetProps](#cdk8s-plus-17-statefulsetprops)|Properties for initialization of `StatefulSet`.
 [VolumeMount](#cdk8s-plus-17-volumemount)|Mount a volume from the pod to the container.
 
 
@@ -77,6 +79,7 @@ Name|Description
 [EmptyDirMedium](#cdk8s-plus-17-emptydirmedium)|The medium on which to store the volume.
 [ImagePullPolicy](#cdk8s-plus-17-imagepullpolicy)|*No description*
 [MountPropagation](#cdk8s-plus-17-mountpropagation)|*No description*
+[PodManagementPolicy](#cdk8s-plus-17-podmanagementpolicy)|Controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
 [Protocol](#cdk8s-plus-17-protocol)|*No description*
 [RestartPolicy](#cdk8s-plus-17-restartpolicy)|Restart policy for all containers within the pod.
 [ServiceType](#cdk8s-plus-17-servicetype)|For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that's outside of your cluster.
@@ -1025,7 +1028,7 @@ resource.
 
 __Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-17-iresource)
 __Extends__: [Construct](#constructs-construct)
-__Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-plus-17-deployment), [IngressV1Beta1](#cdk8s-plus-17-ingressv1beta1), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [Secret](#cdk8s-plus-17-secret), [Service](#cdk8s-plus-17-service), [ServiceAccount](#cdk8s-plus-17-serviceaccount)
+__Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-plus-17-deployment), [IngressV1Beta1](#cdk8s-plus-17-ingressv1beta1), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [Secret](#cdk8s-plus-17-secret), [Service](#cdk8s-plus-17-service), [ServiceAccount](#cdk8s-plus-17-serviceaccount), [StatefulSet](#cdk8s-plus-17-statefulset)
 
 ### Initializer
 
@@ -1316,6 +1319,135 @@ static fromServiceAccountName(name: string): IServiceAccount
 
 __Returns__:
 * <code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code>
+
+
+
+## class StatefulSet 🔹 <a id="cdk8s-plus-17-statefulset"></a>
+
+StatefulSet is the workload API object used to manage stateful applications.
+
+Manages the deployment and scaling of a set of Pods, and provides guarantees
+about the ordering and uniqueness of these Pods.
+
+Like a Deployment, a StatefulSet manages Pods that are based on an identical
+container spec. Unlike a Deployment, a StatefulSet maintains a sticky identity
+for each of their Pods. These pods are created from the same spec, but are not
+interchangeable: each has a persistent identifier that it maintains across any
+rescheduling.
+
+If you want to use storage volumes to provide persistence for your workload, you
+can use a StatefulSet as part of the solution. Although individual Pods in a StatefulSet
+are susceptible to failure, the persistent Pod identifiers make it easier to match existing
+volumes to the new Pods that replace any that have failed.
+
+Using StatefulSets
+------------------
+StatefulSets are valuable for applications that require one or more of the following.
+
+- Stable, unique network identifiers.
+- Stable, persistent storage.
+- Ordered, graceful deployment and scaling.
+- Ordered, automated rolling updates.
+
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdk8s-plus-17-iresource), [IPodTemplate](#cdk8s-plus-17-ipodtemplate), [IPodSpec](#cdk8s-plus-17-ipodspec)
+__Extends__: [Resource](#cdk8s-plus-17-resource)
+
+### Initializer
+
+
+
+
+```ts
+new StatefulSet(scope: Construct, id: string, props: StatefulSetProps)
+```
+
+* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
+* **id** (<code>string</code>)  *No description*
+* **props** (<code>[StatefulSetProps](#cdk8s-plus-17-statefulsetprops)</code>)  *No description*
+  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+  * **containers** (<code>Array<[ContainerProps](#cdk8s-plus-17-containerprops)></code>)  List of containers belonging to the pod. __*Default*__: No containers. Note that a pod spec must include at least one container.
+  * **restartPolicy** (<code>[RestartPolicy](#cdk8s-plus-17-restartpolicy)</code>)  Restart policy for all containers within the pod. __*Default*__: RestartPolicy.ALWAYS
+  * **serviceAccount** (<code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code>)  A service account provides an identity for processes that run in a Pod. __*Default*__: No service account.
+  * **volumes** (<code>Array<[Volume](#cdk8s-plus-17-volume)></code>)  List of volumes that can be mounted by containers belonging to the pod. __*Default*__: No volumes.
+  * **podMetadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  The pod metadata. __*Optional*__
+  * **service** (<code>[Service](#cdk8s-plus-17-service)</code>)  Service to associate with the statefulset. 
+  * **defaultSelector** (<code>boolean</code>)  Automatically allocates a pod selector for this statefulset. __*Default*__: true
+  * **podManagementPolicy** (<code>[PodManagementPolicy](#cdk8s-plus-17-podmanagementpolicy)</code>)  Pod management policy to use for this statefulset. __*Default*__: PodManagementPolicy.ORDERED_READY
+  * **replicas** (<code>number</code>)  Number of desired pods. __*Default*__: 1
+
+
+
+### Properties
+
+
+Name | Type | Description 
+-----|------|-------------
+**apiObject**🔹 | <code>[ApiObject](#cdk8s-apiobject)</code> | The underlying cdk8s API object.
+**containers**🔹 | <code>Array<[Container](#cdk8s-plus-17-container)></code> | The containers belonging to the pod.
+**labelSelector**🔹 | <code>Map<string, string></code> | The labels this statefulset will match against in order to select pods.
+**podManagementPolicy**🔹 | <code>[PodManagementPolicy](#cdk8s-plus-17-podmanagementpolicy)</code> | Management policy to use for the set.
+**podMetadata**🔹 | <code>[ApiObjectMetadataDefinition](#cdk8s-apiobjectmetadatadefinition)</code> | Provides read/write access to the underlying pod metadata of the resource.
+**replicas**🔹 | <code>number</code> | Number of desired pods.
+**volumes**🔹 | <code>Array<[Volume](#cdk8s-plus-17-volume)></code> | The volumes associated with this pod.
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-17-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Optional*__
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code> | The service account used to run this pod.<br/>__*Optional*__
+
+### Methods
+
+
+#### addContainer(container)🔹 <a id="cdk8s-plus-17-statefulset-addcontainer"></a>
+
+Add a container to the pod.
+
+```ts
+addContainer(container: ContainerProps): Container
+```
+
+* **container** (<code>[ContainerProps](#cdk8s-plus-17-containerprops)</code>)  *No description*
+  * **image** (<code>string</code>)  Docker image name. 
+  * **args** (<code>Array<string></code>)  Arguments to the entrypoint. The docker image's CMD is used if `command` is not provided. __*Default*__: []
+  * **command** (<code>Array<string></code>)  Entrypoint array. __*Default*__: The docker image's ENTRYPOINT.
+  * **env** (<code>Map<string, [EnvValue](#cdk8s-plus-17-envvalue)></code>)  List of environment variables to set in the container. __*Default*__: No environment variables.
+  * **imagePullPolicy** (<code>[ImagePullPolicy](#cdk8s-plus-17-imagepullpolicy)</code>)  Image pull policy for this container. __*Default*__: ImagePullPolicy.ALWAYS
+  * **liveness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Periodic probe of container liveness. __*Default*__: no liveness probe is defined
+  * **name** (<code>string</code>)  Name of the container specified as a DNS_LABEL. __*Default*__: 'main'
+  * **port** (<code>number</code>)  Number of port to expose on the pod's IP address. __*Default*__: No port is exposed.
+  * **readiness** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  Determines when the container is ready to serve traffic. __*Default*__: no readiness probe is defined
+  * **startup** (<code>[Probe](#cdk8s-plus-17-probe)</code>)  StartupProbe indicates that the Pod has successfully initialized. __*Default*__: no startup probe is defined.
+  * **volumeMounts** (<code>Array<[VolumeMount](#cdk8s-plus-17-volumemount)></code>)  Pod volumes to mount into the container's filesystem. __*Optional*__
+  * **workingDir** (<code>string</code>)  Container's working directory. __*Default*__: The container runtime's default.
+
+__Returns__:
+* <code>[Container](#cdk8s-plus-17-container)</code>
+
+#### addVolume(volume)🔹 <a id="cdk8s-plus-17-statefulset-addvolume"></a>
+
+Add a volume to the pod.
+
+```ts
+addVolume(volume: Volume): void
+```
+
+* **volume** (<code>[Volume](#cdk8s-plus-17-volume)</code>)  *No description*
+
+
+
+
+#### selectByLabel(key, value)🔹 <a id="cdk8s-plus-17-statefulset-selectbylabel"></a>
+
+Configure a label selector to this deployment.
+
+Pods that have the label will be selected by deployments configured with this spec.
+
+```ts
+selectByLabel(key: string, value: string): void
+```
+
+* **key** (<code>string</code>)  - The label key.
+* **value** (<code>string</code>)  - The label value.
+
+
+
 
 
 
@@ -1639,7 +1771,7 @@ Name | Type | Description
 
 ## interface IPodSpec 🔹 <a id="cdk8s-plus-17-ipodspec"></a>
 
-__Implemented by__: [Deployment](#cdk8s-plus-17-deployment), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [PodSpec](#cdk8s-plus-17-podspec), [PodTemplate](#cdk8s-plus-17-podtemplate)
+__Implemented by__: [Deployment](#cdk8s-plus-17-deployment), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [PodSpec](#cdk8s-plus-17-podspec), [PodTemplate](#cdk8s-plus-17-podtemplate), [StatefulSet](#cdk8s-plus-17-statefulset)
 
 Represents a resource that can be configured with a kuberenets pod spec. (e.g `Deployment`, `Job`, `Pod`, ...).
 
@@ -1700,7 +1832,7 @@ addVolume(volume: Volume): void
 
 ## interface IPodTemplate 🔹 <a id="cdk8s-plus-17-ipodtemplate"></a>
 
-__Implemented by__: [Deployment](#cdk8s-plus-17-deployment), [Job](#cdk8s-plus-17-job), [PodTemplate](#cdk8s-plus-17-podtemplate)
+__Implemented by__: [Deployment](#cdk8s-plus-17-deployment), [Job](#cdk8s-plus-17-job), [PodTemplate](#cdk8s-plus-17-podtemplate), [StatefulSet](#cdk8s-plus-17-statefulset)
 
 Represents a resource that can be configured with a kuberenets pod template. (e.g `Deployment`, `Job`, ...).
 
@@ -1762,7 +1894,7 @@ addVolume(volume: Volume): void
 
 ## interface IResource 🔹 <a id="cdk8s-plus-17-iresource"></a>
 
-__Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-plus-17-deployment), [IngressV1Beta1](#cdk8s-plus-17-ingressv1beta1), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [Secret](#cdk8s-plus-17-secret), [Service](#cdk8s-plus-17-service), [ServiceAccount](#cdk8s-plus-17-serviceaccount)
+__Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-plus-17-deployment), [IngressV1Beta1](#cdk8s-plus-17-ingressv1beta1), [Job](#cdk8s-plus-17-job), [Pod](#cdk8s-plus-17-pod), [Secret](#cdk8s-plus-17-secret), [Service](#cdk8s-plus-17-service), [ServiceAccount](#cdk8s-plus-17-serviceaccount), [StatefulSet](#cdk8s-plus-17-statefulset)
 
 Represents a resource.
 
@@ -2082,6 +2214,28 @@ Name | Type | Description
 
 
 
+## struct StatefulSetProps 🔹 <a id="cdk8s-plus-17-statefulsetprops"></a>
+
+
+Properties for initialization of `StatefulSet`.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**service**🔹 | <code>[Service](#cdk8s-plus-17-service)</code> | Service to associate with the statefulset.
+**containers**?🔹 | <code>Array<[ContainerProps](#cdk8s-plus-17-containerprops)></code> | List of containers belonging to the pod.<br/>__*Default*__: No containers. Note that a pod spec must include at least one container.
+**defaultSelector**?🔹 | <code>boolean</code> | Automatically allocates a pod selector for this statefulset.<br/>__*Default*__: true
+**metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
+**podManagementPolicy**?🔹 | <code>[PodManagementPolicy](#cdk8s-plus-17-podmanagementpolicy)</code> | Pod management policy to use for this statefulset.<br/>__*Default*__: PodManagementPolicy.ORDERED_READY
+**podMetadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | The pod metadata.<br/>__*Optional*__
+**replicas**?🔹 | <code>number</code> | Number of desired pods.<br/>__*Default*__: 1
+**restartPolicy**?🔹 | <code>[RestartPolicy](#cdk8s-plus-17-restartpolicy)</code> | Restart policy for all containers within the pod.<br/>__*Default*__: RestartPolicy.ALWAYS
+**serviceAccount**?🔹 | <code>[IServiceAccount](#cdk8s-plus-17-iserviceaccount)</code> | A service account provides an identity for processes that run in a Pod.<br/>__*Default*__: No service account.
+**volumes**?🔹 | <code>Array<[Volume](#cdk8s-plus-17-volume)></code> | List of volumes that can be mounted by containers belonging to the pod.<br/>__*Default*__: No volumes.
+
+
+
 ## struct VolumeMount 🔹 <a id="cdk8s-plus-17-volumemount"></a>
 
 
@@ -2130,6 +2284,23 @@ Name | Description
 **NONE** 🔹|This volume mount will not receive any subsequent mounts that are mounted to this volume or any of its subdirectories by the host.
 **HOST_TO_CONTAINER** 🔹|This volume mount will receive all subsequent mounts that are mounted to this volume or any of its subdirectories.
 **BIDIRECTIONAL** 🔹|This volume mount behaves the same the HostToContainer mount.
+
+
+## enum PodManagementPolicy 🔹 <a id="cdk8s-plus-17-podmanagementpolicy"></a>
+
+Controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
+
+The default policy is `OrderedReady`, where pods are created in increasing order
+(pod-0, then pod-1, etc) and the controller will wait until each pod is ready before
+continuing. When scaling down, the pods are removed in the opposite order.
+
+The alternative policy is `Parallel` which will create pods in parallel to match the
+desired scale without waiting, and on scale down will delete all pods at once.
+
+Name | Description
+-----|-----
+**ORDERED_READY** 🔹|
+**PARALLEL** 🔹|
 
 
 ## enum Protocol 🔹 <a id="cdk8s-plus-17-protocol"></a>
