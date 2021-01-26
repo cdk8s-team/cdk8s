@@ -19,6 +19,9 @@ Object {
           "namespace": "Org.Cdk8s",
           "packageId": "Org.Cdk8s",
         },
+        "go": Object {
+          "moduleName": "github.com/awslabs/cdk8s-go/cdk8s",
+        },
         "java": Object {
           "maven": Object {
             "artifactId": "cdk8s",

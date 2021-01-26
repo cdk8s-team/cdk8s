@@ -33,10 +33,10 @@
     "@types/follow-redirects": "^1.13.0",
     "@types/jest": "^26.0.19",
     "@types/json-stable-stringify": "^1.0.32",
-    "@types/node": "^10.17.50",
+    "@types/node": "^10.17.0",
     "@types/yaml": "^1.9.6",
-    "@typescript-eslint/eslint-plugin": "^4.11.1",
-    "@typescript-eslint/parser": "^4.11.1",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
     "constructs": "3.2.109",
     "eslint": "^6.8.0",
     "eslint-import-resolver-node": "^0.3.4",
@@ -50,8 +50,8 @@
     "jsii-pacmak": "^1.17.1",
     "json-schema": "^0.3.0",
     "json-schema-to-typescript": "^8.2.0",
-    "standard-version": "^9.1.0",
-    "projen": "^0.15.9",
+    "projen": "^0.15.13",
+    "standard-version": "^9.0.0",
     "ts-jest": "^26.4.4",
     "typescript": "~3.9.7"
   },
@@ -140,6 +140,9 @@
       "dotnet": {
         "namespace": "Org.Cdk8s",
         "packageId": "Org.Cdk8s"
+      },
+      "go": {
+        "moduleName": "github.com/awslabs/cdk8s-go/cdk8s"
       }
     },
     "tsc": {
