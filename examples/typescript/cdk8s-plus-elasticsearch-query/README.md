@@ -42,7 +42,7 @@ Before you can apply the manifest, you need to install the Elasticsearch Operato
 
 To apply the manifest to your Kubernetes cluster, run:
 
-`kubectl apply -f dist/elasticsearchquery.k8s.yaml`
+`kubectl apply -f dist/elasticsearch-query.k8s.yaml`
 
 ## Indexing Data
 
