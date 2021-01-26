@@ -45,6 +45,9 @@ const project = new JsiiProject({
     dotNetNamespace: 'Org.Cdk8s',
     packageId: 'Org.Cdk8s',
   },
+  publishToGo: {
+    moduleName: 'github.com/awslabs/cdk8s-go/cdk8s'
+  }
 });
 
 common.fixup(project);
