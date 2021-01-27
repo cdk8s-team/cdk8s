@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.6](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2021-01-21)
+
+
+### Features
+
+* **cli:** new version notifications ([#454](https://github.com/awslabs/cdk8s/issues/454)) ([065756e](https://github.com/awslabs/cdk8s/commit/065756ef89afa938cc120f3af83b23851e06098d)), closes [#452](https://github.com/awslabs/cdk8s/issues/452)
+* **plus-17:** Add type option for secrets in kplus. ([#425](https://github.com/awslabs/cdk8s/issues/425)) ([28d660f](https://github.com/awslabs/cdk8s/commit/28d660f6d252de26268d3eb72060580894de3e21))
+
+
+### Bug Fixes
+
+* set yaml default schema to 1.1 ([#505](https://github.com/awslabs/cdk8s/issues/505)) ([266c094](https://github.com/awslabs/cdk8s/commit/266c094b19231e3beea836a6d77842954077d4f1))
+* **docs:** correct logo paths ([#503](https://github.com/awslabs/cdk8s/issues/503)) ([9426047](https://github.com/awslabs/cdk8s/commit/94260473ef7c7e29799b4368981c8415dbd0fd8f))
+* **plus-17:** adds externalName to service props ([#424](https://github.com/awslabs/cdk8s/issues/424)) ([b4b7c55](https://github.com/awslabs/cdk8s/commit/b4b7c55134ffc14203a58eb72227251225c79cc3))
+* **plus-17:** multiple mounts per volume result in duplicate volumes for pod spec ([#489](https://github.com/awslabs/cdk8s/issues/489)) ([47c913e](https://github.com/awslabs/cdk8s/commit/47c913e1abc026611332fcf03b209adda7aba419))
+
 ## [1.0.0-beta.5](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2020-12-15)
 
 
