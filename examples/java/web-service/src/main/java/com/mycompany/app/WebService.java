@@ -10,22 +10,21 @@ import java.util.Optional;
 
 import org.cdk8s.App;
 import org.cdk8s.Chart;
-import org.cdk8s.ChartOptions;
 
 import imports.k8s.IntOrString;
 import imports.k8s.LabelSelector;
 import imports.k8s.ObjectMeta;
 import imports.k8s.PodTemplateSpec;
-import imports.k8s.Service;
-import imports.k8s.ServiceOptions;
+import imports.k8s.KubeService;
+import imports.k8s.KubeServiceProps;
 import imports.k8s.ServicePort;
 import imports.k8s.ServiceSpec;
 import imports.k8s.DeploymentSpec;
 import imports.k8s.PodSpec;
 import imports.k8s.Container;
 import imports.k8s.ContainerPort;
-import imports.k8s.Deployment;
-import imports.k8s.DeploymentOptions;
+import imports.k8s.KubeDeployment;
+import imports.k8s.KubeDeploymentProps;
 
 /**
  * Hello world!
@@ -60,11 +59,11 @@ public class WebService extends Construct
             .selector(selector)
             .ports(servicePorts)
             .build();
-        final ServiceOptions serviceOptions = new ServiceOptions.Builder()
+        final KubeServiceProps serviceProps = new KubeServiceProps.Builder()
             .spec(serviceSpec)
             .build();
 
-        new Service(this, "service", serviceOptions);
+        new KubeService(this, "service", serviceProps);
 
         // Defining a Deployment
         final LabelSelector labelSelector = new LabelSelector.Builder().matchLabels(selector).build();
@@ -93,11 +92,11 @@ public class WebService extends Construct
             .selector(labelSelector)
             .template(podTemplateSpec)
             .build();
-        final DeploymentOptions deploymentOptions = new DeploymentOptions.Builder()
+        final KubeDeploymentProps deploymentProps = new KubeDeploymentProps.Builder()
             .spec(deploymentSpec)
             .build();
 
-        new Deployment(this, "deployment", deploymentOptions);
+        new KubeDeployment(this, "deployment", deploymentProps);
 
     }
 }

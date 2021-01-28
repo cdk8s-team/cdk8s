@@ -1,0 +1,6 @@
+nodes_modules/
+.settings/
+imports/
+target/
+.classpath
+.project
