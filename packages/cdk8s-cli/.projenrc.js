@@ -1,8 +1,8 @@
-const { TypeScriptLibraryProject, Semver } = require('projen');
+const { TypeScriptProject } = require('projen');
 
 const common = require('../projen-common');
 
-const project = new TypeScriptLibraryProject({
+const project = new TypeScriptProject({
   name: 'cdk8s-cli',
   description: 'CDK for Kubernetes CLI',
   bin: {
