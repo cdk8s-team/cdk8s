@@ -161,3 +161,4 @@ describe('getLatestVersion', () => {
       expect(result).toBeUndefined();
   })
 });
+
