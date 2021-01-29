@@ -40,7 +40,7 @@ class CronTab(
 
         jsii.create(CronTab, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(cls, *, spec: typing.Optional["CronTabSpec"] = None) -> typing.Any:
         """Renders a Kubernetes manifest for "CronTab".
@@ -51,13 +51,13 @@ class CronTab(
         """
         props = CronTabProps(spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "CronTab"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -84,7 +84,7 @@ class CronTabProps:
         :schema: CronTab#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["CronTabSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -132,7 +132,7 @@ class CronTabSpec:
         :schema: CronTabSpec#cronSpec
         """
         result = self._values.get("cron_spec")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def image(self) -> typing.Optional[builtins.str]:
@@ -140,7 +140,7 @@ class CronTabSpec:
         :schema: CronTabSpec#image
         """
         result = self._values.get("image")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -148,7 +148,7 @@ class CronTabSpec:
         :schema: CronTabSpec#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
