@@ -5,12 +5,13 @@
     "type": "git",
     "url": "https://github.com/awslabs/cdk8s.git"
   },
-  "bin": {},
   "scripts": {
     "projen": "npx projen",
     "start": "npx projen start",
     "build": "npx projen build",
+    "clobber": "npx projen clobber",
     "compile": "npx projen compile",
+    "test:compile": "npx projen test:compile",
     "test": "npx projen test",
     "bump": "npx projen bump",
     "release": "npx projen release",
@@ -32,30 +33,30 @@
     "@types/follow-redirects": "^1.13.0",
     "@types/jest": "^26.0.19",
     "@types/json-stable-stringify": "^1.0.32",
-    "@types/node": "^10.17.50",
+    "@types/node": "^10.17.0",
     "@types/yaml": "^1.9.6",
-    "@typescript-eslint/eslint-plugin": "^4.11.0",
-    "@typescript-eslint/parser": "^4.11.0",
-    "constructs": "3.2.34",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "constructs": "3.2.109",
     "eslint": "^6.8.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.3.0",
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.6.3",
     "jest-junit": "^12",
-    "jsii": "^1.16.0",
-    "jsii-diff": "^1.16.0",
-    "jsii-docgen": "^1.8.1",
-    "jsii-pacmak": "^1.16.0",
-    "json-schema": "^0.2.5",
+    "jsii": "^1.17.1",
+    "jsii-diff": "^1.17.1",
+    "jsii-docgen": "^1.8.9",
+    "jsii-pacmak": "^1.17.1",
+    "json-schema": "^0.3.0",
     "json-schema-to-typescript": "^8.2.0",
-    "projen": "^0.6.12",
+    "projen": "^0.15.13",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.4.4",
     "typescript": "~3.9.7"
   },
   "peerDependencies": {
-    "constructs": "^3.2.34"
+    "constructs": "^3.2.109"
   },
   "dependencies": {
     "fast-json-patch": "^3.0.0-1",
@@ -82,8 +83,18 @@
   "license": "Apache-2.0",
   "version": "0.0.0",
   "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
     "clearMocks": true,
     "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "clover",
+      "text"
+    ],
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
@@ -91,9 +102,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
-    "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
+    "watchPathIgnorePatterns": [
+      "/node_modules/"
     ],
     "reporters": [
       "default",
@@ -130,6 +140,9 @@
       "dotnet": {
         "namespace": "Org.Cdk8s",
         "packageId": "Org.Cdk8s"
+      },
+      "go": {
+        "moduleName": "github.com/awslabs/cdk8s-go/cdk8s"
       }
     },
     "tsc": {

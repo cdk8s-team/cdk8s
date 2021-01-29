@@ -10,7 +10,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.109",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -18,6 +18,9 @@ Object {
         "dotnet": Object {
           "namespace": "Org.Cdk8s",
           "packageId": "Org.Cdk8s",
+        },
+        "go": Object {
+          "moduleName": "github.com/awslabs/cdk8s-go/cdk8s",
         },
         "java": Object {
           "maven": Object {
@@ -61,8 +64,15 @@ Object {
   "description": "stableexamplecom",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.17.1 (build 2bac5fd)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecom",
   "repository": Object {
     "type": "git",
@@ -514,7 +524,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.109",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -522,6 +532,9 @@ Object {
         "dotnet": Object {
           "namespace": "Org.Cdk8s",
           "packageId": "Org.Cdk8s",
+        },
+        "go": Object {
+          "moduleName": "github.com/awslabs/cdk8s-go/cdk8s",
         },
         "java": Object {
           "maven": Object {
@@ -565,8 +578,15 @@ Object {
   "description": "elasticsearchk8selasticco",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.17.1 (build 2bac5fd)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "elasticsearchk8selasticco",
   "repository": Object {
     "type": "git",
@@ -4628,7 +4648,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.109",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -4636,6 +4656,9 @@ Object {
         "dotnet": Object {
           "namespace": "Org.Cdk8s",
           "packageId": "Org.Cdk8s",
+        },
+        "go": Object {
+          "moduleName": "github.com/awslabs/cdk8s-go/cdk8s",
         },
         "java": Object {
           "maven": Object {
@@ -4679,8 +4702,15 @@ Object {
   "description": "jenkinsio",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.17.1 (build 2bac5fd)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "jenkinsio",
   "repository": Object {
     "type": "git",
@@ -17445,7 +17475,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.109",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17453,6 +17483,9 @@ Object {
         "dotnet": Object {
           "namespace": "Org.Cdk8s",
           "packageId": "Org.Cdk8s",
+        },
+        "go": Object {
+          "moduleName": "github.com/awslabs/cdk8s-go/cdk8s",
         },
         "java": Object {
           "maven": Object {
@@ -17496,8 +17529,15 @@ Object {
   "description": "stableexamplecom",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.17.1 (build 2bac5fd)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecom",
   "repository": Object {
     "type": "git",
@@ -17737,7 +17777,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.109",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17745,6 +17785,9 @@ Object {
         "dotnet": Object {
           "namespace": "Org.Cdk8s",
           "packageId": "Org.Cdk8s",
+        },
+        "go": Object {
+          "moduleName": "github.com/awslabs/cdk8s-go/cdk8s",
         },
         "java": Object {
           "maven": Object {
@@ -17788,8 +17831,15 @@ Object {
   "description": "stableexamplecom",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.17.1 (build 2bac5fd)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "stableexamplecom",
   "repository": Object {
     "type": "git",
@@ -18241,7 +18291,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.34",
+    "constructs": "3.2.109",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -18249,6 +18299,9 @@ Object {
         "dotnet": Object {
           "namespace": "Org.Cdk8s",
           "packageId": "Org.Cdk8s",
+        },
+        "go": Object {
+          "moduleName": "github.com/awslabs/cdk8s-go/cdk8s",
         },
         "java": Object {
           "maven": Object {
@@ -18292,8 +18345,15 @@ Object {
   "description": "monitoringcoreoscom",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.13.0 (build 385c325)",
+  "jsiiVersion": "1.17.1 (build 2bac5fd)",
   "license": "Apache-2.0",
+  "metadata": Object {
+    "jsii": Object {
+      "pacmak": Object {
+        "hasDefaultInterfaces": true,
+      },
+    },
+  },
   "name": "monitoringcoreoscom",
   "repository": Object {
     "type": "git",

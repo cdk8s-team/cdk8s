@@ -4,7 +4,7 @@ import software.constructs.Construct;
 
 import org.cdk8s.App;
 import org.cdk8s.Chart;
-import org.cdk8s.ChartOptions;
+import org.cdk8s.ChartProps;
 
 /**
  * Hello world!
@@ -16,8 +16,8 @@ public class HelloKube extends Chart
         this(scope, id, null);
     }
 
-    public HelloKube(final Construct scope, final String id, final ChartOptions options) {
-        super(scope, id, options);
+    public HelloKube(final Construct scope, final String id, final ChartProps props) {
+        super(scope, id, props);
 
         final WebServiceOptions helloOptions = new WebServiceOptions.Builder()
             .image("paulbouwer/hello-kubernetes:1.7")
