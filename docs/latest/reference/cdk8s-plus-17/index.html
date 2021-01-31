@@ -5052,6 +5052,7 @@ or load balancer in between your application and the backend Pods.</p>
 <li><strong>clusterIP</strong> (<code>string</code>)  The IP address of the service and is usually assigned randomly by the master. <strong><em>Default</em></strong>: Automatically assigned.</li>
 <li><strong>externalIPs</strong> (<code>Array<string></code>)  A list of IP addresses for which nodes in the cluster will also accept traffic for this service. <strong><em>Default</em></strong>: No external IPs.</li>
 <li><strong>externalName</strong> (<code>string</code>)  The externalName to be used when ServiceType.EXTERNAL_NAME is set. <strong><em>Default</em></strong>: No external name.</li>
+<li><strong>loadBalancerSourceRanges</strong> (<code>Array<string></code>)  A list of CIDR IP addresses, if specified and supported by the platform, will restrict traffic through the cloud-provider load-balancer to the specified client IPs. <strong><em>Optional</em></strong></li>
 <li><strong>ports</strong> (<code>Array&lt;<a href="#cdk8s-plus-17-serviceport">ServicePort</a>&gt;</code>)  The port exposed by this service. <strong><em>Optional</em></strong></li>
 <li><strong>type</strong> (<code><a href="#cdk8s-plus-17-servicetype">ServiceType</a></code>)  Determines how the Service is exposed. <strong><em>Default</em></strong>: ServiceType.ClusterIP</li>
 </ul>
@@ -6561,6 +6562,11 @@ then routed to the backend associated with the matching path.</p>
 <td><strong>externalName</strong>?🔹</td>
 <td><code>string</code></td>
 <td>The externalName to be used when ServiceType.EXTERNAL_NAME is set.<br/><strong><em>Default</em></strong>: No external name.</td>
+</tr>
+<tr>
+<td><strong>loadBalancerSourceRanges</strong>?🔹</td>
+<td><code>Array<string></code></td>
+<td>A list of CIDR IP addresses, if specified and supported by the platform, will restrict traffic through the cloud-provider load-balancer to the specified client IPs.<br/><strong><em>Optional</em></strong></td>
 </tr>
 <tr>
 <td><strong>metadata</strong>?🔹</td>
