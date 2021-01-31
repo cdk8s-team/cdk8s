@@ -60,7 +60,7 @@ class Affinity:
         :schema: io.k8s.api.core.v1.Affinity#nodeAffinity
         """
         result = self._values.get("node_affinity")
-        return result
+        return typing.cast(typing.Optional["NodeAffinity"], result)
 
     @builtins.property
     def pod_affinity(self) -> typing.Optional["PodAffinity"]:
@@ -69,7 +69,7 @@ class Affinity:
         :schema: io.k8s.api.core.v1.Affinity#podAffinity
         """
         result = self._values.get("pod_affinity")
-        return result
+        return typing.cast(typing.Optional["PodAffinity"], result)
 
     @builtins.property
     def pod_anti_affinity(self) -> typing.Optional["PodAntiAffinity"]:
@@ -78,7 +78,7 @@ class Affinity:
         :schema: io.k8s.api.core.v1.Affinity#podAntiAffinity
         """
         result = self._values.get("pod_anti_affinity")
-        return result
+        return typing.cast(typing.Optional["PodAntiAffinity"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -122,7 +122,7 @@ class AggregationRule:
         :schema: io.k8s.api.rbac.v1beta1.AggregationRule#clusterRoleSelectors
         """
         result = self._values.get("cluster_role_selectors")
-        return result
+        return typing.cast(typing.Optional[typing.List["LabelSelector"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -161,7 +161,7 @@ class AllowedCsiDriver:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -200,7 +200,7 @@ class AllowedFlexVolume:
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -252,7 +252,7 @@ class AllowedHostPath:
         :schema: io.k8s.api.policy.v1beta1.AllowedHostPath#pathPrefix
         """
         result = self._values.get("path_prefix")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -261,7 +261,7 @@ class AllowedHostPath:
         :schema: io.k8s.api.policy.v1beta1.AllowedHostPath#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -340,7 +340,7 @@ class ApiServiceSpec:
         """
         result = self._values.get("group_priority_minimum")
         assert result is not None, "Required property 'group_priority_minimum' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def service(self) -> "ServiceReference":
@@ -352,7 +352,7 @@ class ApiServiceSpec:
         """
         result = self._values.get("service")
         assert result is not None, "Required property 'service' is missing"
-        return result
+        return typing.cast("ServiceReference", result)
 
     @builtins.property
     def version_priority(self) -> jsii.Number:
@@ -364,7 +364,7 @@ class ApiServiceSpec:
         """
         result = self._values.get("version_priority")
         assert result is not None, "Required property 'version_priority' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def ca_bundle(self) -> typing.Optional[builtins.str]:
@@ -375,7 +375,7 @@ class ApiServiceSpec:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#caBundle
         """
         result = self._values.get("ca_bundle")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def group(self) -> typing.Optional[builtins.str]:
@@ -384,7 +384,7 @@ class ApiServiceSpec:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#group
         """
         result = self._values.get("group")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def insecure_skip_tls_verify(self) -> typing.Optional[builtins.bool]:
@@ -395,7 +395,7 @@ class ApiServiceSpec:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#insecureSkipTLSVerify
         """
         result = self._values.get("insecure_skip_tls_verify")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def version(self) -> typing.Optional[builtins.str]:
@@ -406,7 +406,7 @@ class ApiServiceSpec:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceSpec#version
         """
         result = self._values.get("version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -451,7 +451,7 @@ class AuditSinkSpec:
         """
         result = self._values.get("policy")
         assert result is not None, "Required property 'policy' is missing"
-        return result
+        return typing.cast("Policy", result)
 
     @builtins.property
     def webhook(self) -> "Webhook":
@@ -461,7 +461,7 @@ class AuditSinkSpec:
         """
         result = self._values.get("webhook")
         assert result is not None, "Required property 'webhook' is missing"
-        return result
+        return typing.cast("Webhook", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -525,7 +525,7 @@ class AwsElasticBlockStoreVolumeSource:
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -536,7 +536,7 @@ class AwsElasticBlockStoreVolumeSource:
         :schema: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def partition(self) -> typing.Optional[jsii.Number]:
@@ -547,7 +547,7 @@ class AwsElasticBlockStoreVolumeSource:
         :schema: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#partition
         """
         result = self._values.get("partition")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -558,7 +558,7 @@ class AwsElasticBlockStoreVolumeSource:
         :schema: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -627,7 +627,7 @@ class AzureDiskVolumeSource:
         """
         result = self._values.get("disk_name")
         assert result is not None, "Required property 'disk_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def disk_uri(self) -> builtins.str:
@@ -637,7 +637,7 @@ class AzureDiskVolumeSource:
         """
         result = self._values.get("disk_uri")
         assert result is not None, "Required property 'disk_uri' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def caching_mode(self) -> typing.Optional[builtins.str]:
@@ -646,7 +646,7 @@ class AzureDiskVolumeSource:
         :schema: io.k8s.api.core.v1.AzureDiskVolumeSource#cachingMode
         """
         result = self._values.get("caching_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -657,7 +657,7 @@ class AzureDiskVolumeSource:
         :schema: io.k8s.api.core.v1.AzureDiskVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def kind(self) -> typing.Optional[builtins.str]:
@@ -668,7 +668,7 @@ class AzureDiskVolumeSource:
         :schema: io.k8s.api.core.v1.AzureDiskVolumeSource#kind
         """
         result = self._values.get("kind")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -681,7 +681,7 @@ class AzureDiskVolumeSource:
         :schema: io.k8s.api.core.v1.AzureDiskVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -740,7 +740,7 @@ class AzureFilePersistentVolumeSource:
         """
         result = self._values.get("secret_name")
         assert result is not None, "Required property 'secret_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def share_name(self) -> builtins.str:
@@ -750,7 +750,7 @@ class AzureFilePersistentVolumeSource:
         """
         result = self._values.get("share_name")
         assert result is not None, "Required property 'share_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -763,7 +763,7 @@ class AzureFilePersistentVolumeSource:
         :schema: io.k8s.api.core.v1.AzureFilePersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_namespace(self) -> typing.Optional[builtins.str]:
@@ -772,7 +772,7 @@ class AzureFilePersistentVolumeSource:
         :schema: io.k8s.api.core.v1.AzureFilePersistentVolumeSource#secretNamespace
         """
         result = self._values.get("secret_namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -826,7 +826,7 @@ class AzureFileVolumeSource:
         """
         result = self._values.get("secret_name")
         assert result is not None, "Required property 'secret_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def share_name(self) -> builtins.str:
@@ -836,7 +836,7 @@ class AzureFileVolumeSource:
         """
         result = self._values.get("share_name")
         assert result is not None, "Required property 'share_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -849,7 +849,7 @@ class AzureFileVolumeSource:
         :schema: io.k8s.api.core.v1.AzureFileVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -908,7 +908,7 @@ class BoundObjectReference:
         :schema: io.k8s.api.authentication.v1.BoundObjectReference#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def kind(self) -> typing.Optional[builtins.str]:
@@ -919,7 +919,7 @@ class BoundObjectReference:
         :schema: io.k8s.api.authentication.v1.BoundObjectReference#kind
         """
         result = self._values.get("kind")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -928,7 +928,7 @@ class BoundObjectReference:
         :schema: io.k8s.api.authentication.v1.BoundObjectReference#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def uid(self) -> typing.Optional[builtins.str]:
@@ -937,7 +937,7 @@ class BoundObjectReference:
         :schema: io.k8s.api.authentication.v1.BoundObjectReference#uid
         """
         result = self._values.get("uid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -983,7 +983,7 @@ class Capabilities:
         :schema: io.k8s.api.core.v1.Capabilities#add
         """
         result = self._values.get("add")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def drop(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -992,7 +992,7 @@ class Capabilities:
         :schema: io.k8s.api.core.v1.Capabilities#drop
         """
         result = self._values.get("drop")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1064,7 +1064,7 @@ class CephFsPersistentVolumeSource:
         """
         result = self._values.get("monitors")
         assert result is not None, "Required property 'monitors' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -1073,7 +1073,7 @@ class CephFsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSPersistentVolumeSource#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -1086,7 +1086,7 @@ class CephFsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_file(self) -> typing.Optional[builtins.str]:
@@ -1095,7 +1095,7 @@ class CephFsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSPersistentVolumeSource#secretFile
         """
         result = self._values.get("secret_file")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -1106,7 +1106,7 @@ class CephFsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSPersistentVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -1115,7 +1115,7 @@ class CephFsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSPersistentVolumeSource#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1187,7 +1187,7 @@ class CephFsVolumeSource:
         """
         result = self._values.get("monitors")
         assert result is not None, "Required property 'monitors' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -1196,7 +1196,7 @@ class CephFsVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSVolumeSource#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -1209,7 +1209,7 @@ class CephFsVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_file(self) -> typing.Optional[builtins.str]:
@@ -1218,7 +1218,7 @@ class CephFsVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSVolumeSource#secretFile
         """
         result = self._values.get("secret_file")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["LocalObjectReference"]:
@@ -1229,7 +1229,7 @@ class CephFsVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["LocalObjectReference"], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -1238,7 +1238,7 @@ class CephFsVolumeSource:
         :schema: io.k8s.api.core.v1.CephFSVolumeSource#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1310,7 +1310,7 @@ class CertificateSigningRequestSpec:
         """
         result = self._values.get("request")
         assert result is not None, "Required property 'request' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def extra(
@@ -1323,7 +1323,7 @@ class CertificateSigningRequestSpec:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestSpec#extra
         """
         result = self._values.get("extra")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, typing.List[builtins.str]]], result)
 
     @builtins.property
     def groups(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1334,7 +1334,7 @@ class CertificateSigningRequestSpec:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestSpec#groups
         """
         result = self._values.get("groups")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def uid(self) -> typing.Optional[builtins.str]:
@@ -1345,7 +1345,7 @@ class CertificateSigningRequestSpec:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestSpec#uid
         """
         result = self._values.get("uid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def usages(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1357,7 +1357,7 @@ class CertificateSigningRequestSpec:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestSpec#usages
         """
         result = self._values.get("usages")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def username(self) -> typing.Optional[builtins.str]:
@@ -1368,7 +1368,7 @@ class CertificateSigningRequestSpec:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestSpec#username
         """
         result = self._values.get("username")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1434,7 +1434,7 @@ class CinderPersistentVolumeSource:
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -1445,7 +1445,7 @@ class CinderPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CinderPersistentVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -1458,7 +1458,7 @@ class CinderPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CinderPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -1467,7 +1467,7 @@ class CinderPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CinderPersistentVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1533,7 +1533,7 @@ class CinderVolumeSource:
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -1544,7 +1544,7 @@ class CinderVolumeSource:
         :schema: io.k8s.api.core.v1.CinderVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -1557,7 +1557,7 @@ class CinderVolumeSource:
         :schema: io.k8s.api.core.v1.CinderVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["LocalObjectReference"]:
@@ -1566,7 +1566,7 @@ class CinderVolumeSource:
         :schema: io.k8s.api.core.v1.CinderVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["LocalObjectReference"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1606,7 +1606,7 @@ class ClientIpConfig:
         :schema: io.k8s.api.core.v1.ClientIPConfig#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1667,7 +1667,7 @@ class ComponentCondition:
         """
         result = self._values.get("status")
         assert result is not None, "Required property 'status' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def type(self) -> builtins.str:
@@ -1679,7 +1679,7 @@ class ComponentCondition:
         """
         result = self._values.get("type")
         assert result is not None, "Required property 'type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def error(self) -> typing.Optional[builtins.str]:
@@ -1690,7 +1690,7 @@ class ComponentCondition:
         :schema: io.k8s.api.core.v1.ComponentCondition#error
         """
         result = self._values.get("error")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def message(self) -> typing.Optional[builtins.str]:
@@ -1701,7 +1701,7 @@ class ComponentCondition:
         :schema: io.k8s.api.core.v1.ComponentCondition#message
         """
         result = self._values.get("message")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1751,7 +1751,7 @@ class ConfigMapEnvSource:
         :schema: io.k8s.api.core.v1.ConfigMapEnvSource#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -1760,7 +1760,7 @@ class ConfigMapEnvSource:
         :schema: io.k8s.api.core.v1.ConfigMapEnvSource#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1811,7 +1811,7 @@ class ConfigMapKeySelector:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -1822,7 +1822,7 @@ class ConfigMapKeySelector:
         :schema: io.k8s.api.core.v1.ConfigMapKeySelector#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -1831,7 +1831,7 @@ class ConfigMapKeySelector:
         :schema: io.k8s.api.core.v1.ConfigMapKeySelector#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1894,7 +1894,7 @@ class ConfigMapNodeConfigSource:
         """
         result = self._values.get("kubelet_config_key")
         assert result is not None, "Required property 'kubelet_config_key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -1904,7 +1904,7 @@ class ConfigMapNodeConfigSource:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def namespace(self) -> builtins.str:
@@ -1914,7 +1914,7 @@ class ConfigMapNodeConfigSource:
         """
         result = self._values.get("namespace")
         assert result is not None, "Required property 'namespace' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def resource_version(self) -> typing.Optional[builtins.str]:
@@ -1923,7 +1923,7 @@ class ConfigMapNodeConfigSource:
         :schema: io.k8s.api.core.v1.ConfigMapNodeConfigSource#resourceVersion
         """
         result = self._values.get("resource_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def uid(self) -> typing.Optional[builtins.str]:
@@ -1932,7 +1932,7 @@ class ConfigMapNodeConfigSource:
         :schema: io.k8s.api.core.v1.ConfigMapNodeConfigSource#uid
         """
         result = self._values.get("uid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1986,7 +1986,7 @@ class ConfigMapProjection:
         :schema: io.k8s.api.core.v1.ConfigMapProjection#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["KeyToPath"]], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -1997,7 +1997,7 @@ class ConfigMapProjection:
         :schema: io.k8s.api.core.v1.ConfigMapProjection#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -2006,7 +2006,7 @@ class ConfigMapProjection:
         :schema: io.k8s.api.core.v1.ConfigMapProjection#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2071,7 +2071,7 @@ class ConfigMapVolumeSource:
         :schema: io.k8s.api.core.v1.ConfigMapVolumeSource#defaultMode
         """
         result = self._values.get("default_mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def items(self) -> typing.Optional[typing.List["KeyToPath"]]:
@@ -2082,7 +2082,7 @@ class ConfigMapVolumeSource:
         :schema: io.k8s.api.core.v1.ConfigMapVolumeSource#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["KeyToPath"]], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -2093,7 +2093,7 @@ class ConfigMapVolumeSource:
         :schema: io.k8s.api.core.v1.ConfigMapVolumeSource#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -2102,7 +2102,7 @@ class ConfigMapVolumeSource:
         :schema: io.k8s.api.core.v1.ConfigMapVolumeSource#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2266,7 +2266,7 @@ class Container:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def args(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -2277,7 +2277,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#args
         """
         result = self._values.get("args")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def command(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -2288,7 +2288,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def env(self) -> typing.Optional[typing.List["EnvVar"]]:
@@ -2299,7 +2299,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#env
         """
         result = self._values.get("env")
-        return result
+        return typing.cast(typing.Optional[typing.List["EnvVar"]], result)
 
     @builtins.property
     def env_from(self) -> typing.Optional[typing.List["EnvFromSource"]]:
@@ -2310,7 +2310,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#envFrom
         """
         result = self._values.get("env_from")
-        return result
+        return typing.cast(typing.Optional[typing.List["EnvFromSource"]], result)
 
     @builtins.property
     def image(self) -> typing.Optional[builtins.str]:
@@ -2321,7 +2321,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#image
         """
         result = self._values.get("image")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def image_pull_policy(self) -> typing.Optional[builtins.str]:
@@ -2334,7 +2334,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#imagePullPolicy
         """
         result = self._values.get("image_pull_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def lifecycle(self) -> typing.Optional["Lifecycle"]:
@@ -2345,7 +2345,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#lifecycle
         """
         result = self._values.get("lifecycle")
-        return result
+        return typing.cast(typing.Optional["Lifecycle"], result)
 
     @builtins.property
     def liveness_probe(self) -> typing.Optional["Probe"]:
@@ -2356,7 +2356,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#livenessProbe
         """
         result = self._values.get("liveness_probe")
-        return result
+        return typing.cast(typing.Optional["Probe"], result)
 
     @builtins.property
     def ports(self) -> typing.Optional[typing.List["ContainerPort"]]:
@@ -2367,7 +2367,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#ports
         """
         result = self._values.get("ports")
-        return result
+        return typing.cast(typing.Optional[typing.List["ContainerPort"]], result)
 
     @builtins.property
     def readiness_probe(self) -> typing.Optional["Probe"]:
@@ -2378,7 +2378,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#readinessProbe
         """
         result = self._values.get("readiness_probe")
-        return result
+        return typing.cast(typing.Optional["Probe"], result)
 
     @builtins.property
     def resources(self) -> typing.Optional["ResourceRequirements"]:
@@ -2389,7 +2389,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#resources
         """
         result = self._values.get("resources")
-        return result
+        return typing.cast(typing.Optional["ResourceRequirements"], result)
 
     @builtins.property
     def security_context(self) -> typing.Optional["SecurityContext"]:
@@ -2400,7 +2400,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#securityContext
         """
         result = self._values.get("security_context")
-        return result
+        return typing.cast(typing.Optional["SecurityContext"], result)
 
     @builtins.property
     def startup_probe(self) -> typing.Optional["Probe"]:
@@ -2411,7 +2411,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#startupProbe
         """
         result = self._values.get("startup_probe")
-        return result
+        return typing.cast(typing.Optional["Probe"], result)
 
     @builtins.property
     def stdin(self) -> typing.Optional[builtins.bool]:
@@ -2424,7 +2424,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#stdin
         """
         result = self._values.get("stdin")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def stdin_once(self) -> typing.Optional[builtins.bool]:
@@ -2437,7 +2437,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#stdinOnce
         """
         result = self._values.get("stdin_once")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def termination_message_path(self) -> typing.Optional[builtins.str]:
@@ -2450,7 +2450,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#terminationMessagePath
         """
         result = self._values.get("termination_message_path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def termination_message_policy(self) -> typing.Optional[builtins.str]:
@@ -2463,7 +2463,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#terminationMessagePolicy
         """
         result = self._values.get("termination_message_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def tty(self) -> typing.Optional[builtins.bool]:
@@ -2476,7 +2476,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#tty
         """
         result = self._values.get("tty")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def volume_devices(self) -> typing.Optional[typing.List["VolumeDevice"]]:
@@ -2487,7 +2487,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#volumeDevices
         """
         result = self._values.get("volume_devices")
-        return result
+        return typing.cast(typing.Optional[typing.List["VolumeDevice"]], result)
 
     @builtins.property
     def volume_mounts(self) -> typing.Optional[typing.List["VolumeMount"]]:
@@ -2498,7 +2498,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#volumeMounts
         """
         result = self._values.get("volume_mounts")
-        return result
+        return typing.cast(typing.Optional[typing.List["VolumeMount"]], result)
 
     @builtins.property
     def working_dir(self) -> typing.Optional[builtins.str]:
@@ -2509,7 +2509,7 @@ class Container:
         :schema: io.k8s.api.core.v1.Container#workingDir
         """
         result = self._values.get("working_dir")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2576,7 +2576,7 @@ class ContainerPort:
         """
         result = self._values.get("container_port")
         assert result is not None, "Required property 'container_port' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def host_ip(self) -> typing.Optional[builtins.str]:
@@ -2585,7 +2585,7 @@ class ContainerPort:
         :schema: io.k8s.api.core.v1.ContainerPort#hostIP
         """
         result = self._values.get("host_ip")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def host_port(self) -> typing.Optional[jsii.Number]:
@@ -2596,7 +2596,7 @@ class ContainerPort:
         :schema: io.k8s.api.core.v1.ContainerPort#hostPort
         """
         result = self._values.get("host_port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -2607,7 +2607,7 @@ class ContainerPort:
         :schema: io.k8s.api.core.v1.ContainerPort#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def protocol(self) -> typing.Optional[builtins.str]:
@@ -2620,7 +2620,7 @@ class ContainerPort:
         :schema: io.k8s.api.core.v1.ContainerPort#protocol
         """
         result = self._values.get("protocol")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2696,7 +2696,7 @@ class CronJobSpec:
         """
         result = self._values.get("job_template")
         assert result is not None, "Required property 'job_template' is missing"
-        return result
+        return typing.cast("JobTemplateSpec", result)
 
     @builtins.property
     def schedule(self) -> builtins.str:
@@ -2706,7 +2706,7 @@ class CronJobSpec:
         """
         result = self._values.get("schedule")
         assert result is not None, "Required property 'schedule' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def concurrency_policy(self) -> typing.Optional[builtins.str]:
@@ -2717,7 +2717,7 @@ class CronJobSpec:
         :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#concurrencyPolicy
         """
         result = self._values.get("concurrency_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def failed_jobs_history_limit(self) -> typing.Optional[jsii.Number]:
@@ -2728,7 +2728,7 @@ class CronJobSpec:
         :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#failedJobsHistoryLimit
         """
         result = self._values.get("failed_jobs_history_limit")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def starting_deadline_seconds(self) -> typing.Optional[jsii.Number]:
@@ -2739,7 +2739,7 @@ class CronJobSpec:
         :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#startingDeadlineSeconds
         """
         result = self._values.get("starting_deadline_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def successful_jobs_history_limit(self) -> typing.Optional[jsii.Number]:
@@ -2750,7 +2750,7 @@ class CronJobSpec:
         :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#successfulJobsHistoryLimit
         """
         result = self._values.get("successful_jobs_history_limit")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def suspend(self) -> typing.Optional[builtins.bool]:
@@ -2763,7 +2763,7 @@ class CronJobSpec:
         :schema: io.k8s.api.batch.v2alpha1.CronJobSpec#suspend
         """
         result = self._values.get("suspend")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2815,7 +2815,7 @@ class CrossVersionObjectReference:
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -2827,7 +2827,7 @@ class CrossVersionObjectReference:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def api_version(self) -> typing.Optional[builtins.str]:
@@ -2836,7 +2836,7 @@ class CrossVersionObjectReference:
         :schema: io.k8s.api.autoscaling.v2beta2.CrossVersionObjectReference#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2892,7 +2892,7 @@ class CsiDriverSpec:
         :schema: io.k8s.api.storage.v1beta1.CSIDriverSpec#attachRequired
         """
         result = self._values.get("attach_required")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def pod_info_on_mount(self) -> typing.Optional[builtins.bool]:
@@ -2905,7 +2905,7 @@ class CsiDriverSpec:
         :schema: io.k8s.api.storage.v1beta1.CSIDriverSpec#podInfoOnMount
         """
         result = self._values.get("pod_info_on_mount")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def volume_lifecycle_modes(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -2916,7 +2916,7 @@ class CsiDriverSpec:
         :schema: io.k8s.api.storage.v1beta1.CSIDriverSpec#volumeLifecycleModes
         """
         result = self._values.get("volume_lifecycle_modes")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2979,7 +2979,7 @@ class CsiNodeDriver:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def node_id(self) -> builtins.str:
@@ -2991,7 +2991,7 @@ class CsiNodeDriver:
         """
         result = self._values.get("node_id")
         assert result is not None, "Required property 'node_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def allocatable(self) -> typing.Optional["VolumeNodeResources"]:
@@ -3000,7 +3000,7 @@ class CsiNodeDriver:
         :schema: io.k8s.api.storage.v1beta1.CSINodeDriver#allocatable
         """
         result = self._values.get("allocatable")
-        return result
+        return typing.cast(typing.Optional["VolumeNodeResources"], result)
 
     @builtins.property
     def topology_keys(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -3011,7 +3011,7 @@ class CsiNodeDriver:
         :schema: io.k8s.api.storage.v1beta1.CSINodeDriver#topologyKeys
         """
         result = self._values.get("topology_keys")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3052,7 +3052,7 @@ class CsiNodeSpec:
         """
         result = self._values.get("drivers")
         assert result is not None, "Required property 'drivers' is missing"
-        return result
+        return typing.cast(typing.List[CsiNodeDriver], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3146,7 +3146,7 @@ class CsiPersistentVolumeSource:
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def volume_handle(self) -> builtins.str:
@@ -3158,7 +3158,7 @@ class CsiPersistentVolumeSource:
         """
         result = self._values.get("volume_handle")
         assert result is not None, "Required property 'volume_handle' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def controller_expand_secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -3169,7 +3169,7 @@ class CsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerExpandSecretRef
         """
         result = self._values.get("controller_expand_secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     @builtins.property
     def controller_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -3180,7 +3180,7 @@ class CsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerPublishSecretRef
         """
         result = self._values.get("controller_publish_secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -3191,7 +3191,7 @@ class CsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CSIPersistentVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def node_publish_secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -3202,7 +3202,7 @@ class CsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodePublishSecretRef
         """
         result = self._values.get("node_publish_secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     @builtins.property
     def node_stage_secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -3213,7 +3213,7 @@ class CsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CSIPersistentVolumeSource#nodeStageSecretRef
         """
         result = self._values.get("node_stage_secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -3226,7 +3226,7 @@ class CsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CSIPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def volume_attributes(
@@ -3237,7 +3237,7 @@ class CsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeAttributes
         """
         result = self._values.get("volume_attributes")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3306,7 +3306,7 @@ class CsiVolumeSource:
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -3317,7 +3317,7 @@ class CsiVolumeSource:
         :schema: io.k8s.api.core.v1.CSIVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def node_publish_secret_ref(self) -> typing.Optional["LocalObjectReference"]:
@@ -3328,7 +3328,7 @@ class CsiVolumeSource:
         :schema: io.k8s.api.core.v1.CSIVolumeSource#nodePublishSecretRef
         """
         result = self._values.get("node_publish_secret_ref")
-        return result
+        return typing.cast(typing.Optional["LocalObjectReference"], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -3341,7 +3341,7 @@ class CsiVolumeSource:
         :schema: io.k8s.api.core.v1.CSIVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def volume_attributes(
@@ -3354,7 +3354,7 @@ class CsiVolumeSource:
         :schema: io.k8s.api.core.v1.CSIVolumeSource#volumeAttributes
         """
         result = self._values.get("volume_attributes")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3423,7 +3423,7 @@ class CustomResourceColumnDefinition:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def type(self) -> builtins.str:
@@ -3435,7 +3435,7 @@ class CustomResourceColumnDefinition:
         """
         result = self._values.get("type")
         assert result is not None, "Required property 'type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def description(self) -> typing.Optional[builtins.str]:
@@ -3444,7 +3444,7 @@ class CustomResourceColumnDefinition:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#description
         """
         result = self._values.get("description")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def format(self) -> typing.Optional[builtins.str]:
@@ -3455,7 +3455,7 @@ class CustomResourceColumnDefinition:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#format
         """
         result = self._values.get("format")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def json_path(self) -> typing.Optional[builtins.str]:
@@ -3464,7 +3464,7 @@ class CustomResourceColumnDefinition:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#JSONPath
         """
         result = self._values.get("json_path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def priority(self) -> typing.Optional[jsii.Number]:
@@ -3475,7 +3475,7 @@ class CustomResourceColumnDefinition:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#priority
         """
         result = self._values.get("priority")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3535,7 +3535,7 @@ class CustomResourceConversion:
         """
         result = self._values.get("strategy")
         assert result is not None, "Required property 'strategy' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def conversion_review_versions(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -3548,7 +3548,7 @@ class CustomResourceConversion:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion#conversionReviewVersions
         """
         result = self._values.get("conversion_review_versions")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def webhook_client_config(self) -> typing.Optional["WebhookClientConfig"]:
@@ -3559,7 +3559,7 @@ class CustomResourceConversion:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion#webhookClientConfig
         """
         result = self._values.get("webhook_client_config")
-        return result
+        return typing.cast(typing.Optional["WebhookClientConfig"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3630,7 +3630,7 @@ class CustomResourceDefinitionNames:
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def plural(self) -> builtins.str:
@@ -3642,7 +3642,7 @@ class CustomResourceDefinitionNames:
         """
         result = self._values.get("plural")
         assert result is not None, "Required property 'plural' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def categories(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -3651,7 +3651,7 @@ class CustomResourceDefinitionNames:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#categories
         """
         result = self._values.get("categories")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def list_kind(self) -> typing.Optional[builtins.str]:
@@ -3664,7 +3664,7 @@ class CustomResourceDefinitionNames:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#listKind
         """
         result = self._values.get("list_kind")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def short_names(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -3675,7 +3675,7 @@ class CustomResourceDefinitionNames:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#shortNames
         """
         result = self._values.get("short_names")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def singular(self) -> typing.Optional[builtins.str]:
@@ -3688,7 +3688,7 @@ class CustomResourceDefinitionNames:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames#singular
         """
         result = self._values.get("singular")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3786,7 +3786,7 @@ class CustomResourceDefinitionSpec:
         """
         result = self._values.get("group")
         assert result is not None, "Required property 'group' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def names(self) -> CustomResourceDefinitionNames:
@@ -3796,7 +3796,7 @@ class CustomResourceDefinitionSpec:
         """
         result = self._values.get("names")
         assert result is not None, "Required property 'names' is missing"
-        return result
+        return typing.cast(CustomResourceDefinitionNames, result)
 
     @builtins.property
     def scope(self) -> builtins.str:
@@ -3810,7 +3810,7 @@ class CustomResourceDefinitionSpec:
         """
         result = self._values.get("scope")
         assert result is not None, "Required property 'scope' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def additional_printer_columns(
@@ -3823,7 +3823,7 @@ class CustomResourceDefinitionSpec:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#additionalPrinterColumns
         """
         result = self._values.get("additional_printer_columns")
-        return result
+        return typing.cast(typing.Optional[typing.List[CustomResourceColumnDefinition]], result)
 
     @builtins.property
     def conversion(self) -> typing.Optional[CustomResourceConversion]:
@@ -3832,7 +3832,7 @@ class CustomResourceDefinitionSpec:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#conversion
         """
         result = self._values.get("conversion")
-        return result
+        return typing.cast(typing.Optional[CustomResourceConversion], result)
 
     @builtins.property
     def preserve_unknown_fields(self) -> typing.Optional[builtins.bool]:
@@ -3845,7 +3845,7 @@ class CustomResourceDefinitionSpec:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#preserveUnknownFields
         """
         result = self._values.get("preserve_unknown_fields")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def subresources(self) -> typing.Optional["CustomResourceSubresources"]:
@@ -3856,7 +3856,7 @@ class CustomResourceDefinitionSpec:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#subresources
         """
         result = self._values.get("subresources")
-        return result
+        return typing.cast(typing.Optional["CustomResourceSubresources"], result)
 
     @builtins.property
     def validation(self) -> typing.Optional["CustomResourceValidation"]:
@@ -3867,7 +3867,7 @@ class CustomResourceDefinitionSpec:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#validation
         """
         result = self._values.get("validation")
-        return result
+        return typing.cast(typing.Optional["CustomResourceValidation"], result)
 
     @builtins.property
     def version(self) -> typing.Optional[builtins.str]:
@@ -3878,7 +3878,7 @@ class CustomResourceDefinitionSpec:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#version
         """
         result = self._values.get("version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def versions(
@@ -3891,7 +3891,7 @@ class CustomResourceDefinitionSpec:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionSpec#versions
         """
         result = self._values.get("versions")
-        return result
+        return typing.cast(typing.Optional[typing.List["CustomResourceDefinitionVersion"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3963,7 +3963,7 @@ class CustomResourceDefinitionVersion:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def served(self) -> builtins.bool:
@@ -3973,7 +3973,7 @@ class CustomResourceDefinitionVersion:
         """
         result = self._values.get("served")
         assert result is not None, "Required property 'served' is missing"
-        return result
+        return typing.cast(builtins.bool, result)
 
     @builtins.property
     def storage(self) -> builtins.bool:
@@ -3985,7 +3985,7 @@ class CustomResourceDefinitionVersion:
         """
         result = self._values.get("storage")
         assert result is not None, "Required property 'storage' is missing"
-        return result
+        return typing.cast(builtins.bool, result)
 
     @builtins.property
     def additional_printer_columns(
@@ -3998,7 +3998,7 @@ class CustomResourceDefinitionVersion:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#additionalPrinterColumns
         """
         result = self._values.get("additional_printer_columns")
-        return result
+        return typing.cast(typing.Optional[typing.List[CustomResourceColumnDefinition]], result)
 
     @builtins.property
     def schema(self) -> typing.Optional["CustomResourceValidation"]:
@@ -4009,7 +4009,7 @@ class CustomResourceDefinitionVersion:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#schema
         """
         result = self._values.get("schema")
-        return result
+        return typing.cast(typing.Optional["CustomResourceValidation"], result)
 
     @builtins.property
     def subresources(self) -> typing.Optional["CustomResourceSubresources"]:
@@ -4020,7 +4020,7 @@ class CustomResourceDefinitionVersion:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion#subresources
         """
         result = self._values.get("subresources")
-        return result
+        return typing.cast(typing.Optional["CustomResourceSubresources"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4074,7 +4074,7 @@ class CustomResourceSubresourceScale:
         """
         result = self._values.get("spec_replicas_path")
         assert result is not None, "Required property 'spec_replicas_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def status_replicas_path(self) -> builtins.str:
@@ -4084,7 +4084,7 @@ class CustomResourceSubresourceScale:
         """
         result = self._values.get("status_replicas_path")
         assert result is not None, "Required property 'status_replicas_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def label_selector_path(self) -> typing.Optional[builtins.str]:
@@ -4093,7 +4093,7 @@ class CustomResourceSubresourceScale:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale#labelSelectorPath
         """
         result = self._values.get("label_selector_path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4141,7 +4141,7 @@ class CustomResourceSubresources:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources#scale
         """
         result = self._values.get("scale")
-        return result
+        return typing.cast(typing.Optional[CustomResourceSubresourceScale], result)
 
     @builtins.property
     def status(self) -> typing.Any:
@@ -4152,7 +4152,7 @@ class CustomResourceSubresources:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources#status
         """
         result = self._values.get("status")
-        return result
+        return typing.cast(typing.Any, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4196,7 +4196,7 @@ class CustomResourceValidation:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation#openAPIV3Schema
         """
         result = self._values.get("open_apiv3_schema")
-        return result
+        return typing.cast(typing.Optional["JsonSchemaProps"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4274,7 +4274,7 @@ class DaemonSetSpec:
         """
         result = self._values.get("template")
         assert result is not None, "Required property 'template' is missing"
-        return result
+        return typing.cast("PodTemplateSpec", result)
 
     @builtins.property
     def min_ready_seconds(self) -> typing.Optional[jsii.Number]:
@@ -4287,7 +4287,7 @@ class DaemonSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#minReadySeconds
         """
         result = self._values.get("min_ready_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def revision_history_limit(self) -> typing.Optional[jsii.Number]:
@@ -4300,7 +4300,7 @@ class DaemonSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#revisionHistoryLimit
         """
         result = self._values.get("revision_history_limit")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def selector(self) -> typing.Optional["LabelSelector"]:
@@ -4311,7 +4311,7 @@ class DaemonSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional["LabelSelector"], result)
 
     @builtins.property
     def template_generation(self) -> typing.Optional[jsii.Number]:
@@ -4322,7 +4322,7 @@ class DaemonSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#templateGeneration
         """
         result = self._values.get("template_generation")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def update_strategy(self) -> typing.Optional["DaemonSetUpdateStrategy"]:
@@ -4331,7 +4331,7 @@ class DaemonSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetSpec#updateStrategy
         """
         result = self._values.get("update_strategy")
-        return result
+        return typing.cast(typing.Optional["DaemonSetUpdateStrategy"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4380,7 +4380,7 @@ class DaemonSetUpdateStrategy:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetUpdateStrategy#rollingUpdate
         """
         result = self._values.get("rolling_update")
-        return result
+        return typing.cast(typing.Optional["RollingUpdateDaemonSet"], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -4393,7 +4393,7 @@ class DaemonSetUpdateStrategy:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetUpdateStrategy#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4471,7 +4471,7 @@ class DeleteOptions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def dry_run(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -4482,7 +4482,7 @@ class DeleteOptions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#dryRun
         """
         result = self._values.get("dry_run")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def grace_period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -4495,7 +4495,7 @@ class DeleteOptions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#gracePeriodSeconds
         """
         result = self._values.get("grace_period_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def kind(
@@ -4508,7 +4508,7 @@ class DeleteOptions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#kind
         """
         result = self._values.get("kind")
-        return result
+        return typing.cast(typing.Optional["IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"], result)
 
     @builtins.property
     def orphan_dependents(self) -> typing.Optional[builtins.bool]:
@@ -4517,7 +4517,7 @@ class DeleteOptions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#orphanDependents
         """
         result = self._values.get("orphan_dependents")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def preconditions(self) -> typing.Optional["Preconditions"]:
@@ -4528,7 +4528,7 @@ class DeleteOptions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#preconditions
         """
         result = self._values.get("preconditions")
-        return result
+        return typing.cast(typing.Optional["Preconditions"], result)
 
     @builtins.property
     def propagation_policy(self) -> typing.Optional[builtins.str]:
@@ -4539,7 +4539,7 @@ class DeleteOptions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions#propagationPolicy
         """
         result = self._values.get("propagation_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4626,7 +4626,7 @@ class DeploymentSpec:
         """
         result = self._values.get("selector")
         assert result is not None, "Required property 'selector' is missing"
-        return result
+        return typing.cast("LabelSelector", result)
 
     @builtins.property
     def template(self) -> "PodTemplateSpec":
@@ -4636,7 +4636,7 @@ class DeploymentSpec:
         """
         result = self._values.get("template")
         assert result is not None, "Required property 'template' is missing"
-        return result
+        return typing.cast("PodTemplateSpec", result)
 
     @builtins.property
     def min_ready_seconds(self) -> typing.Optional[jsii.Number]:
@@ -4649,7 +4649,7 @@ class DeploymentSpec:
         :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#minReadySeconds
         """
         result = self._values.get("min_ready_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def paused(self) -> typing.Optional[builtins.bool]:
@@ -4658,7 +4658,7 @@ class DeploymentSpec:
         :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#paused
         """
         result = self._values.get("paused")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def progress_deadline_seconds(self) -> typing.Optional[jsii.Number]:
@@ -4671,7 +4671,7 @@ class DeploymentSpec:
         :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#progressDeadlineSeconds
         """
         result = self._values.get("progress_deadline_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -4684,7 +4684,7 @@ class DeploymentSpec:
         :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def revision_history_limit(self) -> typing.Optional[jsii.Number]:
@@ -4697,7 +4697,7 @@ class DeploymentSpec:
         :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#revisionHistoryLimit
         """
         result = self._values.get("revision_history_limit")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def strategy(self) -> typing.Optional["DeploymentStrategy"]:
@@ -4706,7 +4706,7 @@ class DeploymentSpec:
         :schema: io.k8s.api.apps.v1beta2.DeploymentSpec#strategy
         """
         result = self._values.get("strategy")
-        return result
+        return typing.cast(typing.Optional["DeploymentStrategy"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4756,7 +4756,7 @@ class DeploymentStrategy:
         :schema: io.k8s.api.apps.v1beta2.DeploymentStrategy#rollingUpdate
         """
         result = self._values.get("rolling_update")
-        return result
+        return typing.cast(typing.Optional["RollingUpdateDeployment"], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -4769,7 +4769,7 @@ class DeploymentStrategy:
         :schema: io.k8s.api.apps.v1beta2.DeploymentStrategy#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4813,7 +4813,7 @@ class DownwardApiProjection:
         :schema: io.k8s.api.core.v1.DownwardAPIProjection#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["DownwardApiVolumeFile"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4879,7 +4879,7 @@ class DownwardApiVolumeFile:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def field_ref(self) -> typing.Optional["ObjectFieldSelector"]:
@@ -4888,7 +4888,7 @@ class DownwardApiVolumeFile:
         :schema: io.k8s.api.core.v1.DownwardAPIVolumeFile#fieldRef
         """
         result = self._values.get("field_ref")
-        return result
+        return typing.cast(typing.Optional["ObjectFieldSelector"], result)
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -4899,7 +4899,7 @@ class DownwardApiVolumeFile:
         :schema: io.k8s.api.core.v1.DownwardAPIVolumeFile#mode
         """
         result = self._values.get("mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def resource_field_ref(self) -> typing.Optional["ResourceFieldSelector"]:
@@ -4908,7 +4908,7 @@ class DownwardApiVolumeFile:
         :schema: io.k8s.api.core.v1.DownwardAPIVolumeFile#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
-        return result
+        return typing.cast(typing.Optional["ResourceFieldSelector"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4960,7 +4960,7 @@ class DownwardApiVolumeSource:
         :schema: io.k8s.api.core.v1.DownwardAPIVolumeSource#defaultMode
         """
         result = self._values.get("default_mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def items(self) -> typing.Optional[typing.List[DownwardApiVolumeFile]]:
@@ -4969,7 +4969,7 @@ class DownwardApiVolumeSource:
         :schema: io.k8s.api.core.v1.DownwardAPIVolumeSource#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List[DownwardApiVolumeFile]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5019,7 +5019,7 @@ class EmptyDirVolumeSource:
         :schema: io.k8s.api.core.v1.EmptyDirVolumeSource#medium
         """
         result = self._values.get("medium")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def size_limit(self) -> typing.Optional["Quantity"]:
@@ -5030,7 +5030,7 @@ class EmptyDirVolumeSource:
         :schema: io.k8s.api.core.v1.EmptyDirVolumeSource#sizeLimit
         """
         result = self._values.get("size_limit")
-        return result
+        return typing.cast(typing.Optional["Quantity"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5101,7 +5101,7 @@ class Endpoint:
         """
         result = self._values.get("addresses")
         assert result is not None, "Required property 'addresses' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def conditions(self) -> typing.Optional["EndpointConditions"]:
@@ -5110,7 +5110,7 @@ class Endpoint:
         :schema: io.k8s.api.discovery.v1beta1.Endpoint#conditions
         """
         result = self._values.get("conditions")
-        return result
+        return typing.cast(typing.Optional["EndpointConditions"], result)
 
     @builtins.property
     def hostname(self) -> typing.Optional[builtins.str]:
@@ -5121,7 +5121,7 @@ class Endpoint:
         :schema: io.k8s.api.discovery.v1beta1.Endpoint#hostname
         """
         result = self._values.get("hostname")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def target_ref(self) -> typing.Optional["ObjectReference"]:
@@ -5130,7 +5130,7 @@ class Endpoint:
         :schema: io.k8s.api.discovery.v1beta1.Endpoint#targetRef
         """
         result = self._values.get("target_ref")
-        return result
+        return typing.cast(typing.Optional["ObjectReference"], result)
 
     @builtins.property
     def topology(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -5147,7 +5147,7 @@ class Endpoint:
         :schema: io.k8s.api.discovery.v1beta1.Endpoint#topology
         """
         result = self._values.get("topology")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5211,7 +5211,7 @@ class EndpointAddress:
         """
         result = self._values.get("ip")
         assert result is not None, "Required property 'ip' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def hostname(self) -> typing.Optional[builtins.str]:
@@ -5220,7 +5220,7 @@ class EndpointAddress:
         :schema: io.k8s.api.core.v1.EndpointAddress#hostname
         """
         result = self._values.get("hostname")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def node_name(self) -> typing.Optional[builtins.str]:
@@ -5231,7 +5231,7 @@ class EndpointAddress:
         :schema: io.k8s.api.core.v1.EndpointAddress#nodeName
         """
         result = self._values.get("node_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def target_ref(self) -> typing.Optional["ObjectReference"]:
@@ -5240,7 +5240,7 @@ class EndpointAddress:
         :schema: io.k8s.api.core.v1.EndpointAddress#targetRef
         """
         result = self._values.get("target_ref")
-        return result
+        return typing.cast(typing.Optional["ObjectReference"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5280,7 +5280,7 @@ class EndpointConditions:
         :schema: io.k8s.api.discovery.v1beta1.EndpointConditions#ready
         """
         result = self._values.get("ready")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5331,7 +5331,7 @@ class EndpointPort:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -5342,7 +5342,7 @@ class EndpointPort:
         :schema: io.k8s.api.core.v1.EndpointPort#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def protocol(self) -> typing.Optional[builtins.str]:
@@ -5355,7 +5355,7 @@ class EndpointPort:
         :schema: io.k8s.api.core.v1.EndpointPort#protocol
         """
         result = self._values.get("protocol")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5420,7 +5420,7 @@ class EndpointSubset:
         :schema: io.k8s.api.core.v1.EndpointSubset#addresses
         """
         result = self._values.get("addresses")
-        return result
+        return typing.cast(typing.Optional[typing.List[EndpointAddress]], result)
 
     @builtins.property
     def not_ready_addresses(self) -> typing.Optional[typing.List[EndpointAddress]]:
@@ -5429,7 +5429,7 @@ class EndpointSubset:
         :schema: io.k8s.api.core.v1.EndpointSubset#notReadyAddresses
         """
         result = self._values.get("not_ready_addresses")
-        return result
+        return typing.cast(typing.Optional[typing.List[EndpointAddress]], result)
 
     @builtins.property
     def ports(self) -> typing.Optional[typing.List[EndpointPort]]:
@@ -5438,7 +5438,7 @@ class EndpointSubset:
         :schema: io.k8s.api.core.v1.EndpointSubset#ports
         """
         result = self._values.get("ports")
-        return result
+        return typing.cast(typing.Optional[typing.List[EndpointPort]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5496,7 +5496,7 @@ class EnvFromSource:
         :schema: io.k8s.api.core.v1.EnvFromSource#configMapRef
         """
         result = self._values.get("config_map_ref")
-        return result
+        return typing.cast(typing.Optional[ConfigMapEnvSource], result)
 
     @builtins.property
     def prefix(self) -> typing.Optional[builtins.str]:
@@ -5507,7 +5507,7 @@ class EnvFromSource:
         :schema: io.k8s.api.core.v1.EnvFromSource#prefix
         """
         result = self._values.get("prefix")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["SecretEnvSource"]:
@@ -5516,7 +5516,7 @@ class EnvFromSource:
         :schema: io.k8s.api.core.v1.EnvFromSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretEnvSource"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5571,7 +5571,7 @@ class EnvVar:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> typing.Optional[builtins.str]:
@@ -5584,7 +5584,7 @@ class EnvVar:
         :schema: io.k8s.api.core.v1.EnvVar#value
         """
         result = self._values.get("value")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def value_from(self) -> typing.Optional["EnvVarSource"]:
@@ -5595,7 +5595,7 @@ class EnvVar:
         :schema: io.k8s.api.core.v1.EnvVar#valueFrom
         """
         result = self._values.get("value_from")
-        return result
+        return typing.cast(typing.Optional["EnvVarSource"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5662,7 +5662,7 @@ class EnvVarSource:
         :schema: io.k8s.api.core.v1.EnvVarSource#configMapKeyRef
         """
         result = self._values.get("config_map_key_ref")
-        return result
+        return typing.cast(typing.Optional[ConfigMapKeySelector], result)
 
     @builtins.property
     def field_ref(self) -> typing.Optional["ObjectFieldSelector"]:
@@ -5671,7 +5671,7 @@ class EnvVarSource:
         :schema: io.k8s.api.core.v1.EnvVarSource#fieldRef
         """
         result = self._values.get("field_ref")
-        return result
+        return typing.cast(typing.Optional["ObjectFieldSelector"], result)
 
     @builtins.property
     def resource_field_ref(self) -> typing.Optional["ResourceFieldSelector"]:
@@ -5680,7 +5680,7 @@ class EnvVarSource:
         :schema: io.k8s.api.core.v1.EnvVarSource#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
-        return result
+        return typing.cast(typing.Optional["ResourceFieldSelector"], result)
 
     @builtins.property
     def secret_key_ref(self) -> typing.Optional["SecretKeySelector"]:
@@ -5689,7 +5689,7 @@ class EnvVarSource:
         :schema: io.k8s.api.core.v1.EnvVarSource#secretKeyRef
         """
         result = self._values.get("secret_key_ref")
-        return result
+        return typing.cast(typing.Optional["SecretKeySelector"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5860,7 +5860,7 @@ class EphemeralContainer:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def args(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -5871,7 +5871,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#args
         """
         result = self._values.get("args")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def command(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -5882,7 +5882,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def env(self) -> typing.Optional[typing.List[EnvVar]]:
@@ -5893,7 +5893,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#env
         """
         result = self._values.get("env")
-        return result
+        return typing.cast(typing.Optional[typing.List[EnvVar]], result)
 
     @builtins.property
     def env_from(self) -> typing.Optional[typing.List[EnvFromSource]]:
@@ -5904,7 +5904,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#envFrom
         """
         result = self._values.get("env_from")
-        return result
+        return typing.cast(typing.Optional[typing.List[EnvFromSource]], result)
 
     @builtins.property
     def image(self) -> typing.Optional[builtins.str]:
@@ -5915,7 +5915,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#image
         """
         result = self._values.get("image")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def image_pull_policy(self) -> typing.Optional[builtins.str]:
@@ -5928,7 +5928,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#imagePullPolicy
         """
         result = self._values.get("image_pull_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def lifecycle(self) -> typing.Optional["Lifecycle"]:
@@ -5937,7 +5937,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#lifecycle
         """
         result = self._values.get("lifecycle")
-        return result
+        return typing.cast(typing.Optional["Lifecycle"], result)
 
     @builtins.property
     def liveness_probe(self) -> typing.Optional["Probe"]:
@@ -5946,7 +5946,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#livenessProbe
         """
         result = self._values.get("liveness_probe")
-        return result
+        return typing.cast(typing.Optional["Probe"], result)
 
     @builtins.property
     def ports(self) -> typing.Optional[typing.List[ContainerPort]]:
@@ -5955,7 +5955,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#ports
         """
         result = self._values.get("ports")
-        return result
+        return typing.cast(typing.Optional[typing.List[ContainerPort]], result)
 
     @builtins.property
     def readiness_probe(self) -> typing.Optional["Probe"]:
@@ -5964,7 +5964,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#readinessProbe
         """
         result = self._values.get("readiness_probe")
-        return result
+        return typing.cast(typing.Optional["Probe"], result)
 
     @builtins.property
     def resources(self) -> typing.Optional["ResourceRequirements"]:
@@ -5975,7 +5975,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#resources
         """
         result = self._values.get("resources")
-        return result
+        return typing.cast(typing.Optional["ResourceRequirements"], result)
 
     @builtins.property
     def security_context(self) -> typing.Optional["SecurityContext"]:
@@ -5984,7 +5984,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#securityContext
         """
         result = self._values.get("security_context")
-        return result
+        return typing.cast(typing.Optional["SecurityContext"], result)
 
     @builtins.property
     def startup_probe(self) -> typing.Optional["Probe"]:
@@ -5993,7 +5993,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#startupProbe
         """
         result = self._values.get("startup_probe")
-        return result
+        return typing.cast(typing.Optional["Probe"], result)
 
     @builtins.property
     def stdin(self) -> typing.Optional[builtins.bool]:
@@ -6006,7 +6006,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#stdin
         """
         result = self._values.get("stdin")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def stdin_once(self) -> typing.Optional[builtins.bool]:
@@ -6019,7 +6019,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#stdinOnce
         """
         result = self._values.get("stdin_once")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def target_container_name(self) -> typing.Optional[builtins.str]:
@@ -6030,7 +6030,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#targetContainerName
         """
         result = self._values.get("target_container_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def termination_message_path(self) -> typing.Optional[builtins.str]:
@@ -6043,7 +6043,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#terminationMessagePath
         """
         result = self._values.get("termination_message_path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def termination_message_policy(self) -> typing.Optional[builtins.str]:
@@ -6056,7 +6056,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#terminationMessagePolicy
         """
         result = self._values.get("termination_message_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def tty(self) -> typing.Optional[builtins.bool]:
@@ -6069,7 +6069,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#tty
         """
         result = self._values.get("tty")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def volume_devices(self) -> typing.Optional[typing.List["VolumeDevice"]]:
@@ -6080,7 +6080,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#volumeDevices
         """
         result = self._values.get("volume_devices")
-        return result
+        return typing.cast(typing.Optional[typing.List["VolumeDevice"]], result)
 
     @builtins.property
     def volume_mounts(self) -> typing.Optional[typing.List["VolumeMount"]]:
@@ -6091,7 +6091,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#volumeMounts
         """
         result = self._values.get("volume_mounts")
-        return result
+        return typing.cast(typing.Optional[typing.List["VolumeMount"]], result)
 
     @builtins.property
     def working_dir(self) -> typing.Optional[builtins.str]:
@@ -6102,7 +6102,7 @@ class EphemeralContainer:
         :schema: io.k8s.api.core.v1.EphemeralContainer#workingDir
         """
         result = self._values.get("working_dir")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6155,7 +6155,7 @@ class EventSeries:
         """
         result = self._values.get("count")
         assert result is not None, "Required property 'count' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def last_observed_time(self) -> datetime.datetime:
@@ -6165,7 +6165,7 @@ class EventSeries:
         """
         result = self._values.get("last_observed_time")
         assert result is not None, "Required property 'last_observed_time' is missing"
-        return result
+        return typing.cast(datetime.datetime, result)
 
     @builtins.property
     def state(self) -> builtins.str:
@@ -6177,7 +6177,7 @@ class EventSeries:
         """
         result = self._values.get("state")
         assert result is not None, "Required property 'state' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6223,7 +6223,7 @@ class EventSource:
         :schema: io.k8s.api.core.v1.EventSource#component
         """
         result = self._values.get("component")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -6232,7 +6232,7 @@ class EventSource:
         :schema: io.k8s.api.core.v1.EventSource#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6276,7 +6276,7 @@ class ExecAction:
         :schema: io.k8s.api.core.v1.ExecAction#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6321,7 +6321,7 @@ class ExternalDocumentation:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.ExternalDocumentation#description
         """
         result = self._values.get("description")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def url(self) -> typing.Optional[builtins.str]:
@@ -6329,7 +6329,7 @@ class ExternalDocumentation:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.ExternalDocumentation#url
         """
         result = self._values.get("url")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6374,7 +6374,7 @@ class ExternalMetricSource:
         """
         result = self._values.get("metric")
         assert result is not None, "Required property 'metric' is missing"
-        return result
+        return typing.cast("MetricIdentifier", result)
 
     @builtins.property
     def target(self) -> "MetricTarget":
@@ -6384,7 +6384,7 @@ class ExternalMetricSource:
         """
         result = self._values.get("target")
         assert result is not None, "Required property 'target' is missing"
-        return result
+        return typing.cast("MetricTarget", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6452,7 +6452,7 @@ class FcVolumeSource:
         :schema: io.k8s.api.core.v1.FCVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def lun(self) -> typing.Optional[jsii.Number]:
@@ -6461,7 +6461,7 @@ class FcVolumeSource:
         :schema: io.k8s.api.core.v1.FCVolumeSource#lun
         """
         result = self._values.get("lun")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -6474,7 +6474,7 @@ class FcVolumeSource:
         :schema: io.k8s.api.core.v1.FCVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def target_ww_ns(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -6483,7 +6483,7 @@ class FcVolumeSource:
         :schema: io.k8s.api.core.v1.FCVolumeSource#targetWWNs
         """
         result = self._values.get("target_ww_ns")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def wwids(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -6492,7 +6492,7 @@ class FcVolumeSource:
         :schema: io.k8s.api.core.v1.FCVolumeSource#wwids
         """
         result = self._values.get("wwids")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6559,7 +6559,7 @@ class FlexPersistentVolumeSource:
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -6570,7 +6570,7 @@ class FlexPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.FlexPersistentVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def options(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -6579,7 +6579,7 @@ class FlexPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.FlexPersistentVolumeSource#options
         """
         result = self._values.get("options")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -6592,7 +6592,7 @@ class FlexPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.FlexPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -6603,7 +6603,7 @@ class FlexPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.FlexPersistentVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6670,7 +6670,7 @@ class FlexVolumeSource:
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -6681,7 +6681,7 @@ class FlexVolumeSource:
         :schema: io.k8s.api.core.v1.FlexVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def options(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -6690,7 +6690,7 @@ class FlexVolumeSource:
         :schema: io.k8s.api.core.v1.FlexVolumeSource#options
         """
         result = self._values.get("options")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -6703,7 +6703,7 @@ class FlexVolumeSource:
         :schema: io.k8s.api.core.v1.FlexVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["LocalObjectReference"]:
@@ -6714,7 +6714,7 @@ class FlexVolumeSource:
         :schema: io.k8s.api.core.v1.FlexVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["LocalObjectReference"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6762,7 +6762,7 @@ class FlockerVolumeSource:
         :schema: io.k8s.api.core.v1.FlockerVolumeSource#datasetName
         """
         result = self._values.get("dataset_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def dataset_uuid(self) -> typing.Optional[builtins.str]:
@@ -6773,7 +6773,7 @@ class FlockerVolumeSource:
         :schema: io.k8s.api.core.v1.FlockerVolumeSource#datasetUUID
         """
         result = self._values.get("dataset_uuid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6814,7 +6814,7 @@ class FlowDistinguisherMethod:
         """
         result = self._values.get("type")
         assert result is not None, "Required property 'type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6880,7 +6880,7 @@ class FlowSchemaSpec:
         """
         result = self._values.get("priority_level_configuration")
         assert result is not None, "Required property 'priority_level_configuration' is missing"
-        return result
+        return typing.cast("PriorityLevelConfigurationReference", result)
 
     @builtins.property
     def distinguisher_method(self) -> typing.Optional[FlowDistinguisherMethod]:
@@ -6891,7 +6891,7 @@ class FlowSchemaSpec:
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaSpec#distinguisherMethod
         """
         result = self._values.get("distinguisher_method")
-        return result
+        return typing.cast(typing.Optional[FlowDistinguisherMethod], result)
 
     @builtins.property
     def matching_precedence(self) -> typing.Optional[jsii.Number]:
@@ -6902,7 +6902,7 @@ class FlowSchemaSpec:
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaSpec#matchingPrecedence
         """
         result = self._values.get("matching_precedence")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List["PolicyRulesWithSubjects"]]:
@@ -6913,7 +6913,7 @@ class FlowSchemaSpec:
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaSpec#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["PolicyRulesWithSubjects"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6961,7 +6961,7 @@ class FsGroupStrategyOptions:
         :schema: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#ranges
         """
         result = self._values.get("ranges")
-        return result
+        return typing.cast(typing.Optional[typing.List["IdRange"]], result)
 
     @builtins.property
     def rule(self) -> typing.Optional[builtins.str]:
@@ -6970,7 +6970,7 @@ class FsGroupStrategyOptions:
         :schema: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#rule
         """
         result = self._values.get("rule")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7034,7 +7034,7 @@ class GcePersistentDiskVolumeSource:
         """
         result = self._values.get("pd_name")
         assert result is not None, "Required property 'pd_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -7045,7 +7045,7 @@ class GcePersistentDiskVolumeSource:
         :schema: io.k8s.api.core.v1.GCEPersistentDiskVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def partition(self) -> typing.Optional[jsii.Number]:
@@ -7056,7 +7056,7 @@ class GcePersistentDiskVolumeSource:
         :schema: io.k8s.api.core.v1.GCEPersistentDiskVolumeSource#partition
         """
         result = self._values.get("partition")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -7069,7 +7069,7 @@ class GcePersistentDiskVolumeSource:
         :schema: io.k8s.api.core.v1.GCEPersistentDiskVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7128,7 +7128,7 @@ class GitRepoVolumeSource:
         """
         result = self._values.get("repository")
         assert result is not None, "Required property 'repository' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def directory(self) -> typing.Optional[builtins.str]:
@@ -7139,7 +7139,7 @@ class GitRepoVolumeSource:
         :schema: io.k8s.api.core.v1.GitRepoVolumeSource#directory
         """
         result = self._values.get("directory")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def revision(self) -> typing.Optional[builtins.str]:
@@ -7148,7 +7148,7 @@ class GitRepoVolumeSource:
         :schema: io.k8s.api.core.v1.GitRepoVolumeSource#revision
         """
         result = self._values.get("revision")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7211,7 +7211,7 @@ class GlusterfsPersistentVolumeSource:
         """
         result = self._values.get("endpoints")
         assert result is not None, "Required property 'endpoints' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> builtins.str:
@@ -7223,7 +7223,7 @@ class GlusterfsPersistentVolumeSource:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def endpoints_namespace(self) -> typing.Optional[builtins.str]:
@@ -7234,7 +7234,7 @@ class GlusterfsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.GlusterfsPersistentVolumeSource#endpointsNamespace
         """
         result = self._values.get("endpoints_namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -7247,7 +7247,7 @@ class GlusterfsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.GlusterfsPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7301,7 +7301,7 @@ class GlusterfsVolumeSource:
         """
         result = self._values.get("endpoints")
         assert result is not None, "Required property 'endpoints' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> builtins.str:
@@ -7313,7 +7313,7 @@ class GlusterfsVolumeSource:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -7326,7 +7326,7 @@ class GlusterfsVolumeSource:
         :schema: io.k8s.api.core.v1.GlusterfsVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7384,7 +7384,7 @@ class Handler:
         :schema: io.k8s.api.core.v1.Handler#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional[ExecAction], result)
 
     @builtins.property
     def http_get(self) -> typing.Optional["HttpGetAction"]:
@@ -7393,7 +7393,7 @@ class Handler:
         :schema: io.k8s.api.core.v1.Handler#httpGet
         """
         result = self._values.get("http_get")
-        return result
+        return typing.cast(typing.Optional["HttpGetAction"], result)
 
     @builtins.property
     def tcp_socket(self) -> typing.Optional["TcpSocketAction"]:
@@ -7404,7 +7404,7 @@ class Handler:
         :schema: io.k8s.api.core.v1.Handler#tcpSocket
         """
         result = self._values.get("tcp_socket")
-        return result
+        return typing.cast(typing.Optional["TcpSocketAction"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7467,7 +7467,7 @@ class HorizontalPodAutoscalerSpec:
         """
         result = self._values.get("max_replicas")
         assert result is not None, "Required property 'max_replicas' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def scale_target_ref(self) -> CrossVersionObjectReference:
@@ -7477,7 +7477,7 @@ class HorizontalPodAutoscalerSpec:
         """
         result = self._values.get("scale_target_ref")
         assert result is not None, "Required property 'scale_target_ref' is missing"
-        return result
+        return typing.cast(CrossVersionObjectReference, result)
 
     @builtins.property
     def metrics(self) -> typing.Optional[typing.List["MetricSpec"]]:
@@ -7488,7 +7488,7 @@ class HorizontalPodAutoscalerSpec:
         :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec#metrics
         """
         result = self._values.get("metrics")
-        return result
+        return typing.cast(typing.Optional[typing.List["MetricSpec"]], result)
 
     @builtins.property
     def min_replicas(self) -> typing.Optional[jsii.Number]:
@@ -7499,7 +7499,7 @@ class HorizontalPodAutoscalerSpec:
         :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec#minReplicas
         """
         result = self._values.get("min_replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7545,7 +7545,7 @@ class HostAlias:
         :schema: io.k8s.api.core.v1.HostAlias#hostnames
         """
         result = self._values.get("hostnames")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def ip(self) -> typing.Optional[builtins.str]:
@@ -7554,7 +7554,7 @@ class HostAlias:
         :schema: io.k8s.api.core.v1.HostAlias#ip
         """
         result = self._values.get("ip")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7605,7 +7605,7 @@ class HostPathVolumeSource:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -7616,7 +7616,7 @@ class HostPathVolumeSource:
         :schema: io.k8s.api.core.v1.HostPathVolumeSource#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7659,7 +7659,7 @@ class HostPortRange:
         """
         result = self._values.get("max")
         assert result is not None, "Required property 'max' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def min(self) -> jsii.Number:
@@ -7669,7 +7669,7 @@ class HostPortRange:
         """
         result = self._values.get("min")
         assert result is not None, "Required property 'min' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7736,7 +7736,7 @@ class HttpGetAction:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("IntOrString", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -7747,7 +7747,7 @@ class HttpGetAction:
         :schema: io.k8s.api.core.v1.HTTPGetAction#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def http_headers(self) -> typing.Optional[typing.List["HttpHeader"]]:
@@ -7758,7 +7758,7 @@ class HttpGetAction:
         :schema: io.k8s.api.core.v1.HTTPGetAction#httpHeaders
         """
         result = self._values.get("http_headers")
-        return result
+        return typing.cast(typing.Optional[typing.List["HttpHeader"]], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -7767,7 +7767,7 @@ class HttpGetAction:
         :schema: io.k8s.api.core.v1.HTTPGetAction#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def scheme(self) -> typing.Optional[builtins.str]:
@@ -7780,7 +7780,7 @@ class HttpGetAction:
         :schema: io.k8s.api.core.v1.HTTPGetAction#scheme
         """
         result = self._values.get("scheme")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7821,7 +7821,7 @@ class HttpHeader:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -7831,7 +7831,7 @@ class HttpHeader:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7882,7 +7882,7 @@ class HttpIngressPath:
         """
         result = self._values.get("backend")
         assert result is not None, "Required property 'backend' is missing"
-        return result
+        return typing.cast("IngressBackend", result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -7891,7 +7891,7 @@ class HttpIngressPath:
         :schema: io.k8s.api.networking.v1beta1.HTTPIngressPath#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7932,7 +7932,7 @@ class HttpIngressRuleValue:
         """
         result = self._values.get("paths")
         assert result is not None, "Required property 'paths' is missing"
-        return result
+        return typing.cast(typing.List[HttpIngressPath], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7973,7 +7973,7 @@ class IdRange:
         """
         result = self._values.get("max")
         assert result is not None, "Required property 'max' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def min(self) -> jsii.Number:
@@ -7983,7 +7983,7 @@ class IdRange:
         """
         result = self._values.get("min")
         assert result is not None, "Required property 'min' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8029,7 +8029,7 @@ class IngressBackend:
         """
         result = self._values.get("service_name")
         assert result is not None, "Required property 'service_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def service_port(self) -> "IntOrString":
@@ -8039,7 +8039,7 @@ class IngressBackend:
         """
         result = self._values.get("service_port")
         assert result is not None, "Required property 'service_port' is missing"
-        return result
+        return typing.cast("IntOrString", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8096,7 +8096,7 @@ class IngressRule:
         :schema: io.k8s.api.networking.v1beta1.IngressRule#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def http(self) -> typing.Optional[HttpIngressRuleValue]:
@@ -8104,7 +8104,7 @@ class IngressRule:
         :schema: io.k8s.api.networking.v1beta1.IngressRule#http
         """
         result = self._values.get("http")
-        return result
+        return typing.cast(typing.Optional[HttpIngressRuleValue], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8158,7 +8158,7 @@ class IngressSpec:
         :schema: io.k8s.api.networking.v1beta1.IngressSpec#backend
         """
         result = self._values.get("backend")
-        return result
+        return typing.cast(typing.Optional[IngressBackend], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List[IngressRule]]:
@@ -8169,7 +8169,7 @@ class IngressSpec:
         :schema: io.k8s.api.networking.v1beta1.IngressSpec#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List[IngressRule]], result)
 
     @builtins.property
     def tls(self) -> typing.Optional[typing.List["IngressTls"]]:
@@ -8180,7 +8180,7 @@ class IngressSpec:
         :schema: io.k8s.api.networking.v1beta1.IngressSpec#tls
         """
         result = self._values.get("tls")
-        return result
+        return typing.cast(typing.Optional[typing.List["IngressTls"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8230,7 +8230,7 @@ class IngressTls:
         :schema: io.k8s.api.networking.v1beta1.IngressTLS#hosts
         """
         result = self._values.get("hosts")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def secret_name(self) -> typing.Optional[builtins.str]:
@@ -8241,7 +8241,7 @@ class IngressTls:
         :schema: io.k8s.api.networking.v1beta1.IngressTLS#secretName
         """
         result = self._values.get("secret_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8260,21 +8260,21 @@ class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="k8s.IntOrString"):
     :schema: io.k8s.apimachinery.pkg.util.intstr.IntOrString
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(cls, value: jsii.Number) -> "IntOrString":
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("IntOrString", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(cls, value: builtins.str) -> "IntOrString":
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("IntOrString", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.enum(jsii_type="k8s.IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind")
@@ -8325,7 +8325,7 @@ class IpBlock:
         """
         result = self._values.get("cidr")
         assert result is not None, "Required property 'cidr' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def except_(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -8334,7 +8334,7 @@ class IpBlock:
         :schema: io.k8s.api.networking.v1.IPBlock#except
         """
         result = self._values.get("except_")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8431,7 +8431,7 @@ class IscsiPersistentVolumeSource:
         """
         result = self._values.get("iqn")
         assert result is not None, "Required property 'iqn' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def lun(self) -> jsii.Number:
@@ -8441,7 +8441,7 @@ class IscsiPersistentVolumeSource:
         """
         result = self._values.get("lun")
         assert result is not None, "Required property 'lun' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def target_portal(self) -> builtins.str:
@@ -8453,7 +8453,7 @@ class IscsiPersistentVolumeSource:
         """
         result = self._values.get("target_portal")
         assert result is not None, "Required property 'target_portal' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def chap_auth_discovery(self) -> typing.Optional[builtins.bool]:
@@ -8462,7 +8462,7 @@ class IscsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIPersistentVolumeSource#chapAuthDiscovery
         """
         result = self._values.get("chap_auth_discovery")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def chap_auth_session(self) -> typing.Optional[builtins.bool]:
@@ -8471,7 +8471,7 @@ class IscsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIPersistentVolumeSource#chapAuthSession
         """
         result = self._values.get("chap_auth_session")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -8482,7 +8482,7 @@ class IscsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIPersistentVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def initiator_name(self) -> typing.Optional[builtins.str]:
@@ -8493,7 +8493,7 @@ class IscsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIPersistentVolumeSource#initiatorName
         """
         result = self._values.get("initiator_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def iscsi_interface(self) -> typing.Optional[builtins.str]:
@@ -8506,7 +8506,7 @@ class IscsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIPersistentVolumeSource#iscsiInterface
         """
         result = self._values.get("iscsi_interface")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def portals(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -8517,7 +8517,7 @@ class IscsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIPersistentVolumeSource#portals
         """
         result = self._values.get("portals")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -8530,7 +8530,7 @@ class IscsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -8539,7 +8539,7 @@ class IscsiPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIPersistentVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8636,7 +8636,7 @@ class IscsiVolumeSource:
         """
         result = self._values.get("iqn")
         assert result is not None, "Required property 'iqn' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def lun(self) -> jsii.Number:
@@ -8646,7 +8646,7 @@ class IscsiVolumeSource:
         """
         result = self._values.get("lun")
         assert result is not None, "Required property 'lun' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def target_portal(self) -> builtins.str:
@@ -8658,7 +8658,7 @@ class IscsiVolumeSource:
         """
         result = self._values.get("target_portal")
         assert result is not None, "Required property 'target_portal' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def chap_auth_discovery(self) -> typing.Optional[builtins.bool]:
@@ -8667,7 +8667,7 @@ class IscsiVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIVolumeSource#chapAuthDiscovery
         """
         result = self._values.get("chap_auth_discovery")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def chap_auth_session(self) -> typing.Optional[builtins.bool]:
@@ -8676,7 +8676,7 @@ class IscsiVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIVolumeSource#chapAuthSession
         """
         result = self._values.get("chap_auth_session")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -8687,7 +8687,7 @@ class IscsiVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def initiator_name(self) -> typing.Optional[builtins.str]:
@@ -8698,7 +8698,7 @@ class IscsiVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIVolumeSource#initiatorName
         """
         result = self._values.get("initiator_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def iscsi_interface(self) -> typing.Optional[builtins.str]:
@@ -8711,7 +8711,7 @@ class IscsiVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIVolumeSource#iscsiInterface
         """
         result = self._values.get("iscsi_interface")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def portals(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -8722,7 +8722,7 @@ class IscsiVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIVolumeSource#portals
         """
         result = self._values.get("portals")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -8735,7 +8735,7 @@ class IscsiVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["LocalObjectReference"]:
@@ -8744,7 +8744,7 @@ class IscsiVolumeSource:
         :schema: io.k8s.api.core.v1.ISCSIVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["LocalObjectReference"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8830,7 +8830,7 @@ class JobSpec:
         """
         result = self._values.get("template")
         assert result is not None, "Required property 'template' is missing"
-        return result
+        return typing.cast("PodTemplateSpec", result)
 
     @builtins.property
     def active_deadline_seconds(self) -> typing.Optional[jsii.Number]:
@@ -8841,7 +8841,7 @@ class JobSpec:
         :schema: io.k8s.api.batch.v1.JobSpec#activeDeadlineSeconds
         """
         result = self._values.get("active_deadline_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def backoff_limit(self) -> typing.Optional[jsii.Number]:
@@ -8854,7 +8854,7 @@ class JobSpec:
         :schema: io.k8s.api.batch.v1.JobSpec#backoffLimit
         """
         result = self._values.get("backoff_limit")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def completions(self) -> typing.Optional[jsii.Number]:
@@ -8865,7 +8865,7 @@ class JobSpec:
         :schema: io.k8s.api.batch.v1.JobSpec#completions
         """
         result = self._values.get("completions")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def manual_selector(self) -> typing.Optional[builtins.bool]:
@@ -8876,7 +8876,7 @@ class JobSpec:
         :schema: io.k8s.api.batch.v1.JobSpec#manualSelector
         """
         result = self._values.get("manual_selector")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def parallelism(self) -> typing.Optional[jsii.Number]:
@@ -8887,7 +8887,7 @@ class JobSpec:
         :schema: io.k8s.api.batch.v1.JobSpec#parallelism
         """
         result = self._values.get("parallelism")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def selector(self) -> typing.Optional["LabelSelector"]:
@@ -8898,7 +8898,7 @@ class JobSpec:
         :schema: io.k8s.api.batch.v1.JobSpec#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional["LabelSelector"], result)
 
     @builtins.property
     def ttl_seconds_after_finished(self) -> typing.Optional[jsii.Number]:
@@ -8909,7 +8909,7 @@ class JobSpec:
         :schema: io.k8s.api.batch.v1.JobSpec#ttlSecondsAfterFinished
         """
         result = self._values.get("ttl_seconds_after_finished")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8961,7 +8961,7 @@ class JobTemplateSpec:
         :schema: io.k8s.api.batch.v2alpha1.JobTemplateSpec#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[JobSpec]:
@@ -8972,7 +8972,7 @@ class JobTemplateSpec:
         :schema: io.k8s.api.batch.v2alpha1.JobTemplateSpec#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[JobSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9199,7 +9199,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#additionalItems
         """
         result = self._values.get("additional_items")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def additional_properties(self) -> typing.Any:
@@ -9207,7 +9207,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#additionalProperties
         """
         result = self._values.get("additional_properties")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def all_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
@@ -9215,7 +9215,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#allOf
         """
         result = self._values.get("all_of")
-        return result
+        return typing.cast(typing.Optional[typing.List["JsonSchemaProps"]], result)
 
     @builtins.property
     def any_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
@@ -9223,7 +9223,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#anyOf
         """
         result = self._values.get("any_of")
-        return result
+        return typing.cast(typing.Optional[typing.List["JsonSchemaProps"]], result)
 
     @builtins.property
     def default(self) -> typing.Any:
@@ -9234,7 +9234,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#default
         """
         result = self._values.get("default")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def definitions(
@@ -9244,7 +9244,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#definitions
         """
         result = self._values.get("definitions")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]], result)
 
     @builtins.property
     def dependencies(self) -> typing.Optional[typing.Mapping[builtins.str, typing.Any]]:
@@ -9252,7 +9252,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#dependencies
         """
         result = self._values.get("dependencies")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, typing.Any]], result)
 
     @builtins.property
     def description(self) -> typing.Optional[builtins.str]:
@@ -9260,7 +9260,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#description
         """
         result = self._values.get("description")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def enum(self) -> typing.Optional[typing.List[typing.Any]]:
@@ -9268,7 +9268,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#enum
         """
         result = self._values.get("enum")
-        return result
+        return typing.cast(typing.Optional[typing.List[typing.Any]], result)
 
     @builtins.property
     def example(self) -> typing.Any:
@@ -9276,7 +9276,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#example
         """
         result = self._values.get("example")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def exclusive_maximum(self) -> typing.Optional[builtins.bool]:
@@ -9284,7 +9284,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#exclusiveMaximum
         """
         result = self._values.get("exclusive_maximum")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def exclusive_minimum(self) -> typing.Optional[builtins.bool]:
@@ -9292,7 +9292,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#exclusiveMinimum
         """
         result = self._values.get("exclusive_minimum")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def external_docs(self) -> typing.Optional[ExternalDocumentation]:
@@ -9300,7 +9300,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#externalDocs
         """
         result = self._values.get("external_docs")
-        return result
+        return typing.cast(typing.Optional[ExternalDocumentation], result)
 
     @builtins.property
     def format(self) -> typing.Optional[builtins.str]:
@@ -9311,7 +9311,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#format
         """
         result = self._values.get("format")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def id(self) -> typing.Optional[builtins.str]:
@@ -9319,7 +9319,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#id
         """
         result = self._values.get("id")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def items(self) -> typing.Any:
@@ -9327,7 +9327,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def maximum(self) -> typing.Optional[jsii.Number]:
@@ -9335,7 +9335,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maximum
         """
         result = self._values.get("maximum")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def max_items(self) -> typing.Optional[jsii.Number]:
@@ -9343,7 +9343,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maxItems
         """
         result = self._values.get("max_items")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def max_length(self) -> typing.Optional[jsii.Number]:
@@ -9351,7 +9351,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maxLength
         """
         result = self._values.get("max_length")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def max_properties(self) -> typing.Optional[jsii.Number]:
@@ -9359,7 +9359,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#maxProperties
         """
         result = self._values.get("max_properties")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def minimum(self) -> typing.Optional[jsii.Number]:
@@ -9367,7 +9367,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#minimum
         """
         result = self._values.get("minimum")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def min_items(self) -> typing.Optional[jsii.Number]:
@@ -9375,7 +9375,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#minItems
         """
         result = self._values.get("min_items")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def min_length(self) -> typing.Optional[jsii.Number]:
@@ -9383,7 +9383,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#minLength
         """
         result = self._values.get("min_length")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def min_properties(self) -> typing.Optional[jsii.Number]:
@@ -9391,7 +9391,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#minProperties
         """
         result = self._values.get("min_properties")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def multiple_of(self) -> typing.Optional[jsii.Number]:
@@ -9399,7 +9399,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#multipleOf
         """
         result = self._values.get("multiple_of")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def not_(self) -> typing.Optional["JsonSchemaProps"]:
@@ -9407,7 +9407,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#not
         """
         result = self._values.get("not_")
-        return result
+        return typing.cast(typing.Optional["JsonSchemaProps"], result)
 
     @builtins.property
     def nullable(self) -> typing.Optional[builtins.bool]:
@@ -9415,7 +9415,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#nullable
         """
         result = self._values.get("nullable")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def one_of(self) -> typing.Optional[typing.List["JsonSchemaProps"]]:
@@ -9423,7 +9423,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#oneOf
         """
         result = self._values.get("one_of")
-        return result
+        return typing.cast(typing.Optional[typing.List["JsonSchemaProps"]], result)
 
     @builtins.property
     def pattern(self) -> typing.Optional[builtins.str]:
@@ -9431,7 +9431,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#pattern
         """
         result = self._values.get("pattern")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def pattern_properties(
@@ -9441,7 +9441,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#patternProperties
         """
         result = self._values.get("pattern_properties")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]], result)
 
     @builtins.property
     def properties(
@@ -9451,7 +9451,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#properties
         """
         result = self._values.get("properties")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]], result)
 
     @builtins.property
     def ref(self) -> typing.Optional[builtins.str]:
@@ -9459,7 +9459,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#$ref
         """
         result = self._values.get("ref")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def required(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -9467,7 +9467,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#required
         """
         result = self._values.get("required")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def schema(self) -> typing.Optional[builtins.str]:
@@ -9475,7 +9475,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#$schema
         """
         result = self._values.get("schema")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def title(self) -> typing.Optional[builtins.str]:
@@ -9483,7 +9483,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#title
         """
         result = self._values.get("title")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -9491,7 +9491,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def unique_items(self) -> typing.Optional[builtins.bool]:
@@ -9499,7 +9499,7 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#uniqueItems
         """
         result = self._values.get("unique_items")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9549,7 +9549,7 @@ class KeyToPath:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> builtins.str:
@@ -9561,7 +9561,7 @@ class KeyToPath:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -9572,7 +9572,7 @@ class KeyToPath:
         :schema: io.k8s.api.core.v1.KeyToPath#mode
         """
         result = self._values.get("mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9617,7 +9617,7 @@ class KubeApiService(
 
         jsii.create(KubeApiService, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -9634,13 +9634,13 @@ class KubeApiService(
         """
         props = KubeApiServiceProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeApiServiceList(
@@ -9672,7 +9672,7 @@ class KubeApiServiceList(
 
         jsii.create(KubeApiServiceList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -9689,13 +9689,13 @@ class KubeApiServiceList(
         """
         props = KubeApiServiceListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -9732,7 +9732,7 @@ class KubeApiServiceListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeApiServiceProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -9740,7 +9740,7 @@ class KubeApiServiceListProps:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9783,7 +9783,7 @@ class KubeApiServiceListV1Beta1(
 
         jsii.create(KubeApiServiceListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -9800,13 +9800,13 @@ class KubeApiServiceListV1Beta1(
         """
         props = KubeApiServiceListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -9843,7 +9843,7 @@ class KubeApiServiceListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeApiServiceV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -9851,7 +9851,7 @@ class KubeApiServiceListV1Beta1Props:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9902,7 +9902,7 @@ class KubeApiServiceProps:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[ApiServiceSpec]:
@@ -9911,7 +9911,7 @@ class KubeApiServiceProps:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[ApiServiceSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9956,7 +9956,7 @@ class KubeApiServiceV1Beta1(
 
         jsii.create(KubeApiServiceV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -9973,13 +9973,13 @@ class KubeApiServiceV1Beta1(
         """
         props = KubeApiServiceV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -10019,7 +10019,7 @@ class KubeApiServiceV1Beta1Props:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[ApiServiceSpec]:
@@ -10028,7 +10028,7 @@ class KubeApiServiceV1Beta1Props:
         :schema: io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[ApiServiceSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10071,7 +10071,7 @@ class KubeAuditSinkListV1Alpha1(
 
         jsii.create(KubeAuditSinkListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10088,13 +10088,13 @@ class KubeAuditSinkListV1Alpha1(
         """
         props = KubeAuditSinkListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.auditregistration.v1alpha1.AuditSinkList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -10132,7 +10132,7 @@ class KubeAuditSinkListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeAuditSinkV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -10140,7 +10140,7 @@ class KubeAuditSinkListV1Alpha1Props:
         :schema: io.k8s.api.auditregistration.v1alpha1.AuditSinkList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10183,7 +10183,7 @@ class KubeAuditSinkV1Alpha1(
 
         jsii.create(KubeAuditSinkV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10200,13 +10200,13 @@ class KubeAuditSinkV1Alpha1(
         """
         props = KubeAuditSinkV1Alpha1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.auditregistration.v1alpha1.AuditSink"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -10244,7 +10244,7 @@ class KubeAuditSinkV1Alpha1Props:
         :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[AuditSinkSpec]:
@@ -10253,7 +10253,7 @@ class KubeAuditSinkV1Alpha1Props:
         :schema: io.k8s.api.auditregistration.v1alpha1.AuditSink#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[AuditSinkSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10298,7 +10298,7 @@ class KubeBinding(
 
         jsii.create(KubeBinding, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10315,13 +10315,13 @@ class KubeBinding(
         """
         props = KubeBindingProps(target=target, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.Binding"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -10363,7 +10363,7 @@ class KubeBindingProps:
         """
         result = self._values.get("target")
         assert result is not None, "Required property 'target' is missing"
-        return result
+        return typing.cast("ObjectReference", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -10374,7 +10374,7 @@ class KubeBindingProps:
         :schema: io.k8s.api.core.v1.Binding#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10418,7 +10418,7 @@ class KubeCertificateSigningRequestListV1Beta1(
 
         jsii.create(KubeCertificateSigningRequestListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10437,13 +10437,13 @@ class KubeCertificateSigningRequestListV1Beta1(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -10479,7 +10479,7 @@ class KubeCertificateSigningRequestListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeCertificateSigningRequestV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -10487,7 +10487,7 @@ class KubeCertificateSigningRequestListV1Beta1Props:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10530,7 +10530,7 @@ class KubeCertificateSigningRequestV1Beta1(
 
         jsii.create(KubeCertificateSigningRequestV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10547,13 +10547,13 @@ class KubeCertificateSigningRequestV1Beta1(
         """
         props = KubeCertificateSigningRequestV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.certificates.v1beta1.CertificateSigningRequest"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -10591,7 +10591,7 @@ class KubeCertificateSigningRequestV1Beta1Props:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[CertificateSigningRequestSpec]:
@@ -10600,7 +10600,7 @@ class KubeCertificateSigningRequestV1Beta1Props:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequest#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[CertificateSigningRequestSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10647,7 +10647,7 @@ class KubeClusterRole(
 
         jsii.create(KubeClusterRole, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10668,13 +10668,13 @@ class KubeClusterRole(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.ClusterRole"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeClusterRoleBinding(
@@ -10712,7 +10712,7 @@ class KubeClusterRoleBinding(
 
         jsii.create(KubeClusterRoleBinding, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10733,13 +10733,13 @@ class KubeClusterRoleBinding(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.ClusterRoleBinding"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeClusterRoleBindingList(
@@ -10771,7 +10771,7 @@ class KubeClusterRoleBindingList(
 
         jsii.create(KubeClusterRoleBindingList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10788,13 +10788,13 @@ class KubeClusterRoleBindingList(
         """
         props = KubeClusterRoleBindingListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.ClusterRoleBindingList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -10832,7 +10832,7 @@ class KubeClusterRoleBindingListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeClusterRoleBindingProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -10841,7 +10841,7 @@ class KubeClusterRoleBindingListProps:
         :schema: io.k8s.api.rbac.v1.ClusterRoleBindingList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10886,7 +10886,7 @@ class KubeClusterRoleBindingListV1Alpha1(
 
         jsii.create(KubeClusterRoleBindingListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -10903,13 +10903,13 @@ class KubeClusterRoleBindingListV1Alpha1(
         """
         props = KubeClusterRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -10949,7 +10949,7 @@ class KubeClusterRoleBindingListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeClusterRoleBindingV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -10958,7 +10958,7 @@ class KubeClusterRoleBindingListV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11003,7 +11003,7 @@ class KubeClusterRoleBindingListV1Beta1(
 
         jsii.create(KubeClusterRoleBindingListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -11020,13 +11020,13 @@ class KubeClusterRoleBindingListV1Beta1(
         """
         props = KubeClusterRoleBindingListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -11066,7 +11066,7 @@ class KubeClusterRoleBindingListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeClusterRoleBindingV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -11075,7 +11075,7 @@ class KubeClusterRoleBindingListV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBindingList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11138,7 +11138,7 @@ class KubeClusterRoleBindingProps:
         """
         result = self._values.get("role_ref")
         assert result is not None, "Required property 'role_ref' is missing"
-        return result
+        return typing.cast("RoleRef", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -11147,7 +11147,7 @@ class KubeClusterRoleBindingProps:
         :schema: io.k8s.api.rbac.v1.ClusterRoleBinding#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def subjects(self) -> typing.Optional[typing.List["Subject"]]:
@@ -11156,7 +11156,7 @@ class KubeClusterRoleBindingProps:
         :schema: io.k8s.api.rbac.v1.ClusterRoleBinding#subjects
         """
         result = self._values.get("subjects")
-        return result
+        return typing.cast(typing.Optional[typing.List["Subject"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11205,7 +11205,7 @@ class KubeClusterRoleBindingV1Alpha1(
 
         jsii.create(KubeClusterRoleBindingV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -11226,13 +11226,13 @@ class KubeClusterRoleBindingV1Alpha1(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -11284,7 +11284,7 @@ class KubeClusterRoleBindingV1Alpha1Props:
         """
         result = self._values.get("role_ref")
         assert result is not None, "Required property 'role_ref' is missing"
-        return result
+        return typing.cast("RoleRef", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -11293,7 +11293,7 @@ class KubeClusterRoleBindingV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBinding#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def subjects(self) -> typing.Optional[typing.List["Subject"]]:
@@ -11302,7 +11302,7 @@ class KubeClusterRoleBindingV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleBinding#subjects
         """
         result = self._values.get("subjects")
-        return result
+        return typing.cast(typing.Optional[typing.List["Subject"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11351,7 +11351,7 @@ class KubeClusterRoleBindingV1Beta1(
 
         jsii.create(KubeClusterRoleBindingV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -11372,13 +11372,13 @@ class KubeClusterRoleBindingV1Beta1(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.ClusterRoleBinding"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -11430,7 +11430,7 @@ class KubeClusterRoleBindingV1Beta1Props:
         """
         result = self._values.get("role_ref")
         assert result is not None, "Required property 'role_ref' is missing"
-        return result
+        return typing.cast("RoleRef", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -11439,7 +11439,7 @@ class KubeClusterRoleBindingV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBinding#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def subjects(self) -> typing.Optional[typing.List["Subject"]]:
@@ -11448,7 +11448,7 @@ class KubeClusterRoleBindingV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.ClusterRoleBinding#subjects
         """
         result = self._values.get("subjects")
-        return result
+        return typing.cast(typing.Optional[typing.List["Subject"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11491,7 +11491,7 @@ class KubeClusterRoleList(
 
         jsii.create(KubeClusterRoleList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -11508,13 +11508,13 @@ class KubeClusterRoleList(
         """
         props = KubeClusterRoleListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.ClusterRoleList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -11552,7 +11552,7 @@ class KubeClusterRoleListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeClusterRoleProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -11561,7 +11561,7 @@ class KubeClusterRoleListProps:
         :schema: io.k8s.api.rbac.v1.ClusterRoleList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11606,7 +11606,7 @@ class KubeClusterRoleListV1Alpha1(
 
         jsii.create(KubeClusterRoleListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -11623,13 +11623,13 @@ class KubeClusterRoleListV1Alpha1(
         """
         props = KubeClusterRoleListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -11669,7 +11669,7 @@ class KubeClusterRoleListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeClusterRoleV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -11678,7 +11678,7 @@ class KubeClusterRoleListV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRoleList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11723,7 +11723,7 @@ class KubeClusterRoleListV1Beta1(
 
         jsii.create(KubeClusterRoleListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -11740,13 +11740,13 @@ class KubeClusterRoleListV1Beta1(
         """
         props = KubeClusterRoleListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.ClusterRoleList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -11786,7 +11786,7 @@ class KubeClusterRoleListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeClusterRoleV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -11795,7 +11795,7 @@ class KubeClusterRoleListV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.ClusterRoleList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11855,7 +11855,7 @@ class KubeClusterRoleProps:
         :schema: io.k8s.api.rbac.v1.ClusterRole#aggregationRule
         """
         result = self._values.get("aggregation_rule")
-        return result
+        return typing.cast(typing.Optional[AggregationRule], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -11864,7 +11864,7 @@ class KubeClusterRoleProps:
         :schema: io.k8s.api.rbac.v1.ClusterRole#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
@@ -11873,7 +11873,7 @@ class KubeClusterRoleProps:
         :schema: io.k8s.api.rbac.v1.ClusterRole#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["PolicyRule"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11922,7 +11922,7 @@ class KubeClusterRoleV1Alpha1(
 
         jsii.create(KubeClusterRoleV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -11943,13 +11943,13 @@ class KubeClusterRoleV1Alpha1(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRole"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -12000,7 +12000,7 @@ class KubeClusterRoleV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRole#aggregationRule
         """
         result = self._values.get("aggregation_rule")
-        return result
+        return typing.cast(typing.Optional[AggregationRule], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -12009,7 +12009,7 @@ class KubeClusterRoleV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRole#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
@@ -12018,7 +12018,7 @@ class KubeClusterRoleV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.ClusterRole#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["PolicyRule"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -12067,7 +12067,7 @@ class KubeClusterRoleV1Beta1(
 
         jsii.create(KubeClusterRoleV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12088,13 +12088,13 @@ class KubeClusterRoleV1Beta1(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.ClusterRole"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -12145,7 +12145,7 @@ class KubeClusterRoleV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.ClusterRole#aggregationRule
         """
         result = self._values.get("aggregation_rule")
-        return result
+        return typing.cast(typing.Optional[AggregationRule], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -12154,7 +12154,7 @@ class KubeClusterRoleV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.ClusterRole#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
@@ -12163,7 +12163,7 @@ class KubeClusterRoleV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.ClusterRole#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["PolicyRule"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -12206,7 +12206,7 @@ class KubeComponentStatus(
 
         jsii.create(KubeComponentStatus, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12223,13 +12223,13 @@ class KubeComponentStatus(
         """
         props = KubeComponentStatusProps(conditions=conditions, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ComponentStatus"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeComponentStatusList(
@@ -12261,7 +12261,7 @@ class KubeComponentStatusList(
 
         jsii.create(KubeComponentStatusList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12278,13 +12278,13 @@ class KubeComponentStatusList(
         """
         props = KubeComponentStatusListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ComponentStatusList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -12322,7 +12322,7 @@ class KubeComponentStatusListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeComponentStatusProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -12333,7 +12333,7 @@ class KubeComponentStatusListProps:
         :schema: io.k8s.api.core.v1.ComponentStatusList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -12381,7 +12381,7 @@ class KubeComponentStatusProps:
         :schema: io.k8s.api.core.v1.ComponentStatus#conditions
         """
         result = self._values.get("conditions")
-        return result
+        return typing.cast(typing.Optional[typing.List[ComponentCondition]], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -12392,7 +12392,7 @@ class KubeComponentStatusProps:
         :schema: io.k8s.api.core.v1.ComponentStatus#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -12439,7 +12439,7 @@ class KubeConfigMap(
 
         jsii.create(KubeConfigMap, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12460,13 +12460,13 @@ class KubeConfigMap(
             binary_data=binary_data, data=data, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ConfigMap"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeConfigMapList(
@@ -12498,7 +12498,7 @@ class KubeConfigMapList(
 
         jsii.create(KubeConfigMapList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12515,13 +12515,13 @@ class KubeConfigMapList(
         """
         props = KubeConfigMapListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ConfigMapList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -12559,7 +12559,7 @@ class KubeConfigMapListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeConfigMapProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -12568,7 +12568,7 @@ class KubeConfigMapListProps:
         :schema: io.k8s.api.core.v1.ConfigMapList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -12624,7 +12624,7 @@ class KubeConfigMapProps:
         :schema: io.k8s.api.core.v1.ConfigMap#binaryData
         """
         result = self._values.get("binary_data")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def data(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -12635,7 +12635,7 @@ class KubeConfigMapProps:
         :schema: io.k8s.api.core.v1.ConfigMap#data
         """
         result = self._values.get("data")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -12646,7 +12646,7 @@ class KubeConfigMapProps:
         :schema: io.k8s.api.core.v1.ConfigMap#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -12695,7 +12695,7 @@ class KubeControllerRevision(
 
         jsii.create(KubeControllerRevision, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12716,13 +12716,13 @@ class KubeControllerRevision(
             revision=revision, data=data, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.ControllerRevision"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeControllerRevisionList(
@@ -12754,7 +12754,7 @@ class KubeControllerRevisionList(
 
         jsii.create(KubeControllerRevisionList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12771,13 +12771,13 @@ class KubeControllerRevisionList(
         """
         props = KubeControllerRevisionListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.ControllerRevisionList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -12815,7 +12815,7 @@ class KubeControllerRevisionListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeControllerRevisionProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -12824,7 +12824,7 @@ class KubeControllerRevisionListProps:
         :schema: io.k8s.api.apps.v1.ControllerRevisionList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -12867,7 +12867,7 @@ class KubeControllerRevisionListV1Beta1(
 
         jsii.create(KubeControllerRevisionListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12884,13 +12884,13 @@ class KubeControllerRevisionListV1Beta1(
         """
         props = KubeControllerRevisionListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta1.ControllerRevisionList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -12928,7 +12928,7 @@ class KubeControllerRevisionListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeControllerRevisionV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -12937,7 +12937,7 @@ class KubeControllerRevisionListV1Beta1Props:
         :schema: io.k8s.api.apps.v1beta1.ControllerRevisionList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -12980,7 +12980,7 @@ class KubeControllerRevisionListV1Beta2(
 
         jsii.create(KubeControllerRevisionListV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -12997,13 +12997,13 @@ class KubeControllerRevisionListV1Beta2(
         """
         props = KubeControllerRevisionListV1Beta2Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.ControllerRevisionList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -13041,7 +13041,7 @@ class KubeControllerRevisionListV1Beta2Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeControllerRevisionV1Beta2Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -13050,7 +13050,7 @@ class KubeControllerRevisionListV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.ControllerRevisionList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -13105,7 +13105,7 @@ class KubeControllerRevisionProps:
         """
         result = self._values.get("revision")
         assert result is not None, "Required property 'revision' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def data(self) -> typing.Any:
@@ -13114,7 +13114,7 @@ class KubeControllerRevisionProps:
         :schema: io.k8s.api.apps.v1.ControllerRevision#data
         """
         result = self._values.get("data")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -13125,7 +13125,7 @@ class KubeControllerRevisionProps:
         :schema: io.k8s.api.apps.v1.ControllerRevision#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -13174,7 +13174,7 @@ class KubeControllerRevisionV1Beta1(
 
         jsii.create(KubeControllerRevisionV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -13195,13 +13195,13 @@ class KubeControllerRevisionV1Beta1(
             revision=revision, data=data, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta1.ControllerRevision"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -13245,7 +13245,7 @@ class KubeControllerRevisionV1Beta1Props:
         """
         result = self._values.get("revision")
         assert result is not None, "Required property 'revision' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def data(self) -> typing.Any:
@@ -13254,7 +13254,7 @@ class KubeControllerRevisionV1Beta1Props:
         :schema: io.k8s.api.apps.v1beta1.ControllerRevision#data
         """
         result = self._values.get("data")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -13265,7 +13265,7 @@ class KubeControllerRevisionV1Beta1Props:
         :schema: io.k8s.api.apps.v1beta1.ControllerRevision#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -13314,7 +13314,7 @@ class KubeControllerRevisionV1Beta2(
 
         jsii.create(KubeControllerRevisionV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -13335,13 +13335,13 @@ class KubeControllerRevisionV1Beta2(
             revision=revision, data=data, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.ControllerRevision"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -13385,7 +13385,7 @@ class KubeControllerRevisionV1Beta2Props:
         """
         result = self._values.get("revision")
         assert result is not None, "Required property 'revision' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def data(self) -> typing.Any:
@@ -13394,7 +13394,7 @@ class KubeControllerRevisionV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.ControllerRevision#data
         """
         result = self._values.get("data")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -13405,7 +13405,7 @@ class KubeControllerRevisionV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.ControllerRevision#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -13448,7 +13448,7 @@ class KubeCronJobListV1Beta1(
 
         jsii.create(KubeCronJobListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -13465,13 +13465,13 @@ class KubeCronJobListV1Beta1(
         """
         props = KubeCronJobListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.batch.v1beta1.CronJobList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -13509,7 +13509,7 @@ class KubeCronJobListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeCronJobV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -13520,7 +13520,7 @@ class KubeCronJobListV1Beta1Props:
         :schema: io.k8s.api.batch.v1beta1.CronJobList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -13563,7 +13563,7 @@ class KubeCronJobListV2Alpha1(
 
         jsii.create(KubeCronJobListV2Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -13580,13 +13580,13 @@ class KubeCronJobListV2Alpha1(
         """
         props = KubeCronJobListV2Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.batch.v2alpha1.CronJobList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -13624,7 +13624,7 @@ class KubeCronJobListV2Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeCronJobV2Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -13635,7 +13635,7 @@ class KubeCronJobListV2Alpha1Props:
         :schema: io.k8s.api.batch.v2alpha1.CronJobList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -13678,7 +13678,7 @@ class KubeCronJobV1Beta1(
 
         jsii.create(KubeCronJobV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -13695,13 +13695,13 @@ class KubeCronJobV1Beta1(
         """
         props = KubeCronJobV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.batch.v1beta1.CronJob"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -13742,7 +13742,7 @@ class KubeCronJobV1Beta1Props:
         :schema: io.k8s.api.batch.v1beta1.CronJob#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[CronJobSpec]:
@@ -13753,7 +13753,7 @@ class KubeCronJobV1Beta1Props:
         :schema: io.k8s.api.batch.v1beta1.CronJob#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[CronJobSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -13796,7 +13796,7 @@ class KubeCronJobV2Alpha1(
 
         jsii.create(KubeCronJobV2Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -13813,13 +13813,13 @@ class KubeCronJobV2Alpha1(
         """
         props = KubeCronJobV2Alpha1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.batch.v2alpha1.CronJob"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -13860,7 +13860,7 @@ class KubeCronJobV2Alpha1Props:
         :schema: io.k8s.api.batch.v2alpha1.CronJob#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[CronJobSpec]:
@@ -13871,7 +13871,7 @@ class KubeCronJobV2Alpha1Props:
         :schema: io.k8s.api.batch.v2alpha1.CronJob#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[CronJobSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -13914,7 +13914,7 @@ class KubeCsiDriverListV1Beta1(
 
         jsii.create(KubeCsiDriverListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -13931,13 +13931,13 @@ class KubeCsiDriverListV1Beta1(
         """
         props = KubeCsiDriverListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.CSIDriverList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -13975,7 +13975,7 @@ class KubeCsiDriverListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeCsiDriverV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -13984,7 +13984,7 @@ class KubeCsiDriverListV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.CSIDriverList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14029,7 +14029,7 @@ class KubeCsiDriverV1Beta1(
 
         jsii.create(KubeCsiDriverV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14046,13 +14046,13 @@ class KubeCsiDriverV1Beta1(
         """
         props = KubeCsiDriverV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.CSIDriver"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -14094,7 +14094,7 @@ class KubeCsiDriverV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast(CsiDriverSpec, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -14105,7 +14105,7 @@ class KubeCsiDriverV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.CSIDriver#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14150,7 +14150,7 @@ class KubeCsiNode(
 
         jsii.create(KubeCsiNode, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14167,13 +14167,13 @@ class KubeCsiNode(
         """
         props = KubeCsiNodeProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1.CSINode"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeCsiNodeList(
@@ -14205,7 +14205,7 @@ class KubeCsiNodeList(
 
         jsii.create(KubeCsiNodeList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14222,13 +14222,13 @@ class KubeCsiNodeList(
         """
         props = KubeCsiNodeListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1.CSINodeList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -14266,7 +14266,7 @@ class KubeCsiNodeListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeCsiNodeProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -14275,7 +14275,7 @@ class KubeCsiNodeListProps:
         :schema: io.k8s.api.storage.v1.CSINodeList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14318,7 +14318,7 @@ class KubeCsiNodeListV1Beta1(
 
         jsii.create(KubeCsiNodeListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14335,13 +14335,13 @@ class KubeCsiNodeListV1Beta1(
         """
         props = KubeCsiNodeListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.CSINodeList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -14379,7 +14379,7 @@ class KubeCsiNodeListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeCsiNodeV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -14388,7 +14388,7 @@ class KubeCsiNodeListV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.CSINodeList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14441,7 +14441,7 @@ class KubeCsiNodeProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast(CsiNodeSpec, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -14450,7 +14450,7 @@ class KubeCsiNodeProps:
         :schema: io.k8s.api.storage.v1.CSINode#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14495,7 +14495,7 @@ class KubeCsiNodeV1Beta1(
 
         jsii.create(KubeCsiNodeV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14512,13 +14512,13 @@ class KubeCsiNodeV1Beta1(
         """
         props = KubeCsiNodeV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.CSINode"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -14560,7 +14560,7 @@ class KubeCsiNodeV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast(CsiNodeSpec, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -14569,7 +14569,7 @@ class KubeCsiNodeV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.CSINode#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14614,7 +14614,7 @@ class KubeCustomResourceDefinition(
 
         jsii.create(KubeCustomResourceDefinition, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14631,13 +14631,13 @@ class KubeCustomResourceDefinition(
         """
         props = KubeCustomResourceDefinitionProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeCustomResourceDefinitionList(
@@ -14669,7 +14669,7 @@ class KubeCustomResourceDefinitionList(
 
         jsii.create(KubeCustomResourceDefinitionList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14686,13 +14686,13 @@ class KubeCustomResourceDefinitionList(
         """
         props = KubeCustomResourceDefinitionListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -14730,7 +14730,7 @@ class KubeCustomResourceDefinitionListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeCustomResourceDefinitionProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -14738,7 +14738,7 @@ class KubeCustomResourceDefinitionListProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14783,7 +14783,7 @@ class KubeCustomResourceDefinitionListV1Beta1(
 
         jsii.create(KubeCustomResourceDefinitionListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14802,13 +14802,13 @@ class KubeCustomResourceDefinitionListV1Beta1(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -14846,7 +14846,7 @@ class KubeCustomResourceDefinitionListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeCustomResourceDefinitionV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -14854,7 +14854,7 @@ class KubeCustomResourceDefinitionListV1Beta1Props:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14907,7 +14907,7 @@ class KubeCustomResourceDefinitionProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast(CustomResourceDefinitionSpec, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -14915,7 +14915,7 @@ class KubeCustomResourceDefinitionProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -14960,7 +14960,7 @@ class KubeCustomResourceDefinitionV1Beta1(
 
         jsii.create(KubeCustomResourceDefinitionV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -14977,13 +14977,13 @@ class KubeCustomResourceDefinitionV1Beta1(
         """
         props = KubeCustomResourceDefinitionV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -15025,7 +15025,7 @@ class KubeCustomResourceDefinitionV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast(CustomResourceDefinitionSpec, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -15033,7 +15033,7 @@ class KubeCustomResourceDefinitionV1Beta1Props:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -15076,7 +15076,7 @@ class KubeDaemonSet(
 
         jsii.create(KubeDaemonSet, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15093,13 +15093,13 @@ class KubeDaemonSet(
         """
         props = KubeDaemonSetProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.DaemonSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeDaemonSetList(
@@ -15131,7 +15131,7 @@ class KubeDaemonSetList(
 
         jsii.create(KubeDaemonSetList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15148,13 +15148,13 @@ class KubeDaemonSetList(
         """
         props = KubeDaemonSetListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.DaemonSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -15192,7 +15192,7 @@ class KubeDaemonSetListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeDaemonSetProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -15203,7 +15203,7 @@ class KubeDaemonSetListProps:
         :schema: io.k8s.api.apps.v1.DaemonSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -15246,7 +15246,7 @@ class KubeDaemonSetListV1Beta1(
 
         jsii.create(KubeDaemonSetListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15263,13 +15263,13 @@ class KubeDaemonSetListV1Beta1(
         """
         props = KubeDaemonSetListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.DaemonSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -15307,7 +15307,7 @@ class KubeDaemonSetListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeDaemonSetV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -15318,7 +15318,7 @@ class KubeDaemonSetListV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -15361,7 +15361,7 @@ class KubeDaemonSetListV1Beta2(
 
         jsii.create(KubeDaemonSetListV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15378,13 +15378,13 @@ class KubeDaemonSetListV1Beta2(
         """
         props = KubeDaemonSetListV1Beta2Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.DaemonSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -15422,7 +15422,7 @@ class KubeDaemonSetListV1Beta2Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeDaemonSetV1Beta2Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -15433,7 +15433,7 @@ class KubeDaemonSetListV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.DaemonSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -15485,7 +15485,7 @@ class KubeDaemonSetProps:
         :schema: io.k8s.api.apps.v1.DaemonSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[DaemonSetSpec]:
@@ -15496,7 +15496,7 @@ class KubeDaemonSetProps:
         :schema: io.k8s.api.apps.v1.DaemonSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[DaemonSetSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -15541,7 +15541,7 @@ class KubeDaemonSetV1Beta1(
 
         jsii.create(KubeDaemonSetV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15558,13 +15558,13 @@ class KubeDaemonSetV1Beta1(
         """
         props = KubeDaemonSetV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.DaemonSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -15607,7 +15607,7 @@ class KubeDaemonSetV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[DaemonSetSpec]:
@@ -15618,7 +15618,7 @@ class KubeDaemonSetV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.DaemonSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[DaemonSetSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -15663,7 +15663,7 @@ class KubeDaemonSetV1Beta2(
 
         jsii.create(KubeDaemonSetV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15680,13 +15680,13 @@ class KubeDaemonSetV1Beta2(
         """
         props = KubeDaemonSetV1Beta2Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.DaemonSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -15729,7 +15729,7 @@ class KubeDaemonSetV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.DaemonSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[DaemonSetSpec]:
@@ -15740,7 +15740,7 @@ class KubeDaemonSetV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.DaemonSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[DaemonSetSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -15783,7 +15783,7 @@ class KubeDeployment(
 
         jsii.create(KubeDeployment, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15800,13 +15800,13 @@ class KubeDeployment(
         """
         props = KubeDeploymentProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.Deployment"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeDeploymentList(
@@ -15838,7 +15838,7 @@ class KubeDeploymentList(
 
         jsii.create(KubeDeploymentList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15855,13 +15855,13 @@ class KubeDeploymentList(
         """
         props = KubeDeploymentListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.DeploymentList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -15899,7 +15899,7 @@ class KubeDeploymentListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeDeploymentProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -15908,7 +15908,7 @@ class KubeDeploymentListProps:
         :schema: io.k8s.api.apps.v1.DeploymentList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -15951,7 +15951,7 @@ class KubeDeploymentListV1Beta1(
 
         jsii.create(KubeDeploymentListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -15968,13 +15968,13 @@ class KubeDeploymentListV1Beta1(
         """
         props = KubeDeploymentListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.DeploymentList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -16012,7 +16012,7 @@ class KubeDeploymentListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeDeploymentV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -16021,7 +16021,7 @@ class KubeDeploymentListV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.DeploymentList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -16064,7 +16064,7 @@ class KubeDeploymentListV1Beta2(
 
         jsii.create(KubeDeploymentListV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -16081,13 +16081,13 @@ class KubeDeploymentListV1Beta2(
         """
         props = KubeDeploymentListV1Beta2Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.DeploymentList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -16125,7 +16125,7 @@ class KubeDeploymentListV1Beta2Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeDeploymentV1Beta2Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -16134,7 +16134,7 @@ class KubeDeploymentListV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.DeploymentList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -16184,7 +16184,7 @@ class KubeDeploymentProps:
         :schema: io.k8s.api.apps.v1.Deployment#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[DeploymentSpec]:
@@ -16193,7 +16193,7 @@ class KubeDeploymentProps:
         :schema: io.k8s.api.apps.v1.Deployment#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[DeploymentSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -16238,7 +16238,7 @@ class KubeDeploymentV1Beta1(
 
         jsii.create(KubeDeploymentV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -16255,13 +16255,13 @@ class KubeDeploymentV1Beta1(
         """
         props = KubeDeploymentV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.Deployment"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -16302,7 +16302,7 @@ class KubeDeploymentV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.Deployment#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[DeploymentSpec]:
@@ -16311,7 +16311,7 @@ class KubeDeploymentV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.Deployment#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[DeploymentSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -16356,7 +16356,7 @@ class KubeDeploymentV1Beta2(
 
         jsii.create(KubeDeploymentV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -16373,13 +16373,13 @@ class KubeDeploymentV1Beta2(
         """
         props = KubeDeploymentV1Beta2Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.Deployment"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -16420,7 +16420,7 @@ class KubeDeploymentV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.Deployment#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[DeploymentSpec]:
@@ -16429,7 +16429,7 @@ class KubeDeploymentV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.Deployment#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[DeploymentSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -16472,7 +16472,7 @@ class KubeEndpointSliceListV1Beta1(
 
         jsii.create(KubeEndpointSliceListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -16489,13 +16489,13 @@ class KubeEndpointSliceListV1Beta1(
         """
         props = KubeEndpointSliceListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.discovery.v1beta1.EndpointSliceList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -16533,7 +16533,7 @@ class KubeEndpointSliceListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeEndpointSliceV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -16542,7 +16542,7 @@ class KubeEndpointSliceListV1Beta1Props:
         :schema: io.k8s.api.discovery.v1beta1.EndpointSliceList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -16596,7 +16596,7 @@ class KubeEndpointSliceV1Beta1(
 
         jsii.create(KubeEndpointSliceV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -16622,13 +16622,13 @@ class KubeEndpointSliceV1Beta1(
             ports=ports,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.discovery.v1beta1.EndpointSlice"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -16682,7 +16682,7 @@ class KubeEndpointSliceV1Beta1Props:
         """
         result = self._values.get("address_type")
         assert result is not None, "Required property 'address_type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def endpoints(self) -> typing.List[Endpoint]:
@@ -16694,7 +16694,7 @@ class KubeEndpointSliceV1Beta1Props:
         """
         result = self._values.get("endpoints")
         assert result is not None, "Required property 'endpoints' is missing"
-        return result
+        return typing.cast(typing.List[Endpoint], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -16703,7 +16703,7 @@ class KubeEndpointSliceV1Beta1Props:
         :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def ports(self) -> typing.Optional[typing.List[EndpointPort]]:
@@ -16714,7 +16714,7 @@ class KubeEndpointSliceV1Beta1Props:
         :schema: io.k8s.api.discovery.v1beta1.EndpointSlice#ports
         """
         result = self._values.get("ports")
-        return result
+        return typing.cast(typing.Optional[typing.List[EndpointPort]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -16770,7 +16770,7 @@ class KubeEndpoints(
 
         jsii.create(KubeEndpoints, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -16787,13 +16787,13 @@ class KubeEndpoints(
         """
         props = KubeEndpointsProps(metadata=metadata, subsets=subsets)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.Endpoints"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeEndpointsList(
@@ -16825,7 +16825,7 @@ class KubeEndpointsList(
 
         jsii.create(KubeEndpointsList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -16842,13 +16842,13 @@ class KubeEndpointsList(
         """
         props = KubeEndpointsListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.EndpointsList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -16886,7 +16886,7 @@ class KubeEndpointsListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeEndpointsProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -16897,7 +16897,7 @@ class KubeEndpointsListProps:
         :schema: io.k8s.api.core.v1.EndpointsList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -16960,7 +16960,7 @@ class KubeEndpointsProps:
         :schema: io.k8s.api.core.v1.Endpoints#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def subsets(self) -> typing.Optional[typing.List[EndpointSubset]]:
@@ -16971,7 +16971,7 @@ class KubeEndpointsProps:
         :schema: io.k8s.api.core.v1.Endpoints#subsets
         """
         result = self._values.get("subsets")
-        return result
+        return typing.cast(typing.Optional[typing.List[EndpointSubset]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -17052,7 +17052,7 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
 
         jsii.create(KubeEvent, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -17111,13 +17111,13 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
             type=type,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.Event"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeEventList(
@@ -17149,7 +17149,7 @@ class KubeEventList(
 
         jsii.create(KubeEventList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -17166,13 +17166,13 @@ class KubeEventList(
         """
         props = KubeEventListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.EventList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -17210,7 +17210,7 @@ class KubeEventListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeEventProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -17221,7 +17221,7 @@ class KubeEventListProps:
         :schema: io.k8s.api.core.v1.EventList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -17264,7 +17264,7 @@ class KubeEventListV1Beta1(
 
         jsii.create(KubeEventListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -17281,13 +17281,13 @@ class KubeEventListV1Beta1(
         """
         props = KubeEventListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.events.v1beta1.EventList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -17325,7 +17325,7 @@ class KubeEventListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeEventV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -17336,7 +17336,7 @@ class KubeEventListV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.EventList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -17460,7 +17460,7 @@ class KubeEventProps:
         """
         result = self._values.get("involved_object")
         assert result is not None, "Required property 'involved_object' is missing"
-        return result
+        return typing.cast("ObjectReference", result)
 
     @builtins.property
     def metadata(self) -> "ObjectMeta":
@@ -17472,7 +17472,7 @@ class KubeEventProps:
         """
         result = self._values.get("metadata")
         assert result is not None, "Required property 'metadata' is missing"
-        return result
+        return typing.cast("ObjectMeta", result)
 
     @builtins.property
     def action(self) -> typing.Optional[builtins.str]:
@@ -17481,7 +17481,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#action
         """
         result = self._values.get("action")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def count(self) -> typing.Optional[jsii.Number]:
@@ -17490,7 +17490,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#count
         """
         result = self._values.get("count")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def event_time(self) -> typing.Optional[datetime.datetime]:
@@ -17499,7 +17499,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#eventTime
         """
         result = self._values.get("event_time")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def first_timestamp(self) -> typing.Optional[datetime.datetime]:
@@ -17510,7 +17510,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#firstTimestamp
         """
         result = self._values.get("first_timestamp")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def last_timestamp(self) -> typing.Optional[datetime.datetime]:
@@ -17519,7 +17519,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#lastTimestamp
         """
         result = self._values.get("last_timestamp")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def message(self) -> typing.Optional[builtins.str]:
@@ -17528,7 +17528,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#message
         """
         result = self._values.get("message")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def reason(self) -> typing.Optional[builtins.str]:
@@ -17537,7 +17537,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#reason
         """
         result = self._values.get("reason")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def related(self) -> typing.Optional["ObjectReference"]:
@@ -17546,7 +17546,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#related
         """
         result = self._values.get("related")
-        return result
+        return typing.cast(typing.Optional["ObjectReference"], result)
 
     @builtins.property
     def reporting_component(self) -> typing.Optional[builtins.str]:
@@ -17555,7 +17555,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#reportingComponent
         """
         result = self._values.get("reporting_component")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def reporting_instance(self) -> typing.Optional[builtins.str]:
@@ -17564,7 +17564,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#reportingInstance
         """
         result = self._values.get("reporting_instance")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def series(self) -> typing.Optional[EventSeries]:
@@ -17573,7 +17573,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#series
         """
         result = self._values.get("series")
-        return result
+        return typing.cast(typing.Optional[EventSeries], result)
 
     @builtins.property
     def source(self) -> typing.Optional[EventSource]:
@@ -17584,7 +17584,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#source
         """
         result = self._values.get("source")
-        return result
+        return typing.cast(typing.Optional[EventSource], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -17593,7 +17593,7 @@ class KubeEventProps:
         :schema: io.k8s.api.core.v1.Event#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -17680,7 +17680,7 @@ class KubeEventV1Beta1(
 
         jsii.create(KubeEventV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -17739,13 +17739,13 @@ class KubeEventV1Beta1(
             type=type,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.events.v1beta1.Event"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -17863,7 +17863,7 @@ class KubeEventV1Beta1Props:
         """
         result = self._values.get("event_time")
         assert result is not None, "Required property 'event_time' is missing"
-        return result
+        return typing.cast(datetime.datetime, result)
 
     @builtins.property
     def action(self) -> typing.Optional[builtins.str]:
@@ -17872,7 +17872,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#action
         """
         result = self._values.get("action")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def deprecated_count(self) -> typing.Optional[jsii.Number]:
@@ -17881,7 +17881,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#deprecatedCount
         """
         result = self._values.get("deprecated_count")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def deprecated_first_timestamp(self) -> typing.Optional[datetime.datetime]:
@@ -17890,7 +17890,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#deprecatedFirstTimestamp
         """
         result = self._values.get("deprecated_first_timestamp")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def deprecated_last_timestamp(self) -> typing.Optional[datetime.datetime]:
@@ -17899,7 +17899,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#deprecatedLastTimestamp
         """
         result = self._values.get("deprecated_last_timestamp")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def deprecated_source(self) -> typing.Optional[EventSource]:
@@ -17908,7 +17908,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#deprecatedSource
         """
         result = self._values.get("deprecated_source")
-        return result
+        return typing.cast(typing.Optional[EventSource], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -17916,7 +17916,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def note(self) -> typing.Optional[builtins.str]:
@@ -17927,7 +17927,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#note
         """
         result = self._values.get("note")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def reason(self) -> typing.Optional[builtins.str]:
@@ -17936,7 +17936,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#reason
         """
         result = self._values.get("reason")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def regarding(self) -> typing.Optional["ObjectReference"]:
@@ -17947,7 +17947,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#regarding
         """
         result = self._values.get("regarding")
-        return result
+        return typing.cast(typing.Optional["ObjectReference"], result)
 
     @builtins.property
     def related(self) -> typing.Optional["ObjectReference"]:
@@ -17958,7 +17958,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#related
         """
         result = self._values.get("related")
-        return result
+        return typing.cast(typing.Optional["ObjectReference"], result)
 
     @builtins.property
     def reporting_controller(self) -> typing.Optional[builtins.str]:
@@ -17967,7 +17967,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#reportingController
         """
         result = self._values.get("reporting_controller")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def reporting_instance(self) -> typing.Optional[builtins.str]:
@@ -17976,7 +17976,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#reportingInstance
         """
         result = self._values.get("reporting_instance")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def series(self) -> typing.Optional[EventSeries]:
@@ -17985,7 +17985,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#series
         """
         result = self._values.get("series")
-        return result
+        return typing.cast(typing.Optional[EventSeries], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -17994,7 +17994,7 @@ class KubeEventV1Beta1Props:
         :schema: io.k8s.api.events.v1beta1.Event#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18041,7 +18041,7 @@ class KubeEvictionV1Beta1(
 
         jsii.create(KubeEvictionV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18060,13 +18060,13 @@ class KubeEvictionV1Beta1(
             delete_options=delete_options, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.Eviction"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -18107,7 +18107,7 @@ class KubeEvictionV1Beta1Props:
         :schema: io.k8s.api.policy.v1beta1.Eviction#deleteOptions
         """
         result = self._values.get("delete_options")
-        return result
+        return typing.cast(typing.Optional[DeleteOptions], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -18116,7 +18116,7 @@ class KubeEvictionV1Beta1Props:
         :schema: io.k8s.api.policy.v1beta1.Eviction#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18159,7 +18159,7 @@ class KubeFlowSchemaListV1Alpha1(
 
         jsii.create(KubeFlowSchemaListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18176,13 +18176,13 @@ class KubeFlowSchemaListV1Alpha1(
         """
         props = KubeFlowSchemaListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -18220,7 +18220,7 @@ class KubeFlowSchemaListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeFlowSchemaV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -18231,7 +18231,7 @@ class KubeFlowSchemaListV1Alpha1Props:
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18276,7 +18276,7 @@ class KubeFlowSchemaV1Alpha1(
 
         jsii.create(KubeFlowSchemaV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18293,13 +18293,13 @@ class KubeFlowSchemaV1Alpha1(
         """
         props = KubeFlowSchemaV1Alpha1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1alpha1.FlowSchema"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -18342,7 +18342,7 @@ class KubeFlowSchemaV1Alpha1Props:
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[FlowSchemaSpec]:
@@ -18353,7 +18353,7 @@ class KubeFlowSchemaV1Alpha1Props:
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowSchema#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[FlowSchemaSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18396,7 +18396,7 @@ class KubeHorizontalPodAutoscaler(
 
         jsii.create(KubeHorizontalPodAutoscaler, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18413,13 +18413,13 @@ class KubeHorizontalPodAutoscaler(
         """
         props = KubeHorizontalPodAutoscalerProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeHorizontalPodAutoscalerList(
@@ -18451,7 +18451,7 @@ class KubeHorizontalPodAutoscalerList(
 
         jsii.create(KubeHorizontalPodAutoscalerList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18468,13 +18468,13 @@ class KubeHorizontalPodAutoscalerList(
         """
         props = KubeHorizontalPodAutoscalerListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -18512,7 +18512,7 @@ class KubeHorizontalPodAutoscalerListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeHorizontalPodAutoscalerProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -18521,7 +18521,7 @@ class KubeHorizontalPodAutoscalerListProps:
         :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18566,7 +18566,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
 
         jsii.create(KubeHorizontalPodAutoscalerListV2Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18585,13 +18585,13 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -18629,7 +18629,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeHorizontalPodAutoscalerV2Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -18638,7 +18638,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1Props:
         :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18683,7 +18683,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
 
         jsii.create(KubeHorizontalPodAutoscalerListV2Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18702,13 +18702,13 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -18746,7 +18746,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeHorizontalPodAutoscalerV2Beta2Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -18755,7 +18755,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2Props:
         :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18807,7 +18807,7 @@ class KubeHorizontalPodAutoscalerProps:
         :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[HorizontalPodAutoscalerSpec]:
@@ -18818,7 +18818,7 @@ class KubeHorizontalPodAutoscalerProps:
         :schema: io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[HorizontalPodAutoscalerSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18861,7 +18861,7 @@ class KubeHorizontalPodAutoscalerV2Beta1(
 
         jsii.create(KubeHorizontalPodAutoscalerV2Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18878,13 +18878,13 @@ class KubeHorizontalPodAutoscalerV2Beta1(
         """
         props = KubeHorizontalPodAutoscalerV2Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -18925,7 +18925,7 @@ class KubeHorizontalPodAutoscalerV2Beta1Props:
         :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[HorizontalPodAutoscalerSpec]:
@@ -18936,7 +18936,7 @@ class KubeHorizontalPodAutoscalerV2Beta1Props:
         :schema: io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[HorizontalPodAutoscalerSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -18979,7 +18979,7 @@ class KubeHorizontalPodAutoscalerV2Beta2(
 
         jsii.create(KubeHorizontalPodAutoscalerV2Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -18996,13 +18996,13 @@ class KubeHorizontalPodAutoscalerV2Beta2(
         """
         props = KubeHorizontalPodAutoscalerV2Beta2Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -19043,7 +19043,7 @@ class KubeHorizontalPodAutoscalerV2Beta2Props:
         :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[HorizontalPodAutoscalerSpec]:
@@ -19054,7 +19054,7 @@ class KubeHorizontalPodAutoscalerV2Beta2Props:
         :schema: io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[HorizontalPodAutoscalerSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -19097,7 +19097,7 @@ class KubeIngressListV1Beta1(
 
         jsii.create(KubeIngressListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -19114,13 +19114,13 @@ class KubeIngressListV1Beta1(
         """
         props = KubeIngressListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.networking.v1beta1.IngressList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -19158,7 +19158,7 @@ class KubeIngressListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeIngressV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -19169,7 +19169,7 @@ class KubeIngressListV1Beta1Props:
         :schema: io.k8s.api.networking.v1beta1.IngressList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -19214,7 +19214,7 @@ class KubeIngressV1Beta1(
 
         jsii.create(KubeIngressV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -19231,13 +19231,13 @@ class KubeIngressV1Beta1(
         """
         props = KubeIngressV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.networking.v1beta1.Ingress"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -19280,7 +19280,7 @@ class KubeIngressV1Beta1Props:
         :schema: io.k8s.api.networking.v1beta1.Ingress#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[IngressSpec]:
@@ -19291,7 +19291,7 @@ class KubeIngressV1Beta1Props:
         :schema: io.k8s.api.networking.v1beta1.Ingress#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[IngressSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -19330,7 +19330,7 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
 
         jsii.create(KubeJob, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -19347,13 +19347,13 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
         """
         props = KubeJobProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.batch.v1.Job"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeJobList(
@@ -19385,7 +19385,7 @@ class KubeJobList(
 
         jsii.create(KubeJobList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -19402,13 +19402,13 @@ class KubeJobList(
         """
         props = KubeJobListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.batch.v1.JobList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -19446,7 +19446,7 @@ class KubeJobListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeJobProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -19457,7 +19457,7 @@ class KubeJobListProps:
         :schema: io.k8s.api.batch.v1.JobList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -19509,7 +19509,7 @@ class KubeJobProps:
         :schema: io.k8s.api.batch.v1.Job#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[JobSpec]:
@@ -19520,7 +19520,7 @@ class KubeJobProps:
         :schema: io.k8s.api.batch.v1.Job#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[JobSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -19559,7 +19559,7 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
 
         jsii.create(KubeLease, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -19576,13 +19576,13 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
         """
         props = KubeLeaseProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.coordination.v1.Lease"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeLeaseList(
@@ -19614,7 +19614,7 @@ class KubeLeaseList(
 
         jsii.create(KubeLeaseList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -19631,13 +19631,13 @@ class KubeLeaseList(
         """
         props = KubeLeaseListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.coordination.v1.LeaseList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -19675,7 +19675,7 @@ class KubeLeaseListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeLeaseProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -19686,7 +19686,7 @@ class KubeLeaseListProps:
         :schema: io.k8s.api.coordination.v1.LeaseList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -19729,7 +19729,7 @@ class KubeLeaseListV1Beta1(
 
         jsii.create(KubeLeaseListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -19746,13 +19746,13 @@ class KubeLeaseListV1Beta1(
         """
         props = KubeLeaseListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.coordination.v1beta1.LeaseList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -19790,7 +19790,7 @@ class KubeLeaseListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeLeaseV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -19801,7 +19801,7 @@ class KubeLeaseListV1Beta1Props:
         :schema: io.k8s.api.coordination.v1beta1.LeaseList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -19851,7 +19851,7 @@ class KubeLeaseProps:
         :schema: io.k8s.api.coordination.v1.Lease#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["LeaseSpec"]:
@@ -19862,7 +19862,7 @@ class KubeLeaseProps:
         :schema: io.k8s.api.coordination.v1.Lease#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["LeaseSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -19905,7 +19905,7 @@ class KubeLeaseV1Beta1(
 
         jsii.create(KubeLeaseV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -19922,13 +19922,13 @@ class KubeLeaseV1Beta1(
         """
         props = KubeLeaseV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.coordination.v1beta1.Lease"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -19967,7 +19967,7 @@ class KubeLeaseV1Beta1Props:
         :schema: io.k8s.api.coordination.v1beta1.Lease#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["LeaseSpec"]:
@@ -19978,7 +19978,7 @@ class KubeLeaseV1Beta1Props:
         :schema: io.k8s.api.coordination.v1beta1.Lease#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["LeaseSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20021,7 +20021,7 @@ class KubeLimitRange(
 
         jsii.create(KubeLimitRange, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20038,13 +20038,13 @@ class KubeLimitRange(
         """
         props = KubeLimitRangeProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.LimitRange"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeLimitRangeList(
@@ -20076,7 +20076,7 @@ class KubeLimitRangeList(
 
         jsii.create(KubeLimitRangeList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20093,13 +20093,13 @@ class KubeLimitRangeList(
         """
         props = KubeLimitRangeListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.LimitRangeList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -20139,7 +20139,7 @@ class KubeLimitRangeListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeLimitRangeProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -20150,7 +20150,7 @@ class KubeLimitRangeListProps:
         :schema: io.k8s.api.core.v1.LimitRangeList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20202,7 +20202,7 @@ class KubeLimitRangeProps:
         :schema: io.k8s.api.core.v1.LimitRange#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["LimitRangeSpec"]:
@@ -20213,7 +20213,7 @@ class KubeLimitRangeProps:
         :schema: io.k8s.api.core.v1.LimitRange#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["LimitRangeSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20258,7 +20258,7 @@ class KubeLocalSubjectAccessReview(
 
         jsii.create(KubeLocalSubjectAccessReview, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20275,13 +20275,13 @@ class KubeLocalSubjectAccessReview(
         """
         props = KubeLocalSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authorization.v1.LocalSubjectAccessReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -20325,7 +20325,7 @@ class KubeLocalSubjectAccessReviewProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("SubjectAccessReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -20333,7 +20333,7 @@ class KubeLocalSubjectAccessReviewProps:
         :schema: io.k8s.api.authorization.v1.LocalSubjectAccessReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20378,7 +20378,7 @@ class KubeLocalSubjectAccessReviewV1Beta1(
 
         jsii.create(KubeLocalSubjectAccessReviewV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20395,13 +20395,13 @@ class KubeLocalSubjectAccessReviewV1Beta1(
         """
         props = KubeLocalSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -20445,7 +20445,7 @@ class KubeLocalSubjectAccessReviewV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("SubjectAccessReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -20453,7 +20453,7 @@ class KubeLocalSubjectAccessReviewV1Beta1Props:
         :schema: io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20498,7 +20498,7 @@ class KubeMutatingWebhookConfiguration(
 
         jsii.create(KubeMutatingWebhookConfiguration, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20517,13 +20517,13 @@ class KubeMutatingWebhookConfiguration(
             metadata=metadata, webhooks=webhooks
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeMutatingWebhookConfigurationList(
@@ -20557,7 +20557,7 @@ class KubeMutatingWebhookConfigurationList(
 
         jsii.create(KubeMutatingWebhookConfigurationList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20576,13 +20576,13 @@ class KubeMutatingWebhookConfigurationList(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -20620,7 +20620,7 @@ class KubeMutatingWebhookConfigurationListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeMutatingWebhookConfigurationProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -20631,7 +20631,7 @@ class KubeMutatingWebhookConfigurationListProps:
         :schema: io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20676,7 +20676,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
 
         jsii.create(KubeMutatingWebhookConfigurationListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20695,13 +20695,13 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -20739,7 +20739,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeMutatingWebhookConfigurationV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -20750,7 +20750,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1Props:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20800,7 +20800,7 @@ class KubeMutatingWebhookConfigurationProps:
         :schema: io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def webhooks(self) -> typing.Optional[typing.List["MutatingWebhook"]]:
@@ -20809,7 +20809,7 @@ class KubeMutatingWebhookConfigurationProps:
         :schema: io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration#webhooks
         """
         result = self._values.get("webhooks")
-        return result
+        return typing.cast(typing.Optional[typing.List["MutatingWebhook"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20856,7 +20856,7 @@ class KubeMutatingWebhookConfigurationV1Beta1(
 
         jsii.create(KubeMutatingWebhookConfigurationV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20875,13 +20875,13 @@ class KubeMutatingWebhookConfigurationV1Beta1(
             metadata=metadata, webhooks=webhooks
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -20922,7 +20922,7 @@ class KubeMutatingWebhookConfigurationV1Beta1Props:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def webhooks(self) -> typing.Optional[typing.List["MutatingWebhook"]]:
@@ -20931,7 +20931,7 @@ class KubeMutatingWebhookConfigurationV1Beta1Props:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration#webhooks
         """
         result = self._values.get("webhooks")
-        return result
+        return typing.cast(typing.Optional[typing.List["MutatingWebhook"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -20976,7 +20976,7 @@ class KubeNamespace(
 
         jsii.create(KubeNamespace, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -20993,13 +20993,13 @@ class KubeNamespace(
         """
         props = KubeNamespaceProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.Namespace"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeNamespaceList(
@@ -21031,7 +21031,7 @@ class KubeNamespaceList(
 
         jsii.create(KubeNamespaceList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21048,13 +21048,13 @@ class KubeNamespaceList(
         """
         props = KubeNamespaceListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.NamespaceList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -21094,7 +21094,7 @@ class KubeNamespaceListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeNamespaceProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -21105,7 +21105,7 @@ class KubeNamespaceListProps:
         :schema: io.k8s.api.core.v1.NamespaceList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -21159,7 +21159,7 @@ class KubeNamespaceProps:
         :schema: io.k8s.api.core.v1.Namespace#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["NamespaceSpec"]:
@@ -21170,7 +21170,7 @@ class KubeNamespaceProps:
         :schema: io.k8s.api.core.v1.Namespace#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["NamespaceSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -21213,7 +21213,7 @@ class KubeNetworkPolicy(
 
         jsii.create(KubeNetworkPolicy, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21230,13 +21230,13 @@ class KubeNetworkPolicy(
         """
         props = KubeNetworkPolicyProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.networking.v1.NetworkPolicy"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeNetworkPolicyList(
@@ -21268,7 +21268,7 @@ class KubeNetworkPolicyList(
 
         jsii.create(KubeNetworkPolicyList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21285,13 +21285,13 @@ class KubeNetworkPolicyList(
         """
         props = KubeNetworkPolicyListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.networking.v1.NetworkPolicyList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -21329,7 +21329,7 @@ class KubeNetworkPolicyListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeNetworkPolicyProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -21340,7 +21340,7 @@ class KubeNetworkPolicyListProps:
         :schema: io.k8s.api.networking.v1.NetworkPolicyList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -21383,7 +21383,7 @@ class KubeNetworkPolicyListV1Beta1(
 
         jsii.create(KubeNetworkPolicyListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21400,13 +21400,13 @@ class KubeNetworkPolicyListV1Beta1(
         """
         props = KubeNetworkPolicyListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.NetworkPolicyList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -21444,7 +21444,7 @@ class KubeNetworkPolicyListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeNetworkPolicyV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -21455,7 +21455,7 @@ class KubeNetworkPolicyListV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -21507,7 +21507,7 @@ class KubeNetworkPolicyProps:
         :schema: io.k8s.api.networking.v1.NetworkPolicy#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["NetworkPolicySpec"]:
@@ -21516,7 +21516,7 @@ class KubeNetworkPolicyProps:
         :schema: io.k8s.api.networking.v1.NetworkPolicy#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["NetworkPolicySpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -21559,7 +21559,7 @@ class KubeNetworkPolicyV1Beta1(
 
         jsii.create(KubeNetworkPolicyV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21576,13 +21576,13 @@ class KubeNetworkPolicyV1Beta1(
         """
         props = KubeNetworkPolicyV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.NetworkPolicy"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -21623,7 +21623,7 @@ class KubeNetworkPolicyV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.NetworkPolicy#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["NetworkPolicySpec"]:
@@ -21632,7 +21632,7 @@ class KubeNetworkPolicyV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.NetworkPolicy#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["NetworkPolicySpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -21673,7 +21673,7 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
 
         jsii.create(KubeNode, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21690,13 +21690,13 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
         """
         props = KubeNodeProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.Node"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeNodeList(
@@ -21728,7 +21728,7 @@ class KubeNodeList(
 
         jsii.create(KubeNodeList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21745,13 +21745,13 @@ class KubeNodeList(
         """
         props = KubeNodeListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.NodeList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -21789,7 +21789,7 @@ class KubeNodeListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeNodeProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -21800,7 +21800,7 @@ class KubeNodeListProps:
         :schema: io.k8s.api.core.v1.NodeList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -21854,7 +21854,7 @@ class KubeNodeProps:
         :schema: io.k8s.api.core.v1.Node#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["NodeSpec"]:
@@ -21865,7 +21865,7 @@ class KubeNodeProps:
         :schema: io.k8s.api.core.v1.Node#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["NodeSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -21910,7 +21910,7 @@ class KubePersistentVolume(
 
         jsii.create(KubePersistentVolume, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21927,13 +21927,13 @@ class KubePersistentVolume(
         """
         props = KubePersistentVolumeProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.PersistentVolume"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubePersistentVolumeClaim(
@@ -21965,7 +21965,7 @@ class KubePersistentVolumeClaim(
 
         jsii.create(KubePersistentVolumeClaim, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -21982,13 +21982,13 @@ class KubePersistentVolumeClaim(
         """
         props = KubePersistentVolumeClaimProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.PersistentVolumeClaim"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubePersistentVolumeClaimList(
@@ -22020,7 +22020,7 @@ class KubePersistentVolumeClaimList(
 
         jsii.create(KubePersistentVolumeClaimList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -22037,13 +22037,13 @@ class KubePersistentVolumeClaimList(
         """
         props = KubePersistentVolumeClaimListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.PersistentVolumeClaimList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -22083,7 +22083,7 @@ class KubePersistentVolumeClaimListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePersistentVolumeClaimProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -22094,7 +22094,7 @@ class KubePersistentVolumeClaimListProps:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -22146,7 +22146,7 @@ class KubePersistentVolumeClaimProps:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaim#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["PersistentVolumeClaimSpec"]:
@@ -22157,7 +22157,7 @@ class KubePersistentVolumeClaimProps:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaim#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["PersistentVolumeClaimSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -22200,7 +22200,7 @@ class KubePersistentVolumeList(
 
         jsii.create(KubePersistentVolumeList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -22217,13 +22217,13 @@ class KubePersistentVolumeList(
         """
         props = KubePersistentVolumeListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.PersistentVolumeList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -22263,7 +22263,7 @@ class KubePersistentVolumeListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePersistentVolumeProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -22274,7 +22274,7 @@ class KubePersistentVolumeListProps:
         :schema: io.k8s.api.core.v1.PersistentVolumeList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -22328,7 +22328,7 @@ class KubePersistentVolumeProps:
         :schema: io.k8s.api.core.v1.PersistentVolume#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["PersistentVolumeSpec"]:
@@ -22339,7 +22339,7 @@ class KubePersistentVolumeProps:
         :schema: io.k8s.api.core.v1.PersistentVolume#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["PersistentVolumeSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -22380,7 +22380,7 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
 
         jsii.create(KubePod, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -22397,13 +22397,13 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
         """
         props = KubePodProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.Pod"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubePodDisruptionBudgetListV1Beta1(
@@ -22435,7 +22435,7 @@ class KubePodDisruptionBudgetListV1Beta1(
 
         jsii.create(KubePodDisruptionBudgetListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -22452,13 +22452,13 @@ class KubePodDisruptionBudgetListV1Beta1(
         """
         props = KubePodDisruptionBudgetListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -22495,7 +22495,7 @@ class KubePodDisruptionBudgetListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePodDisruptionBudgetV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -22503,7 +22503,7 @@ class KubePodDisruptionBudgetListV1Beta1Props:
         :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -22546,7 +22546,7 @@ class KubePodDisruptionBudgetV1Beta1(
 
         jsii.create(KubePodDisruptionBudgetV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -22563,13 +22563,13 @@ class KubePodDisruptionBudgetV1Beta1(
         """
         props = KubePodDisruptionBudgetV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodDisruptionBudget"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -22607,7 +22607,7 @@ class KubePodDisruptionBudgetV1Beta1Props:
         :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["PodDisruptionBudgetSpec"]:
@@ -22616,7 +22616,7 @@ class KubePodDisruptionBudgetV1Beta1Props:
         :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudget#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["PodDisruptionBudgetSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -22659,7 +22659,7 @@ class KubePodList(
 
         jsii.create(KubePodList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -22676,13 +22676,13 @@ class KubePodList(
         """
         props = KubePodListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.PodList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -22722,7 +22722,7 @@ class KubePodListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePodProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -22733,7 +22733,7 @@ class KubePodListProps:
         :schema: io.k8s.api.core.v1.PodList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -22776,7 +22776,7 @@ class KubePodPresetListV1Alpha1(
 
         jsii.create(KubePodPresetListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -22793,13 +22793,13 @@ class KubePodPresetListV1Alpha1(
         """
         props = KubePodPresetListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.settings.v1alpha1.PodPresetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -22837,7 +22837,7 @@ class KubePodPresetListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePodPresetV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -22848,7 +22848,7 @@ class KubePodPresetListV1Alpha1Props:
         :schema: io.k8s.api.settings.v1alpha1.PodPresetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -22891,7 +22891,7 @@ class KubePodPresetV1Alpha1(
 
         jsii.create(KubePodPresetV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -22908,13 +22908,13 @@ class KubePodPresetV1Alpha1(
         """
         props = KubePodPresetV1Alpha1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.settings.v1alpha1.PodPreset"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -22952,7 +22952,7 @@ class KubePodPresetV1Alpha1Props:
         :schema: io.k8s.api.settings.v1alpha1.PodPreset#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["PodPresetSpec"]:
@@ -22960,7 +22960,7 @@ class KubePodPresetV1Alpha1Props:
         :schema: io.k8s.api.settings.v1alpha1.PodPreset#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["PodPresetSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23014,7 +23014,7 @@ class KubePodProps:
         :schema: io.k8s.api.core.v1.Pod#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["PodSpec"]:
@@ -23025,7 +23025,7 @@ class KubePodProps:
         :schema: io.k8s.api.core.v1.Pod#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["PodSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23068,7 +23068,7 @@ class KubePodSecurityPolicyListV1Beta1(
 
         jsii.create(KubePodSecurityPolicyListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -23085,13 +23085,13 @@ class KubePodSecurityPolicyListV1Beta1(
         """
         props = KubePodSecurityPolicyListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodSecurityPolicyList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -23129,7 +23129,7 @@ class KubePodSecurityPolicyListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePodSecurityPolicyV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -23140,7 +23140,7 @@ class KubePodSecurityPolicyListV1Beta1Props:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicyList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23183,7 +23183,7 @@ class KubePodSecurityPolicyV1Beta1(
 
         jsii.create(KubePodSecurityPolicyV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -23200,13 +23200,13 @@ class KubePodSecurityPolicyV1Beta1(
         """
         props = KubePodSecurityPolicyV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodSecurityPolicy"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -23247,7 +23247,7 @@ class KubePodSecurityPolicyV1Beta1Props:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["PodSecurityPolicySpec"]:
@@ -23256,7 +23256,7 @@ class KubePodSecurityPolicyV1Beta1Props:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicy#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["PodSecurityPolicySpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23299,7 +23299,7 @@ class KubePodTemplate(
 
         jsii.create(KubePodTemplate, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -23316,13 +23316,13 @@ class KubePodTemplate(
         """
         props = KubePodTemplateProps(metadata=metadata, template=template)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.PodTemplate"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubePodTemplateList(
@@ -23354,7 +23354,7 @@ class KubePodTemplateList(
 
         jsii.create(KubePodTemplateList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -23371,13 +23371,13 @@ class KubePodTemplateList(
         """
         props = KubePodTemplateListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.PodTemplateList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -23415,7 +23415,7 @@ class KubePodTemplateListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePodTemplateProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -23426,7 +23426,7 @@ class KubePodTemplateListProps:
         :schema: io.k8s.api.core.v1.PodTemplateList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23478,7 +23478,7 @@ class KubePodTemplateProps:
         :schema: io.k8s.api.core.v1.PodTemplate#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def template(self) -> typing.Optional["PodTemplateSpec"]:
@@ -23489,7 +23489,7 @@ class KubePodTemplateProps:
         :schema: io.k8s.api.core.v1.PodTemplate#template
         """
         result = self._values.get("template")
-        return result
+        return typing.cast(typing.Optional["PodTemplateSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23546,7 +23546,7 @@ class KubePriorityClass(
 
         jsii.create(KubePriorityClass, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -23575,13 +23575,13 @@ class KubePriorityClass(
             preemption_policy=preemption_policy,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1.PriorityClass"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubePriorityClassList(
@@ -23613,7 +23613,7 @@ class KubePriorityClassList(
 
         jsii.create(KubePriorityClassList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -23630,13 +23630,13 @@ class KubePriorityClassList(
         """
         props = KubePriorityClassListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1.PriorityClassList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -23674,7 +23674,7 @@ class KubePriorityClassListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePriorityClassProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -23683,7 +23683,7 @@ class KubePriorityClassListProps:
         :schema: io.k8s.api.scheduling.v1.PriorityClassList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23726,7 +23726,7 @@ class KubePriorityClassListV1Alpha1(
 
         jsii.create(KubePriorityClassListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -23743,13 +23743,13 @@ class KubePriorityClassListV1Alpha1(
         """
         props = KubePriorityClassListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1alpha1.PriorityClassList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -23787,7 +23787,7 @@ class KubePriorityClassListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePriorityClassV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -23796,7 +23796,7 @@ class KubePriorityClassListV1Alpha1Props:
         :schema: io.k8s.api.scheduling.v1alpha1.PriorityClassList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23839,7 +23839,7 @@ class KubePriorityClassListV1Beta1(
 
         jsii.create(KubePriorityClassListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -23856,13 +23856,13 @@ class KubePriorityClassListV1Beta1(
         """
         props = KubePriorityClassListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1beta1.PriorityClassList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -23900,7 +23900,7 @@ class KubePriorityClassListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePriorityClassV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -23909,7 +23909,7 @@ class KubePriorityClassListV1Beta1Props:
         :schema: io.k8s.api.scheduling.v1beta1.PriorityClassList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -23980,7 +23980,7 @@ class KubePriorityClassProps:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def description(self) -> typing.Optional[builtins.str]:
@@ -23989,7 +23989,7 @@ class KubePriorityClassProps:
         :schema: io.k8s.api.scheduling.v1.PriorityClass#description
         """
         result = self._values.get("description")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def global_default(self) -> typing.Optional[builtins.bool]:
@@ -24000,7 +24000,7 @@ class KubePriorityClassProps:
         :schema: io.k8s.api.scheduling.v1.PriorityClass#globalDefault
         """
         result = self._values.get("global_default")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -24011,7 +24011,7 @@ class KubePriorityClassProps:
         :schema: io.k8s.api.scheduling.v1.PriorityClass#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def preemption_policy(self) -> typing.Optional[builtins.str]:
@@ -24024,7 +24024,7 @@ class KubePriorityClassProps:
         :schema: io.k8s.api.scheduling.v1.PriorityClass#preemptionPolicy
         """
         result = self._values.get("preemption_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -24079,7 +24079,7 @@ class KubePriorityClassV1Alpha1(
 
         jsii.create(KubePriorityClassV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -24108,13 +24108,13 @@ class KubePriorityClassV1Alpha1(
             preemption_policy=preemption_policy,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1alpha1.PriorityClass"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -24172,7 +24172,7 @@ class KubePriorityClassV1Alpha1Props:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def description(self) -> typing.Optional[builtins.str]:
@@ -24181,7 +24181,7 @@ class KubePriorityClassV1Alpha1Props:
         :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#description
         """
         result = self._values.get("description")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def global_default(self) -> typing.Optional[builtins.bool]:
@@ -24192,7 +24192,7 @@ class KubePriorityClassV1Alpha1Props:
         :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#globalDefault
         """
         result = self._values.get("global_default")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -24203,7 +24203,7 @@ class KubePriorityClassV1Alpha1Props:
         :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def preemption_policy(self) -> typing.Optional[builtins.str]:
@@ -24216,7 +24216,7 @@ class KubePriorityClassV1Alpha1Props:
         :schema: io.k8s.api.scheduling.v1alpha1.PriorityClass#preemptionPolicy
         """
         result = self._values.get("preemption_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -24271,7 +24271,7 @@ class KubePriorityClassV1Beta1(
 
         jsii.create(KubePriorityClassV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -24300,13 +24300,13 @@ class KubePriorityClassV1Beta1(
             preemption_policy=preemption_policy,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.scheduling.v1beta1.PriorityClass"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -24364,7 +24364,7 @@ class KubePriorityClassV1Beta1Props:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def description(self) -> typing.Optional[builtins.str]:
@@ -24373,7 +24373,7 @@ class KubePriorityClassV1Beta1Props:
         :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#description
         """
         result = self._values.get("description")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def global_default(self) -> typing.Optional[builtins.bool]:
@@ -24384,7 +24384,7 @@ class KubePriorityClassV1Beta1Props:
         :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#globalDefault
         """
         result = self._values.get("global_default")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -24395,7 +24395,7 @@ class KubePriorityClassV1Beta1Props:
         :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def preemption_policy(self) -> typing.Optional[builtins.str]:
@@ -24408,7 +24408,7 @@ class KubePriorityClassV1Beta1Props:
         :schema: io.k8s.api.scheduling.v1beta1.PriorityClass#preemptionPolicy
         """
         result = self._values.get("preemption_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -24453,7 +24453,7 @@ class KubePriorityLevelConfigurationListV1Alpha1(
 
         jsii.create(KubePriorityLevelConfigurationListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -24472,13 +24472,13 @@ class KubePriorityLevelConfigurationListV1Alpha1(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -24516,7 +24516,7 @@ class KubePriorityLevelConfigurationListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubePriorityLevelConfigurationV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -24527,7 +24527,7 @@ class KubePriorityLevelConfigurationListV1Alpha1Props:
         :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -24572,7 +24572,7 @@ class KubePriorityLevelConfigurationV1Alpha1(
 
         jsii.create(KubePriorityLevelConfigurationV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -24591,13 +24591,13 @@ class KubePriorityLevelConfigurationV1Alpha1(
             metadata=metadata, spec=spec
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -24638,7 +24638,7 @@ class KubePriorityLevelConfigurationV1Alpha1Props:
         :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["PriorityLevelConfigurationSpec"]:
@@ -24649,7 +24649,7 @@ class KubePriorityLevelConfigurationV1Alpha1Props:
         :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["PriorityLevelConfigurationSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -24692,7 +24692,7 @@ class KubeReplicaSet(
 
         jsii.create(KubeReplicaSet, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -24709,13 +24709,13 @@ class KubeReplicaSet(
         """
         props = KubeReplicaSetProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.ReplicaSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeReplicaSetList(
@@ -24747,7 +24747,7 @@ class KubeReplicaSetList(
 
         jsii.create(KubeReplicaSetList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -24764,13 +24764,13 @@ class KubeReplicaSetList(
         """
         props = KubeReplicaSetListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.ReplicaSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -24810,7 +24810,7 @@ class KubeReplicaSetListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeReplicaSetProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -24821,7 +24821,7 @@ class KubeReplicaSetListProps:
         :schema: io.k8s.api.apps.v1.ReplicaSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -24864,7 +24864,7 @@ class KubeReplicaSetListV1Beta1(
 
         jsii.create(KubeReplicaSetListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -24881,13 +24881,13 @@ class KubeReplicaSetListV1Beta1(
         """
         props = KubeReplicaSetListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.ReplicaSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -24927,7 +24927,7 @@ class KubeReplicaSetListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeReplicaSetV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -24938,7 +24938,7 @@ class KubeReplicaSetListV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.ReplicaSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -24981,7 +24981,7 @@ class KubeReplicaSetListV1Beta2(
 
         jsii.create(KubeReplicaSetListV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -24998,13 +24998,13 @@ class KubeReplicaSetListV1Beta2(
         """
         props = KubeReplicaSetListV1Beta2Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.ReplicaSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -25044,7 +25044,7 @@ class KubeReplicaSetListV1Beta2Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeReplicaSetV1Beta2Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -25055,7 +25055,7 @@ class KubeReplicaSetListV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.ReplicaSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -25107,7 +25107,7 @@ class KubeReplicaSetProps:
         :schema: io.k8s.api.apps.v1.ReplicaSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ReplicaSetSpec"]:
@@ -25118,7 +25118,7 @@ class KubeReplicaSetProps:
         :schema: io.k8s.api.apps.v1.ReplicaSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ReplicaSetSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -25163,7 +25163,7 @@ class KubeReplicaSetV1Beta1(
 
         jsii.create(KubeReplicaSetV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -25180,13 +25180,13 @@ class KubeReplicaSetV1Beta1(
         """
         props = KubeReplicaSetV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.ReplicaSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -25229,7 +25229,7 @@ class KubeReplicaSetV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.ReplicaSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ReplicaSetSpec"]:
@@ -25240,7 +25240,7 @@ class KubeReplicaSetV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.ReplicaSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ReplicaSetSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -25285,7 +25285,7 @@ class KubeReplicaSetV1Beta2(
 
         jsii.create(KubeReplicaSetV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -25302,13 +25302,13 @@ class KubeReplicaSetV1Beta2(
         """
         props = KubeReplicaSetV1Beta2Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.ReplicaSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -25351,7 +25351,7 @@ class KubeReplicaSetV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.ReplicaSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ReplicaSetSpec"]:
@@ -25362,7 +25362,7 @@ class KubeReplicaSetV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.ReplicaSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ReplicaSetSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -25405,7 +25405,7 @@ class KubeReplicationController(
 
         jsii.create(KubeReplicationController, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -25422,13 +25422,13 @@ class KubeReplicationController(
         """
         props = KubeReplicationControllerProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ReplicationController"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeReplicationControllerList(
@@ -25460,7 +25460,7 @@ class KubeReplicationControllerList(
 
         jsii.create(KubeReplicationControllerList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -25477,13 +25477,13 @@ class KubeReplicationControllerList(
         """
         props = KubeReplicationControllerListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ReplicationControllerList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -25523,7 +25523,7 @@ class KubeReplicationControllerListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeReplicationControllerProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -25534,7 +25534,7 @@ class KubeReplicationControllerListProps:
         :schema: io.k8s.api.core.v1.ReplicationControllerList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -25586,7 +25586,7 @@ class KubeReplicationControllerProps:
         :schema: io.k8s.api.core.v1.ReplicationController#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ReplicationControllerSpec"]:
@@ -25597,7 +25597,7 @@ class KubeReplicationControllerProps:
         :schema: io.k8s.api.core.v1.ReplicationController#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ReplicationControllerSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -25640,7 +25640,7 @@ class KubeResourceQuota(
 
         jsii.create(KubeResourceQuota, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -25657,13 +25657,13 @@ class KubeResourceQuota(
         """
         props = KubeResourceQuotaProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ResourceQuota"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeResourceQuotaList(
@@ -25695,7 +25695,7 @@ class KubeResourceQuotaList(
 
         jsii.create(KubeResourceQuotaList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -25712,13 +25712,13 @@ class KubeResourceQuotaList(
         """
         props = KubeResourceQuotaListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ResourceQuotaList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -25758,7 +25758,7 @@ class KubeResourceQuotaListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeResourceQuotaProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -25769,7 +25769,7 @@ class KubeResourceQuotaListProps:
         :schema: io.k8s.api.core.v1.ResourceQuotaList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -25821,7 +25821,7 @@ class KubeResourceQuotaProps:
         :schema: io.k8s.api.core.v1.ResourceQuota#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ResourceQuotaSpec"]:
@@ -25832,7 +25832,7 @@ class KubeResourceQuotaProps:
         :schema: io.k8s.api.core.v1.ResourceQuota#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ResourceQuotaSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -25871,7 +25871,7 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
 
         jsii.create(KubeRole, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -25888,13 +25888,13 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
         """
         props = KubeRoleProps(metadata=metadata, rules=rules)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.Role"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeRoleBinding(
@@ -25932,7 +25932,7 @@ class KubeRoleBinding(
 
         jsii.create(KubeRoleBinding, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -25953,13 +25953,13 @@ class KubeRoleBinding(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.RoleBinding"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeRoleBindingList(
@@ -25991,7 +25991,7 @@ class KubeRoleBindingList(
 
         jsii.create(KubeRoleBindingList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -26008,13 +26008,13 @@ class KubeRoleBindingList(
         """
         props = KubeRoleBindingListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.RoleBindingList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -26052,7 +26052,7 @@ class KubeRoleBindingListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeRoleBindingProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -26061,7 +26061,7 @@ class KubeRoleBindingListProps:
         :schema: io.k8s.api.rbac.v1.RoleBindingList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -26104,7 +26104,7 @@ class KubeRoleBindingListV1Alpha1(
 
         jsii.create(KubeRoleBindingListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -26121,13 +26121,13 @@ class KubeRoleBindingListV1Alpha1(
         """
         props = KubeRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleBindingList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -26165,7 +26165,7 @@ class KubeRoleBindingListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeRoleBindingV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -26174,7 +26174,7 @@ class KubeRoleBindingListV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.RoleBindingList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -26217,7 +26217,7 @@ class KubeRoleBindingListV1Beta1(
 
         jsii.create(KubeRoleBindingListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -26234,13 +26234,13 @@ class KubeRoleBindingListV1Beta1(
         """
         props = KubeRoleBindingListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.RoleBindingList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -26278,7 +26278,7 @@ class KubeRoleBindingListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeRoleBindingV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -26287,7 +26287,7 @@ class KubeRoleBindingListV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.RoleBindingList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -26350,7 +26350,7 @@ class KubeRoleBindingProps:
         """
         result = self._values.get("role_ref")
         assert result is not None, "Required property 'role_ref' is missing"
-        return result
+        return typing.cast("RoleRef", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -26359,7 +26359,7 @@ class KubeRoleBindingProps:
         :schema: io.k8s.api.rbac.v1.RoleBinding#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def subjects(self) -> typing.Optional[typing.List["Subject"]]:
@@ -26368,7 +26368,7 @@ class KubeRoleBindingProps:
         :schema: io.k8s.api.rbac.v1.RoleBinding#subjects
         """
         result = self._values.get("subjects")
-        return result
+        return typing.cast(typing.Optional[typing.List["Subject"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -26417,7 +26417,7 @@ class KubeRoleBindingV1Alpha1(
 
         jsii.create(KubeRoleBindingV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -26438,13 +26438,13 @@ class KubeRoleBindingV1Alpha1(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleBinding"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -26496,7 +26496,7 @@ class KubeRoleBindingV1Alpha1Props:
         """
         result = self._values.get("role_ref")
         assert result is not None, "Required property 'role_ref' is missing"
-        return result
+        return typing.cast("RoleRef", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -26505,7 +26505,7 @@ class KubeRoleBindingV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.RoleBinding#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def subjects(self) -> typing.Optional[typing.List["Subject"]]:
@@ -26514,7 +26514,7 @@ class KubeRoleBindingV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.RoleBinding#subjects
         """
         result = self._values.get("subjects")
-        return result
+        return typing.cast(typing.Optional[typing.List["Subject"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -26563,7 +26563,7 @@ class KubeRoleBindingV1Beta1(
 
         jsii.create(KubeRoleBindingV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -26584,13 +26584,13 @@ class KubeRoleBindingV1Beta1(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.RoleBinding"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -26642,7 +26642,7 @@ class KubeRoleBindingV1Beta1Props:
         """
         result = self._values.get("role_ref")
         assert result is not None, "Required property 'role_ref' is missing"
-        return result
+        return typing.cast("RoleRef", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -26651,7 +26651,7 @@ class KubeRoleBindingV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.RoleBinding#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def subjects(self) -> typing.Optional[typing.List["Subject"]]:
@@ -26660,7 +26660,7 @@ class KubeRoleBindingV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.RoleBinding#subjects
         """
         result = self._values.get("subjects")
-        return result
+        return typing.cast(typing.Optional[typing.List["Subject"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -26703,7 +26703,7 @@ class KubeRoleList(
 
         jsii.create(KubeRoleList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -26720,13 +26720,13 @@ class KubeRoleList(
         """
         props = KubeRoleListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1.RoleList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -26764,7 +26764,7 @@ class KubeRoleListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeRoleProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -26773,7 +26773,7 @@ class KubeRoleListProps:
         :schema: io.k8s.api.rbac.v1.RoleList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -26818,7 +26818,7 @@ class KubeRoleListV1Alpha1(
 
         jsii.create(KubeRoleListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -26835,13 +26835,13 @@ class KubeRoleListV1Alpha1(
         """
         props = KubeRoleListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -26881,7 +26881,7 @@ class KubeRoleListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeRoleV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -26890,7 +26890,7 @@ class KubeRoleListV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.RoleList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -26933,7 +26933,7 @@ class KubeRoleListV1Beta1(
 
         jsii.create(KubeRoleListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -26950,13 +26950,13 @@ class KubeRoleListV1Beta1(
         """
         props = KubeRoleListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.RoleList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -26994,7 +26994,7 @@ class KubeRoleListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeRoleV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -27003,7 +27003,7 @@ class KubeRoleListV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.RoleList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27051,7 +27051,7 @@ class KubeRoleProps:
         :schema: io.k8s.api.rbac.v1.Role#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
@@ -27060,7 +27060,7 @@ class KubeRoleProps:
         :schema: io.k8s.api.rbac.v1.Role#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["PolicyRule"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27105,7 +27105,7 @@ class KubeRoleV1Alpha1(
 
         jsii.create(KubeRoleV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -27122,13 +27122,13 @@ class KubeRoleV1Alpha1(
         """
         props = KubeRoleV1Alpha1Props(metadata=metadata, rules=rules)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.Role"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -27167,7 +27167,7 @@ class KubeRoleV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.Role#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
@@ -27176,7 +27176,7 @@ class KubeRoleV1Alpha1Props:
         :schema: io.k8s.api.rbac.v1alpha1.Role#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["PolicyRule"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27221,7 +27221,7 @@ class KubeRoleV1Beta1(
 
         jsii.create(KubeRoleV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -27238,13 +27238,13 @@ class KubeRoleV1Beta1(
         """
         props = KubeRoleV1Beta1Props(metadata=metadata, rules=rules)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.rbac.v1beta1.Role"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -27283,7 +27283,7 @@ class KubeRoleV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.Role#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List["PolicyRule"]]:
@@ -27292,7 +27292,7 @@ class KubeRoleV1Beta1Props:
         :schema: io.k8s.api.rbac.v1beta1.Role#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["PolicyRule"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27335,7 +27335,7 @@ class KubeRuntimeClassListV1Alpha1(
 
         jsii.create(KubeRuntimeClassListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -27352,13 +27352,13 @@ class KubeRuntimeClassListV1Alpha1(
         """
         props = KubeRuntimeClassListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.node.v1alpha1.RuntimeClassList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -27396,7 +27396,7 @@ class KubeRuntimeClassListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeRuntimeClassV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -27407,7 +27407,7 @@ class KubeRuntimeClassListV1Alpha1Props:
         :schema: io.k8s.api.node.v1alpha1.RuntimeClassList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27450,7 +27450,7 @@ class KubeRuntimeClassListV1Beta1(
 
         jsii.create(KubeRuntimeClassListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -27467,13 +27467,13 @@ class KubeRuntimeClassListV1Beta1(
         """
         props = KubeRuntimeClassListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.node.v1beta1.RuntimeClassList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -27511,7 +27511,7 @@ class KubeRuntimeClassListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeRuntimeClassV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -27522,7 +27522,7 @@ class KubeRuntimeClassListV1Beta1Props:
         :schema: io.k8s.api.node.v1beta1.RuntimeClassList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27567,7 +27567,7 @@ class KubeRuntimeClassV1Alpha1(
 
         jsii.create(KubeRuntimeClassV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -27584,13 +27584,13 @@ class KubeRuntimeClassV1Alpha1(
         """
         props = KubeRuntimeClassV1Alpha1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.node.v1alpha1.RuntimeClass"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -27632,7 +27632,7 @@ class KubeRuntimeClassV1Alpha1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("RuntimeClassSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -27641,7 +27641,7 @@ class KubeRuntimeClassV1Alpha1Props:
         :schema: io.k8s.api.node.v1alpha1.RuntimeClass#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27695,7 +27695,7 @@ class KubeRuntimeClassV1Beta1(
 
         jsii.create(KubeRuntimeClassV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -27721,13 +27721,13 @@ class KubeRuntimeClassV1Beta1(
             scheduling=scheduling,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.node.v1beta1.RuntimeClass"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -27786,7 +27786,7 @@ class KubeRuntimeClassV1Beta1Props:
         """
         result = self._values.get("handler")
         assert result is not None, "Required property 'handler' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -27795,7 +27795,7 @@ class KubeRuntimeClassV1Beta1Props:
         :schema: io.k8s.api.node.v1beta1.RuntimeClass#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def overhead(self) -> typing.Optional["Overhead"]:
@@ -27806,7 +27806,7 @@ class KubeRuntimeClassV1Beta1Props:
         :schema: io.k8s.api.node.v1beta1.RuntimeClass#overhead
         """
         result = self._values.get("overhead")
-        return result
+        return typing.cast(typing.Optional["Overhead"], result)
 
     @builtins.property
     def scheduling(self) -> typing.Optional["Scheduling"]:
@@ -27817,7 +27817,7 @@ class KubeRuntimeClassV1Beta1Props:
         :schema: io.k8s.api.node.v1beta1.RuntimeClass#scheduling
         """
         result = self._values.get("scheduling")
-        return result
+        return typing.cast(typing.Optional["Scheduling"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27856,7 +27856,7 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
 
         jsii.create(KubeScale, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -27873,13 +27873,13 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
         """
         props = KubeScaleProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.autoscaling.v1.Scale"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -27920,7 +27920,7 @@ class KubeScaleProps:
         :schema: io.k8s.api.autoscaling.v1.Scale#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ScaleSpec"]:
@@ -27931,7 +27931,7 @@ class KubeScaleProps:
         :schema: io.k8s.api.autoscaling.v1.Scale#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ScaleSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -27974,7 +27974,7 @@ class KubeScaleV1Beta1(
 
         jsii.create(KubeScaleV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -27991,13 +27991,13 @@ class KubeScaleV1Beta1(
         """
         props = KubeScaleV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.extensions.v1beta1.Scale"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -28038,7 +28038,7 @@ class KubeScaleV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.Scale#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ScaleSpec"]:
@@ -28049,7 +28049,7 @@ class KubeScaleV1Beta1Props:
         :schema: io.k8s.api.extensions.v1beta1.Scale#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ScaleSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -28092,7 +28092,7 @@ class KubeScaleV1Beta2(
 
         jsii.create(KubeScaleV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -28109,13 +28109,13 @@ class KubeScaleV1Beta2(
         """
         props = KubeScaleV1Beta2Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.Scale"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -28156,7 +28156,7 @@ class KubeScaleV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.Scale#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ScaleSpec"]:
@@ -28167,7 +28167,7 @@ class KubeScaleV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.Scale#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ScaleSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -28214,7 +28214,7 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
 
         jsii.create(KubeSecret, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -28237,13 +28237,13 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
             data=data, metadata=metadata, string_data=string_data, type=type
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.Secret"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeSecretList(
@@ -28275,7 +28275,7 @@ class KubeSecretList(
 
         jsii.create(KubeSecretList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -28292,13 +28292,13 @@ class KubeSecretList(
         """
         props = KubeSecretListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.SecretList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -28338,7 +28338,7 @@ class KubeSecretListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeSecretProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -28349,7 +28349,7 @@ class KubeSecretListProps:
         :schema: io.k8s.api.core.v1.SecretList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -28414,7 +28414,7 @@ class KubeSecretProps:
         :schema: io.k8s.api.core.v1.Secret#data
         """
         result = self._values.get("data")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -28425,7 +28425,7 @@ class KubeSecretProps:
         :schema: io.k8s.api.core.v1.Secret#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def string_data(
@@ -28438,7 +28438,7 @@ class KubeSecretProps:
         :schema: io.k8s.api.core.v1.Secret#stringData
         """
         result = self._values.get("string_data")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -28447,7 +28447,7 @@ class KubeSecretProps:
         :schema: io.k8s.api.core.v1.Secret#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -28492,7 +28492,7 @@ class KubeSelfSubjectAccessReview(
 
         jsii.create(KubeSelfSubjectAccessReview, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -28509,13 +28509,13 @@ class KubeSelfSubjectAccessReview(
         """
         props = KubeSelfSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authorization.v1.SelfSubjectAccessReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -28559,7 +28559,7 @@ class KubeSelfSubjectAccessReviewProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("SelfSubjectAccessReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -28567,7 +28567,7 @@ class KubeSelfSubjectAccessReviewProps:
         :schema: io.k8s.api.authorization.v1.SelfSubjectAccessReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -28612,7 +28612,7 @@ class KubeSelfSubjectAccessReviewV1Beta1(
 
         jsii.create(KubeSelfSubjectAccessReviewV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -28629,13 +28629,13 @@ class KubeSelfSubjectAccessReviewV1Beta1(
         """
         props = KubeSelfSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -28679,7 +28679,7 @@ class KubeSelfSubjectAccessReviewV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("SelfSubjectAccessReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -28687,7 +28687,7 @@ class KubeSelfSubjectAccessReviewV1Beta1Props:
         :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -28732,7 +28732,7 @@ class KubeSelfSubjectRulesReview(
 
         jsii.create(KubeSelfSubjectRulesReview, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -28749,13 +28749,13 @@ class KubeSelfSubjectRulesReview(
         """
         props = KubeSelfSubjectRulesReviewProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authorization.v1.SelfSubjectRulesReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -28797,7 +28797,7 @@ class KubeSelfSubjectRulesReviewProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("SelfSubjectRulesReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -28805,7 +28805,7 @@ class KubeSelfSubjectRulesReviewProps:
         :schema: io.k8s.api.authorization.v1.SelfSubjectRulesReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -28850,7 +28850,7 @@ class KubeSelfSubjectRulesReviewV1Beta1(
 
         jsii.create(KubeSelfSubjectRulesReviewV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -28867,13 +28867,13 @@ class KubeSelfSubjectRulesReviewV1Beta1(
         """
         props = KubeSelfSubjectRulesReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -28915,7 +28915,7 @@ class KubeSelfSubjectRulesReviewV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("SelfSubjectRulesReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -28923,7 +28923,7 @@ class KubeSelfSubjectRulesReviewV1Beta1Props:
         :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -28966,7 +28966,7 @@ class KubeService(
 
         jsii.create(KubeService, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -28983,13 +28983,13 @@ class KubeService(
         """
         props = KubeServiceProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.Service"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeServiceAccount(
@@ -29030,7 +29030,7 @@ class KubeServiceAccount(
 
         jsii.create(KubeServiceAccount, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -29056,13 +29056,13 @@ class KubeServiceAccount(
             secrets=secrets,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ServiceAccount"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeServiceAccountList(
@@ -29094,7 +29094,7 @@ class KubeServiceAccountList(
 
         jsii.create(KubeServiceAccountList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -29111,13 +29111,13 @@ class KubeServiceAccountList(
         """
         props = KubeServiceAccountListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ServiceAccountList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -29157,7 +29157,7 @@ class KubeServiceAccountListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeServiceAccountProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -29168,7 +29168,7 @@ class KubeServiceAccountListProps:
         :schema: io.k8s.api.core.v1.ServiceAccountList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -29231,7 +29231,7 @@ class KubeServiceAccountProps:
         :schema: io.k8s.api.core.v1.ServiceAccount#automountServiceAccountToken
         """
         result = self._values.get("automount_service_account_token")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def image_pull_secrets(
@@ -29244,7 +29244,7 @@ class KubeServiceAccountProps:
         :schema: io.k8s.api.core.v1.ServiceAccount#imagePullSecrets
         """
         result = self._values.get("image_pull_secrets")
-        return result
+        return typing.cast(typing.Optional[typing.List["LocalObjectReference"]], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -29255,7 +29255,7 @@ class KubeServiceAccountProps:
         :schema: io.k8s.api.core.v1.ServiceAccount#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def secrets(self) -> typing.Optional[typing.List["ObjectReference"]]:
@@ -29266,7 +29266,7 @@ class KubeServiceAccountProps:
         :schema: io.k8s.api.core.v1.ServiceAccount#secrets
         """
         result = self._values.get("secrets")
-        return result
+        return typing.cast(typing.Optional[typing.List["ObjectReference"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -29309,7 +29309,7 @@ class KubeServiceList(
 
         jsii.create(KubeServiceList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -29326,13 +29326,13 @@ class KubeServiceList(
         """
         props = KubeServiceListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.core.v1.ServiceList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -29370,7 +29370,7 @@ class KubeServiceListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeServiceProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -29381,7 +29381,7 @@ class KubeServiceListProps:
         :schema: io.k8s.api.core.v1.ServiceList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -29433,7 +29433,7 @@ class KubeServiceProps:
         :schema: io.k8s.api.core.v1.Service#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["ServiceSpec"]:
@@ -29444,7 +29444,7 @@ class KubeServiceProps:
         :schema: io.k8s.api.core.v1.Service#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["ServiceSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -29493,7 +29493,7 @@ class KubeStatefulSet(
 
         jsii.create(KubeStatefulSet, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -29510,13 +29510,13 @@ class KubeStatefulSet(
         """
         props = KubeStatefulSetProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.StatefulSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeStatefulSetList(
@@ -29548,7 +29548,7 @@ class KubeStatefulSetList(
 
         jsii.create(KubeStatefulSetList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -29565,13 +29565,13 @@ class KubeStatefulSetList(
         """
         props = KubeStatefulSetListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1.StatefulSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -29608,7 +29608,7 @@ class KubeStatefulSetListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeStatefulSetProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -29616,7 +29616,7 @@ class KubeStatefulSetListProps:
         :schema: io.k8s.api.apps.v1.StatefulSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -29659,7 +29659,7 @@ class KubeStatefulSetListV1Beta1(
 
         jsii.create(KubeStatefulSetListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -29676,13 +29676,13 @@ class KubeStatefulSetListV1Beta1(
         """
         props = KubeStatefulSetListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta1.StatefulSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -29719,7 +29719,7 @@ class KubeStatefulSetListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeStatefulSetV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -29727,7 +29727,7 @@ class KubeStatefulSetListV1Beta1Props:
         :schema: io.k8s.api.apps.v1beta1.StatefulSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -29770,7 +29770,7 @@ class KubeStatefulSetListV1Beta2(
 
         jsii.create(KubeStatefulSetListV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -29787,13 +29787,13 @@ class KubeStatefulSetListV1Beta2(
         """
         props = KubeStatefulSetListV1Beta2Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.StatefulSetList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -29830,7 +29830,7 @@ class KubeStatefulSetListV1Beta2Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeStatefulSetV1Beta2Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -29838,7 +29838,7 @@ class KubeStatefulSetListV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.StatefulSetList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -29893,7 +29893,7 @@ class KubeStatefulSetProps:
         :schema: io.k8s.api.apps.v1.StatefulSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["StatefulSetSpec"]:
@@ -29902,7 +29902,7 @@ class KubeStatefulSetProps:
         :schema: io.k8s.api.apps.v1.StatefulSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["StatefulSetSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -29951,7 +29951,7 @@ class KubeStatefulSetV1Beta1(
 
         jsii.create(KubeStatefulSetV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -29968,13 +29968,13 @@ class KubeStatefulSetV1Beta1(
         """
         props = KubeStatefulSetV1Beta1Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta1.StatefulSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -30018,7 +30018,7 @@ class KubeStatefulSetV1Beta1Props:
         :schema: io.k8s.api.apps.v1beta1.StatefulSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["StatefulSetSpec"]:
@@ -30027,7 +30027,7 @@ class KubeStatefulSetV1Beta1Props:
         :schema: io.k8s.api.apps.v1beta1.StatefulSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["StatefulSetSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -30076,7 +30076,7 @@ class KubeStatefulSetV1Beta2(
 
         jsii.create(KubeStatefulSetV1Beta2, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -30093,13 +30093,13 @@ class KubeStatefulSetV1Beta2(
         """
         props = KubeStatefulSetV1Beta2Props(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.apps.v1beta2.StatefulSet"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -30143,7 +30143,7 @@ class KubeStatefulSetV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.StatefulSet#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["StatefulSetSpec"]:
@@ -30152,7 +30152,7 @@ class KubeStatefulSetV1Beta2Props:
         :schema: io.k8s.api.apps.v1beta2.StatefulSet#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["StatefulSetSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -30203,7 +30203,7 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
 
         jsii.create(KubeStatus, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -30232,13 +30232,13 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
             reason=reason,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.apimachinery.pkg.apis.meta.v1.Status"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -30295,7 +30295,7 @@ class KubeStatusProps:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.Status#code
         """
         result = self._values.get("code")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def details(self) -> typing.Optional["StatusDetails"]:
@@ -30306,7 +30306,7 @@ class KubeStatusProps:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.Status#details
         """
         result = self._values.get("details")
-        return result
+        return typing.cast(typing.Optional["StatusDetails"], result)
 
     @builtins.property
     def message(self) -> typing.Optional[builtins.str]:
@@ -30315,7 +30315,7 @@ class KubeStatusProps:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.Status#message
         """
         result = self._values.get("message")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -30326,7 +30326,7 @@ class KubeStatusProps:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.Status#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     @builtins.property
     def reason(self) -> typing.Optional[builtins.str]:
@@ -30337,7 +30337,7 @@ class KubeStatusProps:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.Status#reason
         """
         result = self._values.get("reason")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -30403,7 +30403,7 @@ class KubeStorageClass(
 
         jsii.create(KubeStorageClass, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -30441,13 +30441,13 @@ class KubeStorageClass(
             volume_binding_mode=volume_binding_mode,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1.StorageClass"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeStorageClassList(
@@ -30479,7 +30479,7 @@ class KubeStorageClassList(
 
         jsii.create(KubeStorageClassList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -30496,13 +30496,13 @@ class KubeStorageClassList(
         """
         props = KubeStorageClassListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1.StorageClassList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -30540,7 +30540,7 @@ class KubeStorageClassListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeStorageClassProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -30549,7 +30549,7 @@ class KubeStorageClassListProps:
         :schema: io.k8s.api.storage.v1.StorageClassList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -30592,7 +30592,7 @@ class KubeStorageClassListV1Beta1(
 
         jsii.create(KubeStorageClassListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -30609,13 +30609,13 @@ class KubeStorageClassListV1Beta1(
         """
         props = KubeStorageClassListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.StorageClassList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -30653,7 +30653,7 @@ class KubeStorageClassListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeStorageClassV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -30662,7 +30662,7 @@ class KubeStorageClassListV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.StorageClassList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -30746,7 +30746,7 @@ class KubeStorageClassProps:
         """
         result = self._values.get("provisioner")
         assert result is not None, "Required property 'provisioner' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def allowed_topologies(
@@ -30759,7 +30759,7 @@ class KubeStorageClassProps:
         :schema: io.k8s.api.storage.v1.StorageClass#allowedTopologies
         """
         result = self._values.get("allowed_topologies")
-        return result
+        return typing.cast(typing.Optional[typing.List["TopologySelectorTerm"]], result)
 
     @builtins.property
     def allow_volume_expansion(self) -> typing.Optional[builtins.bool]:
@@ -30768,7 +30768,7 @@ class KubeStorageClassProps:
         :schema: io.k8s.api.storage.v1.StorageClass#allowVolumeExpansion
         """
         result = self._values.get("allow_volume_expansion")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -30779,7 +30779,7 @@ class KubeStorageClassProps:
         :schema: io.k8s.api.storage.v1.StorageClass#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def mount_options(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -30788,7 +30788,7 @@ class KubeStorageClassProps:
         :schema: io.k8s.api.storage.v1.StorageClass#mountOptions
         """
         result = self._values.get("mount_options")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def parameters(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -30797,7 +30797,7 @@ class KubeStorageClassProps:
         :schema: io.k8s.api.storage.v1.StorageClass#parameters
         """
         result = self._values.get("parameters")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def reclaim_policy(self) -> typing.Optional[builtins.str]:
@@ -30810,7 +30810,7 @@ class KubeStorageClassProps:
         :schema: io.k8s.api.storage.v1.StorageClass#reclaimPolicy
         """
         result = self._values.get("reclaim_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_binding_mode(self) -> typing.Optional[builtins.str]:
@@ -30821,7 +30821,7 @@ class KubeStorageClassProps:
         :schema: io.k8s.api.storage.v1.StorageClass#volumeBindingMode
         """
         result = self._values.get("volume_binding_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -30887,7 +30887,7 @@ class KubeStorageClassV1Beta1(
 
         jsii.create(KubeStorageClassV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -30925,13 +30925,13 @@ class KubeStorageClassV1Beta1(
             volume_binding_mode=volume_binding_mode,
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.StorageClass"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -31004,7 +31004,7 @@ class KubeStorageClassV1Beta1Props:
         """
         result = self._values.get("provisioner")
         assert result is not None, "Required property 'provisioner' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def allowed_topologies(
@@ -31017,7 +31017,7 @@ class KubeStorageClassV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.StorageClass#allowedTopologies
         """
         result = self._values.get("allowed_topologies")
-        return result
+        return typing.cast(typing.Optional[typing.List["TopologySelectorTerm"]], result)
 
     @builtins.property
     def allow_volume_expansion(self) -> typing.Optional[builtins.bool]:
@@ -31026,7 +31026,7 @@ class KubeStorageClassV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.StorageClass#allowVolumeExpansion
         """
         result = self._values.get("allow_volume_expansion")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -31037,7 +31037,7 @@ class KubeStorageClassV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.StorageClass#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def mount_options(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -31046,7 +31046,7 @@ class KubeStorageClassV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.StorageClass#mountOptions
         """
         result = self._values.get("mount_options")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def parameters(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -31055,7 +31055,7 @@ class KubeStorageClassV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.StorageClass#parameters
         """
         result = self._values.get("parameters")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def reclaim_policy(self) -> typing.Optional[builtins.str]:
@@ -31068,7 +31068,7 @@ class KubeStorageClassV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.StorageClass#reclaimPolicy
         """
         result = self._values.get("reclaim_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_binding_mode(self) -> typing.Optional[builtins.str]:
@@ -31079,7 +31079,7 @@ class KubeStorageClassV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.StorageClass#volumeBindingMode
         """
         result = self._values.get("volume_binding_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -31122,7 +31122,7 @@ class KubeSubjectAccessReview(
 
         jsii.create(KubeSubjectAccessReview, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -31139,13 +31139,13 @@ class KubeSubjectAccessReview(
         """
         props = KubeSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authorization.v1.SubjectAccessReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -31185,7 +31185,7 @@ class KubeSubjectAccessReviewProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("SubjectAccessReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -31193,7 +31193,7 @@ class KubeSubjectAccessReviewProps:
         :schema: io.k8s.api.authorization.v1.SubjectAccessReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -31236,7 +31236,7 @@ class KubeSubjectAccessReviewV1Beta1(
 
         jsii.create(KubeSubjectAccessReviewV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -31253,13 +31253,13 @@ class KubeSubjectAccessReviewV1Beta1(
         """
         props = KubeSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authorization.v1beta1.SubjectAccessReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -31299,7 +31299,7 @@ class KubeSubjectAccessReviewV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("SubjectAccessReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -31307,7 +31307,7 @@ class KubeSubjectAccessReviewV1Beta1Props:
         :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -31350,7 +31350,7 @@ class KubeTokenRequest(
 
         jsii.create(KubeTokenRequest, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -31367,13 +31367,13 @@ class KubeTokenRequest(
         """
         props = KubeTokenRequestProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authentication.v1.TokenRequest"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -31412,7 +31412,7 @@ class KubeTokenRequestProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("TokenRequestSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -31420,7 +31420,7 @@ class KubeTokenRequestProps:
         :schema: io.k8s.api.authentication.v1.TokenRequest#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -31465,7 +31465,7 @@ class KubeTokenReview(
 
         jsii.create(KubeTokenReview, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -31482,13 +31482,13 @@ class KubeTokenReview(
         """
         props = KubeTokenReviewProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authentication.v1.TokenReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -31530,7 +31530,7 @@ class KubeTokenReviewProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("TokenReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -31538,7 +31538,7 @@ class KubeTokenReviewProps:
         :schema: io.k8s.api.authentication.v1.TokenReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -31583,7 +31583,7 @@ class KubeTokenReviewV1Beta1(
 
         jsii.create(KubeTokenReviewV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -31600,13 +31600,13 @@ class KubeTokenReviewV1Beta1(
         """
         props = KubeTokenReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.authentication.v1beta1.TokenReview"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -31648,7 +31648,7 @@ class KubeTokenReviewV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("TokenReviewSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -31656,7 +31656,7 @@ class KubeTokenReviewV1Beta1Props:
         :schema: io.k8s.api.authentication.v1beta1.TokenReview#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -31701,7 +31701,7 @@ class KubeValidatingWebhookConfiguration(
 
         jsii.create(KubeValidatingWebhookConfiguration, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -31720,13 +31720,13 @@ class KubeValidatingWebhookConfiguration(
             metadata=metadata, webhooks=webhooks
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeValidatingWebhookConfigurationList(
@@ -31760,7 +31760,7 @@ class KubeValidatingWebhookConfigurationList(
 
         jsii.create(KubeValidatingWebhookConfigurationList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -31779,13 +31779,13 @@ class KubeValidatingWebhookConfigurationList(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -31823,7 +31823,7 @@ class KubeValidatingWebhookConfigurationListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeValidatingWebhookConfigurationProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -31834,7 +31834,7 @@ class KubeValidatingWebhookConfigurationListProps:
         :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -31879,7 +31879,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
 
         jsii.create(KubeValidatingWebhookConfigurationListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -31898,13 +31898,13 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
             items=items, metadata=metadata
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -31942,7 +31942,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeValidatingWebhookConfigurationV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -31953,7 +31953,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1Props:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32003,7 +32003,7 @@ class KubeValidatingWebhookConfigurationProps:
         :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def webhooks(self) -> typing.Optional[typing.List["ValidatingWebhook"]]:
@@ -32012,7 +32012,7 @@ class KubeValidatingWebhookConfigurationProps:
         :schema: io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration#webhooks
         """
         result = self._values.get("webhooks")
-        return result
+        return typing.cast(typing.Optional[typing.List["ValidatingWebhook"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32059,7 +32059,7 @@ class KubeValidatingWebhookConfigurationV1Beta1(
 
         jsii.create(KubeValidatingWebhookConfigurationV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -32078,13 +32078,13 @@ class KubeValidatingWebhookConfigurationV1Beta1(
             metadata=metadata, webhooks=webhooks
         )
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -32125,7 +32125,7 @@ class KubeValidatingWebhookConfigurationV1Beta1Props:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     @builtins.property
     def webhooks(self) -> typing.Optional[typing.List["ValidatingWebhook"]]:
@@ -32134,7 +32134,7 @@ class KubeValidatingWebhookConfigurationV1Beta1Props:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration#webhooks
         """
         result = self._values.get("webhooks")
-        return result
+        return typing.cast(typing.Optional[typing.List["ValidatingWebhook"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32179,7 +32179,7 @@ class KubeVolumeAttachment(
 
         jsii.create(KubeVolumeAttachment, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -32196,13 +32196,13 @@ class KubeVolumeAttachment(
         """
         props = KubeVolumeAttachmentProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1.VolumeAttachment"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 class KubeVolumeAttachmentList(
@@ -32234,7 +32234,7 @@ class KubeVolumeAttachmentList(
 
         jsii.create(KubeVolumeAttachmentList, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -32251,13 +32251,13 @@ class KubeVolumeAttachmentList(
         """
         props = KubeVolumeAttachmentListProps(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1.VolumeAttachmentList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -32295,7 +32295,7 @@ class KubeVolumeAttachmentListProps:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeVolumeAttachmentProps"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -32304,7 +32304,7 @@ class KubeVolumeAttachmentListProps:
         :schema: io.k8s.api.storage.v1.VolumeAttachmentList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32347,7 +32347,7 @@ class KubeVolumeAttachmentListV1Alpha1(
 
         jsii.create(KubeVolumeAttachmentListV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -32364,13 +32364,13 @@ class KubeVolumeAttachmentListV1Alpha1(
         """
         props = KubeVolumeAttachmentListV1Alpha1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1alpha1.VolumeAttachmentList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -32408,7 +32408,7 @@ class KubeVolumeAttachmentListV1Alpha1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeVolumeAttachmentV1Alpha1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -32417,7 +32417,7 @@ class KubeVolumeAttachmentListV1Alpha1Props:
         :schema: io.k8s.api.storage.v1alpha1.VolumeAttachmentList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32460,7 +32460,7 @@ class KubeVolumeAttachmentListV1Beta1(
 
         jsii.create(KubeVolumeAttachmentListV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -32477,13 +32477,13 @@ class KubeVolumeAttachmentListV1Beta1(
         """
         props = KubeVolumeAttachmentListV1Beta1Props(items=items, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.VolumeAttachmentList"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -32521,7 +32521,7 @@ class KubeVolumeAttachmentListV1Beta1Props:
         """
         result = self._values.get("items")
         assert result is not None, "Required property 'items' is missing"
-        return result
+        return typing.cast(typing.List["KubeVolumeAttachmentV1Beta1Props"], result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ListMeta"]:
@@ -32530,7 +32530,7 @@ class KubeVolumeAttachmentListV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentList#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ListMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32585,7 +32585,7 @@ class KubeVolumeAttachmentProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("VolumeAttachmentSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -32596,7 +32596,7 @@ class KubeVolumeAttachmentProps:
         :schema: io.k8s.api.storage.v1.VolumeAttachment#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32641,7 +32641,7 @@ class KubeVolumeAttachmentV1Alpha1(
 
         jsii.create(KubeVolumeAttachmentV1Alpha1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -32658,13 +32658,13 @@ class KubeVolumeAttachmentV1Alpha1(
         """
         props = KubeVolumeAttachmentV1Alpha1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1alpha1.VolumeAttachment"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -32708,7 +32708,7 @@ class KubeVolumeAttachmentV1Alpha1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("VolumeAttachmentSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -32719,7 +32719,7 @@ class KubeVolumeAttachmentV1Alpha1Props:
         :schema: io.k8s.api.storage.v1alpha1.VolumeAttachment#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32764,7 +32764,7 @@ class KubeVolumeAttachmentV1Beta1(
 
         jsii.create(KubeVolumeAttachmentV1Beta1, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -32781,13 +32781,13 @@ class KubeVolumeAttachmentV1Beta1(
         """
         props = KubeVolumeAttachmentV1Beta1Props(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "io.k8s.api.storage.v1beta1.VolumeAttachment"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -32831,7 +32831,7 @@ class KubeVolumeAttachmentV1Beta1Props:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("VolumeAttachmentSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Optional["ObjectMeta"]:
@@ -32842,7 +32842,7 @@ class KubeVolumeAttachmentV1Beta1Props:
         :schema: io.k8s.api.storage.v1beta1.VolumeAttachment#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional["ObjectMeta"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32897,7 +32897,7 @@ class LabelSelector:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List["LabelSelectorRequirement"]], result)
 
     @builtins.property
     def match_labels(
@@ -32910,7 +32910,7 @@ class LabelSelector:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -32960,7 +32960,7 @@ class LabelSelectorRequirement:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -32972,7 +32972,7 @@ class LabelSelectorRequirement:
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -32983,7 +32983,7 @@ class LabelSelectorRequirement:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33047,7 +33047,7 @@ class LeaseSpec:
         :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#acquireTime
         """
         result = self._values.get("acquire_time")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def holder_identity(self) -> typing.Optional[builtins.str]:
@@ -33056,7 +33056,7 @@ class LeaseSpec:
         :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#holderIdentity
         """
         result = self._values.get("holder_identity")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def lease_duration_seconds(self) -> typing.Optional[jsii.Number]:
@@ -33067,7 +33067,7 @@ class LeaseSpec:
         :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#leaseDurationSeconds
         """
         result = self._values.get("lease_duration_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def lease_transitions(self) -> typing.Optional[jsii.Number]:
@@ -33076,7 +33076,7 @@ class LeaseSpec:
         :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#leaseTransitions
         """
         result = self._values.get("lease_transitions")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def renew_time(self) -> typing.Optional[datetime.datetime]:
@@ -33085,7 +33085,7 @@ class LeaseSpec:
         :schema: io.k8s.api.coordination.v1beta1.LeaseSpec#renewTime
         """
         result = self._values.get("renew_time")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33139,7 +33139,7 @@ class Lifecycle:
         :schema: io.k8s.api.core.v1.Lifecycle#postStart
         """
         result = self._values.get("post_start")
-        return result
+        return typing.cast(typing.Optional[Handler], result)
 
     @builtins.property
     def pre_stop(self) -> typing.Optional[Handler]:
@@ -33150,7 +33150,7 @@ class Lifecycle:
         :schema: io.k8s.api.core.v1.Lifecycle#preStop
         """
         result = self._values.get("pre_stop")
-        return result
+        return typing.cast(typing.Optional[Handler], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33219,7 +33219,7 @@ class LimitRangeItem:
         :schema: io.k8s.api.core.v1.LimitRangeItem#default
         """
         result = self._values.get("default")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "Quantity"]], result)
 
     @builtins.property
     def default_request(
@@ -33230,7 +33230,7 @@ class LimitRangeItem:
         :schema: io.k8s.api.core.v1.LimitRangeItem#defaultRequest
         """
         result = self._values.get("default_request")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "Quantity"]], result)
 
     @builtins.property
     def max(self) -> typing.Optional[typing.Mapping[builtins.str, "Quantity"]]:
@@ -33239,7 +33239,7 @@ class LimitRangeItem:
         :schema: io.k8s.api.core.v1.LimitRangeItem#max
         """
         result = self._values.get("max")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "Quantity"]], result)
 
     @builtins.property
     def max_limit_request_ratio(
@@ -33252,7 +33252,7 @@ class LimitRangeItem:
         :schema: io.k8s.api.core.v1.LimitRangeItem#maxLimitRequestRatio
         """
         result = self._values.get("max_limit_request_ratio")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "Quantity"]], result)
 
     @builtins.property
     def min(self) -> typing.Optional[typing.Mapping[builtins.str, "Quantity"]]:
@@ -33261,7 +33261,7 @@ class LimitRangeItem:
         :schema: io.k8s.api.core.v1.LimitRangeItem#min
         """
         result = self._values.get("min")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "Quantity"]], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -33270,7 +33270,7 @@ class LimitRangeItem:
         :schema: io.k8s.api.core.v1.LimitRangeItem#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33309,7 +33309,7 @@ class LimitRangeSpec:
         """
         result = self._values.get("limits")
         assert result is not None, "Required property 'limits' is missing"
-        return result
+        return typing.cast(typing.List[LimitRangeItem], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33360,7 +33360,7 @@ class LimitResponse:
         """
         result = self._values.get("type")
         assert result is not None, "Required property 'type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def queuing(self) -> typing.Optional["QueuingConfiguration"]:
@@ -33371,7 +33371,7 @@ class LimitResponse:
         :schema: io.k8s.api.flowcontrol.v1alpha1.LimitResponse#queuing
         """
         result = self._values.get("queuing")
-        return result
+        return typing.cast(typing.Optional["QueuingConfiguration"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33432,7 +33432,7 @@ class LimitedPriorityLevelConfiguration:
         :schema: io.k8s.api.flowcontrol.v1alpha1.LimitedPriorityLevelConfiguration#assuredConcurrencyShares
         """
         result = self._values.get("assured_concurrency_shares")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def limit_response(self) -> typing.Optional[LimitResponse]:
@@ -33441,7 +33441,7 @@ class LimitedPriorityLevelConfiguration:
         :schema: io.k8s.api.flowcontrol.v1alpha1.LimitedPriorityLevelConfiguration#limitResponse
         """
         result = self._values.get("limit_response")
-        return result
+        return typing.cast(typing.Optional[LimitResponse], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33504,7 +33504,7 @@ class ListMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta#continue
         """
         result = self._values.get("continue_")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def remaining_item_count(self) -> typing.Optional[jsii.Number]:
@@ -33515,7 +33515,7 @@ class ListMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta#remainingItemCount
         """
         result = self._values.get("remaining_item_count")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def resource_version(self) -> typing.Optional[builtins.str]:
@@ -33526,7 +33526,7 @@ class ListMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta#resourceVersion
         """
         result = self._values.get("resource_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def self_link(self) -> typing.Optional[builtins.str]:
@@ -33537,7 +33537,7 @@ class ListMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta#selfLink
         """
         result = self._values.get("self_link")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33577,7 +33577,7 @@ class LocalObjectReference:
         :schema: io.k8s.api.core.v1.LocalObjectReference#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33626,7 +33626,7 @@ class LocalVolumeSource:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -33637,7 +33637,7 @@ class LocalVolumeSource:
         :schema: io.k8s.api.core.v1.LocalVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33708,7 +33708,7 @@ class ManagedFieldsEntry:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def fields_type(self) -> typing.Optional[builtins.str]:
@@ -33719,7 +33719,7 @@ class ManagedFieldsEntry:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#fieldsType
         """
         result = self._values.get("fields_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def fields_v1(self) -> typing.Any:
@@ -33728,7 +33728,7 @@ class ManagedFieldsEntry:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#fieldsV1
         """
         result = self._values.get("fields_v1")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def manager(self) -> typing.Optional[builtins.str]:
@@ -33737,7 +33737,7 @@ class ManagedFieldsEntry:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#manager
         """
         result = self._values.get("manager")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def operation(self) -> typing.Optional[builtins.str]:
@@ -33748,7 +33748,7 @@ class ManagedFieldsEntry:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#operation
         """
         result = self._values.get("operation")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def time(self) -> typing.Optional[datetime.datetime]:
@@ -33759,7 +33759,7 @@ class ManagedFieldsEntry:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#time
         """
         result = self._values.get("time")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33808,7 +33808,7 @@ class MetricIdentifier:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def selector(self) -> typing.Optional[LabelSelector]:
@@ -33819,7 +33819,7 @@ class MetricIdentifier:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricIdentifier#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33894,7 +33894,7 @@ class MetricSpec:
         """
         result = self._values.get("type")
         assert result is not None, "Required property 'type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def external(self) -> typing.Optional[ExternalMetricSource]:
@@ -33905,7 +33905,7 @@ class MetricSpec:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#external
         """
         result = self._values.get("external")
-        return result
+        return typing.cast(typing.Optional[ExternalMetricSource], result)
 
     @builtins.property
     def object(self) -> typing.Optional["ObjectMetricSource"]:
@@ -33914,7 +33914,7 @@ class MetricSpec:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#object
         """
         result = self._values.get("object")
-        return result
+        return typing.cast(typing.Optional["ObjectMetricSource"], result)
 
     @builtins.property
     def pods(self) -> typing.Optional["PodsMetricSource"]:
@@ -33925,7 +33925,7 @@ class MetricSpec:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#pods
         """
         result = self._values.get("pods")
-        return result
+        return typing.cast(typing.Optional["PodsMetricSource"], result)
 
     @builtins.property
     def resource(self) -> typing.Optional["ResourceMetricSource"]:
@@ -33934,7 +33934,7 @@ class MetricSpec:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricSpec#resource
         """
         result = self._values.get("resource")
-        return result
+        return typing.cast(typing.Optional["ResourceMetricSource"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -33994,7 +33994,7 @@ class MetricTarget:
         """
         result = self._values.get("type")
         assert result is not None, "Required property 'type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def average_utilization(self) -> typing.Optional[jsii.Number]:
@@ -34005,7 +34005,7 @@ class MetricTarget:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget#averageUtilization
         """
         result = self._values.get("average_utilization")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def average_value(self) -> typing.Optional["Quantity"]:
@@ -34014,7 +34014,7 @@ class MetricTarget:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget#averageValue
         """
         result = self._values.get("average_value")
-        return result
+        return typing.cast(typing.Optional["Quantity"], result)
 
     @builtins.property
     def value(self) -> typing.Optional["Quantity"]:
@@ -34023,7 +34023,7 @@ class MetricTarget:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget#value
         """
         result = self._values.get("value")
-        return result
+        return typing.cast(typing.Optional["Quantity"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34125,7 +34125,7 @@ class MutatingWebhook:
         """
         result = self._values.get("client_config")
         assert result is not None, "Required property 'client_config' is missing"
-        return result
+        return typing.cast("WebhookClientConfig", result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -34137,7 +34137,7 @@ class MutatingWebhook:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def admission_review_versions(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -34150,7 +34150,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#admissionReviewVersions
         """
         result = self._values.get("admission_review_versions")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def failure_policy(self) -> typing.Optional[builtins.str]:
@@ -34163,7 +34163,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#failurePolicy
         """
         result = self._values.get("failure_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def match_policy(self) -> typing.Optional[builtins.str]:
@@ -34179,7 +34179,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#matchPolicy
         """
         result = self._values.get("match_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def namespace_selector(self) -> typing.Optional[LabelSelector]:
@@ -34222,7 +34222,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#namespaceSelector
         """
         result = self._values.get("namespace_selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def object_selector(self) -> typing.Optional[LabelSelector]:
@@ -34235,7 +34235,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#objectSelector
         """
         result = self._values.get("object_selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def reinvocation_policy(self) -> typing.Optional[builtins.str]:
@@ -34254,7 +34254,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#reinvocationPolicy
         """
         result = self._values.get("reinvocation_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List["RuleWithOperations"]]:
@@ -34265,7 +34265,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["RuleWithOperations"]], result)
 
     @builtins.property
     def side_effects(self) -> typing.Optional[builtins.str]:
@@ -34278,7 +34278,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#sideEffects
         """
         result = self._values.get("side_effects")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -34291,7 +34291,7 @@ class MutatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.MutatingWebhook#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34335,7 +34335,7 @@ class NamespaceSpec:
         :schema: io.k8s.api.core.v1.NamespaceSpec#finalizers
         """
         result = self._values.get("finalizers")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34385,7 +34385,7 @@ class NetworkPolicyEgressRule:
         :schema: io.k8s.api.networking.v1.NetworkPolicyEgressRule#ports
         """
         result = self._values.get("ports")
-        return result
+        return typing.cast(typing.Optional[typing.List["NetworkPolicyPort"]], result)
 
     @builtins.property
     def to(self) -> typing.Optional[typing.List["NetworkPolicyPeer"]]:
@@ -34396,7 +34396,7 @@ class NetworkPolicyEgressRule:
         :schema: io.k8s.api.networking.v1.NetworkPolicyEgressRule#to
         """
         result = self._values.get("to")
-        return result
+        return typing.cast(typing.Optional[typing.List["NetworkPolicyPeer"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34446,7 +34446,7 @@ class NetworkPolicyIngressRule:
         :schema: io.k8s.api.networking.v1.NetworkPolicyIngressRule#from
         """
         result = self._values.get("from_")
-        return result
+        return typing.cast(typing.Optional[typing.List["NetworkPolicyPeer"]], result)
 
     @builtins.property
     def ports(self) -> typing.Optional[typing.List["NetworkPolicyPort"]]:
@@ -34457,7 +34457,7 @@ class NetworkPolicyIngressRule:
         :schema: io.k8s.api.networking.v1.NetworkPolicyIngressRule#ports
         """
         result = self._values.get("ports")
-        return result
+        return typing.cast(typing.Optional[typing.List["NetworkPolicyPort"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34521,7 +34521,7 @@ class NetworkPolicyPeer:
         :schema: io.k8s.api.networking.v1.NetworkPolicyPeer#ipBlock
         """
         result = self._values.get("ip_block")
-        return result
+        return typing.cast(typing.Optional[IpBlock], result)
 
     @builtins.property
     def namespace_selector(self) -> typing.Optional[LabelSelector]:
@@ -34534,7 +34534,7 @@ class NetworkPolicyPeer:
         :schema: io.k8s.api.networking.v1.NetworkPolicyPeer#namespaceSelector
         """
         result = self._values.get("namespace_selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def pod_selector(self) -> typing.Optional[LabelSelector]:
@@ -34547,7 +34547,7 @@ class NetworkPolicyPeer:
         :schema: io.k8s.api.networking.v1.NetworkPolicyPeer#podSelector
         """
         result = self._values.get("pod_selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34595,7 +34595,7 @@ class NetworkPolicyPort:
         :schema: io.k8s.api.networking.v1.NetworkPolicyPort#port
         """
         result = self._values.get("port")
-        return result
+        return typing.cast(typing.Optional[IntOrString], result)
 
     @builtins.property
     def protocol(self) -> typing.Optional[builtins.str]:
@@ -34606,7 +34606,7 @@ class NetworkPolicyPort:
         :schema: io.k8s.api.networking.v1.NetworkPolicyPort#protocol
         """
         result = self._values.get("protocol")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34670,7 +34670,7 @@ class NetworkPolicySpec:
         """
         result = self._values.get("pod_selector")
         assert result is not None, "Required property 'pod_selector' is missing"
-        return result
+        return typing.cast(LabelSelector, result)
 
     @builtins.property
     def egress(self) -> typing.Optional[typing.List[NetworkPolicyEgressRule]]:
@@ -34681,7 +34681,7 @@ class NetworkPolicySpec:
         :schema: io.k8s.api.networking.v1.NetworkPolicySpec#egress
         """
         result = self._values.get("egress")
-        return result
+        return typing.cast(typing.Optional[typing.List[NetworkPolicyEgressRule]], result)
 
     @builtins.property
     def ingress(self) -> typing.Optional[typing.List[NetworkPolicyIngressRule]]:
@@ -34692,7 +34692,7 @@ class NetworkPolicySpec:
         :schema: io.k8s.api.networking.v1.NetworkPolicySpec#ingress
         """
         result = self._values.get("ingress")
-        return result
+        return typing.cast(typing.Optional[typing.List[NetworkPolicyIngressRule]], result)
 
     @builtins.property
     def policy_types(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -34703,7 +34703,7 @@ class NetworkPolicySpec:
         :schema: io.k8s.api.networking.v1.NetworkPolicySpec#policyTypes
         """
         result = self._values.get("policy_types")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34757,7 +34757,7 @@ class NfsVolumeSource:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def server(self) -> builtins.str:
@@ -34769,7 +34769,7 @@ class NfsVolumeSource:
         """
         result = self._values.get("server")
         assert result is not None, "Required property 'server' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -34782,7 +34782,7 @@ class NfsVolumeSource:
         :schema: io.k8s.api.core.v1.NFSVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34837,7 +34837,7 @@ class NodeAffinity:
         :schema: io.k8s.api.core.v1.NodeAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["PreferredSchedulingTerm"]], result)
 
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
@@ -34850,7 +34850,7 @@ class NodeAffinity:
         :schema: io.k8s.api.core.v1.NodeAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional["NodeSelector"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34896,7 +34896,7 @@ class NodeConfigSource:
         :schema: io.k8s.api.core.v1.NodeConfigSource#configMap
         """
         result = self._values.get("config_map")
-        return result
+        return typing.cast(typing.Optional[ConfigMapNodeConfigSource], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34939,7 +34939,7 @@ class NodeSelector:
         """
         result = self._values.get("node_selector_terms")
         assert result is not None, "Required property 'node_selector_terms' is missing"
-        return result
+        return typing.cast(typing.List["NodeSelectorTerm"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -34989,7 +34989,7 @@ class NodeSelectorRequirement:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -35001,7 +35001,7 @@ class NodeSelectorRequirement:
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -35012,7 +35012,7 @@ class NodeSelectorRequirement:
         :schema: io.k8s.api.core.v1.NodeSelectorRequirement#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35065,7 +35065,7 @@ class NodeSelectorTerm:
         :schema: io.k8s.api.core.v1.NodeSelectorTerm#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List[NodeSelectorRequirement]], result)
 
     @builtins.property
     def match_fields(self) -> typing.Optional[typing.List[NodeSelectorRequirement]]:
@@ -35074,7 +35074,7 @@ class NodeSelectorTerm:
         :schema: io.k8s.api.core.v1.NodeSelectorTerm#matchFields
         """
         result = self._values.get("match_fields")
-        return result
+        return typing.cast(typing.Optional[typing.List[NodeSelectorRequirement]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35150,7 +35150,7 @@ class NodeSpec:
         :schema: io.k8s.api.core.v1.NodeSpec#configSource
         """
         result = self._values.get("config_source")
-        return result
+        return typing.cast(typing.Optional[NodeConfigSource], result)
 
     @builtins.property
     def external_id(self) -> typing.Optional[builtins.str]:
@@ -35161,7 +35161,7 @@ class NodeSpec:
         :schema: io.k8s.api.core.v1.NodeSpec#externalID
         """
         result = self._values.get("external_id")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def pod_cidr(self) -> typing.Optional[builtins.str]:
@@ -35170,7 +35170,7 @@ class NodeSpec:
         :schema: io.k8s.api.core.v1.NodeSpec#podCIDR
         """
         result = self._values.get("pod_cidr")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def pod_cid_rs(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -35181,7 +35181,7 @@ class NodeSpec:
         :schema: io.k8s.api.core.v1.NodeSpec#podCIDRs
         """
         result = self._values.get("pod_cid_rs")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def provider_id(self) -> typing.Optional[builtins.str]:
@@ -35190,7 +35190,7 @@ class NodeSpec:
         :schema: io.k8s.api.core.v1.NodeSpec#providerID
         """
         result = self._values.get("provider_id")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def taints(self) -> typing.Optional[typing.List["Taint"]]:
@@ -35199,7 +35199,7 @@ class NodeSpec:
         :schema: io.k8s.api.core.v1.NodeSpec#taints
         """
         result = self._values.get("taints")
-        return result
+        return typing.cast(typing.Optional[typing.List["Taint"]], result)
 
     @builtins.property
     def unschedulable(self) -> typing.Optional[builtins.bool]:
@@ -35210,7 +35210,7 @@ class NodeSpec:
         :schema: io.k8s.api.core.v1.NodeSpec#unschedulable
         """
         result = self._values.get("unschedulable")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35256,7 +35256,7 @@ class NonResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.NonResourceAttributes#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def verb(self) -> typing.Optional[builtins.str]:
@@ -35265,7 +35265,7 @@ class NonResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.NonResourceAttributes#verb
         """
         result = self._values.get("verb")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35322,7 +35322,7 @@ class NonResourcePolicyRule:
         """
         result = self._values.get("non_resource_ur_ls")
         assert result is not None, "Required property 'non_resource_ur_ls' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def verbs(self) -> typing.List[builtins.str]:
@@ -35334,7 +35334,7 @@ class NonResourcePolicyRule:
         """
         result = self._values.get("verbs")
         assert result is not None, "Required property 'verbs' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35381,7 +35381,7 @@ class ObjectFieldSelector:
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def api_version(self) -> typing.Optional[builtins.str]:
@@ -35390,7 +35390,7 @@ class ObjectFieldSelector:
         :schema: io.k8s.api.core.v1.ObjectFieldSelector#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35513,7 +35513,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#annotations
         """
         result = self._values.get("annotations")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def cluster_name(self) -> typing.Optional[builtins.str]:
@@ -35524,7 +35524,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#clusterName
         """
         result = self._values.get("cluster_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def creation_timestamp(self) -> typing.Optional[datetime.datetime]:
@@ -35537,7 +35537,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#creationTimestamp
         """
         result = self._values.get("creation_timestamp")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def deletion_grace_period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -35548,7 +35548,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#deletionGracePeriodSeconds
         """
         result = self._values.get("deletion_grace_period_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def deletion_timestamp(self) -> typing.Optional[datetime.datetime]:
@@ -35561,7 +35561,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#deletionTimestamp
         """
         result = self._values.get("deletion_timestamp")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def finalizers(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -35572,7 +35572,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#finalizers
         """
         result = self._values.get("finalizers")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def generate_name(self) -> typing.Optional[builtins.str]:
@@ -35587,7 +35587,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#generateName
         """
         result = self._values.get("generate_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def generation(self) -> typing.Optional[jsii.Number]:
@@ -35598,7 +35598,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#generation
         """
         result = self._values.get("generation")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def labels(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -35609,7 +35609,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#labels
         """
         result = self._values.get("labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def managed_fields(self) -> typing.Optional[typing.List[ManagedFieldsEntry]]:
@@ -35620,7 +35620,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#managedFields
         """
         result = self._values.get("managed_fields")
-        return result
+        return typing.cast(typing.Optional[typing.List[ManagedFieldsEntry]], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -35631,7 +35631,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def namespace(self) -> typing.Optional[builtins.str]:
@@ -35644,7 +35644,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#namespace
         """
         result = self._values.get("namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def owner_references(self) -> typing.Optional[typing.List["OwnerReference"]]:
@@ -35655,7 +35655,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#ownerReferences
         """
         result = self._values.get("owner_references")
-        return result
+        return typing.cast(typing.Optional[typing.List["OwnerReference"]], result)
 
     @builtins.property
     def resource_version(self) -> typing.Optional[builtins.str]:
@@ -35668,7 +35668,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#resourceVersion
         """
         result = self._values.get("resource_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def self_link(self) -> typing.Optional[builtins.str]:
@@ -35679,7 +35679,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#selfLink
         """
         result = self._values.get("self_link")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def uid(self) -> typing.Optional[builtins.str]:
@@ -35692,7 +35692,7 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#uid
         """
         result = self._values.get("uid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35750,7 +35750,7 @@ class ObjectMetricSource:
         """
         result = self._values.get("described_object")
         assert result is not None, "Required property 'described_object' is missing"
-        return result
+        return typing.cast(CrossVersionObjectReference, result)
 
     @builtins.property
     def metric(self) -> MetricIdentifier:
@@ -35760,7 +35760,7 @@ class ObjectMetricSource:
         """
         result = self._values.get("metric")
         assert result is not None, "Required property 'metric' is missing"
-        return result
+        return typing.cast(MetricIdentifier, result)
 
     @builtins.property
     def target(self) -> MetricTarget:
@@ -35770,7 +35770,7 @@ class ObjectMetricSource:
         """
         result = self._values.get("target")
         assert result is not None, "Required property 'target' is missing"
-        return result
+        return typing.cast(MetricTarget, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35844,7 +35844,7 @@ class ObjectReference:
         :schema: io.k8s.api.core.v1.ObjectReference#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def field_path(self) -> typing.Optional[builtins.str]:
@@ -35853,7 +35853,7 @@ class ObjectReference:
         :schema: io.k8s.api.core.v1.ObjectReference#fieldPath
         """
         result = self._values.get("field_path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def kind(self) -> typing.Optional[builtins.str]:
@@ -35864,7 +35864,7 @@ class ObjectReference:
         :schema: io.k8s.api.core.v1.ObjectReference#kind
         """
         result = self._values.get("kind")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -35875,7 +35875,7 @@ class ObjectReference:
         :schema: io.k8s.api.core.v1.ObjectReference#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def namespace(self) -> typing.Optional[builtins.str]:
@@ -35886,7 +35886,7 @@ class ObjectReference:
         :schema: io.k8s.api.core.v1.ObjectReference#namespace
         """
         result = self._values.get("namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def resource_version(self) -> typing.Optional[builtins.str]:
@@ -35897,7 +35897,7 @@ class ObjectReference:
         :schema: io.k8s.api.core.v1.ObjectReference#resourceVersion
         """
         result = self._values.get("resource_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def uid(self) -> typing.Optional[builtins.str]:
@@ -35908,7 +35908,7 @@ class ObjectReference:
         :schema: io.k8s.api.core.v1.ObjectReference#uid
         """
         result = self._values.get("uid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -35950,7 +35950,7 @@ class Overhead:
         :schema: io.k8s.api.node.v1alpha1.Overhead#podFixed
         """
         result = self._values.get("pod_fixed")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "Quantity"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -36019,7 +36019,7 @@ class OwnerReference:
         """
         result = self._values.get("api_version")
         assert result is not None, "Required property 'api_version' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def kind(self) -> builtins.str:
@@ -36031,7 +36031,7 @@ class OwnerReference:
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -36043,7 +36043,7 @@ class OwnerReference:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def uid(self) -> builtins.str:
@@ -36055,7 +36055,7 @@ class OwnerReference:
         """
         result = self._values.get("uid")
         assert result is not None, "Required property 'uid' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def block_owner_deletion(self) -> typing.Optional[builtins.bool]:
@@ -36068,7 +36068,7 @@ class OwnerReference:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference#blockOwnerDeletion
         """
         result = self._values.get("block_owner_deletion")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def controller(self) -> typing.Optional[builtins.bool]:
@@ -36077,7 +36077,7 @@ class OwnerReference:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference#controller
         """
         result = self._values.get("controller")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -36159,7 +36159,7 @@ class PersistentVolumeClaimSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimSpec#accessModes
         """
         result = self._values.get("access_modes")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def data_source(self) -> typing.Optional["TypedLocalObjectReference"]:
@@ -36170,7 +36170,7 @@ class PersistentVolumeClaimSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimSpec#dataSource
         """
         result = self._values.get("data_source")
-        return result
+        return typing.cast(typing.Optional["TypedLocalObjectReference"], result)
 
     @builtins.property
     def resources(self) -> typing.Optional["ResourceRequirements"]:
@@ -36181,7 +36181,7 @@ class PersistentVolumeClaimSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimSpec#resources
         """
         result = self._values.get("resources")
-        return result
+        return typing.cast(typing.Optional["ResourceRequirements"], result)
 
     @builtins.property
     def selector(self) -> typing.Optional[LabelSelector]:
@@ -36190,7 +36190,7 @@ class PersistentVolumeClaimSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimSpec#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def storage_class_name(self) -> typing.Optional[builtins.str]:
@@ -36201,7 +36201,7 @@ class PersistentVolumeClaimSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimSpec#storageClassName
         """
         result = self._values.get("storage_class_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_mode(self) -> typing.Optional[builtins.str]:
@@ -36212,7 +36212,7 @@ class PersistentVolumeClaimSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimSpec#volumeMode
         """
         result = self._values.get("volume_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_name(self) -> typing.Optional[builtins.str]:
@@ -36221,7 +36221,7 @@ class PersistentVolumeClaimSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimSpec#volumeName
         """
         result = self._values.get("volume_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -36272,7 +36272,7 @@ class PersistentVolumeClaimVolumeSource:
         """
         result = self._values.get("claim_name")
         assert result is not None, "Required property 'claim_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -36283,7 +36283,7 @@ class PersistentVolumeClaimVolumeSource:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -36522,7 +36522,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#accessModes
         """
         result = self._values.get("access_modes")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def aws_elastic_block_store(
@@ -36535,7 +36535,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#awsElasticBlockStore
         """
         result = self._values.get("aws_elastic_block_store")
-        return result
+        return typing.cast(typing.Optional[AwsElasticBlockStoreVolumeSource], result)
 
     @builtins.property
     def azure_disk(self) -> typing.Optional[AzureDiskVolumeSource]:
@@ -36544,7 +36544,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#azureDisk
         """
         result = self._values.get("azure_disk")
-        return result
+        return typing.cast(typing.Optional[AzureDiskVolumeSource], result)
 
     @builtins.property
     def azure_file(self) -> typing.Optional[AzureFilePersistentVolumeSource]:
@@ -36553,7 +36553,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#azureFile
         """
         result = self._values.get("azure_file")
-        return result
+        return typing.cast(typing.Optional[AzureFilePersistentVolumeSource], result)
 
     @builtins.property
     def capacity(self) -> typing.Optional[typing.Mapping[builtins.str, "Quantity"]]:
@@ -36564,7 +36564,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#capacity
         """
         result = self._values.get("capacity")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "Quantity"]], result)
 
     @builtins.property
     def cephfs(self) -> typing.Optional[CephFsPersistentVolumeSource]:
@@ -36573,7 +36573,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#cephfs
         """
         result = self._values.get("cephfs")
-        return result
+        return typing.cast(typing.Optional[CephFsPersistentVolumeSource], result)
 
     @builtins.property
     def cinder(self) -> typing.Optional[CinderPersistentVolumeSource]:
@@ -36584,7 +36584,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#cinder
         """
         result = self._values.get("cinder")
-        return result
+        return typing.cast(typing.Optional[CinderPersistentVolumeSource], result)
 
     @builtins.property
     def claim_ref(self) -> typing.Optional[ObjectReference]:
@@ -36595,7 +36595,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#claimRef
         """
         result = self._values.get("claim_ref")
-        return result
+        return typing.cast(typing.Optional[ObjectReference], result)
 
     @builtins.property
     def csi(self) -> typing.Optional[CsiPersistentVolumeSource]:
@@ -36604,7 +36604,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#csi
         """
         result = self._values.get("csi")
-        return result
+        return typing.cast(typing.Optional[CsiPersistentVolumeSource], result)
 
     @builtins.property
     def fc(self) -> typing.Optional[FcVolumeSource]:
@@ -36613,7 +36613,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#fc
         """
         result = self._values.get("fc")
-        return result
+        return typing.cast(typing.Optional[FcVolumeSource], result)
 
     @builtins.property
     def flex_volume(self) -> typing.Optional[FlexPersistentVolumeSource]:
@@ -36622,7 +36622,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#flexVolume
         """
         result = self._values.get("flex_volume")
-        return result
+        return typing.cast(typing.Optional[FlexPersistentVolumeSource], result)
 
     @builtins.property
     def flocker(self) -> typing.Optional[FlockerVolumeSource]:
@@ -36633,7 +36633,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#flocker
         """
         result = self._values.get("flocker")
-        return result
+        return typing.cast(typing.Optional[FlockerVolumeSource], result)
 
     @builtins.property
     def gce_persistent_disk(self) -> typing.Optional[GcePersistentDiskVolumeSource]:
@@ -36644,7 +36644,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#gcePersistentDisk
         """
         result = self._values.get("gce_persistent_disk")
-        return result
+        return typing.cast(typing.Optional[GcePersistentDiskVolumeSource], result)
 
     @builtins.property
     def glusterfs(self) -> typing.Optional[GlusterfsPersistentVolumeSource]:
@@ -36655,7 +36655,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#glusterfs
         """
         result = self._values.get("glusterfs")
-        return result
+        return typing.cast(typing.Optional[GlusterfsPersistentVolumeSource], result)
 
     @builtins.property
     def host_path(self) -> typing.Optional[HostPathVolumeSource]:
@@ -36666,7 +36666,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#hostPath
         """
         result = self._values.get("host_path")
-        return result
+        return typing.cast(typing.Optional[HostPathVolumeSource], result)
 
     @builtins.property
     def iscsi(self) -> typing.Optional[IscsiPersistentVolumeSource]:
@@ -36677,7 +36677,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#iscsi
         """
         result = self._values.get("iscsi")
-        return result
+        return typing.cast(typing.Optional[IscsiPersistentVolumeSource], result)
 
     @builtins.property
     def local(self) -> typing.Optional[LocalVolumeSource]:
@@ -36686,7 +36686,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#local
         """
         result = self._values.get("local")
-        return result
+        return typing.cast(typing.Optional[LocalVolumeSource], result)
 
     @builtins.property
     def mount_options(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -36695,7 +36695,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#mountOptions
         """
         result = self._values.get("mount_options")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def nfs(self) -> typing.Optional[NfsVolumeSource]:
@@ -36706,7 +36706,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#nfs
         """
         result = self._values.get("nfs")
-        return result
+        return typing.cast(typing.Optional[NfsVolumeSource], result)
 
     @builtins.property
     def node_affinity(self) -> typing.Optional["VolumeNodeAffinity"]:
@@ -36717,7 +36717,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#nodeAffinity
         """
         result = self._values.get("node_affinity")
-        return result
+        return typing.cast(typing.Optional["VolumeNodeAffinity"], result)
 
     @builtins.property
     def persistent_volume_reclaim_policy(self) -> typing.Optional[builtins.str]:
@@ -36728,7 +36728,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#persistentVolumeReclaimPolicy
         """
         result = self._values.get("persistent_volume_reclaim_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def photon_persistent_disk(
@@ -36739,7 +36739,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#photonPersistentDisk
         """
         result = self._values.get("photon_persistent_disk")
-        return result
+        return typing.cast(typing.Optional["PhotonPersistentDiskVolumeSource"], result)
 
     @builtins.property
     def portworx_volume(self) -> typing.Optional["PortworxVolumeSource"]:
@@ -36748,7 +36748,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#portworxVolume
         """
         result = self._values.get("portworx_volume")
-        return result
+        return typing.cast(typing.Optional["PortworxVolumeSource"], result)
 
     @builtins.property
     def quobyte(self) -> typing.Optional["QuobyteVolumeSource"]:
@@ -36757,7 +36757,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#quobyte
         """
         result = self._values.get("quobyte")
-        return result
+        return typing.cast(typing.Optional["QuobyteVolumeSource"], result)
 
     @builtins.property
     def rbd(self) -> typing.Optional["RbdPersistentVolumeSource"]:
@@ -36768,7 +36768,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#rbd
         """
         result = self._values.get("rbd")
-        return result
+        return typing.cast(typing.Optional["RbdPersistentVolumeSource"], result)
 
     @builtins.property
     def scale_io(self) -> typing.Optional["ScaleIoPersistentVolumeSource"]:
@@ -36777,7 +36777,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#scaleIO
         """
         result = self._values.get("scale_io")
-        return result
+        return typing.cast(typing.Optional["ScaleIoPersistentVolumeSource"], result)
 
     @builtins.property
     def storage_class_name(self) -> typing.Optional[builtins.str]:
@@ -36788,7 +36788,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#storageClassName
         """
         result = self._values.get("storage_class_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storageos(self) -> typing.Optional["StorageOsPersistentVolumeSource"]:
@@ -36797,7 +36797,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#storageos
         """
         result = self._values.get("storageos")
-        return result
+        return typing.cast(typing.Optional["StorageOsPersistentVolumeSource"], result)
 
     @builtins.property
     def volume_mode(self) -> typing.Optional[builtins.str]:
@@ -36808,7 +36808,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#volumeMode
         """
         result = self._values.get("volume_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def vsphere_volume(self) -> typing.Optional["VsphereVirtualDiskVolumeSource"]:
@@ -36817,7 +36817,7 @@ class PersistentVolumeSpec:
         :schema: io.k8s.api.core.v1.PersistentVolumeSpec#vsphereVolume
         """
         result = self._values.get("vsphere_volume")
-        return result
+        return typing.cast(typing.Optional["VsphereVirtualDiskVolumeSource"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -36864,7 +36864,7 @@ class PhotonPersistentDiskVolumeSource:
         """
         result = self._values.get("pd_id")
         assert result is not None, "Required property 'pd_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -36875,7 +36875,7 @@ class PhotonPersistentDiskVolumeSource:
         :schema: io.k8s.api.core.v1.PhotonPersistentDiskVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -36928,7 +36928,7 @@ class PodAffinity:
         :schema: io.k8s.api.core.v1.PodAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["WeightedPodAffinityTerm"]], result)
 
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
@@ -36941,7 +36941,7 @@ class PodAffinity:
         :schema: io.k8s.api.core.v1.PodAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["PodAffinityTerm"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37000,7 +37000,7 @@ class PodAffinityTerm:
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def label_selector(self) -> typing.Optional[LabelSelector]:
@@ -37009,7 +37009,7 @@ class PodAffinityTerm:
         :schema: io.k8s.api.core.v1.PodAffinityTerm#labelSelector
         """
         result = self._values.get("label_selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -37020,7 +37020,7 @@ class PodAffinityTerm:
         :schema: io.k8s.api.core.v1.PodAffinityTerm#namespaces
         """
         result = self._values.get("namespaces")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37073,7 +37073,7 @@ class PodAntiAffinity:
         :schema: io.k8s.api.core.v1.PodAntiAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["WeightedPodAffinityTerm"]], result)
 
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
@@ -37086,7 +37086,7 @@ class PodAntiAffinity:
         :schema: io.k8s.api.core.v1.PodAntiAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List[PodAffinityTerm]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37142,7 +37142,7 @@ class PodDisruptionBudgetSpec:
         :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec#maxUnavailable
         """
         result = self._values.get("max_unavailable")
-        return result
+        return typing.cast(typing.Optional[IntOrString], result)
 
     @builtins.property
     def min_available(self) -> typing.Optional[IntOrString]:
@@ -37151,7 +37151,7 @@ class PodDisruptionBudgetSpec:
         :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec#minAvailable
         """
         result = self._values.get("min_available")
-        return result
+        return typing.cast(typing.Optional[IntOrString], result)
 
     @builtins.property
     def selector(self) -> typing.Optional[LabelSelector]:
@@ -37160,7 +37160,7 @@ class PodDisruptionBudgetSpec:
         :schema: io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37216,7 +37216,7 @@ class PodDnsConfig:
         :schema: io.k8s.api.core.v1.PodDNSConfig#nameservers
         """
         result = self._values.get("nameservers")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def options(self) -> typing.Optional[typing.List["PodDnsConfigOption"]]:
@@ -37227,7 +37227,7 @@ class PodDnsConfig:
         :schema: io.k8s.api.core.v1.PodDNSConfig#options
         """
         result = self._values.get("options")
-        return result
+        return typing.cast(typing.Optional[typing.List["PodDnsConfigOption"]], result)
 
     @builtins.property
     def searches(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -37238,7 +37238,7 @@ class PodDnsConfig:
         :schema: io.k8s.api.core.v1.PodDNSConfig#searches
         """
         result = self._values.get("searches")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37284,7 +37284,7 @@ class PodDnsConfigOption:
         :schema: io.k8s.api.core.v1.PodDNSConfigOption#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def value(self) -> typing.Optional[builtins.str]:
@@ -37292,7 +37292,7 @@ class PodDnsConfigOption:
         :schema: io.k8s.api.core.v1.PodDNSConfigOption#value
         """
         result = self._values.get("value")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37358,7 +37358,7 @@ class PodPresetSpec:
         :schema: io.k8s.api.settings.v1alpha1.PodPresetSpec#env
         """
         result = self._values.get("env")
-        return result
+        return typing.cast(typing.Optional[typing.List[EnvVar]], result)
 
     @builtins.property
     def env_from(self) -> typing.Optional[typing.List[EnvFromSource]]:
@@ -37367,7 +37367,7 @@ class PodPresetSpec:
         :schema: io.k8s.api.settings.v1alpha1.PodPresetSpec#envFrom
         """
         result = self._values.get("env_from")
-        return result
+        return typing.cast(typing.Optional[typing.List[EnvFromSource]], result)
 
     @builtins.property
     def selector(self) -> typing.Optional[LabelSelector]:
@@ -37378,7 +37378,7 @@ class PodPresetSpec:
         :schema: io.k8s.api.settings.v1alpha1.PodPresetSpec#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def volume_mounts(self) -> typing.Optional[typing.List["VolumeMount"]]:
@@ -37387,7 +37387,7 @@ class PodPresetSpec:
         :schema: io.k8s.api.settings.v1alpha1.PodPresetSpec#volumeMounts
         """
         result = self._values.get("volume_mounts")
-        return result
+        return typing.cast(typing.Optional[typing.List["VolumeMount"]], result)
 
     @builtins.property
     def volumes(self) -> typing.Optional[typing.List["Volume"]]:
@@ -37396,7 +37396,7 @@ class PodPresetSpec:
         :schema: io.k8s.api.settings.v1alpha1.PodPresetSpec#volumes
         """
         result = self._values.get("volumes")
-        return result
+        return typing.cast(typing.Optional[typing.List["Volume"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37435,7 +37435,7 @@ class PodReadinessGate:
         """
         result = self._values.get("condition_type")
         assert result is not None, "Required property 'condition_type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37526,7 +37526,7 @@ class PodSecurityContext:
         :schema: io.k8s.api.core.v1.PodSecurityContext#fsGroup
         """
         result = self._values.get("fs_group")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def run_as_group(self) -> typing.Optional[jsii.Number]:
@@ -37537,7 +37537,7 @@ class PodSecurityContext:
         :schema: io.k8s.api.core.v1.PodSecurityContext#runAsGroup
         """
         result = self._values.get("run_as_group")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def run_as_non_root(self) -> typing.Optional[builtins.bool]:
@@ -37548,7 +37548,7 @@ class PodSecurityContext:
         :schema: io.k8s.api.core.v1.PodSecurityContext#runAsNonRoot
         """
         result = self._values.get("run_as_non_root")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def run_as_user(self) -> typing.Optional[jsii.Number]:
@@ -37561,7 +37561,7 @@ class PodSecurityContext:
         :schema: io.k8s.api.core.v1.PodSecurityContext#runAsUser
         """
         result = self._values.get("run_as_user")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def se_linux_options(self) -> typing.Optional["SeLinuxOptions"]:
@@ -37572,7 +37572,7 @@ class PodSecurityContext:
         :schema: io.k8s.api.core.v1.PodSecurityContext#seLinuxOptions
         """
         result = self._values.get("se_linux_options")
-        return result
+        return typing.cast(typing.Optional["SeLinuxOptions"], result)
 
     @builtins.property
     def supplemental_groups(self) -> typing.Optional[typing.List[jsii.Number]]:
@@ -37583,7 +37583,7 @@ class PodSecurityContext:
         :schema: io.k8s.api.core.v1.PodSecurityContext#supplementalGroups
         """
         result = self._values.get("supplemental_groups")
-        return result
+        return typing.cast(typing.Optional[typing.List[jsii.Number]], result)
 
     @builtins.property
     def sysctls(self) -> typing.Optional[typing.List["Sysctl"]]:
@@ -37594,7 +37594,7 @@ class PodSecurityContext:
         :schema: io.k8s.api.core.v1.PodSecurityContext#sysctls
         """
         result = self._values.get("sysctls")
-        return result
+        return typing.cast(typing.Optional[typing.List["Sysctl"]], result)
 
     @builtins.property
     def windows_options(self) -> typing.Optional["WindowsSecurityContextOptions"]:
@@ -37605,7 +37605,7 @@ class PodSecurityContext:
         :schema: io.k8s.api.core.v1.PodSecurityContext#windowsOptions
         """
         result = self._values.get("windows_options")
-        return result
+        return typing.cast(typing.Optional["WindowsSecurityContextOptions"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -37774,7 +37774,7 @@ class PodSecurityPolicySpec:
         """
         result = self._values.get("fs_group")
         assert result is not None, "Required property 'fs_group' is missing"
-        return result
+        return typing.cast(FsGroupStrategyOptions, result)
 
     @builtins.property
     def run_as_user(self) -> "RunAsUserStrategyOptions":
@@ -37784,7 +37784,7 @@ class PodSecurityPolicySpec:
         """
         result = self._values.get("run_as_user")
         assert result is not None, "Required property 'run_as_user' is missing"
-        return result
+        return typing.cast("RunAsUserStrategyOptions", result)
 
     @builtins.property
     def se_linux(self) -> "SeLinuxStrategyOptions":
@@ -37794,7 +37794,7 @@ class PodSecurityPolicySpec:
         """
         result = self._values.get("se_linux")
         assert result is not None, "Required property 'se_linux' is missing"
-        return result
+        return typing.cast("SeLinuxStrategyOptions", result)
 
     @builtins.property
     def supplemental_groups(self) -> "SupplementalGroupsStrategyOptions":
@@ -37804,7 +37804,7 @@ class PodSecurityPolicySpec:
         """
         result = self._values.get("supplemental_groups")
         assert result is not None, "Required property 'supplemental_groups' is missing"
-        return result
+        return typing.cast("SupplementalGroupsStrategyOptions", result)
 
     @builtins.property
     def allowed_capabilities(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -37815,7 +37815,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedCapabilities
         """
         result = self._values.get("allowed_capabilities")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def allowed_csi_drivers(self) -> typing.Optional[typing.List[AllowedCsiDriver]]:
@@ -37826,7 +37826,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedCSIDrivers
         """
         result = self._values.get("allowed_csi_drivers")
-        return result
+        return typing.cast(typing.Optional[typing.List[AllowedCsiDriver]], result)
 
     @builtins.property
     def allowed_flex_volumes(self) -> typing.Optional[typing.List[AllowedFlexVolume]]:
@@ -37837,7 +37837,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedFlexVolumes
         """
         result = self._values.get("allowed_flex_volumes")
-        return result
+        return typing.cast(typing.Optional[typing.List[AllowedFlexVolume]], result)
 
     @builtins.property
     def allowed_host_paths(self) -> typing.Optional[typing.List[AllowedHostPath]]:
@@ -37848,7 +37848,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedHostPaths
         """
         result = self._values.get("allowed_host_paths")
-        return result
+        return typing.cast(typing.Optional[typing.List[AllowedHostPath]], result)
 
     @builtins.property
     def allowed_proc_mount_types(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -37859,7 +37859,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedProcMountTypes
         """
         result = self._values.get("allowed_proc_mount_types")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def allowed_unsafe_sysctls(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -37872,7 +37872,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedUnsafeSysctls
         """
         result = self._values.get("allowed_unsafe_sysctls")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def allow_privilege_escalation(self) -> typing.Optional[builtins.bool]:
@@ -37883,7 +37883,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowPrivilegeEscalation
         """
         result = self._values.get("allow_privilege_escalation")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def default_add_capabilities(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -37894,7 +37894,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#defaultAddCapabilities
         """
         result = self._values.get("default_add_capabilities")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def default_allow_privilege_escalation(self) -> typing.Optional[builtins.bool]:
@@ -37903,7 +37903,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#defaultAllowPrivilegeEscalation
         """
         result = self._values.get("default_allow_privilege_escalation")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def forbidden_sysctls(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -37916,7 +37916,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#forbiddenSysctls
         """
         result = self._values.get("forbidden_sysctls")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def host_ipc(self) -> typing.Optional[builtins.bool]:
@@ -37925,7 +37925,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#hostIPC
         """
         result = self._values.get("host_ipc")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def host_network(self) -> typing.Optional[builtins.bool]:
@@ -37934,7 +37934,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#hostNetwork
         """
         result = self._values.get("host_network")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def host_pid(self) -> typing.Optional[builtins.bool]:
@@ -37943,7 +37943,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#hostPID
         """
         result = self._values.get("host_pid")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def host_ports(self) -> typing.Optional[typing.List[HostPortRange]]:
@@ -37952,7 +37952,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#hostPorts
         """
         result = self._values.get("host_ports")
-        return result
+        return typing.cast(typing.Optional[typing.List[HostPortRange]], result)
 
     @builtins.property
     def privileged(self) -> typing.Optional[builtins.bool]:
@@ -37961,7 +37961,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#privileged
         """
         result = self._values.get("privileged")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def read_only_root_filesystem(self) -> typing.Optional[builtins.bool]:
@@ -37972,7 +37972,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#readOnlyRootFilesystem
         """
         result = self._values.get("read_only_root_filesystem")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def required_drop_capabilities(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -37983,7 +37983,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#requiredDropCapabilities
         """
         result = self._values.get("required_drop_capabilities")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def run_as_group(self) -> typing.Optional["RunAsGroupStrategyOptions"]:
@@ -37994,7 +37994,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#runAsGroup
         """
         result = self._values.get("run_as_group")
-        return result
+        return typing.cast(typing.Optional["RunAsGroupStrategyOptions"], result)
 
     @builtins.property
     def runtime_class(self) -> typing.Optional["RuntimeClassStrategyOptions"]:
@@ -38005,7 +38005,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#runtimeClass
         """
         result = self._values.get("runtime_class")
-        return result
+        return typing.cast(typing.Optional["RuntimeClassStrategyOptions"], result)
 
     @builtins.property
     def volumes(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -38016,7 +38016,7 @@ class PodSecurityPolicySpec:
         :schema: io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#volumes
         """
         result = self._values.get("volumes")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -38234,7 +38234,7 @@ class PodSpec:
         """
         result = self._values.get("containers")
         assert result is not None, "Required property 'containers' is missing"
-        return result
+        return typing.cast(typing.List[Container], result)
 
     @builtins.property
     def active_deadline_seconds(self) -> typing.Optional[jsii.Number]:
@@ -38245,7 +38245,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#activeDeadlineSeconds
         """
         result = self._values.get("active_deadline_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def affinity(self) -> typing.Optional[Affinity]:
@@ -38254,7 +38254,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#affinity
         """
         result = self._values.get("affinity")
-        return result
+        return typing.cast(typing.Optional[Affinity], result)
 
     @builtins.property
     def automount_service_account_token(self) -> typing.Optional[builtins.bool]:
@@ -38263,7 +38263,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#automountServiceAccountToken
         """
         result = self._values.get("automount_service_account_token")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def dns_config(self) -> typing.Optional[PodDnsConfig]:
@@ -38274,7 +38274,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#dnsConfig
         """
         result = self._values.get("dns_config")
-        return result
+        return typing.cast(typing.Optional[PodDnsConfig], result)
 
     @builtins.property
     def dns_policy(self) -> typing.Optional[builtins.str]:
@@ -38287,7 +38287,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#dnsPolicy
         """
         result = self._values.get("dns_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def enable_service_links(self) -> typing.Optional[builtins.bool]:
@@ -38300,7 +38300,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#enableServiceLinks
         """
         result = self._values.get("enable_service_links")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def ephemeral_containers(self) -> typing.Optional[typing.List[EphemeralContainer]]:
@@ -38311,7 +38311,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#ephemeralContainers
         """
         result = self._values.get("ephemeral_containers")
-        return result
+        return typing.cast(typing.Optional[typing.List[EphemeralContainer]], result)
 
     @builtins.property
     def host_aliases(self) -> typing.Optional[typing.List[HostAlias]]:
@@ -38322,7 +38322,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#hostAliases
         """
         result = self._values.get("host_aliases")
-        return result
+        return typing.cast(typing.Optional[typing.List[HostAlias]], result)
 
     @builtins.property
     def host_ipc(self) -> typing.Optional[builtins.bool]:
@@ -38335,7 +38335,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#hostIPC
         """
         result = self._values.get("host_ipc")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def hostname(self) -> typing.Optional[builtins.str]:
@@ -38344,7 +38344,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#hostname
         """
         result = self._values.get("hostname")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def host_network(self) -> typing.Optional[builtins.bool]:
@@ -38357,7 +38357,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#hostNetwork
         """
         result = self._values.get("host_network")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def host_pid(self) -> typing.Optional[builtins.bool]:
@@ -38370,7 +38370,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#hostPID
         """
         result = self._values.get("host_pid")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def image_pull_secrets(self) -> typing.Optional[typing.List[LocalObjectReference]]:
@@ -38381,7 +38381,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#imagePullSecrets
         """
         result = self._values.get("image_pull_secrets")
-        return result
+        return typing.cast(typing.Optional[typing.List[LocalObjectReference]], result)
 
     @builtins.property
     def init_containers(self) -> typing.Optional[typing.List[Container]]:
@@ -38392,7 +38392,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#initContainers
         """
         result = self._values.get("init_containers")
-        return result
+        return typing.cast(typing.Optional[typing.List[Container]], result)
 
     @builtins.property
     def node_name(self) -> typing.Optional[builtins.str]:
@@ -38403,7 +38403,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#nodeName
         """
         result = self._values.get("node_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def node_selector(
@@ -38416,7 +38416,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#nodeSelector
         """
         result = self._values.get("node_selector")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def overhead(self) -> typing.Optional[typing.Mapping[builtins.str, "Quantity"]]:
@@ -38427,7 +38427,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#overhead
         """
         result = self._values.get("overhead")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, "Quantity"]], result)
 
     @builtins.property
     def preemption_policy(self) -> typing.Optional[builtins.str]:
@@ -38440,7 +38440,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#preemptionPolicy
         """
         result = self._values.get("preemption_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def priority(self) -> typing.Optional[jsii.Number]:
@@ -38451,7 +38451,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#priority
         """
         result = self._values.get("priority")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def priority_class_name(self) -> typing.Optional[builtins.str]:
@@ -38462,7 +38462,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#priorityClassName
         """
         result = self._values.get("priority_class_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def readiness_gates(self) -> typing.Optional[typing.List[PodReadinessGate]]:
@@ -38473,7 +38473,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#readinessGates
         """
         result = self._values.get("readiness_gates")
-        return result
+        return typing.cast(typing.Optional[typing.List[PodReadinessGate]], result)
 
     @builtins.property
     def restart_policy(self) -> typing.Optional[builtins.str]:
@@ -38486,7 +38486,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#restartPolicy
         """
         result = self._values.get("restart_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def runtime_class_name(self) -> typing.Optional[builtins.str]:
@@ -38495,7 +38495,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#runtimeClassName
         """
         result = self._values.get("runtime_class_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def scheduler_name(self) -> typing.Optional[builtins.str]:
@@ -38506,7 +38506,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#schedulerName
         """
         result = self._values.get("scheduler_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def security_context(self) -> typing.Optional[PodSecurityContext]:
@@ -38519,7 +38519,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#securityContext
         """
         result = self._values.get("security_context")
-        return result
+        return typing.cast(typing.Optional[PodSecurityContext], result)
 
     @builtins.property
     def service_account(self) -> typing.Optional[builtins.str]:
@@ -38530,7 +38530,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#serviceAccount
         """
         result = self._values.get("service_account")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def service_account_name(self) -> typing.Optional[builtins.str]:
@@ -38541,7 +38541,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#serviceAccountName
         """
         result = self._values.get("service_account_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def share_process_namespace(self) -> typing.Optional[builtins.bool]:
@@ -38554,7 +38554,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#shareProcessNamespace
         """
         result = self._values.get("share_process_namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def subdomain(self) -> typing.Optional[builtins.str]:
@@ -38563,7 +38563,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#subdomain
         """
         result = self._values.get("subdomain")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def termination_grace_period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -38576,7 +38576,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#terminationGracePeriodSeconds
         """
         result = self._values.get("termination_grace_period_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def tolerations(self) -> typing.Optional[typing.List["Toleration"]]:
@@ -38585,7 +38585,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#tolerations
         """
         result = self._values.get("tolerations")
-        return result
+        return typing.cast(typing.Optional[typing.List["Toleration"]], result)
 
     @builtins.property
     def topology_spread_constraints(
@@ -38598,7 +38598,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#topologySpreadConstraints
         """
         result = self._values.get("topology_spread_constraints")
-        return result
+        return typing.cast(typing.Optional[typing.List["TopologySpreadConstraint"]], result)
 
     @builtins.property
     def volumes(self) -> typing.Optional[typing.List["Volume"]]:
@@ -38609,7 +38609,7 @@ class PodSpec:
         :schema: io.k8s.api.core.v1.PodSpec#volumes
         """
         result = self._values.get("volumes")
-        return result
+        return typing.cast(typing.Optional[typing.List["Volume"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -38661,7 +38661,7 @@ class PodTemplateSpec:
         :schema: io.k8s.api.core.v1.PodTemplateSpec#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Optional[ObjectMeta], result)
 
     @builtins.property
     def spec(self) -> typing.Optional[PodSpec]:
@@ -38672,7 +38672,7 @@ class PodTemplateSpec:
         :schema: io.k8s.api.core.v1.PodTemplateSpec#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional[PodSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -38719,7 +38719,7 @@ class PodsMetricSource:
         """
         result = self._values.get("metric")
         assert result is not None, "Required property 'metric' is missing"
-        return result
+        return typing.cast(MetricIdentifier, result)
 
     @builtins.property
     def target(self) -> MetricTarget:
@@ -38729,7 +38729,7 @@ class PodsMetricSource:
         """
         result = self._values.get("target")
         assert result is not None, "Required property 'target' is missing"
-        return result
+        return typing.cast(MetricTarget, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -38778,7 +38778,7 @@ class Policy:
         """
         result = self._values.get("level")
         assert result is not None, "Required property 'level' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def stages(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -38787,7 +38787,7 @@ class Policy:
         :schema: io.k8s.api.auditregistration.v1alpha1.Policy#stages
         """
         result = self._values.get("stages")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -38854,7 +38854,7 @@ class PolicyRule:
         """
         result = self._values.get("verbs")
         assert result is not None, "Required property 'verbs' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def api_groups(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -38865,7 +38865,7 @@ class PolicyRule:
         :schema: io.k8s.api.rbac.v1beta1.PolicyRule#apiGroups
         """
         result = self._values.get("api_groups")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def non_resource_ur_ls(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -38876,7 +38876,7 @@ class PolicyRule:
         :schema: io.k8s.api.rbac.v1beta1.PolicyRule#nonResourceURLs
         """
         result = self._values.get("non_resource_ur_ls")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def resource_names(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -38887,7 +38887,7 @@ class PolicyRule:
         :schema: io.k8s.api.rbac.v1beta1.PolicyRule#resourceNames
         """
         result = self._values.get("resource_names")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def resources(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -38898,7 +38898,7 @@ class PolicyRule:
         :schema: io.k8s.api.rbac.v1beta1.PolicyRule#resources
         """
         result = self._values.get("resources")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -38957,7 +38957,7 @@ class PolicyRulesWithSubjects:
         """
         result = self._values.get("subjects")
         assert result is not None, "Required property 'subjects' is missing"
-        return result
+        return typing.cast(typing.List["Subject"], result)
 
     @builtins.property
     def non_resource_rules(self) -> typing.Optional[typing.List[NonResourcePolicyRule]]:
@@ -38966,7 +38966,7 @@ class PolicyRulesWithSubjects:
         :schema: io.k8s.api.flowcontrol.v1alpha1.PolicyRulesWithSubjects#nonResourceRules
         """
         result = self._values.get("non_resource_rules")
-        return result
+        return typing.cast(typing.Optional[typing.List[NonResourcePolicyRule]], result)
 
     @builtins.property
     def resource_rules(self) -> typing.Optional[typing.List["ResourcePolicyRule"]]:
@@ -38977,7 +38977,7 @@ class PolicyRulesWithSubjects:
         :schema: io.k8s.api.flowcontrol.v1alpha1.PolicyRulesWithSubjects#resourceRules
         """
         result = self._values.get("resource_rules")
-        return result
+        return typing.cast(typing.Optional[typing.List["ResourcePolicyRule"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39032,7 +39032,7 @@ class PortworxVolumeSource:
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -39043,7 +39043,7 @@ class PortworxVolumeSource:
         :schema: io.k8s.api.core.v1.PortworxVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -39056,7 +39056,7 @@ class PortworxVolumeSource:
         :schema: io.k8s.api.core.v1.PortworxVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39102,7 +39102,7 @@ class Preconditions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.Preconditions#resourceVersion
         """
         result = self._values.get("resource_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def uid(self) -> typing.Optional[builtins.str]:
@@ -39111,7 +39111,7 @@ class Preconditions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.Preconditions#uid
         """
         result = self._values.get("uid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39154,7 +39154,7 @@ class PreferredSchedulingTerm:
         """
         result = self._values.get("preference")
         assert result is not None, "Required property 'preference' is missing"
-        return result
+        return typing.cast(NodeSelectorTerm, result)
 
     @builtins.property
     def weight(self) -> jsii.Number:
@@ -39164,7 +39164,7 @@ class PreferredSchedulingTerm:
         """
         result = self._values.get("weight")
         assert result is not None, "Required property 'weight' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39203,7 +39203,7 @@ class PriorityLevelConfigurationReference:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39254,7 +39254,7 @@ class PriorityLevelConfigurationSpec:
         """
         result = self._values.get("type")
         assert result is not None, "Required property 'type' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def limited(self) -> typing.Optional[LimitedPriorityLevelConfiguration]:
@@ -39265,7 +39265,7 @@ class PriorityLevelConfigurationSpec:
         :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationSpec#limited
         """
         result = self._values.get("limited")
-        return result
+        return typing.cast(typing.Optional[LimitedPriorityLevelConfiguration], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39352,7 +39352,7 @@ class Probe:
         :schema: io.k8s.api.core.v1.Probe#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional[ExecAction], result)
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -39365,7 +39365,7 @@ class Probe:
         :schema: io.k8s.api.core.v1.Probe#failureThreshold
         """
         result = self._values.get("failure_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def http_get(self) -> typing.Optional[HttpGetAction]:
@@ -39374,7 +39374,7 @@ class Probe:
         :schema: io.k8s.api.core.v1.Probe#httpGet
         """
         result = self._values.get("http_get")
-        return result
+        return typing.cast(typing.Optional[HttpGetAction], result)
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -39385,7 +39385,7 @@ class Probe:
         :schema: io.k8s.api.core.v1.Probe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -39398,7 +39398,7 @@ class Probe:
         :schema: io.k8s.api.core.v1.Probe#periodSeconds
         """
         result = self._values.get("period_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -39411,7 +39411,7 @@ class Probe:
         :schema: io.k8s.api.core.v1.Probe#successThreshold
         """
         result = self._values.get("success_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def tcp_socket(self) -> typing.Optional["TcpSocketAction"]:
@@ -39422,7 +39422,7 @@ class Probe:
         :schema: io.k8s.api.core.v1.Probe#tcpSocket
         """
         result = self._values.get("tcp_socket")
-        return result
+        return typing.cast(typing.Optional["TcpSocketAction"], result)
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -39435,7 +39435,7 @@ class Probe:
         :schema: io.k8s.api.core.v1.Probe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39482,7 +39482,7 @@ class ProjectedVolumeSource:
         """
         result = self._values.get("sources")
         assert result is not None, "Required property 'sources' is missing"
-        return result
+        return typing.cast(typing.List["VolumeProjection"], result)
 
     @builtins.property
     def default_mode(self) -> typing.Optional[jsii.Number]:
@@ -39493,7 +39493,7 @@ class ProjectedVolumeSource:
         :schema: io.k8s.api.core.v1.ProjectedVolumeSource#defaultMode
         """
         result = self._values.get("default_mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39512,21 +39512,21 @@ class Quantity(metaclass=jsii.JSIIMeta, jsii_type="k8s.Quantity"):
     :schema: io.k8s.apimachinery.pkg.api.resource.Quantity
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(cls, value: jsii.Number) -> "Quantity":
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("Quantity", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(cls, value: builtins.str) -> "Quantity":
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("Quantity", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -39571,7 +39571,7 @@ class QueuingConfiguration:
         :schema: io.k8s.api.flowcontrol.v1alpha1.QueuingConfiguration#handSize
         """
         result = self._values.get("hand_size")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def queue_length_limit(self) -> typing.Optional[jsii.Number]:
@@ -39582,7 +39582,7 @@ class QueuingConfiguration:
         :schema: io.k8s.api.flowcontrol.v1alpha1.QueuingConfiguration#queueLengthLimit
         """
         result = self._values.get("queue_length_limit")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def queues(self) -> typing.Optional[jsii.Number]:
@@ -39593,7 +39593,7 @@ class QueuingConfiguration:
         :schema: io.k8s.api.flowcontrol.v1alpha1.QueuingConfiguration#queues
         """
         result = self._values.get("queues")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39664,7 +39664,7 @@ class QuobyteVolumeSource:
         """
         result = self._values.get("registry")
         assert result is not None, "Required property 'registry' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def volume(self) -> builtins.str:
@@ -39674,7 +39674,7 @@ class QuobyteVolumeSource:
         """
         result = self._values.get("volume")
         assert result is not None, "Required property 'volume' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def group(self) -> typing.Optional[builtins.str]:
@@ -39685,7 +39685,7 @@ class QuobyteVolumeSource:
         :schema: io.k8s.api.core.v1.QuobyteVolumeSource#group
         """
         result = self._values.get("group")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -39698,7 +39698,7 @@ class QuobyteVolumeSource:
         :schema: io.k8s.api.core.v1.QuobyteVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def tenant(self) -> typing.Optional[builtins.str]:
@@ -39707,7 +39707,7 @@ class QuobyteVolumeSource:
         :schema: io.k8s.api.core.v1.QuobyteVolumeSource#tenant
         """
         result = self._values.get("tenant")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -39718,7 +39718,7 @@ class QuobyteVolumeSource:
         :schema: io.k8s.api.core.v1.QuobyteVolumeSource#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39803,7 +39803,7 @@ class RbdPersistentVolumeSource:
         """
         result = self._values.get("image")
         assert result is not None, "Required property 'image' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def monitors(self) -> typing.List[builtins.str]:
@@ -39815,7 +39815,7 @@ class RbdPersistentVolumeSource:
         """
         result = self._values.get("monitors")
         assert result is not None, "Required property 'monitors' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -39826,7 +39826,7 @@ class RbdPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.RBDPersistentVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def keyring(self) -> typing.Optional[builtins.str]:
@@ -39839,7 +39839,7 @@ class RbdPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.RBDPersistentVolumeSource#keyring
         """
         result = self._values.get("keyring")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def pool(self) -> typing.Optional[builtins.str]:
@@ -39852,7 +39852,7 @@ class RbdPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.RBDPersistentVolumeSource#pool
         """
         result = self._values.get("pool")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -39865,7 +39865,7 @@ class RbdPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.RBDPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["SecretReference"]:
@@ -39878,7 +39878,7 @@ class RbdPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.RBDPersistentVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["SecretReference"], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -39891,7 +39891,7 @@ class RbdPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.RBDPersistentVolumeSource#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -39976,7 +39976,7 @@ class RbdVolumeSource:
         """
         result = self._values.get("image")
         assert result is not None, "Required property 'image' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def monitors(self) -> typing.List[builtins.str]:
@@ -39988,7 +39988,7 @@ class RbdVolumeSource:
         """
         result = self._values.get("monitors")
         assert result is not None, "Required property 'monitors' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -39999,7 +39999,7 @@ class RbdVolumeSource:
         :schema: io.k8s.api.core.v1.RBDVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def keyring(self) -> typing.Optional[builtins.str]:
@@ -40012,7 +40012,7 @@ class RbdVolumeSource:
         :schema: io.k8s.api.core.v1.RBDVolumeSource#keyring
         """
         result = self._values.get("keyring")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def pool(self) -> typing.Optional[builtins.str]:
@@ -40025,7 +40025,7 @@ class RbdVolumeSource:
         :schema: io.k8s.api.core.v1.RBDVolumeSource#pool
         """
         result = self._values.get("pool")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -40038,7 +40038,7 @@ class RbdVolumeSource:
         :schema: io.k8s.api.core.v1.RBDVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional[LocalObjectReference]:
@@ -40051,7 +40051,7 @@ class RbdVolumeSource:
         :schema: io.k8s.api.core.v1.RBDVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional[LocalObjectReference], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -40064,7 +40064,7 @@ class RbdVolumeSource:
         :schema: io.k8s.api.core.v1.RBDVolumeSource#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40131,7 +40131,7 @@ class ReplicaSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec#minReadySeconds
         """
         result = self._values.get("min_ready_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -40144,7 +40144,7 @@ class ReplicaSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def selector(self) -> typing.Optional[LabelSelector]:
@@ -40155,7 +40155,7 @@ class ReplicaSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def template(self) -> typing.Optional[PodTemplateSpec]:
@@ -40166,7 +40166,7 @@ class ReplicaSetSpec:
         :schema: io.k8s.api.extensions.v1beta1.ReplicaSetSpec#template
         """
         result = self._values.get("template")
-        return result
+        return typing.cast(typing.Optional[PodTemplateSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40231,7 +40231,7 @@ class ReplicationControllerSpec:
         :schema: io.k8s.api.core.v1.ReplicationControllerSpec#minReadySeconds
         """
         result = self._values.get("min_ready_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -40244,7 +40244,7 @@ class ReplicationControllerSpec:
         :schema: io.k8s.api.core.v1.ReplicationControllerSpec#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def selector(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -40255,7 +40255,7 @@ class ReplicationControllerSpec:
         :schema: io.k8s.api.core.v1.ReplicationControllerSpec#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def template(self) -> typing.Optional[PodTemplateSpec]:
@@ -40266,7 +40266,7 @@ class ReplicationControllerSpec:
         :schema: io.k8s.api.core.v1.ReplicationControllerSpec#template
         """
         result = self._values.get("template")
-        return result
+        return typing.cast(typing.Optional[PodTemplateSpec], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40342,7 +40342,7 @@ class ResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#group
         """
         result = self._values.get("group")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -40353,7 +40353,7 @@ class ResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def namespace(self) -> typing.Optional[builtins.str]:
@@ -40364,7 +40364,7 @@ class ResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#namespace
         """
         result = self._values.get("namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def resource(self) -> typing.Optional[builtins.str]:
@@ -40375,7 +40375,7 @@ class ResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#resource
         """
         result = self._values.get("resource")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def subresource(self) -> typing.Optional[builtins.str]:
@@ -40386,7 +40386,7 @@ class ResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#subresource
         """
         result = self._values.get("subresource")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def verb(self) -> typing.Optional[builtins.str]:
@@ -40397,7 +40397,7 @@ class ResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#verb
         """
         result = self._values.get("verb")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def version(self) -> typing.Optional[builtins.str]:
@@ -40408,7 +40408,7 @@ class ResourceAttributes:
         :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes#version
         """
         result = self._values.get("version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40463,7 +40463,7 @@ class ResourceFieldSelector:
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def container_name(self) -> typing.Optional[builtins.str]:
@@ -40472,7 +40472,7 @@ class ResourceFieldSelector:
         :schema: io.k8s.api.core.v1.ResourceFieldSelector#containerName
         """
         result = self._values.get("container_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def divisor(self) -> typing.Optional[Quantity]:
@@ -40481,7 +40481,7 @@ class ResourceFieldSelector:
         :schema: io.k8s.api.core.v1.ResourceFieldSelector#divisor
         """
         result = self._values.get("divisor")
-        return result
+        return typing.cast(typing.Optional[Quantity], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40524,7 +40524,7 @@ class ResourceMetricSource:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def target(self) -> MetricTarget:
@@ -40534,7 +40534,7 @@ class ResourceMetricSource:
         """
         result = self._values.get("target")
         assert result is not None, "Required property 'target' is missing"
-        return result
+        return typing.cast(MetricTarget, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40601,7 +40601,7 @@ class ResourcePolicyRule:
         """
         result = self._values.get("api_groups")
         assert result is not None, "Required property 'api_groups' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def resources(self) -> typing.List[builtins.str]:
@@ -40611,7 +40611,7 @@ class ResourcePolicyRule:
         """
         result = self._values.get("resources")
         assert result is not None, "Required property 'resources' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def verbs(self) -> typing.List[builtins.str]:
@@ -40623,7 +40623,7 @@ class ResourcePolicyRule:
         """
         result = self._values.get("verbs")
         assert result is not None, "Required property 'verbs' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def cluster_scope(self) -> typing.Optional[builtins.bool]:
@@ -40634,7 +40634,7 @@ class ResourcePolicyRule:
         :schema: io.k8s.api.flowcontrol.v1alpha1.ResourcePolicyRule#clusterScope
         """
         result = self._values.get("cluster_scope")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -40645,7 +40645,7 @@ class ResourcePolicyRule:
         :schema: io.k8s.api.flowcontrol.v1alpha1.ResourcePolicyRule#namespaces
         """
         result = self._values.get("namespaces")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40703,7 +40703,7 @@ class ResourceQuotaSpec:
         :schema: io.k8s.api.core.v1.ResourceQuotaSpec#hard
         """
         result = self._values.get("hard")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, Quantity]], result)
 
     @builtins.property
     def scopes(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -40714,7 +40714,7 @@ class ResourceQuotaSpec:
         :schema: io.k8s.api.core.v1.ResourceQuotaSpec#scopes
         """
         result = self._values.get("scopes")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def scope_selector(self) -> typing.Optional["ScopeSelector"]:
@@ -40725,7 +40725,7 @@ class ResourceQuotaSpec:
         :schema: io.k8s.api.core.v1.ResourceQuotaSpec#scopeSelector
         """
         result = self._values.get("scope_selector")
-        return result
+        return typing.cast(typing.Optional["ScopeSelector"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40773,7 +40773,7 @@ class ResourceRequirements:
         :schema: io.k8s.api.core.v1.ResourceRequirements#limits
         """
         result = self._values.get("limits")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, Quantity]], result)
 
     @builtins.property
     def requests(self) -> typing.Optional[typing.Mapping[builtins.str, Quantity]]:
@@ -40784,7 +40784,7 @@ class ResourceRequirements:
         :schema: io.k8s.api.core.v1.ResourceRequirements#requests
         """
         result = self._values.get("requests")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, Quantity]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40833,7 +40833,7 @@ class RoleRef:
         """
         result = self._values.get("api_group")
         assert result is not None, "Required property 'api_group' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def kind(self) -> builtins.str:
@@ -40843,7 +40843,7 @@ class RoleRef:
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -40853,7 +40853,7 @@ class RoleRef:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40893,7 +40893,7 @@ class RollingUpdateDaemonSet:
         :schema: io.k8s.api.extensions.v1beta1.RollingUpdateDaemonSet#maxUnavailable
         """
         result = self._values.get("max_unavailable")
-        return result
+        return typing.cast(typing.Optional[IntOrString], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40943,7 +40943,7 @@ class RollingUpdateDeployment:
         :schema: io.k8s.api.apps.v1beta2.RollingUpdateDeployment#maxSurge
         """
         result = self._values.get("max_surge")
-        return result
+        return typing.cast(typing.Optional[IntOrString], result)
 
     @builtins.property
     def max_unavailable(self) -> typing.Optional[IntOrString]:
@@ -40956,7 +40956,7 @@ class RollingUpdateDeployment:
         :schema: io.k8s.api.apps.v1beta2.RollingUpdateDeployment#maxUnavailable
         """
         result = self._values.get("max_unavailable")
-        return result
+        return typing.cast(typing.Optional[IntOrString], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -40996,7 +40996,7 @@ class RollingUpdateStatefulSetStrategy:
         :schema: io.k8s.api.apps.v1beta2.RollingUpdateStatefulSetStrategy#partition
         """
         result = self._values.get("partition")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41064,7 +41064,7 @@ class RuleWithOperations:
         :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#apiGroups
         """
         result = self._values.get("api_groups")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def api_versions(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -41075,7 +41075,7 @@ class RuleWithOperations:
         :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#apiVersions
         """
         result = self._values.get("api_versions")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def operations(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -41086,7 +41086,7 @@ class RuleWithOperations:
         :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#operations
         """
         result = self._values.get("operations")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def resources(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -41101,7 +41101,7 @@ class RuleWithOperations:
         :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#resources
         """
         result = self._values.get("resources")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def scope(self) -> typing.Optional[builtins.str]:
@@ -41114,7 +41114,7 @@ class RuleWithOperations:
         :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations#scope
         """
         result = self._values.get("scope")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41161,7 +41161,7 @@ class RunAsGroupStrategyOptions:
         """
         result = self._values.get("rule")
         assert result is not None, "Required property 'rule' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def ranges(self) -> typing.Optional[typing.List[IdRange]]:
@@ -41172,7 +41172,7 @@ class RunAsGroupStrategyOptions:
         :schema: io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions#ranges
         """
         result = self._values.get("ranges")
-        return result
+        return typing.cast(typing.Optional[typing.List[IdRange]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41219,7 +41219,7 @@ class RunAsUserStrategyOptions:
         """
         result = self._values.get("rule")
         assert result is not None, "Required property 'rule' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def ranges(self) -> typing.Optional[typing.List[IdRange]]:
@@ -41230,7 +41230,7 @@ class RunAsUserStrategyOptions:
         :schema: io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions#ranges
         """
         result = self._values.get("ranges")
-        return result
+        return typing.cast(typing.Optional[typing.List[IdRange]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41293,7 +41293,7 @@ class RuntimeClassSpec:
         """
         result = self._values.get("runtime_handler")
         assert result is not None, "Required property 'runtime_handler' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def overhead(self) -> typing.Optional[Overhead]:
@@ -41304,7 +41304,7 @@ class RuntimeClassSpec:
         :schema: io.k8s.api.node.v1alpha1.RuntimeClassSpec#overhead
         """
         result = self._values.get("overhead")
-        return result
+        return typing.cast(typing.Optional[Overhead], result)
 
     @builtins.property
     def scheduling(self) -> typing.Optional["Scheduling"]:
@@ -41315,7 +41315,7 @@ class RuntimeClassSpec:
         :schema: io.k8s.api.node.v1alpha1.RuntimeClassSpec#scheduling
         """
         result = self._values.get("scheduling")
-        return result
+        return typing.cast(typing.Optional["Scheduling"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41367,7 +41367,7 @@ class RuntimeClassStrategyOptions:
         """
         result = self._values.get("allowed_runtime_class_names")
         assert result is not None, "Required property 'allowed_runtime_class_names' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def default_runtime_class_name(self) -> typing.Optional[builtins.str]:
@@ -41378,7 +41378,7 @@ class RuntimeClassStrategyOptions:
         :schema: io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions#defaultRuntimeClassName
         """
         result = self._values.get("default_runtime_class_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41468,7 +41468,7 @@ class ScaleIoPersistentVolumeSource:
         """
         result = self._values.get("gateway")
         assert result is not None, "Required property 'gateway' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def secret_ref(self) -> "SecretReference":
@@ -41480,7 +41480,7 @@ class ScaleIoPersistentVolumeSource:
         """
         result = self._values.get("secret_ref")
         assert result is not None, "Required property 'secret_ref' is missing"
-        return result
+        return typing.cast("SecretReference", result)
 
     @builtins.property
     def system(self) -> builtins.str:
@@ -41490,7 +41490,7 @@ class ScaleIoPersistentVolumeSource:
         """
         result = self._values.get("system")
         assert result is not None, "Required property 'system' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -41503,7 +41503,7 @@ class ScaleIoPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def protection_domain(self) -> typing.Optional[builtins.str]:
@@ -41512,7 +41512,7 @@ class ScaleIoPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#protectionDomain
         """
         result = self._values.get("protection_domain")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -41525,7 +41525,7 @@ class ScaleIoPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def ssl_enabled(self) -> typing.Optional[builtins.bool]:
@@ -41534,7 +41534,7 @@ class ScaleIoPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#sslEnabled
         """
         result = self._values.get("ssl_enabled")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def storage_mode(self) -> typing.Optional[builtins.str]:
@@ -41547,7 +41547,7 @@ class ScaleIoPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#storageMode
         """
         result = self._values.get("storage_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_pool(self) -> typing.Optional[builtins.str]:
@@ -41556,7 +41556,7 @@ class ScaleIoPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#storagePool
         """
         result = self._values.get("storage_pool")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_name(self) -> typing.Optional[builtins.str]:
@@ -41565,7 +41565,7 @@ class ScaleIoPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#volumeName
         """
         result = self._values.get("volume_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41655,7 +41655,7 @@ class ScaleIoVolumeSource:
         """
         result = self._values.get("gateway")
         assert result is not None, "Required property 'gateway' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def secret_ref(self) -> LocalObjectReference:
@@ -41667,7 +41667,7 @@ class ScaleIoVolumeSource:
         """
         result = self._values.get("secret_ref")
         assert result is not None, "Required property 'secret_ref' is missing"
-        return result
+        return typing.cast(LocalObjectReference, result)
 
     @builtins.property
     def system(self) -> builtins.str:
@@ -41677,7 +41677,7 @@ class ScaleIoVolumeSource:
         """
         result = self._values.get("system")
         assert result is not None, "Required property 'system' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -41690,7 +41690,7 @@ class ScaleIoVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def protection_domain(self) -> typing.Optional[builtins.str]:
@@ -41699,7 +41699,7 @@ class ScaleIoVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOVolumeSource#protectionDomain
         """
         result = self._values.get("protection_domain")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -41712,7 +41712,7 @@ class ScaleIoVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def ssl_enabled(self) -> typing.Optional[builtins.bool]:
@@ -41721,7 +41721,7 @@ class ScaleIoVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOVolumeSource#sslEnabled
         """
         result = self._values.get("ssl_enabled")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def storage_mode(self) -> typing.Optional[builtins.str]:
@@ -41734,7 +41734,7 @@ class ScaleIoVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOVolumeSource#storageMode
         """
         result = self._values.get("storage_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_pool(self) -> typing.Optional[builtins.str]:
@@ -41743,7 +41743,7 @@ class ScaleIoVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOVolumeSource#storagePool
         """
         result = self._values.get("storage_pool")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_name(self) -> typing.Optional[builtins.str]:
@@ -41752,7 +41752,7 @@ class ScaleIoVolumeSource:
         :schema: io.k8s.api.core.v1.ScaleIOVolumeSource#volumeName
         """
         result = self._values.get("volume_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41790,7 +41790,7 @@ class ScaleSpec:
         :schema: io.k8s.api.autoscaling.v1.ScaleSpec#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41840,7 +41840,7 @@ class Scheduling:
         :schema: io.k8s.api.node.v1alpha1.Scheduling#nodeSelector
         """
         result = self._values.get("node_selector")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def tolerations(self) -> typing.Optional[typing.List["Toleration"]]:
@@ -41849,7 +41849,7 @@ class Scheduling:
         :schema: io.k8s.api.node.v1alpha1.Scheduling#tolerations
         """
         result = self._values.get("tolerations")
-        return result
+        return typing.cast(typing.Optional[typing.List["Toleration"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41893,7 +41893,7 @@ class ScopeSelector:
         :schema: io.k8s.api.core.v1.ScopeSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List["ScopedResourceSelectorRequirement"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -41949,7 +41949,7 @@ class ScopedResourceSelectorRequirement:
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def scope_name(self) -> builtins.str:
@@ -41959,7 +41959,7 @@ class ScopedResourceSelectorRequirement:
         """
         result = self._values.get("scope_name")
         assert result is not None, "Required property 'scope_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -41970,7 +41970,7 @@ class ScopedResourceSelectorRequirement:
         :schema: io.k8s.api.core.v1.ScopedResourceSelectorRequirement#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42024,7 +42024,7 @@ class SeLinuxOptions:
         :schema: io.k8s.api.core.v1.SELinuxOptions#level
         """
         result = self._values.get("level")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def role(self) -> typing.Optional[builtins.str]:
@@ -42033,7 +42033,7 @@ class SeLinuxOptions:
         :schema: io.k8s.api.core.v1.SELinuxOptions#role
         """
         result = self._values.get("role")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -42042,7 +42042,7 @@ class SeLinuxOptions:
         :schema: io.k8s.api.core.v1.SELinuxOptions#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -42051,7 +42051,7 @@ class SeLinuxOptions:
         :schema: io.k8s.api.core.v1.SELinuxOptions#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42100,7 +42100,7 @@ class SeLinuxStrategyOptions:
         """
         result = self._values.get("rule")
         assert result is not None, "Required property 'rule' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def se_linux_options(self) -> typing.Optional[SeLinuxOptions]:
@@ -42111,7 +42111,7 @@ class SeLinuxStrategyOptions:
         :schema: io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#seLinuxOptions
         """
         result = self._values.get("se_linux_options")
-        return result
+        return typing.cast(typing.Optional[SeLinuxOptions], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42161,7 +42161,7 @@ class SecretEnvSource:
         :schema: io.k8s.api.core.v1.SecretEnvSource#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -42170,7 +42170,7 @@ class SecretEnvSource:
         :schema: io.k8s.api.core.v1.SecretEnvSource#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42223,7 +42223,7 @@ class SecretKeySelector:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -42234,7 +42234,7 @@ class SecretKeySelector:
         :schema: io.k8s.api.core.v1.SecretKeySelector#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -42243,7 +42243,7 @@ class SecretKeySelector:
         :schema: io.k8s.api.core.v1.SecretKeySelector#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42297,7 +42297,7 @@ class SecretProjection:
         :schema: io.k8s.api.core.v1.SecretProjection#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List[KeyToPath]], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -42308,7 +42308,7 @@ class SecretProjection:
         :schema: io.k8s.api.core.v1.SecretProjection#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -42317,7 +42317,7 @@ class SecretProjection:
         :schema: io.k8s.api.core.v1.SecretProjection#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42365,7 +42365,7 @@ class SecretReference:
         :schema: io.k8s.api.core.v1.SecretReference#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def namespace(self) -> typing.Optional[builtins.str]:
@@ -42374,7 +42374,7 @@ class SecretReference:
         :schema: io.k8s.api.core.v1.SecretReference#namespace
         """
         result = self._values.get("namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42439,7 +42439,7 @@ class SecretVolumeSource:
         :schema: io.k8s.api.core.v1.SecretVolumeSource#defaultMode
         """
         result = self._values.get("default_mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def items(self) -> typing.Optional[typing.List[KeyToPath]]:
@@ -42450,7 +42450,7 @@ class SecretVolumeSource:
         :schema: io.k8s.api.core.v1.SecretVolumeSource#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List[KeyToPath]], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -42459,7 +42459,7 @@ class SecretVolumeSource:
         :schema: io.k8s.api.core.v1.SecretVolumeSource#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_name(self) -> typing.Optional[builtins.str]:
@@ -42470,7 +42470,7 @@ class SecretVolumeSource:
         :schema: io.k8s.api.core.v1.SecretVolumeSource#secretName
         """
         result = self._values.get("secret_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42569,7 +42569,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#allowPrivilegeEscalation
         """
         result = self._values.get("allow_privilege_escalation")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def capabilities(self) -> typing.Optional[Capabilities]:
@@ -42582,7 +42582,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#capabilities
         """
         result = self._values.get("capabilities")
-        return result
+        return typing.cast(typing.Optional[Capabilities], result)
 
     @builtins.property
     def privileged(self) -> typing.Optional[builtins.bool]:
@@ -42595,7 +42595,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#privileged
         """
         result = self._values.get("privileged")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def proc_mount(self) -> typing.Optional[builtins.str]:
@@ -42606,7 +42606,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#procMount
         """
         result = self._values.get("proc_mount")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only_root_filesystem(self) -> typing.Optional[builtins.bool]:
@@ -42619,7 +42619,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#readOnlyRootFilesystem
         """
         result = self._values.get("read_only_root_filesystem")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def run_as_group(self) -> typing.Optional[jsii.Number]:
@@ -42630,7 +42630,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#runAsGroup
         """
         result = self._values.get("run_as_group")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def run_as_non_root(self) -> typing.Optional[builtins.bool]:
@@ -42641,7 +42641,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#runAsNonRoot
         """
         result = self._values.get("run_as_non_root")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def run_as_user(self) -> typing.Optional[jsii.Number]:
@@ -42654,7 +42654,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#runAsUser
         """
         result = self._values.get("run_as_user")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def se_linux_options(self) -> typing.Optional[SeLinuxOptions]:
@@ -42665,7 +42665,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#seLinuxOptions
         """
         result = self._values.get("se_linux_options")
-        return result
+        return typing.cast(typing.Optional[SeLinuxOptions], result)
 
     @builtins.property
     def windows_options(self) -> typing.Optional["WindowsSecurityContextOptions"]:
@@ -42676,7 +42676,7 @@ class SecurityContext:
         :schema: io.k8s.api.core.v1.SecurityContext#windowsOptions
         """
         result = self._values.get("windows_options")
-        return result
+        return typing.cast(typing.Optional["WindowsSecurityContextOptions"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42731,7 +42731,7 @@ class SelfSubjectAccessReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReviewSpec#nonResourceAttributes
         """
         result = self._values.get("non_resource_attributes")
-        return result
+        return typing.cast(typing.Optional[NonResourceAttributes], result)
 
     @builtins.property
     def resource_attributes(self) -> typing.Optional[ResourceAttributes]:
@@ -42740,7 +42740,7 @@ class SelfSubjectAccessReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SelfSubjectAccessReviewSpec#resourceAttributes
         """
         result = self._values.get("resource_attributes")
-        return result
+        return typing.cast(typing.Optional[ResourceAttributes], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42779,7 +42779,7 @@ class SelfSubjectRulesReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReviewSpec#namespace
         """
         result = self._values.get("namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42836,7 +42836,7 @@ class ServiceAccountTokenProjection:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def audience(self) -> typing.Optional[builtins.str]:
@@ -42847,7 +42847,7 @@ class ServiceAccountTokenProjection:
         :schema: io.k8s.api.core.v1.ServiceAccountTokenProjection#audience
         """
         result = self._values.get("audience")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def expiration_seconds(self) -> typing.Optional[jsii.Number]:
@@ -42860,7 +42860,7 @@ class ServiceAccountTokenProjection:
         :schema: io.k8s.api.core.v1.ServiceAccountTokenProjection#expirationSeconds
         """
         result = self._values.get("expiration_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -42925,7 +42925,7 @@ class ServicePort:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -42936,7 +42936,7 @@ class ServicePort:
         :schema: io.k8s.api.core.v1.ServicePort#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def node_port(self) -> typing.Optional[jsii.Number]:
@@ -42949,7 +42949,7 @@ class ServicePort:
         :schema: io.k8s.api.core.v1.ServicePort#nodePort
         """
         result = self._values.get("node_port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def protocol(self) -> typing.Optional[builtins.str]:
@@ -42962,7 +42962,7 @@ class ServicePort:
         :schema: io.k8s.api.core.v1.ServicePort#protocol
         """
         result = self._values.get("protocol")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def target_port(self) -> typing.Optional[IntOrString]:
@@ -42973,7 +42973,7 @@ class ServicePort:
         :schema: io.k8s.api.core.v1.ServicePort#targetPort
         """
         result = self._values.get("target_port")
-        return result
+        return typing.cast(typing.Optional[IntOrString], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43034,7 +43034,7 @@ class ServiceReference:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def namespace(self) -> builtins.str:
@@ -43046,7 +43046,7 @@ class ServiceReference:
         """
         result = self._values.get("namespace")
         assert result is not None, "Required property 'namespace' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -43055,7 +43055,7 @@ class ServiceReference:
         :schema: io.k8s.api.admissionregistration.v1beta1.ServiceReference#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def port(self) -> typing.Optional[jsii.Number]:
@@ -43068,7 +43068,7 @@ class ServiceReference:
         :schema: io.k8s.api.admissionregistration.v1beta1.ServiceReference#port
         """
         result = self._values.get("port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43186,7 +43186,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#clusterIP
         """
         result = self._values.get("cluster_ip")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def external_i_ps(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -43197,7 +43197,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#externalIPs
         """
         result = self._values.get("external_i_ps")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def external_name(self) -> typing.Optional[builtins.str]:
@@ -43208,7 +43208,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#externalName
         """
         result = self._values.get("external_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def external_traffic_policy(self) -> typing.Optional[builtins.str]:
@@ -43219,7 +43219,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#externalTrafficPolicy
         """
         result = self._values.get("external_traffic_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def health_check_node_port(self) -> typing.Optional[jsii.Number]:
@@ -43230,7 +43230,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#healthCheckNodePort
         """
         result = self._values.get("health_check_node_port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def ip_family(self) -> typing.Optional[builtins.str]:
@@ -43239,7 +43239,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#ipFamily
         """
         result = self._values.get("ip_family")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def load_balancer_ip(self) -> typing.Optional[builtins.str]:
@@ -43250,7 +43250,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#loadBalancerIP
         """
         result = self._values.get("load_balancer_ip")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def load_balancer_source_ranges(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -43261,7 +43261,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#loadBalancerSourceRanges
         """
         result = self._values.get("load_balancer_source_ranges")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def ports(self) -> typing.Optional[typing.List[ServicePort]]:
@@ -43272,7 +43272,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#ports
         """
         result = self._values.get("ports")
-        return result
+        return typing.cast(typing.Optional[typing.List[ServicePort]], result)
 
     @builtins.property
     def publish_not_ready_addresses(self) -> typing.Optional[builtins.bool]:
@@ -43283,7 +43283,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#publishNotReadyAddresses
         """
         result = self._values.get("publish_not_ready_addresses")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def selector(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -43294,7 +43294,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#selector
         """
         result = self._values.get("selector")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def session_affinity(self) -> typing.Optional[builtins.str]:
@@ -43307,7 +43307,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#sessionAffinity
         """
         result = self._values.get("session_affinity")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def session_affinity_config(self) -> typing.Optional["SessionAffinityConfig"]:
@@ -43316,7 +43316,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#sessionAffinityConfig
         """
         result = self._values.get("session_affinity_config")
-        return result
+        return typing.cast(typing.Optional["SessionAffinityConfig"], result)
 
     @builtins.property
     def topology_keys(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -43327,7 +43327,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#topologyKeys
         """
         result = self._values.get("topology_keys")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -43340,7 +43340,7 @@ class ServiceSpec:
         :schema: io.k8s.api.core.v1.ServiceSpec#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43380,7 +43380,7 @@ class SessionAffinityConfig:
         :schema: io.k8s.api.core.v1.SessionAffinityConfig#clientIP
         """
         result = self._values.get("client_ip")
-        return result
+        return typing.cast(typing.Optional[ClientIpConfig], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43466,7 +43466,7 @@ class StatefulSetSpec:
         """
         result = self._values.get("selector")
         assert result is not None, "Required property 'selector' is missing"
-        return result
+        return typing.cast(LabelSelector, result)
 
     @builtins.property
     def service_name(self) -> builtins.str:
@@ -43478,7 +43478,7 @@ class StatefulSetSpec:
         """
         result = self._values.get("service_name")
         assert result is not None, "Required property 'service_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def template(self) -> PodTemplateSpec:
@@ -43490,7 +43490,7 @@ class StatefulSetSpec:
         """
         result = self._values.get("template")
         assert result is not None, "Required property 'template' is missing"
-        return result
+        return typing.cast(PodTemplateSpec, result)
 
     @builtins.property
     def pod_management_policy(self) -> typing.Optional[builtins.str]:
@@ -43501,7 +43501,7 @@ class StatefulSetSpec:
         :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#podManagementPolicy
         """
         result = self._values.get("pod_management_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -43512,7 +43512,7 @@ class StatefulSetSpec:
         :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def revision_history_limit(self) -> typing.Optional[jsii.Number]:
@@ -43523,7 +43523,7 @@ class StatefulSetSpec:
         :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#revisionHistoryLimit
         """
         result = self._values.get("revision_history_limit")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def update_strategy(self) -> typing.Optional["StatefulSetUpdateStrategy"]:
@@ -43532,7 +43532,7 @@ class StatefulSetSpec:
         :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#updateStrategy
         """
         result = self._values.get("update_strategy")
-        return result
+        return typing.cast(typing.Optional["StatefulSetUpdateStrategy"], result)
 
     @builtins.property
     def volume_claim_templates(
@@ -43545,7 +43545,7 @@ class StatefulSetSpec:
         :schema: io.k8s.api.apps.v1beta2.StatefulSetSpec#volumeClaimTemplates
         """
         result = self._values.get("volume_claim_templates")
-        return result
+        return typing.cast(typing.Optional[typing.List[KubePersistentVolumeClaimProps]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43595,7 +43595,7 @@ class StatefulSetUpdateStrategy:
         :schema: io.k8s.api.apps.v1beta2.StatefulSetUpdateStrategy#rollingUpdate
         """
         result = self._values.get("rolling_update")
-        return result
+        return typing.cast(typing.Optional[RollingUpdateStatefulSetStrategy], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -43608,7 +43608,7 @@ class StatefulSetUpdateStrategy:
         :schema: io.k8s.api.apps.v1beta2.StatefulSetUpdateStrategy#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43664,7 +43664,7 @@ class StatusCause:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusCause#field
         """
         result = self._values.get("field")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def message(self) -> typing.Optional[builtins.str]:
@@ -43675,7 +43675,7 @@ class StatusCause:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusCause#message
         """
         result = self._values.get("message")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def reason(self) -> typing.Optional[builtins.str]:
@@ -43686,7 +43686,7 @@ class StatusCause:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusCause#reason
         """
         result = self._values.get("reason")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43759,7 +43759,7 @@ class StatusDetails:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails#causes
         """
         result = self._values.get("causes")
-        return result
+        return typing.cast(typing.Optional[typing.List[StatusCause]], result)
 
     @builtins.property
     def group(self) -> typing.Optional[builtins.str]:
@@ -43768,7 +43768,7 @@ class StatusDetails:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails#group
         """
         result = self._values.get("group")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def kind(self) -> typing.Optional[builtins.str]:
@@ -43779,7 +43779,7 @@ class StatusDetails:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails#kind
         """
         result = self._values.get("kind")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -43788,7 +43788,7 @@ class StatusDetails:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def retry_after_seconds(self) -> typing.Optional[jsii.Number]:
@@ -43799,7 +43799,7 @@ class StatusDetails:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails#retryAfterSeconds
         """
         result = self._values.get("retry_after_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def uid(self) -> typing.Optional[builtins.str]:
@@ -43810,7 +43810,7 @@ class StatusDetails:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails#uid
         """
         result = self._values.get("uid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43878,7 +43878,7 @@ class StorageOsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSPersistentVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -43891,7 +43891,7 @@ class StorageOsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSPersistentVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional[ObjectReference]:
@@ -43902,7 +43902,7 @@ class StorageOsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSPersistentVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional[ObjectReference], result)
 
     @builtins.property
     def volume_name(self) -> typing.Optional[builtins.str]:
@@ -43913,7 +43913,7 @@ class StorageOsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSPersistentVolumeSource#volumeName
         """
         result = self._values.get("volume_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_namespace(self) -> typing.Optional[builtins.str]:
@@ -43924,7 +43924,7 @@ class StorageOsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSPersistentVolumeSource#volumeNamespace
         """
         result = self._values.get("volume_namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -43992,7 +43992,7 @@ class StorageOsVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -44005,7 +44005,7 @@ class StorageOsVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSVolumeSource#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional[LocalObjectReference]:
@@ -44016,7 +44016,7 @@ class StorageOsVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSVolumeSource#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional[LocalObjectReference], result)
 
     @builtins.property
     def volume_name(self) -> typing.Optional[builtins.str]:
@@ -44027,7 +44027,7 @@ class StorageOsVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSVolumeSource#volumeName
         """
         result = self._values.get("volume_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_namespace(self) -> typing.Optional[builtins.str]:
@@ -44038,7 +44038,7 @@ class StorageOsVolumeSource:
         :schema: io.k8s.api.core.v1.StorageOSVolumeSource#volumeNamespace
         """
         result = self._values.get("volume_namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44101,7 +44101,7 @@ class Subject:
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -44111,7 +44111,7 @@ class Subject:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def api_group(self) -> typing.Optional[builtins.str]:
@@ -44124,7 +44124,7 @@ class Subject:
         :schema: io.k8s.api.rbac.v1beta1.Subject#apiGroup
         """
         result = self._values.get("api_group")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def namespace(self) -> typing.Optional[builtins.str]:
@@ -44135,7 +44135,7 @@ class Subject:
         :schema: io.k8s.api.rbac.v1beta1.Subject#namespace
         """
         result = self._values.get("namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44212,7 +44212,7 @@ class SubjectAccessReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#extra
         """
         result = self._values.get("extra")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, typing.List[builtins.str]]], result)
 
     @builtins.property
     def group(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -44221,7 +44221,7 @@ class SubjectAccessReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#group
         """
         result = self._values.get("group")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def non_resource_attributes(self) -> typing.Optional[NonResourceAttributes]:
@@ -44230,7 +44230,7 @@ class SubjectAccessReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#nonResourceAttributes
         """
         result = self._values.get("non_resource_attributes")
-        return result
+        return typing.cast(typing.Optional[NonResourceAttributes], result)
 
     @builtins.property
     def resource_attributes(self) -> typing.Optional[ResourceAttributes]:
@@ -44239,7 +44239,7 @@ class SubjectAccessReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#resourceAttributes
         """
         result = self._values.get("resource_attributes")
-        return result
+        return typing.cast(typing.Optional[ResourceAttributes], result)
 
     @builtins.property
     def uid(self) -> typing.Optional[builtins.str]:
@@ -44248,7 +44248,7 @@ class SubjectAccessReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#uid
         """
         result = self._values.get("uid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -44259,7 +44259,7 @@ class SubjectAccessReviewSpec:
         :schema: io.k8s.api.authorization.v1beta1.SubjectAccessReviewSpec#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44307,7 +44307,7 @@ class SupplementalGroupsStrategyOptions:
         :schema: io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions#ranges
         """
         result = self._values.get("ranges")
-        return result
+        return typing.cast(typing.Optional[typing.List[IdRange]], result)
 
     @builtins.property
     def rule(self) -> typing.Optional[builtins.str]:
@@ -44316,7 +44316,7 @@ class SupplementalGroupsStrategyOptions:
         :schema: io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions#rule
         """
         result = self._values.get("rule")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44357,7 +44357,7 @@ class Sysctl:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -44367,7 +44367,7 @@ class Sysctl:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44428,7 +44428,7 @@ class Taint:
         """
         result = self._values.get("effect")
         assert result is not None, "Required property 'effect' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def key(self) -> builtins.str:
@@ -44440,7 +44440,7 @@ class Taint:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def time_added(self) -> typing.Optional[datetime.datetime]:
@@ -44451,7 +44451,7 @@ class Taint:
         :schema: io.k8s.api.core.v1.Taint#timeAdded
         """
         result = self._values.get("time_added")
-        return result
+        return typing.cast(typing.Optional[datetime.datetime], result)
 
     @builtins.property
     def value(self) -> typing.Optional[builtins.str]:
@@ -44462,7 +44462,7 @@ class Taint:
         :schema: io.k8s.api.core.v1.Taint#value
         """
         result = self._values.get("value")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44511,7 +44511,7 @@ class TcpSocketAction:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast(IntOrString, result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -44520,7 +44520,7 @@ class TcpSocketAction:
         :schema: io.k8s.api.core.v1.TCPSocketAction#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44579,7 +44579,7 @@ class TokenRequestSpec:
         """
         result = self._values.get("audiences")
         assert result is not None, "Required property 'audiences' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def bound_object_ref(self) -> typing.Optional[BoundObjectReference]:
@@ -44590,7 +44590,7 @@ class TokenRequestSpec:
         :schema: io.k8s.api.authentication.v1.TokenRequestSpec#boundObjectRef
         """
         result = self._values.get("bound_object_ref")
-        return result
+        return typing.cast(typing.Optional[BoundObjectReference], result)
 
     @builtins.property
     def expiration_seconds(self) -> typing.Optional[jsii.Number]:
@@ -44601,7 +44601,7 @@ class TokenRequestSpec:
         :schema: io.k8s.api.authentication.v1.TokenRequestSpec#expirationSeconds
         """
         result = self._values.get("expiration_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44649,7 +44649,7 @@ class TokenReviewSpec:
         :schema: io.k8s.api.authentication.v1beta1.TokenReviewSpec#audiences
         """
         result = self._values.get("audiences")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def token(self) -> typing.Optional[builtins.str]:
@@ -44658,7 +44658,7 @@ class TokenReviewSpec:
         :schema: io.k8s.api.authentication.v1beta1.TokenReviewSpec#token
         """
         result = self._values.get("token")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44724,7 +44724,7 @@ class Toleration:
         :schema: io.k8s.api.core.v1.Toleration#effect
         """
         result = self._values.get("effect")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def key(self) -> typing.Optional[builtins.str]:
@@ -44735,7 +44735,7 @@ class Toleration:
         :schema: io.k8s.api.core.v1.Toleration#key
         """
         result = self._values.get("key")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def operator(self) -> typing.Optional[builtins.str]:
@@ -44748,7 +44748,7 @@ class Toleration:
         :schema: io.k8s.api.core.v1.Toleration#operator
         """
         result = self._values.get("operator")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def toleration_seconds(self) -> typing.Optional[jsii.Number]:
@@ -44759,7 +44759,7 @@ class Toleration:
         :schema: io.k8s.api.core.v1.Toleration#tolerationSeconds
         """
         result = self._values.get("toleration_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def value(self) -> typing.Optional[builtins.str]:
@@ -44770,7 +44770,7 @@ class Toleration:
         :schema: io.k8s.api.core.v1.Toleration#value
         """
         result = self._values.get("value")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44813,7 +44813,7 @@ class TopologySelectorLabelRequirement:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.List[builtins.str]:
@@ -44825,7 +44825,7 @@ class TopologySelectorLabelRequirement:
         """
         result = self._values.get("values")
         assert result is not None, "Required property 'values' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44871,7 +44871,7 @@ class TopologySelectorTerm:
         :schema: io.k8s.api.core.v1.TopologySelectorTerm#matchLabelExpressions
         """
         result = self._values.get("match_label_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List[TopologySelectorLabelRequirement]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -44933,7 +44933,7 @@ class TopologySpreadConstraint:
         """
         result = self._values.get("max_skew")
         assert result is not None, "Required property 'max_skew' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def topology_key(self) -> builtins.str:
@@ -44945,7 +44945,7 @@ class TopologySpreadConstraint:
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def when_unsatisfiable(self) -> builtins.str:
@@ -44957,7 +44957,7 @@ class TopologySpreadConstraint:
         """
         result = self._values.get("when_unsatisfiable")
         assert result is not None, "Required property 'when_unsatisfiable' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def label_selector(self) -> typing.Optional[LabelSelector]:
@@ -44968,7 +44968,7 @@ class TopologySpreadConstraint:
         :schema: io.k8s.api.core.v1.TopologySpreadConstraint#labelSelector
         """
         result = self._values.get("label_selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -45018,7 +45018,7 @@ class TypedLocalObjectReference:
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -45028,7 +45028,7 @@ class TypedLocalObjectReference:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def api_group(self) -> typing.Optional[builtins.str]:
@@ -45039,7 +45039,7 @@ class TypedLocalObjectReference:
         :schema: io.k8s.api.core.v1.TypedLocalObjectReference#apiGroup
         """
         result = self._values.get("api_group")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -45136,7 +45136,7 @@ class ValidatingWebhook:
         """
         result = self._values.get("client_config")
         assert result is not None, "Required property 'client_config' is missing"
-        return result
+        return typing.cast("WebhookClientConfig", result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -45148,7 +45148,7 @@ class ValidatingWebhook:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def admission_review_versions(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -45161,7 +45161,7 @@ class ValidatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#admissionReviewVersions
         """
         result = self._values.get("admission_review_versions")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def failure_policy(self) -> typing.Optional[builtins.str]:
@@ -45174,7 +45174,7 @@ class ValidatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#failurePolicy
         """
         result = self._values.get("failure_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def match_policy(self) -> typing.Optional[builtins.str]:
@@ -45190,7 +45190,7 @@ class ValidatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#matchPolicy
         """
         result = self._values.get("match_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def namespace_selector(self) -> typing.Optional[LabelSelector]:
@@ -45233,7 +45233,7 @@ class ValidatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#namespaceSelector
         """
         result = self._values.get("namespace_selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def object_selector(self) -> typing.Optional[LabelSelector]:
@@ -45246,7 +45246,7 @@ class ValidatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#objectSelector
         """
         result = self._values.get("object_selector")
-        return result
+        return typing.cast(typing.Optional[LabelSelector], result)
 
     @builtins.property
     def rules(self) -> typing.Optional[typing.List[RuleWithOperations]]:
@@ -45257,7 +45257,7 @@ class ValidatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#rules
         """
         result = self._values.get("rules")
-        return result
+        return typing.cast(typing.Optional[typing.List[RuleWithOperations]], result)
 
     @builtins.property
     def side_effects(self) -> typing.Optional[builtins.str]:
@@ -45270,7 +45270,7 @@ class ValidatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#sideEffects
         """
         result = self._values.get("side_effects")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -45283,7 +45283,7 @@ class ValidatingWebhook:
         :schema: io.k8s.api.admissionregistration.v1beta1.ValidatingWebhook#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -45526,7 +45526,7 @@ class Volume:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def aws_elastic_block_store(
@@ -45539,7 +45539,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#awsElasticBlockStore
         """
         result = self._values.get("aws_elastic_block_store")
-        return result
+        return typing.cast(typing.Optional[AwsElasticBlockStoreVolumeSource], result)
 
     @builtins.property
     def azure_disk(self) -> typing.Optional[AzureDiskVolumeSource]:
@@ -45548,7 +45548,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#azureDisk
         """
         result = self._values.get("azure_disk")
-        return result
+        return typing.cast(typing.Optional[AzureDiskVolumeSource], result)
 
     @builtins.property
     def azure_file(self) -> typing.Optional[AzureFileVolumeSource]:
@@ -45557,7 +45557,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#azureFile
         """
         result = self._values.get("azure_file")
-        return result
+        return typing.cast(typing.Optional[AzureFileVolumeSource], result)
 
     @builtins.property
     def cephfs(self) -> typing.Optional[CephFsVolumeSource]:
@@ -45566,7 +45566,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#cephfs
         """
         result = self._values.get("cephfs")
-        return result
+        return typing.cast(typing.Optional[CephFsVolumeSource], result)
 
     @builtins.property
     def cinder(self) -> typing.Optional[CinderVolumeSource]:
@@ -45577,7 +45577,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#cinder
         """
         result = self._values.get("cinder")
-        return result
+        return typing.cast(typing.Optional[CinderVolumeSource], result)
 
     @builtins.property
     def config_map(self) -> typing.Optional[ConfigMapVolumeSource]:
@@ -45586,7 +45586,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#configMap
         """
         result = self._values.get("config_map")
-        return result
+        return typing.cast(typing.Optional[ConfigMapVolumeSource], result)
 
     @builtins.property
     def csi(self) -> typing.Optional[CsiVolumeSource]:
@@ -45595,7 +45595,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#csi
         """
         result = self._values.get("csi")
-        return result
+        return typing.cast(typing.Optional[CsiVolumeSource], result)
 
     @builtins.property
     def downward_api(self) -> typing.Optional[DownwardApiVolumeSource]:
@@ -45604,7 +45604,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#downwardAPI
         """
         result = self._values.get("downward_api")
-        return result
+        return typing.cast(typing.Optional[DownwardApiVolumeSource], result)
 
     @builtins.property
     def empty_dir(self) -> typing.Optional[EmptyDirVolumeSource]:
@@ -45615,7 +45615,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#emptyDir
         """
         result = self._values.get("empty_dir")
-        return result
+        return typing.cast(typing.Optional[EmptyDirVolumeSource], result)
 
     @builtins.property
     def fc(self) -> typing.Optional[FcVolumeSource]:
@@ -45624,7 +45624,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#fc
         """
         result = self._values.get("fc")
-        return result
+        return typing.cast(typing.Optional[FcVolumeSource], result)
 
     @builtins.property
     def flex_volume(self) -> typing.Optional[FlexVolumeSource]:
@@ -45633,7 +45633,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#flexVolume
         """
         result = self._values.get("flex_volume")
-        return result
+        return typing.cast(typing.Optional[FlexVolumeSource], result)
 
     @builtins.property
     def flocker(self) -> typing.Optional[FlockerVolumeSource]:
@@ -45644,7 +45644,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#flocker
         """
         result = self._values.get("flocker")
-        return result
+        return typing.cast(typing.Optional[FlockerVolumeSource], result)
 
     @builtins.property
     def gce_persistent_disk(self) -> typing.Optional[GcePersistentDiskVolumeSource]:
@@ -45655,7 +45655,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#gcePersistentDisk
         """
         result = self._values.get("gce_persistent_disk")
-        return result
+        return typing.cast(typing.Optional[GcePersistentDiskVolumeSource], result)
 
     @builtins.property
     def git_repo(self) -> typing.Optional[GitRepoVolumeSource]:
@@ -45666,7 +45666,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#gitRepo
         """
         result = self._values.get("git_repo")
-        return result
+        return typing.cast(typing.Optional[GitRepoVolumeSource], result)
 
     @builtins.property
     def glusterfs(self) -> typing.Optional[GlusterfsVolumeSource]:
@@ -45677,7 +45677,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#glusterfs
         """
         result = self._values.get("glusterfs")
-        return result
+        return typing.cast(typing.Optional[GlusterfsVolumeSource], result)
 
     @builtins.property
     def host_path(self) -> typing.Optional[HostPathVolumeSource]:
@@ -45688,7 +45688,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#hostPath
         """
         result = self._values.get("host_path")
-        return result
+        return typing.cast(typing.Optional[HostPathVolumeSource], result)
 
     @builtins.property
     def iscsi(self) -> typing.Optional[IscsiVolumeSource]:
@@ -45699,7 +45699,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#iscsi
         """
         result = self._values.get("iscsi")
-        return result
+        return typing.cast(typing.Optional[IscsiVolumeSource], result)
 
     @builtins.property
     def nfs(self) -> typing.Optional[NfsVolumeSource]:
@@ -45708,7 +45708,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#nfs
         """
         result = self._values.get("nfs")
-        return result
+        return typing.cast(typing.Optional[NfsVolumeSource], result)
 
     @builtins.property
     def persistent_volume_claim(
@@ -45721,7 +45721,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#persistentVolumeClaim
         """
         result = self._values.get("persistent_volume_claim")
-        return result
+        return typing.cast(typing.Optional[PersistentVolumeClaimVolumeSource], result)
 
     @builtins.property
     def photon_persistent_disk(
@@ -45732,7 +45732,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#photonPersistentDisk
         """
         result = self._values.get("photon_persistent_disk")
-        return result
+        return typing.cast(typing.Optional[PhotonPersistentDiskVolumeSource], result)
 
     @builtins.property
     def portworx_volume(self) -> typing.Optional[PortworxVolumeSource]:
@@ -45741,7 +45741,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#portworxVolume
         """
         result = self._values.get("portworx_volume")
-        return result
+        return typing.cast(typing.Optional[PortworxVolumeSource], result)
 
     @builtins.property
     def projected(self) -> typing.Optional[ProjectedVolumeSource]:
@@ -45750,7 +45750,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#projected
         """
         result = self._values.get("projected")
-        return result
+        return typing.cast(typing.Optional[ProjectedVolumeSource], result)
 
     @builtins.property
     def quobyte(self) -> typing.Optional[QuobyteVolumeSource]:
@@ -45759,7 +45759,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#quobyte
         """
         result = self._values.get("quobyte")
-        return result
+        return typing.cast(typing.Optional[QuobyteVolumeSource], result)
 
     @builtins.property
     def rbd(self) -> typing.Optional[RbdVolumeSource]:
@@ -45770,7 +45770,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#rbd
         """
         result = self._values.get("rbd")
-        return result
+        return typing.cast(typing.Optional[RbdVolumeSource], result)
 
     @builtins.property
     def scale_io(self) -> typing.Optional[ScaleIoVolumeSource]:
@@ -45779,7 +45779,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#scaleIO
         """
         result = self._values.get("scale_io")
-        return result
+        return typing.cast(typing.Optional[ScaleIoVolumeSource], result)
 
     @builtins.property
     def secret(self) -> typing.Optional[SecretVolumeSource]:
@@ -45790,7 +45790,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#secret
         """
         result = self._values.get("secret")
-        return result
+        return typing.cast(typing.Optional[SecretVolumeSource], result)
 
     @builtins.property
     def storageos(self) -> typing.Optional[StorageOsVolumeSource]:
@@ -45799,7 +45799,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#storageos
         """
         result = self._values.get("storageos")
-        return result
+        return typing.cast(typing.Optional[StorageOsVolumeSource], result)
 
     @builtins.property
     def vsphere_volume(self) -> typing.Optional["VsphereVirtualDiskVolumeSource"]:
@@ -45808,7 +45808,7 @@ class Volume:
         :schema: io.k8s.api.core.v1.Volume#vsphereVolume
         """
         result = self._values.get("vsphere_volume")
-        return result
+        return typing.cast(typing.Optional["VsphereVirtualDiskVolumeSource"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -45863,7 +45863,7 @@ class VolumeAttachmentSource:
         :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSource#inlineVolumeSpec
         """
         result = self._values.get("inline_volume_spec")
-        return result
+        return typing.cast(typing.Optional[PersistentVolumeSpec], result)
 
     @builtins.property
     def persistent_volume_name(self) -> typing.Optional[builtins.str]:
@@ -45872,7 +45872,7 @@ class VolumeAttachmentSource:
         :schema: io.k8s.api.storage.v1beta1.VolumeAttachmentSource#persistentVolumeName
         """
         result = self._values.get("persistent_volume_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -45925,7 +45925,7 @@ class VolumeAttachmentSpec:
         """
         result = self._values.get("attacher")
         assert result is not None, "Required property 'attacher' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def node_name(self) -> builtins.str:
@@ -45935,7 +45935,7 @@ class VolumeAttachmentSpec:
         """
         result = self._values.get("node_name")
         assert result is not None, "Required property 'node_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def source(self) -> VolumeAttachmentSource:
@@ -45945,7 +45945,7 @@ class VolumeAttachmentSpec:
         """
         result = self._values.get("source")
         assert result is not None, "Required property 'source' is missing"
-        return result
+        return typing.cast(VolumeAttachmentSource, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -45986,7 +45986,7 @@ class VolumeDevice:
         """
         result = self._values.get("device_path")
         assert result is not None, "Required property 'device_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -45996,7 +45996,7 @@ class VolumeDevice:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46067,7 +46067,7 @@ class VolumeMount:
         """
         result = self._values.get("mount_path")
         assert result is not None, "Required property 'mount_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -46077,7 +46077,7 @@ class VolumeMount:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def mount_propagation(self) -> typing.Optional[builtins.str]:
@@ -46088,7 +46088,7 @@ class VolumeMount:
         :schema: io.k8s.api.core.v1.VolumeMount#mountPropagation
         """
         result = self._values.get("mount_propagation")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -46101,7 +46101,7 @@ class VolumeMount:
         :schema: io.k8s.api.core.v1.VolumeMount#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def sub_path(self) -> typing.Optional[builtins.str]:
@@ -46114,7 +46114,7 @@ class VolumeMount:
         :schema: io.k8s.api.core.v1.VolumeMount#subPath
         """
         result = self._values.get("sub_path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def sub_path_expr(self) -> typing.Optional[builtins.str]:
@@ -46127,7 +46127,7 @@ class VolumeMount:
         :schema: io.k8s.api.core.v1.VolumeMount#subPathExpr
         """
         result = self._values.get("sub_path_expr")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46167,7 +46167,7 @@ class VolumeNodeAffinity:
         :schema: io.k8s.api.core.v1.VolumeNodeAffinity#required
         """
         result = self._values.get("required")
-        return result
+        return typing.cast(typing.Optional[NodeSelector], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46207,7 +46207,7 @@ class VolumeNodeResources:
         :schema: io.k8s.api.storage.v1beta1.VolumeNodeResources#count
         """
         result = self._values.get("count")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46274,7 +46274,7 @@ class VolumeProjection:
         :schema: io.k8s.api.core.v1.VolumeProjection#configMap
         """
         result = self._values.get("config_map")
-        return result
+        return typing.cast(typing.Optional[ConfigMapProjection], result)
 
     @builtins.property
     def downward_api(self) -> typing.Optional[DownwardApiProjection]:
@@ -46283,7 +46283,7 @@ class VolumeProjection:
         :schema: io.k8s.api.core.v1.VolumeProjection#downwardAPI
         """
         result = self._values.get("downward_api")
-        return result
+        return typing.cast(typing.Optional[DownwardApiProjection], result)
 
     @builtins.property
     def secret(self) -> typing.Optional[SecretProjection]:
@@ -46292,7 +46292,7 @@ class VolumeProjection:
         :schema: io.k8s.api.core.v1.VolumeProjection#secret
         """
         result = self._values.get("secret")
-        return result
+        return typing.cast(typing.Optional[SecretProjection], result)
 
     @builtins.property
     def service_account_token(self) -> typing.Optional[ServiceAccountTokenProjection]:
@@ -46301,7 +46301,7 @@ class VolumeProjection:
         :schema: io.k8s.api.core.v1.VolumeProjection#serviceAccountToken
         """
         result = self._values.get("service_account_token")
-        return result
+        return typing.cast(typing.Optional[ServiceAccountTokenProjection], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46361,7 +46361,7 @@ class VsphereVirtualDiskVolumeSource:
         """
         result = self._values.get("volume_path")
         assert result is not None, "Required property 'volume_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -46372,7 +46372,7 @@ class VsphereVirtualDiskVolumeSource:
         :schema: io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_policy_id(self) -> typing.Optional[builtins.str]:
@@ -46381,7 +46381,7 @@ class VsphereVirtualDiskVolumeSource:
         :schema: io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource#storagePolicyID
         """
         result = self._values.get("storage_policy_id")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_policy_name(self) -> typing.Optional[builtins.str]:
@@ -46390,7 +46390,7 @@ class VsphereVirtualDiskVolumeSource:
         :schema: io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource#storagePolicyName
         """
         result = self._values.get("storage_policy_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46441,7 +46441,7 @@ class Webhook:
         """
         result = self._values.get("client_config")
         assert result is not None, "Required property 'client_config' is missing"
-        return result
+        return typing.cast("WebhookClientConfig", result)
 
     @builtins.property
     def throttle(self) -> typing.Optional["WebhookThrottleConfig"]:
@@ -46450,7 +46450,7 @@ class Webhook:
         :schema: io.k8s.api.auditregistration.v1alpha1.Webhook#throttle
         """
         result = self._values.get("throttle")
-        return result
+        return typing.cast(typing.Optional["WebhookThrottleConfig"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46504,7 +46504,7 @@ class WebhookClientConfig:
         :schema: io.k8s.api.admissionregistration.v1beta1.WebhookClientConfig#caBundle
         """
         result = self._values.get("ca_bundle")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def service(self) -> typing.Optional[ServiceReference]:
@@ -46515,7 +46515,7 @@ class WebhookClientConfig:
         :schema: io.k8s.api.admissionregistration.v1beta1.WebhookClientConfig#service
         """
         result = self._values.get("service")
-        return result
+        return typing.cast(typing.Optional[ServiceReference], result)
 
     @builtins.property
     def url(self) -> typing.Optional[builtins.str]:
@@ -46536,7 +46536,7 @@ class WebhookClientConfig:
         :schema: io.k8s.api.admissionregistration.v1beta1.WebhookClientConfig#url
         """
         result = self._values.get("url")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46582,7 +46582,7 @@ class WebhookThrottleConfig:
         :schema: io.k8s.api.auditregistration.v1alpha1.WebhookThrottleConfig#burst
         """
         result = self._values.get("burst")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def qps(self) -> typing.Optional[jsii.Number]:
@@ -46591,7 +46591,7 @@ class WebhookThrottleConfig:
         :schema: io.k8s.api.auditregistration.v1alpha1.WebhookThrottleConfig#qps
         """
         result = self._values.get("qps")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46641,7 +46641,7 @@ class WeightedPodAffinityTerm:
         """
         result = self._values.get("pod_affinity_term")
         assert result is not None, "Required property 'pod_affinity_term' is missing"
-        return result
+        return typing.cast(PodAffinityTerm, result)
 
     @builtins.property
     def weight(self) -> jsii.Number:
@@ -46651,7 +46651,7 @@ class WeightedPodAffinityTerm:
         """
         result = self._values.get("weight")
         assert result is not None, "Required property 'weight' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -46705,7 +46705,7 @@ class WindowsSecurityContextOptions:
         :schema: io.k8s.api.core.v1.WindowsSecurityContextOptions#gmsaCredentialSpec
         """
         result = self._values.get("gmsa_credential_spec")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def gmsa_credential_spec_name(self) -> typing.Optional[builtins.str]:
@@ -46716,7 +46716,7 @@ class WindowsSecurityContextOptions:
         :schema: io.k8s.api.core.v1.WindowsSecurityContextOptions#gmsaCredentialSpecName
         """
         result = self._values.get("gmsa_credential_spec_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def run_as_user_name(self) -> typing.Optional[builtins.str]:
@@ -46729,7 +46729,7 @@ class WindowsSecurityContextOptions:
         :schema: io.k8s.api.core.v1.WindowsSecurityContextOptions#runAsUserName
         """
         result = self._values.get("run_as_user_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values

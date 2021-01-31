@@ -39,7 +39,7 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="iojenkins.Jen
 
         jsii.create(Jenkins, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -56,13 +56,13 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="iojenkins.Jen
         """
         props = JenkinsProps(metadata=metadata, spec=spec)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "Jenkins"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -98,7 +98,7 @@ class JenkinsProps:
         :schema: Jenkins#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Any, result)
 
     @builtins.property
     def spec(self) -> typing.Optional["JenkinsSpec"]:
@@ -107,7 +107,7 @@ class JenkinsProps:
         :schema: Jenkins#spec
         """
         result = self._values.get("spec")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -224,7 +224,7 @@ class JenkinsSpec:
         """
         result = self._values.get("jenkins_api_settings")
         assert result is not None, "Required property 'jenkins_api_settings' is missing"
-        return result
+        return typing.cast("JenkinsSpecJenkinsApiSettings", result)
 
     @builtins.property
     def master(self) -> "JenkinsSpecMaster":
@@ -236,7 +236,7 @@ class JenkinsSpec:
         """
         result = self._values.get("master")
         assert result is not None, "Required property 'master' is missing"
-        return result
+        return typing.cast("JenkinsSpecMaster", result)
 
     @builtins.property
     def backup(self) -> typing.Optional["JenkinsSpecBackup"]:
@@ -245,7 +245,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#backup
         """
         result = self._values.get("backup")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecBackup"], result)
 
     @builtins.property
     def configuration_as_code(
@@ -256,7 +256,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#configurationAsCode
         """
         result = self._values.get("configuration_as_code")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecConfigurationAsCode"], result)
 
     @builtins.property
     def groovy_scripts(self) -> typing.Optional["JenkinsSpecGroovyScripts"]:
@@ -265,7 +265,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#groovyScripts
         """
         result = self._values.get("groovy_scripts")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecGroovyScripts"], result)
 
     @builtins.property
     def notifications(self) -> typing.Optional[typing.List["JenkinsSpecNotifications"]]:
@@ -274,7 +274,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#notifications
         """
         result = self._values.get("notifications")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecNotifications"]], result)
 
     @builtins.property
     def restore(self) -> typing.Optional["JenkinsSpecRestore"]:
@@ -283,7 +283,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#restore
         """
         result = self._values.get("restore")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecRestore"], result)
 
     @builtins.property
     def roles(self) -> typing.Optional[typing.List["JenkinsSpecRoles"]]:
@@ -292,7 +292,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#roles
         """
         result = self._values.get("roles")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecRoles"]], result)
 
     @builtins.property
     def seed_jobs(self) -> typing.Optional[typing.List["JenkinsSpecSeedJobs"]]:
@@ -301,7 +301,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#seedJobs
         """
         result = self._values.get("seed_jobs")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecSeedJobs"]], result)
 
     @builtins.property
     def service(self) -> typing.Optional["JenkinsSpecService"]:
@@ -312,7 +312,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#service
         """
         result = self._values.get("service")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecService"], result)
 
     @builtins.property
     def service_account(self) -> typing.Optional["JenkinsSpecServiceAccount"]:
@@ -321,7 +321,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#serviceAccount
         """
         result = self._values.get("service_account")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecServiceAccount"], result)
 
     @builtins.property
     def slave_service(self) -> typing.Optional["JenkinsSpecSlaveService"]:
@@ -332,7 +332,7 @@ class JenkinsSpec:
         :schema: JenkinsSpec#slaveService
         """
         result = self._values.get("slave_service")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecSlaveService"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -391,7 +391,7 @@ class JenkinsSpecBackup:
         """
         result = self._values.get("action")
         assert result is not None, "Required property 'action' is missing"
-        return result
+        return typing.cast("JenkinsSpecBackupAction", result)
 
     @builtins.property
     def container_name(self) -> builtins.str:
@@ -401,7 +401,7 @@ class JenkinsSpecBackup:
         """
         result = self._values.get("container_name")
         assert result is not None, "Required property 'container_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def interval(self) -> jsii.Number:
@@ -413,7 +413,7 @@ class JenkinsSpecBackup:
         """
         result = self._values.get("interval")
         assert result is not None, "Required property 'interval' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def make_backup_before_pod_deletion(self) -> builtins.bool:
@@ -423,7 +423,7 @@ class JenkinsSpecBackup:
         """
         result = self._values.get("make_backup_before_pod_deletion")
         assert result is not None, "Required property 'make_backup_before_pod_deletion' is missing"
-        return result
+        return typing.cast(builtins.bool, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -467,7 +467,7 @@ class JenkinsSpecBackupAction:
         :schema: JenkinsSpecBackupAction#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecBackupActionExec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -511,7 +511,7 @@ class JenkinsSpecBackupActionExec:
         :schema: JenkinsSpecBackupActionExec#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -560,7 +560,7 @@ class JenkinsSpecConfigurationAsCode:
         """
         result = self._values.get("configurations")
         assert result is not None, "Required property 'configurations' is missing"
-        return result
+        return typing.cast(typing.List["JenkinsSpecConfigurationAsCodeConfigurations"], result)
 
     @builtins.property
     def secret(self) -> "JenkinsSpecConfigurationAsCodeSecret":
@@ -570,7 +570,7 @@ class JenkinsSpecConfigurationAsCode:
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
-        return result
+        return typing.cast("JenkinsSpecConfigurationAsCodeSecret", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -608,7 +608,7 @@ class JenkinsSpecConfigurationAsCodeConfigurations:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -646,7 +646,7 @@ class JenkinsSpecConfigurationAsCodeSecret:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -693,7 +693,7 @@ class JenkinsSpecGroovyScripts:
         """
         result = self._values.get("configurations")
         assert result is not None, "Required property 'configurations' is missing"
-        return result
+        return typing.cast(typing.List["JenkinsSpecGroovyScriptsConfigurations"], result)
 
     @builtins.property
     def secret(self) -> "JenkinsSpecGroovyScriptsSecret":
@@ -703,7 +703,7 @@ class JenkinsSpecGroovyScripts:
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
-        return result
+        return typing.cast("JenkinsSpecGroovyScriptsSecret", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -741,7 +741,7 @@ class JenkinsSpecGroovyScriptsConfigurations:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -779,7 +779,7 @@ class JenkinsSpecGroovyScriptsSecret:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -818,7 +818,7 @@ class JenkinsSpecJenkinsApiSettings:
         """
         result = self._values.get("authorization_strategy")
         assert result is not None, "Required property 'authorization_strategy' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -922,7 +922,7 @@ class JenkinsSpecMaster:
         """
         result = self._values.get("disable_csrf_protection")
         assert result is not None, "Required property 'disable_csrf_protection' is missing"
-        return result
+        return typing.cast(builtins.bool, result)
 
     @builtins.property
     def annotations(
@@ -935,7 +935,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#annotations
         """
         result = self._values.get("annotations")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def base_plugins(
@@ -948,7 +948,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#basePlugins
         """
         result = self._values.get("base_plugins")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterBasePlugins"]], result)
 
     @builtins.property
     def containers(self) -> typing.Optional[typing.List["JenkinsSpecMasterContainers"]]:
@@ -961,7 +961,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#containers
         """
         result = self._values.get("containers")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainers"]], result)
 
     @builtins.property
     def image_pull_secrets(
@@ -974,7 +974,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#imagePullSecrets
         """
         result = self._values.get("image_pull_secrets")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterImagePullSecrets"]], result)
 
     @builtins.property
     def labels(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -985,7 +985,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#labels
         """
         result = self._values.get("labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def master_annotations(
@@ -998,7 +998,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#masterAnnotations
         """
         result = self._values.get("master_annotations")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def node_selector(
@@ -1011,7 +1011,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#nodeSelector
         """
         result = self._values.get("node_selector")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def plugins(self) -> typing.Optional[typing.List["JenkinsSpecMasterPlugins"]]:
@@ -1020,7 +1020,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#plugins
         """
         result = self._values.get("plugins")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterPlugins"]], result)
 
     @builtins.property
     def security_context(self) -> typing.Optional["JenkinsSpecMasterSecurityContext"]:
@@ -1033,7 +1033,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#securityContext
         """
         result = self._values.get("security_context")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterSecurityContext"], result)
 
     @builtins.property
     def tolerations(
@@ -1044,7 +1044,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#tolerations
         """
         result = self._values.get("tolerations")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterTolerations"]], result)
 
     @builtins.property
     def volumes(self) -> typing.Optional[typing.List["JenkinsSpecMasterVolumes"]]:
@@ -1055,7 +1055,7 @@ class JenkinsSpecMaster:
         :schema: JenkinsSpecMaster#volumes
         """
         result = self._values.get("volumes")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterVolumes"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1096,7 +1096,7 @@ class JenkinsSpecMasterBasePlugins:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def version(self) -> builtins.str:
@@ -1106,7 +1106,7 @@ class JenkinsSpecMasterBasePlugins:
         """
         result = self._values.get("version")
         assert result is not None, "Required property 'version' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1230,7 +1230,7 @@ class JenkinsSpecMasterContainers:
         """
         result = self._values.get("image")
         assert result is not None, "Required property 'image' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def image_pull_policy(self) -> builtins.str:
@@ -1244,7 +1244,7 @@ class JenkinsSpecMasterContainers:
         """
         result = self._values.get("image_pull_policy")
         assert result is not None, "Required property 'image_pull_policy' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -1256,7 +1256,7 @@ class JenkinsSpecMasterContainers:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def resources(self) -> "JenkinsSpecMasterContainersResources":
@@ -1268,7 +1268,7 @@ class JenkinsSpecMasterContainers:
         """
         result = self._values.get("resources")
         assert result is not None, "Required property 'resources' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersResources", result)
 
     @builtins.property
     def args(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1279,7 +1279,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#args
         """
         result = self._values.get("args")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def command(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1290,7 +1290,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def env(self) -> typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]]:
@@ -1299,7 +1299,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#env
         """
         result = self._values.get("env")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]], result)
 
     @builtins.property
     def env_from(
@@ -1312,7 +1312,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#envFrom
         """
         result = self._values.get("env_from")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainersEnvFrom"]], result)
 
     @builtins.property
     def lifecycle(self) -> typing.Optional["JenkinsSpecMasterContainersLifecycle"]:
@@ -1321,7 +1321,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#lifecycle
         """
         result = self._values.get("lifecycle")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecycle"], result)
 
     @builtins.property
     def liveness_probe(
@@ -1334,7 +1334,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#livenessProbe
         """
         result = self._values.get("liveness_probe")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLivenessProbe"], result)
 
     @builtins.property
     def ports(self) -> typing.Optional[typing.List["JenkinsSpecMasterContainersPorts"]]:
@@ -1345,7 +1345,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#ports
         """
         result = self._values.get("ports")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainersPorts"]], result)
 
     @builtins.property
     def readiness_probe(
@@ -1358,7 +1358,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#readinessProbe
         """
         result = self._values.get("readiness_probe")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersReadinessProbe"], result)
 
     @builtins.property
     def security_context(
@@ -1371,7 +1371,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#securityContext
         """
         result = self._values.get("security_context")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersSecurityContext"], result)
 
     @builtins.property
     def volume_mounts(
@@ -1382,7 +1382,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#volumeMounts
         """
         result = self._values.get("volume_mounts")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainersVolumeMounts"]], result)
 
     @builtins.property
     def working_dir(self) -> typing.Optional[builtins.str]:
@@ -1393,7 +1393,7 @@ class JenkinsSpecMasterContainers:
         :schema: JenkinsSpecMasterContainers#workingDir
         """
         result = self._values.get("working_dir")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1448,7 +1448,7 @@ class JenkinsSpecMasterContainersEnv:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> typing.Optional[builtins.str]:
@@ -1461,7 +1461,7 @@ class JenkinsSpecMasterContainersEnv:
         :schema: JenkinsSpecMasterContainersEnv#value
         """
         result = self._values.get("value")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def value_from(self) -> typing.Optional["JenkinsSpecMasterContainersEnvValueFrom"]:
@@ -1472,7 +1472,7 @@ class JenkinsSpecMasterContainersEnv:
         :schema: JenkinsSpecMasterContainersEnv#valueFrom
         """
         result = self._values.get("value_from")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersEnvValueFrom"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1532,7 +1532,7 @@ class JenkinsSpecMasterContainersEnvFrom:
         :schema: JenkinsSpecMasterContainersEnvFrom#configMapRef
         """
         result = self._values.get("config_map_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersEnvFromConfigMapRef"], result)
 
     @builtins.property
     def prefix(self) -> typing.Optional[builtins.str]:
@@ -1543,7 +1543,7 @@ class JenkinsSpecMasterContainersEnvFrom:
         :schema: JenkinsSpecMasterContainersEnvFrom#prefix
         """
         result = self._values.get("prefix")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def secret_ref(
@@ -1554,7 +1554,7 @@ class JenkinsSpecMasterContainersEnvFrom:
         :schema: JenkinsSpecMasterContainersEnvFrom#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersEnvFromSecretRef"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1602,7 +1602,7 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
         :schema: JenkinsSpecMasterContainersEnvFromConfigMapRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -1611,7 +1611,7 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
         :schema: JenkinsSpecMasterContainersEnvFromConfigMapRef#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1659,7 +1659,7 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
         :schema: JenkinsSpecMasterContainersEnvFromSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -1668,7 +1668,7 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
         :schema: JenkinsSpecMasterContainersEnvFromSecretRef#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1739,7 +1739,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         :schema: JenkinsSpecMasterContainersEnvValueFrom#configMapKeyRef
         """
         result = self._values.get("config_map_key_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef"], result)
 
     @builtins.property
     def field_ref(
@@ -1750,7 +1750,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         :schema: JenkinsSpecMasterContainersEnvValueFrom#fieldRef
         """
         result = self._values.get("field_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersEnvValueFromFieldRef"], result)
 
     @builtins.property
     def resource_field_ref(
@@ -1761,7 +1761,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         :schema: JenkinsSpecMasterContainersEnvValueFrom#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersEnvValueFromResourceFieldRef"], result)
 
     @builtins.property
     def secret_key_ref(
@@ -1772,7 +1772,7 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         :schema: JenkinsSpecMasterContainersEnvValueFrom#secretKeyRef
         """
         result = self._values.get("secret_key_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersEnvValueFromSecretKeyRef"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1823,7 +1823,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -1834,7 +1834,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -1843,7 +1843,7 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1890,7 +1890,7 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef:
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def api_version(self) -> typing.Optional[builtins.str]:
@@ -1899,7 +1899,7 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromFieldRef#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1954,7 +1954,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def container_name(self) -> typing.Optional[builtins.str]:
@@ -1963,7 +1963,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#containerName
         """
         result = self._values.get("container_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def divisor(self) -> typing.Optional[builtins.str]:
@@ -1972,7 +1972,7 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef#divisor
         """
         result = self._values.get("divisor")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2025,7 +2025,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -2036,7 +2036,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -2045,7 +2045,7 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2099,7 +2099,7 @@ class JenkinsSpecMasterContainersLifecycle:
         :schema: JenkinsSpecMasterContainersLifecycle#postStart
         """
         result = self._values.get("post_start")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecyclePostStart"], result)
 
     @builtins.property
     def pre_stop(
@@ -2112,7 +2112,7 @@ class JenkinsSpecMasterContainersLifecycle:
         :schema: JenkinsSpecMasterContainersLifecycle#preStop
         """
         result = self._values.get("pre_stop")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecyclePreStop"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2174,7 +2174,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         :schema: JenkinsSpecMasterContainersLifecyclePostStart#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartExec"], result)
 
     @builtins.property
     def http_get(
@@ -2185,7 +2185,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         :schema: JenkinsSpecMasterContainersLifecyclePostStart#httpGet
         """
         result = self._values.get("http_get")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartHttpGet"], result)
 
     @builtins.property
     def tcp_socket(
@@ -2198,7 +2198,7 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         :schema: JenkinsSpecMasterContainersLifecyclePostStart#tcpSocket
         """
         result = self._values.get("tcp_socket")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecyclePostStartTcpSocket"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2244,7 +2244,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartExec#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2311,7 +2311,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -2322,7 +2322,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def http_headers(
@@ -2335,7 +2335,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -2344,7 +2344,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def scheme(self) -> typing.Optional[builtins.str]:
@@ -2357,7 +2357,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet#scheme
         """
         result = self._values.get("scheme")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2398,7 +2398,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -2408,7 +2408,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2433,7 +2433,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
     :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -2442,9 +2442,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -2453,7 +2453,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -2493,7 +2493,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -2502,7 +2502,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2527,7 +2527,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
     :schema: JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -2536,9 +2536,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -2547,7 +2547,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -2598,7 +2598,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         :schema: JenkinsSpecMasterContainersLifecyclePreStop#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopExec"], result)
 
     @builtins.property
     def http_get(
@@ -2609,7 +2609,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         :schema: JenkinsSpecMasterContainersLifecyclePreStop#httpGet
         """
         result = self._values.get("http_get")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopHttpGet"], result)
 
     @builtins.property
     def tcp_socket(
@@ -2622,7 +2622,7 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         :schema: JenkinsSpecMasterContainersLifecyclePreStop#tcpSocket
         """
         result = self._values.get("tcp_socket")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLifecyclePreStopTcpSocket"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2668,7 +2668,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopExec#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2735,7 +2735,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -2746,7 +2746,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def http_headers(
@@ -2759,7 +2759,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -2768,7 +2768,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def scheme(self) -> typing.Optional[builtins.str]:
@@ -2781,7 +2781,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet#scheme
         """
         result = self._values.get("scheme")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2822,7 +2822,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -2832,7 +2832,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2857,7 +2857,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
     :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -2866,9 +2866,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -2877,7 +2877,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -2917,7 +2917,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -2926,7 +2926,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2951,7 +2951,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
     :schema: JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -2960,9 +2960,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -2971,7 +2971,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -3049,7 +3049,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :schema: JenkinsSpecMasterContainersLivenessProbe#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLivenessProbeExec"], result)
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3062,7 +3062,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :schema: JenkinsSpecMasterContainersLivenessProbe#failureThreshold
         """
         result = self._values.get("failure_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def http_get(
@@ -3073,7 +3073,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :schema: JenkinsSpecMasterContainersLivenessProbe#httpGet
         """
         result = self._values.get("http_get")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLivenessProbeHttpGet"], result)
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3084,7 +3084,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :schema: JenkinsSpecMasterContainersLivenessProbe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3097,7 +3097,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :schema: JenkinsSpecMasterContainersLivenessProbe#periodSeconds
         """
         result = self._values.get("period_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3110,7 +3110,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :schema: JenkinsSpecMasterContainersLivenessProbe#successThreshold
         """
         result = self._values.get("success_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def tcp_socket(
@@ -3123,7 +3123,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :schema: JenkinsSpecMasterContainersLivenessProbe#tcpSocket
         """
         result = self._values.get("tcp_socket")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersLivenessProbeTcpSocket"], result)
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3136,7 +3136,7 @@ class JenkinsSpecMasterContainersLivenessProbe:
         :schema: JenkinsSpecMasterContainersLivenessProbe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3182,7 +3182,7 @@ class JenkinsSpecMasterContainersLivenessProbeExec:
         :schema: JenkinsSpecMasterContainersLivenessProbeExec#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3249,7 +3249,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersLivenessProbeHttpGetPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -3260,7 +3260,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def http_headers(
@@ -3273,7 +3273,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -3282,7 +3282,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def scheme(self) -> typing.Optional[builtins.str]:
@@ -3295,7 +3295,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet#scheme
         """
         result = self._values.get("scheme")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3336,7 +3336,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -3346,7 +3346,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3371,7 +3371,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
     :schema: JenkinsSpecMasterContainersLivenessProbeHttpGetPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -3380,9 +3380,9 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("JenkinsSpecMasterContainersLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -3391,7 +3391,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("JenkinsSpecMasterContainersLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -3431,7 +3431,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -3440,7 +3440,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
         :schema: JenkinsSpecMasterContainersLivenessProbeTcpSocket#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3465,7 +3465,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
     :schema: JenkinsSpecMasterContainersLivenessProbeTcpSocketPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -3474,9 +3474,9 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -3485,7 +3485,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -3541,7 +3541,7 @@ class JenkinsSpecMasterContainersPorts:
         """
         result = self._values.get("container_port")
         assert result is not None, "Required property 'container_port' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def host_ip(self) -> typing.Optional[builtins.str]:
@@ -3550,7 +3550,7 @@ class JenkinsSpecMasterContainersPorts:
         :schema: JenkinsSpecMasterContainersPorts#hostIP
         """
         result = self._values.get("host_ip")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def host_port(self) -> typing.Optional[jsii.Number]:
@@ -3561,7 +3561,7 @@ class JenkinsSpecMasterContainersPorts:
         :schema: JenkinsSpecMasterContainersPorts#hostPort
         """
         result = self._values.get("host_port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -3572,7 +3572,7 @@ class JenkinsSpecMasterContainersPorts:
         :schema: JenkinsSpecMasterContainersPorts#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def protocol(self) -> typing.Optional[builtins.str]:
@@ -3585,7 +3585,7 @@ class JenkinsSpecMasterContainersPorts:
         :schema: JenkinsSpecMasterContainersPorts#protocol
         """
         result = self._values.get("protocol")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3674,7 +3674,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :schema: JenkinsSpecMasterContainersReadinessProbe#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersReadinessProbeExec"], result)
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3687,7 +3687,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :schema: JenkinsSpecMasterContainersReadinessProbe#failureThreshold
         """
         result = self._values.get("failure_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def http_get(
@@ -3698,7 +3698,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :schema: JenkinsSpecMasterContainersReadinessProbe#httpGet
         """
         result = self._values.get("http_get")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersReadinessProbeHttpGet"], result)
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3709,7 +3709,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :schema: JenkinsSpecMasterContainersReadinessProbe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3722,7 +3722,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :schema: JenkinsSpecMasterContainersReadinessProbe#periodSeconds
         """
         result = self._values.get("period_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3735,7 +3735,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :schema: JenkinsSpecMasterContainersReadinessProbe#successThreshold
         """
         result = self._values.get("success_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def tcp_socket(
@@ -3748,7 +3748,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :schema: JenkinsSpecMasterContainersReadinessProbe#tcpSocket
         """
         result = self._values.get("tcp_socket")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersReadinessProbeTcpSocket"], result)
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3761,7 +3761,7 @@ class JenkinsSpecMasterContainersReadinessProbe:
         :schema: JenkinsSpecMasterContainersReadinessProbe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3807,7 +3807,7 @@ class JenkinsSpecMasterContainersReadinessProbeExec:
         :schema: JenkinsSpecMasterContainersReadinessProbeExec#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3874,7 +3874,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersReadinessProbeHttpGetPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -3885,7 +3885,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def http_headers(
@@ -3898,7 +3898,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -3907,7 +3907,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def scheme(self) -> typing.Optional[builtins.str]:
@@ -3920,7 +3920,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet#scheme
         """
         result = self._values.get("scheme")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3961,7 +3961,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -3971,7 +3971,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3996,7 +3996,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
     :schema: JenkinsSpecMasterContainersReadinessProbeHttpGetPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -4005,9 +4005,9 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("JenkinsSpecMasterContainersReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -4016,7 +4016,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("JenkinsSpecMasterContainersReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -4056,7 +4056,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -4065,7 +4065,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
         :schema: JenkinsSpecMasterContainersReadinessProbeTcpSocket#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4090,7 +4090,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
     :schema: JenkinsSpecMasterContainersReadinessProbeTcpSocketPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -4099,9 +4099,9 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -4110,7 +4110,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -4149,7 +4149,7 @@ class JenkinsSpecMasterContainersResources:
         :schema: JenkinsSpecMasterContainersResources#limits
         """
         result = self._values.get("limits")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def requests(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -4160,7 +4160,7 @@ class JenkinsSpecMasterContainersResources:
         :schema: JenkinsSpecMasterContainersResources#requests
         """
         result = self._values.get("requests")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4259,7 +4259,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#allowPrivilegeEscalation
         """
         result = self._values.get("allow_privilege_escalation")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def capabilities(
@@ -4274,7 +4274,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#capabilities
         """
         result = self._values.get("capabilities")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersSecurityContextCapabilities"], result)
 
     @builtins.property
     def privileged(self) -> typing.Optional[builtins.bool]:
@@ -4287,7 +4287,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#privileged
         """
         result = self._values.get("privileged")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def proc_mount(self) -> typing.Optional[builtins.str]:
@@ -4298,7 +4298,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#procMount
         """
         result = self._values.get("proc_mount")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only_root_filesystem(self) -> typing.Optional[builtins.bool]:
@@ -4311,7 +4311,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#readOnlyRootFilesystem
         """
         result = self._values.get("read_only_root_filesystem")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def run_as_group(self) -> typing.Optional[jsii.Number]:
@@ -4322,7 +4322,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#runAsGroup
         """
         result = self._values.get("run_as_group")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def run_as_non_root(self) -> typing.Optional[builtins.bool]:
@@ -4333,7 +4333,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#runAsNonRoot
         """
         result = self._values.get("run_as_non_root")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def run_as_user(self) -> typing.Optional[jsii.Number]:
@@ -4346,7 +4346,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#runAsUser
         """
         result = self._values.get("run_as_user")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def se_linux_options(
@@ -4359,7 +4359,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#seLinuxOptions
         """
         result = self._values.get("se_linux_options")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersSecurityContextSeLinuxOptions"], result)
 
     @builtins.property
     def windows_options(
@@ -4372,7 +4372,7 @@ class JenkinsSpecMasterContainersSecurityContext:
         :schema: JenkinsSpecMasterContainersSecurityContext#windowsOptions
         """
         result = self._values.get("windows_options")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterContainersSecurityContextWindowsOptions"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4422,7 +4422,7 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
         :schema: JenkinsSpecMasterContainersSecurityContextCapabilities#add
         """
         result = self._values.get("add")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def drop(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -4431,7 +4431,7 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
         :schema: JenkinsSpecMasterContainersSecurityContextCapabilities#drop
         """
         result = self._values.get("drop")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4487,7 +4487,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#level
         """
         result = self._values.get("level")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def role(self) -> typing.Optional[builtins.str]:
@@ -4496,7 +4496,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#role
         """
         result = self._values.get("role")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -4505,7 +4505,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -4514,7 +4514,7 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4570,7 +4570,7 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextWindowsOptions#gmsaCredentialSpec
         """
         result = self._values.get("gmsa_credential_spec")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def gmsa_credential_spec_name(self) -> typing.Optional[builtins.str]:
@@ -4581,7 +4581,7 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextWindowsOptions#gmsaCredentialSpecName
         """
         result = self._values.get("gmsa_credential_spec_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def run_as_user_name(self) -> typing.Optional[builtins.str]:
@@ -4594,7 +4594,7 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextWindowsOptions#runAsUserName
         """
         result = self._values.get("run_as_user_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4665,7 +4665,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
         """
         result = self._values.get("mount_path")
         assert result is not None, "Required property 'mount_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -4675,7 +4675,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def mount_propagation(self) -> typing.Optional[builtins.str]:
@@ -4686,7 +4686,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
         :schema: JenkinsSpecMasterContainersVolumeMounts#mountPropagation
         """
         result = self._values.get("mount_propagation")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -4699,7 +4699,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
         :schema: JenkinsSpecMasterContainersVolumeMounts#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def sub_path(self) -> typing.Optional[builtins.str]:
@@ -4712,7 +4712,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
         :schema: JenkinsSpecMasterContainersVolumeMounts#subPath
         """
         result = self._values.get("sub_path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def sub_path_expr(self) -> typing.Optional[builtins.str]:
@@ -4725,7 +4725,7 @@ class JenkinsSpecMasterContainersVolumeMounts:
         :schema: JenkinsSpecMasterContainersVolumeMounts#subPathExpr
         """
         result = self._values.get("sub_path_expr")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4765,7 +4765,7 @@ class JenkinsSpecMasterImagePullSecrets:
         :schema: JenkinsSpecMasterImagePullSecrets#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4806,7 +4806,7 @@ class JenkinsSpecMasterPlugins:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def version(self) -> builtins.str:
@@ -4816,7 +4816,7 @@ class JenkinsSpecMasterPlugins:
         """
         result = self._values.get("version")
         assert result is not None, "Required property 'version' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4908,7 +4908,7 @@ class JenkinsSpecMasterSecurityContext:
         :schema: JenkinsSpecMasterSecurityContext#fsGroup
         """
         result = self._values.get("fs_group")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def run_as_group(self) -> typing.Optional[jsii.Number]:
@@ -4919,7 +4919,7 @@ class JenkinsSpecMasterSecurityContext:
         :schema: JenkinsSpecMasterSecurityContext#runAsGroup
         """
         result = self._values.get("run_as_group")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def run_as_non_root(self) -> typing.Optional[builtins.bool]:
@@ -4930,7 +4930,7 @@ class JenkinsSpecMasterSecurityContext:
         :schema: JenkinsSpecMasterSecurityContext#runAsNonRoot
         """
         result = self._values.get("run_as_non_root")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def run_as_user(self) -> typing.Optional[jsii.Number]:
@@ -4943,7 +4943,7 @@ class JenkinsSpecMasterSecurityContext:
         :schema: JenkinsSpecMasterSecurityContext#runAsUser
         """
         result = self._values.get("run_as_user")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def se_linux_options(
@@ -4956,7 +4956,7 @@ class JenkinsSpecMasterSecurityContext:
         :schema: JenkinsSpecMasterSecurityContext#seLinuxOptions
         """
         result = self._values.get("se_linux_options")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterSecurityContextSeLinuxOptions"], result)
 
     @builtins.property
     def supplemental_groups(self) -> typing.Optional[typing.List[jsii.Number]]:
@@ -4967,7 +4967,7 @@ class JenkinsSpecMasterSecurityContext:
         :schema: JenkinsSpecMasterSecurityContext#supplementalGroups
         """
         result = self._values.get("supplemental_groups")
-        return result
+        return typing.cast(typing.Optional[typing.List[jsii.Number]], result)
 
     @builtins.property
     def sysctls(
@@ -4980,7 +4980,7 @@ class JenkinsSpecMasterSecurityContext:
         :schema: JenkinsSpecMasterSecurityContext#sysctls
         """
         result = self._values.get("sysctls")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterSecurityContextSysctls"]], result)
 
     @builtins.property
     def windows_options(
@@ -4993,7 +4993,7 @@ class JenkinsSpecMasterSecurityContext:
         :schema: JenkinsSpecMasterSecurityContext#windowsOptions
         """
         result = self._values.get("windows_options")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterSecurityContextWindowsOptions"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5049,7 +5049,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions#level
         """
         result = self._values.get("level")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def role(self) -> typing.Optional[builtins.str]:
@@ -5058,7 +5058,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions#role
         """
         result = self._values.get("role")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -5067,7 +5067,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -5076,7 +5076,7 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5117,7 +5117,7 @@ class JenkinsSpecMasterSecurityContextSysctls:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -5127,7 +5127,7 @@ class JenkinsSpecMasterSecurityContextSysctls:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5183,7 +5183,7 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
         :schema: JenkinsSpecMasterSecurityContextWindowsOptions#gmsaCredentialSpec
         """
         result = self._values.get("gmsa_credential_spec")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def gmsa_credential_spec_name(self) -> typing.Optional[builtins.str]:
@@ -5194,7 +5194,7 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
         :schema: JenkinsSpecMasterSecurityContextWindowsOptions#gmsaCredentialSpecName
         """
         result = self._values.get("gmsa_credential_spec_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def run_as_user_name(self) -> typing.Optional[builtins.str]:
@@ -5207,7 +5207,7 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
         :schema: JenkinsSpecMasterSecurityContextWindowsOptions#runAsUserName
         """
         result = self._values.get("run_as_user_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5273,7 +5273,7 @@ class JenkinsSpecMasterTolerations:
         :schema: JenkinsSpecMasterTolerations#effect
         """
         result = self._values.get("effect")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def key(self) -> typing.Optional[builtins.str]:
@@ -5284,7 +5284,7 @@ class JenkinsSpecMasterTolerations:
         :schema: JenkinsSpecMasterTolerations#key
         """
         result = self._values.get("key")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def operator(self) -> typing.Optional[builtins.str]:
@@ -5297,7 +5297,7 @@ class JenkinsSpecMasterTolerations:
         :schema: JenkinsSpecMasterTolerations#operator
         """
         result = self._values.get("operator")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def toleration_seconds(self) -> typing.Optional[jsii.Number]:
@@ -5308,7 +5308,7 @@ class JenkinsSpecMasterTolerations:
         :schema: JenkinsSpecMasterTolerations#tolerationSeconds
         """
         result = self._values.get("toleration_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def value(self) -> typing.Optional[builtins.str]:
@@ -5319,7 +5319,7 @@ class JenkinsSpecMasterTolerations:
         :schema: JenkinsSpecMasterTolerations#value
         """
         result = self._values.get("value")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5562,7 +5562,7 @@ class JenkinsSpecMasterVolumes:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def aws_elastic_block_store(
@@ -5575,7 +5575,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#awsElasticBlockStore
         """
         result = self._values.get("aws_elastic_block_store")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesAwsElasticBlockStore"], result)
 
     @builtins.property
     def azure_disk(self) -> typing.Optional["JenkinsSpecMasterVolumesAzureDisk"]:
@@ -5584,7 +5584,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#azureDisk
         """
         result = self._values.get("azure_disk")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesAzureDisk"], result)
 
     @builtins.property
     def azure_file(self) -> typing.Optional["JenkinsSpecMasterVolumesAzureFile"]:
@@ -5593,7 +5593,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#azureFile
         """
         result = self._values.get("azure_file")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesAzureFile"], result)
 
     @builtins.property
     def cephfs(self) -> typing.Optional["JenkinsSpecMasterVolumesCephfs"]:
@@ -5602,7 +5602,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#cephfs
         """
         result = self._values.get("cephfs")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesCephfs"], result)
 
     @builtins.property
     def cinder(self) -> typing.Optional["JenkinsSpecMasterVolumesCinder"]:
@@ -5613,7 +5613,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#cinder
         """
         result = self._values.get("cinder")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesCinder"], result)
 
     @builtins.property
     def config_map(self) -> typing.Optional["JenkinsSpecMasterVolumesConfigMap"]:
@@ -5622,7 +5622,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#configMap
         """
         result = self._values.get("config_map")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesConfigMap"], result)
 
     @builtins.property
     def csi(self) -> typing.Optional["JenkinsSpecMasterVolumesCsi"]:
@@ -5631,7 +5631,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#csi
         """
         result = self._values.get("csi")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesCsi"], result)
 
     @builtins.property
     def downward_api(self) -> typing.Optional["JenkinsSpecMasterVolumesDownwardApi"]:
@@ -5640,7 +5640,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#downwardAPI
         """
         result = self._values.get("downward_api")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesDownwardApi"], result)
 
     @builtins.property
     def empty_dir(self) -> typing.Optional["JenkinsSpecMasterVolumesEmptyDir"]:
@@ -5651,7 +5651,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#emptyDir
         """
         result = self._values.get("empty_dir")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesEmptyDir"], result)
 
     @builtins.property
     def fc(self) -> typing.Optional["JenkinsSpecMasterVolumesFc"]:
@@ -5660,7 +5660,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#fc
         """
         result = self._values.get("fc")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesFc"], result)
 
     @builtins.property
     def flex_volume(self) -> typing.Optional["JenkinsSpecMasterVolumesFlexVolume"]:
@@ -5669,7 +5669,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#flexVolume
         """
         result = self._values.get("flex_volume")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesFlexVolume"], result)
 
     @builtins.property
     def flocker(self) -> typing.Optional["JenkinsSpecMasterVolumesFlocker"]:
@@ -5680,7 +5680,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#flocker
         """
         result = self._values.get("flocker")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesFlocker"], result)
 
     @builtins.property
     def gce_persistent_disk(
@@ -5693,7 +5693,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#gcePersistentDisk
         """
         result = self._values.get("gce_persistent_disk")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesGcePersistentDisk"], result)
 
     @builtins.property
     def git_repo(self) -> typing.Optional["JenkinsSpecMasterVolumesGitRepo"]:
@@ -5704,7 +5704,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#gitRepo
         """
         result = self._values.get("git_repo")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesGitRepo"], result)
 
     @builtins.property
     def glusterfs(self) -> typing.Optional["JenkinsSpecMasterVolumesGlusterfs"]:
@@ -5715,7 +5715,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#glusterfs
         """
         result = self._values.get("glusterfs")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesGlusterfs"], result)
 
     @builtins.property
     def host_path(self) -> typing.Optional["JenkinsSpecMasterVolumesHostPath"]:
@@ -5726,7 +5726,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#hostPath
         """
         result = self._values.get("host_path")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesHostPath"], result)
 
     @builtins.property
     def iscsi(self) -> typing.Optional["JenkinsSpecMasterVolumesIscsi"]:
@@ -5737,7 +5737,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#iscsi
         """
         result = self._values.get("iscsi")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesIscsi"], result)
 
     @builtins.property
     def nfs(self) -> typing.Optional["JenkinsSpecMasterVolumesNfs"]:
@@ -5746,7 +5746,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#nfs
         """
         result = self._values.get("nfs")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesNfs"], result)
 
     @builtins.property
     def persistent_volume_claim(
@@ -5759,7 +5759,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#persistentVolumeClaim
         """
         result = self._values.get("persistent_volume_claim")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesPersistentVolumeClaim"], result)
 
     @builtins.property
     def photon_persistent_disk(
@@ -5770,7 +5770,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#photonPersistentDisk
         """
         result = self._values.get("photon_persistent_disk")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesPhotonPersistentDisk"], result)
 
     @builtins.property
     def portworx_volume(
@@ -5781,7 +5781,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#portworxVolume
         """
         result = self._values.get("portworx_volume")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesPortworxVolume"], result)
 
     @builtins.property
     def projected(self) -> typing.Optional["JenkinsSpecMasterVolumesProjected"]:
@@ -5790,7 +5790,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#projected
         """
         result = self._values.get("projected")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesProjected"], result)
 
     @builtins.property
     def quobyte(self) -> typing.Optional["JenkinsSpecMasterVolumesQuobyte"]:
@@ -5799,7 +5799,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#quobyte
         """
         result = self._values.get("quobyte")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesQuobyte"], result)
 
     @builtins.property
     def rbd(self) -> typing.Optional["JenkinsSpecMasterVolumesRbd"]:
@@ -5810,7 +5810,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#rbd
         """
         result = self._values.get("rbd")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesRbd"], result)
 
     @builtins.property
     def scale_io(self) -> typing.Optional["JenkinsSpecMasterVolumesScaleIo"]:
@@ -5819,7 +5819,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#scaleIO
         """
         result = self._values.get("scale_io")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesScaleIo"], result)
 
     @builtins.property
     def secret(self) -> typing.Optional["JenkinsSpecMasterVolumesSecret"]:
@@ -5830,7 +5830,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#secret
         """
         result = self._values.get("secret")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesSecret"], result)
 
     @builtins.property
     def storageos(self) -> typing.Optional["JenkinsSpecMasterVolumesStorageos"]:
@@ -5839,7 +5839,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#storageos
         """
         result = self._values.get("storageos")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesStorageos"], result)
 
     @builtins.property
     def vsphere_volume(
@@ -5850,7 +5850,7 @@ class JenkinsSpecMasterVolumes:
         :schema: JenkinsSpecMasterVolumes#vsphereVolume
         """
         result = self._values.get("vsphere_volume")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesVsphereVolume"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -5914,7 +5914,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -5925,7 +5925,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def partition(self) -> typing.Optional[jsii.Number]:
@@ -5936,7 +5936,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore#partition
         """
         result = self._values.get("partition")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -5947,7 +5947,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6016,7 +6016,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
         """
         result = self._values.get("disk_name")
         assert result is not None, "Required property 'disk_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def disk_uri(self) -> builtins.str:
@@ -6026,7 +6026,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
         """
         result = self._values.get("disk_uri")
         assert result is not None, "Required property 'disk_uri' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def caching_mode(self) -> typing.Optional[builtins.str]:
@@ -6035,7 +6035,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
         :schema: JenkinsSpecMasterVolumesAzureDisk#cachingMode
         """
         result = self._values.get("caching_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -6046,7 +6046,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
         :schema: JenkinsSpecMasterVolumesAzureDisk#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def kind(self) -> typing.Optional[builtins.str]:
@@ -6057,7 +6057,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
         :schema: JenkinsSpecMasterVolumesAzureDisk#kind
         """
         result = self._values.get("kind")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -6070,7 +6070,7 @@ class JenkinsSpecMasterVolumesAzureDisk:
         :schema: JenkinsSpecMasterVolumesAzureDisk#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6124,7 +6124,7 @@ class JenkinsSpecMasterVolumesAzureFile:
         """
         result = self._values.get("secret_name")
         assert result is not None, "Required property 'secret_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def share_name(self) -> builtins.str:
@@ -6134,7 +6134,7 @@ class JenkinsSpecMasterVolumesAzureFile:
         """
         result = self._values.get("share_name")
         assert result is not None, "Required property 'share_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -6147,7 +6147,7 @@ class JenkinsSpecMasterVolumesAzureFile:
         :schema: JenkinsSpecMasterVolumesAzureFile#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6219,7 +6219,7 @@ class JenkinsSpecMasterVolumesCephfs:
         """
         result = self._values.get("monitors")
         assert result is not None, "Required property 'monitors' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -6228,7 +6228,7 @@ class JenkinsSpecMasterVolumesCephfs:
         :schema: JenkinsSpecMasterVolumesCephfs#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -6241,7 +6241,7 @@ class JenkinsSpecMasterVolumesCephfs:
         :schema: JenkinsSpecMasterVolumesCephfs#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_file(self) -> typing.Optional[builtins.str]:
@@ -6250,7 +6250,7 @@ class JenkinsSpecMasterVolumesCephfs:
         :schema: JenkinsSpecMasterVolumesCephfs#secretFile
         """
         result = self._values.get("secret_file")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesCephfsSecretRef"]:
@@ -6261,7 +6261,7 @@ class JenkinsSpecMasterVolumesCephfs:
         :schema: JenkinsSpecMasterVolumesCephfs#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesCephfsSecretRef"], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -6270,7 +6270,7 @@ class JenkinsSpecMasterVolumesCephfs:
         :schema: JenkinsSpecMasterVolumesCephfs#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6312,7 +6312,7 @@ class JenkinsSpecMasterVolumesCephfsSecretRef:
         :schema: JenkinsSpecMasterVolumesCephfsSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6378,7 +6378,7 @@ class JenkinsSpecMasterVolumesCinder:
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -6389,7 +6389,7 @@ class JenkinsSpecMasterVolumesCinder:
         :schema: JenkinsSpecMasterVolumesCinder#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -6402,7 +6402,7 @@ class JenkinsSpecMasterVolumesCinder:
         :schema: JenkinsSpecMasterVolumesCinder#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesCinderSecretRef"]:
@@ -6411,7 +6411,7 @@ class JenkinsSpecMasterVolumesCinder:
         :schema: JenkinsSpecMasterVolumesCinder#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesCinderSecretRef"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6451,7 +6451,7 @@ class JenkinsSpecMasterVolumesCinderSecretRef:
         :schema: JenkinsSpecMasterVolumesCinderSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6514,7 +6514,7 @@ class JenkinsSpecMasterVolumesConfigMap:
         :schema: JenkinsSpecMasterVolumesConfigMap#defaultMode
         """
         result = self._values.get("default_mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def items(
@@ -6527,7 +6527,7 @@ class JenkinsSpecMasterVolumesConfigMap:
         :schema: JenkinsSpecMasterVolumesConfigMap#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterVolumesConfigMapItems"]], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -6538,7 +6538,7 @@ class JenkinsSpecMasterVolumesConfigMap:
         :schema: JenkinsSpecMasterVolumesConfigMap#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -6547,7 +6547,7 @@ class JenkinsSpecMasterVolumesConfigMap:
         :schema: JenkinsSpecMasterVolumesConfigMap#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6597,7 +6597,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> builtins.str:
@@ -6609,7 +6609,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -6620,7 +6620,7 @@ class JenkinsSpecMasterVolumesConfigMapItems:
         :schema: JenkinsSpecMasterVolumesConfigMapItems#mode
         """
         result = self._values.get("mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6689,7 +6689,7 @@ class JenkinsSpecMasterVolumesCsi:
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -6700,7 +6700,7 @@ class JenkinsSpecMasterVolumesCsi:
         :schema: JenkinsSpecMasterVolumesCsi#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def node_publish_secret_ref(
@@ -6713,7 +6713,7 @@ class JenkinsSpecMasterVolumesCsi:
         :schema: JenkinsSpecMasterVolumesCsi#nodePublishSecretRef
         """
         result = self._values.get("node_publish_secret_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesCsiNodePublishSecretRef"], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -6726,7 +6726,7 @@ class JenkinsSpecMasterVolumesCsi:
         :schema: JenkinsSpecMasterVolumesCsi#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def volume_attributes(
@@ -6739,7 +6739,7 @@ class JenkinsSpecMasterVolumesCsi:
         :schema: JenkinsSpecMasterVolumesCsi#volumeAttributes
         """
         result = self._values.get("volume_attributes")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6781,7 +6781,7 @@ class JenkinsSpecMasterVolumesCsiNodePublishSecretRef:
         :schema: JenkinsSpecMasterVolumesCsiNodePublishSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6831,7 +6831,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
         :schema: JenkinsSpecMasterVolumesDownwardApi#defaultMode
         """
         result = self._values.get("default_mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def items(
@@ -6842,7 +6842,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
         :schema: JenkinsSpecMasterVolumesDownwardApi#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6908,7 +6908,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def field_ref(
@@ -6919,7 +6919,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         :schema: JenkinsSpecMasterVolumesDownwardApiItems#fieldRef
         """
         result = self._values.get("field_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsFieldRef"], result)
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -6930,7 +6930,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         :schema: JenkinsSpecMasterVolumesDownwardApiItems#mode
         """
         result = self._values.get("mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def resource_field_ref(
@@ -6941,7 +6941,7 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         :schema: JenkinsSpecMasterVolumesDownwardApiItems#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -6988,7 +6988,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def api_version(self) -> typing.Optional[builtins.str]:
@@ -6997,7 +6997,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
         :schema: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7052,7 +7052,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def container_name(self) -> typing.Optional[builtins.str]:
@@ -7061,7 +7061,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
         :schema: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#containerName
         """
         result = self._values.get("container_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def divisor(self) -> typing.Optional[builtins.str]:
@@ -7070,7 +7070,7 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
         :schema: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef#divisor
         """
         result = self._values.get("divisor")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7120,7 +7120,7 @@ class JenkinsSpecMasterVolumesEmptyDir:
         :schema: JenkinsSpecMasterVolumesEmptyDir#medium
         """
         result = self._values.get("medium")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def size_limit(self) -> typing.Optional[builtins.str]:
@@ -7131,7 +7131,7 @@ class JenkinsSpecMasterVolumesEmptyDir:
         :schema: JenkinsSpecMasterVolumesEmptyDir#sizeLimit
         """
         result = self._values.get("size_limit")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7197,7 +7197,7 @@ class JenkinsSpecMasterVolumesFc:
         :schema: JenkinsSpecMasterVolumesFc#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def lun(self) -> typing.Optional[jsii.Number]:
@@ -7206,7 +7206,7 @@ class JenkinsSpecMasterVolumesFc:
         :schema: JenkinsSpecMasterVolumesFc#lun
         """
         result = self._values.get("lun")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -7219,7 +7219,7 @@ class JenkinsSpecMasterVolumesFc:
         :schema: JenkinsSpecMasterVolumesFc#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def target_ww_ns(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -7228,7 +7228,7 @@ class JenkinsSpecMasterVolumesFc:
         :schema: JenkinsSpecMasterVolumesFc#targetWWNs
         """
         result = self._values.get("target_ww_ns")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def wwids(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -7237,7 +7237,7 @@ class JenkinsSpecMasterVolumesFc:
         :schema: JenkinsSpecMasterVolumesFc#wwids
         """
         result = self._values.get("wwids")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7304,7 +7304,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
         """
         result = self._values.get("driver")
         assert result is not None, "Required property 'driver' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -7315,7 +7315,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
         :schema: JenkinsSpecMasterVolumesFlexVolume#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def options(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -7324,7 +7324,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
         :schema: JenkinsSpecMasterVolumesFlexVolume#options
         """
         result = self._values.get("options")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -7337,7 +7337,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
         :schema: JenkinsSpecMasterVolumesFlexVolume#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(
@@ -7350,7 +7350,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
         :schema: JenkinsSpecMasterVolumesFlexVolume#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesFlexVolumeSecretRef"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7392,7 +7392,7 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
         :schema: JenkinsSpecMasterVolumesFlexVolumeSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7440,7 +7440,7 @@ class JenkinsSpecMasterVolumesFlocker:
         :schema: JenkinsSpecMasterVolumesFlocker#datasetName
         """
         result = self._values.get("dataset_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def dataset_uuid(self) -> typing.Optional[builtins.str]:
@@ -7451,7 +7451,7 @@ class JenkinsSpecMasterVolumesFlocker:
         :schema: JenkinsSpecMasterVolumesFlocker#datasetUUID
         """
         result = self._values.get("dataset_uuid")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7515,7 +7515,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         """
         result = self._values.get("pd_name")
         assert result is not None, "Required property 'pd_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -7526,7 +7526,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         :schema: JenkinsSpecMasterVolumesGcePersistentDisk#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def partition(self) -> typing.Optional[jsii.Number]:
@@ -7537,7 +7537,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         :schema: JenkinsSpecMasterVolumesGcePersistentDisk#partition
         """
         result = self._values.get("partition")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -7550,7 +7550,7 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         :schema: JenkinsSpecMasterVolumesGcePersistentDisk#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7607,7 +7607,7 @@ class JenkinsSpecMasterVolumesGitRepo:
         """
         result = self._values.get("repository")
         assert result is not None, "Required property 'repository' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def directory(self) -> typing.Optional[builtins.str]:
@@ -7618,7 +7618,7 @@ class JenkinsSpecMasterVolumesGitRepo:
         :schema: JenkinsSpecMasterVolumesGitRepo#directory
         """
         result = self._values.get("directory")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def revision(self) -> typing.Optional[builtins.str]:
@@ -7627,7 +7627,7 @@ class JenkinsSpecMasterVolumesGitRepo:
         :schema: JenkinsSpecMasterVolumesGitRepo#revision
         """
         result = self._values.get("revision")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7681,7 +7681,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
         """
         result = self._values.get("endpoints")
         assert result is not None, "Required property 'endpoints' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> builtins.str:
@@ -7693,7 +7693,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -7706,7 +7706,7 @@ class JenkinsSpecMasterVolumesGlusterfs:
         :schema: JenkinsSpecMasterVolumesGlusterfs#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7757,7 +7757,7 @@ class JenkinsSpecMasterVolumesHostPath:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -7768,7 +7768,7 @@ class JenkinsSpecMasterVolumesHostPath:
         :schema: JenkinsSpecMasterVolumesHostPath#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -7865,7 +7865,7 @@ class JenkinsSpecMasterVolumesIscsi:
         """
         result = self._values.get("iqn")
         assert result is not None, "Required property 'iqn' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def lun(self) -> jsii.Number:
@@ -7875,7 +7875,7 @@ class JenkinsSpecMasterVolumesIscsi:
         """
         result = self._values.get("lun")
         assert result is not None, "Required property 'lun' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def target_portal(self) -> builtins.str:
@@ -7887,7 +7887,7 @@ class JenkinsSpecMasterVolumesIscsi:
         """
         result = self._values.get("target_portal")
         assert result is not None, "Required property 'target_portal' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def chap_auth_discovery(self) -> typing.Optional[builtins.bool]:
@@ -7896,7 +7896,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :schema: JenkinsSpecMasterVolumesIscsi#chapAuthDiscovery
         """
         result = self._values.get("chap_auth_discovery")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def chap_auth_session(self) -> typing.Optional[builtins.bool]:
@@ -7905,7 +7905,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :schema: JenkinsSpecMasterVolumesIscsi#chapAuthSession
         """
         result = self._values.get("chap_auth_session")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -7916,7 +7916,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :schema: JenkinsSpecMasterVolumesIscsi#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def initiator_name(self) -> typing.Optional[builtins.str]:
@@ -7927,7 +7927,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :schema: JenkinsSpecMasterVolumesIscsi#initiatorName
         """
         result = self._values.get("initiator_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def iscsi_interface(self) -> typing.Optional[builtins.str]:
@@ -7940,7 +7940,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :schema: JenkinsSpecMasterVolumesIscsi#iscsiInterface
         """
         result = self._values.get("iscsi_interface")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def portals(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -7951,7 +7951,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :schema: JenkinsSpecMasterVolumesIscsi#portals
         """
         result = self._values.get("portals")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -7964,7 +7964,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :schema: JenkinsSpecMasterVolumesIscsi#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesIscsiSecretRef"]:
@@ -7973,7 +7973,7 @@ class JenkinsSpecMasterVolumesIscsi:
         :schema: JenkinsSpecMasterVolumesIscsi#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesIscsiSecretRef"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8013,7 +8013,7 @@ class JenkinsSpecMasterVolumesIscsiSecretRef:
         :schema: JenkinsSpecMasterVolumesIscsiSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8065,7 +8065,7 @@ class JenkinsSpecMasterVolumesNfs:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def server(self) -> builtins.str:
@@ -8077,7 +8077,7 @@ class JenkinsSpecMasterVolumesNfs:
         """
         result = self._values.get("server")
         assert result is not None, "Required property 'server' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -8090,7 +8090,7 @@ class JenkinsSpecMasterVolumesNfs:
         :schema: JenkinsSpecMasterVolumesNfs#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8141,7 +8141,7 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
         """
         result = self._values.get("claim_name")
         assert result is not None, "Required property 'claim_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -8152,7 +8152,7 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
         :schema: JenkinsSpecMasterVolumesPersistentVolumeClaim#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8199,7 +8199,7 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
         """
         result = self._values.get("pd_id")
         assert result is not None, "Required property 'pd_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -8210,7 +8210,7 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
         :schema: JenkinsSpecMasterVolumesPhotonPersistentDisk#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8265,7 +8265,7 @@ class JenkinsSpecMasterVolumesPortworxVolume:
         """
         result = self._values.get("volume_id")
         assert result is not None, "Required property 'volume_id' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -8276,7 +8276,7 @@ class JenkinsSpecMasterVolumesPortworxVolume:
         :schema: JenkinsSpecMasterVolumesPortworxVolume#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -8289,7 +8289,7 @@ class JenkinsSpecMasterVolumesPortworxVolume:
         :schema: JenkinsSpecMasterVolumesPortworxVolume#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8336,7 +8336,7 @@ class JenkinsSpecMasterVolumesProjected:
         """
         result = self._values.get("sources")
         assert result is not None, "Required property 'sources' is missing"
-        return result
+        return typing.cast(typing.List["JenkinsSpecMasterVolumesProjectedSources"], result)
 
     @builtins.property
     def default_mode(self) -> typing.Optional[jsii.Number]:
@@ -8347,7 +8347,7 @@ class JenkinsSpecMasterVolumesProjected:
         :schema: JenkinsSpecMasterVolumesProjected#defaultMode
         """
         result = self._values.get("default_mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8416,7 +8416,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
         :schema: JenkinsSpecMasterVolumesProjectedSources#configMap
         """
         result = self._values.get("config_map")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesConfigMap"], result)
 
     @builtins.property
     def downward_api(
@@ -8427,7 +8427,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
         :schema: JenkinsSpecMasterVolumesProjectedSources#downwardAPI
         """
         result = self._values.get("downward_api")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApi"], result)
 
     @builtins.property
     def secret(
@@ -8438,7 +8438,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
         :schema: JenkinsSpecMasterVolumesProjectedSources#secret
         """
         result = self._values.get("secret")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesSecret"], result)
 
     @builtins.property
     def service_account_token(
@@ -8449,7 +8449,7 @@ class JenkinsSpecMasterVolumesProjectedSources:
         :schema: JenkinsSpecMasterVolumesProjectedSources#serviceAccountToken
         """
         result = self._values.get("service_account_token")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8503,7 +8503,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -8514,7 +8514,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -8523,7 +8523,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMap#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8573,7 +8573,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> builtins.str:
@@ -8585,7 +8585,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -8596,7 +8596,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems#mode
         """
         result = self._values.get("mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8640,7 +8640,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApi#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8706,7 +8706,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def field_ref(
@@ -8717,7 +8717,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#fieldRef
         """
         result = self._values.get("field_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef"], result)
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -8728,7 +8728,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#mode
         """
         result = self._values.get("mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def resource_field_ref(
@@ -8739,7 +8739,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8786,7 +8786,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def api_version(self) -> typing.Optional[builtins.str]:
@@ -8795,7 +8795,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8850,7 +8850,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def container_name(self) -> typing.Optional[builtins.str]:
@@ -8859,7 +8859,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#containerName
         """
         result = self._values.get("container_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def divisor(self) -> typing.Optional[builtins.str]:
@@ -8868,7 +8868,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef#divisor
         """
         result = self._values.get("divisor")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8922,7 +8922,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesSecret#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -8933,7 +8933,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesSecret#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -8942,7 +8942,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesSecret#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -8992,7 +8992,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> builtins.str:
@@ -9004,7 +9004,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -9015,7 +9015,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesSecretItems#mode
         """
         result = self._values.get("mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9070,7 +9070,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def audience(self) -> typing.Optional[builtins.str]:
@@ -9081,7 +9081,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#audience
         """
         result = self._values.get("audience")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def expiration_seconds(self) -> typing.Optional[jsii.Number]:
@@ -9094,7 +9094,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken#expirationSeconds
         """
         result = self._values.get("expiration_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9163,7 +9163,7 @@ class JenkinsSpecMasterVolumesQuobyte:
         """
         result = self._values.get("registry")
         assert result is not None, "Required property 'registry' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def volume(self) -> builtins.str:
@@ -9173,7 +9173,7 @@ class JenkinsSpecMasterVolumesQuobyte:
         """
         result = self._values.get("volume")
         assert result is not None, "Required property 'volume' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def group(self) -> typing.Optional[builtins.str]:
@@ -9184,7 +9184,7 @@ class JenkinsSpecMasterVolumesQuobyte:
         :schema: JenkinsSpecMasterVolumesQuobyte#group
         """
         result = self._values.get("group")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -9197,7 +9197,7 @@ class JenkinsSpecMasterVolumesQuobyte:
         :schema: JenkinsSpecMasterVolumesQuobyte#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def tenant(self) -> typing.Optional[builtins.str]:
@@ -9206,7 +9206,7 @@ class JenkinsSpecMasterVolumesQuobyte:
         :schema: JenkinsSpecMasterVolumesQuobyte#tenant
         """
         result = self._values.get("tenant")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -9217,7 +9217,7 @@ class JenkinsSpecMasterVolumesQuobyte:
         :schema: JenkinsSpecMasterVolumesQuobyte#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9302,7 +9302,7 @@ class JenkinsSpecMasterVolumesRbd:
         """
         result = self._values.get("image")
         assert result is not None, "Required property 'image' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def monitors(self) -> typing.List[builtins.str]:
@@ -9314,7 +9314,7 @@ class JenkinsSpecMasterVolumesRbd:
         """
         result = self._values.get("monitors")
         assert result is not None, "Required property 'monitors' is missing"
-        return result
+        return typing.cast(typing.List[builtins.str], result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -9325,7 +9325,7 @@ class JenkinsSpecMasterVolumesRbd:
         :schema: JenkinsSpecMasterVolumesRbd#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def keyring(self) -> typing.Optional[builtins.str]:
@@ -9338,7 +9338,7 @@ class JenkinsSpecMasterVolumesRbd:
         :schema: JenkinsSpecMasterVolumesRbd#keyring
         """
         result = self._values.get("keyring")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def pool(self) -> typing.Optional[builtins.str]:
@@ -9351,7 +9351,7 @@ class JenkinsSpecMasterVolumesRbd:
         :schema: JenkinsSpecMasterVolumesRbd#pool
         """
         result = self._values.get("pool")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -9364,7 +9364,7 @@ class JenkinsSpecMasterVolumesRbd:
         :schema: JenkinsSpecMasterVolumesRbd#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(self) -> typing.Optional["JenkinsSpecMasterVolumesRbdSecretRef"]:
@@ -9377,7 +9377,7 @@ class JenkinsSpecMasterVolumesRbd:
         :schema: JenkinsSpecMasterVolumesRbd#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesRbdSecretRef"], result)
 
     @builtins.property
     def user(self) -> typing.Optional[builtins.str]:
@@ -9390,7 +9390,7 @@ class JenkinsSpecMasterVolumesRbd:
         :schema: JenkinsSpecMasterVolumesRbd#user
         """
         result = self._values.get("user")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9434,7 +9434,7 @@ class JenkinsSpecMasterVolumesRbdSecretRef:
         :schema: JenkinsSpecMasterVolumesRbdSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9524,7 +9524,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         """
         result = self._values.get("gateway")
         assert result is not None, "Required property 'gateway' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def secret_ref(self) -> "JenkinsSpecMasterVolumesScaleIoSecretRef":
@@ -9536,7 +9536,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         """
         result = self._values.get("secret_ref")
         assert result is not None, "Required property 'secret_ref' is missing"
-        return result
+        return typing.cast("JenkinsSpecMasterVolumesScaleIoSecretRef", result)
 
     @builtins.property
     def system(self) -> builtins.str:
@@ -9546,7 +9546,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         """
         result = self._values.get("system")
         assert result is not None, "Required property 'system' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -9559,7 +9559,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         :schema: JenkinsSpecMasterVolumesScaleIo#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def protection_domain(self) -> typing.Optional[builtins.str]:
@@ -9568,7 +9568,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         :schema: JenkinsSpecMasterVolumesScaleIo#protectionDomain
         """
         result = self._values.get("protection_domain")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -9581,7 +9581,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         :schema: JenkinsSpecMasterVolumesScaleIo#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def ssl_enabled(self) -> typing.Optional[builtins.bool]:
@@ -9590,7 +9590,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         :schema: JenkinsSpecMasterVolumesScaleIo#sslEnabled
         """
         result = self._values.get("ssl_enabled")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def storage_mode(self) -> typing.Optional[builtins.str]:
@@ -9603,7 +9603,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         :schema: JenkinsSpecMasterVolumesScaleIo#storageMode
         """
         result = self._values.get("storage_mode")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_pool(self) -> typing.Optional[builtins.str]:
@@ -9612,7 +9612,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         :schema: JenkinsSpecMasterVolumesScaleIo#storagePool
         """
         result = self._values.get("storage_pool")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_name(self) -> typing.Optional[builtins.str]:
@@ -9621,7 +9621,7 @@ class JenkinsSpecMasterVolumesScaleIo:
         :schema: JenkinsSpecMasterVolumesScaleIo#volumeName
         """
         result = self._values.get("volume_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9663,7 +9663,7 @@ class JenkinsSpecMasterVolumesScaleIoSecretRef:
         :schema: JenkinsSpecMasterVolumesScaleIoSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9728,7 +9728,7 @@ class JenkinsSpecMasterVolumesSecret:
         :schema: JenkinsSpecMasterVolumesSecret#defaultMode
         """
         result = self._values.get("default_mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def items(
@@ -9741,7 +9741,7 @@ class JenkinsSpecMasterVolumesSecret:
         :schema: JenkinsSpecMasterVolumesSecret#items
         """
         result = self._values.get("items")
-        return result
+        return typing.cast(typing.Optional[typing.List["JenkinsSpecMasterVolumesSecretItems"]], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -9750,7 +9750,7 @@ class JenkinsSpecMasterVolumesSecret:
         :schema: JenkinsSpecMasterVolumesSecret#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_name(self) -> typing.Optional[builtins.str]:
@@ -9761,7 +9761,7 @@ class JenkinsSpecMasterVolumesSecret:
         :schema: JenkinsSpecMasterVolumesSecret#secretName
         """
         result = self._values.get("secret_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9811,7 +9811,7 @@ class JenkinsSpecMasterVolumesSecretItems:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def path(self) -> builtins.str:
@@ -9823,7 +9823,7 @@ class JenkinsSpecMasterVolumesSecretItems:
         """
         result = self._values.get("path")
         assert result is not None, "Required property 'path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def mode(self) -> typing.Optional[jsii.Number]:
@@ -9834,7 +9834,7 @@ class JenkinsSpecMasterVolumesSecretItems:
         :schema: JenkinsSpecMasterVolumesSecretItems#mode
         """
         result = self._values.get("mode")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9902,7 +9902,7 @@ class JenkinsSpecMasterVolumesStorageos:
         :schema: JenkinsSpecMasterVolumesStorageos#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def read_only(self) -> typing.Optional[builtins.bool]:
@@ -9915,7 +9915,7 @@ class JenkinsSpecMasterVolumesStorageos:
         :schema: JenkinsSpecMasterVolumesStorageos#readOnly
         """
         result = self._values.get("read_only")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def secret_ref(
@@ -9928,7 +9928,7 @@ class JenkinsSpecMasterVolumesStorageos:
         :schema: JenkinsSpecMasterVolumesStorageos#secretRef
         """
         result = self._values.get("secret_ref")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecMasterVolumesStorageosSecretRef"], result)
 
     @builtins.property
     def volume_name(self) -> typing.Optional[builtins.str]:
@@ -9939,7 +9939,7 @@ class JenkinsSpecMasterVolumesStorageos:
         :schema: JenkinsSpecMasterVolumesStorageos#volumeName
         """
         result = self._values.get("volume_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def volume_namespace(self) -> typing.Optional[builtins.str]:
@@ -9950,7 +9950,7 @@ class JenkinsSpecMasterVolumesStorageos:
         :schema: JenkinsSpecMasterVolumesStorageos#volumeNamespace
         """
         result = self._values.get("volume_namespace")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -9992,7 +9992,7 @@ class JenkinsSpecMasterVolumesStorageosSecretRef:
         :schema: JenkinsSpecMasterVolumesStorageosSecretRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10052,7 +10052,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
         """
         result = self._values.get("volume_path")
         assert result is not None, "Required property 'volume_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def fs_type(self) -> typing.Optional[builtins.str]:
@@ -10063,7 +10063,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
         :schema: JenkinsSpecMasterVolumesVsphereVolume#fsType
         """
         result = self._values.get("fs_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_policy_id(self) -> typing.Optional[builtins.str]:
@@ -10072,7 +10072,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
         :schema: JenkinsSpecMasterVolumesVsphereVolume#storagePolicyID
         """
         result = self._values.get("storage_policy_id")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_policy_name(self) -> typing.Optional[builtins.str]:
@@ -10081,7 +10081,7 @@ class JenkinsSpecMasterVolumesVsphereVolume:
         :schema: JenkinsSpecMasterVolumesVsphereVolume#storagePolicyName
         """
         result = self._values.get("storage_policy_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10162,7 +10162,7 @@ class JenkinsSpecNotifications:
         """
         result = self._values.get("level")
         assert result is not None, "Required property 'level' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -10171,7 +10171,7 @@ class JenkinsSpecNotifications:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def verbose(self) -> builtins.bool:
@@ -10180,7 +10180,7 @@ class JenkinsSpecNotifications:
         """
         result = self._values.get("verbose")
         assert result is not None, "Required property 'verbose' is missing"
-        return result
+        return typing.cast(builtins.bool, result)
 
     @builtins.property
     def mailgun(self) -> typing.Optional["JenkinsSpecNotificationsMailgun"]:
@@ -10189,7 +10189,7 @@ class JenkinsSpecNotifications:
         :schema: JenkinsSpecNotifications#mailgun
         """
         result = self._values.get("mailgun")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecNotificationsMailgun"], result)
 
     @builtins.property
     def slack(self) -> typing.Optional["JenkinsSpecNotificationsSlack"]:
@@ -10198,7 +10198,7 @@ class JenkinsSpecNotifications:
         :schema: JenkinsSpecNotifications#slack
         """
         result = self._values.get("slack")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecNotificationsSlack"], result)
 
     @builtins.property
     def smtp(self) -> typing.Optional["JenkinsSpecNotificationsSmtp"]:
@@ -10207,7 +10207,7 @@ class JenkinsSpecNotifications:
         :schema: JenkinsSpecNotifications#smtp
         """
         result = self._values.get("smtp")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecNotificationsSmtp"], result)
 
     @builtins.property
     def teams(self) -> typing.Optional["JenkinsSpecNotificationsTeams"]:
@@ -10216,7 +10216,7 @@ class JenkinsSpecNotifications:
         :schema: JenkinsSpecNotifications#teams
         """
         result = self._values.get("teams")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecNotificationsTeams"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10277,7 +10277,7 @@ class JenkinsSpecNotificationsMailgun:
         """
         result = self._values.get("api_key_secret_key_selector")
         assert result is not None, "Required property 'api_key_secret_key_selector' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsMailgunApiKeySecretKeySelector", result)
 
     @builtins.property
     def domain(self) -> builtins.str:
@@ -10286,7 +10286,7 @@ class JenkinsSpecNotificationsMailgun:
         """
         result = self._values.get("domain")
         assert result is not None, "Required property 'domain' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def from_(self) -> builtins.str:
@@ -10295,7 +10295,7 @@ class JenkinsSpecNotificationsMailgun:
         """
         result = self._values.get("from_")
         assert result is not None, "Required property 'from_' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def recipient(self) -> builtins.str:
@@ -10304,7 +10304,7 @@ class JenkinsSpecNotificationsMailgun:
         """
         result = self._values.get("recipient")
         assert result is not None, "Required property 'recipient' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10354,7 +10354,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def secret(self) -> "JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret":
@@ -10364,7 +10364,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10404,7 +10404,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10451,7 +10451,7 @@ class JenkinsSpecNotificationsSlack:
         """
         result = self._values.get("web_hook_url_secret_key_selector")
         assert result is not None, "Required property 'web_hook_url_secret_key_selector' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10501,7 +10501,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def secret(
@@ -10513,7 +10513,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10553,7 +10553,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10626,7 +10626,7 @@ class JenkinsSpecNotificationsSmtp:
         """
         result = self._values.get("from_")
         assert result is not None, "Required property 'from_' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def password_secret_key_selector(
@@ -10638,7 +10638,7 @@ class JenkinsSpecNotificationsSmtp:
         """
         result = self._values.get("password_secret_key_selector")
         assert result is not None, "Required property 'password_secret_key_selector' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsSmtpPasswordSecretKeySelector", result)
 
     @builtins.property
     def port(self) -> jsii.Number:
@@ -10647,7 +10647,7 @@ class JenkinsSpecNotificationsSmtp:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     @builtins.property
     def server(self) -> builtins.str:
@@ -10656,7 +10656,7 @@ class JenkinsSpecNotificationsSmtp:
         """
         result = self._values.get("server")
         assert result is not None, "Required property 'server' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def to(self) -> builtins.str:
@@ -10665,7 +10665,7 @@ class JenkinsSpecNotificationsSmtp:
         """
         result = self._values.get("to")
         assert result is not None, "Required property 'to' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def username_secret_key_selector(
@@ -10677,7 +10677,7 @@ class JenkinsSpecNotificationsSmtp:
         """
         result = self._values.get("username_secret_key_selector")
         assert result is not None, "Required property 'username_secret_key_selector' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsSmtpUsernameSecretKeySelector", result)
 
     @builtins.property
     def tls_insecure_skip_verify(self) -> typing.Optional[builtins.bool]:
@@ -10685,7 +10685,7 @@ class JenkinsSpecNotificationsSmtp:
         :schema: JenkinsSpecNotificationsSmtp#tlsInsecureSkipVerify
         """
         result = self._values.get("tls_insecure_skip_verify")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10735,7 +10735,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def secret(self) -> "JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret":
@@ -10745,7 +10745,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10785,7 +10785,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10835,7 +10835,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def secret(self) -> "JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret":
@@ -10845,7 +10845,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10885,7 +10885,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10932,7 +10932,7 @@ class JenkinsSpecNotificationsTeams:
         """
         result = self._values.get("web_hook_url_secret_key_selector")
         assert result is not None, "Required property 'web_hook_url_secret_key_selector' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -10982,7 +10982,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def secret(
@@ -10994,7 +10994,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         """
         result = self._values.get("secret")
         assert result is not None, "Required property 'secret' is missing"
-        return result
+        return typing.cast("JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret", result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11034,7 +11034,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11090,7 +11090,7 @@ class JenkinsSpecRestore:
         """
         result = self._values.get("action")
         assert result is not None, "Required property 'action' is missing"
-        return result
+        return typing.cast("JenkinsSpecRestoreAction", result)
 
     @builtins.property
     def container_name(self) -> builtins.str:
@@ -11100,7 +11100,7 @@ class JenkinsSpecRestore:
         """
         result = self._values.get("container_name")
         assert result is not None, "Required property 'container_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def recovery_once(self) -> typing.Optional[jsii.Number]:
@@ -11109,7 +11109,7 @@ class JenkinsSpecRestore:
         :schema: JenkinsSpecRestore#recoveryOnce
         """
         result = self._values.get("recovery_once")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11153,7 +11153,7 @@ class JenkinsSpecRestoreAction:
         :schema: JenkinsSpecRestoreAction#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional["JenkinsSpecRestoreActionExec"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11197,7 +11197,7 @@ class JenkinsSpecRestoreActionExec:
         :schema: JenkinsSpecRestoreActionExec#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11246,7 +11246,7 @@ class JenkinsSpecRoles:
         """
         result = self._values.get("api_group")
         assert result is not None, "Required property 'api_group' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def kind(self) -> builtins.str:
@@ -11256,7 +11256,7 @@ class JenkinsSpecRoles:
         """
         result = self._values.get("kind")
         assert result is not None, "Required property 'kind' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -11266,7 +11266,7 @@ class JenkinsSpecRoles:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11380,7 +11380,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#additionalClasspath
         """
         result = self._values.get("additional_classpath")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def bitbucket_push_trigger(self) -> typing.Optional[builtins.bool]:
@@ -11389,7 +11389,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#bitbucketPushTrigger
         """
         result = self._values.get("bitbucket_push_trigger")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def build_periodically(self) -> typing.Optional[builtins.str]:
@@ -11398,7 +11398,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#buildPeriodically
         """
         result = self._values.get("build_periodically")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def credential_id(self) -> typing.Optional[builtins.str]:
@@ -11407,7 +11407,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#credentialID
         """
         result = self._values.get("credential_id")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def credential_type(self) -> typing.Optional[builtins.str]:
@@ -11416,7 +11416,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#credentialType
         """
         result = self._values.get("credential_type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def description(self) -> typing.Optional[builtins.str]:
@@ -11425,7 +11425,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#description
         """
         result = self._values.get("description")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def fail_on_missing_plugin(self) -> typing.Optional[builtins.bool]:
@@ -11434,7 +11434,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#failOnMissingPlugin
         """
         result = self._values.get("fail_on_missing_plugin")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def github_push_trigger(self) -> typing.Optional[builtins.bool]:
@@ -11443,7 +11443,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#githubPushTrigger
         """
         result = self._values.get("github_push_trigger")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def id(self) -> typing.Optional[builtins.str]:
@@ -11452,7 +11452,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#id
         """
         result = self._values.get("id")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def ignore_missing_files(self) -> typing.Optional[builtins.bool]:
@@ -11461,7 +11461,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#ignoreMissingFiles
         """
         result = self._values.get("ignore_missing_files")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def poll_scm(self) -> typing.Optional[builtins.str]:
@@ -11470,7 +11470,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#pollSCM
         """
         result = self._values.get("poll_scm")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def repository_branch(self) -> typing.Optional[builtins.str]:
@@ -11479,7 +11479,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#repositoryBranch
         """
         result = self._values.get("repository_branch")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def repository_url(self) -> typing.Optional[builtins.str]:
@@ -11490,7 +11490,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#repositoryUrl
         """
         result = self._values.get("repository_url")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def targets(self) -> typing.Optional[builtins.str]:
@@ -11499,7 +11499,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#targets
         """
         result = self._values.get("targets")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def unstable_on_deprecation(self) -> typing.Optional[builtins.bool]:
@@ -11508,7 +11508,7 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs#unstableOnDeprecation
         """
         result = self._values.get("unstable_on_deprecation")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11588,7 +11588,7 @@ class JenkinsSpecService:
         :schema: JenkinsSpecService#annotations
         """
         result = self._values.get("annotations")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def labels(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -11599,7 +11599,7 @@ class JenkinsSpecService:
         :schema: JenkinsSpecService#labels
         """
         result = self._values.get("labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def load_balancer_ip(self) -> typing.Optional[builtins.str]:
@@ -11610,7 +11610,7 @@ class JenkinsSpecService:
         :schema: JenkinsSpecService#loadBalancerIP
         """
         result = self._values.get("load_balancer_ip")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def load_balancer_source_ranges(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -11621,7 +11621,7 @@ class JenkinsSpecService:
         :schema: JenkinsSpecService#loadBalancerSourceRanges
         """
         result = self._values.get("load_balancer_source_ranges")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def node_port(self) -> typing.Optional[jsii.Number]:
@@ -11634,7 +11634,7 @@ class JenkinsSpecService:
         :schema: JenkinsSpecService#nodePort
         """
         result = self._values.get("node_port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def port(self) -> typing.Optional[jsii.Number]:
@@ -11645,7 +11645,7 @@ class JenkinsSpecService:
         :schema: JenkinsSpecService#port
         """
         result = self._values.get("port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -11658,7 +11658,7 @@ class JenkinsSpecService:
         :schema: JenkinsSpecService#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11704,7 +11704,7 @@ class JenkinsSpecServiceAccount:
         :schema: JenkinsSpecServiceAccount#annotations
         """
         result = self._values.get("annotations")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -11784,7 +11784,7 @@ class JenkinsSpecSlaveService:
         :schema: JenkinsSpecSlaveService#annotations
         """
         result = self._values.get("annotations")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def labels(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -11795,7 +11795,7 @@ class JenkinsSpecSlaveService:
         :schema: JenkinsSpecSlaveService#labels
         """
         result = self._values.get("labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def load_balancer_ip(self) -> typing.Optional[builtins.str]:
@@ -11806,7 +11806,7 @@ class JenkinsSpecSlaveService:
         :schema: JenkinsSpecSlaveService#loadBalancerIP
         """
         result = self._values.get("load_balancer_ip")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def load_balancer_source_ranges(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -11817,7 +11817,7 @@ class JenkinsSpecSlaveService:
         :schema: JenkinsSpecSlaveService#loadBalancerSourceRanges
         """
         result = self._values.get("load_balancer_source_ranges")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     @builtins.property
     def node_port(self) -> typing.Optional[jsii.Number]:
@@ -11830,7 +11830,7 @@ class JenkinsSpecSlaveService:
         :schema: JenkinsSpecSlaveService#nodePort
         """
         result = self._values.get("node_port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def port(self) -> typing.Optional[jsii.Number]:
@@ -11841,7 +11841,7 @@ class JenkinsSpecSlaveService:
         :schema: JenkinsSpecSlaveService#port
         """
         result = self._values.get("port")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -11854,7 +11854,7 @@ class JenkinsSpecSlaveService:
         :schema: JenkinsSpecSlaveService#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
