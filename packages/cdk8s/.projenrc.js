@@ -50,6 +50,9 @@ const project = new JsiiProject({
   }
 });
 
+// temporary until https://github.com/aws/jsii/pull/2492 is resolved
+project.packageTask.exec('echo $(node -p "require(\'./package.json\').version") > dist/go/cdk8s/version');
+
 common.fixup(project);
 
 // _loadurl.js is written in javascript so we need to commit it and also copy it

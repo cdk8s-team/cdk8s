@@ -50,7 +50,7 @@
     "jsii-pacmak": "^1.17.1",
     "json-schema": "^0.3.0",
     "json-schema-to-typescript": "^8.2.0",
-    "projen": "^0.15.13",
+    "projen": "^0.15.14",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.4.4",
     "typescript": "~3.9.7"

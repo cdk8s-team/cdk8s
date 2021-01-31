@@ -163,6 +163,9 @@
       "steps": [
         {
           "exec": "jsii-pacmak"
+        },
+        {
+          "exec": "echo $(node -p \"require('./package.json').version\") > dist/go/cdk8splus17/version"
         }
       ]
     },
