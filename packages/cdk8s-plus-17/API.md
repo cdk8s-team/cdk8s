@@ -1173,6 +1173,7 @@ new Service(scope: Construct, id: string, props?: ServiceProps)
   * **clusterIP** (<code>string</code>)  The IP address of the service and is usually assigned randomly by the master. __*Default*__: Automatically assigned.
   * **externalIPs** (<code>Array<string></code>)  A list of IP addresses for which nodes in the cluster will also accept traffic for this service. __*Default*__: No external IPs.
   * **externalName** (<code>string</code>)  The externalName to be used when ServiceType.EXTERNAL_NAME is set. __*Default*__: No external name.
+  * **loadBalancerSourceRanges** (<code>Array<string></code>)  A list of CIDR IP addresses, if specified and supported by the platform, will restrict traffic through the cloud-provider load-balancer to the specified client IPs. __*Optional*__
   * **ports** (<code>Array<[ServicePort](#cdk8s-plus-17-serviceport)></code>)  The port exposed by this service. __*Optional*__
   * **type** (<code>[ServiceType](#cdk8s-plus-17-servicetype)</code>)  Determines how the Service is exposed. __*Default*__: ServiceType.ClusterIP
 
@@ -2208,6 +2209,7 @@ Name | Type | Description
 **clusterIP**?🔹 | <code>string</code> | The IP address of the service and is usually assigned randomly by the master.<br/>__*Default*__: Automatically assigned.
 **externalIPs**?🔹 | <code>Array<string></code> | A list of IP addresses for which nodes in the cluster will also accept traffic for this service.<br/>__*Default*__: No external IPs.
 **externalName**?🔹 | <code>string</code> | The externalName to be used when ServiceType.EXTERNAL_NAME is set.<br/>__*Default*__: No external name.
+**loadBalancerSourceRanges**?🔹 | <code>Array<string></code> | A list of CIDR IP addresses, if specified and supported by the platform, will restrict traffic through the cloud-provider load-balancer to the specified client IPs.<br/>__*Optional*__
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **ports**?🔹 | <code>Array<[ServicePort](#cdk8s-plus-17-serviceport)></code> | The port exposed by this service.<br/>__*Optional*__
 **type**?🔹 | <code>[ServiceType](#cdk8s-plus-17-servicetype)</code> | Determines how the Service is exposed.<br/>__*Default*__: ServiceType.ClusterIP
