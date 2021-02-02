@@ -57,6 +57,15 @@ export interface ServiceProps extends ResourceProps {
    * @default - No external name.
    */
   readonly externalName?: string;
+
+  /**
+   * A list of CIDR IP addresses, if specified and supported by the platform,
+   * will restrict traffic through the cloud-provider load-balancer to the specified client IPs.
+   *
+   * More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/
+   */
+  readonly loadBalancerSourceRanges?: string[];
+
 }
 
 /**
@@ -138,6 +147,7 @@ export class Service extends Resource {
   private readonly _externalIPs: string[];
   private readonly _selector: Record<string, string>;
   private readonly _ports: ServicePort[];
+  private readonly _loadBalancerSourceRanges?: string[];
 
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
     super(scope, id, { metadata: props.metadata });
@@ -159,6 +169,7 @@ export class Service extends Resource {
     this._externalIPs = props.externalIPs ?? [];
     this._ports = [];
     this._selector = { };
+    this._loadBalancerSourceRanges = props.loadBalancerSourceRanges;
 
     for (const portAndOptions of props.ports ?? []) {
       this.serve(portAndOptions.port, portAndOptions);
@@ -272,6 +283,7 @@ export class Service extends Resource {
       type: this.type,
       selector: this._selector,
       ports: ports,
+      loadBalancerSourceRanges: this._loadBalancerSourceRanges,
     } : {
       type: this.type,
       externalName: this.externalName,

@@ -43,7 +43,7 @@ class ClusterInstallation(
 
         jsii.create(ClusterInstallation, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest")
+    @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(
         cls,
@@ -60,13 +60,13 @@ class ClusterInstallation(
         """
         props = ClusterInstallationProps(spec=spec, metadata=metadata)
 
-        return jsii.sinvoke(cls, "manifest", [props])
+        return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
-    @jsii.python.classproperty # type: ignore
+    @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         """Returns the apiVersion and kind for "ClusterInstallation"."""
-        return jsii.sget(cls, "GVK")
+        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -106,7 +106,7 @@ class ClusterInstallationProps:
         """
         result = self._values.get("spec")
         assert result is not None, "Required property 'spec' is missing"
-        return result
+        return typing.cast("ClusterInstallationSpec", result)
 
     @builtins.property
     def metadata(self) -> typing.Any:
@@ -114,7 +114,7 @@ class ClusterInstallationProps:
         :schema: ClusterInstallation#metadata
         """
         result = self._values.get("metadata")
-        return result
+        return typing.cast(typing.Any, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -274,7 +274,7 @@ class ClusterInstallationSpec:
         """
         result = self._values.get("ingress_name")
         assert result is not None, "Required property 'ingress_name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def affinity(self) -> typing.Optional["ClusterInstallationSpecAffinity"]:
@@ -283,7 +283,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#affinity
         """
         result = self._values.get("affinity")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinity"], result)
 
     @builtins.property
     def blue_green(self) -> typing.Optional["ClusterInstallationSpecBlueGreen"]:
@@ -292,7 +292,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#blueGreen
         """
         result = self._values.get("blue_green")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecBlueGreen"], result)
 
     @builtins.property
     def canary(self) -> typing.Optional["ClusterInstallationSpecCanary"]:
@@ -301,7 +301,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#canary
         """
         result = self._values.get("canary")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecCanary"], result)
 
     @builtins.property
     def database(self) -> typing.Optional["ClusterInstallationSpecDatabase"]:
@@ -310,7 +310,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#database
         """
         result = self._values.get("database")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecDatabase"], result)
 
     @builtins.property
     def elastic_search(self) -> typing.Optional["ClusterInstallationSpecElasticSearch"]:
@@ -319,7 +319,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#elasticSearch
         """
         result = self._values.get("elastic_search")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecElasticSearch"], result)
 
     @builtins.property
     def image(self) -> typing.Optional[builtins.str]:
@@ -328,7 +328,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#image
         """
         result = self._values.get("image")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def ingress_annotations(
@@ -338,7 +338,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#ingressAnnotations
         """
         result = self._values.get("ingress_annotations")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def liveness_probe(self) -> typing.Optional["ClusterInstallationSpecLivenessProbe"]:
@@ -347,7 +347,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#livenessProbe
         """
         result = self._values.get("liveness_probe")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecLivenessProbe"], result)
 
     @builtins.property
     def mattermost_env(
@@ -358,7 +358,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#mattermostEnv
         """
         result = self._values.get("mattermost_env")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecMattermostEnv"]], result)
 
     @builtins.property
     def mattermost_license_secret(self) -> typing.Optional[builtins.str]:
@@ -367,7 +367,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#mattermostLicenseSecret
         """
         result = self._values.get("mattermost_license_secret")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def minio(self) -> typing.Optional["ClusterInstallationSpecMinio"]:
@@ -376,7 +376,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#minio
         """
         result = self._values.get("minio")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecMinio"], result)
 
     @builtins.property
     def node_selector(
@@ -389,7 +389,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#nodeSelector
         """
         result = self._values.get("node_selector")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def readiness_probe(
@@ -400,7 +400,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#readinessProbe
         """
         result = self._values.get("readiness_probe")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecReadinessProbe"], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -411,7 +411,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def resources(self) -> typing.Optional["ClusterInstallationSpecResources"]:
@@ -420,7 +420,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#resources
         """
         result = self._values.get("resources")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecResources"], result)
 
     @builtins.property
     def service_annotations(
@@ -430,7 +430,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#serviceAnnotations
         """
         result = self._values.get("service_annotations")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def size(self) -> typing.Optional[builtins.str]:
@@ -443,7 +443,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#size
         """
         result = self._values.get("size")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def use_service_load_balancer(self) -> typing.Optional[builtins.bool]:
@@ -451,7 +451,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#useServiceLoadBalancer
         """
         result = self._values.get("use_service_load_balancer")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def version(self) -> typing.Optional[builtins.str]:
@@ -460,7 +460,7 @@ class ClusterInstallationSpec:
         :schema: ClusterInstallationSpec#version
         """
         result = self._values.get("version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -522,7 +522,7 @@ class ClusterInstallationSpecAffinity:
         :schema: ClusterInstallationSpecAffinity#nodeAffinity
         """
         result = self._values.get("node_affinity")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"], result)
 
     @builtins.property
     def pod_affinity(
@@ -533,7 +533,7 @@ class ClusterInstallationSpecAffinity:
         :schema: ClusterInstallationSpecAffinity#podAffinity
         """
         result = self._values.get("pod_affinity")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinityPodAffinity"], result)
 
     @builtins.property
     def pod_anti_affinity(
@@ -544,7 +544,7 @@ class ClusterInstallationSpecAffinity:
         :schema: ClusterInstallationSpecAffinity#podAntiAffinity
         """
         result = self._values.get("pod_anti_affinity")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -599,7 +599,7 @@ class ClusterInstallationSpecAffinityNodeAffinity:
         :schema: ClusterInstallationSpecAffinityNodeAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"]], result)
 
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
@@ -612,7 +612,7 @@ class ClusterInstallationSpecAffinityNodeAffinity:
         :schema: ClusterInstallationSpecAffinityNodeAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -662,7 +662,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         """
         result = self._values.get("preference")
         assert result is not None, "Required property 'preference' is missing"
-        return result
+        return typing.cast("ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", result)
 
     @builtins.property
     def weight(self) -> jsii.Number:
@@ -672,7 +672,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         """
         result = self._values.get("weight")
         assert result is not None, "Required property 'weight' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -723,7 +723,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]], result)
 
     @builtins.property
     def match_fields(
@@ -734,7 +734,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchFields
         """
         result = self._values.get("match_fields")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -784,7 +784,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -796,7 +796,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -807,7 +807,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -857,7 +857,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -869,7 +869,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -880,7 +880,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -929,7 +929,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         """
         result = self._values.get("node_selector_terms")
         assert result is not None, "Required property 'node_selector_terms' is missing"
-        return result
+        return typing.cast(typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -982,7 +982,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]], result)
 
     @builtins.property
     def match_fields(
@@ -993,7 +993,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchFields
         """
         result = self._values.get("match_fields")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1043,7 +1043,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -1055,7 +1055,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1066,7 +1066,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1116,7 +1116,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -1128,7 +1128,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1139,7 +1139,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1192,7 +1192,7 @@ class ClusterInstallationSpecAffinityPodAffinity:
         :schema: ClusterInstallationSpecAffinityPodAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"]], result)
 
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
@@ -1205,7 +1205,7 @@ class ClusterInstallationSpecAffinityPodAffinity:
         :schema: ClusterInstallationSpecAffinityPodAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1257,7 +1257,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         """
         result = self._values.get("pod_affinity_term")
         assert result is not None, "Required property 'pod_affinity_term' is missing"
-        return result
+        return typing.cast("ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", result)
 
     @builtins.property
     def weight(self) -> jsii.Number:
@@ -1267,7 +1267,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         """
         result = self._values.get("weight")
         assert result is not None, "Required property 'weight' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1328,7 +1328,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def label_selector(
@@ -1339,7 +1339,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
         """
         result = self._values.get("label_selector")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"], result)
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1350,7 +1350,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaces
         """
         result = self._values.get("namespaces")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1403,7 +1403,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]], result)
 
     @builtins.property
     def match_labels(
@@ -1416,7 +1416,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1466,7 +1466,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -1478,7 +1478,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1489,7 +1489,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1548,7 +1548,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def label_selector(
@@ -1559,7 +1559,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
         """
         result = self._values.get("label_selector")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"], result)
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1570,7 +1570,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaces
         """
         result = self._values.get("namespaces")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1623,7 +1623,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]], result)
 
     @builtins.property
     def match_labels(
@@ -1636,7 +1636,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1686,7 +1686,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -1698,7 +1698,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1709,7 +1709,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1762,7 +1762,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
         :schema: ClusterInstallationSpecAffinityPodAntiAffinity#preferredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("preferred_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"]], result)
 
     @builtins.property
     def required_during_scheduling_ignored_during_execution(
@@ -1775,7 +1775,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
         :schema: ClusterInstallationSpecAffinityPodAntiAffinity#requiredDuringSchedulingIgnoredDuringExecution
         """
         result = self._values.get("required_during_scheduling_ignored_during_execution")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1827,7 +1827,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         """
         result = self._values.get("pod_affinity_term")
         assert result is not None, "Required property 'pod_affinity_term' is missing"
-        return result
+        return typing.cast("ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", result)
 
     @builtins.property
     def weight(self) -> jsii.Number:
@@ -1837,7 +1837,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         """
         result = self._values.get("weight")
         assert result is not None, "Required property 'weight' is missing"
-        return result
+        return typing.cast(jsii.Number, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1898,7 +1898,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def label_selector(
@@ -1909,7 +1909,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
         """
         result = self._values.get("label_selector")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"], result)
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -1920,7 +1920,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaces
         """
         result = self._values.get("namespaces")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -1973,7 +1973,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]], result)
 
     @builtins.property
     def match_labels(
@@ -1986,7 +1986,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2036,7 +2036,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -2048,7 +2048,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -2059,7 +2059,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2118,7 +2118,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         """
         result = self._values.get("topology_key")
         assert result is not None, "Required property 'topology_key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def label_selector(
@@ -2129,7 +2129,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
         """
         result = self._values.get("label_selector")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"], result)
 
     @builtins.property
     def namespaces(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -2140,7 +2140,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaces
         """
         result = self._values.get("namespaces")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2193,7 +2193,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
         """
         result = self._values.get("match_expressions")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]], result)
 
     @builtins.property
     def match_labels(
@@ -2206,7 +2206,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchLabels
         """
         result = self._values.get("match_labels")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2256,7 +2256,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def operator(self) -> builtins.str:
@@ -2268,7 +2268,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         """
         result = self._values.get("operator")
         assert result is not None, "Required property 'operator' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def values(self) -> typing.Optional[typing.List[builtins.str]]:
@@ -2279,7 +2279,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions#values
         """
         result = self._values.get("values")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2342,7 +2342,7 @@ class ClusterInstallationSpecBlueGreen:
         :schema: ClusterInstallationSpecBlueGreen#blue
         """
         result = self._values.get("blue")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecBlueGreenBlue"], result)
 
     @builtins.property
     def enable(self) -> typing.Optional[builtins.bool]:
@@ -2351,7 +2351,7 @@ class ClusterInstallationSpecBlueGreen:
         :schema: ClusterInstallationSpecBlueGreen#enable
         """
         result = self._values.get("enable")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     @builtins.property
     def green(self) -> typing.Optional["ClusterInstallationSpecBlueGreenGreen"]:
@@ -2360,7 +2360,7 @@ class ClusterInstallationSpecBlueGreen:
         :schema: ClusterInstallationSpecBlueGreen#green
         """
         result = self._values.get("green")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecBlueGreenGreen"], result)
 
     @builtins.property
     def production_deployment(self) -> typing.Optional[builtins.str]:
@@ -2369,7 +2369,7 @@ class ClusterInstallationSpecBlueGreen:
         :schema: ClusterInstallationSpecBlueGreen#productionDeployment
         """
         result = self._values.get("production_deployment")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2430,7 +2430,7 @@ class ClusterInstallationSpecBlueGreenBlue:
         :schema: ClusterInstallationSpecBlueGreenBlue#image
         """
         result = self._values.get("image")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def ingress_name(self) -> typing.Optional[builtins.str]:
@@ -2441,7 +2441,7 @@ class ClusterInstallationSpecBlueGreenBlue:
         :schema: ClusterInstallationSpecBlueGreenBlue#ingressName
         """
         result = self._values.get("ingress_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -2450,7 +2450,7 @@ class ClusterInstallationSpecBlueGreenBlue:
         :schema: ClusterInstallationSpecBlueGreenBlue#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def version(self) -> typing.Optional[builtins.str]:
@@ -2461,7 +2461,7 @@ class ClusterInstallationSpecBlueGreenBlue:
         :schema: ClusterInstallationSpecBlueGreenBlue#version
         """
         result = self._values.get("version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2522,7 +2522,7 @@ class ClusterInstallationSpecBlueGreenGreen:
         :schema: ClusterInstallationSpecBlueGreenGreen#image
         """
         result = self._values.get("image")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def ingress_name(self) -> typing.Optional[builtins.str]:
@@ -2533,7 +2533,7 @@ class ClusterInstallationSpecBlueGreenGreen:
         :schema: ClusterInstallationSpecBlueGreenGreen#ingressName
         """
         result = self._values.get("ingress_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -2542,7 +2542,7 @@ class ClusterInstallationSpecBlueGreenGreen:
         :schema: ClusterInstallationSpecBlueGreenGreen#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def version(self) -> typing.Optional[builtins.str]:
@@ -2553,7 +2553,7 @@ class ClusterInstallationSpecBlueGreenGreen:
         :schema: ClusterInstallationSpecBlueGreenGreen#version
         """
         result = self._values.get("version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2601,7 +2601,7 @@ class ClusterInstallationSpecCanary:
         :schema: ClusterInstallationSpecCanary#deployment
         """
         result = self._values.get("deployment")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecCanaryDeployment"], result)
 
     @builtins.property
     def enable(self) -> typing.Optional[builtins.bool]:
@@ -2610,7 +2610,7 @@ class ClusterInstallationSpecCanary:
         :schema: ClusterInstallationSpecCanary#enable
         """
         result = self._values.get("enable")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2671,7 +2671,7 @@ class ClusterInstallationSpecCanaryDeployment:
         :schema: ClusterInstallationSpecCanaryDeployment#image
         """
         result = self._values.get("image")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def ingress_name(self) -> typing.Optional[builtins.str]:
@@ -2682,7 +2682,7 @@ class ClusterInstallationSpecCanaryDeployment:
         :schema: ClusterInstallationSpecCanaryDeployment#ingressName
         """
         result = self._values.get("ingress_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -2691,7 +2691,7 @@ class ClusterInstallationSpecCanaryDeployment:
         :schema: ClusterInstallationSpecCanaryDeployment#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def version(self) -> typing.Optional[builtins.str]:
@@ -2702,7 +2702,7 @@ class ClusterInstallationSpecCanaryDeployment:
         :schema: ClusterInstallationSpecCanaryDeployment#version
         """
         result = self._values.get("version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2798,7 +2798,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#backupRemoteDeletePolicy
         """
         result = self._values.get("backup_remote_delete_policy")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def backup_restore_secret_name(self) -> typing.Optional[builtins.str]:
@@ -2807,7 +2807,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#backupRestoreSecretName
         """
         result = self._values.get("backup_restore_secret_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def backup_schedule(self) -> typing.Optional[builtins.str]:
@@ -2816,7 +2816,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#backupSchedule
         """
         result = self._values.get("backup_schedule")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def backup_secret_name(self) -> typing.Optional[builtins.str]:
@@ -2825,7 +2825,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#backupSecretName
         """
         result = self._values.get("backup_secret_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def backup_url(self) -> typing.Optional[builtins.str]:
@@ -2834,7 +2834,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#backupURL
         """
         result = self._values.get("backup_url")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def init_bucket_url(self) -> typing.Optional[builtins.str]:
@@ -2845,7 +2845,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#initBucketURL
         """
         result = self._values.get("init_bucket_url")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -2856,7 +2856,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def resources(self) -> typing.Optional["ClusterInstallationSpecDatabaseResources"]:
@@ -2865,7 +2865,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#resources
         """
         result = self._values.get("resources")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecDatabaseResources"], result)
 
     @builtins.property
     def secret(self) -> typing.Optional[builtins.str]:
@@ -2878,7 +2878,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#secret
         """
         result = self._values.get("secret")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_size(self) -> typing.Optional[builtins.str]:
@@ -2889,7 +2889,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#storageSize
         """
         result = self._values.get("storage_size")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def type(self) -> typing.Optional[builtins.str]:
@@ -2897,7 +2897,7 @@ class ClusterInstallationSpecDatabase:
         :schema: ClusterInstallationSpecDatabase#type
         """
         result = self._values.get("type")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2945,7 +2945,7 @@ class ClusterInstallationSpecDatabaseResources:
         :schema: ClusterInstallationSpecDatabaseResources#limits
         """
         result = self._values.get("limits")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def requests(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -2956,7 +2956,7 @@ class ClusterInstallationSpecDatabaseResources:
         :schema: ClusterInstallationSpecDatabaseResources#requests
         """
         result = self._values.get("requests")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3005,7 +3005,7 @@ class ClusterInstallationSpecElasticSearch:
         :schema: ClusterInstallationSpecElasticSearch#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def password(self) -> typing.Optional[builtins.str]:
@@ -3013,7 +3013,7 @@ class ClusterInstallationSpecElasticSearch:
         :schema: ClusterInstallationSpecElasticSearch#password
         """
         result = self._values.get("password")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def username(self) -> typing.Optional[builtins.str]:
@@ -3021,7 +3021,7 @@ class ClusterInstallationSpecElasticSearch:
         :schema: ClusterInstallationSpecElasticSearch#username
         """
         result = self._values.get("username")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3108,7 +3108,7 @@ class ClusterInstallationSpecLivenessProbe:
         :schema: ClusterInstallationSpecLivenessProbe#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecLivenessProbeExec"], result)
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3121,7 +3121,7 @@ class ClusterInstallationSpecLivenessProbe:
         :schema: ClusterInstallationSpecLivenessProbe#failureThreshold
         """
         result = self._values.get("failure_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def http_get(
@@ -3132,7 +3132,7 @@ class ClusterInstallationSpecLivenessProbe:
         :schema: ClusterInstallationSpecLivenessProbe#httpGet
         """
         result = self._values.get("http_get")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"], result)
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3143,7 +3143,7 @@ class ClusterInstallationSpecLivenessProbe:
         :schema: ClusterInstallationSpecLivenessProbe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3156,7 +3156,7 @@ class ClusterInstallationSpecLivenessProbe:
         :schema: ClusterInstallationSpecLivenessProbe#periodSeconds
         """
         result = self._values.get("period_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -3169,7 +3169,7 @@ class ClusterInstallationSpecLivenessProbe:
         :schema: ClusterInstallationSpecLivenessProbe#successThreshold
         """
         result = self._values.get("success_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def tcp_socket(
@@ -3182,7 +3182,7 @@ class ClusterInstallationSpecLivenessProbe:
         :schema: ClusterInstallationSpecLivenessProbe#tcpSocket
         """
         result = self._values.get("tcp_socket")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecLivenessProbeTcpSocket"], result)
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -3195,7 +3195,7 @@ class ClusterInstallationSpecLivenessProbe:
         :schema: ClusterInstallationSpecLivenessProbe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3241,7 +3241,7 @@ class ClusterInstallationSpecLivenessProbeExec:
         :schema: ClusterInstallationSpecLivenessProbeExec#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3308,7 +3308,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("ClusterInstallationSpecLivenessProbeHttpGetPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -3319,7 +3319,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         :schema: ClusterInstallationSpecLivenessProbeHttpGet#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def http_headers(
@@ -3332,7 +3332,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         :schema: ClusterInstallationSpecLivenessProbeHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -3341,7 +3341,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         :schema: ClusterInstallationSpecLivenessProbeHttpGet#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def scheme(self) -> typing.Optional[builtins.str]:
@@ -3354,7 +3354,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         :schema: ClusterInstallationSpecLivenessProbeHttpGet#scheme
         """
         result = self._values.get("scheme")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3395,7 +3395,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -3405,7 +3405,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3430,7 +3430,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
     :schema: ClusterInstallationSpecLivenessProbeHttpGetPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -3439,9 +3439,9 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("ClusterInstallationSpecLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -3450,7 +3450,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("ClusterInstallationSpecLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -3490,7 +3490,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("ClusterInstallationSpecLivenessProbeTcpSocketPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -3499,7 +3499,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
         :schema: ClusterInstallationSpecLivenessProbeTcpSocket#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3524,7 +3524,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
     :schema: ClusterInstallationSpecLivenessProbeTcpSocketPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -3533,9 +3533,9 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("ClusterInstallationSpecLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -3544,7 +3544,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("ClusterInstallationSpecLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -3588,7 +3588,7 @@ class ClusterInstallationSpecMattermostEnv:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> typing.Optional[builtins.str]:
@@ -3601,7 +3601,7 @@ class ClusterInstallationSpecMattermostEnv:
         :schema: ClusterInstallationSpecMattermostEnv#value
         """
         result = self._values.get("value")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def value_from(
@@ -3614,7 +3614,7 @@ class ClusterInstallationSpecMattermostEnv:
         :schema: ClusterInstallationSpecMattermostEnv#valueFrom
         """
         result = self._values.get("value_from")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecMattermostEnvValueFrom"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3685,7 +3685,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
         :schema: ClusterInstallationSpecMattermostEnvValueFrom#configMapKeyRef
         """
         result = self._values.get("config_map_key_ref")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"], result)
 
     @builtins.property
     def field_ref(
@@ -3696,7 +3696,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
         :schema: ClusterInstallationSpecMattermostEnvValueFrom#fieldRef
         """
         result = self._values.get("field_ref")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"], result)
 
     @builtins.property
     def resource_field_ref(
@@ -3707,7 +3707,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
         :schema: ClusterInstallationSpecMattermostEnvValueFrom#resourceFieldRef
         """
         result = self._values.get("resource_field_ref")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"], result)
 
     @builtins.property
     def secret_key_ref(
@@ -3718,7 +3718,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
         :schema: ClusterInstallationSpecMattermostEnvValueFrom#secretKeyRef
         """
         result = self._values.get("secret_key_ref")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3769,7 +3769,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -3780,7 +3780,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
         :schema: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -3789,7 +3789,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
         :schema: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3836,7 +3836,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
         """
         result = self._values.get("field_path")
         assert result is not None, "Required property 'field_path' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def api_version(self) -> typing.Optional[builtins.str]:
@@ -3845,7 +3845,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
         :schema: ClusterInstallationSpecMattermostEnvValueFromFieldRef#apiVersion
         """
         result = self._values.get("api_version")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3900,7 +3900,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
         """
         result = self._values.get("resource")
         assert result is not None, "Required property 'resource' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def container_name(self) -> typing.Optional[builtins.str]:
@@ -3909,7 +3909,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
         :schema: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#containerName
         """
         result = self._values.get("container_name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def divisor(self) -> typing.Optional[builtins.str]:
@@ -3918,7 +3918,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
         :schema: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef#divisor
         """
         result = self._values.get("divisor")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -3971,7 +3971,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
         """
         result = self._values.get("key")
         assert result is not None, "Required property 'key' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> typing.Optional[builtins.str]:
@@ -3982,7 +3982,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
         :schema: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#name
         """
         result = self._values.get("name")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def optional(self) -> typing.Optional[builtins.bool]:
@@ -3991,7 +3991,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
         :schema: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef#optional
         """
         result = self._values.get("optional")
-        return result
+        return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4062,7 +4062,7 @@ class ClusterInstallationSpecMinio:
         :schema: ClusterInstallationSpecMinio#externalBucket
         """
         result = self._values.get("external_bucket")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def external_url(self) -> typing.Optional[builtins.str]:
@@ -4073,7 +4073,7 @@ class ClusterInstallationSpecMinio:
         :schema: ClusterInstallationSpecMinio#externalURL
         """
         result = self._values.get("external_url")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
@@ -4084,7 +4084,7 @@ class ClusterInstallationSpecMinio:
         :schema: ClusterInstallationSpecMinio#replicas
         """
         result = self._values.get("replicas")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def resources(self) -> typing.Optional["ClusterInstallationSpecMinioResources"]:
@@ -4093,7 +4093,7 @@ class ClusterInstallationSpecMinio:
         :schema: ClusterInstallationSpecMinio#resources
         """
         result = self._values.get("resources")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecMinioResources"], result)
 
     @builtins.property
     def secret(self) -> typing.Optional[builtins.str]:
@@ -4104,7 +4104,7 @@ class ClusterInstallationSpecMinio:
         :schema: ClusterInstallationSpecMinio#secret
         """
         result = self._values.get("secret")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def storage_size(self) -> typing.Optional[builtins.str]:
@@ -4115,7 +4115,7 @@ class ClusterInstallationSpecMinio:
         :schema: ClusterInstallationSpecMinio#storageSize
         """
         result = self._values.get("storage_size")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4163,7 +4163,7 @@ class ClusterInstallationSpecMinioResources:
         :schema: ClusterInstallationSpecMinioResources#limits
         """
         result = self._values.get("limits")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def requests(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -4174,7 +4174,7 @@ class ClusterInstallationSpecMinioResources:
         :schema: ClusterInstallationSpecMinioResources#requests
         """
         result = self._values.get("requests")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4261,7 +4261,7 @@ class ClusterInstallationSpecReadinessProbe:
         :schema: ClusterInstallationSpecReadinessProbe#exec
         """
         result = self._values.get("exec")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecReadinessProbeExec"], result)
 
     @builtins.property
     def failure_threshold(self) -> typing.Optional[jsii.Number]:
@@ -4274,7 +4274,7 @@ class ClusterInstallationSpecReadinessProbe:
         :schema: ClusterInstallationSpecReadinessProbe#failureThreshold
         """
         result = self._values.get("failure_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def http_get(
@@ -4285,7 +4285,7 @@ class ClusterInstallationSpecReadinessProbe:
         :schema: ClusterInstallationSpecReadinessProbe#httpGet
         """
         result = self._values.get("http_get")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"], result)
 
     @builtins.property
     def initial_delay_seconds(self) -> typing.Optional[jsii.Number]:
@@ -4296,7 +4296,7 @@ class ClusterInstallationSpecReadinessProbe:
         :schema: ClusterInstallationSpecReadinessProbe#initialDelaySeconds
         """
         result = self._values.get("initial_delay_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def period_seconds(self) -> typing.Optional[jsii.Number]:
@@ -4309,7 +4309,7 @@ class ClusterInstallationSpecReadinessProbe:
         :schema: ClusterInstallationSpecReadinessProbe#periodSeconds
         """
         result = self._values.get("period_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def success_threshold(self) -> typing.Optional[jsii.Number]:
@@ -4322,7 +4322,7 @@ class ClusterInstallationSpecReadinessProbe:
         :schema: ClusterInstallationSpecReadinessProbe#successThreshold
         """
         result = self._values.get("success_threshold")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     @builtins.property
     def tcp_socket(
@@ -4335,7 +4335,7 @@ class ClusterInstallationSpecReadinessProbe:
         :schema: ClusterInstallationSpecReadinessProbe#tcpSocket
         """
         result = self._values.get("tcp_socket")
-        return result
+        return typing.cast(typing.Optional["ClusterInstallationSpecReadinessProbeTcpSocket"], result)
 
     @builtins.property
     def timeout_seconds(self) -> typing.Optional[jsii.Number]:
@@ -4348,7 +4348,7 @@ class ClusterInstallationSpecReadinessProbe:
         :schema: ClusterInstallationSpecReadinessProbe#timeoutSeconds
         """
         result = self._values.get("timeout_seconds")
-        return result
+        return typing.cast(typing.Optional[jsii.Number], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4394,7 +4394,7 @@ class ClusterInstallationSpecReadinessProbeExec:
         :schema: ClusterInstallationSpecReadinessProbeExec#command
         """
         result = self._values.get("command")
-        return result
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4461,7 +4461,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("ClusterInstallationSpecReadinessProbeHttpGetPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -4472,7 +4472,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         :schema: ClusterInstallationSpecReadinessProbeHttpGet#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def http_headers(
@@ -4485,7 +4485,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         :schema: ClusterInstallationSpecReadinessProbeHttpGet#httpHeaders
         """
         result = self._values.get("http_headers")
-        return result
+        return typing.cast(typing.Optional[typing.List["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]], result)
 
     @builtins.property
     def path(self) -> typing.Optional[builtins.str]:
@@ -4494,7 +4494,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         :schema: ClusterInstallationSpecReadinessProbeHttpGet#path
         """
         result = self._values.get("path")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def scheme(self) -> typing.Optional[builtins.str]:
@@ -4507,7 +4507,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         :schema: ClusterInstallationSpecReadinessProbeHttpGet#scheme
         """
         result = self._values.get("scheme")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4548,7 +4548,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
         """
         result = self._values.get("name")
         assert result is not None, "Required property 'name' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def value(self) -> builtins.str:
@@ -4558,7 +4558,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
         """
         result = self._values.get("value")
         assert result is not None, "Required property 'value' is missing"
-        return result
+        return typing.cast(builtins.str, result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4583,7 +4583,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
     :schema: ClusterInstallationSpecReadinessProbeHttpGetPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -4592,9 +4592,9 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("ClusterInstallationSpecReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -4603,7 +4603,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("ClusterInstallationSpecReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -4643,7 +4643,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
         """
         result = self._values.get("port")
         assert result is not None, "Required property 'port' is missing"
-        return result
+        return typing.cast("ClusterInstallationSpecReadinessProbeTcpSocketPort", result)
 
     @builtins.property
     def host(self) -> typing.Optional[builtins.str]:
@@ -4652,7 +4652,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
         :schema: ClusterInstallationSpecReadinessProbeTcpSocket#host
         """
         result = self._values.get("host")
-        return result
+        return typing.cast(typing.Optional[builtins.str], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -4677,7 +4677,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
     :schema: ClusterInstallationSpecReadinessProbeTcpSocketPort
     """
 
-    @jsii.member(jsii_name="fromNumber")
+    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
     @builtins.classmethod
     def from_number(
         cls,
@@ -4686,9 +4686,9 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromNumber", [value])
+        return typing.cast("ClusterInstallationSpecReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString")
+    @jsii.member(jsii_name="fromString") # type: ignore[misc]
     @builtins.classmethod
     def from_string(
         cls,
@@ -4697,7 +4697,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
         """
         :param value: -
         """
-        return jsii.sinvoke(cls, "fromString", [value])
+        return typing.cast("ClusterInstallationSpecReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
 
 @jsii.data_type(
@@ -4734,7 +4734,7 @@ class ClusterInstallationSpecResources:
         :schema: ClusterInstallationSpecResources#limits
         """
         result = self._values.get("limits")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     @builtins.property
     def requests(self) -> typing.Optional[typing.Mapping[builtins.str, builtins.str]]:
@@ -4745,7 +4745,7 @@ class ClusterInstallationSpecResources:
         :schema: ClusterInstallationSpecResources#requests
         """
         result = self._values.get("requests")
-        return result
+        return typing.cast(typing.Optional[typing.Mapping[builtins.str, builtins.str]], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
