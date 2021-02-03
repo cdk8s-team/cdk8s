@@ -79,6 +79,15 @@ describe('save', () => {
     expect(fs.readFileSync(outputFile, 'utf-8')).toMatchSnapshot();
   });
 
+  test('escaped character does not divided by cross line boundaries', () => {
+    const longStringList = [
+      '^(((\d*(\.\d*)?h)|(\d*(\.\d*)?m)|(\d*(\.\d*)?s)|' +
+      '(\d*(\.\d*)?ms)|(\d*(\.\d*)?us)|(\d*(\.\d*)?µs)|' +
+      '(\d*(\.\d*)?ns))+|infinity|infinite)$',
+    ];
+    const dumpPath = Yaml.tmp(longStringList);
+    expect(fs.readFileSync(dumpPath, 'utf8').trimEnd()).not.toContain('\n');
+  });
 });
 
 test('yaml 1.1 octal numbers are parsed correctly', () => {
