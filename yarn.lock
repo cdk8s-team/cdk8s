@@ -5846,11 +5846,6 @@ jsii-reflect@^1.20.0:
     oo-ascii-tree "^1.20.0"
     yargs "^16.2.0"
 
-jsii-release@^0.2.12:
-  version "0.2.12"
-  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.2.12.tgz#f8101b94302131766ea35c67a864d7412d2424bf"
-  integrity sha512-y+DLjmvDxiFsuu2xC0n9x3A7ZUh5cRVgLvLldhy9bhnLm4cRIn4O8fNooqWR17qbxMIdZxLp7WmOO1UpFq1slA==
-
 jsii-rosetta@^1.17.1:
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-1.17.1.tgz#701aa8a911d58ef68c7942ed36cf6d28b70a8e72"
@@ -7744,6 +7739,22 @@ projen@^0.15.14:
   version "0.15.14"
   resolved "https://registry.yarnpkg.com/projen/-/projen-0.15.14.tgz#43db1fdd515fb0ebaa92779d77d4bb5db98a9526"
   integrity sha512-fYxuV63nmvmRrWkNIUsOtjWzBnNYhmeNHNpAenweOnK50qC6cmJhNatsizZlwVuP1YwyfBjvgJKdoGmLv+SVOg==
+  dependencies:
+    "@iarna/toml" "^2.2.5"
+    chalk "^4.1.0"
+    decamelize "^4.0.0"
+    fs-extra "^9.0.1"
+    glob "^7"
+    inquirer "^7.3.3"
+    semver "^7.3.2"
+    xmlbuilder2 "^2.4.0"
+    yaml "^1.10.0"
+    yargs "^16.2.0"
+
+projen@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.16.0.tgz#922481e4b8c27629325018abe366ada60ed6d17d"
+  integrity sha512-/UcRol2CE3he5nsEMptFpcln7LdUMaCq9+9e4PuunPVxW/joZKbbjZgVvcdN62DkOgDyx4wuPAsV5OGmmcQP9Q==
   dependencies:
     "@iarna/toml" "^2.2.5"
     chalk "^4.1.0"

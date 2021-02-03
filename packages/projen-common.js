@@ -3,6 +3,7 @@ exports.options = {
   repository: 'https://github.com/awslabs/cdk8s.git',
   authorName: 'Amazon Web Services',
   authorUrl: 'https://aws.amazon.com',
+  defaultReleaseBranch: 'master',
   authorOrganization: true,
   buildWorkflow: false,
   rebuildBot: false,
