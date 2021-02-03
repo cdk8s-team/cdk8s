@@ -50,9 +50,6 @@ const project = new JsiiProject({
   }
 });
 
-// temporary until https://github.com/aws/jsii/pull/2492 is resolved
-project.packageTask.exec('echo $(node -p "require(\'./package.json\').version") > dist/go/cdk8splus17/version');
-
 common.fixup(project);
 
 const K8S_VERSION = '1.17.0';

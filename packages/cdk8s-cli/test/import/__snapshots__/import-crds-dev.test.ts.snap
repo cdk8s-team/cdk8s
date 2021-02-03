@@ -10,7 +10,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.3.1",
+    "constructs": "3.3.6",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
