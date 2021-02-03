@@ -44,6 +44,9 @@ Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
         },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
+        },
         "java": Object {
           "maven": Object {
             "artifactId": "constructs",
@@ -557,6 +560,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
@@ -4681,6 +4687,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
@@ -17509,6 +17518,9 @@ Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
         },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
+        },
         "java": Object {
           "maven": Object {
             "artifactId": "constructs",
@@ -17810,6 +17822,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
@@ -18324,6 +18339,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
