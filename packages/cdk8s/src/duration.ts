@@ -161,17 +161,6 @@ export class Duration {
   }
 
   /**
-   * Return an ISO 8601 representation of this period
-   *
-   * @returns a string starting with 'PT' describing the period
-   * @see https://www.iso.org/fr/standard/70907.html
-   * @deprecated Use `toIsoString()` instead.
-   */
-  public toISOString(): string {
-    return this.toIsoString();
-  }
-
-  /**
    * Turn this duration into a human-readable string
    */
   public toHumanString(): string {
@@ -210,7 +199,7 @@ export class Duration {
       return `${this.amount}${symbol}`;
     }
     const remainder = this.amount % modulus;
-    const quotient = next((this.amount - remainder) / modulus).toISOString().slice(2);
+    const quotient = next((this.amount - remainder) / modulus).toIsoString().slice(2);
     return remainder > 0
       ? `${quotient}${remainder}${symbol}`
       : quotient;
