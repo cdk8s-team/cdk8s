@@ -45,20 +45,6 @@ test('Duration in days', () => {
   expect(duration.toDays()).toBe(1);
 });
 
-test('toISOString', () => {
-  expect(Duration.seconds(0).toISOString()).toBe('PT0S');
-  expect(Duration.minutes(0).toISOString()).toBe('PT0S');
-  expect(Duration.hours(0).toISOString()).toBe('PT0S');
-  expect(Duration.days(0).toISOString()).toBe('PT0S');
-
-  expect(Duration.seconds(5).toISOString()).toBe('PT5S');
-  expect(Duration.minutes(5).toISOString()).toBe('PT5M');
-  expect(Duration.hours(5).toISOString()).toBe('PT5H');
-  expect(Duration.days(5).toISOString()).toBe('PT5D');
-
-  expect(Duration.seconds(1 + 60 * (1 + 60 * (1 + 24))).toISOString()).toBe('PT1D1H1M1S');
-});
-
 test('toIsoString', () => {
   expect(Duration.seconds(0).toIsoString()).toBe('PT0S');
   expect(Duration.minutes(0).toIsoString()).toBe('PT0S');
