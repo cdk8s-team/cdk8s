@@ -568,18 +568,6 @@ toHumanString(): string
 __Returns__:
 * <code>string</code>
 
-#### toISOString()⚠️ <a id="cdk8s-duration-toisostring"></a>
-
-Return an ISO 8601 representation of this period.
-
-```ts
-toISOString(): string
-```
-
-
-__Returns__:
-* <code>string</code>
-
 #### toIsoString()🔹 <a id="cdk8s-duration-toisostring"></a>
 
 Return an ISO 8601 representation of this period.

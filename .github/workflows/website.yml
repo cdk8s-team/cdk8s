@@ -7,6 +7,7 @@ on:
 
 jobs:
   deploy:
+    if: startsWith(github.event.head_commit.message, 'chore(release)')
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
