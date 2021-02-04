@@ -19,7 +19,7 @@
     "constructs": "3.2.109"
   },
   "devDependencies": {
-    "@types/node": "^14.14.19",
+    "@types/node": "^14.14.24",
     "cdk8s-cli": "0.0.0",
     "typescript": "^3.9.7"
   }
