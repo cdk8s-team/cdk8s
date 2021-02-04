@@ -106,7 +106,7 @@ jobs:
 
   release_golang:
     name: Release to Go
-    needs: build
+    needs: build_artifact
     runs-on: ubuntu-latest
     container:
       image: jsii/superchain
