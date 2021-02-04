@@ -14,7 +14,7 @@ test('Can mutate metadata', () => {
     public readonly apiObject: ApiObject;
 
     constructor(scope: Construct, id: string, props: CustomProps) {
-      super(scope, id, props);
+      super(scope, id);
 
       this.apiObject = new KubeConfigMap(this, 'ConfigMap', {
         metadata: props.metadata,
