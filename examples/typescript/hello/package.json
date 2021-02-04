@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "cdk8s": "0.0.0",
-    "constructs": "3.3.6"
+    "constructs": "3.3.9"
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",
