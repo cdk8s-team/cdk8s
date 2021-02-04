@@ -1033,16 +1033,16 @@ __Implemented by__: [ConfigMap](#cdk8s-plus-17-configmap), [Deployment](#cdk8s-p
 ### Initializer
 
 
-
+Creates a new construct node.
 
 ```ts
-new Resource(scope: Construct, id: string, _: ResourceProps)
+new Resource(scope: Construct, id: string, options?: ConstructOptions)
 ```
 
-* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
-* **id** (<code>string</code>)  *No description*
-* **_** (<code>[ResourceProps](#cdk8s-plus-17-resourceprops)</code>)  *No description*
-  * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
+* **scope** (<code>[Construct](#constructs-construct)</code>)  The scope in which to define this construct.
+* **id** (<code>string</code>)  The scoped construct ID.
+* **options** (<code>[ConstructOptions](#constructs-constructoptions)</code>)  Options.
+  * **nodeFactory** (<code>[INodeFactory](#constructs-inodefactory)</code>)  A factory for attaching `Node`s to the construct. __*Default*__: the default `Node` is associated
 
 
 

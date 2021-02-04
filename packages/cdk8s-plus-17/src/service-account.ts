@@ -60,7 +60,7 @@ export class ServiceAccount extends Resource implements IServiceAccount {
   private readonly _secrets: ISecret[];
 
   constructor(scope: Construct, id: string, props: ServiceAccountProps = { }) {
-    super(scope, id, { metadata: props.metadata });
+    super(scope, id);
 
     this._secrets = props.secrets ?? [];
 

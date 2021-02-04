@@ -66,7 +66,7 @@ export class Secret extends Resource implements ISecret {
   private readonly stringData: { [key: string]: string };
 
   public constructor(scope: Construct, id: string, props: SecretProps = { }) {
-    super(scope, id, { metadata: props.metadata });
+    super(scope, id);
 
     this.stringData = props.stringData ?? {};
 

@@ -65,7 +65,7 @@ export class ConfigMap extends Resource implements IConfigMap {
   private readonly _data: { [key: string]: string } = { };
 
   public constructor(scope: Construct, id: string, props: ConfigMapProps = { }) {
-    super(scope, id, { metadata: props.metadata });
+    super(scope, id);
 
     this.apiObject = new k8s.KubeConfigMap(this, 'Resource', {
       metadata: props.metadata,
