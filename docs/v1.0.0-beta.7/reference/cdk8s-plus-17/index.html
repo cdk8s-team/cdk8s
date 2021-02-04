@@ -4931,13 +4931,14 @@ resource.</p>
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a>
 <strong>Implemented by</strong>: <a href="#cdk8s-plus-17-configmap">ConfigMap</a>, <a href="#cdk8s-plus-17-deployment">Deployment</a>, <a href="#cdk8s-plus-17-ingressv1beta1">IngressV1Beta1</a>, <a href="#cdk8s-plus-17-job">Job</a>, <a href="#cdk8s-plus-17-pod">Pod</a>, <a href="#cdk8s-plus-17-secret">Secret</a>, <a href="#cdk8s-plus-17-service">Service</a>, <a href="#cdk8s-plus-17-serviceaccount">ServiceAccount</a>, <a href="#cdk8s-plus-17-statefulset">StatefulSet</a></p>
 <h3 id="initializer_9">Initializer<a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Resource</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">_</span>: <span class="kt">ResourceProps</span><span class="p">)</span>
+<p>Creates a new construct node.</p>
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Resource</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ConstructOptions</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
-<li><strong>id</strong> (<code>string</code>)  <em>No description</em></li>
-<li><strong>_</strong> (<code><a href="#cdk8s-plus-17-resourceprops">ResourceProps</a></code>)  <em>No description</em></li>
-<li><strong>metadata</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  Metadata that all persisted resources must have, which includes all objects users must create. <strong><em>Optional</em></strong></li>
+<li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  The scope in which to define this construct.</li>
+<li><strong>id</strong> (<code>string</code>)  The scoped construct ID.</li>
+<li><strong>options</strong> (<code><a href="#constructs-constructoptions">ConstructOptions</a></code>)  Options.</li>
+<li><strong>nodeFactory</strong> (<code><a href="#constructs-inodefactory">INodeFactory</a></code>)  A factory for attaching <code>Node</code>s to the construct. <strong><em>Default</em></strong>: the default <code>Node</code> is associated</li>
 </ul>
 <h3 id="properties_9">Properties<a class="headerlink" href="#properties_9" title="Permanent link">&para;</a></h3>
 <table>
