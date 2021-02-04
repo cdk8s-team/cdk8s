@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.8](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2021-02-04)
+
+
+### Bug Fixes
+
+* **go:** invalid go module name ([87af61b](https://github.com/awslabs/cdk8s/commit/87af61ba4e4942b4e1d01d3ee4f05bcea8d57e3a))
+
 ## [1.0.0-beta.7](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2021-02-04)
 
 
