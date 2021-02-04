@@ -142,7 +142,7 @@
         "packageId": "Org.Cdk8s"
       },
       "go": {
-        "moduleName": "github.com/awslabs/cdk8s-go/cdk8s"
+        "moduleName": "github.com/awslabs/cdk8s-go"
       }
     },
     "tsc": {
