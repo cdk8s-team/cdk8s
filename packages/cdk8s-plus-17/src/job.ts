@@ -75,7 +75,7 @@ export class Job extends Resource implements IPodTemplate {
   private readonly _podTemplate: PodTemplate;
 
   constructor(scope: Construct, id: string, props: JobProps = {}) {
-    super(scope, id, { metadata: props.metadata });
+    super(scope, id);
 
     this.apiObject = new k8s.KubeJob(this, 'Resource', {
       metadata: props.metadata,

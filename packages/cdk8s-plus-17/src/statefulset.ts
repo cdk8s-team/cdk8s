@@ -107,7 +107,7 @@ export class StatefulSet extends Resource implements IPodTemplate {
   private readonly _service: Service;
 
   constructor(scope: Construct, id: string, props: StatefulSetProps) {
-    super(scope, id, { metadata: props.metadata });
+    super(scope, id);
 
     this.apiObject = new k8s.KubeStatefulSet(this, 'Resource', {
       metadata: props.metadata,

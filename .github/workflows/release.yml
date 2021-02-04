@@ -104,6 +104,24 @@ jobs:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
 
+  release_golang:
+    name: Release to Go
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: dist
+      - name: Release
+        run: npx -p jsii-release jsii-release-golang
+        env:
+          GITHUB_TOKEN: ${{ secrets.GO_GITHUB_TOKEN }}
+          GIT_USER_NAME: GitHub Actions
+          GIT_USER_EMAIL: github-actions@github.com
+
   release_homebrew:
     name: Release to Homebrew
     # The branch or tag ref that triggered the workflow run.

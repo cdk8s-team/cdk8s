@@ -111,7 +111,7 @@ export class Deployment extends Resource implements IPodTemplate {
   private readonly _labelSelector: Record<string, string>;
 
   constructor(scope: Construct, id: string, props: DeploymentProps = {}) {
-    super(scope, id, { metadata: props.metadata });
+    super(scope, id);
 
     this.apiObject = new k8s.KubeDeployment(this, 'Resource', {
       metadata: props.metadata,

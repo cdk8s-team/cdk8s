@@ -10,7 +10,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.109",
+    "constructs": "3.3.5",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -43,6 +43,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
@@ -524,7 +527,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.109",
+    "constructs": "3.3.5",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -557,6 +560,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
@@ -4648,7 +4654,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.109",
+    "constructs": "3.3.5",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -4681,6 +4687,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
@@ -17475,7 +17484,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.109",
+    "constructs": "3.3.5",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17508,6 +17517,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
@@ -17777,7 +17789,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.109",
+    "constructs": "3.3.5",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -17810,6 +17822,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {
@@ -18291,7 +18306,7 @@ Object {
   },
   "dependencies": Object {
     "cdk8s": "999.999.999",
-    "constructs": "3.2.109",
+    "constructs": "3.3.5",
   },
   "dependencyClosure": Object {
     "cdk8s": Object {
@@ -18324,6 +18339,9 @@ Object {
         "dotnet": Object {
           "namespace": "Constructs",
           "packageId": "Constructs",
+        },
+        "go": Object {
+          "moduleName": "github.com/aws/constructs-go",
         },
         "java": Object {
           "maven": Object {

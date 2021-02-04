@@ -268,7 +268,7 @@ export class Pod extends Resource implements IPodSpec {
   private readonly _spec: PodSpec;
 
   constructor(scope: Construct, id: string, props: PodProps = {}) {
-    super(scope, id, { metadata: props.metadata });
+    super(scope, id);
 
     this.apiObject = new k8s.KubePod(this, 'Resource', {
       metadata: props.metadata,

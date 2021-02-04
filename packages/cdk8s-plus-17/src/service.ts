@@ -150,7 +150,7 @@ export class Service extends Resource {
   private readonly _loadBalancerSourceRanges?: string[];
 
   constructor(scope: Construct, id: string, props: ServiceProps = {}) {
-    super(scope, id, { metadata: props.metadata });
+    super(scope, id);
 
     this.apiObject = new k8s.KubeService(this, 'Resource', {
       metadata: props.metadata,
