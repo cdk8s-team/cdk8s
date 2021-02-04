@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.7](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2021-02-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **lib:** the deprecated API `Duration.toISOString()` has been removed. Use `Duration.toIsoString()` instead.
+
+### Features
+
+* **plus-17:** add StatefulSet construct ([#400](https://github.com/awslabs/cdk8s/issues/400)) ([98aad99](https://github.com/awslabs/cdk8s/commit/98aad99a0a325b706c8f1c4e5f2ac1af77795400))
+* **plus-17:** restrict CIDR IP addresses for a LoadBalancer ([#446](https://github.com/awslabs/cdk8s/issues/446)) ([cf96ae2](https://github.com/awslabs/cdk8s/commit/cf96ae2319e821307e23d6343883b531294e6359)), closes [#435](https://github.com/awslabs/cdk8s/issues/435)
+* experimental golang bindings ([#523](https://github.com/awslabs/cdk8s/issues/523)) ([6737351](https://github.com/awslabs/cdk8s/commit/6737351ee3c3d119e0a2969e90f911b9e45c1a11))
+* only publish doc site on release commits ([#507](https://github.com/awslabs/cdk8s/issues/507)) ([5acc54b](https://github.com/awslabs/cdk8s/commit/5acc54b004951e60334abc369ec85a537cc2a973))
+
+
+### Bug Fixes
+
+* **cli:** allow any python 3 to be used ([#518](https://github.com/awslabs/cdk8s/issues/518)) ([2a49196](https://github.com/awslabs/cdk8s/commit/2a491963547eab0b3348acae03fc5bf1db215794))
+* **lib:** deprecated toISOString() conflicts with toIsoString() ([#524](https://github.com/awslabs/cdk8s/issues/524)) ([d4e0c3d](https://github.com/awslabs/cdk8s/commit/d4e0c3d75c65ec91908327fbb7ce24d7d6981b9e))
+* not folding strings ([#495](https://github.com/awslabs/cdk8s/issues/495)) ([8dda8bd](https://github.com/awslabs/cdk8s/commit/8dda8bdac90f9254fa95a736a1b29c87609934df)), closes [#494](https://github.com/awslabs/cdk8s/issues/494)
+
 ## [1.0.0-beta.6](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2021-01-21)
 
 
