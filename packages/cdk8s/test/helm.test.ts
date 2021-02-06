@@ -128,7 +128,7 @@ test('helmFlags can be used to specify additional helm options', () => {
   ];
 
   expect(spawnMock).toHaveBeenCalledTimes(1);
-  expect(spawnMock).toHaveBeenCalledWith('helm', expectedArgs);
+  expect(spawnMock).toHaveBeenCalledWith('helm', expectedArgs, {"maxBuffer": 10485760});
 });
 
 test('propagates helm failures', () => {
