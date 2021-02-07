@@ -7,6 +7,8 @@ import * as yaml from 'yaml';
 import { Include } from './include';
 import { Names } from './names';
 
+const MAX_HELM_BUFFER = 10 * 1024 * 1024;
+
 /**
  * Options for `Helm`.
  */
@@ -98,7 +100,10 @@ export class Helm extends Include {
 }
 
 function renderTemplate(workdir: string, prog: string, args: string[]) {
-  const helm = cp.spawnSync(prog, args);
+  const helm = cp.spawnSync(prog, args, {
+      maxBuffer: MAX_HELM_BUFFER
+  });
+  
   if (helm.error) {
     const err = helm.error.message;
     if (err.includes('ENOENT')) {
