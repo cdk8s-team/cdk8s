@@ -15,7 +15,7 @@
     "build": "yarn run import && tsc",
     "watch": "tsc -w",
     "synth": "cdk8s synth",
-    "test": "jest"
+    "test": "echo 'no test for helm yet.'"
   },
   "dependencies": {
     "cdk8s": "0.0.0",
