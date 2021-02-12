@@ -1,0 +1,18 @@
+{
+  "name": "helm-bitnami-java",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "build": "cdk8s import --language java",
+    "synth": "mvn install && mvn compile && cdk8s synth",
+    "test": "echo 'no test for java yet.'"
+  },
+  "dependencies": {
+    "cdk8s": "0.0.0",
+    "constructs": "3.3.5"
+  },
+  "devDependencies": {
+    "cdk8s-cli": "0.0.0"
+  }
+}
