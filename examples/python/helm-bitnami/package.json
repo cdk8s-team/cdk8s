@@ -1,0 +1,18 @@
+{
+  "name": "helm-bitnami-python",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "build": "cdk8s import --language python",
+    "synth": "cdk8s synth",
+    "test": "echo 'no test for python yet.'"
+  },
+  "dependencies": {
+    "cdk8s": "0.0.0",
+    "constructs": "3.3.5"
+  },
+  "devDependencies": {
+    "cdk8s-cli": "0.0.0"
+  }
+}
