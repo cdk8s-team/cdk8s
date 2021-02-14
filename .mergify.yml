@@ -12,4 +12,15 @@ pull_request_rules:
         strict_method: merge
         commit_message: title+body
       delete_head_branch: {}
-      dismiss_reviews: {}
+      dismiss_reviews: {}    
+  - name: Automatic merge PRs with auto-merge label upon successful build
+    actions:
+      merge:
+        method: squash
+        commit_message: title+body
+        strict: smart
+        strict_method: merge
+      delete_head_branch: {}
+    conditions:
+      - label=auto-merge
+      - status-success=build      
