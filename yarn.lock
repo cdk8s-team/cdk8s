@@ -1648,20 +1648,25 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.2.tgz#264b44c5a28dfa80198fc2f7b6d3c8a054b9491f"
   integrity sha512-onlIwbaeqvZyniGPfdw/TEhKIh79pz66L1q06WUQqJLnAb6wbjvOtepLYTGHTqzdXgBYIE3ZdmqHDGsRsbBz7A==
 
-"@types/node@^10.17.50", "@types/node@^10.17.51":
+"@types/node@^10.17.50":
   version "10.17.51"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.51.tgz#639538575befbcf3d3861f95c41de8e47124d674"
   integrity sha512-KANw+MkL626tq90l++hGelbl67irOJzGhUJk6a1Bt8QHOeh9tztJx+L0AqttraWKinmZn7Qi5lJZJzx45Gq0dg==
 
-"@types/node@^13.13.41":
-  version "13.13.41"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.41.tgz#045a4981318d31a581650ce70f340a32c3461198"
-  integrity sha512-qLT9IvHiXJfdrje9VmsLzun7cQ65obsBTmtU3EOnCSLFOoSHx1hpiRHoBnpdbyFqnzqdUUIv81JcEJQCB8un9g==
+"@types/node@^10.17.52":
+  version "10.17.52"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.52.tgz#dc960d4e256331b3c697b7a573ee98b882febee5"
+  integrity sha512-bKnO8Rcj03i6JTzweabq96k29uVNcXGB0bkwjVQTFagDgxxNged18281AZ0nTMHl+aFpPPWyPrk4Z3+NtW/z5w==
 
-"@types/node@^14.14.25":
-  version "14.14.25"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.25.tgz#15967a7b577ff81383f9b888aa6705d43fbbae93"
-  integrity sha512-EPpXLOVqDvisVxtlbvzfyqSsFeQxltFbluZNRndIb8tr9KiBnYNLzrc1N3pyKUCww2RNrfHDViqDWWE1LCJQtQ==
+"@types/node@^13.13.42":
+  version "13.13.42"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.42.tgz#ff343be01fca44b59e785e20b840357cb704a7f2"
+  integrity sha512-g+w2QgbW7k2CWLOXzQXbO37a7v5P9ObPvYahKphdBLV5aqpbVZRhTpWCT0SMRqX1i30Aig791ZmIM2fJGL2S8A==
+
+"@types/node@^14.14.28":
+  version "14.14.28"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.28.tgz#cade4b64f8438f588951a6b35843ce536853f25b"
+  integrity sha512-lg55ArB+ZiHHbBBttLpzD07akz0QPrZgUODNakeC09i62dnrywr9mFErHuaPlB6I7z+sEbK+IYmplahvplCj2g==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -5797,10 +5802,10 @@ jsii-diff@^1.20.1:
     typescript "~3.9.7"
     yargs "^16.2.0"
 
-jsii-docgen@^1.8.39:
-  version "1.8.39"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-1.8.39.tgz#699b580fefa4aff8b7ab5924ac4cae51afe17b20"
-  integrity sha512-dxfQ8RurRfujZrT054Bex5RMyHWYLZyIhA1IbRD5qCrGJH07/MlLuGdVAk5/1HUBPVqbUdAB1UARr0Bz8JMzwA==
+jsii-docgen@^1.8.42:
+  version "1.8.42"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-1.8.42.tgz#79ce0bcb785d3284ccc48410fe57f2df97e3e65a"
+  integrity sha512-ZkNRVedrbRLU/MzBkuyqAh863jJ9qlSow5KWcSBU2caR06ezZEfLqojXVsMo9Igxp0R7HP/NODmDovb+mq/aMQ==
   dependencies:
     "@jsii/spec" "^1.16.0"
     fs-extra "^9.0.1"

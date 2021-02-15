@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/minimatch": "^3.0.3",
-    "@types/node": "^10.17.51",
+    "@types/node": "^10.17.52",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "cdk8s": "0.0.0",
@@ -46,7 +46,7 @@
     "jest-junit": "^12",
     "jsii": "^1.20.1",
     "jsii-diff": "^1.20.1",
-    "jsii-docgen": "^1.8.39",
+    "jsii-docgen": "^1.8.42",
     "jsii-pacmak": "^1.20.1",
     "json-schema": "^0.3.0",
     "projen": "^0.15.14",
