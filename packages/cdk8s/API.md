@@ -124,6 +124,9 @@ addJsonPatch(...ops: JsonPatch[]): void
 
 Renders the object to Kubernetes JSON.
 
+To disable sorting of dictionary keys in output object set the
+`CDK8S_DISABLE_SORT` environment variable.
+
 ```ts
 toJson(): any
 ```

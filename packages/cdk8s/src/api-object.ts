@@ -1,5 +1,4 @@
 import { Construct, IConstruct, Node } from 'constructs';
-import * as stringify from 'json-stable-stringify';
 import { resolve } from './_resolve';
 import { sanitizeValue } from './_util';
 import { Chart } from './chart';
@@ -166,17 +165,31 @@ export class ApiObject extends Construct {
 
   /**
    * Renders the object to Kubernetes JSON.
+   *
+   * To disable sorting of dictionary keys in output object set the
+   * `CDK8S_DISABLE_SORT` environment variable.
    */
   public toJson(): any {
-    const data = {
+    const data: any = {
       ...this.props,
       metadata: this.metadata.toJson(),
     };
 
-    // convert to "pure data" so, for example, when we convert to yaml these
-    // references are not converted to anchors.
-    const json = JSON.parse(stringify(sanitizeValue(resolve(data))));
-    return JsonPatch.apply(json, ...this.patches);
+    const sortKeys = process.env.CDK8S_DISABLE_SORT ? false : true;
+    const json = sanitizeValue(resolve(data), { sortKeys });
+    const patched = JsonPatch.apply(json, ...this.patches);
+
+    // reorder top-level keys so that we first have "apiVersion", "kind" and
+    // "metadata" and then all the rest
+    const result: any = {};
+    const orderedKeys = ['apiVersion', 'kind', 'metadata', ...Object.keys(patched)];
+    for (const k of orderedKeys) {
+      if (k in patched) {
+        result[k] = patched[k];
+      }
+    }
+
+    return result;
   }
 }
 

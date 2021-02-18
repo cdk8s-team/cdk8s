@@ -32,11 +32,10 @@
   "devDependencies": {
     "@types/follow-redirects": "^1.13.0",
     "@types/jest": "^26.0.20",
-    "@types/json-stable-stringify": "^1.0.32",
-    "@types/node": "^10.17.52",
+    "@types/node": "^10.17.0",
     "@types/yaml": "^1.9.6",
-    "@typescript-eslint/eslint-plugin": "^4.15.0",
-    "@typescript-eslint/parser": "^4.15.0",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
     "constructs": "3.3.5",
     "eslint": "^6.8.0",
     "eslint-import-resolver-node": "^0.3.4",
@@ -51,9 +50,9 @@
     "json-schema": "^0.3.0",
     "json-schema-to-typescript": "^8.2.0",
     "projen": "^0.16.0",
-    "standard-version": "^9.1.0",
+    "standard-version": "^9.0.0",
     "ts-jest": "^26.5.1",
-    "typescript": "~3.9.9"
+    "typescript": "~3.9.7"
   },
   "peerDependencies": {
     "constructs": "^3.3.5"
@@ -61,13 +60,11 @@
   "dependencies": {
     "fast-json-patch": "^3.0.0-1",
     "follow-redirects": "^1.13.2",
-    "json-stable-stringify": "^1.0.1",
     "yaml": "2.0.0-3"
   },
   "bundledDependencies": [
     "fast-json-patch",
     "follow-redirects",
-    "json-stable-stringify",
     "yaml"
   ],
   "keywords": [

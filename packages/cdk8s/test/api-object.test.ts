@@ -20,7 +20,6 @@ test('printed yaml is alphabetical', () => {
   // Object keys in random order
   new ApiObject(stack, 'my-resource', {
     kind: 'MyResource',
-    apiVersion: 'v1',
     spec: {
       secondProperty: {
         innerThirdProperty: '!',
@@ -28,10 +27,44 @@ test('printed yaml is alphabetical', () => {
       },
       firstProperty: 'hello',
     },
+    metadata: {
+      meta: {
+        zzz: 'hello',
+        aaa: 123,
+      },
+    },
+    apiVersion: 'v1',
   });
 
-  // Should match alphabetically-ordered snapshot
-  expect(Testing.synth(stack)).toMatchSnapshot();
+  // Should match alphabetically-ordered snapshot (we snapshot the string
+  // because jest snapshots treat dictionaries as unordered)
+  expect(JSON.stringify(Testing.synth(stack), undefined, 2)).toMatchSnapshot();
+});
+
+test('the CDK8S_DISABLE_SORT environment variable can be used to disable key sorting', () => {
+  const obj = new ApiObject(Testing.chart(), 'my-api-object', {
+    apiVersion: 'v1',
+    kind: 'Dummy',
+    hello: {
+      zzz: 123,
+      aaa: 333,
+      nested: {
+        yyy: 'hello',
+        bbb: 123,
+      },
+    },
+  });
+
+  // default behavior - sorted
+  expect(JSON.stringify(obj.toJson())).toStrictEqual('{"apiVersion":"v1","kind":"Dummy","metadata":{"name":"test-my-api-object-c8e6fbed"},"hello":{"aaa":333,"nested":{"bbb":123,"yyy":"hello"},"zzz":123}}');
+
+  // with CDK8S_DISABLE_SORT set at the chart level
+  process.env.CDK8S_DISABLE_SORT = '1';
+  try {
+    expect(JSON.stringify(obj.toJson())).toStrictEqual('{"apiVersion":"v1","kind":"Dummy","metadata":{"name":"test-my-api-object-c8e6fbed"},"hello":{"zzz":123,"aaa":333,"nested":{"yyy":"hello","bbb":123}}}');
+  } finally {
+    delete process.env.CDK8S_DISABLE_SORT;
+  }
 });
 
 test('addDependency', () => {
