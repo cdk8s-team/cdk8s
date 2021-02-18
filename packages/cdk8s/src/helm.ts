@@ -101,9 +101,9 @@ export class Helm extends Include {
 
 function renderTemplate(workdir: string, prog: string, args: string[]) {
   const helm = cp.spawnSync(prog, args, {
-      maxBuffer: MAX_HELM_BUFFER
+    maxBuffer: MAX_HELM_BUFFER,
   });
-  
+
   if (helm.error) {
     const err = helm.error.message;
     if (err.includes('ENOENT')) {
