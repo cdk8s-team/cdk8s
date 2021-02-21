@@ -167,7 +167,7 @@ export class ApiObject extends Construct {
    * Renders the object to Kubernetes JSON.
    *
    * To disable sorting of dictionary keys in output object set the
-   * `CDK8S_DISABLE_SORT` environment variable.
+   * `CDK8S_DISABLE_SORT` environment variable to any non-empty value.
    */
   public toJson(): any {
     const data: any = {
