@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.9](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2021-02-22)
+
+
+### Features
+
+* **lib:** flag to disable dictionary sort ([#534](https://github.com/awslabs/cdk8s/issues/534)) ([a4eca40](https://github.com/awslabs/cdk8s/commit/a4eca40f72d654ea0355ec513073b05c7dbffe9e)), closes [#525](https://github.com/awslabs/cdk8s/issues/525)
+
+
+### Bug Fixes
+
+* **lib:** ENOBUFS for large helm charts ([#529](https://github.com/awslabs/cdk8s/issues/529)) ([4164f38](https://github.com/awslabs/cdk8s/commit/4164f38706b5a2bb65aff0224df6e133e217f070)), closes [#454](https://github.com/awslabs/cdk8s/issues/454)
+
 ## [1.0.0-beta.8](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2021-02-04)
 
 
