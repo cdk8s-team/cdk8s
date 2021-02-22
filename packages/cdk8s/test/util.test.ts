@@ -40,5 +40,15 @@ describe('sanitizeValue', () => {
     expect(sanitizeValue({ foo: { bar: { } } }, options)).toStrictEqual(undefined);
   });
 
+  test('sortKeys', () => {
+    const input = { zzz: 999, aaa: 111, nested: { foo: { zag: [1, 2, 3], bar: '1111' } } };
+    expect(str(sanitizeValue(input))).toMatchSnapshot();
+    expect(str(sanitizeValue(input, { sortKeys: false }))).toMatchSnapshot();
+  });
+
   class Dummy { }
 });
+
+function str(obj: any) {
+  return JSON.stringify(obj, undefined, 2);
+}

@@ -1,13 +1,21 @@
 export interface SanitizeOptions {
   /**
    * Do not include empty objects (no keys).
+   * @default false
    */
   readonly filterEmptyObjects?: boolean;
 
   /**
    * Do not include arrays with no items.
+   * @default false
    */
   readonly filterEmptyArrays?: boolean;
+
+  /**
+   * Sort dictionary keys.
+   * @default true
+   */
+  readonly sortKeys?: boolean;
 }
 
 export function sanitizeValue(obj: any, options: SanitizeOptions = { }): any {
@@ -34,7 +42,10 @@ export function sanitizeValue(obj: any, options: SanitizeOptions = { }): any {
 
   const newObj: { [key: string]: any } = { };
 
-  for (const [key, value] of Object.entries(obj)) {
+  const sortKeys = options.sortKeys ?? true;
+  const keys = sortKeys ? Object.keys(obj).sort() : Object.keys(obj);
+  for (const key of keys) {
+    const value = obj[key];
     const newValue = sanitizeValue(value, options);
     if (newValue != null) {
       newObj[key] = newValue;
