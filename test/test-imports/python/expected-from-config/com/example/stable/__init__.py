@@ -19,9 +19,9 @@ class CronTab(
     metaclass=jsii.JSIIMeta,
     jsii_type="comexamplestable.CronTab",
 ):
-    """
+    '''
     :schema: CronTab
-    """
+    '''
 
     def __init__(
         self,
@@ -30,12 +30,12 @@ class CronTab(
         *,
         spec: typing.Optional["CronTabSpec"] = None,
     ) -> None:
-        """Defines a "CronTab" API object.
+        '''Defines a "CronTab" API object.
 
         :param scope: the scope in which to define this object.
         :param id: a scope-local name for the object.
         :param spec: 
-        """
+        '''
         props = CronTabProps(spec=spec)
 
         jsii.create(CronTab, self, [scope, id, props])
@@ -43,12 +43,12 @@ class CronTab(
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
     def manifest(cls, *, spec: typing.Optional["CronTabSpec"] = None) -> typing.Any:
-        """Renders a Kubernetes manifest for "CronTab".
+        '''Renders a Kubernetes manifest for "CronTab".
 
         This can be used to inline resource manifests inside other objects (e.g. as templates).
 
         :param spec: 
-        """
+        '''
         props = CronTabProps(spec=spec)
 
         return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
@@ -56,7 +56,7 @@ class CronTab(
     @jsii.python.classproperty # type: ignore[misc]
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
-        """Returns the apiVersion and kind for "CronTab"."""
+        '''Returns the apiVersion and kind for "CronTab".'''
         return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
@@ -67,11 +67,11 @@ class CronTab(
 )
 class CronTabProps:
     def __init__(self, *, spec: typing.Optional["CronTabSpec"] = None) -> None:
-        """
+        '''
         :param spec: 
 
         :schema: CronTab
-        """
+        '''
         if isinstance(spec, dict):
             spec = CronTabSpec(**spec)
         self._values: typing.Dict[str, typing.Any] = {}
@@ -80,9 +80,9 @@ class CronTabProps:
 
     @builtins.property
     def spec(self) -> typing.Optional["CronTabSpec"]:
-        """
+        '''
         :schema: CronTab#spec
-        """
+        '''
         result = self._values.get("spec")
         return typing.cast(typing.Optional["CronTabSpec"], result)
 
@@ -111,13 +111,13 @@ class CronTabSpec:
         image: typing.Optional[builtins.str] = None,
         replicas: typing.Optional[jsii.Number] = None,
     ) -> None:
-        """
+        '''
         :param cron_spec: 
         :param image: 
         :param replicas: 
 
         :schema: CronTabSpec
-        """
+        '''
         self._values: typing.Dict[str, typing.Any] = {}
         if cron_spec is not None:
             self._values["cron_spec"] = cron_spec
@@ -128,25 +128,25 @@ class CronTabSpec:
 
     @builtins.property
     def cron_spec(self) -> typing.Optional[builtins.str]:
-        """
+        '''
         :schema: CronTabSpec#cronSpec
-        """
+        '''
         result = self._values.get("cron_spec")
         return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def image(self) -> typing.Optional[builtins.str]:
-        """
+        '''
         :schema: CronTabSpec#image
-        """
+        '''
         result = self._values.get("image")
         return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
     def replicas(self) -> typing.Optional[jsii.Number]:
-        """
+        '''
         :schema: CronTabSpec#replicas
-        """
+        '''
         result = self._values.get("replicas")
         return typing.cast(typing.Optional[jsii.Number], result)
 

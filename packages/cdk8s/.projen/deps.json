@@ -9,10 +9,6 @@
       "type": "build"
     },
     {
-      "name": "@types/json-stable-stringify",
-      "type": "build"
-    },
-    {
       "name": "@types/node",
       "version": "^10.17.0",
       "type": "build"
@@ -114,10 +110,6 @@
     },
     {
       "name": "follow-redirects",
-      "type": "bundled"
-    },
-    {
-      "name": "json-stable-stringify",
       "type": "bundled"
     },
     {

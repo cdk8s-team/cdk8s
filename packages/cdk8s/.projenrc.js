@@ -19,14 +19,12 @@ const project = new JsiiProject({
   ],
   bundledDeps: [
     'yaml',
-    'json-stable-stringify',
     'follow-redirects',
     'fast-json-patch',
   ],
   devDeps: [
     'constructs',
     '@types/follow-redirects',
-    '@types/json-stable-stringify',
     '@types/yaml',
     'json-schema-to-typescript',
   ],
