@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-beta.10](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2021-03-02)
+
 ## [1.0.0-beta.9](https://github.com/awslabs/cdk8s/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2021-02-22)
 
 
