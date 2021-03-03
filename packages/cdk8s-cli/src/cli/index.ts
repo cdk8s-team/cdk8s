@@ -3,16 +3,22 @@ import * as yargs from 'yargs';
 import { upgradeAvailable } from '../upgrades';
 
 async function main() {
-  const versions = upgradeAvailable();
-  if (versions) {
-    console.error('------------------------------------------------------------------------------------------------');
-    console.error(colors.yellow(`A new version ${versions.latest} of cdk8s-cli is available (current ${versions.current}).`));
-    console.error(colors.yellow('Run "npm install -g cdk8s-cli" to install the latest version on your system.'));
-    console.error(colors.yellow('For additional installation methods, see https://cdk8s.io/docs/latest/getting-started'));
-    console.error('------------------------------------------------------------------------------------------------');
-  }
-
   const ya = yargs
+    .option("check-upgrade", {type: "boolean", desc: "Check for cdk8s-cli upgrade", default: true})
+    .check(argv => {
+      if(argv.checkUpgrade) {
+        const versions = upgradeAvailable();
+        if (versions) {
+          console.error('------------------------------------------------------------------------------------------------');
+          console.error(colors.yellow(`A new version ${versions.latest} of cdk8s-cli is available (current ${versions.current}).`));
+          console.error(colors.yellow('Run "npm install -g cdk8s-cli" to install the latest version on your system.'));
+          console.error(colors.yellow('For additional installation methods, see https://cdk8s.io/docs/latest/getting-started'));
+          console.error('------------------------------------------------------------------------------------------------');
+        }
+      }
+
+      return true
+    }, true)
     .commandDir('cmds')
     .recommendCommands()
     .wrap(yargs.terminalWidth())
