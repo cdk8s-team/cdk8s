@@ -57,7 +57,7 @@
     "constructs": "3.3.48",
     "fs-extra": "^8.1.0",
     "jsii-pacmak": "^1.23.0",
-    "jsii-srcmak": "^0.1.242",
+    "jsii-srcmak": "^0.1.244",
     "json2jsii": "^0.1.188",
     "sscaff": "^1.2.0",
     "yaml": "^1.10.0",
