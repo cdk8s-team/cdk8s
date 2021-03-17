@@ -7,6 +7,13 @@ import { DependencyGraph } from './dependency';
 import { Names } from './names';
 import { Yaml } from './yaml';
 
+/** The way to divide YAML output into files */
+export enum YamlOutputType {
+  FILE_PER_APP,
+  FILE_PER_CHART,
+  FILE_PER_RESOURCE,
+}
+
 export interface AppProps {
   /**
    * The directory to output Kubernetes manifests.
@@ -14,6 +21,11 @@ export interface AppProps {
    * @default - CDK8S_OUTDIR if defined, otherwise "dist"
    */
   readonly outdir?: string;
+  /** How to divide the YAML output into files
+   *
+   * @default YamlOutputType.FILE_PER_CHART
+   */
+  readonly yamlOutputType?: YamlOutputType;
 }
 
 /**
@@ -46,7 +58,7 @@ export class App extends Construct {
     // but thats ok too since we no longer treat constructs as a self-contained synthesis unit.
     validate(app);
 
-    return chartToKube(chart);
+    return chartToKube(chart).map(apiObject => apiObject.toJson());
   }
 
   private static of(c: IConstruct): App {
@@ -66,6 +78,12 @@ export class App extends Construct {
    */
   public readonly outdir: string;
 
+  /** How to divide the YAML output into files
+   *
+   * @default YamlOutputType.FILE_PER_CHART
+   */
+  public readonly yamlOutputType: YamlOutputType;
+
   /**
    * Defines an app
    * @param props configuration options
@@ -73,6 +91,7 @@ export class App extends Construct {
   constructor(props: AppProps = { }) {
     super(undefined as any, '');
     this.outdir = props.outdir ?? process.env.CDK8S_OUTDIR ?? 'dist';
+    this.yamlOutputType = props.yamlOutputType ?? YamlOutputType.FILE_PER_CHART;
   }
 
   /**
@@ -90,18 +109,64 @@ export class App extends Construct {
     // the necessary operations. We do however want to preserve the distributed validation.
     validate(this);
 
-    const simpleManifestNamer = (chart: Chart) => `${Names.toDnsLabel(chart)}.k8s.yaml`;
-    const manifestNamer = hasDependantCharts ? (chart: Chart) => `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
+    const simpleManifestNamer = (construct: Construct) => `${Names.toDnsLabel(construct)}.k8s.yaml`;
 
     const charts: IConstruct[] = new DependencyGraph(Node.of(this)).topology().filter(x => x instanceof Chart);
 
-    let index = 0;
-    for (const node of charts) {
-      const chart: Chart = Chart.of(node);
-      Yaml.save(path.join(this.outdir, manifestNamer(chart)), chartToKube(chart));
-      index++;
-    }
+    switch (this.yamlOutputType) {
+      // TODO: Tests for non-default cases
+      case YamlOutputType.FILE_PER_APP:
+        let apiObjectList:ApiObject[] = [];
 
+        for (const node of charts) {
+          const chart: Chart = Chart.of(node);
+          apiObjectList = apiObjectList.concat(chartToKube(chart));
+        }
+
+        if (apiObjectList.length > 0) {
+          Yaml.save(
+            path.join(this.outdir, 'app.k8s.yaml'), // There is no "app name", so we just hardcode the file name
+            apiObjectList.map((apiObject) => apiObject.toJson()),
+          );
+        }
+        break;
+
+      case YamlOutputType.FILE_PER_CHART:
+        const chartManifestNamer = hasDependantCharts ? (chart: Chart) =>
+          `${index.toString().padStart(4, '0')}-${simpleManifestNamer(chart)}` : simpleManifestNamer;
+
+        let index = 0;
+        for (const node of charts) {
+          const chart: Chart = Chart.of(node);
+          const apiObjects = chartToKube(chart);
+
+          Yaml.save(
+            path.join(this.outdir, chartManifestNamer(chart)),
+            apiObjects.map((apiObject) => apiObject.toJson()),
+          );
+
+          index++;
+        }
+        break;
+
+      case YamlOutputType.FILE_PER_RESOURCE:
+        for (const node of charts) {
+          const chart: Chart = Chart.of(node);
+          const apiObjects = chartToKube(chart);
+
+          apiObjects.forEach((apiObject) => {
+            if (!(apiObject === undefined)) {
+              const fileName = `${`${apiObject.apiVersion.replace(/\//g, '-')}.${apiObject.kind}.${apiObject.metadata.name}`
+                .replace(/[^0-9a-zA-Z-_.]/g, '')}.k8s.yaml`;
+              Yaml.save(path.join(this.outdir, fileName), [apiObject.toJson()]);
+            }
+          });
+        }
+        break;
+
+      default:
+        break;
+    }
   }
 }
 
@@ -147,8 +212,8 @@ function resolveDependencies(app: App) {
 
 }
 
-function chartToKube(chart: Chart) {
+function chartToKube(chart: Chart): ApiObject[] {
   return new DependencyGraph(Node.of(chart)).topology()
     .filter(x => x instanceof ApiObject)
-    .map(x => (x as ApiObject).toJson());
+    .map(x => (x as ApiObject));
 }

@@ -49,6 +49,7 @@ Name|Description
 Name|Description
 ----|-----------
 [SizeRoundingBehavior](#cdk8s-sizeroundingbehavior)|Rounding behaviour when converting between units of `Size`.
+[YamlOutputType](#cdk8s-yamloutputtype)|The way to divide YAML output into files.
 
 
 
@@ -274,6 +275,7 @@ new App(props?: AppProps)
 
 * **props** (<code>[AppProps](#cdk8s-appprops)</code>)  configuration options.
   * **outdir** (<code>string</code>)  The directory to output Kubernetes manifests. __*Default*__: CDK8S_OUTDIR if defined, otherwise "dist"
+  * **yamlOutputType** (<code>[YamlOutputType](#cdk8s-yamloutputtype)</code>)  How to divide the YAML output into files. __*Default*__: YamlOutputType.FILE_PER_CHART
 
 
 
@@ -283,6 +285,7 @@ new App(props?: AppProps)
 Name | Type | Description 
 -----|------|-------------
 **outdir**🔹 | <code>string</code> | The output directory into which manifests will be synthesized.
+**yamlOutputType**🔹 | <code>[YamlOutputType](#cdk8s-yamloutputtype)</code> | How to divide the YAML output into files.
 
 ### Methods
 
@@ -1186,14 +1189,17 @@ Testing utilities for cdk8s applications.
 ### Methods
 
 
-#### *static* app()🔹 <a id="cdk8s-testing-app"></a>
+#### *static* app(props?)🔹 <a id="cdk8s-testing-app"></a>
 
 Returns an app for testing with the following properties: - Output directory is a temp dir.
 
 ```ts
-static app(): App
+static app(props?: AppProps): App
 ```
 
+* **props** (<code>[AppProps](#cdk8s-appprops)</code>)  *No description*
+  * **outdir** (<code>string</code>)  The directory to output Kubernetes manifests. __*Default*__: CDK8S_OUTDIR if defined, otherwise "dist"
+  * **yamlOutputType** (<code>[YamlOutputType](#cdk8s-yamloutputtype)</code>)  How to divide the YAML output into files. __*Default*__: YamlOutputType.FILE_PER_CHART
 
 __Returns__:
 * <code>[App](#cdk8s-app)</code>
@@ -1318,6 +1324,7 @@ Name | Type | Description
 Name | Type | Description 
 -----|------|-------------
 **outdir**?🔹 | <code>string</code> | The directory to output Kubernetes manifests.<br/>__*Default*__: CDK8S_OUTDIR if defined, otherwise "dist"
+**yamlOutputType**?🔹 | <code>[YamlOutputType](#cdk8s-yamloutputtype)</code> | How to divide the YAML output into files.<br/>__*Default*__: YamlOutputType.FILE_PER_CHART
 
 
 
@@ -1451,5 +1458,16 @@ Name | Description
 **FAIL** 🔹|Fail the conversion if the result is not an integer.
 **FLOOR** 🔹|If the result is not an integer, round it to the closest integer less than the result.
 **NONE** 🔹|Don't round.
+
+
+## enum YamlOutputType 🔹 <a id="cdk8s-yamloutputtype"></a>
+
+The way to divide YAML output into files.
+
+Name | Description
+-----|-----
+**FILE_PER_APP** 🔹|
+**FILE_PER_CHART** 🔹|
+**FILE_PER_RESOURCE** 🔹|
 
 

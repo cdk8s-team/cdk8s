@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
-import { App } from './app';
+import { App, AppProps } from './app';
 import { Chart } from './chart';
 
 /**
@@ -12,9 +12,14 @@ export class Testing {
    * Returns an app for testing with the following properties:
    * - Output directory is a temp dir.
    */
-  public static app() {
-    const outdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s.outdir.'));
-    return new App({ outdir });
+  public static app(props?: AppProps) {
+    let outdir: string;
+    if (props) {
+      outdir = props.outdir ? props.outdir : fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s.outdir.'));
+    } else {
+      outdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s.outdir.'));
+    }
+    return new App({ outdir, ...props });
   }
 
   /**
