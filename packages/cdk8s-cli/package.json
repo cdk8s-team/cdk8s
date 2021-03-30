@@ -54,7 +54,7 @@
     "cdk8s": "^0.0.0",
     "codemaker": "^1.26.0",
     "colors": "^1.4.0",
-    "constructs": "3.3.68",
+    "constructs": "3.3.71",
     "fs-extra": "^8.1.0",
     "jsii-pacmak": "^1.26.0",
     "jsii-srcmak": "^0.1.255",
