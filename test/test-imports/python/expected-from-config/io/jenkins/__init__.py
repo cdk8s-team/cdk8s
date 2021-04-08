@@ -148,10 +148,10 @@ class JenkinsSpec:
         backup: typing.Optional["JenkinsSpecBackup"] = None,
         configuration_as_code: typing.Optional["JenkinsSpecConfigurationAsCode"] = None,
         groovy_scripts: typing.Optional["JenkinsSpecGroovyScripts"] = None,
-        notifications: typing.Optional[typing.List["JenkinsSpecNotifications"]] = None,
+        notifications: typing.Optional[typing.Sequence["JenkinsSpecNotifications"]] = None,
         restore: typing.Optional["JenkinsSpecRestore"] = None,
-        roles: typing.Optional[typing.List["JenkinsSpecRoles"]] = None,
-        seed_jobs: typing.Optional[typing.List["JenkinsSpecSeedJobs"]] = None,
+        roles: typing.Optional[typing.Sequence["JenkinsSpecRoles"]] = None,
+        seed_jobs: typing.Optional[typing.Sequence["JenkinsSpecSeedJobs"]] = None,
         service: typing.Optional["JenkinsSpecService"] = None,
         service_account: typing.Optional["JenkinsSpecServiceAccount"] = None,
         slave_service: typing.Optional["JenkinsSpecSlaveService"] = None,
@@ -490,7 +490,7 @@ class JenkinsSpecBackupActionExec:
     def __init__(
         self,
         *,
-        command: typing.Optional[typing.List[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Exec specifies the action to take.
 
@@ -534,7 +534,7 @@ class JenkinsSpecConfigurationAsCode:
     def __init__(
         self,
         *,
-        configurations: typing.List["JenkinsSpecConfigurationAsCodeConfigurations"],
+        configurations: typing.Sequence["JenkinsSpecConfigurationAsCodeConfigurations"],
         secret: "JenkinsSpecConfigurationAsCodeSecret",
     ) -> None:
         '''ConfigurationAsCode defines configuration of Jenkins customization via Configuration as Code Jenkins plugin.
@@ -669,7 +669,7 @@ class JenkinsSpecGroovyScripts:
     def __init__(
         self,
         *,
-        configurations: typing.List["JenkinsSpecGroovyScriptsConfigurations"],
+        configurations: typing.Sequence["JenkinsSpecGroovyScriptsConfigurations"],
         secret: "JenkinsSpecGroovyScriptsSecret",
     ) -> None:
         '''GroovyScripts defines configuration of Jenkins customization via groovy scripts.
@@ -856,16 +856,16 @@ class JenkinsSpecMaster:
         *,
         disable_csrf_protection: builtins.bool,
         annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        base_plugins: typing.Optional[typing.List["JenkinsSpecMasterBasePlugins"]] = None,
-        containers: typing.Optional[typing.List["JenkinsSpecMasterContainers"]] = None,
-        image_pull_secrets: typing.Optional[typing.List["JenkinsSpecMasterImagePullSecrets"]] = None,
+        base_plugins: typing.Optional[typing.Sequence["JenkinsSpecMasterBasePlugins"]] = None,
+        containers: typing.Optional[typing.Sequence["JenkinsSpecMasterContainers"]] = None,
+        image_pull_secrets: typing.Optional[typing.Sequence["JenkinsSpecMasterImagePullSecrets"]] = None,
         labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         master_annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        plugins: typing.Optional[typing.List["JenkinsSpecMasterPlugins"]] = None,
+        plugins: typing.Optional[typing.Sequence["JenkinsSpecMasterPlugins"]] = None,
         security_context: typing.Optional["JenkinsSpecMasterSecurityContext"] = None,
-        tolerations: typing.Optional[typing.List["JenkinsSpecMasterTolerations"]] = None,
-        volumes: typing.Optional[typing.List["JenkinsSpecMasterVolumes"]] = None,
+        tolerations: typing.Optional[typing.Sequence["JenkinsSpecMasterTolerations"]] = None,
+        volumes: typing.Optional[typing.Sequence["JenkinsSpecMasterVolumes"]] = None,
     ) -> None:
         '''Master represents Jenkins master pod properties and Jenkins plugins.
 
@@ -1149,16 +1149,16 @@ class JenkinsSpecMasterContainers:
         image_pull_policy: builtins.str,
         name: builtins.str,
         resources: "JenkinsSpecMasterContainersResources",
-        args: typing.Optional[typing.List[builtins.str]] = None,
-        command: typing.Optional[typing.List[builtins.str]] = None,
-        env: typing.Optional[typing.List["JenkinsSpecMasterContainersEnv"]] = None,
-        env_from: typing.Optional[typing.List["JenkinsSpecMasterContainersEnvFrom"]] = None,
+        args: typing.Optional[typing.Sequence[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
+        env: typing.Optional[typing.Sequence["JenkinsSpecMasterContainersEnv"]] = None,
+        env_from: typing.Optional[typing.Sequence["JenkinsSpecMasterContainersEnvFrom"]] = None,
         lifecycle: typing.Optional["JenkinsSpecMasterContainersLifecycle"] = None,
         liveness_probe: typing.Optional["JenkinsSpecMasterContainersLivenessProbe"] = None,
-        ports: typing.Optional[typing.List["JenkinsSpecMasterContainersPorts"]] = None,
+        ports: typing.Optional[typing.Sequence["JenkinsSpecMasterContainersPorts"]] = None,
         readiness_probe: typing.Optional["JenkinsSpecMasterContainersReadinessProbe"] = None,
         security_context: typing.Optional["JenkinsSpecMasterContainersSecurityContext"] = None,
-        volume_mounts: typing.Optional[typing.List["JenkinsSpecMasterContainersVolumeMounts"]] = None,
+        volume_mounts: typing.Optional[typing.Sequence["JenkinsSpecMasterContainersVolumeMounts"]] = None,
         working_dir: typing.Optional[builtins.str] = None,
     ) -> None:
         '''Container defines Kubernetes container attributes.
@@ -2221,7 +2221,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec:
     def __init__(
         self,
         *,
-        command: typing.Optional[typing.List[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''One and only one of the following should be specified.
 
@@ -2275,7 +2275,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         *,
         port: "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort",
         host: typing.Optional[builtins.str] = None,
-        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]] = None,
+        http_headers: typing.Optional[typing.Sequence["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders"]] = None,
         path: typing.Optional[builtins.str] = None,
         scheme: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -2645,7 +2645,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec:
     def __init__(
         self,
         *,
-        command: typing.Optional[typing.List[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''One and only one of the following should be specified.
 
@@ -2699,7 +2699,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         *,
         port: "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort",
         host: typing.Optional[builtins.str] = None,
-        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]] = None,
+        http_headers: typing.Optional[typing.Sequence["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders"]] = None,
         path: typing.Optional[builtins.str] = None,
         scheme: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -3159,7 +3159,7 @@ class JenkinsSpecMasterContainersLivenessProbeExec:
     def __init__(
         self,
         *,
-        command: typing.Optional[typing.List[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''One and only one of the following should be specified.
 
@@ -3213,7 +3213,7 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         *,
         port: "JenkinsSpecMasterContainersLivenessProbeHttpGetPort",
         host: typing.Optional[builtins.str] = None,
-        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]] = None,
+        http_headers: typing.Optional[typing.Sequence["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders"]] = None,
         path: typing.Optional[builtins.str] = None,
         scheme: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -3784,7 +3784,7 @@ class JenkinsSpecMasterContainersReadinessProbeExec:
     def __init__(
         self,
         *,
-        command: typing.Optional[typing.List[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''One and only one of the following should be specified.
 
@@ -3838,7 +3838,7 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         *,
         port: "JenkinsSpecMasterContainersReadinessProbeHttpGetPort",
         host: typing.Optional[builtins.str] = None,
-        http_headers: typing.Optional[typing.List["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]] = None,
+        http_headers: typing.Optional[typing.Sequence["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders"]] = None,
         path: typing.Optional[builtins.str] = None,
         scheme: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -4395,8 +4395,8 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
     def __init__(
         self,
         *,
-        add: typing.Optional[typing.List[builtins.str]] = None,
-        drop: typing.Optional[typing.List[builtins.str]] = None,
+        add: typing.Optional[typing.Sequence[builtins.str]] = None,
+        drop: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''The capabilities to add/drop when running containers.
 
@@ -4853,8 +4853,8 @@ class JenkinsSpecMasterSecurityContext:
         run_as_non_root: typing.Optional[builtins.bool] = None,
         run_as_user: typing.Optional[jsii.Number] = None,
         se_linux_options: typing.Optional["JenkinsSpecMasterSecurityContextSeLinuxOptions"] = None,
-        supplemental_groups: typing.Optional[typing.List[jsii.Number]] = None,
-        sysctls: typing.Optional[typing.List["JenkinsSpecMasterSecurityContextSysctls"]] = None,
+        supplemental_groups: typing.Optional[typing.Sequence[jsii.Number]] = None,
+        sysctls: typing.Optional[typing.Sequence["JenkinsSpecMasterSecurityContextSysctls"]] = None,
         windows_options: typing.Optional["JenkinsSpecMasterSecurityContextWindowsOptions"] = None,
     ) -> None:
         '''SecurityContext that applies to all the containers of the Jenkins Master.
@@ -6177,7 +6177,7 @@ class JenkinsSpecMasterVolumesCephfs:
     def __init__(
         self,
         *,
-        monitors: typing.List[builtins.str],
+        monitors: typing.Sequence[builtins.str],
         path: typing.Optional[builtins.str] = None,
         read_only: typing.Optional[builtins.bool] = None,
         secret_file: typing.Optional[builtins.str] = None,
@@ -6480,7 +6480,7 @@ class JenkinsSpecMasterVolumesConfigMap:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesConfigMapItems"]] = None,
+        items: typing.Optional[typing.Sequence["JenkinsSpecMasterVolumesConfigMapItems"]] = None,
         name: typing.Optional[builtins.str] = None,
         optional: typing.Optional[builtins.bool] = None,
     ) -> None:
@@ -6805,7 +6805,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesDownwardApiItems"]] = None,
+        items: typing.Optional[typing.Sequence["JenkinsSpecMasterVolumesDownwardApiItems"]] = None,
     ) -> None:
         '''DownwardAPI represents downward API about the pod that should populate this volume.
 
@@ -7163,8 +7163,8 @@ class JenkinsSpecMasterVolumesFc:
         fs_type: typing.Optional[builtins.str] = None,
         lun: typing.Optional[jsii.Number] = None,
         read_only: typing.Optional[builtins.bool] = None,
-        target_ww_ns: typing.Optional[typing.List[builtins.str]] = None,
-        wwids: typing.Optional[typing.List[builtins.str]] = None,
+        target_ww_ns: typing.Optional[typing.Sequence[builtins.str]] = None,
+        wwids: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
 
@@ -7811,7 +7811,7 @@ class JenkinsSpecMasterVolumesIscsi:
         fs_type: typing.Optional[builtins.str] = None,
         initiator_name: typing.Optional[builtins.str] = None,
         iscsi_interface: typing.Optional[builtins.str] = None,
-        portals: typing.Optional[typing.List[builtins.str]] = None,
+        portals: typing.Optional[typing.Sequence[builtins.str]] = None,
         read_only: typing.Optional[builtins.bool] = None,
         secret_ref: typing.Optional["JenkinsSpecMasterVolumesIscsiSecretRef"] = None,
     ) -> None:
@@ -8312,7 +8312,7 @@ class JenkinsSpecMasterVolumesProjected:
     def __init__(
         self,
         *,
-        sources: typing.List["JenkinsSpecMasterVolumesProjectedSources"],
+        sources: typing.Sequence["JenkinsSpecMasterVolumesProjectedSources"],
         default_mode: typing.Optional[jsii.Number] = None,
     ) -> None:
         '''Items for all in one resources secrets, configmaps, and downward API.
@@ -8472,7 +8472,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
     def __init__(
         self,
         *,
-        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]] = None,
+        items: typing.Optional[typing.Sequence["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems"]] = None,
         name: typing.Optional[builtins.str] = None,
         optional: typing.Optional[builtins.bool] = None,
     ) -> None:
@@ -8619,7 +8619,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
     def __init__(
         self,
         *,
-        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]] = None,
+        items: typing.Optional[typing.Sequence["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems"]] = None,
     ) -> None:
         '''information about the downwardAPI data to project.
 
@@ -8891,7 +8891,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
     def __init__(
         self,
         *,
-        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]] = None,
+        items: typing.Optional[typing.Sequence["JenkinsSpecMasterVolumesProjectedSourcesSecretItems"]] = None,
         name: typing.Optional[builtins.str] = None,
         optional: typing.Optional[builtins.bool] = None,
     ) -> None:
@@ -9250,7 +9250,7 @@ class JenkinsSpecMasterVolumesRbd:
         self,
         *,
         image: builtins.str,
-        monitors: typing.List[builtins.str],
+        monitors: typing.Sequence[builtins.str],
         fs_type: typing.Optional[builtins.str] = None,
         keyring: typing.Optional[builtins.str] = None,
         pool: typing.Optional[builtins.str] = None,
@@ -9692,7 +9692,7 @@ class JenkinsSpecMasterVolumesSecret:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[typing.List["JenkinsSpecMasterVolumesSecretItems"]] = None,
+        items: typing.Optional[typing.Sequence["JenkinsSpecMasterVolumesSecretItems"]] = None,
         optional: typing.Optional[builtins.bool] = None,
         secret_name: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -11176,7 +11176,7 @@ class JenkinsSpecRestoreActionExec:
     def __init__(
         self,
         *,
-        command: typing.Optional[typing.List[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Exec specifies the action to take.
 
@@ -11542,7 +11542,7 @@ class JenkinsSpecService:
         annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         load_balancer_ip: typing.Optional[builtins.str] = None,
-        load_balancer_source_ranges: typing.Optional[typing.List[builtins.str]] = None,
+        load_balancer_source_ranges: typing.Optional[typing.Sequence[builtins.str]] = None,
         node_port: typing.Optional[jsii.Number] = None,
         port: typing.Optional[jsii.Number] = None,
         type: typing.Optional[builtins.str] = None,
@@ -11738,7 +11738,7 @@ class JenkinsSpecSlaveService:
         annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         load_balancer_ip: typing.Optional[builtins.str] = None,
-        load_balancer_source_ranges: typing.Optional[typing.List[builtins.str]] = None,
+        load_balancer_source_ranges: typing.Optional[typing.Sequence[builtins.str]] = None,
         node_port: typing.Optional[jsii.Number] = None,
         port: typing.Optional[jsii.Number] = None,
         type: typing.Optional[builtins.str] = None,

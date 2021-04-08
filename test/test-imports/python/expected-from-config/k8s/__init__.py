@@ -101,7 +101,7 @@ class AggregationRule:
     def __init__(
         self,
         *,
-        cluster_role_selectors: typing.Optional[typing.List["LabelSelector"]] = None,
+        cluster_role_selectors: typing.Optional[typing.Sequence["LabelSelector"]] = None,
     ) -> None:
         '''AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
 
@@ -960,8 +960,8 @@ class Capabilities:
     def __init__(
         self,
         *,
-        add: typing.Optional[typing.List[builtins.str]] = None,
-        drop: typing.Optional[typing.List[builtins.str]] = None,
+        add: typing.Optional[typing.Sequence[builtins.str]] = None,
+        drop: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Adds and removes POSIX capabilities from running containers.
 
@@ -1022,7 +1022,7 @@ class CephFsPersistentVolumeSource:
     def __init__(
         self,
         *,
-        monitors: typing.List[builtins.str],
+        monitors: typing.Sequence[builtins.str],
         path: typing.Optional[builtins.str] = None,
         read_only: typing.Optional[builtins.bool] = None,
         secret_file: typing.Optional[builtins.str] = None,
@@ -1145,7 +1145,7 @@ class CephFsVolumeSource:
     def __init__(
         self,
         *,
-        monitors: typing.List[builtins.str],
+        monitors: typing.Sequence[builtins.str],
         path: typing.Optional[builtins.str] = None,
         read_only: typing.Optional[builtins.bool] = None,
         secret_file: typing.Optional[builtins.str] = None,
@@ -1269,10 +1269,10 @@ class CertificateSigningRequestSpec:
         self,
         *,
         request: builtins.str,
-        extra: typing.Optional[typing.Mapping[builtins.str, typing.List[builtins.str]]] = None,
-        groups: typing.Optional[typing.List[builtins.str]] = None,
+        extra: typing.Optional[typing.Mapping[builtins.str, typing.Sequence[builtins.str]]] = None,
+        groups: typing.Optional[typing.Sequence[builtins.str]] = None,
         uid: typing.Optional[builtins.str] = None,
-        usages: typing.Optional[typing.List[builtins.str]] = None,
+        usages: typing.Optional[typing.Sequence[builtins.str]] = None,
         username: typing.Optional[builtins.str] = None,
     ) -> None:
         '''This information is immutable after the request is created.
@@ -1955,7 +1955,7 @@ class ConfigMapProjection:
     def __init__(
         self,
         *,
-        items: typing.Optional[typing.List["KeyToPath"]] = None,
+        items: typing.Optional[typing.Sequence["KeyToPath"]] = None,
         name: typing.Optional[builtins.str] = None,
         optional: typing.Optional[builtins.bool] = None,
     ) -> None:
@@ -2035,7 +2035,7 @@ class ConfigMapVolumeSource:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[typing.List["KeyToPath"]] = None,
+        items: typing.Optional[typing.Sequence["KeyToPath"]] = None,
         name: typing.Optional[builtins.str] = None,
         optional: typing.Optional[builtins.bool] = None,
     ) -> None:
@@ -2149,15 +2149,15 @@ class Container:
         self,
         *,
         name: builtins.str,
-        args: typing.Optional[typing.List[builtins.str]] = None,
-        command: typing.Optional[typing.List[builtins.str]] = None,
-        env: typing.Optional[typing.List["EnvVar"]] = None,
-        env_from: typing.Optional[typing.List["EnvFromSource"]] = None,
+        args: typing.Optional[typing.Sequence[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
+        env: typing.Optional[typing.Sequence["EnvVar"]] = None,
+        env_from: typing.Optional[typing.Sequence["EnvFromSource"]] = None,
         image: typing.Optional[builtins.str] = None,
         image_pull_policy: typing.Optional[builtins.str] = None,
         lifecycle: typing.Optional["Lifecycle"] = None,
         liveness_probe: typing.Optional["Probe"] = None,
-        ports: typing.Optional[typing.List["ContainerPort"]] = None,
+        ports: typing.Optional[typing.Sequence["ContainerPort"]] = None,
         readiness_probe: typing.Optional["Probe"] = None,
         resources: typing.Optional["ResourceRequirements"] = None,
         security_context: typing.Optional["SecurityContext"] = None,
@@ -2167,8 +2167,8 @@ class Container:
         termination_message_path: typing.Optional[builtins.str] = None,
         termination_message_policy: typing.Optional[builtins.str] = None,
         tty: typing.Optional[builtins.bool] = None,
-        volume_devices: typing.Optional[typing.List["VolumeDevice"]] = None,
-        volume_mounts: typing.Optional[typing.List["VolumeMount"]] = None,
+        volume_devices: typing.Optional[typing.Sequence["VolumeDevice"]] = None,
+        volume_mounts: typing.Optional[typing.Sequence["VolumeMount"]] = None,
         working_dir: typing.Optional[builtins.str] = None,
     ) -> None:
         '''A single application container that you want to run within a pod.
@@ -2865,7 +2865,7 @@ class CsiDriverSpec:
         *,
         attach_required: typing.Optional[builtins.bool] = None,
         pod_info_on_mount: typing.Optional[builtins.bool] = None,
-        volume_lifecycle_modes: typing.Optional[typing.List[builtins.str]] = None,
+        volume_lifecycle_modes: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''CSIDriverSpec is the specification of a CSIDriver.
 
@@ -2947,7 +2947,7 @@ class CsiNodeDriver:
         name: builtins.str,
         node_id: builtins.str,
         allocatable: typing.Optional["VolumeNodeResources"] = None,
-        topology_keys: typing.Optional[typing.List[builtins.str]] = None,
+        topology_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''CSINodeDriver holds information about the specification of one CSI driver installed on a node.
 
@@ -3031,7 +3031,7 @@ class CsiNodeDriver:
     name_mapping={"drivers": "drivers"},
 )
 class CsiNodeSpec:
-    def __init__(self, *, drivers: typing.List[CsiNodeDriver]) -> None:
+    def __init__(self, *, drivers: typing.Sequence[CsiNodeDriver]) -> None:
         '''CSINodeSpec holds information about the specification of all CSI drivers installed on a node.
 
         :param drivers: drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.
@@ -3503,7 +3503,7 @@ class CustomResourceConversion:
         self,
         *,
         strategy: builtins.str,
-        conversion_review_versions: typing.Optional[typing.List[builtins.str]] = None,
+        conversion_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
         webhook_client_config: typing.Optional["WebhookClientConfig"] = None,
     ) -> None:
         '''CustomResourceConversion describes how to convert different versions of a CR.
@@ -3591,9 +3591,9 @@ class CustomResourceDefinitionNames:
         *,
         kind: builtins.str,
         plural: builtins.str,
-        categories: typing.Optional[typing.List[builtins.str]] = None,
+        categories: typing.Optional[typing.Sequence[builtins.str]] = None,
         list_kind: typing.Optional[builtins.str] = None,
-        short_names: typing.Optional[typing.List[builtins.str]] = None,
+        short_names: typing.Optional[typing.Sequence[builtins.str]] = None,
         singular: typing.Optional[builtins.str] = None,
     ) -> None:
         '''CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition.
@@ -3725,13 +3725,13 @@ class CustomResourceDefinitionSpec:
         group: builtins.str,
         names: CustomResourceDefinitionNames,
         scope: builtins.str,
-        additional_printer_columns: typing.Optional[typing.List[CustomResourceColumnDefinition]] = None,
+        additional_printer_columns: typing.Optional[typing.Sequence[CustomResourceColumnDefinition]] = None,
         conversion: typing.Optional[CustomResourceConversion] = None,
         preserve_unknown_fields: typing.Optional[builtins.bool] = None,
         subresources: typing.Optional["CustomResourceSubresources"] = None,
         validation: typing.Optional["CustomResourceValidation"] = None,
         version: typing.Optional[builtins.str] = None,
-        versions: typing.Optional[typing.List["CustomResourceDefinitionVersion"]] = None,
+        versions: typing.Optional[typing.Sequence["CustomResourceDefinitionVersion"]] = None,
     ) -> None:
         '''CustomResourceDefinitionSpec describes how a user wants their resource to appear.
 
@@ -3924,7 +3924,7 @@ class CustomResourceDefinitionVersion:
         name: builtins.str,
         served: builtins.bool,
         storage: builtins.bool,
-        additional_printer_columns: typing.Optional[typing.List[CustomResourceColumnDefinition]] = None,
+        additional_printer_columns: typing.Optional[typing.Sequence[CustomResourceColumnDefinition]] = None,
         schema: typing.Optional["CustomResourceValidation"] = None,
         subresources: typing.Optional["CustomResourceSubresources"] = None,
     ) -> None:
@@ -4425,7 +4425,7 @@ class DeleteOptions:
         self,
         *,
         api_version: typing.Optional[builtins.str] = None,
-        dry_run: typing.Optional[typing.List[builtins.str]] = None,
+        dry_run: typing.Optional[typing.Sequence[builtins.str]] = None,
         grace_period_seconds: typing.Optional[jsii.Number] = None,
         kind: typing.Optional["IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"] = None,
         orphan_dependents: typing.Optional[builtins.bool] = None,
@@ -4792,7 +4792,7 @@ class DownwardApiProjection:
     def __init__(
         self,
         *,
-        items: typing.Optional[typing.List["DownwardApiVolumeFile"]] = None,
+        items: typing.Optional[typing.Sequence["DownwardApiVolumeFile"]] = None,
     ) -> None:
         '''Represents downward API info for projecting into a projected volume.
 
@@ -4932,7 +4932,7 @@ class DownwardApiVolumeSource:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[typing.List[DownwardApiVolumeFile]] = None,
+        items: typing.Optional[typing.Sequence[DownwardApiVolumeFile]] = None,
     ) -> None:
         '''DownwardAPIVolumeSource represents a volume containing downward API info.
 
@@ -5059,7 +5059,7 @@ class Endpoint:
     def __init__(
         self,
         *,
-        addresses: typing.List[builtins.str],
+        addresses: typing.Sequence[builtins.str],
         conditions: typing.Optional["EndpointConditions"] = None,
         hostname: typing.Optional[builtins.str] = None,
         target_ref: typing.Optional["ObjectReference"] = None,
@@ -5382,9 +5382,9 @@ class EndpointSubset:
     def __init__(
         self,
         *,
-        addresses: typing.Optional[typing.List[EndpointAddress]] = None,
-        not_ready_addresses: typing.Optional[typing.List[EndpointAddress]] = None,
-        ports: typing.Optional[typing.List[EndpointPort]] = None,
+        addresses: typing.Optional[typing.Sequence[EndpointAddress]] = None,
+        not_ready_addresses: typing.Optional[typing.Sequence[EndpointAddress]] = None,
+        ports: typing.Optional[typing.Sequence[EndpointPort]] = None,
     ) -> None:
         '''EndpointSubset is a group of addresses with a common set of ports.
 
@@ -5737,15 +5737,15 @@ class EphemeralContainer:
         self,
         *,
         name: builtins.str,
-        args: typing.Optional[typing.List[builtins.str]] = None,
-        command: typing.Optional[typing.List[builtins.str]] = None,
-        env: typing.Optional[typing.List[EnvVar]] = None,
-        env_from: typing.Optional[typing.List[EnvFromSource]] = None,
+        args: typing.Optional[typing.Sequence[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
+        env: typing.Optional[typing.Sequence[EnvVar]] = None,
+        env_from: typing.Optional[typing.Sequence[EnvFromSource]] = None,
         image: typing.Optional[builtins.str] = None,
         image_pull_policy: typing.Optional[builtins.str] = None,
         lifecycle: typing.Optional["Lifecycle"] = None,
         liveness_probe: typing.Optional["Probe"] = None,
-        ports: typing.Optional[typing.List[ContainerPort]] = None,
+        ports: typing.Optional[typing.Sequence[ContainerPort]] = None,
         readiness_probe: typing.Optional["Probe"] = None,
         resources: typing.Optional["ResourceRequirements"] = None,
         security_context: typing.Optional["SecurityContext"] = None,
@@ -5756,8 +5756,8 @@ class EphemeralContainer:
         termination_message_path: typing.Optional[builtins.str] = None,
         termination_message_policy: typing.Optional[builtins.str] = None,
         tty: typing.Optional[builtins.bool] = None,
-        volume_devices: typing.Optional[typing.List["VolumeDevice"]] = None,
-        volume_mounts: typing.Optional[typing.List["VolumeMount"]] = None,
+        volume_devices: typing.Optional[typing.Sequence["VolumeDevice"]] = None,
+        volume_mounts: typing.Optional[typing.Sequence["VolumeMount"]] = None,
         working_dir: typing.Optional[builtins.str] = None,
     ) -> None:
         '''An EphemeralContainer is a container that may be added temporarily to an existing pod for user-initiated activities such as debugging.
@@ -6255,7 +6255,7 @@ class ExecAction:
     def __init__(
         self,
         *,
-        command: typing.Optional[typing.List[builtins.str]] = None,
+        command: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''ExecAction describes a "run in container" action.
 
@@ -6416,8 +6416,8 @@ class FcVolumeSource:
         fs_type: typing.Optional[builtins.str] = None,
         lun: typing.Optional[jsii.Number] = None,
         read_only: typing.Optional[builtins.bool] = None,
-        target_ww_ns: typing.Optional[typing.List[builtins.str]] = None,
-        wwids: typing.Optional[typing.List[builtins.str]] = None,
+        target_ww_ns: typing.Optional[typing.Sequence[builtins.str]] = None,
+        wwids: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Represents a Fibre Channel volume.
 
@@ -6845,7 +6845,7 @@ class FlowSchemaSpec:
         priority_level_configuration: "PriorityLevelConfigurationReference",
         distinguisher_method: typing.Optional[FlowDistinguisherMethod] = None,
         matching_precedence: typing.Optional[jsii.Number] = None,
-        rules: typing.Optional[typing.List["PolicyRulesWithSubjects"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRulesWithSubjects"]] = None,
     ) -> None:
         '''FlowSchemaSpec describes how the FlowSchema's specification looks like.
 
@@ -6936,7 +6936,7 @@ class FsGroupStrategyOptions:
     def __init__(
         self,
         *,
-        ranges: typing.Optional[typing.List["IdRange"]] = None,
+        ranges: typing.Optional[typing.Sequence["IdRange"]] = None,
         rule: typing.Optional[builtins.str] = None,
     ) -> None:
         '''FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
@@ -7434,7 +7434,7 @@ class HorizontalPodAutoscalerSpec:
         *,
         max_replicas: jsii.Number,
         scale_target_ref: CrossVersionObjectReference,
-        metrics: typing.Optional[typing.List["MetricSpec"]] = None,
+        metrics: typing.Optional[typing.Sequence["MetricSpec"]] = None,
         min_replicas: typing.Optional[jsii.Number] = None,
     ) -> None:
         '''HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.
@@ -7522,7 +7522,7 @@ class HostAlias:
     def __init__(
         self,
         *,
-        hostnames: typing.Optional[typing.List[builtins.str]] = None,
+        hostnames: typing.Optional[typing.Sequence[builtins.str]] = None,
         ip: typing.Optional[builtins.str] = None,
     ) -> None:
         '''HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.
@@ -7700,7 +7700,7 @@ class HttpGetAction:
         *,
         port: "IntOrString",
         host: typing.Optional[builtins.str] = None,
-        http_headers: typing.Optional[typing.List["HttpHeader"]] = None,
+        http_headers: typing.Optional[typing.Sequence["HttpHeader"]] = None,
         path: typing.Optional[builtins.str] = None,
         scheme: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -7911,7 +7911,7 @@ class HttpIngressPath:
     name_mapping={"paths": "paths"},
 )
 class HttpIngressRuleValue:
-    def __init__(self, *, paths: typing.List[HttpIngressPath]) -> None:
+    def __init__(self, *, paths: typing.Sequence[HttpIngressPath]) -> None:
         '''HTTPIngressRuleValue is a list of http selectors pointing to backends.
 
         In the example: http:///? -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.
@@ -8128,8 +8128,8 @@ class IngressSpec:
         self,
         *,
         backend: typing.Optional[IngressBackend] = None,
-        rules: typing.Optional[typing.List[IngressRule]] = None,
-        tls: typing.Optional[typing.List["IngressTls"]] = None,
+        rules: typing.Optional[typing.Sequence[IngressRule]] = None,
+        tls: typing.Optional[typing.Sequence["IngressTls"]] = None,
     ) -> None:
         '''IngressSpec describes the Ingress the user wishes to exist.
 
@@ -8203,7 +8203,7 @@ class IngressTls:
     def __init__(
         self,
         *,
-        hosts: typing.Optional[typing.List[builtins.str]] = None,
+        hosts: typing.Optional[typing.Sequence[builtins.str]] = None,
         secret_name: typing.Optional[builtins.str] = None,
     ) -> None:
         '''IngressTLS describes the transport layer security associated with an Ingress.
@@ -8300,7 +8300,7 @@ class IpBlock:
         self,
         *,
         cidr: builtins.str,
-        except_: typing.Optional[typing.List[builtins.str]] = None,
+        except_: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''IPBlock describes a particular CIDR (Ex.
 
@@ -8377,7 +8377,7 @@ class IscsiPersistentVolumeSource:
         fs_type: typing.Optional[builtins.str] = None,
         initiator_name: typing.Optional[builtins.str] = None,
         iscsi_interface: typing.Optional[builtins.str] = None,
-        portals: typing.Optional[typing.List[builtins.str]] = None,
+        portals: typing.Optional[typing.Sequence[builtins.str]] = None,
         read_only: typing.Optional[builtins.bool] = None,
         secret_ref: typing.Optional["SecretReference"] = None,
     ) -> None:
@@ -8582,7 +8582,7 @@ class IscsiVolumeSource:
         fs_type: typing.Optional[builtins.str] = None,
         initiator_name: typing.Optional[builtins.str] = None,
         iscsi_interface: typing.Optional[builtins.str] = None,
-        portals: typing.Optional[typing.List[builtins.str]] = None,
+        portals: typing.Optional[typing.Sequence[builtins.str]] = None,
         read_only: typing.Optional[builtins.bool] = None,
         secret_ref: typing.Optional["LocalObjectReference"] = None,
     ) -> None:
@@ -9035,13 +9035,13 @@ class JsonSchemaProps:
         *,
         additional_items: typing.Any = None,
         additional_properties: typing.Any = None,
-        all_of: typing.Optional[typing.List["JsonSchemaProps"]] = None,
-        any_of: typing.Optional[typing.List["JsonSchemaProps"]] = None,
+        all_of: typing.Optional[typing.Sequence["JsonSchemaProps"]] = None,
+        any_of: typing.Optional[typing.Sequence["JsonSchemaProps"]] = None,
         default: typing.Any = None,
         definitions: typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]] = None,
         dependencies: typing.Optional[typing.Mapping[builtins.str, typing.Any]] = None,
         description: typing.Optional[builtins.str] = None,
-        enum: typing.Optional[typing.List[typing.Any]] = None,
+        enum: typing.Optional[typing.Sequence[typing.Any]] = None,
         example: typing.Any = None,
         exclusive_maximum: typing.Optional[builtins.bool] = None,
         exclusive_minimum: typing.Optional[builtins.bool] = None,
@@ -9060,12 +9060,12 @@ class JsonSchemaProps:
         multiple_of: typing.Optional[jsii.Number] = None,
         not_: typing.Optional["JsonSchemaProps"] = None,
         nullable: typing.Optional[builtins.bool] = None,
-        one_of: typing.Optional[typing.List["JsonSchemaProps"]] = None,
+        one_of: typing.Optional[typing.Sequence["JsonSchemaProps"]] = None,
         pattern: typing.Optional[builtins.str] = None,
         pattern_properties: typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]] = None,
         properties: typing.Optional[typing.Mapping[builtins.str, "JsonSchemaProps"]] = None,
         ref: typing.Optional[builtins.str] = None,
-        required: typing.Optional[typing.List[builtins.str]] = None,
+        required: typing.Optional[typing.Sequence[builtins.str]] = None,
         schema: typing.Optional[builtins.str] = None,
         title: typing.Optional[builtins.str] = None,
         type: typing.Optional[builtins.str] = None,
@@ -9658,7 +9658,7 @@ class KubeApiServiceList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeApiServiceProps"],
+        items: typing.Sequence["KubeApiServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" API object.
@@ -9677,7 +9677,7 @@ class KubeApiServiceList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeApiServiceProps"],
+        items: typing.Sequence["KubeApiServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList".
@@ -9707,7 +9707,7 @@ class KubeApiServiceListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeApiServiceProps"],
+        items: typing.Sequence["KubeApiServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''APIServiceList is a list of APIService objects.
@@ -9769,7 +9769,7 @@ class KubeApiServiceListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeApiServiceV1Beta1Props"],
+        items: typing.Sequence["KubeApiServiceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList" API object.
@@ -9788,7 +9788,7 @@ class KubeApiServiceListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeApiServiceV1Beta1Props"],
+        items: typing.Sequence["KubeApiServiceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList".
@@ -9818,7 +9818,7 @@ class KubeApiServiceListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeApiServiceV1Beta1Props"],
+        items: typing.Sequence["KubeApiServiceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''APIServiceList is a list of APIService objects.
@@ -10057,7 +10057,7 @@ class KubeAuditSinkListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeAuditSinkV1Alpha1Props"],
+        items: typing.Sequence["KubeAuditSinkV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" API object.
@@ -10076,7 +10076,7 @@ class KubeAuditSinkListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeAuditSinkV1Alpha1Props"],
+        items: typing.Sequence["KubeAuditSinkV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.auditregistration.v1alpha1.AuditSinkList".
@@ -10106,7 +10106,7 @@ class KubeAuditSinkListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeAuditSinkV1Alpha1Props"],
+        items: typing.Sequence["KubeAuditSinkV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''AuditSinkList is a list of AuditSink items.
@@ -10402,7 +10402,7 @@ class KubeCertificateSigningRequestListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCertificateSigningRequestV1Beta1Props"],
+        items: typing.Sequence["KubeCertificateSigningRequestV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList" API object.
@@ -10423,7 +10423,7 @@ class KubeCertificateSigningRequestListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeCertificateSigningRequestV1Beta1Props"],
+        items: typing.Sequence["KubeCertificateSigningRequestV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList".
@@ -10455,7 +10455,7 @@ class KubeCertificateSigningRequestListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCertificateSigningRequestV1Beta1Props"],
+        items: typing.Sequence["KubeCertificateSigningRequestV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''
@@ -10631,7 +10631,7 @@ class KubeClusterRole(
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1.ClusterRole" API object.
 
@@ -10654,7 +10654,7 @@ class KubeClusterRole(
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRole".
 
@@ -10696,7 +10696,7 @@ class KubeClusterRoleBinding(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1.ClusterRoleBinding" API object.
 
@@ -10719,7 +10719,7 @@ class KubeClusterRoleBinding(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleBinding".
 
@@ -10757,7 +10757,7 @@ class KubeClusterRoleBindingList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleBindingProps"],
+        items: typing.Sequence["KubeClusterRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1.ClusterRoleBindingList" API object.
@@ -10776,7 +10776,7 @@ class KubeClusterRoleBindingList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeClusterRoleBindingProps"],
+        items: typing.Sequence["KubeClusterRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleBindingList".
@@ -10806,7 +10806,7 @@ class KubeClusterRoleBindingListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleBindingProps"],
+        items: typing.Sequence["KubeClusterRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -10872,7 +10872,7 @@ class KubeClusterRoleBindingListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Alpha1Props"],
+        items: typing.Sequence["KubeClusterRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList" API object.
@@ -10891,7 +10891,7 @@ class KubeClusterRoleBindingListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Alpha1Props"],
+        items: typing.Sequence["KubeClusterRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList".
@@ -10921,7 +10921,7 @@ class KubeClusterRoleBindingListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Alpha1Props"],
+        items: typing.Sequence["KubeClusterRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -10989,7 +10989,7 @@ class KubeClusterRoleBindingListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Beta1Props"],
+        items: typing.Sequence["KubeClusterRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList" API object.
@@ -11008,7 +11008,7 @@ class KubeClusterRoleBindingListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Beta1Props"],
+        items: typing.Sequence["KubeClusterRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList".
@@ -11038,7 +11038,7 @@ class KubeClusterRoleBindingListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleBindingV1Beta1Props"],
+        items: typing.Sequence["KubeClusterRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -11104,7 +11104,7 @@ class KubeClusterRoleBindingProps:
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''ClusterRoleBinding references a ClusterRole, but not contain it.
 
@@ -11189,7 +11189,7 @@ class KubeClusterRoleBindingV1Alpha1(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding" API object.
 
@@ -11212,7 +11212,7 @@ class KubeClusterRoleBindingV1Alpha1(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding".
 
@@ -11250,7 +11250,7 @@ class KubeClusterRoleBindingV1Alpha1Props:
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''ClusterRoleBinding references a ClusterRole, but not contain it.
 
@@ -11335,7 +11335,7 @@ class KubeClusterRoleBindingV1Beta1(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleBinding" API object.
 
@@ -11358,7 +11358,7 @@ class KubeClusterRoleBindingV1Beta1(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleBinding".
 
@@ -11396,7 +11396,7 @@ class KubeClusterRoleBindingV1Beta1Props:
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''ClusterRoleBinding references a ClusterRole, but not contain it.
 
@@ -11477,7 +11477,7 @@ class KubeClusterRoleList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleProps"],
+        items: typing.Sequence["KubeClusterRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1.ClusterRoleList" API object.
@@ -11496,7 +11496,7 @@ class KubeClusterRoleList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeClusterRoleProps"],
+        items: typing.Sequence["KubeClusterRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleList".
@@ -11526,7 +11526,7 @@ class KubeClusterRoleListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleProps"],
+        items: typing.Sequence["KubeClusterRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ClusterRoleList is a collection of ClusterRoles.
@@ -11592,7 +11592,7 @@ class KubeClusterRoleListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleV1Alpha1Props"],
+        items: typing.Sequence["KubeClusterRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleList" API object.
@@ -11611,7 +11611,7 @@ class KubeClusterRoleListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeClusterRoleV1Alpha1Props"],
+        items: typing.Sequence["KubeClusterRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleList".
@@ -11641,7 +11641,7 @@ class KubeClusterRoleListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleV1Alpha1Props"],
+        items: typing.Sequence["KubeClusterRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ClusterRoleList is a collection of ClusterRoles.
@@ -11709,7 +11709,7 @@ class KubeClusterRoleListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeClusterRoleV1Beta1Props"],
+        items: typing.Sequence["KubeClusterRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleList" API object.
@@ -11728,7 +11728,7 @@ class KubeClusterRoleListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeClusterRoleV1Beta1Props"],
+        items: typing.Sequence["KubeClusterRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleList".
@@ -11758,7 +11758,7 @@ class KubeClusterRoleListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeClusterRoleV1Beta1Props"],
+        items: typing.Sequence["KubeClusterRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ClusterRoleList is a collection of ClusterRoles.
@@ -11824,7 +11824,7 @@ class KubeClusterRoleProps:
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
 
@@ -11906,7 +11906,7 @@ class KubeClusterRoleV1Alpha1(
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1alpha1.ClusterRole" API object.
 
@@ -11929,7 +11929,7 @@ class KubeClusterRoleV1Alpha1(
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRole".
 
@@ -11967,7 +11967,7 @@ class KubeClusterRoleV1Alpha1Props:
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
 
@@ -12051,7 +12051,7 @@ class KubeClusterRoleV1Beta1(
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1beta1.ClusterRole" API object.
 
@@ -12074,7 +12074,7 @@ class KubeClusterRoleV1Beta1(
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRole".
 
@@ -12112,7 +12112,7 @@ class KubeClusterRoleV1Beta1Props:
         *,
         aggregation_rule: typing.Optional[AggregationRule] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
 
@@ -12192,7 +12192,7 @@ class KubeComponentStatus(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        conditions: typing.Optional[typing.List[ComponentCondition]] = None,
+        conditions: typing.Optional[typing.Sequence[ComponentCondition]] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.ComponentStatus" API object.
@@ -12211,7 +12211,7 @@ class KubeComponentStatus(
     def manifest(
         cls,
         *,
-        conditions: typing.Optional[typing.List[ComponentCondition]] = None,
+        conditions: typing.Optional[typing.Sequence[ComponentCondition]] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.ComponentStatus".
@@ -12247,7 +12247,7 @@ class KubeComponentStatusList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeComponentStatusProps"],
+        items: typing.Sequence["KubeComponentStatusProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.ComponentStatusList" API object.
@@ -12266,7 +12266,7 @@ class KubeComponentStatusList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeComponentStatusProps"],
+        items: typing.Sequence["KubeComponentStatusProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.ComponentStatusList".
@@ -12296,7 +12296,7 @@ class KubeComponentStatusListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeComponentStatusProps"],
+        items: typing.Sequence["KubeComponentStatusProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Status of all the conditions for the component as a list of ComponentStatus objects.
@@ -12356,7 +12356,7 @@ class KubeComponentStatusProps:
     def __init__(
         self,
         *,
-        conditions: typing.Optional[typing.List[ComponentCondition]] = None,
+        conditions: typing.Optional[typing.Sequence[ComponentCondition]] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
     ) -> None:
         '''ComponentStatus (and ComponentStatusList) holds the cluster validation info.
@@ -12484,7 +12484,7 @@ class KubeConfigMapList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeConfigMapProps"],
+        items: typing.Sequence["KubeConfigMapProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.ConfigMapList" API object.
@@ -12503,7 +12503,7 @@ class KubeConfigMapList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeConfigMapProps"],
+        items: typing.Sequence["KubeConfigMapProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.ConfigMapList".
@@ -12533,7 +12533,7 @@ class KubeConfigMapListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeConfigMapProps"],
+        items: typing.Sequence["KubeConfigMapProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ConfigMapList is a resource containing a list of ConfigMap objects.
@@ -12740,7 +12740,7 @@ class KubeControllerRevisionList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeControllerRevisionProps"],
+        items: typing.Sequence["KubeControllerRevisionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1.ControllerRevisionList" API object.
@@ -12759,7 +12759,7 @@ class KubeControllerRevisionList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeControllerRevisionProps"],
+        items: typing.Sequence["KubeControllerRevisionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ControllerRevisionList".
@@ -12789,7 +12789,7 @@ class KubeControllerRevisionListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeControllerRevisionProps"],
+        items: typing.Sequence["KubeControllerRevisionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -12853,7 +12853,7 @@ class KubeControllerRevisionListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta1Props"],
+        items: typing.Sequence["KubeControllerRevisionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1beta1.ControllerRevisionList" API object.
@@ -12872,7 +12872,7 @@ class KubeControllerRevisionListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta1Props"],
+        items: typing.Sequence["KubeControllerRevisionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.ControllerRevisionList".
@@ -12902,7 +12902,7 @@ class KubeControllerRevisionListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta1Props"],
+        items: typing.Sequence["KubeControllerRevisionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -12966,7 +12966,7 @@ class KubeControllerRevisionListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta2Props"],
+        items: typing.Sequence["KubeControllerRevisionV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1beta2.ControllerRevisionList" API object.
@@ -12985,7 +12985,7 @@ class KubeControllerRevisionListV1Beta2(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta2Props"],
+        items: typing.Sequence["KubeControllerRevisionV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ControllerRevisionList".
@@ -13015,7 +13015,7 @@ class KubeControllerRevisionListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeControllerRevisionV1Beta2Props"],
+        items: typing.Sequence["KubeControllerRevisionV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -13434,7 +13434,7 @@ class KubeCronJobListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCronJobV1Beta1Props"],
+        items: typing.Sequence["KubeCronJobV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.batch.v1beta1.CronJobList" API object.
@@ -13453,7 +13453,7 @@ class KubeCronJobListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeCronJobV1Beta1Props"],
+        items: typing.Sequence["KubeCronJobV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.batch.v1beta1.CronJobList".
@@ -13483,7 +13483,7 @@ class KubeCronJobListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCronJobV1Beta1Props"],
+        items: typing.Sequence["KubeCronJobV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''CronJobList is a collection of cron jobs.
@@ -13549,7 +13549,7 @@ class KubeCronJobListV2Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCronJobV2Alpha1Props"],
+        items: typing.Sequence["KubeCronJobV2Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.batch.v2alpha1.CronJobList" API object.
@@ -13568,7 +13568,7 @@ class KubeCronJobListV2Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeCronJobV2Alpha1Props"],
+        items: typing.Sequence["KubeCronJobV2Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.batch.v2alpha1.CronJobList".
@@ -13598,7 +13598,7 @@ class KubeCronJobListV2Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCronJobV2Alpha1Props"],
+        items: typing.Sequence["KubeCronJobV2Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''CronJobList is a collection of cron jobs.
@@ -13900,7 +13900,7 @@ class KubeCsiDriverListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCsiDriverV1Beta1Props"],
+        items: typing.Sequence["KubeCsiDriverV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
@@ -13919,7 +13919,7 @@ class KubeCsiDriverListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeCsiDriverV1Beta1Props"],
+        items: typing.Sequence["KubeCsiDriverV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSIDriverList".
@@ -13949,7 +13949,7 @@ class KubeCsiDriverListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCsiDriverV1Beta1Props"],
+        items: typing.Sequence["KubeCsiDriverV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''CSIDriverList is a collection of CSIDriver objects.
@@ -14191,7 +14191,7 @@ class KubeCsiNodeList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCsiNodeProps"],
+        items: typing.Sequence["KubeCsiNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.storage.v1.CSINodeList" API object.
@@ -14210,7 +14210,7 @@ class KubeCsiNodeList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeCsiNodeProps"],
+        items: typing.Sequence["KubeCsiNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.storage.v1.CSINodeList".
@@ -14240,7 +14240,7 @@ class KubeCsiNodeListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCsiNodeProps"],
+        items: typing.Sequence["KubeCsiNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''CSINodeList is a collection of CSINode objects.
@@ -14304,7 +14304,7 @@ class KubeCsiNodeListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCsiNodeV1Beta1Props"],
+        items: typing.Sequence["KubeCsiNodeV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.storage.v1beta1.CSINodeList" API object.
@@ -14323,7 +14323,7 @@ class KubeCsiNodeListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeCsiNodeV1Beta1Props"],
+        items: typing.Sequence["KubeCsiNodeV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSINodeList".
@@ -14353,7 +14353,7 @@ class KubeCsiNodeListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCsiNodeV1Beta1Props"],
+        items: typing.Sequence["KubeCsiNodeV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''CSINodeList is a collection of CSINode objects.
@@ -14655,7 +14655,7 @@ class KubeCustomResourceDefinitionList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCustomResourceDefinitionProps"],
+        items: typing.Sequence["KubeCustomResourceDefinitionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList" API object.
@@ -14674,7 +14674,7 @@ class KubeCustomResourceDefinitionList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeCustomResourceDefinitionProps"],
+        items: typing.Sequence["KubeCustomResourceDefinitionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList".
@@ -14704,7 +14704,7 @@ class KubeCustomResourceDefinitionListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCustomResourceDefinitionProps"],
+        items: typing.Sequence["KubeCustomResourceDefinitionProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
@@ -14767,7 +14767,7 @@ class KubeCustomResourceDefinitionListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeCustomResourceDefinitionV1Beta1Props"],
+        items: typing.Sequence["KubeCustomResourceDefinitionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList" API object.
@@ -14788,7 +14788,7 @@ class KubeCustomResourceDefinitionListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeCustomResourceDefinitionV1Beta1Props"],
+        items: typing.Sequence["KubeCustomResourceDefinitionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList".
@@ -14820,7 +14820,7 @@ class KubeCustomResourceDefinitionListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeCustomResourceDefinitionV1Beta1Props"],
+        items: typing.Sequence["KubeCustomResourceDefinitionV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
@@ -15117,7 +15117,7 @@ class KubeDaemonSetList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDaemonSetProps"],
+        items: typing.Sequence["KubeDaemonSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1.DaemonSetList" API object.
@@ -15136,7 +15136,7 @@ class KubeDaemonSetList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeDaemonSetProps"],
+        items: typing.Sequence["KubeDaemonSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1.DaemonSetList".
@@ -15166,7 +15166,7 @@ class KubeDaemonSetListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDaemonSetProps"],
+        items: typing.Sequence["KubeDaemonSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''DaemonSetList is a collection of daemon sets.
@@ -15232,7 +15232,7 @@ class KubeDaemonSetListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDaemonSetV1Beta1Props"],
+        items: typing.Sequence["KubeDaemonSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.extensions.v1beta1.DaemonSetList" API object.
@@ -15251,7 +15251,7 @@ class KubeDaemonSetListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeDaemonSetV1Beta1Props"],
+        items: typing.Sequence["KubeDaemonSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.DaemonSetList".
@@ -15281,7 +15281,7 @@ class KubeDaemonSetListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDaemonSetV1Beta1Props"],
+        items: typing.Sequence["KubeDaemonSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''DaemonSetList is a collection of daemon sets.
@@ -15347,7 +15347,7 @@ class KubeDaemonSetListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDaemonSetV1Beta2Props"],
+        items: typing.Sequence["KubeDaemonSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1beta2.DaemonSetList" API object.
@@ -15366,7 +15366,7 @@ class KubeDaemonSetListV1Beta2(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeDaemonSetV1Beta2Props"],
+        items: typing.Sequence["KubeDaemonSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.DaemonSetList".
@@ -15396,7 +15396,7 @@ class KubeDaemonSetListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDaemonSetV1Beta2Props"],
+        items: typing.Sequence["KubeDaemonSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''DaemonSetList is a collection of daemon sets.
@@ -15824,7 +15824,7 @@ class KubeDeploymentList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDeploymentProps"],
+        items: typing.Sequence["KubeDeploymentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1.DeploymentList" API object.
@@ -15843,7 +15843,7 @@ class KubeDeploymentList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeDeploymentProps"],
+        items: typing.Sequence["KubeDeploymentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1.DeploymentList".
@@ -15873,7 +15873,7 @@ class KubeDeploymentListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDeploymentProps"],
+        items: typing.Sequence["KubeDeploymentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''DeploymentList is a list of Deployments.
@@ -15937,7 +15937,7 @@ class KubeDeploymentListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDeploymentV1Beta1Props"],
+        items: typing.Sequence["KubeDeploymentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.extensions.v1beta1.DeploymentList" API object.
@@ -15956,7 +15956,7 @@ class KubeDeploymentListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeDeploymentV1Beta1Props"],
+        items: typing.Sequence["KubeDeploymentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.DeploymentList".
@@ -15986,7 +15986,7 @@ class KubeDeploymentListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDeploymentV1Beta1Props"],
+        items: typing.Sequence["KubeDeploymentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''DeploymentList is a list of Deployments.
@@ -16050,7 +16050,7 @@ class KubeDeploymentListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeDeploymentV1Beta2Props"],
+        items: typing.Sequence["KubeDeploymentV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1beta2.DeploymentList" API object.
@@ -16069,7 +16069,7 @@ class KubeDeploymentListV1Beta2(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeDeploymentV1Beta2Props"],
+        items: typing.Sequence["KubeDeploymentV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.DeploymentList".
@@ -16099,7 +16099,7 @@ class KubeDeploymentListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeDeploymentV1Beta2Props"],
+        items: typing.Sequence["KubeDeploymentV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''DeploymentList is a list of Deployments.
@@ -16458,7 +16458,7 @@ class KubeEndpointSliceListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeEndpointSliceV1Beta1Props"],
+        items: typing.Sequence["KubeEndpointSliceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.discovery.v1beta1.EndpointSliceList" API object.
@@ -16477,7 +16477,7 @@ class KubeEndpointSliceListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeEndpointSliceV1Beta1Props"],
+        items: typing.Sequence["KubeEndpointSliceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.discovery.v1beta1.EndpointSliceList".
@@ -16507,7 +16507,7 @@ class KubeEndpointSliceListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeEndpointSliceV1Beta1Props"],
+        items: typing.Sequence["KubeEndpointSliceV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''EndpointSliceList represents a list of endpoint slices.
@@ -16574,9 +16574,9 @@ class KubeEndpointSliceV1Beta1(
         id: builtins.str,
         *,
         address_type: builtins.str,
-        endpoints: typing.List[Endpoint],
+        endpoints: typing.Sequence[Endpoint],
         metadata: typing.Optional["ObjectMeta"] = None,
-        ports: typing.Optional[typing.List[EndpointPort]] = None,
+        ports: typing.Optional[typing.Sequence[EndpointPort]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.discovery.v1beta1.EndpointSlice" API object.
 
@@ -16602,9 +16602,9 @@ class KubeEndpointSliceV1Beta1(
         cls,
         *,
         address_type: builtins.str,
-        endpoints: typing.List[Endpoint],
+        endpoints: typing.Sequence[Endpoint],
         metadata: typing.Optional["ObjectMeta"] = None,
-        ports: typing.Optional[typing.List[EndpointPort]] = None,
+        ports: typing.Optional[typing.Sequence[EndpointPort]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.discovery.v1beta1.EndpointSlice".
 
@@ -16646,9 +16646,9 @@ class KubeEndpointSliceV1Beta1Props:
         self,
         *,
         address_type: builtins.str,
-        endpoints: typing.List[Endpoint],
+        endpoints: typing.Sequence[Endpoint],
         metadata: typing.Optional["ObjectMeta"] = None,
-        ports: typing.Optional[typing.List[EndpointPort]] = None,
+        ports: typing.Optional[typing.Sequence[EndpointPort]] = None,
     ) -> None:
         '''EndpointSlice represents a subset of the endpoints that implement a service.
 
@@ -16757,7 +16757,7 @@ class KubeEndpoints(
         id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        subsets: typing.Optional[typing.List[EndpointSubset]] = None,
+        subsets: typing.Optional[typing.Sequence[EndpointSubset]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.Endpoints" API object.
 
@@ -16776,7 +16776,7 @@ class KubeEndpoints(
         cls,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        subsets: typing.Optional[typing.List[EndpointSubset]] = None,
+        subsets: typing.Optional[typing.Sequence[EndpointSubset]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.Endpoints".
 
@@ -16811,7 +16811,7 @@ class KubeEndpointsList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeEndpointsProps"],
+        items: typing.Sequence["KubeEndpointsProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.EndpointsList" API object.
@@ -16830,7 +16830,7 @@ class KubeEndpointsList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeEndpointsProps"],
+        items: typing.Sequence["KubeEndpointsProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.EndpointsList".
@@ -16860,7 +16860,7 @@ class KubeEndpointsListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeEndpointsProps"],
+        items: typing.Sequence["KubeEndpointsProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''EndpointsList is a list of endpoints.
@@ -16921,7 +16921,7 @@ class KubeEndpointsProps:
         self,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        subsets: typing.Optional[typing.List[EndpointSubset]] = None,
+        subsets: typing.Optional[typing.Sequence[EndpointSubset]] = None,
     ) -> None:
         '''Endpoints is a collection of endpoints that implement the actual service.
 
@@ -17135,7 +17135,7 @@ class KubeEventList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeEventProps"],
+        items: typing.Sequence["KubeEventProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.EventList" API object.
@@ -17154,7 +17154,7 @@ class KubeEventList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeEventProps"],
+        items: typing.Sequence["KubeEventProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.EventList".
@@ -17184,7 +17184,7 @@ class KubeEventListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeEventProps"],
+        items: typing.Sequence["KubeEventProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''EventList is a list of events.
@@ -17250,7 +17250,7 @@ class KubeEventListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeEventV1Beta1Props"],
+        items: typing.Sequence["KubeEventV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.events.v1beta1.EventList" API object.
@@ -17269,7 +17269,7 @@ class KubeEventListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeEventV1Beta1Props"],
+        items: typing.Sequence["KubeEventV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.events.v1beta1.EventList".
@@ -17299,7 +17299,7 @@ class KubeEventListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeEventV1Beta1Props"],
+        items: typing.Sequence["KubeEventV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''EventList is a list of Event objects.
@@ -18145,7 +18145,7 @@ class KubeFlowSchemaListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeFlowSchemaV1Alpha1Props"],
+        items: typing.Sequence["KubeFlowSchemaV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList" API object.
@@ -18164,7 +18164,7 @@ class KubeFlowSchemaListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeFlowSchemaV1Alpha1Props"],
+        items: typing.Sequence["KubeFlowSchemaV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList".
@@ -18194,7 +18194,7 @@ class KubeFlowSchemaListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeFlowSchemaV1Alpha1Props"],
+        items: typing.Sequence["KubeFlowSchemaV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''FlowSchemaList is a list of FlowSchema objects.
@@ -18437,7 +18437,7 @@ class KubeHorizontalPodAutoscalerList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerProps"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList" API object.
@@ -18456,7 +18456,7 @@ class KubeHorizontalPodAutoscalerList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerProps"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList".
@@ -18486,7 +18486,7 @@ class KubeHorizontalPodAutoscalerListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerProps"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''list of horizontal pod autoscaler objects.
@@ -18550,7 +18550,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta1Props"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerV2Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList" API object.
@@ -18571,7 +18571,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta1Props"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerV2Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList".
@@ -18603,7 +18603,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta1Props"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerV2Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.
@@ -18667,7 +18667,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta2Props"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerV2Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList" API object.
@@ -18688,7 +18688,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta2Props"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerV2Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList".
@@ -18720,7 +18720,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeHorizontalPodAutoscalerV2Beta2Props"],
+        items: typing.Sequence["KubeHorizontalPodAutoscalerV2Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.
@@ -19083,7 +19083,7 @@ class KubeIngressListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeIngressV1Beta1Props"],
+        items: typing.Sequence["KubeIngressV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.networking.v1beta1.IngressList" API object.
@@ -19102,7 +19102,7 @@ class KubeIngressListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeIngressV1Beta1Props"],
+        items: typing.Sequence["KubeIngressV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.networking.v1beta1.IngressList".
@@ -19132,7 +19132,7 @@ class KubeIngressListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeIngressV1Beta1Props"],
+        items: typing.Sequence["KubeIngressV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''IngressList is a collection of Ingress.
@@ -19371,7 +19371,7 @@ class KubeJobList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeJobProps"],
+        items: typing.Sequence["KubeJobProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.batch.v1.JobList" API object.
@@ -19390,7 +19390,7 @@ class KubeJobList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeJobProps"],
+        items: typing.Sequence["KubeJobProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.batch.v1.JobList".
@@ -19420,7 +19420,7 @@ class KubeJobListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeJobProps"],
+        items: typing.Sequence["KubeJobProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''JobList is a collection of jobs.
@@ -19600,7 +19600,7 @@ class KubeLeaseList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeLeaseProps"],
+        items: typing.Sequence["KubeLeaseProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.coordination.v1.LeaseList" API object.
@@ -19619,7 +19619,7 @@ class KubeLeaseList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeLeaseProps"],
+        items: typing.Sequence["KubeLeaseProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.coordination.v1.LeaseList".
@@ -19649,7 +19649,7 @@ class KubeLeaseListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeLeaseProps"],
+        items: typing.Sequence["KubeLeaseProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''LeaseList is a list of Lease objects.
@@ -19715,7 +19715,7 @@ class KubeLeaseListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeLeaseV1Beta1Props"],
+        items: typing.Sequence["KubeLeaseV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.coordination.v1beta1.LeaseList" API object.
@@ -19734,7 +19734,7 @@ class KubeLeaseListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeLeaseV1Beta1Props"],
+        items: typing.Sequence["KubeLeaseV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.coordination.v1beta1.LeaseList".
@@ -19764,7 +19764,7 @@ class KubeLeaseListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeLeaseV1Beta1Props"],
+        items: typing.Sequence["KubeLeaseV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''LeaseList is a list of Lease objects.
@@ -20062,7 +20062,7 @@ class KubeLimitRangeList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeLimitRangeProps"],
+        items: typing.Sequence["KubeLimitRangeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.LimitRangeList" API object.
@@ -20081,7 +20081,7 @@ class KubeLimitRangeList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeLimitRangeProps"],
+        items: typing.Sequence["KubeLimitRangeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.LimitRangeList".
@@ -20111,7 +20111,7 @@ class KubeLimitRangeListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeLimitRangeProps"],
+        items: typing.Sequence["KubeLimitRangeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''LimitRangeList is a list of LimitRange items.
@@ -20483,7 +20483,7 @@ class KubeMutatingWebhookConfiguration(
         id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["MutatingWebhook"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration" API object.
 
@@ -20504,7 +20504,7 @@ class KubeMutatingWebhookConfiguration(
         cls,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["MutatingWebhook"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration".
 
@@ -20541,7 +20541,7 @@ class KubeMutatingWebhookConfigurationList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationProps"],
+        items: typing.Sequence["KubeMutatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList" API object.
@@ -20562,7 +20562,7 @@ class KubeMutatingWebhookConfigurationList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationProps"],
+        items: typing.Sequence["KubeMutatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList".
@@ -20594,7 +20594,7 @@ class KubeMutatingWebhookConfigurationListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationProps"],
+        items: typing.Sequence["KubeMutatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
@@ -20660,7 +20660,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationV1Beta1Props"],
+        items: typing.Sequence["KubeMutatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList" API object.
@@ -20681,7 +20681,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationV1Beta1Props"],
+        items: typing.Sequence["KubeMutatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList".
@@ -20713,7 +20713,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeMutatingWebhookConfigurationV1Beta1Props"],
+        items: typing.Sequence["KubeMutatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
@@ -20774,7 +20774,7 @@ class KubeMutatingWebhookConfigurationProps:
         self,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["MutatingWebhook"]] = None,
     ) -> None:
         '''MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
 
@@ -20841,7 +20841,7 @@ class KubeMutatingWebhookConfigurationV1Beta1(
         id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["MutatingWebhook"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration" API object.
 
@@ -20862,7 +20862,7 @@ class KubeMutatingWebhookConfigurationV1Beta1(
         cls,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["MutatingWebhook"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration".
 
@@ -20894,7 +20894,7 @@ class KubeMutatingWebhookConfigurationV1Beta1Props:
         self,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["MutatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["MutatingWebhook"]] = None,
     ) -> None:
         '''MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
 
@@ -21017,7 +21017,7 @@ class KubeNamespaceList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeNamespaceProps"],
+        items: typing.Sequence["KubeNamespaceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.NamespaceList" API object.
@@ -21036,7 +21036,7 @@ class KubeNamespaceList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeNamespaceProps"],
+        items: typing.Sequence["KubeNamespaceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.NamespaceList".
@@ -21066,7 +21066,7 @@ class KubeNamespaceListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeNamespaceProps"],
+        items: typing.Sequence["KubeNamespaceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''NamespaceList is a list of Namespaces.
@@ -21254,7 +21254,7 @@ class KubeNetworkPolicyList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeNetworkPolicyProps"],
+        items: typing.Sequence["KubeNetworkPolicyProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.networking.v1.NetworkPolicyList" API object.
@@ -21273,7 +21273,7 @@ class KubeNetworkPolicyList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeNetworkPolicyProps"],
+        items: typing.Sequence["KubeNetworkPolicyProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.networking.v1.NetworkPolicyList".
@@ -21303,7 +21303,7 @@ class KubeNetworkPolicyListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeNetworkPolicyProps"],
+        items: typing.Sequence["KubeNetworkPolicyProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''NetworkPolicyList is a list of NetworkPolicy objects.
@@ -21369,7 +21369,7 @@ class KubeNetworkPolicyListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeNetworkPolicyV1Beta1Props"],
+        items: typing.Sequence["KubeNetworkPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.extensions.v1beta1.NetworkPolicyList" API object.
@@ -21388,7 +21388,7 @@ class KubeNetworkPolicyListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeNetworkPolicyV1Beta1Props"],
+        items: typing.Sequence["KubeNetworkPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.NetworkPolicyList".
@@ -21418,7 +21418,7 @@ class KubeNetworkPolicyListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeNetworkPolicyV1Beta1Props"],
+        items: typing.Sequence["KubeNetworkPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''DEPRECATED 1.9 - This group version of NetworkPolicyList is deprecated by networking/v1/NetworkPolicyList. Network Policy List is a list of NetworkPolicy objects.
@@ -21714,7 +21714,7 @@ class KubeNodeList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeNodeProps"],
+        items: typing.Sequence["KubeNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.NodeList" API object.
@@ -21733,7 +21733,7 @@ class KubeNodeList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeNodeProps"],
+        items: typing.Sequence["KubeNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.NodeList".
@@ -21763,7 +21763,7 @@ class KubeNodeListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeNodeProps"],
+        items: typing.Sequence["KubeNodeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''NodeList is the whole list of all Nodes which have been registered with master.
@@ -22006,7 +22006,7 @@ class KubePersistentVolumeClaimList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePersistentVolumeClaimProps"],
+        items: typing.Sequence["KubePersistentVolumeClaimProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.PersistentVolumeClaimList" API object.
@@ -22025,7 +22025,7 @@ class KubePersistentVolumeClaimList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePersistentVolumeClaimProps"],
+        items: typing.Sequence["KubePersistentVolumeClaimProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolumeClaimList".
@@ -22055,7 +22055,7 @@ class KubePersistentVolumeClaimListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePersistentVolumeClaimProps"],
+        items: typing.Sequence["KubePersistentVolumeClaimProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PersistentVolumeClaimList is a list of PersistentVolumeClaim items.
@@ -22186,7 +22186,7 @@ class KubePersistentVolumeList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePersistentVolumeProps"],
+        items: typing.Sequence["KubePersistentVolumeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.PersistentVolumeList" API object.
@@ -22205,7 +22205,7 @@ class KubePersistentVolumeList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePersistentVolumeProps"],
+        items: typing.Sequence["KubePersistentVolumeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolumeList".
@@ -22235,7 +22235,7 @@ class KubePersistentVolumeListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePersistentVolumeProps"],
+        items: typing.Sequence["KubePersistentVolumeProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PersistentVolumeList is a list of PersistentVolume items.
@@ -22421,7 +22421,7 @@ class KubePodDisruptionBudgetListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodDisruptionBudgetV1Beta1Props"],
+        items: typing.Sequence["KubePodDisruptionBudgetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" API object.
@@ -22440,7 +22440,7 @@ class KubePodDisruptionBudgetListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePodDisruptionBudgetV1Beta1Props"],
+        items: typing.Sequence["KubePodDisruptionBudgetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList".
@@ -22470,7 +22470,7 @@ class KubePodDisruptionBudgetListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodDisruptionBudgetV1Beta1Props"],
+        items: typing.Sequence["KubePodDisruptionBudgetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
@@ -22645,7 +22645,7 @@ class KubePodList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodProps"],
+        items: typing.Sequence["KubePodProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.PodList" API object.
@@ -22664,7 +22664,7 @@ class KubePodList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePodProps"],
+        items: typing.Sequence["KubePodProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.PodList".
@@ -22694,7 +22694,7 @@ class KubePodListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodProps"],
+        items: typing.Sequence["KubePodProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PodList is a list of Pods.
@@ -22762,7 +22762,7 @@ class KubePodPresetListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodPresetV1Alpha1Props"],
+        items: typing.Sequence["KubePodPresetV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.settings.v1alpha1.PodPresetList" API object.
@@ -22781,7 +22781,7 @@ class KubePodPresetListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePodPresetV1Alpha1Props"],
+        items: typing.Sequence["KubePodPresetV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.settings.v1alpha1.PodPresetList".
@@ -22811,7 +22811,7 @@ class KubePodPresetListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodPresetV1Alpha1Props"],
+        items: typing.Sequence["KubePodPresetV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PodPresetList is a list of PodPreset objects.
@@ -23054,7 +23054,7 @@ class KubePodSecurityPolicyListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodSecurityPolicyV1Beta1Props"],
+        items: typing.Sequence["KubePodSecurityPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" API object.
@@ -23073,7 +23073,7 @@ class KubePodSecurityPolicyListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePodSecurityPolicyV1Beta1Props"],
+        items: typing.Sequence["KubePodSecurityPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodSecurityPolicyList".
@@ -23103,7 +23103,7 @@ class KubePodSecurityPolicyListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodSecurityPolicyV1Beta1Props"],
+        items: typing.Sequence["KubePodSecurityPolicyV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PodSecurityPolicyList is a list of PodSecurityPolicy objects.
@@ -23340,7 +23340,7 @@ class KubePodTemplateList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePodTemplateProps"],
+        items: typing.Sequence["KubePodTemplateProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.PodTemplateList" API object.
@@ -23359,7 +23359,7 @@ class KubePodTemplateList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePodTemplateProps"],
+        items: typing.Sequence["KubePodTemplateProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.PodTemplateList".
@@ -23389,7 +23389,7 @@ class KubePodTemplateListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePodTemplateProps"],
+        items: typing.Sequence["KubePodTemplateProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PodTemplateList is a list of PodTemplates.
@@ -23599,7 +23599,7 @@ class KubePriorityClassList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePriorityClassProps"],
+        items: typing.Sequence["KubePriorityClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.scheduling.v1.PriorityClassList" API object.
@@ -23618,7 +23618,7 @@ class KubePriorityClassList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePriorityClassProps"],
+        items: typing.Sequence["KubePriorityClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1.PriorityClassList".
@@ -23648,7 +23648,7 @@ class KubePriorityClassListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubePriorityClassProps"],
+        items: typing.Sequence["KubePriorityClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PriorityClassList is a collection of priority classes.
@@ -23712,7 +23712,7 @@ class KubePriorityClassListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePriorityClassV1Alpha1Props"],
+        items: typing.Sequence["KubePriorityClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.scheduling.v1alpha1.PriorityClassList" API object.
@@ -23731,7 +23731,7 @@ class KubePriorityClassListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePriorityClassV1Alpha1Props"],
+        items: typing.Sequence["KubePriorityClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1alpha1.PriorityClassList".
@@ -23761,7 +23761,7 @@ class KubePriorityClassListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePriorityClassV1Alpha1Props"],
+        items: typing.Sequence["KubePriorityClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PriorityClassList is a collection of priority classes.
@@ -23825,7 +23825,7 @@ class KubePriorityClassListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePriorityClassV1Beta1Props"],
+        items: typing.Sequence["KubePriorityClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.scheduling.v1beta1.PriorityClassList" API object.
@@ -23844,7 +23844,7 @@ class KubePriorityClassListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePriorityClassV1Beta1Props"],
+        items: typing.Sequence["KubePriorityClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1beta1.PriorityClassList".
@@ -23874,7 +23874,7 @@ class KubePriorityClassListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePriorityClassV1Beta1Props"],
+        items: typing.Sequence["KubePriorityClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PriorityClassList is a collection of priority classes.
@@ -24437,7 +24437,7 @@ class KubePriorityLevelConfigurationListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubePriorityLevelConfigurationV1Alpha1Props"],
+        items: typing.Sequence["KubePriorityLevelConfigurationV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList" API object.
@@ -24458,7 +24458,7 @@ class KubePriorityLevelConfigurationListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubePriorityLevelConfigurationV1Alpha1Props"],
+        items: typing.Sequence["KubePriorityLevelConfigurationV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList".
@@ -24490,7 +24490,7 @@ class KubePriorityLevelConfigurationListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubePriorityLevelConfigurationV1Alpha1Props"],
+        items: typing.Sequence["KubePriorityLevelConfigurationV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
@@ -24733,7 +24733,7 @@ class KubeReplicaSetList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeReplicaSetProps"],
+        items: typing.Sequence["KubeReplicaSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1.ReplicaSetList" API object.
@@ -24752,7 +24752,7 @@ class KubeReplicaSetList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeReplicaSetProps"],
+        items: typing.Sequence["KubeReplicaSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ReplicaSetList".
@@ -24782,7 +24782,7 @@ class KubeReplicaSetListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeReplicaSetProps"],
+        items: typing.Sequence["KubeReplicaSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ReplicaSetList is a collection of ReplicaSets.
@@ -24850,7 +24850,7 @@ class KubeReplicaSetListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeReplicaSetV1Beta1Props"],
+        items: typing.Sequence["KubeReplicaSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.extensions.v1beta1.ReplicaSetList" API object.
@@ -24869,7 +24869,7 @@ class KubeReplicaSetListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeReplicaSetV1Beta1Props"],
+        items: typing.Sequence["KubeReplicaSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.ReplicaSetList".
@@ -24899,7 +24899,7 @@ class KubeReplicaSetListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeReplicaSetV1Beta1Props"],
+        items: typing.Sequence["KubeReplicaSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ReplicaSetList is a collection of ReplicaSets.
@@ -24967,7 +24967,7 @@ class KubeReplicaSetListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeReplicaSetV1Beta2Props"],
+        items: typing.Sequence["KubeReplicaSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1beta2.ReplicaSetList" API object.
@@ -24986,7 +24986,7 @@ class KubeReplicaSetListV1Beta2(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeReplicaSetV1Beta2Props"],
+        items: typing.Sequence["KubeReplicaSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ReplicaSetList".
@@ -25016,7 +25016,7 @@ class KubeReplicaSetListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeReplicaSetV1Beta2Props"],
+        items: typing.Sequence["KubeReplicaSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ReplicaSetList is a collection of ReplicaSets.
@@ -25446,7 +25446,7 @@ class KubeReplicationControllerList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeReplicationControllerProps"],
+        items: typing.Sequence["KubeReplicationControllerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.ReplicationControllerList" API object.
@@ -25465,7 +25465,7 @@ class KubeReplicationControllerList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeReplicationControllerProps"],
+        items: typing.Sequence["KubeReplicationControllerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.ReplicationControllerList".
@@ -25495,7 +25495,7 @@ class KubeReplicationControllerListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeReplicationControllerProps"],
+        items: typing.Sequence["KubeReplicationControllerProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ReplicationControllerList is a collection of replication controllers.
@@ -25681,7 +25681,7 @@ class KubeResourceQuotaList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeResourceQuotaProps"],
+        items: typing.Sequence["KubeResourceQuotaProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.ResourceQuotaList" API object.
@@ -25700,7 +25700,7 @@ class KubeResourceQuotaList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeResourceQuotaProps"],
+        items: typing.Sequence["KubeResourceQuotaProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.ResourceQuotaList".
@@ -25730,7 +25730,7 @@ class KubeResourceQuotaListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeResourceQuotaProps"],
+        items: typing.Sequence["KubeResourceQuotaProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ResourceQuotaList is a list of ResourceQuota items.
@@ -25858,7 +25858,7 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
         id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1.Role" API object.
 
@@ -25877,7 +25877,7 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
         cls,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.Role".
 
@@ -25916,7 +25916,7 @@ class KubeRoleBinding(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1.RoleBinding" API object.
 
@@ -25939,7 +25939,7 @@ class KubeRoleBinding(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleBinding".
 
@@ -25977,7 +25977,7 @@ class KubeRoleBindingList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleBindingProps"],
+        items: typing.Sequence["KubeRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1.RoleBindingList" API object.
@@ -25996,7 +25996,7 @@ class KubeRoleBindingList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeRoleBindingProps"],
+        items: typing.Sequence["KubeRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleBindingList".
@@ -26026,7 +26026,7 @@ class KubeRoleBindingListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleBindingProps"],
+        items: typing.Sequence["KubeRoleBindingProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''RoleBindingList is a collection of RoleBindings.
@@ -26090,7 +26090,7 @@ class KubeRoleBindingListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleBindingV1Alpha1Props"],
+        items: typing.Sequence["KubeRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1alpha1.RoleBindingList" API object.
@@ -26109,7 +26109,7 @@ class KubeRoleBindingListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeRoleBindingV1Alpha1Props"],
+        items: typing.Sequence["KubeRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleBindingList".
@@ -26139,7 +26139,7 @@ class KubeRoleBindingListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleBindingV1Alpha1Props"],
+        items: typing.Sequence["KubeRoleBindingV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
@@ -26203,7 +26203,7 @@ class KubeRoleBindingListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleBindingV1Beta1Props"],
+        items: typing.Sequence["KubeRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1beta1.RoleBindingList" API object.
@@ -26222,7 +26222,7 @@ class KubeRoleBindingListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeRoleBindingV1Beta1Props"],
+        items: typing.Sequence["KubeRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleBindingList".
@@ -26252,7 +26252,7 @@ class KubeRoleBindingListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleBindingV1Beta1Props"],
+        items: typing.Sequence["KubeRoleBindingV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
@@ -26316,7 +26316,7 @@ class KubeRoleBindingProps:
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''RoleBinding references a role, but does not contain it.
 
@@ -26401,7 +26401,7 @@ class KubeRoleBindingV1Alpha1(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1alpha1.RoleBinding" API object.
 
@@ -26424,7 +26424,7 @@ class KubeRoleBindingV1Alpha1(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleBinding".
 
@@ -26462,7 +26462,7 @@ class KubeRoleBindingV1Alpha1Props:
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''RoleBinding references a role, but does not contain it.
 
@@ -26547,7 +26547,7 @@ class KubeRoleBindingV1Beta1(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1beta1.RoleBinding" API object.
 
@@ -26570,7 +26570,7 @@ class KubeRoleBindingV1Beta1(
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleBinding".
 
@@ -26608,7 +26608,7 @@ class KubeRoleBindingV1Beta1Props:
         *,
         role_ref: "RoleRef",
         metadata: typing.Optional["ObjectMeta"] = None,
-        subjects: typing.Optional[typing.List["Subject"]] = None,
+        subjects: typing.Optional[typing.Sequence["Subject"]] = None,
     ) -> None:
         '''RoleBinding references a role, but does not contain it.
 
@@ -26689,7 +26689,7 @@ class KubeRoleList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleProps"],
+        items: typing.Sequence["KubeRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1.RoleList" API object.
@@ -26708,7 +26708,7 @@ class KubeRoleList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeRoleProps"],
+        items: typing.Sequence["KubeRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleList".
@@ -26738,7 +26738,7 @@ class KubeRoleListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleProps"],
+        items: typing.Sequence["KubeRoleProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''RoleList is a collection of Roles.
@@ -26804,7 +26804,7 @@ class KubeRoleListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleV1Alpha1Props"],
+        items: typing.Sequence["KubeRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1alpha1.RoleList" API object.
@@ -26823,7 +26823,7 @@ class KubeRoleListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeRoleV1Alpha1Props"],
+        items: typing.Sequence["KubeRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleList".
@@ -26853,7 +26853,7 @@ class KubeRoleListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleV1Alpha1Props"],
+        items: typing.Sequence["KubeRoleV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''RoleList is a collection of Roles.
@@ -26919,7 +26919,7 @@ class KubeRoleListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRoleV1Beta1Props"],
+        items: typing.Sequence["KubeRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1beta1.RoleList" API object.
@@ -26938,7 +26938,7 @@ class KubeRoleListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeRoleV1Beta1Props"],
+        items: typing.Sequence["KubeRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleList".
@@ -26968,7 +26968,7 @@ class KubeRoleListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRoleV1Beta1Props"],
+        items: typing.Sequence["KubeRoleV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''RoleList is a collection of Roles Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
@@ -27027,7 +27027,7 @@ class KubeRoleProps:
         self,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 
@@ -27092,7 +27092,7 @@ class KubeRoleV1Alpha1(
         id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1alpha1.Role" API object.
 
@@ -27111,7 +27111,7 @@ class KubeRoleV1Alpha1(
         cls,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.Role".
 
@@ -27141,7 +27141,7 @@ class KubeRoleV1Alpha1Props:
         self,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 
@@ -27208,7 +27208,7 @@ class KubeRoleV1Beta1(
         id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.rbac.v1beta1.Role" API object.
 
@@ -27227,7 +27227,7 @@ class KubeRoleV1Beta1(
         cls,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.Role".
 
@@ -27257,7 +27257,7 @@ class KubeRoleV1Beta1Props:
         self,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        rules: typing.Optional[typing.List["PolicyRule"]] = None,
+        rules: typing.Optional[typing.Sequence["PolicyRule"]] = None,
     ) -> None:
         '''Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 
@@ -27321,7 +27321,7 @@ class KubeRuntimeClassListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRuntimeClassV1Alpha1Props"],
+        items: typing.Sequence["KubeRuntimeClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.node.v1alpha1.RuntimeClassList" API object.
@@ -27340,7 +27340,7 @@ class KubeRuntimeClassListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeRuntimeClassV1Alpha1Props"],
+        items: typing.Sequence["KubeRuntimeClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.node.v1alpha1.RuntimeClassList".
@@ -27370,7 +27370,7 @@ class KubeRuntimeClassListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRuntimeClassV1Alpha1Props"],
+        items: typing.Sequence["KubeRuntimeClassV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''RuntimeClassList is a list of RuntimeClass objects.
@@ -27436,7 +27436,7 @@ class KubeRuntimeClassListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeRuntimeClassV1Beta1Props"],
+        items: typing.Sequence["KubeRuntimeClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.node.v1beta1.RuntimeClassList" API object.
@@ -27455,7 +27455,7 @@ class KubeRuntimeClassListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeRuntimeClassV1Beta1Props"],
+        items: typing.Sequence["KubeRuntimeClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.node.v1beta1.RuntimeClassList".
@@ -27485,7 +27485,7 @@ class KubeRuntimeClassListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeRuntimeClassV1Beta1Props"],
+        items: typing.Sequence["KubeRuntimeClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''RuntimeClassList is a list of RuntimeClass objects.
@@ -28261,7 +28261,7 @@ class KubeSecretList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeSecretProps"],
+        items: typing.Sequence["KubeSecretProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.SecretList" API object.
@@ -28280,7 +28280,7 @@ class KubeSecretList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeSecretProps"],
+        items: typing.Sequence["KubeSecretProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.SecretList".
@@ -28310,7 +28310,7 @@ class KubeSecretListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeSecretProps"],
+        items: typing.Sequence["KubeSecretProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''SecretList is a list of Secret.
@@ -29008,9 +29008,9 @@ class KubeServiceAccount(
         id: builtins.str,
         *,
         automount_service_account_token: typing.Optional[builtins.bool] = None,
-        image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]] = None,
+        image_pull_secrets: typing.Optional[typing.Sequence["LocalObjectReference"]] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        secrets: typing.Optional[typing.List["ObjectReference"]] = None,
+        secrets: typing.Optional[typing.Sequence["ObjectReference"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.ServiceAccount" API object.
 
@@ -29036,9 +29036,9 @@ class KubeServiceAccount(
         cls,
         *,
         automount_service_account_token: typing.Optional[builtins.bool] = None,
-        image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]] = None,
+        image_pull_secrets: typing.Optional[typing.Sequence["LocalObjectReference"]] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        secrets: typing.Optional[typing.List["ObjectReference"]] = None,
+        secrets: typing.Optional[typing.Sequence["ObjectReference"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceAccount".
 
@@ -29080,7 +29080,7 @@ class KubeServiceAccountList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeServiceAccountProps"],
+        items: typing.Sequence["KubeServiceAccountProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.ServiceAccountList" API object.
@@ -29099,7 +29099,7 @@ class KubeServiceAccountList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeServiceAccountProps"],
+        items: typing.Sequence["KubeServiceAccountProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceAccountList".
@@ -29129,7 +29129,7 @@ class KubeServiceAccountListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeServiceAccountProps"],
+        items: typing.Sequence["KubeServiceAccountProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ServiceAccountList is a list of ServiceAccount objects.
@@ -29197,9 +29197,9 @@ class KubeServiceAccountProps:
         self,
         *,
         automount_service_account_token: typing.Optional[builtins.bool] = None,
-        image_pull_secrets: typing.Optional[typing.List["LocalObjectReference"]] = None,
+        image_pull_secrets: typing.Optional[typing.Sequence["LocalObjectReference"]] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        secrets: typing.Optional[typing.List["ObjectReference"]] = None,
+        secrets: typing.Optional[typing.Sequence["ObjectReference"]] = None,
     ) -> None:
         '''ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets.
 
@@ -29295,7 +29295,7 @@ class KubeServiceList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeServiceProps"],
+        items: typing.Sequence["KubeServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.core.v1.ServiceList" API object.
@@ -29314,7 +29314,7 @@ class KubeServiceList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeServiceProps"],
+        items: typing.Sequence["KubeServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceList".
@@ -29344,7 +29344,7 @@ class KubeServiceListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeServiceProps"],
+        items: typing.Sequence["KubeServiceProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ServiceList holds a list of services.
@@ -29534,7 +29534,7 @@ class KubeStatefulSetList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStatefulSetProps"],
+        items: typing.Sequence["KubeStatefulSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1.StatefulSetList" API object.
@@ -29553,7 +29553,7 @@ class KubeStatefulSetList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeStatefulSetProps"],
+        items: typing.Sequence["KubeStatefulSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1.StatefulSetList".
@@ -29583,7 +29583,7 @@ class KubeStatefulSetListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStatefulSetProps"],
+        items: typing.Sequence["KubeStatefulSetProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''StatefulSetList is a collection of StatefulSets.
@@ -29645,7 +29645,7 @@ class KubeStatefulSetListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStatefulSetV1Beta1Props"],
+        items: typing.Sequence["KubeStatefulSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1beta1.StatefulSetList" API object.
@@ -29664,7 +29664,7 @@ class KubeStatefulSetListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeStatefulSetV1Beta1Props"],
+        items: typing.Sequence["KubeStatefulSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.StatefulSetList".
@@ -29694,7 +29694,7 @@ class KubeStatefulSetListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStatefulSetV1Beta1Props"],
+        items: typing.Sequence["KubeStatefulSetV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''StatefulSetList is a collection of StatefulSets.
@@ -29756,7 +29756,7 @@ class KubeStatefulSetListV1Beta2(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStatefulSetV1Beta2Props"],
+        items: typing.Sequence["KubeStatefulSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.apps.v1beta2.StatefulSetList" API object.
@@ -29775,7 +29775,7 @@ class KubeStatefulSetListV1Beta2(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeStatefulSetV1Beta2Props"],
+        items: typing.Sequence["KubeStatefulSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.StatefulSetList".
@@ -29805,7 +29805,7 @@ class KubeStatefulSetListV1Beta2Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStatefulSetV1Beta2Props"],
+        items: typing.Sequence["KubeStatefulSetV1Beta2Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''StatefulSetList is a collection of StatefulSets.
@@ -30369,10 +30369,10 @@ class KubeStorageClass(
         id: builtins.str,
         *,
         provisioner: builtins.str,
-        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allowed_topologies: typing.Optional[typing.Sequence["TopologySelectorTerm"]] = None,
         allow_volume_expansion: typing.Optional[builtins.bool] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
         parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         reclaim_policy: typing.Optional[builtins.str] = None,
         volume_binding_mode: typing.Optional[builtins.str] = None,
@@ -30409,10 +30409,10 @@ class KubeStorageClass(
         cls,
         *,
         provisioner: builtins.str,
-        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allowed_topologies: typing.Optional[typing.Sequence["TopologySelectorTerm"]] = None,
         allow_volume_expansion: typing.Optional[builtins.bool] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
         parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         reclaim_policy: typing.Optional[builtins.str] = None,
         volume_binding_mode: typing.Optional[builtins.str] = None,
@@ -30465,7 +30465,7 @@ class KubeStorageClassList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStorageClassProps"],
+        items: typing.Sequence["KubeStorageClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.storage.v1.StorageClassList" API object.
@@ -30484,7 +30484,7 @@ class KubeStorageClassList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeStorageClassProps"],
+        items: typing.Sequence["KubeStorageClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.storage.v1.StorageClassList".
@@ -30514,7 +30514,7 @@ class KubeStorageClassListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStorageClassProps"],
+        items: typing.Sequence["KubeStorageClassProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''StorageClassList is a collection of storage classes.
@@ -30578,7 +30578,7 @@ class KubeStorageClassListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeStorageClassV1Beta1Props"],
+        items: typing.Sequence["KubeStorageClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.storage.v1beta1.StorageClassList" API object.
@@ -30597,7 +30597,7 @@ class KubeStorageClassListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeStorageClassV1Beta1Props"],
+        items: typing.Sequence["KubeStorageClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.StorageClassList".
@@ -30627,7 +30627,7 @@ class KubeStorageClassListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeStorageClassV1Beta1Props"],
+        items: typing.Sequence["KubeStorageClassV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''StorageClassList is a collection of storage classes.
@@ -30695,10 +30695,10 @@ class KubeStorageClassProps:
         self,
         *,
         provisioner: builtins.str,
-        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allowed_topologies: typing.Optional[typing.Sequence["TopologySelectorTerm"]] = None,
         allow_volume_expansion: typing.Optional[builtins.bool] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
         parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         reclaim_policy: typing.Optional[builtins.str] = None,
         volume_binding_mode: typing.Optional[builtins.str] = None,
@@ -30853,10 +30853,10 @@ class KubeStorageClassV1Beta1(
         id: builtins.str,
         *,
         provisioner: builtins.str,
-        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allowed_topologies: typing.Optional[typing.Sequence["TopologySelectorTerm"]] = None,
         allow_volume_expansion: typing.Optional[builtins.bool] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
         parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         reclaim_policy: typing.Optional[builtins.str] = None,
         volume_binding_mode: typing.Optional[builtins.str] = None,
@@ -30893,10 +30893,10 @@ class KubeStorageClassV1Beta1(
         cls,
         *,
         provisioner: builtins.str,
-        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allowed_topologies: typing.Optional[typing.Sequence["TopologySelectorTerm"]] = None,
         allow_volume_expansion: typing.Optional[builtins.bool] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
         parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         reclaim_policy: typing.Optional[builtins.str] = None,
         volume_binding_mode: typing.Optional[builtins.str] = None,
@@ -30953,10 +30953,10 @@ class KubeStorageClassV1Beta1Props:
         self,
         *,
         provisioner: builtins.str,
-        allowed_topologies: typing.Optional[typing.List["TopologySelectorTerm"]] = None,
+        allowed_topologies: typing.Optional[typing.Sequence["TopologySelectorTerm"]] = None,
         allow_volume_expansion: typing.Optional[builtins.bool] = None,
         metadata: typing.Optional["ObjectMeta"] = None,
-        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
         parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         reclaim_policy: typing.Optional[builtins.str] = None,
         volume_binding_mode: typing.Optional[builtins.str] = None,
@@ -31686,7 +31686,7 @@ class KubeValidatingWebhookConfiguration(
         id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["ValidatingWebhook"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration" API object.
 
@@ -31707,7 +31707,7 @@ class KubeValidatingWebhookConfiguration(
         cls,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["ValidatingWebhook"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration".
 
@@ -31744,7 +31744,7 @@ class KubeValidatingWebhookConfigurationList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationProps"],
+        items: typing.Sequence["KubeValidatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList" API object.
@@ -31765,7 +31765,7 @@ class KubeValidatingWebhookConfigurationList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationProps"],
+        items: typing.Sequence["KubeValidatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList".
@@ -31797,7 +31797,7 @@ class KubeValidatingWebhookConfigurationListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationProps"],
+        items: typing.Sequence["KubeValidatingWebhookConfigurationProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
@@ -31863,7 +31863,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationV1Beta1Props"],
+        items: typing.Sequence["KubeValidatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList" API object.
@@ -31884,7 +31884,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationV1Beta1Props"],
+        items: typing.Sequence["KubeValidatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList".
@@ -31916,7 +31916,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeValidatingWebhookConfigurationV1Beta1Props"],
+        items: typing.Sequence["KubeValidatingWebhookConfigurationV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
@@ -31977,7 +31977,7 @@ class KubeValidatingWebhookConfigurationProps:
         self,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["ValidatingWebhook"]] = None,
     ) -> None:
         '''ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
 
@@ -32044,7 +32044,7 @@ class KubeValidatingWebhookConfigurationV1Beta1(
         id: builtins.str,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["ValidatingWebhook"]] = None,
     ) -> None:
         '''Defines a "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration" API object.
 
@@ -32065,7 +32065,7 @@ class KubeValidatingWebhookConfigurationV1Beta1(
         cls,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["ValidatingWebhook"]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration".
 
@@ -32097,7 +32097,7 @@ class KubeValidatingWebhookConfigurationV1Beta1Props:
         self,
         *,
         metadata: typing.Optional["ObjectMeta"] = None,
-        webhooks: typing.Optional[typing.List["ValidatingWebhook"]] = None,
+        webhooks: typing.Optional[typing.Sequence["ValidatingWebhook"]] = None,
     ) -> None:
         '''ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
 
@@ -32220,7 +32220,7 @@ class KubeVolumeAttachmentList(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeVolumeAttachmentProps"],
+        items: typing.Sequence["KubeVolumeAttachmentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.storage.v1.VolumeAttachmentList" API object.
@@ -32239,7 +32239,7 @@ class KubeVolumeAttachmentList(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeVolumeAttachmentProps"],
+        items: typing.Sequence["KubeVolumeAttachmentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.storage.v1.VolumeAttachmentList".
@@ -32269,7 +32269,7 @@ class KubeVolumeAttachmentListProps:
     def __init__(
         self,
         *,
-        items: typing.List["KubeVolumeAttachmentProps"],
+        items: typing.Sequence["KubeVolumeAttachmentProps"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -32333,7 +32333,7 @@ class KubeVolumeAttachmentListV1Alpha1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Alpha1Props"],
+        items: typing.Sequence["KubeVolumeAttachmentV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.storage.v1alpha1.VolumeAttachmentList" API object.
@@ -32352,7 +32352,7 @@ class KubeVolumeAttachmentListV1Alpha1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Alpha1Props"],
+        items: typing.Sequence["KubeVolumeAttachmentV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.VolumeAttachmentList".
@@ -32382,7 +32382,7 @@ class KubeVolumeAttachmentListV1Alpha1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Alpha1Props"],
+        items: typing.Sequence["KubeVolumeAttachmentV1Alpha1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -32446,7 +32446,7 @@ class KubeVolumeAttachmentListV1Beta1(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Beta1Props"],
+        items: typing.Sequence["KubeVolumeAttachmentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''Defines a "io.k8s.api.storage.v1beta1.VolumeAttachmentList" API object.
@@ -32465,7 +32465,7 @@ class KubeVolumeAttachmentListV1Beta1(
     def manifest(
         cls,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Beta1Props"],
+        items: typing.Sequence["KubeVolumeAttachmentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.VolumeAttachmentList".
@@ -32495,7 +32495,7 @@ class KubeVolumeAttachmentListV1Beta1Props:
     def __init__(
         self,
         *,
-        items: typing.List["KubeVolumeAttachmentV1Beta1Props"],
+        items: typing.Sequence["KubeVolumeAttachmentV1Beta1Props"],
         metadata: typing.Optional["ListMeta"] = None,
     ) -> None:
         '''VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -32868,7 +32868,7 @@ class LabelSelector:
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.List["LabelSelectorRequirement"]] = None,
+        match_expressions: typing.Optional[typing.Sequence["LabelSelectorRequirement"]] = None,
         match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
     ) -> None:
         '''A label selector is a label query over a set of resources.
@@ -32935,7 +32935,7 @@ class LabelSelectorRequirement:
         *,
         key: builtins.str,
         operator: builtins.str,
-        values: typing.Optional[typing.List[builtins.str]] = None,
+        values: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
@@ -33290,7 +33290,7 @@ class LimitRangeItem:
     name_mapping={"limits": "limits"},
 )
 class LimitRangeSpec:
-    def __init__(self, *, limits: typing.List[LimitRangeItem]) -> None:
+    def __init__(self, *, limits: typing.Sequence[LimitRangeItem]) -> None:
         '''LimitRangeSpec defines a min/max usage limit for resources that match on kind.
 
         :param limits: Limits is the list of LimitRangeItem objects that are enforced.
@@ -34060,13 +34060,13 @@ class MutatingWebhook:
         *,
         client_config: "WebhookClientConfig",
         name: builtins.str,
-        admission_review_versions: typing.Optional[typing.List[builtins.str]] = None,
+        admission_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
         failure_policy: typing.Optional[builtins.str] = None,
         match_policy: typing.Optional[builtins.str] = None,
         namespace_selector: typing.Optional[LabelSelector] = None,
         object_selector: typing.Optional[LabelSelector] = None,
         reinvocation_policy: typing.Optional[builtins.str] = None,
-        rules: typing.Optional[typing.List["RuleWithOperations"]] = None,
+        rules: typing.Optional[typing.Sequence["RuleWithOperations"]] = None,
         side_effects: typing.Optional[builtins.str] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
@@ -34314,7 +34314,7 @@ class NamespaceSpec:
     def __init__(
         self,
         *,
-        finalizers: typing.Optional[typing.List[builtins.str]] = None,
+        finalizers: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''NamespaceSpec describes the attributes on a Namespace.
 
@@ -34358,8 +34358,8 @@ class NetworkPolicyEgressRule:
     def __init__(
         self,
         *,
-        ports: typing.Optional[typing.List["NetworkPolicyPort"]] = None,
-        to: typing.Optional[typing.List["NetworkPolicyPeer"]] = None,
+        ports: typing.Optional[typing.Sequence["NetworkPolicyPort"]] = None,
+        to: typing.Optional[typing.Sequence["NetworkPolicyPeer"]] = None,
     ) -> None:
         '''NetworkPolicyEgressRule describes a particular set of traffic that is allowed out of pods matched by a NetworkPolicySpec's podSelector.
 
@@ -34419,8 +34419,8 @@ class NetworkPolicyIngressRule:
     def __init__(
         self,
         *,
-        from_: typing.Optional[typing.List["NetworkPolicyPeer"]] = None,
-        ports: typing.Optional[typing.List["NetworkPolicyPort"]] = None,
+        from_: typing.Optional[typing.Sequence["NetworkPolicyPeer"]] = None,
+        ports: typing.Optional[typing.Sequence["NetworkPolicyPort"]] = None,
     ) -> None:
         '''NetworkPolicyIngressRule describes a particular set of traffic that is allowed to the pods matched by a NetworkPolicySpec's podSelector.
 
@@ -34635,9 +34635,9 @@ class NetworkPolicySpec:
         self,
         *,
         pod_selector: LabelSelector,
-        egress: typing.Optional[typing.List[NetworkPolicyEgressRule]] = None,
-        ingress: typing.Optional[typing.List[NetworkPolicyIngressRule]] = None,
-        policy_types: typing.Optional[typing.List[builtins.str]] = None,
+        egress: typing.Optional[typing.Sequence[NetworkPolicyEgressRule]] = None,
+        ingress: typing.Optional[typing.Sequence[NetworkPolicyIngressRule]] = None,
+        policy_types: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''NetworkPolicySpec provides the specification of a NetworkPolicy.
 
@@ -34808,7 +34808,7 @@ class NodeAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PreferredSchedulingTerm"]] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["PreferredSchedulingTerm"]] = None,
         required_during_scheduling_ignored_during_execution: typing.Optional["NodeSelector"] = None,
     ) -> None:
         '''Node affinity is a group of node affinity scheduling rules.
@@ -34916,7 +34916,11 @@ class NodeConfigSource:
     name_mapping={"node_selector_terms": "nodeSelectorTerms"},
 )
 class NodeSelector:
-    def __init__(self, *, node_selector_terms: typing.List["NodeSelectorTerm"]) -> None:
+    def __init__(
+        self,
+        *,
+        node_selector_terms: typing.Sequence["NodeSelectorTerm"],
+    ) -> None:
         '''A node selector represents the union of the results of one or more label queries over a set of nodes;
 
         that is, it represents the OR of the selectors represented by the node selector terms.
@@ -34964,7 +34968,7 @@ class NodeSelectorRequirement:
         *,
         key: builtins.str,
         operator: builtins.str,
-        values: typing.Optional[typing.List[builtins.str]] = None,
+        values: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
@@ -35038,8 +35042,8 @@ class NodeSelectorTerm:
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.List[NodeSelectorRequirement]] = None,
-        match_fields: typing.Optional[typing.List[NodeSelectorRequirement]] = None,
+        match_expressions: typing.Optional[typing.Sequence[NodeSelectorRequirement]] = None,
+        match_fields: typing.Optional[typing.Sequence[NodeSelectorRequirement]] = None,
     ) -> None:
         '''A null or empty node selector term matches no objects.
 
@@ -35108,9 +35112,9 @@ class NodeSpec:
         config_source: typing.Optional[NodeConfigSource] = None,
         external_id: typing.Optional[builtins.str] = None,
         pod_cidr: typing.Optional[builtins.str] = None,
-        pod_cid_rs: typing.Optional[typing.List[builtins.str]] = None,
+        pod_cid_rs: typing.Optional[typing.Sequence[builtins.str]] = None,
         provider_id: typing.Optional[builtins.str] = None,
-        taints: typing.Optional[typing.List["Taint"]] = None,
+        taints: typing.Optional[typing.Sequence["Taint"]] = None,
         unschedulable: typing.Optional[builtins.bool] = None,
     ) -> None:
         '''NodeSpec describes the attributes that a node is created with.
@@ -35288,8 +35292,8 @@ class NonResourcePolicyRule:
     def __init__(
         self,
         *,
-        non_resource_ur_ls: typing.List[builtins.str],
-        verbs: typing.List[builtins.str],
+        non_resource_ur_ls: typing.Sequence[builtins.str],
+        verbs: typing.Sequence[builtins.str],
     ) -> None:
         '''NonResourcePolicyRule is a predicate that matches non-resource requests according to their verb and the target non-resource URL.
 
@@ -35435,14 +35439,14 @@ class ObjectMeta:
         creation_timestamp: typing.Optional[datetime.datetime] = None,
         deletion_grace_period_seconds: typing.Optional[jsii.Number] = None,
         deletion_timestamp: typing.Optional[datetime.datetime] = None,
-        finalizers: typing.Optional[typing.List[builtins.str]] = None,
+        finalizers: typing.Optional[typing.Sequence[builtins.str]] = None,
         generate_name: typing.Optional[builtins.str] = None,
         generation: typing.Optional[jsii.Number] = None,
         labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        managed_fields: typing.Optional[typing.List[ManagedFieldsEntry]] = None,
+        managed_fields: typing.Optional[typing.Sequence[ManagedFieldsEntry]] = None,
         name: typing.Optional[builtins.str] = None,
         namespace: typing.Optional[builtins.str] = None,
-        owner_references: typing.Optional[typing.List["OwnerReference"]] = None,
+        owner_references: typing.Optional[typing.Sequence["OwnerReference"]] = None,
         resource_version: typing.Optional[builtins.str] = None,
         self_link: typing.Optional[builtins.str] = None,
         uid: typing.Optional[builtins.str] = None,
@@ -36108,7 +36112,7 @@ class PersistentVolumeClaimSpec:
     def __init__(
         self,
         *,
-        access_modes: typing.Optional[typing.List[builtins.str]] = None,
+        access_modes: typing.Optional[typing.Sequence[builtins.str]] = None,
         data_source: typing.Optional["TypedLocalObjectReference"] = None,
         resources: typing.Optional["ResourceRequirements"] = None,
         selector: typing.Optional[LabelSelector] = None,
@@ -36337,7 +36341,7 @@ class PersistentVolumeSpec:
     def __init__(
         self,
         *,
-        access_modes: typing.Optional[typing.List[builtins.str]] = None,
+        access_modes: typing.Optional[typing.Sequence[builtins.str]] = None,
         aws_elastic_block_store: typing.Optional[AwsElasticBlockStoreVolumeSource] = None,
         azure_disk: typing.Optional[AzureDiskVolumeSource] = None,
         azure_file: typing.Optional[AzureFilePersistentVolumeSource] = None,
@@ -36354,7 +36358,7 @@ class PersistentVolumeSpec:
         host_path: typing.Optional[HostPathVolumeSource] = None,
         iscsi: typing.Optional[IscsiPersistentVolumeSource] = None,
         local: typing.Optional[LocalVolumeSource] = None,
-        mount_options: typing.Optional[typing.List[builtins.str]] = None,
+        mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
         nfs: typing.Optional[NfsVolumeSource] = None,
         node_affinity: typing.Optional["VolumeNodeAffinity"] = None,
         persistent_volume_reclaim_policy: typing.Optional[builtins.str] = None,
@@ -36901,8 +36905,8 @@ class PodAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["WeightedPodAffinityTerm"]] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[typing.List["PodAffinityTerm"]] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["WeightedPodAffinityTerm"]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["PodAffinityTerm"]] = None,
     ) -> None:
         '''Pod affinity is a group of inter pod affinity scheduling rules.
 
@@ -36970,7 +36974,7 @@ class PodAffinityTerm:
         *,
         topology_key: builtins.str,
         label_selector: typing.Optional[LabelSelector] = None,
-        namespaces: typing.Optional[typing.List[builtins.str]] = None,
+        namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
 
@@ -37046,8 +37050,8 @@ class PodAntiAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.List["WeightedPodAffinityTerm"]] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[typing.List[PodAffinityTerm]] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["WeightedPodAffinityTerm"]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[PodAffinityTerm]] = None,
     ) -> None:
         '''Pod anti affinity is a group of inter pod anti affinity scheduling rules.
 
@@ -37187,9 +37191,9 @@ class PodDnsConfig:
     def __init__(
         self,
         *,
-        nameservers: typing.Optional[typing.List[builtins.str]] = None,
-        options: typing.Optional[typing.List["PodDnsConfigOption"]] = None,
-        searches: typing.Optional[typing.List[builtins.str]] = None,
+        nameservers: typing.Optional[typing.Sequence[builtins.str]] = None,
+        options: typing.Optional[typing.Sequence["PodDnsConfigOption"]] = None,
+        searches: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
 
@@ -37321,11 +37325,11 @@ class PodPresetSpec:
     def __init__(
         self,
         *,
-        env: typing.Optional[typing.List[EnvVar]] = None,
-        env_from: typing.Optional[typing.List[EnvFromSource]] = None,
+        env: typing.Optional[typing.Sequence[EnvVar]] = None,
+        env_from: typing.Optional[typing.Sequence[EnvFromSource]] = None,
         selector: typing.Optional[LabelSelector] = None,
-        volume_mounts: typing.Optional[typing.List["VolumeMount"]] = None,
-        volumes: typing.Optional[typing.List["Volume"]] = None,
+        volume_mounts: typing.Optional[typing.Sequence["VolumeMount"]] = None,
+        volumes: typing.Optional[typing.Sequence["Volume"]] = None,
     ) -> None:
         '''PodPresetSpec is a description of a pod preset.
 
@@ -37472,8 +37476,8 @@ class PodSecurityContext:
         run_as_non_root: typing.Optional[builtins.bool] = None,
         run_as_user: typing.Optional[jsii.Number] = None,
         se_linux_options: typing.Optional["SeLinuxOptions"] = None,
-        supplemental_groups: typing.Optional[typing.List[jsii.Number]] = None,
-        sysctls: typing.Optional[typing.List["Sysctl"]] = None,
+        supplemental_groups: typing.Optional[typing.Sequence[jsii.Number]] = None,
+        sysctls: typing.Optional[typing.Sequence["Sysctl"]] = None,
         windows_options: typing.Optional["WindowsSecurityContextOptions"] = None,
     ) -> None:
         '''PodSecurityContext holds pod-level security attributes and common container settings.
@@ -37657,26 +37661,26 @@ class PodSecurityPolicySpec:
         run_as_user: "RunAsUserStrategyOptions",
         se_linux: "SeLinuxStrategyOptions",
         supplemental_groups: "SupplementalGroupsStrategyOptions",
-        allowed_capabilities: typing.Optional[typing.List[builtins.str]] = None,
-        allowed_csi_drivers: typing.Optional[typing.List[AllowedCsiDriver]] = None,
-        allowed_flex_volumes: typing.Optional[typing.List[AllowedFlexVolume]] = None,
-        allowed_host_paths: typing.Optional[typing.List[AllowedHostPath]] = None,
-        allowed_proc_mount_types: typing.Optional[typing.List[builtins.str]] = None,
-        allowed_unsafe_sysctls: typing.Optional[typing.List[builtins.str]] = None,
+        allowed_capabilities: typing.Optional[typing.Sequence[builtins.str]] = None,
+        allowed_csi_drivers: typing.Optional[typing.Sequence[AllowedCsiDriver]] = None,
+        allowed_flex_volumes: typing.Optional[typing.Sequence[AllowedFlexVolume]] = None,
+        allowed_host_paths: typing.Optional[typing.Sequence[AllowedHostPath]] = None,
+        allowed_proc_mount_types: typing.Optional[typing.Sequence[builtins.str]] = None,
+        allowed_unsafe_sysctls: typing.Optional[typing.Sequence[builtins.str]] = None,
         allow_privilege_escalation: typing.Optional[builtins.bool] = None,
-        default_add_capabilities: typing.Optional[typing.List[builtins.str]] = None,
+        default_add_capabilities: typing.Optional[typing.Sequence[builtins.str]] = None,
         default_allow_privilege_escalation: typing.Optional[builtins.bool] = None,
-        forbidden_sysctls: typing.Optional[typing.List[builtins.str]] = None,
+        forbidden_sysctls: typing.Optional[typing.Sequence[builtins.str]] = None,
         host_ipc: typing.Optional[builtins.bool] = None,
         host_network: typing.Optional[builtins.bool] = None,
         host_pid: typing.Optional[builtins.bool] = None,
-        host_ports: typing.Optional[typing.List[HostPortRange]] = None,
+        host_ports: typing.Optional[typing.Sequence[HostPortRange]] = None,
         privileged: typing.Optional[builtins.bool] = None,
         read_only_root_filesystem: typing.Optional[builtins.bool] = None,
-        required_drop_capabilities: typing.Optional[typing.List[builtins.str]] = None,
+        required_drop_capabilities: typing.Optional[typing.Sequence[builtins.str]] = None,
         run_as_group: typing.Optional["RunAsGroupStrategyOptions"] = None,
         runtime_class: typing.Optional["RuntimeClassStrategyOptions"] = None,
-        volumes: typing.Optional[typing.List[builtins.str]] = None,
+        volumes: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''PodSecurityPolicySpec defines the policy enforced.
 
@@ -38074,28 +38078,28 @@ class PodSpec:
     def __init__(
         self,
         *,
-        containers: typing.List[Container],
+        containers: typing.Sequence[Container],
         active_deadline_seconds: typing.Optional[jsii.Number] = None,
         affinity: typing.Optional[Affinity] = None,
         automount_service_account_token: typing.Optional[builtins.bool] = None,
         dns_config: typing.Optional[PodDnsConfig] = None,
         dns_policy: typing.Optional[builtins.str] = None,
         enable_service_links: typing.Optional[builtins.bool] = None,
-        ephemeral_containers: typing.Optional[typing.List[EphemeralContainer]] = None,
-        host_aliases: typing.Optional[typing.List[HostAlias]] = None,
+        ephemeral_containers: typing.Optional[typing.Sequence[EphemeralContainer]] = None,
+        host_aliases: typing.Optional[typing.Sequence[HostAlias]] = None,
         host_ipc: typing.Optional[builtins.bool] = None,
         hostname: typing.Optional[builtins.str] = None,
         host_network: typing.Optional[builtins.bool] = None,
         host_pid: typing.Optional[builtins.bool] = None,
-        image_pull_secrets: typing.Optional[typing.List[LocalObjectReference]] = None,
-        init_containers: typing.Optional[typing.List[Container]] = None,
+        image_pull_secrets: typing.Optional[typing.Sequence[LocalObjectReference]] = None,
+        init_containers: typing.Optional[typing.Sequence[Container]] = None,
         node_name: typing.Optional[builtins.str] = None,
         node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         overhead: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
         preemption_policy: typing.Optional[builtins.str] = None,
         priority: typing.Optional[jsii.Number] = None,
         priority_class_name: typing.Optional[builtins.str] = None,
-        readiness_gates: typing.Optional[typing.List[PodReadinessGate]] = None,
+        readiness_gates: typing.Optional[typing.Sequence[PodReadinessGate]] = None,
         restart_policy: typing.Optional[builtins.str] = None,
         runtime_class_name: typing.Optional[builtins.str] = None,
         scheduler_name: typing.Optional[builtins.str] = None,
@@ -38105,9 +38109,9 @@ class PodSpec:
         share_process_namespace: typing.Optional[builtins.bool] = None,
         subdomain: typing.Optional[builtins.str] = None,
         termination_grace_period_seconds: typing.Optional[jsii.Number] = None,
-        tolerations: typing.Optional[typing.List["Toleration"]] = None,
-        topology_spread_constraints: typing.Optional[typing.List["TopologySpreadConstraint"]] = None,
-        volumes: typing.Optional[typing.List["Volume"]] = None,
+        tolerations: typing.Optional[typing.Sequence["Toleration"]] = None,
+        topology_spread_constraints: typing.Optional[typing.Sequence["TopologySpreadConstraint"]] = None,
+        volumes: typing.Optional[typing.Sequence["Volume"]] = None,
     ) -> None:
         '''PodSpec is a description of a pod.
 
@@ -38753,7 +38757,7 @@ class Policy:
         self,
         *,
         level: builtins.str,
-        stages: typing.Optional[typing.List[builtins.str]] = None,
+        stages: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Policy defines the configuration of how audit events are logged.
 
@@ -38816,11 +38820,11 @@ class PolicyRule:
     def __init__(
         self,
         *,
-        verbs: typing.List[builtins.str],
-        api_groups: typing.Optional[typing.List[builtins.str]] = None,
-        non_resource_ur_ls: typing.Optional[typing.List[builtins.str]] = None,
-        resource_names: typing.Optional[typing.List[builtins.str]] = None,
-        resources: typing.Optional[typing.List[builtins.str]] = None,
+        verbs: typing.Sequence[builtins.str],
+        api_groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+        non_resource_ur_ls: typing.Optional[typing.Sequence[builtins.str]] = None,
+        resource_names: typing.Optional[typing.Sequence[builtins.str]] = None,
+        resources: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
 
@@ -38925,9 +38929,9 @@ class PolicyRulesWithSubjects:
     def __init__(
         self,
         *,
-        subjects: typing.List["Subject"],
-        non_resource_rules: typing.Optional[typing.List[NonResourcePolicyRule]] = None,
-        resource_rules: typing.Optional[typing.List["ResourcePolicyRule"]] = None,
+        subjects: typing.Sequence["Subject"],
+        non_resource_rules: typing.Optional[typing.Sequence[NonResourcePolicyRule]] = None,
+        resource_rules: typing.Optional[typing.Sequence["ResourcePolicyRule"]] = None,
     ) -> None:
         '''PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver.
 
@@ -39458,7 +39462,7 @@ class ProjectedVolumeSource:
     def __init__(
         self,
         *,
-        sources: typing.List["VolumeProjection"],
+        sources: typing.Sequence["VolumeProjection"],
         default_mode: typing.Optional[jsii.Number] = None,
     ) -> None:
         '''Represents a projected volume source.
@@ -39751,7 +39755,7 @@ class RbdPersistentVolumeSource:
         self,
         *,
         image: builtins.str,
-        monitors: typing.List[builtins.str],
+        monitors: typing.Sequence[builtins.str],
         fs_type: typing.Optional[builtins.str] = None,
         keyring: typing.Optional[builtins.str] = None,
         pool: typing.Optional[builtins.str] = None,
@@ -39924,7 +39928,7 @@ class RbdVolumeSource:
         self,
         *,
         image: builtins.str,
-        monitors: typing.List[builtins.str],
+        monitors: typing.Sequence[builtins.str],
         fs_type: typing.Optional[builtins.str] = None,
         keyring: typing.Optional[builtins.str] = None,
         pool: typing.Optional[builtins.str] = None,
@@ -40563,11 +40567,11 @@ class ResourcePolicyRule:
     def __init__(
         self,
         *,
-        api_groups: typing.List[builtins.str],
-        resources: typing.List[builtins.str],
-        verbs: typing.List[builtins.str],
+        api_groups: typing.Sequence[builtins.str],
+        resources: typing.Sequence[builtins.str],
+        verbs: typing.Sequence[builtins.str],
         cluster_scope: typing.Optional[builtins.bool] = None,
-        namespaces: typing.Optional[typing.List[builtins.str]] = None,
+        namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource.
 
@@ -40673,7 +40677,7 @@ class ResourceQuotaSpec:
         self,
         *,
         hard: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
-        scopes: typing.Optional[typing.List[builtins.str]] = None,
+        scopes: typing.Optional[typing.Sequence[builtins.str]] = None,
         scope_selector: typing.Optional["ScopeSelector"] = None,
     ) -> None:
         '''ResourceQuotaSpec defines the desired hard limits to enforce for Quota.
@@ -41025,10 +41029,10 @@ class RuleWithOperations:
     def __init__(
         self,
         *,
-        api_groups: typing.Optional[typing.List[builtins.str]] = None,
-        api_versions: typing.Optional[typing.List[builtins.str]] = None,
-        operations: typing.Optional[typing.List[builtins.str]] = None,
-        resources: typing.Optional[typing.List[builtins.str]] = None,
+        api_groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+        api_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
+        operations: typing.Optional[typing.Sequence[builtins.str]] = None,
+        resources: typing.Optional[typing.Sequence[builtins.str]] = None,
         scope: typing.Optional[builtins.str] = None,
     ) -> None:
         '''RuleWithOperations is a tuple of Operations and Resources.
@@ -41138,7 +41142,7 @@ class RunAsGroupStrategyOptions:
         self,
         *,
         rule: builtins.str,
-        ranges: typing.Optional[typing.List[IdRange]] = None,
+        ranges: typing.Optional[typing.Sequence[IdRange]] = None,
     ) -> None:
         '''RunAsGroupStrategyOptions defines the strategy type and any options used to create the strategy.
 
@@ -41196,7 +41200,7 @@ class RunAsUserStrategyOptions:
         self,
         *,
         rule: builtins.str,
-        ranges: typing.Optional[typing.List[IdRange]] = None,
+        ranges: typing.Optional[typing.Sequence[IdRange]] = None,
     ) -> None:
         '''RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.
 
@@ -41341,7 +41345,7 @@ class RuntimeClassStrategyOptions:
     def __init__(
         self,
         *,
-        allowed_runtime_class_names: typing.List[builtins.str],
+        allowed_runtime_class_names: typing.Sequence[builtins.str],
         default_runtime_class_name: typing.Optional[builtins.str] = None,
     ) -> None:
         '''RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.
@@ -41814,7 +41818,7 @@ class Scheduling:
         self,
         *,
         node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        tolerations: typing.Optional[typing.List["Toleration"]] = None,
+        tolerations: typing.Optional[typing.Sequence["Toleration"]] = None,
     ) -> None:
         '''Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.
 
@@ -41872,7 +41876,7 @@ class ScopeSelector:
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.List["ScopedResourceSelectorRequirement"]] = None,
+        match_expressions: typing.Optional[typing.Sequence["ScopedResourceSelectorRequirement"]] = None,
     ) -> None:
         '''A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.
 
@@ -41922,7 +41926,7 @@ class ScopedResourceSelectorRequirement:
         *,
         operator: builtins.str,
         scope_name: builtins.str,
-        values: typing.Optional[typing.List[builtins.str]] = None,
+        values: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.
 
@@ -42266,7 +42270,7 @@ class SecretProjection:
     def __init__(
         self,
         *,
-        items: typing.Optional[typing.List[KeyToPath]] = None,
+        items: typing.Optional[typing.Sequence[KeyToPath]] = None,
         name: typing.Optional[builtins.str] = None,
         optional: typing.Optional[builtins.bool] = None,
     ) -> None:
@@ -42403,7 +42407,7 @@ class SecretVolumeSource:
         self,
         *,
         default_mode: typing.Optional[jsii.Number] = None,
-        items: typing.Optional[typing.List[KeyToPath]] = None,
+        items: typing.Optional[typing.Sequence[KeyToPath]] = None,
         optional: typing.Optional[builtins.bool] = None,
         secret_name: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -43108,19 +43112,19 @@ class ServiceSpec:
         self,
         *,
         cluster_ip: typing.Optional[builtins.str] = None,
-        external_i_ps: typing.Optional[typing.List[builtins.str]] = None,
+        external_i_ps: typing.Optional[typing.Sequence[builtins.str]] = None,
         external_name: typing.Optional[builtins.str] = None,
         external_traffic_policy: typing.Optional[builtins.str] = None,
         health_check_node_port: typing.Optional[jsii.Number] = None,
         ip_family: typing.Optional[builtins.str] = None,
         load_balancer_ip: typing.Optional[builtins.str] = None,
-        load_balancer_source_ranges: typing.Optional[typing.List[builtins.str]] = None,
-        ports: typing.Optional[typing.List[ServicePort]] = None,
+        load_balancer_source_ranges: typing.Optional[typing.Sequence[builtins.str]] = None,
+        ports: typing.Optional[typing.Sequence[ServicePort]] = None,
         publish_not_ready_addresses: typing.Optional[builtins.bool] = None,
         selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         session_affinity: typing.Optional[builtins.str] = None,
         session_affinity_config: typing.Optional["SessionAffinityConfig"] = None,
-        topology_keys: typing.Optional[typing.List[builtins.str]] = None,
+        topology_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
         type: typing.Optional[builtins.str] = None,
     ) -> None:
         '''ServiceSpec describes the attributes that a user creates on a service.
@@ -43419,7 +43423,7 @@ class StatefulSetSpec:
         replicas: typing.Optional[jsii.Number] = None,
         revision_history_limit: typing.Optional[jsii.Number] = None,
         update_strategy: typing.Optional["StatefulSetUpdateStrategy"] = None,
-        volume_claim_templates: typing.Optional[typing.List[KubePersistentVolumeClaimProps]] = None,
+        volume_claim_templates: typing.Optional[typing.Sequence[KubePersistentVolumeClaimProps]] = None,
     ) -> None:
         '''A StatefulSetSpec is the specification of a StatefulSet.
 
@@ -43716,7 +43720,7 @@ class StatusDetails:
     def __init__(
         self,
         *,
-        causes: typing.Optional[typing.List[StatusCause]] = None,
+        causes: typing.Optional[typing.Sequence[StatusCause]] = None,
         group: typing.Optional[builtins.str] = None,
         kind: typing.Optional[builtins.str] = None,
         name: typing.Optional[builtins.str] = None,
@@ -44165,8 +44169,8 @@ class SubjectAccessReviewSpec:
     def __init__(
         self,
         *,
-        extra: typing.Optional[typing.Mapping[builtins.str, typing.List[builtins.str]]] = None,
-        group: typing.Optional[typing.List[builtins.str]] = None,
+        extra: typing.Optional[typing.Mapping[builtins.str, typing.Sequence[builtins.str]]] = None,
+        group: typing.Optional[typing.Sequence[builtins.str]] = None,
         non_resource_attributes: typing.Optional[NonResourceAttributes] = None,
         resource_attributes: typing.Optional[ResourceAttributes] = None,
         uid: typing.Optional[builtins.str] = None,
@@ -44282,7 +44286,7 @@ class SupplementalGroupsStrategyOptions:
     def __init__(
         self,
         *,
-        ranges: typing.Optional[typing.List[IdRange]] = None,
+        ranges: typing.Optional[typing.Sequence[IdRange]] = None,
         rule: typing.Optional[builtins.str] = None,
     ) -> None:
         '''SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.
@@ -44547,7 +44551,7 @@ class TokenRequestSpec:
     def __init__(
         self,
         *,
-        audiences: typing.List[builtins.str],
+        audiences: typing.Sequence[builtins.str],
         bound_object_ref: typing.Optional[BoundObjectReference] = None,
         expiration_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
@@ -44624,7 +44628,7 @@ class TokenReviewSpec:
     def __init__(
         self,
         *,
-        audiences: typing.Optional[typing.List[builtins.str]] = None,
+        audiences: typing.Optional[typing.Sequence[builtins.str]] = None,
         token: typing.Optional[builtins.str] = None,
     ) -> None:
         '''TokenReviewSpec is a description of the token authentication request.
@@ -44790,7 +44794,12 @@ class Toleration:
     name_mapping={"key": "key", "values": "values"},
 )
 class TopologySelectorLabelRequirement:
-    def __init__(self, *, key: builtins.str, values: typing.List[builtins.str]) -> None:
+    def __init__(
+        self,
+        *,
+        key: builtins.str,
+        values: typing.Sequence[builtins.str],
+    ) -> None:
         '''A topology selector requirement is a selector that matches given label.
 
         This is an alpha feature and may change in the future.
@@ -44848,7 +44857,7 @@ class TopologySelectorTerm:
     def __init__(
         self,
         *,
-        match_label_expressions: typing.Optional[typing.List[TopologySelectorLabelRequirement]] = None,
+        match_label_expressions: typing.Optional[typing.Sequence[TopologySelectorLabelRequirement]] = None,
     ) -> None:
         '''A topology selector term represents the result of label queries.
 
@@ -45075,12 +45084,12 @@ class ValidatingWebhook:
         *,
         client_config: "WebhookClientConfig",
         name: builtins.str,
-        admission_review_versions: typing.Optional[typing.List[builtins.str]] = None,
+        admission_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
         failure_policy: typing.Optional[builtins.str] = None,
         match_policy: typing.Optional[builtins.str] = None,
         namespace_selector: typing.Optional[LabelSelector] = None,
         object_selector: typing.Optional[LabelSelector] = None,
-        rules: typing.Optional[typing.List[RuleWithOperations]] = None,
+        rules: typing.Optional[typing.Sequence[RuleWithOperations]] = None,
         side_effects: typing.Optional[builtins.str] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
