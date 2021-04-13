@@ -44,7 +44,7 @@ const project = new JsiiProject({
     packageId: 'Org.Cdk8s',
   },
   publishToGo: {
-    moduleName: 'github.com/awslabs/cdk8s-go',
+    moduleName: 'github.com/cdk8s-team/cdk8s-go',
   },
 });
 
