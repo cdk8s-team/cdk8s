@@ -2,6 +2,7 @@ import { ApiObject, Lazy } from 'cdk8s';
 import { Construct } from 'constructs';
 import { Resource, ResourceProps } from './base';
 import * as k8s from './imports/k8s';
+import { ISecret } from './secret';
 import { Service } from './service';
 
 /**
@@ -56,7 +57,7 @@ export class IngressV1Beta1 extends Resource {
 
   private readonly _rulesPerHost: { [host: string]: k8s.HttpIngressPath[] } = {};
   private _defaultBackend?: IngressV1Beta1Backend;
-  private readonly _tlsConfig: k8s.IngressTls[] = [];
+  private readonly _tlsConfig: IngressV1Beta1Tls[] = [];
 
   constructor(scope: Construct, id: string, props: IngressV1Beta1Props = {}) {
     super(scope, id);
@@ -186,7 +187,19 @@ export class IngressV1Beta1 extends Resource {
   }
 
   private tlsConfig(): undefined | k8s.IngressTls[] {
-    return this._tlsConfig.length > 0 ? this._tlsConfig : undefined;
+    if (this._tlsConfig.length == 0) {
+      return undefined;
+    }
+
+    const tls = new Array<k8s.IngressTls>();
+    for (const entry of this._tlsConfig) {
+      tls.push({
+        hosts: entry.hosts,
+        secretName: entry.secret?.name,
+      });
+    }
+
+    return tls;
   }
 }
 
@@ -304,7 +317,7 @@ export interface IngressV1Beta1Tls {
 
   /**
    * Hosts are a list of hosts included in the TLS certificate. The values in
-   * this list must match the name/s used in the tlsSecret.
+   * this list must match the name/s used in the TLS Secret.
    *
    * @default - If unspecified, it defaults to the wildcard host setting for
    * the loadbalancer controller fulfilling this Ingress.
@@ -312,14 +325,14 @@ export interface IngressV1Beta1Tls {
   readonly hosts?: string[];
 
   /**
-   * SecretName is the name of the secret used to terminate SSL traffic on 443.
-   * If the SNI host in a listener conflicts with the "Host" header field used
-   * by an IngressRule, the SNI host is used for termination and value of the
-   * Host header is used for routing.
+   * Secret is the secret that contains the certificate and key used to
+   * terminate SSL traffic on 443. If the SNI host in a listener conflicts with
+   * the "Host" header field used by an IngressRule, the SNI host is used for
+   * termination and value of the Host header is used for routing.
    *
    * @default - If unspecified, it allows SSL routing based on SNI hostname.
    */
-  readonly secretName?: string;
+  readonly secret?: ISecret;
 }
 
 function sortByPath(lhs: k8s.HttpIngressPath, rhs: k8s.HttpIngressPath) {

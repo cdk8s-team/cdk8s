@@ -1,6 +1,6 @@
 import { Testing, ApiObject } from 'cdk8s';
 import { Node } from 'constructs';
-import { IngressV1Beta1Backend, Service, IngressV1Beta1 } from '../src';
+import { IngressV1Beta1, IngressV1Beta1Backend, Secret, Service } from '../src';
 
 test('defaultChild', () => {
 
@@ -441,13 +441,16 @@ describe('Ingress', () => {
     // GIVEN
     const chart = Testing.chart();
     const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
+    const tls_secret = new Secret(chart, 'my-tls-secret', {
+      metadata: { name: 'my-tls-secret' },
+    });
 
     // WHEN
     const ingress = new IngressV1Beta1(chart, 'my-ingress');
     ingress.addHostDefaultBackend('my.host', IngressV1Beta1Backend.fromService(service));
     ingress.addTls([{
       hosts: ['my.host'],
-      secretName: 'tls-secret',
+      secret: tls_secret,
     }]);
 
     // THEN
@@ -472,7 +475,7 @@ describe('Ingress', () => {
           }],
           tls: [{
             hosts: ['my.host'],
-            secretName: 'tls-secret',
+            secretName: tls_secret.name,
           }],
         },
       },
@@ -483,12 +486,15 @@ describe('Ingress', () => {
     // GIVEN
     const chart = Testing.chart();
     const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
+    const tls_secret = new Secret(chart, 'my-tls-secret', {
+      metadata: { name: 'my-tls-secret' },
+    });
 
     // WHEN
     const ingress = new IngressV1Beta1(chart, 'my-ingress', {
       tls: [{
         hosts: ['my.host'],
-        secretName: 'tls-secret',
+        secret: tls_secret,
       }],
     });
     ingress.addHostDefaultBackend('my.host', IngressV1Beta1Backend.fromService(service));
@@ -515,7 +521,7 @@ describe('Ingress', () => {
           }],
           tls: [{
             hosts: ['my.host'],
-            secretName: 'tls-secret',
+            secretName: tls_secret.name,
           }],
         },
       },

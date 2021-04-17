@@ -1999,7 +1999,7 @@ Represents the TLS configuration mapping that is passed to the ingress controlle
 Name | Type | Description 
 -----|------|-------------
 **hosts**?🔹 | <code>Array<string></code> | Hosts are a list of hosts included in the TLS certificate.<br/>__*Default*__: If unspecified, it defaults to the wildcard host setting for the loadbalancer controller fulfilling this Ingress.
-**secretName**?🔹 | <code>string</code> | SecretName is the name of the secret used to terminate SSL traffic on 443.<br/>__*Default*__: If unspecified, it allows SSL routing based on SNI hostname.
+**secret**?🔹 | <code>[ISecret](#cdk8s-plus-17-isecret)</code> | Secret is the secret that contains the certificate and key used to terminate SSL traffic on 443.<br/>__*Default*__: If unspecified, it allows SSL routing based on SNI hostname.
 
 
 
