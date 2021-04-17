@@ -41,6 +41,7 @@ Name|Description
 [HttpGetProbeOptions](#cdk8s-plus-17-httpgetprobeoptions)|Options for `Probe.fromHttpGet()`.
 [IngressV1Beta1Props](#cdk8s-plus-17-ingressv1beta1props)|Properties for `Ingress`.
 [IngressV1Beta1Rule](#cdk8s-plus-17-ingressv1beta1rule)|Represents the rules mapping the paths under a specified host to the related backend services.
+[IngressV1Beta1Tls](#cdk8s-plus-17-ingressv1beta1tls)|Represents the TLS configuration mapping that is passed to the ingress controller for SSL termination.
 [JobProps](#cdk8s-plus-17-jobprops)|Properties for initialization of `Job`.
 [MountOptions](#cdk8s-plus-17-mountoptions)|Options for mounts.
 [PathMapping](#cdk8s-plus-17-pathmapping)|Maps a string key to a path within a volume.
@@ -537,6 +538,7 @@ new IngressV1Beta1(scope: Construct, id: string, props?: IngressV1Beta1Props)
   * **metadata** (<code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code>)  Metadata that all persisted resources must have, which includes all objects users must create. __*Optional*__
   * **defaultBackend** (<code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>)  The default backend services requests that do not match any rule. __*Optional*__
   * **rules** (<code>Array<[IngressV1Beta1Rule](#cdk8s-plus-17-ingressv1beta1rule)></code>)  Routing rules for this ingress. __*Optional*__
+  * **tls** (<code>Array<[IngressV1Beta1Tls](#cdk8s-plus-17-ingressv1beta1tls)></code>)  TLS settings for this ingress. __*Optional*__
 
 
 
@@ -624,6 +626,19 @@ addRules(...rules: IngressV1Beta1Rule[]): void
   * **backend** (<code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code>)  Backend defines the referenced service endpoint to which the traffic will be forwarded to. 
   * **host** (<code>string</code>)  Host is the fully qualified domain name of a network host, as defined by RFC 3986. __*Default*__: If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
   * **path** (<code>string</code>)  Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. __*Default*__: If unspecified, the path defaults to a catch all sending traffic to the backend.
+
+
+
+
+#### addTls(tls)🔹 <a id="cdk8s-plus-17-ingressv1beta1-addtls"></a>
+
+
+
+```ts
+addTls(tls: Array<IngressV1Beta1Tls>): void
+```
+
+* **tls** (<code>Array<[IngressV1Beta1Tls](#cdk8s-plus-17-ingressv1beta1tls)></code>)  *No description*
 
 
 
@@ -1952,6 +1967,7 @@ Name | Type | Description
 **defaultBackend**?🔹 | <code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code> | The default backend services requests that do not match any rule.<br/>__*Optional*__
 **metadata**?🔹 | <code>[ApiObjectMetadata](#cdk8s-apiobjectmetadata)</code> | Metadata that all persisted resources must have, which includes all objects users must create.<br/>__*Optional*__
 **rules**?🔹 | <code>Array<[IngressV1Beta1Rule](#cdk8s-plus-17-ingressv1beta1rule)></code> | Routing rules for this ingress.<br/>__*Optional*__
+**tls**?🔹 | <code>Array<[IngressV1Beta1Tls](#cdk8s-plus-17-ingressv1beta1tls)></code> | TLS settings for this ingress.<br/>__*Optional*__
 
 
 
@@ -1970,6 +1986,20 @@ Name | Type | Description
 **backend**🔹 | <code>[IngressV1Beta1Backend](#cdk8s-plus-17-ingressv1beta1backend)</code> | Backend defines the referenced service endpoint to which the traffic will be forwarded to.
 **host**?🔹 | <code>string</code> | Host is the fully qualified domain name of a network host, as defined by RFC 3986.<br/>__*Default*__: If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
 **path**?🔹 | <code>string</code> | Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'.<br/>__*Default*__: If unspecified, the path defaults to a catch all sending traffic to the backend.
+
+
+
+## struct IngressV1Beta1Tls 🔹 <a id="cdk8s-plus-17-ingressv1beta1tls"></a>
+
+
+Represents the TLS configuration mapping that is passed to the ingress controller for SSL termination.
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**hosts**?🔹 | <code>Array<string></code> | Hosts are a list of hosts included in the TLS certificate.<br/>__*Default*__: If unspecified, it defaults to the wildcard host setting for the loadbalancer controller fulfilling this Ingress.
+**secretName**?🔹 | <code>string</code> | SecretName is the name of the secret used to terminate SSL traffic on 443.<br/>__*Default*__: If unspecified, it allows SSL routing based on SNI hostname.
 
 
 

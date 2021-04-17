@@ -147,7 +147,7 @@ describe('Ingress', () => {
       const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
 
       // WHEN
-      const ingress = new IngressV1Beta1(chart, 'my-ingress');;
+      const ingress = new IngressV1Beta1(chart, 'my-ingress');
       ingress.addDefaultBackend(IngressV1Beta1Backend.fromService(service));
 
       // THEN
@@ -174,7 +174,7 @@ describe('Ingress', () => {
     const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
 
     // WHEN
-    const ingress = new IngressV1Beta1(chart, 'my-ingress');;
+    const ingress = new IngressV1Beta1(chart, 'my-ingress');
     ingress.addHostDefaultBackend('my.host', IngressV1Beta1Backend.fromService(service));
 
     // THEN
@@ -208,7 +208,7 @@ describe('Ingress', () => {
     const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
 
     // WHEN
-    const ingress = new IngressV1Beta1(chart, 'my-ingress');;
+    const ingress = new IngressV1Beta1(chart, 'my-ingress');
     ingress.addHostRule('my.host', '/foo', IngressV1Beta1Backend.fromService(service));
     ingress.addHostRule('my.host', '/bar', IngressV1Beta1Backend.fromService(service));
     ingress.addHostRule('your.host', '/', IngressV1Beta1Backend.fromService(service));
@@ -426,4 +426,99 @@ describe('Ingress', () => {
     expect(() => ingress.addRule('bad/path', IngressV1Beta1Backend.fromService(service))).toThrow(/ingress paths must begin with a "\/": bad\/path/);
   });
 
+  test('fails if no rules or default backend are specified', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const service = new Service(chart, 'my-service');
+    service.serve(4000);
+    new IngressV1Beta1(chart, 'ingress');
+
+    // THEN
+    expect(() => Testing.synth(chart)).toThrow(/ingress with no rules or default backend/);
+  });
+
+  test('addTls()', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
+
+    // WHEN
+    const ingress = new IngressV1Beta1(chart, 'my-ingress');
+    ingress.addHostDefaultBackend('my.host', IngressV1Beta1Backend.fromService(service));
+    ingress.addTls([{
+      hosts: ['my.host'],
+      secretName: 'tls-secret',
+    }]);
+
+    // THEN
+    expect(Testing.synth(chart).filter(x => x.kind === 'Ingress')).toStrictEqual([
+      {
+        apiVersion: 'networking.k8s.io/v1beta1',
+        kind: 'Ingress',
+        metadata: { name: 'test-my-ingress-c8135042' },
+        spec: {
+          rules: [{
+            host: 'my.host',
+            http: {
+              paths: [
+                {
+                  backend: {
+                    serviceName: 'test-my-service-c8493104',
+                    servicePort: 80,
+                  },
+                },
+              ],
+            },
+          }],
+          tls: [{
+            hosts: ['my.host'],
+            secretName: 'tls-secret',
+          }],
+        },
+      },
+    ]);
+  });
+
+  test('define tls upon initialization', () => {
+    // GIVEN
+    const chart = Testing.chart();
+    const service = new Service(chart, 'my-service', { ports: [{ port: 80 }] } );
+
+    // WHEN
+    const ingress = new IngressV1Beta1(chart, 'my-ingress', {
+      tls: [{
+        hosts: ['my.host'],
+        secretName: 'tls-secret',
+      }],
+    });
+    ingress.addHostDefaultBackend('my.host', IngressV1Beta1Backend.fromService(service));
+
+    // THEN
+    expect(Testing.synth(chart).filter(x => x.kind === 'Ingress')).toStrictEqual([
+      {
+        apiVersion: 'networking.k8s.io/v1beta1',
+        kind: 'Ingress',
+        metadata: { name: 'test-my-ingress-c8135042' },
+        spec: {
+          rules: [{
+            host: 'my.host',
+            http: {
+              paths: [
+                {
+                  backend: {
+                    serviceName: 'test-my-service-c8493104',
+                    servicePort: 80,
+                  },
+                },
+              ],
+            },
+          }],
+          tls: [{
+            hosts: ['my.host'],
+            secretName: 'tls-secret',
+          }],
+        },
+      },
+    ]);
+  });
 });
