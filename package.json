@@ -24,6 +24,10 @@
       "cdk8s/fast-json-patch/**",
       "cdk8s/follow-redirects",
       "cdk8s/follow-redirects/**",
+      "cdk8s/http-proxy-agent",
+      "cdk8s/http-proxy-agent/**",
+      "cdk8s/https-proxy-agent",
+      "cdk8s/https-proxy-agent/**",
       "cdk8s-plus-17/minimatch",
       "cdk8s-plus-17/minimatch/**"
     ]

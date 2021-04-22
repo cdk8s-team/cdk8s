@@ -20,6 +20,8 @@ const project = new JsiiProject({
   bundledDeps: [
     'yaml',
     'follow-redirects',
+    'http-proxy-agent',
+    'https-proxy-agent',
     'fast-json-patch',
   ],
   devDeps: [

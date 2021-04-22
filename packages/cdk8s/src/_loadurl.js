@@ -8,6 +8,8 @@
 const { http, https } = require('follow-redirects');
 const { parse } = require('url');
 const fs = require('fs');
+const HttpProxyAgent = require('http-proxy-agent');
+const HttpsProxyAgent = require('https-proxy-agent');
 
 const url = process.argv[2];
 if (!url) {
@@ -27,7 +29,12 @@ try {
   }
   
   const client = getHttpClient(purl.protocol);
-  const get = client.get(url, response => {
+  const proxyUrl = purl.protocol == 'https:' ? process.env.https_proxy : process.env.http_proxy
+  if (proxyUrl && useProxy(purl)) {
+    purl.agent = purl.protocol == 'https:' ? new HttpsProxyAgent(proxyUrl) : new HttpProxyAgent(proxyUrl)
+  }
+
+  const get = client.get(purl, response => {
     if (response.statusCode !== 200) {
       throw new Error(`${response.statusCode} response from http get: ${response.statusMessage}`);
     }
@@ -47,4 +54,20 @@ function getHttpClient(protocol) {
     default:
       throw new Error(`unsupported protocol "${protocol}" in url: ${url}`);
   }
+}
+
+function useProxy(purl) {
+  // Use a proxy if `no_proxy` does not match
+  const hosts = (process.env.no_proxy || '').split(',')
+  for (i in hosts) {
+    host = hosts[i]
+    if (host[0] == '.') {
+      if (purl.hostname.endsWith(host)) {
+        return false
+      }
+    } else if (host == purl.hostname) {
+      return false
+    }
+  }
+  return true
 }
