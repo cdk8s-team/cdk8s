@@ -67,7 +67,7 @@ Object {
   "description": "metapkgcrossplaneio",
   "fingerprint": "<fingerprint>",
   "homepage": "http://generated",
-  "jsiiVersion": "1.17.1 (build 2bac5fd)",
+  "jsiiVersion": "1.29.0 (build 41df200)",
   "license": "Apache-2.0",
   "metadata": Object {
     "jsii": Object {
