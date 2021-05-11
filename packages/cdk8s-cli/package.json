@@ -35,8 +35,8 @@
     "@types/jest": "^26.0.23",
     "@types/json-schema": "^7.0.7",
     "@types/node": "^10.17.59",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
     "eslint": "^6.8.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.4.0",
@@ -46,7 +46,7 @@
     "json-schema": "^0.3.0",
     "projen": "^0.16.42",
     "standard-version": "^9",
-    "ts-jest": "^26.5.5",
+    "ts-jest": "^26.5.6",
     "typescript": "~3.9.9"
   },
   "dependencies": {
@@ -57,8 +57,8 @@
     "constructs": "3.3.71",
     "fs-extra": "^8.1.0",
     "jsii-pacmak": "^1.29.0",
-    "jsii-srcmak": "^0.1.261",
-    "json2jsii": "^0.1.221",
+    "jsii-srcmak": "^0.1.264",
+    "json2jsii": "^0.1.230",
     "sscaff": "^1.2.0",
     "yaml": "^1.10.2",
     "yargs": "^15.4.1"
