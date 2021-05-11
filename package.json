@@ -33,7 +33,7 @@
     "lerna": "^3.22.1",
     "npm-check-updates": "10.3.1",
     "semver": "7.3.5",
-    "standard-version": "^9.2.0"
+    "standard-version": "^9.3.0"
   },
   "jest": {
     "clearMocks": true,
