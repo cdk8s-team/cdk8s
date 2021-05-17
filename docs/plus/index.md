@@ -34,7 +34,7 @@ import * as path from 'path';
 // our cdk app
 const app = new cdk8s.App();
 
-// our kuberentes chart
+// our kubernetes chart
 const chart = new cdk8s.Chart(app, 'my-chart');
 
 // lets create a volume that contains our app.
