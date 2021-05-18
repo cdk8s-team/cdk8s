@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
-    "@types/node": "^13.13.51",
+    "@types/node": "^13.13.52",
     "cdk8s-cli": "0.0.0",
     "jest": "^26.6.3",
     "typescript": "^3.9.9"
