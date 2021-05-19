@@ -3,11 +3,11 @@ on:
   push:
     branches:
       - master
-    
+
 jobs:
   build_artifact:
     name: Build and upload artifact
-    if: github.repository == 'awslabs/cdk8s'
+    if: github.repository == 'cdk8s-team/cdk8s'
     runs-on: ubuntu-latest
     container:
       image: jsii/superchain

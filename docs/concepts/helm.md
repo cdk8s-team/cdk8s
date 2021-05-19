@@ -46,6 +46,6 @@ The following example shows how to add an annotation to the Redis master
 deployment:
 
 ```ts
-const master = redis.apiObjects.find(o => o.name === 'foo-redis-master);
+const master = redis.apiObjects.find(o => o.name === 'foo-redis-master');
 master.metadata.addAnnotation('my.annotation', 'hey-there');
 ```

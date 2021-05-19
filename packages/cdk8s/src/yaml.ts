@@ -9,7 +9,7 @@ const MAX_DOWNLOAD_BUFFER = 10 * 1024 * 1024;
 // Set default YAML schema to 1.1. This ensures saved YAML is backward compatible with other parsers, such as PyYAML
 // It also ensures that octal numbers in the form `0775` will be parsed
 // correctly on YAML load. (see https://github.com/eemeli/yaml/issues/205)
-YAML.defaultOptions.schema = 'yaml-1.1';
+YAML.defaultOptions.version = '1.1';
 
 /**
  * YAML utilities.
