@@ -1262,6 +1262,19 @@ static save(filePath: string, docs: Array<any>): void
 
 
 
+#### *static* stringify(doc)🔹 <a id="cdk8s-yaml-stringify"></a>
+
+Stringify a document into yaml.
+
+```ts
+static stringify(doc: any): string
+```
+
+* **doc** (<code>any</code>)  An object.
+
+__Returns__:
+* <code>string</code>
+
 #### *static* tmp(docs)🔹 <a id="cdk8s-yaml-tmp"></a>
 
 Saves a set of YAML documents into a temp file (in /tmp).
