@@ -256,6 +256,15 @@ Array [
 ]
 `;
 
+exports[`multi-line text block with long line keep line break 1`] = `
+"foo: |-
+  [section]
+      abc: s
+      def: 012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+bar: something
+"
+`;
+
 exports[`save empty documents are respected 1`] = `
 "{}
 ---

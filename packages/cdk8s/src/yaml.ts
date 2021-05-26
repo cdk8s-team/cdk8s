@@ -25,9 +25,18 @@ export class Yaml {
     // NOTE: we convert undefined values to null, but ignore any documents that
     //  are undefined
     const data = docs.map(
-      r => r === undefined ? '\n' : YAML.stringify(r, { keepUndefined: true }),
+      r => r === undefined ? '\n' : Yaml.stringify(r),
     ).join('---\n');
     fs.writeFileSync(filePath, data, { encoding: 'utf-8' });
+  }
+
+  /**
+   * Stringify a document into yaml
+   * @param doc An object
+   */
+  public static stringify(doc: any) {
+    // Disable lineWidth to avoid loosing the \n into a multi-line parameter with long lines. 
+    return YAML.stringify(doc, { keepUndefined: true, lineWidth: 0 });
   }
 
   /**

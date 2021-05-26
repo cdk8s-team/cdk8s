@@ -97,3 +97,13 @@ test('yaml 1.1 octal numbers are parsed correctly', () => {
 
   expect(Yaml.load(filePath)).toEqual([{ foo: 493 }]);
 });
+
+test('multi-line text block with long line keep line break', () => {
+  const yamlString = {
+    foo: `[section]
+    abc: s
+    def: 012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789`,
+    bar: 'something',
+  };
+  expect(Yaml.stringify(yamlString)).toMatchSnapshot();
+});
