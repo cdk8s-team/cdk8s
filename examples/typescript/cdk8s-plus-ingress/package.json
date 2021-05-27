@@ -14,13 +14,13 @@
     "build": "npm run compile && npm run test && npm run synth"
   },
   "dependencies": {
-    "cdk8s": "0.0.0",
-    "cdk8s-plus-17": "0.0.0",
+    "cdk8s": "1.0.0-beta.11",
+    "cdk8s-plus-17": "1.0.0-beta.11",
     "constructs": "3.3.71"
   },
   "devDependencies": {
     "@types/node": "^14.14.45",
-    "cdk8s-cli": "0.0.0",
+    "cdk8s-cli": "1.0.0-beta.11",
     "typescript": "^3.9.9"
   }
 }
