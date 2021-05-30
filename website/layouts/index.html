@@ -1,9 +1,12 @@
-{{- $version := getenv "CDK8S_VERSION" }}
+{{- $cdk8s_core_version := getenv "CDK8S_CORE_VERSION" }}
+{{- $cdk8s_plus17_version := getenv "CDK8S_PLUS17_VERSION" }}
+{{- $cdk8s_cli_version := getenv "CDK8S_CLI_VERSION" }}
+
 {{- $summary := .Site.Params.summary }}
 {{- $footer_title := .Site.Params.footer_title }}
 {{- $footer_subtitle := .Site.Params.footer_subtitle }}
 
-{{- $docs_root := (print "docs/v" $version) }}
+{{- $docs_root := "docs/latest" }}
 
 {{- $link_getting_started := (print $docs_root "/getting-started") }}
 {{- $link_plus_docs := (print $docs_root "/plus") }}
@@ -110,9 +113,9 @@
                             <div>API Reference</div>
                         </div>
                         <nav class="dropdown-list w-dropdown-list">
-                            <a href="{{ $link_cdk8s_ref }}" class="dropdown-link w-dropdown-link">cdk8s  ({{ $version }})</a>
-                            <a href="{{ $link_plus_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-17  ({{ $version }})</a>
-                            <a href="{{ $link_cli }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s-cli ({{ $version }})<a>
+                            <a href="{{ $link_cdk8s_ref }}" class="dropdown-link w-dropdown-link">cdk8s  ({{ $cdk8s_core_version }})</a>
+                            <a href="{{ $link_plus_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-17  ({{ $cdk8s_plus17_version }})</a>
+                            <a href="{{ $link_cli }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s-cli ({{ $cdk8s_cli_version }})<a>
                         </nav>
                     </div>
                     <a href="{{ $link_github }}" target="_blank" class="github w-inline-block"><img src="images/git.png" alt=""></a>
@@ -224,9 +227,9 @@
                 <a href="{{ $link_concepts }}" class="footer-link">Concepts</a>
                 <a href="{{ $link_plus_docs }}" class="footer-link">CDK8s+</a>
 
-                <a href="{{ $link_cdk8s_ref }}" class="footer-link">cdk8s ({{ $version }})</a>
-                <a href="{{ $link_plus_ref }}" class="footer-link">cdk8s-plus-17 ({{ $version }})</a>
-                <a href="{{ $link_cli }}" class="footer-link">cdk8s-cli ({{ $version }})</a>
+                <a href="{{ $link_cdk8s_ref }}" class="footer-link">cdk8s ({{ $cdk8s_core_version }})</a>
+                <a href="{{ $link_plus_ref }}" class="footer-link">cdk8s-plus-17 ({{ $cdk8s_plus17_version }})</a>
+                <a href="{{ $link_cli }}" class="footer-link">cdk8s-cli ({{ $cdk8s_cli_version }})</a>
             </div>
 
             <div class="footer-col">
