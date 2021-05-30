@@ -70,8 +70,8 @@ Submit a suggestion [here](new-issue)
 
 The general workflow for code contributions:
 
-1. Submit/find an issue
-2. Clone this repo
+1. Submit/find an issue in this repository
+2. Clone the [relevant repo](#repositories)
 3. Make your code change
 4. Write tests & update docs
 5. Build & test locally
@@ -93,6 +93,15 @@ else is currently working on it.
 
 If this is a major contribution, consider submitting an [RFC](#rfcs) to obtain
 feedback from the community and maintainers.
+
+### Repositories
+
+This project consists of multiple modules, maintained and released via the following repositories:
+
+- [cdk8s-cli](https://github.com/cdk8s-team/cdk8s-cli): command-line interface
+- [cdk8s-core](https://github.com/cdk8s-team/cdk8s-core): core library
+- [cdk8s-plus-17](https://github.com/cdk8s-team/cdk8s-plus-17): high-level constructs for Kubernetes core 1.17 and above.
+
 
 ### Development environment
 
