@@ -3,14 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "bump": "tools/bump.sh",
     "build": "lerna run build",
     "test": "lerna run test",
-    "projen": "lerna run projen",
-    "package": "echo ok",
     "integ": "test/test-all.sh",
-    "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ",
-    "release-github": "tools/release-github.sh"
+    "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ"
   },
   "workspaces": {
     "packages": [
