@@ -7,25 +7,14 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "projen": "lerna run projen",
-    "package": "tools/pack.sh && tools/collect-dist.sh",
-    "integ": "test/run-against-dist test/test-all.sh",
+    "package": "echo ok",
+    "integ": "test/test-all.sh",
     "integ:update": "UPDATE_SNAPSHOTS=1 yarn integ",
     "release-github": "tools/release-github.sh"
   },
   "workspaces": {
     "packages": [
-      "packages/*",
       "examples/**/*"
-    ],
-    "nohoist": [
-      "cdk8s/yaml",
-      "cdk8s/yaml/**",
-      "cdk8s/fast-json-patch",
-      "cdk8s/fast-json-patch/**",
-      "cdk8s/follow-redirects",
-      "cdk8s/follow-redirects/**",
-      "cdk8s-plus-17/minimatch",
-      "cdk8s-plus-17/minimatch/**"
     ]
   },
   "devDependencies": {
@@ -33,7 +22,16 @@
     "lerna": "^3.22.1",
     "npm-check-updates": "10.3.1",
     "semver": "7.3.5",
-    "standard-version": "^9.3.0"
+    "standard-version": "^9.3.0",
+    "ts-jest": "^26.5.6",
+    "constructs": "3.3.71",
+    "cdk8s": "1.0.0-beta.11",
+    "cdk8s-cli": "1.0.0-beta.11",
+    "cdk8s-plus-17": "1.0.0-beta.11",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^13.13.52",
+    "jest": "^26.6.3",
+    "typescript": "^3.9.9"
   },
   "jest": {
     "clearMocks": true,
