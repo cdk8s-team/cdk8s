@@ -14,39 +14,17 @@
     ]
   },
   "devDependencies": {
-    "changelog-parser": "^2.8.0",
     "lerna": "^3.22.1",
     "npm-check-updates": "10.3.1",
     "semver": "7.3.5",
-    "standard-version": "^9.3.0",
-    "ts-jest": "^26.5.6",
     "constructs": "3.3.71",
     "cdk8s": "1.0.0-beta.11",
     "cdk8s-cli": "1.0.0-beta.11",
     "cdk8s-plus-17": "1.0.0-beta.11",
-    "@types/jest": "^26.0.23",
     "@types/node": "^13.13.52",
+    "@types/jest": "^26.0.23",
+    "ts-jest": "^26.5.6",
     "jest": "^26.6.3",
     "typescript": "^3.9.9"
-  },
-  "jest": {
-    "clearMocks": true,
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "preset": "ts-jest",
-    "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.jest.json"
-      }
-    }
   }
 }
