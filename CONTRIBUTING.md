@@ -70,8 +70,8 @@ Submit a suggestion [here](new-issue)
 
 The general workflow for code contributions:
 
-1. Submit/find an issue in this repository
-2. Clone the [relevant repo](#repositories)
+1. Submit/find an issue in **this repository**
+2. Clone [the relevant repo](#repositories)
 3. Make your code change
 4. Write tests & update docs
 5. Build & test locally
@@ -102,7 +102,6 @@ This project consists of multiple modules, maintained and released via the follo
 - [cdk8s-core](https://github.com/cdk8s-team/cdk8s-core): core library
 - [cdk8s-plus-17](https://github.com/cdk8s-team/cdk8s-plus-17): high-level constructs for Kubernetes core 1.17 and above.
 
-
 ### Development environment
 
 Prerequisites:
@@ -112,27 +111,9 @@ Prerequisites:
 
 Prepare your environment:
 
-1. Fork this repo and obtain a local clone.
+1. Fork [the relevant repo](#repositories) and obtain a local clone.
 2. Install all dependencies: `yarn install`
 3. Run `yarn build` to build all modules.
-
-### Linking against this repository
-
-The script `./tools/link-all.sh` can be used to generate symlinks to all modules in this repository under some `node_module`
-directory. This can be used to develop against this repo as a local dependency.
-
-One can use the `postinstall` script to symlink this repo:
-
-```json
-{
-  "scripts": {
-    "postinstall": "../cdk8s/tools/link-all.sh"
-  }
-}
-```
-
-This assumes this repo is a sibling of the target repo and will install the CDK as a linked dependency during
-__yarn install__.
 
 ### Unit tests
 
@@ -148,13 +129,16 @@ Out tests utilize [jest snapshot testing](https://jestjs.io/docs/en/snapshot-tes
 
 ### Integration Tests
 
-Integration tests are executed *after* we bundle the release. This means that in
-order to execute integration tests you'll need to create a bundle by running the
-following command from the root of the repo:
+Integration tests are executed *against the latest published modules*. 
+This means that in order to execute integration tests against a development version, you'lol need to `yarn link`
+your local version to this repository (all deps are at the root):
 
-    yarn run package
-
-This will result in `./dist` that contains all the ready-to-publish artifacts.
+```shell
+$ cd cdk8s-core
+$ yarn link
+$ cd ../cdk8s
+$ yarn link cdk8s
+```
 
 Now, you can run integration tests via:
 
@@ -174,21 +158,6 @@ Tests are written as simple shell scripts and can simulate user activity.
 You can either run individual tests by executing their entrypoint directly (e.g.
 `test-python-app/test.sh`) or run all tests by executing the script
 `./test-all.sh`.
-
-Tests assume the `cdk8s` CLI is installed and in the PATH, and will use the same
-version of the `cdk8s` module (this is the behavior of `cdk8s init`).
-
-You can also execute a test (or all of them) against the `dist` build artifact:
-
-```shell
-$ yarn install
-$ yarn build
-$ yarn run package # creates "dist/"
-$ cd test
-$ ./run-against-dist ./test-all.sh
-# or
-$ ./run-against-dist ./test-typescript-app/test.sh
-```
 
 #### Writing Integration Tests
 
