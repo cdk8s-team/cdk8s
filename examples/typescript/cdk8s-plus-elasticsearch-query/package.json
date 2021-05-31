@@ -15,18 +15,5 @@
     "build": "npm run compile && npm run test && npm run synth",
     "upgrade": "npm i cdk8s@latest cdk8s-cli@latest",
     "upgrade:next": "npm i cdk8s@next cdk8s-cli@next"
-  },
-  "dependencies": {
-    "cdk8s": "0.0.0",
-    "cdk8s-plus-17": "0.0.0",
-    "constructs": "3.3.71"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@types/node": "^14.14.45",
-    "cdk8s-cli": "0.0.0",
-    "jest": "^26.6.3",
-    "ts-jest": "^26.5.6",
-    "typescript": "^3.9.9"
   }
 }
