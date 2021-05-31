@@ -5,6 +5,8 @@ import * as os from 'os';
 import * as path from 'path';
 import { parse } from 'url';
 import * as fs from 'fs-extra';
+const HttpProxyAgent = require('http-proxy-agent');
+const HttpsProxyAgent = require('https-proxy-agent');
 
 export async function shell(program: string, args: string[] = [], options: SpawnOptions = { }): Promise<string> {
   const command = `"${program} ${args.join(' ')}" at ${path.resolve(options.cwd ?? '.')}`;
@@ -62,13 +64,13 @@ export async function synthApp(command: string, outdir: string) {
 
 export async function download(url: string): Promise<string> {
   let client: typeof http | typeof https;
-  const proto = parse(url).protocol;
+  const purl = parse(url);
 
-  if (!proto || proto === 'file:') {
+  if (!purl.protocol || purl.protocol === 'file:') {
     return fs.readFile(url, 'utf-8');
   }
 
-  switch (proto) {
+  switch (purl.protocol) {
     case 'https:':
       client = https;
       break;
@@ -78,11 +80,16 @@ export async function download(url: string): Promise<string> {
       break;
 
     default:
-      throw new Error(`unsupported protocol ${proto}`);
+      throw new Error(`unsupported protocol ${purl.protocol}`);
   }
 
+  const proxyUrl = purl.protocol == 'https:' ? process.env.https_proxy : process.env.http_proxy;
+  let options: http.RequestOptions = purl;
+  if (proxyUrl && purl.hostname && useProxy(purl.hostname)) {
+    options.agent = purl.protocol == 'https:' ? new HttpsProxyAgent(proxyUrl) : new HttpProxyAgent(proxyUrl)
+  }
   return new Promise((ok, ko) => {
-    const req = client.get(url, res => {
+    const req = client.get(options, res => {
       switch (res.statusCode) {
         case 200: {
           const data = new Array<Buffer>();
@@ -109,4 +116,19 @@ export async function download(url: string): Promise<string> {
     req.once('error', ko);
     req.end();
   });
+}
+
+function useProxy(hostname: string): boolean {
+  const hosts = (process.env.no_proxy || '').split(',')
+  for (var i in hosts) {
+    var host = hosts[i];
+    if (host[0] == '.') {
+      if (hostname.endsWith(host)) {
+        return false
+      }
+    } else if (host == hostname) {
+      return false
+    }
+  }
+  return true
 }
