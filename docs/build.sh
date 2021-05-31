@@ -21,14 +21,13 @@ cp CONTRIBUTING.md docs/project/
 cp ROADMAP.md docs/project/
 
 for module in cdk8s cdk8s-plus-17; do
-  cat packages/${module}/API.md | sed "s/# API Reference/# ${module}/" > "docs/reference/${module}.md"
+  mdfile=$(node -p "require.resolve('${module}/API.md')")
+  cat $mdfile | sed "s/# API Reference/# ${module}/" > "docs/reference/${module}.md"
 done
 
-version=$(node -p "require('./lerna.json').version")
-version_dir="v${version}"
-mkdocs build --site-dir ${outdir}/${version_dir}
+docsout="${outdir}/latest"
+rm -fr ${docsout}
+mkdocs build --site-dir ${docsout}
 
 # create a redirect to the latest version
-echo "<meta http-equiv='refresh' content='0; URL=${version_dir}' />" > ${outdir}/index.html
-ln -s ${version_dir} ${outdir}/latest
-
+echo "<meta http-equiv='refresh' content='0; URL=latest' />" > ${outdir}/index.html
