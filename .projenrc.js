@@ -70,7 +70,6 @@ workflow.addJobs({
     permissions: {
       contents: JobPermission.WRITE,
     },
-    if: "startsWith(github.event.head_commit.message, 'chore(release)')",
     runsOn: 'ubuntu-18.04',
     steps: [
       { uses: 'actions/checkout@v2' },
