@@ -39,4 +39,4 @@ jobs:
           }}/check-runs -F name="build" -F head_sha="$(git rev-parse HEAD)" -F
           status="completed" -F conclusion="success"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CDK8S_AUTOMATION_TOKEN }}
