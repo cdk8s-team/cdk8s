@@ -5,6 +5,7 @@
 /.github/pull_request_template.md          	linguist-generated
 /.github/workflows/build.yml               	linguist-generated
 /.github/workflows/upgrade-dependencies.yml	linguist-generated
+/.github/workflows/upgrade-projen.yml      	linguist-generated
 /.github/workflows/website.yml             	linguist-generated
 /.mergify.yml                              	linguist-generated
 /.npmignore                                	linguist-generated
