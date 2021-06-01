@@ -25,7 +25,7 @@ jobs:
           git config user.name "Automation"
           git config user.email "github-actions@github.com"
       - name: Build
-        run: npx projen build
+        run: npx projen
       - name: Check for changes
         id: git_diff
         run: git diff --exit-code || echo "::set-output name=has_changes::true"
