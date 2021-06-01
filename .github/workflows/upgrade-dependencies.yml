@@ -50,10 +50,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: .upgrade.tmp.patch
-          path: .upgrade.tmp.patch
+          path: ${{ runner.temp }}
       - name: Apply patch
-        run: '[ -s .upgrade.tmp.patch ] && git apply .upgrade.tmp.patch || echo "Empty
-          patch. Skipping."'
+        run: '[ -s ${{ runner.temp }}/.upgrade.tmp.patch ] && git apply ${{ runner.temp
+          }}/.upgrade.tmp.patch || echo "Empty patch. Skipping."'
       - name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v3

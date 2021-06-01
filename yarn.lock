@@ -1615,7 +1615,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.60.tgz#35f3d6213daed95da7f0f73e75bcc6980e90597b"
   integrity sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==
 
-"@types/node@^14.14.22":
+"@types/node@^14.17.1":
   version "14.17.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.1.tgz#5e07e0cb2ff793aa7a1b41deae76221e6166049f"
   integrity sha512-/tpUyFD7meeooTRwl3sYlihx2BrJE7q9XF71EguPFIySj9B7qgnRtHsHTho+0AUm4m1SvWGm6uSncrR94q6Vtw==
@@ -2340,13 +2340,14 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk8s-cli@1.0.0-beta.18:
-  version "1.0.0-beta.18"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.18.tgz#85d251bb7d9ad46a29614c98fe68a5340a247a1a"
-  integrity sha512-eT0Z2u8yB8gMAIOMJ76TjeCQZ8nzxSbN/Y87cbzhT9I6vyLjgCw/w+48XXudOfW63kY2/TugWtZE+mwQlu3QXw==
+cdk8s-cli@1.0.0-beta.19:
+  version "1.0.0-beta.19"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.19.tgz#98b8f69d53011b39a051fe8590a98d2d58487527"
+  integrity sha512-dfD5K4LsxLSvgpsagkLp3XHtX7D03gQLZ8KyKDWlGFf2LAb2nWDX61ROUBHpfAaRw7TCiDTPxMNMI8XV5sF1BQ==
   dependencies:
     "@types/node" "^10.17.0"
     cdk8s "1.0.0-beta.14"
+    cdk8s-plus-17 "1.0.0-beta.18"
     codemaker "^1.30.0"
     colors "^1.4.0"
     constructs "^3.3.75"
@@ -2358,10 +2359,17 @@ cdk8s-cli@1.0.0-beta.18:
     yaml "^1.10.2"
     yargs "^15"
 
-cdk8s-plus-17@1.0.0-beta.17:
-  version "1.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.17.tgz#0f44db30e26126fc95b043d09cf76f17c8528ea9"
-  integrity sha512-WXDQRSovYZJPZY+SQ/DbAkT+CQCWSoofKpEzqQ7r/5Ucu+h8QUpaGUWAjb7JN7/uqmJLFC6ogZRKjaPpbWHkJQ==
+cdk8s-plus-17@1.0.0-beta.18:
+  version "1.0.0-beta.18"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.18.tgz#b7a7ebdadcf3a75618e719d5764344b515006f59"
+  integrity sha512-7TIYXo9fIdj8kawpiIaGNlhxewE2KbundrZDMMLSchsb9QtJBYQEj8a00kUBonPMpftwZCQY36RANEThq16BRQ==
+  dependencies:
+    minimatch "^3.0.4"
+
+cdk8s-plus-17@1.0.0-beta.20:
+  version "1.0.0-beta.20"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.20.tgz#a86d9b9a62b847cf2db962917399e5c68367206b"
+  integrity sha512-LsVaPZZJAiEy+TQeU3agcjevW0o5lHihQs7d8XCHXLotSnEqiR8XrKanREoo9+Nj/kvYG3VVoNuFbIFQUb++Dw==
   dependencies:
     minimatch "^3.0.4"
 
@@ -2369,6 +2377,15 @@ cdk8s@1.0.0-beta.14:
   version "1.0.0-beta.14"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-1.0.0-beta.14.tgz#39c506e8d6440ff8b5b11066eb94174446055acd"
   integrity sha512-NU5mZbOE3RgRX7a9zHf4AgiNcI/clqQ9vw/YixSgVe2AOiAsUXuSH2BCc3eFAZSlPSQYLxWG6mSCGY/06cy5Hw==
+  dependencies:
+    fast-json-patch "^2.2.1"
+    follow-redirects "^1.14.1"
+    yaml "2.0.0-5"
+
+cdk8s@1.0.0-beta.18:
+  version "1.0.0-beta.18"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-1.0.0-beta.18.tgz#738f180d431b0b16f55b4fad58ed5873fbcab024"
+  integrity sha512-lAUE0b+uVCa61wUwbGP9+auOHO+wEgf1oHb6cHVjffsK13+Ww78cgEHjlA9Y6qBuz6MKNI5BfjajX8Znfihn9A==
   dependencies:
     fast-json-patch "^2.2.1"
     follow-redirects "^1.14.1"
@@ -7036,10 +7053,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.20.8:
-  version "0.20.8"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.20.8.tgz#5f26fd742ebb6c5bfd2f7cd06494bdacf5d42fbd"
-  integrity sha512-kYxKr4YOH4Yh4gyW04ZjPuKMulwU1EnyxxbfmAetAx3+2zJZ0Xf5QAOCsRBKYVH2Ct6dMyliWwh60XFkqfg6gw==
+projen@^0.20.10:
+  version "0.20.10"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.20.10.tgz#a80fbb4d4c4434b822a962a12af340e086ab5a79"
+  integrity sha512-TrBBYhF7qcNtPrNECmi0YHie9M90/eGmLbT0nYJNTDUiuqlEF2tivydSGclH884hTBtoFHiB7QuE7y8DuAp/Sw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     chalk "^4.1.1"
