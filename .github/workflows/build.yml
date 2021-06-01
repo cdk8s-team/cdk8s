@@ -19,7 +19,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile
+        run: yarn install --check-files
       - name: Set git identity
         run: |-
           git config user.name "Automation"
