@@ -42,7 +42,7 @@ Will synthesize into:
 apiVersion: v1
 kind: Foo
 metadata:
-  namesapce: my-namespace
+  namespace: my-namespace
   labels:
     app: my-app
 ```
