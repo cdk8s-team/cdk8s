@@ -9,7 +9,7 @@
 /.github/workflows/website.yml             	linguist-generated
 /.mergify.yml                              	linguist-generated
 /.npmignore                                	linguist-generated
-/.projen/                                  	linguist-generated
+/.projen/**                                	linguist-generated
 /LICENSE                                   	linguist-generated
 /package.json                              	linguist-generated
 /yarn.lock                                 	linguist-generated

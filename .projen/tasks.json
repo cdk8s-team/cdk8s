@@ -76,6 +76,9 @@
           "exec": "yarn install --check-files"
         },
         {
+          "exec": "yarn upgrade @types/jest @types/node cdk8s cdk8s-cli cdk8s-plus-17 constructs jest jest-junit lerna npm-check-updates npm-check-updates semver ts-jest typescript"
+        },
+        {
           "exec": "npx projen"
         }
       ]
@@ -92,6 +95,9 @@
         },
         {
           "exec": "yarn install --check-files"
+        },
+        {
+          "exec": "yarn upgrade projen projen"
         },
         {
           "exec": "npx projen"
