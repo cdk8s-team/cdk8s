@@ -11,8 +11,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: "14"
       - name: Setup Hugo
@@ -20,10 +22,13 @@ jobs:
         with:
           hugo-version: 0.68.3
           extended: true
-      - uses: actions/setup-python@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
         with:
           python-version: 3.x
           architecture: x64
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Build Website
         run: |-
           cd website
