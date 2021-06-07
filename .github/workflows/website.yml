@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-18.04
     permissions:
       contents: write
-    if: startsWith(github.event.head_commit.message, 'chore(release)')
     steps:
       - uses: actions/checkout@v2
       - name: Setup Hugo
