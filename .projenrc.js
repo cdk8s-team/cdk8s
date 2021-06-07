@@ -74,6 +74,12 @@ workflow.addJobs({
     steps: [
       { uses: 'actions/checkout@v2' },
       {
+        uses: 'actions/setup-node@v2',
+        with: {
+          'node-version': '14',
+        },
+      },
+      {
         name: 'Setup Hugo',
         uses: 'peaceiris/actions-hugo@v2',
         with: {
